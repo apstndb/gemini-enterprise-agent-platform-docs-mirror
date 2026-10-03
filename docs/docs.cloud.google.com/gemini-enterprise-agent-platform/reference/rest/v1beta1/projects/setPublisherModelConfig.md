@@ -28,11 +28,11 @@ The request body contains data with the following structure:
 
 Fields
 
-`publisherModelConfig` ` object ( PublisherModelConfig  ` )
+`publisherModelConfig` `object ( `[`PublisherModelConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#PublisherModelConfig)` )`
 
 Required. The publisher model config.
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Optional. The fields of `publisherModelConfig` to overwrite. If empty, the entire config is replaced. If set, only the listed fields are overwritten and the others are left unchanged; this lets you update one setting (for example `inferenceEventLoggingConfig` ) without clearing its siblings.
 
@@ -40,4 +40,4 @@ This is a comma-separated list of fully qualified names of fields. Example: `"us
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

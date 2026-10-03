@@ -34,8 +34,8 @@ The value must be unique within the project and location.
 
 ### Request body
 
-The request body contains an instance of `  FeatureOnlineStore  ` .
+The request body contains an instance of [`FeatureOnlineStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores#FeatureOnlineStore) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  Operation  ` .
+If successful, the response body contains a newly created instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

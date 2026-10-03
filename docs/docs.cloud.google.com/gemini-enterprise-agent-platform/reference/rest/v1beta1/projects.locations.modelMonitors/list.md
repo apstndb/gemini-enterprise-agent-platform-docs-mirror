@@ -36,7 +36,7 @@ The standard list page size.
 
 The standard list page token.
 
-`readMask` ` string ( FieldMask  ` format)
+`readMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Mask specifying which fields to read.
 
@@ -48,32 +48,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  ModelMonitoringService.ListModelMonitors  `
+Response message for [`ModelMonitoringService.ListModelMonitors`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/list#google.cloud.aiplatform.v1beta1.ModelMonitoringService.ListModelMonitors)
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`modelMonitors[]` ` object ( ModelMonitor  ` )
+`modelMonitors[]` `object ( `[`ModelMonitor`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors#ModelMonitor)` )`
 
 List of ModelMonitor in the requested page.
 
 `nextPageToken` `string`
 
-A token to retrieve the next page of results. Pass to `  ListModelMonitorsRequest.page_token  ` to obtain that page.
+A token to retrieve the next page of results. Pass to [`ListModelMonitorsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/list#body.QUERY_PARAMETERS.page_token) to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;modelMonitors&quot;: [{object (ModelMonitor)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "modelMonitors": [
+    {
+      object (ModelMonitor)
+    }
+  ],
+  "nextPageToken": string
+}
+```

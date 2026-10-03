@@ -10,8 +10,6 @@ data_source: docs.cloud.google.com
 
 There is no persistent data associated with this resource.
 
-## Methods
-
-### `            deprovision           `
-
-Deprovisions the SemanticGovernancePolicyEngine, tearing down the associated tenant project, GKE cluster, and PSC service attachments.
+| Methods                                                                                                                                                              |                                                                                                                                        |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| [`deprovision`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.semanticGovernancePolicyEngine/deprovision) | Deprovisions the SemanticGovernancePolicyEngine, tearing down the associated tenant project, GKE cluster, and PSC service attachments. |

@@ -34,8 +34,8 @@ The value must be unique within a featurestore.
 
 ### Request body
 
-The request body contains an instance of `  EntityType  ` .
+The request body contains an instance of [`EntityType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes#EntityType) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  Operation  ` .
+If successful, the response body contains a newly created instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

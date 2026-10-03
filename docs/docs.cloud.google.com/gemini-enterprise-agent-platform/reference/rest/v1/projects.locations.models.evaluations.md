@@ -22,13 +22,13 @@ The display name of the ModelEvaluation.
 
 `metricsSchemaUri` `string`
 
-Points to a YAML file stored on Google Cloud Storage describing the `  metrics  ` of this ModelEvaluation. The schema is defined as an OpenAPI 3.0.2 [Schema Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#schemaObject) .
+Points to a YAML file stored on Google Cloud Storage describing the [`metrics`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations#ModelEvaluation.FIELDS.metrics) of this ModelEvaluation. The schema is defined as an OpenAPI 3.0.2 [Schema Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#schemaObject) .
 
-`metrics` ` value ( Value  ` format)
+`metrics` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
-Evaluation metrics of the Model. The schema of the metrics is stored in `  metricsSchemaUri  `
+Evaluation metrics of the Model. The schema of the metrics is stored in [`metricsSchemaUri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations#ModelEvaluation.FIELDS.metrics_schema_uri)
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this ModelEvaluation was created.
 
@@ -36,47 +36,57 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 `sliceDimensions[]` `string`
 
-All possible `  dimensions  ` of ModelEvaluationSlices. The dimensions can be used as the filter of the `  ModelService.ListModelEvaluationSlices  ` request, in the form of `slice.dimension = <dimension>` .
+All possible [`dimensions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices#Slice.FIELDS.dimension) of ModelEvaluationSlices. The dimensions can be used as the filter of the [`ModelService.ListModelEvaluationSlices`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/list#google.cloud.aiplatform.v1.ModelService.ListModelEvaluationSlices) request, in the form of `slice.dimension = <dimension>` .
 
 `dataItemSchemaUri` `string`
 
-Points to a YAML file stored on Google Cloud Storage describing \[EvaluatedDataItemView.data\_item\_payload\]\[\] and `  EvaluatedAnnotation.data_item_payload  ` . The schema is defined as an OpenAPI 3.0.2 [Schema Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#schemaObject) .
+Points to a YAML file stored on Google Cloud Storage describing \[EvaluatedDataItemView.data_item_payload\]\[\] and [`EvaluatedAnnotation.data_item_payload`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#EvaluatedAnnotation.FIELDS.data_item_payload) . The schema is defined as an OpenAPI 3.0.2 [Schema Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#schemaObject) .
 
 This field is not populated if there are neither EvaluatedDataItemViews nor EvaluatedAnnotations under this ModelEvaluation.
 
 `annotationSchemaUri` `string`
 
-Points to a YAML file stored on Google Cloud Storage describing \[EvaluatedDataItemView.predictions\]\[\], \[EvaluatedDataItemView.ground\_truths\]\[\], `  EvaluatedAnnotation.predictions  ` , and `  EvaluatedAnnotation.ground_truths  ` . The schema is defined as an OpenAPI 3.0.2 [Schema Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#schemaObject) .
+Points to a YAML file stored on Google Cloud Storage describing \[EvaluatedDataItemView.predictions\]\[\], \[EvaluatedDataItemView.ground_truths\]\[\], [`EvaluatedAnnotation.predictions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#EvaluatedAnnotation.FIELDS.predictions) , and [`EvaluatedAnnotation.ground_truths`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#EvaluatedAnnotation.FIELDS.ground_truths) . The schema is defined as an OpenAPI 3.0.2 [Schema Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#schemaObject) .
 
 This field is not populated if there are neither EvaluatedDataItemViews nor EvaluatedAnnotations under this ModelEvaluation.
 
-`modelExplanation` ` object ( ModelExplanation  ` )
+`modelExplanation` `object ( `[`ModelExplanation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ModelExplanation)` )`
 
 Aggregated explanation metrics for the Model's prediction output over the data this ModelEvaluation uses. This field is populated only if the Model is evaluated with explanations, and only for AutoML tabular Models.
 
-`explanationSpecs[]` ` object ( ModelEvaluationExplanationSpec  ` )
+`explanationSpecs[]` `object ( `[`ModelEvaluationExplanationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations#ModelEvaluationExplanationSpec)` )`
 
-Describes the values of `  ExplanationSpec  ` that are used for explaining the predicted values on the evaluated data.
+Describes the values of [`ExplanationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ExplanationSpec) that are used for explaining the predicted values on the evaluated data.
 
-`metadata` ` value ( Value  ` format)
+`metadata` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
-The metadata of the ModelEvaluation. For the ModelEvaluation uploaded from Managed Pipeline, metadata contains a structured value with keys of "pipelineJobId", "evaluation\_dataset\_type", "evaluation\_dataset\_path", "row\_based\_metrics\_path".
+The metadata of the ModelEvaluation. For the ModelEvaluation uploaded from Managed Pipeline, metadata contains a structured value with keys of "pipelineJobId", "evaluation_dataset_type", "evaluation_dataset_path", "row_based_metrics_path".
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;metricsSchemaUri&quot;: string,&quot;metrics&quot;: value,&quot;createTime&quot;: string,&quot;sliceDimensions&quot;: [string],&quot;dataItemSchemaUri&quot;: string,&quot;annotationSchemaUri&quot;: string,&quot;modelExplanation&quot;: {object (ModelExplanation)},&quot;explanationSpecs&quot;: [{object (ModelEvaluationExplanationSpec)}],&quot;metadata&quot;: value}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "metricsSchemaUri": string,
+  "metrics": value,
+  "createTime": string,
+  "sliceDimensions": [
+    string
+  ],
+  "dataItemSchemaUri": string,
+  "annotationSchemaUri": string,
+  "modelExplanation": {
+    object (ModelExplanation)
+  },
+  "explanationSpecs": [
+    {
+      object (ModelEvaluationExplanationSpec)
+    }
+  ],
+  "metadata": value
+}
+```
 
 ## ModelEvaluationExplanationSpec
 
@@ -88,39 +98,26 @@ Explanation type.
 
 For AutoML Image Classification models, possible values are:
 
-  - `image-integrated-gradients`
-  - `image-xrai`
+- `image-integrated-gradients`
+- `image-xrai`
 
-`explanationSpec` ` object ( ExplanationSpec  ` )
+`explanationSpec` `object ( `[`ExplanationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ExplanationSpec)` )`
 
 Explanation spec details.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;explanationType&quot;: string,&quot;explanationSpec&quot;: {object (ExplanationSpec)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "explanationType": string,
+  "explanationSpec": {
+    object (ExplanationSpec)
+  }
+}
+```
 
-### `            get           `
-
-Gets a ModelEvaluation.
-
-### `            import           `
-
-Imports an externally generated ModelEvaluation.
-
-### `            list           `
-
-Lists ModelEvaluations in a Model.
+| Methods                                                                                                                                   |                                                  |
+|-------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations/get)       | Gets a ModelEvaluation.                          |
+| [`import`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations/import) | Imports an externally generated ModelEvaluation. |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations/list)     | Lists ModelEvaluations in a Model.               |

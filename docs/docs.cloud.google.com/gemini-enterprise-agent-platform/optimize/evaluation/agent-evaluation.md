@@ -7,8 +7,8 @@ data_source: docs.cloud.google.com
 ---
 
 > To see an example of End-to-end agent evaluation, run the "Multi-Turn Agent Evaluation with User Simulation, Metric Registration, and Auto Loss Analysis" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/evaluation/multi_turn_agent_evaluation_with_user_simulation_metric_registration_auto_loss_analysis.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fevaluation%2Fmulti_turn_agent_evaluation_with_user_simulation_metric_registration_auto_loss_analysis.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fevaluation%2Fmulti_turn_agent_evaluation_with_user_simulation_metric_registration_auto_loss_analysis.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/evaluation/multi_turn_agent_evaluation_with_user_simulation_metric_registration_auto_loss_analysis.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/evaluation/multi_turn_agent_evaluation_with_user_simulation_metric_registration_auto_loss_analysis.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fevaluation%2Fmulti_turn_agent_evaluation_with_user_simulation_metric_registration_auto_loss_analysis.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fevaluation%2Fmulti_turn_agent_evaluation_with_user_simulation_metric_registration_auto_loss_analysis.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/evaluation/multi_turn_agent_evaluation_with_user_simulation_metric_registration_auto_loss_analysis.ipynb)
 
 This document describes how to use agent evaluation to measure and improve the performance, safety, and quality of your agents.
 
@@ -17,7 +17,7 @@ To learn more about model evaluation, see [Gen AI evaluation service overview](h
 ## Procedure summary
 
 | Phase          | Activity          | Goal                                                        |
-| :------------- | :---------------- | :---------------------------------------------------------- |
+|----------------|-------------------|-------------------------------------------------------------|
 | **Design**     | Define eval cases | Specify agent tasks and expected outcomes.                  |
 | **Execution**  | Run inferences    | Generate real-world or simulated conversation traces.       |
 | **Scoring**    | Compute metrics   | Grade traces using automated raters (Task Success, Safety). |
@@ -38,20 +38,20 @@ Evaluation follows a structured, iterative workflow:
 
 You can integrate evaluation into two main stages of your workflow:
 
-  - **Local development iteration** : Evaluate an Agent Development Kit (ADK)-based agent locally to rapidly iterate on prompt engineering and tool configurations.
-  - **Deployed agent assessment** : Measure the quality of deployed agents by analyzing historical traces or running synthetic benchmarks against agent endpoints.
+- **Local development iteration** : Evaluate an Agent Development Kit (ADK)-based agent locally to rapidly iterate on prompt engineering and tool configurations.
+- **Deployed agent assessment** : Measure the quality of deployed agents by analyzing historical traces or running synthetic benchmarks against agent endpoints.
 
 ## Core capabilities
 
 Agent evaluation helps you build an initial evaluation suite, even without existing test data. The following features help automate the process of generating test cases and refining your agentic systems:
 
-  - **Scenario generation and user simulation** : Automatically generate diverse, multi-turn synthetic test scenarios based on your agent's instructions and tool definitions. This automation allows you to start testing immediately by eliminating the need to manually author initial test cases.
+- **Scenario generation and user simulation** : Automatically generate diverse, multi-turn synthetic test scenarios based on your agent's instructions and tool definitions. This automation allows you to start testing immediately by eliminating the need to manually author initial test cases.
 
-  - **Environment simulation** : Intercept specific tool calls to inject custom behaviors, mocked data, or simulated errors (such as HTTP 503 errors or latency spikes). This simulation lets you validate agent resilience without impacting production backends.
+- **Environment simulation** : Intercept specific tool calls to inject custom behaviors, mocked data, or simulated errors (such as HTTP 503 errors or latency spikes). This simulation lets you validate agent resilience without impacting production backends.
 
-  - **Multi-turn evaluation** : Automatically evaluate entire conversation histories using multi-turn autoraters. These raters analyze intent extraction, dynamically generate rubrics, and provide objective validation verdicts to help ensure instruction adherence.
+- **Multi-turn evaluation** : Automatically evaluate entire conversation histories using multi-turn autoraters. These raters analyze intent extraction, dynamically generate rubrics, and provide objective validation verdicts to help ensure instruction adherence.
 
-  - **Prompt optimization** : Programmatically generate and validate refined system instructions by using prompt optimization. The optimization framework identifies points of failure and iteratively proposes targeted updates.
+- **Prompt optimization** : Programmatically generate and validate refined system instructions by using prompt optimization. The optimization framework identifies points of failure and iteratively proposes targeted updates.
 
 ## Evaluate with AI coding assistants
 
@@ -63,29 +63,33 @@ Installation instructions follow each skill.
 
 A CLI-driven workflow to evaluate and optimize Agent Development Kit (ADK) agents using the `agents-cli eval` commands. This skill covers:
 
-  - Preparing eval datasets and synthesizing multi-turn scenarios with user simulation
-  - Running inference, grading traces, and analyzing failure clusters
-  - Iterating on prompts and tools with the eval-fix loop
+- Preparing eval datasets and synthesizing multi-turn scenarios with user simulation
+- Running inference, grading traces, and analyzing failure clusters
+- Iterating on prompts and tools with the eval-fix loop
 
 To install, run the following command:
 
-    npx skills add https://github.com/google/agents-cli --skill google-agents-cli-eval
+```
+npx skills add https://github.com/google/agents-cli --skill google-agents-cli-eval
+```
 
 ### Agent Platform GenAI Evaluation Service flywheel skill
 
 An SDK-driven playbook to evaluate and improve models and agents through the Agent Platform GenAI Evaluation Service, using the Agent Platform GenAI Evaluation SDK ( `client.evals.evaluate()` ). This skill covers:
 
-  - Building eval datasets from session traces, DataFrames, or synthetic generation
-  - Selecting, configuring, and writing custom metrics with LLM-as-judge scoring
-  - Analyzing rubric verdicts and loss patterns to drive concrete improvements
+- Building eval datasets from session traces, DataFrames, or synthetic generation
+- Selecting, configuring, and writing custom metrics with LLM-as-judge scoring
+- Analyzing rubric verdicts and loss patterns to drive concrete improvements
 
 To install, run the following command:
 
-    npx skills add https://github.com/google/skills --skill agent-platform-eval-flywheel
+```
+npx skills add https://github.com/google/skills --skill agent-platform-eval-flywheel
+```
 
 ## What's next
 
-  - [Simulate agent behavior](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-simulated)
-  - [Run evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-agents)
-  - [Manage evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/manage-metrics)
-  - [View evaluation results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/view-results)
+- [Simulate agent behavior](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-simulated)
+- [Run evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-agents)
+- [Manage evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/manage-metrics)
+- [View evaluation results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/view-results)

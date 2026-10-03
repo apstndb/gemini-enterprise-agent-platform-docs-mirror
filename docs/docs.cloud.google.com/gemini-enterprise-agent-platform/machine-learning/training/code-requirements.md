@@ -14,21 +14,21 @@ Perform serverless training on Gemini Enterprise Agent Platform to run your own 
 
 First, determine what structure you want your ML training code to take. You can provide training code to Agent Platform in one of the following forms:
 
-  - **A Python script to use with a prebuilt container.** Use the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) to [create a custom job](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomJob#google_cloud_aiplatform_CustomJob_from_local_script) . This method lets you provide your training application as a single Python script.
+- **A Python script to use with a prebuilt container.** Use the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) to [create a custom job](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomJob#google_cloud_aiplatform_CustomJob_from_local_script) . This method lets you provide your training application as a single Python script.
 
-  - **A Python training application to use with a prebuilt container.** Create a [Python source distribution](https://packaging.python.org/en/latest/overview/#python-source-distributions) with code that trains an ML model and exports it to Cloud Storage. This training application can use any of the dependencies included in the prebuilt container that you plan to use it with.
-    
-    > **Note:** If you use the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) to [create a `TrainingPipeline` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-training-pipeline#custom-job-model-upload) , then you can provide your training application as a single Python script, rather than as a Python source distribution.
-    
-    Use this option if one of the Agent Platform [prebuilt containers for training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) includes all the dependencies that you need for training. For example, if you want to train with PyTorch, scikit-learn, TensorFlow, or XGBoost, then this is likely the better option.
-    
-    To learn about best practices specific to this option, read the guide to [creating a Python training application](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container) .
+- **A Python training application to use with a prebuilt container.** Create a [Python source distribution](https://packaging.python.org/en/latest/overview/#python-source-distributions) with code that trains an ML model and exports it to Cloud Storage. This training application can use any of the dependencies included in the prebuilt container that you plan to use it with.
 
-  - **A custom container image.** Create a [Docker container image](https://docs.docker.com/get-started/overview/#docker-objects) with code that trains an ML model and exports it to Cloud Storage. Include any dependencies required by your code in the container image.
-    
-    Use this option if you want to use dependencies that are not included in one of the Agent Platform [prebuilt containers for training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) . For example, if you want to train using a Python ML framework that is not available in a prebuilt container, or if you want to train using a programming language other than Python, then this is the better option.
-    
-    To learn about best practices specific to this option, read the guide to [creating a custom container image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
+  > **Note:** If you use the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) to [create a `TrainingPipeline` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-training-pipeline#custom-job-model-upload) , then you can provide your training application as a single Python script, rather than as a Python source distribution.
+
+  Use this option if one of the Agent Platform [prebuilt containers for training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) includes all the dependencies that you need for training. For example, if you want to train with PyTorch, scikit-learn, TensorFlow, or XGBoost, then this is likely the better option.
+
+  To learn about best practices specific to this option, read the guide to [creating a Python training application](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container) .
+
+- **A custom container image.** Create a [Docker container image](https://docs.docker.com/get-started/overview/#docker-objects) with code that trains an ML model and exports it to Cloud Storage. Include any dependencies required by your code in the container image.
+
+  Use this option if you want to use dependencies that are not included in one of the Agent Platform [prebuilt containers for training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) . For example, if you want to train using a Python ML framework that is not available in a prebuilt container, or if you want to train using a programming language other than Python, then this is the better option.
+
+  To learn about best practices specific to this option, read the guide to [creating a custom container image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
 
 The rest of this document describes best practices relevant to both training code structures.
 
@@ -52,21 +52,25 @@ For example, if you want to use the [Python Client for Google BigQuery](https://
 
 Implicit project selection
 
-    from google.cloud import bigquery
-    
-    client = bigquery.Client()
+```
+from google.cloud import bigquery
+
+client = bigquery.Client()
+```
 
 Instead use code that explicitly selects a project:
 
 Explicit project selection
 
-    import os
-    
-    from google.cloud import bigquery
-    
-    project_number = os.environ["CLOUD_ML_PROJECT_ID"]
-    
-    client = bigquery.Client(project=project_number)
+```
+import os
+
+from google.cloud import bigquery
+
+project_number = os.environ["CLOUD_ML_PROJECT_ID"]
+
+client = bigquery.Client(project=project_number)
+```
 
 If you encounter permission errors after configuring your code in this way, then read the following section about [which resources your code can access](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#which-resources) to adjust the permissions available to your training code.
 
@@ -80,9 +84,11 @@ By default, Agent Platform can access any Cloud Storage bucket in the Google Clo
 
 #### Read and write Cloud Storage files with Cloud Storage FUSE
 
-In all serverless training jobs, Agent Platform mounts Cloud Storage buckets that you have access to in the `/gcs/` directory of each training node's file system. As a convenient alternative to using the Python Client for Cloud Storage or another library to access Cloud Storage, you can read and write directly to the local file system in order to read data from Cloud Storage or write data to Cloud Storage. For example, to load data from `gs:// BUCKET /data.csv` , you can use the following Python code:
+In all serverless training jobs, Agent Platform mounts Cloud Storage buckets that you have access to in the `/gcs/` directory of each training node's file system. As a convenient alternative to using the Python Client for Cloud Storage or another library to access Cloud Storage, you can read and write directly to the local file system in order to read data from Cloud Storage or write data to Cloud Storage. For example, to load data from `gs:// `` BUCKET `` /data.csv` , you can use the following Python code:
 
-    file = open('/gcs/BUCKET/data.csv', 'r')
+```
+file = open('/gcs/BUCKET/data.csv', 'r')
+```
 
 Agent Platform uses [Cloud Storage FUSE](https://docs.cloud.google.com/storage/docs/gcs-fuse) to mount the storage buckets. Note that [directories mounted by Cloud Storage FUSE are not POSIX compliant](https://docs.cloud.google.com/storage/docs/gcs-fuse#notes) .
 
@@ -125,14 +131,14 @@ If you want to use your trained model to serve inferences on Agent Platform, the
 ### Environment variables for special Cloud Storage directories
 
 > To see an example of using `AIP_MODEL_DIR` to export model artifacts as part of a more comprehensive workflow, run the "Custom training and online prediction" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/custom/sdk-custom-image-classification-online.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fcustom%2Fsdk-custom-image-classification-online.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fcustom%2Fsdk-custom-image-classification-online.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/custom/sdk-custom-image-classification-online.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/custom/sdk-custom-image-classification-online.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fcustom%2Fsdk-custom-image-classification-online.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fcustom%2Fsdk-custom-image-classification-online.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/custom/sdk-custom-image-classification-online.ipynb)
 
 If you specify the [`baseOutputDirectory` API field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#FIELDS.base_output_directory) , Agent Platform sets the following environment variables when it runs your training code:
 
-  - `AIP_MODEL_DIR` : a Cloud Storage URI of a directory intended for [saving model artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#export) .
-  - `AIP_CHECKPOINT_DIR` : a Cloud Storage URI of a directory intended for [saving checkpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#resilience) .
-  - `AIP_TENSORBOARD_LOG_DIR` : a Cloud Storage URI of a directory intended for saving [TensorBoard](https://www.tensorflow.org/tensorboard) logs. See [Using Vertex AI TensorBoard with custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training) .
+- `AIP_MODEL_DIR` : a Cloud Storage URI of a directory intended for [saving model artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#export) .
+- `AIP_CHECKPOINT_DIR` : a Cloud Storage URI of a directory intended for [saving checkpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#resilience) .
+- `AIP_TENSORBOARD_LOG_DIR` : a Cloud Storage URI of a directory intended for saving [TensorBoard](https://www.tensorflow.org/tensorboard) logs. See [Using Vertex AI TensorBoard with custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training) .
 
 The values of these environment variables differ slightly depending on whether you are using hyperparameter tuning. To learn more, see the [API reference for `baseOutputDirectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#FIELDS.base_output_directory) .
 
@@ -146,9 +152,9 @@ The VMs that run your training code restart occasionally. For example, Google Cl
 
 If you expect your training code to run for more than four hours, add several behaviors to your code to make it resilient to restarts:
 
-  - Frequently export your training progress to Cloud Storage, at least once every four hours, so that you don't lose progress if your VMs restart.
+- Frequently export your training progress to Cloud Storage, at least once every four hours, so that you don't lose progress if your VMs restart.
 
-  - At the start of your training code, check whether any training progress already exists in your export location. If so, load the saved training state instead of starting training from scratch.
+- At the start of your training code, check whether any training progress already exists in your export location. If so, load the saved training state instead of starting training from scratch.
 
 Four hours is a guideline, not a hard limit. If ensuring resilience is a priority, consider adding these behaviors to your code even if you don't expect it to run for that long.
 
@@ -165,17 +171,17 @@ If you want to use certain optional serverless training features, you might need
 You can enable autologging using the Agent Platform SDK for Python to automatically capture parameters and performance metrics when submitting the custom job. For details, see [Run training job with experiment tracking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/run-training-job-experiments) .
 
 > To see an example of how to create a custom job with autologging enabled, run the " Experiments: Autologging" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/experiments/get_started_with_vertex_experiments_autologging.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexperiments%2Fget_started_with_vertex_experiments_autologging.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexperiments%2Fget_started_with_vertex_experiments_autologging.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/experiments/get_started_with_vertex_experiments_autologging.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/experiments/get_started_with_vertex_experiments_autologging.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexperiments%2Fget_started_with_vertex_experiments_autologging.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexperiments%2Fget_started_with_vertex_experiments_autologging.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/experiments/get_started_with_vertex_experiments_autologging.ipynb)
 
 ### Write code to return container logs
 
 When you write logs from your service or job, they will be picked up automatically by Cloud Logging so long as the logs are written to any of these locations:
 
-  - [Standard output ( `stdout` ) or standard error ( `stderr` ) streams](https://en.wikipedia.org/wiki/Standard_streams)
-  - Log files in `/var/log-storage/` that follow the `output*.log` naming convention.
-  - syslog ( `/dev/log` )
-  - Logs written using [Cloud Logging client libraries](https://docs.cloud.google.com/logging/docs/reference/libraries) , which are available for many popular languages
+- [Standard output ( `stdout` ) or standard error ( `stderr` ) streams](https://en.wikipedia.org/wiki/Standard_streams)
+- Log files in `/var/log-storage/` that follow the `output*.log` naming convention.
+- syslog ( `/dev/log` )
+- Logs written using [Cloud Logging client libraries](https://docs.cloud.google.com/logging/docs/reference/libraries) , which are available for many popular languages
 
 Most developers are expected to write logs using standard output and standard error.
 
@@ -191,49 +197,53 @@ You can pass structured JSON logs in multiple ways. The most common ways are by 
 
 ### Python logging library
 
-    import json
-    import logging
-    from pythonjsonlogger import jsonlogger
-    
-    class CustomJsonFormatter(jsonlogger.JsonFormatter):
-     """Formats log lines in JSON."""
-      def process_log_record(self, log_record):
-        """Modifies fields in the log_record to match Cloud Logging's expectations."""
-        log_record['severity'] = log_record['levelname']
-        log_record['timestampSeconds'] = int(log_record['created'])
-        log_record['timestampNanos'] = int(
-            (log_record['created'] % 1) * 1000 * 1000 * 1000)
-    
-        return log_record
-    
-    def configure_logger():
-      """Configures python logger to format logs as JSON."""
-      formatter = CustomJsonFormatter(
-            '%(name)s|%(levelname)s|%(message)s|%(created)f'
-            '|%(lineno)d|%(pathname)s', '%Y-%m-%dT%H:%M:%S')
-      root_logger = logging.getLogger()
-      handler = logging.StreamHandler()
-      handler.setFormatter(formatter)
-      root_logger.addHandler(handler)
-      root_logger.setLevel(logging.WARNING)
-    
-    logging.warning("This is a warning log")
+```
+import json
+import logging
+from pythonjsonlogger import jsonlogger
+
+class CustomJsonFormatter(jsonlogger.JsonFormatter):
+ """Formats log lines in JSON."""
+  def process_log_record(self, log_record):
+    """Modifies fields in the log_record to match Cloud Logging's expectations."""
+    log_record['severity'] = log_record['levelname']
+    log_record['timestampSeconds'] = int(log_record['created'])
+    log_record['timestampNanos'] = int(
+        (log_record['created'] % 1) * 1000 * 1000 * 1000)
+
+    return log_record
+
+def configure_logger():
+  """Configures python logger to format logs as JSON."""
+  formatter = CustomJsonFormatter(
+        '%(name)s|%(levelname)s|%(message)s|%(created)f'
+        '|%(lineno)d|%(pathname)s', '%Y-%m-%dT%H:%M:%S')
+  root_logger = logging.getLogger()
+  handler = logging.StreamHandler()
+  handler.setFormatter(formatter)
+  root_logger.addHandler(handler)
+  root_logger.setLevel(logging.WARNING)
+
+logging.warning("This is a warning log")
+```
 
 ### Raw JSON
 
-    import json
-    
-    def log(severity, message):
-      global_extras = {"debug_key": "debug_value"}
-      structured_log = {"severity": severity, "message": message, **global_extras}
-      print(json.dumps(structured_log))
-    
-    def main(args):
-      log("DEBUG", "Debugging the application.")
-      log("INFO", "Info.")
-      log("WARNING", "Warning.")
-      log("ERROR", "Error.")
-      log("CRITICAL", "Critical.")
+```
+import json
+
+def log(severity, message):
+  global_extras = {"debug_key": "debug_value"}
+  structured_log = {"severity": severity, "message": message, **global_extras}
+  print(json.dumps(structured_log))
+
+def main(args):
+  log("DEBUG", "Debugging the application.")
+  log("INFO", "Info.")
+  log("WARNING", "Warning.")
+  log("ERROR", "Error.")
+  log("CRITICAL", "Critical.")
+```
 
 #### Special JSON fields in messages
 
@@ -263,9 +273,9 @@ Agent Platform can perform hyperparameter tuning on your ML training code. Learn
 
 If you want to use hyperparameter tuning, your training code must do the following:
 
-  - Parse command-line arguments representing the hyperparameters that you want to tune, and use the parsed values to set the hyperparameters for training.
+- Parse command-line arguments representing the hyperparameters that you want to tune, and use the parsed values to set the hyperparameters for training.
 
-  - Intermittently report the hyperparameter tuning metric to Agent Platform.
+- Intermittently report the hyperparameter tuning metric to Agent Platform.
 
 #### Parse command-line arguments
 
@@ -303,16 +313,16 @@ Alternatively, you can run a different container on each of several *worker pool
 
 To use Vertex AI TensorBoard with serverless training, you must do the following:
 
-  - Create a Vertex AI TensorBoard instance in your project to store your experiments (see [Create a TensorBoard instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#create-tensorboard-instance) ).
+- Create a Vertex AI TensorBoard instance in your project to store your experiments (see [Create a TensorBoard instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#create-tensorboard-instance) ).
 
-  - Configure a service account to run the serverless training job with appropriate permissions.
+- Configure a service account to run the serverless training job with appropriate permissions.
 
-  - Adjust your serverless training code to write out TensorBoard compatible logs to Cloud Storage (see [Changes to your training script](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training#script_changes) )
+- Adjust your serverless training code to write out TensorBoard compatible logs to Cloud Storage (see [Changes to your training script](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training#script_changes) )
 
 For a step-by-step guide, see [Using Vertex AI TensorBoard with serverless training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training) .
 
 ## What's next
 
-  - Learn the details of [creating a Python training application to use with a prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container) or [creating a custom container image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
+- Learn the details of [creating a Python training application to use with a prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container) or [creating a custom container image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
 
-  - If you aren't sure that you want to perform serverless training, read a [comparison of serverless training and AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-methods) .
+- If you aren't sure that you want to perform serverless training, read a [comparison of serverless training and AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-methods) .

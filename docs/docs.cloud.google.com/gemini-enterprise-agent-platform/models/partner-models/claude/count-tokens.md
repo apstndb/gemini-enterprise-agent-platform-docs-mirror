@@ -14,32 +14,32 @@ There is no cost for using the `count-tokens` endpoint.
 
 The following models support count tokens:
 
-  - [Claude Sonnet 5.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5-5)
-  - [Claude Fable 5.1 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5-1)
-  - [Claude Sonnet 5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5)
-  - [Claude Opus 5.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-5-5)
-  - [Claude Opus 5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-5)
-  - [Claude Fable 5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5)
-  - [Claude Opus 4.8 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-8)
-  - [Claude Opus 4.7 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-7)
-  - [Claude Opus 4.6 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-6)
-  - [Claude Sonnet 4.6 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-6)
-  - [Claude Opus 4.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-5)
-  - [Claude Opus 4.1 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-1)
-  - [Claude Opus 4 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4)
-  - [Claude Sonnet 4.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-5)
-  - [Claude Sonnet 4 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4)
-  - [Claude Haiku 4.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-haiku-4-5)
-  - [Claude 3.5 Haiku on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-3-5-haiku)
+- [Claude Sonnet 5.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5-5)
+- [Claude Fable 5.1 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5-1)
+- [Claude Sonnet 5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5)
+- [Claude Opus 5.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-5-5)
+- [Claude Opus 5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-5)
+- [Claude Fable 5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5)
+- [Claude Opus 4.8 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-8)
+- [Claude Opus 4.7 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-7)
+- [Claude Opus 4.6 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-6)
+- [Claude Sonnet 4.6 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-6)
+- [Claude Opus 4.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-5)
+- [Claude Opus 4.1 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-1)
+- [Claude Opus 4 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4)
+- [Claude Sonnet 4.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-5)
+- [Claude Sonnet 4 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4)
+- [Claude Haiku 4.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-haiku-4-5)
+- [Claude 3.5 Haiku on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-3-5-haiku)
 
 ## Supported regions
 
 The following regions support count tokens:
 
-  - `global`
-  - `us`
-  - `eu`
-  - `asia-southeast1`
+- `global`
+- `us`
+- `eu`
+- `asia-southeast1`
 
 ## Count tokens in basic messages
 
@@ -49,26 +49,30 @@ To count tokens, send a `rawPredict` request to the `count-tokens` endpoint. The
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : A [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens#regions) that supports Anthropic Claude models. To use the global endpoint, see [Specify the global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#global) .
-  - MODEL : The [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens#model-list) to count tokens against.
-  - ROLE : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. Claude models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
-  - CONTENT : The content, such as text, of the `user` or `assistant` message.
+- ` LOCATION ` : A [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens#regions) that supports Anthropic Claude models. To use the global endpoint, see [Specify the global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#global) .
+- ` MODEL ` : The [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens#model-list) to count tokens against.
+- ` ROLE ` : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. Claude models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
+- ` CONTENT ` : The content, such as text, of the `user` or `assistant` message.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/count-tokens:rawPredict
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/count-tokens:rawPredict
+```
 
 Request JSON body:
 
+```
+{
+  "model": "MODEL",
+  "messages": [
     {
-      "model": "MODEL",
-      "messages": [
-        {
-          "role": "user",
-          "content":"how many tokens are in this request?"
-        }
-      ],
+      "role": "user",
+      "content":"how many tokens are in this request?"
     }
+  ],
+}
+```
 
 To send your request, choose one of these options:
 
@@ -78,11 +82,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/count-tokens:rawPredict"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/count-tokens:rawPredict"
+```
 
 #### PowerShell
 
@@ -90,21 +96,25 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/count-tokens:rawPredict" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/count-tokens:rawPredict" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following.
 
 #### Response
 
-    { "input_tokens": 14 }
+```
+{ "input_tokens": 14 }
+```
 
 For information on how to count tokens in messages with tools, images, and PDFs, see [Anthropic's documentation](https://docs.anthropic.com/en/docs/build-with-claude/token-counting) .
 

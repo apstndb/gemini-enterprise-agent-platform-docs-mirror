@@ -14,4 +14,4 @@ data_source: docs.cloud.google.com
 
 In the evolving landscape of large language models (LLMs), the "one model per machine" deployment pattern is becoming a significant bottleneck for LLM serving cost efficiency in enterprises. Model co-hosting addresses this efficiency gap by enabling multiple model instances to share the same virtual machine and GPU resources. This technical blog details Vertex AI Engineering's process in bringing model co-hosting to a production-ready cloud service.
 
------
+------------------------------------------------------------------------

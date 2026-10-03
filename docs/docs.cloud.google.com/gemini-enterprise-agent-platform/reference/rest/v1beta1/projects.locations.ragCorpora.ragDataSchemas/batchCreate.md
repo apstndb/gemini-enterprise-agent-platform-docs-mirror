@@ -28,17 +28,17 @@ The request body contains data with the following structure:
 
 Fields
 
-`requests[]` ` object ( CreateRagDataSchemaRequest  ` )
+`requests[]` `object ( `[`CreateRagDataSchemaRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragDataSchemas/batchCreate#CreateRagDataSchemaRequest)` )`
 
-Required. The request messages for `  VertexRagDataService.CreateRagDataSchema  ` . A maximum of 500 schemas can be created in a batch.
+Required. The request messages for [`VertexRagDataService.CreateRagDataSchema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragDataSchemas/create#google.cloud.aiplatform.v1beta1.VertexRagDataService.CreateRagDataSchema) . A maximum of 500 schemas can be created in a batch.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ## CreateRagDataSchemaRequest
 
-Request message for `  VertexRagDataService.CreateRagDataSchema  ` .
+Request message for [`VertexRagDataService.CreateRagDataSchema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragDataSchemas/create#google.cloud.aiplatform.v1beta1.VertexRagDataService.CreateRagDataSchema) .
 
 Fields
 
@@ -46,7 +46,7 @@ Fields
 
 Required. The resource name of the RagCorpus to create the RagDataSchema in. Format: `projects/{project}/locations/{location}/ragCorpora/{ragCorpus}`
 
-`ragDataSchema` ` object ( RagDataSchema  ` )
+`ragDataSchema` `object ( `[`RagDataSchema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragDataSchemas#RagDataSchema)` )`
 
 Required. The RagDataSchema to create.
 
@@ -56,18 +56,14 @@ Optional. The id to use for the RagDataSchema, which will become the final compo
 
 This value should be up to 63 characters, and valid characters are /\[a-z\]\[0-9\]-/. The first character must be a letter, the last could be a letter or a number.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;parent&quot;: string,&quot;ragDataSchema&quot;: {object (RagDataSchema)},&quot;ragDataSchemaId&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "parent": string,
+  "ragDataSchema": {
+    object (RagDataSchema)
+  },
+  "ragDataSchemaId": string
+}
+```

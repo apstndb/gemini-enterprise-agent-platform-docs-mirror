@@ -26,30 +26,30 @@ Output only. Resource name of a ModelDeploymentMonitoringJob.
 
 ### Query parameters
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
-Required. The update mask is used to specify the fields to be overwritten in the ModelDeploymentMonitoringJob resource by the update. The fields specified in the updateMask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then only the non-empty fields present in the request will be overwritten. Set the updateMask to `*` to override all fields. For the objective config, the user can either provide the update mask for modelDeploymentMonitoringObjectiveConfigs or any combination of its nested fields, such as: modelDeploymentMonitoringObjectiveConfigs.objective\_config.training\_dataset.
+Required. The update mask is used to specify the fields to be overwritten in the ModelDeploymentMonitoringJob resource by the update. The fields specified in the updateMask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then only the non-empty fields present in the request will be overwritten. Set the updateMask to `*` to override all fields. For the objective config, the user can either provide the update mask for modelDeploymentMonitoringObjectiveConfigs or any combination of its nested fields, such as: modelDeploymentMonitoringObjectiveConfigs.objective_config.training_dataset.
 
 Updatable fields:
 
-  - `displayName`
-  - `modelDeploymentMonitoringScheduleConfig`
-  - `modelMonitoringAlertConfig`
-  - `loggingSamplingStrategy`
-  - `labels`
-  - `logTtl`
-  - `enableMonitoringPipelineLogs` . and
-  - `modelDeploymentMonitoringObjectiveConfigs` . or
-  - `modelDeploymentMonitoringObjectiveConfigs.objective_config.training_dataset`
-  - `modelDeploymentMonitoringObjectiveConfigs.objective_config.training_prediction_skew_detection_config`
-  - `modelDeploymentMonitoringObjectiveConfigs.objective_config.prediction_drift_detection_config`
+- `displayName`
+- `modelDeploymentMonitoringScheduleConfig`
+- `modelMonitoringAlertConfig`
+- `loggingSamplingStrategy`
+- `labels`
+- `logTtl`
+- `enableMonitoringPipelineLogs` . and
+- `modelDeploymentMonitoringObjectiveConfigs` . or
+- `modelDeploymentMonitoringObjectiveConfigs.objective_config.training_dataset`
+- `modelDeploymentMonitoringObjectiveConfigs.objective_config.training_prediction_skew_detection_config`
+- `modelDeploymentMonitoringObjectiveConfigs.objective_config.prediction_drift_detection_config`
 
 This is a comma-separated list of fully qualified names of fields. Example: `"user.displayName,photo"` .
 
 ### Request body
 
-The request body contains an instance of `  ModelDeploymentMonitoringJob  ` .
+The request body contains an instance of [`ModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs#ModelDeploymentMonitoringJob) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

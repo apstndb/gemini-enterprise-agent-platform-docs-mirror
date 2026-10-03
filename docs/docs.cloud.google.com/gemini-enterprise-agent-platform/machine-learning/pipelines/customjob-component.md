@@ -22,8 +22,8 @@ This component does not support `CustomJob` Python package training, or distribu
 
 ## API reference
 
-  - For component reference, see the [Google Cloud SDK reference for CustomJob components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/custom_job.html) .
-  - For Agent Platform API reference, see the [`CustomJob` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.customJobs) page.
+- For component reference, see the [Google Cloud SDK reference for CustomJob components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/custom_job.html) .
+- For Agent Platform API reference, see the [`CustomJob` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.customJobs) page.
 
 ## Version history and release notes
 

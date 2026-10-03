@@ -28,13 +28,13 @@ The request body contains data with the following structure:
 
 Fields
 
-`migrateResourceRequests[]` ` object ( MigrateResourceRequest  ` )
+`migrateResourceRequests[]` `object ( `[`MigrateResourceRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.migratableResources/batchMigrate#MigrateResourceRequest)` )`
 
 Required. The request messages specifying the resources to migrate. They must be in the same location as the destination. Up to 50 resources can be migrated in one batch.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ## MigrateResourceRequest
 
@@ -46,41 +46,47 @@ Fields
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`migrateMlEngineModelVersionConfig` ` object ( MigrateMlEngineModelVersionConfig  ` )
+`migrateMlEngineModelVersionConfig` `object ( `[`MigrateMlEngineModelVersionConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.migratableResources/batchMigrate#MigrateMlEngineModelVersionConfig)` )`
 
 Config for migrating version in ml.googleapis.com to Agent Platform's Model.
 
-`migrateAutomlModelConfig` ` object ( MigrateAutomlModelConfig  ` )
+`migrateAutomlModelConfig` `object ( `[`MigrateAutomlModelConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.migratableResources/batchMigrate#MigrateAutomlModelConfig)` )`
 
 Config for migrating Model in automl.googleapis.com to Agent Platform's Model.
 
-`migrateAutomlDatasetConfig` ` object ( MigrateAutomlDatasetConfig  ` )
+`migrateAutomlDatasetConfig` `object ( `[`MigrateAutomlDatasetConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.migratableResources/batchMigrate#MigrateAutomlDatasetConfig)` )`
 
 Config for migrating Dataset in automl.googleapis.com to Agent Platform's Dataset.
 
-` migrateDataLabelingDatasetConfig (deprecated)  ` ` object ( MigrateDataLabelingDatasetConfig  ` )
+`migrateDataLabelingDatasetConfig `**`(deprecated)`** `object ( `[`MigrateDataLabelingDatasetConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.migratableResources/batchMigrate#MigrateDataLabelingDatasetConfig)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Deprecated: data labeling service is shut down. Config for migrating Dataset in datalabeling.googleapis.com to Agent Platform's Dataset.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// request&quot;migrateMlEngineModelVersionConfig&quot;: {object (MigrateMlEngineModelVersionConfig)},&quot;migrateAutomlModelConfig&quot;: {object (MigrateAutomlModelConfig)},&quot;migrateAutomlDatasetConfig&quot;: {object (MigrateAutomlDatasetConfig)},&quot;migrateDataLabelingDatasetConfig&quot;: {object (MigrateDataLabelingDatasetConfig)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // request
+  "migrateMlEngineModelVersionConfig": {
+    object (MigrateMlEngineModelVersionConfig)
+  },
+  "migrateAutomlModelConfig": {
+    object (MigrateAutomlModelConfig)
+  },
+  "migrateAutomlDatasetConfig": {
+    object (MigrateAutomlDatasetConfig)
+  },
+  "migrateDataLabelingDatasetConfig": {
+    object (MigrateDataLabelingDatasetConfig)
+  }
+  // Union type
+}
+```
 
 ## MigrateMlEngineModelVersionConfig
 
@@ -92,13 +98,13 @@ Fields
 
 Required. The ml.googleapis.com endpoint that this model version should be migrated from. Example values:
 
-  - ml.googleapis.com
+- ml.googleapis.com
 
-  - us-centrall-ml.googleapis.com
+- us-centrall-ml.googleapis.com
 
-  - europe-west4-ml.googleapis.com
+- europe-west4-ml.googleapis.com
 
-  - asia-east1-ml.googleapis.com
+- asia-east1-ml.googleapis.com
 
 `modelVersion` `string`
 
@@ -108,25 +114,15 @@ Required. Full resource name of ml engine model version. Format: `projects/{proj
 
 Required. Display name of the model in Agent Platform. System will pick a display name if unspecified.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;endpoint&quot;: string,
-  &quot;modelVersion&quot;: string,
-  &quot;modelDisplayName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "endpoint": string,
+  "modelVersion": string,
+  "modelDisplayName": string
+}
+```
 
 ## MigrateAutomlModelConfig
 
@@ -142,24 +138,14 @@ Required. Full resource name of automl Model. Format: `projects/{project}/locati
 
 Optional. Display name of the model in Agent Platform. System will pick a display name if unspecified.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;model&quot;: string,
-  &quot;modelDisplayName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "model": string,
+  "modelDisplayName": string
+}
+```
 
 ## MigrateAutomlDatasetConfig
 
@@ -175,24 +161,14 @@ Required. Full resource name of automl Dataset. Format: `projects/{project}/loca
 
 Required. Display name of the Dataset in Agent Platform. System will pick a display name if unspecified.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;dataset&quot;: string,
-  &quot;datasetDisplayName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "dataset": string,
+  "datasetDisplayName": string
+}
+```
 
 ## MigrateDataLabelingDatasetConfig
 
@@ -208,25 +184,23 @@ Required. Full resource name of data labeling Dataset. Format: `projects/{projec
 
 Optional. Display name of the Dataset in Agent Platform. System will pick a display name if unspecified.
 
-`migrateDataLabelingAnnotatedDatasetConfigs[]` ` object ( MigrateDataLabelingAnnotatedDatasetConfig  ` )
+`migrateDataLabelingAnnotatedDatasetConfigs[]` `object ( `[`MigrateDataLabelingAnnotatedDatasetConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.migratableResources/batchMigrate#MigrateDataLabelingAnnotatedDatasetConfig)` )`
 
 Optional. Configs for migrating AnnotatedDataset in datalabeling.googleapis.com to Agent Platform's SavedQuery. The specified AnnotatedDatasets have to belong to the datalabeling Dataset.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;dataset&quot;: string,&quot;datasetDisplayName&quot;: string,&quot;migrateDataLabelingAnnotatedDatasetConfigs&quot;: [{object (MigrateDataLabelingAnnotatedDatasetConfig)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "dataset": string,
+  "datasetDisplayName": string,
+  "migrateDataLabelingAnnotatedDatasetConfigs": [
+    {
+      object (MigrateDataLabelingAnnotatedDatasetConfig)
+    }
+  ]
+}
+```
 
 ## MigrateDataLabelingAnnotatedDatasetConfig
 
@@ -238,20 +212,10 @@ Fields
 
 Required. Full resource name of data labeling AnnotatedDataset. Format: `projects/{project}/datasets/{dataset}/annotatedDatasets/{annotatedDataset}` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;annotatedDataset&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "annotatedDataset": string
+}
+```

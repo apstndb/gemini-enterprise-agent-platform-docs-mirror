@@ -12,9 +12,9 @@ This page describes how to use Cloud Storage to back up and restore files on you
 
 This guide describes two ways to use Cloud Storage to help you back up and restore files on your Agent Platform Workbench instance:
 
-  - [Mount a Cloud Storage bucket](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/restore-cloud-storage#mount-bucket) to your Agent Platform Workbench instance.
+- [Mount a Cloud Storage bucket](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/restore-cloud-storage#mount-bucket) to your Agent Platform Workbench instance.
 
-  - [Export your files to Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/restore-cloud-storage#export-to-storage) and then restore them.
+- [Export your files to Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/restore-cloud-storage#export-to-storage) and then restore them.
 
 ## Before you begin
 
@@ -22,8 +22,8 @@ This guide describes two ways to use Cloud Storage to help you back up and resto
 
 To get the permissions that you need to mount a Cloud Storage bucket to a Agent Platform Workbench instance, ask your administrator to grant you the following IAM roles:
 
-  - [Notebooks Runner](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.runner) ( `roles/notebooks.runner` ) on the project
-  - [Storage Object User](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectUser) ( `roles/storage.objectUser` ) on the Agent Platform Workbench instance's service account
+- [Notebooks Runner](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.runner) ( `roles/notebooks.runner` ) on the project
+- [Storage Object User](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectUser) ( `roles/storage.objectUser` ) on the Agent Platform Workbench instance's service account
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
@@ -55,7 +55,7 @@ You must have access to at least one Cloud Storage bucket in the same project as
 1.  In the Google Cloud console, go to the **Instances** page.
 
 2.  Next to your Agent Platform Workbench instance's name, click **Open JupyterLab** .
-    
+
     Your Agent Platform Workbench instance opens JupyterLab.
 
 ### Mount the Cloud Storage bucket
@@ -65,7 +65,7 @@ To mount and then access a Cloud Storage bucket, do the following:
 1.  In JupyterLab, make sure the folder **File Browser** tab is selected.
 
 2.  In the left sidebar, click the ![Mount shared storage button](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/icon-mount-shared-storage.png) **Mount shared storage** button. If you don't see the button, drag the right side of the sidebar to expand the sidebar until you see the button.
-    
+
     ![The Mount shared storage button in the top right corner of the left sidebar](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/instances/images/mount-shared-storage-button.png)
 
 3.  In the **Bucket name** field, enter the Cloud Storage bucket name that you want to mount.
@@ -83,7 +83,7 @@ This section describes how to export files to Cloud Storage and restore files lo
 1.  In the Google Cloud console, go to the **Instances** page.
 
 2.  Next to your Agent Platform Workbench instance's name, click **Open JupyterLab** .
-    
+
     Your Agent Platform Workbench instance opens JupyterLab.
 
 3.  In JupyterLab, make sure the folder **File Browser** tab is selected.
@@ -91,7 +91,7 @@ This section describes how to export files to Cloud Storage and restore files lo
 4.  In the left sidebar, click the ![Export to GCS button](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/icon-export-to-gcs.png) **Export to GCS** button. If you don't see the button, drag the right side of the sidebar to expand the sidebar until you see the button.
 
 5.  In the **Provide export location** dialog, enter a Cloud Storage bucket name that you want to export files to. If you need to create a Cloud Storage bucket, see [Create a bucket](https://docs.cloud.google.com/storage/docs/creating-buckets) .
-    
+
     Agent Platform Workbench opens a new notebook that includes code for exporting your instance's files to Cloud Storage.
 
 6.  Run the code in this cell.
@@ -102,17 +102,19 @@ To restore a file to your Agent Platform Workbench instance, you can use [gcloud
 
 Run the following code in a cell of one of your instance's notebooks:
 
-    !gcloud storage cp URI /home/jupyter/FILE_NAME
+```
+!gcloud storage cp URI /home/jupyter/FILE_NAME
+```
 
 Replace the following:
 
-  - `  URI  ` : the gsutil URI of the file that you want to copy, for example: gs:// BUCKET\_NAME / ZONE / INSTANCE\_ID / FILE\_NAME
-  - `  FILE_NAME  ` : the name of the file to copy
+- `URI` : the gsutil URI of the file that you want to copy, for example: gs:// ` BUCKET_NAME ` / ` ZONE ` / ` INSTANCE_ID ` / ` FILE_NAME `
+- `FILE_NAME` : the name of the file to copy
 
 For more information, see [Download the object from your bucket](https://docs.cloud.google.com/storage/docs/discover-object-storage-gcloud) .
 
 ## What's next
 
-  - [Use a snapshot to back up and restore data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/restore-snapshot)
+- [Use a snapshot to back up and restore data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/restore-snapshot)
 
-  - [Save a notebook to GitHub](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/save-to-github)
+- [Save a notebook to GitHub](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/save-to-github)

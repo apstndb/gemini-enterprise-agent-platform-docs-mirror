@@ -18,7 +18,7 @@ Gemma 4 26B A4B IT is a multimodal model from Google handling text and image inp
 
 For managed models, you can use curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names:
 
-  - For Gemma 4 26B A4B IT, use `gemma-4-26b-a4b-it-maas`
+- For Gemma 4 26B A4B IT, use `gemma-4-26b-a4b-it-maas`
 
 To learn how to make streaming and non-streaming calls to Google models, see [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .
 
@@ -49,7 +49,7 @@ Google models are available in the following regions:
 <tr class="odd">
 <td>Gemma 4 26B A4B IT</td>
 <td><ul>
-<li><code dir="ltr" translate="no">global</code></li>
+<li><code>global</code></li>
 </ul></td>
 </tr>
 </tbody>

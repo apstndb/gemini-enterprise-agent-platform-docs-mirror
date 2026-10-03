@@ -12,52 +12,17 @@ This type has no fields.
 
 A resource that represents a Google Cloud location.
 
-## Methods
-
-### `            askContexts           `
-
-Agentic Retrieval Ask API for RAG.
-
-### `            asyncRetrieveContexts           `
-
-Asynchronous API to retrieves relevant contexts for a query.
-
-### `            augmentPrompt           `
-
-Given an input prompt, it returns augmented prompt from vertex rag store to guide LLM towards generating grounded responses.
-
-### `            corroborateContent           `
-
-Given an input text, it returns a score that evaluates the factuality of the text.
-
-### `            deploy           `
-
-Deploys a model to a new endpoint.
-
-### `            evaluateInstances           `
-
-Evaluates instances based on a given metric.
-
-### `            generateSyntheticData           `
-
-Generates synthetic (artificial) data based on a description
-
-### `            getRagEngineConfig           `
-
-Gets a RagEngineConfig.
-
-### `            getSemanticGovernancePolicyEngine           `
-
-Gets a SemanticGovernancePolicyEngine.
-
-### `            retrieveContexts           `
-
-Retrieves relevant contexts for a query.
-
-### `            updateRagEngineConfig           `
-
-Updates a RagEngineConfig.
-
-### `            updateSemanticGovernancePolicyEngine           `
-
-Updates a SemanticGovernancePolicyEngine.
+| Methods                                                                                                                                                                            |                                                                                                                              |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| [`askContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/askContexts)                                                   | Agentic Retrieval Ask API for RAG.                                                                                           |
+| [`asyncRetrieveContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/asyncRetrieveContexts)                               | Asynchronous API to retrieves relevant contexts for a query.                                                                 |
+| [`augmentPrompt`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/augmentPrompt)                                               | Given an input prompt, it returns augmented prompt from vertex rag store to guide LLM towards generating grounded responses. |
+| [`corroborateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/corroborateContent)                                     | Given an input text, it returns a score that evaluates the factuality of the text.                                           |
+| [`deploy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/deploy)                                                             | Deploys a model to a new endpoint.                                                                                           |
+| [`evaluateInstances`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/evaluateInstances)                                       | Evaluates instances based on a given metric.                                                                                 |
+| [`generateSyntheticData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/generateSyntheticData)                               | Generates synthetic (artificial) data based on a description                                                                 |
+| [`getRagEngineConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/getRagEngineConfig)                                     | Gets a RagEngineConfig.                                                                                                      |
+| [`getSemanticGovernancePolicyEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/getSemanticGovernancePolicyEngine)       | Gets a SemanticGovernancePolicyEngine.                                                                                       |
+| [`retrieveContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/retrieveContexts)                                         | Retrieves relevant contexts for a query.                                                                                     |
+| [`updateRagEngineConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/updateRagEngineConfig)                               | Updates a RagEngineConfig.                                                                                                   |
+| [`updateSemanticGovernancePolicyEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/updateSemanticGovernancePolicyEngine) | Updates a SemanticGovernancePolicyEngine.                                                                                    |

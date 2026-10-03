@@ -28,4 +28,4 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  LineageSubgraph  ` .
+If successful, the response body contains an instance of [`LineageSubgraph`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/LineageSubgraph) .

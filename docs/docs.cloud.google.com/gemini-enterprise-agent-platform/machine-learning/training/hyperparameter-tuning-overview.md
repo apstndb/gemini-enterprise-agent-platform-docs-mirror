@@ -14,11 +14,11 @@ Hyperparameters contain the data that govern the training process itself.
 
 Your training application handles three categories of data as it trains your model:
 
-  - Your *input data* (also called training data) is a collection of individual records (instances) containing the features important to your machine learning problem. This data is used during training to configure your model to accurately make inferences about new instances of similar data. However, the values in your input data never directly become part of your model.
+- Your *input data* (also called training data) is a collection of individual records (instances) containing the features important to your machine learning problem. This data is used during training to configure your model to accurately make inferences about new instances of similar data. However, the values in your input data never directly become part of your model.
 
-  - Your model's *parameters* are the variables that your chosen machine learning technique uses to adjust to your data. For example, a deep neural network (DNN) is composed of processing nodes (neurons), each with an operation performed on data as it travels through the network. When your DNN is trained, each node has a weight value that tells your model how much impact it has on the final inference. Those weights are an example of your model's parameters. In many ways, your model's parameters *are* the model—they are what distinguishes your particular model from other models of the same type working on similar data.
+- Your model's *parameters* are the variables that your chosen machine learning technique uses to adjust to your data. For example, a deep neural network (DNN) is composed of processing nodes (neurons), each with an operation performed on data as it travels through the network. When your DNN is trained, each node has a weight value that tells your model how much impact it has on the final inference. Those weights are an example of your model's parameters. In many ways, your model's parameters *are* the model—they are what distinguishes your particular model from other models of the same type working on similar data.
 
-  - Your *hyperparameters* are the variables that govern the training process itself. For example, part of designing a DNN is deciding how many hidden layers of nodes to use between the input and output layers, and how many nodes each hidden layer should use. These variables are not directly related to the training data. They are configuration variables. Note that parameters change during a training job, while hyperparameters are usually constant during a job.
+- Your *hyperparameters* are the variables that govern the training process itself. For example, part of designing a DNN is deciding how many hidden layers of nodes to use between the input and output layers, and how many nodes each hidden layer should use. These variables are not directly related to the training data. They are configuration variables. Note that parameters change during a training job, while hyperparameters are usually constant during a job.
 
 Your model *parameters* are optimized (you could say "tuned") by the training process: you run data through the operations of the model, compare the resulting inference with the actual value for each data instance, evaluate the accuracy, and adjust until you find the best values. *Hyperparameters* are tuned by running your whole training job, looking at the aggregate accuracy, and adjusting. In both cases, you are modifying the composition of your model to find the best combination to handle your problem.
 
@@ -52,9 +52,9 @@ Without hyperparameter tuning, you can set your hyperparameters by whatever mean
 
 When you use hyperparameter tuning, you must use the following procedure to set the values of the hyperparameters that you're using for tuning:
 
-  - Define a command-line argument in your main training module for each tuned hyperparameter.
+- Define a command-line argument in your main training module for each tuned hyperparameter.
 
-  - Use the value passed in those arguments to set the corresponding hyperparameter in your application's code.
+- Use the value passed in those arguments to set the corresponding hyperparameter in your application's code.
 
 When you configure a hyperparameter tuning job, you define each hyperparameter to tune, its data type, and the range of values to try. You identify each hyperparameter using the same name as the corresponding argument you defined in your main module. The training service includes command-line arguments using these names when it runs your application.
 
@@ -71,7 +71,7 @@ However you choose them, it's important to understand the implications. Every hy
 In a [ParameterSpec](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#ParameterSpec) object, you specify the hyperparameter data type as an instance of a parameter value specification. The following table lists the supported parameter value specifications.
 
 | Type                   | Data type     | Value ranges            | Value data                        |
-| ---------------------- | ------------- | ----------------------- | --------------------------------- |
+|------------------------|---------------|-------------------------|-----------------------------------|
 | `DoubleValueSpec`      | `DOUBLE`      | `minValue` & `maxValue` | Floating-point values             |
 | `IntegerValueSpec`     | `INTEGER`     | `minValue` & `maxValue` | Integer values                    |
 | `CategoricalValueSpec` | `CATEGORICAL` | `categoricalValues`     | List of category strings          |
@@ -81,10 +81,10 @@ In a [ParameterSpec](https://docs.cloud.google.com/gemini-enterprise-agent-platf
 
 In a [`ParameterSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#ParameterSpec) object, you can specify that scaling should be performed on this hyperparameter. Scaling is recommended for the DOUBLE and INTEGER data types. The available [scaling types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ScaleType) are:
 
-  - `SCALE_TYPE_UNSPECIFIED` : No scaling is applied to this hyperparameter.
-  - `UNIT_LINEAR_SCALE` : Scales the feasible space linearly 0 through 1.
-  - `UNIT_LOG_SCALE` : Scales the feasible space logarithmically 0 through 1. The entire feasible space must be strictly positive.
-  - `UNIT_REVERSE_LOG_SCALE` : Scales the feasible space "reverse" logarithmically 0 through 1. The result is that values close to the top of the feasible space are spread out more than points near the bottom. The entire feasible space must be strictly positive.
+- `SCALE_TYPE_UNSPECIFIED` : No scaling is applied to this hyperparameter.
+- `UNIT_LINEAR_SCALE` : Scales the feasible space linearly 0 through 1.
+- `UNIT_LOG_SCALE` : Scales the feasible space logarithmically 0 through 1. The entire feasible space must be strictly positive.
+- `UNIT_REVERSE_LOG_SCALE` : Scales the feasible space "reverse" logarithmically 0 through 1. The result is that values close to the top of the feasible space are spread out more than points near the bottom. The entire feasible space must be strictly positive.
 
 ### Conditional hyperparameters
 
@@ -96,8 +96,8 @@ Since the number of hidden layers is applicable only when a trial's `training_me
 
 Since the learning rate is used by both `training_method` options, you must decide if this conditional hyperparameter should be shared. If the hyperparameter is shared, the tuning job uses what it has learned from `LINEAR_REGRESSION` and `DNN` trials to tune the learning rate. In this case, it makes more sense to have separate learning rates for each `training_method` , since the learning rate for training a model using `LINEAR_REGRESSION` shouldn't affect the learning rate for training a model using `DNN` . So, you define the following conditional hyperparameters:
 
-  - A hyperparameter named `learning_rate` that is added when the `training_method` is `LINEAR_REGRESSION` .
-  - A hyperparameter named `learning_rate` that is added when the `training_method` is `DNN` .
+- A hyperparameter named `learning_rate` that is added when the `training_method` is `LINEAR_REGRESSION` .
+- A hyperparameter named `learning_rate` that is added when the `training_method` is `DNN` .
 
 Conditional hyperparameters let you define the hyperparameters for your tuning job as a graph. This lets you tune your training process using different training techniques, each with their own hyperparameter dependencies.
 
@@ -107,13 +107,13 @@ You can specify a search algorithm in the [`StudySpec`](https://docs.cloud.googl
 
 Available values:
 
-  - `ALGORITHM_UNSPECIFIED` : Same as not specifying an algorithm. Agent Platform chooses the best search algorithm between Gaussian process bandits, linear combination search, or their variants.
+- `ALGORITHM_UNSPECIFIED` : Same as not specifying an algorithm. Agent Platform chooses the best search algorithm between Gaussian process bandits, linear combination search, or their variants.
 
-  - `GRID_SEARCH` : A grid search within the feasible space. This option is particularly useful if you want to specify a quantity of trials that is greater than the number of points in the feasible space. In such cases, if you don't specify a grid search, the Agent Platform default algorithm may generate duplicate suggestions. To use grid search, all parameters must be of type `INTEGER` , `CATEGORICAL` , or `DISCRETE` .
+- `GRID_SEARCH` : A grid search within the feasible space. This option is particularly useful if you want to specify a quantity of trials that is greater than the number of points in the feasible space. In such cases, if you don't specify a grid search, the Agent Platform default algorithm may generate duplicate suggestions. To use grid search, all parameters must be of type `INTEGER` , `CATEGORICAL` , or `DISCRETE` .
 
-  - `RANDOM_SEARCH` : A random search within the feasible space.
+- `RANDOM_SEARCH` : A random search within the feasible space.
 
 ## What's next
 
-  - Learn how to [implement hyperparameter tuning for your training jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-hyperparameter-tuning)
-  - Read a blog post about [Bayesian optimization and hyperparameter tuning](https://cloud.google.com/blog/products/ai-machine-learning/hyperparameter-tuning-cloud-machine-learning-engine-using-bayesian-optimization) .
+- Learn how to [implement hyperparameter tuning for your training jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-hyperparameter-tuning)
+- Read a blog post about [Bayesian optimization and hyperparameter tuning](https://cloud.google.com/blog/products/ai-machine-learning/hyperparameter-tuning-cloud-machine-learning-engine-using-bayesian-optimization) .

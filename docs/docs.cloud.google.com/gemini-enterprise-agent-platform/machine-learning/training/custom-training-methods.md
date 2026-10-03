@@ -12,19 +12,19 @@ If you're writing your own training code instead of using AutoML}, there are sev
 
 There are three types of Agent Platform resources you can create to train custom models on Agent Platform:
 
-  - [Custom jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job)
-  - [Hyperparameter tuning jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-hyperparameter-tuning)
-  - [Training pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-training-pipeline)
+- [Custom jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job)
+- [Hyperparameter tuning jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-hyperparameter-tuning)
+- [Training pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-training-pipeline)
 
 When you create a *custom job* , you specify settings that Agent Platform needs to run your training code, including:
 
-  - One worker pool for single-node training ( [`WorkerPoolSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#workerpoolspec) ), or multiple worker pools for distributed training
-  - Optional settings for configuring job scheduling ( [`Scheduling`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#scheduling) ), [setting certain environment variables for your training code](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#environment-variables) , [using a custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) , and [using VPC Network Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering)
+- One worker pool for single-node training ( [`WorkerPoolSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#workerpoolspec) ), or multiple worker pools for distributed training
+- Optional settings for configuring job scheduling ( [`Scheduling`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#scheduling) ), [setting certain environment variables for your training code](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#environment-variables) , [using a custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) , and [using VPC Network Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering)
 
 Within the worker pool(s), you can specify the following settings:
 
-  - [Machine types and accelerators](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute)
-  - [Configuration of what type of training code the worker pool runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-container-settings) : either a Python training application ( [`PythonPackageSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#pythonpackagespec) ) or a custom container ( [`ContainerSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#containerspec) )
+- [Machine types and accelerators](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute)
+- [Configuration of what type of training code the worker pool runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-container-settings) : either a Python training application ( [`PythonPackageSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#pythonpackagespec) ) or a custom container ( [`ContainerSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#containerspec) )
 
 [Hyperparameter tuning jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-hyperparameter-tuning) have additional settings to configure, such as the metric. Learn more about [hyperparameter tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/hyperparameter-tuning-overview) .
 
@@ -48,14 +48,14 @@ Before you submit a serverless training job, hyperparameter tuning job, or a tra
 
 You can configure a serverless training job, hyperparameter tuning job, or a training pipeline for distributed training by specifying multiple worker pools:
 
-  - Use your first worker pool to configure your primary replica, and set the replica count to 1.
-  - Add more worker pools to configure worker replicas, parameter server replicas, or evaluator replicas, if your machine learning framework supports these additional cluster tasks for distributed training.
+- Use your first worker pool to configure your primary replica, and set the replica count to 1.
+- Add more worker pools to configure worker replicas, parameter server replicas, or evaluator replicas, if your machine learning framework supports these additional cluster tasks for distributed training.
 
 Learn more about [using distributed training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training) .
 
 ## What's next
 
-  - Learn how to [create a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-create) to run serverless training jobs.
-  - See [Create serverless training jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job) to learn how to create serverless training jobs to run your serverless training applications on Gemini Enterprise Agent Platform.
-  - See [Create training pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-training-pipeline) to learn how to create training pipelines to run serverless training applications on Gemini Enterprise Agent Platform.
-  - See [Use hyperparameter tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-hyperparameter-tuning) to learn about Hyperparameter tuning searches.
+- Learn how to [create a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-create) to run serverless training jobs.
+- See [Create serverless training jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job) to learn how to create serverless training jobs to run your serverless training applications on Gemini Enterprise Agent Platform.
+- See [Create training pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-training-pipeline) to learn how to create training pipelines to run serverless training applications on Gemini Enterprise Agent Platform.
+- See [Use hyperparameter tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-hyperparameter-tuning) to learn about Hyperparameter tuning searches.

@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 When you run a job, Model Monitoring v2 consumes data from your target and baseline datasets, calculates metrics, and potentially generates alerts. Model Monitoring v2 offers on-demand jobs for ad hoc monitoring or scheduled jobs for continuous monitoring. No matter which option you choose, each job is a single batch execution.
@@ -32,79 +32,81 @@ Run a one-time monitoring job. Set the target and baseline datasets as well as t
 
 ### Python SDK
 
-    from vertexai.resources.preview import ml_monitoring
-    
-    FEATURE_THRESHOLDS = {
-      "culmen_length_mm": 0.001,
-      "body_mass_g": 0.002,
-    }
-    
-    FEATURE_DRIFT_SPEC=ml_monitoring.spec.DataDriftSpec(
-      categorical_metric_type="l_infinity",
-      numeric_metric_type="jensen_shannon_divergence",
-      default_categorical_alert_threshold=0.001,
-      default_numeric_alert_threshold=0.002,
-      feature_alert_thresholds=FEATURE_THRESHOLDS,
-    )
-    
-    PREDICTION_OUTPUT_DRIFT_SPEC=ml_monitoring.spec.DataDriftSpec(
-      categorical_metric_type="l_infinity",
-      numeric_metric_type="jensen_shannon_divergence",
-      default_categorical_alert_threshold=0.001,
-      default_numeric_alert_threshold=0.001,
-    )
-    
-    FEATURE_ATTRIBUTION_SPEC=ml_monitoring.spec.FeatureAttributionSpec(
-      default_alert_threshold=0.0003,
-      feature_alert_thresholds={"cnt_ad_reward":0.0001},
-    )
-    
-    EXPLANATION_SPEC=ExplanationSpec(
-      parameters=ExplanationParameters(
-          {"sampled_shapley_attribution": {"path_count": 2}}
-      ),
-      metadata=ExplanationMetadata(
-          inputs={
-              "cnt_ad_reward": ExplanationMetadata.InputMetadata({
-                  "input_tensor_name": "cnt_ad_reward",
-                  "encoding": "IDENTITY",
-                  "modality": "numeric"
-              }),
-              ...
-          },
+```
+from vertexai.resources.preview import ml_monitoring
+
+FEATURE_THRESHOLDS = {
+  "culmen_length_mm": 0.001,
+  "body_mass_g": 0.002,
+}
+
+FEATURE_DRIFT_SPEC=ml_monitoring.spec.DataDriftSpec(
+  categorical_metric_type="l_infinity",
+  numeric_metric_type="jensen_shannon_divergence",
+  default_categorical_alert_threshold=0.001,
+  default_numeric_alert_threshold=0.002,
+  feature_alert_thresholds=FEATURE_THRESHOLDS,
+)
+
+PREDICTION_OUTPUT_DRIFT_SPEC=ml_monitoring.spec.DataDriftSpec(
+  categorical_metric_type="l_infinity",
+  numeric_metric_type="jensen_shannon_divergence",
+  default_categorical_alert_threshold=0.001,
+  default_numeric_alert_threshold=0.001,
+)
+
+FEATURE_ATTRIBUTION_SPEC=ml_monitoring.spec.FeatureAttributionSpec(
+  default_alert_threshold=0.0003,
+  feature_alert_thresholds={"cnt_ad_reward":0.0001},
+)
+
+EXPLANATION_SPEC=ExplanationSpec(
+  parameters=ExplanationParameters(
+      {"sampled_shapley_attribution": {"path_count": 2}}
+  ),
+  metadata=ExplanationMetadata(
+      inputs={
+          "cnt_ad_reward": ExplanationMetadata.InputMetadata({
+              "input_tensor_name": "cnt_ad_reward",
+              "encoding": "IDENTITY",
+              "modality": "numeric"
+          }),
           ...
-      )
-    )
-    
-    TRAINING_DATASET=ml_monitoring.spec.MonitoringInput(
-      gcs_uri=TRAINING_URI,
-      data_format="csv"
-    )
-    
-    TARGET_DATASET=ml_monitoring.spec.MonitoringInput(
-      table_uri=BIGQUERY_URI
-    )
-    
-    model_monitoring_job=my_model_monitor.run(
-      display_name=JOB_DISPLAY_NAME,
-      baseline_dataset=TRAINING_DATASET,
-      target_dataset=TARGET_DATASET,
-      tabular_objective_spec=ml_monitoring.spec.TabularObjective(
-          # Optional: set to monitor input feature drift.
-          feature_drift_spec=FEATURE_DRIFT_SPEC,
-    
-          # Optional: set to monitor prediction output drift.
-          prediction_output_drift_spec=PREDICTION_OUTPUT_DRIFT_SPEC,
-    
-          # Optional: set to monitor feature attribution drift.
-          feature_attribution_spec=FEATURE_ATTRIBUTION_SPEC
-      ),
-    
-      # Optional: additional configurations to override default values.
-      explanation_config=EXPLANATION_SPEC,
-      notification_spec=NOTIFICATION_SPEC,
-      output_spec=OUTPUT_SPEC
-    )
+      },
+      ...
+  )
+)
+
+TRAINING_DATASET=ml_monitoring.spec.MonitoringInput(
+  gcs_uri=TRAINING_URI,
+  data_format="csv"
+)
+
+TARGET_DATASET=ml_monitoring.spec.MonitoringInput(
+  table_uri=BIGQUERY_URI
+)
+
+model_monitoring_job=my_model_monitor.run(
+  display_name=JOB_DISPLAY_NAME,
+  baseline_dataset=TRAINING_DATASET,
+  target_dataset=TARGET_DATASET,
+  tabular_objective_spec=ml_monitoring.spec.TabularObjective(
+      # Optional: set to monitor input feature drift.
+      feature_drift_spec=FEATURE_DRIFT_SPEC,
+
+      # Optional: set to monitor prediction output drift.
+      prediction_output_drift_spec=PREDICTION_OUTPUT_DRIFT_SPEC,
+
+      # Optional: set to monitor feature attribution drift.
+      feature_attribution_spec=FEATURE_ATTRIBUTION_SPEC
+  ),
+
+  # Optional: additional configurations to override default values.
+  explanation_config=EXPLANATION_SPEC,
+  notification_spec=NOTIFICATION_SPEC,
+  output_spec=OUTPUT_SPEC
+)
+```
 
 ## Schedule continuous runs
 
@@ -125,7 +127,7 @@ You can set one or more schedule runs for a model monitor. To use continuous mon
 6.  Click **Continue** .
 
 7.  Configure a schedule for recurring jobs:
-    
+
     1.  Specify a name for the scheduler.
     2.  For **Start time** , specify when the first job will start.
     3.  For **Frequency** , use a [cron expression](https://docs.cloud.google.com/scheduler/docs/configuring/cron-job-schedules) to set the frequency, and then set the time zone.
@@ -137,35 +139,37 @@ You can set one or more schedule runs for a model monitor. To use continuous mon
 
 To set the frequency of monitoring jobs, use a [cron expression](https://docs.cloud.google.com/scheduler/docs/configuring/cron-job-schedules) .
 
-    my_model_monitoring_schedule=my_model_monitor.create_schedule(
-      display_name=SCHEDULE_DISPLAY_NAME,
-      # Every day at 0:00(midnight)
-      cron='"0 * * * *"',
-      baseline_dataset=ml_monitoring.spec.MonitoringInput(
-          endpoints=[ENDPOINT_RESOURCE_NAME],
-          offset="24h",
-          window="24h",
-      ),
-      target_dataset=ml_monitoring.spec.MonitoringInput(
-          endpoints=[ENDPOINT_RESOURCE_NAME],
-          window="24h"
-      ),
-      tabular_objective_spec=ml_monitoring.spec.TabularObjective(
-          # Optional: set to monitor input feature drift.
-          feature_drift_spec=FEATURE_DRIFT_SPEC,
-    
-          # Optional: set to monitor prediction output drift.
-          prediction_output_drift_spec=PREDICTION_OUTPUT_DRIFT_SPEC,
-    
-          # Optional: set to monitor feature attribution drift.
-          feature_attribution_spec=FEATURE_ATTRIBUTION_SPEC
-      ),
-    
-      # Optional: additional configurations to override default values.
-      explanation_config=EXPLANATION_SPEC,
-      output_spec=OUTPUT_SPEC,
-      notification_spec=NOTIFICATION_SPEC,
-    )
+```
+my_model_monitoring_schedule=my_model_monitor.create_schedule(
+  display_name=SCHEDULE_DISPLAY_NAME,
+  # Every day at 0:00(midnight)
+  cron='"0 * * * *"',
+  baseline_dataset=ml_monitoring.spec.MonitoringInput(
+      endpoints=[ENDPOINT_RESOURCE_NAME],
+      offset="24h",
+      window="24h",
+  ),
+  target_dataset=ml_monitoring.spec.MonitoringInput(
+      endpoints=[ENDPOINT_RESOURCE_NAME],
+      window="24h"
+  ),
+  tabular_objective_spec=ml_monitoring.spec.TabularObjective(
+      # Optional: set to monitor input feature drift.
+      feature_drift_spec=FEATURE_DRIFT_SPEC,
+
+      # Optional: set to monitor prediction output drift.
+      prediction_output_drift_spec=PREDICTION_OUTPUT_DRIFT_SPEC,
+
+      # Optional: set to monitor feature attribution drift.
+      feature_attribution_spec=FEATURE_ATTRIBUTION_SPEC
+  ),
+
+  # Optional: additional configurations to override default values.
+  explanation_config=EXPLANATION_SPEC,
+  output_spec=OUTPUT_SPEC,
+  notification_spec=NOTIFICATION_SPEC,
+)
+```
 
 ### Pause or resume a schedule
 
@@ -185,11 +189,13 @@ You can pause and resume a schedule to skip or temporarily halt monitoring job r
 
 ### Python SDK
 
-    # Pause schedule
-    my_model_monitor.pause_schedule(my_monitoring_schedule.name)
-    
-    # Resume schedule
-    my_model_monitor.resume_schedule(my_monitoring_schedule.name)
+```
+# Pause schedule
+my_model_monitor.pause_schedule(my_monitoring_schedule.name)
+
+# Resume schedule
+my_model_monitor.resume_schedule(my_monitoring_schedule.name)
+```
 
 ### Delete a schedule
 
@@ -209,7 +215,9 @@ Delete a schedule if you're not using it. Your existing data remains as well as 
 
 ### Python SDK
 
-    my_model_monitor.delete_schedule(my_monitoring_schedule.name)
+```
+my_model_monitor.delete_schedule(my_monitoring_schedule.name)
+```
 
 ## Analyze monitoring job results
 
@@ -230,9 +238,9 @@ View details about a monitoring job run such as a list of monitored features and
 3.  On the **Monitor details** page, click the **Runs** tab.
 
 4.  From the list of runs, click a run to view its details such as all the features included in a run.
-    
+
     The following example shows a distribution comparison for the **country** feature from batch prediction jobs. The Google Cloud console also provide details about the comparison depending on the metric, such as the number of unique values, mean value, and the standard deviation.
-    
+
     ![Histograms showing example feature distribution for a target dataset and a baseline dataset.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/model-monitoring/images/job-details.png)
 
 ### View feature details
@@ -246,7 +254,7 @@ View information about a feature and a list of monitoring jobs that include the 
 2.  Click the model monitor that contains the jobs to analyze.
 
 3.  In the **Overview** tab, you can view a summary, which includes trends in drift for all monitored objectives if you have continuous monitoring set up. You can also dive deeper into particular objectives to see details such as the monitored feature names and a list of monitoring runs.
-    
+
     The following example shows a distribution comparison for the **country** feature. After the histogram, you can see which runs generated an alert or select another monitoring job that includes monitoring data for this feature.
-    
+
     ![Histograms showing example input data distribution for a target dataset and a baseline dataset.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/model-monitoring/images/feature-drift.png)

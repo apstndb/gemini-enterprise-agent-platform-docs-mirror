@@ -28,7 +28,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`query` ` object ( RagQuery  ` )
+`query` `object ( `[`RagQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagQuery)` )`
 
 Required. Single RAG retrieve query.
 
@@ -36,7 +36,7 @@ Required. Single RAG retrieve query.
 
 Data Source to retrieve contexts. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`vertexRagStore` ` object ( VertexRagStore  ` )
+`vertexRagStore` `object ( `[`VertexRagStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/retrieveContexts#VertexRagStore)` )`
 
 The data source for Vertex RagStore.
 
@@ -44,31 +44,25 @@ End of mutually exclusive fields.
 
 ### Response body
 
-Response message for `  VertexRagService.RetrieveContexts  ` .
+Response message for [`VertexRagService.RetrieveContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/retrieveContexts#google.cloud.aiplatform.v1.VertexRagService.RetrieveContexts) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`contexts` ` object ( RagContexts  ` )
+`contexts` `object ( `[`RagContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagContexts)` )`
 
 The contexts of the query.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;contexts&quot;: {object (RagContexts)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "contexts": {
+    object (RagContexts)
+  }
+}
+```
 
 ## VertexRagStore
 
@@ -76,31 +70,28 @@ The data source for Vertex RagStore.
 
 Fields
 
-`ragResources[]` ` object ( RagResource  ` )
+`ragResources[]` `object ( `[`RagResource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/retrieveContexts#RagResource)` )`
 
 Optional. The representation of the rag source. It can be used to specify corpus only or ragfiles. Currently only support one corpus or multiple files from one corpus. In the future we may open up multiple corpora support.
 
-` vectorDistanceThreshold (deprecated)  ` `number`
+`vectorDistanceThreshold `**`(deprecated)`** `number`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. Only return contexts with vector distance smaller than the threshold.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;ragResources&quot;: [{object (RagResource)}],&quot;vectorDistanceThreshold&quot;: number}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "ragResources": [
+    {
+      object (RagResource)
+    }
+  ],
+  "vectorDistanceThreshold": number
+}
+```
 
 ## RagResource
 
@@ -116,23 +107,13 @@ Optional. RagCorpora resource name. Format: `projects/{project}/locations/{locat
 
 Optional. ragFileId. The files should be in the same ragCorpus set in ragCorpus field.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;ragCorpus&quot;: string,
-  &quot;ragFileIds&quot;: [
+**JSON representation**
+
+```
+{
+  "ragCorpus": string,
+  "ragFileIds": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

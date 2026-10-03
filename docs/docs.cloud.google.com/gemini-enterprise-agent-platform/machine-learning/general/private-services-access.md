@@ -33,7 +33,7 @@ Alternatively, you can modify an existing connection. For more information, see 
 The following table lists the recommended subnet ranges for Gemini Enterprise Agent Platform services.
 
 | Gemini Enterprise Agent Platform feature                                                                                                                    | Recommended subnet range |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
 | [Managed notebook instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/workbench/managed/networking#reserve-ip-range) | /29                      |
 | Gemini Enterprise Agent Platform Pipelines                                                                                                                  | /21                      |
 | [Custom training jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip#reserving-ip-ranges)       | /19                      |

@@ -18,10 +18,12 @@ Different models use different amounts of throughput. For information about the 
 
 This equation demonstrates how throughput is calculated:
 
-    inputs_per_query = inputs_across_modalities_converted_using_burndown_rates
-    outputs_per_query = outputs_across_modalities_converted_using_burndown_rates
-    
-    throughput_per_second = (inputs_per_query + outputs_per_query) * queries_per_second
+```
+inputs_per_query = inputs_across_modalities_converted_using_burndown_rates
+outputs_per_query = outputs_across_modalities_converted_using_burndown_rates
+
+throughput_per_second = (inputs_per_query + outputs_per_query) * queries_per_second
+```
 
 The calculated throughput per second determines how many GSUs that you need for your use case.
 
@@ -29,26 +31,26 @@ The calculated throughput per second determines how many GSUs that you need for 
 
 To help you plan for your Provisioned Throughput needs, review the following important considerations:
 
-  - **Requests are prioritized.**
-    
-    Provisioned Throughput customers are prioritized and serviced first before on-demand requests.
+- **Requests are prioritized.**
 
-  - **Throughput doesn't accumulate.**
-    
-    Unused throughput doesn't accumulate or carry over to the next month.
+  Provisioned Throughput customers are prioritized and serviced first before on-demand requests.
 
-  - **Provisioned Throughput is measured in tokens per second, characters per second, or images per second.**
-    
-    Provisioned Throughput isn't measured solely based on queries per minute (QPM). It's measured based on the query size for your use case, the response size, and the QPM.
+- **Throughput doesn't accumulate.**
 
-  - **Provisioned Throughput is specific to a project, region, model, and version.**
-    
-    Provisioned Throughput is assigned to a specific project-region-model-version combination. The same model called from a different region won't count against your Provisioned Throughput quota and won't be prioritized over on-demand requests.
+  Unused throughput doesn't accumulate or carry over to the next month.
+
+- **Provisioned Throughput is measured in tokens per second, characters per second, or images per second.**
+
+  Provisioned Throughput isn't measured solely based on queries per minute (QPM). It's measured based on the query size for your use case, the response size, and the QPM.
+
+- **Provisioned Throughput is specific to a project, region, model, and version.**
+
+  Provisioned Throughput is assigned to a specific project-region-model-version combination. The same model called from a different region won't count against your Provisioned Throughput quota and won't be prioritized over on-demand requests.
 
 ### Context caching
 
 > **Preview**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 Provisioned Throughput supports [implicit caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview#implicit-caching) and [explicit caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview#explicit-caching) . For information about supported models and limits, see [Context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview) .
@@ -57,9 +59,9 @@ Implicit caching is enabled in all Google Cloud projects, by default. Implicit c
 
 For example, Gemini 2.5 Pro has the following burndown rates for input text tokens and cached tokens:
 
-  - 1 input text token = 1 token
+- 1 input text token = 1 token
 
-  - 1 input cached text token = 0.1 tokens
+- 1 input cached text token = 0.1 tokens
 
 Sending 1,000 input tokens to this model results in a burndown of your Provisioned Throughput by 1,000 input tokens per second. However, if you send 1,000 cached tokens to Gemini 2.5 Pro, this results in a burndown of your Provisioned Throughput by 100 tokens per second.
 
@@ -81,69 +83,36 @@ To estimate your Provisioned Throughput needs, use the [estimation tool in the G
 
 This table provides the burndown rates for Gemini 3.6 Flash that you can use to follow the example.
 
-<table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Model</strong></th>
-<th><strong>Throughput per GSU</strong></th>
-<th><strong>Units</strong></th>
-<th><strong>Minimum GSU purchase increment</strong></th>
-<th><strong>Burndown rates</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Gemini 3.6 Flash</td>
-<td>675</td>
-<td>Tokens</td>
-<td>1</td>
-<td>1 input text token = 1 token<br />
-1 input image token = 1 token<br />
-1 input video token = 1 token<br />
-1 input audio token = 1 token<br />
-1 input text caching token = 0.1 tokens<br />
-1 input image caching token = 0.1 tokens<br />
-1 input video caching token = 0.1 tokens<br />
-1 input audio caching token = 0.1 tokens<br />
-1 output text response token = 5 tokens<br />
-</td>
-</tr>
-</tbody>
-</table>
+| **Model**        | **Throughput per GSU** | **Units** | **Minimum GSU purchase increment** | **Burndown rates**                                                                                                                                                                                                                                                                                                                |
+|------------------|------------------------|-----------|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Gemini 3.6 Flash | 675                    | Tokens    | 1                                  | 1 input text token = 1 token 1 input image token = 1 token 1 input video token = 1 token 1 input audio token = 1 token 1 input text caching token = 0.1 tokens 1 input image caching token = 0.1 tokens 1 input video caching token = 0.1 tokens 1 input audio caching token = 0.1 tokens 1 output text response token = 5 tokens |
 
 1.  **Gather your requirements.** In this example, your requirement is to verify that you can support 10 queries per second (QPS) of a query with an input of 1,000 text tokens and 500 audio tokens, to receive an output of 300 text response tokens using `gemini-3.6-flash` .
-    
+
     To calculate your throughput for your specific use case, use the [burndown rates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models#google-models) for your selected model.
 
 2.  **Calculate your throughput.** Multiply your inputs by the burndown rates to arrive at total input tokens:
-    
-    $\\text{1,000} \\times (\\text{1 token per input text token}) + \\text{500} \\times (\\text{1 token per input audio token}) = \\text{1,500}$ burndown adjusted input tokens per query.
-    
+
+    \$\text{1,000} \times (\text{1 token per input text token}) + \text{500} \times (\text{1 token per input audio token}) = \text{1,500}\$ burndown adjusted input tokens per query.
+
     Multiply your outputs by the burndown rates to arrive at total output tokens:
-    
-    $\\text{300} \\times (\\text{5 tokens per output text response token}) = \\text{1,500}$ burndown adjusted output tokens per query.
-    
+
+    \$\text{300} \times (\text{5 tokens per output text response token}) = \text{1,500}\$ burndown adjusted output tokens per query.
+
     Add your totals together:
-    
-    $\\text{1,500 burndown adjusted input tokens} + \\text{1,500 burndown adjusted output tokens} = \\text{3,000}$ total tokens per query.
-    
+
+    \$\text{1,500 burndown adjusted input tokens} + \text{1,500 burndown adjusted output tokens} = \text{3,000}\$ total tokens per query.
+
     Multiply the total number of tokens by the QPS to arrive at total throughput per second:
-    
-    $\\text{3,000 total tokens per query} \\times \\text{10 QPS} = \\text{30,000}$ total tokens per second.
+
+    \$\text{3,000 total tokens per query} \times \text{10 QPS} = \text{30,000}\$ total tokens per second.
 
 3.  **Calculate your needed GSUs.** The GSUs are the total tokens per second divided by the per-second throughput per GSU from the burndown table:
-    
-    $\\text{30,000 total tokens per second} \\div \\text{675 per-second throughput per GSU} = \\text{44.44}$ GSUs.
-    
+
+    \$\text{30,000 total tokens per second} \div \text{675 per-second throughput per GSU} = \text{44.44}\$ GSUs.
+
     The minimum GSU purchase increment for `gemini-3.6-flash` is **1** , so you'll need **45 GSUs** to assure your workload.
 
 ## What's next
 
-  - [Purchase Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput) .
+- [Purchase Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput) .

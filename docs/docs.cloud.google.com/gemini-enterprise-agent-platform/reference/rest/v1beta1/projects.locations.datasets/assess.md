@@ -28,7 +28,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`geminiRequestReadConfig` ` object ( GeminiRequestReadConfig  ` )
+`geminiRequestReadConfig` `object ( `[`GeminiRequestReadConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiRequestReadConfig)` )`
 
 Optional. The Gemini request read config for the dataset.
 
@@ -36,19 +36,19 @@ Optional. The Gemini request read config for the dataset.
 
 The assessment type. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`tuningValidationAssessmentConfig` ` object ( TuningValidationAssessmentConfig  ` )
+`tuningValidationAssessmentConfig` `object ( `[`TuningValidationAssessmentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/assess#TuningValidationAssessmentConfig)` )`
 
 Optional. Configuration for the tuning validation assessment.
 
-`tuningResourceUsageAssessmentConfig` ` object ( TuningResourceUsageAssessmentConfig  ` )
+`tuningResourceUsageAssessmentConfig` `object ( `[`TuningResourceUsageAssessmentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/assess#TuningResourceUsageAssessmentConfig)` )`
 
 Optional. Configuration for the tuning resource usage assessment.
 
-`batchPredictionValidationAssessmentConfig` ` object ( BatchPredictionValidationAssessmentConfig  ` )
+`batchPredictionValidationAssessmentConfig` `object ( `[`BatchPredictionValidationAssessmentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/assess#BatchPredictionValidationAssessmentConfig)` )`
 
 Optional. Configuration for the batch prediction validation assessment.
 
-`batchPredictionResourceUsageAssessmentConfig` ` object ( BatchPredictionResourceUsageAssessmentConfig  ` )
+`batchPredictionResourceUsageAssessmentConfig` `object ( `[`BatchPredictionResourceUsageAssessmentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/assess#BatchPredictionResourceUsageAssessmentConfig)` )`
 
 Optional. Configuration for the batch prediction resource usage assessment.
 
@@ -56,7 +56,7 @@ End of mutually exclusive fields.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ## TuningValidationAssessmentConfig
 
@@ -68,43 +68,28 @@ Fields
 
 Required. The name of the model used for tuning.
 
-`datasetUsage` ` enum ( DatasetUsage  ` )
+`datasetUsage` `enum ( `[`DatasetUsage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/assess#DatasetUsage)` )`
 
 Required. The dataset usage (e.g. training/validation).
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;modelName&quot;: string,&quot;datasetUsage&quot;: enum (DatasetUsage)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "modelName": string,
+  "datasetUsage": enum (DatasetUsage)
+}
+```
 
 ## DatasetUsage
 
 The dataset usage (e.g. training/validation).
 
-Enums
-
-`DATASET_USAGE_UNSPECIFIED`
-
-Default value. Should not be used.
-
-`SFT_TRAINING`
-
-Supervised fine-tuning training dataset.
-
-`SFT_VALIDATION`
-
-Supervised fine-tuning validation dataset.
+| Enums                       |                                            |
+|-----------------------------|--------------------------------------------|
+| `DATASET_USAGE_UNSPECIFIED` | Default value. Should not be used.         |
+| `SFT_TRAINING`              | Supervised fine-tuning training dataset.   |
+| `SFT_VALIDATION`            | Supervised fine-tuning validation dataset. |
 
 ## TuningResourceUsageAssessmentConfig
 
@@ -116,23 +101,13 @@ Fields
 
 Required. The name of the model used for tuning.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;modelName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "modelName": string
+}
+```
 
 ## BatchPredictionValidationAssessmentConfig
 
@@ -144,23 +119,13 @@ Fields
 
 Required. The name of the model used for batch prediction.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;modelName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "modelName": string
+}
+```
 
 ## BatchPredictionResourceUsageAssessmentConfig
 
@@ -172,20 +137,10 @@ Fields
 
 Required. The name of the model used for batch prediction.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;modelName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "modelName": string
+}
+```

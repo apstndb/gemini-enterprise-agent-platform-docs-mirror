@@ -30,4 +30,4 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  FeedbackEntry  ` .
+If successful, the response body contains an instance of [`FeedbackEntry`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.feedbackEntries#FeedbackEntry) .

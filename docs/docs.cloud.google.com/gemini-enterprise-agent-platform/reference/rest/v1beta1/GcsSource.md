@@ -14,22 +14,12 @@ Fields
 
 Required. Google Cloud Storage URI(-s) to the input file(s). May contain wildcards. For more information on wildcards, see <https://cloud.google.com/storage/docs/wildcards> .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;uris&quot;: [
+**JSON representation**
+
+```
+{
+  "uris": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

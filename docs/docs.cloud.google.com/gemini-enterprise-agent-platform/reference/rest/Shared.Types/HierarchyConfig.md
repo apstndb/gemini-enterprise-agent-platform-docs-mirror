@@ -26,25 +26,15 @@ The weight of the loss for predictions aggregated over the horizon for a single 
 
 The weight of the loss for predictions aggregated over both the horizon and time series in the same hierarchy group.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;groupColumns&quot;: [
+**JSON representation**
+
+```
+{
+  "groupColumns": [
     string
   ],
-  &quot;groupTotalWeight&quot;: number,
-  &quot;temporalTotalWeight&quot;: number,
-  &quot;groupTemporalTotalWeight&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+  "groupTotalWeight": number,
+  "temporalTotalWeight": number,
+  "groupTemporalTotalWeight": number
+}
+```

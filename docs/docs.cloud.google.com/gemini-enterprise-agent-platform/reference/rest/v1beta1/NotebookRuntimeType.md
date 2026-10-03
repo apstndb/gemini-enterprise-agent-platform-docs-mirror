@@ -8,16 +8,8 @@ data_source: docs.cloud.google.com
 
 Represents a notebook runtime type.
 
-Enums
-
-`NOTEBOOK_RUNTIME_TYPE_UNSPECIFIED`
-
-Unspecified notebook runtime type, NotebookRuntimeType will default to USER\_DEFINED.
-
-`USER_DEFINED`
-
-runtime or template with coustomized configurations from user.
-
-`ONE_CLICK`
-
-runtime or template with system defined configurations.
+| Enums                               |                                                                                      |
+|-------------------------------------|--------------------------------------------------------------------------------------|
+| `NOTEBOOK_RUNTIME_TYPE_UNSPECIFIED` | Unspecified notebook runtime type, NotebookRuntimeType will default to USER_DEFINED. |
+| `USER_DEFINED`                      | runtime or template with coustomized configurations from user.                       |
+| `ONE_CLICK`                         | runtime or template with system defined configurations.                              |

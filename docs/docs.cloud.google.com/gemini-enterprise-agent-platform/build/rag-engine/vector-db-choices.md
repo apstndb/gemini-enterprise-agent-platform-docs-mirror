@@ -47,7 +47,7 @@ This table lists your choices of vector databases that are supported within RAG 
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag"><code dir="ltr" translate="no">RagManagedDb</code></a> (default) is a regionally-distributed scalable database service that offers very high consistency and high availability and can be used for a vector search. easy simple fast quick</td>
+<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag"><code>RagManagedDb</code></a> (default) is a regionally-distributed scalable database service that offers very high consistency and high availability and can be used for a vector search. easy simple fast quick</td>
 <td><ul>
 <li>No setup required.</li>
 <li>Good for enterprise-scale and small-scale use cases.</li>
@@ -68,7 +68,7 @@ This table lists your choices of vector databases that are supported within RAG 
 <td><ul>
 <li>For optimal recall, the ANN feature requires that the index be rebuilt after major changes to your data.</li>
 </ul></td>
-<td><code dir="ltr" translate="no">cosine</code></td>
+<td><code>cosine</code></td>
 <td>KNN (default) and ANN</td>
 <td>Generally available</td>
 </tr>
@@ -90,9 +90,9 @@ This table lists your choices of vector databases that are supported within RAG 
 <li>Vendor lock-in with Google Cloud.</li>
 <li>Could be more expensive depending on your use cases.</li>
 </ul></td>
-<td><code dir="ltr" translate="no">cosine</code><br />
+<td><code>cosine</code><br />
 <br />
-<code dir="ltr" translate="no">dot-product</code></td>
+<code>dot-product</code></td>
 <td>ANN</td>
 <td>Generally available</td>
 </tr>
@@ -113,11 +113,11 @@ This table lists your choices of vector databases that are supported within RAG 
 <li>Changes are only available in the online store after a manual synchronization is performed.</li>
 <li>Vendor lock-in with Google Cloud.</li>
 </ul></td>
-<td><code dir="ltr" translate="no">cosine</code><br />
+<td><code>cosine</code><br />
 <br />
-<code dir="ltr" translate="no">dot-product</code><br />
+<code>dot-product</code><br />
 <br />
-<code dir="ltr" translate="no">L2 squared</code></td>
+<code>L2 squared</code></td>
 <td>ANN</td>
 <td>Preview</td>
 </tr>
@@ -141,15 +141,15 @@ This table lists your choices of vector databases that are supported within RAG 
 <li>Can be more complex to set up and manage.</li>
 <li>Performance can vary depending on the configuration.</li>
 </ul></td>
-<td><code dir="ltr" translate="no">cosine</code><br />
+<td><code>cosine</code><br />
 <br />
-<code dir="ltr" translate="no">dot-product</code><br />
+<code>dot-product</code><br />
 <br />
-<code dir="ltr" translate="no">L2 squared</code><br />
+<code>L2 squared</code><br />
 <br />
-<code dir="ltr" translate="no">hamming</code><br />
+<code>hamming</code><br />
 <br />
-<code dir="ltr" translate="no">manhattan</code></td>
+<code>manhattan</code></td>
 <td>ANN + Hybrid search support</td>
 <td>Preview</td>
 </tr>
@@ -173,11 +173,11 @@ This table lists your choices of vector databases that are supported within RAG 
 <li>Quotas and limits restrict scale and performance.</li>
 <li>Limited control over the underlying infrastructure.</li>
 </ul></td>
-<td><code dir="ltr" translate="no">cosine</code><br />
+<td><code>cosine</code><br />
 <br />
-<code dir="ltr" translate="no">euclidean</code><br />
+<code>euclidean</code><br />
 <br />
-<code dir="ltr" translate="no">dot-product</code></td>
+<code>dot-product</code></td>
 <td>ANN</td>
 <td>Generally available</td>
 </tr>
@@ -186,6 +186,6 @@ This table lists your choices of vector databases that are supported within RAG 
 
 ## What's next
 
-  - To create a RAG corpus, see [Method: ragCorpora.create](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/create)
+- To create a RAG corpus, see [Method: ragCorpora.create](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/create)
 
-  - To list RAG corpus, see [Method: ragCorpora.list](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/list)
+- To list RAG corpus, see [Method: ragCorpora.list](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/list)

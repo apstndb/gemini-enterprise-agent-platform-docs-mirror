@@ -24,8 +24,8 @@ Required. The resource name of the Location to create the TrainingPipeline in. F
 
 ### Request body
 
-The request body contains an instance of `  TrainingPipeline  ` .
+The request body contains an instance of [`TrainingPipeline`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.trainingPipelines#TrainingPipeline) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  TrainingPipeline  ` .
+If successful, the response body contains a newly created instance of [`TrainingPipeline`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.trainingPipelines#TrainingPipeline) .

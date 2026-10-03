@@ -10,13 +10,13 @@ Metrics for classification evaluation results.
 
 Fields
 
-`confidenceMetrics[]` ` object ( ConfidenceMetrics  ` )
+`confidenceMetrics[]` `object ( `[`ConfidenceMetrics`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ClassificationEvaluationMetrics#ConfidenceMetrics)` )`
 
-Metrics for each `confidenceThreshold` in 0.00,0.05,0.10,...,0.95,0.96,0.97,0.98,0.99 and `positionThreshold` = INT32\_MAX\_VALUE.
+Metrics for each `confidenceThreshold` in 0.00,0.05,0.10,...,0.95,0.96,0.97,0.98,0.99 and `positionThreshold` = INT32_MAX_VALUE.
 
 ROC and precision-recall curves, and other aggregated metrics are derived from them. The confidence metrics entries may also be supplied for additional values of `positionThreshold` , but from these no aggregated metrics are computed.
 
-`confusionMatrix` ` object ( ConfusionMatrix  ` )
+`confusionMatrix` `object ( `[`ConfusionMatrix`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ConfusionMatrix)` )`
 
 Confusion matrix of the evaluation.
 
@@ -32,27 +32,29 @@ The Area Under Receiver Operating Characteristic curve metric. Micro-averaged fo
 
 The log Loss metric.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;confidenceMetrics&quot;: [{object (ConfidenceMetrics)}],&quot;confusionMatrix&quot;: {object (ConfusionMatrix)},&quot;auPrc&quot;: number,&quot;auRoc&quot;: number,&quot;logLoss&quot;: number}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "confidenceMetrics": [
+    {
+      object (ConfidenceMetrics)
+    }
+  ],
+  "confusionMatrix": {
+    object (ConfusionMatrix)
+  },
+  "auPrc": number,
+  "auRoc": number,
+  "logLoss": number
+}
+```
 
 ## ConfidenceMetrics
 
 Fields
 
-`confusionMatrix` ` object ( ConfusionMatrix  ` )
+`confusionMatrix` `object ( `[`ConfusionMatrix`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ConfusionMatrix)` )`
 
 Confusion matrix of the evaluation for this confidenceThreshold.
 
@@ -104,34 +106,44 @@ The False Positive Rate when only considering the label that has the highest pre
 
 The harmonic mean of recallAt1 and precisionAt1.
 
-`truePositiveCount` `string ( int64 format)`
+`truePositiveCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The number of Model created labels that match a ground truth label.
 
-`falsePositiveCount` `string ( int64 format)`
+`falsePositiveCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The number of Model created labels that do not match a ground truth label.
 
-`falseNegativeCount` `string ( int64 format)`
+`falseNegativeCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The number of ground truth labels that are not matched by a Model created label.
 
-`trueNegativeCount` `string ( int64 format)`
+`trueNegativeCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The number of labels that were not created by the Model, but if they would, they would not match a ground truth label.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;confusionMatrix&quot;: {object (ConfusionMatrix)},&quot;confidenceThreshold&quot;: number,&quot;maxPredictions&quot;: integer,&quot;recall&quot;: number,&quot;precision&quot;: number,&quot;falsePositiveRate&quot;: number,&quot;f1Score&quot;: number,&quot;f1ScoreMicro&quot;: number,&quot;f1ScoreMacro&quot;: number,&quot;recallAt1&quot;: number,&quot;precisionAt1&quot;: number,&quot;falsePositiveRateAt1&quot;: number,&quot;f1ScoreAt1&quot;: number,&quot;truePositiveCount&quot;: string,&quot;falsePositiveCount&quot;: string,&quot;falseNegativeCount&quot;: string,&quot;trueNegativeCount&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "confusionMatrix": {
+    object (ConfusionMatrix)
+  },
+  "confidenceThreshold": number,
+  "maxPredictions": integer,
+  "recall": number,
+  "precision": number,
+  "falsePositiveRate": number,
+  "f1Score": number,
+  "f1ScoreMicro": number,
+  "f1ScoreMacro": number,
+  "recallAt1": number,
+  "precisionAt1": number,
+  "falsePositiveRateAt1": number,
+  "f1ScoreAt1": number,
+  "truePositiveCount": string,
+  "falsePositiveCount": string,
+  "falseNegativeCount": string,
+  "trueNegativeCount": string
+}
+```

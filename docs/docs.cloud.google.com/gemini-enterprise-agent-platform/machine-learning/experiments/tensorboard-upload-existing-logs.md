@@ -20,47 +20,49 @@ Note that after calling `start_upload_tb_log()` your thread will kept alive even
 
 ### Python
 
-    from typing import Optional
-    
-    from google.cloud import aiplatform
-    
-    
-    def upload_tensorboard_log_continuously_sample(
-        tensorboard_experiment_name: str,
-        logdir: str,
-        tensorboard_id: str,
-        project: str,
-        location: str,
-        experiment_display_name: Optional[str] = None,
-        run_name_prefix: Optional[str] = None,
-        description: Optional[str] = None,
-    ) -> None:
-    
-        aiplatform.init(project=project, location=location)
-    
-        # Continuous monitoring
-        aiplatform.start_upload_tb_log(
-            tensorboard_id=tensorboard_id,
-            tensorboard_experiment_name=tensorboard_experiment_name,
-            logdir=logdir,
-            experiment_display_name=experiment_display_name,
-            run_name_prefix=run_name_prefix,
-            description=description,
-        )
-    
-        try:
-            print("Insert your code here")
-        finally:
-            aiplatform.end_upload_tb_log()
+```
+from typing import Optional
 
-  - `tensorboard_experiment_name` : The name of the TensorBoard experiment to upload to.
-  - `logdir` : The directory location to check for TensorBoard logs.
-  - `tensorboard_id` : The [TensorBoard instance ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#tensorboard_id) . If not set, the `tensorboard_id` in `aiplatform.init` is used.
-  - `project` : . You can find you Project ID in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : The location where your TensorBoard instance is located.
-  - `experiment_display_name` : The display name of the experiment.
-  - `run_name_prefix` : If present, all runs created by this invocation will have their name prefixed by this value.
-  - `description` : A string description to assign to the experiment.
+from google.cloud import aiplatform
+
+
+def upload_tensorboard_log_continuously_sample(
+    tensorboard_experiment_name: str,
+    logdir: str,
+    tensorboard_id: str,
+    project: str,
+    location: str,
+    experiment_display_name: Optional[str] = None,
+    run_name_prefix: Optional[str] = None,
+    description: Optional[str] = None,
+) -> None:
+
+    aiplatform.init(project=project, location=location)
+
+    # Continuous monitoring
+    aiplatform.start_upload_tb_log(
+        tensorboard_id=tensorboard_id,
+        tensorboard_experiment_name=tensorboard_experiment_name,
+        logdir=logdir,
+        experiment_display_name=experiment_display_name,
+        run_name_prefix=run_name_prefix,
+        description=description,
+    )
+
+    try:
+        print("Insert your code here")
+    finally:
+        aiplatform.end_upload_tb_log()
+```
+
+- `tensorboard_experiment_name` : The name of the TensorBoard experiment to upload to.
+- `logdir` : The directory location to check for TensorBoard logs.
+- `tensorboard_id` : The [TensorBoard instance ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#tensorboard_id) . If not set, the `tensorboard_id` in `aiplatform.init` is used.
+- `project` : . You can find you Project ID in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : The location where your TensorBoard instance is located.
+- `experiment_display_name` : The display name of the experiment.
+- `run_name_prefix` : If present, all runs created by this invocation will have their name prefixed by this value.
+- `description` : A string description to assign to the experiment.
 
 ### One time logging
 
@@ -70,44 +72,46 @@ Call `aiplatform.upload_tb_log` to perform a one-time upload of TensorBoard logs
 
 ### Python
 
-    from typing import Optional
-    
-    from google.cloud import aiplatform
-    
-    
-    def upload_tensorboard_log_one_time_sample(
-        tensorboard_experiment_name: str,
-        logdir: str,
-        tensorboard_id: str,
-        project: str,
-        location: str,
-        experiment_display_name: Optional[str] = None,
-        run_name_prefix: Optional[str] = None,
-        description: Optional[str] = None,
-        verbosity: Optional[int] = 1,
-    ) -> None:
-    
-        aiplatform.init(project=project, location=location)
-    
-        # one time upload
-        aiplatform.upload_tb_log(
-            tensorboard_id=tensorboard_id,
-            tensorboard_experiment_name=tensorboard_experiment_name,
-            logdir=logdir,
-            experiment_display_name=experiment_display_name,
-            run_name_prefix=run_name_prefix,
-            description=description,
-        )
+```
+from typing import Optional
 
-  - `tensorboard_experiment_name` : The name of the TensorBoard experiment.
-  - `logdir` : The directory location to check for TensorBoard logs.
-  - `tensorboard_id` : The [TensorBoard instance ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#tensorboard_id) . If not set, the `tensorboard_id` in `aiplatform.init` is used.
-  - `project` : . You can find these Project IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : The location where your TensorBoard instance is located.
-  - `experiment_display_name` : The display name of the experiment.
-  - `run_name_prefix` : If present, all runs created by this invocation will have their name prefixed by this value.
-  - `description` : A string description to assign to the experiment.
-  - `verbosity` : Level of statistics verbosity, an integer. Supported values: 0 - No upload statistics are printed. 1 - Print upload statistics while uploading data (default).
+from google.cloud import aiplatform
+
+
+def upload_tensorboard_log_one_time_sample(
+    tensorboard_experiment_name: str,
+    logdir: str,
+    tensorboard_id: str,
+    project: str,
+    location: str,
+    experiment_display_name: Optional[str] = None,
+    run_name_prefix: Optional[str] = None,
+    description: Optional[str] = None,
+    verbosity: Optional[int] = 1,
+) -> None:
+
+    aiplatform.init(project=project, location=location)
+
+    # one time upload
+    aiplatform.upload_tb_log(
+        tensorboard_id=tensorboard_id,
+        tensorboard_experiment_name=tensorboard_experiment_name,
+        logdir=logdir,
+        experiment_display_name=experiment_display_name,
+        run_name_prefix=run_name_prefix,
+        description=description,
+    )
+```
+
+- `tensorboard_experiment_name` : The name of the TensorBoard experiment.
+- `logdir` : The directory location to check for TensorBoard logs.
+- `tensorboard_id` : The [TensorBoard instance ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#tensorboard_id) . If not set, the `tensorboard_id` in `aiplatform.init` is used.
+- `project` : . You can find these Project IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : The location where your TensorBoard instance is located.
+- `experiment_display_name` : The display name of the experiment.
+- `run_name_prefix` : If present, all runs created by this invocation will have their name prefixed by this value.
+- `description` : A string description to assign to the experiment.
+- `verbosity` : Level of statistics verbosity, an integer. Supported values: 0 - No upload statistics are printed. 1 - Print upload statistics while uploading data (default).
 
 ### Upload profile logs
 
@@ -115,75 +119,82 @@ Call `aiplatform.upload_tb_log` to upload TensorBoard profile logs to an experim
 
 ### Python
 
-    from typing import FrozenSet
-    
-    from google.cloud import aiplatform
-    
-    
-    def upload_tensorboard_profile_logs_to_experiment_sample(
-        experiment_name: str,
-        logdir: str,
-        project: str,
-        location: str,
-        run_name_prefix: str,
-        allowed_plugins: FrozenSet[str] = ["profile"],
-    ) -> None:
-    
-        aiplatform.init(project=project, location=location, experiment=experiment_name)
-    
-        # one time upload
-        aiplatform.upload_tb_log(
-            tensorboard_experiment_name=experiment_name,
-            logdir=logdir,
-            run_name_prefix=run_name_prefix,
-            allowed_plugins=allowed_plugins,
-        )
+```
+from typing import FrozenSet
 
-  - `experiment_name` : The name of the TensorBoard experiment.
-  - `logdir` : The directory location to check for TensorBoard logs.
-  - `project` : . You can find these Project IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : The location where your TensorBoard instance is located.
-  - `run_name_prefix` : For profile data, this is the run prefix. The directory format within LOG\_DIR should match the following:
-      - `/RUN_NAME_PREFIX/plugins/profile/YYYY_MM_DD_HH_SS/`
-  - `allowed_plugins` : A list of additional plugins to allow. For uploading profile data, this should include `"profile"`
+from google.cloud import aiplatform
+
+
+def upload_tensorboard_profile_logs_to_experiment_sample(
+    experiment_name: str,
+    logdir: str,
+    project: str,
+    location: str,
+    run_name_prefix: str,
+    allowed_plugins: FrozenSet[str] = ["profile"],
+) -> None:
+
+    aiplatform.init(project=project, location=location, experiment=experiment_name)
+
+    # one time upload
+    aiplatform.upload_tb_log(
+        tensorboard_experiment_name=experiment_name,
+        logdir=logdir,
+        run_name_prefix=run_name_prefix,
+        allowed_plugins=allowed_plugins,
+    )
+```
+
+- `experiment_name` : The name of the TensorBoard experiment.
+- `logdir` : The directory location to check for TensorBoard logs.
+- `project` : . You can find these Project IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : The location where your TensorBoard instance is located.
+- `run_name_prefix` : For profile data, this is the run prefix. The directory format within LOG_DIR should match the following:
+  - `/RUN_NAME_PREFIX/plugins/profile/YYYY_MM_DD_HH_SS/`
+- `allowed_plugins` : A list of additional plugins to allow. For uploading profile data, this should include `"profile"`
 
 ### CLI
 
-(Optional) Create a dedicated virtual environment to install the Vertex AI TensorBoard uploader Python CLI.
+1.  (Optional) Create a dedicated virtual environment to install the Vertex AI TensorBoard uploader Python CLI.
 
+    ```
     python3 -m venv PATH/TO/VIRTUAL/ENVIRONMENT
     source PATH/TO/VIRTUAL/ENVIRONMENT/bin/activate
+    ```
 
-  - `  PATH/TO/VIRTUAL/ENVIRONMENT  ` : your dedicated virtual environment.
+    - `PATH/TO/VIRTUAL/ENVIRONMENT` : your dedicated virtual environment.
 
-Install the Agent Platform TensorBoard package through Agent Platform SDK.
+2.  Install the Agent Platform TensorBoard package through Agent Platform SDK.
 
+    ```
     pip install -U pip
     pip install google-cloud-aiplatform[tensorboard]
+    ```
 
-Upload TensorBoard logs
+3.  Upload TensorBoard logs
+    1.  Time Series and Blob Data
 
-1.  Time Series and Blob Data
-    
-        tb-gcp-uploader--tensorboard_resource_name \
+        ```
+        tb-gcp-uploader --tensorboard_resource_name \
         TENSORBOARD_RESOURCE_NAME \
         --logdir=LOG_DIR \
-        --experiment_name=TB_EXPERIMENT_NAME--one_shot=True
+        --experiment_name=TB_EXPERIMENT_NAME --one_shot=True
+        ```
 
-2.  Profile Data
-    
+    2.  Profile Data
+
+        ```
         tb-gcp-uploader \
-        --tensorboard_resource_nameTENSORBOARD_RESOURCE_NAME \
-        --logdir=LOG_DIR--experiment_name=TB_EXPERIMENT_NAME \
-        --allowed_plugins="profile"--run_name_prefix=RUN_NAME_PREFIX \
+        --tensorboard_resource_name TENSORBOARD_RESOURCE_NAME \
+        --logdir=LOG_DIR --experiment_name=TB_EXPERIMENT_NAME \
+        --allowed_plugins="profile" --run_name_prefix=RUN_NAME_PREFIX \
         --one_shot=True
+        ```
 
-<!-- end list -->
-
-  - `  TENSORBOARD_RESOURCE_NAME  ` : The [TensorBoard Resource name](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#tensorboard_resource_name) used to fully identify the Vertex AI TensorBoard instance.
-  - `  LOG_DIR  ` : The location of the event logs that resides either in the local file system or Cloud Storage
-  - `  TB_EXPERIMENT_NAME  ` : The name of the TensorBoard experiment, for example `test-experiment` .
-  - `  RUN_NAME_PREFIX  ` : For profile data, this is the run prefix. The directory format within `  LOG_DIR  ` should match the following:
+    - `TENSORBOARD_RESOURCE_NAME` : The [TensorBoard Resource name](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#tensorboard_resource_name) used to fully identify the Vertex AI TensorBoard instance.
+    - `LOG_DIR` : The location of the event logs that resides either in the local file system or Cloud Storage
+    - `TB_EXPERIMENT_NAME` : The name of the TensorBoard experiment, for example `test-experiment` .
+    - `RUN_NAME_PREFIX` : For profile data, this is the run prefix. The directory format within `LOG_DIR` should match the following:
       - `/RUN_NAME_PREFIX/plugins/profile/YYYY_MM_DD_HH_SS/`
 
 The uploader CLI by default runs indefinitely, monitoring changes in the `LOG_DIR` , and uploads newly added logs. `--one_shot=True` disables the behavior. Run `tb-gcp-uploader --help` for more information.

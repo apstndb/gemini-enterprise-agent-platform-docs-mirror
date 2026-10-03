@@ -10,9 +10,9 @@ This document explains how to monitor the behavior, health, and performance of y
 
 You learn how to do the following:
 
-  - Access and interpret the model observability dashboard.
-  - View available monitoring metrics.
-  - Monitor model endpoint traffic using Metrics Explorer.
+- Access and interpret the model observability dashboard.
+- View available monitoring metrics.
+- Monitor model endpoint traffic using Metrics Explorer.
 
 ## Access and interpret the model observability dashboard
 
@@ -45,7 +45,7 @@ Agent Platform captures dashboard metrics only for API calls to a model's endpoi
 > **Note:** The observability section is available only if you or another user has made API calls to a MaaS model in your project.
 
 1.  To view metrics for a specific model or in a particular location, set one or more filters at the top of the dashboard page.
-    
+
     For descriptions of each metric, see the " `aiplatform` " section on the [Google Cloud metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_a_b#gcp-aiplatform) page.
 
 ## Monitor model endpoint traffic
@@ -61,19 +61,19 @@ Use the following instructions to monitor traffic to your endpoint in the Metric
 4.  In the **Filter by resource or metric name** search bar, enter `Gemini Enterprise Agent Platform Endpoint` .
 
 5.  Select the **Agent Platform Endpoint \> Prediction** metric category. Under **Active metrics** , select any of the following metrics:
-    
-      - **`prediction/online/error_count`**
-      - **`prediction/online/prediction_count`**
-      - **`prediction/online/prediction_latencies`**
-      - **`prediction/online/response_count`**
-    
+
+    - **`prediction/online/error_count`**
+    - **`prediction/online/prediction_count`**
+    - **`prediction/online/prediction_latencies`**
+    - **`prediction/online/response_count`**
+
     Click **Apply** . To add more than one metric, click **Add query** .
-    
+
     You can filter or aggregate your metrics using the following drop-down menus:
-    
-      - To select and view a subset of your data based on specified criteria, use the **Filter** drop-down menu. For example, to filter for the model `gemini-2.0-flash-001` , use `endpoint_id = gemini-2p0-flash-001` (note that the `.` in the model version is replaced with a `p` ).
-    
-      - To combine multiple data points into a single value and see a summarized view of your metrics, use the **Aggregation** drop-down menu. For example, you can aggregate the **Sum** of `response_code` .
+
+    - To select and view a subset of your data based on specified criteria, use the **Filter** drop-down menu. For example, to filter for the model `gemini-2.0-flash-001` , use `endpoint_id = gemini-2p0-flash-001` (note that the `.` in the model version is replaced with a `p` ).
+
+    - To combine multiple data points into a single value and see a summarized view of your metrics, use the **Aggregation** drop-down menu. For example, you can aggregate the **Sum** of `response_code` .
 
 6.  Optionally, you can set up alerts for your endpoint. For more information, see [Manage alerting policies](https://docs.cloud.google.com/monitoring/alerts/manage-alerts) .
 
@@ -81,7 +81,7 @@ To view the metrics you add to your project using a dashboard, see [Dashboards o
 
 ## What's next
 
-  - To learn how to create alerts for your dashboard, see [Alerting overview](https://docs.cloud.google.com/monitoring/alerts) .
-  - To learn about metrics data retention, see the [Monitoring quotas and limits](https://docs.cloud.google.com/monitoring/quotas#data_retention_policy) .
-  - To learn about data at rest, see [Protecting data at rest](https://docs.cloud.google.com/monitoring/compliance/data-at-rest) .
-  - To view a list of all metrics that Cloud Monitoring collects, see the " `aiplatform` " section on the [Google Cloud metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_a_b#gcp-aiplatform) page.
+- To learn how to create alerts for your dashboard, see [Alerting overview](https://docs.cloud.google.com/monitoring/alerts) .
+- To learn about metrics data retention, see the [Monitoring quotas and limits](https://docs.cloud.google.com/monitoring/quotas#data_retention_policy) .
+- To learn about data at rest, see [Protecting data at rest](https://docs.cloud.google.com/monitoring/compliance/data-at-rest) .
+- To view a list of all metrics that Cloud Monitoring collects, see the " `aiplatform` " section on the [Google Cloud metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_a_b#gcp-aiplatform) page.

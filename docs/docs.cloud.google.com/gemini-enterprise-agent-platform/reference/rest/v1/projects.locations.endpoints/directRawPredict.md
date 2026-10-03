@@ -34,7 +34,7 @@ Fully qualified name of the API method being invoked to perform predictions.
 
 Format: `/namespace.Service/method/` Example: `/tensorflow.serving.PredictionService/endpoints.predict`
 
-`input` `string ( bytes format)`
+`input` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The prediction input.
 
@@ -42,32 +42,22 @@ A base64-encoded string.
 
 ### Response body
 
-Response message for `  PredictionService.DirectRawPredict  ` .
+Response message for [`PredictionService.DirectRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/directRawPredict#google.cloud.aiplatform.v1.PredictionService.DirectRawPredict) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`output` `string ( bytes format)`
+`output` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The prediction output.
 
 A base64-encoded string.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;output&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "output": string
+}
+```

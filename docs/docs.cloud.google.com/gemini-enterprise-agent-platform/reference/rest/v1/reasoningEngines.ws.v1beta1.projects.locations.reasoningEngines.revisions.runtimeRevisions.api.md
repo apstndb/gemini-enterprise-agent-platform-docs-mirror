@@ -10,8 +10,6 @@ data_source: docs.cloud.google.com
 
 There is no persistent data associated with this resource.
 
-## Methods
-
-### `            bidiInvokeReasoningEngine           `
-
-Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming
+| Methods                                                                                                                                                                                                                                  |                                                                               |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| [`bidiInvokeReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.ws.v1beta1.projects.locations.reasoningEngines.revisions.runtimeRevisions.api/bidiInvokeReasoningEngine) | Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming |

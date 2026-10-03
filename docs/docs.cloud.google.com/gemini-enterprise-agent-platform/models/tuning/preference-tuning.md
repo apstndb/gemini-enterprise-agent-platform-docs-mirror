@@ -7,8 +7,8 @@ data_source: docs.cloud.google.com
 ---
 
 > To see an example of preference tuning, run the "Get Started with Gemini Preference Optimization" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/tuning/dpo_gemini_get_started.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Ftuning%2Fdpo_gemini_get_started.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Ftuning%2Fdpo_gemini_get_started.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/tuning/dpo_gemini_get_started.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/tuning/dpo_gemini_get_started.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Ftuning%2Fdpo_gemini_get_started.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Ftuning%2Fdpo_gemini_get_started.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/tuning/dpo_gemini_get_started.ipynb)
 
 Gemini Enterprise Agent Platform preference tuning lets you tune your Gemini models with human feedback data.
 
@@ -24,13 +24,13 @@ The following Gemini models support preference tuning:
 
 #### Click to expand supported models
 
-  - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
+- [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+- [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 ## Limitations
 
 | Specification                                             | Value                                                                                                   |
-| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+|-----------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | Modalities                                                | Text                                                                                                    |
 | File size of the training dataset                         | 1GB                                                                                                     |
 | Maximum input and output tokens per training example      | 131,072                                                                                                 |
@@ -62,5 +62,5 @@ For pricing purposes, the number of tokens for each tuning example is calculated
 
 ## What's next
 
-  - Prepare a [preference tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-preference-tuning-prepare) .
-  - [Learn about deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy_a_tuned_model) .
+- Prepare a [preference tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-preference-tuning-prepare) .
+- [Learn about deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy_a_tuned_model) .

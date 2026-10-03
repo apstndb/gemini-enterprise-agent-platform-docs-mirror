@@ -30,15 +30,19 @@ You specify the location for a Agent Platform API request by using the appropria
 
 For example, to make a request in the `europe-west4` region, use the following endpoint:
 
-    https://europe-west4-aiplatform.googleapis.com
+```
+https://europe-west4-aiplatform.googleapis.com
+```
 
 To make a request in the `us-central1` region, use the following endpoint:
 
-    https://us-central1-aiplatform.googleapis.com
+```
+https://us-central1-aiplatform.googleapis.com
+```
 
 When you specify a resource, you use the name of the resource's region as the location. For example, a dataset in the `us-central1` region would be specified using the following path:
 
-` projects/ PROJECT /locations/ us-central1 /datasets/ DATASET_ID  `
+`projects/ `` PROJECT `` /locations/ `**`us-central1`**` /datasets/ `` DATASET_ID`
 
 See the [list of supported service endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest#service-endpoint) .
 
@@ -48,63 +52,63 @@ Agent Platform machine learning services are available in the following regions:
 
 ### United States
 
-  - Columbus, Ohio ( `us-east5` )
-  - Dallas, Texas ( `us-south1` )
-  - Iowa ( `us-central1` )
-  - Las Vegas, Nevada ( `us-west4` )
-  - Los Angeles, California ( `us-west2` )
-  - Moncks Corner, South Carolina ( `us-east1` )
-  - Northern Virginia ( `us-east4` )
-  - Oregon ( `us-west1` )
-  - Salt Lake City, Utah ( `us-west3` )
+- Columbus, Ohio ( `us-east5` )
+- Dallas, Texas ( `us-south1` )
+- Iowa ( `us-central1` )
+- Las Vegas, Nevada ( `us-west4` )
+- Los Angeles, California ( `us-west2` )
+- Moncks Corner, South Carolina ( `us-east1` )
+- Northern Virginia ( `us-east4` )
+- Oregon ( `us-west1` )
+- Salt Lake City, Utah ( `us-west3` )
 
 ### Canada
 
-  - Montréal ( `northamerica-northeast1` )
-  - Toronto ( `northamerica-northeast2` )
+- Montréal ( `northamerica-northeast1` )
+- Toronto ( `northamerica-northeast2` )
 
 ### South America
 
-  - Santiago, Chile ( `southamerica-west1` )
-  - São Paulo, Brazil ( `southamerica-east1` )
+- Santiago, Chile ( `southamerica-west1` )
+- São Paulo, Brazil ( `southamerica-east1` )
 
 ### Africa
 
-  - Johannesburg, South Africa ( `africa-south1` )
+- Johannesburg, South Africa ( `africa-south1` )
 
 ### Europe
 
-  - Belgium ( `europe-west1` )
-  - Finland ( `europe-north1` )
-  - Frankfurt, Germany ( `europe-west3` )
-  - London, United Kingdom ( `europe-west2` )
-  - Madrid, Spain ( `europe-southwest1` )
-  - Milan, Italy ( `europe-west8` )
-  - Netherlands ( `europe-west4` )
-  - Paris, France ( `europe-west9` )
-  - Turin, Italy ( `europe-west12` )
-  - Warsaw, Poland ( `europe-central2` )
-  - Zürich, Switzerland ( `europe-west6` )
+- Belgium ( `europe-west1` )
+- Finland ( `europe-north1` )
+- Frankfurt, Germany ( `europe-west3` )
+- London, United Kingdom ( `europe-west2` )
+- Madrid, Spain ( `europe-southwest1` )
+- Milan, Italy ( `europe-west8` )
+- Netherlands ( `europe-west4` )
+- Paris, France ( `europe-west9` )
+- Turin, Italy ( `europe-west12` )
+- Warsaw, Poland ( `europe-central2` )
+- Zürich, Switzerland ( `europe-west6` )
 
 ### Asia Pacific
 
-  - Hong Kong, China ( `asia-east2` )
-  - Jakarta, Indonesia ( `asia-southeast2` )
-  - Melbourne, Australia ( `australia-southeast2` )
-  - Mumbai, India ( `asia-south1` )
-  - Delhi, India ( `asia-south2` )
-  - Osaka, Japan ( `asia-northeast2` )
-  - Seoul, Korea ( `asia-northeast3` )
-  - Singapore ( `asia-southeast1` )
-  - Sydney, Australia ( `australia-southeast1` )
-  - Taiwan ( `asia-east1` )
-  - Tokyo, Japan ( `asia-northeast1` )
+- Hong Kong, China ( `asia-east2` )
+- Jakarta, Indonesia ( `asia-southeast2` )
+- Melbourne, Australia ( `australia-southeast2` )
+- Mumbai, India ( `asia-south1` )
+- Delhi, India ( `asia-south2` )
+- Osaka, Japan ( `asia-northeast2` )
+- Seoul, Korea ( `asia-northeast3` )
+- Singapore ( `asia-southeast1` )
+- Sydney, Australia ( `australia-southeast1` )
+- Taiwan ( `asia-east1` )
+- Tokyo, Japan ( `asia-northeast1` )
 
 ### Middle East
 
-  - Dammam, Saudi Arabia ( `me-central2` )
-  - Doha, Qatar ( `me-central1` )
-  - Tel Aviv ( `me-west1` )
+- Dammam, Saudi Arabia ( `me-central2` )
+- Doha, Qatar ( `me-central1` )
+- Tel Aviv ( `me-west1` )
 
 Google Cloud also provides [additional regions](https://cloud.google.com/about/locations) for products other than Agent Platform.
 
@@ -113,9 +117,9 @@ Google Cloud also provides [additional regions](https://cloud.google.com/about/l
 Some Agent Platform features aren't available in all regions. The following table lists the features that are available in each region.
 
 > Locations for some Agent Platform components are listed separately. See the following:
-> 
->   - [Colab Enterprise locations](https://docs.cloud.google.com/colab/docs/locations)
->   - [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#workbench-locations)
+>
+> - [Colab Enterprise locations](https://docs.cloud.google.com/colab/docs/locations)
+> - [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#workbench-locations)
 
 The following sortable table lets you select different options to see where Agent Platform features are available. For example, to see a list of regions where Agent Platform Feature Store is available in Europe, you can select **Europe** from the **Select a location** drop-down menu, and **Agent Platform Feature Store** from the **Select a feature** drop-down menu.
 
@@ -136,7 +140,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr" translate="no">asia-east1</code><br />
+<td><code>asia-east1</code><br />
 </td>
 <td>Changhua County, Taiwan, Asia Pacific</td>
 <td><ul>
@@ -157,7 +161,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">africa-south1</code><br />
+<td><code>africa-south1</code><br />
 </td>
 <td>Johannesburg, South Africa, Africa</td>
 <td><ul>
@@ -172,7 +176,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">asia-east2</code><br />
+<td><code>asia-east2</code><br />
 </td>
 <td>Hong Kong, Asia Pacific</td>
 <td><ul>
@@ -191,7 +195,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">asia-northeast1</code><br />
+<td><code>asia-northeast1</code><br />
 </td>
 <td>Tokyo, Japan, Asia Pacific</td>
 <td><ul>
@@ -210,7 +214,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">asia-northeast2</code><br />
+<td><code>asia-northeast2</code><br />
 </td>
 <td>Osaka, Japan, Asia Pacific</td>
 <td><ul>
@@ -227,7 +231,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">asia-northeast3</code><br />
+<td><code>asia-northeast3</code><br />
 </td>
 <td>Seoul, South Korea, Asia Pacific</td>
 <td><ul>
@@ -246,7 +250,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">asia-south1</code><br />
+<td><code>asia-south1</code><br />
 </td>
 <td>Mumbai, India, Asia Pacific</td>
 <td><ul>
@@ -265,7 +269,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">asia-southeast1</code><br />
+<td><code>asia-southeast1</code><br />
 </td>
 <td>Jurong West, Singapore, Asia Pacific</td>
 <td><ul>
@@ -285,7 +289,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">asia-southeast2</code><br />
+<td><code>asia-southeast2</code><br />
 </td>
 <td>Jakarta, Indonesia, Asia Pacific</td>
 <td><ul>
@@ -304,7 +308,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">australia-southeast1</code><br />
+<td><code>australia-southeast1</code><br />
 </td>
 <td>Sydney, Australia, Asia Pacific</td>
 <td><ul>
@@ -324,7 +328,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">australia-southeast2</code><br />
+<td><code>australia-southeast2</code><br />
 </td>
 <td>Melbourne, Australia, Asia Pacific</td>
 <td><ul>
@@ -341,8 +345,8 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">europe-central2</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+<td><code>europe-central2</code><br />
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Warsaw, Poland, Europe</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -360,8 +364,8 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">europe-north1</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+<td><code>europe-north1</code><br />
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Hamina, Finland, Europe</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -377,8 +381,8 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">europe-southwest1</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+<td><code>europe-southwest1</code><br />
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Madrid, Spain, Europe</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -395,8 +399,8 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">europe-west1</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+<td><code>europe-west1</code><br />
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>St. Ghislain, Belgium, Europe</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -415,8 +419,8 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">europe-west2</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+<td><code>europe-west2</code><br />
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>London, England, Europe</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -435,7 +439,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">europe-west3</code><br />
+<td><code>europe-west3</code><br />
 </td>
 <td>Frankfurt, Germany, Europe</td>
 <td><ul>
@@ -455,8 +459,8 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">europe-west4</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+<td><code>europe-west4</code><br />
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Eemshaven, Netherlands, Europe</td>
 <td><ul>
 <li>AutoML for image data</li>
@@ -478,8 +482,8 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">europe-west6</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+<td><code>europe-west6</code><br />
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Zürich, Switzerland, Europe</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -497,8 +501,8 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">europe-west8</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+<td><code>europe-west8</code><br />
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Milan, Italy, Europe</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -514,8 +518,8 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">europe-west9</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+<td><code>europe-west9</code><br />
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Paris, France, Europe</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -533,8 +537,8 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">europe-west12</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+<td><code>europe-west12</code><br />
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Turin, Italy, Europe</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -550,7 +554,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">me-central1</code><br />
+<td><code>me-central1</code><br />
 </td>
 <td>Doha, Qatar, Middle East</td>
 <td><ul>
@@ -566,7 +570,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">me-central2</code><br />
+<td><code>me-central2</code><br />
 </td>
 <td>Dammam, Saudi Arabia, Middle East</td>
 <td><ul>
@@ -582,7 +586,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">me-west1</code><br />
+<td><code>me-west1</code><br />
 </td>
 <td>Tel Aviv, Israel, Middle East</td>
 <td><ul>
@@ -601,8 +605,8 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">northamerica-northeast1</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+<td><code>northamerica-northeast1</code><br />
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Montréal, Québec, North America</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -620,8 +624,8 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">northamerica-northeast2</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+<td><code>northamerica-northeast2</code><br />
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Toronto, Ontario, North America</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -639,8 +643,8 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">southamerica-east1</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+<td><code>southamerica-east1</code><br />
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Osasco, São Paulo, Brazil, South America</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -658,8 +662,8 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">southamerica-west1</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+<td><code>southamerica-west1</code><br />
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Santiago, Chile, South America</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -675,8 +679,8 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">us-central1</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+<td><code>us-central1</code><br />
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Council Bluffs, Iowa, North America</td>
 <td><ul>
 <li>AutoML for image data</li>
@@ -698,7 +702,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">us-east1</code><br />
+<td><code>us-east1</code><br />
 </td>
 <td>Moncks Corner, South Carolina, North America</td>
 <td><ul>
@@ -718,7 +722,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">us-east4</code><br />
+<td><code>us-east4</code><br />
 </td>
 <td>Ashburn, Virginia, North America</td>
 <td><ul>
@@ -738,7 +742,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">us-east5</code><br />
+<td><code>us-east5</code><br />
 </td>
 <td>Columbus, Ohio, North America</td>
 <td><ul>
@@ -753,8 +757,8 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">us-south1</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+<td><code>us-south1</code><br />
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Dallas, Texas, North America</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -772,8 +776,8 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">us-west1</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+<td><code>us-west1</code><br />
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>The Dalles, Oregon, North America</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -792,7 +796,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">us-west2</code><br />
+<td><code>us-west2</code><br />
 </td>
 <td>Los Angeles, California, North America</td>
 <td><ul>
@@ -811,7 +815,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">us-west3</code><br />
+<td><code>us-west3</code><br />
 </td>
 <td>Salt Lake City, Utah, North America</td>
 <td><ul>
@@ -831,7 +835,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">us-west4</code><br />
+<td><code>us-west4</code><br />
 </td>
 <td>Las Vegas, Nevada, North America</td>
 <td><ul>
@@ -860,270 +864,39 @@ Agent Platform Workbench instances are available in the following zones.
 
 Asia Pacific Europe Middle East North America South America
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Region</th>
-<th>Location</th>
-<th>Zones</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code dir="ltr" translate="no">asia-east1</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-</td>
-<td>Changhua County, Taiwan, Asia Pacific</td>
-<td><code dir="ltr" translate="no">asia-east1-a</code><br />
-<code dir="ltr" translate="no">asia-east1-b</code><br />
-<code dir="ltr" translate="no">asia-east1-c</code></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">asia-east2</code><br />
-</td>
-<td>Hong Kong, Asia Pacific</td>
-<td><code dir="ltr" translate="no">asia-east2-a</code><br />
-<code dir="ltr" translate="no">asia-east2-b</code><br />
-<code dir="ltr" translate="no">asia-east2-c</code></td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">asia-northeast1</code><br />
-</td>
-<td>Tokyo, Japan, Asia Pacific</td>
-<td><code dir="ltr" translate="no">asia-northeast1-a</code><br />
-<code dir="ltr" translate="no">asia-northeast1-b</code><br />
-<code dir="ltr" translate="no">asia-northeast1-c</code></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">asia-northeast3</code><br />
-</td>
-<td>Seoul, South Korea, Asia Pacific</td>
-<td><code dir="ltr" translate="no">asia-northeast3-a</code><br />
-<code dir="ltr" translate="no">asia-northeast3-b</code><br />
-<code dir="ltr" translate="no">asia-northeast3-c</code></td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">asia-south1</code><br />
-</td>
-<td>Mumbai, India, Asia Pacific</td>
-<td><code dir="ltr" translate="no">asia-south1-a</code><br />
-<code dir="ltr" translate="no">asia-south1-b</code><br />
-<code dir="ltr" translate="no">asia-south1-c</code></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">asia-south2</code><br />
-</td>
-<td>Delhi, India, Asia Pacific</td>
-<td><code dir="ltr" translate="no">asia-south2-a</code><br />
-<code dir="ltr" translate="no">asia-south2-b</code><br />
-<code dir="ltr" translate="no">asia-south2-c</code></td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">asia-southeast1</code><br />
-</td>
-<td>Jurong West, Singapore, Asia Pacific</td>
-<td><code dir="ltr" translate="no">asia-southeast1-a</code><br />
-<code dir="ltr" translate="no">asia-southeast1-b</code><br />
-<code dir="ltr" translate="no">asia-southeast1-c</code></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">asia-southeast2</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-</td>
-<td>Jakarta, Indonesia, Asia Pacific</td>
-<td><code dir="ltr" translate="no">asia-southeast2-a</code><br />
-<code dir="ltr" translate="no">asia-southeast2-b</code><br />
-<code dir="ltr" translate="no">asia-southeast2-c</code></td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">australia-southeast1</code><br />
-</td>
-<td>Sydney, Australia, Asia Pacific</td>
-<td><code dir="ltr" translate="no">australia-southeast1-a</code><br />
-<code dir="ltr" translate="no">australia-southeast1-b</code><br />
-<code dir="ltr" translate="no">australia-southeast1-c</code></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">europe-central2</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
-<td>Warsaw, Poland, Europe</td>
-<td><code dir="ltr" translate="no">europe-central2-a</code><br />
-<code dir="ltr" translate="no">europe-central2-b</code><br />
-<code dir="ltr" translate="no">europe-central2-c</code></td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">europe-west1</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
-<td>St. Ghislain, Belgium, Europe</td>
-<td><code dir="ltr" translate="no">europe-west1-b</code><br />
-<code dir="ltr" translate="no">europe-west1-c</code><br />
-<code dir="ltr" translate="no">europe-west1-d</code></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">europe-west2</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
-<td>London, England, Europe</td>
-<td><code dir="ltr" translate="no">europe-west2-a</code><br />
-<code dir="ltr" translate="no">europe-west2-b</code><br />
-<code dir="ltr" translate="no">europe-west2-c</code></td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">europe-west3</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-</td>
-<td>Frankfurt, Germany, Europe</td>
-<td><code dir="ltr" translate="no">europe-west3-a</code><br />
-<code dir="ltr" translate="no">europe-west3-b</code><br />
-<code dir="ltr" translate="no">europe-west3-c</code></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">europe-west4</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-second-footnote">†</a><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
-<td>Eemshaven, Netherlands, Europe</td>
-<td><code dir="ltr" translate="no">europe-west4-a</code><br />
-<code dir="ltr" translate="no">europe-west4-b</code><br />
-<code dir="ltr" translate="no">europe-west4-c</code></td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">europe-west6</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
-<td>Zürich, Switzerland, Europe</td>
-<td><code dir="ltr" translate="no">europe-west6-a</code><br />
-<code dir="ltr" translate="no">europe-west6-b</code><br />
-<code dir="ltr" translate="no">europe-west6-c</code></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">europe-west12</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-</td>
-<td>Turin, Italy, Europe</td>
-<td><code dir="ltr" translate="no">europe-west12-a</code><br />
-<code dir="ltr" translate="no">europe-west12-b</code><br />
-<code dir="ltr" translate="no">europe-west12-c</code></td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">me-central1</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-</td>
-<td>Doha, Qatar, Middle East</td>
-<td><code dir="ltr" translate="no">me-central1-a</code><br />
-<code dir="ltr" translate="no">me-central1-b</code><br />
-<code dir="ltr" translate="no">me-central1-c</code></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">me-central2</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-</td>
-<td>Dammam, Saudi Arabia, Middle East</td>
-<td><code dir="ltr" translate="no">me-central2-a</code><br />
-<code dir="ltr" translate="no">me-central2-b</code><br />
-<code dir="ltr" translate="no">me-central2-c</code></td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">me-west1</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-</td>
-<td>Tel Aviv, Israel, Middle East</td>
-<td><code dir="ltr" translate="no">me-west1-a</code><br />
-<code dir="ltr" translate="no">me-west1-b</code><br />
-<code dir="ltr" translate="no">me-west1-c</code></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">northamerica-northeast1</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
-<td>Montréal, Québec, North America</td>
-<td><code dir="ltr" translate="no">northamerica-northeast1-a</code><br />
-<code dir="ltr" translate="no">northamerica-northeast1-b</code><br />
-<code dir="ltr" translate="no">northamerica-northeast1-c</code></td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">northamerica-northeast2</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
-<td>Toronto, Ontario, North America</td>
-<td><code dir="ltr" translate="no">northamerica-northeast2-a</code><br />
-<code dir="ltr" translate="no">northamerica-northeast2-b</code><br />
-<code dir="ltr" translate="no">northamerica-northeast2-c</code></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">southamerica-east1</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
-<td>Osasco, São Paulo, Brazil, South America</td>
-<td><code dir="ltr" translate="no">southamerica-east1-a</code><br />
-<code dir="ltr" translate="no">southamerica-east1-b</code><br />
-<code dir="ltr" translate="no">southamerica-east1-c</code></td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">us-central1</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
-<td>Council Bluffs, Iowa, North America</td>
-<td><code dir="ltr" translate="no">us-central1-a</code><br />
-<code dir="ltr" translate="no">us-central1-b</code><br />
-<code dir="ltr" translate="no">us-central1-c</code></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">us-east1</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-</td>
-<td>Moncks Corner, South Carolina, North America</td>
-<td><code dir="ltr" translate="no">us-east1-b</code><br />
-<code dir="ltr" translate="no">us-east1-c</code><br />
-<code dir="ltr" translate="no">us-east1-d</code></td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">us-east4</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-</td>
-<td>Ashburn, Virginia, North America</td>
-<td><code dir="ltr" translate="no">us-east4-a</code><br />
-<code dir="ltr" translate="no">us-east4-b</code><br />
-<code dir="ltr" translate="no">us-east4-c</code></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">us-east5</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-</td>
-<td>Columbus, Ohio, North America</td>
-<td><code dir="ltr" translate="no">us-east5-a</code><br />
-<code dir="ltr" translate="no">us-east5-b</code><br />
-<code dir="ltr" translate="no">us-east5-c</code></td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">us-south1</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
-<td>Dallas, Texas, North America</td>
-<td><code dir="ltr" translate="no">us-south1-a</code><br />
-<code dir="ltr" translate="no">us-south1-b</code><br />
-<code dir="ltr" translate="no">us-south1-c</code></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">us-west1</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
-<td>The Dalles, Oregon, North America</td>
-<td><code dir="ltr" translate="no">us-west1-a</code><br />
-<code dir="ltr" translate="no">us-west1-b</code><br />
-<code dir="ltr" translate="no">us-west1-c</code></td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">us-west2</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-</td>
-<td>Los Angeles, California, North America</td>
-<td><code dir="ltr" translate="no">us-west2-a</code><br />
-<code dir="ltr" translate="no">us-west2-b</code><br />
-<code dir="ltr" translate="no">us-west2-c</code></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">us-west3</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-</td>
-<td>Salt Lake City, Utah, North America</td>
-<td><code dir="ltr" translate="no">us-west3-a</code><br />
-<code dir="ltr" translate="no">us-west3-b</code><br />
-<code dir="ltr" translate="no">us-west3-c</code></td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">us-west4</code><br />
-</td>
-<td>Las Vegas, Nevada, North America</td>
-<td><code dir="ltr" translate="no">us-west4-a</code><br />
-<code dir="ltr" translate="no">us-west4-b</code><br />
-<code dir="ltr" translate="no">us-west4-c</code></td>
-</tr>
-</tbody>
-</table>
+| Region                                                                                                                                                                                                                                                                                                                        | Location                                     | Zones                                                                               |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|-------------------------------------------------------------------------------------|
+| `asia-east1` [\*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote)                                                                                                                                                                                       | Changhua County, Taiwan, Asia Pacific        | `asia-east1-a` `asia-east1-b` `asia-east1-c`                                        |
+| `asia-east2`                                                                                                                                                                                                                                                                                                                  | Hong Kong, Asia Pacific                      | `asia-east2-a` `asia-east2-b` `asia-east2-c`                                        |
+| `asia-northeast1`                                                                                                                                                                                                                                                                                                             | Tokyo, Japan, Asia Pacific                   | `asia-northeast1-a` `asia-northeast1-b` `asia-northeast1-c`                         |
+| `asia-northeast3`                                                                                                                                                                                                                                                                                                             | Seoul, South Korea, Asia Pacific             | `asia-northeast3-a` `asia-northeast3-b` `asia-northeast3-c`                         |
+| `asia-south1`                                                                                                                                                                                                                                                                                                                 | Mumbai, India, Asia Pacific                  | `asia-south1-a` `asia-south1-b` `asia-south1-c`                                     |
+| `asia-south2`                                                                                                                                                                                                                                                                                                                 | Delhi, India, Asia Pacific                   | `asia-south2-a` `asia-south2-b` `asia-south2-c`                                     |
+| `asia-southeast1`                                                                                                                                                                                                                                                                                                             | Jurong West, Singapore, Asia Pacific         | `asia-southeast1-a` `asia-southeast1-b` `asia-southeast1-c`                         |
+| `asia-southeast2` [\*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote)                                                                                                                                                                                  | Jakarta, Indonesia, Asia Pacific             | `asia-southeast2-a` `asia-southeast2-b` `asia-southeast2-c`                         |
+| `australia-southeast1`                                                                                                                                                                                                                                                                                                        | Sydney, Australia, Asia Pacific              | `australia-southeast1-a` `australia-southeast1-b` `australia-southeast1-c`          |
+| `europe-central2` [\*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote) ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO <sub>2</sub>](https://cloud.google.com/sustainability/region-carbon#region-picker)         | Warsaw, Poland, Europe                       | `europe-central2-a` `europe-central2-b` `europe-central2-c`                         |
+| `europe-west1` ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO <sub>2</sub>](https://cloud.google.com/sustainability/region-carbon#region-picker)                                                                                                                                       | St. Ghislain, Belgium, Europe                | `europe-west1-b` `europe-west1-c` `europe-west1-d`                                  |
+| `europe-west2` [\*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote) ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO <sub>2</sub>](https://cloud.google.com/sustainability/region-carbon#region-picker)            | London, England, Europe                      | `europe-west2-a` `europe-west2-b` `europe-west2-c`                                  |
+| `europe-west3` [\*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote)                                                                                                                                                                                     | Frankfurt, Germany, Europe                   | `europe-west3-a` `europe-west3-b` `europe-west3-c`                                  |
+| `europe-west4` [†](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-second-footnote) ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO <sub>2</sub>](https://cloud.google.com/sustainability/region-carbon#region-picker)      | Eemshaven, Netherlands, Europe               | `europe-west4-a` `europe-west4-b` `europe-west4-c`                                  |
+| `europe-west6` [\*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote) ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO <sub>2</sub>](https://cloud.google.com/sustainability/region-carbon#region-picker)            | Zürich, Switzerland, Europe                  | `europe-west6-a` `europe-west6-b` `europe-west6-c`                                  |
+| `europe-west12` [\*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote)                                                                                                                                                                                    | Turin, Italy, Europe                         | `europe-west12-a` `europe-west12-b` `europe-west12-c`                               |
+| `me-central1` [\*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote)                                                                                                                                                                                      | Doha, Qatar, Middle East                     | `me-central1-a` `me-central1-b` `me-central1-c`                                     |
+| `me-central2` [\*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote)                                                                                                                                                                                      | Dammam, Saudi Arabia, Middle East            | `me-central2-a` `me-central2-b` `me-central2-c`                                     |
+| `me-west1` [\*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote)                                                                                                                                                                                         | Tel Aviv, Israel, Middle East                | `me-west1-a` `me-west1-b` `me-west1-c`                                              |
+| `northamerica-northeast1` ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO <sub>2</sub>](https://cloud.google.com/sustainability/region-carbon#region-picker)                                                                                                                            | Montréal, Québec, North America              | `northamerica-northeast1-a` `northamerica-northeast1-b` `northamerica-northeast1-c` |
+| `northamerica-northeast2` [\*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote) ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO <sub>2</sub>](https://cloud.google.com/sustainability/region-carbon#region-picker) | Toronto, Ontario, North America              | `northamerica-northeast2-a` `northamerica-northeast2-b` `northamerica-northeast2-c` |
+| `southamerica-east1` ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO <sub>2</sub>](https://cloud.google.com/sustainability/region-carbon#region-picker)                                                                                                                                 | Osasco, São Paulo, Brazil, South America     | `southamerica-east1-a` `southamerica-east1-b` `southamerica-east1-c`                |
+| `us-central1` ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO <sub>2</sub>](https://cloud.google.com/sustainability/region-carbon#region-picker)                                                                                                                                        | Council Bluffs, Iowa, North America          | `us-central1-a` `us-central1-b` `us-central1-c`                                     |
+| `us-east1` [\*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote)                                                                                                                                                                                         | Moncks Corner, South Carolina, North America | `us-east1-b` `us-east1-c` `us-east1-d`                                              |
+| `us-east4` [\*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote)                                                                                                                                                                                         | Ashburn, Virginia, North America             | `us-east4-a` `us-east4-b` `us-east4-c`                                              |
+| `us-east5` [\*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote)                                                                                                                                                                                         | Columbus, Ohio, North America                | `us-east5-a` `us-east5-b` `us-east5-c`                                              |
+| `us-south1` [\*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote) ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO <sub>2</sub>](https://cloud.google.com/sustainability/region-carbon#region-picker)               | Dallas, Texas, North America                 | `us-south1-a` `us-south1-b` `us-south1-c`                                           |
+| `us-west1` ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO <sub>2</sub>](https://cloud.google.com/sustainability/region-carbon#region-picker)                                                                                                                                           | The Dalles, Oregon, North America            | `us-west1-a` `us-west1-b` `us-west1-c`                                              |
+| `us-west2` [\*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote)                                                                                                                                                                                         | Los Angeles, California, North America       | `us-west2-a` `us-west2-b` `us-west2-c`                                              |
+| `us-west3` [\*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote)                                                                                                                                                                                         | Salt Lake City, Utah, North America          | `us-west3-a` `us-west3-b` `us-west3-c`                                              |
+| `us-west4`                                                                                                                                                                                                                                                                                                                    | Las Vegas, Nevada, North America             | `us-west4-a` `us-west4-b` `us-west4-c`                                              |
 
 \* Regions marked with asterisks don't support [running or scheduling notebooks by using the Agent Platform Workbench executor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/schedule-notebook-run-quickstart) .
 
@@ -1146,7 +919,7 @@ As a best practice, consider using only GPU accelerator types that are available
 Asia Pacific Europe North America South America A100 40GB A100 80GB B200 GB200 RTX PRO 6000 H100 H100 Mega H200 L4 P4 P100 T4 TPU v2 TPU v2 Pod TPU v3 TPU v3 Pod TPU v5e TPU v6e TPU7x V100
 
 | Region                    | Location                                     | Accelerators                                                                                                                                                                                                                                              |
-| ------------------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|---------------------------|----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `asia-east1`              | Changhua County, Taiwan, Asia Pacific        | L4 <sup>†</sup> , P100, T4, TPU v2 <sup>\*</sup> , V100, H100 Mega <sup>\*</sup>                                                                                                                                                                          |
 | `asia-east2`              | Hong Kong, Asia Pacific                      | T4                                                                                                                                                                                                                                                        |
 | `asia-northeast1`         | Tokyo, Japan, Asia Pacific                   | A100 40GB <sup>†</sup> , H100, H100 Mega, B200 <sup>\*</sup> , L4 <sup>†</sup> , T4, TPU v6e                                                                                                                                                              |
@@ -1197,33 +970,33 @@ When you use a BigQuery table as a source for a managed tabular dataset or tabul
 
 ### Americas
 
-  - BigQuery tables can be either multi-regional (for example, `US` ) or regional (for example, `us-central1` ).
+- BigQuery tables can be either multi-regional (for example, `US` ) or regional (for example, `us-central1` ).
 
-  - BigQuery views must be regional (for example, `us-central1` ).
+- BigQuery views must be regional (for example, `us-central1` ).
 
-  - If the table or view is not in the same project that the Agent Platform job is running in, make sure that Agent Platform has [the correct roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#bq-roles) .
+- If the table or view is not in the same project that the Agent Platform job is running in, make sure that Agent Platform has [the correct roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#bq-roles) .
 
 ### Europe
 
-  - BigQuery tables and views must be regional (for example, `europe-west4` ).
+- BigQuery tables and views must be regional (for example, `europe-west4` ).
 
-  - Location: The region that your Agent Platform job runs in (for example, `europe-west4` ).
+- Location: The region that your Agent Platform job runs in (for example, `europe-west4` ).
 
-  - If the table or view is not in the same project that the Agent Platform job is running in, make sure that Agent Platform has [the correct roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#bq-roles) .
+- If the table or view is not in the same project that the Agent Platform job is running in, make sure that Agent Platform has [the correct roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#bq-roles) .
 
 ### Cloud Storage bucket requirements
 
 Some Agent Platform tasks, such as importing data, use a [Cloud Storage bucket](https://docs.cloud.google.com/storage/docs/creating-buckets) .
 
-  - For best performance, we recommend that you use the following settings when creating a Cloud Storage bucket to use with Agent Platform:
-    
-      - Location type: [`Region`](https://docs.cloud.google.com/storage/docs/locations) .
-      - Location: The region where you are using Agent Platform; for example, `us-central1` , `europe-west4` , or `asia-east1` .
-      - Storage class: [`Standard`](https://docs.cloud.google.com/storage/docs/storage-classes) .
-    
-    For Agent Platform training jobs, buckets must be regional.
+- For best performance, we recommend that you use the following settings when creating a Cloud Storage bucket to use with Agent Platform:
 
-  - If the bucket is not in the same project that the Agent Platform job is running in, make sure Agent Platform has [the correct roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#storage-roles) .
+  - Location type: [`Region`](https://docs.cloud.google.com/storage/docs/locations) .
+  - Location: The region where you are using Agent Platform; for example, `us-central1` , `europe-west4` , or `asia-east1` .
+  - Storage class: [`Standard`](https://docs.cloud.google.com/storage/docs/storage-classes) .
+
+  For Agent Platform training jobs, buckets must be regional.
+
+- If the bucket is not in the same project that the Agent Platform job is running in, make sure Agent Platform has [the correct roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#storage-roles) .
 
 ## Restricting resource locations
 
@@ -1231,6 +1004,6 @@ Organization policy administrators can restrict the regions available where you 
 
 ## What's next
 
-  - Learn about [Google Cloud regions](https://docs.cloud.google.com/docs/geography-and-regions) .
-  - Learn about [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for Google and partner models and generative AI features.
-  - Learn about [Supported locations for agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) .
+- Learn about [Google Cloud regions](https://docs.cloud.google.com/docs/geography-and-regions) .
+- Learn about [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for Google and partner models and generative AI features.
+- Learn about [Supported locations for agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) .

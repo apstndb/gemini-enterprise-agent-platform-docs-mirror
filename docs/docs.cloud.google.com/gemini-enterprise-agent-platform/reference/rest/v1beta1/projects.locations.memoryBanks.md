@@ -12,8 +12,6 @@ This type has no fields.
 
 A Memory Bank, which generates and manages agentic memories.
 
-## Methods
-
-### `            ingestEvents           `
-
-Ingests events for a Memory Bank.
+| Methods                                                                                                                                             |                                   |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| [`ingestEvents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks/ingestEvents) | Ingests events for a Memory Bank. |

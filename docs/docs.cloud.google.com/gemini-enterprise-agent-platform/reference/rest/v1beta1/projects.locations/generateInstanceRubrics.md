@@ -28,19 +28,19 @@ The request body contains data with the following structure:
 
 Fields
 
-`contents[]` ` object ( Content  ` )
+`contents[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Required. The prompt to generate rubrics from. For single-turn queries, this is a single instance. For multi-turn queries, this is a repeated field that contains conversation history + latest request.
 
-`predefinedRubricGenerationSpec` ` object ( PredefinedMetricSpec  ` )
+`predefinedRubricGenerationSpec` `object ( `[`PredefinedMetricSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#PredefinedMetricSpec)` )`
 
-Optional. Specification for using the rubric generation configs of a pre-defined metric, e.g. "generic\_quality\_v1" and "instruction\_following\_v1". Some of the configs may be only used in rubric generation and not supporting evaluation, e.g. "fully\_customized\_generic\_quality\_v1". If this field is set, the `rubricGenerationSpec` field will be ignored.
+Optional. Specification for using the rubric generation configs of a pre-defined metric, e.g. "generic_quality_v1" and "instruction_following_v1". Some of the configs may be only used in rubric generation and not supporting evaluation, e.g. "fully_customized_generic_quality_v1". If this field is set, the `rubricGenerationSpec` field will be ignored.
 
-`rubricGenerationSpec` ` object ( RubricGenerationSpec  ` )
+`rubricGenerationSpec` `object ( `[`RubricGenerationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#RubricGenerationSpec)` )`
 
 Optional. Specification for how the rubrics should be generated.
 
-`agentConfig` ` object ( DeprecatedAgentConfig  ` )
+`agentConfig` `object ( `[`DeprecatedAgentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DeprecatedAgentConfig)` )`
 
 Optional. Agent configuration, required for agent-based rubric generation.
 
@@ -56,22 +56,18 @@ If successful, the response body contains data with the following structure:
 
 Fields
 
-`generatedRubrics[]` ` object ( Rubric  ` )
+`generatedRubrics[]` `object ( `[`Rubric`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Rubric)` )`
 
 Output only. A list of generated rubrics.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;generatedRubrics&quot;: [{object (Rubric)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "generatedRubrics": [
+    {
+      object (Rubric)
+    }
+  ]
+}
+```

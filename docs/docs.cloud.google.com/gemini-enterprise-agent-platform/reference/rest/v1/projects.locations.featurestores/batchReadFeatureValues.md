@@ -30,21 +30,21 @@ The request body contains data with the following structure:
 
 Fields
 
-`destination` ` object ( FeatureValueDestination  ` )
+`destination` `object ( `[`FeatureValueDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/FeatureValueDestination)` )`
 
 Required. Specifies output location and format.
 
-`passThroughFields[]` ` object ( PassThroughField  ` )
+`passThroughFields[]` `object ( `[`PassThroughField`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores/batchReadFeatureValues#PassThroughField)` )`
 
-When not empty, the specified fields in the \*\_read\_instances source will be joined as-is in the output, in addition to those fields from the Featurestore Entity.
+When not empty, the specified fields in the \*\_read_instances source will be joined as-is in the output, in addition to those fields from the Featurestore Entity.
 
 For BigQuery source, the type of the pass-through values will be automatically inferred. For CSV source, the pass-through values will be passed as opaque bytes.
 
-`entityTypeSpecs[]` ` object ( EntityTypeSpec  ` )
+`entityTypeSpecs[]` `object ( `[`EntityTypeSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores/batchReadFeatureValues#EntityTypeSpec)` )`
 
 Required. Specifies EntityType grouping Features to read values of and settings.
 
-`startTime` ` string ( Timestamp  ` format)
+`startTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Optional. Excludes feature values with feature generation timestamp before this timestamp. If not set, retrieve oldest values kept in feature Store. timestamp, if present, must not have higher than millisecond precision.
 
@@ -54,7 +54,7 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`csvReadInstances` ` object ( CsvSource  ` )
+`csvReadInstances` `object ( `[`CsvSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CsvSource)` )`
 
 Each read instance consists of exactly one read timestamp and one or more entity IDs identifying entities of the corresponding EntityTypes whose Features are requested.
 
@@ -66,13 +66,13 @@ An example output instance may be `foo_entity_id, bar_entity_id, 2020-01-01T10:0
 
 timestamp in each read instance must be millisecond-aligned.
 
-`csvReadInstances` are read instances stored in a plain-text CSV file. The header should be: \[ENTITY\_TYPE\_ID1\], \[ENTITY\_TYPE\_ID2\], ..., timestamp
+`csvReadInstances` are read instances stored in a plain-text CSV file. The header should be: \[ENTITY_TYPE_ID1\], \[ENTITY_TYPE_ID2\], ..., timestamp
 
 The columns can be in any order.
 
 Values in the timestamp column must use the RFC 3339 format, e.g. `2012-07-30T10:43:17.123Z` .
 
-`bigqueryReadInstances` ` object ( BigQuerySource  ` )
+`bigqueryReadInstances` `object ( `[`BigQuerySource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/BigQuerySource)` )`
 
 Similar to csvReadInstances, but from BigQuery source.
 
@@ -80,35 +80,25 @@ End of mutually exclusive fields.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ## PassThroughField
 
-Describe pass-through fields in read\_instance source.
+Describe pass-through fields in read_instance source.
 
 Fields
 
 `fieldName` `string`
 
-Required. The name of the field in the CSV header or the name of the column in BigQuery table. The naming restriction is the same as `  feature.name  ` .
+Required. The name of the field in the CSV header or the name of the column in BigQuery table. The naming restriction is the same as [`feature.name`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features#Feature.FIELDS.name) .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;fieldName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "fieldName": string
+}
+```
 
 ## EntityTypeSpec
 
@@ -118,28 +108,28 @@ Fields
 
 `entityTypeId` `string`
 
-Required. id of the EntityType to select Features. The EntityType id is the `  entityTypeId  ` specified during EntityType creation.
+Required. id of the EntityType to select Features. The EntityType id is the [`entityTypeId`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/create#body.QUERY_PARAMETERS.entity_type_id) specified during EntityType creation.
 
-`featureSelector` ` object ( FeatureSelector  ` )
+`featureSelector` `object ( `[`FeatureSelector`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/FeatureSelector)` )`
 
 Required. Selectors choosing which feature values to read from the EntityType.
 
-`settings[]` ` object ( DestinationFeatureSetting  ` )
+`settings[]` `object ( `[`DestinationFeatureSetting`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/DestinationFeatureSetting)` )`
 
 Per-feature settings for the batch read.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;entityTypeId&quot;: string,&quot;featureSelector&quot;: {object (FeatureSelector)},&quot;settings&quot;: [{object (DestinationFeatureSetting)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "entityTypeId": string,
+  "featureSelector": {
+    object (FeatureSelector)
+  },
+  "settings": [
+    {
+      object (DestinationFeatureSetting)
+    }
+  ]
+}
+```

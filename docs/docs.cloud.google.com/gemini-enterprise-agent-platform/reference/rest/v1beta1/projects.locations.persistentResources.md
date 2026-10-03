@@ -20,31 +20,31 @@ Immutable. Resource name of a PersistentResource.
 
 Optional. The display name of the PersistentResource. The name can be up to 128 characters long and can consist of any UTF-8 characters.
 
-`resourcePools[]` ` object ( ResourcePool  ` )
+`resourcePools[]` `object ( `[`ResourcePool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources#ResourcePool)` )`
 
 Required. The spec of the pools of different resources.
 
-`state` ` enum ( State  ` )
+`state` `enum ( `[`State`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources#State)` )`
 
 Output only. The detailed state of a Study.
 
-`error` ` object ( Status  ` )
+`error` `object ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Status)` )`
 
 Output only. Only populated when persistent resource's state is `STOPPING` or `ERROR` .
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. time when the PersistentResource was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`startTime` ` string ( Timestamp  ` format)
+`startTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. time when the PersistentResource for the first time entered the `RUNNING` state.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. time when the PersistentResource was most recently updated.
 
@@ -66,19 +66,19 @@ To specify this field, you must have already [configured VPC Network Peering for
 
 If this field is left unspecified, the resources aren't peered with any network.
 
-`pscInterfaceConfig` `object ( PscInterfaceConfig` )
+`pscInterfaceConfig` `object ( ``PscInterfaceConfig`` )`
 
 Optional. Configuration for PSC-I for PersistentResource.
 
-`encryptionSpec` ` object ( EncryptionSpec  ` )
+`encryptionSpec` `object ( `[`EncryptionSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/EncryptionSpec)` )`
 
 Optional. Customer-managed encryption key spec for a PersistentResource. If set, this PersistentResource and all sub-resources of this PersistentResource will be secured by this key.
 
-`resourceRuntimeSpec` ` object ( ResourceRuntimeSpec  ` )
+`resourceRuntimeSpec` `object ( `[`ResourceRuntimeSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources#ResourceRuntimeSpec)` )`
 
 Optional. Persistent Resource runtime spec. For example, used for Ray cluster configuration.
 
-`resourceRuntime` ` object ( ResourceRuntime  ` )
+`resourceRuntime` `object ( `[`ResourceRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources#ResourceRuntime)` )`
 
 Output only. Runtime information of the Persistent Resource.
 
@@ -98,21 +98,48 @@ Output only. reserved for future use.
 
 Output only. reserved for future use.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;resourcePools&quot;: [{object (ResourcePool)}],&quot;state&quot;: enum (State),&quot;error&quot;: {object (Status)},&quot;createTime&quot;: string,&quot;startTime&quot;: string,&quot;updateTime&quot;: string,&quot;labels&quot;: {string: string,...},&quot;network&quot;: string,&quot;pscInterfaceConfig&quot;: {object (PscInterfaceConfig)},&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;resourceRuntimeSpec&quot;: {object (ResourceRuntimeSpec)},&quot;resourceRuntime&quot;: {object (ResourceRuntime)},&quot;reservedIpRanges&quot;: [string],&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "resourcePools": [
+    {
+      object (ResourcePool)
+    }
+  ],
+  "state": enum (State),
+  "error": {
+    object (Status)
+  },
+  "createTime": string,
+  "startTime": string,
+  "updateTime": string,
+  "labels": {
+    string: string,
+    ...
+  },
+  "network": string,
+  "pscInterfaceConfig": {
+    object (PscInterfaceConfig)
+  },
+  "encryptionSpec": {
+    object (EncryptionSpec)
+  },
+  "resourceRuntimeSpec": {
+    object (ResourceRuntimeSpec)
+  },
+  "resourceRuntime": {
+    object (ResourceRuntime)
+  },
+  "reservedIpRanges": [
+    string
+  ],
+  "satisfiesPzs": boolean,
+  "satisfiesPzi": boolean
+}
+```
 
 ## ResourcePool
 
@@ -124,41 +151,44 @@ Fields
 
 Immutable. The unique id in a PersistentResource for referring to this resource pool. user can specify it if necessary. Otherwise, it's generated automatically.
 
-`machineSpec` `object ( MachineSpec` )
+`machineSpec` `object ( ``MachineSpec`` )`
 
 Required. Immutable. The specification of a single machine.
 
-`diskSpec` `object ( DiskSpec` )
+`diskSpec` `object ( ``DiskSpec`` )`
 
 Optional. Disk spec for the machine in this node pool.
 
-`usedReplicaCount` `string ( int64 format)`
+`usedReplicaCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
-Output only. The number of machines currently in use by training jobs for this resource pool. Will replace idle\_replica\_count.
+Output only. The number of machines currently in use by training jobs for this resource pool. Will replace idle_replica_count.
 
-`autoscalingSpec` ` object ( AutoscalingSpec  ` )
+`autoscalingSpec` `object ( `[`AutoscalingSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources#AutoscalingSpec)` )`
 
 Optional. Optional spec to configure GKE or Ray-on-Vertex autoscaling
 
-`replicaCount` `string ( int64 format)`
+`replicaCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Optional. The total number of machines to use for this resource pool.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;id&quot;: string,&quot;machineSpec&quot;: {object (MachineSpec)},&quot;diskSpec&quot;: {object (DiskSpec)},&quot;usedReplicaCount&quot;: string,&quot;autoscalingSpec&quot;: {object (AutoscalingSpec)},&quot;replicaCount&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "id": string,
+  "machineSpec": {
+    object (MachineSpec)
+  },
+  "diskSpec": {
+    object (DiskSpec)
+  },
+  "usedReplicaCount": string,
+  "autoscalingSpec": {
+    object (AutoscalingSpec)
+  },
+  "replicaCount": string
+}
+```
 
 ## AutoscalingSpec
 
@@ -166,99 +196,66 @@ The min/max number of replicas allowed if enabling autoscaling
 
 Fields
 
-`minReplicaCount` `string ( int64 format)`
+`minReplicaCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
-Optional. min replicas in the node pool, must be ≤ replicaCount and \< maxReplicaCount or will throw error. For autoscaling enabled Ray-on-Vertex, we allow minReplicaCount of a resource\_pool to be 0 to match the OSS Ray behavior( <https://docs.ray.io/en/latest/cluster/vms/user-guides/configuring-autoscaling.html#cluster-config-parameters)> . As for Persistent Resource, the minReplicaCount must be \> 0, we added a corresponding validation inside CreatePersistentResourceRequestValidator.java.
+Optional. min replicas in the node pool, must be ≤ replicaCount and \< maxReplicaCount or will throw error. For autoscaling enabled Ray-on-Vertex, we allow minReplicaCount of a resource_pool to be 0 to match the OSS Ray behavior( <https://docs.ray.io/en/latest/cluster/vms/user-guides/configuring-autoscaling.html#cluster-config-parameters)> . As for Persistent Resource, the minReplicaCount must be \> 0, we added a corresponding validation inside CreatePersistentResourceRequestValidator.java.
 
-`maxReplicaCount` `string ( int64 format)`
+`maxReplicaCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Optional. max replicas in the node pool, must be ≥ replicaCount and \> minReplicaCount or will throw error
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;minReplicaCount&quot;: string,
-  &quot;maxReplicaCount&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "minReplicaCount": string,
+  "maxReplicaCount": string
+}
+```
 
 ## State
 
 Describes the PersistentResource state.
 
-Enums
-
-`STATE_UNSPECIFIED`
-
-Not set.
-
-`PROVISIONING`
-
-The PROVISIONING state indicates the persistent resources is being created.
-
-`RUNNING`
-
-The RUNNING state indicates the persistent resource is healthy and fully usable.
-
-`STOPPING`
-
-The STOPPING state indicates the persistent resource is being deleted.
-
-`ERROR`
-
-The ERROR state indicates the persistent resource may be unusable. Details can be found in the `error` field.
-
-`REBOOTING`
-
-The REBOOTING state indicates the persistent resource is being rebooted (PR is not available right now but is expected to be ready again later).
-
-`UPDATING`
-
-The UPDATING state indicates the persistent resource is being updated.
+| Enums               |                                                                                                                                                  |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| `STATE_UNSPECIFIED` | Not set.                                                                                                                                         |
+| `PROVISIONING`      | The PROVISIONING state indicates the persistent resources is being created.                                                                      |
+| `RUNNING`           | The RUNNING state indicates the persistent resource is healthy and fully usable.                                                                 |
+| `STOPPING`          | The STOPPING state indicates the persistent resource is being deleted.                                                                           |
+| `ERROR`             | The ERROR state indicates the persistent resource may be unusable. Details can be found in the `error` field.                                    |
+| `REBOOTING`         | The REBOOTING state indicates the persistent resource is being rebooted (PR is not available right now but is expected to be ready again later). |
+| `UPDATING`          | The UPDATING state indicates the persistent resource is being updated.                                                                           |
 
 ## ResourceRuntimeSpec
 
 Configuration for the runtime on a PersistentResource instance, including but not limited to:
 
-  - service accounts used to run the workloads.
-  - Whether to make it a dedicated Ray Cluster.
+- service accounts used to run the workloads.
+- Whether to make it a dedicated Ray Cluster.
 
 Fields
 
-`serviceAccountSpec` ` object ( ServiceAccountSpec  ` )
+`serviceAccountSpec` `object ( `[`ServiceAccountSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources#ServiceAccountSpec)` )`
 
 Optional. Configure the use of workload identity on the PersistentResource
 
-`raySpec` ` object ( RaySpec  ` )
+`raySpec` `object ( `[`RaySpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources#RaySpec)` )`
 
 Optional. Ray cluster configuration. Required when creating a dedicated RayCluster on the PersistentResource.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;serviceAccountSpec&quot;: {object (ServiceAccountSpec)},&quot;raySpec&quot;: {object (RaySpec)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "serviceAccountSpec": {
+    object (ServiceAccountSpec)
+  },
+  "raySpec": {
+    object (RaySpec)
+  }
+}
+```
 
 ## ServiceAccountSpec
 
@@ -278,24 +275,14 @@ The users must have `iam.serviceAccounts.actAs` permission on this service accou
 
 Do not set this field if you want to submit jobs using custom service account to this PersistentResource after creation, but only specify the `serviceAccount` inside the job.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;enableCustomServiceAccount&quot;: boolean,
-  &quot;serviceAccount&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "enableCustomServiceAccount": boolean,
+  "serviceAccount": string
+}
+```
 
 ## RaySpec
 
@@ -307,41 +294,49 @@ Fields
 
 Optional. Default image for user to choose a preferred ML framework (for example, TensorFlow or Pytorch) by choosing from [Vertex prebuilt images](https://cloud.google.com/vertex-ai/docs/training/pre-built-containers) . Either this or the resourcePoolImages is required. Use this field if you need all the resource pools to have the same Ray image. Otherwise, use the {@code resourcePoolImages} field.
 
-`nfsMounts[]` `object ( NfsMount` )
+`nfsMounts[]` `object ( ``NfsMount`` )`
 
 Optional. Use if you want to mount to any NFS storages.
 
 `resourcePoolImages` `map (key: string, value: string)`
 
-Optional. Required if imageUri isn't set. A map of resource\_pool\_id to prebuild Ray image if user need to use different images for different head/worker pools. This map needs to cover all the resource pool ids. Example: { "ray\_head\_node\_pool": "head image" "ray\_worker\_node\_pool1": "worker image" "ray\_worker\_node\_pool2": "another worker image" }
+Optional. Required if imageUri isn't set. A map of resource_pool_id to prebuild Ray image if user need to use different images for different head/worker pools. This map needs to cover all the resource pool ids. Example: { "ray_head_node_pool": "head image" "ray_worker_node_pool1": "worker image" "ray_worker_node_pool2": "another worker image" }
 
 `headNodeResourcePoolId` `string`
 
 Optional. This will be used to indicate which resource pool will serve as the Ray head node(the first node within that pool). Will use the machine from the first workerpool as the head node by default if this field isn't set.
 
-`rayMetricSpec` ` object ( RayMetricSpec  ` )
+`rayMetricSpec` `object ( `[`RayMetricSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources#RayMetricSpec)` )`
 
 Optional. Ray metrics configurations.
 
-`rayLogsSpec` ` object ( RayLogsSpec  ` )
+`rayLogsSpec` `object ( `[`RayLogsSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources#RayLogsSpec)` )`
 
 Optional. OSS Ray logging configurations.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;imageUri&quot;: string,&quot;nfsMounts&quot;: [{object (NfsMount)}],&quot;resourcePoolImages&quot;: {string: string,...},&quot;headNodeResourcePoolId&quot;: string,&quot;rayMetricSpec&quot;: {object (RayMetricSpec)},&quot;rayLogsSpec&quot;: {object (RayLogsSpec)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "imageUri": string,
+  "nfsMounts": [
+    {
+      object (NfsMount)
+    }
+  ],
+  "resourcePoolImages": {
+    string: string,
+    ...
+  },
+  "headNodeResourcePoolId": string,
+  "rayMetricSpec": {
+    object (RayMetricSpec)
+  },
+  "rayLogsSpec": {
+    object (RayLogsSpec)
+  }
+}
+```
 
 ## RayMetricSpec
 
@@ -353,23 +348,13 @@ Fields
 
 Optional. Flag to disable the Ray metrics collection.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;disabled&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "disabled": boolean
+}
+```
 
 ## RayLogsSpec
 
@@ -381,23 +366,13 @@ Fields
 
 Optional. Flag to disable the export of Ray OSS logs to Cloud Logging.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;disabled&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "disabled": boolean
+}
+```
 
 ## ResourceRuntime
 
@@ -407,58 +382,31 @@ Fields
 
 `accessUris` `map (key: string, value: string)`
 
-Output only. URIs for user to connect to the Cluster. Example: { "RAY\_HEAD\_NODE\_INTERNAL\_IP": "head-node-IP:10001" "RAY\_DASHBOARD\_URI": "ray-dashboard-address:8888" }
+Output only. URIs for user to connect to the Cluster. Example: { "RAY_HEAD_NODE_INTERNAL_IP": "head-node-IP:10001" "RAY_DASHBOARD_URI": "ray-dashboard-address:8888" }
 
-` notebookRuntimeTemplate (deprecated)  ` `string`
+`notebookRuntimeTemplate `**`(deprecated)`** `string`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Output only. The resource name of NotebookRuntimeTemplate for the RoV Persistent Cluster The NotebokRuntimeTemplate is created in the same VPC (if set), and with the same Ray and Python version as the Persistent Cluster. Example: "projects/1000/locations/us-central1/notebookRuntimeTemplates/abc123"
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;accessUris&quot;: {
+**JSON representation**
+
+```
+{
+  "accessUris": {
     string: string,
     ...
   },
-  &quot;notebookRuntimeTemplate&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+  "notebookRuntimeTemplate": string
+}
+```
 
-## Methods
-
-### `            create           `
-
-Creates a PersistentResource.
-
-### `            delete           `
-
-Deletes a PersistentResource.
-
-### `            get           `
-
-Gets a PersistentResource.
-
-### `            list           `
-
-Lists PersistentResources in a Location.
-
-### `            patch           `
-
-Updates a PersistentResource.
-
-### `            reboot           `
-
-Reboots a PersistentResource.
+| Methods                                                                                                                                         |                                          |
+|-------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources/create) | Creates a PersistentResource.            |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources/delete) | Deletes a PersistentResource.            |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources/get)       | Gets a PersistentResource.               |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources/list)     | Lists PersistentResources in a Location. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources/patch)   | Updates a PersistentResource.            |
+| [`reboot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources/reboot) | Reboots a PersistentResource.            |

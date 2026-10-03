@@ -7,8 +7,8 @@ data_source: docs.cloud.google.com
 ---
 
 > To see an example of getting started with Gemma on Ray on , run the "Get started with Gemma on Ray on " notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fmodel_garden%2Fmodel_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fmodel_garden%2Fmodel_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fmodel_garden%2Fmodel_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fmodel_garden%2Fmodel_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb)
 
 This document provides instructions for setting up a Ray cluster on Gemini Enterprise Agent Platform to meet various needs. For example, to build your image, see [Custom image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#custom-image) . Some enterprises can use private networking. This document covers [Private Service Connect interface for Ray on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#use-psc-i-egress) . Another use case involves accessing remote files as if they were local (see [Ray on Agent Platform Network File System](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#rov-on-nfs) ).
 
@@ -16,13 +16,13 @@ This document provides instructions for setting up a Ray cluster on Gemini Enter
 
 Topics covered here include:
 
-  - [creating a Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#create-ray-cluster)
-  - [managing the lifecycle of a Ray cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#lifecycle-management)
-  - [creating a custom image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#custom-image)
-  - [setting up Private and public connectivity (VPC)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#private-and-public-connectivity)
-  - [using Private Service Connect interface for Ray on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#use-psc-i-egress)
-  - [setting up Ray on Agent Platform Network File System (NFS)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#rov-on-nfs)
-  - [setting up a Ray Dashboard and Interactive Shell with VPC-SC + VPC Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#workaround)
+- [creating a Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#create-ray-cluster)
+- [managing the lifecycle of a Ray cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#lifecycle-management)
+- [creating a custom image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#custom-image)
+- [setting up Private and public connectivity (VPC)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#private-and-public-connectivity)
+- [using Private Service Connect interface for Ray on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#use-psc-i-egress)
+- [setting up Ray on Agent Platform Network File System (NFS)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#rov-on-nfs)
+- [setting up a Ray Dashboard and Interactive Shell with VPC-SC + VPC Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#workaround)
 
 ## Create a Ray cluster
 
@@ -41,17 +41,17 @@ In accordance with the [OSS Ray best practice](https://docs.ray.io/en/latest/clu
 2.  Click **Create Cluster** to open the **Create Cluster** panel.
 
 3.  For each step in the **Create Cluster** panel, review or replace the default cluster information. Click **Continue** to complete each step:
-    
+
     1.  For **Name and region** , specify a **Name** and choose a **Location** for your cluster.
-    
+
     2.  For **Compute settings** , specify the configuration of the Ray cluster on the Gemini Enterprise Agent Platform's head node, including its machine type, accelerator type and count, disk type and size, and replica count. Optionally, add a custom image URI to specify a custom container image to add Python dependencies not provided by the default container image. See [Custom image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#custom-image) .
-        
+
         Under **Advanced options** , you can:
-        
-          - Specify your own encryption key.
-          - Specify a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .
-          - Disable metrics collection, if you don't need to monitor the resource stats of your workload during training.
-    
+
+        - Specify your own encryption key.
+        - Specify a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .
+        - Disable metrics collection, if you don't need to monitor the resource stats of your workload during training.
+
     3.  (Optional) To deploy a private endpoint for your cluster, the recommended method is to use Private Service Connect. For further details, see [Private Service Connect interface for Ray on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#use-psc-i-egress) .
 
 4.  Click **Create** .
@@ -64,95 +64,99 @@ In accordance with the [OSS Ray best practice](https://docs.ray.io/en/latest/clu
 
 From an interactive Python environment, use the following to create the Ray cluster on Gemini Enterprise Agent Platform:
 
-    import ray
-    import vertex_ray
-    from google.cloud import aiplatform
-    from vertex_ray import Resources
-    from vertex_ray.util.resources import NfsMount
-    
-    # Define a default CPU cluster, machine_type is n1-standard-16, 1 head node and 1 worker node
-    head_node_type = Resources()
-    worker_node_types = [Resources()]
-    
-    # Or define a GPU cluster.
-    head_node_type = Resources(
-      machine_type="n1-standard-16",
-      node_count=1,
-      custom_image="us-docker.pkg.dev/my-project/ray-custom.2-9.py310:latest",  # Optional. When not specified, a prebuilt image is used.
-    )
-    
-    worker_node_types = [Resources(
-      machine_type="n1-standard-16",
-      node_count=2,  # Must be >= 1
-      accelerator_type="NVIDIA_TESLA_T4",
-      accelerator_count=1,
-      custom_image="us-docker.pkg.dev/my-project/ray-custom.2-9.py310:latest",  # When not specified, a prebuilt image is used.
-    )]
-    # Optional. Create cluster with Network File System (NFS) setup.
-    nfs_mount = NfsMount(
-        server="10.10.10.10",
-        path="nfs_path",
-        mount_point="nfs_mount_point",
-    )
-    aiplatform.init()
-    # Initialize Agent Platform to retrieve projects for downstream operations.
-    # Create the Ray cluster on Agent Platform
-    CLUSTER_RESOURCE_NAME = vertex_ray.create_ray_cluster(
-      head_node_type=head_node_type,
-      network=NETWORK, #Optional
-      worker_node_types=worker_node_types,
-      python_version="3.10",  # Optional
-      ray_version="2.47",  # Optional
-      cluster_name=CLUSTER_NAME, # Optional
-      service_account=SERVICE_ACCOUNT,  # Optional
-      enable_metrics_collection=True,  # Optional. Enable metrics collection for monitoring.
-      labels=LABELS,  # Optional.
-      nfs_mounts=[nfs_mount],  # Optional.
-    
-    )
+```
+import ray
+import vertex_ray
+from google.cloud import aiplatform
+from vertex_ray import Resources
+from vertex_ray.util.resources import NfsMount
+
+# Define a default CPU cluster, machine_type is n1-standard-16, 1 head node and 1 worker node
+head_node_type = Resources()
+worker_node_types = [Resources()]
+
+# Or define a GPU cluster.
+head_node_type = Resources(
+  machine_type="n1-standard-16",
+  node_count=1,
+  custom_image="us-docker.pkg.dev/my-project/ray-custom.2-9.py310:latest",  # Optional. When not specified, a prebuilt image is used.
+)
+
+worker_node_types = [Resources(
+  machine_type="n1-standard-16",
+  node_count=2,  # Must be >= 1
+  accelerator_type="NVIDIA_TESLA_T4",
+  accelerator_count=1,
+  custom_image="us-docker.pkg.dev/my-project/ray-custom.2-9.py310:latest",  # When not specified, a prebuilt image is used.
+)]
+# Optional. Create cluster with Network File System (NFS) setup.
+nfs_mount = NfsMount(
+    server="10.10.10.10",
+    path="nfs_path",
+    mount_point="nfs_mount_point",
+)
+aiplatform.init()
+# Initialize Agent Platform to retrieve projects for downstream operations.
+# Create the Ray cluster on Agent Platform
+CLUSTER_RESOURCE_NAME = vertex_ray.create_ray_cluster(
+  head_node_type=head_node_type,
+  network=NETWORK, #Optional
+  worker_node_types=worker_node_types,
+  python_version="3.10",  # Optional
+  ray_version="2.47",  # Optional
+  cluster_name=CLUSTER_NAME, # Optional
+  service_account=SERVICE_ACCOUNT,  # Optional
+  enable_metrics_collection=True,  # Optional. Enable metrics collection for monitoring.
+  labels=LABELS,  # Optional.
+  nfs_mounts=[nfs_mount],  # Optional.
+
+)
+```
 
 Where:
 
-  - CLUSTER\_NAME : A name for the Ray cluster on Gemini Enterprise Agent Platform that must be unique across your project.
+- ` CLUSTER_NAME ` : A name for the Ray cluster on Gemini Enterprise Agent Platform that must be unique across your project.
 
-  - NETWORK : (Optional) The full name of your VPC network, in the format of ` projects/ PROJECT_ID /global/networks/ VPC_NAME  ` . To set a private endpoint instead of a public endpoint for your cluster, specify a VPC network to use with Ray on Agent Platform. For more information, see [Private and public connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#private-and-public-connectivity) .
+- ` NETWORK ` : (Optional) The full name of your VPC network, in the format of `projects/ `` PROJECT_ID `` /global/networks/ `` VPC_NAME` . To set a private endpoint instead of a public endpoint for your cluster, specify a VPC network to use with Ray on Agent Platform. For more information, see [Private and public connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#private-and-public-connectivity) .
 
-  - **VPC\_NAME** : Optional: The VPC on which the VM operates.
+- **` VPC_NAME `** : Optional: The VPC on which the VM operates.
 
-  - **PROJECT\_ID** : Your Google Cloud project ID. You can find the project ID on the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- **` PROJECT_ID `** : Your Google Cloud project ID. You can find the project ID on the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
 
-  - **SERVICE\_ACCOUNT** : Optional: The service account to run Ray applications on the cluster. Grant [required roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-create#required_roles) .
+- **` SERVICE_ACCOUNT `** : Optional: The service account to run Ray applications on the cluster. Grant [required roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-create#required_roles) .
 
-  - **LABELS** : (Optional) The labels with user-defined metadata used to organize Ray clusters. Label keys and values can be no longer than 64 characters (Unicode codepoints), and can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See <https://goo.gl/xmQnxf> for more information and examples of labels.
+- **` LABELS `** : (Optional) The labels with user-defined metadata used to organize Ray clusters. Label keys and values can be no longer than 64 characters (Unicode codepoints), and can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See <https://goo.gl/xmQnxf> for more information and examples of labels.
 
 > **Note:** Unlike when using open source Ray, you don't need to use `ray start` or `ray up` to create a Ray cluster on Gemini Enterprise Agent Platform. Gemini Enterprise Agent Platform manages the provisioning of the machines and Ray cluster.
 
 You should see the following output until the status changes to `RUNNING` :
 
-    [Ray on Agent Platform]: Cluster State = State.PROVISIONING
-    Waiting for cluster provisioning; attempt 1; sleeping for 0:02:30 seconds
-    ...
-    [Ray on Agent Platform]: Cluster State = State.RUNNING
+```
+[Ray on Agent Platform]: Cluster State = State.PROVISIONING
+Waiting for cluster provisioning; attempt 1; sleeping for 0:02:30 seconds
+...
+[Ray on Agent Platform]: Cluster State = State.RUNNING
+```
 
 Note the following:
 
-  - The first node is the head node.
+- The first node is the head node.
 
-  - TPU machine types aren't supported.
+- TPU machine types aren't supported.
 
 ## Lifecycle management
 
 During the lifecycle of a Ray cluster on Gemini Enterprise Agent Platform, each action associates with a state. The following table summarizes the billing status and management option for each state. The [reference documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.persistentResources#state) provides a definition for each of these states.
 
-| Action                              | State              | Billed?                     | Delete action available? | Cancel action available?          |
-| ----------------------------------- | ------------------ | --------------------------- | ------------------------ | --------------------------------- |
-| The user creates a cluster          | PROVISIONING       | No                          | No                       | No                                |
-| The user manually scales up or down | UPDATING           | Yes, per the real-time size | Yes                      | No                                |
-| The cluster runs                    | RUNNING            | Yes                         | Yes                      | Not applicable - you can delete   |
-| The cluster autoscales up or down   | UPDATING           | Yes, per the real-time size | Yes                      | No                                |
-| The user deletes the cluster        | STOPPING           | No                          | No                       | Not applicable - already stopping |
-| The cluster enters an Error state   | ERROR              | No                          | Yes                      | Not applicable - you can delete   |
-| Not applicable                      | STATE\_UNSPECIFIED | No                          | Yes                      | Not applicable                    |
+| Action                              | State             | Billed?                     | Delete action available? | Cancel action available?          |
+|-------------------------------------|-------------------|-----------------------------|--------------------------|-----------------------------------|
+| The user creates a cluster          | PROVISIONING      | No                          | No                       | No                                |
+| The user manually scales up or down | UPDATING          | Yes, per the real-time size | Yes                      | No                                |
+| The cluster runs                    | RUNNING           | Yes                         | Yes                      | Not applicable - you can delete   |
+| The cluster autoscales up or down   | UPDATING          | Yes, per the real-time size | Yes                      | No                                |
+| The user deletes the cluster        | STOPPING          | No                          | No                       | Not applicable - already stopping |
+| The cluster enters an Error state   | ERROR             | No                          | Yes                      | Not applicable - you can delete   |
+| Not applicable                      | STATE_UNSPECIFIED | No                          | Yes                      | Not applicable                    |
 
 ## Custom Image (Optional)
 
@@ -162,13 +166,13 @@ During the lifecycle of a Ray cluster on Gemini Enterprise Agent Platform, each 
 
 These base images include an installation of Python, Ubuntu, and Ray. They also include dependencies such as:
 
-  - python-json-logger
-  - google-cloud-resource-manager
-  - ca-certificates-java
-  - libatlas-base-dev
-  - liblapack-dev
-  - g++, libio-all-perl
-  - libyaml-0-2.
+- python-json-logger
+- google-cloud-resource-manager
+- ca-certificates-java
+- libatlas-base-dev
+- liblapack-dev
+- g++, libio-all-perl
+- libyaml-0-2.
 
 > **Note:** If you use an [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/overview) image from the same Google Cloud project in which you used Gemini Enterprise Agent Platform, then no further configuration of permissions is necessary. You can immediately create a Ray cluster Gemini Enterprise Agent Platform that uses your container image.
 
@@ -201,20 +205,20 @@ Follow the [setting up your resources](https://docs.cloud.google.com/gemini-ente
 ### Console
 
 1.  While creating your cluster and after specifying **Name and region** and **Compute settings** , the **Networking** option appears.
-    
+
     ![Console specify network](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/images/networking-optional.png)
 
 2.  Set up a network attachment by doing one of the following:
-    
-      - Use the NETWORK\_ATTACHMENT\_NAME name that you specified when setting up your resources for Private Service Connect.
-      - Create a new network attachment by clicking the **Create network attachment** button that appears in the drop-down.
-    
+
+    - Use the ` NETWORK_ATTACHMENT_NAME ` name that you specified when setting up your resources for Private Service Connect.
+    - Create a new network attachment by clicking the **Create network attachment** button that appears in the drop-down.
+
     ![Console create new network](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/images/networking-optional-2.png)
 
 3.  Click **Create network attachment** .
 
 4.  In the subtask that appears, specify a name, network, and subnetwork for the new network attachment.
-    
+
     ![Network attachment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/images/network-attachment-new.png)
 
 5.  Click **Create** .
@@ -223,22 +227,24 @@ Follow the [setting up your resources](https://docs.cloud.google.com/gemini-ente
 
 The Ray on Agent Platform SDK is a part of the Agent Platform SDK for Python. To learn how to install or update the Agent Platform SDK for Python, see [Install the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk) . For more information, see the [Agent Platform SDK for Python API reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) documentation.
 
-    from google.cloud import aiplatform
-    import vertex_ray
-    
-    # Initialization
-    aiplatform.init()
-    
-    # Create a default cluster with network attachment configuration
-    
-    psc_config = vertex_ray.PscIConfig(network_attachment=NETWORK_ATTACHMENT_NAME)
-    cluster_resource_name = vertex_ray.create_ray_cluster(
-       psc_interface_config=psc_config,
-    )
+```
+from google.cloud import aiplatform
+import vertex_ray
+
+# Initialization
+aiplatform.init()
+
+# Create a default cluster with network attachment configuration
+
+psc_config = vertex_ray.PscIConfig(network_attachment=NETWORK_ATTACHMENT_NAME)
+cluster_resource_name = vertex_ray.create_ray_cluster(
+   psc_interface_config=psc_config,
+)
+```
 
 Where:
 
-  - NETWORK\_ATTACHMENT\_NAME : The name you specified when setting up your resources for Private Service Connect on your user project.
+- ` NETWORK_ATTACHMENT_NAME ` : The name you specified when setting up your resources for Private Service Connect on your user project.
 
 ## Ray on Agent Platform Network File System (NFS)
 
@@ -264,18 +270,17 @@ To use the Network File System, specify either a **network** or a **network atta
 ### Console
 
 1.  In the Networking step of the create page, after specifying either a **network** or a **network attachment** . To do this, click **Add NFS mount** under the Network File System (NFS) section and specify an NFS mount (server, path and mount point).
-    
+
     | Field        | Description                                                                                                                                                                                           |
-    | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | `server`     | The IP address of your NFS server. This must be a private address in your VPC.                                                                                                                        |
     | `path`       | The NFS share path. This must be an absolute path that begins with `/` .                                                                                                                              |
     | `mountPoint` | The local mount point. This must be a valid UNIX directory name. For example, if the local mount point is `sourceData` , then specify the path `/mnt/nfs/ sourceData` from your training VM instance. |
-    
 
     For more information, see [Where to specify compute resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute) .
 
 2.  Specify a server, path, and mount point. ![NFS file system](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/images/network-file-system-mount.png)
-    
+
     > **Note:** You can mount more than one NFS share. Click **Add NFS mount** to specify another NFS share.
 
 3.  Click **Create** . This creates the Ray cluster.
@@ -283,66 +288,63 @@ To use the Network File System, specify either a **network** or a **network atta
 ## Ray Dashboard and Interactive Shell with VPC-SC + VPC Peering
 
 1.  Configure `peered-dns-domains` .
-    
-    ``` 
+
+    ```
     {
       VPC_NAME=NETWORK_NAME
       REGION=LOCATION
       gcloud services peered-dns-domains create training-cloud \
       --network=$VPC_NAME \
       --dns-suffix=$REGION.aiplatform-training.cloud.google.com.
-    
+
       # Verify
       gcloud beta services peered-dns-domains list --network $VPC_NAME;
     }
-        
     ```
-    
-      - NETWORK\_NAME : Change to peered network.
-    
-      - LOCATION : Desired location (for example, `us-central1` ).
+
+    - ` NETWORK_NAME ` : Change to peered network.
+
+    - ` LOCATION ` : Desired location (for example, `us-central1` ).
 
 2.  Configure `DNS managed zone` .
-    
-    ``` 
+
+    ```
     {
       PROJECT_ID=PROJECT_ID
       ZONE_NAME=$PROJECT_ID-aiplatform-training-cloud-google-com
       DNS_NAME=aiplatform-training.cloud.google.com
       DESCRIPTION=aiplatform-training.cloud.google.com
-    
+
       gcloud dns managed-zones create $ZONE_NAME  \
       --visibility=private  \
       --networks=https://www.googleapis.com/compute/v1/projects/$PROJECT_ID/global/networks/$VPC_NAME  \
       --dns-name=$DNS_NAME  \
       --description="Training $DESCRIPTION"
     }
-        
     ```
-    
-      - PROJECT\_ID : Your project ID. You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+
+    - ` PROJECT_ID ` : Your project ID. You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
 
 3.  Record DNS transaction.
-    
-    ``` 
+
+    ```
     {
       gcloud dns record-sets transaction start --zone=$ZONE_NAME
-    
+
       gcloud dns record-sets transaction add \
       --name=$DNS_NAME. \
       --type=A 199.36.153.4 199.36.153.5 199.36.153.6 199.36.153.7 \
       --zone=$ZONE_NAME \
       --ttl=300
-    
+
       gcloud dns record-sets transaction add \
       --name=*.$DNS_NAME. \
       --type=CNAME $DNS_NAME. \
       --zone=$ZONE_NAME \
       --ttl=300
-    
+
       gcloud dns record-sets transaction execute --zone=$ZONE_NAME
     }
-        
     ```
 
 4.  Submit a training job with the interactive shell + VPC-SC + VPC Peering enabled.
@@ -358,4 +360,4 @@ For more information, see [Shared responsibility](https://docs.cloud.google.com/
 
 ## What's next
 
-  - [Develop a Ray application on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/develop-application)
+- [Develop a Ray application on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/develop-application)

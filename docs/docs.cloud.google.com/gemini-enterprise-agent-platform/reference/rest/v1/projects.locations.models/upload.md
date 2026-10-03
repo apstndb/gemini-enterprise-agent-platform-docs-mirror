@@ -38,7 +38,7 @@ Optional. The id to use for the uploaded Model, which will become the final comp
 
 This value may be up to 63 characters, and valid characters are `[a-z0-9_-]` . The first character cannot be a number or hyphen.
 
-`model` ` object ( Model  ` )
+`model` `object ( `[`Model`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models#Model)` )`
 
 Required. The Model to create.
 
@@ -48,4 +48,4 @@ Optional. The user-provided custom service account to use to do the model upload
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

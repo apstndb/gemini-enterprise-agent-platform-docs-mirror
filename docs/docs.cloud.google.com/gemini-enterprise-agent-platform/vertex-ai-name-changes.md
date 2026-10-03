@@ -9,7 +9,7 @@ data_source: docs.cloud.google.com
 With the introduction of Gemini Enterprise Agent Platform, some Vertex AI products and features have been renamed. The following table lists the previous and new names.
 
 | Previous name                                                                                 | New name                                                                         |
-| --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+|-----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 | Vertex AI Platform                                                                            | Gemini Enterprise Agent Platform                                                 |
 | Generative AI on Vertex AI                                                                    | Generative AI on Gemini Enterprise Agent Platform                                |
 | Vertex AI Studio                                                                              | Agent Studio on Gemini Enterprise Agent Platform                                 |

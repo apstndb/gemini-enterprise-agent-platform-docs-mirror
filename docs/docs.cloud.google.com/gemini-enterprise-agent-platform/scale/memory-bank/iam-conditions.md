@@ -24,35 +24,35 @@ IAM Conditions are useful for granting Identity and Access Management (IAM) perm
 
 To set up conditional IAM policies for memories and memory revisions, do the following:
 
-  - **Review IAM Conditions** : Familiarize yourself with the [IAM Conditions overview](https://docs.cloud.google.com/iam/docs/conditions-overview) .
+- **Review IAM Conditions** : Familiarize yourself with the [IAM Conditions overview](https://docs.cloud.google.com/iam/docs/conditions-overview) .
 
-  - **Determine necessary roles** : Identify which [specialized Memory Bank IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions#memory-roles) are appropriate for your use case to ensure the principle of least privilege.
+- **Determine necessary roles** : Identify which [specialized Memory Bank IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions#memory-roles) are appropriate for your use case to ensure the principle of least privilege.
 
-  - **Identify affected principals** : Identify who in your organization should receive which permissions. For example, consider the following:
-    
-      - Whether developers should be able to see all memories.
-      - Whether project administrators should be able to see all memories.
-      - Whether certain agent identities can only access certain memories.
+- **Identify affected principals** : Identify who in your organization should receive which permissions. For example, consider the following:
 
-  - **Grant IAM roles** : Ensure you have the required roles that contain the necessary permissions you need to perform the tasks in this document.
-    
-    To get the permissions that you need to apply IAM Conditions to Agent Platform Memory Bank resources, ask your administrator to grant you the following IAM roles:
-    
-      - For projects: Project IAM Admin (\`roles/resourcemanager.projectIamAdmin\`)
-    
-    For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
-    
-    These predefined roles contain the permissions required to apply IAM Conditions to Agent Platform Memory Bank resources. To see the exact permissions that are required, expand the **Required permissions** section:
-    
-    #### Required permissions
-    
-    The following permissions are required to apply IAM Conditions to Agent Platform Memory Bank resources:
-    
-      - Set conditional IAM access at the project level: \`resourcemanager.projects.setIamPolicy\`
-    
-    You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
-    
-    If you plan to use IAM Conditions across your organization, you also need [permissions to manage organization policies](https://docs.cloud.google.com/resource-manager/docs/organization-policy/using-constraints#required-roles) .
+  - Whether developers should be able to see all memories.
+  - Whether project administrators should be able to see all memories.
+  - Whether certain agent identities can only access certain memories.
+
+- **Grant IAM roles** : Ensure you have the required roles that contain the necessary permissions you need to perform the tasks in this document.
+
+  To get the permissions that you need to apply IAM Conditions to Agent Platform Memory Bank resources, ask your administrator to grant you the following IAM roles:
+
+  - For projects: Project IAM Admin (\`roles/resourcemanager.projectIamAdmin\`)
+
+  For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+
+  These predefined roles contain the permissions required to apply IAM Conditions to Agent Platform Memory Bank resources. To see the exact permissions that are required, expand the **Required permissions** section:
+
+  #### Required permissions
+
+  The following permissions are required to apply IAM Conditions to Agent Platform Memory Bank resources:
+
+  - Set conditional IAM access at the project level: \`resourcemanager.projects.setIamPolicy\`
+
+  You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
+
+  If you plan to use IAM Conditions across your organization, you also need [permissions to manage organization policies](https://docs.cloud.google.com/resource-manager/docs/organization-policy/using-constraints#required-roles) .
 
 ## Creating conditional access for memories
 
@@ -69,14 +69,14 @@ To grant a single role to a principal, do the following:
 2.  Select your project.
 
 3.  Select a principal to grant a role to:
-    
-      - To grant a role to a principal who already has other roles on the resource, find a row containing the principal, click edit **Edit principal** in that row, and click add **Add another role** .
-        
-        To grant a role to a [service agent](https://docs.cloud.google.com/iam/docs/service-account-types#service-agents) , select the **Include Google-provided role grants** checkbox to see its email address.
-        
-        > **Note:** You cannot edit inherited roles when managing access to a resource. To edit inherited roles, go to the resource where the role was granted.
-    
-      - To grant a role to a principal who doesn't have any existing roles on the resource, click person\_add **Grant Access** , then enter a [principal identifier](https://docs.cloud.google.com/iam/docs/principal-identifiers) —for example, `my-user@example.com` or `//iam.googleapis.com/locations/global/workforcePools/example-pool/group/example-group@example.com` .
+
+    - To grant a role to a principal who already has other roles on the resource, find a row containing the principal, click edit **Edit principal** in that row, and click add **Add another role** .
+
+      To grant a role to a [service agent](https://docs.cloud.google.com/iam/docs/service-account-types#service-agents) , select the **Include Google-provided role grants** checkbox to see its email address.
+
+      > **Note:** You cannot edit inherited roles when managing access to a resource. To edit inherited roles, go to the resource where the role was granted.
+
+    - To grant a role to a principal who doesn't have any existing roles on the resource, click person_add **Grant Access** , then enter a [principal identifier](https://docs.cloud.google.com/iam/docs/principal-identifiers) —for example, `my-user@example.com` or `//iam.googleapis.com/locations/global/workforcePools/example-pool/group/example-group@example.com` .
 
 4.  Select a role to grant from the drop-down list. For best security practices, choose a role that includes only the permissions that your principal needs. You can choose one of the [specialized Memory Bank IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions#memory-roles) .
 
@@ -87,76 +87,84 @@ To grant a single role to a principal, do the following:
 ### gcloud
 
 1.  In the Google Cloud console, activate Cloud Shell.
-    
+
     At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) session starts and displays a command-line prompt. Cloud Shell is a shell environment with the Google Cloud CLI already installed and with values already set for your current project. It can take a few seconds for the session to initialize.
 
-2.  The `  add-iam-policy-binding  ` command lets you quickly grant a role to a principal.
-    
+2.  The [`add-iam-policy-binding`](https://docs.cloud.google.com/sdk/gcloud/reference/projects/add-iam-policy-binding) command lets you quickly grant a role to a principal.
+
     Before using any of the command data below, make the following replacements:
-    
-      - `  PROJECT_ID  ` : Your Google Cloud project ID. Project IDs are alphanumeric, like `my-project` .
-    
-      - `  PRINCIPAL  ` : An identifier for the principal, or member, which usually has the following form: `  PRINCIPAL_TYPE : ID  ` . For example, `user:my-user@example.com` or `principalSet://iam.googleapis.com/locations/global/workforcePools/example-pool/group/example-group@example.com` . For a full list of the values that `  PRINCIPAL  ` can have, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers) .
-        
-        For the principal type `user` , the domain name in the identifier must be a Google Workspace domain or a Cloud Identity domain. To learn how to set up a Cloud Identity domain, see the [overview of Cloud Identity](https://docs.cloud.google.com/identity/docs/overview) .
-    
-      - `  ROLE_NAME  ` : The name of the role that you want to revoke. Use one of the following formats:
-        
-          - Predefined roles: ` roles/aiplatform. IDENTIFIER  `
-          - Project-level custom roles: ` projects/ PROJECT_ID /roles/ IDENTIFIER  `
-        
-        Select a role to grant from the drop-down list. For best security practices, choose a role that includes only the permissions that your principal needs. You can choose one of the [specialized Memory Bank IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions#memory-roles) .
-    
-      - `  CONDITION  ` : Add a condition to the role, using `aiplatform.googleapis.com/memoryScope` as the API attribute. See the below [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions#examples) for some possible condition statements.
-    
+
+    - `PROJECT_ID` : Your Google Cloud project ID. Project IDs are alphanumeric, like `my-project` .
+
+    - `PRINCIPAL` : An identifier for the principal, or member, which usually has the following form: `PRINCIPAL_TYPE `` : `` ID` . For example, `user:my-user@example.com` or `principalSet://iam.googleapis.com/locations/global/workforcePools/example-pool/group/example-group@example.com` . For a full list of the values that `PRINCIPAL` can have, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers) .
+
+      For the principal type `user` , the domain name in the identifier must be a Google Workspace domain or a Cloud Identity domain. To learn how to set up a Cloud Identity domain, see the [overview of Cloud Identity](https://docs.cloud.google.com/identity/docs/overview) .
+
+    - `ROLE_NAME` : The name of the role that you want to revoke. Use one of the following formats:
+
+      - Predefined roles: `roles/aiplatform. `` IDENTIFIER`
+      - Project-level custom roles: `projects/ `` PROJECT_ID `` /roles/ `` IDENTIFIER`
+
+      Select a role to grant from the drop-down list. For best security practices, choose a role that includes only the permissions that your principal needs. You can choose one of the [specialized Memory Bank IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions#memory-roles) .
+
+    - `CONDITION` : Add a condition to the role, using `aiplatform.googleapis.com/memoryScope` as the API attribute. See the below [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions#examples) for some possible condition statements.
+
     Execute the following command:
-    
+
     #### Linux, macOS, or Cloud Shell
-    
-        gcloud projects add-iam-policy-binding PROJECT_ID \
-            --member=PRINCIPAL --role=ROLE_NAME \
-            --condition=CONDITION
-    
+
+    ```
+    gcloud projects add-iam-policy-binding PROJECT_ID \
+        --member=PRINCIPAL --role=ROLE_NAME \
+        --condition=CONDITION
+    ```
+
     #### Windows (PowerShell)
-    
-        gcloud projects add-iam-policy-binding PROJECT_ID `
-            --member=PRINCIPAL --role=ROLE_NAME `
-            --condition=CONDITION
-    
+
+    ```
+    gcloud projects add-iam-policy-binding PROJECT_ID `
+        --member=PRINCIPAL --role=ROLE_NAME `
+        --condition=CONDITION
+    ```
+
     #### Windows (cmd.exe)
-    
-        gcloud projects add-iam-policy-binding PROJECT_ID ^
-            --member=PRINCIPAL --role=ROLE_NAME ^
-            --condition=CONDITION
-    
+
+    ```
+    gcloud projects add-iam-policy-binding PROJECT_ID ^
+        --member=PRINCIPAL --role=ROLE_NAME ^
+        --condition=CONDITION
+    ```
+
     The response contains the updated IAM policy.
 
 ### Terraform
 
 To learn how to apply or remove a Terraform configuration, see [Basic Terraform commands](https://docs.cloud.google.com/docs/terraform/basic-commands) . For more information, see the [Terraform provider reference documentation](https://registry.terraform.io/providers/hashicorp/google/latest/docs) .
 
-If you are using Terraform to set your IAM policies, you can include a condition in the [google\_project\_iam\_member](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam#google_project_iam_member) resource to restrict a member's access to memories.
+If you are using Terraform to set your IAM policies, you can include a condition in the [google_project_iam_member](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam#google_project_iam_member) resource to restrict a member's access to memories.
 
-    resource "google_project_iam_member" "example" {
-      project    = "PROJECT_ID"
-      role       = "ROLE"
-      member     = "MEMBER"
-      condition {
-        title       = "Memory Access Condition"
-        description = "IAM condition for Memory Bank"
-        expression  = "CONDITION"
-      }
-    }
+```
+resource "google_project_iam_member" "example" {
+  project    = "PROJECT_ID"
+  role       = "ROLE"
+  member     = "MEMBER"
+  condition {
+    title       = "Memory Access Condition"
+    description = "IAM condition for Memory Bank"
+    expression  = "CONDITION"
+  }
+}
+```
 
 Replace the following variables:
 
-  - `  PROJECT_ID  ` : Your Google Cloud project ID. Project IDs are alphanumeric, like `my-project` .
+- `PROJECT_ID` : Your Google Cloud project ID. Project IDs are alphanumeric, like `my-project` .
 
-  - `  ROLE  ` : The IAM role to grant, for example, `roles/aiplatform.memoryEditor` .
+- `ROLE` : The IAM role to grant, for example, `roles/aiplatform.memoryEditor` .
 
-  - `  MEMBER  ` : The principal to grant the role to, for example, `user:developerA@corp.com` . For a full list of the values that `  MEMBER  ` can have, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers) .
+- `MEMBER` : The principal to grant the role to, for example, `user:developerA@corp.com` . For a full list of the values that `MEMBER` can have, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers) .
 
-  - `  CONDITION  ` : Your IAM condition statement using `aiplatform.googleapis.com/memoryScope` as the API attribute. See the below [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions#examples) for some possible condition statements.
+- `CONDITION` : Your IAM condition statement using `aiplatform.googleapis.com/memoryScope` as the API attribute. See the below [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions#examples) for some possible condition statements.
 
 ## Best practices for scope-level permissions
 
@@ -187,31 +195,31 @@ It is critical to prevent overly permissive IAM policies when using IAM Conditio
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr" translate="no">roles/aiplatform.memoryViewer</code></td>
+<td><code>roles/aiplatform.memoryViewer</code></td>
 <td>Grants read-only access to memories and memory revisions.</td>
 <td><ul>
-<li><code dir="ltr" translate="no">aiplatform.googleapis.com/memories.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.googleapis.com/memories.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.googleapis.com/memories.retrieve</code></li>
-<li><code dir="ltr" translate="no">aiplatform.googleapis.com/memoryRevisions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.googleapis.com/memoryRevisions.get</code></li>
+<li><code>aiplatform.googleapis.com/memories.get</code></li>
+<li><code>aiplatform.googleapis.com/memories.list</code></li>
+<li><code>aiplatform.googleapis.com/memories.retrieve</code></li>
+<li><code>aiplatform.googleapis.com/memoryRevisions.list</code></li>
+<li><code>aiplatform.googleapis.com/memoryRevisions.get</code></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">roles/aiplatform.memoryEditor</code></td>
+<td><code>roles/aiplatform.memoryEditor</code></td>
 <td>Grants write and generate access to memories and rollback access to memory revisions.</td>
 <td><ul>
-<li><code dir="ltr" translate="no">aiplatform.googleapis.com/memories.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.googleapis.com/memories.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.googleapis.com/memories.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.googleapis.com/memories.generate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.googleapis.com/memoryRevisions.rollback</code></li>
+<li><code>aiplatform.googleapis.com/memories.create</code></li>
+<li><code>aiplatform.googleapis.com/memories.update</code></li>
+<li><code>aiplatform.googleapis.com/memories.delete</code></li>
+<li><code>aiplatform.googleapis.com/memories.generate</code></li>
+<li><code>aiplatform.googleapis.com/memoryRevisions.rollback</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">roles/aiplatform.memoryUser</code></td>
+<td><code>roles/aiplatform.memoryUser</code></td>
 <td>Grants full access to memories and revisions, including all viewer and editor permissions.</td>
-<td>Includes all permissions of both <code dir="ltr" translate="no">memoryEditor</code> and <code dir="ltr" translate="no">memoryViewer</code> .</td>
+<td>Includes all permissions of both <code>memoryEditor</code> and <code>memoryViewer</code> .</td>
 </tr>
 </tbody>
 </table>
@@ -236,14 +244,16 @@ The following condition grants the individual `userA@gmail.com` view access only
 
 This means that the member has the ability to get and retrieve memories, along with listing and getting those memories' revisions, as long as the scope is exactly `{"userId": "userA"}` . The user doesn't have access to memories with scope such as `{'userId': 'userA', 'source': 'ADK'}` .
 
-    {
-      "members": ["user:userA@gmail.com"],
-      "role": "roles/aiplatform.memoryViewer",
-      "condition": {
-        "title": "Memory Access Condition",
-        "expression": "api.getAttribute('aiplatform.googleapis.com/memoryScope', {}) == {'userId': 'userA'}"
-      }
-    }
+```
+{
+  "members": ["user:userA@gmail.com"],
+  "role": "roles/aiplatform.memoryViewer",
+  "condition": {
+    "title": "Memory Access Condition",
+    "expression": "api.getAttribute('aiplatform.googleapis.com/memoryScope', {}) == {'userId': 'userA'}"
+  }
+}
+```
 
 ### Grant write access to memories with scope containing a specific key-value pair
 
@@ -251,14 +261,16 @@ The following condition grants the individual `developerA@corp.com` edit access 
 
 This means that the user has the ability to create, update, delete, and generate memories, and create and rollback those memories' revisions, with scopes such as `{'userId': 'userA'}` and `{'userId': 'userA', 'source': 'ADK'}` .
 
-    {
-      "members": ["user:developerA@corp.com"],
-      "role": "roles/aiplatform.memoryEditor",
-      "condition": {
-        "title": "Memory Access Condition",
-        "expression": "api.getAttribute('aiplatform.googleapis.com/memoryScope', {})['userId'] == 'userA'"
-      }
-    }
+```
+{
+  "members": ["user:developerA@corp.com"],
+  "role": "roles/aiplatform.memoryEditor",
+  "condition": {
+    "title": "Memory Access Condition",
+    "expression": "api.getAttribute('aiplatform.googleapis.com/memoryScope', {})['userId'] == 'userA'"
+  }
+}
+```
 
 ### Grant full access to memories with scope containing specific keys
 
@@ -266,14 +278,16 @@ The following condition grants the group `group:engineering@corp.com` user (view
 
 This means members of the group have full read and write access to memories with scopes such as `{'admin_override': 'true'}` , `{'admin_override': 'true', 'public_access_flag': 'false'}` , and `{'userId': 'userA', 'public_access_flag': 'false'}` .
 
-    {
-      "members": ["group:engineering@corp.com"],
-      "role": "roles/aiplatform.memoryUser",
-      "condition": {
-        "title": "Memory Access Condition",
-        "expression": "('admin_override' in api.getAttribute('aiplatform.googleapis.com/memoryScope', {})) || ('public_access_flag' in api.getAttribute('aiplatform.googleapis.com/memoryScope', {}))"
-      }
-    }
+```
+{
+  "members": ["group:engineering@corp.com"],
+  "role": "roles/aiplatform.memoryUser",
+  "condition": {
+    "title": "Memory Access Condition",
+    "expression": "('admin_override' in api.getAttribute('aiplatform.googleapis.com/memoryScope', {})) || ('public_access_flag' in api.getAttribute('aiplatform.googleapis.com/memoryScope', {}))"
+  }
+}
+```
 
 ### Grant full access to memories with scope containing a specific prefix
 
@@ -281,14 +295,16 @@ The following condition grants the group `group:engineering@corp.com` user (view
 
 This means members of the group have full read and write access to memories with scopes such as `{'userId': 'userA'}` , `{'userId': 'userB', 'public_access_flag': 'false'}` .
 
-    {
-      "members": ["group:engineering@corp.com"],
-      "role": "roles/aiplatform.memoryUser",
-      "condition": {
-        "title": "Memory Access Condition",
-        "expression": "api.getAttribute('aiplatform.googleapis.com/memoryScope', {})['userId'].startsWith('user')"
-      }
-    }
+```
+{
+  "members": ["group:engineering@corp.com"],
+  "role": "roles/aiplatform.memoryUser",
+  "condition": {
+    "title": "Memory Access Condition",
+    "expression": "api.getAttribute('aiplatform.googleapis.com/memoryScope', {})['userId'].startsWith('user')"
+  }
+}
+```
 
 ### Grant full access to memories with scope of key with a set of allowed values
 
@@ -296,17 +312,19 @@ The following condition grants the group `group:engineering@corp.com` user (view
 
 This means members of the group have full read and write access to memories with scopes such as `{'userId': 'userA'}` , `{'userId': 'userB', 'public_access_flag': 'false'}` .
 
-    {
-      "members": ["group:engineering@corp.com"],
-      "role": "roles/aiplatform.memoryUser",
-      "condition": {
-        "title": "Memory Access Condition",
-        "expression": "api.getAttribute('aiplatform.googleapis.com/memoryScope', {})['userId'] in ['userA', 'userB']"
-      }
-    }
+```
+{
+  "members": ["group:engineering@corp.com"],
+  "role": "roles/aiplatform.memoryUser",
+  "condition": {
+    "title": "Memory Access Condition",
+    "expression": "api.getAttribute('aiplatform.googleapis.com/memoryScope', {})['userId'] in ['userA', 'userB']"
+  }
+}
+```
 
 ## Limitations
 
-  - **Principal limit** : IAM policies are limited to 1500 unique principals. This limit can be managed by using Google groups. See more at [Limits on all principals](https://docs.cloud.google.com/iam/docs/allow-policies#principal-limits) .
+- **Principal limit** : IAM policies are limited to 1500 unique principals. This limit can be managed by using Google groups. See more at [Limits on all principals](https://docs.cloud.google.com/iam/docs/allow-policies#principal-limits) .
 
-  - **API support** : IAM conditions are not supported by methods that operate against multiple scopes, like [`ListMemories`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#list-memories) and [`PurgeMemories`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/api-quickstart#purge-memories) . To grant these permissions, you must grant the principal an unconditional role, such as `aiplatform.googleapis.com/memoryViewer` , `aiplatform.googleapis.com/memoryUser` , or a relevant unconditional Gemini Enterprise Agent Platform role.
+- **API support** : IAM conditions are not supported by methods that operate against multiple scopes, like [`ListMemories`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#list-memories) and [`PurgeMemories`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/api-quickstart#purge-memories) . To grant these permissions, you must grant the principal an unconditional role, such as `aiplatform.googleapis.com/memoryViewer` , `aiplatform.googleapis.com/memoryUser` , or a relevant unconditional Gemini Enterprise Agent Platform role.

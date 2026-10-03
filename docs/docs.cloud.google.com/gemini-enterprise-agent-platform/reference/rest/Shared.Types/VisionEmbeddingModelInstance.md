@@ -10,7 +10,7 @@ Input format for requesting embeddings from vision models. An embedding is a lis
 
 Fields
 
-`image` ` object ( Image  ` )
+`image` `object ( `[`Image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VisionEmbeddingModelInstance#Image)` )`
 
 An image to generate embeddings for.
 
@@ -18,25 +18,23 @@ An image to generate embeddings for.
 
 Text to generate embeddings for.
 
-`video` ` object ( Video  ` )
+`video` `object ( `[`Video`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VisionEmbeddingModelInstance#Video)` )`
 
 A video to generate embeddings for.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;image&quot;: {object (Image)},&quot;text&quot;: string,&quot;video&quot;: {object (Video)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "image": {
+    object (Image)
+  },
+  "text": string,
+  "video": {
+    object (Video)
+  }
+}
+```
 
 ## Image
 
@@ -50,8 +48,8 @@ The MIME type of the image.
 
 The supported MIME types are:
 
-  - `image/jpeg`
-  - `image/png`
+- `image/jpeg`
+- `image/png`
 
 `data` `Union type`
 
@@ -67,28 +65,18 @@ A Cloud Storage URI pointing to the image file. Format: `gs://bucket/object`
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;mimeType&quot;: string,
+**JSON representation**
+
+```
+{
+  "mimeType": string,
 
   // data
-  &quot;bytesBase64Encoded&quot;: string,
-  &quot;gcsUri&quot;: string
+  "bytesBase64Encoded": string,
+  "gcsUri": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## Video
 
@@ -96,7 +84,7 @@ Represents a video input for embedding generation.
 
 Fields
 
-`videoSegmentConfig` ` object ( VideoSegmentConfig  ` )
+`videoSegmentConfig` `object ( `[`VideoSegmentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VisionEmbeddingModelInstance#VideoSegmentConfig)` )`
 
 Configuration for processing a video segment. If specified, embeddings are generated for the segment. If not specified, embeddings are generated for the entire video.
 
@@ -114,21 +102,20 @@ A Cloud Storage URI pointing to the video file. Format: `gs://bucket/object`
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;videoSegmentConfig&quot;: {object (VideoSegmentConfig)},// data&quot;bytesBase64Encoded&quot;: string,&quot;gcsUri&quot;: string// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "videoSegmentConfig": {
+    object (VideoSegmentConfig)
+  },
+
+  // data
+  "bytesBase64Encoded": string,
+  "gcsUri": string
+  // Union type
+}
+```
 
 ## VideoSegmentConfig
 
@@ -148,22 +135,12 @@ The end offset of the video segment in seconds.
 
 The interval of the video for which the embedding will be generated. The minimum value for `intervalSec` is 4. If the interval is less than 4, an `InvalidArgumentError` is returned. There are no limitations on the maximum value of the interval. However, if the interval is larger than `min(videoLength, 120s)` , it might affect the quality of the generated embeddings.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;startOffsetSec&quot;: integer,
-  &quot;endOffsetSec&quot;: integer,
-  &quot;intervalSec&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "startOffsetSec": integer,
+  "endOffsetSec": integer,
+  "intervalSec": integer
+}
+```

@@ -28,18 +28,18 @@ The request body contains data with the following structure:
 
 Fields
 
-`deployedModel` ` object ( DeployedModel  ` )
+`deployedModel` `object ( `[`DeployedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#DeployedModel)` )`
 
-Required. The DeployedModel to be created within the Endpoint. Note that `  Endpoint.traffic_split  ` must be updated for the DeployedModel to start receiving traffic, either as part of this call, or via `  EndpointService.UpdateEndpoint  ` .
+Required. The DeployedModel to be created within the Endpoint. Note that [`Endpoint.traffic_split`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#Endpoint.FIELDS.traffic_split) must be updated for the DeployedModel to start receiving traffic, either as part of this call, or via [`EndpointService.UpdateEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/patch#google.cloud.aiplatform.v1.EndpointService.UpdateEndpoint) .
 
 `trafficSplit` `map (key: string, value: integer)`
 
 A map from a DeployedModel's id to the percentage of this Endpoint's traffic that should be forwarded to that DeployedModel.
 
-If this field is non-empty, then the Endpoint's `  trafficSplit  ` will be overwritten with it. To refer to the id of the just being deployed Model, a "0" should be used, and the actual id of the new DeployedModel will be filled in its place by this method. The traffic percentage values must add up to 100.
+If this field is non-empty, then the Endpoint's [`trafficSplit`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#Endpoint.FIELDS.traffic_split) will be overwritten with it. To refer to the id of the just being deployed Model, a "0" should be used, and the actual id of the new DeployedModel will be filled in its place by this method. The traffic percentage values must add up to 100.
 
-If this field is empty, then the Endpoint's `  trafficSplit  ` is not updated.
+If this field is empty, then the Endpoint's [`trafficSplit`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#Endpoint.FIELDS.traffic_split) is not updated.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

@@ -10,8 +10,6 @@ data_source: docs.cloud.google.com
 
 There is no persistent data associated with this resource.
 
-## Methods
-
-### `            completions           `
-
-Exposes an OpenAI-compatible endpoint for chat completions.
+| Methods                                                                                                                                              |                                                             |
+|------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
+| [`completions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints.chat/completions) | Exposes an OpenAI-compatible endpoint for chat completions. |

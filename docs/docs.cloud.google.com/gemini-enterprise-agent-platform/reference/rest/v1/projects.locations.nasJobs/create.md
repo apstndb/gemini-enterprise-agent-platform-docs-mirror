@@ -24,8 +24,8 @@ Required. The resource name of the Location to create the NasJob in. Format: `pr
 
 ### Request body
 
-The request body contains an instance of `  NasJob  ` .
+The request body contains an instance of [`NasJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.nasJobs#NasJob) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  NasJob  ` .
+If successful, the response body contains a newly created instance of [`NasJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.nasJobs#NasJob) .

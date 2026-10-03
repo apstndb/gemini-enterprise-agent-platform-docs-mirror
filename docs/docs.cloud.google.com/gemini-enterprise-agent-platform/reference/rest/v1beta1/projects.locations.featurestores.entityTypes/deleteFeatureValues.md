@@ -36,11 +36,11 @@ Fields
 
 Defines options to select feature values to be deleted. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`selectEntity` ` object ( SelectEntity  ` )
+`selectEntity` `object ( `[`SelectEntity`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/deleteFeatureValues#SelectEntity)` )`
 
 Select feature values to be deleted by specifying entities.
 
-`selectTimeRangeAndFeature` ` object ( SelectTimeRangeAndFeature  ` )
+`selectTimeRangeAndFeature` `object ( `[`SelectTimeRangeAndFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/deleteFeatureValues#SelectTimeRangeAndFeature)` )`
 
 Select feature values to be deleted by specifying time range and features.
 
@@ -48,7 +48,7 @@ End of mutually exclusive fields.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ## SelectEntity
 
@@ -56,25 +56,19 @@ message to select entity. If an entity id is selected, all the feature values co
 
 Fields
 
-`entityIdSelector` ` object ( EntityIdSelector  ` )
+`entityIdSelector` `object ( `[`EntityIdSelector`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/deleteFeatureValues#EntityIdSelector)` )`
 
 Required. Selectors choosing feature values of which entity id to be deleted from the EntityType.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;entityIdSelector&quot;: {object (EntityIdSelector)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "entityIdSelector": {
+    object (EntityIdSelector)
+  }
+}
+```
 
 ## EntityIdSelector
 
@@ -84,33 +78,31 @@ Fields
 
 `entityIdField` `string`
 
-Source column that holds entity IDs. If not provided, entity IDs are extracted from the column named entity\_id.
+Source column that holds entity IDs. If not provided, entity IDs are extracted from the column named entity_id.
 
 `EntityIdsSource` `Union type`
 
 Details about the source data, including the location of the storage and the format. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`csvSource` ` object ( CsvSource  ` )
+`csvSource` `object ( `[`CsvSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/CsvSource)` )`
 
 Source of Csv
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;entityIdField&quot;: string,// EntityIdsSource&quot;csvSource&quot;: {object (CsvSource)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "entityIdField": string,
+
+  // EntityIdsSource
+  "csvSource": {
+    object (CsvSource)
+  }
+  // Union type
+}
+```
 
 ## SelectTimeRangeAndFeature
 
@@ -118,11 +110,11 @@ message to select time range and feature. Values of the selected feature generat
 
 Fields
 
-`timeRange` ` object ( Interval  ` )
+`timeRange` `object ( `[`Interval`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Interval)` )`
 
 Required. Select feature generated within a half-inclusive time range. The time range is lower inclusive and upper exclusive.
 
-`featureSelector` ` object ( FeatureSelector  ` )
+`featureSelector` `object ( `[`FeatureSelector`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureSelector)` )`
 
 Required. Selectors choosing which feature values to be deleted from the EntityType.
 
@@ -130,18 +122,16 @@ Required. Selectors choosing which feature values to be deleted from the EntityT
 
 If set, data will not be deleted from online storage. When time range is older than the data in online storage, setting this to be true will make the deletion have no impact on online serving.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;timeRange&quot;: {object (Interval)},&quot;featureSelector&quot;: {object (FeatureSelector)},&quot;skipOnlineStorageDelete&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "timeRange": {
+    object (Interval)
+  },
+  "featureSelector": {
+    object (FeatureSelector)
+  },
+  "skipOnlineStorageDelete": boolean
+}
+```

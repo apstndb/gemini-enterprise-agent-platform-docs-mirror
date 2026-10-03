@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 After you build and evaluate your Gen AI model, you might use the model to build an agent such as a chatbot. The Gen AI evaluation service lets you measure your agent's ability to complete tasks and goals for your use case.
@@ -16,9 +16,9 @@ After you build and evaluate your Gen AI model, you might use the model to build
 
 You have the following options to evaluate your agent:
 
-  - **Final response evaluation** : Evaluate the final output of an agent (whether or not the agent achieved its goal).
+- **Final response evaluation** : Evaluate the final output of an agent (whether or not the agent achieved its goal).
 
-  - **Trajectory evaluation** : Evaluate the path (sequence of tool calls) the agent took to reach the final response.
+- **Trajectory evaluation** : Evaluate the path (sequence of tool calls) the agent took to reach the final response.
 
 With the Gen AI evaluation service, you can trigger an agent execution and get metrics for both trajectory evaluation and final response evaluation in one Vertex AI SDK query.
 
@@ -27,7 +27,7 @@ With the Gen AI evaluation service, you can trigger an agent execution and get m
 The Gen AI evaluation service supports the following categories of agents:
 
 | Supported agents                                                   | Description                                                                                                                                                      |
-| ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|--------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Agent built with Agent Runtime's template                          | [Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) is a Google Cloud platform where you can deploy and manage agents. |
 | LangChain agents built using Agent Runtime's customizable template | [LangChain](https://www.langchain.com/) is an open source platform.                                                                                              |
 | Custom agent function                                              | Custom agent function is a flexible function that takes in a prompt for the agent and returns a response and trajectory in a dictionary.                         |
@@ -51,14 +51,14 @@ If the predicted trajectory is identical to the reference trajectory, with the e
 #### Metric input parameters
 
 | Input parameter        | Description                                                           |
-| ---------------------- | --------------------------------------------------------------------- |
+|------------------------|-----------------------------------------------------------------------|
 | `predicted_trajectory` | The list of tool calls used by the agent to reach the final response. |
 | `reference_trajectory` | The expected tool use for the agent to satisfy the query.             |
 
 #### Output scores
 
 | Value | Description                                       |
-| ----- | ------------------------------------------------- |
+|-------|---------------------------------------------------|
 | 0     | Predicted trajectory doesn't match the reference. |
 | 1     | Predicted trajectory matches the reference.       |
 
@@ -69,14 +69,14 @@ If the predicted trajectory contains all the tool calls from the reference traje
 #### Metric input parameters
 
 | Input parameter        | Description                                                             |
-| ---------------------- | ----------------------------------------------------------------------- |
+|------------------------|-------------------------------------------------------------------------|
 | `predicted_trajectory` | The predicted trajectory used by the agent to reach the final response. |
 | `reference_trajectory` | The expected predicted trajectory for the agent to satisfy the query.   |
 
 #### Output scores
 
 | Value | Description                                                                                     |
-| ----- | ----------------------------------------------------------------------------------------------- |
+|-------|-------------------------------------------------------------------------------------------------|
 | 0     | The tool calls in the predicted trajectory doesn't match the order in the reference trajectory. |
 | 1     | Predicted trajectory matches the reference.                                                     |
 
@@ -87,14 +87,14 @@ If the predicted trajectory contains all the tool calls from the reference traje
 #### Metric input parameters
 
 | Input parameter        | Description                                                           |
-| ---------------------- | --------------------------------------------------------------------- |
+|------------------------|-----------------------------------------------------------------------|
 | `predicted_trajectory` | The list of tool calls used by the agent to reach the final response. |
 | `reference_trajectory` | The expected tool use for the agent to satisfy the query.             |
 
 #### Output scores
 
 | Value | Description                                                                          |
-| ----- | ------------------------------------------------------------------------------------ |
+|-------|--------------------------------------------------------------------------------------|
 | 0     | Predicted trajectory doesn't contain all the tool calls in the reference trajectory. |
 | 1     | Predicted trajectory matches the reference.                                          |
 
@@ -107,14 +107,14 @@ Precision is calculated as follows: Count how many actions in the predicted traj
 #### Metric input parameters
 
 | Input parameter        | Description                                                           |
-| ---------------------- | --------------------------------------------------------------------- |
+|------------------------|-----------------------------------------------------------------------|
 | `predicted_trajectory` | The list of tool calls used by the agent to reach the final response. |
 | `reference_trajectory` | The expected tool use for the agent to satisfy the query.             |
 
 #### Output scores
 
 | Value                           | Description                                                  |
-| ------------------------------- | ------------------------------------------------------------ |
+|---------------------------------|--------------------------------------------------------------|
 | A float in the range of \[0,1\] | The higher the score, more precise the predicted trajectory. |
 
 ### Recall
@@ -126,14 +126,14 @@ Recall is calculated as follows: Count how many actions in the reference traject
 #### Metric input parameters
 
 | Input parameter        | Description                                                           |
-| ---------------------- | --------------------------------------------------------------------- |
+|------------------------|-----------------------------------------------------------------------|
 | `predicted_trajectory` | The list of tool calls used by the agent to reach the final response. |
 | `reference_trajectory` | The expected tool use for the agent to satisfy the query.             |
 
 #### Output scores
 
 | Value                           | Description                                                       |
-| ------------------------------- | ----------------------------------------------------------------- |
+|---------------------------------|-------------------------------------------------------------------|
 | A float in the range of \[0,1\] | The higher the score, the predicted trajectory has a good recall. |
 
 ### Single tool use
@@ -143,13 +143,13 @@ The `trajectory_single_tool_use` metric checks if a specific tool that is specif
 #### Metric input parameters
 
 | Input parameter        | Description                                                           |
-| ---------------------- | --------------------------------------------------------------------- |
+|------------------------|-----------------------------------------------------------------------|
 | `predicted_trajectory` | The list of tool calls used by the agent to reach the final response. |
 
 #### Output scores
 
 | Value | Description          |
-| ----- | -------------------- |
+|-------|----------------------|
 | 0     | The tool is absent   |
 | 1     | The tool is present. |
 
@@ -160,7 +160,7 @@ In addition, the following two agent performance metrics are added to the evalua
 Time taken by the agent to return a response.
 
 | Value   | Description            |
-| ------- | ---------------------- |
+|---------|------------------------|
 | A float | Calculated in seconds. |
 
 ### `failure`
@@ -170,7 +170,7 @@ A boolean to describe if the agent invocation resulted in an error or succeeds.
 #### Output scores
 
 | Value | Description             |
-| ----- | ----------------------- |
+|-------|-------------------------|
 | 1     | Error                   |
 | 0     | Valid response returned |
 
@@ -183,7 +183,7 @@ The data schema for final response evaluation is similar to that of [model respo
 For computation-based trajectory evaluation, your dataset needs to provide the following information:
 
 | Input type                                                                     | Input field contents                                                   |
-| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------- |
+|--------------------------------------------------------------------------------|------------------------------------------------------------------------|
 | `predicted_trajectory`                                                         | The list of tool calls used by the agents to reach the final response. |
 | `reference_trajectory` (not required for `trajectory_single_tool_use metric` ) | The expected tool use for the agent to satisfy the query.              |
 
@@ -193,107 +193,111 @@ The following examples show datasets for trajectory evaluation. Note that `refer
 
 > **Note:** Example datasets are for demonstration purposes and shouldn't be used in production.
 
-    reference_trajectory = [
-    # example 1
-    [
-      {
-        "tool_name": "set_device_info",
-        "tool_input": {
-            "device_id": "device_2",
-            "updates": {
-                "status": "OFF"
-            }
+```
+reference_trajectory = [
+# example 1
+[
+  {
+    "tool_name": "set_device_info",
+    "tool_input": {
+        "device_id": "device_2",
+        "updates": {
+            "status": "OFF"
         }
+    }
+  }
+],
+# example 2
+[
+    {
+      "tool_name": "get_user_preferences",
+      "tool_input": {
+          "user_id": "user_y"
       }
-    ],
-    # example 2
-    [
-        {
-          "tool_name": "get_user_preferences",
-          "tool_input": {
-              "user_id": "user_y"
-          }
-      },
-      {
-          "tool_name": "set_temperature",
-          "tool_input": {
-              "location": "Living Room",
-              "temperature": 23
-          }
-        },
-      ]
-    ]
-    
-    predicted_trajectory = [
-    # example 1
-    [
-      {
-        "tool_name": "set_device_info",
-        "tool_input": {
-            "device_id": "device_3",
-            "updates": {
-                "status": "OFF"
-            }
+  },
+  {
+      "tool_name": "set_temperature",
+      "tool_input": {
+          "location": "Living Room",
+          "temperature": 23
+      }
+    },
+  ]
+]
+
+predicted_trajectory = [
+# example 1
+[
+  {
+    "tool_name": "set_device_info",
+    "tool_input": {
+        "device_id": "device_3",
+        "updates": {
+            "status": "OFF"
         }
+    }
+  }
+],
+# example 2
+[
+    {
+      "tool_name": "get_user_preferences",
+      "tool_input": {
+          "user_id": "user_z"
       }
-    ],
-    # example 2
-    [
-        {
-          "tool_name": "get_user_preferences",
-          "tool_input": {
-              "user_id": "user_z"
-          }
-        },
-        {
-          "tool_name": "set_temperature",
-          "tool_input": {
-              "location": "Living Room",
-              "temperature": 23
-          }
-        },
-      ]
-    ]
-    
-    eval_dataset = pd.DataFrame({
-        "predicted_trajectory": predicted_trajectory,
-        "reference_trajectory": reference_trajectory,
-    })
+    },
+    {
+      "tool_name": "set_temperature",
+      "tool_input": {
+          "location": "Living Room",
+          "temperature": 23
+      }
+    },
+  ]
+]
+
+eval_dataset = pd.DataFrame({
+    "predicted_trajectory": predicted_trajectory,
+    "reference_trajectory": reference_trajectory,
+})
+```
 
 ## Import your evaluation dataset
 
 You can import your dataset in the following formats:
 
-  - JSONL or CSV file stored in Cloud Storage
+- JSONL or CSV file stored in Cloud Storage
 
-  - BigQuery table
+- BigQuery table
 
-  - Pandas DataFrame
+- Pandas DataFrame
 
 Gen AI evaluation service provides example public datasets to demonstrate how you can evaluate your agents. The following code shows how to import the public datasets from a Cloud Storage bucket:
 
-    # dataset name to be imported
-    dataset = "on-device" # Alternatives: "customer-support", "content-creation"
-    
-    # copy the tools and dataset file
-    !gcloud storage cp gs://cloud-ai-demo-datasets/agent-eval-datasets/{dataset}/tools.py .
-    !gcloud storage cp gs://cloud-ai-demo-datasets/agent-eval-datasets/{dataset}/eval_dataset.json .
-    
-    # load the dataset examples
-    import json
-    
-    eval_dataset = json.loads(open('eval_dataset.json').read())
-    
-    # run the tools file
-    %run -i tools.py
+```
+# dataset name to be imported
+dataset = "on-device" # Alternatives: "customer-support", "content-creation"
+
+# copy the tools and dataset file
+!gcloud storage cp gs://cloud-ai-demo-datasets/agent-eval-datasets/{dataset}/tools.py .
+!gcloud storage cp gs://cloud-ai-demo-datasets/agent-eval-datasets/{dataset}/eval_dataset.json .
+
+# load the dataset examples
+import json
+
+eval_dataset = json.loads(open('eval_dataset.json').read())
+
+# run the tools file
+%run -i tools.py
+```
 
 where `dataset` is one of the following public datasets:
 
-  - `"on-device"` for an On-Device Home Assistant, which controls home devices. The agent helps with queries such as "Schedule the air conditioning in the bedroom so that it is on between 11pm and 8am, and off the rest of the time."
+- `"on-device"` for an On-Device Home Assistant, which controls home devices. The agent helps with queries such as "Schedule the air conditioning in the bedroom so that it is on between 11pm and 8am, and off the rest of the time."
 
-  - `"customer-support"` for a Customer Support Agent. The agent helps with queries such as "Can you cancel any pending orders and escalate any open support tickets?"
+- `"customer-support"` for a Customer Support Agent. The agent helps with queries such as "Can you cancel any pending orders and escalate any open support tickets?"
 
-  - `"content-creation"` for a Marketing Content Creation Agent. The agent helps with queries such as "Reschedule campaign X to be a one-time campaign on social media site Y with a 50% reduced budget, only on December 25, 2024."
+- `"content-creation"` for a Marketing Content Creation Agent. The agent helps with queries such as "Reschedule campaign X to be a one-time campaign on social media site Y with a 50% reduced budget, only on December 25, 2024."
 
 ## Run agent evaluation
 
@@ -301,67 +305,73 @@ Run an evaluation for trajectory or final response evaluation:
 
 For agent evaluation, you can mix response evaluation metrics and trajectory evaluation metrics like in the following code:
 
-    single_tool_use_metric = TrajectorySingleToolUse(tool_name='tool_name')
-    
-    eval_task = EvalTask(
-        dataset=EVAL_DATASET,
-        metrics=[
-            "rouge_l_sum",
-            "bleu",
-            custom_trajectory_eval_metric, # custom computation-based metric
-            "trajectory_exact_match",
-            "trajectory_precision",
-            single_tool_use_metric,
-            response_follows_trajectory_metric # llm-based metric
-        ],
-    )
-    eval_result = eval_task.evaluate(
-        runnable=RUNNABLE,
-    )
+```
+single_tool_use_metric = TrajectorySingleToolUse(tool_name='tool_name')
+
+eval_task = EvalTask(
+    dataset=EVAL_DATASET,
+    metrics=[
+        "rouge_l_sum",
+        "bleu",
+        custom_trajectory_eval_metric, # custom computation-based metric
+        "trajectory_exact_match",
+        "trajectory_precision",
+        single_tool_use_metric,
+        response_follows_trajectory_metric # llm-based metric
+    ],
+)
+eval_result = eval_task.evaluate(
+    runnable=RUNNABLE,
+)
+```
 
 ### Metric customization
 
 You can customize a large language model-based metric for trajectory evaluation using a templated interface or from scratch, for more details see the section on [model-based metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval#model-based-metrics) . Here is a templated example:
 
-    response_follows_trajectory_prompt_template = PointwiseMetricPromptTemplate(
-        criteria={
-            "Follows trajectory": (
-                "Evaluate whether the agent's response logically follows from the "
-                "sequence of actions it took. Consider these sub-points:\n"
-                "  - Does the response reflect the information gathered during the trajectory?\n"
-                "  - Is the response consistent with the goals and constraints of the task?\n"
-                "  - Are there any unexpected or illogical jumps in reasoning?\n"
-                "Provide specific examples from the trajectory and response to support your evaluation."
-            )
-        },
-        rating_rubric={
-            "1": "Follows trajectory",
-            "0": "Does not follow trajectory",
-        },
-        input_variables=["prompt", "predicted_trajectory"],
-    )
-    
-    response_follows_trajectory_metric = PointwiseMetric(
-        metric="response_follows_trajectory",
-        metric_prompt_template=response_follows_trajectory_prompt_template,
-    )
+```
+response_follows_trajectory_prompt_template = PointwiseMetricPromptTemplate(
+    criteria={
+        "Follows trajectory": (
+            "Evaluate whether the agent's response logically follows from the "
+            "sequence of actions it took. Consider these sub-points:\n"
+            "  - Does the response reflect the information gathered during the trajectory?\n"
+            "  - Is the response consistent with the goals and constraints of the task?\n"
+            "  - Are there any unexpected or illogical jumps in reasoning?\n"
+            "Provide specific examples from the trajectory and response to support your evaluation."
+        )
+    },
+    rating_rubric={
+        "1": "Follows trajectory",
+        "0": "Does not follow trajectory",
+    },
+    input_variables=["prompt", "predicted_trajectory"],
+)
+
+response_follows_trajectory_metric = PointwiseMetric(
+    metric="response_follows_trajectory",
+    metric_prompt_template=response_follows_trajectory_prompt_template,
+)
+```
 
 You can also define a custom computation-based metric for trajectory evaluation or response evaluation as follows:
 
-    def essential_tools_present(instance, required_tools = ["tool1", "tool2"]):
-        trajectory = instance["predicted_trajectory"]
-        tools_present = [tool_used['tool_name'] for tool_used in trajectory]
-        if len(required_tools) == 0:
-          return {"essential_tools_present": 1}
-        score = 0
-        for tool in required_tools:
-          if tool in tools_present:
-            score += 1
-        return {
-            "essential_tools_present": score/len(required_tools),
-        }
-    
-    custom_trajectory_eval_metric = CustomMetric(name="essential_tools_present", metric_function=essential_tools_present)
+```
+def essential_tools_present(instance, required_tools = ["tool1", "tool2"]):
+    trajectory = instance["predicted_trajectory"]
+    tools_present = [tool_used['tool_name'] for tool_used in trajectory]
+    if len(required_tools) == 0:
+      return {"essential_tools_present": 1}
+    score = 0
+    for tool in required_tools:
+      if tool in tools_present:
+        score += 1
+    return {
+        "essential_tools_present": score/len(required_tools),
+    }
+
+custom_trajectory_eval_metric = CustomMetric(name="essential_tools_present", metric_function=essential_tools_present)
+```
 
 ## View and interpret results
 
@@ -375,18 +385,18 @@ The evaluation results contain the following information:
 
 ### Instance-level results
 
-| Column               | Description                                                       |
-| -------------------- | ----------------------------------------------------------------- |
-| response             | Final response generated by the agent.                            |
-| latency\_in\_seconds | Time taken to generate the response.                              |
-| failure              | Indicates that a valid response was generated or not.             |
-| score                | A score calculated for the response specified in the metric spec. |
-| explanation          | The explanation for the score specified in the metric spec.       |
+| Column             | Description                                                       |
+|--------------------|-------------------------------------------------------------------|
+| response           | Final response generated by the agent.                            |
+| latency_in_seconds | Time taken to generate the response.                              |
+| failure            | Indicates that a valid response was generated or not.             |
+| score              | A score calculated for the response specified in the metric spec. |
+| explanation        | The explanation for the score specified in the metric spec.       |
 
 ### Aggregate results
 
 | Column             | Description                            |
-| ------------------ | -------------------------------------- |
+|--------------------|----------------------------------------|
 | mean               | Average score for all instances.       |
 | standard deviation | Standard deviation for all the scores. |
 
@@ -394,18 +404,18 @@ The evaluation results contain the following information:
 
 ### Instance-level results
 
-| Column                | Description                                                                                            |
-| --------------------- | ------------------------------------------------------------------------------------------------------ |
-| predicted\_trajectory | Sequence of tool calls followed by agent to reach the final response.                                  |
-| reference\_trajectory | Sequence of expected tool calls.                                                                       |
-| score                 | A score calculated for the predicted trajectory and reference trajectory specified in the metric spec. |
-| latency\_in\_seconds  | Time taken to generate the response.                                                                   |
-| failure               | Indicates that a valid response was generated or not.                                                  |
+| Column               | Description                                                                                            |
+|----------------------|--------------------------------------------------------------------------------------------------------|
+| predicted_trajectory | Sequence of tool calls followed by agent to reach the final response.                                  |
+| reference_trajectory | Sequence of expected tool calls.                                                                       |
+| score                | A score calculated for the predicted trajectory and reference trajectory specified in the metric spec. |
+| latency_in_seconds   | Time taken to generate the response.                                                                   |
+| failure              | Indicates that a valid response was generated or not.                                                  |
 
 ### Aggregate results
 
 | Column             | Description                            |
-| ------------------ | -------------------------------------- |
+|--------------------|----------------------------------------|
 | mean               | Average score for all instances.       |
 | standard deviation | Standard deviation for all the scores. |
 
@@ -417,12 +427,12 @@ If you are building a multi-agent system, we highly recommend reviewing the [A2A
 
 Try the following agent evaluation notebooks:
 
-  - [Evaluate a Langraph agent](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/evaluation/evaluating_langgraph_agent.ipynb)
+- [Evaluate a Langraph agent](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/evaluation/evaluating_langgraph_agent.ipynb)
 
-  - [Evaluate a CrewAI agent](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/evaluation/evaluating_crewai_agent.ipynb)
+- [Evaluate a CrewAI agent](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/evaluation/evaluating_crewai_agent.ipynb)
 
-  - [Evaluate a Langchain agent with Agent Engine](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/agent-engine/evaluating_langchain_agent_engine_prebuilt_template.ipynb)
+- [Evaluate a Langchain agent with Agent Engine](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/agent-engine/evaluating_langchain_agent_engine_prebuilt_template.ipynb)
 
-  - [Evaluate a LangGraph agent with Agent Engine](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/agent-engine/evaluating_langgraph_agent_engine_customized_template.ipynb)
+- [Evaluate a LangGraph agent with Agent Engine](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/agent-engine/evaluating_langgraph_agent_engine_customized_template.ipynb)
 
-  - [Evaluate a CrewAI agent with Agent Engine](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/agent-engine/evaluating_crewai_agent_engine_customized_template.ipynb)
+- [Evaluate a CrewAI agent with Agent Engine](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/agent-engine/evaluating_crewai_agent_engine_customized_template.ipynb)

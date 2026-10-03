@@ -32,11 +32,13 @@ The image files you use in this tutorial are from the flower dataset used in thi
 
 `gs://cloud-samples-data/ai-platform/flowers/flowers.csv` :
 
-    gs://cloud-samples-data/ai-platform/flowers/daisy/10559679065_50d2b16f6d.jpg,daisy
-    gs://cloud-samples-data/ai-platform/flowers/dandelion/10828951106_c3cd47983f.jpg,dandelion
-    gs://cloud-samples-data/ai-platform/flowers/roses/14312910041_b747240d56_n.jpg,roses
-    gs://cloud-samples-data/ai-platform/flowers/sunflowers/127192624_afa3d9cb84.jpg,sunflowers
-    gs://cloud-samples-data/ai-platform/flowers/tulips/13979098645_50b9eebc02_n.jpg,tulips
+```
+gs://cloud-samples-data/ai-platform/flowers/daisy/10559679065_50d2b16f6d.jpg,daisy
+gs://cloud-samples-data/ai-platform/flowers/dandelion/10828951106_c3cd47983f.jpg,dandelion
+gs://cloud-samples-data/ai-platform/flowers/roses/14312910041_b747240d56_n.jpg,roses
+gs://cloud-samples-data/ai-platform/flowers/sunflowers/127192624_afa3d9cb84.jpg,sunflowers
+gs://cloud-samples-data/ai-platform/flowers/tulips/13979098645_50b9eebc02_n.jpg,tulips
+```
 
 ## Create an image classification dataset and import data
 
@@ -45,27 +47,27 @@ Visit the [Google Cloud console](https://console.cloud.google.com/agent-platform
 When prompted, make sure to select the project that you used for your Cloud Storage bucket.
 
 1.  From the Get started with Gemini Enterprise Agent Platform page, click **Create dataset** .
-    
+
     ![Agent Platform dashboard](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/images/create-dataset.png)
 
 2.  Specify a name for this dataset (optional).
 
-3.  In the Image tab of the "Select a data type and objective" section, choose the radio\_button\_checked **Image classification (Single-label)** radio option. In the Region drop-down menu select **US Central** .
-    
+3.  In the Image tab of the "Select a data type and objective" section, choose the radio_button_checked **Image classification (Single-label)** radio option. In the Region drop-down menu select **US Central** .
+
     ![New dataset window](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/images/create-dataset-objective.png)
 
 4.  Select **Create** to create the empty dataset. After selecting Create you will advance to the data import window.
 
-5.  Select the radio\_button\_checked **Select import files from Cloud Storage** and specify the Cloud Storage URI of the CSV file with the image location and label data. For this quickstart, the CSV file is at `gs://cloud-samples-data/ai-platform/flowers/flowers.csv` . Copy and paste the following into the "Import file path" field:
-    
-      - ``` 
-        cloud-samples-data/ai-platform/flowers/flowers.csv
-        ```
-    
+5.  Select the radio_button_checked **Select import files from Cloud Storage** and specify the Cloud Storage URI of the CSV file with the image location and label data. For this quickstart, the CSV file is at `gs://cloud-samples-data/ai-platform/flowers/flowers.csv` . Copy and paste the following into the "Import file path" field:
+
+    - ```
+      cloud-samples-data/ai-platform/flowers/flowers.csv
+      ```
+
     ![Select file import window](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/images/select-import-file.png)
 
 6.  Click **Continue** to begin image import. The import process takes a few minutes. When it completes, you are taken to the next page that shows all of the images identified for your dataset, both labeled and unlabeled images.
-    
+
     > When using the indicated flower dataset, you will see several warning alerts. This is purposeful, to show you error messages you may encounter with your own data.
 
 ## What's next

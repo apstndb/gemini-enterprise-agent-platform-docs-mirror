@@ -30,13 +30,13 @@ Fields
 
 `deployedModelId` `string`
 
-Required. The DeployedModel id of the \[ModelDeploymentMonitoringObjectiveConfig.deployed\_model\_id\].
+Required. The DeployedModel id of the \[ModelDeploymentMonitoringObjectiveConfig.deployed_model_id\].
 
 `featureDisplayName` `string`
 
-The feature display name. If specified, only return the stats belonging to this feature. Format: `  ModelMonitoringStatsAnomalies.FeatureHistoricStatsAnomalies.feature_display_name  ` , example: "user\_destination".
+The feature display name. If specified, only return the stats belonging to this feature. Format: [`ModelMonitoringStatsAnomalies.FeatureHistoricStatsAnomalies.feature_display_name`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs#FeatureHistoricStatsAnomalies.FIELDS.feature_display_name) , example: "user_destination".
 
-`objectives[]` ` object ( StatsAnomaliesObjective  ` )
+`objectives[]` `object ( `[`StatsAnomaliesObjective`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#StatsAnomaliesObjective)` )`
 
 Required. Objectives of the stats to retrieve.
 
@@ -46,15 +46,15 @@ The standard list page size.
 
 `pageToken` `string`
 
-A page token received from a previous `  JobService.SearchModelDeploymentMonitoringStatsAnomalies  ` call.
+A page token received from a previous [`JobService.SearchModelDeploymentMonitoringStatsAnomalies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#google.cloud.aiplatform.v1beta1.JobService.SearchModelDeploymentMonitoringStatsAnomalies) call.
 
-`startTime` ` string ( Timestamp  ` format)
+`startTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 The earliest timestamp of stats being generated. If not set, indicates fetching stats till the earliest possible one.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`endTime` ` string ( Timestamp  ` format)
+`endTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 The latest timestamp of stats being generated. If not set, indicates feching stats till the latest possible one.
 
@@ -62,35 +62,32 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 ### Response body
 
-Response message for `  JobService.SearchModelDeploymentMonitoringStatsAnomalies  ` .
+Response message for [`JobService.SearchModelDeploymentMonitoringStatsAnomalies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#google.cloud.aiplatform.v1beta1.JobService.SearchModelDeploymentMonitoringStatsAnomalies) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`monitoringStats[]` ` object ( ModelMonitoringStatsAnomalies  ` )
+`monitoringStats[]` `object ( `[`ModelMonitoringStatsAnomalies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs#ModelMonitoringStatsAnomalies)` )`
 
-Stats retrieved for requested objectives. There are at most 1000 `  ModelMonitoringStatsAnomalies.FeatureHistoricStatsAnomalies.prediction_stats  ` in the response.
+Stats retrieved for requested objectives. There are at most 1000 [`ModelMonitoringStatsAnomalies.FeatureHistoricStatsAnomalies.prediction_stats`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs#FeatureHistoricStatsAnomalies.FIELDS.prediction_stats) in the response.
 
 `nextPageToken` `string`
 
-The page token that can be used by the next `  JobService.SearchModelDeploymentMonitoringStatsAnomalies  ` call.
+The page token that can be used by the next [`JobService.SearchModelDeploymentMonitoringStatsAnomalies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#google.cloud.aiplatform.v1beta1.JobService.SearchModelDeploymentMonitoringStatsAnomalies) call.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;monitoringStats&quot;: [{object (ModelMonitoringStatsAnomalies)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "monitoringStats": [
+    {
+      object (ModelMonitoringStatsAnomalies)
+    }
+  ],
+  "nextPageToken": string
+}
+```
 
 ## StatsAnomaliesObjective
 
@@ -98,24 +95,17 @@ Stats requested for specific objective.
 
 Fields
 
-`type` ` enum ( ModelDeploymentMonitoringObjectiveType  ` )
+`type` `enum ( `[`ModelDeploymentMonitoringObjectiveType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs#ModelDeploymentMonitoringObjectiveType)` )`
 
 `topFeatureCount` `integer`
 
-If set, all attribution scores between `  SearchModelDeploymentMonitoringStatsAnomaliesRequest.start_time  ` and `  SearchModelDeploymentMonitoringStatsAnomaliesRequest.end_time  ` are fetched, and page token doesn't take effect in this case. Only used to retrieve attribution score for the top Features which has the highest attribution score in the latest monitoring run.
+If set, all attribution scores between [`SearchModelDeploymentMonitoringStatsAnomaliesRequest.start_time`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#body.request_body.FIELDS.start_time) and [`SearchModelDeploymentMonitoringStatsAnomaliesRequest.end_time`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#body.request_body.FIELDS.end_time) are fetched, and page token doesn't take effect in this case. Only used to retrieve attribution score for the top Features which has the highest attribution score in the latest monitoring run.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;type&quot;: enum (ModelDeploymentMonitoringObjectiveType),&quot;topFeatureCount&quot;: integer}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "type": enum (ModelDeploymentMonitoringObjectiveType),
+  "topFeatureCount": integer
+}
+```

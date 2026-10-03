@@ -34,13 +34,13 @@ To learn how to make streaming and non-streaming calls to xAI models, see [Call 
 
 For managed models, you can use curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names:
 
-  - For Grok 4.7, use `grok-4.7`
-  - For Grok 4.6, use `grok-4.6`
-  - For Grok 4.3, use `grok-4.3`
-  - For Grok 4.20 (Reasoning), use `grok-4.20-reasoning`
-  - For Grok 4.20 (Non-reasoning), use `grok-4.20-non-reasoning`
-  - For Grok 4.1 Fast (Reasoning), use `grok-4.1-fast-reasoning`
-  - For Grok 4.1 Fast (Non-reasoning), use `grok-4.1-fast-non-reasoning`
+- For Grok 4.7, use `grok-4.7`
+- For Grok 4.6, use `grok-4.6`
+- For Grok 4.3, use `grok-4.3`
+- For Grok 4.20 (Reasoning), use `grok-4.20-reasoning`
+- For Grok 4.20 (Non-reasoning), use `grok-4.20-non-reasoning`
+- For Grok 4.1 Fast (Reasoning), use `grok-4.1-fast-reasoning`
+- For Grok 4.1 Fast (Non-reasoning), use `grok-4.1-fast-non-reasoning`
 
 ## Grok quotas
 
@@ -48,13 +48,13 @@ Grok models have a single global quota that applies per base model rather than p
 
 To maintain overall service performance and acceptable use, the maximum quotas might vary by account and, in some cases, access might be restricted. View your project's quotas on the [**Quotas & System Limits**](https://console.cloud.google.com/quotas) page in the Google Cloud console. You must also have the following quotas available:
 
-  - `global_generate_content_requests_per_minute_per_project_per_base_model` defines your QPM quota.
+- `global_generate_content_requests_per_minute_per_project_per_base_model` defines your QPM quota.
 
-  - For TPM, there are two quota values that apply to particular models: `global_generate_content_input_tokens_per_minute_per_base_model` defines the input TPM quota and `global_generate_content_output_tokens_per_minute_per_base_model` defines the output TPM quota.
+- For TPM, there are two quota values that apply to particular models: `global_generate_content_input_tokens_per_minute_per_base_model` defines the input TPM quota and `global_generate_content_output_tokens_per_minute_per_base_model` defines the output TPM quota.
 
 To see which models count input and output tokens separately, see the specific model pages.
 
 ## What's next
 
-  - Learn how to [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .
-  - Learn how to [Call Responses API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/responses) .
+- Learn how to [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .
+- Learn how to [Call Responses API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/responses) .

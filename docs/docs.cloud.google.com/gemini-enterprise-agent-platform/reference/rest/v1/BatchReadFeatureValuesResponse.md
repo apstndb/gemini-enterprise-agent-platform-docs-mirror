@@ -8,4 +8,4 @@ data_source: docs.cloud.google.com
 
 This type has no fields.
 
-Response message for `  FeaturestoreService.BatchReadFeatureValues  ` .
+Response message for [`FeaturestoreService.BatchReadFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores/batchReadFeatureValues#google.cloud.aiplatform.v1.FeaturestoreService.BatchReadFeatureValues) .

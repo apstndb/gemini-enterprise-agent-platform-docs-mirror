@@ -26,8 +26,8 @@ Be sure to account for session memory tokens when estimating your required Provi
 
 The following are the quota enforcement windows for different GSU sizes for the Gemini 3.8 Live API model:
 
-  - 1-9 GSUs: 45 seconds
-  - 10+ GSUs: 5 seconds
+- 1-9 GSUs: 45 seconds
+- 10+ GSUs: 5 seconds
 
 The listed values are independent of the request latency. The time to process your request isn't the same as the quota enforcement window. Note that a minimum of 10 GSUs must be purchased for Provisioned Throughput to be able to process this model's video avatar-related requests. If less than 10 GSUs are purchased, the entire video avatar-based session will spill over to PayGo.
 
@@ -38,7 +38,7 @@ Enforcement windows are larger at smaller GSU amounts to ensure that smaller req
 Let's walk through an example of a potential workload and understand how the [estimation tool](https://console.cloud.google.com/agent-platform/provisioned-throughput/price-estimate) would provide a recommendation for this model, which also informs how requests are processed and burndown rates are applied. A user is planning to use the Live API for a chatbot where 10 concurrent sessions are expected, and the duration is 5 minutes (300 seconds). There are an expected 30 conversation turns per session, and the user specifies a maximum session context window of 6,000 trigger tokens. The shape of the requests are captured below:
 
 | Field                                     | Example Value |
-| :---------------------------------------- | :------------ |
+|-------------------------------------------|---------------|
 | Expected number of concurrent sessions    | 10            |
 | Expected duration (seconds)               | 300           |
 | Average number of turns per session       | 30            |
@@ -54,11 +54,11 @@ Let's walk through an example of a potential workload and understand how the [es
 
 Calculate the sumproduct of input modalities and their respective burndown rates:
 
-  - Average input text tokens per turn \* Input text burndown rate = 20 \* 1 = 20
+- Average input text tokens per turn \* Input text burndown rate = 20 \* 1 = 20
 
-  - Average input audio tokens per turn \* Input audio burndown rate = 200 \* 4 = 800
+- Average input audio tokens per turn \* Input audio burndown rate = 200 \* 4 = 800
 
-  - Average input image/video tokens per turn \* Input image burndown rate = 50 \* 1.4 = 70
+- Average input image/video tokens per turn \* Input image burndown rate = 50 \* 1.4 = 70
 
 Burndown-adjusted input tokens total per turn = 20 + 800 + 70 = **890**
 
@@ -66,11 +66,11 @@ Burndown-adjusted input tokens total per turn = 20 + 800 + 70 = **890**
 
 Calculate the sumproduct of output modalities and their respective burndown rates. Note that output video avatar tokens represents a fixed 6,192 tokens per 25 audio tokens:
 
-  - Average output text tokens per turn \* Output text burndown rate = 100 \* 6 = 600
+- Average output text tokens per turn \* Output text burndown rate = 100 \* 6 = 600
 
-  - Average audio tokens per turn \* Output audio burndown rate = 200 \* 16 = 3,200
+- Average audio tokens per turn \* Output audio burndown rate = 200 \* 16 = 3,200
 
-  - Is output video avatar enabled? Yes, so multiply audio token output by (6,192/25) and apply output video avatar token burndown rate: 200 \* (6,192/25) \* 1.4 = 69,350
+- Is output video avatar enabled? Yes, so multiply audio token output by (6,192/25) and apply output video avatar token burndown rate: 200 \* (6,192/25) \* 1.4 = 69,350
 
 Burndown-adjusted output tokens total per turn = 600 + 3,200 + 69,350 = **73,150**
 
@@ -80,27 +80,27 @@ The context window accumulates raw input and output tokens (excluding output vid
 
 Add the total raw tokens in each session without accounting for burndown rates.
 
-  - Average input text tokens per turn + average input audio tokens per turn + average input image/video tokens per turn + average output text tokens per turn + average output audio tokens per turn = 20 + 200 + 50 + 100 + 200 = 570
+- Average input text tokens per turn + average input audio tokens per turn + average input image/video tokens per turn + average output text tokens per turn + average output audio tokens per turn = 20 + 200 + 50 + 100 + 200 = 570
 
 Then calculate the ratio of each raw token count to the total. We can ignore video avatar output tokens as part of the context window calculation.
 
-  - Input text ratio = 20/570 = 0.035
-  - Input audio ratio = 200/570 = 0.351
-  - Input image/video ratio = 50/570 = 0.088
-  - Output text ratio = 100/570 = 0.175
-  - Output audio ratio = 200/570 = 0.351
+- Input text ratio = 20/570 = 0.035
+- Input audio ratio = 200/570 = 0.351
+- Input image/video ratio = 50/570 = 0.088
+- Output text ratio = 100/570 = 0.175
+- Output audio ratio = 200/570 = 0.351
 
 Then calculate the sumproduct of the ratios, maximum context length, and the burndown rates as if they were all input modalities.
 
-  - Input text ratio \* maximum context length \* input text burndown = 0.035 \* 6,000 \* 1 = 210
+- Input text ratio \* maximum context length \* input text burndown = 0.035 \* 6,000 \* 1 = 210
 
-  - Input audio ratio \* maximum context length \* input audio burndown = 0.351 \* 6,000 \* 4 = 8,424
+- Input audio ratio \* maximum context length \* input audio burndown = 0.351 \* 6,000 \* 4 = 8,424
 
-  - Input image/video ratio \* maximum context length \* input image/video burndown = 0.088 \* 6,000 \* 1.4 = 739
+- Input image/video ratio \* maximum context length \* input image/video burndown = 0.088 \* 6,000 \* 1.4 = 739
 
-  - Output text ratio \* maximum context length \* input text burndown = 0.175 \* 6,000 \* 1 = 1,050
+- Output text ratio \* maximum context length \* input text burndown = 0.175 \* 6,000 \* 1 = 1,050
 
-  - Output audio ratio \* maximum context length \* input audio burndown = 0.351 \* 6,000 \* 4 = 8,424
+- Output audio ratio \* maximum context length \* input audio burndown = 0.351 \* 6,000 \* 4 = 8,424
 
 At the maximum context window limit of 6,000 raw tokens, the total burndown-adjusted context window tokens processed per turn is 210 + 8,424 + 739 + 1,050 + 8,424 = 18,847.
 
@@ -114,53 +114,53 @@ Let's walk through an example of how requests are processed with regards to Prov
 
 **Request \#1 details - input audio & video, output audio**
 
-  - Duration: 10 seconds
-  - Tokens sent (audio): 10 seconds x 25 tokens/second = 250 tokens
-  - Tokens sent (video): 10 seconds x 258 tokens/frame per second = 2,580 tokens
-  - Output audio tokens received based on nature of request: 100 tokens
-  - Updated session memory = 250 + 2,580 + 100 = **2,930 tokens**
+- Duration: 10 seconds
+- Tokens sent (audio): 10 seconds x 25 tokens/second = 250 tokens
+- Tokens sent (video): 10 seconds x 258 tokens/frame per second = 2,580 tokens
+- Output audio tokens received based on nature of request: 100 tokens
+- Updated session memory = 250 + 2,580 + 100 = **2,930 tokens**
 
 **Request \#2 details - input audio with session memory, output audio**
 
-  - Duration: 40 seconds
-  - Tokens sent (audio): 40 seconds x 25 tokens/second = 1,000 tokens
-  - Session memory after Request \#1 = 2,930 tokens
-  - Total input tokens sent: tokens sent in this request + session memory from Request \#1 = 1,000 + 2,930 = **3,930 tokens**
-  - Output audio tokens received based on nature of request: **200 tokens**
-  - Updated session memory = 3,930 + 200 = **4,130 tokens**
+- Duration: 40 seconds
+- Tokens sent (audio): 40 seconds x 25 tokens/second = 1,000 tokens
+- Session memory after Request \#1 = 2,930 tokens
+- Total input tokens sent: tokens sent in this request + session memory from Request \#1 = 1,000 + 2,930 = **3,930 tokens**
+- Output audio tokens received based on nature of request: **200 tokens**
+- Updated session memory = 3,930 + 200 = **4,130 tokens**
 
 **Request \#3 details - input audio & video with session memory, output avatar video & audio**
 
-  - Duration: 10 seconds
-  - Tokens sent (audio): 10 seconds x 25 tokens/second = 250 tokens
-  - Tokens sent (video): 10 seconds x 258 tokens/frame per second = 2,580 tokens
-  - Session memory after Request \#2 = 4,130 tokens
-  - Total input tokens sent: tokens sent in this request + session memory from Request \#2 = 250 + 2,580 + 4,130 = **6,960 tokens**
-  - Output video avatar tokens received based on nature of request: **61,920 tokens**
-  - Output audio tokens received based on nature of request: **250 tokens**
-  - Updated session memory = 6,960 + 250 = **7,210 tokens**
+- Duration: 10 seconds
+- Tokens sent (audio): 10 seconds x 25 tokens/second = 250 tokens
+- Tokens sent (video): 10 seconds x 258 tokens/frame per second = 2,580 tokens
+- Session memory after Request \#2 = 4,130 tokens
+- Total input tokens sent: tokens sent in this request + session memory from Request \#2 = 250 + 2,580 + 4,130 = **6,960 tokens**
+- Output video avatar tokens received based on nature of request: **61,920 tokens**
+- Output audio tokens received based on nature of request: **250 tokens**
+- Updated session memory = 6,960 + 250 = **7,210 tokens**
 
 **Understanding tokens processed**
 
-  - Request \#1 processes only the input and output tokens from the ongoing request, since there are no additional tokens in session memory. All processed tokens now make up the session memory.
+- Request \#1 processes only the input and output tokens from the ongoing request, since there are no additional tokens in session memory. All processed tokens now make up the session memory.
 
-  - Request \#2 processes the input and output tokens from the ongoing request while also including the session memory from Request \#1. All session memory tokens apply the burndown rate of a corresponding input token.
+- Request \#2 processes the input and output tokens from the ongoing request while also including the session memory from Request \#1. All session memory tokens apply the burndown rate of a corresponding input token.
 
-  - Request \#3 processes the input and output tokens from the ongoing request while also including the session memory from Request \#2. All session memory tokens apply the burndown rate of a corresponding input token.
+- Request \#3 processes the input and output tokens from the ongoing request while also including the session memory from Request \#2. All session memory tokens apply the burndown rate of a corresponding input token.
 
 If Request \#3 took exactly 1 second to process after it was sent, the burndown-adjusted tokens applied to the Provisioned Throughput quota for this model would be as follows:
 
-  - Input audio tokens \* input audio burndown rate = 250 \* 4 = 1,000
+- Input audio tokens \* input audio burndown rate = 250 \* 4 = 1,000
 
-  - Input video tokens \* input video burndown rate = 2,580 \* 1.4 = 3,612
+- Input video tokens \* input video burndown rate = 2,580 \* 1.4 = 3,612
 
-  - Session memory audio \* input audio burndown rate = (250 + 100 + 1,000 + 200) \* 4 = 6,200
+- Session memory audio \* input audio burndown rate = (250 + 100 + 1,000 + 200) \* 4 = 6,200
 
-  - Session memory video \* input video burndown rate = 2,580 \* 1.4 = 3,612
+- Session memory video \* input video burndown rate = 2,580 \* 1.4 = 3,612
 
-  - Output video avatar tokens \* output video avatar burndown rate = 61,920 \* 1.4 = 86,688
+- Output video avatar tokens \* output video avatar burndown rate = 61,920 \* 1.4 = 86,688
 
-  - Output audio tokens \* output audio burndown rate = 250 \* 16 = 4,000
+- Output audio tokens \* output audio burndown rate = 250 \* 16 = 4,000
 
 Adding the total provides **105,112 burndown-adjusted tokens** .
 
@@ -170,41 +170,41 @@ Adding the total provides **105,112 burndown-adjusted tokens** .
 
 **Request \#1 details - input audio & video, output audio**
 
-  - Duration: 10 seconds
-  - Tokens sent (audio): 10 seconds x 25 tokens/second = 250 tokens
-  - Tokens sent (video): 10 seconds x 258 tokens/frame per second = 2,580 tokens
-  - Output audio tokens received based on nature of request: 100 tokens
-  - Updated session memory = 250 + 2,580 + 100 = **2,930 tokens**
+- Duration: 10 seconds
+- Tokens sent (audio): 10 seconds x 25 tokens/second = 250 tokens
+- Tokens sent (video): 10 seconds x 258 tokens/frame per second = 2,580 tokens
+- Output audio tokens received based on nature of request: 100 tokens
+- Updated session memory = 250 + 2,580 + 100 = **2,930 tokens**
 
 **Request \#2 details - input audio with session memory, output audio**
 
-  - Duration: 40 seconds
+- Duration: 40 seconds
 
-  - Tokens sent (audio): 40 seconds x 25 tokens/second = 1,000 tokens
+- Tokens sent (audio): 40 seconds x 25 tokens/second = 1,000 tokens
 
-  - Session memory after Request \#1 = 2,930 tokens
+- Session memory after Request \#1 = 2,930 tokens
 
-  - Total input tokens sent: tokens sent in this request + session memory from Request \#1 = 1,000 + 2,930 = **3,930 tokens**
+- Total input tokens sent: tokens sent in this request + session memory from Request \#1 = 1,000 + 2,930 = **3,930 tokens**
 
-  - Output audio tokens received based on nature of request: **200 tokens**
+- Output audio tokens received based on nature of request: **200 tokens**
 
-  - Updated session memory = 3,930 + 200 = **4,130 tokens**
+- Updated session memory = 3,930 + 200 = **4,130 tokens**
 
 **Understanding tokens processed**
 
-  - Request \#1 processes only the input and output tokens from the ongoing request, since there are no additional tokens in session memory. All processed tokens now make up the session memory.
+- Request \#1 processes only the input and output tokens from the ongoing request, since there are no additional tokens in session memory. All processed tokens now make up the session memory.
 
-  - Request \#2 processes the input and output tokens from the ongoing request while also including the session memory from Request \#1. All session memory tokens apply the burndown rate of a corresponding input token.
+- Request \#2 processes the input and output tokens from the ongoing request while also including the session memory from Request \#1. All session memory tokens apply the burndown rate of a corresponding input token.
 
 If Request \#2 took exactly 1 second to process after it was sent, the burndown-adjusted tokens applied to the Provisioned Throughput quota for this model would be as follows:
 
-  - Input audio tokens \* input audio burndown rate = 1,000 \* 6 = 6,000
-  - Session memory audio \* input audio burndown rate = (250 + 100) \* 6 = 2,100
-  - Session memory video \* input video burndown rate = 2,580 \* 6 = 15,480
-  - Output audio tokens \* output audio burndown rate = 200 \* 24 = 4,800
+- Input audio tokens \* input audio burndown rate = 1,000 \* 6 = 6,000
+- Session memory audio \* input audio burndown rate = (250 + 100) \* 6 = 2,100
+- Session memory video \* input video burndown rate = 2,580 \* 6 = 15,480
+- Output audio tokens \* output audio burndown rate = 200 \* 24 = 4,800
 
 Adding the total provides **28,380 burndown-adjusted tokens** .
 
 ## What's next
 
-  - [Purchase Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput) .
+- [Purchase Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput) .

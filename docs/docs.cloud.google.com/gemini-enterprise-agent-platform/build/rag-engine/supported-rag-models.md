@@ -16,17 +16,17 @@ The following models support RAG Engine:
 
 #### Click to expand supported models
 
-  - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
-  - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
-  - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
-  - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
-  - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
-  - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
-  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
-  - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
-  - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
-  - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
+- [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
+- [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
+- [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
+- [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
+- [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+- [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
+- [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
+- [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
+- [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
+- [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+- [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 Fine-tuned Gemini models are unsupported when the Gemini models use RAG Engine on Gemini Enterprise Agent Platform.
 
@@ -38,85 +38,85 @@ Use RAG Engine with your self-deployed open model endpoints.
 
 Replace the variables used in the code sample:
 
-  - **PROJECT\_ID** : Your project ID.
+- **` PROJECT_ID `** : Your project ID.
 
-  - **LOCATION** : The region to process your request.
+- **` LOCATION `** : The region to process your request.
 
-  - **ENDPOINT\_ID** : Your endpoint ID.
-    
-    ``` 
-      # Create a model instance with your self-deployed open model endpoint
-      rag_model = GenerativeModel(
-          "projects/PROJECT_ID/locations/LOCATION/endpoints/ENDPOINT_ID",
-          tools=[rag_retrieval_tool]
-      )
-    ```
+- **` ENDPOINT_ID `** : Your endpoint ID.
+
+  ```
+    # Create a model instance with your self-deployed open model endpoint
+    rag_model = GenerativeModel(
+        "projects/PROJECT_ID/locations/LOCATION/endpoints/ENDPOINT_ID",
+        tools=[rag_retrieval_tool]
+    )
+  ```
 
 ## Models with managed APIs on Agent Platform
 
 The models with managed APIs on Agent Platform that support RAG Engine include the following:
 
-  - [Mistral on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/mistral)
-  - [Llama 3.1 and 3.2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama)
+- [Mistral on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/mistral)
+- [Llama 3.1 and 3.2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama)
 
 The following code sample demonstrates how to use the Gemini `GenerateContent` API to create a generative model instance. The model ID, `/publisher/meta/models/llama-3.1-405B-instruct-maas` , is found in the [model card](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) .
 
 Replace the variables used in the code sample:
 
-  - **PROJECT\_ID** : Your project ID.
+- **` PROJECT_ID `** : Your project ID.
 
-  - **LOCATION** : The region to process your request.
+- **` LOCATION `** : The region to process your request.
 
-  - **RAG\_RETRIEVAL\_TOOL** : Your RAG retrieval tool.
-    
-    ``` 
-      # Create a model instance with Llama 3.1 MaaS endpoint
-      rag_model = GenerativeModel(
-          "projects/PROJECT_ID/locations/LOCATION/publisher/meta/models/llama-3.1-405B-instruct-maas",
-          tools=RAG_RETRIEVAL_TOOL
-      )
-    ```
+- **` RAG_RETRIEVAL_TOOL `** : Your RAG retrieval tool.
+
+  ```
+    # Create a model instance with Llama 3.1 MaaS endpoint
+    rag_model = GenerativeModel(
+        "projects/PROJECT_ID/locations/LOCATION/publisher/meta/models/llama-3.1-405B-instruct-maas",
+        tools=RAG_RETRIEVAL_TOOL
+    )
+  ```
 
 The following code sample demonstrates how to use the OpenAI compatible `ChatCompletions` API to generate a model response.
 
 Replace the variables used in the code sample:
 
-  - **PROJECT\_ID** : Your project ID.
+- **` PROJECT_ID `** : Your project ID.
 
-  - **LOCATION** : The region to process your request.
+- **` LOCATION `** : The region to process your request.
 
-  - **MODEL\_ID** : LLM model for content generation. For example, `meta/llama-3.1-405b-instruct-maas` .
+- **` MODEL_ID `** : LLM model for content generation. For example, `meta/llama-3.1-405b-instruct-maas` .
 
-  - **INPUT\_PROMPT** : The text sent to the LLM for content generation. Use a prompt relevant to the documents in Agent Search.
+- **` INPUT_PROMPT `** : The text sent to the LLM for content generation. Use a prompt relevant to the documents in Agent Search.
 
-  - **RAG\_CORPUS\_ID** : The ID of the RAG corpus resource.
+- **` RAG_CORPUS_ID `** : The ID of the RAG corpus resource.
 
-  - **ROLE** : Your role.
+- **` ROLE `** : Your role.
 
-  - **USER** : Your username.
+- **` USER `** : Your username.
 
-  - **CONTENT** : Your content.
-    
-    ``` 
-      # Generate a response with Llama 3.1 MaaS endpoint
-      response = client.chat.completions.create(
-          model="MODEL_ID",
-          messages=[{"ROLE": "USER", "content": "CONTENT"}],
-          extra_body={
-              "extra_body": {
-                  "google": {
-                      "vertex_rag_store": {
-                          "rag_resources": {
-                              "rag_corpus": "RAG_CORPUS_ID"
-                          },
-                          "similarity_top_k": 10
-                      }
-                  }
-              }
-          },
-      )
-    ```
+- **` CONTENT `** : Your content.
+
+  ```
+    # Generate a response with Llama 3.1 MaaS endpoint
+    response = client.chat.completions.create(
+        model="MODEL_ID",
+        messages=[{"ROLE": "USER", "content": "CONTENT"}],
+        extra_body={
+            "extra_body": {
+                "google": {
+                    "vertex_rag_store": {
+                        "rag_resources": {
+                            "rag_corpus": "RAG_CORPUS_ID"
+                        },
+                        "similarity_top_k": 10
+                    }
+                }
+            }
+        },
+    )
+  ```
 
 ## What's next
 
-  - [Use Embedding models with RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models) .
+- [Use Embedding models with RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models) .

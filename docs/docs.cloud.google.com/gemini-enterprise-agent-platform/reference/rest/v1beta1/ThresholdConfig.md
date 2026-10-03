@@ -20,23 +20,13 @@ Specify a threshold value that can trigger the alert. If this threshold config i
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+**JSON representation**
+
+```
+{
 
   // threshold
-  &quot;value&quot;: number
+  "value": number
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

@@ -7,8 +7,8 @@ data_source: docs.cloud.google.com
 ---
 
 > To see an example of how to train a forecasting model, run the "Tabular Workflow for Forecasting" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/automl/automl_forecasting_on_vertex_pipelines.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fautoml%2Fautoml_forecasting_on_vertex_pipelines.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fautoml%2Fautoml_forecasting_on_vertex_pipelines.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/automl/automl_forecasting_on_vertex_pipelines.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/automl/automl_forecasting_on_vertex_pipelines.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fautoml%2Fautoml_forecasting_on_vertex_pipelines.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fautoml%2Fautoml_forecasting_on_vertex_pipelines.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/automl/automl_forecasting_on_vertex_pipelines.ipynb)
 
 This page shows you how to train a forecasting model from a tabular dataset with Tabular Workflow for Forecasting.
 
@@ -22,10 +22,10 @@ Tabular Workflow for Forecasting doesn't support model export.
 
 This workflow uses the following APIs:
 
-  - Agent Platform
-  - Dataflow
-  - Compute Engine
-  - Cloud Storage
+- Agent Platform
+- Dataflow
+- Compute Engine
+- Cloud Storage
 
 ## Get the URI of the previous hyperparameter tuning result
 
@@ -45,11 +45,11 @@ To find the hyperparameter tuning result URI by using the Google Cloud console, 
 
 5.  Click component **exit-handler-1** .
 
-6.  Click component **stage\_1\_tuning\_result\_artifact\_uri\_empty** .
+6.  Click component **stage_1\_tuning_result_artifact_uri_empty** .
 
 7.  Find component **automl-forecasting-stage-1-tuner** .
 
-8.  Click the associated artifact **tuning\_result\_output** .
+8.  Click the associated artifact **tuning_result_output** .
 
 9.  Select the **Node Info** tab.
 
@@ -61,53 +61,65 @@ To find the hyperparameter tuning result URI by using the Google Cloud console, 
 
 The following sample code demonstrates how you load the hyperparameter tuning result by using the API. The variable `job` refers to the previous model training pipeline run.
 
-    def get_task_detail(
-      task_details: List[Dict[str, Any]], task_name: str
-    ) -> List[Dict[str, Any]]:
-      for task_detail in task_details:
-          if task_detail.task_name == task_name:
-              return task_detail
-    
-    pipeline_task_details = job.gca_resource.job_detail.task_details
-    
-    stage_1_tuner_task = get_task_detail(
-        pipeline_task_details, "automl-forecasting-stage-1-tuner"
-    )
-    stage_1_tuning_result_artifact_uri = (
-        stage_1_tuner_task.outputs["tuning_result_output"].artifacts[0].uri
-    )
+```
+def get_task_detail(
+  task_details: List[Dict[str, Any]], task_name: str
+) -> List[Dict[str, Any]]:
+  for task_detail in task_details:
+      if task_detail.task_name == task_name:
+          return task_detail
+
+pipeline_task_details = job.gca_resource.job_detail.task_details
+
+stage_1_tuner_task = get_task_detail(
+    pipeline_task_details, "automl-forecasting-stage-1-tuner"
+)
+stage_1_tuning_result_artifact_uri = (
+    stage_1_tuner_task.outputs["tuning_result_output"].artifacts[0].uri
+)
+```
 
 ## Train a model
 
 The following sample code demonstrates how you run a model training pipeline:
 
-    job = aiplatform.PipelineJob(
-        ...
-        template_path=template_path,
-        parameter_values=parameter_values,
-        ...
-    )
-    job.run(service_account=SERVICE_ACCOUNT)
+```
+job = aiplatform.PipelineJob(
+    ...
+    template_path=template_path,
+    parameter_values=parameter_values,
+    ...
+)
+job.run(service_account=SERVICE_ACCOUNT)
+```
 
 The optional `service_account` parameter in `job.run()` lets you set the Gemini Enterprise Agent Platform Pipelines service account to an account of your choice.
 
 Agent Platform supports the following methods for training your model:
 
-  - **Time series Dense Encoder (TiDE)** . To use this model training method, define your pipeline and parameter values by using the following function:
-    
-        template_path, parameter_values = automl_forecasting_utils.get_time_series_dense_encoder_forecasting_pipeline_and_parameters(...)
+- **Time series Dense Encoder (TiDE)** . To use this model training method, define your pipeline and parameter values by using the following function:
 
-  - **Temporal Fusion Transformer (TFT)** . To use this model training method, define your pipeline and parameter values by using the following function:
-    
-        template_path, parameter_values = automl_forecasting_utils.get_temporal_fusion_transformer_forecasting_pipeline_and_parameters(...)
+  ```
+  template_path, parameter_values = automl_forecasting_utils.get_time_series_dense_encoder_forecasting_pipeline_and_parameters(...)
+  ```
 
-  - **AutoML (L2L)** . To use this model training method, define your pipeline and parameter values by using the following function:
-    
-        template_path, parameter_values = automl_forecasting_utils.get_learn_to_learn_forecasting_pipeline_and_parameters(...)
+- **Temporal Fusion Transformer (TFT)** . To use this model training method, define your pipeline and parameter values by using the following function:
 
-  - **Seq2Seq+** . To use this model training method, define your pipeline and parameter values by using the following function:
-    
-        template_path, parameter_values = automl_forecasting_utils.get_sequence_to_sequence_forecasting_pipeline_and_parameters(...)
+  ```
+  template_path, parameter_values = automl_forecasting_utils.get_temporal_fusion_transformer_forecasting_pipeline_and_parameters(...)
+  ```
+
+- **AutoML (L2L)** . To use this model training method, define your pipeline and parameter values by using the following function:
+
+  ```
+  template_path, parameter_values = automl_forecasting_utils.get_learn_to_learn_forecasting_pipeline_and_parameters(...)
+  ```
+
+- **Seq2Seq+** . To use this model training method, define your pipeline and parameter values by using the following function:
+
+  ```
+  template_path, parameter_values = automl_forecasting_utils.get_sequence_to_sequence_forecasting_pipeline_and_parameters(...)
+  ```
 
 To learn more, see [Model training methods](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#training-methods) .
 
@@ -116,7 +128,7 @@ The training data can be either a CSV file in Cloud Storage or a table in BigQue
 The following is a subset of model training parameters:
 
 | Parameter name                     | Type          | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ---------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `optimization_objective`           | String        | By default, Agent Platform minimizes the root-mean-squared error (RMSE). If you want a different optimization objective for your forecast model, choose one of the options in [Optimization objectives for forecasting models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#optimization-objectives) . If you choose to minimize the quantile loss, you must also specify a value for `quantiles` .                                                                                      |
 | `enable_probabilistic_inference`   | Boolean       | If set to `true` , Agent Platform models the probability distribution of the forecast. Probabilistic inference can improve model quality by handling noisy data and quantifying uncertainty. If `quantiles` are specified, then Agent Platform also returns the quantiles of the distribution. Probabilistic inference is compatible only with the Time series Dense Encoder (TiDE) and the AutoML (L2L) training methods. Probabilistic inference is incompatible with the `minimize-quantile-loss` optimization objective.                                    |
 | `quantiles`                        | List\[float\] | Quantiles to use for `minimize-quantile-loss` optimization objective and probabilistic inference. Provide a list of up to five unique numbers between `0` and `1` , exclusive.                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -147,37 +159,39 @@ The following is a subset of model training parameters:
 You can provide a dictionary mapping of auto- or type-resolutions to feature columns. The supported types are: auto, numeric, categorical, text, and timestamp.
 
 | Parameter name    | Type                     | Definition                                      |
-| ----------------- | ------------------------ | ----------------------------------------------- |
+|-------------------|--------------------------|-------------------------------------------------|
 | `transformations` | Dict\[str, List\[str\]\] | Dictionary mapping of auto- or type-resolutions |
 
 The following code provides a helper function for populating the `transformations` parameter. It also demonstrates how you can use this function to apply automatic transformations to a set of columns defined by a `features` variable.
 
-    def generate_transformation(
-          auto_column_names: Optional[List[str]]=None,
-          numeric_column_names: Optional[List[str]]=None,
-          categorical_column_names: Optional[List[str]]=None,
-          text_column_names: Optional[List[str]]=None,
-          timestamp_column_names: Optional[List[str]]=None,
-        ) -> List[Dict[str, Any]]:
-        if auto_column_names is None:
-          auto_column_names = []
-        if numeric_column_names is None:
-          numeric_column_names = []
-        if categorical_column_names is None:
-          categorical_column_names = []
-        if text_column_names is None:
-          text_column_names = []
-        if timestamp_column_names is None:
-          timestamp_column_names = []
-        return {
-            "auto": auto_column_names,
-            "numeric": numeric_column_names,
-            "categorical": categorical_column_names,
-            "text": text_column_names,
-            "timestamp": timestamp_column_names,
-        }
-    
-    transformations = generate_transformation(auto_column_names=features)
+```
+def generate_transformation(
+      auto_column_names: Optional[List[str]]=None,
+      numeric_column_names: Optional[List[str]]=None,
+      categorical_column_names: Optional[List[str]]=None,
+      text_column_names: Optional[List[str]]=None,
+      timestamp_column_names: Optional[List[str]]=None,
+    ) -> List[Dict[str, Any]]:
+    if auto_column_names is None:
+      auto_column_names = []
+    if numeric_column_names is None:
+      numeric_column_names = []
+    if categorical_column_names is None:
+      categorical_column_names = []
+    if text_column_names is None:
+      text_column_names = []
+    if timestamp_column_names is None:
+      timestamp_column_names = []
+    return {
+        "auto": auto_column_names,
+        "numeric": numeric_column_names,
+        "categorical": categorical_column_names,
+        "text": text_column_names,
+        "timestamp": timestamp_column_names,
+    }
+
+transformations = generate_transformation(auto_column_names=features)
+```
 
 To learn more about transformations, see [Data types and transformations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular) .
 
@@ -185,39 +199,41 @@ To learn more about transformations, see [Data types and transformations](https:
 
 You can customize the Tabular Workflow for Forecasting by defining argument values that are passed in during pipeline definition. You can customize your workflow in the following ways:
 
-  - Configure hardware
-  - Skip architecture search
+- Configure hardware
+- Skip architecture search
 
 **Configure hardware**
 
 The following model training parameter lets you configure the machine types and the number of machines for training. This option is a good choice if you have a large dataset and want to optimize the machine hardware accordingly.
 
 | Parameter name                             | Type                | Definition                                                                                                                                                                                |
-| ------------------------------------------ | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|--------------------------------------------|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `stage_1_tuner_worker_pool_specs_override` | Dict\[String, Any\] | (Optional) Custom configuration of the machine types and the number of machines for training. This parameter configures the `automl-forecasting-stage-1-tuner` component of the pipeline. |
 
 The following code demonstrates how to set `n1-standard-8` machine type for the TensorFlow chief node and `n1-standard-4` machine type for the TensorFlow evaluator node:
 
-    worker_pool_specs_override = [
-      {"machine_spec": {"machine_type": "n1-standard-8"}}, # override for TF chief node
-      {},  # override for TF worker node, since it's not used, leave it empty
-      {},  # override for TF ps node, since it's not used, leave it empty
-      {
-        "machine_spec": {
-            "machine_type": "n1-standard-4" # override for TF evaluator node
-        }
-      }
-    ]
+```
+worker_pool_specs_override = [
+  {"machine_spec": {"machine_type": "n1-standard-8"}}, # override for TF chief node
+  {},  # override for TF worker node, since it's not used, leave it empty
+  {},  # override for TF ps node, since it's not used, leave it empty
+  {
+    "machine_spec": {
+        "machine_type": "n1-standard-4" # override for TF evaluator node
+    }
+  }
+]
+```
 
 **Skip architecture search**
 
 The following model training parameter lets you run the pipeline without the architecture search and provide a set of [hyperparameters from a previous pipeline run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-train#previous-result) instead.
 
 | Parameter name                       | Type   | Definition                                                                       |
-| ------------------------------------ | ------ | -------------------------------------------------------------------------------- |
+|--------------------------------------|--------|----------------------------------------------------------------------------------|
 | `stage_1_tuning_result_artifact_uri` | String | (Optional) URI of the hyperparameter tuning result from a previous pipeline run. |
 
 ## What's next
 
-  - Learn about [batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-batch-predictions) for forecasting models.
-  - Learn about [pricing for model training](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#tabular-data) .
+- Learn about [batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-batch-predictions) for forecasting models.
+- Learn about [pricing for model training](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#tabular-data) .

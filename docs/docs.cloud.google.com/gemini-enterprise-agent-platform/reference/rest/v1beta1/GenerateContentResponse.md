@@ -10,7 +10,7 @@ Response message for \[PredictionService.GenerateContent\].
 
 Fields
 
-`candidates[]` ` object ( Candidate  ` )
+`candidates[]` `object ( `[`Candidate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#Candidate)` )`
 
 Output only. Generated candidates.
 
@@ -18,7 +18,7 @@ Output only. Generated candidates.
 
 Output only. The model version used to generate the response.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when the request is made to the server.
 
@@ -28,29 +28,34 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 Output only. responseId is used to identify each response. It is the encoding of the eventId.
 
-`promptFeedback` ` object ( PromptFeedback  ` )
+`promptFeedback` `object ( `[`PromptFeedback`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#PromptFeedback)` )`
 
 Output only. Content filter results for a prompt sent in the request. Note: Sent only in the first stream chunk. Only happens when no candidates were generated due to content violations.
 
-`usageMetadata` ` object ( UsageMetadata  ` )
+`usageMetadata` `object ( `[`UsageMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#UsageMetadata)` )`
 
 Usage metadata about the response(s).
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;candidates&quot;: [{object (Candidate)}],&quot;modelVersion&quot;: string,&quot;createTime&quot;: string,&quot;responseId&quot;: string,&quot;promptFeedback&quot;: {object (PromptFeedback)},&quot;usageMetadata&quot;: {object (UsageMetadata)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "candidates": [
+    {
+      object (Candidate)
+    }
+  ],
+  "modelVersion": string,
+  "createTime": string,
+  "responseId": string,
+  "promptFeedback": {
+    object (PromptFeedback)
+  },
+  "usageMetadata": {
+    object (UsageMetadata)
+  }
+}
+```
 
 ## Candidate
 
@@ -62,7 +67,7 @@ Fields
 
 Output only. The 0-based index of this candidate in the list of generated responses. This is useful for distinguishing between multiple candidates when `candidateCount` \> 1.
 
-`content` ` object ( Content  ` )
+`content` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Output only. The content of the candidate.
 
@@ -70,29 +75,29 @@ Output only. The content of the candidate.
 
 Output only. The average log probability of the tokens in this candidate. This is a length-normalized score that can be used to compare the quality of candidates of different lengths. A higher average log probability suggests a more confident and coherent response.
 
-`logprobsResult` ` object ( LogprobsResult  ` )
+`logprobsResult` `object ( `[`LogprobsResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#LogprobsResult)` )`
 
 Output only. The detailed log probability information for the tokens in this candidate. This is useful for debugging, understanding model uncertainty, and identifying potential "hallucinations".
 
-`finishReason` ` enum ( FinishReason  ` )
+`finishReason` `enum ( `[`FinishReason`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#FinishReason)` )`
 
 Output only. The reason why the model stopped generating tokens. If empty, the model has not stopped generating.
 
-`safetyRatings[]` ` object ( SafetyRating  ` )
+`safetyRatings[]` `object ( `[`SafetyRating`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#SafetyRating)` )`
 
 Output only. A list of ratings for the safety of a response candidate.
 
 There is at most one rating per category.
 
-`citationMetadata` ` object ( CitationMetadata  ` )
+`citationMetadata` `object ( `[`CitationMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#CitationMetadata)` )`
 
 Output only. A collection of citations that apply to the generated content.
 
-`groundingMetadata` ` object ( GroundingMetadata  ` )
+`groundingMetadata` `object ( `[`GroundingMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GroundingMetadata)` )`
 
 Output only. metadata returned when grounding is enabled. It contains the sources used to ground the generated content.
 
-`urlContextMetadata` ` object ( UrlContextMetadata  ` )
+`urlContextMetadata` `object ( `[`UrlContextMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#UrlContextMetadata)` )`
 
 Output only. metadata returned when the model uses the `urlContext` tool to get information from a user-provided URL.
 
@@ -100,21 +105,36 @@ Output only. metadata returned when the model uses the `urlContext` tool to get 
 
 Output only. Describes the reason the model stopped generating tokens in more detail. This field is returned only when `finishReason` is set.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;index&quot;: integer,&quot;content&quot;: {object (Content)},&quot;avgLogprobs&quot;: number,&quot;logprobsResult&quot;: {object (LogprobsResult)},&quot;finishReason&quot;: enum (FinishReason),&quot;safetyRatings&quot;: [{object (SafetyRating)}],&quot;citationMetadata&quot;: {object (CitationMetadata)},&quot;groundingMetadata&quot;: {object (GroundingMetadata)},&quot;urlContextMetadata&quot;: {object (UrlContextMetadata)},&quot;finishMessage&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "index": integer,
+  "content": {
+    object (Content)
+  },
+  "avgLogprobs": number,
+  "logprobsResult": {
+    object (LogprobsResult)
+  },
+  "finishReason": enum (FinishReason),
+  "safetyRatings": [
+    {
+      object (SafetyRating)
+    }
+  ],
+  "citationMetadata": {
+    object (CitationMetadata)
+  },
+  "groundingMetadata": {
+    object (GroundingMetadata)
+  },
+  "urlContextMetadata": {
+    object (UrlContextMetadata)
+  },
+  "finishMessage": string
+}
+```
 
 ## LogprobsResult
 
@@ -124,29 +144,30 @@ This is useful for understanding the model's confidence in its predictions and f
 
 Fields
 
-`topCandidates[]` ` object ( TopCandidates  ` )
+`topCandidates[]` `object ( `[`TopCandidates`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#TopCandidates)` )`
 
 A list of the top candidate tokens at each decoding step. The length of this list is equal to the total number of decoding steps.
 
-`chosenCandidates[]` ` object ( Candidate  ` )
+`chosenCandidates[]` `object ( `[`Candidate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#Candidate_1)` )`
 
 A list of the chosen candidate tokens at each decoding step. The length of this list is equal to the total number of decoding steps. Note that the chosen candidate might not be in `topCandidates` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;topCandidates&quot;: [{object (TopCandidates)}],&quot;chosenCandidates&quot;: [{object (Candidate)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "topCandidates": [
+    {
+      object (TopCandidates)
+    }
+  ],
+  "chosenCandidates": [
+    {
+      object (Candidate)
+    }
+  ]
+}
+```
 
 ## TopCandidates
 
@@ -154,25 +175,21 @@ A list of the top candidate tokens and their log probabilities at each decoding 
 
 Fields
 
-`candidates[]` ` object ( Candidate  ` )
+`candidates[]` `object ( `[`Candidate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#Candidate_1)` )`
 
 The list of candidate tokens, sorted by log probability in descending order.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;candidates&quot;: [{object (Candidate)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "candidates": [
+    {
+      object (Candidate)
+    }
+  ]
+}
+```
 
 ## Candidate
 
@@ -192,99 +209,39 @@ The token's numerical id. While the `token` field provides the string representa
 
 The log probability of this token. A higher value indicates that the model was more confident in this token. The log probability can be used to assess the relative likelihood of different tokens and to identify when the model is uncertain.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;token&quot;: string,
-  &quot;tokenId&quot;: integer,
-  &quot;logProbability&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "token": string,
+  "tokenId": integer,
+  "logProbability": number
+}
+```
 
 ## FinishReason
 
 The reason why the model stopped generating tokens. If this field is empty, the model has not stopped generating.
 
-Enums
-
-`FINISH_REASON_UNSPECIFIED`
-
-The finish reason is unspecified.
-
-`STOP`
-
-The model reached a natural stopping point or a configured stop sequence.
-
-`MAX_TOKENS`
-
-The model generated the maximum number of tokens allowed by the `maxOutputTokens` parameter.
-
-`SAFETY`
-
-The model stopped generating because the content potentially violates safety policies. NOTE: When streaming, the `content` field is empty if content filters block the output.
-
-`RECITATION`
-
-The model stopped generating because the content may be a recitation from a source.
-
-`OTHER`
-
-The model stopped generating for a reason not otherwise specified.
-
-`BLOCKLIST`
-
-The model stopped generating because the content contains a term from a configured blocklist.
-
-`PROHIBITED_CONTENT`
-
-The model stopped generating because the content may be prohibited.
-
-`SPII`
-
-The model stopped generating because the content may contain sensitive personally identifiable information (SPII).
-
-`MALFORMED_FUNCTION_CALL`
-
-The model generated a function call that is syntactically invalid and can't be parsed.
-
-`MODEL_ARMOR`
-
-The model response was blocked by Model Armor.
-
-`IMAGE_SAFETY`
-
-The generated image potentially violates safety policies.
-
-`IMAGE_PROHIBITED_CONTENT`
-
-The generated image may contain prohibited content.
-
-`IMAGE_RECITATION`
-
-The generated image may be a recitation from a source.
-
-`IMAGE_OTHER`
-
-The image generation stopped for a reason not otherwise specified.
-
-`UNEXPECTED_TOOL_CALL`
-
-The model generated a function call that is semantically invalid. This can happen, for example, if function calling is not enabled or the generated function is not in the function declaration.
-
-`NO_IMAGE`
-
-The model was expected to generate an image, but didn't.
+| Enums                       |                                                                                                                                                                                                  |
+|-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `FINISH_REASON_UNSPECIFIED` | The finish reason is unspecified.                                                                                                                                                                |
+| `STOP`                      | The model reached a natural stopping point or a configured stop sequence.                                                                                                                        |
+| `MAX_TOKENS`                | The model generated the maximum number of tokens allowed by the `maxOutputTokens` parameter.                                                                                                     |
+| `SAFETY`                    | The model stopped generating because the content potentially violates safety policies. NOTE: When streaming, the `content` field is empty if content filters block the output.                   |
+| `RECITATION`                | The model stopped generating because the content may be a recitation from a source.                                                                                                              |
+| `OTHER`                     | The model stopped generating for a reason not otherwise specified.                                                                                                                               |
+| `BLOCKLIST`                 | The model stopped generating because the content contains a term from a configured blocklist.                                                                                                    |
+| `PROHIBITED_CONTENT`        | The model stopped generating because the content may be prohibited.                                                                                                                              |
+| `SPII`                      | The model stopped generating because the content may contain sensitive personally identifiable information (SPII).                                                                               |
+| `MALFORMED_FUNCTION_CALL`   | The model generated a function call that is syntactically invalid and can't be parsed.                                                                                                           |
+| `MODEL_ARMOR`               | The model response was blocked by Model Armor.                                                                                                                                                   |
+| `IMAGE_SAFETY`              | The generated image potentially violates safety policies.                                                                                                                                        |
+| `IMAGE_PROHIBITED_CONTENT`  | The generated image may contain prohibited content.                                                                                                                                              |
+| `IMAGE_RECITATION`          | The generated image may be a recitation from a source.                                                                                                                                           |
+| `IMAGE_OTHER`               | The image generation stopped for a reason not otherwise specified.                                                                                                                               |
+| `UNEXPECTED_TOOL_CALL`      | The model generated a function call that is semantically invalid. This can happen, for example, if function calling is not enabled or the generated function is not in the function declaration. |
+| `NO_IMAGE`                  | The model was expected to generate an image, but didn't.                                                                                                                                         |
 
 ## SafetyRating
 
@@ -294,11 +251,11 @@ The safety rating contains the harm category and the harm probability level.
 
 Fields
 
-`category` ` enum ( HarmCategory  ` )
+`category` `enum ( `[`HarmCategory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/HarmCategory)` )`
 
 Output only. The harm category of this rating.
 
-`probability` ` enum ( HarmProbability  ` )
+`probability` `enum ( `[`HarmProbability`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#HarmProbability)` )`
 
 Output only. The probability of harm for this category.
 
@@ -306,7 +263,7 @@ Output only. The probability of harm for this category.
 
 Output only. The probability score of harm for this category.
 
-`severity` ` enum ( HarmSeverity  ` )
+`severity` `enum ( `[`HarmSeverity`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#HarmSeverity)` )`
 
 Output only. The severity of harm for this category.
 
@@ -318,77 +275,47 @@ Output only. The severity score of harm for this category.
 
 Output only. Indicates whether the content was blocked because of this rating.
 
-`overwrittenThreshold` ` enum ( HarmBlockThreshold  ` )
+`overwrittenThreshold` `enum ( `[`HarmBlockThreshold`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/HarmBlockThreshold)` )`
 
 Output only. The overwritten threshold for the safety category of Gemini 2.0 image out. If minors are detected in the output image, the threshold of each safety category will be overwritten if user sets a lower threshold.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;category&quot;: enum (HarmCategory),&quot;probability&quot;: enum (HarmProbability),&quot;probabilityScore&quot;: number,&quot;severity&quot;: enum (HarmSeverity),&quot;severityScore&quot;: number,&quot;blocked&quot;: boolean,&quot;overwrittenThreshold&quot;: enum (HarmBlockThreshold)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "category": enum (HarmCategory),
+  "probability": enum (HarmProbability),
+  "probabilityScore": number,
+  "severity": enum (HarmSeverity),
+  "severityScore": number,
+  "blocked": boolean,
+  "overwrittenThreshold": enum (HarmBlockThreshold)
+}
+```
 
 ## HarmProbability
 
 The probability of harm for a given category.
 
-Enums
-
-`HARM_PROBABILITY_UNSPECIFIED`
-
-The harm probability is unspecified.
-
-`NEGLIGIBLE`
-
-The harm probability is negligible.
-
-`LOW`
-
-The harm probability is low.
-
-`MEDIUM`
-
-The harm probability is medium.
-
-`HIGH`
-
-The harm probability is high.
+| Enums                          |                                      |
+|--------------------------------|--------------------------------------|
+| `HARM_PROBABILITY_UNSPECIFIED` | The harm probability is unspecified. |
+| `NEGLIGIBLE`                   | The harm probability is negligible.  |
+| `LOW`                          | The harm probability is low.         |
+| `MEDIUM`                       | The harm probability is medium.      |
+| `HIGH`                         | The harm probability is high.        |
 
 ## HarmSeverity
 
 The severity of harm for a given category.
 
-Enums
-
-`HARM_SEVERITY_UNSPECIFIED`
-
-The harm severity is unspecified.
-
-`HARM_SEVERITY_NEGLIGIBLE`
-
-The harm severity is negligible.
-
-`HARM_SEVERITY_LOW`
-
-The harm severity is low.
-
-`HARM_SEVERITY_MEDIUM`
-
-The harm severity is medium.
-
-`HARM_SEVERITY_HIGH`
-
-The harm severity is high.
+| Enums                       |                                   |
+|-----------------------------|-----------------------------------|
+| `HARM_SEVERITY_UNSPECIFIED` | The harm severity is unspecified. |
+| `HARM_SEVERITY_NEGLIGIBLE`  | The harm severity is negligible.  |
+| `HARM_SEVERITY_LOW`         | The harm severity is low.         |
+| `HARM_SEVERITY_MEDIUM`      | The harm severity is medium.      |
+| `HARM_SEVERITY_HIGH`        | The harm severity is high.        |
 
 ## CitationMetadata
 
@@ -396,25 +323,21 @@ A collection of citations that apply to a piece of generated content.
 
 Fields
 
-`citations[]` ` object ( Citation  ` )
+`citations[]` `object ( `[`Citation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#Citation)` )`
 
 Output only. A list of citations for the content.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;citations&quot;: [{object (Citation)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "citations": [
+    {
+      object (Citation)
+    }
+  ]
+}
+```
 
 ## Citation
 
@@ -442,25 +365,24 @@ Output only. The title of the source of the citation.
 
 Output only. The license of the source of the citation.
 
-`publicationDate` ` object ( Date  ` )
+`publicationDate` `object ( `[`Date`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Date)` )`
 
 Output only. The publication date of the source of the citation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;startIndex&quot;: integer,&quot;endIndex&quot;: integer,&quot;uri&quot;: string,&quot;title&quot;: string,&quot;license&quot;: string,&quot;publicationDate&quot;: {object (Date)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "startIndex": integer,
+  "endIndex": integer,
+  "uri": string,
+  "title": string,
+  "license": string,
+  "publicationDate": {
+    object (Date)
+  }
+}
+```
 
 ## UrlContextMetadata
 
@@ -468,25 +390,21 @@ metadata returned when the model uses the `urlContext` tool to get information f
 
 Fields
 
-`urlMetadata[]` ` object ( UrlMetadata  ` )
+`urlMetadata[]` `object ( `[`UrlMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#UrlMetadata)` )`
 
 Output only. A list of URL metadata, with one entry for each URL retrieved by the tool.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;urlMetadata&quot;: [{object (UrlMetadata)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "urlMetadata": [
+    {
+      object (UrlMetadata)
+    }
+  ]
+}
+```
 
 ## UrlMetadata
 
@@ -498,43 +416,28 @@ Fields
 
 The URL retrieved by the tool.
 
-`urlRetrievalStatus` ` enum ( UrlRetrievalStatus  ` )
+`urlRetrievalStatus` `enum ( `[`UrlRetrievalStatus`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#UrlRetrievalStatus)` )`
 
 The status of the URL retrieval.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;retrievedUrl&quot;: string,&quot;urlRetrievalStatus&quot;: enum (UrlRetrievalStatus)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "retrievedUrl": string,
+  "urlRetrievalStatus": enum (UrlRetrievalStatus)
+}
+```
 
 ## UrlRetrievalStatus
 
 The status of a URL retrieval.
 
-Enums
-
-`URL_RETRIEVAL_STATUS_UNSPECIFIED`
-
-Default value. This value is unused.
-
-`URL_RETRIEVAL_STATUS_SUCCESS`
-
-The URL was retrieved successfully.
-
-`URL_RETRIEVAL_STATUS_ERROR`
-
-The URL retrieval failed.
+| Enums                              |                                      |
+|------------------------------------|--------------------------------------|
+| `URL_RETRIEVAL_STATUS_UNSPECIFIED` | Default value. This value is unused. |
+| `URL_RETRIEVAL_STATUS_SUCCESS`     | The URL was retrieved successfully.  |
+| `URL_RETRIEVAL_STATUS_ERROR`       | The URL retrieval failed.            |
 
 ## PromptFeedback
 
@@ -542,11 +445,11 @@ Content filter results for a prompt sent in the request. Note: This is sent only
 
 Fields
 
-`blockReason` ` enum ( BlockedReason  ` )
+`blockReason` `enum ( `[`BlockedReason`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#BlockedReason)` )`
 
 Output only. The reason why the prompt was blocked.
 
-`safetyRatings[]` ` object ( SafetyRating  ` )
+`safetyRatings[]` `object ( `[`SafetyRating`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#SafetyRating)` )`
 
 Output only. A list of safety ratings for the prompt. There is one rating per category.
 
@@ -554,59 +457,34 @@ Output only. A list of safety ratings for the prompt. There is one rating per ca
 
 Output only. A readable message that explains the reason why the prompt was blocked.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;blockReason&quot;: enum (BlockedReason),&quot;safetyRatings&quot;: [{object (SafetyRating)}],&quot;blockReasonMessage&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "blockReason": enum (BlockedReason),
+  "safetyRatings": [
+    {
+      object (SafetyRating)
+    }
+  ],
+  "blockReasonMessage": string
+}
+```
 
 ## BlockedReason
 
 The reason why the prompt was blocked.
 
-Enums
-
-`BLOCKED_REASON_UNSPECIFIED`
-
-The blocked reason is unspecified.
-
-`SAFETY`
-
-The prompt was blocked for safety reasons.
-
-`OTHER`
-
-The prompt was blocked for other reasons. For example, it may be due to the prompt's language, or because it contains other harmful content.
-
-`BLOCKLIST`
-
-The prompt was blocked because it contains a term from the terminology blocklist.
-
-`PROHIBITED_CONTENT`
-
-The prompt was blocked because it contains prohibited content.
-
-`MODEL_ARMOR`
-
-The prompt was blocked by Model Armor.
-
-`IMAGE_SAFETY`
-
-The prompt was blocked because it contains content that is unsafe for image generation.
-
-`JAILBREAK`
-
-The prompt was blocked as a jailbreak attempt.
+| Enums                        |                                                                                                                                              |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| `BLOCKED_REASON_UNSPECIFIED` | The blocked reason is unspecified.                                                                                                           |
+| `SAFETY`                     | The prompt was blocked for safety reasons.                                                                                                   |
+| `OTHER`                      | The prompt was blocked for other reasons. For example, it may be due to the prompt's language, or because it contains other harmful content. |
+| `BLOCKLIST`                  | The prompt was blocked because it contains a term from the terminology blocklist.                                                            |
+| `PROHIBITED_CONTENT`         | The prompt was blocked because it contains prohibited content.                                                                               |
+| `MODEL_ARMOR`                | The prompt was blocked by Model Armor.                                                                                                       |
+| `IMAGE_SAFETY`               | The prompt was blocked because it contains content that is unsafe for image generation.                                                      |
+| `JAILBREAK`                  | The prompt was blocked as a jailbreak attempt.                                                                                               |
 
 ## UsageMetadata
 
@@ -638,64 +516,68 @@ Output only. The number of tokens that were part of the model's generated "thoug
 
 Output only. The number of tokens in the cached content that was used for this request.
 
-`promptTokensDetails[]` ` object ( ModalityTokenCount  ` )
+`promptTokensDetails[]` `object ( `[`ModalityTokenCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModalityTokenCount)` )`
 
 Output only. A detailed breakdown of the token count for each modality in the prompt.
 
-`cacheTokensDetails[]` ` object ( ModalityTokenCount  ` )
+`cacheTokensDetails[]` `object ( `[`ModalityTokenCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModalityTokenCount)` )`
 
 Output only. A detailed breakdown of the token count for each modality in the cached content.
 
-`candidatesTokensDetails[]` ` object ( ModalityTokenCount  ` )
+`candidatesTokensDetails[]` `object ( `[`ModalityTokenCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModalityTokenCount)` )`
 
 Output only. A detailed breakdown of the token count for each modality in the generated candidates.
 
-`toolUsePromptTokensDetails[]` ` object ( ModalityTokenCount  ` )
+`toolUsePromptTokensDetails[]` `object ( `[`ModalityTokenCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModalityTokenCount)` )`
 
 Output only. A detailed breakdown by modality of the token counts from the results of tool executions, which are provided back to the model as input.
 
-`trafficType` ` enum ( TrafficType  ` )
+`trafficType` `enum ( `[`TrafficType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse#TrafficType)` )`
 
 Output only. The traffic type for this request.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;promptTokenCount&quot;: integer,&quot;candidatesTokenCount&quot;: integer,&quot;totalTokenCount&quot;: integer,&quot;toolUsePromptTokenCount&quot;: integer,&quot;thoughtsTokenCount&quot;: integer,&quot;cachedContentTokenCount&quot;: integer,&quot;promptTokensDetails&quot;: [{object (ModalityTokenCount)}],&quot;cacheTokensDetails&quot;: [{object (ModalityTokenCount)}],&quot;candidatesTokensDetails&quot;: [{object (ModalityTokenCount)}],&quot;toolUsePromptTokensDetails&quot;: [{object (ModalityTokenCount)}],&quot;trafficType&quot;: enum (TrafficType)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "promptTokenCount": integer,
+  "candidatesTokenCount": integer,
+  "totalTokenCount": integer,
+  "toolUsePromptTokenCount": integer,
+  "thoughtsTokenCount": integer,
+  "cachedContentTokenCount": integer,
+  "promptTokensDetails": [
+    {
+      object (ModalityTokenCount)
+    }
+  ],
+  "cacheTokensDetails": [
+    {
+      object (ModalityTokenCount)
+    }
+  ],
+  "candidatesTokensDetails": [
+    {
+      object (ModalityTokenCount)
+    }
+  ],
+  "toolUsePromptTokensDetails": [
+    {
+      object (ModalityTokenCount)
+    }
+  ],
+  "trafficType": enum (TrafficType)
+}
+```
 
 ## TrafficType
 
 The type of traffic that this request was processed with, indicating which quota is consumed.
 
-Enums
-
-`TRAFFIC_TYPE_UNSPECIFIED`
-
-Unspecified request traffic type.
-
-`ON_DEMAND`
-
-The request was processed using Pay-As-You-Go quota.
-
-`ON_DEMAND_PRIORITY`
-
-type for priority Pay-As-You-Go traffic.
-
-`ON_DEMAND_FLEX`
-
-type for Flex traffic.
-
-`PROVISIONED_THROUGHPUT`
-
-type for Provisioned Throughput traffic.
+| Enums                      |                                                      |
+|----------------------------|------------------------------------------------------|
+| `TRAFFIC_TYPE_UNSPECIFIED` | Unspecified request traffic type.                    |
+| `ON_DEMAND`                | The request was processed using Pay-As-You-Go quota. |
+| `ON_DEMAND_PRIORITY`       | type for priority Pay-As-You-Go traffic.             |
+| `ON_DEMAND_FLEX`           | type for Flex traffic.                               |
+| `PROVISIONED_THROUGHPUT`   | type for Provisioned Throughput traffic.             |

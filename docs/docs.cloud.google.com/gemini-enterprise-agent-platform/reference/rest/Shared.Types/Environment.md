@@ -8,20 +8,9 @@ data_source: docs.cloud.google.com
 
 The environment in which the computer use tool operates.
 
-Enums
-
-`ENVIRONMENT_UNSPECIFIED`
-
-The environment is unspecified.
-
-`ENVIRONMENT_BROWSER`
-
-The tool operates in a web browser.
-
-`ENVIRONMENT_MOBILE`
-
-The tool operates in a mobile environment.
-
-`ENVIRONMENT_DESKTOP`
-
-The tool operates in a desktop environment.
+| Enums                     |                                             |
+|---------------------------|---------------------------------------------|
+| `ENVIRONMENT_UNSPECIFIED` | The environment is unspecified.             |
+| `ENVIRONMENT_BROWSER`     | The tool operates in a web browser.         |
+| `ENVIRONMENT_MOBILE`      | The tool operates in a mobile environment.  |
+| `ENVIRONMENT_DESKTOP`     | The tool operates in a desktop environment. |

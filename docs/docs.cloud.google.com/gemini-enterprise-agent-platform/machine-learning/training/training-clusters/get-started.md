@@ -10,11 +10,11 @@ If you're interested in Gemini Enterprise Agent Platform training clusters conta
 
 Before you can deploy your first cluster on Gemini Enterprise Agent Platform training clusters, you must configure your Google Cloud project and environment. This guide covers all the necessary prerequisites, which fall into three main categories:
 
-  - Project Access: Gaining access to the service, which is by invitation only.
+- Project Access: Gaining access to the service, which is by invitation only.
 
-  - Resource Configuration: Enabling APIs and setting up the required VPC network and storage services.
+- Resource Configuration: Enabling APIs and setting up the required VPC network and storage services.
 
-  - User Permissions: Granting the necessary IAM roles for cluster management and resource access.
+- User Permissions: Granting the necessary IAM roles for cluster management and resource access.
 
 Completing these steps prepares your project for a successful deployment.
 
@@ -33,18 +33,18 @@ To use training clusters, you must:
 
 > **Note:** Issuing a request to any regions that aren't on this list causes an API error.
 
-  - `us-central1`
-  - `us-east1`
-  - `us-east4`
-  - `us-east5`
-  - `us-south1`
-  - `us-west1`
-  - `us-west4`
-  - `asia-southeast1`
-  - `europe-west1`
-  - `europe-west4`
-  - `europe-north1`
-  - `asia-south2`
+- `us-central1`
+- `us-east1`
+- `us-east4`
+- `us-east5`
+- `us-south1`
+- `us-west1`
+- `us-west4`
+- `asia-southeast1`
+- `europe-west1`
+- `europe-west4`
+- `europe-north1`
+- `asia-south2`
 
 ### IAM permissions
 
@@ -53,61 +53,67 @@ To use training clusters, you must:
 2.  Grant the `roles/aiplatform.viewer` role to users who only need to view clusters and their configurations.
 
 3.  Grant the following IAM roles to the user or service account that will manage (create, delete, and update) Managed Training clusters:
-    
+
     | Role Name                   | Role ID                                 |
-    | :-------------------------- | :-------------------------------------- |
+    |-----------------------------|-----------------------------------------|
     | Compute Instance Admin (v1) | `roles/compute.instanceAdmin.v1`        |
     | Logs Writer                 | `roles/logging.logWriter`               |
     | Monitoring Metric Writer    | `roles/monitoring.metricWriter`         |
     | Service Account User        | `roles/iam.serviceAccountUser`          |
     | Service Networking Admin    | `roles/servicenetworking.networksAdmin` |
-    
 
 4.  To allow the cluster's nodes to read from and write to Cloud Storage buckets using Google Cloud Storage FUSE, grant the Storage Object User role ( `roles/storage.objectUser` ) to the service account used by the VMs.
 
 5.  For SSH access to the Slurm login nodes, grant the following permissions:
-    
+
     | Permissions                                                                                           | Descriptions                                                                                                         | Purpose                        |
-    | :---------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------- | :----------------------------- |
+    |-------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|--------------------------------|
     | [Compute OS Login](https://docs.cloud.google.com/compute/docs/oslogin/set-up-oslogin#configure_users) | Sign in to a VM as a standard (non-administrator) user. If `sudo` is needed then use Compute OS Admin Login instead. | SSH to the deployed login node |
     | [IAP-secured Tunnel User](https://docs.cloud.google.com/iap/docs/managing-access)                     | Access Tunnel resources which use Identity-Aware Proxy.                                                              | SSH to the deployed login node |
-    
 
 ### Enable APIs
 
 1.  Enable the Google Compute Engine API:
-    
-    ``` 
+
+    ```
        gcloud services enable compute.googleapis.com
     ```
 
 2.  Enable the service networking since Filestore must be deployed before creating the cluster.
-    
-    ``` 
+
+    ```
        gcloud services enable servicenetworking.googleapis.com
     ```
 
 3.  Enable the Cloud Storage API:
-    
-    ``` 
+
+    ```
         gcloud services enable storage.googleapis.com
     ```
 
 4.  Enable the Lustre API (if using Lustre):
-    
-        gcloud services enable lustre.googleapis.com
+
+    ```
+    gcloud services enable lustre.googleapis.com
+    ```
 
 5.  Enable the HCS API:
-    
-        gcloud services enable hypercomputecluster.googleapis.com
+
+    ```
+    gcloud services enable hypercomputecluster.googleapis.com
+    ```
 
 6.  Enable the [Gemini Enterprise API](https://console.cloud.google.com/) :
-    
-        gcloud services enable aiplatform.googleapis.com
+
+    ```
+    gcloud services enable aiplatform.googleapis.com
+    ```
 
 7.  Enable the [Cloud Resource Manager API](https://console.cloud.google.com/) :
-    
-        gcloud services enable cloudresourcemanager.googleapis.com
+
+    ```
+    gcloud services enable cloudresourcemanager.googleapis.com
+    ```
 
 ## What's next
 

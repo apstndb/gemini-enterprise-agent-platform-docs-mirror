@@ -12,9 +12,9 @@ Perform an online prediction with an arbitrary HTTP payload.
 
 The response includes the following HTTP headers:
 
-  - `X-Vertex-AI-Endpoint-id` : id of the `  Endpoint  ` that served this prediction.
+- `X-Vertex-AI-Endpoint-id` : id of the [`Endpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#Endpoint) that served this prediction.
 
-  - `X-Vertex-AI-Deployed-Model-id` : id of the Endpoint's `  DeployedModel  ` that served this prediction.
+- `X-Vertex-AI-Deployed-Model-id` : id of the Endpoint's [`DeployedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#DeployedModel) that served this prediction.
 
 ### Endpoint
 
@@ -34,13 +34,13 @@ The request body contains data with the following structure:
 
 Fields
 
-`httpBody` ` object ( HttpBody  ` )
+`httpBody` `object ( `[`HttpBody`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/HttpBody)` )`
 
 The prediction input. Supports HTTP headers and arbitrary data payload.
 
-A `  DeployedModel  ` may have an upper limit on the number of instances it supports per request. When this limit it is exceeded for an AutoML model, the `  models.rawPredict  ` method returns an error. When this limit is exceeded for a custom-trained model, the behavior varies depending on the model.
+A [`DeployedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#DeployedModel) may have an upper limit on the number of instances it supports per request. When this limit it is exceeded for an AutoML model, the [`models.rawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/rawPredict#google.cloud.aiplatform.v1.PredictionService.RawPredict) method returns an error. When this limit is exceeded for a custom-trained model, the behavior varies depending on the model.
 
-You can specify the schema for each instance in the `  predictSchemata.instance_schema_uri  ` field when you create a `  Model  ` . This schema applies when you deploy the `Model` as a `DeployedModel` to an `  Endpoint  ` and use the `models.rawPredict` method.
+You can specify the schema for each instance in the [`predictSchemata.instance_schema_uri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/PredictSchemata#FIELDS.instance_schema_uri) field when you create a [`Model`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models#Model) . This schema applies when you deploy the `Model` as a `DeployedModel` to an [`Endpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#Endpoint) and use the `models.rawPredict` method.
 
 ### Response body
 

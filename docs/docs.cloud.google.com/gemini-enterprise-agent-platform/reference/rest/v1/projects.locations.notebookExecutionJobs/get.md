@@ -24,7 +24,7 @@ Required. The name of the NotebookExecutionJob resource.
 
 ### Query parameters
 
-`view` ` enum ( NotebookExecutionJobView  ` )
+`view` `enum ( `[`NotebookExecutionJobView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/NotebookExecutionJobView)` )`
 
 Optional. The NotebookExecutionJob view. Defaults to BASIC.
 
@@ -34,4 +34,4 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  NotebookExecutionJob  ` .
+If successful, the response body contains an instance of [`NotebookExecutionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs#NotebookExecutionJob) .

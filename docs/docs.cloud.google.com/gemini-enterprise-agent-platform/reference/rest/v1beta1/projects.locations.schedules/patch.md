@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 Updates an active or paused Schedule.
 
-When the Schedule is updated, new runs will be scheduled starting from the updated next execution time after the update time based on the time\_specification in the updated Schedule. All unstarted runs before the update time will be skipped while already created runs will NOT be paused or canceled.
+When the Schedule is updated, new runs will be scheduled starting from the updated next execution time after the update time based on the time_specification in the updated Schedule. All unstarted runs before the update time will be skipped while already created runs will NOT be paused or canceled.
 
 ### Endpoint
 
@@ -28,16 +28,16 @@ Immutable. The resource name of the Schedule.
 
 ### Query parameters
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
-Required. The update mask applies to the resource. See `  google.protobuf.FieldMask  ` .
+Required. The update mask applies to the resource. See [`google.protobuf.FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask) .
 
 This is a comma-separated list of fully qualified names of fields. Example: `"user.displayName,photo"` .
 
 ### Request body
 
-The request body contains an instance of `  Schedule  ` .
+The request body contains an instance of [`Schedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.schedules#Schedule) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Schedule  ` .
+If successful, the response body contains an instance of [`Schedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.schedules#Schedule) .

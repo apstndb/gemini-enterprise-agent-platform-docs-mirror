@@ -28,7 +28,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`input` ` object ( Struct  ` format)
+`input` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Optional. Input content provided by users in JSON object format. Examples include text query, function calling parameters, media bytes, etc.
 
@@ -38,4 +38,4 @@ Optional. Class method to be used for the query. It is optional and defaults to 
 
 ### Response body
 
-If successful, the response body contains an instance of `  QueryReasoningEngineResponse  ` .
+If successful, the response body contains an instance of [`QueryReasoningEngineResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/QueryReasoningEngineResponse) .

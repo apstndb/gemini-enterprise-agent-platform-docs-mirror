@@ -16,7 +16,7 @@ Before you work with Memory Bank, you must set up your environment.
 
 ### Set up your Google Cloud project
 
-Every project can be identified in two ways: the project number or the project ID. The `  PROJECT_NUMBER  ` is automatically created when you create the project, whereas the `  PROJECT_ID  ` is created by you, or whoever created the project. To set up a project:
+Every project can be identified in two ways: the project number or the project ID. The `PROJECT_NUMBER` is automatically created when you create the project, whereas the `PROJECT_ID` is created by you, or whoever created the project. To set up a project:
 
 > **Note:** To enable APIs, you need the `serviceusage.services.enable` permission. If you don't have this permission, ask your administrator to grant you the Service Usage Admin ( `roles/serviceusage.serviceUsageAdmin` ) role.
 
@@ -24,8 +24,8 @@ Every project can be identified in two ways: the project number or the project I
 
 To get the permissions that you need to use Memory Bank, ask your administrator to grant you the following IAM roles on your project:
 
-  - Create or update a Memory Bank instance: [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user` )
-  - Read, write, or generate memories: [Memory Bank User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.memoryUser) ( `roles/aiplatform.memoryUser` )
+- Create or update a Memory Bank instance: [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user` )
+- Read, write, or generate memories: [Memory Bank User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.memoryUser) ( `roles/aiplatform.memoryUser` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
@@ -39,7 +39,9 @@ This section assumes that you have [set up a Python development environment](htt
 
 Install the Agent Platform SDK:
 
-    pip install google-cloud-agentplatform>=2.0.1
+```
+pip install google-cloud-agentplatform>=2.0.1
+```
 
 ### Authentication
 
@@ -51,24 +53,26 @@ Run the following code to set up a Agent Platform SDK client:
 
 ### Agent Platform SDK
 
-    import agentplatform
-    
-    client = agentplatform.Client(
-      project="PROJECT_ID",
-      location="LOCATION",
-    )
+```
+import agentplatform
+
+client = agentplatform.Client(
+  project="PROJECT_ID",
+  location="LOCATION",
+)
+```
 
 where
 
-  - `  PROJECT_ID  ` is the Google Cloud [project ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#project) under which you [develop](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-agent) and [deploy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) agents,
-  - `  LOCATION  ` is one of the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
+- `PROJECT_ID` is the Google Cloud [project ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#project) under which you [develop](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-agent) and [deploy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) agents,
+- `LOCATION` is one of the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
 
 ### Multi-regional and global endpoints
 
 Memory Bank supports multi-regional and global endpoints:
 
-  - For global instances, set your location to `global` .
-  - For multi-regional instances, set your location to `us` or `eu` .
+- For global instances, set your location to `global` .
+- For multi-regional instances, set your location to `us` or `eu` .
 
 > **Note:** CMEK cannot be used if your Memory Bank is configured to use the global endpoint. Google Cloud KMS requires encryption keys to reside within a geographic data residency boundary. Because the global region lacks a physical geographic boundary, it is barred from encrypting localized regional or multi-regional resources.
 
@@ -78,27 +82,31 @@ To get started with Memory Bank, you first need a Memory Bank instance. If you d
 
 > **Tip:** Always set a display name, so you can distinguish between difference resource instances in the project.
 
-    # create the resource
-    memory_bank = client.memory_banks.create(
-        config={
-            "display_name": "My Memory Bank",
-        }
-    )
-    
-    # Optionally, print out the Memory Bank resource name. You will need the
-    # resource name to interact with your Memory Bank instance later on.
-    print(memory_bank.name)
+```
+# create the resource
+memory_bank = client.memory_banks.create(
+    config={
+        "display_name": "My Memory Bank",
+    }
+)
+
+# Optionally, print out the Memory Bank resource name. You will need the
+# resource name to interact with your Memory Bank instance later on.
+print(memory_bank.name)
+```
 
 If you want to customize the configuration of your new or existing Memory Bank instance's behavior, refer to [Configure your Memory Bank instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) . For example, you can specify what information Memory Bank considers meaningful to persist.
 
 Once you have a Memory Bank instance, you can use the name of the instance to read or write memories. For example:
 
-    # Generate memories using your Memory Bank instance.
-    client.memory_banks.memories.generate(
-      # `name` should have the format `projects/.../locations/.../reasoningEngines/...`.
-      name=memory_bank.name,
-      ...
-    )
+```
+# Generate memories using your Memory Bank instance.
+client.memory_banks.memories.generate(
+  # `name` should have the format `projects/.../locations/.../reasoningEngines/...`.
+  name=memory_bank.name,
+  ...
+)
+```
 
 ### Use with Agent Runtime
 
@@ -112,43 +120,45 @@ To deploy an agent on Agent Runtime with built-in Memory Bank, first [set up you
 
 If you're using the [Agent Platform Agent Development Kit (ADK) template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) , the agent uses the `VertexAiMemoryBankService` by default when deployed to Agent Runtime. This means that the ADK Memory tools read memories from Memory Bank.
 
-    from google.adk.agents import Agent
-    from agentplatform.frameworks import AdkApp
-    
-    # Develop an agent using the ADK template.
-    agent = Agent(...)
-    
-    adk_app = AdkApp(
-          agent=adk_agent,
-          ...
-    )
-    
-    # Deploy the agent to Agent Runtime.
-    runtime = client.runtimes.create(
-          agent=adk_app,
-          config={
-                "staging_bucket": "STAGING_BUCKET",
-                "requirements": ["google-cloud-agentplatform[runtimes,adk]"],
-                # Optional.
-                **context_spec
-          }
-    )
-    
-    # Update an existing Agent Runtime to add or modify the Runtime.
-    runtime = client.runtimes.update(
-          name=runtime.api_resource.name,
-          agent=adk_app,
-          config={
-                "staging_bucket": "STAGING_BUCKET",
-                "requirements": ["google-cloud-agentplatform[runtimes,adk]"],
-                # Optional.
-                **context_spec
-          }
-    )
+```
+from google.adk.agents import Agent
+from agentplatform.frameworks import AdkApp
+
+# Develop an agent using the ADK template.
+agent = Agent(...)
+
+adk_app = AdkApp(
+      agent=adk_agent,
+      ...
+)
+
+# Deploy the agent to Agent Runtime.
+runtime = client.runtimes.create(
+      agent=adk_app,
+      config={
+            "staging_bucket": "STAGING_BUCKET",
+            "requirements": ["google-cloud-agentplatform[runtimes,adk]"],
+            # Optional.
+            **context_spec
+      }
+)
+
+# Update an existing Agent Runtime to add or modify the Runtime.
+runtime = client.runtimes.update(
+      name=runtime.api_resource.name,
+      agent=adk_app,
+      config={
+            "staging_bucket": "STAGING_BUCKET",
+            "requirements": ["google-cloud-agentplatform[runtimes,adk]"],
+            # Optional.
+            **context_spec
+      }
+)
+```
 
 Replace the following:
 
-  - STAGING\_BUCKET : Your Cloud Storage bucket to use for staging your Agent Runtime.
+- ` STAGING_BUCKET ` : Your Cloud Storage bucket to use for staging your Agent Runtime.
 
 For more information about using Memory Bank with ADK, refer to the [Quickstart with ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart) .
 
@@ -158,27 +168,31 @@ You can use Memory Bank with your [custom agent](https://docs.cloud.google.com/g
 
 Your application deployed to Agent Runtime can read the environment variables `GOOGLE_CLOUD_PROJECT` , `GOOGLE_CLOUD_LOCATION` , `GOOGLE_CLOUD_AGENT_ENGINE_ID` to infer the Agent Runtime name from the environment:
 
-    project = os.environ.get("GOOGLE_CLOUD_PROJECT")
-    location = os.environ.get("GOOGLE_CLOUD_LOCATION")
-    agent_engine_id = os.environ.get("GOOGLE_CLOUD_AGENT_ENGINE_ID")
-    
-    agent_engine_name = f"projects/{project}/locations/{location}/reasoningEngines/{agent_engine_id}"
+```
+project = os.environ.get("GOOGLE_CLOUD_PROJECT")
+location = os.environ.get("GOOGLE_CLOUD_LOCATION")
+agent_engine_id = os.environ.get("GOOGLE_CLOUD_AGENT_ENGINE_ID")
+
+agent_engine_name = f"projects/{project}/locations/{location}/reasoningEngines/{agent_engine_id}"
+```
 
 If you're using the [default service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#default-service-agent) for your agent on Agent Runtime, your agent already has permission to read and write memories. If you're using a [customer service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) , you need to grant permissions to your service account to read and write memories. The required permissions depend on what operations your agent should be able to perform. If you only want your agent to retrieve and generate memories, [`aiplatform.memories.generate`](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.memories.generate) and [`aiplatform.memories.retrieve`](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.memories.retrieve) are sufficient.
 
 ### Use in all other runtimes
 
 > To see an example of using Memory Bank with Cloud Run, run the "Get started with Sessions and Memory Bank for ADK agents in Cloud Run" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/agents/cloud_run/agents_with_memory/get_started_with_memory_for_adk_in_cloud_run.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fcloud_run%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_cloud_run.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fcloud_run%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_cloud_run.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/cloud_run/agents_with_memory/get_started_with_memory_for_adk_in_cloud_run.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/agents/cloud_run/agents_with_memory/get_started_with_memory_for_adk_in_cloud_run.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fcloud_run%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_cloud_run.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fcloud_run%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_cloud_run.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/cloud_run/agents_with_memory/get_started_with_memory_for_adk_in_cloud_run.ipynb)
 
 > To see an example of using Memory Bank with Google Kubernetes Engine, run the "Get started with Sessions and Memory Bank for ADK agents in Google Kubernetes Engine" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/agents/gke/agents_with_memory/get_started_with_memory_for_adk_in_gke.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fgke%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_gke.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fgke%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_gke.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/gke/agents_with_memory/get_started_with_memory_for_adk_in_gke.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/agents/gke/agents_with_memory/get_started_with_memory_for_adk_in_gke.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fgke%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_gke.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fgke%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_gke.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/gke/agents_with_memory/get_started_with_memory_for_adk_in_gke.ipynb)
 
 If you want to use Memory Bank in a different environment, like Cloud Run or Colab, create a Memory Bank. If you don't provide a [configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) , Memory Bank is created with the default settings for managing memory generation and retrieval.
 
-    memory_bank = client.memory_banks.create()
+```
+memory_bank = client.memory_banks.create()
+```
 
 If you've used Memory Bank before, creating a new Memory Bank instance should only take a few seconds. If this is the first time you're using Memory Bank, it may take longer (1-2 minutes).
 
@@ -186,37 +200,41 @@ If you want to configure behavior, provide a [Memory Bank configuration](https:/
 
 ### Create
 
-    memory_bank = client.memory_banks.create(
-      managed_semantic_memory_config={
-        "generation_config": ...,
-        "unstructured_memory_configs": [...],
-        "structured_memory_configs": [...],
-        "similarity_search_config": ...,
-        "ttl_config": ...,
-        "disable_memory_revisions": False,
-      }
-    )
+```
+memory_bank = client.memory_banks.create(
+  managed_semantic_memory_config={
+    "generation_config": ...,
+    "unstructured_memory_configs": [...],
+    "structured_memory_configs": [...],
+    "similarity_search_config": ...,
+    "ttl_config": ...,
+    "disable_memory_revisions": False,
+  }
+)
+```
 
 ### Update
 
 If you want to change your [Memory Bank configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) , you can update your Memory Bank instance.
 
-    memory_bank = client.memory_banks.update(
-      # You can access the name using `memory_bank.name` for a MemoryBank object.
-      name="MEMORY_BANK_NAME",
-      managed_semantic_memory_config={
-        "generation_config": ...,
-        "unstructured_memory_configs": [...],
-        "structured_memory_configs": [...],
-        "similarity_search_config": ...,
-        "ttl_config": ...,
-        "disable_memory_revisions": False,
-      }
-    )
+```
+memory_bank = client.memory_banks.update(
+  # You can access the name using `memory_bank.name` for a MemoryBank object.
+  name="MEMORY_BANK_NAME",
+  managed_semantic_memory_config={
+    "generation_config": ...,
+    "unstructured_memory_configs": [...],
+    "structured_memory_configs": [...],
+    "similarity_search_config": ...,
+    "ttl_config": ...,
+    "disable_memory_revisions": False,
+  }
+)
+```
 
 Replace the following:
 
-  - MEMORY\_BANK\_NAME : The name of the Memory Bank. It should be in the format `projects/.../locations/.../reasoningEngines/...` . See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
+- ` MEMORY_BANK_NAME ` : The name of the Memory Bank. It should be in the format `projects/.../locations/.../reasoningEngines/...` . See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
 
 You can use Memory Bank in any environment that has permission to read and write memories. For example, to use Memory Bank with Cloud Run, grant permissions to the [Cloud Run service identity](https://docs.cloud.google.com/run/docs/configuring/services/service-identity) to read and write memories. The required permissions depend on what operations your agent should be able to perform. If you only want your agent to retrieve and generate memories, [`aiplatform.memories.generate`](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.memories.generate) and [`aiplatform.memories.retrieve`](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.memories.retrieve) are sufficient.
 
@@ -226,138 +244,144 @@ You can configure your Memory Bank to customize how memories are generated and m
 
 You can configure the following Memory Bank settings for your instance:
 
-  - [Customization configuration ( `unstructured_memory_configs` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#customization-config) : Configures how memories are extracted from source data and consolidated with existing memories.
-  - [Similarity search configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#similarity-search-config) : Specifies which embedding model Memory Bank uses for similarity search. Defaults to `text-embedding-005` .
-  - [Generation configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#generation-config) : Configures which LLM Memory Bank uses for memory generation. Defaults to `gemini-3.5-flash` .
-  - [TTL configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#ttl-config) : Configures how TTL is automatically set for created or updated memories. Defaults to no TTL.
+- [Customization configuration ( `unstructured_memory_configs` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#customization-config) : Configures how memories are extracted from source data and consolidated with existing memories.
+- [Similarity search configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#similarity-search-config) : Specifies which embedding model Memory Bank uses for similarity search. Defaults to `text-embedding-005` .
+- [Generation configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#generation-config) : Configures which LLM Memory Bank uses for memory generation. Defaults to `gemini-3.5-flash` .
+- [TTL configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#ttl-config) : Configures how TTL is automatically set for created or updated memories. Defaults to no TTL.
 
 The following sample shows the default Memory Bank:
 
 ### Dictionary
 
-    managed_semantic_memory_config = {
-      "generation_config": {
-        # `gemini-3.5-flash` will be used to extract and consolidate memories.
-        "model": "projects/{PROJECT}/locations/{LOCATION}/publishers/google/models/gemini-3.5-flash"
-      },
-      "similarity_search_config": {
-        # `text-embedding-005` will be used for similarity search, including
-        # during consolidation. Consolidation uses similarity search to find
-        # candidate memories that may be updated with new information.
-        "embedding_model": "projects/{PROJECT}/locations/{LOCATION}/publishers/google/models/text-embedding-005"
-      },
-      "ttl_config": {
-        # Default TTL for memory revisions is 365 days.
-        "memory_revision_default_ttl": f"{365 * 24 * 60 * 60}s"
-      },
-      "unstructured_memory_configs": [
-        {
-          # Extract user information, preferences, key conversation details,
-          # and information that the user explicitly asked to be remembered.
-          "memory_topics": [
-            {"managed_memory_topic": {"managed_topic_enum": "USER_PERSONAL_INFO"}},
-            {"managed_memory_topic": {"managed_topic_enum": "USER_PREFERENCES"}},
-            {"managed_memory_topic": {"managed_topic_enum": "KEY_CONVERSATION_DETAILS"}},
-            {"managed_memory_topic": {"managed_topic_enum": "EXPLICIT_INSTRUCTIONS"}}
-          ],
-          "consolidation_config": {
-            # Only use the latest memory revision of each candidate memory during
-            # consolidation.
-            "revisions_per_candidate_count": 1
-          },
-          # Only use the pre-defined set of examples.
-          "generate_memories_examples": [],
-          # Generate memories in the first person.
-          "enable_third_person_memories": False
-        }
+```
+managed_semantic_memory_config = {
+  "generation_config": {
+    # `gemini-3.5-flash` will be used to extract and consolidate memories.
+    "model": "projects/{PROJECT}/locations/{LOCATION}/publishers/google/models/gemini-3.5-flash"
+  },
+  "similarity_search_config": {
+    # `text-embedding-005` will be used for similarity search, including
+    # during consolidation. Consolidation uses similarity search to find
+    # candidate memories that may be updated with new information.
+    "embedding_model": "projects/{PROJECT}/locations/{LOCATION}/publishers/google/models/text-embedding-005"
+  },
+  "ttl_config": {
+    # Default TTL for memory revisions is 365 days.
+    "memory_revision_default_ttl": f"{365 * 24 * 60 * 60}s"
+  },
+  "unstructured_memory_configs": [
+    {
+      # Extract user information, preferences, key conversation details,
+      # and information that the user explicitly asked to be remembered.
+      "memory_topics": [
+        {"managed_memory_topic": {"managed_topic_enum": "USER_PERSONAL_INFO"}},
+        {"managed_memory_topic": {"managed_topic_enum": "USER_PREFERENCES"}},
+        {"managed_memory_topic": {"managed_topic_enum": "KEY_CONVERSATION_DETAILS"}},
+        {"managed_memory_topic": {"managed_topic_enum": "EXPLICIT_INSTRUCTIONS"}}
       ],
-      # Memory revisions will be persisted. This can be overridden on a request-level.
-      "disable_memory_revisions": False
+      "consolidation_config": {
+        # Only use the latest memory revision of each candidate memory during
+        # consolidation.
+        "revisions_per_candidate_count": 1
+      },
+      # Only use the pre-defined set of examples.
+      "generate_memories_examples": [],
+      # Generate memories in the first person.
+      "enable_third_person_memories": False
     }
+  ],
+  # Memory revisions will be persisted. This can be overridden on a request-level.
+  "disable_memory_revisions": False
+}
+```
 
 ### Class-based
 
-    from agentplatform.types import ManagedSemanticMemoryConfig
-    from agentplatform.types import ManagedSemanticMemoryConfigGenerationConfig as GenerationConfig
-    from agentplatform.types import ManagedSemanticMemoryConfigSimilaritySearchConfig as SimilaritySearchConfig
-    from agentplatform.types import ManagedSemanticMemoryConfigTtlConfig as TtlConfig
-    from agentplatform.types import ManagedTopicEnum
-    from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
-    from agentplatform.types import MemoryBankCustomizationConfigConsolidationConfig as ConsolidationConfig
-    from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
-    from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
-    
-    managed_semantic_memory_config = ManagedSemanticMemoryConfig(
-      generation_config=GenerationConfig(
-        # `gemini-3.5-flash` will be used to extract and consolidate memories.
-        # Note: The global endpoint will be used for regions that don't have a
-        # regional endpoint available.
-        model="projects/{PROJECT}/locations/{LOCATION}/publishers/google/models/gemini-3.5-flash"
-      ),
-      similarity_search_config=SimilaritySearchConfig(
-        # `text-embedding-005` will be used for similarity search, including
-        # during consolidation. Consolidation uses similarity search to find
-        # candidate memories that may be updated with new information.
-        embedding_model="projects/{PROJECT}/locations/{LOCATION}/publishers/google/models/text-embedding-005"
-      ),
-      ttl_config=TtlConfig(
-        # Default TTL for memory revisions is 365 days.
-        memory_revision_default_ttl=f"{365 * 24 * 60 * 60}s"
-      ),
-      unstructured_memory_configs=[
-        CustomizationConfig(
-          # Extract personal information, preferences, key conversation details,
-          # and information that the user explicitly asked to be remembered.
-          memory_topics=[
-            MemoryTopic(
-              managed_memory_topic=ManagedMemoryTopic(
-                managed_topic_enum=ManagedTopicEnum.USER_PERSONAL_INFO)),
-            MemoryTopic(
-              managed_memory_topic=ManagedMemoryTopic(
-                managed_topic_enum=ManagedTopicEnum.USER_PREFERENCES)),
-            MemoryTopic(
-              managed_memory_topic=ManagedMemoryTopic(
-                managed_topic_enum=ManagedTopicEnum.KEY_CONVERSATION_DETAILS)),
-            MemoryTopic(
-              managed_memory_topic=ManagedMemoryTopic(
-                managed_topic_enum=ManagedTopicEnum.EXPLICIT_INSTRUCTIONS))
-          ],
-          # Only use the pre-defined set of examples.
-          generate_memories_examples=[],
-          consolidation_config=ConsolidationConfig(
-            # Only use the latest memory revision of each candidate memory during
-            # consolidation.
-            revisions_per_candidate_count=1
-          ),
-          # Generate memories in the first person.
-          enable_third_person_memories=False,
-        )
+```
+from agentplatform.types import ManagedSemanticMemoryConfig
+from agentplatform.types import ManagedSemanticMemoryConfigGenerationConfig as GenerationConfig
+from agentplatform.types import ManagedSemanticMemoryConfigSimilaritySearchConfig as SimilaritySearchConfig
+from agentplatform.types import ManagedSemanticMemoryConfigTtlConfig as TtlConfig
+from agentplatform.types import ManagedTopicEnum
+from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
+from agentplatform.types import MemoryBankCustomizationConfigConsolidationConfig as ConsolidationConfig
+from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
+from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
+
+managed_semantic_memory_config = ManagedSemanticMemoryConfig(
+  generation_config=GenerationConfig(
+    # `gemini-3.5-flash` will be used to extract and consolidate memories.
+    # Note: The global endpoint will be used for regions that don't have a
+    # regional endpoint available.
+    model="projects/{PROJECT}/locations/{LOCATION}/publishers/google/models/gemini-3.5-flash"
+  ),
+  similarity_search_config=SimilaritySearchConfig(
+    # `text-embedding-005` will be used for similarity search, including
+    # during consolidation. Consolidation uses similarity search to find
+    # candidate memories that may be updated with new information.
+    embedding_model="projects/{PROJECT}/locations/{LOCATION}/publishers/google/models/text-embedding-005"
+  ),
+  ttl_config=TtlConfig(
+    # Default TTL for memory revisions is 365 days.
+    memory_revision_default_ttl=f"{365 * 24 * 60 * 60}s"
+  ),
+  unstructured_memory_configs=[
+    CustomizationConfig(
+      # Extract personal information, preferences, key conversation details,
+      # and information that the user explicitly asked to be remembered.
+      memory_topics=[
+        MemoryTopic(
+          managed_memory_topic=ManagedMemoryTopic(
+            managed_topic_enum=ManagedTopicEnum.USER_PERSONAL_INFO)),
+        MemoryTopic(
+          managed_memory_topic=ManagedMemoryTopic(
+            managed_topic_enum=ManagedTopicEnum.USER_PREFERENCES)),
+        MemoryTopic(
+          managed_memory_topic=ManagedMemoryTopic(
+            managed_topic_enum=ManagedTopicEnum.KEY_CONVERSATION_DETAILS)),
+        MemoryTopic(
+          managed_memory_topic=ManagedMemoryTopic(
+            managed_topic_enum=ManagedTopicEnum.EXPLICIT_INSTRUCTIONS))
       ],
-      # Memory revisions will be persisted. This can be overridden on a request-level.
-      disable_memory_revisions=False
+      # Only use the pre-defined set of examples.
+      generate_memories_examples=[],
+      consolidation_config=ConsolidationConfig(
+        # Only use the latest memory revision of each candidate memory during
+        # consolidation.
+        revisions_per_candidate_count=1
+      ),
+      # Generate memories in the first person.
+      enable_third_person_memories=False,
     )
+  ],
+  # Memory revisions will be persisted. This can be overridden on a request-level.
+  disable_memory_revisions=False
+)
+```
 
 You can adjust the Memory Bank configuration when you create or update your instance. The following example demonstrates how to create or update an instance with a specific Memory Bank configuration.
 
-    memory_bank = client.memory_banks.create(
-        managed_semantic_memory_config=managed_semantic_memory_config
-    )
-    
-    # Alternatively, update an existing Memory Bank instance's config.
-    memory_bank = client.memory_banks.update(
-        name=memory_bank.name,
-        managed_semantic_memory_config=managed_semantic_memory_config
-    )
+```
+memory_bank = client.memory_banks.create(
+    managed_semantic_memory_config=managed_semantic_memory_config
+)
+
+# Alternatively, update an existing Memory Bank instance's config.
+memory_bank = client.memory_banks.update(
+    name=memory_bank.name,
+    managed_semantic_memory_config=managed_semantic_memory_config
+)
+```
 
 ### Natural language memory customization configuration
 
 To customize how Memory Bank extracts natural language memories, configure the extraction behavior when you set up your instance. Use the following options to customize the behavior:
 
-  - [Configuring memory topics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#configure-memory-topics) : Define the type of information that Memory Bank should consider meaningful to persist. Only information that fits one of these memory topics will be persisted by Memory Bank.
-  - [Providing few-shot examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#configure-few-shots) : Demonstrate expected behavior for memory extraction to Memory Bank.
-  - [Configuring the memory perspective](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-perspective) : Configure whether memories should be generated in the first person (default) or third person.
-  - [Configuring consolidation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#consolidation-customization) : Configure how many memory revisions Memory Bank considers when consolidating each memory candidate.
-  - [Applying customization configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#apply-customization-config) : Apply customization configurations to your instance using `unstructured_memory_configs` .
+- [Configuring memory topics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#configure-memory-topics) : Define the type of information that Memory Bank should consider meaningful to persist. Only information that fits one of these memory topics will be persisted by Memory Bank.
+- [Providing few-shot examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#configure-few-shots) : Demonstrate expected behavior for memory extraction to Memory Bank.
+- [Configuring the memory perspective](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-perspective) : Configure whether memories should be generated in the first person (default) or third person.
+- [Configuring consolidation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#consolidation-customization) : Configure how many memory revisions Memory Bank considers when consolidating each memory candidate.
+- [Applying customization configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#apply-customization-config) : Apply customization configurations to your instance using `unstructured_memory_configs` .
 
 You can think of customizing your Memory Bank's extraction behavior in two steps: Telling and Showing. Memory Topics *tell* Memory Bank what information to persist. Few-shots *show* Memory Bank what kind of information should result in a specific memory, helping it learn the patterns, nuance, and phrasing that you expect it to understand.
 
@@ -367,186 +391,206 @@ For example, the `user_level_config` would only apply to `GenerateMemories` requ
 
 ### Dictionary
 
-    user_level_config = {
-      "scope_keys": ["user_id"],
-      "memory_topics": [...],
-      "generate_memories_examples": [...]
-    }
-    
-    default_config = {
-      "memory_topics": [...],
-      "generate_memories_examples": [...]
-    }
-    
-    managed_semantic_memory_config = {
-      "unstructured_memory_configs": [
-        user_level_config,
-        default_config
-      ]
-    }
+```
+user_level_config = {
+  "scope_keys": ["user_id"],
+  "memory_topics": [...],
+  "generate_memories_examples": [...]
+}
+
+default_config = {
+  "memory_topics": [...],
+  "generate_memories_examples": [...]
+}
+
+managed_semantic_memory_config = {
+  "unstructured_memory_configs": [
+    user_level_config,
+    default_config
+  ]
+}
+```
 
 ### Class-based
 
-    from agentplatform.types import ManagedSemanticMemoryConfig
-    from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
-    
-    user_level_config = CustomizationConfig(
-      scope_keys=["user_id"],
-      memory_topics=[...],
-      generate_memories_examples=[...]
-    )
-    
-    default_config = CustomizationConfig(
-      memory_topics=[...],
-      generate_memories_examples=[...]
-    )
-    
-    managed_semantic_memory_config = ManagedSemanticMemoryConfig(
-      unstructured_memory_configs=[
-        user_level_config,
-        default_config,
-      ]
-    )
+```
+from agentplatform.types import ManagedSemanticMemoryConfig
+from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
+
+user_level_config = CustomizationConfig(
+  scope_keys=["user_id"],
+  memory_topics=[...],
+  generate_memories_examples=[...]
+)
+
+default_config = CustomizationConfig(
+  memory_topics=[...],
+  generate_memories_examples=[...]
+)
+
+managed_semantic_memory_config = ManagedSemanticMemoryConfig(
+  unstructured_memory_configs=[
+    user_level_config,
+    default_config,
+  ]
+)
+```
 
 #### Configuring memory topics
 
 "Memory topics" identify what information Memory Bank considers to be meaningful and should thus be persisted as [generated memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories) . Memory Bank supports two types of memory topics:
 
-  - **Managed topics** : Label and instructions are defined by Memory Bank. You only need to provide the name of the managed topic. For example,
-    
-    ### Dictionary
-    
-        memory_topic = {
-          "managed_memory_topic": {
-            "managed_topic_enum": "USER_PERSONAL_INFO"
-          }
-        }
-    
-    ### Class-based
-    
-        from agentplatform.types import ManagedTopicEnum
-        from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
-        from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
-        
-        memory_topic = MemoryTopic(
-            managed_memory_topic=ManagedMemoryTopic(
-                managed_topic_enum=ManagedTopicEnum.USER_PERSONAL_INFO
-            )
-        )
-    
-    The following managed topics are supported by Memory Bank:
-    
-      - **User information** ( `USER_PERSONAL_INFO` ): Significant information about the user, like names, relationships, hobbies, and important dates. For example, "I work at Google" or "My wedding anniversary is on December 31".
-      - **User preferences** ( `USER_PREFERENCES` ): Stated or implied likes, dislikes, preferred styles, or patterns. For example, "I prefer the middle seat."
-      - **Key conversation events and task outcomes** ( `KEY_CONVERSATION_DETAILS` ): Important milestones or conclusions within the dialogue. For example, "I booked plane tickets for a round trip between JFK and SFO. I leave on June 1, 2025 and return on June 7, 2025."
-      - **Explicit remember / forget instructions** ( `EXPLICIT_INSTRUCTIONS` ): Information that the user explicitly asks the agent to remember or forget. For example, if the user says "Remember that I primarily use Python," Memory Bank generates a memory such as "I primarily use Python."
+- **Managed topics** : Label and instructions are defined by Memory Bank. You only need to provide the name of the managed topic. For example,
 
-  - **Custom topics** : Label and instructions are defined by you when setting up your Memory Bank instance. They will be used in the prompt for Memory Bank's extraction step. For example,
-    
-    ### Dictionary
-    
-        memory_topic = {
-          "custom_memory_topic": {
-            "label": "business_feedback",
-            "description": """Specific user feedback about their experience at
-            the coffee shop. This includes opinions on drinks, food, pastries, ambiance,
-            staff friendliness, service speed, cleanliness, and any suggestions for
-            improvement."""
-            }
-        }
-    
-    ### Class-based
-    
-        from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
-        from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicCustomMemoryTopic as CustomMemoryTopic
-        
-        memory_topic = MemoryTopic(
-          custom_memory_topic=CustomMemoryTopic(
-            label="business_feedback",
-            description="""Specific user feedback about their experience at
-            the coffee shop. This includes opinions on drinks, food, pastries, ambiance,
-            staff friendliness, service speed, cleanliness, and any suggestions for
-            improvement."""
-          )
-        )
-    
-    When using custom topics, it's recommended to also provide [few-shot examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#configure-few-shots) demonstrating how memories should be extracted from your conversation.
+  ### Dictionary
+
+  ```
+  memory_topic = {
+    "managed_memory_topic": {
+      "managed_topic_enum": "USER_PERSONAL_INFO"
+    }
+  }
+  ```
+
+  ### Class-based
+
+  ```
+  from agentplatform.types import ManagedTopicEnum
+  from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
+  from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
+
+  memory_topic = MemoryTopic(
+      managed_memory_topic=ManagedMemoryTopic(
+          managed_topic_enum=ManagedTopicEnum.USER_PERSONAL_INFO
+      )
+  )
+  ```
+
+  The following managed topics are supported by Memory Bank:
+
+  - **User information** ( `USER_PERSONAL_INFO` ): Significant information about the user, like names, relationships, hobbies, and important dates. For example, "I work at Google" or "My wedding anniversary is on December 31".
+  - **User preferences** ( `USER_PREFERENCES` ): Stated or implied likes, dislikes, preferred styles, or patterns. For example, "I prefer the middle seat."
+  - **Key conversation events and task outcomes** ( `KEY_CONVERSATION_DETAILS` ): Important milestones or conclusions within the dialogue. For example, "I booked plane tickets for a round trip between JFK and SFO. I leave on June 1, 2025 and return on June 7, 2025."
+  - **Explicit remember / forget instructions** ( `EXPLICIT_INSTRUCTIONS` ): Information that the user explicitly asks the agent to remember or forget. For example, if the user says "Remember that I primarily use Python," Memory Bank generates a memory such as "I primarily use Python."
+
+- **Custom topics** : Label and instructions are defined by you when setting up your Memory Bank instance. They will be used in the prompt for Memory Bank's extraction step. For example,
+
+  ### Dictionary
+
+  ```
+  memory_topic = {
+    "custom_memory_topic": {
+      "label": "business_feedback",
+      "description": """Specific user feedback about their experience at
+      the coffee shop. This includes opinions on drinks, food, pastries, ambiance,
+      staff friendliness, service speed, cleanliness, and any suggestions for
+      improvement."""
+      }
+  }
+  ```
+
+  ### Class-based
+
+  ```
+  from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
+  from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicCustomMemoryTopic as CustomMemoryTopic
+
+  memory_topic = MemoryTopic(
+    custom_memory_topic=CustomMemoryTopic(
+      label="business_feedback",
+      description="""Specific user feedback about their experience at
+      the coffee shop. This includes opinions on drinks, food, pastries, ambiance,
+      staff friendliness, service speed, cleanliness, and any suggestions for
+      improvement."""
+    )
+  )
+  ```
+
+  When using custom topics, it's recommended to also provide [few-shot examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#configure-few-shots) demonstrating how memories should be extracted from your conversation.
 
 With customization, you can use any combination of memory topics. For example, you can use a subset of the available managed memory topics:
 
 ### Dictionary
 
-    customization_config = {
-      "memory_topics": [
-        { "managed_memory_topic": { "managed_topic_enum": "USER_PERSONAL_INFO" } },
-        { "managed_memory_topic": { "managed_topic_enum": "USER_PREFERENCES" } }
-      ]
-    }
+```
+customization_config = {
+  "memory_topics": [
+    { "managed_memory_topic": { "managed_topic_enum": "USER_PERSONAL_INFO" } },
+    { "managed_memory_topic": { "managed_topic_enum": "USER_PREFERENCES" } }
+  ]
+}
+```
 
 ### Class-based
 
-    from agentplatform.types import ManagedTopicEnum
-    from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
-    from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
-    from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
-    
-    customization_config = CustomizationConfig(
-      memory_topics=[
-          MemoryTopic(
-              managed_memory_topic=ManagedMemoryTopic(
-                  managed_topic_enum=ManagedTopicEnum.USER_PERSONAL_INFO)
-          ),
-          MemoryTopic(
-              managed_memory_topic=ManagedMemoryTopic(
-                  managed_topic_enum=ManagedTopicEnum.USER_PREFERENCES)
-          ),
-      ]
-    )
+```
+from agentplatform.types import ManagedTopicEnum
+from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
+from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
+from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
+
+customization_config = CustomizationConfig(
+  memory_topics=[
+      MemoryTopic(
+          managed_memory_topic=ManagedMemoryTopic(
+              managed_topic_enum=ManagedTopicEnum.USER_PERSONAL_INFO)
+      ),
+      MemoryTopic(
+          managed_memory_topic=ManagedMemoryTopic(
+              managed_topic_enum=ManagedTopicEnum.USER_PREFERENCES)
+      ),
+  ]
+)
+```
 
 You can also use a combination of managed and custom topics (or only use custom topics):
 
 ### Dictionary
 
-    customization_config = {
-      "memory_topics": [
-        { "managed_memory_topic": { "managed_topic_enum": "USER_PERSONAL_INFO" } },
-        {
-          "custom_memory_topic": {
-            "label": "business_feedback",
-            "description": """Specific user feedback about their experience at
-    the coffee shop. This includes opinions on drinks, food, pastries, ambiance,
-    staff friendliness, service speed, cleanliness, and any suggestions for
-    improvement."""
-            }
+```
+customization_config = {
+  "memory_topics": [
+    { "managed_memory_topic": { "managed_topic_enum": "USER_PERSONAL_INFO" } },
+    {
+      "custom_memory_topic": {
+        "label": "business_feedback",
+        "description": """Specific user feedback about their experience at
+the coffee shop. This includes opinions on drinks, food, pastries, ambiance,
+staff friendliness, service speed, cleanliness, and any suggestions for
+improvement."""
         }
-      ]
     }
+  ]
+}
+```
 
 ### Class-based
 
-    from agentplatform.types import ManagedTopicEnum
-    from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
-    from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
-    from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicCustomMemoryTopic as CustomMemoryTopic
-    from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
-    
-    customization_config = CustomizationConfig(
-      memory_topics=[
-          MemoryTopic(
-              managed_memory_topic=ManagedMemoryTopic(
-                  managed_topic_enum=ManagedTopicEnum.USER_PERSONAL_INFO)
-          ),
-          MemoryTopic(
-              custom_memory_topic=CustomMemoryTopic(
-                  label="business_feedback",
-                  description="""Specific user feedback about their experience at
-    the coffee shop. This includes opinions on drinks, food, pastries, ambiance,
-    staff friendliness, service speed, cleanliness, and any suggestions for
-    improvement."""
-              )
-        )
-      ]
+```
+from agentplatform.types import ManagedTopicEnum
+from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
+from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
+from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicCustomMemoryTopic as CustomMemoryTopic
+from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
+
+customization_config = CustomizationConfig(
+  memory_topics=[
+      MemoryTopic(
+          managed_memory_topic=ManagedMemoryTopic(
+              managed_topic_enum=ManagedTopicEnum.USER_PERSONAL_INFO)
+      ),
+      MemoryTopic(
+          custom_memory_topic=CustomMemoryTopic(
+              label="business_feedback",
+              description="""Specific user feedback about their experience at
+the coffee shop. This includes opinions on drinks, food, pastries, ambiance,
+staff friendliness, service speed, cleanliness, and any suggestions for
+improvement."""
+          )
     )
+  ]
+)
+```
 
 #### Few-shot examples
 
@@ -558,114 +602,122 @@ For example, you can provide few-shot examples that demonstrate how to extract f
 
 ### Dictionary
 
-    example = {
-        "conversationSource": {
-          "events": [
-            {
-              "content": {
-                "role": "model",
-                "parts": [{ "text": "Welcome back to The Daily Grind! We'd love to hear your feedback on your visit." }] }
-            },
-            {
-              "content": {
-                "role": "user",
-                "parts": [{ "text": "Hey. The drip coffee was a bit lukewarm today, which was a bummer. Also, the music was way too loud, I could barely hear my friend." }] }
-            }
-          ]
+```
+example = {
+    "conversationSource": {
+      "events": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [{ "text": "Welcome back to The Daily Grind! We'd love to hear your feedback on your visit." }] }
         },
-        "generatedMemories": [
-          {
-            "fact": "The user reported that the drip coffee was lukewarm."
-          },
-          {
-            "fact": "The user felt the music in the shop was too loud."
-          }
-        ]
-    }
+        {
+          "content": {
+            "role": "user",
+            "parts": [{ "text": "Hey. The drip coffee was a bit lukewarm today, which was a bummer. Also, the music was way too loud, I could barely hear my friend." }] }
+        }
+      ]
+    },
+    "generatedMemories": [
+      {
+        "fact": "The user reported that the drip coffee was lukewarm."
+      },
+      {
+        "fact": "The user felt the music in the shop was too loud."
+      }
+    ]
+}
+```
 
 ### Class-based
 
-    from google.genai.types import Content, Part
-    from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExample as GenerateMemoriesExample
-    from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSource as ConversationSource
-    from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSourceEvent as ConversationSourceEvent
-    from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExampleGeneratedMemory as ExampleGeneratedMemory
-    
-    example = GenerateMemoriesExample(
-        conversation_source=ConversationSource(
-            events=[
-                ConversationSourceEvent(
-                    content=Content(
-                        role="model",
-                        parts=[Part(text="Welcome back to The Daily Grind! We'd love to hear your feedback on your visit.")]
-                    )
-                ),
-                ConversationSourceEvent(
-                    content=Content(
-                        role="user",
-                        parts=[Part(text= "Hey. The drip coffee was a bit lukewarm today, which was a bummer. Also, the music was way too loud, I could barely hear my friend.")]
-                    )
+```
+from google.genai.types import Content, Part
+from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExample as GenerateMemoriesExample
+from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSource as ConversationSource
+from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSourceEvent as ConversationSourceEvent
+from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExampleGeneratedMemory as ExampleGeneratedMemory
+
+example = GenerateMemoriesExample(
+    conversation_source=ConversationSource(
+        events=[
+            ConversationSourceEvent(
+                content=Content(
+                    role="model",
+                    parts=[Part(text="Welcome back to The Daily Grind! We'd love to hear your feedback on your visit.")]
                 )
-            ]
-        ),
-        generated_memories=[
-            ExampleGeneratedMemory(
-                fact="The user reported that the drip coffee was lukewarm."
             ),
-            ExampleGeneratedMemory(
-                fact="The user felt the music in the shop was too loud."
+            ConversationSourceEvent(
+                content=Content(
+                    role="user",
+                    parts=[Part(text= "Hey. The drip coffee was a bit lukewarm today, which was a bummer. Also, the music was way too loud, I could barely hear my friend.")]
+                )
             )
         ]
-    )
+    ),
+    generated_memories=[
+        ExampleGeneratedMemory(
+            fact="The user reported that the drip coffee was lukewarm."
+        ),
+        ExampleGeneratedMemory(
+            fact="The user felt the music in the shop was too loud."
+        )
+    ]
+)
+```
 
 You can also provide examples of conversations that shouldn't result in any generated memories by providing an empty list for the expected output ( `generated_memories` ):
 
 ### Dictionary
 
-    example = {
-        "conversationSource": {
-            "events": [
-              {
-                  "content": {
-                      "role": "model",
-                      "parts": [{ "text": "Good morning! What can I get for you at The Daily Grind?" }] }
-              },
-              {
-                  "content": {
-                      "role": "user",
-                      "parts": [{ "text": "Thanks for the coffee." }] }
-              }
-            ]
-        },
-        "generatedMemories": []
-    }
+```
+example = {
+    "conversationSource": {
+        "events": [
+          {
+              "content": {
+                  "role": "model",
+                  "parts": [{ "text": "Good morning! What can I get for you at The Daily Grind?" }] }
+          },
+          {
+              "content": {
+                  "role": "user",
+                  "parts": [{ "text": "Thanks for the coffee." }] }
+          }
+        ]
+    },
+    "generatedMemories": []
+}
+```
 
 ### Class-based
 
-    from google.genai.types import Content, Part
-    from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExample as GenerateMemoriesExample
-    from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSource as ConversationSource
-    from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSourceEvent as ConversationSourceEvent
-    
-    example = GenerateMemoriesExample(
-        conversation_source=ConversationSource(
-            events=[
-                ConversationSourceEvent(
-                    content=Content(
-                        role="model",
-                        parts=[Part(text="Welcome back to The Daily Grind! We'd love to hear your feedback on your visit.")]
-                    )
-                ),
-                ConversationSourceEvent(
-                    content=Content(
-                        role="user",
-                        parts=[Part(text= "Thanks for the coffee!")]
-                    )
+```
+from google.genai.types import Content, Part
+from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExample as GenerateMemoriesExample
+from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSource as ConversationSource
+from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSourceEvent as ConversationSourceEvent
+
+example = GenerateMemoriesExample(
+    conversation_source=ConversationSource(
+        events=[
+            ConversationSourceEvent(
+                content=Content(
+                    role="model",
+                    parts=[Part(text="Welcome back to The Daily Grind! We'd love to hear your feedback on your visit.")]
                 )
-            ]
-        ),
-        generated_memories=[]
-    )
+            ),
+            ConversationSourceEvent(
+                content=Content(
+                    role="user",
+                    parts=[Part(text= "Thanks for the coffee!")]
+                )
+            )
+        ]
+    ),
+    generated_memories=[]
+)
+```
 
 #### Memory perspective
 
@@ -673,17 +725,21 @@ By default, memories are generated in the first person (e.g. "I use Memory Bank 
 
 ### Dictionary
 
-    customization_config = {
-      "enable_third_person_memories": True
-    }
+```
+customization_config = {
+  "enable_third_person_memories": True
+}
+```
 
 ### Class-based
 
-    from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
-    
-    customization_config = CustomizationConfig(
-        enable_third_person_memories=True
-    )
+```
+from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
+
+customization_config = CustomizationConfig(
+    enable_third_person_memories=True
+)
+```
 
 > **Note:** If you're [providing few-shot examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#configure-few-shots) , make sure that their perspective is consistent with your instance's configured perspective.
 
@@ -697,22 +753,26 @@ By default, Memory Bank only compares new information to the most recent snapsho
 
 ### Dictionary
 
-    customization_config = {
-      "consolidation_config": {
-        "revisions_per_candidate_count": 10
-      }
-    }
+```
+customization_config = {
+  "consolidation_config": {
+    "revisions_per_candidate_count": 10
+  }
+}
+```
 
 ### Class-based
 
-    from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
-    from agentplatform.types import MemoryBankCustomizationConfigConsolidationConfig as ConsolidationConfig
-    
-    customization_config = CustomizationConfig(
-        consolidation_config=ConsolidationConfig(
-          revisions_per_candidate_count=10
-        )
+```
+from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
+from agentplatform.types import MemoryBankCustomizationConfigConsolidationConfig as ConsolidationConfig
+
+customization_config = CustomizationConfig(
+    consolidation_config=ConsolidationConfig(
+      revisions_per_candidate_count=10
     )
+)
+```
 
 Increasing `revisions_per_candidate_count` results in more consistent and corroborated memories by accounting for the repetition of ingested information. However, a higher count increases token consumption during the consolidation process.
 
@@ -722,19 +782,23 @@ To apply customization configurations to your Memory Bank instance, provide them
 
 ### Dictionary
 
-    managed_semantic_memory_config = {
-      "unstructured_memory_configs": [customization_config],
-      # Include other configurations (similarity search, generation, TTL)...
-    }
+```
+managed_semantic_memory_config = {
+  "unstructured_memory_configs": [customization_config],
+  # Include other configurations (similarity search, generation, TTL)...
+}
+```
 
 ### Class-based
 
-    from agentplatform.types import ManagedSemanticMemoryConfig
-    
-    managed_semantic_memory_config = ManagedSemanticMemoryConfig(
-      unstructured_memory_configs=[customization_config],
-      # Include other configurations (similarity search, generation, TTL)...
-    )
+```
+from agentplatform.types import ManagedSemanticMemoryConfig
+
+managed_semantic_memory_config = ManagedSemanticMemoryConfig(
+  unstructured_memory_configs=[customization_config],
+  # Include other configurations (similarity search, generation, TTL)...
+)
+```
 
 ### Similarity search configuration
 
@@ -746,21 +810,25 @@ If you expect user conversations to be in non-English languages, use a [model](h
 
 ### Dictionary
 
-    similarity_search_config = {
-        "embedding_model": "EMBEDDING_MODEL",
-    }
+```
+similarity_search_config = {
+    "embedding_model": "EMBEDDING_MODEL",
+}
+```
 
 ### Class-based
 
-    from agentplatform.types import ManagedSemanticMemoryConfigSimilaritySearchConfig as SimilaritySearchConfig
-    
-    similarity_search_config = SimilaritySearchConfig(
-        embedding_model="EMBEDDING_MODEL"
-    )
+```
+from agentplatform.types import ManagedSemanticMemoryConfigSimilaritySearchConfig as SimilaritySearchConfig
+
+similarity_search_config = SimilaritySearchConfig(
+    embedding_model="EMBEDDING_MODEL"
+)
+```
 
 Replace the following:
 
-  - EMBEDDING\_MODEL : The Google text embedding model to use for similarity search, in the format `projects/{project}/locations/{location}/publishers/google/models/{model}` .
+- ` EMBEDDING_MODEL ` : The Google text embedding model to use for similarity search, in the format `projects/{project}/locations/{location}/publishers/google/models/{model}` .
 
 ### Generation configuration
 
@@ -770,29 +838,33 @@ Effective June 29, 2026, Memory Bank uses `gemini-3.5-flash` for the default mod
 
 For new Memory Bank instances using the default model:
 
-  - Memory Bank instances in `us` multi-region or `us-*` single-regions (for example, us-central1) use the multi-region `us` Gemini 3.5 endpoint.
-  - Memory Bank instances in `eu` multi-region or `eu-*` single-regions (for example, europe-west2) use the multi-region `eu` Gemini 3.5 endpoint.
-  - All other Memory Bank regions use the global Gemini 3.5 endpoint.
+- Memory Bank instances in `us` multi-region or `us-*` single-regions (for example, us-central1) use the multi-region `us` Gemini 3.5 endpoint.
+- Memory Bank instances in `eu` multi-region or `eu-*` single-regions (for example, europe-west2) use the multi-region `eu` Gemini 3.5 endpoint.
+- All other Memory Bank regions use the global Gemini 3.5 endpoint.
 
 For Memory Bank instances created before June 29, 2026 using the default model, Memory Bank uses the `global` Gemini endpoint for regions that don't have a regional Gemini 2.5 endpoint available.
 
 ### Dictionary
 
-    generation_config = {
-      "model": "LLM_MODEL",
-    }
+```
+generation_config = {
+  "model": "LLM_MODEL",
+}
+```
 
 ### Class-based
 
-    from agentplatform.types import ManagedSemanticMemoryConfigGenerationConfig as GenerationConfig
-    
-    generation_config = GenerationConfig(
-      model="LLM_MODEL"
-    )
+```
+from agentplatform.types import ManagedSemanticMemoryConfigGenerationConfig as GenerationConfig
+
+generation_config = GenerationConfig(
+  model="LLM_MODEL"
+)
+```
 
 Replace the following:
 
-  - LLM\_MODEL : The Google LLM model to use for extracting and consolidating memories, in the format `projects/{project}/locations/{location}/publishers/google/models/{model}` .
+- ` LLM_MODEL ` : The Google LLM model to use for extracting and consolidating memories, in the format `projects/{project}/locations/{location}/publishers/google/models/{model}` .
 
 ### Time to live (TTL) configuration
 
@@ -802,56 +874,64 @@ If the configuration is not provided, expiration time won't be dynamically set f
 
 There are two options for the TTL configuration:
 
-  - **Default TTL** : The TTL will be applied to all operations that create or update a memory, including `UpdateMemory` , `CreateMemory` , and `GenerateMemories` .
-    
-    ### Dictionary
-    
-        ttl_config = {
-            "default_ttl": f"TTLs"
-        }
-    
-    ### Class-based
-    
-        from agentplatform.types import ManagedSemanticMemoryConfigTtlConfig as TtlConfig
-        
-        ttl_config = TtlConfig(
-            default_ttl=f"TTLs"
-        )
-    
-    Replace the following:
-    
-      - TTL : The duration in seconds for the TTL. For updated memories, the newly calculated expiration time (now + TTL) will overwrite the Memory's previous expiration time.
+- **Default TTL** : The TTL will be applied to all operations that create or update a memory, including `UpdateMemory` , `CreateMemory` , and `GenerateMemories` .
 
-  - **Granular (per-operation) TTL** : The TTL is calculated based on which operation created or updated the Memory. If not set for a given operation, then the operation won't update the Memory's expiration time.
-    
-    ### Dictionary
-    
-        ttl_config = {
-            "granular_ttl": {
-                "create_ttl": f"CREATE_TTLs",
-                "generate_created_ttl": f"GENERATE_CREATED_TTLs",
-                "generate_updated_ttl": f"GENERATE_UPDATED_TTLs"
-            }
-        }
-    
-    ### Class-based
-    
-        from agentplatform.types import ManagedSemanticMemoryConfigTtlConfig as TtlConfig
-        from agentplatform.types import ManagedSemanticMemoryConfigTtlConfigGranularTtlConfig as GranularTtlConfig
-        
-        ttl_config = TtlConfig(
-            granular_ttl_config=GranularTtlConfig(
-                create_ttl=f"CREATE_TTLs",
-                generate_created_ttl=f"GENERATE_CREATED_TTLs",
-                generate_updated_ttl=f"GENERATE_UPDATED_TTLs",
-            )
-        )
-    
-    Replace the following:
-    
-      - CREATE\_TTL : The duration in seconds for the TTL for memories created using `CreateMemory` .
-      - GENERATE\_CREATED\_TTL : The duration in seconds for the TTL for memories created using `GenerateMemories` .
-      - GENERATE\_UPDATED\_TTL : The duration in seconds for the TTL for memories updated using `GenerateMemories` . The newly calculated expiration time (now + TTL) will overwrite the Memory's previous expiration time.
+  ### Dictionary
+
+  ```
+  ttl_config = {
+      "default_ttl": f"TTLs"
+  }
+  ```
+
+  ### Class-based
+
+  ```
+  from agentplatform.types import ManagedSemanticMemoryConfigTtlConfig as TtlConfig
+
+  ttl_config = TtlConfig(
+      default_ttl=f"TTLs"
+  )
+  ```
+
+  Replace the following:
+
+  - ` TTL ` : The duration in seconds for the TTL. For updated memories, the newly calculated expiration time (now + TTL) will overwrite the Memory's previous expiration time.
+
+- **Granular (per-operation) TTL** : The TTL is calculated based on which operation created or updated the Memory. If not set for a given operation, then the operation won't update the Memory's expiration time.
+
+  ### Dictionary
+
+  ```
+  ttl_config = {
+      "granular_ttl": {
+          "create_ttl": f"CREATE_TTLs",
+          "generate_created_ttl": f"GENERATE_CREATED_TTLs",
+          "generate_updated_ttl": f"GENERATE_UPDATED_TTLs"
+      }
+  }
+  ```
+
+  ### Class-based
+
+  ```
+  from agentplatform.types import ManagedSemanticMemoryConfigTtlConfig as TtlConfig
+  from agentplatform.types import ManagedSemanticMemoryConfigTtlConfigGranularTtlConfig as GranularTtlConfig
+
+  ttl_config = TtlConfig(
+      granular_ttl_config=GranularTtlConfig(
+          create_ttl=f"CREATE_TTLs",
+          generate_created_ttl=f"GENERATE_CREATED_TTLs",
+          generate_updated_ttl=f"GENERATE_UPDATED_TTLs",
+      )
+  )
+  ```
+
+  Replace the following:
+
+  - ` CREATE_TTL ` : The duration in seconds for the TTL for memories created using `CreateMemory` .
+  - ` GENERATE_CREATED_TTL ` : The duration in seconds for the TTL for memories created using `GenerateMemories` .
+  - ` GENERATE_UPDATED_TTL ` : The duration in seconds for the TTL for memories updated using `GenerateMemories` . The newly calculated expiration time (now + TTL) will overwrite the Memory's previous expiration time.
 
 ## What's next
 

@@ -20,13 +20,13 @@ The vLLM TPU serving container is integrated in Model Garden. You can access thi
 
 You can deploy a custom Agent Platform endpoint with vLLM TPU through the model card for the following models:
 
-  - [google/gemma-3-27b-it](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma3;publisherModelVersion=gemma-3-27b-it)
-  - [meta-llama/Llama-3.3-70B-Instruct](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama3-3;publisherModelVersion=llama-3.3-70b-instruct)
-  - [meta-llama/Llama-3.1-8B-Instruct](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama3_1;publisherModelVersion=llama-3.1-8b-instruct)
-  - [Qwen/Qwen3-32B](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3;publisherModelVersion=qwen3-32b)
-  - [Qwen/Qwen3-8B](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3;publisherModelVersion=qwen3-8b)
-  - [Qwen/Qwen3-4B](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3;publisherModelVersion=qwen3-4b)
-  - [Qwen/Qwen3-4B-Instruct-2507](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3;publisherModelVersion=qwen3-4b-instruct-2507)
+- [google/gemma-3-27b-it](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma3;publisherModelVersion=gemma-3-27b-it)
+- [meta-llama/Llama-3.3-70B-Instruct](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama3-3;publisherModelVersion=llama-3.3-70b-instruct)
+- [meta-llama/Llama-3.1-8B-Instruct](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama3_1;publisherModelVersion=llama-3.1-8b-instruct)
+- [Qwen/Qwen3-32B](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3;publisherModelVersion=qwen3-32b)
+- [Qwen/Qwen3-8B](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3;publisherModelVersion=qwen3-8b)
+- [Qwen/Qwen3-4B](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3;publisherModelVersion=qwen3-4b)
+- [Qwen/Qwen3-4B-Instruct-2507](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3;publisherModelVersion=qwen3-4b-instruct-2507)
 
 Steps:
 

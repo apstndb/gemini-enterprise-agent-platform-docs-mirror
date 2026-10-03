@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) , and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos) . You can process personal data for this feature as outlined in the [Cloud Data Processing Addendum](https://docs.cloud.google.com/terms/data-processing-addendum) , subject to the obligations and restrictions described in the agreement under which you access Google Cloud. Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 The Interactions API lets developers build generative AI applications using generative models and agents hosted on Gemini Enterprise Agent Platform. For conceptual information, supported models and tools, and billing and compliance details, see the [Interactions API overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) . For SDK setup instructions and code samples for common interaction workflows, see the [Interactions API developer guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide) .
@@ -18,8 +18,8 @@ post https://aiplatform.googleapis.com/v1beta1/projects/{project}/locations/glob
 
 Creates a new interaction.
 
-  - [Request body](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#CreateInteraction.request_body)
-  - [Response](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#CreateInteraction.response)
+- [Request body](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#CreateInteraction.request_body)
+- [Response](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#CreateInteraction.response)
 
 ### Request body
 
@@ -32,43 +32,47 @@ The name of the \`Model\` used for generating the interaction.
 
 Possible values:
 
-  - `gemini-3.8-flash`
-    
-    Our fast, high-performance multimodal model optimized for coding, reasoning, multimodal understanding, and agentic workflows.
+- `gemini-3.8-flash`
 
-  - `gemini-3.7-flash`
-    
-    Our fast, high-performance multimodal model optimized for coding, reasoning, and agentic workflows. Default model for Interactions API.
+  Our fast, high-performance multimodal model optimized for coding, reasoning, multimodal understanding, and agentic workflows.
 
-  - `gemini-3.6-flash`
-    
-    Fast, high-performance multimodal model optimized for reasoning, multimodal understanding, and agentic workflows.
+- `gemini-3.7-flash`
 
-  - `gemini-3.5-flash-lite`
-    
-    Lightweight, highly cost-efficient multimodal model optimized for high throughput and low-latency agentic tasks.
+  Our fast, high-performance multimodal model optimized for coding, reasoning, and agentic workflows. Default model for Interactions API.
 
-  - `gemini-3.1-pro-preview`
-    
-    Our most capable multimodal model for complex reasoning, coding, and multi-step agentic tasks.
+- `gemini-3.6-flash`
 
-  - `gemini-3.1-flash-lite`
-    
-    Highly cost-efficient, low-latency model for high-frequency requests.
+  Fast, high-performance multimodal model optimized for reasoning, multimodal understanding, and agentic workflows.
 
-  - `gemini-omni-flash-preview`
-    
-    Our high-performance multimodal model designed for fast, conversational video generation, editing, and cinematic control.
+- `gemini-3.5-flash-lite`
 
-  - `lyria-3-clip-preview`
-    
-    Our low-latency, music generation model optimized for high-fidelity audio clips and precise rhythmic control. Available in stateless interactions only ( `store=false` ).
+  Lightweight, highly cost-efficient multimodal model optimized for high throughput and low-latency agentic tasks.
 
-  - `lyria-3-pro-preview`
-    
-    Our advanced, full-song generative model with deep compositional understanding, optimized for precise structural control and complex transitions across diverse musical styles. Available in stateless interactions only ( `store=false` ).
+- `gemini-3.1-pro-preview`
 
-The model that will complete your prompt.\\n\\nSee \[models\](https://ai.google.dev/gemini-api/docs/models) for additional details.
+  Our most capable multimodal model for complex reasoning, coding, and multi-step agentic tasks.
+
+- `gemini-3.1-flash-lite`
+
+  Highly cost-efficient, low-latency model for high-frequency requests.
+
+- `gemini-omni-1.1-flash-preview`
+
+  Our updated multimodal model designed for video, image, and text tasks, optimized for video generation alongside text responses.
+
+- `gemini-omni-flash-preview`
+
+  Our high-performance multimodal model designed for fast, conversational video generation, editing, and cinematic control.
+
+- `lyria-3-clip-preview`
+
+  Our low-latency, music generation model optimized for high-fidelity audio clips and precise rhythmic control. Available in stateless interactions only ( `store=false` ).
+
+- `lyria-3-pro-preview`
+
+  Our advanced, full-song generative model with deep compositional understanding, optimized for precise structural control and complex transitions across diverse musical styles. Available in stateless interactions only ( `store=false` ).
+
+The model that will complete your prompt.\n\nSee \[models\](https://ai.google.dev/gemini-api/docs/models) for additional details.
 
 agent AgentOption (optional)
 
@@ -77,13 +81,13 @@ The name of the \`Agent\` used for generating the interaction.
 
 Possible values:
 
-  - `antigravity-preview-05-2026`
-    
-    Our general-purpose autonomous agent designed for multi-step reasoning, coding, file operations, and tool use.
+- `antigravity-preview-05-2026`
 
-  - `deep-research-preview-04-2026`
-    
-    Gemini Deep Research Agent designed for autonomous, multi-step web research and synthesis.
+  Our general-purpose autonomous agent designed for multi-step reasoning, coding, file operations, and tool use.
+
+- `deep-research-preview-04-2026`
+
+  Gemini Deep Research Agent designed for autonomous, multi-step web research and synthesis.
 
 The agent to interact with.
 
@@ -91,7 +95,7 @@ input [Content](https://docs.cloud.google.com/gemini-enterprise-agent-platform/r
 
 The inputs for the interaction (common to both Model and Agent).
 
-system\_instruction string (optional)
+system_instruction string (optional)
 
 System instruction for the interaction.
 
@@ -99,13 +103,13 @@ tools array ( [Tool](https://docs.cloud.google.com/gemini-enterprise-agent-platf
 
 A list of tool declarations the model may call during interaction.
 
-response\_format [ResponseFormat](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#Resource:ResponseFormat) or [ResponseFormatList](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#Resource:ResponseFormatList) (optional)
+response_format [ResponseFormat](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#Resource:ResponseFormat) or array ( [ResponseFormat](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#Resource:ResponseFormat) ) (optional)
 
 Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
 
-response\_mime\_type string (optional)
+response_mime_type string (optional)
 
-The mime type of the response. This is required if response\_format is set.
+The mime type of the response. This is required if response_format is set.
 
 stream boolean (optional)
 
@@ -119,11 +123,11 @@ background boolean (optional)
 
 Input only. Whether to run the model interaction in the background.
 
-generation\_config GenerationConfig (optional)
+generation_config GenerationConfig (optional)
 
 **Model Configuration**  
 Configuration parameters for the model interaction.  
-*Alternative to \`agent\_config\`. Only applicable when \`model\` is set.*
+*Alternative to \`agent_config\`. Only applicable when \`model\` is set.*
 
 Configuration parameters for model interactions.
 
@@ -133,7 +137,7 @@ temperature number (optional)
 
 Controls the randomness of the output.
 
-top\_p number (optional)
+top_p number (optional)
 
 The maximum cumulative probability of tokens to consider when sampling.
 
@@ -141,35 +145,35 @@ seed integer (optional)
 
 Seed used in decoding for reproducibility.
 
-stop\_sequences array (string) (optional)
+stop_sequences array (string) (optional)
 
 A list of character sequences that will stop output interaction.
 
-thinking\_level ThinkingLevel (optional)
+thinking_level ThinkingLevel (optional)
 
 The level of thought tokens that the model should generate.
 
 Possible values:
 
-  - `minimal`
-  - `low`
-  - `medium`
-  - `high`
+- `minimal`
+- `low`
+- `medium`
+- `high`
 
-thinking\_summaries ThinkingSummaries (optional)
+thinking_summaries ThinkingSummaries (optional)
 
 Whether to include thought summaries in the response.
 
 Possible values:
 
-  - `auto`
-  - `none`
+- `auto`
+- `none`
 
-max\_output\_tokens integer (optional)
+max_output_tokens integer (optional)
 
 The maximum number of tokens to include in the response.
 
-speech\_config SpeechConfig (optional)
+speech_config SpeechConfig (optional)
 
 Configuration for speech interaction.
 
@@ -189,7 +193,7 @@ speaker string (optional)
 
 The speaker's name, it should match the speaker name given in the prompt.
 
-image\_config ImageConfig (optional)
+image_config ImageConfig (optional)
 
 Configuration for image interaction.
 
@@ -197,47 +201,47 @@ The configuration for image interaction.
 
 #### Fields
 
-aspect\_ratio enum (string) (optional)
+aspect_ratio enum (string) (optional)
 
 No description provided.
 
 Possible values:
 
-  - `1:1`
-  - `2:3`
-  - `3:2`
-  - `3:4`
-  - `4:3`
-  - `4:5`
-  - `5:4`
-  - `9:16`
-  - `16:9`
-  - `21:9`
-  - `1:8`
-  - `8:1`
-  - `1:4`
-  - `4:1`
+- `1:1`
+- `2:3`
+- `3:2`
+- `3:4`
+- `4:3`
+- `4:5`
+- `5:4`
+- `9:16`
+- `16:9`
+- `21:9`
+- `1:8`
+- `8:1`
+- `1:4`
+- `4:1`
 
-image\_size enum (string) (optional)
+image_size enum (string) (optional)
 
 No description provided.
 
 Possible values:
 
-  - `1K`
-  - `2K`
-  - `4K`
-  - `512`
+- `1K`
+- `2K`
+- `4K`
+- `512`
 
-tool\_choice [ToolChoiceConfig](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#Resource:ToolChoiceConfig) or [ToolChoiceType](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#Resource:ToolChoiceType) (optional)
+tool_choice [ToolChoiceConfig](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#Resource:ToolChoiceConfig) or [ToolChoiceType](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#Resource:ToolChoiceType) (optional)
 
 The tool choice configuration.
 
-agent\_config object (optional)
+agent_config object (optional)
 
 **Agent Configuration**  
 Configuration for the agent.  
-*Alternative to \`generation\_config\`. Only applicable when \`agent\` is set.*
+*Alternative to \`generation_config\`. Only applicable when \`agent\` is set.*
 
 #### Possible Types
 
@@ -253,21 +257,21 @@ No description provided.
 
 Always set to `"dynamic"` .
 
-previous\_interaction\_id string (optional)
+previous_interaction_id string (optional)
 
 The ID of the previous interaction, if any.
 
-response\_modalities ResponseModality (optional)
+response_modalities ResponseModality (optional)
 
 The requested modalities of the response (TEXT, IMAGE, AUDIO).
 
 Possible values:
 
-  - `text`
-  - `image`
-  - `audio`
-  - `video`
-  - `document`
+- `text`
+- `image`
+- `audio`
+- `video`
+- `document`
 
 ### Response
 
@@ -277,145 +281,151 @@ Returns an [Interaction](https://docs.cloud.google.com/gemini-enterprise-agent-p
 
 #### Example Response
 
+```
+{
+  "id": "u-sAauOtHceE6dgPnsup0Qo",
+  "status": "completed",
+  "role": "model",
+  "created": "2026-05-10T20:34:13Z",
+  "updated": "2026-05-10T20:34:13Z",
+  "steps": [
     {
-      "id": "u-sAauOtHceE6dgPnsup0Qo",
-      "status": "completed",
-      "role": "model",
-      "created": "2026-05-10T20:34:13Z",
-      "updated": "2026-05-10T20:34:13Z",
-      "steps": [
+      "content": [
         {
-          "content": [
-            {
-              "text": "[0.0:] Let the music lift you high\n[3.8:] Dancing under neon skies\n[7.5:] Feel the rhythm in your soul\n[11.3:] Lose yourself and lose control",
-              "type": "text"
-            }
-          ],
-          "type": "model_output"
-        },
-        {
-          "content": [
-            {
-              "text": "Caption: This is a quintessential example of high-energy, euphoric Progressive House, a subgenre of EDM defined by its massive scale and uplifting melodic content...",
-              "type": "text"
-            }
-          ],
-          "type": "model_output"
-        },
-        {
-          "content": [
-            {
-              "mime_type": "audio/mpeg",
-              "data": "",
-              "type": "audio"
-            }
-          ],
-          "type": "model_output"
+          "text": "[0.0:] Let the music lift you high\n[3.8:] Dancing under neon skies\n[7.5:] Feel the rhythm in your soul\n[11.3:] Lose yourself and lose control",
+          "type": "text"
         }
       ],
-      "object": "interaction",
-      "model": "lyria-3-clip-preview"
+      "type": "model_output"
+    },
+    {
+      "content": [
+        {
+          "text": "Caption: This is a quintessential example of high-energy, euphoric Progressive House, a subgenre of EDM defined by its massive scale and uplifting melodic content...",
+          "type": "text"
+        }
+      ],
+      "type": "model_output"
+    },
+    {
+      "content": [
+        {
+          "mime_type": "audio/mpeg",
+          "data": "",
+          "type": "audio"
+        }
+      ],
+      "type": "model_output"
     }
+  ],
+  "object": "interaction",
+  "model": "lyria-3-clip-preview"
+}
+```
 
 ### Image Input
 
 #### Example Response
 
+```
+{
+  "id": "v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROBIXT1NBeGFhbTZBcEtpMWU4UGdOZW13UTg",
+  "status": "completed",
+  "role": "model",
+  "created": "2026-05-10T20:35:12Z",
+  "updated": "2026-05-10T20:35:12Z",
+  "steps": [
     {
-      "id": "v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROBIXT1NBeGFhbTZBcEtpMWU4UGdOZW13UTg",
-      "status": "completed",
-      "role": "model",
-      "created": "2026-05-10T20:35:12Z",
-      "updated": "2026-05-10T20:35:12Z",
-      "steps": [
+      "type": "model_output",
+      "content": [
         {
-          "type": "model_output",
-          "content": [
-            {
-              "type": "text",
-              "text": "[0.0:] High energy beats\n[3.8:] Matching the vibrant neon street"
-            }
-          ]
-        },
-        {
-          "type": "model_output",
-          "content": [
-            {
-              "type": "text",
-              "text": "Caption: Inspired by the cyberpunk aesthetic of the image, this upbeat EDM track features heavy synthesizer bass and crisp percussion..."
-            }
-          ]
-        },
-        {
-          "type": "model_output",
-          "content": [
-            {
-              "type": "audio",
-              "mime_type": "audio/mpeg",
-              "data": ""
-            }
-          ]
+          "type": "text",
+          "text": "[0.0:] High energy beats\n[3.8:] Matching the vibrant neon street"
         }
-      ],
-      "object": "interaction",
-      "model": "lyria-3-clip-preview",
-      "usage": {
-        "input_tokens_by_modality": [
-          {
-            "modality": "text",
-            "tokens": 10
-          },
-          {
-            "modality": "image",
-            "tokens": 258
-          }
-        ],
-        "total_cached_tokens": 0,
-        "total_input_tokens": 268,
-        "total_output_tokens": 45,
-        "total_thought_tokens": 0,
-        "total_tokens": 313,
-        "total_tool_use_tokens": 0
-      }
+      ]
+    },
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "Caption: Inspired by the cyberpunk aesthetic of the image, this upbeat EDM track features heavy synthesizer bass and crisp percussion..."
+        }
+      ]
+    },
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "audio",
+          "mime_type": "audio/mpeg",
+          "data": ""
+        }
+      ]
     }
+  ],
+  "object": "interaction",
+  "model": "lyria-3-clip-preview",
+  "usage": {
+    "input_tokens_by_modality": [
+      {
+        "modality": "text",
+        "tokens": 10
+      },
+      {
+        "modality": "image",
+        "tokens": 258
+      }
+    ],
+    "total_cached_tokens": 0,
+    "total_input_tokens": 268,
+    "total_output_tokens": 45,
+    "total_thought_tokens": 0,
+    "total_tokens": 313,
+    "total_tool_use_tokens": 0
+  }
+}
+```
 
 ### Deep Research
 
 #### Example Response
 
+```
+{
+  "id": "v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROBIXT1NBeGFhbTZBcEtpMWU4UGdOZW13UTg",
+  "agent": "deep-research-preview-04-2026",
+  "status": "completed",
+  "object": "interaction",
+  "created": "2025-11-26T12:22:47Z",
+  "updated": "2025-11-26T12:22:47Z",
+  "steps": [
     {
-      "id": "v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROBIXT1NBeGFhbTZBcEtpMWU4UGdOZW13UTg",
-      "agent": "deep-research-preview-04-2026",
-      "status": "completed",
-      "object": "interaction",
-      "created": "2025-11-26T12:22:47Z",
-      "updated": "2025-11-26T12:22:47Z",
-      "steps": [
+      "type": "model_output",
+      "content": [
         {
-          "type": "model_output",
-          "content": [
-            {
-              "type": "text",
-              "text": "Here is an investment memo about the luxury retail industry over the last 3 years..."
-            }
-          ]
+          "type": "text",
+          "text": "Here is an investment memo about the luxury retail industry over the last 3 years..."
         }
-      ],
-      "usage": {
-        "input_tokens_by_modality": [
-          {
-            "modality": "text",
-            "tokens": 20
-          }
-        ],
-        "total_cached_tokens": 0,
-        "total_input_tokens": 20,
-        "total_output_tokens": 1000,
-        "total_thought_tokens": 500,
-        "total_tokens": 1520,
-        "total_tool_use_tokens": 0
-      }
+      ]
     }
+  ],
+  "usage": {
+    "input_tokens_by_modality": [
+      {
+        "modality": "text",
+        "tokens": 20
+      }
+    ],
+    "total_cached_tokens": 0,
+    "total_input_tokens": 20,
+    "total_output_tokens": 1000,
+    "total_thought_tokens": 500,
+    "total_tokens": 1520,
+    "total_tool_use_tokens": 0
+  }
+}
+```
 
 ## Listing created interactions
 
@@ -423,18 +433,18 @@ get https://aiplatform.googleapis.com/v1beta1/projects/{project}/locations/globa
 
 Retrieves a list of interactions.
 
-  - [Path / Query parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#listInteractions.PATH_PARAMETERS)
-  - [Response](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#listInteractions.response)
+- [Path / Query parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#listInteractions.PATH_PARAMETERS)
+- [Response](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#listInteractions.response)
 
 ### Path / Query Parameters
 
-page\_size integer (optional)
+page_size integer (optional)
 
 The maximum number of interactions to return (per page).
 
 *If unspecified, defaults to 10. The maximum allowed value is 500.*
 
-page\_token string (optional)
+page_token string (optional)
 
 A page token, received from a previous `ListInteractions` call.
 
@@ -444,20 +454,24 @@ Returns a response containing a list of [InteractionMetadata](https://docs.cloud
 
 ### List Interactions
 
-    curl -X GET \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      "https://aiplatform.googleapis.com/v1beta1/projects/$PROJECT_ID/locations/global/interactions?page_size=10&page_token=page-token-67890"
+```
+curl -X GET \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  "https://aiplatform.googleapis.com/v1beta1/projects/$PROJECT_ID/locations/global/interactions?page_size=10&page_token=page-token-67890"
+```
 
 ### Response
 
+```
+{
+  "interaction_metadatas": [
     {
-      "interaction_metadatas": [
-        {
-          "id": "interaction-12345"
-        }
-      ],
-      "next_page_token": "page-token-67890"
+      "id": "interaction-12345"
     }
+  ],
+  "next_page_token": "page-token-67890"
+}
+```
 
 ## Retrieving an interaction
 
@@ -465,8 +479,8 @@ get https://aiplatform.googleapis.com/v1beta1/projects/{project}/locations/globa
 
 Retrieves the full details of a single interaction based on its \`Interaction.id\`.
 
-  - [Path / Query parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#getInteractionById.PATH_PARAMETERS)
-  - [Response](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#getInteractionById.response)
+- [Path / Query parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#getInteractionById.PATH_PARAMETERS)
+- [Response](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#getInteractionById.response)
 
 ### Path / Query Parameters
 
@@ -480,7 +494,7 @@ If set to true, the generated content will be streamed incrementally.
 
 *Defaults to: `False`*
 
-last\_event\_id string (optional)
+last_event_id string (optional)
 
 Optional. If set, resumes the interaction stream from the next chunk after the event marked by the event id. Can only be used if \`stream\` is true.
 
@@ -492,82 +506,84 @@ Returns an [Interaction](https://docs.cloud.google.com/gemini-enterprise-agent-p
 
 #### Example Response
 
-    event: interaction.created
-    data: {
-      "interaction": {
-        "id": "v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROBIXT1NBeGFhbTZBcEtpMWU4UGdOZW13UTg",
-        "status": "in_progress",
-        "object": "interaction"
-      },
-      "event_type": "interaction.created"
-    }
-    
-    event: interaction.status_update
-    data: {
-      "interaction_id": "v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROBIXT1NBeGFhbTZBcEtpMWU4UGdOZW13UTg",
-      "status": "in_progress",
-      "event_type": "interaction.status_update"
-    }
-    
-    event: step.start
-    data: {
-      "index": 0,
-      "step": {
-        "type": "model_output"
-      },
-      "event_type": "step.start"
-    }
-    
-    event: step.delta
-    data: {
-      "index": 0,
-      "delta": {
-        "text": "Hello! How can I help you today? If you have a question or need research on a specific topic, just let me know!",
-        "type": "text"
-      },
-      "event_type": "step.delta"
-    }
-    
-    event: step.stop
-    data: {
-      "index": 0,
-      "event_type": "step.stop"
-    }
-    
-    event: interaction.completed
-    data: {
-      "interaction": {
-        "id": "v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROBIXT1NBeGFhbTZBcEtpMWU4UGdOZW13UTg",
-        "status": "completed",
-        "usage": {
-          "total_tokens": 790,
-          "total_input_tokens": 533,
-          "input_tokens_by_modality": [
-            {
-              "modality": "text",
-              "tokens": 533
-            }
-          ],
-          "total_output_tokens": 27,
-          "output_tokens_by_modality": [
-            {
-              "modality": "text",
-              "tokens": 27
-            }
-          ],
-          "total_thought_tokens": 230
-        },
-        "role": "model",
-        "created": "2026-05-10T22:14:16Z",
-        "updated": "2026-05-10T22:14:16Z",
-        "event_id": "MTc3ODQ1MTI1NjI3MDc3NA==",
-        "object": "interaction"
-      },
-      "event_type": "interaction.completed"
-    }
-    
-    event: done
-    data: [DONE]
+```
+event: interaction.created
+data: {
+  "interaction": {
+    "id": "v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROBIXT1NBeGFhbTZBcEtpMWU4UGdOZW13UTg",
+    "status": "in_progress",
+    "object": "interaction"
+  },
+  "event_type": "interaction.created"
+}
+
+event: interaction.status_update
+data: {
+  "interaction_id": "v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROBIXT1NBeGFhbTZBcEtpMWU4UGdOZW13UTg",
+  "status": "in_progress",
+  "event_type": "interaction.status_update"
+}
+
+event: step.start
+data: {
+  "index": 0,
+  "step": {
+    "type": "model_output"
+  },
+  "event_type": "step.start"
+}
+
+event: step.delta
+data: {
+  "index": 0,
+  "delta": {
+    "text": "Hello! How can I help you today? If you have a question or need research on a specific topic, just let me know!",
+    "type": "text"
+  },
+  "event_type": "step.delta"
+}
+
+event: step.stop
+data: {
+  "index": 0,
+  "event_type": "step.stop"
+}
+
+event: interaction.completed
+data: {
+  "interaction": {
+    "id": "v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROBIXT1NBeGFhbTZBcEtpMWU4UGdOZW13UTg",
+    "status": "completed",
+    "usage": {
+      "total_tokens": 790,
+      "total_input_tokens": 533,
+      "input_tokens_by_modality": [
+        {
+          "modality": "text",
+          "tokens": 533
+        }
+      ],
+      "total_output_tokens": 27,
+      "output_tokens_by_modality": [
+        {
+          "modality": "text",
+          "tokens": 27
+        }
+      ],
+      "total_thought_tokens": 230
+    },
+    "role": "model",
+    "created": "2026-05-10T22:14:16Z",
+    "updated": "2026-05-10T22:14:16Z",
+    "event_id": "MTc3ODQ1MTI1NjI3MDc3NA==",
+    "object": "interaction"
+  },
+  "event_type": "interaction.completed"
+}
+
+event: done
+data: [DONE]
+```
 
 ## Canceling an interaction
 
@@ -575,8 +591,8 @@ post https://aiplatform.googleapis.com/v1beta1/projects/{project}/locations/glob
 
 Cancels an interaction by ID. This only applies to background interactions that are still in progress. Users will still be charged for partially generated tokens for cancelled interactions.
 
-  - [Path / Query parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#cancelInteractionById.PATH_PARAMETERS)
-  - [Response](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#cancelInteractionById.response)
+- [Path / Query parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#cancelInteractionById.PATH_PARAMETERS)
+- [Response](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#cancelInteractionById.response)
 
 ### Path / Query Parameters
 
@@ -592,15 +608,17 @@ Returns an [Interaction](https://docs.cloud.google.com/gemini-enterprise-agent-p
 
 #### Example Response
 
-    {
-      "id": "v1_ChdXS0l4YWZXTk9xbk0xZThQczhEcmlROBIXV0tJeGFmV05PcW5NMWU4UHM4RHJpUTg",
-      "status": "cancelled",
-      "role": "model",
-      "created": "2026-08-17T18:00:00Z",
-      "updated": "2026-08-17T18:00:02Z",
-      "object": "interaction",
-      "model": "gemini-3.7-flash"
-    }
+```
+{
+  "id": "v1_ChdXS0l4YWZXTk9xbk0xZThQczhEcmlROBIXV0tJeGFmV05PcW5NMWU4UHM4RHJpUTg",
+  "status": "cancelled",
+  "role": "model",
+  "created": "2026-08-17T18:00:00Z",
+  "updated": "2026-08-17T18:00:02Z",
+  "object": "interaction",
+  "model": "gemini-3.7-flash"
+}
+```
 
 ## Deleting an interaction
 
@@ -608,8 +626,8 @@ delete https://aiplatform.googleapis.com/v1beta1/projects/{project}/locations/gl
 
 Deletes an interaction.
 
-  - [Path parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#deleteInteraction.PATH_PARAMETERS)
-  - [Response](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#deleteInteraction.response)
+- [Path parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#deleteInteraction.PATH_PARAMETERS)
+- [Response](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#deleteInteraction.response)
 
 ### Path Parameters
 
@@ -623,9 +641,11 @@ Returns an empty response on success.
 
 ### Delete Interaction
 
-    curl -X DELETE \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      "https://aiplatform.googleapis.com/v1beta1/projects/$PROJECT_ID/locations/global/interactions/v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROBIXT1NBeGFhbTZBcEtpMWU4UGdOZW13UTg"
+```
+curl -X DELETE \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  "https://aiplatform.googleapis.com/v1beta1/projects/$PROJECT_ID/locations/global/interactions/v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROBIXT1NBeGFhbTZBcEtpMWU4UGdOZW13UTg"
+```
 
 ## Resources
 
@@ -651,43 +671,47 @@ The name of the \`Model\` used for generating the interaction.
 
 Possible values:
 
-  - `gemini-3.8-flash`
-    
-    Our fast, high-performance multimodal model optimized for coding, reasoning, multimodal understanding, and agentic workflows.
+- `gemini-3.8-flash`
 
-  - `gemini-3.7-flash`
-    
-    Our fast, high-performance multimodal model optimized for coding, reasoning, and agentic workflows. Default model for Interactions API.
+  Our fast, high-performance multimodal model optimized for coding, reasoning, multimodal understanding, and agentic workflows.
 
-  - `gemini-3.6-flash`
-    
-    Fast, high-performance multimodal model optimized for reasoning, multimodal understanding, and agentic workflows.
+- `gemini-3.7-flash`
 
-  - `gemini-3.5-flash-lite`
-    
-    Lightweight, highly cost-efficient multimodal model optimized for high throughput and low-latency agentic tasks.
+  Our fast, high-performance multimodal model optimized for coding, reasoning, and agentic workflows. Default model for Interactions API.
 
-  - `gemini-3.1-pro-preview`
-    
-    Our most capable multimodal model for complex reasoning, coding, and multi-step agentic tasks.
+- `gemini-3.6-flash`
 
-  - `gemini-3.1-flash-lite`
-    
-    Highly cost-efficient, low-latency model for high-frequency requests.
+  Fast, high-performance multimodal model optimized for reasoning, multimodal understanding, and agentic workflows.
 
-  - `gemini-omni-flash-preview`
-    
-    Our high-performance multimodal model designed for fast, conversational video generation, editing, and cinematic control.
+- `gemini-3.5-flash-lite`
 
-  - `lyria-3-clip-preview`
-    
-    Our low-latency, music generation model optimized for high-fidelity audio clips and precise rhythmic control. Available in stateless interactions only ( `store=false` ).
+  Lightweight, highly cost-efficient multimodal model optimized for high throughput and low-latency agentic tasks.
 
-  - `lyria-3-pro-preview`
-    
-    Our advanced, full-song generative model with deep compositional understanding, optimized for precise structural control and complex transitions across diverse musical styles. Available in stateless interactions only ( `store=false` ).
+- `gemini-3.1-pro-preview`
 
-The model that will complete your prompt.\\n\\nSee \[models\](https://ai.google.dev/gemini-api/docs/models) for additional details.
+  Our most capable multimodal model for complex reasoning, coding, and multi-step agentic tasks.
+
+- `gemini-3.1-flash-lite`
+
+  Highly cost-efficient, low-latency model for high-frequency requests.
+
+- `gemini-omni-1.1-flash-preview`
+
+  Our updated multimodal model designed for video, image, and text tasks, optimized for video generation alongside text responses.
+
+- `gemini-omni-flash-preview`
+
+  Our high-performance multimodal model designed for fast, conversational video generation, editing, and cinematic control.
+
+- `lyria-3-clip-preview`
+
+  Our low-latency, music generation model optimized for high-fidelity audio clips and precise rhythmic control. Available in stateless interactions only ( `store=false` ).
+
+- `lyria-3-pro-preview`
+
+  Our advanced, full-song generative model with deep compositional understanding, optimized for precise structural control and complex transitions across diverse musical styles. Available in stateless interactions only ( `store=false` ).
+
+The model that will complete your prompt.\n\nSee \[models\](https://ai.google.dev/gemini-api/docs/models) for additional details.
 
 agent AgentOption (optional)
 
@@ -695,13 +719,13 @@ The name of the \`Agent\` used for generating the interaction.
 
 Possible values:
 
-  - `antigravity-preview-05-2026`
-    
-    Our general-purpose autonomous agent designed for multi-step reasoning, coding, file operations, and tool use.
+- `antigravity-preview-05-2026`
 
-  - `deep-research-preview-04-2026`
-    
-    Gemini Deep Research Agent designed for autonomous, multi-step web research and synthesis.
+  Our general-purpose autonomous agent designed for multi-step reasoning, coding, file operations, and tool use.
+
+- `deep-research-preview-04-2026`
+
+  Gemini Deep Research Agent designed for autonomous, multi-step web research and synthesis.
 
 The agent to interact with.
 
@@ -709,18 +733,34 @@ id string (optional)
 
 Required. Output only. A unique identifier for the interaction completion.
 
+errors array (Error) (optional)
+
+Output only. Diagnostic faults / platform errors recorded on the interaction.
+
+Error message from an interaction.
+
+#### Fields
+
+code string (optional)
+
+A URI that identifies the error type.
+
+message string (optional)
+
+A human-readable error message.
+
 status enum (string) (optional)
 
 Required. Output only. The status of the interaction.
 
 Possible values:
 
-  - `in_progress`
-  - `requires_action`
-  - `completed`
-  - `failed`
-  - `cancelled`
-  - `incomplete`
+- `in_progress`
+- `requires_action`
+- `completed`
+- `failed`
+- `cancelled`
+- `incomplete`
 
 created string (optional)
 
@@ -734,7 +774,7 @@ role string (optional)
 
 Output only. The role of the interaction.
 
-system\_instruction string (optional)
+system_instruction string (optional)
 
 System instruction for the interaction.
 
@@ -750,11 +790,11 @@ Statistics on the interaction request's token usage.
 
 #### Fields
 
-total\_input\_tokens integer (optional)
+total_input_tokens integer (optional)
 
 Number of tokens in the prompt (context).
 
-input\_tokens\_by\_modality ModalityTokens (optional)
+input_tokens_by_modality ModalityTokens (optional)
 
 A breakdown of input token usage by modality.
 
@@ -768,21 +808,21 @@ The modality associated with the token count.
 
 Possible values:
 
-  - `text`
-  - `image`
-  - `audio`
-  - `video`
-  - `document`
+- `text`
+- `image`
+- `audio`
+- `video`
+- `document`
 
 tokens integer (optional)
 
 Number of tokens for the modality.
 
-total\_cached\_tokens integer (optional)
+total_cached_tokens integer (optional)
 
 Number of tokens in the cached part of the prompt (the cached content).
 
-cached\_tokens\_by\_modality ModalityTokens (optional)
+cached_tokens_by_modality ModalityTokens (optional)
 
 A breakdown of cached token usage by modality.
 
@@ -796,21 +836,21 @@ The modality associated with the token count.
 
 Possible values:
 
-  - `text`
-  - `image`
-  - `audio`
-  - `video`
-  - `document`
+- `text`
+- `image`
+- `audio`
+- `video`
+- `document`
 
 tokens integer (optional)
 
 Number of tokens for the modality.
 
-total\_output\_tokens integer (optional)
+total_output_tokens integer (optional)
 
 Total number of tokens across all the generated responses.
 
-output\_tokens\_by\_modality ModalityTokens (optional)
+output_tokens_by_modality ModalityTokens (optional)
 
 A breakdown of output token usage by modality.
 
@@ -824,21 +864,21 @@ The modality associated with the token count.
 
 Possible values:
 
-  - `text`
-  - `image`
-  - `audio`
-  - `video`
-  - `document`
+- `text`
+- `image`
+- `audio`
+- `video`
+- `document`
 
 tokens integer (optional)
 
 Number of tokens for the modality.
 
-total\_tool\_use\_tokens integer (optional)
+total_tool_use_tokens integer (optional)
 
 Number of tokens present in tool-use prompt(s).
 
-tool\_use\_tokens\_by\_modality ModalityTokens (optional)
+tool_use_tokens_by_modality ModalityTokens (optional)
 
 A breakdown of tool-use token usage by modality.
 
@@ -852,25 +892,25 @@ The modality associated with the token count.
 
 Possible values:
 
-  - `text`
-  - `image`
-  - `audio`
-  - `video`
-  - `document`
+- `text`
+- `image`
+- `audio`
+- `video`
+- `document`
 
 tokens integer (optional)
 
 Number of tokens for the modality.
 
-total\_thought\_tokens integer (optional)
+total_thought_tokens integer (optional)
 
 Number of tokens of thoughts for thinking models.
 
-total\_tokens integer (optional)
+total_tokens integer (optional)
 
 Total token count for the interaction request (prompt + responses + other internal tokens).
 
-grounding\_tool\_count GroundingToolCount (optional)
+grounding_tool_count GroundingToolCount (optional)
 
 Grounding tool count.
 
@@ -884,31 +924,31 @@ The grounding tool type associated with the count.
 
 Possible values:
 
-  - `google_search`
-  - `google_maps`
-  - `retrieval`
+- `google_search`
+- `google_maps`
+- `retrieval`
 
 count integer (optional)
 
 The number of grounding tool counts.
 
-response\_modalities ResponseModality (optional)
+response_modalities ResponseModality (optional)
 
 The requested modalities of the response (TEXT, IMAGE, AUDIO).
 
 Possible values:
 
-  - `text`
-  - `image`
-  - `audio`
-  - `video`
-  - `document`
+- `text`
+- `image`
+- `audio`
+- `video`
+- `document`
 
-response\_mime\_type string (optional)
+response_mime_type string (optional)
 
-The mime type of the response. This is required if response\_format is set.
+The mime type of the response. This is required if response_format is set.
 
-previous\_interaction\_id string (optional)
+previous_interaction_id string (optional)
 
 The ID of the previous interaction, if any.
 
@@ -1014,11 +1054,11 @@ title string (optional)
 
 The title of the URL.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -1032,11 +1072,11 @@ No description provided.
 
 Always set to `"file_citation"` .
 
-document\_uri string (optional)
+document_uri string (optional)
 
 The URI of the file.
 
-file\_name string (optional)
+file_name string (optional)
 
 The name of the file.
 
@@ -1044,23 +1084,23 @@ source string (optional)
 
 Source attributed for a portion of the text.
 
-custom\_metadata object (optional)
+custom_metadata object (optional)
 
 User provided metadata about the retrieved context.
 
-page\_number integer (optional)
+page_number integer (optional)
 
 Page number of the cited document, if applicable.
 
-media\_id string (optional)
+media_id string (optional)
 
 Media ID in-case of image citations, if applicable.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -1074,9 +1114,9 @@ No description provided.
 
 Always set to `"place_citation"` .
 
-place\_id string (optional)
+place_id string (optional)
 
-The ID of the place, in \`places/{place\_id}\` format.
+The ID of the place, in \`places/{place_id}\` format.
 
 name string (optional)
 
@@ -1086,7 +1126,7 @@ url string (optional)
 
 URI reference of the place.
 
-review\_snippets ReviewSnippet (optional)
+review_snippets ReviewSnippet (optional)
 
 Snippets of reviews that are used to generate answers about the features of a given place in Google Maps.
 
@@ -1102,15 +1142,15 @@ url string (optional)
 
 A link that corresponds to the user review on Google Maps.
 
-review\_id string (optional)
+review_id string (optional)
 
 The ID of the review snippet.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -1132,20 +1172,20 @@ uri string (optional)
 
 The URI of the image.
 
-mime\_type enum (string) (optional)
+mime_type enum (string) (optional)
 
 The mime type of the image.
 
 Possible values:
 
-  - `image/png`
-  - `image/jpeg`
-  - `image/webp`
-  - `image/heic`
-  - `image/heif`
-  - `image/gif`
-  - `image/bmp`
-  - `image/tiff`
+- `image/png`
+- `image/jpeg`
+- `image/webp`
+- `image/heic`
+- `image/heif`
+- `image/gif`
+- `image/bmp`
+- `image/tiff`
 
 resolution MediaResolution (optional)
 
@@ -1153,10 +1193,10 @@ The resolution of the media.
 
 Possible values:
 
-  - `low`
-  - `medium`
-  - `high`
-  - `ultra_high`
+- `low`
+- `medium`
+- `high`
+- `ultra_high`
 
 FunctionCallStep
 
@@ -1208,7 +1248,7 @@ Programming language of the \`code\`.
 
 Possible values:
 
-  - `python`
+- `python`
 
 code string (optional)
 
@@ -1266,7 +1306,7 @@ name string (required)
 
 Required. The name of the tool which was called.
 
-server\_name string (required)
+server_name string (required)
 
 Required. The name of the used MCP server.
 
@@ -1304,15 +1344,15 @@ queries array (string) (optional)
 
 Web search queries for the following-up web search.
 
-search\_type enum (string) (optional)
+search_type enum (string) (optional)
 
 The type of search grounding enabled.
 
 Possible values:
 
-  - `web_search`
-  - `image_search`
-  - `enterprise_web_search`
+- `web_search`
+- `image_search`
+- `enterprise_web_search`
 
 id string (required)
 
@@ -1384,11 +1424,11 @@ name string (optional)
 
 The name of the tool that was called.
 
-is\_error boolean (optional)
+is_error boolean (optional)
 
 Whether the tool call resulted in an error.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -1414,11 +1454,11 @@ result string (required)
 
 Required. The output of the code execution.
 
-is\_error boolean (optional)
+is_error boolean (optional)
 
 Whether the code execution resulted in an error.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -1454,16 +1494,16 @@ The status of the URL retrieval.
 
 Possible values:
 
-  - `success`
-  - `error`
-  - `paywall`
-  - `unsafe`
+- `success`
+- `error`
+- `paywall`
+- `unsafe`
 
-is\_error boolean (optional)
+is_error boolean (optional)
 
 Whether the URL context resulted in an error.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -1489,15 +1529,15 @@ The result of the Google Search.
 
 #### Fields
 
-search\_suggestions string (optional)
+search_suggestions string (optional)
 
 Web content snippet that can be embedded in a web page or an app webview.
 
-is\_error boolean (optional)
+is_error boolean (optional)
 
 Whether the Google Search resulted in an error.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -1519,11 +1559,11 @@ name string (optional)
 
 Name of the tool which is called for this specific tool call.
 
-server\_name string (optional)
+server_name string (optional)
 
 The name of the used MCP server.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -1545,7 +1585,7 @@ No description provided.
 
 Always set to `"file_search_result"` .
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -1577,7 +1617,7 @@ No description provided.
 
 #### Fields
 
-place\_id string (optional)
+place_id string (optional)
 
 No description provided.
 
@@ -1589,7 +1629,7 @@ url string (optional)
 
 No description provided.
 
-review\_snippets ReviewSnippet (optional)
+review_snippets ReviewSnippet (optional)
 
 No description provided.
 
@@ -1605,15 +1645,15 @@ url string (optional)
 
 A link that corresponds to the user review on Google Maps.
 
-review\_id string (optional)
+review_id string (optional)
 
 The ID of the review snippet.
 
-widget\_context\_token string (optional)
+widget_context_token string (optional)
 
 No description provided.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -1625,11 +1665,11 @@ input [Content](https://docs.cloud.google.com/gemini-enterprise-agent-platform/r
 
 The input for the interaction.
 
-response\_format [ResponseFormat](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#Resource:ResponseFormat) or [ResponseFormatList](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#Resource:ResponseFormatList) (optional)
+response_format [ResponseFormat](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#Resource:ResponseFormat) or array ( [ResponseFormat](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#Resource:ResponseFormat) ) (optional)
 
 Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
 
-agent\_config object (optional)
+agent_config object (optional)
 
 Configuration parameters for the agent interaction.
 
@@ -1651,39 +1691,41 @@ Always set to `"dynamic"` .
 
 ### Example
 
+```
+{
+  "created": "2025-12-04T15:01:45Z",
+  "id": "v1_ChdXS0l4YWZXTk9xbk0xZThQczhEcmlROBIXV0tJeGFmV05PcW5NMWU4UHM4RHJpUTg",
+  "agent": "deep-research-preview-04-2026",
+  "object": "interaction",
+  "steps": [
     {
-      "created": "2025-12-04T15:01:45Z",
-      "id": "v1_ChdXS0l4YWZXTk9xbk0xZThQczhEcmlROBIXV0tJeGFmV05PcW5NMWU4UHM4RHJpUTg",
-      "agent": "deep-research-preview-04-2026",
-      "object": "interaction",
-      "steps": [
+      "type": "model_output",
+      "content": [
         {
-          "type": "model_output",
-          "content": [
-            {
-              "type": "text",
-              "text": "Hello! I'm doing well, functioning as expected. Thank you for asking! How are you doing today?"
-            }
-          ]
+          "type": "text",
+          "text": "Hello! I'm doing well, functioning as expected. Thank you for asking! How are you doing today?"
         }
-      ],
-      "status": "completed",
-      "updated": "2025-12-04T15:01:45Z",
-      "usage": {
-        "input_tokens_by_modality": [
-          {
-            "modality": "text",
-            "tokens": 7
-          }
-        ],
-        "total_cached_tokens": 0,
-        "total_input_tokens": 7,
-        "total_output_tokens": 23,
-        "total_thought_tokens": 49,
-        "total_tokens": 79,
-        "total_tool_use_tokens": 0
-      }
+      ]
     }
+  ],
+  "status": "completed",
+  "updated": "2025-12-04T15:01:45Z",
+  "usage": {
+    "input_tokens_by_modality": [
+      {
+        "modality": "text",
+        "tokens": 7
+      }
+    ],
+    "total_cached_tokens": 0,
+    "total_input_tokens": 7,
+    "total_output_tokens": 23,
+    "total_thought_tokens": 49,
+    "total_tokens": 79,
+    "total_tool_use_tokens": 0
+  }
+}
+```
 
 ## Data Models
 
@@ -1737,11 +1779,11 @@ title string (optional)
 
 The title of the URL.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -1755,11 +1797,11 @@ No description provided.
 
 Always set to `"file_citation"` .
 
-document\_uri string (optional)
+document_uri string (optional)
 
 The URI of the file.
 
-file\_name string (optional)
+file_name string (optional)
 
 The name of the file.
 
@@ -1767,23 +1809,23 @@ source string (optional)
 
 Source attributed for a portion of the text.
 
-custom\_metadata object (optional)
+custom_metadata object (optional)
 
 User provided metadata about the retrieved context.
 
-page\_number integer (optional)
+page_number integer (optional)
 
 Page number of the cited document, if applicable.
 
-media\_id string (optional)
+media_id string (optional)
 
 Media ID in-case of image citations, if applicable.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -1797,9 +1839,9 @@ No description provided.
 
 Always set to `"place_citation"` .
 
-place\_id string (optional)
+place_id string (optional)
 
-The ID of the place, in \`places/{place\_id}\` format.
+The ID of the place, in \`places/{place_id}\` format.
 
 name string (optional)
 
@@ -1809,7 +1851,7 @@ url string (optional)
 
 URI reference of the place.
 
-review\_snippets ReviewSnippet (optional)
+review_snippets ReviewSnippet (optional)
 
 Snippets of reviews that are used to generate answers about the features of a given place in Google Maps.
 
@@ -1825,15 +1867,15 @@ url string (optional)
 
 A link that corresponds to the user review on Google Maps.
 
-review\_id string (optional)
+review_id string (optional)
 
 The ID of the review snippet.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -1855,20 +1897,20 @@ uri string (optional)
 
 The URI of the image.
 
-mime\_type enum (string) (optional)
+mime_type enum (string) (optional)
 
 The mime type of the image.
 
 Possible values:
 
-  - `image/png`
-  - `image/jpeg`
-  - `image/webp`
-  - `image/heic`
-  - `image/heif`
-  - `image/gif`
-  - `image/bmp`
-  - `image/tiff`
+- `image/png`
+- `image/jpeg`
+- `image/webp`
+- `image/heic`
+- `image/heif`
+- `image/gif`
+- `image/bmp`
+- `image/tiff`
 
 resolution MediaResolution (optional)
 
@@ -1876,10 +1918,10 @@ The resolution of the media.
 
 Possible values:
 
-  - `low`
-  - `medium`
-  - `high`
-  - `ultra_high`
+- `low`
+- `medium`
+- `high`
+- `ultra_high`
 
 AudioContent
 
@@ -1899,30 +1941,30 @@ uri string (optional)
 
 The URI of the audio.
 
-mime\_type enum (string) (optional)
+mime_type enum (string) (optional)
 
 The mime type of the audio.
 
 Possible values:
 
-  - `audio/wav`
-  - `audio/mp3`
-  - `audio/aiff`
-  - `audio/aac`
-  - `audio/ogg`
-  - `audio/flac`
-  - `audio/mpeg`
-  - `audio/m4a`
-  - `audio/l16`
-  - `audio/opus`
-  - `audio/alaw`
-  - `audio/mulaw`
+- `audio/wav`
+- `audio/mp3`
+- `audio/aiff`
+- `audio/aac`
+- `audio/ogg`
+- `audio/flac`
+- `audio/mpeg`
+- `audio/m4a`
+- `audio/l16`
+- `audio/opus`
+- `audio/alaw`
+- `audio/mulaw`
 
 channels integer (optional)
 
 The number of audio channels.
 
-sample\_rate integer (optional)
+sample_rate integer (optional)
 
 The sample rate of the audio.
 
@@ -1944,13 +1986,13 @@ uri string (optional)
 
 The URI of the document.
 
-mime\_type enum (string) (optional)
+mime_type enum (string) (optional)
 
 The mime type of the document.
 
 Possible values:
 
-  - `application/pdf`
+- `application/pdf`
 
 VideoContent
 
@@ -1970,21 +2012,21 @@ uri string (optional)
 
 The URI of the video.
 
-mime\_type enum (string) (optional)
+mime_type enum (string) (optional)
 
 The mime type of the video.
 
 Possible values:
 
-  - `video/mp4`
-  - `video/mpeg`
-  - `video/mpg`
-  - `video/mov`
-  - `video/avi`
-  - `video/x-flv`
-  - `video/webm`
-  - `video/wmv`
-  - `video/3gpp`
+- `video/mp4`
+- `video/mpeg`
+- `video/mpg`
+- `video/mov`
+- `video/avi`
+- `video/x-flv`
+- `video/webm`
+- `video/wmv`
+- `video/3gpp`
 
 resolution MediaResolution (optional)
 
@@ -1992,50 +2034,60 @@ The resolution of the media.
 
 Possible values:
 
-  - `low`
-  - `medium`
-  - `high`
-  - `ultra_high`
+- `low`
+- `medium`
+- `high`
+- `ultra_high`
 
 ### Examples
 
 ### Text
 
-    {
-      "type": "text",
-      "text": "Hello, how are you?"
-    }
+```
+{
+  "type": "text",
+  "text": "Hello, how are you?"
+}
+```
 
 ### Image
 
-    {
-      "type": "image",
-      "data": "BASE64_ENCODED_IMAGE",
-      "mime_type": "image/png"
-    }
+```
+{
+  "type": "image",
+  "data": "BASE64_ENCODED_IMAGE",
+  "mime_type": "image/png"
+}
+```
 
 ### Audio
 
-    {
-      "type": "audio",
-      "data": "BASE64_ENCODED_AUDIO",
-      "mime_type": "audio/wav"
-    }
+```
+{
+  "type": "audio",
+  "data": "BASE64_ENCODED_AUDIO",
+  "mime_type": "audio/wav"
+}
+```
 
 ### Document
 
-    {
-      "type": "document",
-      "data": "BASE64_ENCODED_DOCUMENT",
-      "mime_type": "application/pdf"
-    }
+```
+{
+  "type": "document",
+  "data": "BASE64_ENCODED_DOCUMENT",
+  "mime_type": "application/pdf"
+}
+```
 
 ### Video
 
-    {
-      "type": "video",
-      "uri": "https://www.youtube.com/watch?v=9hE5-98ZeCg"
-    }
+```
+{
+  "type": "video",
+  "uri": "https://www.youtube.com/watch?v=9hE5-98ZeCg"
+}
+```
 
 ### Step
 
@@ -2137,11 +2189,11 @@ title string (optional)
 
 The title of the URL.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -2155,11 +2207,11 @@ No description provided.
 
 Always set to `"file_citation"` .
 
-document\_uri string (optional)
+document_uri string (optional)
 
 The URI of the file.
 
-file\_name string (optional)
+file_name string (optional)
 
 The name of the file.
 
@@ -2167,23 +2219,23 @@ source string (optional)
 
 Source attributed for a portion of the text.
 
-custom\_metadata object (optional)
+custom_metadata object (optional)
 
 User provided metadata about the retrieved context.
 
-page\_number integer (optional)
+page_number integer (optional)
 
 Page number of the cited document, if applicable.
 
-media\_id string (optional)
+media_id string (optional)
 
 Media ID in-case of image citations, if applicable.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -2197,9 +2249,9 @@ No description provided.
 
 Always set to `"place_citation"` .
 
-place\_id string (optional)
+place_id string (optional)
 
-The ID of the place, in \`places/{place\_id}\` format.
+The ID of the place, in \`places/{place_id}\` format.
 
 name string (optional)
 
@@ -2209,7 +2261,7 @@ url string (optional)
 
 URI reference of the place.
 
-review\_snippets ReviewSnippet (optional)
+review_snippets ReviewSnippet (optional)
 
 Snippets of reviews that are used to generate answers about the features of a given place in Google Maps.
 
@@ -2225,15 +2277,15 @@ url string (optional)
 
 A link that corresponds to the user review on Google Maps.
 
-review\_id string (optional)
+review_id string (optional)
 
 The ID of the review snippet.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -2255,20 +2307,20 @@ uri string (optional)
 
 The URI of the image.
 
-mime\_type enum (string) (optional)
+mime_type enum (string) (optional)
 
 The mime type of the image.
 
 Possible values:
 
-  - `image/png`
-  - `image/jpeg`
-  - `image/webp`
-  - `image/heic`
-  - `image/heif`
-  - `image/gif`
-  - `image/bmp`
-  - `image/tiff`
+- `image/png`
+- `image/jpeg`
+- `image/webp`
+- `image/heic`
+- `image/heif`
+- `image/gif`
+- `image/bmp`
+- `image/tiff`
 
 resolution MediaResolution (optional)
 
@@ -2276,10 +2328,10 @@ The resolution of the media.
 
 Possible values:
 
-  - `low`
-  - `medium`
-  - `high`
-  - `ultra_high`
+- `low`
+- `medium`
+- `high`
+- `ultra_high`
 
 FunctionCallStep
 
@@ -2331,7 +2383,7 @@ Programming language of the \`code\`.
 
 Possible values:
 
-  - `python`
+- `python`
 
 code string (optional)
 
@@ -2389,7 +2441,7 @@ name string (required)
 
 Required. The name of the tool which was called.
 
-server\_name string (required)
+server_name string (required)
 
 Required. The name of the used MCP server.
 
@@ -2427,15 +2479,15 @@ queries array (string) (optional)
 
 Web search queries for the following-up web search.
 
-search\_type enum (string) (optional)
+search_type enum (string) (optional)
 
 The type of search grounding enabled.
 
 Possible values:
 
-  - `web_search`
-  - `image_search`
-  - `enterprise_web_search`
+- `web_search`
+- `image_search`
+- `enterprise_web_search`
 
 id string (required)
 
@@ -2507,11 +2559,11 @@ name string (optional)
 
 The name of the tool that was called.
 
-is\_error boolean (optional)
+is_error boolean (optional)
 
 Whether the tool call resulted in an error.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -2537,11 +2589,11 @@ result string (required)
 
 Required. The output of the code execution.
 
-is\_error boolean (optional)
+is_error boolean (optional)
 
 Whether the code execution resulted in an error.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -2577,16 +2629,16 @@ The status of the URL retrieval.
 
 Possible values:
 
-  - `success`
-  - `error`
-  - `paywall`
-  - `unsafe`
+- `success`
+- `error`
+- `paywall`
+- `unsafe`
 
-is\_error boolean (optional)
+is_error boolean (optional)
 
 Whether the URL context resulted in an error.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -2612,15 +2664,15 @@ The result of the Google Search.
 
 #### Fields
 
-search\_suggestions string (optional)
+search_suggestions string (optional)
 
 Web content snippet that can be embedded in a web page or an app webview.
 
-is\_error boolean (optional)
+is_error boolean (optional)
 
 Whether the Google Search resulted in an error.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -2642,11 +2694,11 @@ name string (optional)
 
 Name of the tool which is called for this specific tool call.
 
-server\_name string (optional)
+server_name string (optional)
 
 The name of the used MCP server.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -2668,7 +2720,7 @@ No description provided.
 
 Always set to `"file_search_result"` .
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -2700,7 +2752,7 @@ No description provided.
 
 #### Fields
 
-place\_id string (optional)
+place_id string (optional)
 
 No description provided.
 
@@ -2712,7 +2764,7 @@ url string (optional)
 
 No description provided.
 
-review\_snippets ReviewSnippet (optional)
+review_snippets ReviewSnippet (optional)
 
 No description provided.
 
@@ -2728,15 +2780,15 @@ url string (optional)
 
 A link that corresponds to the user review on Google Maps.
 
-review\_id string (optional)
+review_id string (optional)
 
 The ID of the review snippet.
 
-widget\_context\_token string (optional)
+widget_context_token string (optional)
 
 No description provided.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -2748,209 +2800,243 @@ A signature hash for backend validation.
 
 ### UserInputStep
 
+```
+{
+  "type": "user_input",
+  "content": [
     {
-      "type": "user_input",
-      "content": [
-        {
-          "type": "text",
-          "text": "What is the capital of France?"
-        }
-      ]
+      "type": "text",
+      "text": "What is the capital of France?"
     }
+  ]
+}
+```
 
 ### ModelOutputStep
 
+```
+{
+  "type": "model_output",
+  "content": [
     {
-      "type": "model_output",
-      "content": [
-        {
-          "type": "text",
-          "text": "The capital of France is Paris."
-        }
-      ]
+      "type": "text",
+      "text": "The capital of France is Paris."
     }
+  ]
+}
+```
 
 ### ThoughtStep
 
+```
+{
+  "type": "thought",
+  "signature": "thought_sig_abcd1234",
+  "summary": [
     {
-      "type": "thought",
-      "signature": "thought_sig_abcd1234",
-      "summary": [
-        {
-          "type": "text",
-          "text": "The model is searching Google for the capital of France."
-        }
-      ]
+      "type": "text",
+      "text": "The model is searching Google for the capital of France."
     }
+  ]
+}
+```
 
 ### FunctionCallStep
 
-    {
-      "name": "get_weather",
-      "type": "function_call",
-      "arguments": {
-        "location": "Boston, MA"
-      },
-      "id": "call_98231"
-    }
+```
+{
+  "name": "get_weather",
+  "type": "function_call",
+  "arguments": {
+    "location": "Boston, MA"
+  },
+  "id": "call_98231"
+}
+```
 
 ### CodeExecutionCallStep
 
-    {
-      "type": "code_execution_call",
-      "arguments": {
-        "code": "print(sum(range(1, 11)))"
-      },
-      "id": "code_call_71021"
-    }
+```
+{
+  "type": "code_execution_call",
+  "arguments": {
+    "code": "print(sum(range(1, 11)))"
+  },
+  "id": "code_call_71021"
+}
+```
 
 ### UrlContextCallStep
 
-    {
-      "type": "url_context_call",
-      "arguments": {
-        "urls": [
-          "https://www.example.com"
-        ]
-      },
-      "id": "url_call_10219"
-    }
+```
+{
+  "type": "url_context_call",
+  "arguments": {
+    "urls": [
+      "https://www.example.com"
+    ]
+  },
+  "id": "url_call_10219"
+}
+```
 
 ### McpServerToolCallStep
 
-    {
-      "name": "calculate_tax",
-      "type": "mcp_server_tool_call",
-      "arguments": {
-        "income": 120000,
-        "state": "CA"
-      },
-      "id": "mcp_call_29012",
-      "server_name": "financial_mcp_server"
-    }
+```
+{
+  "name": "calculate_tax",
+  "type": "mcp_server_tool_call",
+  "arguments": {
+    "income": 120000,
+    "state": "CA"
+  },
+  "id": "mcp_call_29012",
+  "server_name": "financial_mcp_server"
+}
+```
 
 ### GoogleSearchCallStep
 
-    {
-      "type": "google_search_call",
-      "arguments": {
-        "queries": [
-          "Who won the men's 100m in Paris 2024?"
-        ]
-      },
-      "id": "search_call_19201"
-    }
+```
+{
+  "type": "google_search_call",
+  "arguments": {
+    "queries": [
+      "Who won the men's 100m in Paris 2024?"
+    ]
+  },
+  "id": "search_call_19201"
+}
+```
 
 ### FileSearchCallStep
 
-    {
-      "type": "file_search_call",
-      "id": "file_call_88192"
-    }
+```
+{
+  "type": "file_search_call",
+  "id": "file_call_88192"
+}
+```
 
 ### GoogleMapsCallStep
 
-    {
-      "type": "google_maps_call",
-      "arguments": {
-        "queries": [
-          "coffee shops near Golden Gate Park"
-        ]
-      },
-      "id": "maps_call_39201"
-    }
+```
+{
+  "type": "google_maps_call",
+  "arguments": {
+    "queries": [
+      "coffee shops near Golden Gate Park"
+    ]
+  },
+  "id": "maps_call_39201"
+}
+```
 
 ### FunctionResultStep
 
+```
+{
+  "name": "get_weather",
+  "type": "function_result",
+  "call_id": "call_98231",
+  "result": [
     {
-      "name": "get_weather",
-      "type": "function_result",
-      "call_id": "call_98231",
-      "result": [
-        {
-          "type": "text",
-          "text": "{\"weather\":\"sunny\"}"
-        }
-      ]
+      "type": "text",
+      "text": "{\"weather\":\"sunny\"}"
     }
+  ]
+}
+```
 
 ### CodeExecutionResultStep
 
-    {
-      "type": "code_execution_result",
-      "call_id": "code_call_71021",
-      "result": "55\n"
-    }
+```
+{
+  "type": "code_execution_result",
+  "call_id": "code_call_71021",
+  "result": "55\n"
+}
+```
 
 ### UrlContextResultStep
 
+```
+{
+  "type": "url_context_result",
+  "call_id": "url_call_10219",
+  "result": [
     {
-      "type": "url_context_result",
-      "call_id": "url_call_10219",
-      "result": [
-        {
-          "url": "https://www.example.com",
-          "status": "success"
-        }
-      ]
+      "url": "https://www.example.com",
+      "status": "success"
     }
+  ]
+}
+```
 
 ### GoogleSearchResultStep
 
+```
+{
+  "type": "google_search_result",
+  "call_id": "search_call_19201",
+  "result": [
     {
-      "type": "google_search_result",
-      "call_id": "search_call_19201",
-      "result": [
-        {
-          "title": "Paris 2024 Olympics: Noah Lyles wins men's 100m gold",
-          "url": "https://olympics.com/en/news/paris-2024-noah-lyles-wins-mens-100m-gold"
-        }
-      ]
+      "title": "Paris 2024 Olympics: Noah Lyles wins men's 100m gold",
+      "url": "https://olympics.com/en/news/paris-2024-noah-lyles-wins-mens-100m-gold"
     }
+  ]
+}
+```
 
 ### McpServerToolResultStep
 
-    {
-      "name": "calculate_tax",
-      "server_name": "financial_mcp_server",
-      "type": "mcp_server_tool_result",
-      "call_id": "mcp_call_29012",
-      "result": {
-        "tax_due": 32400
-      }
-    }
+```
+{
+  "name": "calculate_tax",
+  "server_name": "financial_mcp_server",
+  "type": "mcp_server_tool_result",
+  "call_id": "mcp_call_29012",
+  "result": {
+    "tax_due": 32400
+  }
+}
+```
 
 ### FileSearchResultStep
 
+```
+{
+  "type": "file_search_result",
+  "call_id": "file_call_88192",
+  "result": [
     {
-      "type": "file_search_result",
-      "call_id": "file_call_88192",
-      "result": [
-        {
-          "title": "Project Overview",
-          "text": "Summary of the document content.",
-          "file_search_store": "projects/my-project/locations/global/fileSearchStores/my-store"
-        }
-      ]
+      "title": "Project Overview",
+      "text": "Summary of the document content.",
+      "file_search_store": "projects/my-project/locations/global/fileSearchStores/my-store"
     }
+  ]
+}
+```
 
 ### GoogleMapsResultStep
 
+```
+{
+  "type": "google_maps_result",
+  "call_id": "maps_call_39201",
+  "result": [
     {
-      "type": "google_maps_result",
-      "call_id": "maps_call_39201",
-      "result": [
+      "places": [
         {
-          "places": [
-            {
-              "name": "Golden Gate Park",
-              "place_id": "ChIJIQBpAG2ahYAR9R7bNdTLg8M",
-              "url": "https://maps.google.com/?cid=14084699562006944757"
-            }
-          ]
+          "name": "Golden Gate Park",
+          "place_id": "ChIJIQBpAG2ahYAR9R7bNdTLg8M",
+          "url": "https://maps.google.com/?cid=14084699562006944757"
         }
       ]
     }
+  ]
+}
+```
 
 ### Tool
 
@@ -3018,9 +3104,9 @@ The environment being operated.
 
 Possible values:
 
-  - `browser`
+- `browser`
 
-excluded\_predefined\_functions array (string) (optional)
+excluded_predefined_functions array (string) (optional)
 
 The list of predefined functions that are excluded from the model call.
 
@@ -3046,7 +3132,7 @@ headers object (optional)
 
 Optional: Fields for authentication headers, timeouts, etc., if needed.
 
-allowed\_tools AllowedTools (optional)
+allowed_tools AllowedTools (optional)
 
 The allowed tools.
 
@@ -3060,10 +3146,10 @@ The mode of the tool choice.
 
 Possible values:
 
-  - `auto`
-  - `any`
-  - `none`
-  - `validated`
+- `auto`
+- `any`
+- `none`
+- `validated`
 
 tools array (string) (optional)
 
@@ -3079,15 +3165,15 @@ No description provided.
 
 Always set to `"google_search"` .
 
-search\_types array (enum (string)) (optional)
+search_types array (enum (string)) (optional)
 
 The types of search grounding to enable.
 
 Possible values:
 
-  - `web_search`
-  - `image_search`
-  - `enterprise_web_search`
+- `web_search`
+- `image_search`
+- `enterprise_web_search`
 
 GoogleMaps
 
@@ -3099,7 +3185,7 @@ No description provided.
 
 Always set to `"google_maps"` .
 
-enable\_widget boolean (optional)
+enable_widget boolean (optional)
 
 Whether to return a widget context token in the tool call result of the response.
 
@@ -3121,15 +3207,15 @@ No description provided.
 
 Always set to `"retrieval"` .
 
-retrieval\_types array (enum (string)) (optional)
+retrieval_types array (enum (string)) (optional)
 
 The types of file retrieval to enable.
 
 Possible values:
 
-  - `vertex_ai_search`
+- `vertex_ai_search`
 
-vertex\_ai\_search\_config VertexAISearchConfig (optional)
+vertex_ai_search_config VertexAISearchConfig (optional)
 
 Used to specify configuration for VertexAISearch.
 
@@ -3173,7 +3259,7 @@ Polymorphic discriminator: `event_type`
 
 InteractionCreatedEvent
 
-event\_type object (required)
+event_type object (required)
 
 No description provided.
 
@@ -3183,13 +3269,13 @@ interaction [Interaction](https://docs.cloud.google.com/gemini-enterprise-agent-
 
 No description provided.
 
-event\_id string (optional)
+event_id string (optional)
 
-The event\_id token to be used to resume the interaction stream, from this event.
+The event_id token to be used to resume the interaction stream, from this event.
 
 InteractionCompletedEvent
 
-event\_type object (required)
+event_type object (required)
 
 No description provided.
 
@@ -3199,19 +3285,19 @@ interaction [Interaction](https://docs.cloud.google.com/gemini-enterprise-agent-
 
 Required. The completed interaction with empty outputs to reduce the payload size. Use the preceding ContentDelta events for the actual output.
 
-event\_id string (optional)
+event_id string (optional)
 
-The event\_id token to be used to resume the interaction stream, from this event.
+The event_id token to be used to resume the interaction stream, from this event.
 
 InteractionStatusUpdate
 
-event\_type object (required)
+event_type object (required)
 
 No description provided.
 
 Always set to `"interaction.status_update"` .
 
-interaction\_id string (required)
+interaction_id string (required)
 
 No description provided.
 
@@ -3221,20 +3307,20 @@ No description provided.
 
 Possible values:
 
-  - `in_progress`
-  - `requires_action`
-  - `completed`
-  - `failed`
-  - `cancelled`
-  - `incomplete`
+- `in_progress`
+- `requires_action`
+- `completed`
+- `failed`
+- `cancelled`
+- `incomplete`
 
-event\_id string (optional)
+event_id string (optional)
 
-The event\_id token to be used to resume the interaction stream, from this event.
+The event_id token to be used to resume the interaction stream, from this event.
 
 ErrorEvent
 
-event\_type object (required)
+event_type object (required)
 
 No description provided.
 
@@ -3256,13 +3342,13 @@ message string (optional)
 
 A human-readable error message.
 
-event\_id string (optional)
+event_id string (optional)
 
-The event\_id token to be used to resume the interaction stream, from this event.
+The event_id token to be used to resume the interaction stream, from this event.
 
 StepStart
 
-event\_type object (required)
+event_type object (required)
 
 No description provided.
 
@@ -3374,11 +3460,11 @@ title string (optional)
 
 The title of the URL.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -3392,11 +3478,11 @@ No description provided.
 
 Always set to `"file_citation"` .
 
-document\_uri string (optional)
+document_uri string (optional)
 
 The URI of the file.
 
-file\_name string (optional)
+file_name string (optional)
 
 The name of the file.
 
@@ -3404,23 +3490,23 @@ source string (optional)
 
 Source attributed for a portion of the text.
 
-custom\_metadata object (optional)
+custom_metadata object (optional)
 
 User provided metadata about the retrieved context.
 
-page\_number integer (optional)
+page_number integer (optional)
 
 Page number of the cited document, if applicable.
 
-media\_id string (optional)
+media_id string (optional)
 
 Media ID in-case of image citations, if applicable.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -3434,9 +3520,9 @@ No description provided.
 
 Always set to `"place_citation"` .
 
-place\_id string (optional)
+place_id string (optional)
 
-The ID of the place, in \`places/{place\_id}\` format.
+The ID of the place, in \`places/{place_id}\` format.
 
 name string (optional)
 
@@ -3446,7 +3532,7 @@ url string (optional)
 
 URI reference of the place.
 
-review\_snippets ReviewSnippet (optional)
+review_snippets ReviewSnippet (optional)
 
 Snippets of reviews that are used to generate answers about the features of a given place in Google Maps.
 
@@ -3462,15 +3548,15 @@ url string (optional)
 
 A link that corresponds to the user review on Google Maps.
 
-review\_id string (optional)
+review_id string (optional)
 
 The ID of the review snippet.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -3492,20 +3578,20 @@ uri string (optional)
 
 The URI of the image.
 
-mime\_type enum (string) (optional)
+mime_type enum (string) (optional)
 
 The mime type of the image.
 
 Possible values:
 
-  - `image/png`
-  - `image/jpeg`
-  - `image/webp`
-  - `image/heic`
-  - `image/heif`
-  - `image/gif`
-  - `image/bmp`
-  - `image/tiff`
+- `image/png`
+- `image/jpeg`
+- `image/webp`
+- `image/heic`
+- `image/heif`
+- `image/gif`
+- `image/bmp`
+- `image/tiff`
 
 resolution MediaResolution (optional)
 
@@ -3513,10 +3599,10 @@ The resolution of the media.
 
 Possible values:
 
-  - `low`
-  - `medium`
-  - `high`
-  - `ultra_high`
+- `low`
+- `medium`
+- `high`
+- `ultra_high`
 
 FunctionCallStep
 
@@ -3568,7 +3654,7 @@ Programming language of the \`code\`.
 
 Possible values:
 
-  - `python`
+- `python`
 
 code string (optional)
 
@@ -3626,7 +3712,7 @@ name string (required)
 
 Required. The name of the tool which was called.
 
-server\_name string (required)
+server_name string (required)
 
 Required. The name of the used MCP server.
 
@@ -3664,15 +3750,15 @@ queries array (string) (optional)
 
 Web search queries for the following-up web search.
 
-search\_type enum (string) (optional)
+search_type enum (string) (optional)
 
 The type of search grounding enabled.
 
 Possible values:
 
-  - `web_search`
-  - `image_search`
-  - `enterprise_web_search`
+- `web_search`
+- `image_search`
+- `enterprise_web_search`
 
 id string (required)
 
@@ -3744,11 +3830,11 @@ name string (optional)
 
 The name of the tool that was called.
 
-is\_error boolean (optional)
+is_error boolean (optional)
 
 Whether the tool call resulted in an error.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -3774,11 +3860,11 @@ result string (required)
 
 Required. The output of the code execution.
 
-is\_error boolean (optional)
+is_error boolean (optional)
 
 Whether the code execution resulted in an error.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -3814,16 +3900,16 @@ The status of the URL retrieval.
 
 Possible values:
 
-  - `success`
-  - `error`
-  - `paywall`
-  - `unsafe`
+- `success`
+- `error`
+- `paywall`
+- `unsafe`
 
-is\_error boolean (optional)
+is_error boolean (optional)
 
 Whether the URL context resulted in an error.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -3849,15 +3935,15 @@ The result of the Google Search.
 
 #### Fields
 
-search\_suggestions string (optional)
+search_suggestions string (optional)
 
 Web content snippet that can be embedded in a web page or an app webview.
 
-is\_error boolean (optional)
+is_error boolean (optional)
 
 Whether the Google Search resulted in an error.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -3879,11 +3965,11 @@ name string (optional)
 
 Name of the tool which is called for this specific tool call.
 
-server\_name string (optional)
+server_name string (optional)
 
 The name of the used MCP server.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -3905,7 +3991,7 @@ No description provided.
 
 Always set to `"file_search_result"` .
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -3937,7 +4023,7 @@ No description provided.
 
 #### Fields
 
-place\_id string (optional)
+place_id string (optional)
 
 No description provided.
 
@@ -3949,7 +4035,7 @@ url string (optional)
 
 No description provided.
 
-review\_snippets ReviewSnippet (optional)
+review_snippets ReviewSnippet (optional)
 
 No description provided.
 
@@ -3965,15 +4051,15 @@ url string (optional)
 
 A link that corresponds to the user review on Google Maps.
 
-review\_id string (optional)
+review_id string (optional)
 
 The ID of the review snippet.
 
-widget\_context\_token string (optional)
+widget_context_token string (optional)
 
 No description provided.
 
-call\_id string (required)
+call_id string (required)
 
 Required. ID to match the ID from the function call block.
 
@@ -3981,13 +4067,13 @@ signature string (optional)
 
 A signature hash for backend validation.
 
-event\_id string (optional)
+event_id string (optional)
 
-The event\_id token to be used to resume the interaction stream, from this event.
+The event_id token to be used to resume the interaction stream, from this event.
 
 StepDelta
 
-event\_type object (required)
+event_type object (required)
 
 No description provided.
 
@@ -4033,20 +4119,20 @@ uri string (optional)
 
 No description provided.
 
-mime\_type enum (string) (optional)
+mime_type enum (string) (optional)
 
 No description provided.
 
 Possible values:
 
-  - `image/png`
-  - `image/jpeg`
-  - `image/webp`
-  - `image/heic`
-  - `image/heif`
-  - `image/gif`
-  - `image/bmp`
-  - `image/tiff`
+- `image/png`
+- `image/jpeg`
+- `image/webp`
+- `image/heic`
+- `image/heif`
+- `image/gif`
+- `image/bmp`
+- `image/tiff`
 
 resolution MediaResolution (optional)
 
@@ -4054,10 +4140,10 @@ The resolution of the media.
 
 Possible values:
 
-  - `low`
-  - `medium`
-  - `high`
-  - `ultra_high`
+- `low`
+- `medium`
+- `high`
+- `ultra_high`
 
 AudioDelta
 
@@ -4075,30 +4161,30 @@ uri string (optional)
 
 No description provided.
 
-mime\_type enum (string) (optional)
+mime_type enum (string) (optional)
 
 No description provided.
 
 Possible values:
 
-  - `audio/wav`
-  - `audio/mp3`
-  - `audio/aiff`
-  - `audio/aac`
-  - `audio/ogg`
-  - `audio/flac`
-  - `audio/mpeg`
-  - `audio/m4a`
-  - `audio/l16`
-  - `audio/opus`
-  - `audio/alaw`
-  - `audio/mulaw`
+- `audio/wav`
+- `audio/mp3`
+- `audio/aiff`
+- `audio/aac`
+- `audio/ogg`
+- `audio/flac`
+- `audio/mpeg`
+- `audio/m4a`
+- `audio/l16`
+- `audio/opus`
+- `audio/alaw`
+- `audio/mulaw`
 
 rate integer (optional)
 
-Deprecated. Use sample\_rate instead. The value is ignored.
+Deprecated. Use sample_rate instead. The value is ignored.
 
-sample\_rate integer (optional)
+sample_rate integer (optional)
 
 The sample rate of the audio.
 
@@ -4122,13 +4208,13 @@ uri string (optional)
 
 No description provided.
 
-mime\_type enum (string) (optional)
+mime_type enum (string) (optional)
 
 No description provided.
 
 Possible values:
 
-  - `application/pdf`
+- `application/pdf`
 
 VideoDelta
 
@@ -4146,21 +4232,21 @@ uri string (optional)
 
 No description provided.
 
-mime\_type enum (string) (optional)
+mime_type enum (string) (optional)
 
 No description provided.
 
 Possible values:
 
-  - `video/mp4`
-  - `video/mpeg`
-  - `video/mpg`
-  - `video/mov`
-  - `video/avi`
-  - `video/x-flv`
-  - `video/webm`
-  - `video/wmv`
-  - `video/3gpp`
+- `video/mp4`
+- `video/mpeg`
+- `video/mpg`
+- `video/mov`
+- `video/avi`
+- `video/x-flv`
+- `video/webm`
+- `video/wmv`
+- `video/3gpp`
 
 resolution MediaResolution (optional)
 
@@ -4168,10 +4254,10 @@ The resolution of the media.
 
 Possible values:
 
-  - `low`
-  - `medium`
-  - `high`
-  - `ultra_high`
+- `low`
+- `medium`
+- `high`
+- `ultra_high`
 
 ThoughtSummaryDelta
 
@@ -4231,11 +4317,11 @@ title string (optional)
 
 The title of the URL.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -4249,11 +4335,11 @@ No description provided.
 
 Always set to `"file_citation"` .
 
-document\_uri string (optional)
+document_uri string (optional)
 
 The URI of the file.
 
-file\_name string (optional)
+file_name string (optional)
 
 The name of the file.
 
@@ -4261,23 +4347,23 @@ source string (optional)
 
 Source attributed for a portion of the text.
 
-custom\_metadata object (optional)
+custom_metadata object (optional)
 
 User provided metadata about the retrieved context.
 
-page\_number integer (optional)
+page_number integer (optional)
 
 Page number of the cited document, if applicable.
 
-media\_id string (optional)
+media_id string (optional)
 
 Media ID in-case of image citations, if applicable.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -4291,9 +4377,9 @@ No description provided.
 
 Always set to `"place_citation"` .
 
-place\_id string (optional)
+place_id string (optional)
 
-The ID of the place, in \`places/{place\_id}\` format.
+The ID of the place, in \`places/{place_id}\` format.
 
 name string (optional)
 
@@ -4303,7 +4389,7 @@ url string (optional)
 
 URI reference of the place.
 
-review\_snippets ReviewSnippet (optional)
+review_snippets ReviewSnippet (optional)
 
 Snippets of reviews that are used to generate answers about the features of a given place in Google Maps.
 
@@ -4319,15 +4405,15 @@ url string (optional)
 
 A link that corresponds to the user review on Google Maps.
 
-review\_id string (optional)
+review_id string (optional)
 
 The ID of the review snippet.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -4349,20 +4435,20 @@ uri string (optional)
 
 The URI of the image.
 
-mime\_type enum (string) (optional)
+mime_type enum (string) (optional)
 
 The mime type of the image.
 
 Possible values:
 
-  - `image/png`
-  - `image/jpeg`
-  - `image/webp`
-  - `image/heic`
-  - `image/heif`
-  - `image/gif`
-  - `image/bmp`
-  - `image/tiff`
+- `image/png`
+- `image/jpeg`
+- `image/webp`
+- `image/heic`
+- `image/heif`
+- `image/gif`
+- `image/bmp`
+- `image/tiff`
 
 resolution MediaResolution (optional)
 
@@ -4370,10 +4456,10 @@ The resolution of the media.
 
 Possible values:
 
-  - `low`
-  - `medium`
-  - `high`
-  - `ultra_high`
+- `low`
+- `medium`
+- `high`
+- `ultra_high`
 
 ThoughtSignatureDelta
 
@@ -4423,11 +4509,11 @@ title string (optional)
 
 The title of the URL.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -4441,11 +4527,11 @@ No description provided.
 
 Always set to `"file_citation"` .
 
-document\_uri string (optional)
+document_uri string (optional)
 
 The URI of the file.
 
-file\_name string (optional)
+file_name string (optional)
 
 The name of the file.
 
@@ -4453,23 +4539,23 @@ source string (optional)
 
 Source attributed for a portion of the text.
 
-custom\_metadata object (optional)
+custom_metadata object (optional)
 
 User provided metadata about the retrieved context.
 
-page\_number integer (optional)
+page_number integer (optional)
 
 Page number of the cited document, if applicable.
 
-media\_id string (optional)
+media_id string (optional)
 
 Media ID in-case of image citations, if applicable.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -4483,9 +4569,9 @@ No description provided.
 
 Always set to `"place_citation"` .
 
-place\_id string (optional)
+place_id string (optional)
 
-The ID of the place, in \`places/{place\_id}\` format.
+The ID of the place, in \`places/{place_id}\` format.
 
 name string (optional)
 
@@ -4495,7 +4581,7 @@ url string (optional)
 
 URI reference of the place.
 
-review\_snippets ReviewSnippet (optional)
+review_snippets ReviewSnippet (optional)
 
 Snippets of reviews that are used to generate answers about the features of a given place in Google Maps.
 
@@ -4511,15 +4597,15 @@ url string (optional)
 
 A link that corresponds to the user review on Google Maps.
 
-review\_id string (optional)
+review_id string (optional)
 
 The ID of the review snippet.
 
-start\_index integer (optional)
+start_index integer (optional)
 
 Start of segment of the response that is attributed to this source. Index indicates the start of the segment, measured in bytes.
 
-end\_index integer (optional)
+end_index integer (optional)
 
 End of the attributed segment, exclusive.
 
@@ -4531,17 +4617,17 @@ No description provided.
 
 Always set to `"arguments_delta"` .
 
-partial\_arguments string (optional)
+partial_arguments string (optional)
 
 No description provided.
 
-event\_id string (optional)
+event_id string (optional)
 
-The event\_id token to be used to resume the interaction stream, from this event.
+The event_id token to be used to resume the interaction stream, from this event.
 
 StepStop
 
-event\_type object (required)
+event_type object (required)
 
 No description provided.
 
@@ -4551,82 +4637,181 @@ index integer (required)
 
 No description provided.
 
-event\_id string (optional)
+event_id string (optional)
 
-The event\_id token to be used to resume the interaction stream, from this event.
+The event_id token to be used to resume the interaction stream, from this event.
 
 ### Examples
 
 ### Interaction Created
 
-    {
-      "event_type": "interaction.created",
-      "interaction": {
-        "id": "v1_ChdXS0l4YWZXTk9xbk0xZThQczhEcmlROBIXV0tJeGFmV05PcW5NMWU4UHM4RHJpUTg",
-        "agent": "deep-research-preview-04-2026",
-        "status": "in_progress",
-        "created": "2025-12-04T15:01:45Z",
-        "updated": "2025-12-04T15:01:45Z"
-      },
-      "event_id": "evt_123"
-    }
+```
+{
+  "event_type": "interaction.created",
+  "interaction": {
+    "id": "v1_ChdXS0l4YWZXTk9xbk0xZThQczhEcmlROBIXV0tJeGFmV05PcW5NMWU4UHM4RHJpUTg",
+    "agent": "deep-research-preview-04-2026",
+    "status": "in_progress",
+    "created": "2025-12-04T15:01:45Z",
+    "updated": "2025-12-04T15:01:45Z"
+  },
+  "event_id": "evt_123"
+}
+```
 
 ### Interaction Completed
 
-    {
-      "event_type": "interaction.completed",
-      "interaction": {
-        "id": "v1_ChdXS0l4YWZXTk9xbk0xZThQczhEcmlROBIXV0tJeGFmV05PcW5NMWU4UHM4RHJpUTg",
-        "agent": "deep-research-preview-04-2026",
-        "status": "completed",
-        "created": "2025-12-04T15:01:45Z",
-        "updated": "2025-12-04T15:01:45Z"
-      },
-      "event_id": "evt_123"
-    }
+```
+{
+  "event_type": "interaction.completed",
+  "interaction": {
+    "id": "v1_ChdXS0l4YWZXTk9xbk0xZThQczhEcmlROBIXV0tJeGFmV05PcW5NMWU4UHM4RHJpUTg",
+    "agent": "deep-research-preview-04-2026",
+    "status": "completed",
+    "created": "2025-12-04T15:01:45Z",
+    "updated": "2025-12-04T15:01:45Z"
+  },
+  "event_id": "evt_123"
+}
+```
 
 ### Interaction Status Update
 
-    {
-      "event_type": "interaction.status_update",
-      "interaction_id": "v1_ChdTMjQ0YWJ5TUF1TzcxZThQdjRpcnFRcxIXUzI0NGFieU1BdU83MWU4UHY0aXJxUXM",
-      "status": "in_progress"
-    }
+```
+{
+  "event_type": "interaction.status_update",
+  "interaction_id": "v1_ChdTMjQ0YWJ5TUF1TzcxZThQdjRpcnFRcxIXUzI0NGFieU1BdU83MWU4UHY0aXJxUXM",
+  "status": "in_progress"
+}
+```
 
 ### Error Event
 
-    {
-      "event_type": "error",
-      "error": {
-        "message": "Failed to get completed interaction: Result not found.",
-        "code": "not_found"
-      }
-    }
+```
+{
+  "event_type": "error",
+  "error": {
+    "message": "Failed to get completed interaction: Result not found.",
+    "code": "not_found"
+  }
+}
+```
 
 ### Step Start
 
-    {
-      "event_type": "step.start",
-      "index": 0,
-      "step": {
-        "type": "model_output"
-      }
-    }
+```
+{
+  "event_type": "step.start",
+  "index": 0,
+  "step": {
+    "type": "model_output"
+  }
+}
+```
 
 ### Step Delta
 
-    {
-      "event_type": "step.delta",
-      "index": 0,
-      "delta": {
-        "type": "text",
-        "text": "Hello"
-      }
-    }
+```
+{
+  "event_type": "step.delta",
+  "index": 0,
+  "delta": {
+    "type": "text",
+    "text": "Hello"
+  }
+}
+```
 
 ### Step Stop
 
-    {
-      "event_type": "step.stop",
-      "index": 0
-    }
+```
+{
+  "event_type": "step.stop",
+  "index": 0
+}
+```
+
+### ResponseFormat
+
+### Possible Types
+
+VideoResponseFormat
+
+Configuration for video output format.
+
+aspect_ratio enum (string) (optional)
+
+The aspect ratio for the video output.
+
+Possible values:
+
+- `16:9`
+
+  16:9 aspect ratio.
+
+- `9:16`
+
+  9:16 aspect ratio.
+
+delivery enum (string) (optional)
+
+The delivery mode for the video output.
+
+Possible values:
+
+- `inline`
+
+  Video data is returned inline in the response.
+
+- `uri`
+
+  Video data is returned as a URI.
+
+duration string (optional)
+
+The duration for the video output.
+
+gcs_uri string (optional)
+
+The Cloud Storage URI to store the video output. Required for Vertex if delivery mode is URI.
+
+resolution enum (string) (optional)
+
+The video output resolution. Defaults to 720p.
+
+Possible values:
+
+- `360p`
+
+  360p resolution.
+
+- `720p`
+
+  720p resolution.
+
+- `1080p`
+
+  1080p resolution.
+
+- `4k`
+
+  4K resolution.
+
+type object (required)
+
+No description provided.
+
+Always set to `"video"` .
+
+### Examples
+
+### Video Output
+
+```
+{
+  "type": "video",
+  "aspect_ratio": "16:9",
+  "delivery": "inline",
+  "duration": "8s"
+}
+```

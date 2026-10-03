@@ -28,41 +28,37 @@ The request body contains data with the following structure:
 
 Fields
 
-`requests[]` ` object ( CreateTensorboardRunRequest  ` )
+`requests[]` `object ( `[`CreateTensorboardRunRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs/batchCreate#CreateTensorboardRunRequest)` )`
 
 Required. The request message specifying the TensorboardRuns to create. A maximum of 1000 TensorboardRuns can be created in a batch.
 
 ### Response body
 
-Response message for `  TensorboardService.BatchCreateTensorboardRuns  ` .
+Response message for [`TensorboardService.BatchCreateTensorboardRuns`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs/batchCreate#google.cloud.aiplatform.v1beta1.TensorboardService.BatchCreateTensorboardRuns) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`tensorboardRuns[]` ` object ( TensorboardRun  ` )
+`tensorboardRuns[]` `object ( `[`TensorboardRun`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs#TensorboardRun)` )`
 
 The created TensorboardRuns.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;tensorboardRuns&quot;: [{object (TensorboardRun)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "tensorboardRuns": [
+    {
+      object (TensorboardRun)
+    }
+  ]
+}
+```
 
 ## CreateTensorboardRunRequest
 
-Request message for `  TensorboardService.CreateTensorboardRun  ` .
+Request message for [`TensorboardService.CreateTensorboardRun`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs/create#google.cloud.aiplatform.v1beta1.TensorboardService.CreateTensorboardRun) .
 
 Fields
 
@@ -70,7 +66,7 @@ Fields
 
 Required. The resource name of the TensorboardExperiment to create the TensorboardRun in. Format: `projects/{project}/locations/{location}/tensorboards/{tensorboard}/experiments/{experiment}`
 
-`tensorboardRun` ` object ( TensorboardRun  ` )
+`tensorboardRun` `object ( `[`TensorboardRun`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs#TensorboardRun)` )`
 
 Required. The TensorboardRun to create.
 
@@ -80,18 +76,14 @@ Required. The id to use for the Tensorboard run, which becomes the final compone
 
 This value should be 1-128 characters, and valid characters are `/[a-z][0-9]-/` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;parent&quot;: string,&quot;tensorboardRun&quot;: {object (TensorboardRun)},&quot;tensorboardRunId&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "parent": string,
+  "tensorboardRun": {
+    object (TensorboardRun)
+  },
+  "tensorboardRunId": string
+}
+```

@@ -24,7 +24,7 @@ Required. The resource name of the session to append event to. Format: `projects
 
 ### Request body
 
-The request body contains an instance of `  SessionEvent  ` .
+The request body contains an instance of [`SessionEvent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/SessionEvent) .
 
 ### Response body
 

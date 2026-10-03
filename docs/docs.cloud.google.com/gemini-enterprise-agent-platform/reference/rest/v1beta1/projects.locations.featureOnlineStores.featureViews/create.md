@@ -34,12 +34,12 @@ The value must be unique within a FeatureOnlineStore.
 
 `runSyncImmediately` `boolean`
 
-Immutable. If set to true, one on demand sync will be run immediately, regardless whether the `  FeatureView.sync_config  ` is configured or not.
+Immutable. If set to true, one on demand sync will be run immediately, regardless whether the [`FeatureView.sync_config`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews#FeatureView.FIELDS.sync_config) is configured or not.
 
 ### Request body
 
-The request body contains an instance of `  FeatureView  ` .
+The request body contains an instance of [`FeatureView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews#FeatureView) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  Operation  ` .
+If successful, the response body contains a newly created instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

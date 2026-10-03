@@ -8,11 +8,11 @@ data_source: docs.cloud.google.com
 
 Fields
 
-`studySpec` ` object ( StudySpec  ` )
+`studySpec` `object ( `[`StudySpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec)` )`
 
 Study configuration of the HyperparameterTuningJob.
 
-`trialJobSpec` ` object ( CustomJobSpec  ` )
+`trialJobSpec` `object ( `[`CustomJobSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec)` )`
 
 The spec of a trial job. The same spec applies to the CustomJobs created in all the trials.
 
@@ -30,18 +30,18 @@ The number of failed Trials that need to be seen before failing the Hyperparamet
 
 If set to 0, Agent Platform decides how many Trials must fail before the whole job fails.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;studySpec&quot;: {object (StudySpec)},&quot;trialJobSpec&quot;: {object (CustomJobSpec)},&quot;maxTrialCount&quot;: integer,&quot;parallelTrialCount&quot;: integer,&quot;maxFailedTrialCount&quot;: integer}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "studySpec": {
+    object (StudySpec)
+  },
+  "trialJobSpec": {
+    object (CustomJobSpec)
+  },
+  "maxTrialCount": integer,
+  "parallelTrialCount": integer,
+  "maxFailedTrialCount": integer
+}
+```

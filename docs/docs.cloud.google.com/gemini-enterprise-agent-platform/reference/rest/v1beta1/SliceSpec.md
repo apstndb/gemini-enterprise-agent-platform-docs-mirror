@@ -10,69 +10,76 @@ Specification for how the data should be sliced.
 
 Fields
 
-`configs` ` map (key: string, value: object ( SliceConfig  ` ))
+`configs` `map (key: string, value: object ( `[`SliceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/SliceSpec#SliceConfig)` ))`
 
 Mapping configuration for this SliceSpec. The key is the name of the feature. By default, the key will be prefixed by "instance" as a dictionary prefix for Vertex Batch Predictions output format.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;configs&quot;: {string: {object (SliceConfig)},...}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "configs": {
+    string: {
+      object (SliceConfig)
+    },
+    ...
+  }
+}
+```
 
 ## SliceConfig
 
-Specification message containing the config for this SliceSpec. When `kind` is selected as `value` and/or `range` , only a single slice will be computed. When `allValues` is present, a separate slice will be computed for each possible label/value for the corresponding key in `config` . Examples, with feature zip\_code with values 12345, 23334, 88888 and feature country with values "US", "Canada", "Mexico" in the dataset:
+Specification message containing the config for this SliceSpec. When `kind` is selected as `value` and/or `range` , only a single slice will be computed. When `allValues` is present, a separate slice will be computed for each possible label/value for the corresponding key in `config` . Examples, with feature zip_code with values 12345, 23334, 88888 and feature country with values "US", "Canada", "Mexico" in the dataset:
 
 Example 1:
 
-    {
-      "zip_code": { "value": { "floatValue": 12345.0 } }
-    }
+```
+{
+  "zip_code": { "value": { "floatValue": 12345.0 } }
+}
+```
 
-A single slice for any data with zip\_code 12345 in the dataset.
+A single slice for any data with zip_code 12345 in the dataset.
 
 Example 2:
 
-    {
-      "zip_code": { "range": { "low": 12345, "high": 20000 } }
-    }
+```
+{
+  "zip_code": { "range": { "low": 12345, "high": 20000 } }
+}
+```
 
-A single slice containing data where the zip\_codes between 12345 and 20000 For this example, data with the zip\_code of 12345 will be in this slice.
+A single slice containing data where the zip_codes between 12345 and 20000 For this example, data with the zip_code of 12345 will be in this slice.
 
 Example 3:
 
-    {
-      "zip_code": { "range": { "low": 10000, "high": 20000 } },
-      "country": { "value": { "stringValue": "US" } }
-    }
+```
+{
+  "zip_code": { "range": { "low": 10000, "high": 20000 } },
+  "country": { "value": { "stringValue": "US" } }
+}
+```
 
-A single slice containing data where the zip\_codes between 10000 and 20000 has the country "US". For this example, data with the zip\_code of 12345 and country "US" will be in this slice.
+A single slice containing data where the zip_codes between 10000 and 20000 has the country "US". For this example, data with the zip_code of 12345 and country "US" will be in this slice.
 
 Example 4:
 
-    { "country": {"allValues": { "value": true } } }
+```
+{ "country": {"allValues": { "value": true } } }
+```
 
 Three slices are computed, one for each unique country in the dataset.
 
 Example 5:
 
-    {
-      "country": { "allValues": { "value": true } },
-      "zip_code": { "value": { "floatValue": 12345.0 } }
-    }
+```
+{
+  "country": { "allValues": { "value": true } },
+  "zip_code": { "value": { "floatValue": 12345.0 } }
+}
+```
 
-Three slices are computed, one for each unique country in the dataset where the zip\_code is also 12345. For this example, data with zip\_code 12345 and country "US" will be in one slice, zip\_code 12345 and country "Canada" in another slice, and zip\_code 12345 and country "Mexico" in another slice, totaling 3 slices.
+Three slices are computed, one for each unique country in the dataset where the zip_code is also 12345. For this example, data with zip_code 12345 and country "US" will be in one slice, zip_code 12345 and country "Canada" in another slice, and zip_code 12345 and country "Mexico" in another slice, totaling 3 slices.
 
 Fields
 
@@ -80,11 +87,11 @@ Fields
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`value` ` object ( Value  ` )
+`value` `object ( `[`Value`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/SliceSpec#Value)` )`
 
 A unique specific value for a given feature. Example: `{ "value": { "stringValue": "12345" } }`
 
-`range` ` object ( Range  ` )
+`range` `object ( `[`Range`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/SliceSpec#Range)` )`
 
 A range of values for a numerical feature. Example: `{"range":{"low":10000.0,"high":50000.0}}` will capture 12345 and 23334 in the slice.
 
@@ -94,21 +101,22 @@ If allValues is set to true, then all possible labels of the keyed feature will 
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// kind&quot;value&quot;: {object (Value)},&quot;range&quot;: {object (Range)},&quot;allValues&quot;: boolean// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // kind
+  "value": {
+    object (Value)
+  },
+  "range": {
+    object (Range)
+  },
+  "allValues": boolean
+  // Union type
+}
+```
 
 ## Value
 
@@ -130,27 +138,17 @@ Float type.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+**JSON representation**
+
+```
+{
 
   // kind
-  &quot;stringValue&quot;: string,
-  &quot;floatValue&quot;: number
+  "stringValue": string,
+  "floatValue": number
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## Range
 
@@ -166,21 +164,11 @@ Inclusive low value for the range.
 
 Exclusive high value for the range.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;low&quot;: number,
-  &quot;high&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "low": number,
+  "high": number
+}
+```

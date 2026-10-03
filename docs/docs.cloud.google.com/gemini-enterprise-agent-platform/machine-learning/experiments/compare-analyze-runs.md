@@ -8,13 +8,13 @@ data_source: docs.cloud.google.com
 
 You can use the Agent Platform SDK for Python to view Vertex AI Experiments runs data and compare the runs.
 
-  - [Get runs data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#api-analyze-runs)
-  - [Compare runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#api-compare-runs)
+- [Get runs data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#api-analyze-runs)
+- [Compare runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#api-compare-runs)
 
 The Google Cloud console provides a visualization of the data associated with these runs.
 
-  - [View experiment run data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#view-experiment-run-data)
-  - [Compare experiment runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#compare-experiment-runs)
+- [View experiment run data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#view-experiment-run-data)
+- [Compare experiment runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#compare-experiment-runs)
 
 ## Get experiment runs data
 
@@ -24,135 +24,145 @@ These samples involve getting run metrics, run parameters, runtime series metric
 
 ### Python
 
-    from typing import Dict, Union
-    
-    from google.cloud import aiplatform
-    
-    
-    def get_experiment_run_metrics_sample(
-        run_name: str,
-        experiment: Union[str, aiplatform.Experiment],
-        project: str,
-        location: str,
-    ) -> Dict[str, Union[float, int]]:
-        experiment_run = aiplatform.ExperimentRun(
-            run_name=run_name, experiment=experiment, project=project, location=location
-        )
-    
-        return experiment_run.get_metrics()
+```
+from typing import Dict, Union
 
-  - `run_name` : Specify the appropriate run name for this session.
-  - `experiment` : The name or instance of this experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
-  - `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
+from google.cloud import aiplatform
+
+
+def get_experiment_run_metrics_sample(
+    run_name: str,
+    experiment: Union[str, aiplatform.Experiment],
+    project: str,
+    location: str,
+) -> Dict[str, Union[float, int]]:
+    experiment_run = aiplatform.ExperimentRun(
+        run_name=run_name, experiment=experiment, project=project, location=location
+    )
+
+    return experiment_run.get_metrics()
+```
+
+- `run_name` : Specify the appropriate run name for this session.
+- `experiment` : The name or instance of this experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
+- `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Parameters
 
 ### Python
 
-    from typing import Dict, Union
-    
-    from google.cloud import aiplatform
-    
-    
-    def get_experiment_run_params_sample(
-        run_name: str,
-        experiment: Union[str, aiplatform.Experiment],
-        project: str,
-        location: str,
-    ) -> Dict[str, Union[float, int, str]]:
-        experiment_run = aiplatform.ExperimentRun(
-            run_name=run_name, experiment=experiment, project=project, location=location
-        )
-    
-        return experiment_run.get_params()
+```
+from typing import Dict, Union
 
-  - `run_name` : Specify the appropriate run name for this session.
-  - `experiment` : The name or instance of this experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
-  - `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
+from google.cloud import aiplatform
+
+
+def get_experiment_run_params_sample(
+    run_name: str,
+    experiment: Union[str, aiplatform.Experiment],
+    project: str,
+    location: str,
+) -> Dict[str, Union[float, int, str]]:
+    experiment_run = aiplatform.ExperimentRun(
+        run_name=run_name, experiment=experiment, project=project, location=location
+    )
+
+    return experiment_run.get_params()
+```
+
+- `run_name` : Specify the appropriate run name for this session.
+- `experiment` : The name or instance of this experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
+- `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Time series metrics
 
 ### Python
 
-    from typing import Union
-    
-    from google.cloud import aiplatform
-    
-    
-    def get_experiment_run_time_series_metric_data_frame_sample(
-        run_name: str,
-        experiment: Union[str, aiplatform.Experiment],
-        project: str,
-        location: str,
-    ) -> "pd.DataFrame":  # noqa: F821
-        experiment_run = aiplatform.ExperimentRun(
-            run_name=run_name, experiment=experiment, project=project, location=location
-        )
-    
-        return experiment_run.get_time_series_data_frame()
+```
+from typing import Union
 
-  - `run_name` : Specify the appropriate run name for this session.
-  - `experiment` : The name or instance of this experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
-  - `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
+from google.cloud import aiplatform
+
+
+def get_experiment_run_time_series_metric_data_frame_sample(
+    run_name: str,
+    experiment: Union[str, aiplatform.Experiment],
+    project: str,
+    location: str,
+) -> "pd.DataFrame":  # noqa: F821
+    experiment_run = aiplatform.ExperimentRun(
+        run_name=run_name, experiment=experiment, project=project, location=location
+    )
+
+    return experiment_run.get_time_series_data_frame()
+```
+
+- `run_name` : Specify the appropriate run name for this session.
+- `experiment` : The name or instance of this experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
+- `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Artifacts
 
 ### Python
 
-    from typing import List, Union
-    
-    from google.cloud import aiplatform
-    from google.cloud.aiplatform.metadata import artifact
-    
-    
-    def get_experiment_run_artifacts_sample(
-        run_name: str,
-        experiment: Union[str, aiplatform.Experiment],
-        project: str,
-        location: str,
-    ) -> List[artifact.Artifact]:
-        experiment_run = aiplatform.ExperimentRun(
-            run_name=run_name,
-            experiment=experiment,
-            project=project,
-            location=location,
-        )
-    
-        return experiment_run.get_artifacts()
+```
+from typing import List, Union
 
-  - `run_name` : Specify the appropriate run name for this session.
-  - `experiment` : The name or instance of this experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
-  - `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
+from google.cloud import aiplatform
+from google.cloud.aiplatform.metadata import artifact
+
+
+def get_experiment_run_artifacts_sample(
+    run_name: str,
+    experiment: Union[str, aiplatform.Experiment],
+    project: str,
+    location: str,
+) -> List[artifact.Artifact]:
+    experiment_run = aiplatform.ExperimentRun(
+        run_name=run_name,
+        experiment=experiment,
+        project=project,
+        location=location,
+    )
+
+    return experiment_run.get_artifacts()
+```
+
+- `run_name` : Specify the appropriate run name for this session.
+- `experiment` : The name or instance of this experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
+- `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Classification metrics
 
 ### Python
 
-    from typing import Dict, List, Union
-    
-    from google.cloud import aiplatform
-    
-    
-    def get_experiment_run_classification_metrics_sample(
-        run_name: str,
-        experiment: Union[str, aiplatform.Experiment],
-        project: str,
-        location: str,
-    ) -> List[Dict[str, Union[str, List]]]:
-        experiment_run = aiplatform.ExperimentRun(
-            run_name=run_name, experiment=experiment, project=project, location=location
-        )
-    
-        return experiment_run.get_classification_metrics()
+```
+from typing import Dict, List, Union
 
-  - `run_name` : Specify the appropriate run name for this session.
-  - `experiment` : The name or instance of this experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
-  - `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
+from google.cloud import aiplatform
+
+
+def get_experiment_run_classification_metrics_sample(
+    run_name: str,
+    experiment: Union[str, aiplatform.Experiment],
+    project: str,
+    location: str,
+) -> List[Dict[str, Union[str, List]]]:
+    experiment_run = aiplatform.ExperimentRun(
+        run_name=run_name, experiment=experiment, project=project, location=location
+    )
+
+    return experiment_run.get_classification_metrics()
+```
+
+- `run_name` : Specify the appropriate run name for this session.
+- `experiment` : The name or instance of this experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
+- `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ## Compare runs
 
@@ -164,23 +174,25 @@ The data for the experiment runs is returned in a DataFrame.
 
 ### Python
 
-    from google.cloud import aiplatform
-    
-    
-    def get_experiments_data_frame_sample(
-        experiment: str,
-        project: str,
-        location: str,
-    ):
-        aiplatform.init(experiment=experiment, project=project, location=location)
-    
-        experiments_df = aiplatform.get_experiment_df()
-    
-        return experiments_df
+```
+from google.cloud import aiplatform
 
-  - `experiment_name` : Provide a name for the experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
-  - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
+
+def get_experiments_data_frame_sample(
+    experiment: str,
+    project: str,
+    location: str,
+):
+    aiplatform.init(experiment=experiment, project=project, location=location)
+
+    experiments_df = aiplatform.get_experiment_df()
+
+    return experiments_df
+```
+
+- `experiment_name` : Provide a name for the experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
+- `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ## Google Cloud console
 
@@ -199,16 +211,16 @@ Use the Google Cloud console to view details of your experiment runs and compare
     The navigation bar and timeseries data charts appear.  
     ![Agent Platform navigation bar with timeseries data charts](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-run-details.png)
 4.  To view metrics, parameters, artifacts, and details for your selected run, click the respective buttons in the navigation bar.
-      - Metrics  
-        ![Agent Platform experiment run metrics](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-metrics.png)
-      - Parameters  
-        ![Agent Platform experiment run parameters](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-parameters.png)
-      - Artifacts  
-        ![Agent Platform experiment run artifacts](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-artifacts.png)  
-        To view artifact lineage, click the **Open artifact in Metadata Store** link. The lineage graph associated with the run appears.  
-        ![Agent Platform artifact lineage graph](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/artifact-lineage-graph.png)
-      - Details  
-        ![Agent Platform experiment run details](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-details.png)
+    - Metrics  
+      ![Agent Platform experiment run metrics](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-metrics.png)
+    - Parameters  
+      ![Agent Platform experiment run parameters](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-parameters.png)
+    - Artifacts  
+      ![Agent Platform experiment run artifacts](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-artifacts.png)  
+      To view artifact lineage, click the **Open artifact in Metadata Store** link. The lineage graph associated with the run appears.  
+      ![Agent Platform artifact lineage graph](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/artifact-lineage-graph.png)
+    - Details  
+      ![Agent Platform experiment run details](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-details.png)
 
 To share the data with others, use the URLs associated with the views. For example, share the list of experiment runs associated with an experiment:
 
@@ -235,4 +247,4 @@ See [Create and manage experiment runs](https://docs.cloud.google.com/gemini-ent
 
 ## What's next
 
-  - [Track executions and artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/track-executions-artifacts)
+- [Track executions and artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/track-executions-artifacts)

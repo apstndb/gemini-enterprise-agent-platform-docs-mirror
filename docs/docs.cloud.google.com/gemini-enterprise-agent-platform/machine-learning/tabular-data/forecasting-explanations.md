@@ -24,25 +24,25 @@ You can use [Forecasting with AutoML](https://docs.cloud.google.com/gemini-enter
 
 If you inspect specific instances, and also aggregate feature attributions across your training dataset, you can get deeper insight into how your model works. Consider the following advantages:
 
-  - **Debugging models** : Feature attributions can help detect issues in the data that standard model evaluation techniques would usually miss.
+- **Debugging models** : Feature attributions can help detect issues in the data that standard model evaluation techniques would usually miss.
 
-  - **Optimizing models** : You can identify and remove features that are less important, which can result in more efficient models.
+- **Optimizing models** : You can identify and remove features that are less important, which can result in more efficient models.
 
 ## Conceptual limitations
 
 Consider the following limitations of feature attributions:
 
-  - Feature attributions, including local feature importance for AutoML, are specific to individual inferences. Inspecting the feature attributions for an individual inference may provide good insight, but the insight may not be generalizable to the entire class for that individual instance, or the entire model.
-    
-    To get more generalizable insight for AutoML models, refer to the model feature importance. To get more generalizable insight for other models, aggregate attributions over subsets over your dataset, or the entire dataset.
+- Feature attributions, including local feature importance for AutoML, are specific to individual inferences. Inspecting the feature attributions for an individual inference may provide good insight, but the insight may not be generalizable to the entire class for that individual instance, or the entire model.
 
-  - Each attribution only shows how much the feature affected the inference for that particular example. A single attribution might not reflect the overall behavior of the model. To understand approximate model behavior on an entire dataset, aggregate attributions over the entire dataset.
+  To get more generalizable insight for AutoML models, refer to the model feature importance. To get more generalizable insight for other models, aggregate attributions over subsets over your dataset, or the entire dataset.
 
-  - Although feature attributions can help with model debugging, they don't always indicate clearly whether an issue arises from the model or from the data that the model is trained on. Use your best judgment, and diagnose common data issues to narrow the space of potential causes.
+- Each attribution only shows how much the feature affected the inference for that particular example. A single attribution might not reflect the overall behavior of the model. To understand approximate model behavior on an entire dataset, aggregate attributions over the entire dataset.
 
-  - The attributions depend entirely on the model and data used to train the model. They can only reveal the patterns the model found in the data, and can't detect any fundamental relationships in the data. The presence or absence of a strong attribution to a certain feature doesn't mean there is or is not a relationship between that feature and the target. The attribution merely shows that the model is or is not using the feature in its inferences.
+- Although feature attributions can help with model debugging, they don't always indicate clearly whether an issue arises from the model or from the data that the model is trained on. Use your best judgment, and diagnose common data issues to narrow the space of potential causes.
 
-  - Attributions alone cannot tell if your model is fair, unbiased, or of sound quality. Carefully evaluate your training data and evaluation metrics in addition to the attributions.
+- The attributions depend entirely on the model and data used to train the model. They can only reveal the patterns the model found in the data, and can't detect any fundamental relationships in the data. The presence or absence of a strong attribution to a certain feature doesn't mean there is or is not a relationship between that feature and the target. The attribution merely shows that the model is or is not using the feature in its inferences.
+
+- Attributions alone cannot tell if your model is fair, unbiased, or of sound quality. Carefully evaluate your training data and evaluation metrics in addition to the attributions.
 
 For more information about limitations, see the \[AI Explanations Whitepaper\].
 
@@ -50,8 +50,8 @@ For more information about limitations, see the \[AI Explanations Whitepaper\].
 
 The following factors have the highest impact on feature attributions:
 
-  - The attribution methods approximate the Shapley value. You can increase the precision of the approximation by increasing the number of paths for the sampled Shapley method. As a result, the attributions could change dramatically.
-  - The attributions only express how much the feature affected the change in inference value, relative to the baseline value. Be sure to choose a meaningful baseline, relevant to the question you're asking of the model. Attribution values and their interpretation might change significantly as you switch baselines.
+- The attribution methods approximate the Shapley value. You can increase the precision of the approximation by increasing the number of paths for the sampled Shapley method. As a result, the attributions could change dramatically.
+- The attributions only express how much the feature affected the change in inference value, relative to the baseline value. Be sure to choose a meaningful baseline, relevant to the question you're asking of the model. Attribution values and their interpretation might change significantly as you switch baselines.
 
 View the path count and the baselines in the Explanation Parameters and Metadata.
 
@@ -59,10 +59,10 @@ View the path count and the baselines in the Explanation Parameters and Metadata
 
 The Explanation Parameters and Metadata contain the following:
 
-  - **static\_value** : The *baselines* used to generate explanations.
-  - **pathCount** : The number of *paths* , a factor in the amount of time it takes to generate feature attributions.
-  - **historical\_values** , **prediction\_values** : Columns available at forecast.
-  - **historical\_values** : Columns unavailable at forecast.
+- **static_value** : The *baselines* used to generate explanations.
+- **pathCount** : The number of *paths* , a factor in the amount of time it takes to generate feature attributions.
+- **historical_values** , **prediction_values** : Columns available at forecast.
+- **historical_values** : Columns unavailable at forecast.
 
 The model can be viewed using the Agent Platform REST API and includes the explanation spec.
 
@@ -70,13 +70,15 @@ The model can be viewed using the Agent Platform REST API and includes the expla
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : Region where your model is stored
-  - PROJECT : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - MODEL\_ID : The ID of the model resource
+- ` LOCATION ` : Region where your model is stored
+- ` PROJECT ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` MODEL_ID ` : The ID of the model resource
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT/locations/LOCATION/models/MODEL_ID
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT/locations/LOCATION/models/MODEL_ID
+```
 
 To send your request, choose one of these options:
 
@@ -86,9 +88,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT/locations/LOCATION/models/MODEL_ID"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT/locations/LOCATION/models/MODEL_ID"
+```
 
 #### PowerShell
 
@@ -96,70 +100,74 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT/locations/LOCATION/models/MODEL_ID" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT/locations/LOCATION/models/MODEL_ID" | Select-Object -Expand Content
+```
 
 You should see output similar to the following for a trained AutoML model.
 
 #### Response
 
-    {
-      "name": "projects/PROJECT/locations/LOCATION/models/MODEL_ID",
-      "displayName": "MODEL_DISPLAYNAME",
-      ...
-      "explanationSpec": {
-        "parameters": {
-          "sampledShapleyAttribution": {
-            "pathCount": 6
-          },
-          "topK": -1
+```
+{
+  "name": "projects/PROJECT/locations/LOCATION/models/MODEL_ID",
+  "displayName": "MODEL_DISPLAYNAME",
+  ...
+  "explanationSpec": {
+    "parameters": {
+      "sampledShapleyAttribution": {
+        "pathCount": 6
+      },
+      "topK": -1
+    },
+    "metadata": {
+      "inputs": {
+        "prediction_values": {
+          "inputBaselines": [
+            [
+              {
+                "date": "2016-11-17",
+                "advertisement": "0",
+                "holiday": "0"
+              }
+            ]
+          ]
         },
-        "metadata": {
-          "inputs": {
-            "prediction_values": {
-              "inputBaselines": [
-                [
-                  {
-                    "date": "2016-11-17",
-                    "advertisement": "0",
-                    "holiday": "0"
-                  }
-                ]
-              ]
-            },
-            "static_value": {
-              "inputBaselines": [
-                {
-                  "product": "product_0",
-                  "store": "store_0"
-                }
-              ]
-            },
-            "historical_values": {
-              "inputBaselines": [
-                [
-                  {
-                    "date": "2016-11-17",
-                    "advertisement": "0",
-                    "holiday": "0",
-                    "sales": 371.03544292464909
-                  }
-                ]
-              ]
+        "static_value": {
+          "inputBaselines": [
+            {
+              "product": "product_0",
+              "store": "store_0"
             }
-          },
-          "outputs": {
-            "value": {}
-          },
-          "featureAttributionsSchemaUri": "..."
+          ]
+        },
+        "historical_values": {
+          "inputBaselines": [
+            [
+              {
+                "date": "2016-11-17",
+                "advertisement": "0",
+                "holiday": "0",
+                "sales": 371.03544292464909
+              }
+            ]
+          ]
         }
-      }
+      },
+      "outputs": {
+        "value": {}
+      },
+      "featureAttributionsSchemaUri": "..."
     }
+  }
+}
+```
 
 ## Algorithm
 
@@ -171,5 +179,5 @@ For in-depth information about how the sampled Shapley method works, read the pa
 
 The following resources provide further useful educational material:
 
-  - [Interpretable Machine Learning: Shapley values](https://christophm.github.io/interpretable-ml-book/shapley.html)
-  - [Introduction to Shapley values](https://www.kaggle.com/dansbecker/shap-values#Introduction)
+- [Interpretable Machine Learning: Shapley values](https://christophm.github.io/interpretable-ml-book/shapley.html)
+- [Introduction to Shapley values](https://www.kaggle.com/dansbecker/shap-values#Introduction)

@@ -24,20 +24,20 @@ To set up an encryption key, follow the steps at [Set up your KMS key and grant 
 
 RAG Engine on Gemini Enterprise Agent Platform supports CMEK with the following limitations:
 
-  - Before creating a RAG corpus, you must manually enable the RAG Service account. For detailed instructions, see [Grant Permissions to the RAG Engine service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag#grant_permissions_to_the_vertex_ai_rag_engine_service_agent) .
+- Before creating a RAG corpus, you must manually enable the RAG Service account. For detailed instructions, see [Grant Permissions to the RAG Engine service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag#grant_permissions_to_the_vertex_ai_rag_engine_service_agent) .
 
-  - CMEK is only supported on `RagVectorDbConfig` of type `RagManagedDb` .
+- CMEK is only supported on `RagVectorDbConfig` of type `RagManagedDb` .
 
-  - The `encryption_spec` field defines the KMS key, and the field is immutable, which means that CMEK can't be enabled or disabled after the RAG corpus is created.
+- The `encryption_spec` field defines the KMS key, and the field is immutable, which means that CMEK can't be enabled or disabled after the RAG corpus is created.
 
-  - No more than 50 unique KMS keys can be used to create RAG corpora per project per region.
+- No more than 50 unique KMS keys can be used to create RAG corpora per project per region.
 
 ## What's next
 
-  - For information about managing your encryption, see [Manage your encryption](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag#manage_your_encryption) .
+- For information about managing your encryption, see [Manage your encryption](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag#manage_your_encryption) .
 
-  - For more information on RAG Engine, see [RAG Engine on Gemini Enterprise Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .
+- For more information on RAG Engine, see [RAG Engine on Gemini Enterprise Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .
 
-  - To learn more about data at rest, see [Data residency](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency) .
+- To learn more about data at rest, see [Data residency](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency) .
 
-  - To learn more about RAG API methods and resources, see [Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest) .
+- To learn more about RAG API methods and resources, see [Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest) .

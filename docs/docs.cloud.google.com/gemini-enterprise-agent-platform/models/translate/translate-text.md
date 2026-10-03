@@ -8,19 +8,19 @@ data_source: docs.cloud.google.com
 
 For translation tasks, Generative AI on Cloud Translation offers two specialized translation models from the Cloud Translation API:
 
-  - **Translation LLM** - Google's newest highest quality LLM-style translation offering. Achieves the highest quality translation while serving at reasonable latencies.
+- **Translation LLM** - Google's newest highest quality LLM-style translation offering. Achieves the highest quality translation while serving at reasonable latencies.
 
-  - **Cloud Translation Neural Machine Translation (NMT) model** - Google's premier real-time translation offering achieving \~100ms latency translations. It achieves the highest quality of all models benchmarked serving at comparable latencies and continues to see ongoing quality advancements.
+- **Cloud Translation Neural Machine Translation (NMT) model** - Google's premier real-time translation offering achieving \~100ms latency translations. It achieves the highest quality of all models benchmarked serving at comparable latencies and continues to see ongoing quality advancements.
 
 ## Key advantages & differentiators of the Translation LLM
 
-  - **Unmatched Translation Quality** - Translation LLM offers the highest translation quality achieving significantly higher performance on benchmarks compared to other benchmarked models. Translation LLM is **far more likely to significantly rewrite a sentence to make it sound more natural** in the target language, rather than giving less natural "word-for-word" translations that are often seen in other translation models.
-  - **Superior Quality/Latency Trade off -** Although Translation LLM has higher latencies than the NMT model, it typically provides higher quality responses for a broad range of applications.
+- **Unmatched Translation Quality** - Translation LLM offers the highest translation quality achieving significantly higher performance on benchmarks compared to other benchmarked models. Translation LLM is **far more likely to significantly rewrite a sentence to make it sound more natural** in the target language, rather than giving less natural "word-for-word" translations that are often seen in other translation models.
+- **Superior Quality/Latency Trade off -** Although Translation LLM has higher latencies than the NMT model, it typically provides higher quality responses for a broad range of applications.
 
 ## Model feature comparison
 
 | Feature              | Translation LLM (Powered by Gemini)                                                                                                                                                                                                                                                                                                            | NMT model                                                                                                                                                                                                                                                                                     |
-| :------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description          | A translation-specialized Large Language Model powered by Gemini, fine-tuned for translation. Available with Generative AI on Cloud Translation and the Cloud Translation - Advanced API.                                                                                                                                                      | Google's Neural Machine Translation model, available through Cloud Translation - Advanced and Cloud Translation - Basic APIs . Optimized for simplicity and scale.                                                                                                                            |
 | Quality              | **Highest quality** translation. Outperforms NMT and Gemini 2.5 Pro in quality. More likely to rewrite sentences for natural flow. Shows significant error reduction.                                                                                                                                                                          | Medium to high quality depending on the language pair. Among the best-performing real-time NMT models for many language-domain combinations.                                                                                                                                                  |
 | Latency              | Latency is still slower than NMT.                                                                                                                                                                                                                                                                                                              | **Fastest Real Time Translation** . Low latency, suitable for chat and real-time applications.                                                                                                                                                                                                |
@@ -63,32 +63,36 @@ Use the Cloud Translation API and Translation LLM to translate text.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_NUMBER\_OR\_ID : The numeric or alphanumeric ID of your Google Cloud project
-  - LOCATION : The location where you want to run this operation. For example, `us-central1` .
-  - SOURCE\_LANGUAGE\_CODE : The language code of the input text. Set to one of the language codes listed in [adaptive translation](https://docs.cloud.google.com/translate/docs/languages#adaptive_translation) .
-  - TARGET\_LANGUAGE\_CODE : The target language to translate the input text to. Set to one of the language codes listed in [adaptive translation](https://docs.cloud.google.com/translate/docs/languages#adaptive_translation) .
-  - SOURCE\_TEXT : Text in the source language to translate.
-  - MIME\_TYPE (Optional): The format of the source text, such as `text/html` or `text/plain` . By default, the MIME type is set to `text/plain` .
+- ` PROJECT_NUMBER_OR_ID ` : The numeric or alphanumeric ID of your Google Cloud project
+- ` LOCATION ` : The location where you want to run this operation. For example, `us-central1` .
+- ` SOURCE_LANGUAGE_CODE ` : The language code of the input text. Set to one of the language codes listed in [adaptive translation](https://docs.cloud.google.com/translate/docs/languages#adaptive_translation) .
+- ` TARGET_LANGUAGE_CODE ` : The target language to translate the input text to. Set to one of the language codes listed in [adaptive translation](https://docs.cloud.google.com/translate/docs/languages#adaptive_translation) .
+- ` SOURCE_TEXT ` : Text in the source language to translate.
+- ` MIME_TYPE ` (Optional): The format of the source text, such as `text/html` or `text/plain` . By default, the MIME type is set to `text/plain` .
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/cloud-translate-text:predict
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/cloud-translate-text:predict
+```
 
 Request JSON body:
 
+```
+{
+  "instances": [
     {
-      "instances": [
-        {
-          "source_language_code": "SOURCE_LANGUAGE_CODE",
-          "target_language_code": "TARGET_LANGUAGE_CODE",
-          "contents": [
-            "SOURCE_TEXT"
-          ],
-          "mimeType": "MIME_TYPE",
-          "model": "projects/PROJECT_ID/locations/LOCATION/models/general/translation-llm"
-        }
-      ]
+      "source_language_code": "SOURCE_LANGUAGE_CODE",
+      "target_language_code": "TARGET_LANGUAGE_CODE",
+      "contents": [
+        "SOURCE_TEXT"
+      ],
+      "mimeType": "MIME_TYPE",
+      "model": "projects/PROJECT_ID/locations/LOCATION/models/general/translation-llm"
     }
+  ]
+}
+```
 
 To send your request, expand one of these options:
 
@@ -98,12 +102,14 @@ To send your request, expand one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "x-goog-user-project: PROJECT_NUMBER_OR_ID" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/cloud-translate-text:predict"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "x-goog-user-project: PROJECT_NUMBER_OR_ID" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/cloud-translate-text:predict"
+```
 
 #### PowerShell (Windows)
 
@@ -111,30 +117,34 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred"; "x-goog-user-project" = "PROJECT_NUMBER_OR_ID" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/cloud-translate-text:predict" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred"; "x-goog-user-project" = "PROJECT_NUMBER_OR_ID" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/cloud-translate-text:predict" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
+```
+{
+  "predictions": [
     {
-      "predictions": [
+      "translations": [
         {
-          "translations": [
-            {
-              "translatedText": "TRANSLATED_TEXT",
-              "model": "projects/PROJECT_ID/locations/LOCATION/models/general/translation-llm"
-            }
-          ]
+          "translatedText": "TRANSLATED_TEXT",
+          "model": "projects/PROJECT_ID/locations/LOCATION/models/general/translation-llm"
         }
       ]
     }
+  ]
+}
+```
 
 ### Node.js
 
@@ -142,7 +152,7 @@ Before trying this sample, follow the Node.js setup instructions in the [Cloud T
 
 To authenticate to Cloud Translation, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-``` 
+```
 async function translate() {
   const request = {
     instances: [{
@@ -160,7 +170,6 @@ async function translate() {
   console.log('Translating')
   console.log(response)
 }
-      
 ```
 
 ### Python
@@ -169,7 +178,7 @@ Before trying this sample, follow the Python setup instructions in the [Cloud Tr
 
 To authenticate to Cloud Translation, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-``` 
+```
 from google.cloud import aiplatform
 
 def translate():
@@ -190,7 +199,6 @@ def translate():
   response = client.predict(instances=instances, endpoint=endpoint_id)
   # Handle the response
   print(response)
-      
 ```
 
 ### NMT
@@ -201,22 +209,26 @@ Use the Cloud Translation API and the NMT model to translate text.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_NUMBER\_OR\_ID : the numeric or alphanumeric ID of your Google Cloud project.
-  - SOURCE\_LANGUAGE : (Optional) The language code of the input text. For supported language codes, see [Language support](https://docs.cloud.google.com/translate/docs/languages) .
-  - TARGET\_LANGUAGE : The target language to translate the input text to. Set to one of the supported [language codes](https://docs.cloud.google.com/translate/docs/languages) .
-  - SOURCE\_TEXT : The text to translate.
+- ` PROJECT_NUMBER_OR_ID ` : the numeric or alphanumeric ID of your Google Cloud project.
+- ` SOURCE_LANGUAGE ` : (Optional) The language code of the input text. For supported language codes, see [Language support](https://docs.cloud.google.com/translate/docs/languages) .
+- ` TARGET_LANGUAGE ` : The target language to translate the input text to. Set to one of the supported [language codes](https://docs.cloud.google.com/translate/docs/languages) .
+- ` SOURCE_TEXT ` : The text to translate.
 
 HTTP method and URL:
 
-    POST https://translation.googleapis.com/v3/projects/PROJECT_ID:translateText
+```
+POST https://translation.googleapis.com/v3/projects/PROJECT_ID:translateText
+```
 
 Request JSON body:
 
-    {
-      "sourceLanguageCode": "SOURCE_LANGUAGE",
-      "targetLanguageCode": "TARGET_LANGUAGE",
-      "contents": ["SOURCE_TEXT1", "SOURCE_TEXT2"]
-    }
+```
+{
+  "sourceLanguageCode": "SOURCE_LANGUAGE",
+  "targetLanguageCode": "TARGET_LANGUAGE",
+  "contents": ["SOURCE_TEXT1", "SOURCE_TEXT2"]
+}
+```
 
 To send your request, expand one of these options:
 
@@ -226,12 +238,14 @@ To send your request, expand one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "x-goog-user-project: PROJECT_NUMBER_OR_ID" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://translation.googleapis.com/v3/projects/PROJECT_ID:translateText"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "x-goog-user-project: PROJECT_NUMBER_OR_ID" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://translation.googleapis.com/v3/projects/PROJECT_ID:translateText"
+```
 
 #### PowerShell (Windows)
 
@@ -239,28 +253,32 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred"; "x-goog-user-project" = "PROJECT_NUMBER_OR_ID" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://translation.googleapis.com/v3/projects/PROJECT_ID:translateText" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred"; "x-goog-user-project" = "PROJECT_NUMBER_OR_ID" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://translation.googleapis.com/v3/projects/PROJECT_ID:translateText" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
+```
+{
+  "translations": [
     {
-      "translations": [
-        {
-          "translatedText": "TRANSLATED_TEXT1"
-        },
-        {
-          "translatedText": "TRANSLATED_TEXT2"
-        }
-      ]
+      "translatedText": "TRANSLATED_TEXT1"
+    },
+    {
+      "translatedText": "TRANSLATED_TEXT2"
     }
+  ]
+}
+```
 
 ### Node.js
 
@@ -268,43 +286,45 @@ Before trying this sample, follow the Node.js setup instructions in the [Cloud T
 
 To authenticate to Cloud Translation, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    /**
-     * TODO(developer): Uncomment these variables before running the sample
-     */
-    // const projectId = 'YOUR_PROJECT_ID';
-    // const location = 'global';
-    // const text = 'text to translate';
-    
-    // Imports the Google Cloud Translation library
-    const {TranslationServiceClient} = require('@google-cloud/translate');
-    
-    // Instantiates a client
-    const translationClient = new TranslationServiceClient();
-    
-    async function translateText() {
-      // MIME type of the content to translate
-      // Supported MIME types:
-      // https://cloud.google.com/translate/docs/supported-formats
-      const mimeType = 'text/plain';
-    
-      // Construct request
-      const request = {
-        parent: `projects/${projectId}/locations/${location}`,
-        contents: [text],
-        mimeType: mimeType,
-        sourceLanguageCode: 'en',
-        targetLanguageCode: 'sr-Latn',
-      };
-    
-      // Run request
-      const [response] = await translationClient.translateText(request);
-    
-      for (const translation of response.translations) {
-        console.log(`Translation: ${translation.translatedText}`);
-      }
-    }
-    
-    translateText();
+```javascript
+/**
+ * TODO(developer): Uncomment these variables before running the sample
+ */
+// const projectId = 'YOUR_PROJECT_ID';
+// const location = 'global';
+// const text = 'text to translate';
+
+// Imports the Google Cloud Translation library
+const {TranslationServiceClient} = require('@google-cloud/translate');
+
+// Instantiates a client
+const translationClient = new TranslationServiceClient();
+
+async function translateText() {
+  // MIME type of the content to translate
+  // Supported MIME types:
+  // https://cloud.google.com/translate/docs/supported-formats
+  const mimeType = 'text/plain';
+
+  // Construct request
+  const request = {
+    parent: `projects/${projectId}/locations/${location}`,
+    contents: [text],
+    mimeType: mimeType,
+    sourceLanguageCode: 'en',
+    targetLanguageCode: 'sr-Latn',
+  };
+
+  // Run request
+  const [response] = await translationClient.translateText(request);
+
+  for (const translation of response.translations) {
+    console.log(`Translation: ${translation.translatedText}`);
+  }
+}
+
+translateText();
+```
 
 ### Python
 
@@ -312,54 +332,56 @@ Before trying this sample, follow the Python setup instructions in the [Cloud Tr
 
 To authenticate to Cloud Translation, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    import os
-    
-    # Import the Google Cloud Translation library.
-    from google.cloud import translate_v3
-    
-    PROJECT_ID = os.environ.get("GOOGLE_CLOUD_PROJECT")
-    
-    
-    def translate_text(
-        text: str = "YOUR_TEXT_TO_TRANSLATE",
-        source_language_code: str = "en-US",
-        target_language_code: str = "fr",
-    ) -> translate_v3.TranslationServiceClient:
-        """Translate Text from a Source language to a Target language.
-        Args:
-            text: The content to translate.
-            source_language_code: The code of the source language.
-            target_language_code: The code of the target language.
-                For example: "fr" for French, "es" for Spanish, etc.
-                Find available languages and codes here:
-                https://cloud.google.com/translate/docs/languages#neural_machine_translation_model
-        """
-    
-        # Initialize Translation client.
-        client = translate_v3.TranslationServiceClient()
-        parent = f"projects/{PROJECT_ID}/locations/global"
-    
-        # MIME type of the content to translate.
-        # Supported MIME types:
-        # https://cloud.google.com/translate/docs/supported-formats
-        mime_type = "text/plain"
-    
-        # Translate text from the source to the target language.
-        response = client.translate_text(
-            contents=[text],
-            parent=parent,
-            mime_type=mime_type,
-            source_language_code=source_language_code,
-            target_language_code=target_language_code,
-        )
-    
-        # Display the translation for the text.
-        # For example, for "Hello! How are you doing today?":
-        # Translated text: Bonjour comment vas-tu aujourd'hui?
-        for translation in response.translations:
-            print(f"Translated text: {translation.translated_text}")
-    
-        return response
+```python
+import os
+
+# Import the Google Cloud Translation library.
+from google.cloud import translate_v3
+
+PROJECT_ID = os.environ.get("GOOGLE_CLOUD_PROJECT")
+
+
+def translate_text(
+    text: str = "YOUR_TEXT_TO_TRANSLATE",
+    source_language_code: str = "en-US",
+    target_language_code: str = "fr",
+) -> translate_v3.TranslationServiceClient:
+    """Translate Text from a Source language to a Target language.
+    Args:
+        text: The content to translate.
+        source_language_code: The code of the source language.
+        target_language_code: The code of the target language.
+            For example: "fr" for French, "es" for Spanish, etc.
+            Find available languages and codes here:
+            https://cloud.google.com/translate/docs/languages#neural_machine_translation_model
+    """
+
+    # Initialize Translation client.
+    client = translate_v3.TranslationServiceClient()
+    parent = f"projects/{PROJECT_ID}/locations/global"
+
+    # MIME type of the content to translate.
+    # Supported MIME types:
+    # https://cloud.google.com/translate/docs/supported-formats
+    mime_type = "text/plain"
+
+    # Translate text from the source to the target language.
+    response = client.translate_text(
+        contents=[text],
+        parent=parent,
+        mime_type=mime_type,
+        source_language_code=source_language_code,
+        target_language_code=target_language_code,
+    )
+
+    # Display the translation for the text.
+    # For example, for "Hello! How are you doing today?":
+    # Translated text: Bonjour comment vas-tu aujourd'hui?
+    for translation in response.translations:
+        print(f"Translated text: {translation.translated_text}")
+
+    return response
+```
 
 ## Custom translations
 
@@ -378,23 +400,23 @@ To get the most accurate results, include specific examples from a wide variety 
 1.  In the Cloud Translation section of the Google Cloud console, go to the **Translate text** page in **Vertex AI Studio** .
 
 2.  In the **Run settings** pane, configure your translation settings.
-    
+
     1.  In the **Model** field, select **Translation LLM** .
     2.  To change the temperature, expand **Advanced** .
 
 3.  Click **Add examples** .
-    
+
     1.  Select a local file or a file from Cloud Storage. Vertex AI Studio determines the source and target languages from your file.
     2.  Select the number of examples for the model to use before generating a response.
-    
+
     The number of examples you select counts toward the input character limit per request of 3,000.
 
 4.  In the input field, enter the text to translate.
 
 5.  Click **Submit** .
-    
+
     Cloud Translation automatically selects your specified number of reference sentences that are most similar to your input. The translation model identifies patterns from your examples and then applies those patterns when generating a response.
-    
+
     The output limit per request is 3,000 characters. Any text beyond this limit is dropped.
 
 6.  To get the code or curl command that demonstrate how to request translations, click code **Get code** .
@@ -407,49 +429,53 @@ To request custom translations, include up to five reference sentence pairs in y
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_NUMBER\_OR\_ID : The numeric or alphanumeric ID of your Google Cloud project
-  - LOCATION : The location where you want to run this operation. For example, `us-central1` .
-  - REFERENCE\_SOURCE : A sentence in the source language that is part of a reference sentence pair.
-  - REFERENCE\_TARGET : A sentence in the target language that is part of a reference sentence pair.
-  - SOURCE\_LANGUAGE : The language code of the input text.
-  - TARGET\_LANGUAGE : The target language to translate the input text to.
-  - SOURCE\_TEXT : Text in the source language to translate.
-  - MIME\_TYPE (Optional): The format of the source text, such as `text/html` or `text/plain` . By default, the MIME type is set to `text/plain` .
+- ` PROJECT_NUMBER_OR_ID ` : The numeric or alphanumeric ID of your Google Cloud project
+- ` LOCATION ` : The location where you want to run this operation. For example, `us-central1` .
+- ` REFERENCE_SOURCE ` : A sentence in the source language that is part of a reference sentence pair.
+- ` REFERENCE_TARGET ` : A sentence in the target language that is part of a reference sentence pair.
+- ` SOURCE_LANGUAGE ` : The language code of the input text.
+- ` TARGET_LANGUAGE ` : The target language to translate the input text to.
+- ` SOURCE_TEXT ` : Text in the source language to translate.
+- ` MIME_TYPE ` (Optional): The format of the source text, such as `text/html` or `text/plain` . By default, the MIME type is set to `text/plain` .
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/translate-llm:predict
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/translate-llm:predict
+```
 
 Request JSON body:
 
+```
+{
+  "instances": [
     {
-      "instances": [
-        {
-          "reference_sentence_config": {
-            "reference_sentence_pair_lists": [
+      "reference_sentence_config": {
+        "reference_sentence_pair_lists": [
+          {
+            "reference_sentence_pairs": [
               {
-                "reference_sentence_pairs": [
-                  {
-                    "source_sentence": "REFERENCE_SOURCE_1_1",
-                    "target_sentence": "REFERENCE_TARGET_1_1"
-                  },
-                  {
-                    "source_sentence": "REFERENCE_SOURCE_1_2",
-                    "target_sentence": "REFERENCE_SOURCE_1_2"
-                  }
-                ]
+                "source_sentence": "REFERENCE_SOURCE_1_1",
+                "target_sentence": "REFERENCE_TARGET_1_1"
+              },
+              {
+                "source_sentence": "REFERENCE_SOURCE_1_2",
+                "target_sentence": "REFERENCE_SOURCE_1_2"
               }
-            ],
-            "source_language_code": "SOURCE_LANGUAGE_CODE",
-            "target_language_code": "TARGET_LANGUAGE_CODE"
-          },
-          "content": [
-            "SOURCE_TEXT"
-          ],
-          "mimeType": "MIME_TYPE"
-        }
-      ]
+            ]
+          }
+        ],
+        "source_language_code": "SOURCE_LANGUAGE_CODE",
+        "target_language_code": "TARGET_LANGUAGE_CODE"
+      },
+      "content": [
+        "SOURCE_TEXT"
+      ],
+      "mimeType": "MIME_TYPE"
     }
+  ]
+}
+```
 
 To send your request, expand one of these options:
 
@@ -459,12 +485,14 @@ To send your request, expand one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "x-goog-user-project: PROJECT_NUMBER_OR_ID" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/translate-llm:predict"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "x-goog-user-project: PROJECT_NUMBER_OR_ID" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/translate-llm:predict"
+```
 
 #### PowerShell (Windows)
 
@@ -472,30 +500,34 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred"; "x-goog-user-project" = "PROJECT_NUMBER_OR_ID" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/translate-llm:predict" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred"; "x-goog-user-project" = "PROJECT_NUMBER_OR_ID" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/translate-llm:predict" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
+```
+{
+  "predictions": [
     {
-      "predictions": [
+      "languageCode": "TARGET_LANGUAGE",
+      "translations": [
         {
-          "languageCode": "TARGET_LANGUAGE",
-          "translations": [
-            {
-              "translatedText": "TRANSLATED_TEXT"
-            }
-          ]
+          "translatedText": "TRANSLATED_TEXT"
         }
       ]
     }
+  ]
+}
+```
 
 ### Node.js
 
@@ -503,7 +535,7 @@ Before trying this sample, follow the Node.js setup instructions in the [Cloud T
 
 To authenticate to Cloud Translation, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-``` 
+```
 async function translate() {
   const request = {
     instances: [{
@@ -532,7 +564,6 @@ async function translate() {
   console.log('Translating')
   console.log(response)
 }
-  
 ```
 
 ### Python
@@ -541,7 +572,7 @@ Before trying this sample, follow the Python setup instructions in the [Cloud Tr
 
 To authenticate to Cloud Translation, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-``` 
+```
 from google.cloud import aiplatform
 from google.protobuf.json_format import MessageToDict
 
@@ -580,7 +611,6 @@ def translate():
   predictions = MessageToDict(response._pb)['predictions']
   for prediction in predictions:
       print(prediction['translations'])
-  
 ```
 
 You can also use the Cloud Translation API to create a dataset and import your example sentence pairs. When you use the Cloud Translation API to request translations, you can include your dataset to customize responses. The dataset persists and can be reused with multiple translation requests. For more information, see [Request adaptive translations](https://docs.cloud.google.com/translate/docs/advanced/adaptive-translation#api) in the Cloud Translation documentation.
@@ -592,7 +622,7 @@ You can also use the Cloud Translation API to create a dataset and import your e
 With the Translation LLM, you can translate to and from any of the following languages.
 
 | Language name            | Language code |
-| ------------------------ | ------------- |
+|--------------------------|---------------|
 | Afrikaans                | `af`          |
 | Albanian                 | `sq`          |
 | Amharic                  | `am`          |
@@ -725,4 +755,4 @@ With the Translation LLM, you can translate to and from any of the following lan
 
 For information about which languages the the Cloud Translation NMT model support, refer to the following documentation:
 
-  - [Translation NMT model language support](https://docs.cloud.google.com/translate/docs/languages#neural_machine_translation_model)
+- [Translation NMT model language support](https://docs.cloud.google.com/translate/docs/languages#neural_machine_translation_model)

@@ -14,15 +14,15 @@ You can use the Agent Platform SDK for Python in hosted JupyterLab notebooks wit
 
 If you want to try using the Agent Platform SDK for Python right now, see the following resources:
 
-  - [Introduction to the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk)
-  - [Agent Platform SDK reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform)
-  - [Agent Platform SDK language model reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/vertexai)
-  - [Train a model using Gemini Enterprise Agent Platform and the Python SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction)
+- [Introduction to the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk)
+- [Agent Platform SDK reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform)
+- [Agent Platform SDK language model reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/vertexai)
+- [Train a model using Gemini Enterprise Agent Platform and the Python SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction)
 
 The Agent Platform SDK includes many classes to help you automate data ingestion, train models, and get predictions. It also includes classes to help you monitor, evaluate, and optimize your machine learning (ML) workflow. The classes can be loosely grouped into the following categories:
 
-  - [Data classes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/data-classes) include classes that work with structured data, unstructured data, and the Gemini Enterprise Agent Platform Feature Store.
-  - [Training classes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/training-classes) include classes that work with AutoML training for structured and unstructured data, custom training, hyperparameter training, and pipeline training.
-  - [Model classes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/model-classes) work with models and model evaluations.
-  - [Prediction classes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/prediction-classes) work with batch predictions, online predictions, and Vector Search predictions.
-  - [Tracking classes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/tracking-classes) work with Gemini Enterprise Agent Platform ML Metadata, Experiments on Agent Platform, and Vertex AI TensorBoard.
+- [Data classes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/data-classes) include classes that work with structured data, unstructured data, and the Gemini Enterprise Agent Platform Feature Store.
+- [Training classes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/training-classes) include classes that work with AutoML training for structured and unstructured data, custom training, hyperparameter training, and pipeline training.
+- [Model classes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/model-classes) work with models and model evaluations.
+- [Prediction classes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/prediction-classes) work with batch predictions, online predictions, and Vector Search predictions.
+- [Tracking classes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/tracking-classes) work with Gemini Enterprise Agent Platform ML Metadata, Experiments on Agent Platform, and Vertex AI TensorBoard.

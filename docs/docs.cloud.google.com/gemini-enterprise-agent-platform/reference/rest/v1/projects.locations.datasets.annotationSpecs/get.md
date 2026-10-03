@@ -24,7 +24,7 @@ Required. The name of the AnnotationSpec resource. Format: `projects/{project}/l
 
 ### Query parameters
 
-`readMask` ` string ( FieldMask  ` format)
+`readMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Mask specifying which fields to read.
 
@@ -36,4 +36,4 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  AnnotationSpec  ` .
+If successful, the response body contains an instance of [`AnnotationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.annotationSpecs#AnnotationSpec) .

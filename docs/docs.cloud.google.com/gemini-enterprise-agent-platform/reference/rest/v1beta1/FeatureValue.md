@@ -10,7 +10,7 @@ value for a feature.
 
 Fields
 
-`metadata` ` object ( Metadata  ` )
+`metadata` `object ( `[`Metadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureValue#Metadata)` )`
 
 metadata of feature value.
 
@@ -26,7 +26,7 @@ Bool type feature value.
 
 Double type feature value.
 
-`int64Value` `string ( int64 format)`
+`int64Value` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Int64 feature value.
 
@@ -34,49 +34,66 @@ Int64 feature value.
 
 String feature value.
 
-`boolArrayValue` ` object ( BoolArray  ` )
+`boolArrayValue` `object ( `[`BoolArray`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureValue#BoolArray)` )`
 
 A list of bool type feature value.
 
-`doubleArrayValue` ` object ( DoubleArray  ` )
+`doubleArrayValue` `object ( `[`DoubleArray`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureValue#DoubleArray)` )`
 
 A list of double type feature value.
 
-`int64ArrayValue` ` object ( Int64Array  ` )
+`int64ArrayValue` `object ( `[`Int64Array`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureValue#Int64Array)` )`
 
 A list of int64 type feature value.
 
-`stringArrayValue` ` object ( StringArray  ` )
+`stringArrayValue` `object ( `[`StringArray`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureValue#StringArray)` )`
 
 A list of string type feature value.
 
-`bytesValue` `string ( bytes format)`
+`bytesValue` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Bytes feature value.
 
 A base64-encoded string.
 
-`structValue` ` object ( StructValue  ` )
+`structValue` `object ( `[`StructValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureValue#StructValue)` )`
 
 A struct type feature value.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metadata&quot;: {object (Metadata)},// value&quot;boolValue&quot;: boolean,&quot;doubleValue&quot;: number,&quot;int64Value&quot;: string,&quot;stringValue&quot;: string,&quot;boolArrayValue&quot;: {object (BoolArray)},&quot;doubleArrayValue&quot;: {object (DoubleArray)},&quot;int64ArrayValue&quot;: {object (Int64Array)},&quot;stringArrayValue&quot;: {object (StringArray)},&quot;bytesValue&quot;: string,&quot;structValue&quot;: {object (StructValue)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metadata": {
+    object (Metadata)
+  },
+
+  // value
+  "boolValue": boolean,
+  "doubleValue": number,
+  "int64Value": string,
+  "stringValue": string,
+  "boolArrayValue": {
+    object (BoolArray)
+  },
+  "doubleArrayValue": {
+    object (DoubleArray)
+  },
+  "int64ArrayValue": {
+    object (Int64Array)
+  },
+  "stringArrayValue": {
+    object (StringArray)
+  },
+  "bytesValue": string,
+  "structValue": {
+    object (StructValue)
+  }
+  // Union type
+}
+```
 
 ## BoolArray
 
@@ -88,25 +105,15 @@ Fields
 
 A list of bool values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;values&quot;: [
+**JSON representation**
+
+```
+{
+  "values": [
     boolean
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## DoubleArray
 
@@ -118,25 +125,15 @@ Fields
 
 A list of double values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;values&quot;: [
+**JSON representation**
+
+```
+{
+  "values": [
     number
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## Int64Array
 
@@ -144,29 +141,19 @@ A list of int64 values.
 
 Fields
 
-`values[]` `string ( int64 format)`
+`values[]` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 A list of int64 values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;values&quot;: [
+**JSON representation**
+
+```
+{
+  "values": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## StringArray
 
@@ -178,25 +165,15 @@ Fields
 
 A list of string values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;values&quot;: [
+**JSON representation**
+
+```
+{
+  "values": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## StructValue
 
@@ -204,25 +181,21 @@ Struct (or object) type feature value.
 
 Fields
 
-`values[]` ` object ( StructFieldValue  ` )
+`values[]` `object ( `[`StructFieldValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureValue#StructFieldValue)` )`
 
 A list of field values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;values&quot;: [{object (StructFieldValue)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "values": [
+    {
+      object (StructFieldValue)
+    }
+  ]
+}
+```
 
 ## StructFieldValue
 
@@ -234,25 +207,20 @@ Fields
 
 name of the field in the struct feature.
 
-`value` ` object ( FeatureValue  ` )
+`value` `object ( `[`FeatureValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureValue)` )`
 
 The value for this field.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;value&quot;: {object (FeatureValue)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "value": {
+    object (FeatureValue)
+  }
+}
+```
 
 ## Metadata
 
@@ -260,7 +228,7 @@ metadata of feature value.
 
 Fields
 
-`generateTime` ` string ( Timestamp  ` format)
+`generateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 feature generation timestamp. Typically, it is provided by user at feature ingestion time. If not, feature store will use the system timestamp when the data is ingested into feature store.
 
@@ -268,20 +236,10 @@ Legacy feature Store: For streaming ingestion, the time, aligned by days, must b
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;generateTime&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "generateTime": string
+}
+```

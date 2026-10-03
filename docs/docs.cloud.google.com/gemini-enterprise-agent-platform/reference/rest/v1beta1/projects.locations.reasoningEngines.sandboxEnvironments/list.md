@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.reasoningEngines.sandboxEnvironments.list
 
-Lists `  SandboxEnvironment  ` s in a given reasoning engine.
+Lists [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) s in a given reasoning engine.
 
 ### Endpoint
 
@@ -42,32 +42,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  SandboxEnvironmentService.ListSandboxEnvironments  ` .
+Response message for [`SandboxEnvironmentService.ListSandboxEnvironments`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments/list#google.cloud.aiplatform.v1beta1.SandboxEnvironmentService.ListSandboxEnvironments) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`sandboxEnvironments[]` ` object ( SandboxEnvironment  ` )
+`sandboxEnvironments[]` `object ( `[`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment)` )`
 
 The SandboxEnvironments matching the request.
 
 `nextPageToken` `string`
 
-A token, which can be sent as `  ListSandboxEnvironmentsRequest.page_token  ` to retrieve the next page. Absence of this field indicates there are no subsequent pages.
+A token, which can be sent as [`ListSandboxEnvironmentsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments/list#body.QUERY_PARAMETERS.page_token) to retrieve the next page. Absence of this field indicates there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;sandboxEnvironments&quot;: [{object (SandboxEnvironment)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "sandboxEnvironments": [
+    {
+      object (SandboxEnvironment)
+    }
+  ],
+  "nextPageToken": string
+}
+```

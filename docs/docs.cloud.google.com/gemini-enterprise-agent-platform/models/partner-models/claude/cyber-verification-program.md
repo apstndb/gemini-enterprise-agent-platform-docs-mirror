@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 Anthropic applies real-time cyber safeguards to frontier Claude models to prevent misuse in malicious cyber operations. Anthropic's [Cyber Verification Program](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet) (CVP) is a trust framework that enables verified organizations to use Claude models for legitimate defensive cybersecurity tasks with default dual-use restrictions lifted.
@@ -18,8 +18,8 @@ This document describes how CVP works on Gemini Enterprise Agent Platform, which
 
 Anthropic's real-time evaluation classifiers inspect prompts and completions to protect against cybersecurity-related risks. These safeguards categorize activities into two tiers:
 
-  - **Prohibited use** : High-risk malicious activities that have little or no legitimate defensive application, such as ransomware development, command-and-control (C2) infrastructure generation, malware authoring, or automated mass data exfiltration. **Prohibited activities are permanently blocked for all users. The Cyber Verification Program never lifts restrictions on prohibited activities.**
-  - **High-risk dual-use** : Activities that are critical for authorized security operations, but could also be abused by threat actors. Examples include vulnerability discovery, exploitability analysis, proof-of-concept exploit verification, red teaming, and adversary attack path simulation. Dual-use activities are blocked by default, but verified organizations can have these safeguards adjusted through the Cyber Verification Program.
+- **Prohibited use** : High-risk malicious activities that have little or no legitimate defensive application, such as ransomware development, command-and-control (C2) infrastructure generation, malware authoring, or automated mass data exfiltration. **Prohibited activities are permanently blocked for all users. The Cyber Verification Program never lifts restrictions on prohibited activities.**
+- **High-risk dual-use** : Activities that are critical for authorized security operations, but could also be abused by threat actors. Examples include vulnerability discovery, exploitability analysis, proof-of-concept exploit verification, red teaming, and adversary attack path simulation. Dual-use activities are blocked by default, but verified organizations can have these safeguards adjusted through the Cyber Verification Program.
 
 For more information about Anthropic's usage policies, see [Real-time cyber safeguards on Claude](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet) .
 
@@ -27,23 +27,23 @@ For more information about Anthropic's usage policies, see [Real-time cyber safe
 
 The Cyber Verification Program on Agent Platform supports the following Anthropic models:
 
-  - **Claude Opus 4.7, Claude Opus 4.8, and Claude Sonnet 5** : Requires enabling advanced AI features ( `advancedAiEnabled: true` ).
-  - **Claude Opus 5 and Claude Opus 5.5** : Requires enabling both advanced AI features ( `advancedAiEnabled: true` ) and data sharing with Anthropic ( `dataSharingEnabledProvider: ANTHROPIC` ).
+- **Claude Opus 4.7, Claude Opus 4.8, and Claude Sonnet 5** : Requires enabling advanced AI features ( `advancedAiEnabled: true` ).
+- **Claude Opus 5 and Claude Opus 5.5** : Requires enabling both advanced AI features ( `advancedAiEnabled: true` ) and data sharing with Anthropic ( `dataSharingEnabledProvider: ANTHROPIC` ).
 
 ## Before you begin
 
 Before enrolling in the Cyber Verification Program, ensure that you meet the following prerequisites:
 
-  - A Google Cloud project with the Agent Platform API enabled.
+- A Google Cloud project with the Agent Platform API enabled.
 
-  - The following Identity and Access Management (IAM) permissions on the project:
-    
-      - To accept the Advanced AI Safety Addendum: `aiplatform.consents.update` , which is included in the [Agent Platform Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.admin) ( `roles/aiplatform.admin` ) role.
-      - To configure publisher model settings: `aiplatform.endpoints.setPublisherModelConfig` , which is included in the [Agent Platform Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.admin) ( `roles/aiplatform.admin` ) role.
+- The following Identity and Access Management (IAM) permissions on the project:
 
-  - **Data retention understanding** : Enrolling a model in CVP designates that model as "Advanced AI" under Google's [Advanced AI Safety Addendum](https://cloud.google.com/terms/advanced-ai-safety-addendum) . In accordance with Anthropic's safety policies, prompts and responses sent to CVP-enabled models are retained for abuse monitoring for up to 30 days. For more information, see [Advanced AI Safety](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#advanced_ai_safety) .
+  - To accept the Advanced AI Safety Addendum: `aiplatform.consents.update` , which is included in the [Agent Platform Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.admin) ( `roles/aiplatform.admin` ) role.
+  - To configure publisher model settings: `aiplatform.endpoints.setPublisherModelConfig` , which is included in the [Agent Platform Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.admin) ( `roles/aiplatform.admin` ) role.
 
-  - **Data sharing understanding (Claude Opus 5 and Claude Opus 5.5 only)** : For Claude Opus 5 and Claude Opus 5.5 with CVP, Anthropic requires that data sharing be enabled for abuse monitoring. Enrolling these models requires both consenting to data retention and configuring data sharing with Anthropic. For more information, see [Log and share requests and responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging#enable-data-sharing) .
+- **Data retention understanding** : Enrolling a model in CVP designates that model as "Advanced AI" under Google's [Advanced AI Safety Addendum](https://cloud.google.com/terms/advanced-ai-safety-addendum) . In accordance with Anthropic's safety policies, prompts and responses sent to CVP-enabled models are retained for abuse monitoring for up to 30 days. For more information, see [Advanced AI Safety](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#advanced_ai_safety) .
+
+- **Data sharing understanding (Claude Opus 5 and Claude Opus 5.5 only)** : For Claude Opus 5 and Claude Opus 5.5 with CVP, Anthropic requires that data sharing be enabled for abuse monitoring. Enrolling these models requires both consenting to data retention and configuring data sharing with Anthropic. For more information, see [Log and share requests and responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging#enable-data-sharing) .
 
 ## How to enroll
 
@@ -91,79 +91,89 @@ After you accept the Advanced AI Safety Addendum and receive approval from Anthr
 
 Call `setPublisherModelConfig` on the `v1beta1` endpoint to enable `advancedAiEnabled` :
 
-    curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/publishers/anthropic/models/MODEL_ID:setPublisherModelConfig" \
-      -d '{
-        "publisherModelConfig": {
-          "claudeFeatureConfig": {
-            "advancedAiEnabled": true
-          }
-        },
-        "updateMask": "claudeFeatureConfig.advancedAiEnabled"
-      }'
+```
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/publishers/anthropic/models/MODEL_ID:setPublisherModelConfig" \
+  -d '{
+    "publisherModelConfig": {
+      "claudeFeatureConfig": {
+        "advancedAiEnabled": true
+      }
+    },
+    "updateMask": "claudeFeatureConfig.advancedAiEnabled"
+  }'
+```
 
 Replace the following:
 
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - MODEL\_ID : The Claude model identifier (for example, `claude-opus-4-8` or `claude-sonnet-5` ).
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` MODEL_ID ` : The Claude model identifier (for example, `claude-opus-4-8` or `claude-sonnet-5` ).
 
 #### For Claude Opus 5 and Claude Opus 5.5
 
 For Claude Opus 5 and Claude Opus 5.5, Anthropic requires enabling both `advancedAiEnabled` and data sharing with Anthropic ( `dataSharingEnabledProvider` ):
 
-    curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/publishers/anthropic/models/MODEL_ID:setPublisherModelConfig" \
-      -d '{
-        "publisherModelConfig": {
-          "claudeFeatureConfig": {
-            "advancedAiEnabled": true
-          },
-          "dataSharingEnabledProvider": "ANTHROPIC"
-        },
-        "updateMask": "claudeFeatureConfig.advancedAiEnabled,dataSharingEnabledProvider"
-      }'
+```
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/publishers/anthropic/models/MODEL_ID:setPublisherModelConfig" \
+  -d '{
+    "publisherModelConfig": {
+      "claudeFeatureConfig": {
+        "advancedAiEnabled": true
+      },
+      "dataSharingEnabledProvider": "ANTHROPIC"
+    },
+    "updateMask": "claudeFeatureConfig.advancedAiEnabled,dataSharingEnabledProvider"
+  }'
+```
 
 Replace the following:
 
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - MODEL\_ID : The Claude model identifier ( `claude-opus-5` or `claude-opus-5-5` ).
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` MODEL_ID ` : The Claude model identifier ( `claude-opus-5` or `claude-opus-5-5` ).
 
 ### Important API considerations
 
-  - **Use `v1beta1`** : The `setPublisherModelConfig` method is supported on the `v1beta1` API surface.
-  - **Always include `updateMask`** : The `updateMask` field is essential. If you omit `updateMask` , the call replaces the entire `PublisherModelConfig` object, which inadvertently clears other settings such as `loggingConfig` or `dataSharingEnabledProvider` .
-  - **Long-running operation** : This method returns a `google.longrunning.Operation` . Poll the operation until `done: true` is returned.
-  - **Configuration scope** : Publisher model configurations are scoped per project, location, publisher, and model. If you use models in multiple regions, configure each endpoint.
+- **Use `v1beta1`** : The `setPublisherModelConfig` method is supported on the `v1beta1` API surface.
+- **Always include `updateMask`** : The `updateMask` field is essential. If you omit `updateMask` , the call replaces the entire `PublisherModelConfig` object, which inadvertently clears other settings such as `loggingConfig` or `dataSharingEnabledProvider` .
+- **Long-running operation** : This method returns a `google.longrunning.Operation` . Poll the operation until `done: true` is returned.
+- **Configuration scope** : Publisher model configurations are scoped per project, location, publisher, and model. If you use models in multiple regions, configure each endpoint.
 
 ### Verify model configuration
 
 To verify that advanced AI is enabled for a specific model, call the `fetchPublisherModelConfig` method:
 
-    curl -X GET \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/publishers/anthropic/models/MODEL_ID:fetchPublisherModelConfig"
+```
+curl -X GET \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/publishers/anthropic/models/MODEL_ID:fetchPublisherModelConfig"
+```
 
 If advanced AI is enabled for Claude Opus 4.7, Claude Opus 4.8, and Claude Sonnet 5, the response is as follows:
 
-    {
-      "claudeFeatureConfig": {
-        "advancedAiEnabled": true
-      }
-    }
+```
+{
+  "claudeFeatureConfig": {
+    "advancedAiEnabled": true
+  }
+}
+```
 
 If advanced AI is enabled for Claude Opus 5 or Claude Opus 5.5, the response is as follows:
 
-    {
-      "claudeFeatureConfig": {
-        "advancedAiEnabled": true
-      },
-      "dataSharingEnabledProvider": "ANTHROPIC"
-    }
+```
+{
+  "claudeFeatureConfig": {
+    "advancedAiEnabled": true
+  },
+  "dataSharingEnabledProvider": "ANTHROPIC"
+}
+```
 
 ## Troubleshooting
 
@@ -189,6 +199,6 @@ If calling `fetchPublisherModelConfig` returns an empty object ({}), no custom p
 
 ## What's next
 
-  - Read about [Safety classifiers for Claude in Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/safety) .
-  - Review [Abuse monitoring in Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring) .
-  - Learn about [Responsible AI practices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .
+- Read about [Safety classifiers for Claude in Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/safety) .
+- Review [Abuse monitoring in Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring) .
+- Learn about [Responsible AI practices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .

@@ -14,25 +14,15 @@ Fields
 
 type of the disk (default is "pd-standard"). Valid values: "pd-ssd" (Persistent Disk Solid state Drive) "pd-standard" (Persistent Disk Hard Disk Drive) "pd-balanced" (Balanced Persistent Disk) "pd-extreme" (Extreme Persistent Disk) "hyperdisk-balanced" (Hyperdisk Balanced) "hyperdisk-extreme" (Hyperdisk Extreme) "hyperdisk-balanced-high-availability" (Hyperdisk Balanced High Availability) "hyperdisk-ml" (Hyperdisk ML) "hyperdisk-throughput" (Hyperdisk Throughput)
 
-`diskSizeGb` `string ( int64 format)`
+`diskSizeGb` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Size in GB of the disk (default is 100GB).
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;diskType&quot;: string,
-  &quot;diskSizeGb&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "diskType": string,
+  "diskSizeGb": string
+}
+```

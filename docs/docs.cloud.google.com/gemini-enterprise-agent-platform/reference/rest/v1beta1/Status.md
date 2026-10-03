@@ -8,42 +8,56 @@ data_source: docs.cloud.google.com
 
 The status of the interaction.
 
-Enums
-
-`UNSPECIFIED`
-
-Default value. This value is unused.
-
-`IN_PROGRESS`
-
-The interaction is in progress.
-
-`REQUIRES_ACTION`
-
-The interaction requires action/input from the user.
-
-`COMPLETED`
-
-The interaction is completed.
-
-`FAILED`
-
-The interaction failed.
-
-`CANCELLED`
-
-The interaction was cancelled.
-
-`INCOMPLETE`
-
-The interaction is completed, but contains incomplete results (e.g. hitting maxTokens).
-
-`BUDGET_EXCEEDED`
-
-Deprecated: token and execution budget exhaustion returns INCOMPLETE (11).
-
-> This item is deprecated\!
-
-`QUEUED`
-
-The interaction is queued, waiting for processing (e.g. waiting for off-peak capacity).
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Enums</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>UNSPECIFIED</code></td>
+<td>Default value. This value is unused.</td>
+</tr>
+<tr class="even">
+<td><code>IN_PROGRESS</code></td>
+<td>The interaction is in progress.</td>
+</tr>
+<tr class="odd">
+<td><code>REQUIRES_ACTION</code></td>
+<td>The interaction requires action/input from the user.</td>
+</tr>
+<tr class="even">
+<td><code>COMPLETED</code></td>
+<td>The interaction is completed.</td>
+</tr>
+<tr class="odd">
+<td><code>FAILED</code></td>
+<td>The interaction failed.</td>
+</tr>
+<tr class="even">
+<td><code>CANCELLED</code></td>
+<td>The interaction was cancelled.</td>
+</tr>
+<tr class="odd">
+<td><code>INCOMPLETE</code></td>
+<td>The interaction is completed, but contains incomplete results (e.g. hitting maxTokens).</td>
+</tr>
+<tr class="even">
+<td><code>BUDGET_EXCEEDED</code></td>
+<td><p>Deprecated: token and execution budget exhaustion returns INCOMPLETE (11).</p>
+<blockquote>
+<p>This item is deprecated!</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><code>QUEUED</code></td>
+<td>The interaction is queued, waiting for processing (e.g. waiting for off-peak capacity).</td>
+</tr>
+</tbody>
+</table>

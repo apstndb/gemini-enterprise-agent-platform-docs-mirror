@@ -18,23 +18,23 @@ For more conceptual documentation on function calling, see [Introduction to func
 
 #### Click to expand supported models
 
-  - [Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)
-  - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
-  - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
-  - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
-  - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
-  - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
-  - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
-  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
-  - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
-  - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
-  - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
-  - [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
+- [Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)
+- [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
+- [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
+- [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
+- [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
+- [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+- [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
+- [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
+- [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
+- [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
+- [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+- [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)
+- [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 **Limitations** :
 
-  - The maximum number of function declarations that can be provided with the request is 128.
+- The maximum number of function declarations that can be provided with the request is 128.
 
 ## Example syntax
 
@@ -42,23 +42,25 @@ Syntax to send a function call API request.
 
 ### curl
 
-    curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-    
-    https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/google/models/${MODEL_ID}:generateContent \
-    -d '{
-      "contents": [{
+```
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+
+https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/google/models/${MODEL_ID}:generateContent \
+-d '{
+  "contents": [{
+    ...
+  }],
+  "tools": [{
+    "function_declarations": [
+      {
         ...
-      }],
-      "tools": [{
-        "function_declarations": [
-          {
-            ...
-          }
-        ]
-      }]
-    }'
+      }
+    ]
+  }]
+}'
+```
 
 ## Parameter list
 
@@ -68,31 +70,12 @@ See [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/re
 
 Defines a function that the model can generate JSON inputs for based on [OpenAPI 3.0](https://spec.openapis.org/oas/v3.0.3) specifications.
 
-Parameters
-
-`name`
-
-`string`
-
-The name of the function to call. Must start with a letter or an underscore. Must be a-z, A-Z, 0-9, or contains underscores, dots, or dashes, with a maximum length of 64.
-
-`description`
-
-Optional: `string`
-
-The description and purpose of the function. The model uses this to decide how and whether to call the function. For the best results, we recommend that you include a description.
-
-`parameters`
-
-Optional: `Schema`
-
-Describes the parameters of the function in the OpenAPI JSON Schema Object format: [OpenAPI 3.0 specification](https://spec.openapis.org/oas/v3.0.3) .
-
-`response`
-
-Optional: `Schema`
-
-Describes the output from the function in the OpenAPI JSON Schema Object format: [OpenAPI 3.0 specification](https://spec.openapis.org/oas/v3.0.3) .
+| Parameters    |                                                                                                                                                                                                        |
+|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`        | `string` The name of the function to call. Must start with a letter or an underscore. Must be a-z, A-Z, 0-9, or contains underscores, dots, or dashes, with a maximum length of 64.                    |
+| `description` | Optional: `string` The description and purpose of the function. The model uses this to decide how and whether to call the function. For the best results, we recommend that you include a description. |
+| `parameters`  | Optional: `Schema` Describes the parameters of the function in the OpenAPI JSON Schema Object format: [OpenAPI 3.0 specification](https://spec.openapis.org/oas/v3.0.3) .                              |
+| `response`    | Optional: `Schema` Describes the output from the function in the OpenAPI JSON Schema Object format: [OpenAPI 3.0 specification](https://spec.openapis.org/oas/v3.0.3) .                                |
 
 For more information, see [Introduction to function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling) .
 
@@ -100,196 +83,150 @@ For more information, see [Introduction to function calling](https://docs.cloud.
 
 Defines the format of the input and output data in a function call based on the [OpenAPI 3.0 Schema](https://spec.openapis.org/oas/v3.0.3#schema) specification.
 
-Parameters
-
-type
-
-`string`
-
-Enum. The type of the data. Must be one of:
-
-  - `STRING`
-  - `INTEGER`
-  - `BOOLEAN`
-  - `NUMBER`
-  - `ARRAY`
-  - `OBJECT`
-
-`description`
-
-Optional: `string`
-
-Description of the data.
-
-`enum`
-
-Optional: `string[]`
-
-Possible values of the element of primitive type with enum format.
-
-`items`
-
-Optional: `Schema[]`
-
-Schema of the elements of `Type.ARRAY`
-
-`properties`
-
-Optional: `Schema`
-
-Schema of the properties of `Type.OBJECT`
-
-`required`
-
-Optional: `string[]`
-
-Required properties of `Type.OBJECT` .
-
-`nullable`
-
-Optional: `bool`
-
-Indicates if the value may be `null` .
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>type</td>
+<td><p><code>string</code></p>
+<p>Enum. The type of the data. Must be one of:</p>
+<ul>
+<li><code>STRING</code></li>
+<li><code>INTEGER</code></li>
+<li><code>BOOLEAN</code></li>
+<li><code>NUMBER</code></li>
+<li><code>ARRAY</code></li>
+<li><code>OBJECT</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><code>description</code></td>
+<td><p>Optional: <code>string</code></p>
+<p>Description of the data.</p></td>
+</tr>
+<tr class="odd">
+<td><code>enum</code></td>
+<td><p>Optional: <code>string[]</code></p>
+<p>Possible values of the element of primitive type with enum format.</p></td>
+</tr>
+<tr class="even">
+<td><code>items</code></td>
+<td><p>Optional: <code>Schema[]</code></p>
+<p>Schema of the elements of <code>Type.ARRAY</code></p></td>
+</tr>
+<tr class="odd">
+<td><code>properties</code></td>
+<td><p>Optional: <code>Schema</code></p>
+<p>Schema of the properties of <code>Type.OBJECT</code></p></td>
+</tr>
+<tr class="even">
+<td><code>required</code></td>
+<td><p>Optional: <code>string[]</code></p>
+<p>Required properties of <code>Type.OBJECT</code> .</p></td>
+</tr>
+<tr class="odd">
+<td><code>nullable</code></td>
+<td><p>Optional: <code>bool</code></p>
+<p>Indicates if the value may be <code>null</code> .</p></td>
+</tr>
+</tbody>
+</table>
 
 #### `FunctionCallingConfig`
 
 The `FunctionCallingConfig` controls the behavior of the model and determines what type of function to call.
 
-Parameters
-
-`mode`
-
-Optional: `enum/string[]`
-
-  - `AUTO` : Default model behavior. The model can make predictions in either a function call form or a natural language response form. The model decides which form to use based on the context.
-  - `NONE` : The model doesn't make any predictions in the form of function calls.
-  - `ANY` : The model is constrained to always predict a function call. If `allowed_function_names` is not provided, the model picks from all of the available function declarations. If `allowed_function_names` is provided, the model picks from the set of allowed functions.
-
-`allowed_function_names`
-
-Optional: `string[]`
-
-Function names to call. Only set when the `mode` is `ANY` . Function names should match `[FunctionDeclaration.name]` . With mode set to `ANY` , the model will predict a function call from the set of function names provided.
-
-`stream_function_call_arguments`
-
-Optional: `boolean`
-
-If `true` , function call arguments are streamed back incrementally in chunks. Default is `false` .
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code>mode</code></p></td>
+<td><p>Optional: <code>enum/string[]</code></p>
+<ul>
+<li><code>AUTO</code> : Default model behavior. The model can make predictions in either a function call form or a natural language response form. The model decides which form to use based on the context.</li>
+<li><code>NONE</code> : The model doesn't make any predictions in the form of function calls.</li>
+<li><code>ANY</code> : The model is constrained to always predict a function call. If <code>allowed_function_names</code> is not provided, the model picks from all of the available function declarations. If <code>allowed_function_names</code> is provided, the model picks from the set of allowed functions.</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><p><code>allowed_function_names</code></p></td>
+<td><p>Optional: <code>string[]</code></p>
+<p>Function names to call. Only set when the <code>mode</code> is <code>ANY</code> . Function names should match <code>[FunctionDeclaration.name]</code> . With mode set to <code>ANY</code> , the model will predict a function call from the set of function names provided.</p></td>
+</tr>
+<tr class="odd">
+<td><p><code>stream_function_call_arguments</code></p></td>
+<td><p>Optional: <code>boolean</code></p>
+<p>If <code>true</code> , function call arguments are streamed back incrementally in chunks. Default is <code>false</code> .</p></td>
+</tr>
+</tbody>
+</table>
 
 #### `functionCall`
 
 A predicted `functionCall` returned from the model that contains a string representing the `functionDeclaration.name` and a structured JSON object containing the parameters and their values.
 
-Parameters
-
-`name`
-
-`string`
-
-The name of the function to call.
-
-`args`
-
-`Struct`
-
-The function parameters and values in JSON object format.
-
-`thought_signature`
-
-Optional: `string`
-
-An opaque token that encapsulates the model's internal reasoning state. If present, it must be included in the next turn of the conversation to maintain context for multi-step tool use.
+| Parameters          |                                                                                                                                                                                                              |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`              | `string` The name of the function to call.                                                                                                                                                                   |
+| `args`              | `Struct` The function parameters and values in JSON object format.                                                                                                                                           |
+| `thought_signature` | Optional: `string` An opaque token that encapsulates the model's internal reasoning state. If present, it must be included in the next turn of the conversation to maintain context for multi-step tool use. |
 
 #### `functionResponse`
 
 The resulting output from a `FunctionCall` that contains a string representing the `FunctionDeclaration.name` . Also contains a structured JSON object with the output from the function (and uses it as context for the model). This should contain the result of a `FunctionCall` made based on model prediction.
 
-Parameters
-
-`name`
-
-`string`
-
-The name of the function to call.
-
-`response`
-
-`Struct`
-
-The function response in JSON object format.
-
-`parts`
-
-Optional: `FunctionResponsePart[]`
-
-Optional multimodal parts of the function response. Can be used to return images, audio, or video along with structured JSON response.
+| Parameters |                                                                                                                                                                           |
+|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`     | `string` The name of the function to call.                                                                                                                                |
+| `response` | `Struct` The function response in JSON object format.                                                                                                                     |
+| `parts`    | Optional: `FunctionResponsePart[]` Optional multimodal parts of the function response. Can be used to return images, audio, or video along with structured JSON response. |
 
 #### `FunctionResponsePart`
 
 The `FunctionResponsePart` contains multimodal data from the function call.
 
-Parameters
-
-`inline_data`
-
-Optional: `FunctionResponseBlob`
-
-Inline data of the function response part.
-
-`file_data`
-
-Optional: `FunctionResponseFileData`
-
-URI based data of the function response part.
+| Parameters    |                                                                                    |
+|---------------|------------------------------------------------------------------------------------|
+| `inline_data` | Optional: `FunctionResponseBlob` Inline data of the function response part.        |
+| `file_data`   | Optional: `FunctionResponseFileData` URI based data of the function response part. |
 
 #### `FunctionResponseBlob`
 
 The `FunctionResponseBlob` contains inline data for a `FunctionResponsePart` .
 
-Parameters
-
-`mime_type`
-
-`string`
-
-The IANA MIME type of the inline data.
-
-`data`
-
-`bytes`
-
-The raw binary data.
-
-`display_name`
-
-Optional: `string`
-
-The display name of the inline data.
+| Parameters     |                                                         |
+|----------------|---------------------------------------------------------|
+| `mime_type`    | `string` The IANA MIME type of the inline data.         |
+| `data`         | `bytes` The raw binary data.                            |
+| `display_name` | Optional: `string` The display name of the inline data. |
 
 #### `FunctionResponseFileData`
 
 The `FunctionResponseFileData` contains URI based data for a `FunctionResponsePart` .
 
-Parameters
-
-`mime_type`
-
-`string`
-
-The IANA MIME type of the file data.
-
-`file_uri`
-
-`string`
-
-The URI of the file data.
-
-`display_name`
-
-Optional: `string`
-
-The display name of the file data.
+| Parameters     |                                                       |
+|----------------|-------------------------------------------------------|
+| `mime_type`    | `string` The IANA MIME type of the file data.         |
+| `file_uri`     | `string` The URI of the file data.                    |
+| `display_name` | Optional: `string` The display name of the file data. |
 
 ## Examples
 
@@ -301,48 +238,52 @@ The following example is a basic example of sending a query and a function decla
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
-  - MODEL\_ID : The ID of the model that's being processed.
-  - ROLE : The [identity of the entity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent) that creates the message.
-  - TEXT : The prompt to send to the model.
-  - NAME : The name of the function to call.
-  - DESCRIPTION : Description and purpose of the function.
-  - For other fields, see the [Parameter list](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling#parameter-list) table.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+- ` MODEL_ID ` : The ID of the model that's being processed.
+- ` ROLE ` : The [identity of the entity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent) that creates the message.
+- ` TEXT ` : The prompt to send to the model.
+- ` NAME ` : The name of the function to call.
+- ` DESCRIPTION ` : Description and purpose of the function.
+- For other fields, see the [Parameter list](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling#parameter-list) table.
 
 HTTP method and URL:
 
-    POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/MODEL_ID:generateContent
+```
+POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/MODEL_ID:generateContent
+```
 
 Request JSON body:
 
-    {
-      "contents": [{
-        "role": "ROLE",
-        "parts": [{
-          "text": "TEXT"
-        }]
-      }],
-      "tools": [{
-        "function_declarations": [
-          {
-            "name": "NAME",
-            "description": "DESCRIPTION",
-            "parameters": {
+```
+{
+  "contents": [{
+    "role": "ROLE",
+    "parts": [{
+      "text": "TEXT"
+    }]
+  }],
+  "tools": [{
+    "function_declarations": [
+      {
+        "name": "NAME",
+        "description": "DESCRIPTION",
+        "parameters": {
+          "type": "TYPE",
+          "properties": {
+            "location": {
               "type": "TYPE",
-              "properties": {
-                "location": {
-                  "type": "TYPE",
-                  "description": "DESCRIPTION"
-                }
-              },
-              "required": [
-                "location"
-              ]
+              "description": "DESCRIPTION"
             }
-          }
-        ]
-      }]
-    }
+          },
+          "required": [
+            "location"
+          ]
+        }
+      }
+    ]
+  }]
+}
+```
 
 To send your request, choose one of these options:
 
@@ -352,11 +293,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/MODEL_ID:generateContent"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/MODEL_ID:generateContent"
+```
 
 #### PowerShell
 
@@ -364,329 +307,341 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/MODEL_ID:generateContent" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/MODEL_ID:generateContent" | Select-Object -Expand Content
+```
 
 #### Example curl command
 
-    PROJECT_ID=myproject
-    LOCATION=us-central1
-    MODEL_ID=gemini-3.5-flash
-    
-    curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/google/models/${MODEL_ID}:generateContent \
-      -d '{
-        "contents": [{
-          "role": "user",
-          "parts": [{
-            "text": "What is the weather in Boston?"
-          }]
-        }],
-        "tools": [{
-          "functionDeclarations": [
-            {
-              "name": "get_current_weather",
-              "description": "Get the current weather in a given location",
-              "parameters": {
-                "type": "object",
-                "properties": {
-                  "location": {
-                    "type": "string",
-                    "description": "The city and state, for example San Francisco, CA or a zip code such as 95616"
-                  }
-                },
-                "required": [
-                  "location"
-                ]
+```
+PROJECT_ID=myproject
+LOCATION=us-central1
+MODEL_ID=gemini-3.5-flash
+
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/google/models/${MODEL_ID}:generateContent \
+  -d '{
+    "contents": [{
+      "role": "user",
+      "parts": [{
+        "text": "What is the weather in Boston?"
+      }]
+    }],
+    "tools": [{
+      "functionDeclarations": [
+        {
+          "name": "get_current_weather",
+          "description": "Get the current weather in a given location",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city and state, for example San Francisco, CA or a zip code such as 95616"
               }
-            }
-          ]
-        }]
-      }'
+            },
+            "required": [
+              "location"
+            ]
+          }
+        }
+      ]
+    }]
+  }'
+```
 
 ### Google Gen AI SDK for Python
 
-    from google import genai
-    from google.genai.types import GenerateContentConfig, HttpOptions
-    
-    def get_current_weather(location: str) -> str:
-        """Example method. Returns the current weather.
-    
-        Args:
-            location: The city and state, e.g. San Francisco, CA
-        """
-        weather_map: dict[str, str] = {
-            "Boston, MA": "snowing",
-            "San Francisco, CA": "foggy",
-            "Seattle, WA": "raining",
-            "Austin, TX": "hot",
-            "Chicago, IL": "windy",
-        }
-        return weather_map.get(location, "unknown")
-    
-    client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    model_id = "gemini-3.5-flash"
-    
-    response = client.models.generate_content(
-        model=model_id,
-        contents="What is the weather like in Boston?",
-        config=GenerateContentConfig(
-            tools=[get_current_weather],
-            temperature=0,
-        ),
-    )
-    
-    print(response.text)
-    # Example response:
-    # The weather in Boston is sunny.
+```
+from google import genai
+from google.genai.types import GenerateContentConfig, HttpOptions
+
+def get_current_weather(location: str) -> str:
+    """Example method. Returns the current weather.
+
+    Args:
+        location: The city and state, e.g. San Francisco, CA
+    """
+    weather_map: dict[str, str] = {
+        "Boston, MA": "snowing",
+        "San Francisco, CA": "foggy",
+        "Seattle, WA": "raining",
+        "Austin, TX": "hot",
+        "Chicago, IL": "windy",
+    }
+    return weather_map.get(location, "unknown")
+
+client = genai.Client(http_options=HttpOptions(api_version="v1"))
+model_id = "gemini-3.5-flash"
+
+response = client.models.generate_content(
+    model=model_id,
+    contents="What is the weather like in Boston?",
+    config=GenerateContentConfig(
+        tools=[get_current_weather],
+        temperature=0,
+    ),
+)
+
+print(response.text)
+# Example response:
+# The weather in Boston is sunny.
+```
 
 ### Node.js
 
-    const {GoogleGenAI} = require('@google/genai');
-    
-    const tools = [
+```javascript
+const {GoogleGenAI} = require('@google/genai');
+
+const tools = [
+  {
+    functionDeclarations: [
       {
-        functionDeclarations: [
-          {
-            name: 'get_current_weather',
-            description: 'get weather in a given location',
-            parameters: {
-              type: 'OBJECT',
-              properties: {
-                location: {type: 'STRING'},
-                unit: {
-                  type: 'STRING',
-                  enum: ['celsius', 'fahrenheit'],
-                },
-              },
-              required: ['location'],
+        name: 'get_current_weather',
+        description: 'get weather in a given location',
+        parameters: {
+          type: 'OBJECT',
+          properties: {
+            location: {type: 'STRING'},
+            unit: {
+              type: 'STRING',
+              enum: ['celsius', 'fahrenheit'],
             },
           },
-        ],
-      },
-    ];
-    
-    /**
-     * TODO(developer): Update these variables before running the sample.
-     */
-    async function functionCallingBasic(
-      projectId = 'PROJECT_ID',
-      location = 'us-central1',
-      model = 'gemini-2.5-flash'
-    ) {
-      // Initialize client with your Cloud project and location
-      const client = new GoogleGenAI({
-        vertexai: true,
-        project: projectId,
-        location: location,
-      });
-    
-      const result = await client.models.generateContent({
-        model: model,
-        contents: 'What is the weather in Boston?',
-        config: {
-          tools: tools,
+          required: ['location'],
         },
-      });
-      console.log(JSON.stringify(result.functionCalls));
-    }
+      },
+    ],
+  },
+];
+
+/**
+ * TODO(developer): Update these variables before running the sample.
+ */
+async function functionCallingBasic(
+  projectId = 'PROJECT_ID',
+  location = 'us-central1',
+  model = 'gemini-2.5-flash'
+) {
+  // Initialize client with your Cloud project and location
+  const client = new GoogleGenAI({
+    vertexai: true,
+    project: projectId,
+    location: location,
+  });
+
+  const result = await client.models.generateContent({
+    model: model,
+    contents: 'What is the weather in Boston?',
+    config: {
+      tools: tools,
+    },
+  });
+  console.log(JSON.stringify(result.functionCalls));
+}
+```
 
 ### Java
 
-    import com.google.genai.Client;
-    import com.google.genai.types.FunctionCall;
-    import com.google.genai.types.FunctionDeclaration;
-    import com.google.genai.types.GenerateContentConfig;
-    import com.google.genai.types.GenerateContentResponse;
-    import com.google.genai.types.HttpOptions;
-    import com.google.genai.types.Schema;
-    import com.google.genai.types.Tool;
-    import com.google.genai.types.Type;
-    import java.util.List;
-    import java.util.Map;
-    
-    public class ToolFunctionDescriptionWithText {
-    
-      public static void main(String[] args) {
-        // TODO(developer): Replace these variables before running the sample.
-        String modelId = "gemini-2.5-flash";
-        String contents = "What is the weather like in Boston?";
-    
-        generateContent(modelId, contents);
+```java
+import com.google.genai.Client;
+import com.google.genai.types.FunctionCall;
+import com.google.genai.types.FunctionDeclaration;
+import com.google.genai.types.GenerateContentConfig;
+import com.google.genai.types.GenerateContentResponse;
+import com.google.genai.types.HttpOptions;
+import com.google.genai.types.Schema;
+import com.google.genai.types.Tool;
+import com.google.genai.types.Type;
+import java.util.List;
+import java.util.Map;
+
+public class ToolFunctionDescriptionWithText {
+
+  public static void main(String[] args) {
+    // TODO(developer): Replace these variables before running the sample.
+    String modelId = "gemini-2.5-flash";
+    String contents = "What is the weather like in Boston?";
+
+    generateContent(modelId, contents);
+  }
+
+  // Generates content with text input and function declaration that
+  // the model may use to retrieve external data for the response
+  public static String generateContent(String modelId, String contents) {
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests.
+    try (Client client =
+        Client.builder()
+            .location("global")
+            .vertexAI(true)
+            .httpOptions(HttpOptions.builder().apiVersion("v1").build())
+            .build()) {
+
+      FunctionDeclaration getCurrentWeather =
+          FunctionDeclaration.builder()
+              .name("get_current_weather")
+              .description("Get the current weather in a given location")
+              // Function parameters are specified in schema format
+              .parameters(
+                  Schema.builder()
+                      .type(Type.Known.OBJECT)
+                      .properties(
+                          Map.of(
+                              "location",
+                              Schema.builder()
+                                  .type(Type.Known.STRING)
+                                  .description(
+                                      "The city name of the location for which to get the weather.")
+                                  .build()))
+                      .required(List.of("location"))
+                      .build()) // End parameters schema
+              .build(); // End function declaration
+
+      Tool weatherTool = Tool.builder().functionDeclarations(getCurrentWeather).build();
+
+      GenerateContentConfig config =
+          GenerateContentConfig.builder().tools(weatherTool).temperature(0.0f).build();
+
+      GenerateContentResponse response = client.models.generateContent(modelId, contents, config);
+
+      // response.functionCalls() returns an ImmutableList<FunctionCall>.
+      List<FunctionCall> functionCalls = response.functionCalls();
+      if (functionCalls != null && !functionCalls.isEmpty()) {
+        System.out.println(functionCalls.get(0));
+        return functionCalls.toString();
       }
-    
-      // Generates content with text input and function declaration that
-      // the model may use to retrieve external data for the response
-      public static String generateContent(String modelId, String contents) {
-        // Initialize client that will be used to send requests. This client only needs to be created
-        // once, and can be reused for multiple requests.
-        try (Client client =
-            Client.builder()
-                .location("global")
-                .vertexAI(true)
-                .httpOptions(HttpOptions.builder().apiVersion("v1").build())
-                .build()) {
-    
-          FunctionDeclaration getCurrentWeather =
-              FunctionDeclaration.builder()
-                  .name("get_current_weather")
-                  .description("Get the current weather in a given location")
-                  // Function parameters are specified in schema format
-                  .parameters(
-                      Schema.builder()
-                          .type(Type.Known.OBJECT)
-                          .properties(
-                              Map.of(
-                                  "location",
-                                  Schema.builder()
-                                      .type(Type.Known.STRING)
-                                      .description(
-                                          "The city name of the location for which to get the weather.")
-                                      .build()))
-                          .required(List.of("location"))
-                          .build()) // End parameters schema
-                  .build(); // End function declaration
-    
-          Tool weatherTool = Tool.builder().functionDeclarations(getCurrentWeather).build();
-    
-          GenerateContentConfig config =
-              GenerateContentConfig.builder().tools(weatherTool).temperature(0.0f).build();
-    
-          GenerateContentResponse response = client.models.generateContent(modelId, contents, config);
-    
-          // response.functionCalls() returns an ImmutableList<FunctionCall>.
-          List<FunctionCall> functionCalls = response.functionCalls();
-          if (functionCalls != null && !functionCalls.isEmpty()) {
-            System.out.println(functionCalls.get(0));
-            return functionCalls.toString();
-          }
-          System.out.println("No function calls found in response.");
-          return "";
-          // Example response:
-          // [FunctionCall{args=Optional[{location=Boston, MA}], name=Optional[get_current_weather]}]
-        }
-      }
+      System.out.println("No function calls found in response.");
+      return "";
+      // Example response:
+      // [FunctionCall{args=Optional[{location=Boston, MA}], name=Optional[get_current_weather]}]
     }
+  }
+}
+```
 
 ### Go
 
-    import (
-        "context"
-        "fmt"
-        "io"
-    
-        genai "google.golang.org/genai"
-    )
-    
-    // generateWithFuncCall shows how to submit a prompt and a function declaration to the model,
-    // allowing it to suggest a call to the function to fetch external data. Returning this data
-    // enables the model to generate a text response that incorporates the data.
-    func generateWithFuncCall(w io.Writer) error {
-        ctx := context.Background()
-    
-        client, err := genai.NewClient(ctx, &genai.ClientConfig{
-            HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
-        })
-        if err != nil {
-            return fmt.Errorf("failed to create genai client: %w", err)
-        }
-    
-        weatherFunc := &genai.FunctionDeclaration{
-            Description: "Returns the current weather in a location.",
-            Name:        "getCurrentWeather",
-            Parameters: &genai.Schema{
-                Type: "object",
-                Properties: map[string]*genai.Schema{
-                    "location": {Type: "string"},
-                },
-                Required: []string{"location"},
-            },
-        }
-        config := &genai.GenerateContentConfig{
-            Tools: []*genai.Tool{
-                {FunctionDeclarations: []*genai.FunctionDeclaration{weatherFunc}},
-            },
-            Temperature: genai.Ptr(float32(0.0)),
-        }
-    
-        modelName := "gemini-2.5-flash"
-        contents := []*genai.Content{
-            {Parts: []*genai.Part{
-                {Text: "What is the weather like in Boston?"},
-            },
-                Role: genai.RoleUser},
-        }
-    
-        resp, err := client.Models.GenerateContent(ctx, modelName, contents, config)
-        if err != nil {
-            return fmt.Errorf("failed to generate content: %w", err)
-        }
-    
-        var funcCall *genai.FunctionCall
-        for _, p := range resp.Candidates[0].Content.Parts {
-            if p.FunctionCall != nil {
-                funcCall = p.FunctionCall
-                fmt.Fprint(w, "The model suggests to call the function ")
-                fmt.Fprintf(w, "%q with args: %v\n", funcCall.Name, funcCall.Args)
-                // Example response:
-                // The model suggests to call the function "getCurrentWeather" with args: map[location:Boston]
-            }
-        }
-        if funcCall == nil {
-            return fmt.Errorf("model did not suggest a function call")
-        }
-    
-        // Use synthetic data to simulate a response from the external API.
-        // In a real application, this would come from an actual weather API.
-        funcResp := &genai.FunctionResponse{
-            Name: "getCurrentWeather",
-            Response: map[string]any{
-                "location":         "Boston",
-                "temperature":      "38",
-                "temperature_unit": "F",
-                "description":      "Cold and cloudy",
-                "humidity":         "65",
-                "wind":             `{"speed": "10", "direction": "NW"}`,
-            },
-        }
-    
-        // Return conversation turns and API response to complete the model's response.
-        contents = []*genai.Content{
-            {Parts: []*genai.Part{
-                {Text: "What is the weather like in Boston?"},
-            },
-                Role: genai.RoleUser},
-            {Parts: []*genai.Part{
-                {FunctionCall: funcCall},
-            }},
-            {Parts: []*genai.Part{
-                {FunctionResponse: funcResp},
-            }},
-        }
-    
-        resp, err = client.Models.GenerateContent(ctx, modelName, contents, config)
-        if err != nil {
-            return fmt.Errorf("failed to generate content: %w", err)
-        }
-    
-        respText := resp.Text()
-    
-        fmt.Fprintln(w, respText)
-    
-        // Example response:
-        // The weather in Boston is cold and cloudy with a temperature of 38 degrees Fahrenheit. The humidity is ...
-    
-        return nil
+```
+import (
+    "context"
+    "fmt"
+    "io"
+
+    genai "google.golang.org/genai"
+)
+
+// generateWithFuncCall shows how to submit a prompt and a function declaration to the model,
+// allowing it to suggest a call to the function to fetch external data. Returning this data
+// enables the model to generate a text response that incorporates the data.
+func generateWithFuncCall(w io.Writer) error {
+    ctx := context.Background()
+
+    client, err := genai.NewClient(ctx, &genai.ClientConfig{
+        HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
+    })
+    if err != nil {
+        return fmt.Errorf("failed to create genai client: %w", err)
     }
+
+    weatherFunc := &genai.FunctionDeclaration{
+        Description: "Returns the current weather in a location.",
+        Name:        "getCurrentWeather",
+        Parameters: &genai.Schema{
+            Type: "object",
+            Properties: map[string]*genai.Schema{
+                "location": {Type: "string"},
+            },
+            Required: []string{"location"},
+        },
+    }
+    config := &genai.GenerateContentConfig{
+        Tools: []*genai.Tool{
+            {FunctionDeclarations: []*genai.FunctionDeclaration{weatherFunc}},
+        },
+        Temperature: genai.Ptr(float32(0.0)),
+    }
+
+    modelName := "gemini-2.5-flash"
+    contents := []*genai.Content{
+        {Parts: []*genai.Part{
+            {Text: "What is the weather like in Boston?"},
+        },
+            Role: genai.RoleUser},
+    }
+
+    resp, err := client.Models.GenerateContent(ctx, modelName, contents, config)
+    if err != nil {
+        return fmt.Errorf("failed to generate content: %w", err)
+    }
+
+    var funcCall *genai.FunctionCall
+    for _, p := range resp.Candidates[0].Content.Parts {
+        if p.FunctionCall != nil {
+            funcCall = p.FunctionCall
+            fmt.Fprint(w, "The model suggests to call the function ")
+            fmt.Fprintf(w, "%q with args: %v\n", funcCall.Name, funcCall.Args)
+            // Example response:
+            // The model suggests to call the function "getCurrentWeather" with args: map[location:Boston]
+        }
+    }
+    if funcCall == nil {
+        return fmt.Errorf("model did not suggest a function call")
+    }
+
+    // Use synthetic data to simulate a response from the external API.
+    // In a real application, this would come from an actual weather API.
+    funcResp := &genai.FunctionResponse{
+        Name: "getCurrentWeather",
+        Response: map[string]any{
+            "location":         "Boston",
+            "temperature":      "38",
+            "temperature_unit": "F",
+            "description":      "Cold and cloudy",
+            "humidity":         "65",
+            "wind":             `{"speed": "10", "direction": "NW"}`,
+        },
+    }
+
+    // Return conversation turns and API response to complete the model's response.
+    contents = []*genai.Content{
+        {Parts: []*genai.Part{
+            {Text: "What is the weather like in Boston?"},
+        },
+            Role: genai.RoleUser},
+        {Parts: []*genai.Part{
+            {FunctionCall: funcCall},
+        }},
+        {Parts: []*genai.Part{
+            {FunctionResponse: funcResp},
+        }},
+    }
+
+    resp, err = client.Models.GenerateContent(ctx, modelName, contents, config)
+    if err != nil {
+        return fmt.Errorf("failed to generate content: %w", err)
+    }
+
+    respText := resp.Text()
+
+    fmt.Fprintln(w, respText)
+
+    // Example response:
+    // The weather in Boston is cold and cloudy with a temperature of 38 degrees Fahrenheit. The humidity is ...
+
+    return nil
+}
+```
 
 ### REST (OpenAI)
 
@@ -694,43 +649,47 @@ You can call the Function Calling API by using the OpenAI library. For more info
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
-  - MODEL\_ID : The ID of the model that's being processed.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+- ` MODEL_ID ` : The ID of the model that's being processed.
 
 HTTP method and URL:
 
-    POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions
+```
+POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions
+```
 
 Request JSON body:
 
+```
+{
+  "model": "google/MODEL_ID",
+  "messages": [
     {
-      "model": "google/MODEL_ID",
-      "messages": [
-        {
-          "role": "user",
-          "content": "What is the weather in Boston?"
-        }
-      ],
-      "tools": [
-        {
-          "type": "function",
-          "function": {
-            "name": "get_current_weather",
-            "description": "Get the current weather in a given location",
-            "parameters": {
-              "type": "OBJECT",
-              "properties": {
-                "location": {
-                  "type": "string",
-                  "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
-                }
-               },
-              "required": ["location"]
-            }
-          }
-        }
-      ]
+      "role": "user",
+      "content": "What is the weather in Boston?"
     }
+  ],
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "get_current_weather",
+        "description": "Get the current weather in a given location",
+        "parameters": {
+          "type": "OBJECT",
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
+            }
+           },
+          "required": ["location"]
+        }
+      }
+    }
+  ]
+}
+```
 
 To send your request, choose one of these options:
 
@@ -740,11 +699,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions"
+```
 
 #### PowerShell
 
@@ -752,82 +713,86 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+```
 
 ### Python (OpenAI)
 
 You can call the Function Calling API by using the OpenAI library. For more information, see [Call Agent Platform models by using the OpenAI library](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview) .
 
-    import vertexai
-    import openai
-    
-    from google.auth import default, transport
-    
-    # TODO(developer): Update & uncomment below line
-    # PROJECT_ID = "your-project-id"
-    location = "us-central1"
-    
-    vertexai.init(project=PROJECT_ID, location=location)
-    
-    # Programmatically get an access token
-    credentials, _ = default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
-    auth_request = transport.requests.Request()
-    credentials.refresh(auth_request)
-    
-    # # OpenAI Client
-    client = openai.OpenAI(
-        base_url=f"https://{location}-aiplatform.googleapis.com/v1beta1/projects/{PROJECT_ID}/locations/{location}/endpoints/openapi",
-        api_key=credentials.token,
-    )
-    
-    tools = [
-        {
-            "type": "function",
-            "function": {
-                "name": "get_current_weather",
-                "description": "Get the current weather in a given location",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "location": {
-                            "type": "string",
-                            "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616",
-                        },
+```python
+import vertexai
+import openai
+
+from google.auth import default, transport
+
+# TODO(developer): Update & uncomment below line
+# PROJECT_ID = "your-project-id"
+location = "us-central1"
+
+vertexai.init(project=PROJECT_ID, location=location)
+
+# Programmatically get an access token
+credentials, _ = default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
+auth_request = transport.requests.Request()
+credentials.refresh(auth_request)
+
+# # OpenAI Client
+client = openai.OpenAI(
+    base_url=f"https://{location}-aiplatform.googleapis.com/v1beta1/projects/{PROJECT_ID}/locations/{location}/endpoints/openapi",
+    api_key=credentials.token,
+)
+
+tools = [
+    {
+        "type": "function",
+        "function": {
+            "name": "get_current_weather",
+            "description": "Get the current weather in a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616",
                     },
-                    "required": ["location"],
                 },
+                "required": ["location"],
             },
-        }
-    ]
-    
-    messages = []
-    messages.append(
-        {
-            "role": "system",
-            "content": "Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.",
-        }
-    )
-    messages.append({"role": "user", "content": "What is the weather in Boston?"})
-    
-    response = client.chat.completions.create(
-        model="google/gemini-2.0-flash-001",
-        messages=messages,
-        tools=tools,
-    )
-    
-    print("Function:", response.choices[0].message.tool_calls[0].id)
-    print("Arguments:", response.choices[0].message.tool_calls[0].function.arguments)
-    # Example response:
-    # Function: get_current_weather
-    # Arguments: {"location":"Boston"}
+        },
+    }
+]
+
+messages = []
+messages.append(
+    {
+        "role": "system",
+        "content": "Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.",
+    }
+)
+messages.append({"role": "user", "content": "What is the weather in Boston?"})
+
+response = client.chat.completions.create(
+    model="google/gemini-2.0-flash-001",
+    messages=messages,
+    tools=tools,
+)
+
+print("Function:", response.choices[0].message.tool_calls[0].id)
+print("Arguments:", response.choices[0].message.tool_calls[0].function.arguments)
+# Example response:
+# Function: get_current_weather
+# Arguments: {"location":"Boston"}
+```
 
 ### Send a function declaration with `FunctionCallingConfig`
 
@@ -835,472 +800,482 @@ The following example demonstrates how to pass a `FunctionCallingConfig` to the 
 
 The `functionCallingConfig` ensures that the model output is always a specific function call. To configure:
 
-  - Set the function calling `mode` to `ANY` .
+- Set the function calling `mode` to `ANY` .
 
-  - Specify the function names that you want to use in `allowed_function_names` . If `allowed_function_names` is empty, any of the provided functions can be returned.
+- Specify the function names that you want to use in `allowed_function_names` . If `allowed_function_names` is empty, any of the provided functions can be returned.
 
 ### REST
 
-    PROJECT_ID=myproject
-    LOCATION=us-central1
-    MODEL_ID=gemini-3.5-flash
-    
-    curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      https://${LOCATION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/google/models/${MODEL_ID}:generateContent \
-      -d '{
-        "contents": [{
-          "role": "user",
-          "parts": [{
-            "text": "Do you have the White Pixel 8 Pro 128GB in stock in the US?"
-          }]
-        }],
-        "tools": [{
-          "functionDeclarations": [
-            {
-              "name": "get_product_sku",
-              "description": "Get the available inventory for a Google products, for example: Pixel phones, Pixel Watches, Google Home etc",
-              "parameters": {
-                "type": "object",
-                "properties": {
-                  "product_name": {"type": "string", "description": "Product name"}
-                }
-              }
-            },
-            {
-              "name": "get_store_location",
-              "description": "Get the location of the closest store",
-              "parameters": {
-                "type": "object",
-                "properties": {
-                  "location": {"type": "string", "description": "Location"}
-                },
-              }
+```
+PROJECT_ID=myproject
+LOCATION=us-central1
+MODEL_ID=gemini-3.5-flash
+
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  https://${LOCATION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/google/models/${MODEL_ID}:generateContent \
+  -d '{
+    "contents": [{
+      "role": "user",
+      "parts": [{
+        "text": "Do you have the White Pixel 8 Pro 128GB in stock in the US?"
+      }]
+    }],
+    "tools": [{
+      "functionDeclarations": [
+        {
+          "name": "get_product_sku",
+          "description": "Get the available inventory for a Google products, for example: Pixel phones, Pixel Watches, Google Home etc",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "product_name": {"type": "string", "description": "Product name"}
             }
-          ]
-        }],
-        "toolConfig": {
-            "functionCallingConfig": {
-                "mode":"ANY",
-                "allowedFunctionNames": ["get_product_sku"]
           }
         },
-        "generationConfig": {
-          "temperature": 0.95,
-          "topP": 1.0,
-          "maxOutputTokens": 8192
+        {
+          "name": "get_store_location",
+          "description": "Get the location of the closest store",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {"type": "string", "description": "Location"}
+            },
+          }
         }
-      }'
+      ]
+    }],
+    "toolConfig": {
+        "functionCallingConfig": {
+            "mode":"ANY",
+            "allowedFunctionNames": ["get_product_sku"]
+      }
+    },
+    "generationConfig": {
+      "temperature": 0.95,
+      "topP": 1.0,
+      "maxOutputTokens": 8192
+    }
+  }'
+```
 
 ### Google Gen AI SDK for Python
 
-    from google import genai
-    from google.genai.types import (
-        FunctionDeclaration,
-        GenerateContentConfig,
-        HttpOptions,
-        Tool,
-    )
-    
-    client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    model_id = "gemini-3.5-flash"
-    
-    get_album_sales = FunctionDeclaration(
-        name="get_album_sales",
-        description="Gets the number of albums sold",
-        # Function parameters are specified in JSON schema format
-        parameters={
-            "type": "OBJECT",
-            "properties": {
+```
+from google import genai
+from google.genai.types import (
+    FunctionDeclaration,
+    GenerateContentConfig,
+    HttpOptions,
+    Tool,
+)
+
+client = genai.Client(http_options=HttpOptions(api_version="v1"))
+model_id = "gemini-3.5-flash"
+
+get_album_sales = FunctionDeclaration(
+    name="get_album_sales",
+    description="Gets the number of albums sold",
+    # Function parameters are specified in JSON schema format
+    parameters={
+        "type": "OBJECT",
+        "properties": {
+            "albums": {
+                "type": "ARRAY",
+                "description": "List of albums",
+                "items": {
+                    "description": "Album and its sales",
+                    "type": "OBJECT",
+                    "properties": {
+                        "album_name": {
+                            "type": "STRING",
+                            "description": "Name of the music album",
+                        },
+                        "copies_sold": {
+                            "type": "INTEGER",
+                            "description": "Number of copies sold",
+                        },
+                    },
+                },
+            },
+        },
+    },
+)
+
+sales_tool = Tool(
+    function_declarations=[get_album_sales],
+)
+
+response = client.models.generate_content(
+    model=model_id,
+    contents='At Stellar Sounds, a music label, 2024 was a rollercoaster. "Echoes of the Night," a debut synth-pop album, '
+    'surprisingly sold 350,000 copies, while veteran rock band "Crimson Tide\'s" latest, "Reckless Hearts," '
+    'lagged at 120,000. Their up-and-coming indie artist, "Luna Bloom\'s" EP, "Whispers of Dawn," '
+    'secured 75,000 sales. The biggest disappointment was the highly-anticipated rap album "Street Symphony" '
+    "only reaching 100,000 units. Overall, Stellar Sounds moved over 645,000 units this year, revealing unexpected "
+    "trends in music consumption.",
+    config=GenerateContentConfig(
+        tools=[sales_tool],
+        temperature=0,
+    ),
+)
+
+print(response.function_calls)
+# Example response:
+# [FunctionCall(
+#     id=None,
+#     name="get_album_sales",
+#     args={
+#         "albums": [
+#             {"album_name": "Echoes of the Night", "copies_sold": 350000},
+#             {"copies_sold": 120000, "album_name": "Reckless Hearts"},
+#             {"copies_sold": 75000, "album_name": "Whispers of Dawn"},
+#             {"copies_sold": 100000, "album_name": "Street Symphony"},
+#         ]
+#     },
+# )]
+```
+
+### Node.js
+
+```javascript
+const {GoogleGenAI, Type} = require('@google/genai');
+
+const GOOGLE_CLOUD_PROJECT = process.env.GOOGLE_CLOUD_PROJECT;
+const GOOGLE_CLOUD_LOCATION = process.env.GOOGLE_CLOUD_LOCATION || 'global';
+async function generateFunctionDesc(
+  projectId = GOOGLE_CLOUD_PROJECT,
+  location = GOOGLE_CLOUD_LOCATION
+) {
+  const client = new GoogleGenAI({
+    vertexai: true,
+    project: projectId,
+    location: location,
+  });
+
+  const get_album_sales = {
+    name: 'get_album_sales',
+    description: 'Gets the number of albums sold',
+    parameters: {
+      type: Type.OBJECT,
+      properties: {
+        albums: {
+          type: Type.ARRAY,
+          description: 'List of albums',
+          items: {
+            description: 'Album and its sales',
+            type: Type.OBJECT,
+            properties: {
+              album_name: {
+                type: Type.STRING,
+                description: 'Name of the music album',
+              },
+              copies_sold: {
+                type: Type.INTEGER,
+                description: 'Number of copies sold',
+              },
+            },
+          },
+        },
+      },
+    },
+  };
+
+  const sales_tool = {
+    functionDeclarations: [get_album_sales],
+  };
+
+  const prompt = `
+    At Stellar Sounds, a music label, 2024 was a rollercoaster. "Echoes of the Night", a debut synth-pop album, 
+    surprisingly sold 350,000 copies, while veteran rock band "Crimson Tide's" latest, "Reckless Hearts",
+    lagged at 120,000. Their up-and-coming indie artist, "Luna Bloom's" EP, "Whispers of Dawn",
+    secured 75,000 sales. The biggest disappointment was the highly-anticipated rap album "Street Symphony" 
+    only reaching 100,000 units. Overall, Stellar Sounds moved over 645,000 units this year, revealing unexpected
+    trends in music consumption.
+  `;
+
+  const response = await client.models.generateContent({
+    model: 'gemini-2.5-flash',
+    contents: prompt,
+    config: {
+      tools: [sales_tool],
+      temperature: 0,
+    },
+  });
+  const output = JSON.stringify(response.functionCalls, null, 2);
+  console.log(output);
+
+  // Example response:
+  //    [FunctionCall(
+  //     id=None,
+  //     name="get_album_sales",
+  //     args={
+  //         "albums": [
+  //             {"album_name": "Echoes of the Night", "copies_sold": 350000},
+  //             {"copies_sold": 120000, "album_name": "Reckless Hearts"},
+  //             {"copies_sold": 75000, "album_name": "Whispers of Dawn"},
+  //             {"copies_sold": 100000, "album_name": "Street Symphony"},
+  //          ]
+  //      },
+  //     )]
+
+  return output;
+}
+```
+
+### Java
+
+```java
+import com.google.genai.Client;
+import com.google.genai.types.FunctionCall;
+import com.google.genai.types.FunctionCallingConfig;
+import com.google.genai.types.FunctionCallingConfigMode;
+import com.google.genai.types.FunctionDeclaration;
+import com.google.genai.types.GenerateContentConfig;
+import com.google.genai.types.GenerateContentResponse;
+import com.google.genai.types.HttpOptions;
+import com.google.genai.types.Schema;
+import com.google.genai.types.Tool;
+import com.google.genai.types.ToolConfig;
+import com.google.genai.types.Type;
+import java.util.List;
+import java.util.Map;
+
+public class ToolFunctionCallingConfigWithText {
+
+  public static void main(String[] args) {
+    // TODO(developer): Replace these variables before running the sample.
+    String modelId = "gemini-2.5-flash";
+
+    generateContent(modelId);
+  }
+
+  // Generates content using function calling config to force a specific function call
+  public static String generateContent(String modelId) {
+    String contents =
+        "At Stellar Sounds, a music label, 2024 was a rollercoaster. \"Echoes of the Night,\""
+            + " a debut synth-pop album, \n surprisingly sold 350,000 copies, while veteran"
+            + " rock band \"Crimson Tide's\" latest, \"Reckless Hearts,\" \n lagged at"
+            + " 120,000. Their up-and-coming indie artist, \"Luna Bloom's\" EP, \"Whispers "
+            + "of Dawn,\" \n secured 75,000 sales. The biggest disappointment was the "
+            + "highly-anticipated rap album \"Street Symphony\" \n only reaching 100,000"
+            + " units. Overall, Stellar Sounds moved over 645,000 units this year, revealing"
+            + " unexpected \n trends in music consumption.";
+
+    return generateContent(modelId, contents);
+  }
+
+  // Generates content using function calling config to force a specific function call
+  public static String generateContent(String modelId, String contents) {
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests.
+    try (Client client =
+        Client.builder()
+            .location("global")
+            .vertexAI(true)
+            .httpOptions(HttpOptions.builder().apiVersion("v1").build())
+            .build()) {
+
+      FunctionDeclaration getAlbumSales =
+          FunctionDeclaration.builder()
+              .name("get_album_sales")
+              .description("Gets the number of albums sold")
+              // Function parameters are specified in schema format
+              .parameters(
+                  Schema.builder()
+                      .type(Type.Known.OBJECT)
+                      .properties(
+                          Map.of(
+                              "albums",
+                              Schema.builder()
+                                  .type(Type.Known.ARRAY)
+                                  .description("List of albums")
+                                  .items(
+                                      Schema.builder()
+                                          .description("Album and its sales")
+                                          .type(Type.Known.OBJECT)
+                                          .properties(
+                                              Map.of(
+                                                  "album_name",
+                                                      Schema.builder()
+                                                          .type(Type.Known.STRING)
+                                                          .description("Name of the music album")
+                                                          .build(),
+                                                  "copies_sold",
+                                                      Schema.builder()
+                                                          .type(Type.Known.INTEGER)
+                                                          .description("Number of copies sold")
+                                                          .build()))
+                                          .build()) // End items schema for albums
+                                  .build() // End "albums" property schema
+                              ))
+                      .build()) // End parameters schema
+              .build(); // End function declaration
+
+      Tool salesTool = Tool.builder().functionDeclarations(getAlbumSales).build();
+
+      ToolConfig toolConfig =
+          ToolConfig.builder()
+              .functionCallingConfig(
+                  FunctionCallingConfig.builder()
+                      .mode(FunctionCallingConfigMode.Known.ANY)
+                      .allowedFunctionNames(List.of("get_album_sales"))
+                      .build())
+              .build();
+
+      GenerateContentConfig config =
+          GenerateContentConfig.builder()
+              .tools(salesTool)
+              .toolConfig(toolConfig)
+              .temperature(0.0f)
+              .build();
+
+      GenerateContentResponse response = client.models.generateContent(modelId, contents, config);
+
+      // response.functionCalls() returns an ImmutableList<FunctionCall>.
+      List<FunctionCall> functionCalls = response.functionCalls();
+      if (functionCalls != null && !functionCalls.isEmpty()) {
+        System.out.println(functionCalls.get(0));
+        return functionCalls.toString();
+      }
+      System.out.println("No function calls found in response.");
+      return "";
+      // Example response:
+      // [FunctionCall{args=Optional[{albums=[{album_name=Echoes of the Night,
+      // copies_sold=350000}, {album_name=Reckless Hearts, copies_sold=120000},
+      // {album_name=Whispers of Dawn, copies_sold=75000},
+      // {album_name=Street Symphony, copies_sold=100000}]}],
+      // name=Optional[get_album_sales]}]
+    }
+  }
+}
+```
+
+### Go
+
+```golang
+import (
+    "context"
+    "encoding/json"
+    "errors"
+    "fmt"
+    "io"
+
+    genai "google.golang.org/genai"
+)
+
+func generateWithFuncCallConfig(w io.Writer) error {
+    ctx := context.Background()
+
+    client, err := genai.NewClient(ctx, &genai.ClientConfig{
+        HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
+    })
+    if err != nil {
+        return fmt.Errorf("failed to create genai client: %w", err)
+    }
+
+    getAlbumSalesFunc := &genai.FunctionDeclaration{
+        Name:        "get_album_sales",
+        Description: "Gets the number of albums sold",
+        Parameters: &genai.Schema{
+            Type: genai.TypeObject,
+            Properties: map[string]*genai.Schema{
                 "albums": {
-                    "type": "ARRAY",
-                    "description": "List of albums",
-                    "items": {
-                        "description": "Album and its sales",
-                        "type": "OBJECT",
-                        "properties": {
+                    Type:        genai.TypeArray,
+                    Description: "List of albums",
+                    Items: &genai.Schema{
+                        Type:        genai.TypeObject,
+                        Description: "Album and its sales",
+                        Properties: map[string]*genai.Schema{
                             "album_name": {
-                                "type": "STRING",
-                                "description": "Name of the music album",
+                                Type:        genai.TypeString,
+                                Description: "Name of the music album",
                             },
                             "copies_sold": {
-                                "type": "INTEGER",
-                                "description": "Number of copies sold",
+                                Type:        genai.TypeInteger,
+                                Description: "Number of copies sold",
                             },
                         },
                     },
                 },
             },
         },
-    )
-    
-    sales_tool = Tool(
-        function_declarations=[get_album_sales],
-    )
-    
-    response = client.models.generate_content(
-        model=model_id,
-        contents='At Stellar Sounds, a music label, 2024 was a rollercoaster. "Echoes of the Night," a debut synth-pop album, '
-        'surprisingly sold 350,000 copies, while veteran rock band "Crimson Tide\'s" latest, "Reckless Hearts," '
-        'lagged at 120,000. Their up-and-coming indie artist, "Luna Bloom\'s" EP, "Whispers of Dawn," '
-        'secured 75,000 sales. The biggest disappointment was the highly-anticipated rap album "Street Symphony" '
-        "only reaching 100,000 units. Overall, Stellar Sounds moved over 645,000 units this year, revealing unexpected "
-        "trends in music consumption.",
-        config=GenerateContentConfig(
-            tools=[sales_tool],
-            temperature=0,
-        ),
-    )
-    
-    print(response.function_calls)
-    # Example response:
-    # [FunctionCall(
-    #     id=None,
-    #     name="get_album_sales",
-    #     args={
-    #         "albums": [
-    #             {"album_name": "Echoes of the Night", "copies_sold": 350000},
-    #             {"copies_sold": 120000, "album_name": "Reckless Hearts"},
-    #             {"copies_sold": 75000, "album_name": "Whispers of Dawn"},
-    #             {"copies_sold": 100000, "album_name": "Street Symphony"},
-    #         ]
-    #     },
-    # )]
+    }
 
-### Node.js
-
-    const {GoogleGenAI, Type} = require('@google/genai');
-    
-    const GOOGLE_CLOUD_PROJECT = process.env.GOOGLE_CLOUD_PROJECT;
-    const GOOGLE_CLOUD_LOCATION = process.env.GOOGLE_CLOUD_LOCATION || 'global';
-    async function generateFunctionDesc(
-      projectId = GOOGLE_CLOUD_PROJECT,
-      location = GOOGLE_CLOUD_LOCATION
-    ) {
-      const client = new GoogleGenAI({
-        vertexai: true,
-        project: projectId,
-        location: location,
-      });
-    
-      const get_album_sales = {
-        name: 'get_album_sales',
-        description: 'Gets the number of albums sold',
-        parameters: {
-          type: Type.OBJECT,
-          properties: {
-            albums: {
-              type: Type.ARRAY,
-              description: 'List of albums',
-              items: {
-                description: 'Album and its sales',
-                type: Type.OBJECT,
-                properties: {
-                  album_name: {
-                    type: Type.STRING,
-                    description: 'Name of the music album',
-                  },
-                  copies_sold: {
-                    type: Type.INTEGER,
-                    description: 'Number of copies sold',
-                  },
-                },
-              },
+    config := &genai.GenerateContentConfig{
+        Tools: []*genai.Tool{
+            {
+                FunctionDeclarations: []*genai.FunctionDeclaration{getAlbumSalesFunc},
             },
-          },
         },
-      };
-    
-      const sales_tool = {
-        functionDeclarations: [get_album_sales],
-      };
-    
-      const prompt = `
-        At Stellar Sounds, a music label, 2024 was a rollercoaster. "Echoes of the Night", a debut synth-pop album, 
-        surprisingly sold 350,000 copies, while veteran rock band "Crimson Tide's" latest, "Reckless Hearts",
-        lagged at 120,000. Their up-and-coming indie artist, "Luna Bloom's" EP, "Whispers of Dawn",
-        secured 75,000 sales. The biggest disappointment was the highly-anticipated rap album "Street Symphony" 
-        only reaching 100,000 units. Overall, Stellar Sounds moved over 645,000 units this year, revealing unexpected
-        trends in music consumption.
-      `;
-    
-      const response = await client.models.generateContent({
-        model: 'gemini-2.5-flash',
-        contents: prompt,
-        config: {
-          tools: [sales_tool],
-          temperature: 0,
+        ToolConfig: &genai.ToolConfig{
+            FunctionCallingConfig: &genai.FunctionCallingConfig{
+                Mode: genai.FunctionCallingConfigModeAuto,
+            },
         },
-      });
-      const output = JSON.stringify(response.functionCalls, null, 2);
-      console.log(output);
-    
-      // Example response:
-      //    [FunctionCall(
-      //     id=None,
-      //     name="get_album_sales",
-      //     args={
-      //         "albums": [
-      //             {"album_name": "Echoes of the Night", "copies_sold": 350000},
-      //             {"copies_sold": 120000, "album_name": "Reckless Hearts"},
-      //             {"copies_sold": 75000, "album_name": "Whispers of Dawn"},
-      //             {"copies_sold": 100000, "album_name": "Street Symphony"},
-      //          ]
-      //      },
-      //     )]
-    
-      return output;
+        Temperature: genai.Ptr(float32(0.0)),
     }
 
-### Java
+    promptText := `At Stellar Sounds, a music label, 2024 was a rollercoaster. 
+                "Echoes of the Night," a debut synth-pop album, surprisingly sold 350,000 copies, 
+                while veteran rock band "Crimson Tide's" latest, "Reckless Hearts," lagged at 120,000. 
 
-    import com.google.genai.Client;
-    import com.google.genai.types.FunctionCall;
-    import com.google.genai.types.FunctionCallingConfig;
-    import com.google.genai.types.FunctionCallingConfigMode;
-    import com.google.genai.types.FunctionDeclaration;
-    import com.google.genai.types.GenerateContentConfig;
-    import com.google.genai.types.GenerateContentResponse;
-    import com.google.genai.types.HttpOptions;
-    import com.google.genai.types.Schema;
-    import com.google.genai.types.Tool;
-    import com.google.genai.types.ToolConfig;
-    import com.google.genai.types.Type;
-    import java.util.List;
-    import java.util.Map;
-    
-    public class ToolFunctionCallingConfigWithText {
-    
-      public static void main(String[] args) {
-        // TODO(developer): Replace these variables before running the sample.
-        String modelId = "gemini-2.5-flash";
-    
-        generateContent(modelId);
-      }
-    
-      // Generates content using function calling config to force a specific function call
-      public static String generateContent(String modelId) {
-        String contents =
-            "At Stellar Sounds, a music label, 2024 was a rollercoaster. \"Echoes of the Night,\""
-                + " a debut synth-pop album, \n surprisingly sold 350,000 copies, while veteran"
-                + " rock band \"Crimson Tide's\" latest, \"Reckless Hearts,\" \n lagged at"
-                + " 120,000. Their up-and-coming indie artist, \"Luna Bloom's\" EP, \"Whispers "
-                + "of Dawn,\" \n secured 75,000 sales. The biggest disappointment was the "
-                + "highly-anticipated rap album \"Street Symphony\" \n only reaching 100,000"
-                + " units. Overall, Stellar Sounds moved over 645,000 units this year, revealing"
-                + " unexpected \n trends in music consumption.";
-    
-        return generateContent(modelId, contents);
-      }
-    
-      // Generates content using function calling config to force a specific function call
-      public static String generateContent(String modelId, String contents) {
-        // Initialize client that will be used to send requests. This client only needs to be created
-        // once, and can be reused for multiple requests.
-        try (Client client =
-            Client.builder()
-                .location("global")
-                .vertexAI(true)
-                .httpOptions(HttpOptions.builder().apiVersion("v1").build())
-                .build()) {
-    
-          FunctionDeclaration getAlbumSales =
-              FunctionDeclaration.builder()
-                  .name("get_album_sales")
-                  .description("Gets the number of albums sold")
-                  // Function parameters are specified in schema format
-                  .parameters(
-                      Schema.builder()
-                          .type(Type.Known.OBJECT)
-                          .properties(
-                              Map.of(
-                                  "albums",
-                                  Schema.builder()
-                                      .type(Type.Known.ARRAY)
-                                      .description("List of albums")
-                                      .items(
-                                          Schema.builder()
-                                              .description("Album and its sales")
-                                              .type(Type.Known.OBJECT)
-                                              .properties(
-                                                  Map.of(
-                                                      "album_name",
-                                                          Schema.builder()
-                                                              .type(Type.Known.STRING)
-                                                              .description("Name of the music album")
-                                                              .build(),
-                                                      "copies_sold",
-                                                          Schema.builder()
-                                                              .type(Type.Known.INTEGER)
-                                                              .description("Number of copies sold")
-                                                              .build()))
-                                              .build()) // End items schema for albums
-                                      .build() // End "albums" property schema
-                                  ))
-                          .build()) // End parameters schema
-                  .build(); // End function declaration
-    
-          Tool salesTool = Tool.builder().functionDeclarations(getAlbumSales).build();
-    
-          ToolConfig toolConfig =
-              ToolConfig.builder()
-                  .functionCallingConfig(
-                      FunctionCallingConfig.builder()
-                          .mode(FunctionCallingConfigMode.Known.ANY)
-                          .allowedFunctionNames(List.of("get_album_sales"))
-                          .build())
-                  .build();
-    
-          GenerateContentConfig config =
-              GenerateContentConfig.builder()
-                  .tools(salesTool)
-                  .toolConfig(toolConfig)
-                  .temperature(0.0f)
-                  .build();
-    
-          GenerateContentResponse response = client.models.generateContent(modelId, contents, config);
-    
-          // response.functionCalls() returns an ImmutableList<FunctionCall>.
-          List<FunctionCall> functionCalls = response.functionCalls();
-          if (functionCalls != null && !functionCalls.isEmpty()) {
-            System.out.println(functionCalls.get(0));
-            return functionCalls.toString();
-          }
-          System.out.println("No function calls found in response.");
-          return "";
-          // Example response:
-          // [FunctionCall{args=Optional[{albums=[{album_name=Echoes of the Night,
-          // copies_sold=350000}, {album_name=Reckless Hearts, copies_sold=120000},
-          // {album_name=Whispers of Dawn, copies_sold=75000},
-          // {album_name=Street Symphony, copies_sold=100000}]}],
-          // name=Optional[get_album_sales]}]
+                Their up-and-coming indie artist, "Luna Bloom's" EP, "Whispers of Dawn," secured 75,000 sales. 
+                The biggest disappointment was the highly-anticipated rap album "Street Symphony" 
+                only reaching 100,000 units. 
+
+                Overall, Stellar Sounds moved over 645,000 units this year, revealing unexpected 
+                trends in music consumption.`
+
+    modelName := "gemini-2.5-flash"
+
+    resp, err := client.Models.GenerateContent(ctx, modelName, genai.Text(promptText), config)
+    if err != nil {
+        return fmt.Errorf("failed to generate content: %w", err)
+    }
+
+    funcCalls := resp.FunctionCalls()
+    if len(funcCalls) == 0 {
+        return errors.New("no function calls were generated")
+    }
+
+    for _, fc := range funcCalls {
+        fmt.Fprintf(w, "Function Call Detected: %s\n", fc.Name)
+
+        jsondata, err := json.MarshalIndent(fc.Args, "", " ")
+        if err != nil {
+            return fmt.Errorf("failed to marshal function call args: %w", err)
         }
-      }
+
+        fmt.Fprintln(w, jsondata)
+        // Example response
+        // {
+        //  "albums": [
+        //   {
+        //    "album_name": "Echoes of the Night",
+        //    "copies_sold": 350000
+        //   },
+        //   {
+        //    "album_name": "Reckless Hearts",
+        //    "copies_sold": 120000
+        //   },
+        //   {
+        //    "album_name": "Whispers of Dawn",
+        //    "copies_sold": 75000
+        //   },
+        //   {
+        //    "album_name": "Street Symphony",
+        //    "copies_sold": 100000
+        //   }
+        //  ]
+        // }
+
     }
 
-### Go
-
-    import (
-     "context"
-     "encoding/json"
-     "errors"
-     "fmt"
-     "io"
-    
-     genai "google.golang.org/genai"
-    )
-    
-    func generateWithFuncCallConfig(w io.Writer) error {
-     ctx := context.Background()
-    
-     client, err := genai.NewClient(ctx, &genai.ClientConfig{
-         HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
-     })
-     if err != nil {
-         return fmt.Errorf("failed to create genai client: %w", err)
-     }
-    
-     getAlbumSalesFunc := &genai.FunctionDeclaration{
-         Name:        "get_album_sales",
-         Description: "Gets the number of albums sold",
-         Parameters: &genai.Schema{
-             Type: genai.TypeObject,
-             Properties: map[string]*genai.Schema{
-                 "albums": {
-                     Type:        genai.TypeArray,
-                     Description: "List of albums",
-                     Items: &genai.Schema{
-                         Type:        genai.TypeObject,
-                         Description: "Album and its sales",
-                         Properties: map[string]*genai.Schema{
-                             "album_name": {
-                                 Type:        genai.TypeString,
-                                 Description: "Name of the music album",
-                             },
-                             "copies_sold": {
-                                 Type:        genai.TypeInteger,
-                                 Description: "Number of copies sold",
-                             },
-                         },
-                     },
-                 },
-             },
-         },
-     }
-    
-     config := &genai.GenerateContentConfig{
-         Tools: []*genai.Tool{
-             {
-                 FunctionDeclarations: []*genai.FunctionDeclaration{getAlbumSalesFunc},
-             },
-         },
-         ToolConfig: &genai.ToolConfig{
-             FunctionCallingConfig: &genai.FunctionCallingConfig{
-                 Mode: genai.FunctionCallingConfigModeAuto,
-             },
-         },
-         Temperature: genai.Ptr(float32(0.0)),
-     }
-    
-     promptText := `At Stellar Sounds, a music label, 2024 was a rollercoaster. 
-                 "Echoes of the Night," a debut synth-pop album, surprisingly sold 350,000 copies, 
-                 while veteran rock band "Crimson Tide's" latest, "Reckless Hearts," lagged at 120,000. 
-    
-                 Their up-and-coming indie artist, "Luna Bloom's" EP, "Whispers of Dawn," secured 75,000 sales. 
-                 The biggest disappointment was the highly-anticipated rap album "Street Symphony" 
-                 only reaching 100,000 units. 
-    
-                 Overall, Stellar Sounds moved over 645,000 units this year, revealing unexpected 
-                 trends in music consumption.`
-    
-     modelName := "gemini-2.5-flash"
-    
-     resp, err := client.Models.GenerateContent(ctx, modelName, genai.Text(promptText), config)
-     if err != nil {
-         return fmt.Errorf("failed to generate content: %w", err)
-     }
-    
-     funcCalls := resp.FunctionCalls()
-     if len(funcCalls) == 0 {
-         return errors.New("no function calls were generated")
-     }
-    
-     for _, fc := range funcCalls {
-         fmt.Fprintf(w, "Function Call Detected: %s\n", fc.Name)
-    
-         jsondata, err := json.MarshalIndent(fc.Args, "", " ")
-         if err != nil {
-             return fmt.Errorf("failed to marshal function call args: %w", err)
-         }
-    
-         fmt.Fprintln(w, jsondata)
-         // Example response
-         // {
-         //  "albums": [
-         //   {
-         //    "album_name": "Echoes of the Night",
-         //    "copies_sold": 350000
-         //   },
-         //   {
-         //    "album_name": "Reckless Hearts",
-         //    "copies_sold": 120000
-         //   },
-         //   {
-         //    "album_name": "Whispers of Dawn",
-         //    "copies_sold": 75000
-         //   },
-         //   {
-         //    "album_name": "Street Symphony",
-         //    "copies_sold": 100000
-         //   }
-         //  ]
-         // }
-    
-     }
-    
-     return nil
-    }
+    return nil
+}
+```
 
 ### REST (OpenAI)
 
@@ -1308,44 +1283,48 @@ You can call the Function Calling API by using the OpenAI library. For more info
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
-  - MODEL\_ID : The ID of the model that's being processed.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+- ` MODEL_ID ` : The ID of the model that's being processed.
 
 HTTP method and URL:
 
-    POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions
+```
+POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions
+```
 
 Request JSON body:
 
-    {
-      "model": "google/MODEL_ID",
-      "messages": [
-      {
-        "role": "user",
-        "content": "What is the weather in Boston?"
-      }
-    ],
-    "tools": [
-      {
-        "type": "function",
-        "function": {
-          "name": "get_current_weather",
-          "description": "Get the current weather in a given location",
-          "parameters": {
-            "type": "OBJECT",
-            "properties": {
-              "location": {
-                "type": "string",
-                "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
-              }
-             },
-            "required": ["location"]
+```
+{
+  "model": "google/MODEL_ID",
+  "messages": [
+  {
+    "role": "user",
+    "content": "What is the weather in Boston?"
+  }
+],
+"tools": [
+  {
+    "type": "function",
+    "function": {
+      "name": "get_current_weather",
+      "description": "Get the current weather in a given location",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "location": {
+            "type": "string",
+            "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616"
           }
-        }
+         },
+        "required": ["location"]
       }
-    ],
-    "tool_choice": "auto"
     }
+  }
+],
+"tool_choice": "auto"
+}
+```
 
 To send your request, choose one of these options:
 
@@ -1355,11 +1334,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions"
+```
 
 #### PowerShell
 
@@ -1367,86 +1348,90 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+```
 
 ### Python (OpenAI)
 
 You can call the Function Calling API by using the OpenAI library. For more information, see [Call Agent Platform models by using the OpenAI library](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview) .
 
-    import vertexai
-    import openai
-    
-    from google.auth import default, transport
-    
-    # TODO(developer): Update & uncomment below line
-    # PROJECT_ID = "your-project-id"
-    location = "us-central1"
-    
-    vertexai.init(project=PROJECT_ID, location=location)
-    
-    # Programmatically get an access token
-    credentials, _ = default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
-    auth_request = transport.requests.Request()
-    credentials.refresh(auth_request)
-    
-    # OpenAI Client
-    client = openai.OpenAI(
-        base_url=f"https://{location}-aiplatform.googleapis.com/v1beta1/projects/{PROJECT_ID}/locations/{location}/endpoints/openapi",
-        api_key=credentials.token,
-    )
-    
-    tools = [
-        {
-            "type": "function",
-            "function": {
-                "name": "get_current_weather",
-                "description": "Get the current weather in a given location",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "location": {
-                            "type": "string",
-                            "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616",
-                        },
+```python
+import vertexai
+import openai
+
+from google.auth import default, transport
+
+# TODO(developer): Update & uncomment below line
+# PROJECT_ID = "your-project-id"
+location = "us-central1"
+
+vertexai.init(project=PROJECT_ID, location=location)
+
+# Programmatically get an access token
+credentials, _ = default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
+auth_request = transport.requests.Request()
+credentials.refresh(auth_request)
+
+# OpenAI Client
+client = openai.OpenAI(
+    base_url=f"https://{location}-aiplatform.googleapis.com/v1beta1/projects/{PROJECT_ID}/locations/{location}/endpoints/openapi",
+    api_key=credentials.token,
+)
+
+tools = [
+    {
+        "type": "function",
+        "function": {
+            "name": "get_current_weather",
+            "description": "Get the current weather in a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The city and state, e.g. San Francisco, CA or a zip code e.g. 95616",
                     },
-                    "required": ["location"],
                 },
+                "required": ["location"],
             },
-        }
-    ]
-    
-    messages = []
-    messages.append(
-        {
-            "role": "system",
-            "content": "Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.",
-        }
-    )
-    messages.append({"role": "user", "content": "What is the weather in Boston, MA?"})
-    
-    response = client.chat.completions.create(
-        model="google/gemini-2.0-flash-001",
-        messages=messages,
-        tools=tools,
-        tool_choice="auto",
-    )
-    
-    print("Function:", response.choices[0].message.tool_calls[0].id)
-    print("Arguments:", response.choices[0].message.tool_calls[0].function.arguments)
-    # Example response:
-    # Function: get_current_weather
-    # Arguments: {"location":"Boston"}
+        },
+    }
+]
+
+messages = []
+messages.append(
+    {
+        "role": "system",
+        "content": "Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.",
+    }
+)
+messages.append({"role": "user", "content": "What is the weather in Boston, MA?"})
+
+response = client.chat.completions.create(
+    model="google/gemini-2.0-flash-001",
+    messages=messages,
+    tools=tools,
+    tool_choice="auto",
+)
+
+print("Function:", response.choices[0].message.tool_calls[0].id)
+print("Arguments:", response.choices[0].message.tool_calls[0].function.arguments)
+# Example response:
+# Function: get_current_weather
+# Arguments: {"location":"Boston"}
+```
 
 ## What's next
 
 For detailed documentation, see the following:
 
-  - [Introduction to function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)
+- [Introduction to function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)

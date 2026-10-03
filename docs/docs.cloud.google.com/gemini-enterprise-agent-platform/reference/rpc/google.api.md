@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 ## Index
 
-  - `  HttpBody  ` (message)
+- [`HttpBody`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.api#google.api.HttpBody) (message)
 
 ## HttpBody
 
@@ -20,51 +20,41 @@ It can be used as a top-level request field, which is convenient if one wants to
 
 Example:
 
-    message GetResourceRequest {
-      // A unique request id.
-      string request_id = 1;
-    
-      // The raw HTTP body is bound to this field.
-      google.api.HttpBody http_body = 2;
-    
-    }
-    
-    service ResourceService {
-      rpc GetResource(GetResourceRequest)
-        returns (google.api.HttpBody);
-      rpc UpdateResource(google.api.HttpBody)
-        returns (google.protobuf.Empty);
-    
-    }
+```
+message GetResourceRequest {
+  // A unique request id.
+  string request_id = 1;
+
+  // The raw HTTP body is bound to this field.
+  google.api.HttpBody http_body = 2;
+
+}
+
+service ResourceService {
+  rpc GetResource(GetResourceRequest)
+    returns (google.api.HttpBody);
+  rpc UpdateResource(google.api.HttpBody)
+    returns (google.protobuf.Empty);
+
+}
+```
 
 Example with streaming methods:
 
-    service CaldavService {
-      rpc GetCalendar(stream google.api.HttpBody)
-        returns (stream google.api.HttpBody);
-      rpc UpdateCalendar(stream google.api.HttpBody)
-        returns (stream google.api.HttpBody);
-    
-    }
+```
+service CaldavService {
+  rpc GetCalendar(stream google.api.HttpBody)
+    returns (stream google.api.HttpBody);
+  rpc UpdateCalendar(stream google.api.HttpBody)
+    returns (stream google.api.HttpBody);
+
+}
+```
 
 Use of this type only changes how the request and response bodies are handled, all other features will continue to work unchanged.
 
-Fields
-
-`content_type`
-
-`string`
-
-The HTTP Content-Type header value specifying the content type of the body.
-
-`data`
-
-`bytes`
-
-The HTTP request/response body as raw binary.
-
-`extensions[]`
-
-`  Any  `
-
-Application specific response metadata. Must be set in the first response for streaming APIs.
+| Fields         |                                                                                                                                                                     |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `content_type` | `string` The HTTP Content-Type header value specifying the content type of the body.                                                                                |
+| `data`         | `bytes` The HTTP request/response body as raw binary.                                                                                                               |
+| `extensions[]` | [`Any`](https://protobuf.dev/reference/protobuf/google.protobuf/#any) Application specific response metadata. Must be set in the first response for streaming APIs. |

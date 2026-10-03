@@ -15,7 +15,7 @@ vLLM is an open-source library for fast inference and serving of Large Language 
 The following notebooks demonstrate how to use Gemini Enterprise Agent Platform prebuilt containers for model serving. You can find more sample notebooks in the [GitHub repository for Gemini Enterprise Agent Platform samples](https://github.com/GoogleCloudPlatform/vertex-ai-samples/tree/main/notebooks/community/model_garden) .
 
 | Notebook Name                                                                                     | Description                                                                                                               | Direct Link (GitHub/Colab)                                                                                                                                                        |
-| :------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Gemini Enterprise Agent Platform Model Garden - Gemma 3 (deployment)                              | Demonstrates deploying Gemma 3 models on GPU using vLLM.                                                                  | [View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma3_deployment_on_vertex.ipynb)              |
 | Gemini Enterprise Agent Platform Model Garden - Serve Multimodal Llama 3.2 with vLLM              | Deploys multimodal Llama 3.2 models using the vLLM prebuilt container.                                                    | [View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_vllm_multimodal_tutorial.ipynb)                 |
 | Gemini Enterprise Agent Platform Model Garden - Hugging Face Text Generation Inference Deployment | Demonstrates deploying Gemma-2-2b-it model with Text Generation Inference (TGI) from Hugging Face                         | [View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_huggingface_tgi_deployment.ipynb)               |
@@ -28,7 +28,7 @@ The following notebooks demonstrate how to use Gemini Enterprise Agent Platform 
 
 ## What's next
 
-  - [Choose an open model serving option](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/choose-serving-option)
-  - [Use open models using Model as a Service (MaaS)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-maas)
-  - [Deploy open models from Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/deploy-model-garden)
-  - [Deploy open models with a custom vLLM container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/deploy-custom-vllm)
+- [Choose an open model serving option](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/choose-serving-option)
+- [Use open models using Model as a Service (MaaS)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-maas)
+- [Deploy open models from Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/deploy-model-garden)
+- [Deploy open models with a custom vLLM container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/deploy-custom-vllm)

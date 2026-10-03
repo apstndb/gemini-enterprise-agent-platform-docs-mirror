@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 CodeMender lets you proactively scan your codebase for software weaknesses and execute proof-of-concept (PoC) exploits in your local sandbox to confirm exploitability and eliminate false positives.
@@ -18,15 +18,21 @@ To run a rapid security scan across your codebase, run `cm find` . Scan targeted
 
 Scan a specific subdirectory:
 
-    cm find ./src/auth/
+```
+cm find ./src/auth/
+```
 
 Scan a single file:
 
-    cm find ./src/auth/session_manager.py
+```
+cm find ./src/auth/session_manager.py
+```
 
 Skip interactive approval prompts during the scan:
 
-    cm find ./src/auth/ -y
+```
+cm find ./src/auth/ -y
+```
 
 ## Verify vulnerabilities
 
@@ -36,26 +42,38 @@ Once CodeMender identifies potential vulnerabilities, ask it to verify exploitab
 
 Locate the `finding-id` from the output of `cm report` or `cm find` , then run:
 
-    cm verify FINDING_ID
+```
+cm verify FINDING_ID
+```
 
 ### Verification flags
 
-  - **Provide custom guidance context ( `-c` / `--context` )** : Pass steering instructions or application domain context to guide the agent:
-    
-        cm verify FINDING_ID -c "Focus analysis on the multi-tenant session validation path"
+- **Provide custom guidance context ( `-c` / `--context` )** : Pass steering instructions or application domain context to guide the agent:
 
-  - **Skip PoC exploit execution ( `--skip-exploit-verification` )** : Perform static verification only without running active exploits:
-    
-        cm verify FINDING_ID --skip-exploit-verification
+  ```
+  cm verify FINDING_ID -c "Focus analysis on the multi-tenant session validation path"
+  ```
 
-  - **Control sandboxing ( `--sandbox` )** : Explicitly enable or disable the sandbox for this run (for example, `--sandbox=false` to disable):
-    
-        cm verify FINDING_ID --sandbox=false
+- **Skip PoC exploit execution ( `--skip-exploit-verification` )** : Perform static verification only without running active exploits:
 
-  - **Bypass sandboxing ( `--unrestricted` )** : Temporarily bypass all sandbox protections for this run, disabling file system boundaries and OS-level container isolation:
-    
-        cm verify FINDING_ID --unrestricted
+  ```
+  cm verify FINDING_ID --skip-exploit-verification
+  ```
 
-  - **Auto-approve confirmation prompts ( `-y` / `--yes` )** : Skip interactive confirmation prompts for tool actions and PoC exploit execution. When running interactively without `-y` , CodeMender prompts for confirmation ( `[y/N]` ) before executing generated exploit scripts. In automated CI/CD pipelines and evaluation runs, passing `-y` auto-approves execution and keeps all commands contained within the OS-level sandbox container ( `exebox` ):
-    
-        cm verify FINDING_ID -y
+- **Control sandboxing ( `--sandbox` )** : Explicitly enable or disable the sandbox for this run (for example, `--sandbox=false` to disable):
+
+  ```
+  cm verify FINDING_ID --sandbox=false
+  ```
+
+- **Bypass sandboxing ( `--unrestricted` )** : Temporarily bypass all sandbox protections for this run, disabling file system boundaries and OS-level container isolation:
+
+  ```
+  cm verify FINDING_ID --unrestricted
+  ```
+
+- **Auto-approve confirmation prompts ( `-y` / `--yes` )** : Skip interactive confirmation prompts for tool actions and PoC exploit execution. When running interactively without `-y` , CodeMender prompts for confirmation ( `[y/N]` ) before executing generated exploit scripts. In automated CI/CD pipelines and evaluation runs, passing `-y` auto-approves execution and keeps all commands contained within the OS-level sandbox container ( `exebox` ):
+
+  ```
+  cm verify FINDING_ID -y
+  ```

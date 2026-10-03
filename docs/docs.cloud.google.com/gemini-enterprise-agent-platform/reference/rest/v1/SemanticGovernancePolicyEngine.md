@@ -14,13 +14,13 @@ Fields
 
 Identifier. The resource name of the SemanticGovernancePolicyEngine. Format: projects/{project}/locations/{location}/semanticGovernancePolicyEngine
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this SemanticGovernancePolicyEngine was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this SemanticGovernancePolicyEngine was last updated.
 
@@ -38,29 +38,33 @@ Output only. The private IPv4 address of the PSC endpoint.
 
 Output only. The URI of the PSC endpoint resource created in customer project. Format: projects/{project}/regions/{region}/forwardingRules/{forwardingRule}
 
-`state` ` enum ( State  ` )
+`state` `enum ( `[`State`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/SemanticGovernancePolicyEngine#State)` )`
 
 Output only. The state of the SemanticGovernancePolicyEngine.
 
-`gatewayConfigs` ` map (key: string, value: object ( GatewayConfig  ` ))
+`gatewayConfigs` `map (key: string, value: object ( `[`GatewayConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/SemanticGovernancePolicyEngine#GatewayConfig)` ))`
 
 Optional. Configurations for gateways. The keys are user-defined names for each gateway. At most 5 gateway configurations are allowed.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;pscServiceAttachment&quot;: string,&quot;ipAddress&quot;: string,&quot;pscForwardingRule&quot;: string,&quot;state&quot;: enum (State),&quot;gatewayConfigs&quot;: {string: {object (GatewayConfig)},...}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "createTime": string,
+  "updateTime": string,
+  "pscServiceAttachment": string,
+  "ipAddress": string,
+  "pscForwardingRule": string,
+  "state": enum (State),
+  "gatewayConfigs": {
+    string: {
+      object (GatewayConfig)
+    },
+    ...
+  }
+}
+```
 
 ## State
 
@@ -68,31 +72,14 @@ state of the SemanticGovernancePolicyEngine.
 
 The lifecycle is: INACTIVE -\> PROVISIONING -\> {ACTIVE, FAILED} and ACTIVE -\> DEPROVISIONING -\> INACTIVE. A FAILED engine may be either re-provisioned or deprovisioned.
 
-Enums
-
-`STATE_UNSPECIFIED`
-
-Default value. This value is unused.
-
-`PROVISIONING`
-
-A provisioning operation is in progress. The engine will transition to ACTIVE on success or FAILED on failure.
-
-`ACTIVE`
-
-The engine and all of its gateway configurations are provisioned and ready to serve traffic.
-
-`DEPROVISIONING`
-
-A deprovisioning operation is in progress. The engine will transition to INACTIVE on success or FAILED on failure.
-
-`INACTIVE`
-
-The engine has no provisioned infrastructure: either never provisioned, or successfully deprovisioned.
-
-`FAILED`
-
-The most recent provisioning or deprovisioning operation failed. The engine may have partial infrastructure that needs explicit deprovision; the engine may be either re-provisioned or deprovisioned to recover.
+| Enums               |                                                                                                                                                                                                                   |
+|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `STATE_UNSPECIFIED` | Default value. This value is unused.                                                                                                                                                                              |
+| `PROVISIONING`      | A provisioning operation is in progress. The engine will transition to ACTIVE on success or FAILED on failure.                                                                                                    |
+| `ACTIVE`            | The engine and all of its gateway configurations are provisioned and ready to serve traffic.                                                                                                                      |
+| `DEPROVISIONING`    | A deprovisioning operation is in progress. The engine will transition to INACTIVE on success or FAILED on failure.                                                                                                |
+| `INACTIVE`          | The engine has no provisioned infrastructure: either never provisioned, or successfully deprovisioned.                                                                                                            |
+| `FAILED`            | The most recent provisioning or deprovisioning operation failed. The engine may have partial infrastructure that needs explicit deprovision; the engine may be either re-provisioned or deprovisioned to recover. |
 
 ## GatewayConfig
 
@@ -114,7 +101,7 @@ Optional. name of the private Cloud DNS managed zone in which to create the gate
 
 The zone's DNS name is combined with a generated per-gateway label to form the record's fully qualified name, which must stay within the 255-octet DNS limit. If the full name is too long, gateway provisioning fails when it attempts to create the DNS record.
 
-`state` ` enum ( State  ` )
+`state` `enum ( `[`State`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/SemanticGovernancePolicyEngine#State_1)` )`
 
 Output only. The state of the Gateway configuration.
 
@@ -134,48 +121,32 @@ Output only. The fully qualified record name of the created A-record in Cloud DN
 
 Optional. Additional consumer projects permitted to attach their own PSC endpoint to this gateway's ServiceAttachment. This is the "decoupled" mode, where the customer creates the PSC endpoint in a project other than this gateway's `network` project. Each listed project is VPC-SC enforced: it must be within the caller's service perimeter. The owning SemanticGovernancePolicyEngine's own project is always permitted implicitly and need not be listed. Format: `projects/{project}` (id or number).
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;network&quot;: string,&quot;subnetwork&quot;: string,&quot;dnsZoneName&quot;: string,&quot;state&quot;: enum (State),&quot;ipAddress&quot;: string,&quot;pscEndpoint&quot;: string,&quot;dnsRecord&quot;: string,&quot;allowedProjects&quot;: [string]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "network": string,
+  "subnetwork": string,
+  "dnsZoneName": string,
+  "state": enum (State),
+  "ipAddress": string,
+  "pscEndpoint": string,
+  "dnsRecord": string,
+  "allowedProjects": [
+    string
+  ]
+}
+```
 
 ## State
 
 state of the Gateway configuration.
 
-Enums
-
-`STATE_UNSPECIFIED`
-
-The default value. This value is used if the state is omitted.
-
-`PROVISIONING`
-
-The Gateway is being provisioned.
-
-`ACTIVE`
-
-The Gateway is active and ready to use.
-
-`DEPROVISIONING`
-
-The Gateway is being de-provisioned.
-
-`INACTIVE`
-
-The Gateway is inactive.
-
-`FAILED`
-
-The Gateway failed to be provisioned.
+| Enums               |                                                                |
+|---------------------|----------------------------------------------------------------|
+| `STATE_UNSPECIFIED` | The default value. This value is used if the state is omitted. |
+| `PROVISIONING`      | The Gateway is being provisioned.                              |
+| `ACTIVE`            | The Gateway is active and ready to use.                        |
+| `DEPROVISIONING`    | The Gateway is being de-provisioned.                           |
+| `INACTIVE`          | The Gateway is inactive.                                       |
+| `FAILED`            | The Gateway failed to be provisioned.                          |

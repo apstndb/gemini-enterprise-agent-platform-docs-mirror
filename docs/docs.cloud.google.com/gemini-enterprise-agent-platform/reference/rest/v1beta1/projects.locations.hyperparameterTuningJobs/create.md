@@ -24,8 +24,8 @@ Required. The resource name of the Location to create the HyperparameterTuningJo
 
 ### Request body
 
-The request body contains an instance of `  HyperparameterTuningJob  ` .
+The request body contains an instance of [`HyperparameterTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.hyperparameterTuningJobs#HyperparameterTuningJob) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  HyperparameterTuningJob  ` .
+If successful, the response body contains a newly created instance of [`HyperparameterTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.hyperparameterTuningJobs#HyperparameterTuningJob) .

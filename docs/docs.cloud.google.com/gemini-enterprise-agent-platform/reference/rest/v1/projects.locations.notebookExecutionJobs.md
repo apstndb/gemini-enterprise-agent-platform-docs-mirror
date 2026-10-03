@@ -20,7 +20,7 @@ Output only. The resource name of this NotebookExecutionJob. Format: `projects/{
 
 The display name of the NotebookExecutionJob. The name can be up to 128 characters long and can consist of any UTF-8 characters.
 
-`executionTimeout` ` string ( Duration  ` format)
+`executionTimeout` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 Max running time of the execution job in seconds (default 86400s / 24 hrs).
 
@@ -30,21 +30,21 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
 
 The Schedule resource name if this job is triggered by one. Format: `projects/{projectId}/locations/{location}/schedules/{scheduleId}`
 
-`jobState` ` enum ( JobState  ` )
+`jobState` `enum ( `[`JobState`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/JobState)` )`
 
 Output only. The state of the NotebookExecutionJob.
 
-`status` ` object ( Status  ` )
+`status` `object ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Status)` )`
 
 Output only. Populated when the NotebookExecutionJob is completed. When there is an error during notebook execution, the error details are populated.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this NotebookExecutionJob was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this NotebookExecutionJob was most recently updated.
 
@@ -62,23 +62,23 @@ See <https://goo.gl/xmQnxf> for more information and examples of labels. System 
 
 The name of the kernel to use during notebook execution. If unset, the default kernel is used.
 
-`encryptionSpec` ` object ( EncryptionSpec  ` )
+`encryptionSpec` `object ( `[`EncryptionSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/EncryptionSpec)` )`
 
-Customer-managed encryption key spec for the notebook execution job. This field is auto-populated if the `  NotebookRuntimeTemplate  ` has an encryption spec.
+Customer-managed encryption key spec for the notebook execution job. This field is auto-populated if the [`NotebookRuntimeTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates#NotebookRuntimeTemplate) has an encryption spec.
 
 `notebook_source` `Union type`
 
 The input notebook. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`dataformRepositorySource` ` object ( DataformRepositorySource  ` )
+`dataformRepositorySource` `object ( `[`DataformRepositorySource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs#NotebookExecutionJob.DataformRepositorySource)` )`
 
 The Dataform Repository pointing to a single file notebook repository.
 
-`gcsNotebookSource` ` object ( GcsNotebookSource  ` )
+`gcsNotebookSource` `object ( `[`GcsNotebookSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs#NotebookExecutionJob.GcsNotebookSource)` )`
 
 The Cloud Storage url pointing to the ipynb file. Format: `gs://bucket/notebookFile.ipynb`
 
-`directNotebookSource` ` object ( DirectNotebookSource  ` )
+`directNotebookSource` `object ( `[`DirectNotebookSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs#NotebookExecutionJob.DirectNotebookSource)` )`
 
 The contents of an input notebook file.
 
@@ -92,7 +92,7 @@ The compute config to use for an execution job. The following is a list of mutua
 
 The NotebookRuntimeTemplate to source compute configuration from.
 
-`customEnvironmentSpec` ` object ( CustomEnvironmentSpec  ` )
+`customEnvironmentSpec` `object ( `[`CustomEnvironmentSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs#NotebookExecutionJob.CustomEnvironmentSpec)` )`
 
 The custom compute configuration for an execution job.
 
@@ -126,27 +126,70 @@ End of mutually exclusive fields.
 
 Runtime environment for the notebook execution job. If unspecified, the default runtime of Colab is used. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`workbenchRuntime` ` object ( WorkbenchRuntime  ` )
+`workbenchRuntime` `object ( `[`WorkbenchRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs#NotebookExecutionJob.WorkbenchRuntime)` )`
 
 The Workbench runtime configuration to use for the notebook execution.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;executionTimeout&quot;: string,&quot;scheduleResourceName&quot;: string,&quot;jobState&quot;: enum (JobState),&quot;status&quot;: {object (Status)},&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;labels&quot;: {string: string,...},&quot;kernelName&quot;: string,&quot;encryptionSpec&quot;: {object (EncryptionSpec)},// notebook_source&quot;dataformRepositorySource&quot;: {object (DataformRepositorySource)},&quot;gcsNotebookSource&quot;: {object (GcsNotebookSource)},&quot;directNotebookSource&quot;: {object (DirectNotebookSource)}// Union type// environment_spec&quot;notebookRuntimeTemplateResourceName&quot;: string,&quot;customEnvironmentSpec&quot;: {object (CustomEnvironmentSpec)}// Union type// execution_sink&quot;gcsOutputUri&quot;: string// Union type// execution_identity&quot;executionUser&quot;: string,&quot;serviceAccount&quot;: string// Union type// runtime_environment&quot;workbenchRuntime&quot;: {object (WorkbenchRuntime)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "executionTimeout": string,
+  "scheduleResourceName": string,
+  "jobState": enum (JobState),
+  "status": {
+    object (Status)
+  },
+  "createTime": string,
+  "updateTime": string,
+  "labels": {
+    string: string,
+    ...
+  },
+  "kernelName": string,
+  "encryptionSpec": {
+    object (EncryptionSpec)
+  },
+
+  // notebook_source
+  "dataformRepositorySource": {
+    object (DataformRepositorySource)
+  },
+  "gcsNotebookSource": {
+    object (GcsNotebookSource)
+  },
+  "directNotebookSource": {
+    object (DirectNotebookSource)
+  }
+  // Union type
+
+  // environment_spec
+  "notebookRuntimeTemplateResourceName": string,
+  "customEnvironmentSpec": {
+    object (CustomEnvironmentSpec)
+  }
+  // Union type
+
+  // execution_sink
+  "gcsOutputUri": string
+  // Union type
+
+  // execution_identity
+  "executionUser": string,
+  "serviceAccount": string
+  // Union type
+
+  // runtime_environment
+  "workbenchRuntime": {
+    object (WorkbenchRuntime)
+  }
+  // Union type
+}
+```
 
 ### DataformRepositorySource
 
@@ -162,24 +205,14 @@ The resource name of the Dataform Repository. Format: `projects/{projectId}/loca
 
 The commit SHA to read repository with. If unset, the file will be read at HEAD.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;dataformRepositoryResourceName&quot;: string,
-  &quot;commitSha&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "dataformRepositoryResourceName": string,
+  "commitSha": string
+}
+```
 
 ### GcsNotebookSource
 
@@ -195,24 +228,14 @@ The Cloud Storage uri pointing to the ipynb file. Format: `gs://bucket/notebookF
 
 The version of the Cloud Storage object to read. If unset, the current version of the object is read. See <https://cloud.google.com/storage/docs/metadata#generation-number> .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;uri&quot;: string,
-  &quot;generation&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "uri": string,
+  "generation": string
+}
+```
 
 ### DirectNotebookSource
 
@@ -220,29 +243,19 @@ The content of the input notebook in ipynb format.
 
 Fields
 
-`content` `string ( bytes format)`
+`content` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The base64-encoded contents of the input notebook file.
 
 A base64-encoded string.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;content&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "content": string
+}
+```
 
 ### CustomEnvironmentSpec
 
@@ -250,33 +263,33 @@ Compute configuration to use for an execution job.
 
 Fields
 
-`machineSpec` ` object ( MachineSpec  ` )
+`machineSpec` `object ( `[`MachineSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#MachineSpec)` )`
 
 The specification of a single machine for the execution job.
 
-`persistentDiskSpec` ` object ( PersistentDiskSpec  ` )
+`persistentDiskSpec` `object ( `[`PersistentDiskSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/PersistentDiskSpec)` )`
 
 The specification of a persistent disk to attach for the execution job.
 
-`networkSpec` ` object ( NetworkSpec  ` )
+`networkSpec` `object ( `[`NetworkSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/NetworkSpec)` )`
 
 The network configuration to use for the execution job.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;machineSpec&quot;: {object (MachineSpec)},&quot;persistentDiskSpec&quot;: {object (PersistentDiskSpec)},&quot;networkSpec&quot;: {object (NetworkSpec)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "machineSpec": {
+    object (MachineSpec)
+  },
+  "persistentDiskSpec": {
+    object (PersistentDiskSpec)
+  },
+  "networkSpec": {
+    object (NetworkSpec)
+  }
+}
+```
 
 ### WorkbenchRuntime
 
@@ -284,20 +297,9 @@ This type has no fields.
 
 Configuration for a Workbench Instances-based environment.
 
-## Methods
-
-### `            create           `
-
-Creates a NotebookExecutionJob.
-
-### `            delete           `
-
-Deletes a NotebookExecutionJob.
-
-### `            get           `
-
-Gets a NotebookExecutionJob.
-
-### `            list           `
-
-Lists NotebookExecutionJobs in a Location.
+| Methods                                                                                                                                      |                                            |
+|----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs/create) | Creates a NotebookExecutionJob.            |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs/delete) | Deletes a NotebookExecutionJob.            |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs/get)       | Gets a NotebookExecutionJob.               |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs/list)     | Lists NotebookExecutionJobs in a Location. |

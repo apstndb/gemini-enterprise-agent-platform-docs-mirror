@@ -20,7 +20,7 @@ Where `{service-endpoint}` is one of the [supported service endpoints](https://d
 
 `tensorboard` `string`
 
-Required. The resource name of the Tensorboard containing TensorboardTimeSeries to read data from. Format: `projects/{project}/locations/{location}/tensorboards/{tensorboard}` . The TensorboardTimeSeries referenced by `  timeSeries  ` must be sub resources of this Tensorboard.
+Required. The resource name of the Tensorboard containing TensorboardTimeSeries to read data from. Format: `projects/{project}/locations/{location}/tensorboards/{tensorboard}` . The TensorboardTimeSeries referenced by [`timeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards/batchRead#body.QUERY_PARAMETERS.time_series) must be sub resources of this Tensorboard.
 
 ### Query parameters
 
@@ -34,28 +34,24 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  TensorboardService.BatchReadTensorboardTimeSeriesData  ` .
+Response message for [`TensorboardService.BatchReadTensorboardTimeSeriesData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards/batchRead#google.cloud.aiplatform.v1beta1.TensorboardService.BatchReadTensorboardTimeSeriesData) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`timeSeriesData[]` ` object ( TimeSeriesData  ` )
+`timeSeriesData[]` `object ( `[`TimeSeriesData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/TimeSeriesData)` )`
 
 The returned time series data.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;timeSeriesData&quot;: [{object (TimeSeriesData)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "timeSeriesData": [
+    {
+      object (TimeSeriesData)
+    }
+  ]
+}
+```

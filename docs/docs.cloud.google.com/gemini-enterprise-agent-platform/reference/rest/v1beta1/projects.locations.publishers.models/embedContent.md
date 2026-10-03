@@ -28,43 +28,43 @@ The request body contains data with the following structure:
 
 Fields
 
-`content` ` object ( Content  ` )
+`content` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Required. The content to be embedded.
 
-` title (deprecated)  ` `string`
+`title `**`(deprecated)`** `string`
 
 Optional. Deprecated: Please use EmbedContentConfig.title instead. The title for the text.
 
-` taskType (deprecated)  ` ` enum ( EmbeddingTaskType  ` )
+`taskType `**`(deprecated)`** `enum ( `[`EmbeddingTaskType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/embedContent#EmbeddingTaskType)` )`
 
-Optional. Deprecated: Please use EmbedContentConfig.task\_type instead. The task type of the embedding.
+Optional. Deprecated: Please use EmbedContentConfig.task_type instead. The task type of the embedding.
 
-` outputDimensionality (deprecated)  ` `integer`
+`outputDimensionality `**`(deprecated)`** `integer`
 
-Optional. Deprecated: Please use EmbedContentConfig.output\_dimensionality instead. Reduced dimension for the output embedding. If set, excessive values in the output embedding are truncated from the end.
+Optional. Deprecated: Please use EmbedContentConfig.output_dimensionality instead. Reduced dimension for the output embedding. If set, excessive values in the output embedding are truncated from the end.
 
-` autoTruncate (deprecated)  ` `boolean`
+`autoTruncate `**`(deprecated)`** `boolean`
 
-Optional. Deprecated: Please use EmbedContentConfig.auto\_truncate instead. Whether to silently truncate the input content if it's longer than the maximum sequence length.
+Optional. Deprecated: Please use EmbedContentConfig.auto_truncate instead. Whether to silently truncate the input content if it's longer than the maximum sequence length.
 
-`embedContentConfig` ` object ( EmbedContentConfig  ` )
+`embedContentConfig` `object ( `[`EmbedContentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/embedContent#EmbedContentConfig)` )`
 
 Optional. Configuration for the models.embedContent request.
 
 ### Response body
 
-Response message for `  PredictionService.EmbedContent  ` .
+Response message for [`PredictionService.EmbedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/embedContent#google.cloud.aiplatform.v1beta1.PredictionService.EmbedContent) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`embedding` ` object ( Embedding  ` )
+`embedding` `object ( `[`Embedding`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/embedContent#Embedding)` )`
 
 The embedding generated from the input content.
 
-`usageMetadata` ` object ( UsageMetadata  ` )
+`usageMetadata` `object ( `[`UsageMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/embedContent#UsageMetadata)` )`
 
 Usage metadata about the response(s).
 
@@ -72,63 +72,35 @@ Usage metadata about the response(s).
 
 Whether the input content was truncated before generating the embedding.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;embedding&quot;: {object (Embedding)},&quot;usageMetadata&quot;: {object (UsageMetadata)},&quot;truncated&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "embedding": {
+    object (Embedding)
+  },
+  "usageMetadata": {
+    object (UsageMetadata)
+  },
+  "truncated": boolean
+}
+```
 
 ## EmbeddingTaskType
 
 Represents a downstream task the embeddings will be used for.
 
-Enums
-
-`UNSPECIFIED`
-
-Unset value, which will default to one of the other enum values.
-
-`RETRIEVAL_QUERY`
-
-Specifies the given text is a query in a search/retrieval setting.
-
-`RETRIEVAL_DOCUMENT`
-
-Specifies the given text is a document from the corpus being searched.
-
-`SEMANTIC_SIMILARITY`
-
-Specifies the given text will be used for STS.
-
-`CLASSIFICATION`
-
-Specifies that the given text will be classified.
-
-`CLUSTERING`
-
-Specifies that the embeddings will be used for clustering.
-
-`QUESTION_ANSWERING`
-
-Specifies that the embeddings will be used for question answering.
-
-`FACT_VERIFICATION`
-
-Specifies that the embeddings will be used for fact verification.
-
-`CODE_RETRIEVAL_QUERY`
-
-Specifies that the embeddings will be used for code retrieval.
+| Enums                  |                                                                        |
+|------------------------|------------------------------------------------------------------------|
+| `UNSPECIFIED`          | Unset value, which will default to one of the other enum values.       |
+| `RETRIEVAL_QUERY`      | Specifies the given text is a query in a search/retrieval setting.     |
+| `RETRIEVAL_DOCUMENT`   | Specifies the given text is a document from the corpus being searched. |
+| `SEMANTIC_SIMILARITY`  | Specifies the given text will be used for STS.                         |
+| `CLASSIFICATION`       | Specifies that the given text will be classified.                      |
+| `CLUSTERING`           | Specifies that the embeddings will be used for clustering.             |
+| `QUESTION_ANSWERING`   | Specifies that the embeddings will be used for question answering.     |
+| `FACT_VERIFICATION`    | Specifies that the embeddings will be used for fact verification.      |
+| `CODE_RETRIEVAL_QUERY` | Specifies that the embeddings will be used for code retrieval.         |
 
 ## EmbedContentConfig
 
@@ -142,7 +114,7 @@ Optional. The title for the text.
 
 Only applicable to text-only embedding models.
 
-`taskType` ` enum ( EmbeddingTaskType  ` )
+`taskType` `enum ( `[`EmbeddingTaskType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/embedContent#EmbeddingTaskType)` )`
 
 Optional. The task type of the embedding.
 
@@ -166,21 +138,18 @@ Optional. Whether to enable OCR for document content.
 
 Optional. Whether to extract audio from video content.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;title&quot;: string,&quot;taskType&quot;: enum (EmbeddingTaskType),&quot;autoTruncate&quot;: boolean,&quot;outputDimensionality&quot;: integer,&quot;documentOcr&quot;: boolean,&quot;audioTrackExtraction&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "title": string,
+  "taskType": enum (EmbeddingTaskType),
+  "autoTruncate": boolean,
+  "outputDimensionality": integer,
+  "documentOcr": boolean,
+  "audioTrackExtraction": boolean
+}
+```
 
 ## Embedding
 
@@ -192,25 +161,15 @@ Fields
 
 Embedding vector values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;values&quot;: [
+**JSON representation**
+
+```
+{
+  "values": [
     number
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## UsageMetadata
 
@@ -242,64 +201,68 @@ Output only. The number of tokens that were part of the model's generated "thoug
 
 Output only. The number of tokens in the cached content that was used for this request.
 
-`promptTokensDetails[]` ` object ( ModalityTokenCount  ` )
+`promptTokensDetails[]` `object ( `[`ModalityTokenCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModalityTokenCount)` )`
 
 Output only. A detailed breakdown of the token count for each modality in the prompt.
 
-`cacheTokensDetails[]` ` object ( ModalityTokenCount  ` )
+`cacheTokensDetails[]` `object ( `[`ModalityTokenCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModalityTokenCount)` )`
 
 Output only. A detailed breakdown of the token count for each modality in the cached content.
 
-`candidatesTokensDetails[]` ` object ( ModalityTokenCount  ` )
+`candidatesTokensDetails[]` `object ( `[`ModalityTokenCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModalityTokenCount)` )`
 
 Output only. A detailed breakdown of the token count for each modality in the generated candidates.
 
-`toolUsePromptTokensDetails[]` ` object ( ModalityTokenCount  ` )
+`toolUsePromptTokensDetails[]` `object ( `[`ModalityTokenCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModalityTokenCount)` )`
 
 Output only. A detailed breakdown by modality of the token counts from the results of tool executions, which are provided back to the model as input.
 
-`trafficType` ` enum ( TrafficType  ` )
+`trafficType` `enum ( `[`TrafficType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/embedContent#TrafficType)` )`
 
 Output only. The traffic type for this request.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;promptTokenCount&quot;: integer,&quot;candidatesTokenCount&quot;: integer,&quot;totalTokenCount&quot;: integer,&quot;toolUsePromptTokenCount&quot;: integer,&quot;thoughtsTokenCount&quot;: integer,&quot;cachedContentTokenCount&quot;: integer,&quot;promptTokensDetails&quot;: [{object (ModalityTokenCount)}],&quot;cacheTokensDetails&quot;: [{object (ModalityTokenCount)}],&quot;candidatesTokensDetails&quot;: [{object (ModalityTokenCount)}],&quot;toolUsePromptTokensDetails&quot;: [{object (ModalityTokenCount)}],&quot;trafficType&quot;: enum (TrafficType)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "promptTokenCount": integer,
+  "candidatesTokenCount": integer,
+  "totalTokenCount": integer,
+  "toolUsePromptTokenCount": integer,
+  "thoughtsTokenCount": integer,
+  "cachedContentTokenCount": integer,
+  "promptTokensDetails": [
+    {
+      object (ModalityTokenCount)
+    }
+  ],
+  "cacheTokensDetails": [
+    {
+      object (ModalityTokenCount)
+    }
+  ],
+  "candidatesTokensDetails": [
+    {
+      object (ModalityTokenCount)
+    }
+  ],
+  "toolUsePromptTokensDetails": [
+    {
+      object (ModalityTokenCount)
+    }
+  ],
+  "trafficType": enum (TrafficType)
+}
+```
 
 ## TrafficType
 
 The type of traffic that this request was processed with, indicating which quota gets consumed.
 
-Enums
-
-`TRAFFIC_TYPE_UNSPECIFIED`
-
-Unspecified request traffic type.
-
-`ON_DEMAND`
-
-type for Pay-As-You-Go traffic.
-
-`ON_DEMAND_PRIORITY`
-
-type for priority Pay-As-You-Go traffic.
-
-`ON_DEMAND_FLEX`
-
-type for Flex traffic.
-
-`PROVISIONED_THROUGHPUT`
-
-type for Provisioned Throughput traffic.
+| Enums                      |                                          |
+|----------------------------|------------------------------------------|
+| `TRAFFIC_TYPE_UNSPECIFIED` | Unspecified request traffic type.        |
+| `ON_DEMAND`                | type for Pay-As-You-Go traffic.          |
+| `ON_DEMAND_PRIORITY`       | type for priority Pay-As-You-Go traffic. |
+| `ON_DEMAND_FLEX`           | type for Flex traffic.                   |
+| `PROVISIONED_THROUGHPUT`   | type for Provisioned Throughput traffic. |

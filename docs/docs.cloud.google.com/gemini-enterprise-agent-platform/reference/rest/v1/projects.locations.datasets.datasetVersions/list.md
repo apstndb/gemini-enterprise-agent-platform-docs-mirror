@@ -36,7 +36,7 @@ Optional. The standard list page size.
 
 Optional. The standard list page token.
 
-`readMask` ` string ( FieldMask  ` format)
+`readMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Optional. Mask specifying which fields to read.
 
@@ -52,13 +52,13 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  DatasetService.ListDatasetVersions  ` .
+Response message for [`DatasetService.ListDatasetVersions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.datasetVersions/list#google.cloud.aiplatform.v1.DatasetService.ListDatasetVersions) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`datasetVersions[]` ` object ( DatasetVersion  ` )
+`datasetVersions[]` `object ( `[`DatasetVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.datasetVersions#DatasetVersion)` )`
 
 A list of DatasetVersions that matches the specified filter in the request.
 
@@ -66,18 +66,15 @@ A list of DatasetVersions that matches the specified filter in the request.
 
 The standard List next-page token.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;datasetVersions&quot;: [{object (DatasetVersion)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "datasetVersions": [
+    {
+      object (DatasetVersion)
+    }
+  ],
+  "nextPageToken": string
+}
+```

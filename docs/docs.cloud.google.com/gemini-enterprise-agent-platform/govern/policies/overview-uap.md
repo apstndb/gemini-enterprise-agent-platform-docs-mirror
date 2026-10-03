@@ -10,9 +10,9 @@ You can define, apply, and manage policies that govern agent interactions.
 
 By using the **Policies** page, you can do the following:
 
-  - [Use Identity and Access Management (IAM) policies to govern agentic communication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap) .
+- [Use Identity and Access Management (IAM) policies to govern agentic communication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap) .
 
-  - [Use Semantic Governance policies to govern traffic between agents and MCP servers and other tools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview) .
+- [Use Semantic Governance policies to govern traffic between agents and MCP servers and other tools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview) .
 
 ## Use IAM policies to govern agentic communication
 

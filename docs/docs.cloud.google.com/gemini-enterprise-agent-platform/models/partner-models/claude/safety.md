@@ -6,7 +6,7 @@ description: description
 data_source: docs.cloud.google.com
 ---
 
-Gemini Enterprise Agent Platform includes a safety classifier that filters requests to all hosted Anthropic models that may contain images that include Child Sexual Abuse Material (CSAM). Gemini Enterprise Agent Platform's suspected CSAM safety classifier is separate from the Trust and Safety (T\&S) filters shipped directly with Anthropic's models.
+Gemini Enterprise Agent Platform includes a safety classifier that filters requests to all hosted Anthropic models that may contain images that include Child Sexual Abuse Material (CSAM). Gemini Enterprise Agent Platform's suspected CSAM safety classifier is separate from the Trust and Safety (T&S) filters shipped directly with Anthropic's models.
 
 This document covers which parts of the request and response that the suspected CSAM safety classifier filters and what happens when the classifier blocks a request.
 
@@ -18,16 +18,20 @@ The suspected CSAM classifier filters only the images in requests to Anthropic m
 
 Requests that trigger the suspected CSAM classifier are blocked and return a `200` HTTP status code with the following message:
 
-    {
-      "promptFeedback": {
-        "blockReason": "PROHIBTED_CONTENT"
-      }
-    }
+```
+{
+  "promptFeedback": {
+    "blockReason": "PROHIBTED_CONTENT"
+  }
+}
+```
 
 If the request is blocked by the classifier, the request stream is cancelled and the following message is returned:
 
-    "event": "vertex-block-event",
-    "data": {"promptFeedback": {"blockReason": "PROHIBITED_CONTENT"}}
+```
+"event": "vertex-block-event",
+"data": {"promptFeedback": {"blockReason": "PROHIBITED_CONTENT"}}
+```
 
 ## Location availability
 

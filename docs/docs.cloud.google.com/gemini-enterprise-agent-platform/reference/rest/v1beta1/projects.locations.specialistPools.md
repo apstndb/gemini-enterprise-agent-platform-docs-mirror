@@ -36,53 +36,29 @@ Output only. The resource name of the pending data labeling jobs.
 
 The email addresses of workers in the SpecialistPool.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;name&quot;: string,
-  &quot;displayName&quot;: string,
-  &quot;specialistManagersCount&quot;: integer,
-  &quot;specialistManagerEmails&quot;: [
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "specialistManagersCount": integer,
+  "specialistManagerEmails": [
     string
   ],
-  &quot;pendingDataLabelingJobs&quot;: [
+  "pendingDataLabelingJobs": [
     string
   ],
-  &quot;specialistWorkerEmails&quot;: [
+  "specialistWorkerEmails": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
-## Methods
-
-### `            create           `
-
-Creates a SpecialistPool.
-
-### `            delete           `
-
-Deletes a SpecialistPool as well as all Specialists in the pool.
-
-### `            get           `
-
-Gets a SpecialistPool.
-
-### `            list           `
-
-Lists SpecialistPools in a Location.
-
-### `            patch           `
-
-Updates a SpecialistPool.
+| Methods                                                                                                                                     |                                                                  |
+|---------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.specialistPools/create) | Creates a SpecialistPool.                                        |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.specialistPools/delete) | Deletes a SpecialistPool as well as all Specialists in the pool. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.specialistPools/get)       | Gets a SpecialistPool.                                           |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.specialistPools/list)     | Lists SpecialistPools in a Location.                             |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.specialistPools/patch)   | Updates a SpecialistPool.                                        |

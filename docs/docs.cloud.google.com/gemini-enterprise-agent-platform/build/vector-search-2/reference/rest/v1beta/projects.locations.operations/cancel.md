@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED` . Clients can use `Operations.GetOperation` or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an `  Operation.error  ` value with a `  google.rpc.Status.code  ` of `1` , corresponding to `Code.CANCELLED` .
+Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED` . Clients can use `Operations.GetOperation` or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an [`Operation.error`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/Shared.Types/ListOperationsResponse#Operation.FIELDS.error) value with a [`google.rpc.Status.code`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/Shared.Types/ListOperationsResponse#Status.FIELDS.code) of `1` , corresponding to `Code.CANCELLED` .
 
 ### HTTP request
 
@@ -14,13 +14,9 @@ Starts asynchronous cancellation on a long-running operation. The server makes a
 
 ### Path parameters
 
-Parameters
-
-`name`
-
-`string`
-
-The name of the operation resource to be cancelled.
+| Parameters |                                                              |
+|------------|--------------------------------------------------------------|
+| `name`     | `string` The name of the operation resource to be cancelled. |
 
 ### Request body
 
@@ -34,7 +30,7 @@ If successful, the response body is an empty JSON object.
 
 Requires the following OAuth scope:
 
-  - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/cloud-platform`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -42,6 +38,6 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 
 Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
 
-  - `vectorsearch.operations.cancel`
+- `vectorsearch.operations.cancel`
 
 For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

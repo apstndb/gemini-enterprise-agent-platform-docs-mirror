@@ -44,194 +44,64 @@ Along with labels on the `prometheus_target` monitored resource, all collected D
 
 GPU labels:
 
-  - `gpu_model` : the GPU device model, such as `NVIDIA L4` .
-  - `gpu_uuid` : the GPU device UUID.
-  - `gpu_i_id` : the NVIDIA Multi-Instance GPU (MIG) instance ID.
+- `gpu_model` : the GPU device model, such as `NVIDIA L4` .
+- `gpu_uuid` : the GPU device UUID.
+- `gpu_i_id` : the NVIDIA Multi-Instance GPU (MIG) instance ID.
 
 Gemini Enterprise Agent Platform labels:
 
-  - `deployed_model_id` : the ID of a deployed model which serves inference requests.
-  - `model_display_name` : the display name of a deployed model.
-  - `replica_id` : the unique ID corresponding to the deployed model replica (pod name).
-  - `endpoint_id` : the ID of a model endpoint.
-  - `endpoint_display_name` : the display name of a model endpoint.
-  - `product` : the name of the feature under Gemini Enterprise Agent Platform. This is always `Online Inference` .
-
-PromQL metric name  
-Cloud Monitoring metric name
-
-Kind, Type, Unit  
-Monitored resources
-
-*Description*
-
-`vertex_dcgm_fi_dev_fb_free`  
-`vertex_dcgm_fi_dev_fb_free/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-Free Frame Buffer in MB.
-
-`vertex_dcgm_fi_dev_fb_total`  
-`vertex_dcgm_fi_dev_fb_total/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-Total Frame Buffer of the GPU in MB.
-
-`vertex_dcgm_fi_dev_fb_used`  
-`vertex_dcgm_fi_dev_fb_used/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-Used Frame Buffer in MB.
-
-`vertex_dcgm_fi_dev_gpu_temp`  
-`vertex_dcgm_fi_dev_gpu_temp/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-Current temperature readings for the device (in °C).
-
-`vertex_dcgm_fi_dev_gpu_util`  
-`vertex_dcgm_fi_dev_gpu_util/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-GPU utilization (in %).
-
-`vertex_dcgm_fi_dev_mem_copy_util`  
-`vertex_dcgm_fi_dev_mem_copy_util/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-Memory utilization (in %).
-
-`vertex_dcgm_fi_dev_memory_temp`  
-`vertex_dcgm_fi_dev_memory_temp/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-Memory temperature for the device (in °C).
-
-`vertex_dcgm_fi_dev_power_usage`  
-`vertex_dcgm_fi_dev_power_usage/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-Power usage for the device (in Watts).
-
-`vertex_dcgm_fi_dev_sm_clock`  
-`vertex_dcgm_fi_dev_sm_clock/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-SM clock frequency (in MHz).
-
-`vertex_dcgm_fi_dev_total_energy_consumption`  
-`vertex_dcgm_fi_dev_total_energy_consumption/counter`  
-  
-
-`CUMULATIVE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-Total energy consumption for the GPU in mJ since the driver was last reloaded.
-
-`vertex_dcgm_fi_prof_dram_active`  
-`vertex_dcgm_fi_prof_dram_active/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-The ratio of cycles the device memory interface is active sending or receiving data.
-
-`vertex_dcgm_fi_prof_gr_engine_active`  
-`vertex_dcgm_fi_prof_gr_engine_active/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-The ratio of time the graphics engine is active.
-
-`vertex_dcgm_fi_prof_nvlink_rx_bytes`  
-`vertex_dcgm_fi_prof_nvlink_rx_bytes/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-The rate of active NvLink rx (read) data in bytes including both header and payload.
-
-`vertex_dcgm_fi_prof_nvlink_tx_bytes`  
-`vertex_dcgm_fi_prof_nvlink_tx_bytes/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-The rate of active NvLink tx (transmit) data in bytes including both header and payload.
-
-`vertex_dcgm_fi_prof_pcie_rx_bytes`  
-`vertex_dcgm_fi_prof_pcie_rx_bytes/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-The rate of active PCIe rx (read) data in bytes including both header and payload.
-
-`vertex_dcgm_fi_prof_pcie_tx_bytes`  
-`vertex_dcgm_fi_prof_pcie_tx_bytes/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-The rate of active PCIe tx (transmit) data in bytes including both header and payload.
-
-`vertex_dcgm_fi_prof_pipe_fp16_active`  
-`vertex_dcgm_fi_prof_pipe_fp16_active/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-The ratio of cycles that the fp16 pipe is active.
-
-`vertex_dcgm_fi_prof_pipe_fp32_active`  
-`vertex_dcgm_fi_prof_pipe_fp32_active/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-The ratio of cycles that the fp32 pipe is active.
-
-`vertex_dcgm_fi_prof_pipe_fp64_active`  
-`vertex_dcgm_fi_prof_pipe_fp64_active/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-The ratio of cycles that the fp64 pipe is active.
-
-`vertex_dcgm_fi_prof_pipe_tensor_active`  
-`vertex_dcgm_fi_prof_pipe_tensor_active/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-The ratio of cycles that any tensor pipe is active.
-
-`vertex_dcgm_fi_prof_sm_active`  
-`vertex_dcgm_fi_prof_sm_active/gauge`  
-  
-
-`GAUGE` , `DOUBLE` , `1` **[prometheus\_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**
-
-The ratio of cycles an SM has at least 1 warp assigned.
+- `deployed_model_id` : the ID of a deployed model which serves inference requests.
+- `model_display_name` : the display name of a deployed model.
+- `replica_id` : the unique ID corresponding to the deployed model replica (pod name).
+- `endpoint_id` : the ID of a model endpoint.
+- `endpoint_display_name` : the display name of a model endpoint.
+- `product` : the name of the feature under Gemini Enterprise Agent Platform. This is always `Online Inference` .
+
+| PromQL metric name Cloud Monitoring metric name                                                                                     |                                                                                          |
+|-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| Kind, Type, Unit Monitored resources                                                                                                | *Description*                                                                            |
+| `vertex_dcgm_fi_dev_fb_free` `vertex_dcgm_fi_dev_fb_free/gauge`                                                                     |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | Free Frame Buffer in MB.                                                                 |
+| `vertex_dcgm_fi_dev_fb_total` `vertex_dcgm_fi_dev_fb_total/gauge`                                                                   |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | Total Frame Buffer of the GPU in MB.                                                     |
+| `vertex_dcgm_fi_dev_fb_used` `vertex_dcgm_fi_dev_fb_used/gauge`                                                                     |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | Used Frame Buffer in MB.                                                                 |
+| `vertex_dcgm_fi_dev_gpu_temp` `vertex_dcgm_fi_dev_gpu_temp/gauge`                                                                   |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | Current temperature readings for the device (in °C).                                     |
+| `vertex_dcgm_fi_dev_gpu_util` `vertex_dcgm_fi_dev_gpu_util/gauge`                                                                   |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | GPU utilization (in %).                                                                  |
+| `vertex_dcgm_fi_dev_mem_copy_util` `vertex_dcgm_fi_dev_mem_copy_util/gauge`                                                         |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | Memory utilization (in %).                                                               |
+| `vertex_dcgm_fi_dev_memory_temp` `vertex_dcgm_fi_dev_memory_temp/gauge`                                                             |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | Memory temperature for the device (in °C).                                               |
+| `vertex_dcgm_fi_dev_power_usage` `vertex_dcgm_fi_dev_power_usage/gauge`                                                             |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | Power usage for the device (in Watts).                                                   |
+| `vertex_dcgm_fi_dev_sm_clock` `vertex_dcgm_fi_dev_sm_clock/gauge`                                                                   |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | SM clock frequency (in MHz).                                                             |
+| `vertex_dcgm_fi_dev_total_energy_consumption` `vertex_dcgm_fi_dev_total_energy_consumption/counter`                                 |                                                                                          |
+| `CUMULATIVE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)** | Total energy consumption for the GPU in mJ since the driver was last reloaded.           |
+| `vertex_dcgm_fi_prof_dram_active` `vertex_dcgm_fi_prof_dram_active/gauge`                                                           |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | The ratio of cycles the device memory interface is active sending or receiving data.     |
+| `vertex_dcgm_fi_prof_gr_engine_active` `vertex_dcgm_fi_prof_gr_engine_active/gauge`                                                 |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | The ratio of time the graphics engine is active.                                         |
+| `vertex_dcgm_fi_prof_nvlink_rx_bytes` `vertex_dcgm_fi_prof_nvlink_rx_bytes/gauge`                                                   |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | The rate of active NvLink rx (read) data in bytes including both header and payload.     |
+| `vertex_dcgm_fi_prof_nvlink_tx_bytes` `vertex_dcgm_fi_prof_nvlink_tx_bytes/gauge`                                                   |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | The rate of active NvLink tx (transmit) data in bytes including both header and payload. |
+| `vertex_dcgm_fi_prof_pcie_rx_bytes` `vertex_dcgm_fi_prof_pcie_rx_bytes/gauge`                                                       |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | The rate of active PCIe rx (read) data in bytes including both header and payload.       |
+| `vertex_dcgm_fi_prof_pcie_tx_bytes` `vertex_dcgm_fi_prof_pcie_tx_bytes/gauge`                                                       |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | The rate of active PCIe tx (transmit) data in bytes including both header and payload.   |
+| `vertex_dcgm_fi_prof_pipe_fp16_active` `vertex_dcgm_fi_prof_pipe_fp16_active/gauge`                                                 |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | The ratio of cycles that the fp16 pipe is active.                                        |
+| `vertex_dcgm_fi_prof_pipe_fp32_active` `vertex_dcgm_fi_prof_pipe_fp32_active/gauge`                                                 |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | The ratio of cycles that the fp32 pipe is active.                                        |
+| `vertex_dcgm_fi_prof_pipe_fp64_active` `vertex_dcgm_fi_prof_pipe_fp64_active/gauge`                                                 |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | The ratio of cycles that the fp64 pipe is active.                                        |
+| `vertex_dcgm_fi_prof_pipe_tensor_active` `vertex_dcgm_fi_prof_pipe_tensor_active/gauge`                                             |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | The ratio of cycles that any tensor pipe is active.                                      |
+| `vertex_dcgm_fi_prof_sm_active` `vertex_dcgm_fi_prof_sm_active/gauge`                                                               |                                                                                          |
+| `GAUGE` , `DOUBLE` , `1` **[prometheus_target](https://docs.cloud.google.com/monitoring/api/resources#tag_prometheus_target)**      | The ratio of cycles an SM has at least 1 warp assigned.                                  |
 
 ## Supported GPUs
 
@@ -244,4 +114,4 @@ All NVIDIA GPUs are supported, except the following, due to resource constraints
 
 ## What's next
 
-  - Learn more about the [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-selector#basic-advanced-mode) .
+- Learn more about the [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-selector#basic-advanced-mode) .

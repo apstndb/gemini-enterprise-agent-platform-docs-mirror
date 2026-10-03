@@ -23,173 +23,390 @@ destination.unregistered.path.startsWith('/v1/statements')
 
 The attributes described in the following table are available for each resource type:
 
-Destination resource type
-
-Attribute
-
-Details
-
-### Agent Registry
-
-`destination.is_registered`
-
-|                      |                  |
-| -------------------- | ---------------- |
-| Value type           | Boolean          |
-| Supported values     | `true` , `false` |
-| Supported operations | `==` , `!=`      |
-
-`destination.agent_registry.resource_type`
-
-|                      |                                                       |
-| -------------------- | ----------------------------------------------------- |
-| Value type           | String                                                |
-| Supported values     | `'AGENT'` , `'ENDPOINT'` , `'MCP_SERVER'` , `'SKILL'` |
-| Supported operations | `==` , `!=` , `in`                                    |
-
-`destination.agent_registry.location`
-
-|                      |                                                                       |
-| -------------------- | --------------------------------------------------------------------- |
-| Value type           | String                                                                |
-| Supported values     | Google Cloud location ID (for example, `'global'` , `'us-central1'` ) |
-| Supported operations | `==` , `!=` , `in`                                                    |
-
-`destination.agent_registry.project_id`
-
-|                      |                         |
-| -------------------- | ----------------------- |
-| Value type           | String                  |
-| Supported values     | Google Cloud project ID |
-| Supported operations | `==` , `!=` , `in`      |
-
-### Agent
-
-`destination.agent_registry.agent.name`
-
-|                      |                                                                                                                                                                |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Value type           | String                                                                                                                                                         |
-| Supported values     | Agent resource name ( ` projects/             PROJECT_ID            /locations/             LOCATION            /agents/             AGENT_NAME            ` ) |
-| Supported operations | `==` , `!=` , `in`                                                                                                                                             |
-
-### MCP Server
-
-`destination.agent_registry.mcp_server.name`
-
-|                      |                                                                                                                                                                              |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Value type           | String                                                                                                                                                                       |
-| Supported values     | MCP server resource name ( ` projects/             PROJECT_ID            /locations/             LOCATION            /mcpServers/             MCP_SERVER_NAME            ` ) |
-| Supported operations | `==` , `!=` , `in`                                                                                                                                                           |
-
-`destination.agent_registry.mcp_server.method`
-
-|                      |                                                                         |
-| -------------------- | ----------------------------------------------------------------------- |
-| Value type           | String                                                                  |
-| Supported values     | MCP method name (for example, `'tools'` , `'prompts'` , `'resources'` ) |
-| Supported operations | `==` , `!=` , `in`                                                      |
-
-`destination.agent_registry.mcp_server.tool.name`
-
-|                      |                                                         |
-| -------------------- | ------------------------------------------------------- |
-| Value type           | String                                                  |
-| Supported values     | Tool name (for example, `'search_code'` , `'execute'` ) |
-| Supported operations | `==` , `!=` , `in`                                      |
-
-`destination.agent_registry.mcp_server.tool.annotations.read_only_hint`
-
-|                      |                  |
-| -------------------- | ---------------- |
-| Value type           | Boolean          |
-| Supported values     | `true` , `false` |
-| Supported operations | `==` , `!=`      |
-
-`destination.agent_registry.mcp_server.tool.annotations.destructive_hint`
-
-|                      |                  |
-| -------------------- | ---------------- |
-| Value type           | Boolean          |
-| Supported values     | `true` , `false` |
-| Supported operations | `==` , `!=`      |
-
-`destination.agent_registry.mcp_server.tool.annotations.idempotent_hint`
-
-|                      |                  |
-| -------------------- | ---------------- |
-| Value type           | Boolean          |
-| Supported values     | `true` , `false` |
-| Supported operations | `==` , `!=`      |
-
-`destination.agent_registry.mcp_server.tool.annotations.open_world_hint`
-
-|                      |                  |
-| -------------------- | ---------------- |
-| Value type           | Boolean          |
-| Supported values     | `true` , `false` |
-| Supported operations | `==` , `!=`      |
-
-`destination.agent_registry.mcp_server.prompt.name`
-
-|                      |                    |
-| -------------------- | ------------------ |
-| Value type           | String             |
-| Supported values     | Prompt name        |
-| Supported operations | `==` , `!=` , `in` |
-
-`destination.agent_registry.mcp_server.resource.name`
-
-|                      |                    |
-| -------------------- | ------------------ |
-| Value type           | String             |
-| Supported values     | Resource name      |
-| Supported operations | `==` , `!=` , `in` |
-
-### Endpoint
-
-`destination.agent_registry.endpoint.name`
-
-|                      |                                                                                                                                                                         |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Value type           | String                                                                                                                                                                  |
-| Supported values     | Endpoint resource name ( ` projects/             PROJECT_ID            /locations/             LOCATION            /endpoints/             ENDPOINT_NAME            ` ) |
-| Supported operations | `==` , `!=` , `in`                                                                                                                                                      |
-
-### Unregistered Destination
-
-`destination.unregistered.host`
-
-|                      |                                                                      |
-| -------------------- | -------------------------------------------------------------------- |
-| Value type           | String                                                               |
-| Supported values     | Hostname (for example, `'google.com'` , `'example.com'` )            |
-| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.contains()` |
-
-`destination.unregistered.path`
-
-|                      |                                                                      |
-| -------------------- | -------------------------------------------------------------------- |
-| Value type           | String                                                               |
-| Supported values     | Request path (for example, `'/admin'` , `'/api/v1'` )                |
-| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.contains()` |
-
-`destination.unregistered.method`
-
-|                      |                                                                       |
-| -------------------- | --------------------------------------------------------------------- |
-| Value type           | String                                                                |
-| Supported values     | HTTP method (for example, `'get'` , `'post'` , `'put'` , `'delete'` ) |
-| Supported operations | `==` , `!=` , `in`                                                    |
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Destination resource type</th>
+<th>Attribute</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Agent Registry</td>
+<td><code>destination.is_registered</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>Boolean</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td><code>true</code> , <code>false</code></td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="even">
+<td><code>destination.agent_registry.resource_type</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td><code>'AGENT'</code> , <code>'ENDPOINT'</code> , <code>'MCP_SERVER'</code> , <code>'SKILL'</code></td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>destination.agent_registry.location</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Google Cloud location ID (for example, <code>'global'</code> , <code>'us-central1'</code> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>destination.agent_registry.project_id</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Google Cloud project ID</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Agent</td>
+<td><code>destination.agent_registry.agent.name</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Agent resource name ( <code>projects/ </code><var translate="no"> PROJECT_ID </var><code> /locations/ </code><var translate="no"> LOCATION </var><code> /agents/ </code><var translate="no"> AGENT_NAME</var> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="even">
+<td>MCP Server</td>
+<td><code>destination.agent_registry.mcp_server.name</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>MCP server resource name ( <code>projects/ </code><var translate="no"> PROJECT_ID </var><code> /locations/ </code><var translate="no"> LOCATION </var><code> /mcpServers/ </code><var translate="no"> MCP_SERVER_NAME</var> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="odd">
+<td><code>destination.agent_registry.mcp_server.method</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>MCP method name (for example, <code>'tools'</code> , <code>'prompts'</code> , <code>'resources'</code> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>destination.agent_registry.mcp_server.tool.name</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Tool name (for example, <code>'search_code'</code> , <code>'execute'</code> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>destination.agent_registry.mcp_server.tool.annotations.read_only_hint</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>Boolean</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td><code>true</code> , <code>false</code></td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>destination.agent_registry.mcp_server.tool.annotations.destructive_hint</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>Boolean</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td><code>true</code> , <code>false</code></td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>destination.agent_registry.mcp_server.tool.annotations.idempotent_hint</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>Boolean</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td><code>true</code> , <code>false</code></td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>destination.agent_registry.mcp_server.tool.annotations.open_world_hint</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>Boolean</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td><code>true</code> , <code>false</code></td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>destination.agent_registry.mcp_server.prompt.name</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Prompt name</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>destination.agent_registry.mcp_server.resource.name</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Resource name</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Endpoint</td>
+<td><code>destination.agent_registry.endpoint.name</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Endpoint resource name ( <code>projects/ </code><var translate="no"> PROJECT_ID </var><code> /locations/ </code><var translate="no"> LOCATION </var><code> /endpoints/ </code><var translate="no"> ENDPOINT_NAME</var> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="even">
+<td>Unregistered Destination</td>
+<td><code>destination.unregistered.host</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Hostname (for example, <code>'google.com'</code> , <code>'example.com'</code> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code> , <code>.startsWith()</code> , <code>.endsWith()</code> , <code>.contains()</code></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="odd">
+<td><code>destination.unregistered.path</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Request path (for example, <code>'/admin'</code> , <code>'/api/v1'</code> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code> , <code>.startsWith()</code> , <code>.endsWith()</code> , <code>.contains()</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>destination.unregistered.method</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>HTTP method (for example, <code>'get'</code> , <code>'post'</code> , <code>'put'</code> , <code>'delete'</code> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 > **Note:** The `startsWith()` , `endsWith()` , and `contains()` functions (or `STARTS_WITH` , `ENDS_WITH` , and `CONTAINS` ) are supported only for the `destination.unregistered.host` and `destination.unregistered.path` attributes. Other attributes don't support these string functions.
 
 ## What's next
 
-  - [Create IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap)
-  - [Manage IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap)
-  - [Troubleshoot IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap)
+- [Create IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap)
+- [Manage IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap)
+- [Troubleshoot IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap)
 
 Overview
 

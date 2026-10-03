@@ -26,7 +26,7 @@ Identifier. The resource name of the ReasoningEngine. Format: `projects/{project
 
 ### Query parameters
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Optional. Mask specifying which fields to update.
 
@@ -34,8 +34,8 @@ This is a comma-separated list of fully qualified names of fields. Example: `"us
 
 ### Request body
 
-The request body contains an instance of `  ReasoningEngine  ` .
+The request body contains an instance of [`ReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines#ReasoningEngine) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

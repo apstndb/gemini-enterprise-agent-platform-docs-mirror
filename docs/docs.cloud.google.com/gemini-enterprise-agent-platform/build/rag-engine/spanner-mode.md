@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > Some of the RAG features are Preview offerings, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . Pre-GA products and features are available "as-is" and may have limited support, and changes to Pre-GA products and features may not be compatible with other Pre-GA versions. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages) . By using the Gemini API on Gemini Enterprise Agent Platform, you agree to the Generative AI Preview [terms and conditions](https://cloud.google.com/trustedtester/aitos) (Preview Terms).
 
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
@@ -26,18 +26,18 @@ RAG Engine lets you scale your `RagManagedDb` instance based on your usage and p
 
 The tier is a project-level setting that's available in the `RagEngineConfig` resource that impacts RAG corpora using `RagManagedDb` . The following tiers are available in `RagEngineConfig` :
 
-  - **Scaled tier:** This tier offers production-scale performance along with autoscaling functionality. It's suitable for customers with large amounts of data or performance-sensitive workloads. Internally, this tier sets the Spanner instance to autoscaling configuration with a minimum of 1 node (1,000 processing units) and a maximum of 10 nodes (10,000 processing units).
+- **Scaled tier:** This tier offers production-scale performance along with autoscaling functionality. It's suitable for customers with large amounts of data or performance-sensitive workloads. Internally, this tier sets the Spanner instance to autoscaling configuration with a minimum of 1 node (1,000 processing units) and a maximum of 10 nodes (10,000 processing units).
 
-  - **Basic tier (default):** This tier offers a cost-effective and low-compute tier, which might be suitable for some of the following cases:
-    
-      - Experimenting with `RagManagedDb`
-      - Small data sizes
-      - Latency-insensitive workloads
-      - Using RAG Engine with only other vector databases
+- **Basic tier (default):** This tier offers a cost-effective and low-compute tier, which might be suitable for some of the following cases:
+
+  - Experimenting with `RagManagedDb`
+  - Small data sizes
+  - Latency-insensitive workloads
+  - Using RAG Engine with only other vector databases
 
 To offer the Basic tier, `RagManagedDb` sets the underlying Spanner instance to a fixed configuration of 100 processing units, which is equivalent to 0.1 nodes.
 
-  - **Unprovisioned tier:** This tier deletes the `RagManagedDb` and its underlying Spanner instance. The Unprovisioned tier disables the RAG Engine service and deletes your data held within this service regardless of the vector database used for your `RagCorpora` . This stops the billing of the service. For more information on billing, see [RAG Engine on Gemini Enterprise Agent Platform billing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-engine-billing) .
+- **Unprovisioned tier:** This tier deletes the `RagManagedDb` and its underlying Spanner instance. The Unprovisioned tier disables the RAG Engine service and deletes your data held within this service regardless of the vector database used for your `RagCorpora` . This stops the billing of the service. For more information on billing, see [RAG Engine on Gemini Enterprise Agent Platform billing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-engine-billing) .
 
 After the data is deleted, it can't be recovered. To start using RAG Engine again, you must update the tier by calling the `UpdateRagEngineConfig` API or switch the mode to Serverless.
 

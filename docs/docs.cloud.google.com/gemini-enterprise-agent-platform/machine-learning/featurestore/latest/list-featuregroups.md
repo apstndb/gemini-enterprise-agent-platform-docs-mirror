@@ -24,6 +24,10 @@ When you use the Google Cloud console to access Google Cloud services and APIs, 
 
 To use the REST API samples on this page in a local development environment, you use the credentials you provide to the gcloud CLI.
 
+[Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI.
+
+If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
+
 For more information, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) in the Google Cloud authentication documentation.
 
 ## List feature groups
@@ -44,12 +48,14 @@ To retrieve a list of all the [`FeatureGroup`](https://docs.cloud.google.com/gem
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region for which you want to view the list of feature groups, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
+- ` LOCATION_ID ` : Region for which you want to view the list of feature groups, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
 
 HTTP method and URL:
 
-    GET https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups
+```
+GET https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups
+```
 
 To send your request, choose one of these options:
 
@@ -59,9 +65,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups"
+```
 
 #### PowerShell
 
@@ -69,49 +77,53 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
 
-You should receive a JSON response similar to the following. BIGQUERY\_URI\_1 is the BigQuery source table or view registered via FEATURE\_GROUP\_NAME\_1 and BIGQUERY\_URI\_2 is the BigQuery source table or view registered with FEATURE\_GROUP\_NAME\_2 .  
-If any of the feature groups listed in the response has a dedicated service account configuration, then the service account email address is also listed in its details. In this example, SERVICE\_ACCOUNT\_EMAIL is the service account email address associated with the feature group FEATURE\_GROUP\_NAME\_1 .
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups" | Select-Object -Expand Content
+```
 
+You should receive a JSON response similar to the following. ` BIGQUERY_URI_1 ` is the BigQuery source table or view registered via ` FEATURE_GROUP_NAME_1 ` and ` BIGQUERY_URI_2 ` is the BigQuery source table or view registered with ` FEATURE_GROUP_NAME_2 ` .  
+If any of the feature groups listed in the response has a dedicated service account configuration, then the service account email address is also listed in its details. In this example, ` SERVICE_ACCOUNT_EMAIL ` is the service account email address associated with the feature group ` FEATURE_GROUP_NAME_1 ` .
+
+```
+{
+  "featureGroups": [
     {
-      "featureGroups": [
-        {
-          "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME_1",
-          "createTime": "2023-09-07T00:57:00.142639Z",
-          "updateTime": "2023-09-07T00:57:00.142639Z",
-          "etag": "AMEw9yOY0byP8qKsDY0DoZyouAtX23zDru2l422C0affZZPYNFOGgIrONELNrM49uH4=",
-          "bigQuery": {
-            "bigQuerySource": {
-              "inputUri": "BIGQUERY_URI_1"
-            }
-          }
-          "serviceAccountEmail": "SERVICE_ACCOUNT_EMAIL"
-        },
-        {
-          "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME_2",
-          "createTime": "2023-09-06T23:14:30.795502Z",
-          "updateTime": "2023-09-06T23:14:30.795502Z",
-          "etag": "AMEw9yO5UfrPWobGR2Ry-PnbJUQoklW5lX0uW4JmKqj6OgQui6p-rMdUHfuENpQjbJ3t",
-          "bigQuery": {
-            "bigQuerySource": {
-              "inputUri": "BIGQUERY_URI_2"
-            }
-          }
+      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME_1",
+      "createTime": "2023-09-07T00:57:00.142639Z",
+      "updateTime": "2023-09-07T00:57:00.142639Z",
+      "etag": "AMEw9yOY0byP8qKsDY0DoZyouAtX23zDru2l422C0affZZPYNFOGgIrONELNrM49uH4=",
+      "bigQuery": {
+        "bigQuerySource": {
+          "inputUri": "BIGQUERY_URI_1"
         }
-      ]
+      }
+      "serviceAccountEmail": "SERVICE_ACCOUNT_EMAIL"
+    },
+    {
+      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME_2",
+      "createTime": "2023-09-06T23:14:30.795502Z",
+      "updateTime": "2023-09-06T23:14:30.795502Z",
+      "etag": "AMEw9yO5UfrPWobGR2Ry-PnbJUQoklW5lX0uW4JmKqj6OgQui6p-rMdUHfuENpQjbJ3t",
+      "bigQuery": {
+        "bigQuerySource": {
+          "inputUri": "BIGQUERY_URI_2"
+        }
+      }
     }
+  ]
+}
+```
 
 ## What's next
 
-  - Learn how to [create a feature](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-feature) .
+- Learn how to [create a feature](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-feature) .
 
-  - Learn how to [update a feature group](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-featuregroup) .
+- Learn how to [update a feature group](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-featuregroup) .
 
-  - Learn how to [delete a feature group](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/delete-featuregroup) .
+- Learn how to [delete a feature group](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/delete-featuregroup) .

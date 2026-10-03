@@ -18,21 +18,11 @@ Input only. Whether EUC is disabled in this NotebookRuntimeTemplate. In proto3, 
 
 Output only. Whether ActAs check is bypassed for service account attached to the VM. If false, we need ActAs check for the default Compute Engine service account. When a Runtime is created, a VM is allocated using Default Compute Engine service Account. Any user requesting to use this Runtime requires service Account user (ActAs) permission over this SA. If true, Runtime owner is using EUC and does not require the above permission as VM no longer use default Compute Engine SA, but a P4SA.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;eucDisabled&quot;: boolean,
-  &quot;bypassActasCheck&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "eucDisabled": boolean,
+  "bypassActasCheck": boolean
+}
+```

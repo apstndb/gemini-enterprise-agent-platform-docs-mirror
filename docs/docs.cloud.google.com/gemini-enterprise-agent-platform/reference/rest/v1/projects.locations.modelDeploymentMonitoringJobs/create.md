@@ -24,8 +24,8 @@ Required. The parent of the ModelDeploymentMonitoringJob. Format: `projects/{pro
 
 ### Request body
 
-The request body contains an instance of `  ModelDeploymentMonitoringJob  ` .
+The request body contains an instance of [`ModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs#ModelDeploymentMonitoringJob) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  ModelDeploymentMonitoringJob  ` .
+If successful, the response body contains a newly created instance of [`ModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs#ModelDeploymentMonitoringJob) .

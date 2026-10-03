@@ -24,39 +24,47 @@ End of the attributed segment, exclusive.
 
 The type of annotation. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`urlCitation` ` object ( UrlCitation  ` )
+`urlCitation` `object ( `[`UrlCitation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Annotation#UrlCitation)` )`
 
 NOTE: We use these instead of the Citation message for historical reasons. A URL citation annotation.
 
-`fileCitation` ` object ( FileCitation  ` )
+`fileCitation` `object ( `[`FileCitation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Annotation#FileCitation)` )`
 
 A file citation annotation.
 
-`placeCitation` ` object ( PlaceCitation  ` )
+`placeCitation` `object ( `[`PlaceCitation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Annotation#PlaceCitation)` )`
 
 A place citation annotation.
 
-`wordInfo` ` object ( WordInfo  ` )
+`wordInfo` `object ( `[`WordInfo`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Annotation#WordInfo)` )`
 
 word-level ASR annotation with timing and speaker info.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;startIndex&quot;: integer,&quot;endIndex&quot;: integer,// type&quot;urlCitation&quot;: {object (UrlCitation)},&quot;fileCitation&quot;: {object (FileCitation)},&quot;placeCitation&quot;: {object (PlaceCitation)},&quot;wordInfo&quot;: {object (WordInfo)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "startIndex": integer,
+  "endIndex": integer,
+
+  // type
+  "urlCitation": {
+    object (UrlCitation)
+  },
+  "fileCitation": {
+    object (FileCitation)
+  },
+  "placeCitation": {
+    object (PlaceCitation)
+  },
+  "wordInfo": {
+    object (WordInfo)
+  }
+  // Union type
+}
+```
 
 ## UrlCitation
 
@@ -72,24 +80,14 @@ The URL.
 
 The title of the URL.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;url&quot;: string,
-  &quot;title&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "url": string,
+  "title": string
+}
+```
 
 ## FileCitation
 
@@ -109,7 +107,7 @@ The name of the file.
 
 Source attributed for a portion of the text.
 
-`customMetadata` ` object ( Struct  ` )
+`customMetadata` `object ( `[`Struct`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Struct)` )`
 
 user provided metadata about the retrieved context.
 
@@ -121,21 +119,20 @@ Page number of the cited document, if applicable.
 
 Media id in-case of image citations, if applicable.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;documentUri&quot;: string,&quot;fileName&quot;: string,&quot;source&quot;: string,&quot;customMetadata&quot;: {object (Struct)},&quot;pageNumber&quot;: integer,&quot;mediaId&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "documentUri": string,
+  "fileName": string,
+  "source": string,
+  "customMetadata": {
+    object (Struct)
+  },
+  "pageNumber": integer,
+  "mediaId": string
+}
+```
 
 ## PlaceCitation
 
@@ -155,25 +152,24 @@ title of the place.
 
 URI reference of the place.
 
-`reviewSnippets[]` ` object ( ReviewSnippet  ` )
+`reviewSnippets[]` `object ( `[`ReviewSnippet`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ReviewSnippet)` )`
 
 Snippets of reviews that are used to generate answers about the features of a given place in Google Maps.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;placeId&quot;: string,&quot;name&quot;: string,&quot;url&quot;: string,&quot;reviewSnippets&quot;: [{object (ReviewSnippet)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "placeId": string,
+  "name": string,
+  "url": string,
+  "reviewSnippets": [
+    {
+      object (ReviewSnippet)
+    }
+  ]
+}
+```
 
 ## WordInfo
 
@@ -185,13 +181,13 @@ Fields
 
 The transcribed word.
 
-`startOffset` ` string ( Duration  ` format)
+`startOffset` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 Start offset in time of the word relative to the start of the audio. Present when timestampGranularities contains "word".
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
-`endOffset` ` string ( Duration  ` format)
+`endOffset` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 End offset in time of the word relative to the start of the audio. Present when timestampGranularities contains "word".
 
@@ -199,25 +195,15 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
 
 `speaker` `string`
 
-Optional. Speaker label for this word (e.g. "spk\_1", "spk\_2"). Present when diarizationMode is set in TranscriptionConfig.
+Optional. Speaker label for this word (e.g. "spk_1", "spk_2"). Present when diarizationMode is set in TranscriptionConfig.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;text&quot;: string,
-  &quot;startOffset&quot;: string,
-  &quot;endOffset&quot;: string,
-  &quot;speaker&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "text": string,
+  "startOffset": string,
+  "endOffset": string,
+  "speaker": string
+}
+```

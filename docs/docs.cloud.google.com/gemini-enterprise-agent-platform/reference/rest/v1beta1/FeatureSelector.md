@@ -10,25 +10,19 @@ Selector for Features of an EntityType.
 
 Fields
 
-`idMatcher` ` object ( IdMatcher  ` )
+`idMatcher` `object ( `[`IdMatcher`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureSelector#IdMatcher)` )`
 
 Required. Matches Features based on id.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;idMatcher&quot;: {object (IdMatcher)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "idMatcher": {
+    object (IdMatcher)
+  }
+}
+```
 
 ## IdMatcher
 
@@ -40,25 +34,15 @@ Fields
 
 Required. The following are accepted as `ids` :
 
-  - A single-element list containing only `*` , which selects all Features in the target EntityType, or
-  - A list containing only feature IDs, which selects only Features with those IDs in the target EntityType.
+- A single-element list containing only `*` , which selects all Features in the target EntityType, or
+- A list containing only feature IDs, which selects only Features with those IDs in the target EntityType.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;ids&quot;: [
+**JSON representation**
+
+```
+{
+  "ids": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

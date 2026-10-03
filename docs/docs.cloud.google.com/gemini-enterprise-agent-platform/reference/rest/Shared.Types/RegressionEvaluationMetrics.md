@@ -30,24 +30,14 @@ Coefficient of determination as Pearson correlation coefficient. Undefined when 
 
 Root mean squared log error. Undefined when there are negative ground truth values or predictions.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;rootMeanSquaredError&quot;: number,
-  &quot;meanAbsoluteError&quot;: number,
-  &quot;meanAbsolutePercentageError&quot;: number,
-  &quot;rSquared&quot;: number,
-  &quot;rootMeanSquaredLogError&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "rootMeanSquaredError": number,
+  "meanAbsoluteError": number,
+  "meanAbsolutePercentageError": number,
+  "rSquared": number,
+  "rootMeanSquaredLogError": number
+}
+```

@@ -16,10 +16,10 @@ To learn how to integrate your BigQuery ML models with Gemini Enterprise Agent P
 
 ## Limitations
 
-  - You can't register [remote models](https://docs.cloud.google.com/bigquery/docs/bqml-introduction#remote_models) .
+- You can't register [remote models](https://docs.cloud.google.com/bigquery/docs/bqml-introduction#remote_models) .
 
-  - The following models can be registered in Model Registry, but they can't be deployed in Agent Platform:
-    
-      - [Imported XGBoost models](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-xgboost)
-      - [`ARIMA_PLUS` models](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-time-series)
-      - [`ARIMA_PLUS_XREG` models](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-multivariate-time-series)
+- The following models can be registered in Model Registry, but they can't be deployed in Agent Platform:
+
+  - [Imported XGBoost models](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-xgboost)
+  - [`ARIMA_PLUS` models](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-time-series)
+  - [`ARIMA_PLUS_XREG` models](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-multivariate-time-series)

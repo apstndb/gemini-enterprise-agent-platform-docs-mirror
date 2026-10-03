@@ -28,11 +28,11 @@ The request body contains data with the following structure:
 
 Fields
 
-`statsFilter` ` object ( SearchModelMonitoringStatsFilter  ` )
+`statsFilter` `object ( `[`SearchModelMonitoringStatsFilter`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/searchModelMonitoringStats#SearchModelMonitoringStatsFilter)` )`
 
 Filter for search different stats.
 
-`timeInterval` ` object ( Interval  ` )
+`timeInterval` `object ( `[`Interval`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Interval)` )`
 
 The time interval for which results should be returned.
 
@@ -42,39 +42,36 @@ The standard list page size.
 
 `pageToken` `string`
 
-A page token received from a previous `  ModelMonitoringService.SearchModelMonitoringStats  ` call.
+A page token received from a previous [`ModelMonitoringService.SearchModelMonitoringStats`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/searchModelMonitoringStats#google.cloud.aiplatform.v1beta1.ModelMonitoringService.SearchModelMonitoringStats) call.
 
 ### Response body
 
-Response message for `  ModelMonitoringService.SearchModelMonitoringStats  ` .
+Response message for [`ModelMonitoringService.SearchModelMonitoringStats`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/searchModelMonitoringStats#google.cloud.aiplatform.v1beta1.ModelMonitoringService.SearchModelMonitoringStats) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`monitoringStats[]` ` object ( ModelMonitoringStats  ` )
+`monitoringStats[]` `object ( `[`ModelMonitoringStats`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/searchModelMonitoringStats#ModelMonitoringStats)` )`
 
 Stats retrieved for requested objectives.
 
 `nextPageToken` `string`
 
-The page token that can be used by the next `  ModelMonitoringService.SearchModelMonitoringStats  ` call.
+The page token that can be used by the next [`ModelMonitoringService.SearchModelMonitoringStats`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/searchModelMonitoringStats#google.cloud.aiplatform.v1beta1.ModelMonitoringService.SearchModelMonitoringStats) call.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;monitoringStats&quot;: [{object (ModelMonitoringStats)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "monitoringStats": [
+    {
+      object (ModelMonitoringStats)
+    }
+  ],
+  "nextPageToken": string
+}
+```
 
 ## SearchModelMonitoringStatsFilter
 
@@ -86,27 +83,24 @@ Fields
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`tabularStatsFilter` ` object ( TabularStatsFilter  ` )
+`tabularStatsFilter` `object ( `[`TabularStatsFilter`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/searchModelMonitoringStats#TabularStatsFilter)` )`
 
 Tabular statistics filter.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// filter&quot;tabularStatsFilter&quot;: {object (TabularStatsFilter)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // filter
+  "tabularStatsFilter": {
+    object (TabularStatsFilter)
+  }
+  // Union type
+}
+```
 
 ## TabularStatsFilter
 
@@ -116,7 +110,7 @@ Fields
 
 `statsName` `string`
 
-If not specified, will return all the stats\_names.
+If not specified, will return all the stats_names.
 
 `objectiveType` `string`
 
@@ -132,29 +126,19 @@ From a particular monitoring schedule.
 
 `algorithm` `string`
 
-Specify the algorithm type used for distance calculation, eg: jensen\_shannon\_divergence, l\_infinity.
+Specify the algorithm type used for distance calculation, eg: jensen_shannon_divergence, l_infinity.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;statsName&quot;: string,
-  &quot;objectiveType&quot;: string,
-  &quot;modelMonitoringJob&quot;: string,
-  &quot;modelMonitoringSchedule&quot;: string,
-  &quot;algorithm&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "statsName": string,
+  "objectiveType": string,
+  "modelMonitoringJob": string,
+  "modelMonitoringSchedule": string,
+  "algorithm": string
+}
+```
 
 ## ModelMonitoringStats
 
@@ -166,27 +150,24 @@ Fields
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`tabularStats` ` object ( ModelMonitoringTabularStats  ` )
+`tabularStats` `object ( `[`ModelMonitoringTabularStats`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/searchModelMonitoringStats#ModelMonitoringTabularStats)` )`
 
 Generated tabular statistics.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// stats&quot;tabularStats&quot;: {object (ModelMonitoringTabularStats)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // stats
+  "tabularStats": {
+    object (ModelMonitoringTabularStats)
+  }
+  // Union type
+}
+```
 
 ## ModelMonitoringTabularStats
 
@@ -202,25 +183,23 @@ The stats name.
 
 One of the supported monitoring objectives: `raw-feature-drift` `prediction-output-drift` `feature-attribution`
 
-`dataPoints[]` ` object ( ModelMonitoringStatsDataPoint  ` )
+`dataPoints[]` `object ( `[`ModelMonitoringStatsDataPoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/searchModelMonitoringStats#ModelMonitoringStatsDataPoint)` )`
 
 The data points of this time series. When listing time series, points are returned in reverse time order.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;statsName&quot;: string,&quot;objectiveType&quot;: string,&quot;dataPoints&quot;: [{object (ModelMonitoringStatsDataPoint)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "statsName": string,
+  "objectiveType": string,
+  "dataPoints": [
+    {
+      object (ModelMonitoringStatsDataPoint)
+    }
+  ]
+}
+```
 
 ## ModelMonitoringStatsDataPoint
 
@@ -228,11 +207,11 @@ Represents a single statistics data point.
 
 Fields
 
-`currentStats` ` object ( TypedValue  ` )
+`currentStats` `object ( `[`TypedValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/searchModelMonitoringStats#TypedValue)` )`
 
 Statistics from current dataset.
 
-`baselineStats` ` object ( TypedValue  ` )
+`baselineStats` `object ( `[`TypedValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/searchModelMonitoringStats#TypedValue)` )`
 
 Statistics from baseline dataset.
 
@@ -252,7 +231,7 @@ Model monitoring job resource name.
 
 Schedule resource name.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Statistics create time.
 
@@ -260,23 +239,26 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 `algorithm` `string`
 
-algorithm used to calculated the metrics, eg: jensen\_shannon\_divergence, l\_infinity.
+algorithm used to calculated the metrics, eg: jensen_shannon_divergence, l_infinity.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;currentStats&quot;: {object (TypedValue)},&quot;baselineStats&quot;: {object (TypedValue)},&quot;thresholdValue&quot;: number,&quot;hasAnomaly&quot;: boolean,&quot;modelMonitoringJob&quot;: string,&quot;schedule&quot;: string,&quot;createTime&quot;: string,&quot;algorithm&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "currentStats": {
+    object (TypedValue)
+  },
+  "baselineStats": {
+    object (TypedValue)
+  },
+  "thresholdValue": number,
+  "hasAnomaly": boolean,
+  "modelMonitoringJob": string,
+  "schedule": string,
+  "createTime": string,
+  "algorithm": string
+}
+```
 
 ## TypedValue
 
@@ -292,27 +274,25 @@ The typed value. The following is a list of mutually exclusive fields. At most o
 
 Double.
 
-`distributionValue` ` object ( DistributionDataValue  ` )
+`distributionValue` `object ( `[`DistributionDataValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/searchModelMonitoringStats#DistributionDataValue)` )`
 
 Distribution.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// value&quot;doubleValue&quot;: number,&quot;distributionValue&quot;: {object (DistributionDataValue)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // value
+  "doubleValue": number,
+  "distributionValue": {
+    object (DistributionDataValue)
+  }
+  // Union type
+}
+```
 
 ## DistributionDataValue
 
@@ -320,7 +300,7 @@ Summary statistics for a population of values.
 
 Fields
 
-`distribution` ` value ( Value  ` format)
+`distribution` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
 Predictive monitoring drift distribution in `tensorflow.metadata.v0.DatasetFeatureStatistics` format.
 
@@ -328,21 +308,11 @@ Predictive monitoring drift distribution in `tensorflow.metadata.v0.DatasetFeatu
 
 Distribution distance deviation from the current dataset's statistics to baseline dataset's statistics. \* For categorical feature, the distribution distance is calculated by L-inifinity norm or Jensen–Shannon divergence. \* For numerical feature, the distribution distance is calculated by Jensen–Shannon divergence.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;distribution&quot;: value,
-  &quot;distributionDeviation&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "distribution": value,
+  "distributionDeviation": number
+}
+```

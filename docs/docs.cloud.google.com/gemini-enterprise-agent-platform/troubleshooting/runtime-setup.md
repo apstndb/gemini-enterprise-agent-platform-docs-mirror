@@ -18,27 +18,37 @@ If you can't import the Agent Platform SDK for Python, it might be caused by one
 
 You receive an error message similar to the following:
 
-    ImportError: cannot import name 'reasoning_engines' from 'vertexai.preview'
+```
+ImportError: cannot import name 'reasoning_engines' from 'vertexai.preview'
+```
 
 or
 
-    ImportError: cannot import name 'agent_angines' from 'vertexai'
+```
+ImportError: cannot import name 'agent_angines' from 'vertexai'
+```
 
 **Possible cause** :
 
 This might happen if the version of your `google-cloud-aiplatform` package is earlier than `1.82.0` (for `agent_engines` ) or `1.47.0` (for `reasoning_engines` ). To check the version of your `google-cloud-aiplatform` package, run the following command in the terminal:
 
-    pip show google-cloud-aiplatform
+```
+pip show google-cloud-aiplatform
+```
 
 **Recommended solution** :
 
 Run the following command in your terminal to update your `google-cloud-aiplatform` package:
 
-    pip install google-cloud-aiplatform --upgrade
+```
+pip install google-cloud-aiplatform --upgrade
+```
 
 Verify your updated version is `1.82.0` or later by running the following command:
 
-    pip show google-cloud-aiplatform
+```
+pip show google-cloud-aiplatform
+```
 
 If you're in a notebook instance (For example, Jupyter or Colab or Workbench), you might need to restart your runtime to use the updated packages.
 
@@ -48,13 +58,17 @@ If you're in a notebook instance (For example, Jupyter or Colab or Workbench), y
 
 You receive an error message similar to the following:
 
-    Error Code: "401"
-    Error Details: "Context-Aware Access requirements are not met"
+```
+Error Code: "401"
+Error Details: "Context-Aware Access requirements are not met"
+```
 
 OR
 
-    Agent Engine Error: An error occurred during invocation. Exception: API request failed with status 401:
-    Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential.
+```
+Agent Engine Error: An error occurred during invocation. Exception: API request failed with status 401:
+Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential.
+```
 
 **Possible cause** :
 
@@ -69,10 +83,12 @@ For scenario \#1, if you have a legitimate reason to share tokens between agents
 
 Opt out of the default CAA policy by setting the following environment variable when you create your Agent Runtime instance:
 
-    config={
-      "env_vars": {
-        "GOOGLE_API_PREVENT_AGENT_TOKEN_SHARING_FOR_GCP_SERVICES": False,
-      }
-    }
+```
+config={
+  "env_vars": {
+    "GOOGLE_API_PREVENT_AGENT_TOKEN_SHARING_FOR_GCP_SERVICES": False,
+  }
+}
+```
 
 For scenario \#2, you can similarly set the `GOOGLE_API_PREVENT_AGENT_TOKEN_SHARING_FOR_GCP_SERVICES` variable to `False` to allow agents to use the non-mTLS API endpoints as a temporary workaround. In this case, the underlying issue could be a known issue with ADK.

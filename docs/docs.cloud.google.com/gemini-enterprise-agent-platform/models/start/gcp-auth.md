@@ -18,7 +18,9 @@ To use Gemini on Gemini Enterprise Agent Platform, you need to authenticate by u
 
 If you're using a local shell, then create local authentication credentials for your user account:
 
-    gcloud auth application-default login
+```
+gcloud auth application-default login
+```
 
 You don't need to do this if you're using Cloud Shell.
 
@@ -28,7 +30,9 @@ If an authentication error is returned, and you are using an external identity p
 
 Run the following command to install and run `gcloud` to set up application default credentials:
 
-    bash <(curl -sSL https://storage.googleapis.com/cloud-samples-data/adc/setup_adc.sh)
+```
+bash <(curl -sSL https://storage.googleapis.com/cloud-samples-data/adc/setup_adc.sh)
+```
 
 > **Note:** You can set up application default credentials in different environments, such as for a resource with an attached service account, containerized environments, on-premises or other cloud providers, or a Google Cloud-based development environment. For more information, see [Set up Application Default Credentials](https://docs.cloud.google.com/docs/authentication/provide-credentials-adc) .
 

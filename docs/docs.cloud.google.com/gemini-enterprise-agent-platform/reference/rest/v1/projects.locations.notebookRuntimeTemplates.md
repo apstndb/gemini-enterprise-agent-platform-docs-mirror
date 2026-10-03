@@ -24,31 +24,31 @@ Required. The display name of the NotebookRuntimeTemplate. The name can be up to
 
 The description of the NotebookRuntimeTemplate.
 
-` isDefault (deprecated)  ` `boolean`
+`isDefault `**`(deprecated)`** `boolean`
 
-> This item is deprecated\!
+> This item is deprecated!
 
-Output only. Deprecated: This field has no behavior. Use notebookRuntimeType = 'ONE\_CLICK' instead.
+Output only. Deprecated: This field has no behavior. Use notebookRuntimeType = 'ONE_CLICK' instead.
 
 The default template to use if not specified.
 
-`machineSpec` ` object ( MachineSpec  ` )
+`machineSpec` `object ( `[`MachineSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#MachineSpec)` )`
 
 Optional. Immutable. The specification of a single machine for the template.
 
-`dataPersistentDiskSpec` ` object ( PersistentDiskSpec  ` )
+`dataPersistentDiskSpec` `object ( `[`PersistentDiskSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/PersistentDiskSpec)` )`
 
 Optional. The specification of \[persistent disk\]\[https://cloud.google.com/compute/docs/disks/persistent-disks\] attached to the runtime as data disk storage.
 
-`networkSpec` ` object ( NetworkSpec  ` )
+`networkSpec` `object ( `[`NetworkSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/NetworkSpec)` )`
 
 Optional. Network spec.
 
-` serviceAccount (deprecated)  ` `string`
+`serviceAccount `**`(deprecated)`** `string`
 
-> This item is deprecated\!
+> This item is deprecated!
 
-Deprecated: This field is ignored and the "Agent Platform Notebook service Account" ( <service-PROJECT_NUMBER@gcp-sa-aiplatform-vm.iam.gserviceaccount.com> ) is used for the runtime workload identity. See <https://cloud.google.com/iam/docs/service-agents#vertex-ai-notebook-service-account> for more details. For NotebookExecutionJob, use NotebookExecutionJob.service\_account instead.
+Deprecated: This field is ignored and the "Agent Platform Notebook service Account" ( <service-PROJECT_NUMBER@gcp-sa-aiplatform-vm.iam.gserviceaccount.com> ) is used for the runtime workload identity. See <https://cloud.google.com/iam/docs/service-agents#vertex-ai-notebook-service-account> for more details. For NotebookExecutionJob, use NotebookExecutionJob.service_account instead.
 
 The service account that the runtime workload runs as. You can use any service account within the same project, but you must have the service account user permission to use the instance.
 
@@ -66,31 +66,31 @@ label keys and values can be no longer than 64 characters (Unicode codepoints), 
 
 See <https://goo.gl/xmQnxf> for more information and examples of labels.
 
-`idleShutdownConfig` ` object ( NotebookIdleShutdownConfig  ` )
+`idleShutdownConfig` `object ( `[`NotebookIdleShutdownConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/NotebookIdleShutdownConfig)` )`
 
 The idle shutdown configuration of NotebookRuntimeTemplate. This config will only be set when idle shutdown is enabled.
 
-`eucConfig` ` object ( NotebookEucConfig  ` )
+`eucConfig` `object ( `[`NotebookEucConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/NotebookEucConfig)` )`
 
 EUC configuration of the NotebookRuntimeTemplate.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this NotebookRuntimeTemplate was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this NotebookRuntimeTemplate was most recently updated.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`notebookRuntimeType` ` enum ( NotebookRuntimeType  ` )
+`notebookRuntimeType` `enum ( `[`NotebookRuntimeType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/NotebookRuntimeType)` )`
 
 Optional. Immutable. The type of the notebook runtime template.
 
-`shieldedVmConfig` ` object ( ShieldedVmConfig  ` )
+`shieldedVmConfig` `object ( `[`ShieldedVmConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ShieldedVmConfig)` )`
 
 Optional. Immutable. Runtime Shielded VM spec.
 
@@ -98,60 +98,68 @@ Optional. Immutable. Runtime Shielded VM spec.
 
 Optional. The Compute Engine tags to add to runtime (see [Tagging instances](https://cloud.google.com/vpc/docs/add-remove-network-tags) ).
 
-`encryptionSpec` ` object ( EncryptionSpec  ` )
+`encryptionSpec` `object ( `[`EncryptionSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/EncryptionSpec)` )`
 
 Customer-managed encryption key spec for the notebook runtime.
 
-`softwareConfig` ` object ( NotebookSoftwareConfig  ` )
+`softwareConfig` `object ( `[`NotebookSoftwareConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/NotebookSoftwareConfig)` )`
 
 Optional. The notebook software configuration of the notebook runtime.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;isDefault&quot;: boolean,&quot;machineSpec&quot;: {object (MachineSpec)},&quot;dataPersistentDiskSpec&quot;: {object (PersistentDiskSpec)},&quot;networkSpec&quot;: {object (NetworkSpec)},&quot;serviceAccount&quot;: string,&quot;etag&quot;: string,&quot;labels&quot;: {string: string,...},&quot;idleShutdownConfig&quot;: {object (NotebookIdleShutdownConfig)},&quot;eucConfig&quot;: {object (NotebookEucConfig)},&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;notebookRuntimeType&quot;: enum (NotebookRuntimeType),&quot;shieldedVmConfig&quot;: {object (ShieldedVmConfig)},&quot;networkTags&quot;: [string],&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;softwareConfig&quot;: {object (NotebookSoftwareConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "name": string,
+  "displayName": string,
+  "description": string,
+  "isDefault": boolean,
+  "machineSpec": {
+    object (MachineSpec)
+  },
+  "dataPersistentDiskSpec": {
+    object (PersistentDiskSpec)
+  },
+  "networkSpec": {
+    object (NetworkSpec)
+  },
+  "serviceAccount": string,
+  "etag": string,
+  "labels": {
+    string: string,
+    ...
+  },
+  "idleShutdownConfig": {
+    object (NotebookIdleShutdownConfig)
+  },
+  "eucConfig": {
+    object (NotebookEucConfig)
+  },
+  "createTime": string,
+  "updateTime": string,
+  "notebookRuntimeType": enum (NotebookRuntimeType),
+  "shieldedVmConfig": {
+    object (ShieldedVmConfig)
+  },
+  "networkTags": [
+    string
+  ],
+  "encryptionSpec": {
+    object (EncryptionSpec)
+  },
+  "softwareConfig": {
+    object (NotebookSoftwareConfig)
+  }
+}
+```
 
-### `            create           `
-
-Creates a NotebookRuntimeTemplate.
-
-### `            delete           `
-
-Deletes a NotebookRuntimeTemplate.
-
-### `            get           `
-
-Gets a NotebookRuntimeTemplate.
-
-### `            getIamPolicy           `
-
-Gets the access control policy for a resource.
-
-### `            list           `
-
-Lists NotebookRuntimeTemplates in a Location.
-
-### `            patch           `
-
-Updates a NotebookRuntimeTemplate.
-
-### `            setIamPolicy           `
-
-Sets the access control policy on the specified resource.
-
-### `            testIamPermissions           `
-
-Returns permissions that a caller has on the specified resource.
+| Methods                                                                                                                                                                 |                                                                  |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates/create)                         | Creates a NotebookRuntimeTemplate.                               |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates/delete)                         | Deletes a NotebookRuntimeTemplate.                               |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates/get)                               | Gets a NotebookRuntimeTemplate.                                  |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates/getIamPolicy)             | Gets the access control policy for a resource.                   |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates/list)                             | Lists NotebookRuntimeTemplates in a Location.                    |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates/patch)                           | Updates a NotebookRuntimeTemplate.                               |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates/setIamPolicy)             | Sets the access control policy on the specified resource.        |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates/testIamPermissions) | Returns permissions that a caller has on the specified resource. |

@@ -22,6 +22,10 @@ When you use the Google Cloud console to access Google Cloud services and APIs, 
 
 To use the REST API samples on this page in a local development environment, you use the credentials you provide to the gcloud CLI.
 
+[Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI.
+
+If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
+
 For more information, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) in the Google Cloud authentication documentation.
 
 ## List online store instances
@@ -44,12 +48,14 @@ To retrieve a list of all the [`FeatureOnlineStore`](https://docs.cloud.google.c
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region for which you want to view the list of online stores, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
+- ` LOCATION_ID ` : Region for which you want to view the list of online stores, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
 
 HTTP method and URL:
 
-    GET https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores
+```
+GET https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores
+```
 
 To send your request, choose one of these options:
 
@@ -59,9 +65,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores"
+```
 
 #### PowerShell
 
@@ -69,51 +77,55 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
 
-You should see output similar to the following. You can use the OPERATION\_ID in the response to [get the status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/long-running-operations) of the operation.
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores" | Select-Object -Expand Content
+```
 
+You should see output similar to the following. You can use the ` OPERATION_ID ` in the response to [get the status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/long-running-operations) of the operation.
+
+```
+{
+  "featureOnlineStores": [
     {
-      "featureOnlineStores": [
-        {
-          "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME_1",
-          "createTime": "2023-09-06T23:25:04.256314Z",
-          "updateTime": "2023-09-06T23:25:04.256314Z",
-          "etag": "AMEw9yMgoV0bAsYuKwVxz4Y7lOmxV7riNVHg217KaQAKORqvdqGCrQ1DIt8yHgoGXf8=",
-          "bigtable": {
-            "autoScaling": {
-              "minNodeCount": 1,
-              "maxNodeCount": 4,
-              "cpuUtilizationTarget": 70
-            }
-          }
-        },
-        {
-          "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME_2",
-          "createTime": "2023-07-21T14:24:20.206446Z",
-          "updateTime": "2023-07-21T14:24:20.206446Z",
-          "etag": "AMEw9yPTfvIHvpFD-mbtMVKG4Sp_y08aDFZiZl4m_97VvC0YiyEVj-sbDo_NkVueeBo=",
-          "bigtable": {
-            "autoScaling": {
-              "minNodeCount": 1,
-              "maxNodeCount": 4,
-              "cpuUtilizationTarget": 70
-            }
-          }
+      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME_1",
+      "createTime": "2023-09-06T23:25:04.256314Z",
+      "updateTime": "2023-09-06T23:25:04.256314Z",
+      "etag": "AMEw9yMgoV0bAsYuKwVxz4Y7lOmxV7riNVHg217KaQAKORqvdqGCrQ1DIt8yHgoGXf8=",
+      "bigtable": {
+        "autoScaling": {
+          "minNodeCount": 1,
+          "maxNodeCount": 4,
+          "cpuUtilizationTarget": 70
         }
-      ]
+      }
+    },
+    {
+      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME_2",
+      "createTime": "2023-07-21T14:24:20.206446Z",
+      "updateTime": "2023-07-21T14:24:20.206446Z",
+      "etag": "AMEw9yPTfvIHvpFD-mbtMVKG4Sp_y08aDFZiZl4m_97VvC0YiyEVj-sbDo_NkVueeBo=",
+      "bigtable": {
+        "autoScaling": {
+          "minNodeCount": 1,
+          "maxNodeCount": 4,
+          "cpuUtilizationTarget": 70
+        }
+      }
     }
+  ]
+}
+```
 
 ## What's next
 
-  - Learn how to [create a feature view within an online store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-featureview) .
+- Learn how to [create a feature view within an online store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-featureview) .
 
-  - Learn how to [update an online store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-onlinestore) .
+- Learn how to [update an online store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-onlinestore) .
 
-  - Learn how to [delete an online store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/delete-onlinestore) .
+- Learn how to [delete an online store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/delete-onlinestore) .

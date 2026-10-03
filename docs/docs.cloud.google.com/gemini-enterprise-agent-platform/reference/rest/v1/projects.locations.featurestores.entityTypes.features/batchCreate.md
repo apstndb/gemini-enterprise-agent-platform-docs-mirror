@@ -28,10 +28,10 @@ The request body contains data with the following structure:
 
 Fields
 
-`requests[]` ` object ( CreateFeatureRequest  ` )
+`requests[]` `object ( `[`CreateFeatureRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features/batchCreate#CreateFeatureRequest)` )`
 
 Required. The request message specifying the Features to create. All Features must be created under the same parent EntityType / FeatureGroup. The `parent` field in each child request message can be omitted. If `parent` is set in a child request, then the value must match the `parent` value in this request message.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

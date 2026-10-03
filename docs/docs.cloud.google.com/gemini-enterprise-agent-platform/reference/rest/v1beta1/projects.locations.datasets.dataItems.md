@@ -10,8 +10,6 @@ data_source: docs.cloud.google.com
 
 There is no persistent data associated with this resource.
 
-## Methods
-
-### `            list           `
-
-Lists DataItems in a Dataset.
+| Methods                                                                                                                                    |                               |
+|--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.dataItems/list) | Lists DataItems in a Dataset. |

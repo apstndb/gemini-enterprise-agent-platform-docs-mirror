@@ -38,9 +38,9 @@ The one-hour TTL isn't supported for the following models: Claude 3.7 Sonnet on 
 
 Prompt caching can affect billing costs. Note that:
 
-  - Cache write tokens with a five-minute lifetime are 25% more expensive than base input tokens.
-  - Cache write tokens with a one-hour lifetime are 100% more expensive than base input tokens.
-  - Cache read tokens are 90% cheaper than base input tokens.
-  - Regular input and output tokens are priced at standard rates.
+- Cache write tokens with a five-minute lifetime are 25% more expensive than base input tokens.
+- Cache write tokens with a one-hour lifetime are 100% more expensive than base input tokens.
+- Cache read tokens are 90% cheaper than base input tokens.
+- Regular input and output tokens are priced at standard rates.
 
 For more information, see the [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#claude-models) page.

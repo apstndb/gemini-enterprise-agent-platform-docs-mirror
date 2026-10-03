@@ -18,9 +18,9 @@ For more information, go to the [Customer-managed encryption keys (CMEK)](https:
 
 The following prerequisites and constraints must be met in order to use CMEK with a [Collections](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections) :
 
-  - The Cloud KMS key must reside in the same Google Cloud region as the [Collection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections) it protects. For example, a Collection in the `us-central1` region must use a KMS key located in `us-central1` .
+- The Cloud KMS key must reside in the same Google Cloud region as the [Collection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections) it protects. For example, a Collection in the `us-central1` region must use a KMS key located in `us-central1` .
 
-  - You must grant your Per-Product-Per-Project (P4) Service Account the `cryptoKeyEncrypterDecrypter` role on your KMS key. The P4 Service Account follows this format: `service-${CONSUMER_PROJECT_NUMBER}@gcp-sa-vectorsearch.iam.gserviceaccount.com`
+- You must grant your Per-Product-Per-Project (P4) Service Account the `cryptoKeyEncrypterDecrypter` role on your KMS key. The P4 Service Account follows this format: `service-${CONSUMER_PROJECT_NUMBER}@gcp-sa-vectorsearch.iam.gserviceaccount.com`
 
 > **Warning:** Previous key versions must not be deleted immediately to void encrypted data to be lost. Keep them for at least 30 days.
 
@@ -32,24 +32,28 @@ After you meet all pre-requistites, you can use the gcloud CLI, REST API, or Pyt
 
 Specify the fully qualified resource ID of your KMS key using the `--kms-key` argument:
 
-    gcloud vector-search collections create [COLLECTION_ID] \
-        --kms-key projects/[KMS_PROJECT_ID]/locations/[REGION]/keyRings/[KEY_RING]/cryptoKeys/[KEY]
+```
+gcloud vector-search collections create [COLLECTION_ID] \
+    --kms-key projects/[KMS_PROJECT_ID]/locations/[REGION]/keyRings/[KEY_RING]/cryptoKeys/[KEY]
+```
 
 ### Using the REST API
 
 Include the `encryption_spec` in the body of your `POST` request:
 
-    {
-      "encryption_spec": {
-        "crypto_key_name": "projects/[PROJECT_ID]/locations/[REGION]/keyRings/[KEY_RING]/cryptoKeys/[KEY]"
-      }
-    }
+```
+{
+  "encryption_spec": {
+    "crypto_key_name": "projects/[PROJECT_ID]/locations/[REGION]/keyRings/[KEY_RING]/cryptoKeys/[KEY]"
+  }
+}
+```
 
 ### Using the Python SDK
 
 Using the Python SDK:
 
-``` 
+```
    
 request = vectorsearch_v1beta.CreateCollectionRequest(
     parent=f"projects/{PROJECT_ID}/locations/{LOCATION}",
@@ -96,47 +100,9 @@ Collections aren't automatically re-enabled if the key is restored.
 
 The current Vertex AI resources covered by CMEK are as follows. CMEK support for Preview features is in Preview status as well.
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Resource</th>
-<th style="text-align: left;">Material encrypted</th>
-<th style="text-align: left;">Documentation links</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets">Dataset</a></td>
-<td style="text-align: left;">All user imported data (for example, text content) for <code dir="ltr" translate="no">DataItems</code> and <code dir="ltr" translate="no">Annotations</code> .<br />
-<br />
-User created content such as <code dir="ltr" translate="no">AnnotationSpecs, ColumnSpecs</code> .</td>
-<td style="text-align: left;"><a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/create-dataset">Create a dataset for training classification and regression models</a><br />
-<br />
-<a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/create-dataset">Create a dataset for training forecast models</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes">Index</a></td>
-<td style="text-align: left;">All data files used for Vector Search indexes stored in Cloud Storage, Pub/Sub, and internal storage. Index and IndexEndpoint must be created with the same key.<br />
-<br />
-All indexes within a Collection must be created with the same key.</td>
-<td style="text-align: left;"><a href="https://docs.cloud.google.com/vertex-ai/docs/vector-search/create-manage-index">Manage indexes</a> in Vector Search :<br />
-<br />
-<a href="https://docs.cloud.google.com/vertex-ai/docs/vector-search-2/indexes/indexes">Manage indexes in Vector Search 2</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections">Collections</a></td>
-<td style="text-align: left;"><em>Collections</em> are used to store related Data Objects.</td>
-<td style="text-align: left;"><a href="https://docs.cloud.google.com/vertex-ai/docs/vector-search-2/collections/collections">Manage collections in Vector Search 2</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects">DataObjects</a></td>
-<td style="text-align: left;">Collections store data as individual JSON objects called Data Objects.</td>
-<td style="text-align: left;"><a href="https://docs.cloud.google.com/vertex-ai/docs/vector-search-2/data-objects/data-objects">Manage Data Objects in Vector Search 2</a></td>
-</tr>
-</tbody>
-</table>
+| Resource                                                                                                                      | Material encrypted                                                                                                                                                                                                                  | Documentation links                                                                                                                                                                                                                                                                                            |
+|-------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets)       | All user imported data (for example, text content) for `DataItems` and `Annotations` . User created content such as `AnnotationSpecs, ColumnSpecs` .                                                                                | [Create a dataset for training classification and regression models](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/create-dataset) [Create a dataset for training forecast models](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/create-dataset) |
+| [Index](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes)          | All data files used for Vector Search indexes stored in Cloud Storage, Pub/Sub, and internal storage. Index and IndexEndpoint must be created with the same key. All indexes within a Collection must be created with the same key. | [Manage indexes](https://docs.cloud.google.com/vertex-ai/docs/vector-search/create-manage-index) in Vector Search : [Manage indexes in Vector Search 2](https://docs.cloud.google.com/vertex-ai/docs/vector-search-2/indexes/indexes)                                                                          |
+| [Collections](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections)   | *Collections* are used to store related Data Objects.                                                                                                                                                                               | [Manage collections in Vector Search 2](https://docs.cloud.google.com/vertex-ai/docs/vector-search-2/collections/collections)                                                                                                                                                                                  |
+| [DataObjects](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects) | Collections store data as individual JSON objects called Data Objects.                                                                                                                                                              | [Manage Data Objects in Vector Search 2](https://docs.cloud.google.com/vertex-ai/docs/vector-search-2/data-objects/data-objects)                                                                                                                                                                               |

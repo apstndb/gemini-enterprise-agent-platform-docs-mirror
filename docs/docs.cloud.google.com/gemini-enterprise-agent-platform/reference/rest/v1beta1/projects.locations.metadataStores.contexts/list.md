@@ -30,17 +30,17 @@ The maximum number of Contexts to return. The service may return fewer. Must be 
 
 `pageToken` `string`
 
-A page token, received from a previous `  MetadataService.ListContexts  ` call. Provide this to retrieve the subsequent page.
+A page token, received from a previous [`MetadataService.ListContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.contexts/list#google.cloud.aiplatform.v1beta1.MetadataService.ListContexts) call. Provide this to retrieve the subsequent page.
 
-When paginating, all other provided parameters must match the call that provided the page token. (Otherwise the request will fail with INVALID\_ARGUMENT error.)
+When paginating, all other provided parameters must match the call that provided the page token. (Otherwise the request will fail with INVALID_ARGUMENT error.)
 
 `filter` `string`
 
 Filter specifying the boolean condition for the Contexts to satisfy in order to be part of the result set. The syntax to define filter query is based on <https://google.aip.dev/160> . Following are the supported set of filters:
 
-  - **attribute filtering** : For example: `display_name = "test"` . Supported fields include: `name` , `display_name` , `schema_title` , `create_time` , and `update_time` . time fields, such as `create_time` and `update_time` , require values specified in RFC-3339 format. For example: `create_time = "2020-11-19T11:30:00-04:00"` .
-  - **metadata field** : To filter on metadata fields use traversal operation as follows: `metadata.<fieldName>.<typeValue>` . For example: `metadata.field_1.number_value = 10.0` . In case the field name contains special characters (such as colon), one can embed it inside double quote. For example: `metadata."field:1".number_value = 10.0`
-  - **Parent Child filtering** : To filter Contexts based on parent-child relationship use the HAS operator as follows:
+- **attribute filtering** : For example: `display_name = "test"` . Supported fields include: `name` , `display_name` , `schema_title` , `create_time` , and `update_time` . time fields, such as `create_time` and `update_time` , require values specified in RFC-3339 format. For example: `create_time = "2020-11-19T11:30:00-04:00"` .
+- **metadata field** : To filter on metadata fields use traversal operation as follows: `metadata.<fieldName>.<typeValue>` . For example: `metadata.field_1.number_value = 10.0` . In case the field name contains special characters (such as colon), one can embed it inside double quote. For example: `metadata."field:1".number_value = 10.0`
+- **Parent Child filtering** : To filter Contexts based on parent-child relationship use the HAS operator as follows:
 
 `parentContexts: "projects/<projectNumber>/locations/<location>/metadataStores/<metadatastore_name>/contexts/<contextId>" childContexts: "projects/<projectNumber>/locations/<location>/metadataStores/<metadatastore_name>/contexts/<contextId>"`
 
@@ -58,32 +58,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  MetadataService.ListContexts  ` .
+Response message for [`MetadataService.ListContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.contexts/list#google.cloud.aiplatform.v1beta1.MetadataService.ListContexts) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`contexts[]` ` object ( Context  ` )
+`contexts[]` `object ( `[`Context`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.contexts#Context)` )`
 
 The Contexts retrieved from the MetadataStore.
 
 `nextPageToken` `string`
 
-A token, which can be sent as `  ListContextsRequest.page_token  ` to retrieve the next page. If this field is not populated, there are no subsequent pages.
+A token, which can be sent as [`ListContextsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.contexts/list#body.QUERY_PARAMETERS.page_token) to retrieve the next page. If this field is not populated, there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;contexts&quot;: [{object (Context)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "contexts": [
+    {
+      object (Context)
+    }
+  ],
+  "nextPageToken": string
+}
+```

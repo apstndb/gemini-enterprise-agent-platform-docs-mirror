@@ -10,7 +10,7 @@ Annotation details specific to text extraction.
 
 Fields
 
-`textSegment` ` object ( TextSegment  ` )
+`textSegment` `object ( `[`TextSegment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/TextExtractionAnnotation#TextSegment)` )`
 
 The segment of the text content.
 
@@ -22,21 +22,17 @@ The resource id of the AnnotationSpec that this Annotation pertains to.
 
 The display name of the AnnotationSpec that this Annotation pertains to.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;textSegment&quot;: {object (TextSegment)},&quot;annotationSpecId&quot;: string,&quot;displayName&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "textSegment": {
+    object (TextSegment)
+  },
+  "annotationSpecId": string,
+  "displayName": string
+}
+```
 
 ## TextSegment
 
@@ -56,22 +52,12 @@ Zero-based character index of the first character past the end of the text segme
 
 The text content in the segment for output only.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;startOffset&quot;: string,
-  &quot;endOffset&quot;: string,
-  &quot;content&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "startOffset": string,
+  "endOffset": string,
+  "content": string
+}
+```

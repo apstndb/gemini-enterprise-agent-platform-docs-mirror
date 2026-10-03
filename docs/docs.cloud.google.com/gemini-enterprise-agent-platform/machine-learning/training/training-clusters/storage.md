@@ -10,8 +10,8 @@ If you're interested in Gemini Enterprise Agent Platform training clusters, cont
 
 Choosing the right storage configuration is critical for the performance and stability of your training cluster. The service integrates with two distinct, high-performance storage solutions:
 
-  - Filestore: A required managed file service that provides the shared `/home` directories for all nodes in the cluster.
-  - Google Cloud Managed Lustre: An optional parallel file system designed for extreme I/O performance, ideal for training on massive datasets. Treat it as high-performance working storage rather than a system of record, and keep Cloud Storage as your source of truth. For more information, see [Back up Managed Lustre data to Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/storage#lustre-backup) .
+- Filestore: A required managed file service that provides the shared `/home` directories for all nodes in the cluster.
+- Google Cloud Managed Lustre: An optional parallel file system designed for extreme I/O performance, ideal for training on massive datasets. Treat it as high-performance working storage rather than a system of record, and keep Cloud Storage as your source of truth. For more information, see [Back up Managed Lustre data to Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/storage#lustre-backup) .
 
 This page provides an overview of their key uses and outlines the specific networking and deployment requirements for a successful integration with your cluster.
 
@@ -46,38 +46,42 @@ Managed Lustre includes a built-in, high-throughput transfer that exports direct
 Two identities need permissions. The user or service account that starts the export needs `lustre.instances.exportData` , which is included in the `roles/lustre.admin` role or which you can grant through a [custom role](https://docs.cloud.google.com/iam/docs/creating-custom-roles) . The Managed Lustre service agent separately needs write access to the destination bucket.
 
 1.  Grant the Managed Lustre service agent write access to the destination bucket. You only need to do this once per bucket:
-    
-        gcloud storage buckets add-iam-policy-binding gs://BUCKET_NAME \
-          --member=serviceAccount:service-PROJECT_NUMBER@gcp-sa-lustre.iam.gserviceaccount.com \
-          --role=roles/storage.objectUser
-    
+
+    ```
+    gcloud storage buckets add-iam-policy-binding gs://BUCKET_NAME \
+      --member=serviceAccount:service-PROJECT_NUMBER@gcp-sa-lustre.iam.gserviceaccount.com \
+      --role=roles/storage.objectUser
+    ```
+
     Where:
-    
-      - BUCKET\_NAME is the destination bucket.
-      - PROJECT\_NUMBER is the number of the project that contains the Managed Lustre instance. For more information, see [Permissions for the Managed Lustre service agent](https://docs.cloud.google.com/managed-lustre/docs/transfer-data#sa-permissions) .
+
+    - ` BUCKET_NAME ` is the destination bucket.
+    - ` PROJECT_NUMBER ` is the number of the project that contains the Managed Lustre instance. For more information, see [Permissions for the Managed Lustre service agent](https://docs.cloud.google.com/managed-lustre/docs/transfer-data#sa-permissions) .
 
 2.  Export the file system to the bucket:
-    
-        gcloud lustre instances export-data INSTANCE_ID \
-          --location=ZONE \
-          --lustre-path="/" \
-          --gcs-path-uri="gs://BUCKET_NAME/INSTANCE_ID/"
-    
+
+    ```
+    gcloud lustre instances export-data INSTANCE_ID \
+      --location=ZONE \
+      --lustre-path="/" \
+      --gcs-path-uri="gs://BUCKET_NAME/INSTANCE_ID/"
+    ```
+
     Where:
-    
-      - INSTANCE\_ID is the name of the Managed Lustre instance to back up.
-      - ZONE is the zone of the instance, for example `us-central1-a` .
-    
+
+    - ` INSTANCE_ID ` is the name of the Managed Lustre instance to back up.
+    - ` ZONE ` is the zone of the instance, for example `us-central1-a` .
+
     The `--gcs-path-uri` value can be a bucket on its own, or a path within a bucket. If you include a path, it must end with a forward slash. Exporting each instance to a path named after it keeps instances separate: if you attach more than one Managed Lustre instance to the cluster, give each one its own path, because two instances that export to the same path overwrite each other's files.
 
 To keep the backup current, run the export on a schedule. For example, you can run a daily cron job on a login node instead of only running it at the end of a training run. Because transfers are incremental, each run after the first copies only what changed.
 
 Consider the following when you plan a backup:
 
-  - Only one transfer operation per instance can be active at a time. A transfer started while another is still running fails with `ABORTED: unable to queue the operation` .
-  - The export never deletes objects from the destination, so a file that you delete on Managed Lustre remains in the bucket. Enable [Object Versioning](https://docs.cloud.google.com/storage/docs/object-versioning) on the destination bucket so that you can also recover a file that was overwritten with unwanted content.
-  - Symbolic links, empty directories, and striping layouts set with `lfs setstripe` aren't preserved, and hard links are exported as separate objects, so a hard-linked file consumes space once per link in the bucket. POSIX UID, GID, mode, and mtime are preserved as custom object metadata.
-  - Write checkpoints atomically—write to a temporary path, then rename the file into place—so that an export running during a write captures either the previous file or the complete new one, and never a partial file.
+- Only one transfer operation per instance can be active at a time. A transfer started while another is still running fails with `ABORTED: unable to queue the operation` .
+- The export never deletes objects from the destination, so a file that you delete on Managed Lustre remains in the bucket. Enable [Object Versioning](https://docs.cloud.google.com/storage/docs/object-versioning) on the destination bucket so that you can also recover a file that was overwritten with unwanted content.
+- Symbolic links, empty directories, and striping layouts set with `lfs setstripe` aren't preserved, and hard links are exported as separate objects, so a hard-linked file consumes space once per link in the bucket. POSIX UID, GID, mode, and mtime are preserved as custom object metadata.
+- Write checkpoints atomically—write to a temporary path, then rename the file into place—so that an export running during a write captures either the previous file or the complete new one, and never a partial file.
 
 To restore, create a new Managed Lustre instance and load the data back with `gcloud lustre instances import-data` . For more information, see [Transfer data to or from Cloud Storage](https://docs.cloud.google.com/managed-lustre/docs/transfer-data) .
 
@@ -100,18 +104,18 @@ Beyond its role as the mandatory home directory, Filestore provides a flexible w
 
 A successful Filestore integration with training clusters requires the following configuration:
 
-  - **Enable the API** : The Filestore API must be enabled in your Google Cloud project before you can create the cluster.
-  - **Mandatory `/home` Directory** : Every training cluster requires a dedicated Filestore instance to serve as the shared `/home` directory. This instance has specific configuration requirements:
-      - **Network** : It must reside in the same VPC network as the cluster's compute and login nodes.
-      - **Location** : It must be located in the same region or zone as the cluster.
-      - **Configuration** : You must specify the full resource name of this instance in the `orchestrator_spec.slurm_spec.home_directory_storage` field when creating the cluster via the API.
+- **Enable the API** : The Filestore API must be enabled in your Google Cloud project before you can create the cluster.
+- **Mandatory `/home` Directory** : Every training cluster requires a dedicated Filestore instance to serve as the shared `/home` directory. This instance has specific configuration requirements:
+  - **Network** : It must reside in the same VPC network as the cluster's compute and login nodes.
+  - **Location** : It must be located in the same region or zone as the cluster.
+  - **Configuration** : You must specify the full resource name of this instance in the `orchestrator_spec.slurm_spec.home_directory_storage` field when creating the cluster via the API.
 
 ### Configure Filestore storage
 
 Create a zonal or regional Filestore instance in the zone where you want to create the cluster. Agent Platform API requires a Filestore to be attached to the cluster to serve as the `/home` directory. This Filestore has to be in the same zone or region and in the same network as all the compute nodes and login nodes. In the example below, 172.16.10.0/24 is used for the Filestore deployment.
 
-``` 
-    SERVICE_TIER=ZONAL # Can use BASIC_SSD
+```
+SERVICE_TIER=ZONAL # Can use BASIC_SSD
 
     # Create reserved IP address range
     gcloud compute addresses create CLUSTER_IDfs-ip-range \
@@ -137,7 +141,6 @@ Create a zonal or regional Filestore instance in the zone where you want to crea
         --tier=ZONAL \
         --file-share=name="nfsshare",capacity=1024 \
     --network=name=NETWORK,connect-mode=DIRECT_PEERING,reserved-ip-range="${FS_IP_RANGE}"
-  
 ```
 
 ### Lustre
@@ -150,12 +153,12 @@ To decrease network latency, we recommend creating a Managed Lustre instance in 
 
 When creating a Managed Lustre instance, you must define the following properties:
 
-  - The name of the instance used by Google Cloud.
-  - The file system name used by client-side tools, for example `lfs` .
-  - The storage capacity in gibibytes (GiB). Capacity can range from 9,000 GiB to \~8 PiB (7,632,000 GiB). The maximum size of an instance depends on its performance tier.
-  - Managed Lustre offers **performance tiers** ranging from 125 MBps per TiB to 1000 MBps per TiB.
-  - For best performance, create your instance in the same zone as your training cluster.
-  - The VPC network for this instance must be the same one your training cluster uses.
+- The name of the instance used by Google Cloud.
+- The file system name used by client-side tools, for example `lfs` .
+- The storage capacity in gibibytes (GiB). Capacity can range from 9,000 GiB to \~8 PiB (7,632,000 GiB). The maximum size of an instance depends on its performance tier.
+- Managed Lustre offers **performance tiers** ranging from 125 MBps per TiB to 1000 MBps per TiB.
+- For best performance, create your instance in the same zone as your training cluster.
+- The VPC network for this instance must be the same one your training cluster uses.
 
 Managed Lustre offers [4 performance tiers](https://docs.cloud.google.com/managed-lustre/docs/performance) , each with a different maximum throughput speed per TiB. Performance tiers also affect the minimum and maximum instance size, and the step size between acceptable capacity values. You cannot change an instance's performance tier after it's been created.
 
@@ -173,7 +176,7 @@ For optimal performance when using training clusters, Google Cloud Managed Lustr
 
 ### Create Lustre instance
 
-``` 
+```
     gcloud lustre instances create LUSTRE_INSTANCE_ID \
     --project=PROJECT_ID \
     --location=ZONE \
@@ -181,8 +184,6 @@ For optimal performance when using training clusters, Google Cloud Managed Lustr
     --per-unit-storage-throughput=500 \
     --capacity-gib=36000 \
     --network=NETWORK_NAME
-
-  
 ```
 
 ## Cloud Storage mounting
@@ -195,22 +196,28 @@ Gemini Enterprise Agent Platform training clusters uses Cloud Storage FUSE to dy
 
 > **Note:** Dynamically mounted buckets can't be listed from the root mount point `/gcs` . The bucket name must be specified as part of the operation.
 
-    user@testcluster:$ ls /gcs/your-bucket-name
-    user@testcluster:$ cd /gcs/your-bucket-name
+```
+user@testcluster:$ ls /gcs/your-bucket-name
+user@testcluster:$ cd /gcs/your-bucket-name
+```
 
 ### Custom mount
 
 To mount a specific Cloud Storage bucket to a local directory with custom options, use the following command structure by either passing it as part of the startup script on cluster creation, or directly running on the node after the cluster is created.
 
-    sudo mkdir -p $MOUNT_DIR
-    echo "$GCS_BUCKET $MOUNT_DIR gcsfuse $OPTION_1,$OPTION_2,..." | sudo tee -a /etc/fstab
-    sudo mount -a
+```
+sudo mkdir -p $MOUNT_DIR
+echo "$GCS_BUCKET $MOUNT_DIR gcsfuse $OPTION_1,$OPTION_2,..." | sudo tee -a /etc/fstab
+sudo mount -a
+```
 
 For example, to mount the bucket `mtdata` to the `/data` directory, use the following command:
 
-    sudo mkdir -p /data
-    echo "mtdata /data gcsfuse defaults,_netdev,implicit_dirs,allow_other,dir_mode=777,file-mode=777,metadata_cache_negative_ttl_secs=0,metadata_cache_ttl_secs=-1,stat_cache_max_size_mb=-1,type_cache_max_size_mb=-1,enable_streaming_writes=true" | sudo tee -a /etc/fstab
-    sudo mount -a
+```
+sudo mkdir -p /data
+echo "mtdata /data gcsfuse defaults,_netdev,implicit_dirs,allow_other,dir_mode=777,file-mode=777,metadata_cache_negative_ttl_secs=0,metadata_cache_ttl_secs=-1,stat_cache_max_size_mb=-1,type_cache_max_size_mb=-1,enable_streaming_writes=true" | sudo tee -a /etc/fstab
+sudo mount -a
+```
 
 For a fully automated and consistent setup, include your custom mount scripts within the cluster's startup scripts. This practice ensures that your Cloud Storage buckets are automatically mounted across all nodes on startup, eliminating the need for manual configuration.
 
@@ -220,9 +227,9 @@ For additional configuration recommendations tailored to AI/ML workloads, see th
 
 The next steps focus on using your cluster effectively for large-scale training.
 
-  - Adapt your code for distributed training: To take full advantage of a multi-node cluster and high-performance storage, adapt your training code for a distributed environment.
-      - [Learn about distributed training on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training)
-  - Orchestrate your jobs with Gemini Enterprise Agent Platform Pipelines: For production workflows, automate the process of data preparation, job submission, and model registration using Agent Platform Pipelines.
-      - [Run a custom training job in a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/run-pipeline#run_a_custom_training_job_in_a_pipeline)
-  - Monitor and debug your training jobs: Track the progress and resource utilization of your distributed training jobs to identify and resolve issues.
-      - [Monitor training jobs on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics)
+- Adapt your code for distributed training: To take full advantage of a multi-node cluster and high-performance storage, adapt your training code for a distributed environment.
+  - [Learn about distributed training on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training)
+- Orchestrate your jobs with Gemini Enterprise Agent Platform Pipelines: For production workflows, automate the process of data preparation, job submission, and model registration using Agent Platform Pipelines.
+  - [Run a custom training job in a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/run-pipeline#run_a_custom_training_job_in_a_pipeline)
+- Monitor and debug your training jobs: Track the progress and resource utilization of your distributed training jobs to identify and resolve issues.
+  - [Monitor training jobs on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics)

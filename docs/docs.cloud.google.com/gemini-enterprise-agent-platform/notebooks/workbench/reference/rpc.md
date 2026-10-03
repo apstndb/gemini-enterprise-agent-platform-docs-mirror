@@ -12,302 +12,101 @@ The Notebooks API lets you manage Agent Platform Workbench resources in Google C
 
 The Service name `notebooks.googleapis.com` is needed to create RPC client stubs.
 
-## `        google.cloud.location.Locations       `
-
-Methods
-
-`  GetLocation  `
-
-Gets information about a location.
-
-`  ListLocations  `
-
-Lists information about the supported locations for this service.
-
-## `        google.cloud.notebooks.v1.ManagedNotebookService       `
-
-Methods
-
-`  CreateRuntime  `
-
-Creates a new Runtime in a given project and location.
-
-`  DeleteRuntime  `
-
-Deletes a single Runtime.
-
-`  GetRuntime  `
-
-Gets details of a single Runtime.
-
-`  ListRuntimes  `
-
-Lists Runtimes in a given project and location.
-
-`  MigrateRuntime  `
-
-Migrate an existing Runtime to a new Workbench Instance.
-
-`  ReportRuntimeEvent  `
-
-Reports and processes a runtime event.
-
-`  ResetRuntime  `
-
-Resets a Managed Notebook Runtime.
-
-`  StartRuntime  `
-
-Starts a Managed Notebook Runtime.
-
-`  StopRuntime  `
-
-Stops a Managed Notebook Runtime.
-
-`  SwitchRuntime  `
-
-Switch a Managed Notebook Runtime.
-
-`  UpdateRuntime  `
-
-Update Notebook Runtime configuration.
-
-## `        google.cloud.notebooks.v1.NotebookService       `
-
-Methods
-
-`  CreateEnvironment  `
-
-Creates a new Environment.
-
-`  CreateExecution  `
-
-Creates a new Execution in a given project and location.
-
-`  CreateInstance  `
-
-Creates a new Instance in a given project and location.
-
-`  CreateSchedule  `
-
-Creates a new Scheduled Notebook in a given project and location.
-
-`  DeleteEnvironment  `
-
-Deletes a single Environment.
-
-`  DeleteExecution  `
-
-Deletes execution
-
-`  DeleteInstance  `
-
-Deletes a single Instance.
-
-`  DeleteSchedule  `
-
-Deletes schedule and all underlying jobs
-
-`  DiagnoseInstance  `
-
-Creates a Diagnostic File and runs Diagnostic Tool given an Instance.
-
-`  GetEnvironment  `
-
-Gets details of a single Environment.
-
-`  GetExecution  `
-
-Gets details of executions
-
-`  GetInstance  `
-
-Gets details of a single Instance.
-
-`  GetInstanceHealth  `
-
-Checks whether a notebook instance is healthy.
-
-`  GetSchedule  `
-
-Gets details of schedule
-
-`  IsInstanceUpgradeable  `
-
-Checks whether a notebook instance is upgradable.
-
-`  ListEnvironments  `
-
-Lists environments in a project.
-
-`  ListExecutions  `
-
-Lists executions in a given project and location
-
-`  ListInstances  `
-
-Lists instances in a given project and location.
-
-`  ListSchedules  `
-
-Lists schedules in a given project and location.
-
-`  MigrateInstance  `
-
-Migrates an existing User-Managed Notebook to Workbench Instances.
-
-`  RegisterInstance  `
-
-Registers an existing legacy notebook instance to the Notebooks API server.
-
-`  ReportInstanceInfo  `
-
-Allows notebook instances to report their latest instance information to the Notebooks API server.
-
-`  ResetInstance  `
-
-Resets a notebook instance.
-
-`  RollbackInstance  `
-
-Rollbacks a notebook instance to the previous version.
-
-`  SetInstanceAccelerator  `
-
-Updates the guest accelerators of a single Instance.
-
-`  SetInstanceLabels  `
-
-Replaces all the labels of an Instance.
-
-`  SetInstanceMachineType  `
-
-Updates the machine type of a single Instance.
-
-`  StartInstance  `
-
-Starts a notebook instance.
-
-`  StopInstance  `
-
-Stops a notebook instance.
-
-`  UpdateInstanceConfig  `
-
-Update Notebook Instance configurations.
-
-`  UpdateInstanceMetadataItems  `
-
-Add/update metadata items for an instance.
-
-`  UpdateShieldedInstanceConfig  `
-
-Updates the Shielded instance configuration of a single Instance.
-
-`  UpgradeInstance  `
-
-Upgrades a notebook instance to the latest version.
-
-## `        google.cloud.notebooks.v2.NotebookService       `
-
-Methods
-
-`  CheckInstanceUpgradability  `
-
-Checks whether a notebook instance is upgradable.
-
-`  CreateInstance  `
-
-Creates a new Instance in a given project and location.
-
-`  DeleteInstance  `
-
-Deletes a single Instance.
-
-`  DiagnoseInstance  `
-
-Creates a Diagnostic File and runs Diagnostic Tool given an Instance.
-
-`  GetConfig  `
-
-Returns various configuration parameters.
-
-`  GetInstance  `
-
-Gets details of a single Instance.
-
-`  ListInstances  `
-
-Lists instances in a given project and location.
-
-`  ResetInstance  `
-
-Resets a notebook instance.
-
-`  ResizeDisk  `
-
-Resize a notebook instance disk to a higher capacity.
-
-`  RestoreInstance  `
-
-RestoreInstance restores an Instance from a BackupSource.
-
-`  RollbackInstance  `
-
-Rollbacks a notebook instance to the previous version.
-
-`  StartInstance  `
-
-Starts a notebook instance.
-
-`  StopInstance  `
-
-Stops a notebook instance.
-
-`  UpdateInstance  `
-
-UpdateInstance updates an Instance.
-
-`  UpgradeInstance  `
-
-Upgrades a notebook instance to the latest version.
-
-## `        google.iam.v1.IAMPolicy       `
-
-Methods
-
-`  GetIamPolicy  `
-
-Gets the access control policy for a resource.
-
-`  SetIamPolicy  `
-
-Sets the access control policy on the specified resource.
-
-`  TestIamPermissions  `
-
-Returns permissions that a caller has on the specified resource.
-
-## `        google.longrunning.Operations       `
-
-Methods
-
-`  CancelOperation  `
-
-Starts asynchronous cancellation on a long-running operation.
-
-`  DeleteOperation  `
-
-Deletes a long-running operation.
-
-`  GetOperation  `
-
-Gets the latest state of a long-running operation.
-
-`  ListOperations  `
-
-Lists operations that match the specified filter in the request.
-
-`  WaitOperation  `
-
-Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state.
+## [`google.cloud.location.Locations`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.location#google.cloud.location.Locations)
+
+| Methods                                                                                                                                                                                 |                                                                   |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
+| [`GetLocation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.location#google.cloud.location.Locations.GetLocation)     | Gets information about a location.                                |
+| [`ListLocations`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.location#google.cloud.location.Locations.ListLocations) | Lists information about the supported locations for this service. |
+
+## [`google.cloud.notebooks.v1.ManagedNotebookService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.ManagedNotebookService)
+
+| Methods                                                                                                                                                                                                                |                                                          |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
+| [`CreateRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.ManagedNotebookService.CreateRuntime)           | Creates a new Runtime in a given project and location.   |
+| [`DeleteRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.ManagedNotebookService.DeleteRuntime)           | Deletes a single Runtime.                                |
+| [`GetRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.ManagedNotebookService.GetRuntime)                 | Gets details of a single Runtime.                        |
+| [`ListRuntimes`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.ManagedNotebookService.ListRuntimes)             | Lists Runtimes in a given project and location.          |
+| [`MigrateRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.ManagedNotebookService.MigrateRuntime)         | Migrate an existing Runtime to a new Workbench Instance. |
+| [`ReportRuntimeEvent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.ManagedNotebookService.ReportRuntimeEvent) | Reports and processes a runtime event.                   |
+| [`ResetRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.ManagedNotebookService.ResetRuntime)             | Resets a Managed Notebook Runtime.                       |
+| [`StartRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.ManagedNotebookService.StartRuntime)             | Starts a Managed Notebook Runtime.                       |
+| [`StopRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.ManagedNotebookService.StopRuntime)               | Stops a Managed Notebook Runtime.                        |
+| [`SwitchRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.ManagedNotebookService.SwitchRuntime)           | Switch a Managed Notebook Runtime.                       |
+| [`UpdateRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.ManagedNotebookService.UpdateRuntime)           | Update Notebook Runtime configuration.                   |
+
+## [`google.cloud.notebooks.v1.NotebookService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService)
+
+| Methods                                                                                                                                                                                                                             |                                                                                                    |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| [`CreateEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.CreateEnvironment)                       | Creates a new Environment.                                                                         |
+| [`CreateExecution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.CreateExecution)                           | Creates a new Execution in a given project and location.                                           |
+| [`CreateInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.CreateInstance)                             | Creates a new Instance in a given project and location.                                            |
+| [`CreateSchedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.CreateSchedule)                             | Creates a new Scheduled Notebook in a given project and location.                                  |
+| [`DeleteEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.DeleteEnvironment)                       | Deletes a single Environment.                                                                      |
+| [`DeleteExecution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.DeleteExecution)                           | Deletes execution                                                                                  |
+| [`DeleteInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.DeleteInstance)                             | Deletes a single Instance.                                                                         |
+| [`DeleteSchedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.DeleteSchedule)                             | Deletes schedule and all underlying jobs                                                           |
+| [`DiagnoseInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.DiagnoseInstance)                         | Creates a Diagnostic File and runs Diagnostic Tool given an Instance.                              |
+| [`GetEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.GetEnvironment)                             | Gets details of a single Environment.                                                              |
+| [`GetExecution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.GetExecution)                                 | Gets details of executions                                                                         |
+| [`GetInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.GetInstance)                                   | Gets details of a single Instance.                                                                 |
+| [`GetInstanceHealth`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.GetInstanceHealth)                       | Checks whether a notebook instance is healthy.                                                     |
+| [`GetSchedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.GetSchedule)                                   | Gets details of schedule                                                                           |
+| [`IsInstanceUpgradeable`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.IsInstanceUpgradeable)               | Checks whether a notebook instance is upgradable.                                                  |
+| [`ListEnvironments`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.ListEnvironments)                         | Lists environments in a project.                                                                   |
+| [`ListExecutions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.ListExecutions)                             | Lists executions in a given project and location                                                   |
+| [`ListInstances`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.ListInstances)                               | Lists instances in a given project and location.                                                   |
+| [`ListSchedules`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.ListSchedules)                               | Lists schedules in a given project and location.                                                   |
+| [`MigrateInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.MigrateInstance)                           | Migrates an existing User-Managed Notebook to Workbench Instances.                                 |
+| [`RegisterInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.RegisterInstance)                         | Registers an existing legacy notebook instance to the Notebooks API server.                        |
+| [`ReportInstanceInfo`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.ReportInstanceInfo)                     | Allows notebook instances to report their latest instance information to the Notebooks API server. |
+| [`ResetInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.ResetInstance)                               | Resets a notebook instance.                                                                        |
+| [`RollbackInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.RollbackInstance)                         | Rollbacks a notebook instance to the previous version.                                             |
+| [`SetInstanceAccelerator`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.SetInstanceAccelerator)             | Updates the guest accelerators of a single Instance.                                               |
+| [`SetInstanceLabels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.SetInstanceLabels)                       | Replaces all the labels of an Instance.                                                            |
+| [`SetInstanceMachineType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.SetInstanceMachineType)             | Updates the machine type of a single Instance.                                                     |
+| [`StartInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.StartInstance)                               | Starts a notebook instance.                                                                        |
+| [`StopInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.StopInstance)                                 | Stops a notebook instance.                                                                         |
+| [`UpdateInstanceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.UpdateInstanceConfig)                 | Update Notebook Instance configurations.                                                           |
+| [`UpdateInstanceMetadataItems`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.UpdateInstanceMetadataItems)   | Add/update metadata items for an instance.                                                         |
+| [`UpdateShieldedInstanceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.UpdateShieldedInstanceConfig) | Updates the Shielded instance configuration of a single Instance.                                  |
+| [`UpgradeInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.NotebookService.UpgradeInstance)                           | Upgrades a notebook instance to the latest version.                                                |
+
+## [`google.cloud.notebooks.v2.NotebookService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.NotebookService)
+
+| Methods                                                                                                                                                                                                                         |                                                                       |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| [`CheckInstanceUpgradability`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.NotebookService.CheckInstanceUpgradability) | Checks whether a notebook instance is upgradable.                     |
+| [`CreateInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.NotebookService.CreateInstance)                         | Creates a new Instance in a given project and location.               |
+| [`DeleteInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.NotebookService.DeleteInstance)                         | Deletes a single Instance.                                            |
+| [`DiagnoseInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.NotebookService.DiagnoseInstance)                     | Creates a Diagnostic File and runs Diagnostic Tool given an Instance. |
+| [`GetConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.NotebookService.GetConfig)                                   | Returns various configuration parameters.                             |
+| [`GetInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.NotebookService.GetInstance)                               | Gets details of a single Instance.                                    |
+| [`ListInstances`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.NotebookService.ListInstances)                           | Lists instances in a given project and location.                      |
+| [`ResetInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.NotebookService.ResetInstance)                           | Resets a notebook instance.                                           |
+| [`ResizeDisk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.NotebookService.ResizeDisk)                                 | Resize a notebook instance disk to a higher capacity.                 |
+| [`RestoreInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.NotebookService.RestoreInstance)                       | RestoreInstance restores an Instance from a BackupSource.             |
+| [`RollbackInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.NotebookService.RollbackInstance)                     | Rollbacks a notebook instance to the previous version.                |
+| [`StartInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.NotebookService.StartInstance)                           | Starts a notebook instance.                                           |
+| [`StopInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.NotebookService.StopInstance)                             | Stops a notebook instance.                                            |
+| [`UpdateInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.NotebookService.UpdateInstance)                         | UpdateInstance updates an Instance.                                   |
+| [`UpgradeInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.NotebookService.UpgradeInstance)                       | Upgrades a notebook instance to the latest version.                   |
+
+## [`google.iam.v1.IAMPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.iam.v1#google.iam.v1.IAMPolicy)
+
+| Methods                                                                                                                                                                           |                                                                  |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| [`GetIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.iam.v1#google.iam.v1.IAMPolicy.GetIamPolicy)             | Gets the access control policy for a resource.                   |
+| [`SetIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.iam.v1#google.iam.v1.IAMPolicy.SetIamPolicy)             | Sets the access control policy on the specified resource.        |
+| [`TestIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.iam.v1#google.iam.v1.IAMPolicy.TestIamPermissions) | Returns permissions that a caller has on the specified resource. |
+
+## [`google.longrunning.Operations`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.longrunning#google.longrunning.Operations)
+
+| Methods                                                                                                                                                                                |                                                                                                                              |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| [`CancelOperation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.longrunning#google.longrunning.Operations.CancelOperation) | Starts asynchronous cancellation on a long-running operation.                                                                |
+| [`DeleteOperation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.longrunning#google.longrunning.Operations.DeleteOperation) | Deletes a long-running operation.                                                                                            |
+| [`GetOperation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.longrunning#google.longrunning.Operations.GetOperation)       | Gets the latest state of a long-running operation.                                                                           |
+| [`ListOperations`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.longrunning#google.longrunning.Operations.ListOperations)   | Lists operations that match the specified filter in the request.                                                             |
+| [`WaitOperation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.longrunning#google.longrunning.Operations.WaitOperation)     | Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. |

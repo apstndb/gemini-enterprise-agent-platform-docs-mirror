@@ -34,9 +34,9 @@ Optional. The standard list page size.
 
 `pageToken` `string`
 
-Optional. The standard list page token. Typically obtained via `  ListPublisherModelsResponse.next_page_token  ` of the previous `  ModelGardenService.ListPublisherModels  ` call.
+Optional. The standard list page token. Typically obtained via [`ListPublisherModelsResponse.next_page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models/list#body.ListPublisherModelsResponse.FIELDS.next_page_token) of the previous [`ModelGardenService.ListPublisherModels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models/list#google.cloud.aiplatform.v1beta1.ModelGardenService.ListPublisherModels) call.
 
-`view` ` enum ( PublisherModelView  ` )
+`view` `enum ( `[`PublisherModelView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/PublisherModelView)` )`
 
 Optional. PublisherModel view specifying which fields to read.
 
@@ -58,32 +58,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  ModelGardenService.ListPublisherModels  ` .
+Response message for [`ModelGardenService.ListPublisherModels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models/list#google.cloud.aiplatform.v1beta1.ModelGardenService.ListPublisherModels) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`publisherModels[]` ` object ( PublisherModel  ` )
+`publisherModels[]` `object ( `[`PublisherModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#PublisherModel)` )`
 
 List of PublisherModels in the requested page.
 
 `nextPageToken` `string`
 
-A token to retrieve next page of results. Pass to \[models.list.page\_token\]\[\] to obtain that page.
+A token to retrieve next page of results. Pass to \[models.list.page_token\]\[\] to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;publisherModels&quot;: [{object (PublisherModel)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "publisherModels": [
+    {
+      object (PublisherModel)
+    }
+  ],
+  "nextPageToken": string
+}
+```

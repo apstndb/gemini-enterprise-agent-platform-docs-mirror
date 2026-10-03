@@ -16,13 +16,13 @@ Fields
 
 Identifier. The resource name of the Skill. Format: `projects/{project}/locations/{location}/skills/{skill}`
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this Skill was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this Skill was most recently updated.
 
@@ -44,13 +44,13 @@ Optional. Specifies the license of the Skill. This should be an SPDX license ide
 
 Optional. Specifies the compatibility of the Skill. Indicates environment requirements (intended product, system packages, network access, etc.). This should align with `compatibility` in the `SKILL.md` file.
 
-`zippedFilesystem` `string ( bytes format)`
+`zippedFilesystem` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Required. Provides the zipped filesystem of the Skill. This should contain the `SKILL.md` file at the root of the zip and optional directories for scripts, references, and assets. Directory should align with the directory structure specified at <https://agentskills.io/specification#directory-structure> .
 
 A base64-encoded string.
 
-`state` ` enum ( State  ` )
+`state` `enum ( `[`State`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills#Skill.State)` )`
 
 Output only. The state of the Skill.
 
@@ -62,92 +62,59 @@ The labels with user-defined metadata to organize Skills.
 
 Output only. The SHA256 checksum of the zipped filesystem.
 
-`skillSource` ` enum ( SkillSource  ` )
+`skillSource` `enum ( `[`SkillSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills#Skill.SkillSource)` )`
 
 Output only. The source of the Skill.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;license&quot;: string,&quot;compatibility&quot;: string,&quot;zippedFilesystem&quot;: string,&quot;state&quot;: enum (State),&quot;labels&quot;: {string: string,...},&quot;sha256&quot;: string,&quot;skillSource&quot;: enum (SkillSource)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "createTime": string,
+  "updateTime": string,
+  "displayName": string,
+  "description": string,
+  "license": string,
+  "compatibility": string,
+  "zippedFilesystem": string,
+  "state": enum (State),
+  "labels": {
+    string: string,
+    ...
+  },
+  "sha256": string,
+  "skillSource": enum (SkillSource)
+}
+```
 
 ### State
 
 The state of the Skill.
 
-Enums
-
-`STATE_UNSPECIFIED`
-
-The state of the Skill is unspecified.
-
-`ACTIVE`
-
-The Skill is active.
-
-`CREATING`
-
-The Skill is being created.
-
-`FAILED`
-
-The Skill was created, but failed to process.
-
-`DELETING`
-
-The Skill is being deleted.
+| Enums               |                                               |
+|---------------------|-----------------------------------------------|
+| `STATE_UNSPECIFIED` | The state of the Skill is unspecified.        |
+| `ACTIVE`            | The Skill is active.                          |
+| `CREATING`          | The Skill is being created.                   |
+| `FAILED`            | The Skill was created, but failed to process. |
+| `DELETING`          | The Skill is being deleted.                   |
 
 ### SkillSource
 
 The source of the Skill (system or user-created).
 
-Enums
+| Enums                      |                                  |
+|----------------------------|----------------------------------|
+| `SKILL_SOURCE_UNSPECIFIED` | The skill source is unspecified. |
+| `USER`                     | The skill is created by a user.  |
+| `SYSTEM`                   | The skill is a system skill.     |
 
-`SKILL_SOURCE_UNSPECIFIED`
-
-The skill source is unspecified.
-
-`USER`
-
-The skill is created by a user.
-
-`SYSTEM`
-
-The skill is a system skill.
-
-## Methods
-
-### `            create           `
-
-Create a Skill.
-
-### `            delete           `
-
-Delete a Skill.
-
-### `            get           `
-
-Get a Skill.
-
-### `            list           `
-
-List Skills.
-
-### `            patch           `
-
-Update a Skill.
-
-### `            retrieve           `
-
-Retrieves skills.
+| Methods                                                                                                                                |                   |
+|----------------------------------------------------------------------------------------------------------------------------------------|-------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills/create)     | Create a Skill.   |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills/delete)     | Delete a Skill.   |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills/get)           | Get a Skill.      |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills/list)         | List Skills.      |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills/patch)       | Update a Skill.   |
+| [`retrieve`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills/retrieve) | Retrieves skills. |

@@ -23,34 +23,36 @@ The following sample uses the [`init`](https://docs.cloud.google.com/python/docs
 
 ### Python
 
-    from typing import Optional, Union
-    
-    from google.cloud import aiplatform
-    
-    
-    def autologging_with_auto_run_creation_sample(
-        experiment_name: str,
-        project: str,
-        location: str,
-        experiment_tensorboard: Optional[Union[str, aiplatform.Tensorboard]] = None,
-    ):
-        aiplatform.init(
-            experiment=experiment_name,
-            project=project,
-            location=location,
-            experiment_tensorboard=experiment_tensorboard,
-        )
-    
-        aiplatform.autolog()
-    
-        # Your model training code goes here
-    
-        aiplatform.autolog(disable=True)
+```
+from typing import Optional, Union
 
-  - `experiment_name` : Provide a name for your experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
-  - `experiment_tensorboard` : (Optional) Provide a name for your Vertex AI TensorBoard instance.
-  - `project` : . You can find these Project IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
+from google.cloud import aiplatform
+
+
+def autologging_with_auto_run_creation_sample(
+    experiment_name: str,
+    project: str,
+    location: str,
+    experiment_tensorboard: Optional[Union[str, aiplatform.Tensorboard]] = None,
+):
+    aiplatform.init(
+        experiment=experiment_name,
+        project=project,
+        location=location,
+        experiment_tensorboard=experiment_tensorboard,
+    )
+
+    aiplatform.autolog()
+
+    # Your model training code goes here
+
+    aiplatform.autolog(disable=True)
+```
+
+- `experiment_name` : Provide a name for your experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
+- `experiment_tensorboard` : (Optional) Provide a name for your Vertex AI TensorBoard instance.
+- `project` : . You can find these Project IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
 
 ### User-specified
 
@@ -60,52 +62,54 @@ The following sample uses the [`init`](https://docs.cloud.google.com/python/docs
 
 ### Python
 
-    from typing import Optional, Union
-    
-    from google.cloud import aiplatform
-    
-    
-    def autologging_with_manual_run_creation_sample(
-        experiment_name: str,
-        run_name: str,
-        project: str,
-        location: str,
-        experiment_tensorboard: Optional[Union[str, aiplatform.Tensorboard]] = None,
-    ):
-        aiplatform.init(
-            experiment=experiment_name,
-            project=project,
-            location=location,
-            experiment_tensorboard=experiment_tensorboard,
-        )
-    
-        aiplatform.autolog()
-    
-        aiplatform.start_run(run=run_name)
-    
-        # Your model training code goes here
-    
-        aiplatform.end_run()
-    
-        aiplatform.autolog(disable=True)
+```
+from typing import Optional, Union
 
-  - `experiment_name` : Provide the name of your experiment.
-  - `run_name` : Provide a name for your experiment run. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
-  - `project` : . You can find these Project IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
-  - `experiment_tensorboard` : (Optional) Provide a name for your Vertex AI TensorBoard instance.
+from google.cloud import aiplatform
+
+
+def autologging_with_manual_run_creation_sample(
+    experiment_name: str,
+    run_name: str,
+    project: str,
+    location: str,
+    experiment_tensorboard: Optional[Union[str, aiplatform.Tensorboard]] = None,
+):
+    aiplatform.init(
+        experiment=experiment_name,
+        project=project,
+        location=location,
+        experiment_tensorboard=experiment_tensorboard,
+    )
+
+    aiplatform.autolog()
+
+    aiplatform.start_run(run=run_name)
+
+    # Your model training code goes here
+
+    aiplatform.end_run()
+
+    aiplatform.autolog(disable=True)
+```
+
+- `experiment_name` : Provide the name of your experiment.
+- `run_name` : Provide a name for your experiment run. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
+- `project` : . You can find these Project IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
+- `experiment_tensorboard` : (Optional) Provide a name for your Vertex AI TensorBoard instance.
 
 Vertex AI SDK autologging uses MLFlow's autologging in its implementation. Evaluation metrics and parameters from the following frameworks are logged to your ExperimentRun when autologging is enabled.
 
-  - Fastai
-  - Gluon
-  - Keras
-  - LightGBM
-  - Pytorch Lightning
-  - Scikit-learn
-  - Spark
-  - Statsmodels
-  - XGBoost
+- Fastai
+- Gluon
+- Keras
+- LightGBM
+- Pytorch Lightning
+- Scikit-learn
+- Spark
+- Statsmodels
+- XGBoost
 
 ## View autologged parameters and metrics
 
@@ -113,8 +117,8 @@ Use the Agent Platform SDK for Python to [compare runs](https://docs.cloud.googl
 
 ## Relevant notebook sample
 
-  - [Autolog data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-autologging)
+- [Autolog data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-autologging)
 
 ## Blog post
 
-  - [How you can automate ML experiment tracking with Vertex AI Experiments autologging](https://cloud.google.com/blog/products/ai-machine-learning/effortless-tracking-of-your-vertex-ai-model-training)
+- [How you can automate ML experiment tracking with Vertex AI Experiments autologging](https://cloud.google.com/blog/products/ai-machine-learning/effortless-tracking-of-your-vertex-ai-model-training)

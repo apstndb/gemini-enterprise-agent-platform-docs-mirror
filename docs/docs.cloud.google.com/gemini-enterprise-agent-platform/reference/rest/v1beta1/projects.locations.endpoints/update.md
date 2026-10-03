@@ -36,9 +36,9 @@ Required. The display name of the Endpoint. The name can be up to 128 characters
 
 The description of the Endpoint.
 
-`endpoint.deployedModels[]` ` object ( DeployedModel  ` )
+`endpoint.deployedModels[]` `object ( `[`DeployedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#DeployedModel)` )`
 
-Output only. The models deployed in this Endpoint. To add or remove DeployedModels use `  EndpointService.DeployModel  ` and `  EndpointService.UndeployModel  ` respectively.
+Output only. The models deployed in this Endpoint. To add or remove DeployedModels use [`EndpointService.DeployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/deployModel#google.cloud.aiplatform.v1beta1.EndpointService.DeployModel) and [`EndpointService.UndeployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/undeployModel#google.cloud.aiplatform.v1beta1.EndpointService.UndeployModel) respectively.
 
 `endpoint.trafficSplit` `map (key: string, value: integer)`
 
@@ -60,19 +60,19 @@ label keys and values can be no longer than 64 characters (Unicode codepoints), 
 
 See <https://goo.gl/xmQnxf> for more information and examples of labels.
 
-`endpoint.createTime` ` string ( Timestamp  ` format)
+`endpoint.createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this Endpoint was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`endpoint.updateTime` ` string ( Timestamp  ` format)
+`endpoint.updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this Endpoint was last updated.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`endpoint.encryptionSpec` ` object ( EncryptionSpec  ` )
+`endpoint.encryptionSpec` `object ( `[`EncryptionSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/EncryptionSpec)` )`
 
 Customer-managed encryption key spec for an Endpoint. If set, this Endpoint and all sub-resources of this Endpoint will be secured by this key.
 
@@ -82,43 +82,43 @@ Optional. The full name of the Google Compute Engine [network](https://cloud.goo
 
 Private services access must already be configured for the network. If left unspecified, the Endpoint is not peered with any network.
 
-Only one of the fields, `  network  ` or `  enablePrivateServiceConnect  ` , can be set.
+Only one of the fields, [`network`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint.FIELDS.network) or [`enablePrivateServiceConnect`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint.FIELDS.enable_private_service_connect) , can be set.
 
 [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert) : `projects/{project}/global/networks/{network}` . Where `{project}` is a project number, as in `12345` , and `{network}` is network name.
 
-` endpoint.enablePrivateServiceConnect (deprecated)  ` `boolean`
+`endpoint.enablePrivateServiceConnect `**`(deprecated)`** `boolean`
 
 Deprecated: If true, expose the Endpoint via private service connect.
 
-Only one of the fields, `  network  ` or `  enablePrivateServiceConnect  ` , can be set.
+Only one of the fields, [`network`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint.FIELDS.network) or [`enablePrivateServiceConnect`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint.FIELDS.enable_private_service_connect) , can be set.
 
-`endpoint.privateServiceConnectConfig` ` object ( PrivateServiceConnectConfig  ` )
+`endpoint.privateServiceConnectConfig` `object ( `[`PrivateServiceConnectConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/PrivateServiceConnectConfig)` )`
 
 Optional. Configuration for private service connect.
 
-`  network  ` and `  privateServiceConnectConfig  ` are mutually exclusive.
+[`network`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint.FIELDS.network) and [`privateServiceConnectConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint.FIELDS.private_service_connect_config) are mutually exclusive.
 
 `endpoint.modelDeploymentMonitoringJob` `string`
 
-Output only. Resource name of the Model Monitoring job associated with this Endpoint if monitoring is enabled by `  JobService.CreateModelDeploymentMonitoringJob  ` . Format: `projects/{project}/locations/{location}/modelDeploymentMonitoringJobs/{modelDeploymentMonitoringJob}`
+Output only. Resource name of the Model Monitoring job associated with this Endpoint if monitoring is enabled by [`JobService.CreateModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs/create#google.cloud.aiplatform.v1beta1.JobService.CreateModelDeploymentMonitoringJob) . Format: `projects/{project}/locations/{location}/modelDeploymentMonitoringJobs/{modelDeploymentMonitoringJob}`
 
-`endpoint.predictRequestResponseLoggingConfig` ` object ( PredictRequestResponseLoggingConfig  ` )
+`endpoint.predictRequestResponseLoggingConfig` `object ( `[`PredictRequestResponseLoggingConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#PredictRequestResponseLoggingConfig)` )`
 
 Configures the request-response logging for online prediction.
 
 `endpoint.dedicatedEndpointEnabled` `boolean`
 
-If true, the endpoint will be exposed through a dedicated DNS \[Endpoint.dedicated\_endpoint\_dns\]. Your request to the dedicated DNS will be isolated from other users' traffic and will have better performance and reliability. Note: Once you enabled dedicated endpoint, you won't be able to send request to the shared DNS {region}-aiplatform.googleapis.com. The limitation will be removed soon.
+If true, the endpoint will be exposed through a dedicated DNS \[Endpoint.dedicated_endpoint_dns\]. Your request to the dedicated DNS will be isolated from other users' traffic and will have better performance and reliability. Note: Once you enabled dedicated endpoint, you won't be able to send request to the shared DNS {region}-aiplatform.googleapis.com. The limitation will be removed soon.
 
 `endpoint.dedicatedEndpointDns` `string`
 
-Output only. DNS of the dedicated endpoint. Will only be populated if dedicatedEndpointEnabled is true. Depending on the features enabled, uid might be a random number or a string. For example, if fast\_tryout is enabled, uid will be fasttryout. Format: `https://{endpointId}.{region}-{uid}.prediction.vertexai.goog` .
+Output only. DNS of the dedicated endpoint. Will only be populated if dedicatedEndpointEnabled is true. Depending on the features enabled, uid might be a random number or a string. For example, if fast_tryout is enabled, uid will be fasttryout. Format: `https://{endpointId}.{region}-{uid}.prediction.vertexai.goog` .
 
-`endpoint.gdcConfig` ` object ( GdcConfig  ` )
+`endpoint.gdcConfig` `object ( `[`GdcConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#GdcConfig)` )`
 
 Configures the Google Distributed Cloud (GDC) environment for online prediction. Only set this field when the Endpoint is to be deployed in a GDC environment.
 
-`endpoint.clientConnectionConfig` ` object ( ClientConnectionConfig  ` )
+`endpoint.clientConnectionConfig` `object ( `[`ClientConnectionConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#ClientConnectionConfig)` )`
 
 Configurations that are applied to the endpoint for online prediction.
 
@@ -130,14 +130,14 @@ Output only. reserved for future use.
 
 Output only. reserved for future use.
 
-`endpoint.genAiAdvancedFeaturesConfig` ` object ( GenAiAdvancedFeaturesConfig  ` )
+`endpoint.genAiAdvancedFeaturesConfig` `object ( `[`GenAiAdvancedFeaturesConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#GenAiAdvancedFeaturesConfig)` )`
 
 Optional. Configuration for GenAiAdvancedFeatures. If the endpoint is serving GenAI models, advanced features like native RAG integration can be configured. Currently, only Model Garden models are supported.
 
-`endpoint.publisherModelConfig` ` object ( PublisherModelConfig  ` )
+`endpoint.publisherModelConfig` `object ( `[`PublisherModelConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#PublisherModelConfig)` )`
 
 Optional. Configuration for a Publisher Model. This message contains details about a publisher model used with this Endpoint, such as logging config or data sharing settings.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

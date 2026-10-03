@@ -12,8 +12,8 @@ To use the generative AI features on Gemini Enterprise Agent Platform, the princ
 
 You can grant the users or groups in your project one of the following predefined roles to give them access to the generative AI features on Gemini Enterprise Agent Platform:
 
-  - [Gemini Enterprise Agent Platform Administrator ( `roles/aiplatform.admin` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.admin)
-  - [Gemini Enterprise Agent Platform User ( `roles/aiplatform.user` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user)
+- [Gemini Enterprise Agent Platform Administrator ( `roles/aiplatform.admin` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.admin)
+- [Gemini Enterprise Agent Platform User ( `roles/aiplatform.user` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user)
 
 To learn more about Gemini Enterprise Agent Platform IAM roles, see [Gemini Enterprise Agent Platform access control with IAM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) .
 
@@ -36,36 +36,36 @@ The following table maps generative AI operations to the permissions required fo
 <tr class="odd">
 <td>Make prompt requests</td>
 <td><ul>
-<li><code dir="ltr" translate="no">aiplatform.endpoints.predict</code></li>
+<li><code>aiplatform.endpoints.predict</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td>Save, view, update, and delete prompts in Vertex AI Studio</td>
 <td><ul>
-<li><code dir="ltr" translate="no">aiplatform.datasets.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.get</code></li>
+<li><code>aiplatform.datasets.create</code></li>
+<li><code>aiplatform.datasets.update</code></li>
+<li><code>aiplatform.datasets.delete</code></li>
+<li><code>aiplatform.datasets.list</code></li>
+<li><code>aiplatform.datasets.get</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
 <td>Model tuning</td>
 <td><ul>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.*</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.*</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.export</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.upload</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.endpoints.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.endpoints.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.endpoints.deploy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataStores.get</code></li>
-<li><code dir="ltr" translate="no">storage.objects.create</code></li>
-<li><code dir="ltr" translate="no">storage.objects.update</code></li>
-<li><code dir="ltr" translate="no">storage.objects.get</code></li>
-<li><code dir="ltr" translate="no">storage.objects.list</code></li>
+<li><code>aiplatform.pipelineJobs.*</code></li>
+<li><code>aiplatform.customJobs.*</code></li>
+<li><code>aiplatform.datasets.export</code></li>
+<li><code>aiplatform.datasets.get</code></li>
+<li><code>aiplatform.models.upload</code></li>
+<li><code>aiplatform.models.get</code></li>
+<li><code>aiplatform.endpoints.create</code></li>
+<li><code>aiplatform.endpoints.get</code></li>
+<li><code>aiplatform.endpoints.deploy</code></li>
+<li><code>aiplatform.metadataStores.get</code></li>
+<li><code>storage.objects.create</code></li>
+<li><code>storage.objects.update</code></li>
+<li><code>storage.objects.get</code></li>
+<li><code>storage.objects.list</code></li>
 </ul></td>
 </tr>
 </tbody>

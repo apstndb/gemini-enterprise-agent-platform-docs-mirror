@@ -14,36 +14,36 @@ For [Gemini 3 Image models](https://docs.cloud.google.com/gemini-enterprise-agen
 
 The following are the quota enforcement windows for different GSU sizes for Gemini 3.1 Flash Image:
 
-  - 1 GSU: 435 seconds
-  - 2 GSUs: 220 seconds
-  - 3 GSUs: 145 seconds
-  - 4 GSUs: 110 seconds
-  - 5-14 GSUs: 100 seconds
-  - 15-17 GSUs: 30 seconds
-  - 18-21 GSUs: 25 seconds
-  - 22-28 GSUs: 20 seconds
-  - 29-42 GSUs: 15 seconds
-  - 43-99 GSUs: 10 seconds
-  - 100+ GSUs: 5 seconds
+- 1 GSU: 435 seconds
+- 2 GSUs: 220 seconds
+- 3 GSUs: 145 seconds
+- 4 GSUs: 110 seconds
+- 5-14 GSUs: 100 seconds
+- 15-17 GSUs: 30 seconds
+- 18-21 GSUs: 25 seconds
+- 22-28 GSUs: 20 seconds
+- 29-42 GSUs: 15 seconds
+- 43-99 GSUs: 10 seconds
+- 100+ GSUs: 5 seconds
 
 ## Gemini 3 Pro Image
 
 The following are the quota enforcement windows for different GSU sizes for Gemini 3 Pro Image:
 
-  - 1 GSU: 1,230 seconds
-  - 2 GSUs: 615 seconds
-  - 3 GSUs: 410 seconds
-  - 4 GSUs: 310 seconds
-  - 5 GSUs: 245 seconds
-  - 6 GSUs: 205 seconds
-  - 7-12 GSUs: 175 seconds
-  - 13 - 24 GSUs: 100 seconds
-  - 25 - 30 GSUs: 50 seconds
-  - 31 - 40 GSUs: 40 seconds
-  - 41 - 61 GSUs: 30 seconds
-  - 62 - 122 GSUs: 20 seconds
-  - 123 - 244 GSUs: 10 seconds
-  - 245+ GSUs: 5 seconds
+- 1 GSU: 1,230 seconds
+- 2 GSUs: 615 seconds
+- 3 GSUs: 410 seconds
+- 4 GSUs: 310 seconds
+- 5 GSUs: 245 seconds
+- 6 GSUs: 205 seconds
+- 7-12 GSUs: 175 seconds
+- 13 - 24 GSUs: 100 seconds
+- 25 - 30 GSUs: 50 seconds
+- 31 - 40 GSUs: 40 seconds
+- 41 - 61 GSUs: 30 seconds
+- 62 - 122 GSUs: 20 seconds
+- 123 - 244 GSUs: 10 seconds
+- 245+ GSUs: 5 seconds
 
 The listed values aren't connected to the request latency. The time to process your request isn't the same as the quota enforcement window.
 
@@ -55,4 +55,4 @@ We recommend using the estimation tool on the [Provisioned Throughput page](http
 
 ## What's next
 
-  - [Purchase standard Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#place-an-order)
+- [Purchase standard Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#place-an-order)

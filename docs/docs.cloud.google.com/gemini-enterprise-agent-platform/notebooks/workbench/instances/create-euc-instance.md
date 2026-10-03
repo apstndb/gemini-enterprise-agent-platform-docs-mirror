@@ -20,7 +20,7 @@ Agent Platform Workbench uses a global google-managed OAuth client to manage use
 
 The service account used to create the Agent Platform Workbench instance is the following service agent:
 
-`service- PROJECT_NUMBER @gcp-sa-notebooks-vm. iam. gserviceaccount. com` .
+`service- `` PROJECT_NUMBER `` @gcp-sa-notebooks-vm. iam. gserviceaccount. com` .
 
 This service agent provides limited permissions for essential services such as exporting logs. Users can't specify a different service account if the end user credentials feature is enabled.
 
@@ -36,16 +36,16 @@ Post-startup script support for instances with end-user credentials is in privat
 
 Consider the following limitations when you plan your project:
 
-  - Agent Platform Workbench uses a global google-managed OAuth client to manage user credential access. Organizations can't enact fine grain controls, access the OAuth client, or use logging to check for use of the OAuth client.
+- Agent Platform Workbench uses a global google-managed OAuth client to manage user credential access. Organizations can't enact fine grain controls, access the OAuth client, or use logging to check for use of the OAuth client.
 
-  - To protect the security of Agent Platform Workbench instances with managed user credentials, **users aren't able to** :
-    
-      - Use SSH to access the instance.
-      - Run a [Compute Engine startup script](https://docs.cloud.google.com/compute/docs/instances/startup-scripts/linux) .
-      - Access the detailed VM page.
-      - Use an image that isn't created by Google.
+- To protect the security of Agent Platform Workbench instances with managed user credentials, **users aren't able to** :
 
-  - Using [third party credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-third-party-instance) isn't supported because the OAuth client only supports Google-managed OAuth credentials.
+  - Use SSH to access the instance.
+  - Run a [Compute Engine startup script](https://docs.cloud.google.com/compute/docs/instances/startup-scripts/linux) .
+  - Access the detailed VM page.
+  - Use an image that isn't created by Google.
+
+- Using [third party credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-third-party-instance) isn't supported because the OAuth client only supports Google-managed OAuth credentials.
 
 ## Before you begin
 
@@ -61,14 +61,14 @@ To create a Agent Platform Workbench instance by using the Google Cloud console,
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Click add\_box **Create new** .
+2.  Click add_box **Create new** .
 
 3.  In the **New instance** dialog, click **Advanced options** .
 
 4.  In the **Create instance** dialog, in the **Details** section, provide the following information for your new instance:
-    
-      - **Name** : Provide a name for your new instance. The name must start with a letter followed by up to 62 lowercase letters, numbers, or hyphens (-), and cannot end with a hyphen.
-      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances) .
+
+    - **Name** : Provide a name for your new instance. The name must start with a letter followed by up to 62 lowercase letters, numbers, or hyphens (-), and cannot end with a hyphen.
+    - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances) .
 
 5.  In the **IAM and Security** section, select **Single user** .
 
@@ -77,16 +77,18 @@ To create a Agent Platform Workbench instance by using the Google Cloud console,
 7.  Select **Enable managed end user credentials** .
 
 8.  Complete the rest of the instance creation dialog, and then click **Create** .
-    
+
     Agent Platform Workbench creates an instance and automatically starts it. When the instance is ready to use, Agent Platform Workbench activates an **Open JupyterLab** link in the Google Cloud console.
 
 9.  Users must grant consent to the OAuth client to manage their credentials for each Agent Platform Workbench instance. This is done one time per instance. To grant consent, click **Open JupyterLab** and complete the dialog that appears.
-    
+
     If you try to access the instance without granting consent, JupyterLab displays a message to authenticate by opening JupyterLab from the Google Cloud console.
 
 10. To verify that your end user credentials are available within JupyterLab, open a Terminal in JupyterLab, and enter the following command:
-    
-        gcloud auth list
+
+    ```
+    gcloud auth list
+    ```
 
 ## Authenticate the instance with your user credentials
 
@@ -105,8 +107,10 @@ After you can access JupyterLab on your instance, do the following:
 3.  In JupyterLab, select **File \> New \> Terminal** .
 
 4.  In the terminal window, run the following:
-    
-        gcloud auth login
+
+    ```
+    gcloud auth login
+    ```
 
 5.  Enter `Y` .
 
@@ -123,13 +127,17 @@ If you [created an instance with third party credentials](https://docs.cloud.goo
 3.  Create a Workforce Identity Federation [credential file](https://docs.cloud.google.com/iam/docs/workforce-sign-in-okta) with headless sign-in.
 
 4.  In the terminal window, run the following:
-    
-        gcloud auth login --cred-file="CREDENTIAL_FILE"
-    
-    Replace CREDENTIAL\_FILE with the path and name of the credential file that you created.
+
+    ```
+    gcloud auth login --cred-file="CREDENTIAL_FILE"
+    ```
+
+    Replace ` CREDENTIAL_FILE ` with the path and name of the credential file that you created.
 
 5.  Follow the instructions to authenticate through the third party authentication portal.
 
 6.  Confirm that your credentials are accessible through your instance by using the following command:
-    
-        gcloud auth list
+
+    ```
+    gcloud auth list
+    ```

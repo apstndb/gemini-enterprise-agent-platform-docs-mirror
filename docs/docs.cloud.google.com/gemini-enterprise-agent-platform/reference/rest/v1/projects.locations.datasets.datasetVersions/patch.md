@@ -26,18 +26,18 @@ Output only. Identifier. The resource name of the DatasetVersion. Format: `proje
 
 ### Query parameters
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
-Required. The update mask applies to the resource. For the `FieldMask` definition, see `  google.protobuf.FieldMask  ` . Updatable fields:
+Required. The update mask applies to the resource. For the `FieldMask` definition, see [`google.protobuf.FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask) . Updatable fields:
 
-  - `displayName`
+- `displayName`
 
 This is a comma-separated list of fully qualified names of fields. Example: `"user.displayName,photo"` .
 
 ### Request body
 
-The request body contains an instance of `  DatasetVersion  ` .
+The request body contains an instance of [`DatasetVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.datasetVersions#DatasetVersion) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  DatasetVersion  ` .
+If successful, the response body contains an instance of [`DatasetVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.datasetVersions#DatasetVersion) .

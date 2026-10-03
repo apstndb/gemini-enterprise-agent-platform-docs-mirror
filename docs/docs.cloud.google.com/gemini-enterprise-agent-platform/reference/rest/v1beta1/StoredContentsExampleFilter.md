@@ -12,24 +12,21 @@ Fields
 
 `searchKeys[]` `string`
 
-Optional. The search keys for filtering. Only examples with one of the specified search keys ( `  StoredContentsExample.search_key  ` ) are eligible to be returned.
+Optional. The search keys for filtering. Only examples with one of the specified search keys ( [`StoredContentsExample.search_key`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Example#StoredContentsExample.FIELDS.search_key) ) are eligible to be returned.
 
-`functionNames` ` object ( ExamplesArrayFilter  ` )
+`functionNames` `object ( `[`ExamplesArrayFilter`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ExamplesArrayFilter)` )`
 
 Optional. The function names for filtering.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;searchKeys&quot;: [string],&quot;functionNames&quot;: {object (ExamplesArrayFilter)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "searchKeys": [
+    string
+  ],
+  "functionNames": {
+    object (ExamplesArrayFilter)
+  }
+}
+```

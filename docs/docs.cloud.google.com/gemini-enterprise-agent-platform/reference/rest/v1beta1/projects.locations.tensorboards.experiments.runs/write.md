@@ -28,7 +28,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`timeSeriesData[]` ` object ( TimeSeriesData  ` )
+`timeSeriesData[]` `object ( `[`TimeSeriesData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/TimeSeriesData)` )`
 
 Required. The TensorboardTimeSeries data to write. Values with in a time series are indexed by their step value. Repeated writes to the same step will overwrite the existing value for that step. The upper limit of data points per write request is 5000.
 

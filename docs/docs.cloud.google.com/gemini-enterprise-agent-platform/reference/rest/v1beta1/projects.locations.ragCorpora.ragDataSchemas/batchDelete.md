@@ -34,4 +34,4 @@ Required. The RagDataSchemas to delete. A maximum of 500 schemas can be deleted 
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

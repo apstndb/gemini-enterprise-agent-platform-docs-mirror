@@ -10,7 +10,7 @@ Annotation details specific to video object tracking.
 
 Fields
 
-`timeOffset` ` string ( Duration  ` format)
+`timeOffset` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 A time (frame) of a video to which this annotation pertains. Represented as the duration since the video's start.
 
@@ -32,7 +32,7 @@ The topmost coordinate of the bounding box.
 
 The bottommost coordinate of the bounding box.
 
-`instanceId` `string ( int64 format)`
+`instanceId` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The instance of the object, expressed as a positive integer. Used to track the same object across different frames.
 
@@ -44,27 +44,17 @@ The resource id of the AnnotationSpec that this Annotation pertains to.
 
 The display name of the AnnotationSpec that this Annotation pertains to.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;timeOffset&quot;: string,
-  &quot;xMin&quot;: number,
-  &quot;xMax&quot;: number,
-  &quot;yMin&quot;: number,
-  &quot;yMax&quot;: number,
-  &quot;instanceId&quot;: string,
-  &quot;annotationSpecId&quot;: string,
-  &quot;displayName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "timeOffset": string,
+  "xMin": number,
+  "xMax": number,
+  "yMin": number,
+  "yMax": number,
+  "instanceId": string,
+  "annotationSpecId": string,
+  "displayName": string
+}
+```

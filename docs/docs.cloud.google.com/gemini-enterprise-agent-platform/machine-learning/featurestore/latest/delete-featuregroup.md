@@ -22,6 +22,10 @@ When you use the Google Cloud console to access Google Cloud services and APIs, 
 
 To use the REST API samples on this page in a local development environment, you use the credentials you provide to the gcloud CLI.
 
+[Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI.
+
+If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
+
 For more information, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) in the Google Cloud authentication documentation.
 
 ## Delete a feature group
@@ -44,14 +48,16 @@ To delete a [`FeatureGroup`](https://docs.cloud.google.com/gemini-enterprise-age
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region where the feature group is located, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATURE\_GROUP\_NAME : The name of the feature group that you want to delete.
-  - BOOLEAN : Optional: To delete the feature group even if it contains features, enter `true` . The default value is `false` .
+- ` LOCATION_ID ` : Region where the feature group is located, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATURE_GROUP_NAME ` : The name of the feature group that you want to delete.
+- ` BOOLEAN ` : Optional: To delete the feature group even if it contains features, enter `true` . The default value is `false` .
 
 HTTP method and URL:
 
-    DELETE https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME?force=BOOLEAN
+```
+DELETE https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME?force=BOOLEAN
+```
 
 To send your request, choose one of these options:
 
@@ -61,9 +67,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X DELETE \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME?force=BOOLEAN"
+```
+curl -X DELETE \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME?force=BOOLEAN"
+```
 
 #### PowerShell
 
@@ -71,35 +79,39 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method DELETE `
-        -Headers $headers `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME?force=BOOLEAN" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method DELETE `
+    -Headers $headers `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME?force=BOOLEAN" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/operations/OPERATION_ID",
-      "metadata": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.DeleteOperationMetadata",
-        "genericMetadata": {
-          "createTime": "2023-09-15T04:54:03.632646Z",
-          "updateTime": "2023-09-15T04:54:03.632646Z"
-        }
-      },
-      "done": true,
-      "response": {
-        "@type": "type.googleapis.com/google.protobuf.Empty"
-      }
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/operations/OPERATION_ID",
+  "metadata": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1.DeleteOperationMetadata",
+    "genericMetadata": {
+      "createTime": "2023-09-15T04:54:03.632646Z",
+      "updateTime": "2023-09-15T04:54:03.632646Z"
     }
+  },
+  "done": true,
+  "response": {
+    "@type": "type.googleapis.com/google.protobuf.Empty"
+  }
+}
+```
 
 ## What's next
 
-  - Learn how to [create a feature group](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-featuregroup) .
+- Learn how to [create a feature group](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-featuregroup) .
 
-  - Learn how to [update a feature group](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-featuregroup) .
+- Learn how to [update a feature group](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-featuregroup) .
 
-  - Learn how to [delete a feature from a feature group](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/delete-feature) .
+- Learn how to [delete a feature from a feature group](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/delete-feature) .

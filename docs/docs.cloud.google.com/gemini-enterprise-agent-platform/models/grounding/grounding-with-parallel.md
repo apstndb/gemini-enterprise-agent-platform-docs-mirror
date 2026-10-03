@@ -16,40 +16,40 @@ Grounding with Parallel on Gemini Enterprise Agent Platform is a Separate Offeri
 
 Grounding with Parallel is suitable for use cases such as the following:
 
-  - Using web data for information completion or enrichment purposes.
-  - Multi-hop agents that require deeper web searches for more complex questions.
-  - Building an API that integrates web search data.
-  - Employee-facing assistants that allow end users to ask questions and create complex reports using the latest web information.
-  - Consumer-facing applications, like retail and travel, that allow the user to make informed purchase decisions.
-  - Automated agents that run autonomously to perform automated tasks, like news analysis and KYC checks.
-  - Vertical agents (sales agents, coding agents, finance agents) getting the latest up-to-date context from the web.
+- Using web data for information completion or enrichment purposes.
+- Multi-hop agents that require deeper web searches for more complex questions.
+- Building an API that integrates web search data.
+- Employee-facing assistants that allow end users to ask questions and create complex reports using the latest web information.
+- Consumer-facing applications, like retail and travel, that allow the user to make informed purchase decisions.
+- Automated agents that run autonomously to perform automated tasks, like news analysis and KYC checks.
+- Vertical agents (sales agents, coding agents, finance agents) getting the latest up-to-date context from the web.
 
 **Example**
 
 *Who won the 2025 Las Vegas F1 Grand Prix?*
 
 | Without Grounding                                                                                                                                                 | With Grounding                                                                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | The 2025 Las Vegas Grand Prix has not happened yet. The race is scheduled to take place on the weekend of November 20-22, 2025. Therefore, the winner is unknown. | The winner of the 2025 Las Vegas F1 Grand Prix was Max Verstappen of Red Bull Racing. The race took place on November 22, 2025. **Sources:** domain1.com, domain2.com, ... |
 
 ## Supported models
 
 Grounding with Parallel web search is supported by the following models:
 
-  - Gemini 2.5 Flash ( `gemini-2.5-flash` )
-  - Gemini 2.5 Flash-Lite ( `gemini-2.5-flash-lite` )
-  - Gemini 2.5 Pro ( `gemini-2.5-pro` )
-  - Gemini 3.1 Pro ( `gemini-3.1-pro-preview` )
-  - Gemini 3.1 Flash Lite ( `gemini-3.1-flash-lite` )
-  - Gemini 3.5 Flash ( `gemini-3.5-flash` )
+- Gemini 2.5 Flash ( `gemini-2.5-flash` )
+- Gemini 2.5 Flash-Lite ( `gemini-2.5-flash-lite` )
+- Gemini 2.5 Pro ( `gemini-2.5-pro` )
+- Gemini 3.1 Pro ( `gemini-3.1-pro-preview` )
+- Gemini 3.1 Flash Lite ( `gemini-3.1-flash-lite` )
+- Gemini 3.5 Flash ( `gemini-3.5-flash` )
 
 ## Before you begin
 
 To use Grounding with Parallel Web Search, you must set up your access. You have two options:
 
-  - Subscribe directly to Grounding with Parallel Web Search on [Google Cloud Marketplace](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) for a streamlined integration within your existing cloud environment. A [Zero Data Retention offering](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems-zdr) is also available for sensitive workloads. To use ZDR, you must be subscribed to the ZDR offering *and* set the corresponding `enable_zero_data_retention` flag in your API requests.
+- Subscribe directly to Grounding with Parallel Web Search on [Google Cloud Marketplace](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) for a streamlined integration within your existing cloud environment. A [Zero Data Retention offering](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems-zdr) is also available for sensitive workloads. To use ZDR, you must be subscribed to the ZDR offering *and* set the corresponding `enable_zero_data_retention` flag in your API requests.
 
-  - Use an existing Parallel API key.
+- Use an existing Parallel API key.
 
 ### Subscribe on Google Cloud Marketplace (recommended)
 
@@ -89,79 +89,83 @@ Your prompt responses now use Grounding with Parallel Web Search.
 
 #### Install
 
-    pip install --upgrade google-genai
+```
+pip install --upgrade google-genai
+```
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
 Before running the sample, make the following replacements:
 
-  - MODEL\_ID : The ID of a [supported model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#supported-models) to use, such as `gemini-2.5-flash` .
-  - TEXT : The text prompt to send to the model.
-  - API\_KEY : Your API key for Parallel Web Search. Omit this parameter if you are subscribed on Google Cloud Marketplace; if both are provided, the API key takes precedence.
-  - EXCLUDE\_DOMAINS : Optional: List of domains to exclude from grounding sources. If specified, sources from these domains are excluded. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
-  - INCLUDE\_DOMAINS : Optional: List of domains to include in grounding sources. If specified, sources from these domains are included. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
-  - MAX\_CHARS\_PER\_RESULT : Optional: The maximum number of characters to include in each search result excerpt. If not specified, defaults to `30000` . The allowed range is `[1000, 100000]` .
-  - MAX\_CHARS\_TOTAL : Optional: The maximum total characters from all search result excerpts. If not specified, defaults to `100000` . The allowed range is `[1000, 1000000]` .
-  - MAX\_RESULTS : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `10` . The allowed range is `[1, 20]` .
-  - MODE : Optional: Mode to be used for the request either `basic` or `advanced` . The default is `basic` . Consider `advanced` mode if you want more thorough search results at the expense of higher latency.
-  - SEARCH\_LOCATION : Optional: [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for geo-targeted search results. Example: `"us"` .
+- ` MODEL_ID ` : The ID of a [supported model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#supported-models) to use, such as `gemini-2.5-flash` .
+- ` TEXT ` : The text prompt to send to the model.
+- ` API_KEY ` : Your API key for Parallel Web Search. Omit this parameter if you are subscribed on Google Cloud Marketplace; if both are provided, the API key takes precedence.
+- ` EXCLUDE_DOMAINS ` : Optional: List of domains to exclude from grounding sources. If specified, sources from these domains are excluded. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
+- ` INCLUDE_DOMAINS ` : Optional: List of domains to include in grounding sources. If specified, sources from these domains are included. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
+- ` MAX_CHARS_PER_RESULT ` : Optional: The maximum number of characters to include in each search result excerpt. If not specified, defaults to `30000` . The allowed range is `[1000, 100000]` .
+- ` MAX_CHARS_TOTAL ` : Optional: The maximum total characters from all search result excerpts. If not specified, defaults to `100000` . The allowed range is `[1000, 1000000]` .
+- ` MAX_RESULTS ` : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `10` . The allowed range is `[1, 20]` .
+- ` MODE ` : Optional: Mode to be used for the request either `basic` or `advanced` . The default is `basic` . Consider `advanced` mode if you want more thorough search results at the expense of higher latency.
+- ` SEARCH_LOCATION ` : Optional: [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for geo-targeted search results. Example: `"us"` .
 
-<!-- end list -->
+```
+from google import genai
+from google.genai import types
 
-    from google import genai
-    from google.genai import types
-    
-    client = genai.Client()
-    
-    response = client.models.generate_content(
-        model="MODEL_ID",
-        contents="TEXT",
-        config=types.GenerateContentConfig(
-            tools=[
-                types.Tool(
-                    parallel_ai_search=types.ToolParallelAiSearch(
-                        # Optional. Omit api_key if you subscribed to Grounding with
-                        # Parallel Web Search on Google Cloud Marketplace.
-                        api_key="API_KEY",
-                        # Optional. Set to True to use Zero Data Retention (ZDR) for
-                        # sensitive workloads. Requires a separate ZDR Marketplace
-                        # subscription; defaults to the standard subscription.
-                        enable_zero_data_retention=True,
-                        # Optional. Customize the search. Click a placeholder to
-                        # enter a value, or remove the line to accept the default.
-                        custom_configs={
-                            "mode": "MODE",
-                            "location": "SEARCH_LOCATION",
-                            "max_results": MAX_RESULTS,
-                            "source_policy": {
-                                "exclude_domains": ["EXCLUDE_DOMAINS"],
-                                "include_domains": ["INCLUDE_DOMAINS"],
-                            },
-                            "excerpts": {
-                                "max_chars_per_result": MAX_CHARS_PER_RESULT,
-                                "max_chars_total": MAX_CHARS_TOTAL,
-                            },
+client = genai.Client()
+
+response = client.models.generate_content(
+    model="MODEL_ID",
+    contents="TEXT",
+    config=types.GenerateContentConfig(
+        tools=[
+            types.Tool(
+                parallel_ai_search=types.ToolParallelAiSearch(
+                    # Optional. Omit api_key if you subscribed to Grounding with
+                    # Parallel Web Search on Google Cloud Marketplace.
+                    api_key="API_KEY",
+                    # Optional. Set to True to use Zero Data Retention (ZDR) for
+                    # sensitive workloads. Requires a separate ZDR Marketplace
+                    # subscription; defaults to the standard subscription.
+                    enable_zero_data_retention=True,
+                    # Optional. Customize the search. Click a placeholder to
+                    # enter a value, or remove the line to accept the default.
+                    custom_configs={
+                        "mode": "MODE",
+                        "location": "SEARCH_LOCATION",
+                        "max_results": MAX_RESULTS,
+                        "source_policy": {
+                            "exclude_domains": ["EXCLUDE_DOMAINS"],
+                            "include_domains": ["INCLUDE_DOMAINS"],
                         },
-                    )
+                        "excerpts": {
+                            "max_chars_per_result": MAX_CHARS_PER_RESULT,
+                            "max_chars_total": MAX_CHARS_TOTAL,
+                        },
+                    },
                 )
-            ],
-        ),
-    )
-    
-    print(response.text)
-    # Example response:
-    # Max Verstappen won the 2025 Las Vegas F1 Grand Prix ...
-    
-    # The grounding metadata contains the web sources used to ground the response.
-    print(response.candidates[0].grounding_metadata.grounding_chunks)
+            )
+        ],
+    ),
+)
+
+print(response.text)
+# Example response:
+# Max Verstappen won the 2025 Las Vegas F1 Grand Prix ...
+
+# The grounding metadata contains the web sources used to ground the response.
+print(response.candidates[0].grounding_metadata.grounding_chunks)
+```
 
 ### Java
 
@@ -171,212 +175,222 @@ To learn more, see the [SDK reference documentation](https://central.sonatype.co
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
 Before running the sample, make the following replacements:
 
-  - MODEL\_ID : The ID of a [supported model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#supported-models) to use, such as `gemini-2.5-flash` .
-  - TEXT : The text prompt to send to the model.
-  - API\_KEY : Your API key for Parallel Web Search. Omit this parameter if you are subscribed on Google Cloud Marketplace; if both are provided, the API key takes precedence.
-  - EXCLUDE\_DOMAINS : Optional: List of domains to exclude from grounding sources. If specified, sources from these domains are excluded. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
-  - INCLUDE\_DOMAINS : Optional: List of domains to include in grounding sources. If specified, sources from these domains are included. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
-  - MAX\_CHARS\_PER\_RESULT : Optional: The maximum number of characters to include in each search result excerpt. If not specified, defaults to `30000` . The allowed range is `[1000, 100000]` .
-  - MAX\_CHARS\_TOTAL : Optional: The maximum total characters from all search result excerpts. If not specified, defaults to `100000` . The allowed range is `[1000, 1000000]` .
-  - MAX\_RESULTS : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `10` . The allowed range is `[1, 20]` .
-  - MODE : Optional: Mode to be used for the request either `basic` or `advanced` . The default is `basic` . Consider `advanced` mode if you want more thorough search results at the expense of higher latency.
-  - SEARCH\_LOCATION : Optional: [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for geo-targeted search results. Example: `"us"` .
+- ` MODEL_ID ` : The ID of a [supported model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#supported-models) to use, such as `gemini-2.5-flash` .
+- ` TEXT ` : The text prompt to send to the model.
+- ` API_KEY ` : Your API key for Parallel Web Search. Omit this parameter if you are subscribed on Google Cloud Marketplace; if both are provided, the API key takes precedence.
+- ` EXCLUDE_DOMAINS ` : Optional: List of domains to exclude from grounding sources. If specified, sources from these domains are excluded. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
+- ` INCLUDE_DOMAINS ` : Optional: List of domains to include in grounding sources. If specified, sources from these domains are included. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
+- ` MAX_CHARS_PER_RESULT ` : Optional: The maximum number of characters to include in each search result excerpt. If not specified, defaults to `30000` . The allowed range is `[1000, 100000]` .
+- ` MAX_CHARS_TOTAL ` : Optional: The maximum total characters from all search result excerpts. If not specified, defaults to `100000` . The allowed range is `[1000, 1000000]` .
+- ` MAX_RESULTS ` : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `10` . The allowed range is `[1, 20]` .
+- ` MODE ` : Optional: Mode to be used for the request either `basic` or `advanced` . The default is `basic` . Consider `advanced` mode if you want more thorough search results at the expense of higher latency.
+- ` SEARCH_LOCATION ` : Optional: [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for geo-targeted search results. Example: `"us"` .
 
-<!-- end list -->
+```
+import com.google.genai.Client;
+import com.google.genai.types.GenerateContentConfig;
+import com.google.genai.types.GenerateContentResponse;
+import com.google.genai.types.Tool;
+import com.google.genai.types.ToolParallelAiSearch;
+import java.util.List;
+import java.util.Map;
 
-    import com.google.genai.Client;
-    import com.google.genai.types.GenerateContentConfig;
-    import com.google.genai.types.GenerateContentResponse;
-    import com.google.genai.types.Tool;
-    import com.google.genai.types.ToolParallelAiSearch;
-    import java.util.List;
-    import java.util.Map;
-    
-    public class ParallelGroundingSample {
-      public static void main(String[] args) {
-        try (Client client = Client.builder().build()) {
-    
-          GenerateContentConfig config =
-              GenerateContentConfig.builder()
-                  .tools(
-                      Tool.builder()
-                          .parallelAiSearch(
-                              ToolParallelAiSearch.builder()
-                                  // Optional. Omit apiKey if you subscribed to
-                                  // Grounding with Parallel Web Search on Google
-                                  // Cloud Marketplace.
-                                  .apiKey("API_KEY")
-                                  // Optional. Set to true to use Zero Data
-                                  // Retention (ZDR) for sensitive workloads.
-                                  // Requires a separate ZDR Marketplace
-                                  // subscription; defaults to the standard
-                                  // subscription.
-                                  .enableZeroDataRetention(true)
-                                  // Optional. Customize the search. Click a
-                                  // placeholder to enter a value, or remove the
-                                  // entry to accept the default.
-                                  .customConfigs(
+public class ParallelGroundingSample {
+  public static void main(String[] args) {
+    try (Client client = Client.builder().build()) {
+
+      GenerateContentConfig config =
+          GenerateContentConfig.builder()
+              .tools(
+                  Tool.builder()
+                      .parallelAiSearch(
+                          ToolParallelAiSearch.builder()
+                              // Optional. Omit apiKey if you subscribed to
+                              // Grounding with Parallel Web Search on Google
+                              // Cloud Marketplace.
+                              .apiKey("API_KEY")
+                              // Optional. Set to true to use Zero Data
+                              // Retention (ZDR) for sensitive workloads.
+                              // Requires a separate ZDR Marketplace
+                              // subscription; defaults to the standard
+                              // subscription.
+                              .enableZeroDataRetention(true)
+                              // Optional. Customize the search. Click a
+                              // placeholder to enter a value, or remove the
+                              // entry to accept the default.
+                              .customConfigs(
+                                  Map.of(
+                                      "mode", "MODE",
+                                      "location", "SEARCH_LOCATION",
+                                      "max_results", MAX_RESULTS,
+                                      "source_policy",
                                       Map.of(
-                                          "mode", "MODE",
-                                          "location", "SEARCH_LOCATION",
-                                          "max_results", MAX_RESULTS,
-                                          "source_policy",
-                                          Map.of(
-                                              "exclude_domains",
-                                              List.of("EXCLUDE_DOMAINS"),
-                                              "include_domains",
-                                              List.of("INCLUDE_DOMAINS")),
-                                          "excerpts",
-                                          Map.of(
-                                              "max_chars_per_result",
-                                              MAX_CHARS_PER_RESULT,
-                                              "max_chars_total",
-                                              MAX_CHARS_TOTAL)))
-                                  .build())
-                          .build())
-                  .build();
-    
-          GenerateContentResponse response =
-              client.models.generateContent(
-                  "MODEL_ID", "TEXT", config);
-    
-          System.out.println(response.text());
-        }
-      }
+                                          "exclude_domains",
+                                          List.of("EXCLUDE_DOMAINS"),
+                                          "include_domains",
+                                          List.of("INCLUDE_DOMAINS")),
+                                      "excerpts",
+                                      Map.of(
+                                          "max_chars_per_result",
+                                          MAX_CHARS_PER_RESULT,
+                                          "max_chars_total",
+                                          MAX_CHARS_TOTAL)))
+                              .build())
+                      .build())
+              .build();
+
+      GenerateContentResponse response =
+          client.models.generateContent(
+              "MODEL_ID", "TEXT", config);
+
+      System.out.println(response.text());
     }
+  }
+}
+```
 
 ### Node.js
 
 #### Install
 
-    npm install @google/genai
+```
+npm install @google/genai
+```
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
 Before running the sample, make the following replacements:
 
-  - MODEL\_ID : The ID of a [supported model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#supported-models) to use, such as `gemini-2.5-flash` .
-  - TEXT : The text prompt to send to the model.
-  - API\_KEY : Your API key for Parallel Web Search. Omit this parameter if you are subscribed on Google Cloud Marketplace; if both are provided, the API key takes precedence.
-  - EXCLUDE\_DOMAINS : Optional: List of domains to exclude from grounding sources. If specified, sources from these domains are excluded. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
-  - INCLUDE\_DOMAINS : Optional: List of domains to include in grounding sources. If specified, sources from these domains are included. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
-  - MAX\_CHARS\_PER\_RESULT : Optional: The maximum number of characters to include in each search result excerpt. If not specified, defaults to `30000` . The allowed range is `[1000, 100000]` .
-  - MAX\_CHARS\_TOTAL : Optional: The maximum total characters from all search result excerpts. If not specified, defaults to `100000` . The allowed range is `[1000, 1000000]` .
-  - MAX\_RESULTS : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `10` . The allowed range is `[1, 20]` .
-  - MODE : Optional: Mode to be used for the request either `basic` or `advanced` . The default is `basic` . Consider `advanced` mode if you want more thorough search results at the expense of higher latency.
-  - SEARCH\_LOCATION : Optional: [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for geo-targeted search results. Example: `"us"` .
+- ` MODEL_ID ` : The ID of a [supported model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#supported-models) to use, such as `gemini-2.5-flash` .
+- ` TEXT ` : The text prompt to send to the model.
+- ` API_KEY ` : Your API key for Parallel Web Search. Omit this parameter if you are subscribed on Google Cloud Marketplace; if both are provided, the API key takes precedence.
+- ` EXCLUDE_DOMAINS ` : Optional: List of domains to exclude from grounding sources. If specified, sources from these domains are excluded. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
+- ` INCLUDE_DOMAINS ` : Optional: List of domains to include in grounding sources. If specified, sources from these domains are included. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
+- ` MAX_CHARS_PER_RESULT ` : Optional: The maximum number of characters to include in each search result excerpt. If not specified, defaults to `30000` . The allowed range is `[1000, 100000]` .
+- ` MAX_CHARS_TOTAL ` : Optional: The maximum total characters from all search result excerpts. If not specified, defaults to `100000` . The allowed range is `[1000, 1000000]` .
+- ` MAX_RESULTS ` : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `10` . The allowed range is `[1, 20]` .
+- ` MODE ` : Optional: Mode to be used for the request either `basic` or `advanced` . The default is `basic` . Consider `advanced` mode if you want more thorough search results at the expense of higher latency.
+- ` SEARCH_LOCATION ` : Optional: [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for geo-targeted search results. Example: `"us"` .
 
-<!-- end list -->
+```
+import {GoogleGenAI} from '@google/genai';
 
-    import {GoogleGenAI} from '@google/genai';
-    
-    const ai = new GoogleGenAI({});
-    
-    const response = await ai.models.generateContent({
-      model: 'MODEL_ID',
-      contents: 'TEXT',
-      config: {
-        tools: [
-          {
-            parallelAiSearch: {
-              // Optional. Omit apiKey if you subscribed to Grounding with Parallel
-              // Web Search on Google Cloud Marketplace.
-              apiKey: 'API_KEY',
-              // Optional. Set to true to use Zero Data Retention (ZDR) for
-              // sensitive workloads. Requires a separate ZDR Marketplace
-              // subscription; defaults to the standard subscription.
-              enableZeroDataRetention: true,
-              // Optional. Customize the search. Click a placeholder to enter a
-              // value, or remove the line to accept the default.
-              customConfigs: {
-                mode: 'MODE',
-                location: 'SEARCH_LOCATION',
-                max_results: MAX_RESULTS,
-                source_policy: {
-                  exclude_domains: ['EXCLUDE_DOMAINS'],
-                  include_domains: ['INCLUDE_DOMAINS'],
-                },
-                excerpts: {
-                  max_chars_per_result: MAX_CHARS_PER_RESULT,
-                  max_chars_total: MAX_CHARS_TOTAL,
-                },
-              },
+const ai = new GoogleGenAI({});
+
+const response = await ai.models.generateContent({
+  model: 'MODEL_ID',
+  contents: 'TEXT',
+  config: {
+    tools: [
+      {
+        parallelAiSearch: {
+          // Optional. Omit apiKey if you subscribed to Grounding with Parallel
+          // Web Search on Google Cloud Marketplace.
+          apiKey: 'API_KEY',
+          // Optional. Set to true to use Zero Data Retention (ZDR) for
+          // sensitive workloads. Requires a separate ZDR Marketplace
+          // subscription; defaults to the standard subscription.
+          enableZeroDataRetention: true,
+          // Optional. Customize the search. Click a placeholder to enter a
+          // value, or remove the line to accept the default.
+          customConfigs: {
+            mode: 'MODE',
+            location: 'SEARCH_LOCATION',
+            max_results: MAX_RESULTS,
+            source_policy: {
+              exclude_domains: ['EXCLUDE_DOMAINS'],
+              include_domains: ['INCLUDE_DOMAINS'],
+            },
+            excerpts: {
+              max_chars_per_result: MAX_CHARS_PER_RESULT,
+              max_chars_total: MAX_CHARS_TOTAL,
             },
           },
-        ],
+        },
       },
-    });
-    
-    console.log(response.text);
+    ],
+  },
+});
+
+console.log(response.text);
+```
 
 ### REST
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region to process the request. To use the global endpoint, exclude the location from the endpoint name and configure the location of the resource to \`global\`.
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - MODEL\_ID : The ID of a [supported model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#supported-models) to use, such as `gemini-2.5-flash` .
-  - TEXT : The text prompt to send to the model.
-  - API\_KEY : Your API key for Parallel Web Search. Omit this parameter if you are subscribed on Google Cloud Marketplace; if both are provided, the API key takes precedence.
-  - EXCLUDE\_DOMAINS : Optional: List of domains to exclude from grounding sources. If specified, sources from these domains are excluded. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
-  - INCLUDE\_DOMAINS : Optional: List of domains to include in grounding sources. If specified, sources from these domains are included. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
-  - MAX\_CHARS\_PER\_RESULT : Optional: The maximum number of characters to include in each search result excerpt. If not specified, defaults to `30000` . The allowed range is `[1000, 100000]` .
-  - MAX\_CHARS\_TOTAL : Optional: The maximum total characters from all search result excerpts. If not specified, defaults to `100000` . The allowed range is `[1000, 1000000]` .
-  - MAX\_RESULTS : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `10` . The allowed range is `[1, 20]` .
-  - MODE : Optional: Mode to be used for the request either `basic` or `advanced` . The default is `basic` . Consider `advanced` mode if you want more thorough search results at the expense of higher latency.
-  - SEARCH\_LOCATION : Optional: [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for geo-targeted search results. Example: `"us"` .
-  - ENABLE\_ZERO\_DATA\_RETENTION : Optional: Switch to the [ZDR version of Parallel Web Search](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems-zdr) to enable Zero Data Retention on sensitive workloads. Set to `true` to use the ZDR offering for your request. You *must* be subscribed to the ZDR-specific offering for these requests to succeed. If not specified, it defaults to the [standard version](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) . The ZDR version is only available via Google Cloud Marketplace.
+- ` LOCATION ` : The region to process the request. To use the global endpoint, exclude the location from the endpoint name and configure the location of the resource to \`global\`.
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` MODEL_ID ` : The ID of a [supported model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#supported-models) to use, such as `gemini-2.5-flash` .
+- ` TEXT ` : The text prompt to send to the model.
+- ` API_KEY ` : Your API key for Parallel Web Search. Omit this parameter if you are subscribed on Google Cloud Marketplace; if both are provided, the API key takes precedence.
+- ` EXCLUDE_DOMAINS ` : Optional: List of domains to exclude from grounding sources. If specified, sources from these domains are excluded. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
+- ` INCLUDE_DOMAINS ` : Optional: List of domains to include in grounding sources. If specified, sources from these domains are included. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
+- ` MAX_CHARS_PER_RESULT ` : Optional: The maximum number of characters to include in each search result excerpt. If not specified, defaults to `30000` . The allowed range is `[1000, 100000]` .
+- ` MAX_CHARS_TOTAL ` : Optional: The maximum total characters from all search result excerpts. If not specified, defaults to `100000` . The allowed range is `[1000, 1000000]` .
+- ` MAX_RESULTS ` : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `10` . The allowed range is `[1, 20]` .
+- ` MODE ` : Optional: Mode to be used for the request either `basic` or `advanced` . The default is `basic` . Consider `advanced` mode if you want more thorough search results at the expense of higher latency.
+- ` SEARCH_LOCATION ` : Optional: [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for geo-targeted search results. Example: `"us"` .
+- ` ENABLE_ZERO_DATA_RETENTION ` : Optional: Switch to the [ZDR version of Parallel Web Search](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems-zdr) to enable Zero Data Retention on sensitive workloads. Set to `true` to use the ZDR offering for your request. You *must* be subscribed to the ZDR-specific offering for these requests to succeed. If not specified, it defaults to the [standard version](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) . The ZDR version is only available via Google Cloud Marketplace.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent
+```
 
 Request JSON body:
 
-    {
-      "contents": [{
-        "role": "user",
-        "parts": [{
-          "text": "TEXT"
-        }]
-      }],
-      "tools": [{
-        "parallelAiSearch": {
-            "api_key": "API_KEY",
-            "enable_zero_data_retention": ENABLE_ZERO_DATA_RETENTION,
-            "customConfigs": {
-                "mode": "MODE",
-                "location": "SEARCH_LOCATION",
-                "max_results": MAX_RESULTS,
-                "source_policy": {
-                    "exclude_domains": ["EXCLUDE_DOMAINS"],
-                    "include_domains": ["INCLUDE_DOMAINS"]
-                },
-                "excerpts": {
-                    "max_chars_per_result": MAX_CHARS_PER_RESULT,
-                    "max_chars_total": MAX_CHARS_TOTAL
-                }
+```
+{
+  "contents": [{
+    "role": "user",
+    "parts": [{
+      "text": "TEXT"
+    }]
+  }],
+  "tools": [{
+    "parallelAiSearch": {
+        "api_key": "API_KEY",
+        "enable_zero_data_retention": ENABLE_ZERO_DATA_RETENTION,
+        "customConfigs": {
+            "mode": "MODE",
+            "location": "SEARCH_LOCATION",
+            "max_results": MAX_RESULTS,
+            "source_policy": {
+                "exclude_domains": ["EXCLUDE_DOMAINS"],
+                "include_domains": ["INCLUDE_DOMAINS"]
+            },
+            "excerpts": {
+                "max_chars_per_result": MAX_CHARS_PER_RESULT,
+                "max_chars_total": MAX_CHARS_TOTAL
             }
         }
-    }],
-      "model": "projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID"
     }
+}],
+  "model": "projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID"
+}
+```
 
 To send your request, expand one of these options:
 
@@ -386,11 +400,13 @@ To send your request, expand one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent"
+```
 
 #### PowerShell (Windows)
 
@@ -398,135 +414,139 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following.
 
 #### Response
 
+```
+{
+  "candidates": [
     {
-      "candidates": [
-        {
-          "content": {
-            "role": "model",
-            "parts": [
-              {
-                "text": "The most recent Super Bowl was Super Bowl LIX (59), which was played in 2025. The winner of Super Bowl LIX was the **Philadelphia Eagles**, who defeated the Kansas City Chiefs with a score of 40-22."
-              }
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "The most recent Super Bowl was Super Bowl LIX (59), which was played in 2025. The winner of Super Bowl LIX was the **Philadelphia Eagles**, who defeated the Kansas City Chiefs with a score of 40-22."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "groundingMetadata": {
+        "webSearchQueries": [
+          "who won the last super bowl"
+        ],
+        "groundingChunks": [
+          {
+            "web": {
+              "uri": "https://...",
+              "title": "Super Bowl LIX",
+              "domain": "domain.com"
+            }
+          },
+          {
+            "web": {
+              "uri": "https://...",
+              "title": "Super Bowl LIX Results",
+              "domain": "domain.com"
+            }
+          }
+        ],
+        "groundingSupports": [
+          {
+            "segment": {
+              "endIndex": 77,
+              "text": "The most recent Super Bowl was Super Bowl LIX (59), which was played in 2025."
+            },
+            "groundingChunkIndices": [
+              0,
+              1
             ]
           },
-          "finishReason": "STOP",
-          "groundingMetadata": {
-            "webSearchQueries": [
-              "who won the last super bowl"
-            ],
-            "groundingChunks": [
-              {
-                "web": {
-                  "uri": "https://...",
-                  "title": "Super Bowl LIX",
-                  "domain": "domain.com"
-                }
-              },
-              {
-                "web": {
-                  "uri": "https://...",
-                  "title": "Super Bowl LIX Results",
-                  "domain": "domain.com"
-                }
-              }
-            ],
-            "groundingSupports": [
-              {
-                "segment": {
-                  "endIndex": 77,
-                  "text": "The most recent Super Bowl was Super Bowl LIX (59), which was played in 2025."
-                },
-                "groundingChunkIndices": [
-                  0,
-                  1
-                ]
-              },
-              {
-                "segment": {
-                  "startIndex": 78,
-                  "endIndex": 198,
-                  "text": "The winner of Super Bowl LIX was the **Philadelphia Eagles**, who defeated the Kansas City Chiefs with a score of 40-22."
-                },
-                "groundingChunkIndices": [
-                  0
-                ]
-              },
+          {
+            "segment": {
+              "startIndex": 78,
+              "endIndex": 198,
+              "text": "The winner of Super Bowl LIX was the **Philadelphia Eagles**, who defeated the Kansas City Chiefs with a score of 40-22."
+            },
+            "groundingChunkIndices": [
+              0
             ]
-          }
-        }
-      ],
-      "usageMetadata": {
-        "promptTokenCount": 33,
-        "candidatesTokenCount": 106,
-        "totalTokenCount": 284,
-        "billablePromptUsage": {
-          "textCount": 142
-        },
-        "trafficType": "ON_DEMAND",
-        "promptTokensDetails": [
-          {
-            "modality": "TEXT",
-            "tokenCount": 33
-          }
-        ],
-        "candidatesTokensDetails": [
-          {
-            "modality": "TEXT",
-            "tokenCount": 106
-          }
-        ],
-        "toolUsePromptTokensDetails": [
-          {
-            "modality": "TEXT",
-            "tokenCount": 39
-          }
-        ],
-        "toolUsePromptTokenCount": 39,
-        "thoughtsTokenCount": 106
-      },
-      "modelVersion": "MODEL_VERSION",
-      "createTime": "CREATE_TIME",
-      "responseId": "RESPONSE_ID"
+          },
+        ]
+      }
     }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 33,
+    "candidatesTokenCount": 106,
+    "totalTokenCount": 284,
+    "billablePromptUsage": {
+      "textCount": 142
+    },
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 33
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 106
+      }
+    ],
+    "toolUsePromptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 39
+      }
+    ],
+    "toolUsePromptTokenCount": 39,
+    "thoughtsTokenCount": 106
+  },
+  "modelVersion": "MODEL_VERSION",
+  "createTime": "CREATE_TIME",
+  "responseId": "RESPONSE_ID"
+}
+```
 
 ## Quota
 
 The default quota is 200 prompts per minute. To request an increase to your rate limits, provide your use case and requirements to the appropriate contact:
 
-  - **If you subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace:** Contact your Google account team.
+- **If you subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace:** Contact your Google account team.
 
-  - **If you provide your own API key:** Contact <support@parallel.ai> and your Google account team.
+- **If you provide your own API key:** Contact <support@parallel.ai> and your Google account team.
 
 ## Billing
 
 The use of Grounding with Parallel Web Search incurs the following charges:
 
-  - **Gemini token consumption:** You can be billed for:
-    
-      - Prompt tokens
-      - Thinking tokens
-      - Output tokens
-    
-    For more information, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+- **Gemini token consumption:** You can be billed for:
 
-  - **Gemini's Grounding with your data:** For more information, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+  - Prompt tokens
+  - Thinking tokens
+  - Output tokens
 
-  - **Pricing for the use of the Parallel Web Search API:**
-    
-      - If you subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace, see the [Parallel pricing](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) section on Google Cloud Marketplace for more information.
-    
-      - If you provide your own API key, see the [Parallel website](https://parallel.ai/pricing) for more information.
+  For more information, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+
+- **Gemini's Grounding with your data:** For more information, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+
+- **Pricing for the use of the Parallel Web Search API:**
+
+  - If you subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace, see the [Parallel pricing](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) section on Google Cloud Marketplace for more information.
+
+  - If you provide your own API key, see the [Parallel website](https://parallel.ai/pricing) for more information.

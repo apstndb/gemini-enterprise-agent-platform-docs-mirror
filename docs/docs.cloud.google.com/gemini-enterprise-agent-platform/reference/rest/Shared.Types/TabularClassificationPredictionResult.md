@@ -18,25 +18,15 @@ The name of the classes being classified, contains all possible values of the ta
 
 The model's confidence in each class being correct, higher value means higher confidence. The N-th score corresponds to the N-th class in classes.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;classes&quot;: [
+**JSON representation**
+
+```
+{
+  "classes": [
     string
   ],
-  &quot;scores&quot;: [
+  "scores": [
     number
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

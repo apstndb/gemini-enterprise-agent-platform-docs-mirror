@@ -28,7 +28,7 @@ Required. The resource name of the ModelEvaluation to list the ModelEvaluationSl
 
 The standard list filter.
 
-  - `slice.dimension` - for =.
+- `slice.dimension` - for =.
 
 `pageSize` `integer`
 
@@ -36,9 +36,9 @@ The standard list page size.
 
 `pageToken` `string`
 
-The standard list page token. Typically obtained via `  ListModelEvaluationSlicesResponse.next_page_token  ` of the previous `  ModelService.ListModelEvaluationSlices  ` call.
+The standard list page token. Typically obtained via [`ListModelEvaluationSlicesResponse.next_page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models.evaluations.slices/list#body.ListModelEvaluationSlicesResponse.FIELDS.next_page_token) of the previous [`ModelService.ListModelEvaluationSlices`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models.evaluations.slices/list#google.cloud.aiplatform.v1beta1.ModelService.ListModelEvaluationSlices) call.
 
-`readMask` ` string ( FieldMask  ` format)
+`readMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Mask specifying which fields to read.
 
@@ -50,32 +50,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  ModelService.ListModelEvaluationSlices  ` .
+Response message for [`ModelService.ListModelEvaluationSlices`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models.evaluations.slices/list#google.cloud.aiplatform.v1beta1.ModelService.ListModelEvaluationSlices) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`modelEvaluationSlices[]` ` object ( ModelEvaluationSlice  ` )
+`modelEvaluationSlices[]` `object ( `[`ModelEvaluationSlice`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models.evaluations.slices#ModelEvaluationSlice)` )`
 
 List of ModelEvaluations in the requested page.
 
 `nextPageToken` `string`
 
-A token to retrieve next page of results. Pass to `  ListModelEvaluationSlicesRequest.page_token  ` to obtain that page.
+A token to retrieve next page of results. Pass to [`ListModelEvaluationSlicesRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models.evaluations.slices/list#body.QUERY_PARAMETERS.page_token) to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;modelEvaluationSlices&quot;: [{object (ModelEvaluationSlice)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "modelEvaluationSlices": [
+    {
+      object (ModelEvaluationSlice)
+    }
+  ],
+  "nextPageToken": string
+}
+```

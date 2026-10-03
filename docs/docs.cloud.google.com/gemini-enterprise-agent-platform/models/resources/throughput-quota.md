@@ -26,7 +26,7 @@ Gemini Enterprise Agent Platform offers a suite of generative AI services, such 
 
 ## What's next
 
-  - Learn more about [Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) .
-  - Learn more about [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) .
-  - Learn more about [generative AI quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models//quotas) .
-  - Learn more about [Google Cloud quotas](https://docs.cloud.google.com/docs/quotas/overview) .
+- Learn more about [Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) .
+- Learn more about [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) .
+- Learn more about [generative AI quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models//quotas) .
+- Learn more about [Google Cloud quotas](https://docs.cloud.google.com/docs/quotas/overview) .

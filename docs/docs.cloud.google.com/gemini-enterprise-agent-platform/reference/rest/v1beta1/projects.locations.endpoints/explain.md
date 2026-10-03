@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 Perform an online explanation.
 
-If `  deployedModelId  ` is specified, the corresponding endpoints.deployModel must have `  explanationSpec  ` populated. If `  deployedModelId  ` is not specified, all DeployedModels must have `  explanationSpec  ` populated.
+If [`deployedModelId`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain#body.request_body.FIELDS.deployed_model_id) is specified, the corresponding endpoints.deployModel must have [`explanationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#DeployedModel.FIELDS.explanation_spec) populated. If [`deployedModelId`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain#body.request_body.FIELDS.deployed_model_id) is not specified, all DeployedModels must have [`explanationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#DeployedModel.FIELDS.explanation_spec) populated.
 
 ### Endpoint
 
@@ -30,19 +30,19 @@ The request body contains data with the following structure:
 
 Fields
 
-`instances[]` ` value ( Value  ` format)
+`instances[]` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
-Required. The instances that are the input to the explanation call. A DeployedModel may have an upper limit on the number of instances it supports per request, and when it is exceeded the explanation call errors in case of AutoML Models, or, in case of customer created Models, the behaviour is as documented by that Model. The schema of any single instance may be specified via Endpoint's DeployedModels' `  Model's  ` `  PredictSchemata's  ` `  instanceSchemaUri  ` .
+Required. The instances that are the input to the explanation call. A DeployedModel may have an upper limit on the number of instances it supports per request, and when it is exceeded the explanation call errors in case of AutoML Models, or, in case of customer created Models, the behaviour is as documented by that Model. The schema of any single instance may be specified via Endpoint's DeployedModels' [`Model's`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#DeployedModel.FIELDS.model) [`PredictSchemata's`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models#Model.FIELDS.predict_schemata) [`instanceSchemaUri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/PredictSchemata#FIELDS.instance_schema_uri) .
 
-`parameters` ` value ( Value  ` format)
+`parameters` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
-The parameters that govern the prediction. The schema of the parameters may be specified via Endpoint's DeployedModels' `  Model's  ` `  PredictSchemata's  ` `  parametersSchemaUri  ` .
+The parameters that govern the prediction. The schema of the parameters may be specified via Endpoint's DeployedModels' [`Model's`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#DeployedModel.FIELDS.model) [`PredictSchemata's`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models#Model.FIELDS.predict_schemata) [`parametersSchemaUri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/PredictSchemata#FIELDS.parameters_schema_uri) .
 
-`explanationSpecOverride` ` object ( ExplanationSpecOverride  ` )
+`explanationSpecOverride` `object ( `[`ExplanationSpecOverride`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain#ExplanationSpecOverride)` )`
 
-If specified, overrides the `  explanationSpec  ` of the DeployedModel. Can be used for explaining prediction results with different configurations, such as: - Explaining top-5 predictions results as opposed to top-1; - Increasing path count or step count of the attribution methods to reduce approximate errors; - Using different baselines for explaining the prediction results.
+If specified, overrides the [`explanationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#DeployedModel.FIELDS.explanation_spec) of the DeployedModel. Can be used for explaining prediction results with different configurations, such as: - Explaining top-5 predictions results as opposed to top-1; - Increasing path count or step count of the attribution methods to reduce approximate errors; - Using different baselines for explaining the prediction results.
 
-`concurrentExplanationSpecOverride` ` map (key: string, value: object ( ExplanationSpecOverride  ` ))
+`concurrentExplanationSpecOverride` `map (key: string, value: object ( `[`ExplanationSpecOverride`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain#ExplanationSpecOverride)` ))`
 
 Optional. This field is the same as the one above, but supports multiple explanations to occur in parallel. The key can be any string. Each override will be run against the model, then its explanations will be grouped together.
 
@@ -50,23 +50,23 @@ Note - these explanations are run **In Addition** to the default Explanation in 
 
 `deployedModelId` `string`
 
-If specified, this ExplainRequest will be served by the chosen DeployedModel, overriding `  Endpoint.traffic_split  ` .
+If specified, this ExplainRequest will be served by the chosen DeployedModel, overriding [`Endpoint.traffic_split`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint.FIELDS.traffic_split) .
 
 ### Response body
 
-Response message for `  PredictionService.Explain  ` .
+Response message for [`PredictionService.Explain`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain#google.cloud.aiplatform.v1beta1.PredictionService.Explain) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`explanations[]` ` object ( Explanation  ` )
+`explanations[]` `object ( `[`Explanation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Explanation)` )`
 
-The explanations of the Model's `  PredictResponse.predictions  ` .
+The explanations of the Model's [`PredictResponse.predictions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/PredictResponse#FIELDS.predictions) .
 
-It has the same number of elements as `  instances  ` to be explained.
+It has the same number of elements as [`instances`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain#body.request_body.FIELDS.instances) to be explained.
 
-`concurrentExplanations` ` map (key: string, value: object ( ConcurrentExplanation  ` ))
+`concurrentExplanations` `map (key: string, value: object ( `[`ConcurrentExplanation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain#ConcurrentExplanation)` ))`
 
 This field stores the results of the explanations run in parallel with The default explanation strategy/method.
 
@@ -74,117 +74,110 @@ This field stores the results of the explanations run in parallel with The defau
 
 id of the Endpoint's DeployedModel that served this explanation.
 
-`predictions[]` ` value ( Value  ` format)
+`predictions[]` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
-The predictions that are the output of the predictions call. Same as `  PredictResponse.predictions  ` .
+The predictions that are the output of the predictions call. Same as [`PredictResponse.predictions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/PredictResponse#FIELDS.predictions) .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;explanations&quot;: [{object (Explanation)}],&quot;concurrentExplanations&quot;: {string: {object (ConcurrentExplanation)},...},&quot;deployedModelId&quot;: string,&quot;predictions&quot;: [value]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "explanations": [
+    {
+      object (Explanation)
+    }
+  ],
+  "concurrentExplanations": {
+    string: {
+      object (ConcurrentExplanation)
+    },
+    ...
+  },
+  "deployedModelId": string,
+  "predictions": [
+    value
+  ]
+}
+```
 
 ## ExplanationSpecOverride
 
-The `  ExplanationSpec  ` entries that can be overridden at `  online explanation  ` time.
+The [`ExplanationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ExplanationSpec) entries that can be overridden at [`online explanation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain#google.cloud.aiplatform.v1beta1.PredictionService.Explain) time.
 
 Fields
 
-`parameters` ` object ( ExplanationParameters  ` )
+`parameters` `object ( `[`ExplanationParameters`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ExplanationSpec#ExplanationParameters)` )`
 
 The parameters to be overridden. Note that the attribution method cannot be changed. If not specified, no parameter is overridden.
 
-`metadata` ` object ( ExplanationMetadataOverride  ` )
+`metadata` `object ( `[`ExplanationMetadataOverride`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain#ExplanationMetadataOverride)` )`
 
 The metadata to be overridden. If not specified, no metadata is overridden.
 
-`examplesOverride` ` object ( ExamplesOverride  ` )
+`examplesOverride` `object ( `[`ExamplesOverride`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain#ExamplesOverride)` )`
 
 The example-based explanations parameter overrides.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;parameters&quot;: {object (ExplanationParameters)},&quot;metadata&quot;: {object (ExplanationMetadataOverride)},&quot;examplesOverride&quot;: {object (ExamplesOverride)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "parameters": {
+    object (ExplanationParameters)
+  },
+  "metadata": {
+    object (ExplanationMetadataOverride)
+  },
+  "examplesOverride": {
+    object (ExamplesOverride)
+  }
+}
+```
 
 ## ExplanationMetadataOverride
 
-The `  ExplanationMetadata  ` entries that can be overridden at `  online explanation  ` time.
+The [`ExplanationMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ExplanationSpec#ExplanationMetadata) entries that can be overridden at [`online explanation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain#google.cloud.aiplatform.v1beta1.PredictionService.Explain) time.
 
 Fields
 
-`inputs` ` map (key: string, value: object ( InputMetadataOverride  ` ))
+`inputs` `map (key: string, value: object ( `[`InputMetadataOverride`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain#InputMetadataOverride)` ))`
 
-Required. Overrides the `  input metadata  ` of the features. The key is the name of the feature to be overridden. The keys specified here must exist in the input metadata to be overridden. If a feature is not specified here, the corresponding feature's input metadata is not overridden.
+Required. Overrides the [`input metadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ExplanationSpec#ExplanationMetadata.FIELDS.inputs) of the features. The key is the name of the feature to be overridden. The keys specified here must exist in the input metadata to be overridden. If a feature is not specified here, the corresponding feature's input metadata is not overridden.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;inputs&quot;: {string: {object (InputMetadataOverride)},...}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "inputs": {
+    string: {
+      object (InputMetadataOverride)
+    },
+    ...
+  }
+}
+```
 
 ## InputMetadataOverride
 
-The `  input metadata  ` entries to be overridden.
+The [`input metadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ExplanationSpec#InputMetadata) entries to be overridden.
 
 Fields
 
-`inputBaselines[]` ` value ( Value  ` format)
+`inputBaselines[]` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
 baseline inputs for this feature.
 
-This overrides the `input_baseline` field of the `  ExplanationMetadata.InputMetadata  ` object of the corresponding feature's input metadata. If it's not specified, the original baselines are not overridden.
+This overrides the `input_baseline` field of the [`ExplanationMetadata.InputMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ExplanationSpec#InputMetadata) object of the corresponding feature's input metadata. If it's not specified, the original baselines are not overridden.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;inputBaselines&quot;: [
+**JSON representation**
+
+```
+{
+  "inputBaselines": [
     value
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## ExamplesOverride
 
@@ -200,7 +193,7 @@ The number of neighbors to return.
 
 The number of neighbors to return that have the same crowding tag.
 
-`restrictions[]` ` object ( ExamplesRestrictionsNamespace  ` )
+`restrictions[]` `object ( `[`ExamplesRestrictionsNamespace`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain#ExamplesRestrictionsNamespace)` )`
 
 Restrict the resulting nearest neighbors to respect these constraints.
 
@@ -208,25 +201,25 @@ Restrict the resulting nearest neighbors to respect these constraints.
 
 If true, return the embeddings instead of neighbors.
 
-`dataFormat` ` enum ( DataFormat  ` )
+`dataFormat` `enum ( `[`DataFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain#DataFormat)` )`
 
 The format of the data being provided with each call.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;neighborCount&quot;: integer,&quot;crowdingCount&quot;: integer,&quot;restrictions&quot;: [{object (ExamplesRestrictionsNamespace)}],&quot;returnEmbeddings&quot;: boolean,&quot;dataFormat&quot;: enum (DataFormat)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "neighborCount": integer,
+  "crowdingCount": integer,
+  "restrictions": [
+    {
+      object (ExamplesRestrictionsNamespace)
+    }
+  ],
+  "returnEmbeddings": boolean,
+  "dataFormat": enum (DataFormat)
+}
+```
 
 ## ExamplesRestrictionsNamespace
 
@@ -246,47 +239,29 @@ The list of allowed tags.
 
 The list of deny tags.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;namespaceName&quot;: string,
-  &quot;allow&quot;: [
+**JSON representation**
+
+```
+{
+  "namespaceName": string,
+  "allow": [
     string
   ],
-  &quot;deny&quot;: [
+  "deny": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## DataFormat
 
 data format enum.
 
-Enums
-
-`DATA_FORMAT_UNSPECIFIED`
-
-Unspecified format. Must not be used.
-
-`INSTANCES`
-
-Provided data is a set of model inputs.
-
-`EMBEDDINGS`
-
-Provided data is a set of embeddings.
+| Enums                     |                                         |
+|---------------------------|-----------------------------------------|
+| `DATA_FORMAT_UNSPECIFIED` | Unspecified format. Must not be used.   |
+| `INSTANCES`               | Provided data is a set of model inputs. |
+| `EMBEDDINGS`              | Provided data is a set of embeddings.   |
 
 ## ConcurrentExplanation
 
@@ -294,24 +269,20 @@ This message is a wrapper grouping Concurrent Explanations.
 
 Fields
 
-`explanations[]` ` object ( Explanation  ` )
+`explanations[]` `object ( `[`Explanation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Explanation)` )`
 
-The explanations of the Model's `  PredictResponse.predictions  ` .
+The explanations of the Model's [`PredictResponse.predictions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/PredictResponse#FIELDS.predictions) .
 
-It has the same number of elements as `  instances  ` to be explained.
+It has the same number of elements as [`instances`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain#body.request_body.FIELDS.instances) to be explained.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;explanations&quot;: [{object (Explanation)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "explanations": [
+    {
+      object (Explanation)
+    }
+  ]
+}
+```

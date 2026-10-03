@@ -16,9 +16,9 @@ If an import operation fails, the feature values returned from reads and exports
 
 There are also scenarios where the caller can cause inconsistency.
 
-  - Source data for import contains multiple distinct feature values for the same entity id and timestamp.
-  - Source is modified during an import. This includes adding, updating, or removing source data and/or metadata. Examples of updating metadata include but are not limited to changing storage location, storage class, or retention policy.
-  - Online serving cluster is under-provisioned.
+- Source data for import contains multiple distinct feature values for the same entity id and timestamp.
+- Source is modified during an import. This includes adding, updating, or removing source data and/or metadata. Examples of updating metadata include but are not limited to changing storage location, storage class, or retention policy.
+- Online serving cluster is under-provisioned.
 
 ### Endpoint
 
@@ -40,9 +40,9 @@ Fields
 
 `entityIdField` `string`
 
-Source column that holds entity IDs. If not provided, entity IDs are extracted from the column named entity\_id.
+Source column that holds entity IDs. If not provided, entity IDs are extracted from the column named entity_id.
 
-`featureSpecs[]` ` object ( FeatureSpec  ` )
+`featureSpecs[]` `object ( `[`FeatureSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/importFeatureValues#FeatureSpec)` )`
 
 Required. Specifications defining which feature values to import from the entity. The request fails if no featureSpecs are provided, and having multiple featureSpecs for one feature is not allowed.
 
@@ -62,11 +62,11 @@ If true, API doesn't start ingestion analysis pipeline.
 
 Details about the source data, including the location of the storage and the format. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`avroSource` ` object ( AvroSource  ` )
+`avroSource` `object ( `[`AvroSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/importFeatureValues#AvroSource)` )`
 
-`bigquerySource` ` object ( BigQuerySource  ` )
+`bigquerySource` `object ( `[`BigQuerySource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/BigQuerySource)` )`
 
-`csvSource` ` object ( CsvSource  ` )
+`csvSource` `object ( `[`CsvSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CsvSource)` )`
 
 End of mutually exclusive fields.
 
@@ -78,7 +78,7 @@ Source of Feature timestamp for all Feature values of each entity. Timestamps mu
 
 Source column that holds the feature timestamp for all feature values in each entity.
 
-`featureTime` ` string ( Timestamp  ` format)
+`featureTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Single feature timestamp for all entities being imported. The timestamp must not have higher than millisecond precision.
 
@@ -88,7 +88,7 @@ End of mutually exclusive fields.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ## AvroSource
 
@@ -96,25 +96,19 @@ The storage details for Avro input content.
 
 Fields
 
-`gcsSource` ` object ( GcsSource  ` )
+`gcsSource` `object ( `[`GcsSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GcsSource)` )`
 
 Required. Google Cloud Storage location.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;gcsSource&quot;: {object (GcsSource)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "gcsSource": {
+    object (GcsSource)
+  }
+}
+```
 
 ## FeatureSpec
 
@@ -130,21 +124,11 @@ Required. id of the feature to import values of. This feature must exist in the 
 
 Source column to get the feature values from. If not set, uses the column with the same name as the feature id.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;id&quot;: string,
-  &quot;sourceField&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "id": string,
+  "sourceField": string
+}
+```

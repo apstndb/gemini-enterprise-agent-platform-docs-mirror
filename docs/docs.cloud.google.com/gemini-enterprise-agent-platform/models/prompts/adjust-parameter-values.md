@@ -8,11 +8,11 @@ data_source: docs.cloud.google.com
 
 Each call that you send to a model includes parameter values that control how the model generates a response. The model can generate different results for different parameter values. Experiment with different parameter values to get the best values for the task. The parameters available for different models may differ. The most common parameters are the following:
 
-  - Max output tokens
-  - Temperature
-  - Top-P
-  - Top-K
-  - Seed
+- Max output tokens
+- Temperature
+- Top-P
+- Top-K
+- Seed
 
 ## Max output tokens
 
@@ -52,4 +52,4 @@ This is a preview feature.
 
 ## What's next
 
-  - Learn how to optimize prompts for use with [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) by using the [Gemini Enterprise Agent Platform prompt optimizer (Preview)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-optimizer) .
+- Learn how to optimize prompts for use with [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) by using the [Gemini Enterprise Agent Platform prompt optimizer (Preview)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-optimizer) .

@@ -15,7 +15,7 @@ For image datasets, AutoML uses the training set to train the model, and the val
 You can let Gemini Enterprise Agent Platform divide your data automatically. Your data is randomly split into the three sets by percentage. This is the easiest way to split your data, and works well in most cases.
 
 | Set        | Percentage |
-| ---------- | ---------- |
+|------------|------------|
 | Training   | 80         |
 | Validation | 10         |
 | Test       | 10         |
@@ -24,9 +24,9 @@ To use the default data split, accept the default in the Google Cloud console, o
 
 If you want to control how your data is split into sets, you have the following options:
 
-  - [Manual split](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#ml-use-unstructured)
-  - [Data filter split](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#filter)
-  - [Mathematical split](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#percentages)
+- [Manual split](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#ml-use-unstructured)
+- [Data filter split](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#filter)
+- [Mathematical split](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#percentages)
 
 Choose only one of these options; make the choice when you train your model. Some of these options require changes to the training data (for example, the `ml_use` label). Including data or labels for data split options does not require you to use those options; you can still choose another option when you train your model.
 
@@ -36,38 +36,40 @@ The manual split is also known as "predefined split".
 
 To use the `ml_use` label to control your data split, you must set the `ml_use` label on your data.
 
-### Set a value for the ml\_use label
+### Set a value for the ml_use label
 
 You can set the `ml_use` label for image data at data import time (per data item or for the entire import file), or after data import by using the Google Cloud console.
 
-#### Setting ml\_use on individual data items at import time
+#### Setting ml_use on individual data items at import time
 
 Set the `ml_use` label on each data item by including a value for the `aiplatform.googleapis.com/ml_use` field in your [JSON Lines](https://jsonlines.org/) data, or setting the value of the first column of the CSV file. See the information about preparing data for your data type for more details.
 
 If any of your data items repeat in your data (if the same image snippet appears multiple times in your import file), Agent Platform uses the `ml_use` value for the first data item it encounters, and ignores any subsequent `ml_use` values. The first encountered item is not necessarily the item that is nearer to the beginning of the upload file.
 
-#### Setting ml\_use for entire upload files
+#### Setting ml_use for entire upload files
 
 If your data can be sorted into different upload files by `ml_use` value, you can set the `ml_use` value for the entire upload file by using the per-file drop-down menu when you upload files using the Google Cloud console, or by using the [`dataItemLabels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/import#ImportDataConfig) map field in the [datasets.import](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/import) method.
 
 If you set `ml_use` for an upload file, and the file also contains `ml_use` values, the `ml_use` values in the file take precedence over the file-wide value.
 
-#### Setting ml\_use after import
+#### Setting ml_use after import
 
 After you upload your data, you can set or update the `ml_use` value for specific data items in the Google Cloud console by selecting one or more items in the list view and using the **Assign ML use** drop-down menu.
 
-If you upload a data file again, even if the ml\_use values have changed, it doesn't update the `ml_use` value. You can't update `ml_use` values after import by using the Agent Platform API.
+If you upload a data file again, even if the ml_use values have changed, it doesn't update the `ml_use` value. You can't update `ml_use` values after import by using the Agent Platform API.
 
-### Use the ml\_use label
+### Use the ml_use label
 
 When you train your model, specify **Manual (Advanced)** for the Data split in the Google Cloud console. If you train using the Agent Platform API, use the [FilterSplit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.trainingPipelines#filtersplit) object, specifying `labels.aiplatform.googleapis.com/ml_use=training` for the training filter, `labels.aiplatform.googleapis.com/ml_use=validation` for the validation filter, and `labels.aiplatform.googleapis.com/ml_use=test` for the test filter. For example:
 
-    model = job.run(
-    dataset=dataset,
-    model_display_name=_name,
-    training_filter_split="labels.aiplatform.googleapis.com/ml_use=training",
-    validation_filter_split="labels.aiplatform.googleapis.com/ml_use=validation",
-    test_filter_split="labels.aiplatform.googleapis.com/ml_use=test")
+```
+model = job.run(
+dataset=dataset,
+model_display_name=_name,
+training_filter_split="labels.aiplatform.googleapis.com/ml_use=training",
+validation_filter_split="labels.aiplatform.googleapis.com/ml_use=validation",
+test_filter_split="labels.aiplatform.googleapis.com/ml_use=test")
+```
 
 Any data items with an `ml_use` value are assigned to the specified set. Data items that don't have `ml_use` set are excluded from the training process.
 

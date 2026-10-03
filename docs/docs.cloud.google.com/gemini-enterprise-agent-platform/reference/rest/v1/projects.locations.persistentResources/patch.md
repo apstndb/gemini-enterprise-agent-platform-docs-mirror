@@ -26,7 +26,7 @@ Immutable. Resource name of a PersistentResource.
 
 ### Query parameters
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Required. Specify the fields to be overwritten in the PersistentResource by the update method.
 
@@ -34,8 +34,8 @@ This is a comma-separated list of fully qualified names of fields. Example: `"us
 
 ### Request body
 
-The request body contains an instance of `  PersistentResource  ` .
+The request body contains an instance of [`PersistentResource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.persistentResources#PersistentResource) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

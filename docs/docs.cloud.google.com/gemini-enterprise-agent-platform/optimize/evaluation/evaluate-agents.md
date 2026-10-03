@@ -11,7 +11,7 @@ This feature lets you evaluate AI agents. You can use the [Gen AI evaluation ser
 ## Evaluation types
 
 | Evaluation Type          | Use Case                                           | Frequency               |
-| :----------------------- | :------------------------------------------------- | :---------------------- |
+|--------------------------|----------------------------------------------------|-------------------------|
 | **Rapid Evaluation**     | Testing new agent logic or model changes.          | Frequent (Development)  |
 | **Test Case Evaluation** | Regression testing against a specific dataset.     | Scheduled (CI/CD)       |
 | **Online Monitoring**    | Tracking quality of a production agent deployment. | Continuous (Production) |
@@ -40,80 +40,94 @@ The agent improvement workflow is built on the **Quality Flywheel** , a continuo
 #### Before you begin
 
 1.  Install the **Agent Platform SDK** with the required extensions:
-    
-        pip install google-cloud-aiplatform[adk,evaluation]
+
+    ```
+    pip install google-cloud-aiplatform[adk,evaluation]
+    ```
 
 2.  Initialize the **Agent Platform SDK** client:
-    
-        import vertexai
-        from vertexai import Client
-        
-        client = Client(project="YOUR_PROJECT_ID", location="YOUR_LOCATION")
-    
-    Where:
-    
-      - `YOUR_PROJECT_ID` : your Google Cloud project ID.
-      - `YOUR_LOCATION` : your cloud region, for example, `us-central1` .
 
-#### 1\. Define eval cases (User Simulation)
+    ```
+    import vertexai
+    from vertexai import Client
+
+    client = Client(project="YOUR_PROJECT_ID", location="YOUR_LOCATION")
+    ```
+
+    Where:
+
+    - `YOUR_PROJECT_ID` : your Google Cloud project ID.
+    - `YOUR_LOCATION` : your cloud region, for example, `us-central1` .
+
+#### 1. Define eval cases (User Simulation)
 
 Instead of manually authoring test cases, use **User Simulation** to generate synthetic multi-turn conversation plans based on your agent's instructions.
 
-    # Generate scenarios from agent info
-    eval_dataset = client.evals.generate_conversation_scenarios(
-        agent_info=my_agent_info,
-        config={
-            "count": 5,
-            "generation_instruction": "Generate scenarios where a user asks for a refund.",
-        },
-    )
+```
+# Generate scenarios from agent info
+eval_dataset = client.evals.generate_conversation_scenarios(
+    agent_info=my_agent_info,
+    config={
+        "count": 5,
+        "generation_instruction": "Generate scenarios where a user asks for a refund.",
+    },
+)
+```
 
 For more information, see the [**Agent Platform SDK** reference](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.evals.Evals#vertexai__genai_evals_Evals_generate_conversation_scenarios) .
 
-#### 2\. Run inferences
+#### 2. Run inferences
 
 Execute the eval cases against your agent to capture **Traces** .
 
-    # Generate behavior traces using a multi-turn user simulator
-    traces = client.evals.run_inference(
-        agent=my_agent,
-        src=eval_dataset,
-        config={"user_simulator_config": {"max_turn": 5}}
-    )
+```
+# Generate behavior traces using a multi-turn user simulator
+traces = client.evals.run_inference(
+    agent=my_agent,
+    src=eval_dataset,
+    config={"user_simulator_config": {"max_turn": 5}}
+)
+```
 
-#### 3\. Compute metrics (AutoRaters)
+#### 3. Compute metrics (AutoRaters)
 
 Use **Multi-turn AutoRaters** to score the captured traces. These raters analyze the full conversation history to verify instruction adherence and tool usage.
 
-    # Evaluate the traces using multi-turn metrics
-    eval_result = client.evals.evaluate(
-        traces=traces,
-        metrics=[
-            "MULTI_TURN_TASK_SUCCESS",
-            "MULTI_TURN_TOOL_USE_QUALITY"
-        ]
-    )
+```
+# Evaluate the traces using multi-turn metrics
+eval_result = client.evals.evaluate(
+    traces=traces,
+    metrics=[
+        "MULTI_TURN_TASK_SUCCESS",
+        "MULTI_TURN_TOOL_USE_QUALITY"
+    ]
+)
+```
 
-#### 4\. Conduct analysis (Failure Clusters)
+#### 4. Conduct analysis (Failure Clusters)
 
 The system automatically groups failed evaluations into **Loss Clusters** to identify key agent issues.
 
-    # Identify the top failure patterns in the results
-    loss_clusters = client.evals.generate_loss_clusters(eval_result=eval_result)
+```
+# Identify the top failure patterns in the results
+loss_clusters = client.evals.generate_loss_clusters(eval_result=eval_result)
+```
 
-#### 5\. Optimize the agent
+#### 5. Optimize the agent
 
 Finally, use the **Optimizer** service to programmatically refine your agent's system instructions or tool descriptions based on the failure data.
 
-    # Automatically refine the system prompt to fix identified issues
-    optimize_result = client.optimizer.optimize(
-        targets=["system_prompt"],
-        benchmark=eval_result,
-        tests=eval_dataset
-    )
+```
+# Automatically refine the system prompt to fix identified issues
+optimize_result = client.optimizer.optimize(
+    targets=["system_prompt"],
+    benchmark=eval_result,
+    tests=eval_dataset
+)
+```
 
 ## What's next
 
-  - [Run offline evaluations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-offline)
-  - [View evaluation results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/view-results)
-  - Learn more about the [Gen AI evaluation service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview)
+- [Run offline evaluations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-offline)
+- [View evaluation results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/view-results)
+- Learn more about the [Gen AI evaluation service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview)

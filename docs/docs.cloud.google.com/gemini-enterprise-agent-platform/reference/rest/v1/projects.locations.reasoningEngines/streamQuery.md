@@ -28,13 +28,13 @@ The request body contains data with the following structure:
 
 Fields
 
-`input` ` object ( Struct  ` format)
+`input` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Optional. Input content provided by users in JSON object format. Examples include text query, function calling parameters, media bytes, etc.
 
 `classMethod` `string`
 
-Optional. Class method to be used for the stream query. It is optional and defaults to "stream\_query" if unspecified.
+Optional. Class method to be used for the stream query. It is optional and defaults to "stream_query" if unspecified.
 
 ### Response body
 

@@ -20,13 +20,13 @@ Identifier. The resource name of the agent. Format: `projects/{project}/location
 
 Immutable. The user-specified id for the agent. This id becomes the final component of the agent resource name. If not provided, Agent Platform will generate a value for this id. The id can be up to 63 characters and must match the regular expression `[a-z]([a-z0-9-]{0,61}[a-z0-9])?` .
 
-`created` ` string ( Timestamp  ` format)
+`created` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. The time the agent was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updated` ` string ( Timestamp  ` format)
+`updated` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. The time the agent was last updated.
 
@@ -54,7 +54,7 @@ Optional. The description of the agent.
 
 Optional. The instructions for the agent to follow. These instructions are passed to the LLM as a system instruction.
 
-`tools[]` ` object ( AgentTool  ` )
+`tools[]` `object ( `[`AgentTool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents#AgentTool)` )`
 
 Optional. The tools available to the agent.
 
@@ -62,34 +62,46 @@ Optional. The tools available to the agent.
 
 The environment configuration for the agent. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`base_environment` ` value ( Value  ` format)
+`base_environment` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
 Optional. The base environment configuration for the agent. Valid types:
 
-  - A string value for the environment id, or `remote` for the default.
-  - A struct value for the `environment_config` .
+- A string value for the environment id, or `remote` for the default.
+- A struct value for the `environment_config` .
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;id&quot;: string,&quot;created&quot;: string,&quot;updated&quot;: string,&quot;object&quot;: string,&quot;base_agent&quot;: string,&quot;metadata&quot;: {string: string,...},&quot;description&quot;: string,&quot;system_instruction&quot;: string,&quot;tools&quot;: [{object (AgentTool)}],// environment&quot;base_environment&quot;: value// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "id": string,
+  "created": string,
+  "updated": string,
+  "object": string,
+  "base_agent": string,
+  "metadata": {
+    string: string,
+    ...
+  },
+  "description": string,
+  "system_instruction": string,
+  "tools": [
+    {
+      object (AgentTool)
+    }
+  ],
+
+  // environment
+  "base_environment": value
+  // Union type
+}
+```
 
 ## AgentTool
 
-A tool provides a list of actions available to the `  Agent  ` during the process of executing a task.
+A tool provides a list of actions available to the [`Agent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents#Agent) during the process of executing a task.
 
 Example JSON for an MCP server tool: { "type": "mcpServer", "name": "my-mcp-server", "url": "https://api.example.com/mcp", "headers": { "Authorization": "Bearer token123" } }
 
@@ -99,12 +111,12 @@ Fields
 
 Required. The type of the tool. Supported types:
 
-  - `code_execution`
-  - `endpoint`
-  - `filesystem`
-  - `google_search`
-  - `mcp_server`
-  - `url_context`
+- `code_execution`
+- `endpoint`
+- `filesystem`
+- `google_search`
+- `mcp_server`
+- `url_context`
 
 `name` `string`
 
@@ -118,48 +130,24 @@ Optional. Fallback for the tool's runtime reference, consumed by `agents.create`
 
 Optional. The headers for the MCP server, such as for authentication. Only applicable when `type` is `mcp_server` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;type&quot;: string,
-  &quot;name&quot;: string,
-  &quot;url&quot;: string,
-  &quot;headers&quot;: {
+**JSON representation**
+
+```
+{
+  "type": string,
+  "name": string,
+  "url": string,
+  "headers": {
     string: string,
     ...
   }
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
-## Methods
-
-### `            create           `
-
-Creates an agent.
-
-### `            delete           `
-
-Deletes an agent.
-
-### `            get           `
-
-Retrieves an agent.
-
-### `            list           `
-
-Lists the agents in a location that belong to the caller.
-
-### `            patch           `
-
-Updates an agent.
+| Methods                                                                                                                            |                                                           |
+|------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents/create) | Creates an agent.                                         |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents/delete) | Deletes an agent.                                         |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents/get)       | Retrieves an agent.                                       |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents/list)     | Lists the agents in a location that belong to the caller. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents/patch)   | Updates an agent.                                         |

@@ -34,4 +34,4 @@ Required. The name of the PublisherModel resource. Format: `publishers/{publishe
 
 ### Response body
 
-If successful, the response body contains an instance of `  PublisherModelEulaAcceptance  ` .
+If successful, the response body contains an instance of [`PublisherModelEulaAcceptance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/PublisherModelEulaAcceptance) .

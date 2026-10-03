@@ -24,7 +24,7 @@ You might also be able to get the required permissions through [custom roles](ht
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Click add\_box **Create new** .
+2.  Click add_box **Create new** .
 
 3.  For **Name** , enter `my-instance` .
 
@@ -45,7 +45,7 @@ Your Agent Platform Workbench instance opens JupyterLab.
 1.  In JupyterLab, select **File \> New \> Notebook** .
 
 2.  In the **Select kernel** dialog, select **Python 3** , and then click **Select** .
-    
+
     Your new notebook file opens.
 
 ## Stop your instance
@@ -62,7 +62,7 @@ Your Agent Platform Workbench instance opens JupyterLab.
 
 2.  Select the instance that you want to start.
 
-3.  Click arrow\_right **Start** .
+3.  Click arrow_right **Start** .
 
 ## Reset your instance
 
@@ -86,7 +86,7 @@ If you used an existing Google Cloud project, then delete the resources you crea
 
 2.  Select the row containing the instance that you want to delete.
 
-3.  Click delete **Delete** . (Depending on the size of your window, the **Delete** button might be in the more\_vert options menu.)
+3.  Click delete **Delete** . (Depending on the size of your window, the **Delete** button might be in the more_vert options menu.)
 
 4.  To confirm, click **Confirm** .
 

@@ -23,7 +23,7 @@ Embedding models are an important component of semantic retrieval systems. The p
 RAG Engine implements retrieval-augmented generation (RAG), and it offers you the choice of the following embedding models to use within a RAG corpus:
 
 | Embedding model type                                   | Description                                                                                                                                       |
-| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+|--------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | Gemini Enterprise Agent Platform text embedding models | Models trained by the publisher, such as Google. The models are trained on a large dataset of text, and provide a strong baseline for many tasks. |
 | Fine-tuned Agent Platform text embedding models        | Agent Platform text embedding models are fine tuned to have specialized knowledge or highly-tailored performance.                                 |
 | OSS embedding models                                   | Third-party open-source embedding models in English-only and multilingual variants.                                                               |
@@ -32,43 +32,21 @@ RAG Engine implements retrieval-augmented generation (RAG), and it offers you th
 
 Embedding models are used to create a corpus and used for search and retrieval during response generation. This section lists the supported embedding models.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Model version</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code dir="ltr" translate="no">text-embedding-005</code></td>
-<td>Default embedding model.
-<p>Recommended for use with a RAG corpus.</p></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">text-embedding-004</code></td>
-<td><code dir="ltr" translate="no">text-embedding-004</code> is accessed directly through the embedding API and isn't available in Model Garden.</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">text-multilingual-embedding-002</code></td>
-<td>Recommended for use with a RAG corpus.</td>
-</tr>
-</tbody>
-</table>
+| Model version                     | Description                                                                                              |
+|-----------------------------------|----------------------------------------------------------------------------------------------------------|
+| `text-embedding-005`              | Default embedding model. Recommended for use with a RAG corpus.                                          |
+| `text-embedding-004`              | `text-embedding-004` is accessed directly through the embedding API and isn't available in Model Garden. |
+| `text-multilingual-embedding-002` | Recommended for use with a RAG corpus.                                                                   |
 
 ### Open source embedding models
 
 The following open embedding models are also supported. You can find them in [Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models#open-models) .
 
-  - `e5-base-v2`
-  - `e5-large-v2`
-  - `e5-small-v2`
-  - `multilingual-e5-large`
-  - `multilingual-e5-small`
+- `e5-base-v2`
+- `e5-large-v2`
+- `e5-small-v2`
+- `multilingual-e5-large`
+- `multilingual-e5-small`
 
 ## Use Agent Platform text embedding models
 
@@ -92,7 +70,7 @@ These code samples demonstrate how to create a RAG corpus with a publisher Gecko
 
 ### curl
 
-``` 
+```
   ENDPOINT=us-central1-aiplatform.googleapis.com
   PROJECT_ID=YOUR_PROJECT_ID
 
@@ -122,7 +100,7 @@ These code samples demonstrate how to create a RAG corpus with a publisher Gecko
 
 ### Agent Platform SDK for Python
 
-``` 
+```
   import vertexai
   from vertexai import rag
 
@@ -153,7 +131,7 @@ These code samples demonstrate how to create a RAG corpus with your deployed, fi
 
 ### curl
 
-``` 
+```
   ENDPOINT=us-central1-aiplatform.googleapis.com
   PROJECT_ID=YOUR_PROJECT_ID
 
@@ -183,7 +161,7 @@ These code samples demonstrate how to create a RAG corpus with your deployed, fi
 
 ### Agent Platform SDK for Python
 
-``` 
+```
   import vertexai
   from vertexai import rag
 
@@ -212,7 +190,7 @@ These code samples demonstrate how to create a RAG corpus with your deployed, fi
 RAG Engine supports third-party open-source embedding models in English-only and multilingual variants. This table lists the supported E5 models.
 
 | Model version           | Base model                               | Parameters | embedding dimension | English only |
-| ----------------------- | ---------------------------------------- | ---------- | ------------------- | ------------ |
+|-------------------------|------------------------------------------|------------|---------------------|--------------|
 | `e5-base-v2`            | `MiniLM`                                 | 109M       | 768                 | ✔            |
 | `e5-large-v2`           | `MiniLM`                                 | 335M       | 1,024               | ✔            |
 | `e5-small-v2`           | `MiniLM`                                 | 33M        | 384                 | ✔            |
@@ -225,7 +203,7 @@ These code samples demonstrate how to create RAG corpus with your deployed E5 mo
 
 ### curl
 
-``` 
+```
   ENDPOINT=us-central1-aiplatform.googleapis.com
   PROJECT_ID=YOUR_PROJECT_ID
 
@@ -255,7 +233,7 @@ These code samples demonstrate how to create RAG corpus with your deployed E5 mo
 
 ### Agent Platform SDK for Python
 
-``` 
+```
   import vertexai
   from vertexai import rag
 
@@ -281,4 +259,4 @@ These code samples demonstrate how to create RAG corpus with your deployed E5 mo
 
 ## What's next
 
-  - [Document types for RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/supported-documents)
+- [Document types for RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/supported-documents)

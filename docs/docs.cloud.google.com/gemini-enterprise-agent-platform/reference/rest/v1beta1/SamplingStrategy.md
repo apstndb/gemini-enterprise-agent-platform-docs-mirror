@@ -10,25 +10,19 @@ Sampling Strategy for logging, can be for both training and prediction dataset.
 
 Fields
 
-`randomSampleConfig` ` object ( RandomSampleConfig  ` )
+`randomSampleConfig` `object ( `[`RandomSampleConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/SamplingStrategy#RandomSampleConfig)` )`
 
 Random sample config. Will support more sampling strategies later.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;randomSampleConfig&quot;: {object (RandomSampleConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "randomSampleConfig": {
+    object (RandomSampleConfig)
+  }
+}
+```
 
 ## RandomSampleConfig
 
@@ -40,20 +34,10 @@ Fields
 
 Sample rate (0, 1\]
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;sampleRate&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "sampleRate": number
+}
+```

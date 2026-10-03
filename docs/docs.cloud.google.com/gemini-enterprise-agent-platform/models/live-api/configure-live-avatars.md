@@ -44,93 +44,97 @@ Do the following:
 
 ### WebSocket configuration
 
-WebSocket connections are established with a standard WebSocket handshake. The endpoint is regional and uses OAuth 2.0 bearer tokens for authentication. The authentication token is typically passed in WebSocket headers, such as `Authorization: Bearer [ TOKEN ]` .
+WebSocket connections are established with a standard WebSocket handshake. The endpoint is regional and uses OAuth 2.0 bearer tokens for authentication. The authentication token is typically passed in WebSocket headers, such as `Authorization: Bearer [ `` TOKEN `` ]` .
 
 The following is a sample WebSocket configuration:
 
-    import asyncio
-    import json
-    import websockets
-    
-    # Replace PROJECT_ID and LOCATION with your Project ID and location.
-    PROJECT_ID = "PROJECT_ID"
-    LOCATION = "LOCATION"
-    
-    # Authentication
-    token_list = !gcloud auth application-default print-access-token
-    ACCESS_TOKEN = token_list[0]
-    
-    # Configuration
-    MODEL_ID = "gemini-3.8-live"
-    MODEL = f"projects/{PROJECT_ID}/locations/{LOCATION}/publishers/google/models/{MODEL_ID}"
-    
-    config = {
-        "response_modalities": ["VIDEO"],
-        "speech_config": {
-            "voice_config": {
-                "prebuilt_voice_config": {
-                    "voice_name": "Puck",
-                }
+```
+import asyncio
+import json
+import websockets
+
+# Replace PROJECT_ID and LOCATION with your Project ID and location.
+PROJECT_ID = "PROJECT_ID"
+LOCATION = "LOCATION"
+
+# Authentication
+token_list = !gcloud auth application-default print-access-token
+ACCESS_TOKEN = token_list[0]
+
+# Configuration
+MODEL_ID = "gemini-3.8-live"
+MODEL = f"projects/{PROJECT_ID}/locations/{LOCATION}/publishers/google/models/{MODEL_ID}"
+
+config = {
+    "response_modalities": ["VIDEO"],
+    "speech_config": {
+        "voice_config": {
+            "prebuilt_voice_config": {
+                "voice_name": "Puck",
             }
-        },
-    }
-    
-    avatar_config = {
-        "avatar_name": "Ben",
-    }
-    
-    # Construct the WSS URL
-    HOST = f"{LOCATION}-aiplatform.googleapis.com"
-    URI = f"wss://{HOST}/ws/google.cloud.aiplatform.v1.LlmBidiService/BidiGenerateContent"
-    
-    async def main():
-        headers = {"Authorization": f"Bearer {ACCESS_TOKEN}"}
-    
-        async with websockets.connect(URI, additional_headers=headers) as ws:
-            print("Session established.")
-    
-            # Send Setup (Handshake)
-            await ws.send(json.dumps({
-                "setup": {
-                    "model": MODEL,
-                    "generation_config": config,
-                    "avatar_config": avatar_config,
-                }
-            }))
-            # Send and receive audio/video streams...
-    
-    if __name__ == "__main__":
-        asyncio.run(main())
+        }
+    },
+}
+
+avatar_config = {
+    "avatar_name": "Ben",
+}
+
+# Construct the WSS URL
+HOST = f"{LOCATION}-aiplatform.googleapis.com"
+URI = f"wss://{HOST}/ws/google.cloud.aiplatform.v1.LlmBidiService/BidiGenerateContent"
+
+async def main():
+    headers = {"Authorization": f"Bearer {ACCESS_TOKEN}"}
+
+    async with websockets.connect(URI, additional_headers=headers) as ws:
+        print("Session established.")
+
+        # Send Setup (Handshake)
+        await ws.send(json.dumps({
+            "setup": {
+                "model": MODEL,
+                "generation_config": config,
+                "avatar_config": avatar_config,
+            }
+        }))
+        # Send and receive audio/video streams...
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
 
 ### Python SDK configuration
 
 The following sample shows how to configure live avatars using the Google Gen AI SDK:
 
-    from google import genai
-    from google.genai import types
-    
-    client = genai.Client()
-    
-    config = types.LiveConnectConfig(
-        response_modalities=["VIDEO"],
-        speech_config=types.SpeechConfig(
-            voice_config=types.VoiceConfig(
-                prebuilt_voice_config=types.PrebuiltVoiceConfig(
-                    voice_name="Puck",
-                )
+```
+from google import genai
+from google.genai import types
+
+client = genai.Client()
+
+config = types.LiveConnectConfig(
+    response_modalities=["VIDEO"],
+    speech_config=types.SpeechConfig(
+        voice_config=types.VoiceConfig(
+            prebuilt_voice_config=types.PrebuiltVoiceConfig(
+                voice_name="Puck",
             )
-        ),
-        avatar_config=types.AvatarConfig(
-            avatar_name="Ben",
-        ),
-        system_instruction=types.Content(
-            parts=[types.Part.from_text(text="You are a helpful customer service assistant.")]
-        ),
-    )
-    
-    async with client.aio.live.connect(model="gemini-3.8-live", config=config) as session:
-        # Interact with the live session...
-        pass
+        )
+    ),
+    avatar_config=types.AvatarConfig(
+        avatar_name="Ben",
+    ),
+    system_instruction=types.Content(
+        parts=[types.Part.from_text(text="You are a helpful customer service assistant.")]
+    ),
+)
+
+async with client.aio.live.connect(model="gemini-3.8-live", config=config) as session:
+    # Interact with the live session...
+    pass
+```
 
 ## Use a custom avatar
 
@@ -142,25 +146,25 @@ Instead of choosing a prebuilt avatar, you can provide a reference image of a fa
 
 The reference image must meet the following specifications:
 
-  - **Image format** : PNG recommended. PNG uses lossless compression, and alpha transparency prevents a visible box around the avatar in light and dark modes.
-  - **Color mode** : RGB.
-  - **Image size** : 704 x 1280 pixels minimum (portrait), 1280 x 704 pixels minimum (landscape).
-  - **Resolution** : 720p or higher.
-  - **Aspect ratio** : 9:16 (portrait) and 16:9 (landscape) is standard.
-  - **File size** : Less than 5 MB
-  - **Quality** : No blur or compression artifacts.
+- **Image format** : PNG recommended. PNG uses lossless compression, and alpha transparency prevents a visible box around the avatar in light and dark modes.
+- **Color mode** : RGB.
+- **Image size** : 704 x 1280 pixels minimum (portrait), 1280 x 704 pixels minimum (landscape).
+- **Resolution** : 720p or higher.
+- **Aspect ratio** : 9:16 (portrait) and 16:9 (landscape) is standard.
+- **File size** : Less than 5 MB
+- **Quality** : No blur or compression artifacts.
 
 For the best results, also follow these composition guidelines:
 
-  - **Framing:** Use a bust shot, where the head and shoulders occupy more than 60% of the frame. Crop out the lower body, arms, hands, and any held objects such as microphones or phones.
+- **Framing:** Use a bust shot, where the head and shoulders occupy more than 60% of the frame. Crop out the lower body, arms, hands, and any held objects such as microphones or phones.
 
-  - **Background:** Use a simple, uncluttered backdrop with no other people or distinct objects.
+- **Background:** Use a simple, uncluttered backdrop with no other people or distinct objects.
 
-  - **Perspective:** Face the camera directly, with the head level and the eyes looking into the lens.
+- **Perspective:** Face the camera directly, with the head level and the eyes looking into the lens.
 
-  - **Expression:** Keep the expression neutral and at rest, with no smiling, squinting, or visible teeth.
+- **Expression:** Keep the expression neutral and at rest, with no smiling, squinting, or visible teeth.
 
-  - **Safety:** Don't use images of minors, celebrities, or offensive content.
+- **Safety:** Don't use images of minors, celebrities, or offensive content.
 
 ### Configure a custom avatar in Google Cloud console
 
@@ -180,44 +184,46 @@ Do the following:
 
 Configure the custom avatar in the initial `setup` payload that you send over the WebSocket connection:
 
-    import base64
-    import json
-    import websockets
-    
-    # Load custom avatar image (PNG format, 704x1280 min)
-    with open("/path/to/your/sample_avatar.png", "rb") as f:
-        avatar_b64 = base64.b64encode(f.read()).decode("utf-8")
-    
-    GENERATION_CONFIG = {
-        "response_modalities": ["VIDEO"],
+```
+import base64
+import json
+import websockets
+
+# Load custom avatar image (PNG format, 704x1280 min)
+with open("/path/to/your/sample_avatar.png", "rb") as f:
+    avatar_b64 = base64.b64encode(f.read()).decode("utf-8")
+
+GENERATION_CONFIG = {
+    "response_modalities": ["VIDEO"],
+}
+
+# Setup avatar config with custom face image
+AVATAR_CONFIG = {
+    "customized_avatar": {
+        "image_data": avatar_b64,
+        "image_mime_type": "png",
     }
-    
-    # Setup avatar config with custom face image
-    AVATAR_CONFIG = {
-        "customized_avatar": {
-            "image_data": avatar_b64,
-            "image_mime_type": "png",
-        }
+}
+
+# Session setup message
+SETUP_MESSAGE = {
+    "setup": {
+        "model": "gemini-3.8-live",
+        "generation_config": GENERATION_CONFIG,
+        "avatar_config": AVATAR_CONFIG,
+        "system_instruction": {
+            "parts": [{"text": "Your system instruction here"}]
+        },
+        "input_audio_transcription": {},
+        "output_audio_transcription": {},
     }
-    
-    # Session setup message
-    SETUP_MESSAGE = {
-        "setup": {
-            "model": "gemini-3.8-live",
-            "generation_config": GENERATION_CONFIG,
-            "avatar_config": AVATAR_CONFIG,
-            "system_instruction": {
-                "parts": [{"text": "Your system instruction here"}]
-            },
-            "input_audio_transcription": {},
-            "output_audio_transcription": {},
-        }
-    }
+}
+```
 
 The preceding sample uses the following fields:
 
 | Field path                                        | Type           | Description                                               |
-| ------------------------------------------------- | -------------- | --------------------------------------------------------- |
+|---------------------------------------------------|----------------|-----------------------------------------------------------|
 | `generation_config.response_modalities`           | `list[string]` | Must be set to `["VIDEO"]` to enable avatar video output. |
 | `avatar_config.customized_avatar.image_data`      | `string`       | Base64-encoded image string.                              |
 | `avatar_config.customized_avatar.image_mime_type` | `string`       | Image MIME format ( `"png"` ).                            |
@@ -230,7 +236,7 @@ You can pair prebuilt avatars with any of the prebuilt HD voices in Gemini Live 
 
 ## What's next
 
-  - [Configure language and voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice)
-  - [Start and manage live sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session)
-  - [Send audio and video streams](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/send-audio-video-streams)
-  - [Best practices with Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices)
+- [Configure language and voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice)
+- [Start and manage live sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session)
+- [Send audio and video streams](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/send-audio-video-streams)
+- [Best practices with Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices)

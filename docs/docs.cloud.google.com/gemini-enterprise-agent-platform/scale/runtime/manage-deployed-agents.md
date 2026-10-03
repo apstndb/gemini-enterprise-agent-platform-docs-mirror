@@ -22,24 +22,28 @@ Deployed agents that are part of the selected project appear in the list. You ca
 
 ### Agent Platform SDK
 
-    import agentplatform
-    
-    client = agentplatform.Client(  # For service interactions via client.runtimes
-        project="PROJECT_ID",
-        location="LOCATION",
-    )
-    
-    for agent in client.runtimes.list():
-        print(agent)
+```
+import agentplatform
+
+client = agentplatform.Client(  # For service interactions via client.runtimes
+    project="PROJECT_ID",
+    location="LOCATION",
+)
+
+for agent in client.runtimes.list():
+    print(agent)
+```
 
 To filter the list of by `display_name` :
 
-    for agent in client.runtimes.list(
-        config={
-            "filter": 'display_name="DISPLAY_NAME"',
-        },
-    ):
-        print(agent)
+```
+for agent in client.runtimes.list(
+    config={
+        "filter": 'display_name="DISPLAY_NAME"',
+    },
+):
+    print(agent)
+```
 
 ### REST
 
@@ -47,12 +51,14 @@ Call the [`reasoningEngines.list`](https://docs.cloud.google.com/gemini-enterpri
 
 Before using any of the request data, make the following replacements:
 
-  - `  PROJECT_ID  ` : your GCP project ID
-  - `  LOCATION  ` : a supported region
+- `PROJECT_ID` : your GCP project ID
+- `LOCATION` : a supported region
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines
+```
 
 To send your request, expand one of these options:
 
@@ -62,9 +68,11 @@ To send your request, expand one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines"
+```
 
 #### PowerShell (Windows)
 
@@ -72,24 +80,26 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx) and an empty response.
 
 ## Get a deployed agent
 
-Each deployed agent has a unique `  RESOURCE_ID  ` identifier. To learn more, see [Deploy an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) .
+Each deployed agent has a unique `RESOURCE_ID` identifier. To learn more, see [Deploy an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) .
 
 ### Console
 
 1.  In the Google Cloud console, go to the Agent Platform **Deployments** page.  
-    
+
     Deployed agents that are part of the selected project appear in the list. You can use the **Filter** field to filter the list by your specified column.
 
 2.  Click the name of the specified agent. The **Metrics** page for the agent opens.
@@ -102,16 +112,18 @@ Each deployed agent has a unique `  RESOURCE_ID  ` identifier. To learn more, se
 
 The following code lets you get a specific deployed agent:
 
-    import agentplatform
-    
-    client = agentplatform.Client(  # For service interactions via client.runtimes
-        project="PROJECT_ID",
-        location="LOCATION",
-    )
-    
-    remote_agent = client.runtimes.get(
-        name="projects/PROJECT_ID_OR_NUMBER/locations/LOCATION/reasoningEngines/RESOURCE_ID"
-    )
+```
+import agentplatform
+
+client = agentplatform.Client(  # For service interactions via client.runtimes
+    project="PROJECT_ID",
+    location="LOCATION",
+)
+
+remote_agent = client.runtimes.get(
+    name="projects/PROJECT_ID_OR_NUMBER/locations/LOCATION/reasoningEngines/RESOURCE_ID"
+)
+```
 
 ### REST
 
@@ -119,13 +131,15 @@ Call the [`reasoningEngines.get`](https://docs.cloud.google.com/gemini-enterpris
 
 Before using any of the request data, make the following replacements:
 
-  - `  PROJECT_ID  ` : your GCP project ID
-  - `  LOCATION  ` : a supported region
-  - `  RESOURCE_ID  ` : the resource ID of the deployed agent
+- `PROJECT_ID` : your GCP project ID
+- `LOCATION` : a supported region
+- `RESOURCE_ID` : the resource ID of the deployed agent
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID
+```
 
 To send your request, expand one of these options:
 
@@ -135,9 +149,11 @@ To send your request, expand one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID"
+```
 
 #### PowerShell (Windows)
 
@@ -145,13 +161,15 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx) and an empty response.
 
@@ -167,7 +185,7 @@ The amount of time it takes to update the deployed agent depends on the update b
 
 1.  In the Google Cloud console, go to the Agent Platform **Deployments** page.  
 
-2.  For your specified agent, click **more actions** menu ( more\_vert ).
+2.  For your specified agent, click **more actions** menu ( more_vert ).
 
 3.  Click **Edit** . The **Edit** pane for the agent opens.
 
@@ -177,25 +195,27 @@ The amount of time it takes to update the deployed agent depends on the update b
 
 ### Agent Platform SDK
 
-To update a deployed agent (corresponding to `  RESOURCE_NAME  ` ) to an updated agent (corresponding to `  UPDATED_AGENT  ` ):
+To update a deployed agent (corresponding to `RESOURCE_NAME` ) to an updated agent (corresponding to `UPDATED_AGENT` ):
 
-    import agentplatform
-    
-    client = agentplatform.Client(  # For service interactions via client.runtimes
-        project="PROJECT_ID",
-        location="LOCATION",
-    )
-    
-    client.runtimes.update(
-        name=RESOURCE_NAME,                    # Required.
-        agent=UPDATED_AGENT,                   # Optional.
-        config={                                                # Optional.
-            "requirements": REQUIREMENTS,      # Optional.
-            "display_name": "DISPLAY_NAME",    # Optional.
-            "description": "DESCRIPTION",      # Optional.
-            "extra_packages": EXTRA_PACKAGES,  # Optional.
-        },
-    )
+```
+import agentplatform
+
+client = agentplatform.Client(  # For service interactions via client.runtimes
+    project="PROJECT_ID",
+    location="LOCATION",
+)
+
+client.runtimes.update(
+    name=RESOURCE_NAME,                    # Required.
+    agent=UPDATED_AGENT,                   # Optional.
+    config={                                                # Optional.
+        "requirements": REQUIREMENTS,      # Optional.
+        "display_name": "DISPLAY_NAME",    # Optional.
+        "description": "DESCRIPTION",      # Optional.
+        "extra_packages": EXTRA_PACKAGES,  # Optional.
+    },
+)
+```
 
 The arguments are the same as when you are [deploying an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) .
 
@@ -205,21 +225,25 @@ Call the [`reasoningEngines.patch`](https://docs.cloud.google.com/gemini-enterpr
 
 Before using any of the request data, make the following replacements:
 
-  - `  PROJECT_ID  ` : your GCP project ID
-  - `  LOCATION  ` : a supported region
-  - `  RESOURCE_ID  ` : the resource ID of the deployed agent
-  - `update_mask` : a list of comma-separated fields to update
+- `PROJECT_ID` : your GCP project ID
+- `LOCATION` : a supported region
+- `RESOURCE_ID` : the resource ID of the deployed agent
+- `update_mask` : a list of comma-separated fields to update
 
 HTTP method and URL:
 
-    PATCH https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID?update_mask="display_name,description"
+```
+PATCH https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID?update_mask="display_name,description"
+```
 
 Request JSON body:
 
-    {
-    "displayName": "DISPLAY_NAME",
-    "description": "DESCRIPTION"
-    }
+```
+{
+"displayName": "DISPLAY_NAME",
+"description": "DESCRIPTION"
+}
+```
 
 To send your request, expand one of these options:
 
@@ -229,11 +253,13 @@ To send your request, expand one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X PATCH \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID?update_mask="display_name,description""
+```
+curl -X PATCH \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID?update_mask="display_name,description""
+```
 
 #### PowerShell (Windows)
 
@@ -241,15 +267,17 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method PATCH `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID?update_mask="display_name,description"" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method PATCH `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID?update_mask="display_name,description"" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx) and an empty response.
 
@@ -260,34 +288,34 @@ If you [enabled traces](https://docs.cloud.google.com/gemini-enterprise-agent-pl
 Configure telemetry for deployed agents with telemetry enabled:
 
 1.  In the Google Cloud console, go to the Agent Platform **Deployments** page.  
-    
+
     Agent Platform instances that are part of the selected project appear in the list. You can use the **Filter** field to filter the list by your specified column.
 
 2.  Find the row for your Agent Platform instance. Under the **Telemetry configuration** column, click **Configure** . The **Service configuration** panel opens.
 
 3.  You can make the following configurations:
-    
-      - **Observability** : You can configure the following:
-        
-          - **Enable instrumentation of OpenTelemetry traces and logs** : To populate the agent observability dashboard and traces pages, click the toggle to the on position.
-        
-          - **Enable logging of prompt inputs and response outputs** : To collect and store the full content of user prompts and responses, click the toggle to the on position.
-        
-        If telemetry collection is disabled for your agent, you need to redeploy your agent and update your Vertex AI SDK version to `>= 1.126.1` in order to view configuration options for **Observability** .
-    
-      - **Containers** : Configure container settings for your deployed agent:
-        
-          - **Scaling** : Enter a **Minimum number of instances** and **Maximum number of instances** .
-        
-          - **Resources** : Select limits for **Memory** and **CPU** for each container.
-        
-          - **Container concurrency** : Enter a **Minimum number of instances** to set the concurrency for each container and agent server. The recommended value is (2 \* CPU + 1), and the default value is 9.
-    
-      - **Access and Permissions** : Click **Manage Permissions in IAM** to manage agent permissions on the associated service account.
-    
-      - **Deployment details** : View deployment details for the agent, including **Resource name** and **Display name** .
-    
-      - **Agent Platform Memory Bank** : View [Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) details for the agent, including **Memory Generation** and **Memory Search** .
+
+    - **Observability** : You can configure the following:
+
+      - **Enable instrumentation of OpenTelemetry traces and logs** : To populate the agent observability dashboard and traces pages, click the toggle to the on position.
+
+      - **Enable logging of prompt inputs and response outputs** : To collect and store the full content of user prompts and responses, click the toggle to the on position.
+
+      If telemetry collection is disabled for your agent, you need to redeploy your agent and update your Vertex AI SDK version to `>= 1.126.1` in order to view configuration options for **Observability** .
+
+    - **Containers** : Configure container settings for your deployed agent:
+
+      - **Scaling** : Enter a **Minimum number of instances** and **Maximum number of instances** .
+
+      - **Resources** : Select limits for **Memory** and **CPU** for each container.
+
+      - **Container concurrency** : Enter a **Minimum number of instances** to set the concurrency for each container and agent server. The recommended value is (2 \* CPU + 1), and the default value is 9.
+
+    - **Access and Permissions** : Click **Manage Permissions in IAM** to manage agent permissions on the associated service account.
+
+    - **Deployment details** : View deployment details for the agent, including **Resource name** and **Display name** .
+
+    - **Agent Platform Memory Bank** : View [Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) details for the agent, including **Memory Generation** and **Memory Search** .
 
 4.  Click **Update** or **Close** .
 
@@ -296,22 +324,22 @@ Configure telemetry for deployed agents with telemetry enabled:
 For deployed agents, you can use the console to view metrics for your agent:
 
 1.  In the Google Cloud console, go to the Agent Platform **Deployments** page.  
-    
+
     Deployed agents that are part of the selected project appear in the list. You can use the **Filter** field to filter the list by your specified column.
 
 2.  Click the name of your agent. The **Dashboard** displays for your selected agent.
 
 3.  Select one of the following **Dashboard** tabs:
-    
-      - **Overview** : View a summary dashboard of metrics for your agent, including agent latency, agent request count, and agent error rate.
-    
-      - **Models** : View a dashboard of metrics for your agent's model, including number of model calls, model error rate, and model token usage.
-    
-      - **Tools** : View a dashboard of metrics for your agent's tools, including number of tool calls, tool error rate, and tool latency.
-    
-      - **Usage** : View a dashboard of metrics for your agent's usage, including token usage by input and output, container CPU allocation, and container memory allocation.
-    
-      - **Logs** : View your agent's logs, if you [enabled Cloud Logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/logging) for your agent.
+
+    - **Overview** : View a summary dashboard of metrics for your agent, including agent latency, agent request count, and agent error rate.
+
+    - **Models** : View a dashboard of metrics for your agent's model, including number of model calls, model error rate, and model token usage.
+
+    - **Tools** : View a dashboard of metrics for your agent's tools, including number of tool calls, tool error rate, and tool latency.
+
+    - **Usage** : View a dashboard of metrics for your agent's usage, including token usage by input and output, container CPU allocation, and container memory allocation.
+
+    - **Logs** : View your agent's logs, if you [enabled Cloud Logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/logging) for your agent.
 
 ![Gemini Enterprise Agent Platform dashboard](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/agent-engine-dashboard.png)
 
@@ -323,7 +351,7 @@ Delete a deployed agent from the Agent Runtime managed runtime.
 
 1.  In the Google Cloud console, go to the Agent Platform **Deployments** page.  
 
-2.  For your specified agent, click **more actions** menu ( more\_vert ).
+2.  For your specified agent, click **more actions** menu ( more_vert ).
 
 3.  Click **Delete** .
 
@@ -333,23 +361,27 @@ Delete a deployed agent from the Agent Runtime managed runtime.
 
 If you already have [an existing instance of the deployed agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) (as `remote_agent` ), you can run the following command:
 
-    remote_agent.delete(
-        force=True, # Optional, if the agent has resources (e.g. sessions, memory)
-    )
+```
+remote_agent.delete(
+    force=True, # Optional, if the agent has resources (e.g. sessions, memory)
+)
+```
 
-Alternatively, you can call `runtimes.delete()` to delete the deployed agent corresponding to `  RESOURCE_NAME  ` in the following way:
+Alternatively, you can call `runtimes.delete()` to delete the deployed agent corresponding to `RESOURCE_NAME` in the following way:
 
-    import agentplatform
-    
-    client = agentplatform.Client(  # For service interactions via client.runtimes
-        project="PROJECT_ID",
-        location="LOCATION",
-    )
-    
-    client.runtimes.delete(
-        name=RESOURCE_NAME,
-        force=True, # Optional, if the agent has resources (e.g. sessions, memory)
-    )
+```
+import agentplatform
+
+client = agentplatform.Client(  # For service interactions via client.runtimes
+    project="PROJECT_ID",
+    location="LOCATION",
+)
+
+client.runtimes.delete(
+    name=RESOURCE_NAME,
+    force=True, # Optional, if the agent has resources (e.g. sessions, memory)
+)
+```
 
 ### REST
 
@@ -357,13 +389,15 @@ Call the [`reasoningEngines.delete`](https://docs.cloud.google.com/gemini-enterp
 
 Before using any of the request data, make the following replacements:
 
-  - `  PROJECT_ID  ` : your GCP project ID
-  - `  LOCATION  ` : a supported region
-  - `  RESOURCE_ID  ` : the resource ID of the deployed agent
+- `PROJECT_ID` : your GCP project ID
+- `LOCATION` : a supported region
+- `RESOURCE_ID` : the resource ID of the deployed agent
 
 HTTP method and URL:
 
-    DELETE https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID
+```
+DELETE https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID
+```
 
 To send your request, expand one of these options:
 
@@ -373,9 +407,11 @@ To send your request, expand one of these options:
 
 Execute the following command:
 
-    curl -X DELETE \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID"
+```
+curl -X DELETE \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID"
+```
 
 #### PowerShell (Windows)
 
@@ -383,13 +419,15 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method DELETE `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method DELETE `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx) and an empty response.
 

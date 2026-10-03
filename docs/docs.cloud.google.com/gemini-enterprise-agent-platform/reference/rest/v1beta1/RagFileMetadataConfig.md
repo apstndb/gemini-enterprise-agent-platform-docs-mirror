@@ -14,11 +14,11 @@ Fields
 
 Specifies the metadata schema source. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`gcsMetadataSchemaSource` ` object ( GcsSource  ` )
+`gcsMetadataSchemaSource` `object ( `[`GcsSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GcsSource)` )`
 
 Google Cloud Storage location. Supports importing individual files as well as entire Google Cloud Storage directories. Sample formats: - `gs://bucketName/my_directory/objectName/metadataSchema.json` - `gs://bucketName/my_directory` If the user provides a directory, the metadata schema will be read from the files that ends with "metadataSchema.json" in the directory.
 
-`googleDriveMetadataSchemaSource` ` object ( GoogleDriveSource  ` )
+`googleDriveMetadataSchemaSource` `object ( `[`GoogleDriveSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles#GoogleDriveSource)` )`
 
 Google Drive location. Supports importing individual files as well as Google Drive folders. If the user provides a folder, the metadata schema will be read from the files that ends with "metadataSchema.json" in the directory.
 
@@ -32,11 +32,11 @@ End of mutually exclusive fields.
 
 Specifies the metadata source. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`gcsMetadataSource` ` object ( GcsSource  ` )
+`gcsMetadataSource` `object ( `[`GcsSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GcsSource)` )`
 
 Google Cloud Storage location. Supports importing individual files as well as entire Google Cloud Storage directories. Sample formats: - `gs://bucketName/my_directory/objectName/metadata.json` - `gs://bucketName/my_directory` If the user provides a directory, the metadata will be read from the files that ends with "metadata.json" in the directory.
 
-`googleDriveMetadataSource` ` object ( GoogleDriveSource  ` )
+`googleDriveMetadataSource` `object ( `[`GoogleDriveSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles#GoogleDriveSource)` )`
 
 Google Drive location. Supports importing individual files as well as Google Drive folders. If the user provides a directory, the metadata will be read from the files that ends with "metadata.json" in the directory.
 
@@ -46,18 +46,29 @@ Inline metadata source. Must be a JSON string.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// metadata_schema_source&quot;gcsMetadataSchemaSource&quot;: {object (GcsSource)},&quot;googleDriveMetadataSchemaSource&quot;: {object (GoogleDriveSource)},&quot;inlineMetadataSchemaSource&quot;: string// Union type// metadata_source&quot;gcsMetadataSource&quot;: {object (GcsSource)},&quot;googleDriveMetadataSource&quot;: {object (GoogleDriveSource)},&quot;inlineMetadataSource&quot;: string// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // metadata_schema_source
+  "gcsMetadataSchemaSource": {
+    object (GcsSource)
+  },
+  "googleDriveMetadataSchemaSource": {
+    object (GoogleDriveSource)
+  },
+  "inlineMetadataSchemaSource": string
+  // Union type
+
+  // metadata_source
+  "gcsMetadataSource": {
+    object (GcsSource)
+  },
+  "googleDriveMetadataSource": {
+    object (GoogleDriveSource)
+  },
+  "inlineMetadataSource": string
+  // Union type
+}
+```

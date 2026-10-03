@@ -22,17 +22,17 @@ The last part feature is assigned by the client. The feature can be up to 64 cha
 
 description of the feature.
 
-`valueType` ` enum ( ValueType  ` )
+`valueType` `enum ( `[`ValueType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.features#Feature.ValueType)` )`
 
 Immutable. Only applicable for Agent Platform feature Store (Legacy). type of feature value.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. Only applicable for Agent Platform feature Store (Legacy). timestamp when this EntityType was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. Only applicable for Agent Platform feature Store (Legacy). timestamp when this EntityType was most recently updated.
 
@@ -50,29 +50,29 @@ See <https://goo.gl/xmQnxf> for more information on and examples of labels. No m
 
 Used to perform a consistent read-modify-write updates. If not set, a blind "overwrite" update happens.
 
-` monitoringConfig (deprecated)  ` ` object ( FeaturestoreMonitoringConfig  ` )
+`monitoringConfig `**`(deprecated)`** `object ( `[`FeaturestoreMonitoringConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeaturestoreMonitoringConfig)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
-Optional. Only applicable for Agent Platform feature Store (Legacy). Deprecated: The custom monitoring configuration for this feature, if not set, use the monitoringConfig defined for the EntityType this feature belongs to. Only Features with type ( `  feature.ValueType  ` ) BOOL, STRING, DOUBLE or INT64 can enable monitoring.
+Optional. Only applicable for Agent Platform feature Store (Legacy). Deprecated: The custom monitoring configuration for this feature, if not set, use the monitoringConfig defined for the EntityType this feature belongs to. Only Features with type ( [`feature.ValueType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.features#Feature.ValueType) ) BOOL, STRING, DOUBLE or INT64 can enable monitoring.
 
-If this is populated with \[FeaturestoreMonitoringConfig.disabled\]\[\] = true, snapshot analysis monitoring is disabled; if \[FeaturestoreMonitoringConfig.monitoring\_interval\]\[\] specified, snapshot analysis monitoring is enabled. Otherwise, snapshot analysis monitoring config is same as the EntityType's this feature belongs to.
+If this is populated with \[FeaturestoreMonitoringConfig.disabled\]\[\] = true, snapshot analysis monitoring is disabled; if \[FeaturestoreMonitoringConfig.monitoring_interval\]\[\] specified, snapshot analysis monitoring is enabled. Otherwise, snapshot analysis monitoring config is same as the EntityType's this feature belongs to.
 
 `disableMonitoring` `boolean`
 
-Optional. Only applicable for Agent Platform feature Store (Legacy). If not set, use the monitoringConfig defined for the EntityType this feature belongs to. Only Features with type ( `  feature.ValueType  ` ) BOOL, STRING, DOUBLE or INT64 can enable monitoring.
+Optional. Only applicable for Agent Platform feature Store (Legacy). If not set, use the monitoringConfig defined for the EntityType this feature belongs to. Only Features with type ( [`feature.ValueType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.features#Feature.ValueType) ) BOOL, STRING, DOUBLE or INT64 can enable monitoring.
 
 If set to true, all types of data monitoring are disabled despite the config on EntityType.
 
-`monitoringStats[]` ` object ( FeatureStatsAnomaly  ` )
+`monitoringStats[]` `object ( `[`FeatureStatsAnomaly`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureStatsAnomaly)` )`
 
-Output only. Only applicable for Agent Platform feature Store (Legacy). A list of historical `  SnapshotAnalysis  ` stats requested by user, sorted by `  FeatureStatsAnomaly.start_time  ` descending.
+Output only. Only applicable for Agent Platform feature Store (Legacy). A list of historical [`SnapshotAnalysis`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeaturestoreMonitoringConfig#SnapshotAnalysis) stats requested by user, sorted by [`FeatureStatsAnomaly.start_time`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureStatsAnomaly#FIELDS.start_time) descending.
 
-`monitoringStatsAnomalies[]` ` object ( MonitoringStatsAnomaly  ` )
+`monitoringStatsAnomalies[]` `object ( `[`MonitoringStatsAnomaly`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.features#Feature.MonitoringStatsAnomaly)` )`
 
 Output only. Only applicable for Agent Platform feature Store (Legacy). The list of historical stats and anomalies with specified objectives.
 
-`featureStatsAndAnomaly[]` ` object ( FeatureStatsAndAnomaly  ` )
+`featureStatsAndAnomaly[]` `object ( `[`FeatureStatsAndAnomaly`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureStatsAndAnomaly)` )`
 
 Output only. Only applicable for Agent Platform feature Store. The list of historical stats and anomalies.
 
@@ -84,44 +84,49 @@ Only applicable for Agent Platform feature Store. The name of the BigQuery Table
 
 Entity responsible for maintaining this feature. Can be comma separated list of email addresses or URIs.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;description&quot;: string,&quot;valueType&quot;: enum (ValueType),&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;labels&quot;: {string: string,...},&quot;etag&quot;: string,&quot;monitoringConfig&quot;: {object (FeaturestoreMonitoringConfig)},&quot;disableMonitoring&quot;: boolean,&quot;monitoringStats&quot;: [{object (FeatureStatsAnomaly)}],&quot;monitoringStatsAnomalies&quot;: [{object (MonitoringStatsAnomaly)}],&quot;featureStatsAndAnomaly&quot;: [{object (FeatureStatsAndAnomaly)}],&quot;versionColumnName&quot;: string,&quot;pointOfContact&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "name": string,
+  "description": string,
+  "valueType": enum (ValueType),
+  "createTime": string,
+  "updateTime": string,
+  "labels": {
+    string: string,
+    ...
+  },
+  "etag": string,
+  "monitoringConfig": {
+    object (FeaturestoreMonitoringConfig)
+  },
+  "disableMonitoring": boolean,
+  "monitoringStats": [
+    {
+      object (FeatureStatsAnomaly)
+    }
+  ],
+  "monitoringStatsAnomalies": [
+    {
+      object (MonitoringStatsAnomaly)
+    }
+  ],
+  "featureStatsAndAnomaly": [
+    {
+      object (FeatureStatsAndAnomaly)
+    }
+  ],
+  "versionColumnName": string,
+  "pointOfContact": string
+}
+```
 
-### `            batchCreate           `
-
-Creates a batch of Features in a given EntityType.
-
-### `            create           `
-
-Creates a new Feature in a given EntityType.
-
-### `            delete           `
-
-Deletes a single Feature.
-
-### `            get           `
-
-Gets details of a single Feature.
-
-### `            list           `
-
-Lists Features in a given EntityType.
-
-### `            patch           `
-
-Updates the parameters of a single Feature.
+| Methods                                                                                                                                                                  |                                                    |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
+| [`batchCreate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes.features/batchCreate) | Creates a batch of Features in a given EntityType. |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes.features/create)           | Creates a new Feature in a given EntityType.       |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes.features/delete)           | Deletes a single Feature.                          |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes.features/get)                 | Gets details of a single Feature.                  |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes.features/list)               | Lists Features in a given EntityType.              |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes.features/patch)             | Updates the parameters of a single Feature.        |

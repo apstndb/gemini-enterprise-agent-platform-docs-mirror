@@ -26,15 +26,15 @@ To search and filter agent error logs, [use the Logs Explorer](https://docs.clou
 
 Errors that appear intermittently, or that started without a change on your side, are often caused by quota or by an ongoing incident:
 
-  - Compare your usage against [Quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-quotas) .
-  - Check [Google Cloud Service Health](https://status.cloud.google.com/) for an ongoing incident in your region.
+- Compare your usage against [Quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-quotas) .
+- Check [Google Cloud Service Health](https://status.cloud.google.com/) for an ongoing incident in your region.
 
 ## Error catalog
 
 Find the error you received in the following table. If your error isn't listed, use the [troubleshooting guides](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting#guides) for the task you were trying to complete.
 
 | Status code or message                                                                                                                   | Resolution                                                                                                                                                                              |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `ImportError: cannot import name 'reasoning_engines'` , `ImportError: cannot import name 'agent_engines'`                                | [Outdated version of the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/runtime-setup#outdated-vertex-sdk-errors)        |
 | `401` `Context-Aware Access requirements are not met` , `401` `Request had invalid authentication credentials`                           | [401 authorization errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/runtime-setup#401-errors)                                                     |
 | `ValueError: Cannot get the Candidate text`                                                                                              | [Content generation errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-creation#content-generation-errors)                                    |
@@ -62,7 +62,7 @@ Find the error you received in the following table. If your error isn't listed, 
 If you don't have a specific error message, or your error isn't in the [error catalog](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting#error-catalog) , see the following table for the corresponding guide for your task:
 
 | Task                                                              | Guide                                                                                                                                        |
-| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+|-------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | Installing the Agent Platform SDK and setting up your environment | [Agent Runtime environment setup](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/runtime-setup)              |
 | Creating an agent                                                 | [Create an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-creation)                             |
 | Deploying an agent to Agent Runtime                               | [Agent deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment)                          |
@@ -78,6 +78,6 @@ If the guides on this page don't resolve your issue, see [Getting help for agent
 
 If you [file a bug](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-support#file_bugs_or_feature_requests) , provide the following information:
 
-  - Status code
-  - Error message
-  - (Optional) Feedback if the error message is wrong, misleading, or not actionable.
+- Status code
+- Error message
+- (Optional) Feedback if the error message is wrong, misleading, or not actionable.

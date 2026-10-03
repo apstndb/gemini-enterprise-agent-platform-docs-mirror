@@ -10,29 +10,26 @@ A TrainingJob that trains and uploads an AutoML Tables Model.
 
 Fields
 
-`inputs` ` object ( AutoMlTablesInputs  ` )
+`inputs` `object ( `[`AutoMlTablesInputs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlTables#AutoMlTablesInputs)` )`
 
 The input parameters of this TrainingJob.
 
-`metadata` ` object ( AutoMlTablesMetadata  ` )
+`metadata` `object ( `[`AutoMlTablesMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlTables#AutoMlTablesMetadata)` )`
 
 The metadata information.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;inputs&quot;: {object (AutoMlTablesInputs)},&quot;metadata&quot;: {object (AutoMlTablesMetadata)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "inputs": {
+    object (AutoMlTablesInputs)
+  },
+  "metadata": {
+    object (AutoMlTablesMetadata)
+  }
+}
+```
 
 ## AutoMlTablesInputs
 
@@ -46,7 +43,7 @@ The type of prediction the Model is to produce. "classification" - Predict one o
 
 The column name of the target column that the model is to predict.
 
-`transformations[]` ` object ( Transformation  ` )
+`transformations[]` `object ( `[`Transformation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlTables#Transformation)` )`
 
 Each transformation will apply transform function to given input column. And the result will be used for training. When creating transformation for BigQuery Struct column, the column should be flattened using "." as the delimiter.
 
@@ -62,7 +59,7 @@ classification (multi-class): "minimize-log-loss" (default) - Minimize log loss.
 
 regression: "minimize-rmse" (default) - Minimize root-mean-squared error (RMSE). "minimize-mae" - Minimize mean-absolute error (MAE). "minimize-rmsle" - Minimize root-mean-squared log error (RMSLE).
 
-`trainBudgetMilliNodeHours` `string ( int64 format)`
+`trainBudgetMilliNodeHours` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Required. The train budget of creating this model, expressed in milli node hours i.e. 1,000 value in this field means 1 node hour.
 
@@ -80,7 +77,7 @@ Use the entire training budget. This disables the early stopping feature. By def
 
 column name that should be used as the weight column. Higher values in this column give more importance to the row during model training. The column must have numeric values between 0 and 10000 inclusively; 0 means the row is ignored for training. If weight column field is not set, then all rows are assumed to have equal weight of 1.
 
-`exportEvaluatedDataItemsConfig` ` object ( ExportEvaluatedDataItemsConfig  ` )
+`exportEvaluatedDataItemsConfig` `object ( `[`ExportEvaluatedDataItemsConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ExportEvaluatedDataItemsConfig)` )`
 
 Configuration for exporting test set predictions to a BigQuery table. If this configuration is absent, then the export is not performed.
 
@@ -102,21 +99,34 @@ Required when optimizationObjective is "maximize-recall-at-precision". Must be b
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;predictionType&quot;: string,&quot;targetColumn&quot;: string,&quot;transformations&quot;: [{object (Transformation)}],&quot;optimizationObjective&quot;: string,&quot;trainBudgetMilliNodeHours&quot;: string,&quot;disableEarlyStopping&quot;: boolean,&quot;weightColumnName&quot;: string,&quot;exportEvaluatedDataItemsConfig&quot;: {object (ExportEvaluatedDataItemsConfig)},&quot;additionalExperiments&quot;: [string],// additional_optimization_objective_config&quot;optimizationObjectiveRecallValue&quot;: number,&quot;optimizationObjectivePrecisionValue&quot;: number// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "predictionType": string,
+  "targetColumn": string,
+  "transformations": [
+    {
+      object (Transformation)
+    }
+  ],
+  "optimizationObjective": string,
+  "trainBudgetMilliNodeHours": string,
+  "disableEarlyStopping": boolean,
+  "weightColumnName": string,
+  "exportEvaluatedDataItemsConfig": {
+    object (ExportEvaluatedDataItemsConfig)
+  },
+  "additionalExperiments": [
+    string
+  ],
+
+  // additional_optimization_objective_config
+  "optimizationObjectiveRecallValue": number,
+  "optimizationObjectivePrecisionValue": number
+  // Union type
+}
+```
 
 ## Transformation
 
@@ -126,39 +136,57 @@ Fields
 
 The transformation that the training pipeline will apply to the input columns. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`auto` ` object ( AutoTransformation  ` )
+`auto` `object ( `[`AutoTransformation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlTables#AutoTransformation)` )`
 
-`numeric` ` object ( NumericTransformation  ` )
+`numeric` `object ( `[`NumericTransformation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlTables#NumericTransformation)` )`
 
-`categorical` ` object ( CategoricalTransformation  ` )
+`categorical` `object ( `[`CategoricalTransformation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlTables#CategoricalTransformation)` )`
 
-`timestamp` ` object ( TimestampTransformation  ` )
+`timestamp` `object ( `[`TimestampTransformation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlTables#TimestampTransformation)` )`
 
-`text` ` object ( TextTransformation  ` )
+`text` `object ( `[`TextTransformation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlTables#TextTransformation)` )`
 
-`repeatedNumeric` ` object ( NumericArrayTransformation  ` )
+`repeatedNumeric` `object ( `[`NumericArrayTransformation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlTables#NumericArrayTransformation)` )`
 
-`repeatedCategorical` ` object ( CategoricalArrayTransformation  ` )
+`repeatedCategorical` `object ( `[`CategoricalArrayTransformation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlTables#CategoricalArrayTransformation)` )`
 
-`repeatedText` ` object ( TextArrayTransformation  ` )
+`repeatedText` `object ( `[`TextArrayTransformation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlTables#TextArrayTransformation)` )`
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// transformation_detail&quot;auto&quot;: {object (AutoTransformation)},&quot;numeric&quot;: {object (NumericTransformation)},&quot;categorical&quot;: {object (CategoricalTransformation)},&quot;timestamp&quot;: {object (TimestampTransformation)},&quot;text&quot;: {object (TextTransformation)},&quot;repeatedNumeric&quot;: {object (NumericArrayTransformation)},&quot;repeatedCategorical&quot;: {object (CategoricalArrayTransformation)},&quot;repeatedText&quot;: {object (TextArrayTransformation)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // transformation_detail
+  "auto": {
+    object (AutoTransformation)
+  },
+  "numeric": {
+    object (NumericTransformation)
+  },
+  "categorical": {
+    object (CategoricalTransformation)
+  },
+  "timestamp": {
+    object (TimestampTransformation)
+  },
+  "text": {
+    object (TextTransformation)
+  },
+  "repeatedNumeric": {
+    object (NumericArrayTransformation)
+  },
+  "repeatedCategorical": {
+    object (CategoricalArrayTransformation)
+  },
+  "repeatedText": {
+    object (TextArrayTransformation)
+  }
+  // Union type
+}
+```
 
 ## AutoTransformation
 
@@ -168,27 +196,17 @@ Fields
 
 `columnName` `string`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;columnName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "columnName": string
+}
+```
 
 ## NumericTransformation
 
-Training pipeline will perform following transformation functions. \* The value converted to float32. \* The z\_score of the value. \* log(value+1) when the value is greater than or equal to 0. Otherwise, this transformation is not applied and the value is considered a missing value. \* z\_score of log(value+1) when the value is greater than or equal to 0. Otherwise, this transformation is not applied and the value is considered a missing value. \* A boolean value that indicates whether the value is valid.
+Training pipeline will perform following transformation functions. \* The value converted to float32. \* The z_score of the value. \* log(value+1) when the value is greater than or equal to 0. Otherwise, this transformation is not applied and the value is considered a missing value. \* z_score of log(value+1) when the value is greater than or equal to 0. Otherwise, this transformation is not applied and the value is considered a missing value. \* A boolean value that indicates whether the value is valid.
 
 Fields
 
@@ -198,24 +216,14 @@ Fields
 
 If invalid values is allowed, the training pipeline will create a boolean feature that indicated whether the value is valid. Otherwise, the training pipeline will discard the input row from trainining data.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;columnName&quot;: string,
-  &quot;invalidValuesAllowed&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "columnName": string,
+  "invalidValuesAllowed": boolean
+}
+```
 
 ## CategoricalTransformation
 
@@ -225,23 +233,13 @@ Fields
 
 `columnName` `string`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;columnName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "columnName": string
+}
+```
 
 ## TimestampTransformation
 
@@ -259,25 +257,15 @@ The format in which that time field is expressed. The timeFormat must either be 
 
 If invalid values is allowed, the training pipeline will create a boolean feature that indicated whether the value is valid. Otherwise, the training pipeline will discard the input row from trainining data.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;columnName&quot;: string,
-  &quot;timeFormat&quot;: string,
-  &quot;invalidValuesAllowed&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "columnName": string,
+  "timeFormat": string,
+  "invalidValuesAllowed": boolean
+}
+```
 
 ## TextTransformation
 
@@ -287,23 +275,13 @@ Fields
 
 `columnName` `string`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;columnName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "columnName": string
+}
+```
 
 ## NumericArrayTransformation
 
@@ -317,24 +295,14 @@ Fields
 
 If invalid values is allowed, the training pipeline will create a boolean feature that indicated whether the value is valid. Otherwise, the training pipeline will discard the input row from trainining data.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;columnName&quot;: string,
-  &quot;invalidValuesAllowed&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "columnName": string,
+  "invalidValuesAllowed": boolean
+}
+```
 
 ## CategoricalArrayTransformation
 
@@ -344,23 +312,13 @@ Fields
 
 `columnName` `string`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;columnName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "columnName": string
+}
+```
 
 ## TextArrayTransformation
 
@@ -370,23 +328,13 @@ Fields
 
 `columnName` `string`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;columnName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "columnName": string
+}
+```
 
 ## AutoMlTablesMetadata
 
@@ -394,7 +342,7 @@ Model metadata specific to AutoML Tables.
 
 Fields
 
-`trainCostMilliNodeHours` `string ( int64 format)`
+`trainCostMilliNodeHours` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Output only. The actual training cost of the model, expressed in milli node hours, i.e. 1,000 value in this field means 1 node hour. Guaranteed to not exceed the train budget.
 
@@ -402,21 +350,11 @@ Output only. The actual training cost of the model, expressed in milli node hour
 
 BigQuery destination uri for exported evaluated examples.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;trainCostMilliNodeHours&quot;: string,
-  &quot;evaluatedDataItemsBigqueryUri&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "trainCostMilliNodeHours": string,
+  "evaluatedDataItemsBigqueryUri": string
+}
+```

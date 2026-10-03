@@ -16,11 +16,11 @@ Optional. The id of the PersistentResource in the same Project and Location whic
 
 If this is specified, the job will be run on existing machines held by the PersistentResource instead of on-demand short-live machines. The network and CMEK configs on the job should be consistent with those on the PersistentResource, otherwise, the job will be rejected.
 
-`workerPoolSpecs[]` ` object ( WorkerPoolSpec  ` )
+`workerPoolSpecs[]` `object ( `[`WorkerPoolSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#WorkerPoolSpec)` )`
 
 Required. The spec of the worker pools including machine type and Docker image. All worker pools except the first one are optional and can be skipped by providing an empty value.
 
-`scheduling` ` object ( Scheduling  ` )
+`scheduling` `object ( `[`Scheduling`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#Scheduling)` )`
 
 Scheduling options for a CustomJob.
 
@@ -44,27 +44,27 @@ If set, we will deploy the job within the provided ip ranges. Otherwise, the job
 
 Example: \['vertex-ai-ip-range'\].
 
-`pscInterfaceConfig` ` object ( PscInterfaceConfig  ` )
+`pscInterfaceConfig` `object ( `[`PscInterfaceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#PscInterfaceConfig)` )`
 
 Optional. Configuration for PSC-I for CustomJob.
 
-`baseOutputDirectory` ` object ( GcsDestination  ` )
+`baseOutputDirectory` `object ( `[`GcsDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#GcsDestination)` )`
 
-The Cloud Storage location to store the output of this CustomJob or HyperparameterTuningJob. For HyperparameterTuningJob, the baseOutputDirectory of each child CustomJob backing a Trial is set to a subdirectory of name `  id  ` under its parent HyperparameterTuningJob's baseOutputDirectory.
+The Cloud Storage location to store the output of this CustomJob or HyperparameterTuningJob. For HyperparameterTuningJob, the baseOutputDirectory of each child CustomJob backing a Trial is set to a subdirectory of name [`id`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies.trials#Trial.FIELDS.id) under its parent HyperparameterTuningJob's baseOutputDirectory.
 
 The following Agent Platform environment variables will be passed to containers or python modules when this field is set:
 
 For CustomJob:
 
-  - AIP\_MODEL\_DIR = `<baseOutputDirectory>/model/`
-  - AIP\_CHECKPOINT\_DIR = `<baseOutputDirectory>/checkpoints/`
-  - AIP\_TENSORBOARD\_LOG\_DIR = `<baseOutputDirectory>/logs/`
+- AIP_MODEL_DIR = `<baseOutputDirectory>/model/`
+- AIP_CHECKPOINT_DIR = `<baseOutputDirectory>/checkpoints/`
+- AIP_TENSORBOARD_LOG_DIR = `<baseOutputDirectory>/logs/`
 
 For CustomJob backing a Trial of HyperparameterTuningJob:
 
-  - AIP\_MODEL\_DIR = `<baseOutputDirectory>/<trial_id>/model/`
-  - AIP\_CHECKPOINT\_DIR = `<baseOutputDirectory>/<trial_id>/checkpoints/`
-  - AIP\_TENSORBOARD\_LOG\_DIR = `<baseOutputDirectory>/<trial_id>/logs/`
+- AIP_MODEL_DIR = `<baseOutputDirectory>/<trial_id>/model/`
+- AIP_CHECKPOINT_DIR = `<baseOutputDirectory>/<trial_id>/checkpoints/`
+- AIP_TENSORBOARD_LOG_DIR = `<baseOutputDirectory>/<trial_id>/logs/`
 
 `protectedArtifactLocationId` `string`
 
@@ -72,19 +72,19 @@ The id of the location to store protected artifacts. e.g. us-central1. Populate 
 
 `tensorboard` `string`
 
-Optional. The name of a Agent Platform `  Tensorboard  ` resource to which this CustomJob will upload Tensorboard logs. Format: `projects/{project}/locations/{location}/tensorboards/{tensorboard}`
+Optional. The name of a Agent Platform [`Tensorboard`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards#Tensorboard) resource to which this CustomJob will upload Tensorboard logs. Format: `projects/{project}/locations/{location}/tensorboards/{tensorboard}`
 
 `enableWebAccess` `boolean`
 
 Optional. Whether you want Agent Platform to enable [interactive shell access](https://cloud.google.com/vertex-ai/docs/training/monitor-debug-interactive-shell) to training containers.
 
-If set to `true` , you can access interactive shells at the URIs given by `  CustomJob.web_access_uris  ` or `  Trial.web_access_uris  ` (within `  HyperparameterTuningJob.trials  ` ).
+If set to `true` , you can access interactive shells at the URIs given by [`CustomJob.web_access_uris`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.customJobs#CustomJob.FIELDS.web_access_uris) or [`Trial.web_access_uris`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies.trials#Trial.FIELDS.web_access_uris) (within [`HyperparameterTuningJob.trials`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.hyperparameterTuningJobs#HyperparameterTuningJob.FIELDS.trials) ).
 
 `enableDashboardAccess` `boolean`
 
 Optional. Whether you want Agent Platform to enable access to the customized dashboard in training chief container.
 
-If set to `true` , you can access the dashboard at the URIs given by `  CustomJob.web_access_uris  ` or `  Trial.web_access_uris  ` (within `  HyperparameterTuningJob.trials  ` ).
+If set to `true` , you can access the dashboard at the URIs given by [`CustomJob.web_access_uris`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.customJobs#CustomJob.FIELDS.web_access_uris) or [`Trial.web_access_uris`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies.trials#Trial.FIELDS.web_access_uris) (within [`HyperparameterTuningJob.trials`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.hyperparameterTuningJobs#HyperparameterTuningJob.FIELDS.trials) ).
 
 `experiment` `string`
 
@@ -100,21 +100,41 @@ Optional. The name of the Model resources for which to generate a mapping to art
 
 In order to retrieve a specific version of the model, also provide the version id or version alias. Example: `projects/{project}/locations/{location}/models/{model}@2` or `projects/{project}/locations/{location}/models/{model}@golden` If no version id or alias is specified, the "default" version will be returned. The "default" version alias is created for the first version of the model, and can be moved to other versions later on. There will be exactly one default version.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;persistentResourceId&quot;: string,&quot;workerPoolSpecs&quot;: [{object (WorkerPoolSpec)}],&quot;scheduling&quot;: {object (Scheduling)},&quot;serviceAccount&quot;: string,&quot;network&quot;: string,&quot;reservedIpRanges&quot;: [string],&quot;pscInterfaceConfig&quot;: {object (PscInterfaceConfig)},&quot;baseOutputDirectory&quot;: {object (GcsDestination)},&quot;protectedArtifactLocationId&quot;: string,&quot;tensorboard&quot;: string,&quot;enableWebAccess&quot;: boolean,&quot;enableDashboardAccess&quot;: boolean,&quot;experiment&quot;: string,&quot;experimentRun&quot;: string,&quot;models&quot;: [string]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "persistentResourceId": string,
+  "workerPoolSpecs": [
+    {
+      object (WorkerPoolSpec)
+    }
+  ],
+  "scheduling": {
+    object (Scheduling)
+  },
+  "serviceAccount": string,
+  "network": string,
+  "reservedIpRanges": [
+    string
+  ],
+  "pscInterfaceConfig": {
+    object (PscInterfaceConfig)
+  },
+  "baseOutputDirectory": {
+    object (GcsDestination)
+  },
+  "protectedArtifactLocationId": string,
+  "tensorboard": string,
+  "enableWebAccess": boolean,
+  "enableDashboardAccess": boolean,
+  "experiment": string,
+  "experimentRun": string,
+  "models": [
+    string
+  ]
+}
+```
 
 ## WorkerPoolSpec
 
@@ -122,23 +142,23 @@ Represents the spec of a worker pool in a job.
 
 Fields
 
-`machineSpec` ` object ( MachineSpec  ` )
+`machineSpec` `object ( `[`MachineSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#MachineSpec)` )`
 
 Optional. Immutable. The specification of a single machine.
 
-`replicaCount` `string ( int64 format)`
+`replicaCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Optional. The number of worker replicas to use for this worker pool.
 
-`nfsMounts[]` ` object ( NfsMount  ` )
+`nfsMounts[]` `object ( `[`NfsMount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#NfsMount)` )`
 
 Optional. List of NFS mount spec.
 
-`lustreMounts[]` ` object ( LustreMount  ` )
+`lustreMounts[]` `object ( `[`LustreMount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#LustreMount)` )`
 
 Optional. List of Lustre mounts.
 
-`diskSpec` ` object ( DiskSpec  ` )
+`diskSpec` `object ( `[`DiskSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#DiskSpec)` )`
 
 Disk spec.
 
@@ -146,31 +166,48 @@ Disk spec.
 
 The custom task to be executed in this worker pool. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`containerSpec` ` object ( ContainerSpec  ` )
+`containerSpec` `object ( `[`ContainerSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ContainerSpec)` )`
 
 The custom container task.
 
-`pythonPackageSpec` ` object ( PythonPackageSpec  ` )
+`pythonPackageSpec` `object ( `[`PythonPackageSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#PythonPackageSpec)` )`
 
 The Python packaged task.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;machineSpec&quot;: {object (MachineSpec)},&quot;replicaCount&quot;: string,&quot;nfsMounts&quot;: [{object (NfsMount)}],&quot;lustreMounts&quot;: [{object (LustreMount)}],&quot;diskSpec&quot;: {object (DiskSpec)},// task&quot;containerSpec&quot;: {object (ContainerSpec)},&quot;pythonPackageSpec&quot;: {object (PythonPackageSpec)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "machineSpec": {
+    object (MachineSpec)
+  },
+  "replicaCount": string,
+  "nfsMounts": [
+    {
+      object (NfsMount)
+    }
+  ],
+  "lustreMounts": [
+    {
+      object (LustreMount)
+    }
+  ],
+  "diskSpec": {
+    object (DiskSpec)
+  },
+
+  // task
+  "containerSpec": {
+    object (ContainerSpec)
+  },
+  "pythonPackageSpec": {
+    object (PythonPackageSpec)
+  }
+  // Union type
+}
+```
 
 ## PythonPackageSpec
 
@@ -194,25 +231,29 @@ Required. The Python module name to run after installing the packages.
 
 Command line arguments to be passed to the Python task.
 
-`env[]` ` object ( EnvVar  ` )
+`env[]` `object ( `[`EnvVar`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/EnvVar)` )`
 
 Environment variables to be passed to the python module. Maximum limit is 100.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;executorImageUri&quot;: string,&quot;packageUris&quot;: [string],&quot;pythonModule&quot;: string,&quot;args&quot;: [string],&quot;env&quot;: [{object (EnvVar)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "executorImageUri": string,
+  "packageUris": [
+    string
+  ],
+  "pythonModule": string,
+  "args": [
+    string
+  ],
+  "env": [
+    {
+      object (EnvVar)
+    }
+  ]
+}
+```
 
 ## MachineSpec
 
@@ -228,11 +269,11 @@ See the [list of machine types supported for prediction](https://cloud.google.co
 
 See the [list of machine types supported for custom training](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) .
 
-For `  DeployedModel  ` this field is optional, and the default value is `n1-standard-2` . For `  BatchPredictionJob  ` or as part of `  WorkerPoolSpec  ` this field is required.
+For [`DeployedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#DeployedModel) this field is optional, and the default value is `n1-standard-2` . For [`BatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs#BatchPredictionJob) or as part of [`WorkerPoolSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#WorkerPoolSpec) this field is required.
 
-`acceleratorType` ` enum ( AcceleratorType  ` )
+`acceleratorType` `enum ( `[`AcceleratorType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AcceleratorType)` )`
 
-Immutable. The type of accelerator(s) that may be attached to the machine as per `  acceleratorCount  ` .
+Immutable. The type of accelerator(s) that may be attached to the machine as per [`acceleratorCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#MachineSpec.FIELDS.accelerator_count) .
 
 `acceleratorCount` `integer`
 
@@ -260,25 +301,24 @@ If set, the acceleratorCount should be set to 1.
 
 Immutable. The topology of the TPUs. Corresponds to the TPU topologies available from GKE. (Example: tpuTopology: "2x2x1").
 
-`reservationAffinity` ` object ( ReservationAffinity  ` )
+`reservationAffinity` `object ( `[`ReservationAffinity`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#ReservationAffinity)` )`
 
 Optional. Immutable. Configuration controlling how this resource pool consumes reservation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;machineType&quot;: string,&quot;acceleratorType&quot;: enum (AcceleratorType),&quot;acceleratorCount&quot;: integer,&quot;gpuPartitionSize&quot;: string,&quot;tpuTopology&quot;: string,&quot;reservationAffinity&quot;: {object (ReservationAffinity)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "machineType": string,
+  "acceleratorType": enum (AcceleratorType),
+  "acceleratorCount": integer,
+  "gpuPartitionSize": string,
+  "tpuTopology": string,
+  "reservationAffinity": {
+    object (ReservationAffinity)
+  }
+}
+```
 
 ## ReservationAffinity
 
@@ -286,33 +326,29 @@ A ReservationAffinity can be used to configure a Agent Platform resource (e.g., 
 
 Fields
 
-`reservationAffinityType` ` enum ( Type  ` )
+`reservationAffinityType` `enum ( `[`Type`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Type)` )`
 
 Required. Specifies the reservation affinity type.
 
 `key` `string`
 
-Optional. Corresponds to the label key of a reservation resource. To target a SPECIFIC\_RESERVATION by name, use `compute.googleapis.com/reservation-name` as the key and specify the name of your reservation as its value.
+Optional. Corresponds to the label key of a reservation resource. To target a SPECIFIC_RESERVATION by name, use `compute.googleapis.com/reservation-name` as the key and specify the name of your reservation as its value.
 
 `values[]` `string`
 
 Optional. Corresponds to the label values of a reservation resource. This must be the resource name of the reservation, reservation block, or reservation sub- block.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;reservationAffinityType&quot;: enum (Type),&quot;key&quot;: string,&quot;values&quot;: [string]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "reservationAffinityType": enum (Type),
+  "key": string,
+  "values": [
+    string
+  ]
+}
+```
 
 ## NfsMount
 
@@ -332,25 +368,15 @@ Required. Source path exported from NFS server. Has to start with '/', and combi
 
 Required. Destination mount path. The NFS will be mounted for the user under /mnt/nfs/
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;server&quot;: string,
-  &quot;path&quot;: string,
-  &quot;mountPoint&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "server": string,
+  "path": string,
+  "mountPoint": string
+}
+```
 
 ## LustreMount
 
@@ -374,26 +400,16 @@ Required. The name of the Lustre filesystem.
 
 Required. Destination mount path. The Lustre file system will be mounted for the user under /mnt/lustre/
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;instanceIp&quot;: string,
-  &quot;volumeHandle&quot;: string,
-  &quot;filesystem&quot;: string,
-  &quot;mountPoint&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "instanceIp": string,
+  "volumeHandle": string,
+  "filesystem": string,
+  "mountPoint": string
+}
+```
 
 ## DiskSpec
 
@@ -409,24 +425,14 @@ type of the boot disk. For non-A3U machines, the default value is "pd-ssd", for 
 
 Size in GB of the boot disk (default is 100GB).
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;bootDiskType&quot;: string,
-  &quot;bootDiskSizeGb&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "bootDiskType": string,
+  "bootDiskSizeGb": integer
+}
+```
 
 ## Scheduling
 
@@ -434,7 +440,7 @@ All parameters related to queuing and scheduling of custom jobs.
 
 Fields
 
-`timeout` ` string ( Duration  ` format)
+`timeout` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 Optional. The maximum job running time. The default is 7 days.
 
@@ -444,7 +450,7 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
 
 Optional. Restarts the entire CustomJob if a worker gets restarted. This feature can be used by distributed training jobs that are not resilient to workers leaving and joining a job.
 
-`strategy` ` enum ( Strategy  ` )
+`strategy` `enum ( `[`Strategy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Strategy)` )`
 
 Optional. This determines which type of scheduling strategy to use.
 
@@ -452,27 +458,23 @@ Optional. This determines which type of scheduling strategy to use.
 
 Optional. Indicates if the job should retry for internal errors after the job starts running. If true, overrides `Scheduling.restart_job_on_worker_restart` to false.
 
-`maxWaitDuration` ` string ( Duration  ` format)
+`maxWaitDuration` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
-Optional. This is the maximum duration that a job will wait for the requested resources to be provisioned if the scheduling strategy is set to \[Strategy.DWS\_FLEX\_START\]. If set to 0, the job will wait indefinitely. The default is 24 hours.
+Optional. This is the maximum duration that a job will wait for the requested resources to be provisioned if the scheduling strategy is set to \[Strategy.DWS_FLEX_START\]. If set to 0, the job will wait indefinitely. The default is 24 hours.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;timeout&quot;: string,&quot;restartJobOnWorkerRestart&quot;: boolean,&quot;strategy&quot;: enum (Strategy),&quot;disableRetries&quot;: boolean,&quot;maxWaitDuration&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "timeout": string,
+  "restartJobOnWorkerRestart": boolean,
+  "strategy": enum (Strategy),
+  "disableRetries": boolean,
+  "maxWaitDuration": string
+}
+```
 
 ## PscInterfaceConfig
 
@@ -484,25 +486,22 @@ Fields
 
 Optional. The name of the Compute Engine [network attachment](https://cloud.google.com/vpc/docs/about-network-attachments) to attach to the resource within the region and user project. To specify this field, you must have already [created a network attachment](https://cloud.google.com/vpc/docs/create-manage-network-attachments#create-network-attachments) . This field is only used for resources using PSC-I.
 
-`dnsPeeringConfigs[]` ` object ( DnsPeeringConfig  ` )
+`dnsPeeringConfigs[]` `object ( `[`DnsPeeringConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#DnsPeeringConfig)` )`
 
 Optional. DNS peering configurations. When specified, Agent Platform will attempt to configure DNS peering zones in the tenant project VPC to resolve the specified domains using the target network's Cloud DNS. The user must grant the dns.peer role to the Agent Platform service Agent on the target project.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;networkAttachment&quot;: string,&quot;dnsPeeringConfigs&quot;: [{object (DnsPeeringConfig)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "networkAttachment": string,
+  "dnsPeeringConfigs": [
+    {
+      object (DnsPeeringConfig)
+    }
+  ]
+}
+```
 
 ## DnsPeeringConfig
 
@@ -522,25 +521,15 @@ Required. The project id hosting the Cloud DNS managed zone that contains the 'd
 
 Required. The VPC network name in the targetProject where the DNS zone specified by 'domain' is visible.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;domain&quot;: string,
-  &quot;targetProject&quot;: string,
-  &quot;targetNetwork&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "domain": string,
+  "targetProject": string,
+  "targetNetwork": string
+}
+```
 
 ## GcsDestination
 
@@ -552,20 +541,10 @@ Fields
 
 Required. Google Cloud Storage URI to output directory. If the uri doesn't end with '/', a '/' will be automatically appended. The directory is created if it doesn't exist.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;outputUriPrefix&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "outputUriPrefix": string
+}
+```

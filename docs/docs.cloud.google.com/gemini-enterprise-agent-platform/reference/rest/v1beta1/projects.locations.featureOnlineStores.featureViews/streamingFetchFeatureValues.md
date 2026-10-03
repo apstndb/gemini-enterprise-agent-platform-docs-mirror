@@ -28,40 +28,44 @@ The request body contains data with the following structure:
 
 Fields
 
-`dataKeys[]` ` object ( FeatureViewDataKey  ` )
+`dataKeys[]` `object ( `[`FeatureViewDataKey`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureViewDataKey)` )`
 
-`dataFormat` ` enum ( FeatureViewDataFormat  ` )
+`dataFormat` `enum ( `[`FeatureViewDataFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureViewDataFormat)` )`
 
 Specify response data format. If not set, keyvalue format will be used.
 
 ### Response body
 
-Response message for `  FeatureOnlineStoreService.StreamingFetchFeatureValues  ` .
+Response message for [`FeatureOnlineStoreService.StreamingFetchFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/streamingFetchFeatureValues#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService.StreamingFetchFeatureValues) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`status` ` object ( Status  ` )
+`status` `object ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Status)` )`
 
-Response status. If OK, then `  StreamingFetchFeatureValuesResponse.data  ` will be populated. Otherwise `  StreamingFetchFeatureValuesResponse.data_keys_with_error  ` will be populated with the appropriate data keys. The error only applies to the listed data keys - the stream will remain open for further \[FeatureOnlineStoreService.StreamingFetchFeatureValuesRequest\]\[\] requests.
+Response status. If OK, then [`StreamingFetchFeatureValuesResponse.data`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/streamingFetchFeatureValues#body.StreamingFetchFeatureValuesResponse.FIELDS.data) will be populated. Otherwise [`StreamingFetchFeatureValuesResponse.data_keys_with_error`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/streamingFetchFeatureValues#body.StreamingFetchFeatureValuesResponse.FIELDS.data_keys_with_error) will be populated with the appropriate data keys. The error only applies to the listed data keys - the stream will remain open for further \[FeatureOnlineStoreService.StreamingFetchFeatureValuesRequest\]\[\] requests.
 
-`data[]` ` object ( FetchFeatureValuesResponse  ` )
+`data[]` `object ( `[`FetchFeatureValuesResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FetchFeatureValuesResponse)` )`
 
-`dataKeysWithError[]` ` object ( FeatureViewDataKey  ` )
+`dataKeysWithError[]` `object ( `[`FeatureViewDataKey`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureViewDataKey)` )`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;status&quot;: {object (Status)},&quot;data&quot;: [{object (FetchFeatureValuesResponse)}],&quot;dataKeysWithError&quot;: [{object (FeatureViewDataKey)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "status": {
+    object (Status)
+  },
+  "data": [
+    {
+      object (FetchFeatureValuesResponse)
+    }
+  ],
+  "dataKeysWithError": [
+    {
+      object (FeatureViewDataKey)
+    }
+  ]
+}
+```

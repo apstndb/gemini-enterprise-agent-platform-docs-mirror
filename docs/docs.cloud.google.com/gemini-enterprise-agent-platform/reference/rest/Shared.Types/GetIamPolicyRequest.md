@@ -14,25 +14,20 @@ Fields
 
 REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field.
 
-`options` ` object ( GetPolicyOptions  ` )
+`options` `object ( `[`GetPolicyOptions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GetIamPolicyRequest#GetPolicyOptions)` )`
 
 OPTIONAL: A `GetPolicyOptions` object for specifying options to `featurestores.getIamPolicy` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;resource&quot;: string,&quot;options&quot;: {object (GetPolicyOptions)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "resource": string,
+  "options": {
+    object (GetPolicyOptions)
+  }
+}
+```
 
 ## GetPolicyOptions
 
@@ -52,20 +47,10 @@ The policy in the response might use the policy version that you specified, or i
 
 To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies) .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;requestedPolicyVersion&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "requestedPolicyVersion": integer
+}
+```

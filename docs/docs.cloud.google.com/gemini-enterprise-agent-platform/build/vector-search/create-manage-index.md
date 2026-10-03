@@ -46,16 +46,16 @@ You can find the definition for each of these fields in [Index configuration par
 
 Index data is split into equal parts called shards for processing. When you create an index, you must specify the size of the shards to use. The supported sizes, for dense and sparse embeddings combined, are as follows:
 
-  - `SHARD_SIZE_SMALL` : 2 GiB per shard.
-  - `SHARD_SIZE_MEDIUM` : 20 GiB per shard.
-  - `SHARD_SIZE_LARGE` : 50 GiB per shard.
+- `SHARD_SIZE_SMALL` : 2 GiB per shard.
+- `SHARD_SIZE_MEDIUM` : 20 GiB per shard.
+- `SHARD_SIZE_LARGE` : 50 GiB per shard.
 
 For sparse embeddings, the supported sizes are 20% of the shard byte size.
 
 The machine types that you can use to deploy your index ( [using public endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/deploy-index-public) or [using VPC endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/deploy-index-vpc) ) depends on the shard size of the index. The following table shows the shard sizes that each machine type supports:
 
 | Machine type      | `SHARD_SIZE_SMALL` | `SHARD_SIZE_MEDIUM` | `SHARD_SIZE_LARGE` |
-| ----------------- | ------------------ | ------------------- | ------------------ |
+|-------------------|--------------------|---------------------|--------------------|
 | `n1-standard-16`  |                    |                     |                    |
 | `n1-standard-32`  |                    |                     |                    |
 | `e2-standard-2`   | (default)          |                     |                    |
@@ -77,10 +77,10 @@ To [create an index](https://docs.cloud.google.com/gemini-enterprise-agent-platf
 
 Before using any of the command data below, make the following replacements:
 
-  - LOCAL\_PATH\_TO\_METADATA\_FILE : The local path to the metadata file.
-  - INDEX\_NAME : Display name for the index.
-  - LOCATION : The region where you are using Agent Platform.
-  - PROJECT\_ID : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
+- ` LOCAL_PATH_TO_METADATA_FILE ` : The local path to the metadata file.
+- ` INDEX_NAME ` : Display name for the index.
+- ` LOCATION ` : The region where you are using Agent Platform.
+- ` PROJECT_ID ` : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
 
 Execute the following command:
 
@@ -88,38 +88,46 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai indexes create \
-        --metadata-file=LOCAL_PATH_TO_METADATA_FILE \
-        --display-name=INDEX_NAME \
-        --region=LOCATION \
-        --project=PROJECT_ID
+```
+gcloud ai indexes create \
+    --metadata-file=LOCAL_PATH_TO_METADATA_FILE \
+    --display-name=INDEX_NAME \
+    --region=LOCATION \
+    --project=PROJECT_ID
+```
 
 #### Windows (PowerShell)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai indexes create `
-        --metadata-file=LOCAL_PATH_TO_METADATA_FILE `
-        --display-name=INDEX_NAME `
-        --region=LOCATION `
-        --project=PROJECT_ID
+```
+gcloud ai indexes create `
+    --metadata-file=LOCAL_PATH_TO_METADATA_FILE `
+    --display-name=INDEX_NAME `
+    --region=LOCATION `
+    --project=PROJECT_ID
+```
 
 #### Windows (cmd.exe)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai indexes create ^
-        --metadata-file=LOCAL_PATH_TO_METADATA_FILE ^
-        --display-name=INDEX_NAME ^
-        --region=LOCATION ^
-        --project=PROJECT_ID
+```
+gcloud ai indexes create ^
+    --metadata-file=LOCAL_PATH_TO_METADATA_FILE ^
+    --display-name=INDEX_NAME ^
+    --region=LOCATION ^
+    --project=PROJECT_ID
+```
 
 You should receive a response similar to the following:
 
-    You can poll for the status of the operation for the response
-    to include "done": true. Use the following example to poll the status.
-    
-      $ gcloud ai operations describe 1234567890123456789 --project=my-test-project --region=us-central1
+```
+You can poll for the status of the operation for the response
+to include "done": true. Use the following example to poll the status.
+
+  $ gcloud ai operations describe 1234567890123456789 --project=my-test-project --region=us-central1
+```
 
 See [gcloud ai operations](https://docs.cloud.google.com/sdk/gcloud/reference/ai/operations/describe) to learn more about the `describe` command.
 
@@ -127,35 +135,39 @@ See [gcloud ai operations](https://docs.cloud.google.com/sdk/gcloud/reference/ai
 
 Before using any of the request data, make the following replacements:
 
-  - INPUT\_DIR : The Cloud Storage directory path of the index content.
-  - INDEX\_NAME : Display name for the index.
-  - LOCATION : The region where you are using Agent Platform.
-  - PROJECT\_ID : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
-  - PROJECT\_NUMBER : Your project's automatically generated [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+- ` INPUT_DIR ` : The Cloud Storage directory path of the index content.
+- ` INDEX_NAME ` : Display name for the index.
+- ` LOCATION ` : The region where you are using Agent Platform.
+- ` PROJECT_ID ` : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
+- ` PROJECT_NUMBER ` : Your project's automatically generated [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes
+```
 
 Request JSON body:
 
-    {
-      "display_name": "INDEX_NAME",
-      "metadata": {
-        "contentsDeltaUri": "INPUT_DIR",
-        "config": {
-          "dimensions": 100,
-          "approximateNeighborsCount": 150,
-          "distanceMeasureType": "DOT_PRODUCT_DISTANCE",
-          "algorithm_config": {
-            "treeAhConfig": {
-              "leafNodeEmbeddingCount": 500,
-              "leafNodesToSearchPercent": 7
-            }
-          }
+```
+{
+  "display_name": "INDEX_NAME",
+  "metadata": {
+    "contentsDeltaUri": "INPUT_DIR",
+    "config": {
+      "dimensions": 100,
+      "approximateNeighborsCount": 150,
+      "distanceMeasureType": "DOT_PRODUCT_DISTANCE",
+      "algorithm_config": {
+        "treeAhConfig": {
+          "leafNodeEmbeddingCount": 500,
+          "leafNodesToSearchPercent": 7
         }
       }
     }
+  }
+}
+```
 
 To send your request, expand one of these options:
 
@@ -165,11 +177,13 @@ To send your request, expand one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes"
+```
 
 #### PowerShell (Windows)
 
@@ -177,28 +191,32 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION/indexes/INDEX_ID/operations/OPERATION_ID",
-      "metadata": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreateIndexOperationMetadata",
-        "genericMetadata": {
-          "createTime": "2022-01-08T01:21:10.147035Z",
-          "updateTime": "2022-01-08T01:21:10.147035Z"
-        }
-      }
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION/indexes/INDEX_ID/operations/OPERATION_ID",
+  "metadata": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreateIndexOperationMetadata",
+    "genericMetadata": {
+      "createTime": "2022-01-08T01:21:10.147035Z",
+      "updateTime": "2022-01-08T01:21:10.147035Z"
     }
+  }
+}
+```
 
 ### Terraform
 
@@ -206,93 +224,97 @@ The following sample uses the [`google_vertex_ai_index`](https://registry.terraf
 
 To learn how to apply or remove a Terraform configuration, see [Basic Terraform commands](https://docs.cloud.google.com/docs/terraform/basic-commands) .
 
-    # Cloud Storage bucket name must be unique
-    resource "random_id" "bucket_name_suffix" {
-      byte_length = 8
-    }
-    
-    # Create a Cloud Storage bucket
-    resource "google_storage_bucket" "bucket" {
-      name                        = "vertex-ai-index-bucket-${random_id.bucket_name_suffix.hex}"
-      location                    = "us-central1"
-      uniform_bucket_level_access = true
-    }
-    
-    # Create index content
-    resource "google_storage_bucket_object" "data" {
-      name    = "contents/data.json"
-      bucket  = google_storage_bucket.bucket.name
-      content = <<EOF
-    {"id": "42", "embedding": [0.5, 1.0], "restricts": [{"namespace": "class", "allow": ["cat", "pet"]},{"namespace": "category", "allow": ["feline"]}]}
-    {"id": "43", "embedding": [0.6, 1.0], "restricts": [{"namespace": "class", "allow": ["dog", "pet"]},{"namespace": "category", "allow": ["canine"]}]}
-    EOF
-    }
-    
-    resource "google_vertex_ai_index" "default" {
-      region       = "us-central1"
-      display_name = "sample-index-batch-update"
-      description  = "A sample index for batch update"
-      labels = {
-        foo = "bar"
-      }
-    
-      metadata {
-        contents_delta_uri = "gs://${google_storage_bucket.bucket.name}/contents"
-        config {
-          dimensions                  = 2
-          approximate_neighbors_count = 150
-          distance_measure_type       = "DOT_PRODUCT_DISTANCE"
-          algorithm_config {
-            tree_ah_config {
-              leaf_node_embedding_count    = 500
-              leaf_nodes_to_search_percent = 7
-            }
-          }
+```terraform
+# Cloud Storage bucket name must be unique
+resource "random_id" "bucket_name_suffix" {
+  byte_length = 8
+}
+
+# Create a Cloud Storage bucket
+resource "google_storage_bucket" "bucket" {
+  name                        = "vertex-ai-index-bucket-${random_id.bucket_name_suffix.hex}"
+  location                    = "us-central1"
+  uniform_bucket_level_access = true
+}
+
+# Create index content
+resource "google_storage_bucket_object" "data" {
+  name    = "contents/data.json"
+  bucket  = google_storage_bucket.bucket.name
+  content = <<EOF
+{"id": "42", "embedding": [0.5, 1.0], "restricts": [{"namespace": "class", "allow": ["cat", "pet"]},{"namespace": "category", "allow": ["feline"]}]}
+{"id": "43", "embedding": [0.6, 1.0], "restricts": [{"namespace": "class", "allow": ["dog", "pet"]},{"namespace": "category", "allow": ["canine"]}]}
+EOF
+}
+
+resource "google_vertex_ai_index" "default" {
+  region       = "us-central1"
+  display_name = "sample-index-batch-update"
+  description  = "A sample index for batch update"
+  labels = {
+    foo = "bar"
+  }
+
+  metadata {
+    contents_delta_uri = "gs://${google_storage_bucket.bucket.name}/contents"
+    config {
+      dimensions                  = 2
+      approximate_neighbors_count = 150
+      distance_measure_type       = "DOT_PRODUCT_DISTANCE"
+      algorithm_config {
+        tree_ah_config {
+          leaf_node_embedding_count    = 500
+          leaf_nodes_to_search_percent = 7
         }
       }
-      index_update_method = "BATCH_UPDATE"
-    
-      timeouts {
-        create = "2h"
-        update = "1h"
-      }
     }
+  }
+  index_update_method = "BATCH_UPDATE"
+
+  timeouts {
+    create = "2h"
+    update = "1h"
+  }
+}
+```
 
 ### Python
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    def vector_search_create_index(
-        project: str, location: str, display_name: str, gcs_uri: Optional[str] = None
-    ) -> aiplatform.MatchingEngineIndex:
-        """Create a vector search index.
-    
-        Args:
-            project (str): Required. Project ID
-            location (str): Required. The region name
-            display_name (str): Required. The index display name
-            gcs_uri (str): Optional. The Google Cloud Storage uri for index content
-    
-        Returns:
-            The created MatchingEngineIndex.
-        """
-        # Initialize the Vertex AI client
-        aiplatform.init(project=project, location=location)
-    
-        # Create Index
-        index = aiplatform.MatchingEngineIndex.create_tree_ah_index(
-            display_name=display_name,
-            contents_delta_uri=gcs_uri,
-            description="Matching Engine Index",
-            dimensions=100,
-            approximate_neighbors_count=150,
-            leaf_node_embedding_count=500,
-            leaf_nodes_to_search_percent=7,
-            index_update_method="BATCH_UPDATE",  # Options: STREAM_UPDATE, BATCH_UPDATE
-            distance_measure_type=aiplatform.matching_engine.matching_engine_index_config.DistanceMeasureType.DOT_PRODUCT_DISTANCE,
-        )
-    
-        return index
+```
+def vector_search_create_index(
+    project: str, location: str, display_name: str, gcs_uri: Optional[str] = None
+) -> aiplatform.MatchingEngineIndex:
+    """Create a vector search index.
+
+    Args:
+        project (str): Required. Project ID
+        location (str): Required. The region name
+        display_name (str): Required. The index display name
+        gcs_uri (str): Optional. The Google Cloud Storage uri for index content
+
+    Returns:
+        The created MatchingEngineIndex.
+    """
+    # Initialize the Vertex AI client
+    aiplatform.init(project=project, location=location)
+
+    # Create Index
+    index = aiplatform.MatchingEngineIndex.create_tree_ah_index(
+        display_name=display_name,
+        contents_delta_uri=gcs_uri,
+        description="Matching Engine Index",
+        dimensions=100,
+        approximate_neighbors_count=150,
+        leaf_node_embedding_count=500,
+        leaf_nodes_to_search_percent=7,
+        index_update_method="BATCH_UPDATE",  # Options: STREAM_UPDATE, BATCH_UPDATE
+        distance_measure_type=aiplatform.matching_engine.matching_engine_index_config.DistanceMeasureType.DOT_PRODUCT_DISTANCE,
+    )
+
+    return index
+```
 
 ### Java
 
@@ -300,79 +322,81 @@ Before trying this sample, follow the Java setup instructions in the [Agent Plat
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    import com.google.cloud.aiplatform.v1.CreateIndexRequest;
-    import com.google.cloud.aiplatform.v1.Index;
-    import com.google.cloud.aiplatform.v1.Index.IndexUpdateMethod;
-    import com.google.cloud.aiplatform.v1.IndexServiceClient;
-    import com.google.cloud.aiplatform.v1.IndexServiceSettings;
-    import com.google.cloud.aiplatform.v1.LocationName;
-    import com.google.protobuf.Value;
-    import com.google.protobuf.util.JsonFormat;
-    import java.util.concurrent.TimeUnit;
-    
-    public class CreateIndexSample {
-    
-      public static void main(String[] args) throws Exception {
-        // TODO(developer): Replace these variables before running the sample.
-        String project = "YOUR_PROJECT_ID";
-        String location = "YOUR_LOCATION";
-        String displayName = "YOUR_INDEX_DISPLAY_NAME";
-        String contentsDeltaUri = "gs://YOUR_BUCKET/";
-        String metadataJson =
-            String.format(
-                "{\n"
-                    + "  \"contentsDeltaUri\": \"%s\",\n"
-                    + "  \"config\": {\n"
-                    + "    \"dimensions\": 100,\n"
-                    + "        \"approximateNeighborsCount\": 150,\n"
-                    + "        \"distanceMeasureType\": \"DOT_PRODUCT_DISTANCE\",\n"
-                    + "        \"shardSize\": \"SHARD_SIZE_MEDIUM\",\n"
-                    + "        \"algorithm_config\": {\n"
-                    + "      \"treeAhConfig\": {\n"
-                    + "        \"leafNodeEmbeddingCount\": 5000,\n"
-                    + "            \"fractionLeafNodesToSearch\": 0.03\n"
-                    + "      }\n"
-                    + "    }\n"
-                    + "  }\n"
-                    + "}",
-                contentsDeltaUri);
-    
-        createIndexSample(project, location, displayName, metadataJson);
-      }
-    
-      public static Index createIndexSample(
-          String project, String location, String displayName, String metadataJson) throws Exception {
-        // Initialize client that will be used to send requests. This client only needs to be created
-        // once, and can be reused for multiple requests.
-        try (IndexServiceClient indexServiceClient =
-            IndexServiceClient.create(
-                IndexServiceSettings.newBuilder()
-                    .setEndpoint(location + "-aiplatform.googleapis.com:443")
-                    .build())) {
-          Value.Builder metadataBuilder = Value.newBuilder();
-          JsonFormat.parser().merge(metadataJson, metadataBuilder);
-    
-          CreateIndexRequest request =
-              CreateIndexRequest.newBuilder()
-                  .setParent(LocationName.of(project, location).toString())
-                  .setIndex(
-                      Index.newBuilder()
-                          .setDisplayName(displayName)
-                          .setMetadata(metadataBuilder)
-                          .setIndexUpdateMethod(IndexUpdateMethod.BATCH_UPDATE))
-                  .build();
-    
-          return indexServiceClient.createIndexAsync(request).get(5, TimeUnit.MINUTES);
-        }
-      }
+```java
+import com.google.cloud.aiplatform.v1.CreateIndexRequest;
+import com.google.cloud.aiplatform.v1.Index;
+import com.google.cloud.aiplatform.v1.Index.IndexUpdateMethod;
+import com.google.cloud.aiplatform.v1.IndexServiceClient;
+import com.google.cloud.aiplatform.v1.IndexServiceSettings;
+import com.google.cloud.aiplatform.v1.LocationName;
+import com.google.protobuf.Value;
+import com.google.protobuf.util.JsonFormat;
+import java.util.concurrent.TimeUnit;
+
+public class CreateIndexSample {
+
+  public static void main(String[] args) throws Exception {
+    // TODO(developer): Replace these variables before running the sample.
+    String project = "YOUR_PROJECT_ID";
+    String location = "YOUR_LOCATION";
+    String displayName = "YOUR_INDEX_DISPLAY_NAME";
+    String contentsDeltaUri = "gs://YOUR_BUCKET/";
+    String metadataJson =
+        String.format(
+            "{\n"
+                + "  \"contentsDeltaUri\": \"%s\",\n"
+                + "  \"config\": {\n"
+                + "    \"dimensions\": 100,\n"
+                + "        \"approximateNeighborsCount\": 150,\n"
+                + "        \"distanceMeasureType\": \"DOT_PRODUCT_DISTANCE\",\n"
+                + "        \"shardSize\": \"SHARD_SIZE_MEDIUM\",\n"
+                + "        \"algorithm_config\": {\n"
+                + "      \"treeAhConfig\": {\n"
+                + "        \"leafNodeEmbeddingCount\": 5000,\n"
+                + "            \"fractionLeafNodesToSearch\": 0.03\n"
+                + "      }\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",
+            contentsDeltaUri);
+
+    createIndexSample(project, location, displayName, metadataJson);
+  }
+
+  public static Index createIndexSample(
+      String project, String location, String displayName, String metadataJson) throws Exception {
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests.
+    try (IndexServiceClient indexServiceClient =
+        IndexServiceClient.create(
+            IndexServiceSettings.newBuilder()
+                .setEndpoint(location + "-aiplatform.googleapis.com:443")
+                .build())) {
+      Value.Builder metadataBuilder = Value.newBuilder();
+      JsonFormat.parser().merge(metadataJson, metadataBuilder);
+
+      CreateIndexRequest request =
+          CreateIndexRequest.newBuilder()
+              .setParent(LocationName.of(project, location).toString())
+              .setIndex(
+                  Index.newBuilder()
+                      .setDisplayName(displayName)
+                      .setMetadata(metadataBuilder)
+                      .setIndexUpdateMethod(IndexUpdateMethod.BATCH_UPDATE))
+              .build();
+
+      return indexServiceClient.createIndexAsync(request).get(5, TimeUnit.MINUTES);
     }
+  }
+}
+```
 
 ### Console
 
 Use these instructions to create an index for batch updates.
 
 1.  In the Agent Platform section of the Google Cloud console, go to the **Deploy and Use** section. Select **Vector Search**
-2.  Click **add\_box Create new index** to open the **Index** pane. The **Create a new index** pane appears.
+2.  Click **add_box Create new index** to open the **Index** pane. The **Create a new index** pane appears.
 3.  In the **Display name** field, provide a name to uniquely identify your index.
 4.  In the **Description** field, provide a description for what the index is for.
 5.  In the **Region** field, select a region from the drop-down.
@@ -391,7 +415,7 @@ To create an empty index, the request is almost identical to creating an index f
 
 #### Empty index request example
 
-``` 
+```
 {
   "display_name": INDEX_NAME,
   "indexUpdateMethod": "BATCH_UPDATE",
@@ -422,34 +446,38 @@ Use these instructions to create and deploy your streaming index. If you don't h
 
 Before using any of the request data, make the following replacements:
 
-  - INDEX\_NAME : Display name for the index.
-  - DESCRIPTION : A description of the index.
-  - INPUT\_DIR : The Cloud Storage directory path of the index content.
-  - DIMENSIONS : Number of dimensions of the embedding vector.
-  - PROJECT\_ID : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
-  - PROJECT\_NUMBER : Your project's automatically generated [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
-  - LOCATION : The region where you are using Agent Platform.
+- ` INDEX_NAME ` : Display name for the index.
+- ` DESCRIPTION ` : A description of the index.
+- ` INPUT_DIR ` : The Cloud Storage directory path of the index content.
+- ` DIMENSIONS ` : Number of dimensions of the embedding vector.
+- ` PROJECT_ID ` : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
+- ` PROJECT_NUMBER ` : Your project's automatically generated [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+- ` LOCATION ` : The region where you are using Agent Platform.
 
 HTTP method and URL:
 
-    POST https://ENDPOINT-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes
+```
+POST https://ENDPOINT-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes
+```
 
 Request JSON body:
 
-    {
-      displayName: "INDEX_NAME",
-      description: "DESCRIPTION",
-      metadata: {
-         contentsDeltaUri: "INPUT_DIR",
-         config: {
-            dimensions: "DIMENSIONS",
-            approximateNeighborsCount: 150,
-            distanceMeasureType: "DOT_PRODUCT_DISTANCE",
-            algorithmConfig: {treeAhConfig: {leafNodeEmbeddingCount: 10000, leafNodesToSearchPercent: 2}}
-         },
-      },
-      indexUpdateMethod: "STREAM_UPDATE"
-    }
+```
+{
+  displayName: "INDEX_NAME",
+  description: "DESCRIPTION",
+  metadata: {
+     contentsDeltaUri: "INPUT_DIR",
+     config: {
+        dimensions: "DIMENSIONS",
+        approximateNeighborsCount: 150,
+        distanceMeasureType: "DOT_PRODUCT_DISTANCE",
+        algorithmConfig: {treeAhConfig: {leafNodeEmbeddingCount: 10000, leafNodesToSearchPercent: 2}}
+     },
+  },
+  indexUpdateMethod: "STREAM_UPDATE"
+}
+```
 
 To send your request, expand one of these options:
 
@@ -459,11 +487,13 @@ To send your request, expand one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://ENDPOINT-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://ENDPOINT-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes"
+```
 
 #### PowerShell (Windows)
 
@@ -471,32 +501,36 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://ENDPOINT-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://ENDPOINT-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION/operations/OPERATION_ID",
-      "metadata": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.ui.CreateIndexOperationMetadata",
-        "genericMetadata": {
-          "createTime": "2023-12-05T23:17:45.416117Z",
-          "updateTime": "2023-12-05T23:17:45.416117Z",
-          "state": "RUNNING",
-          "worksOn": [
-            "projects/PROJECT_NUMBER/locations/LOCATION/indexes/INDEX_ID"
-          ]
-        }
-      }
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION/operations/OPERATION_ID",
+  "metadata": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.ui.CreateIndexOperationMetadata",
+    "genericMetadata": {
+      "createTime": "2023-12-05T23:17:45.416117Z",
+      "updateTime": "2023-12-05T23:17:45.416117Z",
+      "state": "RUNNING",
+      "worksOn": [
+        "projects/PROJECT_NUMBER/locations/LOCATION/indexes/INDEX_ID"
+      ]
     }
+  }
+}
+```
 
 ### Terraform
 
@@ -504,93 +538,97 @@ The following sample uses the [`google_vertex_ai_index`](https://registry.terraf
 
 To learn how to apply or remove a Terraform configuration, see [Basic Terraform commands](https://docs.cloud.google.com/docs/terraform/basic-commands) .
 
-    # Cloud Storage bucket name must be unique
-    resource "random_id" "default" {
-      byte_length = 8
-    }
-    
-    # Create a Cloud Storage bucket
-    resource "google_storage_bucket" "bucket" {
-      name                        = "vertex-ai-index-bucket-${random_id.default.hex}"
-      location                    = "us-central1"
-      uniform_bucket_level_access = true
-    }
-    
-    # Create index content
-    resource "google_storage_bucket_object" "data" {
-      name    = "contents/data.json"
-      bucket  = google_storage_bucket.bucket.name
-      content = <<EOF
-    {"id": "42", "embedding": [0.5, 1.0], "restricts": [{"namespace": "class", "allow": ["cat", "pet"]},{"namespace": "category", "allow": ["feline"]}]}
-    {"id": "43", "embedding": [0.6, 1.0], "restricts": [{"namespace": "class", "allow": ["dog", "pet"]},{"namespace": "category", "allow": ["canine"]}]}
-    EOF
-    }
-    
-    resource "google_vertex_ai_index" "streaming_index" {
-      region       = "us-central1"
-      display_name = "sample-index-streaming-update"
-      description  = "A sample index for streaming update"
-      labels = {
-        foo = "bar"
-      }
-    
-      metadata {
-        contents_delta_uri = "gs://${google_storage_bucket.bucket.name}/contents"
-        config {
-          dimensions                  = 2
-          approximate_neighbors_count = 150
-          distance_measure_type       = "DOT_PRODUCT_DISTANCE"
-          algorithm_config {
-            tree_ah_config {
-              leaf_node_embedding_count    = 500
-              leaf_nodes_to_search_percent = 7
-            }
-          }
+```terraform
+# Cloud Storage bucket name must be unique
+resource "random_id" "default" {
+  byte_length = 8
+}
+
+# Create a Cloud Storage bucket
+resource "google_storage_bucket" "bucket" {
+  name                        = "vertex-ai-index-bucket-${random_id.default.hex}"
+  location                    = "us-central1"
+  uniform_bucket_level_access = true
+}
+
+# Create index content
+resource "google_storage_bucket_object" "data" {
+  name    = "contents/data.json"
+  bucket  = google_storage_bucket.bucket.name
+  content = <<EOF
+{"id": "42", "embedding": [0.5, 1.0], "restricts": [{"namespace": "class", "allow": ["cat", "pet"]},{"namespace": "category", "allow": ["feline"]}]}
+{"id": "43", "embedding": [0.6, 1.0], "restricts": [{"namespace": "class", "allow": ["dog", "pet"]},{"namespace": "category", "allow": ["canine"]}]}
+EOF
+}
+
+resource "google_vertex_ai_index" "streaming_index" {
+  region       = "us-central1"
+  display_name = "sample-index-streaming-update"
+  description  = "A sample index for streaming update"
+  labels = {
+    foo = "bar"
+  }
+
+  metadata {
+    contents_delta_uri = "gs://${google_storage_bucket.bucket.name}/contents"
+    config {
+      dimensions                  = 2
+      approximate_neighbors_count = 150
+      distance_measure_type       = "DOT_PRODUCT_DISTANCE"
+      algorithm_config {
+        tree_ah_config {
+          leaf_node_embedding_count    = 500
+          leaf_nodes_to_search_percent = 7
         }
       }
-      index_update_method = "STREAM_UPDATE"
-    
-      timeouts {
-        create = "2h"
-        update = "1h"
-      }
     }
+  }
+  index_update_method = "STREAM_UPDATE"
+
+  timeouts {
+    create = "2h"
+    update = "1h"
+  }
+}
+```
 
 ### Python
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    def vector_search_create_streaming_index(
-        project: str, location: str, display_name: str, gcs_uri: Optional[str] = None
-    ) -> aiplatform.MatchingEngineIndex:
-        """Create a vector search index.
-    
-        Args:
-            project (str): Required. Project ID
-            location (str): Required. The region name
-            display_name (str): Required. The index display name
-            gcs_uri (str): Optional. The Google Cloud Storage uri for index content
-    
-        Returns:
-            The created MatchingEngineIndex.
-        """
-        # Initialize the Vertex AI client
-        aiplatform.init(project=project, location=location)
-    
-        # Create Index
-        index = aiplatform.MatchingEngineIndex.create_tree_ah_index(
-            display_name=display_name,
-            contents_delta_uri=gcs_uri,
-            description="Matching Engine Index",
-            dimensions=100,
-            approximate_neighbors_count=150,
-            leaf_node_embedding_count=500,
-            leaf_nodes_to_search_percent=7,
-            index_update_method="STREAM_UPDATE",  # Options: STREAM_UPDATE, BATCH_UPDATE
-            distance_measure_type=aiplatform.matching_engine.matching_engine_index_config.DistanceMeasureType.DOT_PRODUCT_DISTANCE,
-        )
-    
-        return index
+```
+def vector_search_create_streaming_index(
+    project: str, location: str, display_name: str, gcs_uri: Optional[str] = None
+) -> aiplatform.MatchingEngineIndex:
+    """Create a vector search index.
+
+    Args:
+        project (str): Required. Project ID
+        location (str): Required. The region name
+        display_name (str): Required. The index display name
+        gcs_uri (str): Optional. The Google Cloud Storage uri for index content
+
+    Returns:
+        The created MatchingEngineIndex.
+    """
+    # Initialize the Vertex AI client
+    aiplatform.init(project=project, location=location)
+
+    # Create Index
+    index = aiplatform.MatchingEngineIndex.create_tree_ah_index(
+        display_name=display_name,
+        contents_delta_uri=gcs_uri,
+        description="Matching Engine Index",
+        dimensions=100,
+        approximate_neighbors_count=150,
+        leaf_node_embedding_count=500,
+        leaf_nodes_to_search_percent=7,
+        index_update_method="STREAM_UPDATE",  # Options: STREAM_UPDATE, BATCH_UPDATE
+        distance_measure_type=aiplatform.matching_engine.matching_engine_index_config.DistanceMeasureType.DOT_PRODUCT_DISTANCE,
+    )
+
+    return index
+```
 
 ### Java
 
@@ -598,103 +636,91 @@ Before trying this sample, follow the Java setup instructions in the [Agent Plat
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    import com.google.cloud.aiplatform.v1.CreateIndexRequest;
-    import com.google.cloud.aiplatform.v1.Index;
-    import com.google.cloud.aiplatform.v1.Index.IndexUpdateMethod;
-    import com.google.cloud.aiplatform.v1.IndexServiceClient;
-    import com.google.cloud.aiplatform.v1.IndexServiceSettings;
-    import com.google.cloud.aiplatform.v1.LocationName;
-    import com.google.protobuf.Value;
-    import com.google.protobuf.util.JsonFormat;
-    import java.util.concurrent.TimeUnit;
-    
-    public class CreateStreamingIndexSample {
-    
-      public static void main(String[] args) throws Exception {
-        // TODO(developer): Replace these variables before running the sample.
-        String project = "YOUR_PROJECT_ID";
-        String location = "YOUR_LOCATION";
-        String displayName = "YOUR_INDEX_DISPLAY_NAME";
-        String contentsDeltaUri = "gs://YOUR_BUCKET/";
-        String metadataJson =
-            String.format(
-                "{\n"
-                    + "  \"contentsDeltaUri\": \"%s\",\n"
-                    + "  \"config\": {\n"
-                    + "    \"dimensions\": 100,\n"
-                    + "        \"approximateNeighborsCount\": 150,\n"
-                    + "        \"distanceMeasureType\": \"DOT_PRODUCT_DISTANCE\",\n"
-                    + "        \"shardSize\": \"SHARD_SIZE_MEDIUM\",\n"
-                    + "        \"algorithm_config\": {\n"
-                    + "      \"treeAhConfig\": {\n"
-                    + "        \"leafNodeEmbeddingCount\": 5000,\n"
-                    + "            \"fractionLeafNodesToSearch\": 0.03\n"
-                    + "      }\n"
-                    + "    }\n"
-                    + "  }\n"
-                    + "}",
-                contentsDeltaUri);
-    
-        createStreamingIndexSample(project, location, displayName, metadataJson);
-      }
-    
-      public static Index createStreamingIndexSample(
-          String project, String location, String displayName, String metadataJson) throws Exception {
-        // Initialize client that will be used to send requests. This client only needs to be created
-        // once, and can be reused for multiple requests.
-        try (IndexServiceClient indexServiceClient =
-            IndexServiceClient.create(
-                IndexServiceSettings.newBuilder()
-                    .setEndpoint(location + "-aiplatform.googleapis.com:443")
-                    .build())) {
-          Value.Builder metadataBuilder = Value.newBuilder();
-          JsonFormat.parser().merge(metadataJson, metadataBuilder);
-    
-          CreateIndexRequest request =
-              CreateIndexRequest.newBuilder()
-                  .setParent(LocationName.of(project, location).toString())
-                  .setIndex(
-                      Index.newBuilder()
-                          .setDisplayName(displayName)
-                          .setMetadata(metadataBuilder)
-                          .setIndexUpdateMethod(IndexUpdateMethod.STREAM_UPDATE))
-                  .build();
-    
-          return indexServiceClient.createIndexAsync(request).get(5, TimeUnit.MINUTES);
-        }
-      }
+```java
+import com.google.cloud.aiplatform.v1.CreateIndexRequest;
+import com.google.cloud.aiplatform.v1.Index;
+import com.google.cloud.aiplatform.v1.Index.IndexUpdateMethod;
+import com.google.cloud.aiplatform.v1.IndexServiceClient;
+import com.google.cloud.aiplatform.v1.IndexServiceSettings;
+import com.google.cloud.aiplatform.v1.LocationName;
+import com.google.protobuf.Value;
+import com.google.protobuf.util.JsonFormat;
+import java.util.concurrent.TimeUnit;
+
+public class CreateStreamingIndexSample {
+
+  public static void main(String[] args) throws Exception {
+    // TODO(developer): Replace these variables before running the sample.
+    String project = "YOUR_PROJECT_ID";
+    String location = "YOUR_LOCATION";
+    String displayName = "YOUR_INDEX_DISPLAY_NAME";
+    String contentsDeltaUri = "gs://YOUR_BUCKET/";
+    String metadataJson =
+        String.format(
+            "{\n"
+                + "  \"contentsDeltaUri\": \"%s\",\n"
+                + "  \"config\": {\n"
+                + "    \"dimensions\": 100,\n"
+                + "        \"approximateNeighborsCount\": 150,\n"
+                + "        \"distanceMeasureType\": \"DOT_PRODUCT_DISTANCE\",\n"
+                + "        \"shardSize\": \"SHARD_SIZE_MEDIUM\",\n"
+                + "        \"algorithm_config\": {\n"
+                + "      \"treeAhConfig\": {\n"
+                + "        \"leafNodeEmbeddingCount\": 5000,\n"
+                + "            \"fractionLeafNodesToSearch\": 0.03\n"
+                + "      }\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",
+            contentsDeltaUri);
+
+    createStreamingIndexSample(project, location, displayName, metadataJson);
+  }
+
+  public static Index createStreamingIndexSample(
+      String project, String location, String displayName, String metadataJson) throws Exception {
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests.
+    try (IndexServiceClient indexServiceClient =
+        IndexServiceClient.create(
+            IndexServiceSettings.newBuilder()
+                .setEndpoint(location + "-aiplatform.googleapis.com:443")
+                .build())) {
+      Value.Builder metadataBuilder = Value.newBuilder();
+      JsonFormat.parser().merge(metadataJson, metadataBuilder);
+
+      CreateIndexRequest request =
+          CreateIndexRequest.newBuilder()
+              .setParent(LocationName.of(project, location).toString())
+              .setIndex(
+                  Index.newBuilder()
+                      .setDisplayName(displayName)
+                      .setMetadata(metadataBuilder)
+                      .setIndexUpdateMethod(IndexUpdateMethod.STREAM_UPDATE))
+              .build();
+
+      return indexServiceClient.createIndexAsync(request).get(5, TimeUnit.MINUTES);
     }
+  }
+}
+```
 
 ### Console
 
 Use these instructions to create an index for streaming updates in the Google Cloud console.
 
-To [create an index](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/create) <span>available for Streaming Updates requires similar steps to setting up a Batch Update index, except you need to set `indexUpdateMethod` to `STREAM_UPDATE` .</span>
+To [create an index](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/create) available for Streaming Updates requires similar steps to setting up a Batch Update index, except you need to set `indexUpdateMethod` to `STREAM_UPDATE` .
 
-<span></span>
-
-1.  <span>In the Agent Platform section of the Google Cloud console, go to the **Deploy and Use** section. Select **Vector Search**</span>
-    
-    <span></span>
-
-2.  Click **add\_box Create new index** to open the **Index** pane. The **Create a new index** pane appears.
-
+1.  In the Agent Platform section of the Google Cloud console, go to the **Deploy and Use** section. Select **Vector Search**
+2.  Click **add_box Create new index** to open the **Index** pane. The **Create a new index** pane appears.
 3.  In the **Display name** field, provide a name to uniquely identify your index.
-
 4.  In the **Description** field, provide a description for what the index is for.
-
 5.  In the **Region** field, select a region from the drop-down.
-
 6.  In the Cloud Storage field, search and select the Cloud Storage folder where your vector data is stored.
-
 7.  In the **Algorithm type** drop-down, select the algorithm type that Vector Search will use to perform your search. If you select the treeAh algorithm, enter the approximate neighbors count.
-
 8.  In the **Dimensions** field, enter the number of dimensions of your input vectors.
-
 9.  In the **Update method** field, select **Stream** .
-
 10. In the **Shard size** field, select from the drop-down the shard size you want.
-
 11. Click **Create** . Your new index appears in your list of indexes once it's ready. Note: Build time can take up to an hour to complete.
 
 #### Create an empty index for streaming updates
@@ -705,7 +731,7 @@ To create an empty index, the request is almost identical to creating an index f
 
 #### Empty index request example
 
-``` 
+```
 {
   "display_name": INDEX_NAME,
   "indexUpdateMethod": "STREAM_UPDATE",
@@ -732,9 +758,9 @@ To create an empty index, the request is almost identical to creating an index f
 
 Before using any of the command data below, make the following replacements:
 
-  - INDEX\_NAME : Display name for the index.
-  - LOCATION : The region where you are using Agent Platform.
-  - PROJECT\_ID : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
+- ` INDEX_NAME ` : Display name for the index.
+- ` LOCATION ` : The region where you are using Agent Platform.
+- ` PROJECT_ID ` : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
 
 Execute the following command:
 
@@ -742,32 +768,40 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai indexes list \
-        --region=LOCATION \
-        --project=PROJECT_ID
+```
+gcloud ai indexes list \
+    --region=LOCATION \
+    --project=PROJECT_ID
+```
 
 #### Windows (PowerShell)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai indexes list `
-        --region=LOCATION `
-        --project=PROJECT_ID
+```
+gcloud ai indexes list `
+    --region=LOCATION `
+    --project=PROJECT_ID
+```
 
 #### Windows (cmd.exe)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai indexes list ^
-        --region=LOCATION ^
-        --project=PROJECT_ID
+```
+gcloud ai indexes list ^
+    --region=LOCATION ^
+    --project=PROJECT_ID
+```
 
 You should receive a response similar to the following:
 
-    You can poll for the status of the operation for the response
-    to include "done": true. Use the following example to poll the status.
-    
-      $ gcloud ai operations describe 1234567890123456789 --project=my-test-project --region=us-central1
+```
+You can poll for the status of the operation for the response
+to include "done": true. Use the following example to poll the status.
+
+  $ gcloud ai operations describe 1234567890123456789 --project=my-test-project --region=us-central1
+```
 
 See [gcloud ai operations](https://docs.cloud.google.com/sdk/gcloud/reference/ai/operations/describe) to learn more about the `describe` command.
 
@@ -775,14 +809,16 @@ See [gcloud ai operations](https://docs.cloud.google.com/sdk/gcloud/reference/ai
 
 Before using any of the request data, make the following replacements:
 
-  - INDEX\_NAME : Display name for the index.
-  - LOCATION : The region where you are using Agent Platform.
-  - PROJECT\_ID : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
-  - PROJECT\_NUMBER : Your project's automatically generated [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+- ` INDEX_NAME ` : Display name for the index.
+- ` LOCATION ` : The region where you are using Agent Platform.
+- ` PROJECT_ID ` : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
+- ` PROJECT_NUMBER ` : Your project's automatically generated [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes
+```
 
 To send your request, expand one of these options:
 
@@ -792,9 +828,11 @@ To send your request, expand one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes"
+```
 
 #### PowerShell (Windows)
 
@@ -802,64 +840,70 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/indexes" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-     "indexes": [
-       {
-         "name": "projects/PROJECT_NUMBER/locations/LOCATION/indexes/INDEX_ID",
-         "displayName": "INDEX_NAME",
-         "metadataSchemaUri": "gs://google-cloud-aiplatform/schema/matchingengine/metadata/nearest_neighbor_search_1.0.0.yaml",
-         "metadata": {
-           "config": {
-             "dimensions": 100,
-             "approximateNeighborsCount": 150,
-             "distanceMeasureType": "DOT_PRODUCT_DISTANCE",
-             "featureNormType": "NONE",
-             "algorithmConfig": {
-               "treeAhConfig": {
-                 "maxLeavesToSearch": 50,
-                 "leafNodeCount": 10000
-               }
-             }
+```
+{
+ "indexes": [
+   {
+     "name": "projects/PROJECT_NUMBER/locations/LOCATION/indexes/INDEX_ID",
+     "displayName": "INDEX_NAME",
+     "metadataSchemaUri": "gs://google-cloud-aiplatform/schema/matchingengine/metadata/nearest_neighbor_search_1.0.0.yaml",
+     "metadata": {
+       "config": {
+         "dimensions": 100,
+         "approximateNeighborsCount": 150,
+         "distanceMeasureType": "DOT_PRODUCT_DISTANCE",
+         "featureNormType": "NONE",
+         "algorithmConfig": {
+           "treeAhConfig": {
+             "maxLeavesToSearch": 50,
+             "leafNodeCount": 10000
            }
-         },
-         "etag": "AMEw9yNU8YX5IvwuINeBkVv3yNa7VGKk11GBQ8GkfRoVvO7LgRUeOo0qobYWuU9DiEc=",
-         "createTime": "2020-11-08T21:56:30.558449Z",
-         "updateTime": "2020-11-08T22:39:25.048623Z"
+         }
        }
-     ]
-    }
+     },
+     "etag": "AMEw9yNU8YX5IvwuINeBkVv3yNa7VGKk11GBQ8GkfRoVvO7LgRUeOo0qobYWuU9DiEc=",
+     "createTime": "2020-11-08T21:56:30.558449Z",
+     "updateTime": "2020-11-08T22:39:25.048623Z"
+   }
+ ]
+}
+```
 
 ### Python
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    def vector_search_list_index(
-        project: str, location: str
-    ) -> List[aiplatform.MatchingEngineIndex]:
-        """List vector search indexes.
-    
-        Args:
-            project (str): Required. Project ID
-            location (str): Required. The region name
-    
-        Returns:
-            List of aiplatform.MatchingEngineIndex
-        """
-        # Initialize the Vertex AI client
-        aiplatform.init(project=project, location=location)
-    
-        # List Indexes
-        return aiplatform.MatchingEngineIndex.list()
+```
+def vector_search_list_index(
+    project: str, location: str
+) -> List[aiplatform.MatchingEngineIndex]:
+    """List vector search indexes.
+
+    Args:
+        project (str): Required. Project ID
+        location (str): Required. The region name
+
+    Returns:
+        List of aiplatform.MatchingEngineIndex
+    """
+    # Initialize the Vertex AI client
+    aiplatform.init(project=project, location=location)
+
+    # List Indexes
+    return aiplatform.MatchingEngineIndex.list()
+```
 
 ### Java
 
@@ -867,38 +911,40 @@ Before trying this sample, follow the Java setup instructions in the [Agent Plat
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    import com.google.cloud.aiplatform.v1.Index;
-    import com.google.cloud.aiplatform.v1.IndexServiceClient;
-    import com.google.cloud.aiplatform.v1.IndexServiceClient.ListIndexesPagedResponse;
-    import com.google.cloud.aiplatform.v1.IndexServiceSettings;
-    import com.google.cloud.aiplatform.v1.LocationName;
-    
-    public class ListIndexesSample {
-    
-      public static void main(String[] args) throws Exception {
-        // TODO(developer): Replace these variables before running the sample.
-        String project = "YOUR_PROJECT_ID";
-        String location = "YOUR_LOCATION";
-    
-        for (Index index : listIndexesSample(project, location).iterateAll()) {
-          System.out.println(index.getName());
-        }
-      }
-    
-      public static ListIndexesPagedResponse listIndexesSample(String project, String location)
-          throws Exception {
-        // Initialize client that will be used to send requests. This client only needs to be created
-        // once, and can be reused for multiple requests.
-        try (IndexServiceClient indexServiceClient =
-            IndexServiceClient.create(
-                IndexServiceSettings.newBuilder()
-                    .setEndpoint(location + "-aiplatform.googleapis.com:443")
-                    .build())) {
-          String parent = LocationName.of(project, location).toString();
-          return indexServiceClient.listIndexes(parent);
-        }
-      }
+```java
+import com.google.cloud.aiplatform.v1.Index;
+import com.google.cloud.aiplatform.v1.IndexServiceClient;
+import com.google.cloud.aiplatform.v1.IndexServiceClient.ListIndexesPagedResponse;
+import com.google.cloud.aiplatform.v1.IndexServiceSettings;
+import com.google.cloud.aiplatform.v1.LocationName;
+
+public class ListIndexesSample {
+
+  public static void main(String[] args) throws Exception {
+    // TODO(developer): Replace these variables before running the sample.
+    String project = "YOUR_PROJECT_ID";
+    String location = "YOUR_LOCATION";
+
+    for (Index index : listIndexesSample(project, location).iterateAll()) {
+      System.out.println(index.getName());
     }
+  }
+
+  public static ListIndexesPagedResponse listIndexesSample(String project, String location)
+      throws Exception {
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests.
+    try (IndexServiceClient indexServiceClient =
+        IndexServiceClient.create(
+            IndexServiceSettings.newBuilder()
+                .setEndpoint(location + "-aiplatform.googleapis.com:443")
+                .build())) {
+      String parent = LocationName.of(project, location).toString();
+      return indexServiceClient.listIndexes(parent);
+    }
+  }
+}
+```
 
 ### Console
 
@@ -932,7 +978,7 @@ For parameter definitions, see [Index configuration parameters](https://docs.clo
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr" translate="no">shardSize</code></td>
+<td><code>shardSize</code></td>
 <td><p>Controls the amount of data on each machine.</p>
 <p>When choosing a shard size, estimate how large your dataset will be in the future. If the size of your dataset has an upper bound, pick the appropriate shard size to accommodate it. If there is no upper bound or if your use case is extremely sensitive to latency variability, choosing a large shard size is recommended.</p></td>
 <td><p>If you configure for a larger number of <em>smaller</em> shards, a larger number of candidate results are processed during search. More shards can affect performance in the following ways:</p>
@@ -951,18 +997,18 @@ For parameter definitions, see [Index configuration parameters](https://docs.clo
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">distanceMeasureType</code></td>
+<td><code>distanceMeasureType</code></td>
 <td><p>Determines the algorithm used for distance calculation between data points and the query vector.</p></td>
-<td><p>The following <code dir="ltr" translate="no">distanceMeasureType</code> settings can help reduce query latency:</p>
+<td><p>The following <code>distanceMeasureType</code> settings can help reduce query latency:</p>
 <ul>
-<li><code dir="ltr" translate="no">DOT_PRODUCT_DISTANCE</code> is most optimized for reducing latency</li>
-<li><code dir="ltr" translate="no">DOT_PRODUCT_DISTANCE</code> combined with setting <code dir="ltr" translate="no">FeatureNormType</code> to <code dir="ltr" translate="no">UNIT_L2_NORM</code> is recommended for cosine similarity</li>
+<li><code>DOT_PRODUCT_DISTANCE</code> is most optimized for reducing latency</li>
+<li><code>DOT_PRODUCT_DISTANCE</code> combined with setting <code>FeatureNormType</code> to <code>UNIT_L2_NORM</code> is recommended for cosine similarity</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">leafNodeEmbeddingCount</code></td>
+<td><code>leafNodeEmbeddingCount</code></td>
 <td><p>The number of embeddings for each leaf node. By default, this number is set to 1000.</p>
-<p>Generally, changing the value of <code dir="ltr" translate="no">leafNodeEmbeddingCount</code> has less effect than changing the value of other parameters.</p></td>
+<p>Generally, changing the value of <code>leafNodeEmbeddingCount</code> has less effect than changing the value of other parameters.</p></td>
 <td><p><em>Increasing</em> the number of embeddings for each leaf node can reduce latency but reduce recall quality. It can affect performance in the following ways:</p>
 <ul>
 <li>Recall: Decreased due to less targeted search</li>
@@ -1017,9 +1063,9 @@ https://us-central1-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/location
 
 Before using any of the command data below, make the following replacements:
 
-  - INDEX\_ID : The ID of the index.
-  - LOCATION : The region where you are using Agent Platform.
-  - PROJECT\_ID : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
+- ` INDEX_ID ` : The ID of the index.
+- ` LOCATION ` : The region where you are using Agent Platform.
+- ` PROJECT_ID ` : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
 
 Execute the following command:
 
@@ -1027,38 +1073,46 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai indexes delete INDEX_ID \
-        --region=LOCATION \
-        --project=PROJECT_ID
+```
+gcloud ai indexes delete INDEX_ID \
+    --region=LOCATION \
+    --project=PROJECT_ID
+```
 
 #### Windows (PowerShell)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai indexes delete INDEX_ID `
-        --region=LOCATION `
-        --project=PROJECT_ID
+```
+gcloud ai indexes delete INDEX_ID `
+    --region=LOCATION `
+    --project=PROJECT_ID
+```
 
 #### Windows (cmd.exe)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai indexes delete INDEX_ID ^
-        --region=LOCATION ^
-        --project=PROJECT_ID
+```
+gcloud ai indexes delete INDEX_ID ^
+    --region=LOCATION ^
+    --project=PROJECT_ID
+```
 
 ### REST
 
 Before using any of the request data, make the following replacements:
 
-  - INDEX\_ID : The ID of the index.
-  - LOCATION : The region where you are using Agent Platform.
-  - PROJECT\_ID : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
-  - PROJECT\_NUMBER : Your project's automatically generated [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+- ` INDEX_ID ` : The ID of the index.
+- ` LOCATION ` : The region where you are using Agent Platform.
+- ` PROJECT_ID ` : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
+- ` PROJECT_NUMBER ` : Your project's automatically generated [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
 
 HTTP method and URL:
 
-    DELETE https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION/indexes/INDEX_ID
+```
+DELETE https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION/indexes/INDEX_ID
+```
 
 To send your request, expand one of these options:
 
@@ -1068,9 +1122,11 @@ To send your request, expand one of these options:
 
 Execute the following command:
 
-    curl -X DELETE \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION/indexes/INDEX_ID"
+```
+curl -X DELETE \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION/indexes/INDEX_ID"
+```
 
 #### PowerShell (Windows)
 
@@ -1078,56 +1134,62 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method DELETE `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION/indexes/INDEX_ID" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method DELETE `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION/indexes/INDEX_ID" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION/indexes/INDEX_ID/operations/OPERATION_ID",
-      "metadata": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.DeleteOperationMetadata",
-        "genericMetadata": {
-          "createTime": "2022-01-08T02:35:56.364956Z",
-          "updateTime": "2022-01-08T02:35:56.364956Z"
-        }
-      },
-      "done": true,
-      "response": {
-        "@type": "type.googleapis.com/google.protobuf.Empty"
-      }
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION/indexes/INDEX_ID/operations/OPERATION_ID",
+  "metadata": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1.DeleteOperationMetadata",
+    "genericMetadata": {
+      "createTime": "2022-01-08T02:35:56.364956Z",
+      "updateTime": "2022-01-08T02:35:56.364956Z"
     }
+  },
+  "done": true,
+  "response": {
+    "@type": "type.googleapis.com/google.protobuf.Empty"
+  }
+}
+```
 
 ### Python
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    def vector_search_delete_index(
-        project: str, location: str, index_name: str
-    ) -> None:
-        """Delete a vector search index.
-    
-        Args:
-            project (str): Required. Project ID
-            location (str): Required. The region name
-            index_name (str): Required. The index to update. A fully-qualified index
-              resource name or a index ID.  Example:
-              "projects/123/locations/us-central1/indexes/my_index_id" or
-              "my_index_id".
-        """
-        # Initialize the Vertex AI client
-        aiplatform.init(project=project, location=location)
-    
-        # Create the index instance from an existing index
-        index = aiplatform.MatchingEngineIndex(index_name=index_name)
-    
-        # Delete the index
-        index.delete()
+```
+def vector_search_delete_index(
+    project: str, location: str, index_name: str
+) -> None:
+    """Delete a vector search index.
+
+    Args:
+        project (str): Required. Project ID
+        location (str): Required. The region name
+        index_name (str): Required. The index to update. A fully-qualified index
+          resource name or a index ID.  Example:
+          "projects/123/locations/us-central1/indexes/my_index_id" or
+          "my_index_id".
+    """
+    # Initialize the Vertex AI client
+    aiplatform.init(project=project, location=location)
+
+    # Create the index instance from an existing index
+    index = aiplatform.MatchingEngineIndex(index_name=index_name)
+
+    # Delete the index
+    index.delete()
+```
 
 ### Java
 
@@ -1135,36 +1197,38 @@ Before trying this sample, follow the Java setup instructions in the [Agent Plat
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    import com.google.cloud.aiplatform.v1.IndexName;
-    import com.google.cloud.aiplatform.v1.IndexServiceClient;
-    import com.google.cloud.aiplatform.v1.IndexServiceSettings;
-    import java.util.concurrent.TimeUnit;
-    
-    public class DeleteIndexSample {
-    
-      public static void main(String[] args) throws Exception {
-        // TODO(developer): Replace these variables before running the sample.
-        String project = "YOUR_PROJECT_ID";
-        String location = "YOUR_LOCATION";
-        String indexId = "YOUR_INDEX_ID";
-    
-        deleteIndexSample(project, location, indexId);
-      }
-    
-      public static void deleteIndexSample(String project, String location, String indexId)
-          throws Exception {
-        // Initialize client that will be used to send requests. This client only needs to be created
-        // once, and can be reused for multiple requests.
-        try (IndexServiceClient indexServiceClient =
-            IndexServiceClient.create(
-                IndexServiceSettings.newBuilder()
-                    .setEndpoint(location + "-aiplatform.googleapis.com:443")
-                    .build())) {
-          String indexName = IndexName.of(project, location, indexId).toString();
-          indexServiceClient.deleteIndexAsync(indexName).get(5, TimeUnit.MINUTES);
-        }
-      }
+```java
+import com.google.cloud.aiplatform.v1.IndexName;
+import com.google.cloud.aiplatform.v1.IndexServiceClient;
+import com.google.cloud.aiplatform.v1.IndexServiceSettings;
+import java.util.concurrent.TimeUnit;
+
+public class DeleteIndexSample {
+
+  public static void main(String[] args) throws Exception {
+    // TODO(developer): Replace these variables before running the sample.
+    String project = "YOUR_PROJECT_ID";
+    String location = "YOUR_LOCATION";
+    String indexId = "YOUR_INDEX_ID";
+
+    deleteIndexSample(project, location, indexId);
+  }
+
+  public static void deleteIndexSample(String project, String location, String indexId)
+      throws Exception {
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests.
+    try (IndexServiceClient indexServiceClient =
+        IndexServiceClient.create(
+            IndexServiceSettings.newBuilder()
+                .setEndpoint(location + "-aiplatform.googleapis.com:443")
+                .build())) {
+      String indexName = IndexName.of(project, location, indexId).toString();
+      indexServiceClient.deleteIndexAsync(indexName).get(5, TimeUnit.MINUTES);
     }
+  }
+}
+```
 
 ### Console
 
@@ -1172,12 +1236,12 @@ Use these instructions to delete one or more indexes.
 
 1.  In the Agent Platform section of the Google Cloud console, go to the **Deploy and Use** section. Select **Vector Search**
 2.  A list of your active indexes is displayed.
-3.  To delete an index, go to the more\_vert options menu that is in the same row as the index and select **Delete** .
+3.  To delete an index, go to the more_vert options menu that is in the same row as the index and select **Delete** .
 
 ## What's next
 
-  - Learn about [Index configuration parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/configuring-indexes)
-  - Learn how to [Deploy and manage public index endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/deploy-index-public)
-  - Learn how to [Deploy and manage index endpoints in a VPC network](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/deploy-index-vpc)
-  - Learn how to [Update and rebuild your index](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/update-rebuild-index)
-  - Learn how to [Monitor an index](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/monitor)
+- Learn about [Index configuration parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/configuring-indexes)
+- Learn how to [Deploy and manage public index endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/deploy-index-public)
+- Learn how to [Deploy and manage index endpoints in a VPC network](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/deploy-index-vpc)
+- Learn how to [Update and rebuild your index](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/update-rebuild-index)
+- Learn how to [Monitor an index](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/monitor)

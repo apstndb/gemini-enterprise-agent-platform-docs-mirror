@@ -23,30 +23,30 @@ Training jobs can take several hours to complete. The Agent Platform page of the
 4.  Click **Train new model** .
 
 5.  In the **Train new model** page, complete the following steps:
-    
-    1.  Select radio\_button\_checked **AutoML Edge** for the training method and click **Continue** .
-    
+
+    1.  Select radio_button_checked **AutoML Edge** for the training method and click **Continue** .
+
     2.  Enter the display name for your new model.
-    
+
     3.  If you want manually set how your training data is split, expand *Advanced options* \* and select a data split option. For more information, see [About data splits for AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use) .
-    
+
     4.  Click **Continue** .
-    
+
     5.  Select the optimization goal that best suits your need. You can optimize for accuracy, latency, or both.
-    
+
     6.  Click **Continue** .
-    
+
     7.  In the **Compute and pricing** window, enter the maximum number of hours you want your model to train for.
-        
+
         This setting helps you put a cap on the training costs. The actual time elapsed can be longer than this value, because there are other operations involved in creating a new model.
 
 6.  If you want to stop training when the model is no longer improving, select **Enable early stopping** .
 
 7.  Click **Start Training** .
-    
+
     Model training can take many hours, depending on your training budget (image only) and the size and complexity of your data. You can close this tab and return to it later. You will receive an email when your model has completed training.
 
 ## What's next
 
-  - [Evaluate AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview#automl) .
-  - [Export AutoML Edge models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/export/export-edge-model) .
+- [Evaluate AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview#automl) .
+- [Export AutoML Edge models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/export/export-edge-model) .

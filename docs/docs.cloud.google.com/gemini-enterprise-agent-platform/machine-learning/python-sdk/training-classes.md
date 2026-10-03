@@ -26,24 +26,26 @@ The [`AutoMLTabularTrainingJob`](https://docs.cloud.google.com/python/docs/refer
 
 The following sample code snippet shows how you might use the Agent Platform SDK to create and run an `AutoML` tabular model:
 
-    dataset = aiplatform.TabularDataset('projects/my-project/location/us-central1/datasets/{DATASET_ID}')
-    
-    job = aiplatform.AutoMLTabularTrainingJob(
-      display_name="train-automl",
-      optimization_prediction_type="regression",
-      optimization_objective="minimize-rmse",
-    )
-    
-    model = job.run(
-        dataset=dataset,
-        target_column="target_column_name",
-        training_fraction_split=0.6,
-        validation_fraction_split=0.2,
-        test_fraction_split=0.2,
-        budget_milli_node_hours=1000,
-        model_display_name="my-automl-model",
-        disable_early_stopping=False,
-    )
+```
+dataset = aiplatform.TabularDataset('projects/my-project/location/us-central1/datasets/{DATASET_ID}')
+
+job = aiplatform.AutoMLTabularTrainingJob(
+  display_name="train-automl",
+  optimization_prediction_type="regression",
+  optimization_objective="minimize-rmse",
+)
+
+model = job.run(
+    dataset=dataset,
+    target_column="target_column_name",
+    training_fraction_split=0.6,
+    validation_fraction_split=0.2,
+    test_fraction_split=0.2,
+    budget_milli_node_hours=1000,
+    model_display_name="my-automl-model",
+    disable_early_stopping=False,
+)
+```
 
 ### [`SequenceToSequencePlusForecastingTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.SequenceToSequencePlusForecastingTrainingJob)
 
@@ -97,38 +99,40 @@ Because the [`CustomJob.run`](https://docs.cloud.google.com/python/docs/referenc
 
 The following sample code demonstrates how to create and run a custom job using a sample worker pool specification. The code writes the trained model to a Cloud Storage bucket named *artifact-bucket* .
 
-    # Create a worker pool spec that specifies a TensorFlow cassava dataset and
-    # includes the machine type and Docker image. The Google Cloud project ID
-    # is 'project-id'.
-    worker_pool_specs=[
-         {
-            "replica_count": 1,
-            "machine_spec": { "machine_type": "n1-standard-8",
-                              "accelerator_type": "NVIDIA_TESLA_V100",
-                              "accelerator_count": 1
-            },
-            "container_spec": {"image_uri": "gcr.io/{project-id}/multiworker:cassava"}
-          },
-          {
-            "replica_count": 1,
-            "machine_spec": { "machine_type": "n1-standard-8",
-                              "accelerator_type": "NVIDIA_TESLA_V100",
-                              "accelerator_count": 1
-            },
-            "container_spec": {"image_uri": "gcr.io/{project-id}/multiworker:cassava"}
-          }
-    ]
-    
-    # Use the worker pool spec to create a custom training job. The custom training
-    # job artifacts are stored in the Cloud Storage bucket
-    # named 'artifact-bucket'.
-    your_custom_training_job = aiplatform.CustomJob(
-                                          display_name='multiworker-cassava-sdk',
-                                          worker_pool_specs=worker_pool_specs,
-                                          staging_bucket='gs://{artifact-bucket}')
-    
-    # Run the training job. This method doesn't return the trained model.
-    my_multiworker_job.run()
+```
+# Create a worker pool spec that specifies a TensorFlow cassava dataset and
+# includes the machine type and Docker image. The Google Cloud project ID
+# is 'project-id'.
+worker_pool_specs=[
+     {
+        "replica_count": 1,
+        "machine_spec": { "machine_type": "n1-standard-8",
+                          "accelerator_type": "NVIDIA_TESLA_V100",
+                          "accelerator_count": 1
+        },
+        "container_spec": {"image_uri": "gcr.io/{project-id}/multiworker:cassava"}
+      },
+      {
+        "replica_count": 1,
+        "machine_spec": { "machine_type": "n1-standard-8",
+                          "accelerator_type": "NVIDIA_TESLA_V100",
+                          "accelerator_count": 1
+        },
+        "container_spec": {"image_uri": "gcr.io/{project-id}/multiworker:cassava"}
+      }
+]
+
+# Use the worker pool spec to create a custom training job. The custom training
+# job artifacts are stored in the Cloud Storage bucket
+# named 'artifact-bucket'.
+your_custom_training_job = aiplatform.CustomJob(
+                                      display_name='multiworker-cassava-sdk',
+                                      worker_pool_specs=worker_pool_specs,
+                                      staging_bucket='gs://{artifact-bucket}')
+
+# Run the training job. This method doesn't return the trained model.
+my_multiworker_job.run()
+```
 
 ### [`CustomPythonPackageTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomPythonPackageTrainingJob)
 
@@ -164,14 +168,14 @@ An instance of the [`PipelineJob`](https://docs.cloud.google.com/python/docs/ref
 
 There are several tutorial notebooks that demonstrate how to use the [`PipelineJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.PipelineJob) class:
 
-  - To learn how to run a [Kubeflow Pipelines (KFP)](https://www.kubeflow.org/docs/components/pipelines/) pipeline, see the [Pipeline control structures using the KFP SDK](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/control_flow_kfp.ipynb) tutorial on GitHub.
+- To learn how to run a [Kubeflow Pipelines (KFP)](https://www.kubeflow.org/docs/components/pipelines/) pipeline, see the [Pipeline control structures using the KFP SDK](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/control_flow_kfp.ipynb) tutorial on GitHub.
 
-  - To learn how to train a [scikit-learn](https://scikit-learn.org/stable/) tabular classification model and create a batch prediction job with a Gemini Enterprise Agent Platform pipeline, see the [Training and batch prediction with BigQuery source and destination for a custom tabular classification model](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/custom_tabular_train_batch_pred_bq_pipeline.ipynb) tutorial on GitHub.
+- To learn how to train a [scikit-learn](https://scikit-learn.org/stable/) tabular classification model and create a batch prediction job with a Gemini Enterprise Agent Platform pipeline, see the [Training and batch prediction with BigQuery source and destination for a custom tabular classification model](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/custom_tabular_train_batch_pred_bq_pipeline.ipynb) tutorial on GitHub.
 
-  - To learn how to build an AutoML image classification model and use a Gemini Enterprise Agent Platform pipeline, see the [AutoML image classification pipelines using google-cloud-pipeline-components](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/google_cloud_pipeline_components_automl_images.ipynb) tutorial on GitHub.
+- To learn how to build an AutoML image classification model and use a Gemini Enterprise Agent Platform pipeline, see the [AutoML image classification pipelines using google-cloud-pipeline-components](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/google_cloud_pipeline_components_automl_images.ipynb) tutorial on GitHub.
 
 For more tutorial notebooks, see [Gemini Enterprise Agent Platform notebook tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/jupyter-notebooks) .
 
 ## What's next
 
-  - Learn about the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .
+- Learn about the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .

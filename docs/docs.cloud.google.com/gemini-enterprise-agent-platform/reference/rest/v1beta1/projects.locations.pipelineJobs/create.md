@@ -32,8 +32,8 @@ This value should be less than 128 characters, and valid characters are `/[a-z][
 
 ### Request body
 
-The request body contains an instance of `  PipelineJob  ` .
+The request body contains an instance of [`PipelineJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.pipelineJobs#PipelineJob) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  PipelineJob  ` .
+If successful, the response body contains a newly created instance of [`PipelineJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.pipelineJobs#PipelineJob) .

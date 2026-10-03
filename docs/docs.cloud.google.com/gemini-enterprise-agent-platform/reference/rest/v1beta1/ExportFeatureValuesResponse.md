@@ -8,4 +8,4 @@ data_source: docs.cloud.google.com
 
 This type has no fields.
 
-Response message for `  FeaturestoreService.ExportFeatureValues  ` .
+Response message for [`FeaturestoreService.ExportFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/exportFeatureValues#google.cloud.aiplatform.v1beta1.FeaturestoreService.ExportFeatureValues) .

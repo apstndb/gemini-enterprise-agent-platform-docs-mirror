@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This page discusses how to control access to a Gemini Enterprise Agent Platform endpoint by setting an IAM policy on it.
 
-> **Important:** Endpoint-level IAM is not supported for Gemini Enterprise Agent Platform endpoints. Users attempting to use this feature may receive PERMISSION\_DENIED errors (status code 403) despite having correct endpoint-level IAM bindings.
+> **Important:** Endpoint-level IAM is not supported for Gemini Enterprise Agent Platform endpoints. Users attempting to use this feature may receive PERMISSION_DENIED errors (status code 403) despite having correct endpoint-level IAM bindings.
 
 It assumes that you're already familiar with IAM concepts such as policies, roles, permissions, and principals as described in [Agent Platform access control with IAM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) and [Concepts related to access management](https://docs.cloud.google.com/iam/docs/overview#concepts_related_to_access_management) .
 
@@ -24,13 +24,15 @@ To get the IAM policy from a resource, send a `POST` request that uses the [`get
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : The region where the endpoint is located, for example, `us-central1` .
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - ENDPOINT\_ID : The ID for the endpoint.
+- ` LOCATION_ID ` : The region where the endpoint is located, for example, `us-central1` .
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` ENDPOINT_ID ` : The ID for the endpoint.
 
 HTTP method and URL:
 
-    POST https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:getIamPolicy
+```
+POST https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:getIamPolicy
+```
 
 To send your request, choose one of these options:
 
@@ -40,11 +42,13 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d "" \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:getIamPolicy"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d "" \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:getIamPolicy"
+```
 
 #### PowerShell
 
@@ -52,28 +56,32 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:getIamPolicy" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:getIamPolicy" | Select-Object -Expand Content
+```
 
 You should receive a JSON response with the current IAM policy:
 
+```
+{
+  "version": 1,
+  "etag": "BwXTmICm7mI",
+  "bindings": [
     {
-      "version": 1,
-      "etag": "BwXTmICm7mI",
-      "bindings": [
-        {
-          "role": "roles/aiplatform.user",
-          "members": [
-            "user:example@example.com"
-          ]
-        }
+      "role": "roles/aiplatform.user",
+      "members": [
+        "user:example@example.com"
       ]
     }
+  ]
+}
+```
 
 ## Set an IAM policy
 
@@ -89,33 +97,37 @@ If you receive a `409` error code, this means that a concurrent `setIamPolicy` r
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : The region where the endpoint is located, for example, `us-central1` .
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - ENDPOINT\_ID : The ID for the endpoint.
-  - ROLE : An IAM role that includes the permissions to grant, such as `roles/aiplatform.user` .
-  - PRINCIPAL : The principal that is granted the role's permissions, such as `user:myuser@example.com` .
-  - ETAG : A string value that is used to prevent simultaneous updates of a policy from overwriting each other. This value is returned as part of the `getIamPolicy` response.
+- ` LOCATION_ID ` : The region where the endpoint is located, for example, `us-central1` .
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` ENDPOINT_ID ` : The ID for the endpoint.
+- ` ROLE ` : An IAM role that includes the permissions to grant, such as `roles/aiplatform.user` .
+- ` PRINCIPAL ` : The principal that is granted the role's permissions, such as `user:myuser@example.com` .
+- ` ETAG ` : A string value that is used to prevent simultaneous updates of a policy from overwriting each other. This value is returned as part of the `getIamPolicy` response.
 
 HTTP method and URL:
 
-    POST https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:setIamPolicy
+```
+POST https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:setIamPolicy
+```
 
 Request JSON body:
 
-    {
-      "policy": {
-        "bindings": [
-          {
-            "role": "ROLE",
-            "members": [
-              "PRINCIPAL"
-            ]
-          },
-          ...
-        ],
-        "etag": "ETAG"
-      }
-    }
+```
+{
+  "policy": {
+    "bindings": [
+      {
+        "role": "ROLE",
+        "members": [
+          "PRINCIPAL"
+        ]
+      },
+      ...
+    ],
+    "etag": "ETAG"
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -125,11 +137,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:setIamPolicy"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:setIamPolicy"
+```
 
 #### PowerShell
 
@@ -137,30 +151,34 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:setIamPolicy" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:setIamPolicy" | Select-Object -Expand Content
+```
 
 You should receive a JSON response with the current IAM policy:
 
+```
+{
+  "version": 1,
+  "etag": "BwXTmICm7mI",
+  "bindings": [
     {
-      "version": 1,
-      "etag": "BwXTmICm7mI",
-      "bindings": [
-        {
-          "role": "roles/aiplatform.user",
-          "members": [
-            "user:example@example.com"
-          ]
-        }
+      "role": "roles/aiplatform.user",
+      "members": [
+        "user:example@example.com"
       ]
     }
+  ]
+}
+```
 
 ## Verify a user's IAM permissions for an endpoint
 
@@ -172,22 +190,26 @@ To verify whether a user has specific IAM permissions for a resource, send a `PO
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : The region where the endpoint is located, for example, `us-central1` .
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - ENDPOINT\_ID : The ID for the endpoint.
+- ` LOCATION_ID ` : The region where the endpoint is located, for example, `us-central1` .
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` ENDPOINT_ID ` : The ID for the endpoint.
 
 HTTP method and URL:
 
-    POST https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:testIamPermissions
+```
+POST https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:testIamPermissions
+```
 
 Request JSON body:
 
-    {
-      "permissions": [
-        "aiplatform.googleapis.com/aiplatform.endpoints.get",
-        "aiplatform.googleapis.com/aiplatform.endpoints.predict"
-      ]
-    }
+```
+{
+  "permissions": [
+    "aiplatform.googleapis.com/aiplatform.endpoints.get",
+    "aiplatform.googleapis.com/aiplatform.endpoints.predict"
+  ]
+}
+```
 
 To send your request, choose one of these options:
 
@@ -197,11 +219,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:testIamPermissions"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:testIamPermissions"
+```
 
 #### PowerShell
 
@@ -209,24 +233,28 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:testIamPermissions" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:testIamPermissions" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following. The response includes only those permissions from the request JSON body that are available to the currently authenticated user.
 
-    {
-      "permissions": [
-        "aiplatform.googleapis.com/aiplatform.endpoints.get",
-        "aiplatform.googleapis.com/aiplatform.endpoints.predict"
-      ]
-    }
+```
+{
+  "permissions": [
+    "aiplatform.googleapis.com/aiplatform.endpoints.get",
+    "aiplatform.googleapis.com/aiplatform.endpoints.predict"
+  ]
+}
+```
 
 ## What's next
 

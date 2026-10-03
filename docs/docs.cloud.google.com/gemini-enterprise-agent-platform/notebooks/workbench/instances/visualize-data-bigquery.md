@@ -27,7 +27,7 @@ Your administrator might also be able to give your instance's service account th
 1.  In the Google Cloud console, go to the **Instances** page.
 
 2.  Next to your Agent Platform Workbench instance's name, click **Open JupyterLab** .
-    
+
     Your Agent Platform Workbench instance opens JupyterLab.
 
 ## Read data from BigQuery
@@ -45,30 +45,32 @@ Magic commands that use a single or double percentage character ( `%` or `%%` ) 
 1.  To open a notebook file, select **File \> New \> Notebook** .
 
 2.  In the **Select Kernel** dialog, select **Python 3** , and then click **Select** .
-    
+
     Your new IPYNB file opens.
 
 3.  To get the number of regions by country in the `international_top_terms` dataset, enter the following statement:
-    
-        %%bigquery
-        SELECT
-          country_code,
-          country_name,
-          COUNT(DISTINCT region_code) AS num_regions
-        FROM
-          `bigquery-public-data.google_trends.international_top_terms`
-        WHERE
-          refresh_date = DATE_SUB(CURRENT_DATE, INTERVAL 1 DAY)
-        GROUP BY
-          country_code,
-          country_name
-        ORDER BY
-          num_regions DESC;
 
-4.  Click play\_circle\_filled **Run cell** .
-    
+    ```
+    %%bigquery
+    SELECT
+      country_code,
+      country_name,
+      COUNT(DISTINCT region_code) AS num_regions
+    FROM
+      `bigquery-public-data.google_trends.international_top_terms`
+    WHERE
+      refresh_date = DATE_SUB(CURRENT_DATE, INTERVAL 1 DAY)
+    GROUP BY
+      country_code,
+      country_name
+    ORDER BY
+      num_regions DESC;
+    ```
+
+4.  Click play_circle_filled **Run cell** .
+
     The output is similar to the following:
-    
+
     ```console
     Query complete after 0.07s: 100%|██████████| 4/4 [00:00<00:00, 1440.60query/s]
     Downloading: 100%|██████████| 41/41 [00:02<00:00, 20.21rows/s]
@@ -99,35 +101,39 @@ Magic commands that use a single or double percentage character ( `%` or `%%` ) 
     23  PH  Philippines    17
     ...
     ```
-    
+
     > **Note:** Your results might differ from what is above as the `google_trends` dataset being queried is refreshed with new data on an ongoing basis.
 
 5.  In the next cell (below the output from the previous cell), enter the following command to run the same query, but this time save the results to a new pandas DataFrame that's named `regions_by_country` . You provide that name by using an argument with the `%%bigquery` magic command.
-    
-        %%bigquery regions_by_country
-        SELECT
-          country_code,
-          country_name,
-          COUNT(DISTINCT region_code) AS num_regions
-        FROM
-          `bigquery-public-data.google_trends.international_top_terms`
-        WHERE
-          refresh_date = DATE_SUB(CURRENT_DATE, INTERVAL 1 DAY)
-        GROUP BY
-          country_code, country_name
-        ORDER BY
-          num_regions DESC;
-    
+
+    ```
+    %%bigquery regions_by_country
+    SELECT
+      country_code,
+      country_name,
+      COUNT(DISTINCT region_code) AS num_regions
+    FROM
+      `bigquery-public-data.google_trends.international_top_terms`
+    WHERE
+      refresh_date = DATE_SUB(CURRENT_DATE, INTERVAL 1 DAY)
+    GROUP BY
+      country_code, country_name
+    ORDER BY
+      num_regions DESC;
+    ```
+
     **Note:** For more information about available arguments for the `%%bigquery` command, see the [client library magics documentation](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/magics) .
 
-6.  Click play\_circle\_filled **Run cell** .
+6.  Click play_circle_filled **Run cell** .
 
 7.  In the next cell, enter the following command to look at the first few rows of the query results that you just read in:
-    
-        regions_by_country.head()
 
-8.  Click play\_circle\_filled **Run cell** .
-    
+    ```
+    regions_by_country.head()
+    ```
+
+8.  Click play_circle_filled **Run cell** .
+
     The pandas DataFrame `regions_by_country` is ready to plot.
 
 ### Query data by using the BigQuery client library directly
@@ -139,66 +145,70 @@ The client library gives you more control over your queries and lets you use mor
 **Note:** You can use a number of Python data analysis, data wrangling, and visualization libraries, such as `numpy` , `pandas` , `matplotlib` , and many others. Several of these libraries are built on top of a DataFrame object.
 
 1.  In the next cell, enter the following Python code to import the BigQuery client library for Python and initialize a client:
-    
-        from google.cloud import bigquery
-        
-        client = bigquery.Client()
-    
+
+    ```
+    from google.cloud import bigquery
+
+    client = bigquery.Client()
+    ```
+
     The BigQuery client is used to send and receive messages from the BigQuery API.
 
-2.  Click play\_circle\_filled **Run cell** .
+2.  Click play_circle_filled **Run cell** .
 
 3.  In the next cell, enter the following code to retrieve the percentage of daily top terms in the US [`top_terms`](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_trends&t=top_terms&page=table) that overlap across time by number of days apart. The idea here is to look at each day's top terms and see what percentage of them overlap with the top terms from the day before, 2 days prior, 3 days prior, and so on (for all pairs of dates over about a month span).
-    
-        sql = """
-        WITH
-          TopTermsByDate AS (
-            SELECT DISTINCT refresh_date AS date, term
-            FROM `bigquery-public-data.google_trends.top_terms`
-          ),
-          DistinctDates AS (
-            SELECT DISTINCT date
-            FROM TopTermsByDate
-          )
-        SELECT
-          DATE_DIFF(Dates2.date, Date1Terms.date, DAY)
-            AS days_apart,
-          COUNT(DISTINCT (Dates2.date || Date1Terms.date))
-            AS num_date_pairs,
-          COUNT(Date1Terms.term) AS num_date1_terms,
-          SUM(IF(Date2Terms.term IS NOT NULL, 1, 0))
-            AS overlap_terms,
-          SAFE_DIVIDE(
-            SUM(IF(Date2Terms.term IS NOT NULL, 1, 0)),
-            COUNT(Date1Terms.term)
-            ) AS pct_overlap_terms
-        FROM
-          TopTermsByDate AS Date1Terms
-        CROSS JOIN
-          DistinctDates AS Dates2
-        LEFT JOIN
-          TopTermsByDate AS Date2Terms
-          ON
-            Dates2.date = Date2Terms.date
-            AND Date1Terms.term = Date2Terms.term
-        WHERE
-          Date1Terms.date <= Dates2.date
-        GROUP BY
-          days_apart
-        
-        ORDER BY
-          days_apart;
-        """
-        pct_overlap_terms_by_days_apart = client.query(sql).to_dataframe()
-        
-        pct_overlap_terms_by_days_apart.head()
-    
+
+    ```
+    sql = """
+    WITH
+      TopTermsByDate AS (
+        SELECT DISTINCT refresh_date AS date, term
+        FROM `bigquery-public-data.google_trends.top_terms`
+      ),
+      DistinctDates AS (
+        SELECT DISTINCT date
+        FROM TopTermsByDate
+      )
+    SELECT
+      DATE_DIFF(Dates2.date, Date1Terms.date, DAY)
+        AS days_apart,
+      COUNT(DISTINCT (Dates2.date || Date1Terms.date))
+        AS num_date_pairs,
+      COUNT(Date1Terms.term) AS num_date1_terms,
+      SUM(IF(Date2Terms.term IS NOT NULL, 1, 0))
+        AS overlap_terms,
+      SAFE_DIVIDE(
+        SUM(IF(Date2Terms.term IS NOT NULL, 1, 0)),
+        COUNT(Date1Terms.term)
+        ) AS pct_overlap_terms
+    FROM
+      TopTermsByDate AS Date1Terms
+    CROSS JOIN
+      DistinctDates AS Dates2
+    LEFT JOIN
+      TopTermsByDate AS Date2Terms
+      ON
+        Dates2.date = Date2Terms.date
+        AND Date1Terms.term = Date2Terms.term
+    WHERE
+      Date1Terms.date <= Dates2.date
+    GROUP BY
+      days_apart
+
+    ORDER BY
+      days_apart;
+    """
+    pct_overlap_terms_by_days_apart = client.query(sql).to_dataframe()
+
+    pct_overlap_terms_by_days_apart.head()
+    ```
+
     The SQL being used is encapsulated in a Python string and then passed to the [`query()` method](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client#google_cloud_bigquery_client_Client_query) to run a query. The [`to_dataframe` method](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.job.QueryJob#google_cloud_bigquery_job_QueryJob_to_dataframe) waits for the query to finish and downloads the results to a pandas DataFrame by using the BigQuery Storage API.
 
-4.  Click play\_circle\_filled **Run cell** .
-    
+4.  Click play_circle_filled **Run cell** .
+
     The first few rows of query results appear below the code cell.
-    
+
     ```console
        days_apart   num_date_pairs  num_date1_terms overlap_terms   pct_overlap_terms
      0          0             32               800            800            1.000000
@@ -207,7 +217,7 @@ The client library gives you more control over your queries and lets you use mor
      3          3             29               725             31            0.042759
      4          4             28               700             23            0.032857
     ```
-    
+
     > **Note:** Your results might differ from what is above as the `google_trends` dataset being queried is refreshed with new data on an ongoing basis.
 
 For more information about using BigQuery client libraries, see the quickstart [Using client libraries](https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries) .
@@ -219,13 +229,15 @@ In this section, you use a notebook shortcut to get summary statistics and visua
 The BigQuery client library provides a magic command, `%bigquery_stats` , that you can call with a specific table name to provide an overview of the table and detailed statistics on each of the table's columns.
 
 1.  In the next cell, enter the following code to run that analysis on the US [`top_terms` table](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_trends&t=top_terms&page=table) :
-    
-        %bigquery_stats bigquery-public-data.google_trends.top_terms
 
-2.  Click play\_circle\_filled **Run cell** .
-    
+    ```
+    %bigquery_stats bigquery-public-data.google_trends.top_terms
+    ```
+
+2.  Click play_circle_filled **Run cell** .
+
     After running for some time, an image appears with various statistics on each of the 7 variables in the `top_terms` table. The following image shows part of some example output:
-    
+
     ![International top terms overview of statistics.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/jupyter-overview-of-statistics.png)
 
 > **Note:** Your results might differ from what is above as the `google_trends` dataset being queried is refreshed with new data on an ongoing basis.
@@ -235,29 +247,33 @@ The BigQuery client library provides a magic command, `%bigquery_stats` , that y
 In this section, you use plotting capabilities to visualize the results from the queries that you previously ran in your Jupyter notebook.
 
 1.  In the next cell, enter the following code to use the pandas `DataFrame.plot()` method to create a bar chart that visualizes the results of the query that returns the number of regions by country:
-    
-        regions_by_country.plot(kind="bar", x="country_name", y="num_regions", figsize=(15, 10))
 
-2.  Click play\_circle\_filled **Run cell** .
-    
+    ```
+    regions_by_country.plot(kind="bar", x="country_name", y="num_regions", figsize=(15, 10))
+    ```
+
+2.  Click play_circle_filled **Run cell** .
+
     The chart is similar to the following:
-    
+
     ![International top terms country results](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/jupyter-trends-country-name.png)
 
 3.  In the next cell, enter the following code to use the pandas `DataFrame.plot()` method to create a scatter plot that visualizes the results from the query for the percentage of overlap in the top search terms by days apart:
-    
-        pct_overlap_terms_by_days_apart.plot(
-          kind="scatter",
-          x="days_apart",
-          y="pct_overlap_terms",
-          s=len(pct_overlap_terms_by_days_apart["num_date_pairs"]) * 20,
-          figsize=(15, 10)
-          )
 
-4.  Click play\_circle\_filled **Run cell** .
-    
+    ```
+    pct_overlap_terms_by_days_apart.plot(
+      kind="scatter",
+      x="days_apart",
+      y="pct_overlap_terms",
+      s=len(pct_overlap_terms_by_days_apart["num_date_pairs"]) * 20,
+      figsize=(15, 10)
+      )
+    ```
+
+4.  Click play_circle_filled **Run cell** .
+
     The chart is similar to the following. The size of each point reflects the number of date pairs that are that many days apart in the data. For example, there are more pairs that are 1 day apart than 30 days apart because the top search terms are surfaced daily over about a month's time.
-    
+
     ![International top terms days apart chart.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/jupyter-chart-of-terms-v-days.png)
 
 For more information about data visualization, see the [pandas documentation](https://pandas.pydata.org/pandas-docs/stable/visualization.html) .
@@ -265,5 +281,5 @@ For more information about data visualization, see the [pandas documentation](ht
 ## What's next
 
 > To see an example of exploring and visualizing BigQuery data as part of a comprehensive workflow in Agent Platform Workbench, run the "Interactive exploratory analysis of BigQuery data in a notebook" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/workbench/exploratory_data_analysis/explore_data_in_bigquery_with_workbench.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fworkbench%2Fexploratory_data_analysis%2Fexplore_data_in_bigquery_with_workbench.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fworkbench%2Fexploratory_data_analysis%2Fexplore_data_in_bigquery_with_workbench.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/workbench/exploratory_data_analysis/explore_data_in_bigquery_with_workbench.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/workbench/exploratory_data_analysis/explore_data_in_bigquery_with_workbench.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fworkbench%2Fexploratory_data_analysis%2Fexplore_data_in_bigquery_with_workbench.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fworkbench%2Fexploratory_data_analysis%2Fexplore_data_in_bigquery_with_workbench.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/workbench/exploratory_data_analysis/explore_data_in_bigquery_with_workbench.ipynb)

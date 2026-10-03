@@ -28,28 +28,24 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  VizierService.ListOptimalTrials  ` .
+Response message for [`VizierService.ListOptimalTrials`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies.trials/listOptimalTrials#google.cloud.aiplatform.v1beta1.VizierService.ListOptimalTrials) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`optimalTrials[]` ` object ( Trial  ` )
+`optimalTrials[]` `object ( `[`Trial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies.trials#Trial)` )`
 
 The pareto-optimal Trials for multiple objective Study or the optimal trial for single objective Study. The definition of pareto-optimal can be checked in wiki page. <https://en.wikipedia.org/wiki/Pareto_efficiency>
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;optimalTrials&quot;: [{object (Trial)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "optimalTrials": [
+    {
+      object (Trial)
+    }
+  ]
+}
+```

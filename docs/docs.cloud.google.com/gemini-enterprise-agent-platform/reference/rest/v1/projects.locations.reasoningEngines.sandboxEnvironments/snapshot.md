@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.reasoningEngines.sandboxEnvironments.snapshot
 
-Snapshots the specific `  SandboxEnvironment  ` resource and creates a `  SandboxEnvironmentSnapshot  ` resource.
+Snapshots the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) resource and creates a [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots#SandboxEnvironmentSnapshot) resource.
 
 ### Endpoint
 
@@ -24,8 +24,8 @@ Required. The resource name of the sandbox environment to snapshot. Format: `pro
 
 ### Request body
 
-The request body contains an instance of `  SandboxEnvironmentSnapshot  ` .
+The request body contains an instance of [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots#SandboxEnvironmentSnapshot) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

@@ -28,7 +28,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`query` ` object ( NearestNeighborQuery  ` )
+`query` `object ( `[`NearestNeighborQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/searchNearestEntities#NearestNeighborQuery)` )`
 
 Required. The query.
 
@@ -38,31 +38,25 @@ Optional. If set to true, the full entities (including all vector values and met
 
 ### Response body
 
-Response message for `  FeatureOnlineStoreService.SearchNearestEntities  `
+Response message for [`FeatureOnlineStoreService.SearchNearestEntities`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/searchNearestEntities#google.cloud.aiplatform.v1.FeatureOnlineStoreService.SearchNearestEntities)
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`nearestNeighbors` ` object ( NearestNeighbors  ` )
+`nearestNeighbors` `object ( `[`NearestNeighbors`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/searchNearestEntities#NearestNeighbors)` )`
 
 The nearest neighbors of the query entity.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;nearestNeighbors&quot;: {object (NearestNeighbors)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "nearestNeighbors": {
+    object (NearestNeighbors)
+  }
+}
+```
 
 ## NearestNeighborQuery
 
@@ -74,19 +68,19 @@ Fields
 
 Optional. The number of similar entities to be retrieved from feature view for each query.
 
-`stringFilters[]` ` object ( StringFilter  ` )
+`stringFilters[]` `object ( `[`StringFilter`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/searchNearestEntities#StringFilter)` )`
 
 Optional. The list of string filters.
 
-`numericFilters[]` ` object ( NumericFilter  ` )
+`numericFilters[]` `object ( `[`NumericFilter`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/searchNearestEntities#NumericFilter)` )`
 
 Optional. The list of numeric filters.
 
 `perCrowdingAttributeNeighborCount` `integer`
 
-Optional. Crowding is a constraint on a neighbor list produced by nearest neighbor search requiring that no more than sper\_crowding\_attribute\_neighbor\_count of the k neighbors returned have the same value of crowdingAttribute. It's used for improving result diversity.
+Optional. Crowding is a constraint on a neighbor list produced by nearest neighbor search requiring that no more than sper_crowding_attribute_neighbor_count of the k neighbors returned have the same value of crowdingAttribute. It's used for improving result diversity.
 
-`parameters` ` object ( Parameters  ` )
+`parameters` `object ( `[`Parameters`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/searchNearestEntities#Parameters)` )`
 
 Optional. Parameters that can be set to tune query on the fly.
 
@@ -98,27 +92,40 @@ The following is a list of mutually exclusive fields. At most one of the fields 
 
 Optional. The entity id whose similar entities should be searched for. If embedding is set, search will use embedding instead of entityId.
 
-`embedding` ` object ( Embedding  ` )
+`embedding` `object ( `[`Embedding`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/searchNearestEntities#Embedding)` )`
 
 Optional. The embedding vector that be used for similar search.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;neighborCount&quot;: integer,&quot;stringFilters&quot;: [{object (StringFilter)}],&quot;numericFilters&quot;: [{object (NumericFilter)}],&quot;perCrowdingAttributeNeighborCount&quot;: integer,&quot;parameters&quot;: {object (Parameters)},// instance&quot;entityId&quot;: string,&quot;embedding&quot;: {object (Embedding)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "neighborCount": integer,
+  "stringFilters": [
+    {
+      object (StringFilter)
+    }
+  ],
+  "numericFilters": [
+    {
+      object (NumericFilter)
+    }
+  ],
+  "perCrowdingAttributeNeighborCount": integer,
+  "parameters": {
+    object (Parameters)
+  },
+
+  // instance
+  "entityId": string,
+  "embedding": {
+    object (Embedding)
+  }
+  // Union type
+}
+```
 
 ## Embedding
 
@@ -130,25 +137,15 @@ Fields
 
 Optional. Individual value in the embedding.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;value&quot;: [
+**JSON representation**
+
+```
+{
+  "value": [
     number
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## StringFilter
 
@@ -168,29 +165,19 @@ Optional. The allowed tokens.
 
 Optional. The denied tokens.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;name&quot;: string,
-  &quot;allowTokens&quot;: [
+**JSON representation**
+
+```
+{
+  "name": string,
+  "allowTokens": [
     string
   ],
-  &quot;denyTokens&quot;: [
+  "denyTokens": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## NumericFilter
 
@@ -206,7 +193,7 @@ Required. column name in BigQuery that used as filters.
 
 The type of Value must be consistent for all datapoints with a given name. This is verified at runtime. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`valueInt` `string ( int64 format)`
+`valueInt` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 int value type.
 
@@ -220,59 +207,38 @@ double value type.
 
 End of mutually exclusive fields.
 
-`op` ` enum ( Operator  ` )
+`op` `enum ( `[`Operator`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/searchNearestEntities#Operator)` )`
 
 Optional. This MUST be specified for queries and must NOT be specified for database points.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,// Value&quot;valueInt&quot;: string,&quot;valueFloat&quot;: number,&quot;valueDouble&quot;: number// Union type&quot;op&quot;: enum (Operator)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+
+  // Value
+  "valueInt": string,
+  "valueFloat": number,
+  "valueDouble": number
+  // Union type
+  "op": enum (Operator)
+}
+```
 
 ## Operator
 
 Datapoints for which Operator is true relative to the query's value field will be allowlisted.
 
-Enums
-
-`OPERATOR_UNSPECIFIED`
-
-Unspecified operator.
-
-`LESS`
-
-Entities are eligible if their value is \< the query's.
-
-`LESS_EQUAL`
-
-Entities are eligible if their value is \<= the query's.
-
-`EQUAL`
-
-Entities are eligible if their value is == the query's.
-
-`GREATER_EQUAL`
-
-Entities are eligible if their value is \>= the query's.
-
-`GREATER`
-
-Entities are eligible if their value is \> the query's.
-
-`NOT_EQUAL`
-
-Entities are eligible if their value is \!= the query's.
+| Enums                  |                                                          |
+|------------------------|----------------------------------------------------------|
+| `OPERATOR_UNSPECIFIED` | Unspecified operator.                                    |
+| `LESS`                 | Entities are eligible if their value is \< the query's.  |
+| `LESS_EQUAL`           | Entities are eligible if their value is \<= the query's. |
+| `EQUAL`                | Entities are eligible if their value is == the query's.  |
+| `GREATER_EQUAL`        | Entities are eligible if their value is \>= the query's. |
+| `GREATER`              | Entities are eligible if their value is \> the query's.  |
+| `NOT_EQUAL`            | Entities are eligible if their value is != the query's.  |
 
 ## Parameters
 
@@ -288,24 +254,14 @@ Optional. The number of neighbors to find via approximate search before exact re
 
 Optional. The fraction of the number of leaves to search, set at query time allows user to tune search performance. This value increase result in both search accuracy and latency increase. The value should be between 0.0 and 1.0.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;approximateNeighborCandidates&quot;: integer,
-  &quot;leafNodesSearchFraction&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "approximateNeighborCandidates": integer,
+  "leafNodesSearchFraction": number
+}
+```
 
 ## NearestNeighbors
 
@@ -313,25 +269,21 @@ Nearest neighbors for one query.
 
 Fields
 
-`neighbors[]` ` object ( Neighbor  ` )
+`neighbors[]` `object ( `[`Neighbor`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/searchNearestEntities#Neighbor)` )`
 
 All its neighbors.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;neighbors&quot;: [{object (Neighbor)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "neighbors": [
+    {
+      object (Neighbor)
+    }
+  ]
+}
+```
 
 ## Neighbor
 
@@ -347,22 +299,18 @@ The id of the similar entity.
 
 The distance between the neighbor and the query vector.
 
-`entityKeyValues` ` object ( FetchFeatureValuesResponse  ` )
+`entityKeyValues` `object ( `[`FetchFeatureValuesResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/FetchFeatureValuesResponse)` )`
 
 The attributes of the neighbor, e.g. filters, crowding and metadata Note that full entities are returned only when "returnFullEntity" is set to true. Otherwise, only the "entityId" and "distance" fields are populated.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;entityId&quot;: string,&quot;distance&quot;: number,&quot;entityKeyValues&quot;: {object (FetchFeatureValuesResponse)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "entityId": string,
+  "distance": number,
+  "entityKeyValues": {
+    object (FetchFeatureValuesResponse)
+  }
+}
+```

@@ -28,11 +28,11 @@ The request body contains data with the following structure:
 
 Fields
 
-`sampleResponse` ` object ( Content  ` )
+`sampleResponse` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Required. The sample response for validating the reward configuration.
 
-`example` ` object ( ReinforcementTuningExample  ` )
+`example` `object ( `[`ReinforcementTuningExample`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#ReinforcementTuningExample)` )`
 
 Required. The example to validate the reward configuration.
 
@@ -40,11 +40,11 @@ Required. The example to validate the reward configuration.
 
 The reward configuration to validate. This can be a single or a composite reward configuration. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`singleRewardConfig` ` object ( SingleReinforcementTuningRewardConfig  ` )
+`singleRewardConfig` `object ( `[`SingleReinforcementTuningRewardConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#SingleReinforcementTuningRewardConfig)` )`
 
 Optional. Single Reward function configuration for reinforcement tuning.
 
-`compositeRewardConfig` ` object ( CompositeReinforcementTuningRewardConfig  ` )
+`compositeRewardConfig` `object ( `[`CompositeReinforcementTuningRewardConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#CompositeReinforcementTuningRewardConfig)` )`
 
 Optional. Composite reward function configuration for reinforcement tuning.
 
@@ -52,51 +52,57 @@ End of mutually exclusive fields.
 
 ### Response body
 
-Response message for `  GenAiTuningService.ValidateReinforcementTuningReward  ` .
+Response message for [`GenAiTuningService.ValidateReinforcementTuningReward`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/validateReinforcementTuningReward#google.cloud.aiplatform.v1beta1.GenAiTuningService.ValidateReinforcementTuningReward) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-` rewardDetails (deprecated)  ` `map (key: string, value: number)`
+`rewardDetails `**`(deprecated)`** `map (key: string, value: number)`
 
-> This item is deprecated\!
+> This item is deprecated!
 
-Output only. Deprecated: Use `  rewardInfoDetails  ` instead. A map from reward name to the calculated reward for the reward function. This field will only be populated when a `  CompositeReinforcementTuningRewardConfig  ` is provided in the request. It will not be set for a `  SingleReinforcementTuningRewardConfig  ` .
+Output only. Deprecated: Use [`rewardInfoDetails`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/validateReinforcementTuningReward#body.ValidateReinforcementTuningRewardResponse.FIELDS.reward_info_details) instead. A map from reward name to the calculated reward for the reward function. This field will only be populated when a [`CompositeReinforcementTuningRewardConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#CompositeReinforcementTuningRewardConfig) is provided in the request. It will not be set for a [`SingleReinforcementTuningRewardConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#SingleReinforcementTuningRewardConfig) .
 
-`errorStatus` ` object ( Status  ` )
+`errorStatus` `object ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Status)` )`
 
 Output only. In case of an error, this field will be populated with a detailed error message for overall rewards to help with debugging.
 
-`rewardInfoDetails` ` map (key: string, value: object ( ReinforcementTuningRewardInfo  ` ))
+`rewardInfoDetails` `map (key: string, value: object ( `[`ReinforcementTuningRewardInfo`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/validateReinforcementTuningReward#ReinforcementTuningRewardInfo)` ))`
 
 A map from reward name to reward info.
 
 `overallReward` `number`
 
-Output only. The overall weighted reward. For a `  CompositeReinforcementTuningRewardConfig  ` , this is the weighted average of all rewards. For a `  SingleReinforcementTuningRewardConfig  ` , this will be the value of the single reward.
+Output only. The overall weighted reward. For a [`CompositeReinforcementTuningRewardConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#CompositeReinforcementTuningRewardConfig) , this is the weighted average of all rewards. For a [`SingleReinforcementTuningRewardConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#SingleReinforcementTuningRewardConfig) , this will be the value of the single reward.
 
-` error (deprecated)  ` `string`
+`error `**`(deprecated)`** `string`
 
-> This item is deprecated\!
+> This item is deprecated!
 
-Output only. Deprecated: Use `  errorStatus  ` instead. In case of an error, this field will be populated with a detailed error message to help with debugging.
+Output only. Deprecated: Use [`errorStatus`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/validateReinforcementTuningReward#body.ValidateReinforcementTuningRewardResponse.FIELDS.error_status) instead. In case of an error, this field will be populated with a detailed error message to help with debugging.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;rewardDetails&quot;: {string: number,...},&quot;errorStatus&quot;: {object (Status)},&quot;rewardInfoDetails&quot;: {string: {object (ReinforcementTuningRewardInfo)},...},&quot;overallReward&quot;: number,&quot;error&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "rewardDetails": {
+    string: number,
+    ...
+  },
+  "errorStatus": {
+    object (Status)
+  },
+  "rewardInfoDetails": {
+    string: {
+      object (ReinforcementTuningRewardInfo)
+    },
+    ...
+  },
+  "overallReward": number,
+  "error": string
+}
+```
 
 ## ReinforcementTuningRewardInfo
 
@@ -106,9 +112,9 @@ Fields
 
 `userRequestedAuxInfo` `string`
 
-Output only. The user-requested auxiliary info for the reward function. This field is set only if the Cloud Run reward function configured by user returns a "user\_requested\_aux\_info". Refer to `  ReinforcementTuningCloudRunRewardScorer  ` for more details.
+Output only. The user-requested auxiliary info for the reward function. This field is set only if the Cloud Run reward function configured by user returns a "user_requested_aux_info". Refer to [`ReinforcementTuningCloudRunRewardScorer`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#ReinforcementTuningCloudRunRewardScorer) for more details.
 
-`errorStatus` ` object ( Status  ` )
+`errorStatus` `object ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Status)` )`
 
 Output only. In case of an error for this reward, this field will be populated with a detailed error status.
 
@@ -116,18 +122,14 @@ Output only. In case of an error for this reward, this field will be populated w
 
 Output only. The calculated reward for the reward function.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;userRequestedAuxInfo&quot;: string,&quot;errorStatus&quot;: {object (Status)},&quot;reward&quot;: number}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "userRequestedAuxInfo": string,
+  "errorStatus": {
+    object (Status)
+  },
+  "reward": number
+}
+```

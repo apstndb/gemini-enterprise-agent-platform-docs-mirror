@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 > **Note:** You can centrally manage and govern standalone skills within [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) . For details, see [Register skills](https://docs.cloud.google.com/agent-registry/register-skills) .
@@ -20,30 +20,10 @@ By centralizing these skills, Skill Registry empowers agents to dynamically disc
 
 Skill Registry introduces two top-level, standard API entities to manage lifecycle and versioning:
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Concept</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Skill</strong></td>
-<td>A mutable top-level entity containing metadata (such as display name, creation and update timestamps, and labels), the default revision, and the skill's content.<br />
-<br />
-For examples of the expected skill structure, see the <code dir="ltr" translate="no">SKILL.md</code> files in the <a href="https://github.com/google/skills/tree/main">Google Cloud Skills repository</a> .</td>
-</tr>
-<tr class="even">
-<td><strong>Skill revision</strong></td>
-<td>An immutable snapshot of a specific skill version. It includes a name, a description, and an immutable reference to the parent skill resource.</td>
-</tr>
-</tbody>
-</table>
+| Concept            | Description                                                                                                                                                                                                                                                                                                                    |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Skill**          | A mutable top-level entity containing metadata (such as display name, creation and update timestamps, and labels), the default revision, and the skill's content. For examples of the expected skill structure, see the `SKILL.md` files in the [Google Cloud Skills repository](https://github.com/google/skills/tree/main) . |
+| **Skill revision** | An immutable snapshot of a specific skill version. It includes a name, a description, and an immutable reference to the parent skill resource.                                                                                                                                                                                 |
 
 ## Skill payload validation
 
@@ -51,23 +31,23 @@ To ensure agents can use valid skill content, the system automatically verifies 
 
 The asynchronous operation fails with a validation error if the system detects any of the following:
 
-  - The file isn't a proper zip file or is missing key information.
-  - The zip file is empty.
-  - The zip file has more than 10,000 items inside.
-  - The file or folder names in the zip contain `..` or start with `/` or `\\` .
-  - The zip file contains symbolic links.
-  - There are duplicate file or folder names in the zip file.
-  - The total size of all files inside the zip is over 500 MB when unzipped.
-  - The file is compressed too much, with a compression ratio over 100.
-  - The folders inside the zip go more than 8 levels deep.
-  - The zip file does not contain a `SKILL.md` file.
-  - The `SKILL.md` file has the following issues:
-      - The `SKILL.md` file is missing the required YAML front matter or the expected Markdown content.
-      - The name field in the YAML front matter is missing, exceeds 64 characters, starts or ends with a hyphen, or contains characters other than lowercase letters, numbers, and hyphens.
-      - The description field in the YAML front matter is missing or exceeds 1024 characters.
-      - The license field in the YAML front matter exceeds 1024 characters.
-      - The instructions in the `SKILL.md` file exceed 500,000 characters.
-  - The zipped archive is over 10 MB in size.
+- The file isn't a proper zip file or is missing key information.
+- The zip file is empty.
+- The zip file has more than 10,000 items inside.
+- The file or folder names in the zip contain `..` or start with `/` or `\\` .
+- The zip file contains symbolic links.
+- There are duplicate file or folder names in the zip file.
+- The total size of all files inside the zip is over 500 MB when unzipped.
+- The file is compressed too much, with a compression ratio over 100.
+- The folders inside the zip go more than 8 levels deep.
+- The zip file does not contain a `SKILL.md` file.
+- The `SKILL.md` file has the following issues:
+  - The `SKILL.md` file is missing the required YAML front matter or the expected Markdown content.
+  - The name field in the YAML front matter is missing, exceeds 64 characters, starts or ends with a hyphen, or contains characters other than lowercase letters, numbers, and hyphens.
+  - The description field in the YAML front matter is missing or exceeds 1024 characters.
+  - The license field in the YAML front matter exceeds 1024 characters.
+  - The instructions in the `SKILL.md` file exceed 500,000 characters.
+- The zipped archive is over 10 MB in size.
 
 ## Built-in skills
 

@@ -10,9 +10,9 @@ Specifies the parsing config for RagFiles.
 
 Fields
 
-` useAdvancedPdfParsing (deprecated)  ` `boolean`
+`useAdvancedPdfParsing `**`(deprecated)`** `boolean`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Whether to use advanced PDF parsing.
 
@@ -20,35 +20,39 @@ Whether to use advanced PDF parsing.
 
 The parser to use for RagFiles. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`advancedParser` ` object ( AdvancedParser  ` )
+`advancedParser` `object ( `[`AdvancedParser`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagFileParsingConfig#AdvancedParser)` )`
 
 The Advanced Parser to use for RagFiles.
 
-`layoutParser` ` object ( LayoutParser  ` )
+`layoutParser` `object ( `[`LayoutParser`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagFileParsingConfig#LayoutParser)` )`
 
 The Layout Parser to use for RagFiles.
 
-`llmParser` ` object ( LlmParser  ` )
+`llmParser` `object ( `[`LlmParser`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora#LlmParser)` )`
 
 The LLM Parser to use for RagFiles.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;useAdvancedPdfParsing&quot;: boolean,// parser&quot;advancedParser&quot;: {object (AdvancedParser)},&quot;layoutParser&quot;: {object (LayoutParser)},&quot;llmParser&quot;: {object (LlmParser)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "useAdvancedPdfParsing": boolean,
+
+  // parser
+  "advancedParser": {
+    object (AdvancedParser)
+  },
+  "layoutParser": {
+    object (LayoutParser)
+  },
+  "llmParser": {
+    object (LlmParser)
+  }
+  // Union type
+}
+```
 
 ## AdvancedParser
 
@@ -60,23 +64,13 @@ Fields
 
 Whether to use advanced PDF parsing.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;useAdvancedPdfParsing&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "useAdvancedPdfParsing": boolean
+}
+```
 
 ## LayoutParser
 
@@ -96,22 +90,12 @@ The maximum number of requests the job is allowed to make to the Document AI pro
 
 The maximum number of requests the job is allowed to make to the Document AI processor per minute in this project. Consult <https://cloud.google.com/document-ai/quotas> and the Quota page for your project to set an appropriate value here. If this value is not specified, maxParsingRequestsPerMin will be used by indexing pipeline as the global limit.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;processorName&quot;: string,
-  &quot;maxParsingRequestsPerMin&quot;: integer,
-  &quot;globalMaxParsingRequestsPerMin&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "processorName": string,
+  "maxParsingRequestsPerMin": integer,
+  "globalMaxParsingRequestsPerMin": integer
+}
+```

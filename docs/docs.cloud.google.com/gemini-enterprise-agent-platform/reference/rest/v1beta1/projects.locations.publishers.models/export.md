@@ -32,10 +32,10 @@ The request body contains data with the following structure:
 
 Fields
 
-`destination` `object ( GcsDestination` )
+`destination` `object ( ``GcsDestination`` )`
 
 Required. The target where we are exporting the model weights to
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

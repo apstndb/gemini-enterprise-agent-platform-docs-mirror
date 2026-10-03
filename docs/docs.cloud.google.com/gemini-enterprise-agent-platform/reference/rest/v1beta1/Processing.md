@@ -8,16 +8,8 @@ data_source: docs.cloud.google.com
 
 How the model processes input media for understanding.
 
-Enums
-
-`PROCESSING_UNSPECIFIED`
-
-Default. uses model-specific processing (3.5 Pro+ --\> AGENTIC, older models --\> STATIC)
-
-`STATIC`
-
-Fixed-rate frame extraction. All frames placed in context.
-
-`AGENTIC`
-
-Model-driven dynamic navigation.
+| Enums                    |                                                                                           |
+|--------------------------|-------------------------------------------------------------------------------------------|
+| `PROCESSING_UNSPECIFIED` | Default. uses model-specific processing (3.5 Pro+ --\> AGENTIC, older models --\> STATIC) |
+| `STATIC`                 | Fixed-rate frame extraction. All frames placed in context.                                |
+| `AGENTIC`                | Model-driven dynamic navigation.                                                          |

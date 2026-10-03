@@ -12,12 +12,14 @@ Gemini Enterprise Agent Platform Pipelines provides a set of predefined visualiz
 
 In your development environment import the required dependencies.
 
-    from kfp import dsl
-    from kfp.dsl import (
-        Output,
-        HTML,
-        Markdown
-    )
+```
+from kfp import dsl
+from kfp.dsl import (
+    Output,
+    HTML,
+    Markdown
+)
+```
 
 ### Output HTML
 
@@ -25,13 +27,15 @@ To export an HTML file, define a component with the `Output[HTML]` artifact. You
 
 > **Note:** HTML and Markdown files are stored under the `pipeline_root` path in Cloud Storage. You must have sufficient permission to the Cloud Storage bucket to view visualization content.
 
-    @dsl.component
-    def html_visualization(html_artifact: Output[HTML]):
-        public_url = 'https://user-images.githubusercontent.com/37026441/140434086-d9e1099b-82c7-4df8-ae25-83fda2929088.png'
-        html_content = \
-          '<html><head></head><body><h1>Global Feature Importance</h1>\n<img src="{}" width="97%"/></body></html>'.format(public_url)
-        with open(html_artifact.path, 'w') as f:
-            f.write(html_content)
+```
+@dsl.component
+def html_visualization(html_artifact: Output[HTML]):
+    public_url = 'https://user-images.githubusercontent.com/37026441/140434086-d9e1099b-82c7-4df8-ae25-83fda2929088.png'
+    html_content = \
+      '<html><head></head><body><h1>Global Feature Importance</h1>\n<img src="{}" width="97%"/></body></html>'.format(public_url)
+    with open(html_artifact.path, 'w') as f:
+        f.write(html_content)
+```
 
 **HTML artifact in the Google Cloud console:**
 
@@ -51,14 +55,16 @@ To export a Markdown file, define a component with the `Output[Markdown]` artifa
 
 > **Note:** HTML and Markdown files are stored under the `pipeline_root` path in Cloud Storage. You must have sufficient permission to the Cloud Storage bucket to view visualization content.
 
-    @dsl.component
-    def markdown_visualization(markdown_artifact: Output[Markdown]):
-        import urllib.request
-    
-        with urllib.request.urlopen('https://gist.githubusercontent.com/zijianjoy/a288d582e477f8021a1fcffcfd9a1803/raw/68519f72abb59152d92cf891b4719cd95c40e4b6/table_visualization.md') as table:
-            markdown_content = table.read().decode('utf-8')
-            with open(markdown_artifact.path, 'w') as f:
-                f.write(markdown_content)
+```
+@dsl.component
+def markdown_visualization(markdown_artifact: Output[Markdown]):
+    import urllib.request
+
+    with urllib.request.urlopen('https://gist.githubusercontent.com/zijianjoy/a288d582e477f8021a1fcffcfd9a1803/raw/68519f72abb59152d92cf891b4719cd95c40e4b6/table_visualization.md') as table:
+        markdown_content = table.read().decode('utf-8')
+        with open(markdown_artifact.path, 'w') as f:
+            f.write(markdown_content)
+```
 
 **Markdown artifact in the Google Cloud console:**
 
@@ -72,10 +78,12 @@ To export a Markdown file, define a component with the `Output[Markdown]` artifa
 
 After you have defined your component with the HTML or Markdown artifact create and run a pipeline that use the component.
 
-    @dsl.pipeline(
-        name=f'metrics-visualization-pipeline')
-    def metrics_visualization_pipeline():
-        html_visualization_op = html_visualization()
-        markdown_visualization_op = markdown_visualization()
+```
+@dsl.pipeline(
+    name=f'metrics-visualization-pipeline')
+def metrics_visualization_pipeline():
+    html_visualization_op = html_visualization()
+    markdown_visualization_op = markdown_visualization()
+```
 
 After submitting the pipeline run, you can view the graph for this run in the Google Cloud console. This graph includes the HTML and Markdown artifacts you declared in corresponding components. You can select these artifacts to view detailed visualization.

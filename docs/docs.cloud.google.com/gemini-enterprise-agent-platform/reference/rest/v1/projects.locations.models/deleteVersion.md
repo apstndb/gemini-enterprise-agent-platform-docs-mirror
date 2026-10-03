@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 Deletes a Model version.
 
-Model version can only be deleted if there are no `  DeployedModels  ` created from it. Deleting the only version in the Model is not allowed. Use `  models.delete  ` for deleting the Model instead.
+Model version can only be deleted if there are no [`DeployedModels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#DeployedModel) created from it. Deleting the only version in the Model is not allowed. Use [`models.delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/delete#google.cloud.aiplatform.v1.ModelService.DeleteModel) for deleting the Model instead.
 
 ### Endpoint
 
@@ -32,4 +32,4 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

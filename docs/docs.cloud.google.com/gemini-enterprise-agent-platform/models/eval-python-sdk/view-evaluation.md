@@ -12,39 +12,43 @@ This page describes how to view and interpret your model evaluation results afte
 
 After you define your evaluation task, run the task to get evaluation results, as follows:
 
-    from vertexai.evaluation import EvalTask
-    
-    eval_result = EvalTask(
-        dataset=DATASET,
-        metrics=[METRIC_1, METRIC_2, METRIC_3],
-        experiment=EXPERIMENT_NAME,
-    ).evaluate(
-        model=MODEL,
-        experiment_run=EXPERIMENT_RUN_NAME,
-    )
+```
+from vertexai.evaluation import EvalTask
+
+eval_result = EvalTask(
+    dataset=DATASET,
+    metrics=[METRIC_1, METRIC_2, METRIC_3],
+    experiment=EXPERIMENT_NAME,
+).evaluate(
+    model=MODEL,
+    experiment_run=EXPERIMENT_RUN_NAME,
+)
+```
 
 The `EvalResult` class represents the result of an evaluation run with the following attributes:
 
-  - **`summary_metrics`** : A dictionary of aggregated evaluation metrics for an evaluation run.
-  - **`metrics_table`** : A `pandas.DataFrame` table containing evaluation dataset inputs, responses, explanations, and metric results per row.
-  - **`metadata`** : the experiment name and experiment run name for the evaluation run.
+- **`summary_metrics`** : A dictionary of aggregated evaluation metrics for an evaluation run.
+- **`metrics_table`** : A `pandas.DataFrame` table containing evaluation dataset inputs, responses, explanations, and metric results per row.
+- **`metadata`** : the experiment name and experiment run name for the evaluation run.
 
 The `EvalResult` class is defined as follows:
 
-    @dataclasses.dataclass
-    class EvalResult:
-        """Evaluation result.
-    
-        Attributes:
-          summary_metrics: A dictionary of aggregated evaluation metrics for an evaluation run.
-          metrics_table: A pandas.DataFrame table containing evaluation dataset inputs,
-            responses, explanations, and metric results per row.
-          metadata: The experiment name and experiment run name for the evaluation run.
-        """
-    
-        summary_metrics: Dict[str, float]
-        metrics_table: Optional["pd.DataFrame"] = None
-        metadata: Optional[Dict[str, str]] = None
+```
+@dataclasses.dataclass
+class EvalResult:
+    """Evaluation result.
+
+    Attributes:
+      summary_metrics: A dictionary of aggregated evaluation metrics for an evaluation run.
+      metrics_table: A pandas.DataFrame table containing evaluation dataset inputs,
+        responses, explanations, and metric results per row.
+      metadata: The experiment name and experiment run name for the evaluation run.
+    """
+
+    summary_metrics: Dict[str, float]
+    metrics_table: Optional["pd.DataFrame"] = None
+    metadata: Optional[Dict[str, str]] = None
+```
 
 With the use of helper functions, the evaluation results can be displayed in the [Colab notebook](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/evaluation/evaltask_approach/intro_to_gen_ai_evaluation_service_sdk.ipynb) as follows:
 
@@ -56,9 +60,9 @@ You can plot summary metrics in a radar or bar chart for visualization and compa
 
 In the following example, we visualize four metrics (coherence, fluency, instruction following and overall text quality) for responses generated using four different prompt templates. From the radar and bar plot, we can infer that prompt template \#2 consistently outperforms the other templates across all four metrics. This is particularly evident in its significantly higher scores for instruction following and text quality. Based on this analysis, prompt template \#2 appears to be the most effective choice among the four options.
 
-![Radar chart showing the coherence, instruction\_following, text\_quality, and fluency scores for all prompt templates](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/images/visualized-results.png)
+![Radar chart showing the coherence, instruction_following, text_quality, and fluency scores for all prompt templates](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/images/visualized-results.png)
 
-![Bar chart showing the mean for coherence, instruction\_following, text\_quality, and fluency for all prompt templates](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/images/barplot-metrics.png)
+![Bar chart showing the mean for coherence, instruction_following, text_quality, and fluency for all prompt templates](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/images/barplot-metrics.png)
 
 ## Understand metric results
 
@@ -69,7 +73,7 @@ The following tables list various components of instance-level and aggregate res
 ### Instance-level results
 
 | Column      | Description                                                                                                                                                                                                                 |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | response    | The response generated for the prompt by the model.                                                                                                                                                                         |
 | score       | The rating given to the response as per the criteria and rating rubric. The score can be binary (0 and 1), Likert scale (1 to 5, or -2 to 2), or float (0.0 to 1.0).                                                        |
 | explanation | The judge model's reason for the score. We use chain-of-thought reasoning to guide the judge model to explain its rationale behind each verdict. Forcing the judge model to reason is shown to improve evaluation accuracy. |
@@ -79,7 +83,7 @@ The following tables list various components of instance-level and aggregate res
 ### Aggregate results
 
 | Column             | Description                            |
-| ------------------ | -------------------------------------- |
+|--------------------|----------------------------------------|
 | mean score         | Average score for all instances.       |
 | standard deviation | Standard deviation for all the scores. |
 
@@ -87,26 +91,26 @@ The following tables list various components of instance-level and aggregate res
 
 ### Instance-level results
 
-| Column                    | Description                                                                         |
-| ------------------------- | ----------------------------------------------------------------------------------- |
-| response                  | The response generated for the prompt by the candidate model.                       |
-| baseline\_model\_response | The response generated for the prompt by the baseline model.                        |
-| pairwise\_choice          | The model with the better response. Possible values are CANDIDATE, BASELINE or TIE. |
-| explanation               | The judge model's reason for the choice.                                            |
+| Column                  | Description                                                                         |
+|-------------------------|-------------------------------------------------------------------------------------|
+| response                | The response generated for the prompt by the candidate model.                       |
+| baseline_model_response | The response generated for the prompt by the baseline model.                        |
+| pairwise_choice         | The model with the better response. Possible values are CANDIDATE, BASELINE or TIE. |
+| explanation             | The judge model's reason for the choice.                                            |
 
 ### Aggregate results
 
-| Column                      | Description                                                                                                                     |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| candidate\_model\_win\_rate | Proportion of times the judge model decided the candidate model had the better response to total responses. Ranges from 0 to 1. |
-| baseline\_model\_win\_rate  | Proportion of times the judge model decided the baseline model had the better response to total responses. Ranges from 0 to 1.  |
+| Column                   | Description                                                                                                                     |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| candidate_model_win_rate | Proportion of times the judge model decided the candidate model had the better response to total responses. Ranges from 0 to 1. |
+| baseline_model_win_rate  | Proportion of times the judge model decided the baseline model had the better response to total responses. Ranges from 0 to 1.  |
 
 ### Computation-based metrics
 
 ### Instance-level results
 
 | Column    | Description                                                        |
-| --------- | ------------------------------------------------------------------ |
+|-----------|--------------------------------------------------------------------|
 | response  | The model's response being evaluated.                              |
 | reference | The reference response.                                            |
 | score     | The score is calculated for each pair of responses and references. |
@@ -114,7 +118,7 @@ The following tables list various components of instance-level and aggregate res
 ### Aggregate results
 
 | Column             | Description                            |
-| ------------------ | -------------------------------------- |
+|--------------------|----------------------------------------|
 | mean score         | Average score for all instances.       |
 | standard deviation | Standard deviation for all the scores. |
 
@@ -128,14 +132,14 @@ The following example shows a pointwise evaluation instance for `TEXT_QUALITY` .
 
 #### Dataset
 
-  - `prompt` : "Summarize the following text in a way that a five-year-old can understand: Social Media Platform Faces Backlash Over Content Moderation Policies\\nA prominent social media platform finds itself embroiled in controversy as users and content creators express discontent over its content moderation policies. Allegations of biased censorship, inconsistent enforcement, and suppression of certain viewpoints have sparked outrage among users who claim that the platform is stifling free speech. On the other hand, the platform asserts that its policies are designed to maintain a safe and inclusive online environment. This controversy raises broader questions about the role of social media in shaping public discourse and the responsibilities of platforms in curating online content."
+- `prompt` : "Summarize the following text in a way that a five-year-old can understand: Social Media Platform Faces Backlash Over Content Moderation Policies\nA prominent social media platform finds itself embroiled in controversy as users and content creators express discontent over its content moderation policies. Allegations of biased censorship, inconsistent enforcement, and suppression of certain viewpoints have sparked outrage among users who claim that the platform is stifling free speech. On the other hand, the platform asserts that its policies are designed to maintain a safe and inclusive online environment. This controversy raises broader questions about the role of social media in shaping public discourse and the responsibilities of platforms in curating online content."
 
-  - `response` : "People are upset with a website because they think it's not being fair with what people can post. Some people say the website is stopping them from saying what they want. But the website says it's trying to keep everyone safe. This makes people wonder if websites should control what people can say online."
+- `response` : "People are upset with a website because they think it's not being fair with what people can post. Some people say the website is stopping them from saying what they want. But the website says it's trying to keep everyone safe. This makes people wonder if websites should control what people can say online."
 
 #### Result
 
-  - `score` : 4,
-  - `explanation` : The summary in the response follows the instruction to summarize the context in a way that a five-year old can understand. It is grounded in the context and provides important details in its summarization. However, the language used in the response is a bit verbose.
+- `score` : 4,
+- `explanation` : The summary in the response follows the instruction to summarize the context in a way that a five-year old can understand. It is grounded in the context and provides important details in its summarization. However, the language used in the response is a bit verbose.
 
 ### Example 2: Pairwise evaluation
 
@@ -143,19 +147,19 @@ This example is a pairwise comparison evaluation on `PAIRWISE_QUESTION_ANSWERING
 
 #### Dataset
 
-  - `prompt` : "Can you answer where France is based on the following paragraph? France is a country located in Western Europe. It's bordered by Belgium, Luxembourg, Germany, Switzerland, Italy, Monaco, Spain, and Andorra. France's coastline stretches along the English Channel, the North Sea, the Atlantic Ocean, and the Mediterranean Sea. Known for its rich history, iconic landmarks like the Eiffel Tower, and delicious cuisine, France is a major cultural and economic power in Europe and throughout the world."
+- `prompt` : "Can you answer where France is based on the following paragraph? France is a country located in Western Europe. It's bordered by Belgium, Luxembourg, Germany, Switzerland, Italy, Monaco, Spain, and Andorra. France's coastline stretches along the English Channel, the North Sea, the Atlantic Ocean, and the Mediterranean Sea. Known for its rich history, iconic landmarks like the Eiffel Tower, and delicious cuisine, France is a major cultural and economic power in Europe and throughout the world."
 
-  - `response` : "France is a country located in Western Europe.",
+- `response` : "France is a country located in Western Europe.",
 
-  - `baseline_model_response` : "France is a country.",
+- `baseline_model_response` : "France is a country.",
 
 #### Result
 
-  - `pairwise_choice` : CANDIDATE,
-  - `explanation` : BASELINE response is grounded but does not fully answer the question. CANDIDATE response, however, is correct and provides helpful details on the location of France.
+- `pairwise_choice` : CANDIDATE,
+- `explanation` : BASELINE response is grounded but does not fully answer the question. CANDIDATE response, however, is correct and provides helpful details on the location of France.
 
 ## What's next
 
-  - Try an [evaluation example notebook](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview#use_cases) .
+- Try an [evaluation example notebook](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview#use_cases) .
 
-  - Learn about [generative AI evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview) .
+- Learn about [generative AI evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview) .

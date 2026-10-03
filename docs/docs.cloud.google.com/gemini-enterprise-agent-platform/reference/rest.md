@@ -16,5489 +16,1840 @@ To call this service, we recommend that you use the Google-provided [client libr
 
 A [Discovery Document](https://developers.google.com/discovery/v1/reference/apis) is a machine-readable specification for describing and consuming REST APIs. It is used to build client libraries, IDE plugins, and other tools that interact with Google APIs. One service may provide multiple discovery documents. This service provides the following discovery documents:
 
-  - <https://aiplatform.googleapis.com/$discovery/rest?version=v1>
-  - <https://aiplatform.googleapis.com/$discovery/rest?version=v1beta1>
+- <https://aiplatform.googleapis.com/$discovery/rest?version=v1>
+- <https://aiplatform.googleapis.com/$discovery/rest?version=v1beta1>
 
 ### Service endpoint
 
 A [service endpoint](https://cloud.google.com/apis/design/glossary#api_service_endpoint) is a base URL that specifies the network address of an API service. One service might have multiple service endpoints. This service has the following service endpoints and all URIs below are relative to these service endpoints:
 
-  - `https://aiplatform.googleapis.com`
-  - `https://africa-south1-aiplatform.googleapis.com`
-  - `https://asia-east1-aiplatform.googleapis.com`
-  - `https://asia-east2-aiplatform.googleapis.com`
-  - `https://asia-northeast1-aiplatform.googleapis.com`
-  - `https://asia-northeast2-aiplatform.googleapis.com`
-  - `https://asia-northeast3-aiplatform.googleapis.com`
-  - `https://asia-south1-aiplatform.googleapis.com`
-  - `https://asia-southeast1-aiplatform.googleapis.com`
-  - `https://asia-southeast2-aiplatform.googleapis.com`
-  - `https://australia-southeast1-aiplatform.googleapis.com`
-  - `https://australia-southeast2-aiplatform.googleapis.com`
-  - `https://europe-central2-aiplatform.googleapis.com`
-  - `https://europe-north1-aiplatform.googleapis.com`
-  - `https://europe-southwest1-aiplatform.googleapis.com`
-  - `https://europe-west1-aiplatform.googleapis.com`
-  - `https://europe-west2-aiplatform.googleapis.com`
-  - `https://europe-west3-aiplatform.googleapis.com`
-  - `https://europe-west4-aiplatform.googleapis.com`
-  - `https://europe-west6-aiplatform.googleapis.com`
-  - `https://europe-west8-aiplatform.googleapis.com`
-  - `https://europe-west9-aiplatform.googleapis.com`
-  - `https://europe-west12-aiplatform.googleapis.com`
-  - `https://me-central1-aiplatform.googleapis.com`
-  - `https://me-central2-aiplatform.googleapis.com`
-  - `https://me-west1-aiplatform.googleapis.com`
-  - `https://northamerica-northeast1-aiplatform.googleapis.com`
-  - `https://northamerica-northeast2-aiplatform.googleapis.com`
-  - `https://southamerica-east1-aiplatform.googleapis.com`
-  - `https://southamerica-west1-aiplatform.googleapis.com`
-  - `https://us-central1-aiplatform.googleapis.com`
-  - `https://us-east1-aiplatform.googleapis.com`
-  - `https://us-east4-aiplatform.googleapis.com`
-  - `https://us-south1-aiplatform.googleapis.com`
-  - `https://us-west1-aiplatform.googleapis.com`
-  - `https://us-west2-aiplatform.googleapis.com`
-  - `https://us-west3-aiplatform.googleapis.com`
-  - `https://us-west4-aiplatform.googleapis.com`
-  - `https://us-east5-aiplatform.googleapis.com`
+- `https://aiplatform.googleapis.com`
+- `https://africa-south1-aiplatform.googleapis.com`
+- `https://asia-east1-aiplatform.googleapis.com`
+- `https://asia-east2-aiplatform.googleapis.com`
+- `https://asia-northeast1-aiplatform.googleapis.com`
+- `https://asia-northeast2-aiplatform.googleapis.com`
+- `https://asia-northeast3-aiplatform.googleapis.com`
+- `https://asia-south1-aiplatform.googleapis.com`
+- `https://asia-southeast1-aiplatform.googleapis.com`
+- `https://asia-southeast2-aiplatform.googleapis.com`
+- `https://australia-southeast1-aiplatform.googleapis.com`
+- `https://australia-southeast2-aiplatform.googleapis.com`
+- `https://europe-central2-aiplatform.googleapis.com`
+- `https://europe-north1-aiplatform.googleapis.com`
+- `https://europe-southwest1-aiplatform.googleapis.com`
+- `https://europe-west1-aiplatform.googleapis.com`
+- `https://europe-west2-aiplatform.googleapis.com`
+- `https://europe-west3-aiplatform.googleapis.com`
+- `https://europe-west4-aiplatform.googleapis.com`
+- `https://europe-west6-aiplatform.googleapis.com`
+- `https://europe-west8-aiplatform.googleapis.com`
+- `https://europe-west9-aiplatform.googleapis.com`
+- `https://europe-west12-aiplatform.googleapis.com`
+- `https://me-central1-aiplatform.googleapis.com`
+- `https://me-central2-aiplatform.googleapis.com`
+- `https://me-west1-aiplatform.googleapis.com`
+- `https://northamerica-northeast1-aiplatform.googleapis.com`
+- `https://northamerica-northeast2-aiplatform.googleapis.com`
+- `https://southamerica-east1-aiplatform.googleapis.com`
+- `https://southamerica-west1-aiplatform.googleapis.com`
+- `https://us-central1-aiplatform.googleapis.com`
+- `https://us-east1-aiplatform.googleapis.com`
+- `https://us-east4-aiplatform.googleapis.com`
+- `https://us-south1-aiplatform.googleapis.com`
+- `https://us-west1-aiplatform.googleapis.com`
+- `https://us-west2-aiplatform.googleapis.com`
+- `https://us-west3-aiplatform.googleapis.com`
+- `https://us-west4-aiplatform.googleapis.com`
+- `https://us-east5-aiplatform.googleapis.com`
 
 See [Feature availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) for the supported machine learning features for each region.
 
 ## REST Resource: [reasoningEngines.v1.projects.locations.reasoningEngines.api](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.v1.projects.locations.reasoningEngines.api)
 
-Methods
-
-`  invokeReasoningEngine  `
-
-`POST /reasoningEngines/v1/{name}/api/**`  
-Invokes reasoning engine with arbitrary HTTP requests for both unary and server-side streaming cases.
+| Methods                                                                                                                                                                                       |                                                                                                                                                 |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`invokeReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.v1.projects.locations.reasoningEngines.api/invokeReasoningEngine) | `POST /reasoningEngines/v1/{name}/api/**` Invokes reasoning engine with arbitrary HTTP requests for both unary and server-side streaming cases. |
 
 ## REST Resource: [reasoningEngines.v1.projects.locations.reasoningEngines.runtimeRevisions.api](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.v1.projects.locations.reasoningEngines.runtimeRevisions.api)
 
-Methods
-
-`  invokeReasoningEngine  `
-
-`PATCH /reasoningEngines/v1/{name}/api/**`  
-Invokes reasoning engine with arbitrary HTTP requests for both unary and server-side streaming cases.
+| Methods                                                                                                                                                                                                        |                                                                                                                                                  |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`invokeReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.v1.projects.locations.reasoningEngines.runtimeRevisions.api/invokeReasoningEngine) | `PATCH /reasoningEngines/v1/{name}/api/**` Invokes reasoning engine with arbitrary HTTP requests for both unary and server-side streaming cases. |
 
 ## REST Resource: [reasoningEngines.v1beta1.projects.locations.reasoningEngines.api](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.v1beta1.projects.locations.reasoningEngines.api)
 
-Methods
-
-`  invokeReasoningEngine  `
-
-`POST /reasoningEngines/v1beta1/{name}/api/**`  
-Invokes reasoning engine with arbitrary HTTP requests for both unary and server-side streaming cases.
+| Methods                                                                                                                                                                                            |                                                                                                                                                      |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`invokeReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.v1beta1.projects.locations.reasoningEngines.api/invokeReasoningEngine) | `POST /reasoningEngines/v1beta1/{name}/api/**` Invokes reasoning engine with arbitrary HTTP requests for both unary and server-side streaming cases. |
 
 ## REST Resource: [reasoningEngines.v1beta1.projects.locations.reasoningEngines.runtimeRevisions.api](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.v1beta1.projects.locations.reasoningEngines.runtimeRevisions.api)
 
-Methods
-
-`  invokeReasoningEngine  `
-
-`PATCH /reasoningEngines/v1beta1/{name}/api/**`  
-Invokes reasoning engine with arbitrary HTTP requests for both unary and server-side streaming cases.
+| Methods                                                                                                                                                                                                             |                                                                                                                                                       |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`invokeReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.v1beta1.projects.locations.reasoningEngines.runtimeRevisions.api/invokeReasoningEngine) | `PATCH /reasoningEngines/v1beta1/{name}/api/**` Invokes reasoning engine with arbitrary HTTP requests for both unary and server-side streaming cases. |
 
 ## REST Resource: [reasoningEngines.ws.v1.projects.locations.reasoningEngines.api](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.ws.v1.projects.locations.reasoningEngines.api)
 
-Methods
-
-`  bidiInvokeReasoningEngine  `
-
-`GET /reasoningEngines/ws/v1/{name}/api/**`  
-Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming
+| Methods                                                                                                                                                                                                  |                                                                                                                           |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| [`bidiInvokeReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.ws.v1.projects.locations.reasoningEngines.api/bidiInvokeReasoningEngine) | `GET /reasoningEngines/ws/v1/{name}/api/**` Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming |
 
 ## REST Resource: [reasoningEngines.ws.v1.projects.locations.reasoningEngines.revisions.runtimeRevisions.api](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.ws.v1.projects.locations.reasoningEngines.revisions.runtimeRevisions.api)
 
-Methods
-
-`  bidiInvokeReasoningEngine  `
-
-`POST /reasoningEngines/ws/v1/{name}/api/**`  
-Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming
+| Methods                                                                                                                                                                                                                             |                                                                                                                            |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| [`bidiInvokeReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.ws.v1.projects.locations.reasoningEngines.revisions.runtimeRevisions.api/bidiInvokeReasoningEngine) | `POST /reasoningEngines/ws/v1/{name}/api/**` Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming |
 
 ## REST Resource: [reasoningEngines.ws.v1beta1.projects.locations.reasoningEngines.api](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.ws.v1beta1.projects.locations.reasoningEngines.api)
 
-Methods
-
-`  bidiInvokeReasoningEngine  `
-
-`GET /reasoningEngines/ws/v1beta1/{name}/api/**`  
-Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming
+| Methods                                                                                                                                                                                                       |                                                                                                                                |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| [`bidiInvokeReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.ws.v1beta1.projects.locations.reasoningEngines.api/bidiInvokeReasoningEngine) | `GET /reasoningEngines/ws/v1beta1/{name}/api/**` Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming |
 
 ## REST Resource: [reasoningEngines.ws.v1beta1.projects.locations.reasoningEngines.revisions.runtimeRevisions.api](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.ws.v1beta1.projects.locations.reasoningEngines.revisions.runtimeRevisions.api)
 
-Methods
-
-`  bidiInvokeReasoningEngine  `
-
-`POST /reasoningEngines/ws/v1beta1/{name}/api/**`  
-Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming
+| Methods                                                                                                                                                                                                                                  |                                                                                                                                 |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| [`bidiInvokeReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.ws.v1beta1.projects.locations.reasoningEngines.revisions.runtimeRevisions.api/bidiInvokeReasoningEngine) | `POST /reasoningEngines/ws/v1beta1/{name}/api/**` Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming |
 
 ## REST Resource: [v1.media](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/media)
 
-Methods
-
-`  upload  `
-
-`POST /v1/{parent}/ragFiles:upload`  
-`POST /upload/v1/{parent}/ragFiles:upload`  
-Upload a file into a RagCorpus.
+| Methods                                                                                                   |                                                                                                                |
+|-----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| [`upload`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/media/upload) | `POST /v1/{parent}/ragFiles:upload` `POST /upload/v1/{parent}/ragFiles:upload` Upload a file into a RagCorpus. |
 
 ## REST Resource: [v1.operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/operations)
 
-Methods
-
-`  cancel  `
-
-`POST /v1/{name}:cancel`  
-Starts asynchronous cancellation on a long-running operation.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a long-running operation.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets the latest state of a long-running operation.
-
-`  list  `
-
-`GET /v1/operations`  
-Lists operations that match the specified filter in the request.
-
-`  wait  `
-
-`POST /v1/{name}:wait`  
-Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state.
+| Methods                                                                                                        |                                                                                                                                                     |
+|----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/operations/cancel) | `POST /v1/{name}:cancel` Starts asynchronous cancellation on a long-running operation.                                                              |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/operations/delete) | `DELETE /v1/{name}` Deletes a long-running operation.                                                                                               |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/operations/get)       | `GET /v1/{name}` Gets the latest state of a long-running operation.                                                                                 |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/operations/list)     | `GET /v1/operations` Lists operations that match the specified filter in the request.                                                               |
+| [`wait`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/operations/wait)     | `POST /v1/{name}:wait` Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. |
 
 ## REST Resource: [v1.projects.locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations)
 
-Methods
-
-`  askContexts  `
-
-`POST /v1/{parent}:askContexts`  
-Agentic Retrieval Ask API for RAG.
-
-`  asyncRetrieveContexts  `
-
-`POST /v1/{parent}:asyncRetrieveContexts`  
-Asynchronous API to retrieves relevant contexts for a query.
-
-`  augmentPrompt  `
-
-`POST /v1/{parent}:augmentPrompt`  
-Given an input prompt, it returns augmented prompt from vertex rag store to guide LLM towards generating grounded responses.
-
-`  corroborateContent  `
-
-`POST /v1/{parent}:corroborateContent`  
-Given an input text, it returns a score that evaluates the factuality of the text.
-
-`  deploy  `
-
-`POST /v1/{destination}:deploy`  
-Deploys a model to a new endpoint.
-
-`  evaluateInstances  `
-
-`POST /v1/{location}:evaluateInstances`  
-Evaluates instances based on a given metric.
-
-`  generateSyntheticData  `
-
-`POST /v1/{location}:generateSyntheticData`  
-Generates synthetic (artificial) data based on a description
-
-`  getRagEngineConfig  `
-
-`GET /v1/{name}`  
-Gets a RagEngineConfig.
-
-`  getSemanticGovernancePolicyEngine  `
-
-`GET /v1/{name}`  
-Gets a SemanticGovernancePolicyEngine.
-
-`  retrieveContexts  `
-
-`POST /v1/{parent}:retrieveContexts`  
-Retrieves relevant contexts for a query.
-
-`  updateRagEngineConfig  `
-
-`PATCH /v1/{ragEngineConfig.name}`  
-Updates a RagEngineConfig.
-
-`  updateSemanticGovernancePolicyEngine  `
-
-`PATCH /v1/{semanticGovernancePolicyEngine.name}`  
-Updates a SemanticGovernancePolicyEngine.
+| Methods                                                                                                                                                                            |                                                                                                                                                                |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`askContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/askContexts)                                                   | `POST /v1/{parent}:askContexts` Agentic Retrieval Ask API for RAG.                                                                                             |
+| [`asyncRetrieveContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/asyncRetrieveContexts)                               | `POST /v1/{parent}:asyncRetrieveContexts` Asynchronous API to retrieves relevant contexts for a query.                                                         |
+| [`augmentPrompt`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/augmentPrompt)                                               | `POST /v1/{parent}:augmentPrompt` Given an input prompt, it returns augmented prompt from vertex rag store to guide LLM towards generating grounded responses. |
+| [`corroborateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/corroborateContent)                                     | `POST /v1/{parent}:corroborateContent` Given an input text, it returns a score that evaluates the factuality of the text.                                      |
+| [`deploy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/deploy)                                                             | `POST /v1/{destination}:deploy` Deploys a model to a new endpoint.                                                                                             |
+| [`evaluateInstances`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/evaluateInstances)                                       | `POST /v1/{location}:evaluateInstances` Evaluates instances based on a given metric.                                                                           |
+| [`generateSyntheticData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/generateSyntheticData)                               | `POST /v1/{location}:generateSyntheticData` Generates synthetic (artificial) data based on a description                                                       |
+| [`getRagEngineConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/getRagEngineConfig)                                     | `GET /v1/{name}` Gets a RagEngineConfig.                                                                                                                       |
+| [`getSemanticGovernancePolicyEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/getSemanticGovernancePolicyEngine)       | `GET /v1/{name}` Gets a SemanticGovernancePolicyEngine.                                                                                                        |
+| [`retrieveContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/retrieveContexts)                                         | `POST /v1/{parent}:retrieveContexts` Retrieves relevant contexts for a query.                                                                                  |
+| [`updateRagEngineConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/updateRagEngineConfig)                               | `PATCH /v1/{ragEngineConfig.name}` Updates a RagEngineConfig.                                                                                                  |
+| [`updateSemanticGovernancePolicyEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/updateSemanticGovernancePolicyEngine) | `PATCH /v1/{semanticGovernancePolicyEngine.name}` Updates a SemanticGovernancePolicyEngine.                                                                    |
 
 ## REST Resource: [v1.projects.locations.batchPredictionJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs)
 
-Methods
-
-`  cancel  `
-
-`POST /v1/{name}:cancel`  
-Cancels a BatchPredictionJob.
-
-`  create  `
-
-`POST /v1/{parent}/batchPredictionJobs`  
-Creates a BatchPredictionJob.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a BatchPredictionJob.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a BatchPredictionJob
-
-`  list  `
-
-`GET /v1/{parent}/batchPredictionJobs`  
-Lists BatchPredictionJobs in a Location.
+| Methods                                                                                                                                    |                                                                                 |
+|--------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs/cancel) | `POST /v1/{name}:cancel` Cancels a BatchPredictionJob.                          |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs/create) | `POST /v1/{parent}/batchPredictionJobs` Creates a BatchPredictionJob.           |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs/delete) | `DELETE /v1/{name}` Deletes a BatchPredictionJob.                               |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs/get)       | `GET /v1/{name}` Gets a BatchPredictionJob                                      |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs/list)     | `GET /v1/{parent}/batchPredictionJobs` Lists BatchPredictionJobs in a Location. |
 
 ## REST Resource: [v1.projects.locations.cachedContents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/cachedContents`  
-Creates cached content, this call will initialize the cached content in the data storage, and users need to pay for the cache data storage.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes cached content
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets cached content configurations
-
-`  list  `
-
-`GET /v1/{parent}/cachedContents`  
-Lists cached contents in a project
-
-`  patch  `
-
-`PATCH /v1/{cachedContent.name}`  
-Updates cached content configurations
+| Methods                                                                                                                               |                                                                                                                                                                                |
+|---------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents/create) | `POST /v1/{parent}/cachedContents` Creates cached content, this call will initialize the cached content in the data storage, and users need to pay for the cache data storage. |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents/delete) | `DELETE /v1/{name}` Deletes cached content                                                                                                                                     |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents/get)       | `GET /v1/{name}` Gets cached content configurations                                                                                                                            |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents/list)     | `GET /v1/{parent}/cachedContents` Lists cached contents in a project                                                                                                           |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents/patch)   | `PATCH /v1/{cachedContent.name}` Updates cached content configurations                                                                                                         |
 
 ## REST Resource: [v1.projects.locations.customJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.customJobs)
 
-Methods
-
-`  cancel  `
-
-`POST /v1/{name}:cancel`  
-Cancels a CustomJob.
-
-`  create  `
-
-`POST /v1/{parent}/customJobs`  
-Creates a CustomJob.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a CustomJob.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a CustomJob.
-
-`  list  `
-
-`GET /v1/{parent}/customJobs`  
-Lists CustomJobs in a Location.
+| Methods                                                                                                                           |                                                               |
+|-----------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.customJobs/cancel) | `POST /v1/{name}:cancel` Cancels a CustomJob.                 |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.customJobs/create) | `POST /v1/{parent}/customJobs` Creates a CustomJob.           |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.customJobs/delete) | `DELETE /v1/{name}` Deletes a CustomJob.                      |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.customJobs/get)       | `GET /v1/{name}` Gets a CustomJob.                            |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.customJobs/list)     | `GET /v1/{parent}/customJobs` Lists CustomJobs in a Location. |
 
 ## REST Resource: [v1.projects.locations.datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/datasets`  
-Creates a Dataset.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a Dataset.
-
-`  export  `
-
-`POST /v1/{name}:export`  
-Exports data from a Dataset.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a Dataset.
-
-`  import  `
-
-`POST /v1/{name}:import`  
-Imports data into a Dataset.
-
-`  list  `
-
-`GET /v1/{parent}/datasets`  
-Lists Datasets in a Location.
-
-`  patch  `
-
-`PATCH /v1/{dataset.name}`  
-Updates a Dataset.
-
-`  searchDataItems  `
-
-`GET /v1/{dataset}:searchDataItems`  
-Searches DataItems in a Dataset.
+| Methods                                                                                                                                           |                                                                      |
+|---------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/create)                   | `POST /v1/{parent}/datasets` Creates a Dataset.                      |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/delete)                   | `DELETE /v1/{name}` Deletes a Dataset.                               |
+| [`export`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/export)                   | `POST /v1/{name}:export` Exports data from a Dataset.                |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/get)                         | `GET /v1/{name}` Gets a Dataset.                                     |
+| [`import`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/import)                   | `POST /v1/{name}:import` Imports data into a Dataset.                |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/list)                       | `GET /v1/{parent}/datasets` Lists Datasets in a Location.            |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/patch)                     | `PATCH /v1/{dataset.name}` Updates a Dataset.                        |
+| [`searchDataItems`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/searchDataItems) | `GET /v1/{dataset}:searchDataItems` Searches DataItems in a Dataset. |
 
 ## REST Resource: [v1.projects.locations.datasets.annotationSpecs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.annotationSpecs)
 
-Methods
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets an AnnotationSpec.
+| Methods                                                                                                                                   |                                          |
+|-------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.annotationSpecs/get) | `GET /v1/{name}` Gets an AnnotationSpec. |
 
 ## REST Resource: [v1.projects.locations.datasets.dataItems](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.dataItems)
 
-Methods
-
-`  list  `
-
-`GET /v1/{parent}/dataItems`  
-Lists DataItems in a Dataset.
+| Methods                                                                                                                               |                                                            |
+|---------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.dataItems/list) | `GET /v1/{parent}/dataItems` Lists DataItems in a Dataset. |
 
 ## REST Resource: [v1.projects.locations.datasets.dataItems.annotations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.dataItems.annotations)
 
-Methods
-
-`  list  `
-
-`GET /v1/{parent}/annotations`  
-Lists Annotations belongs to a dataitem.
+| Methods                                                                                                                                           |                                                                         |
+|---------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.dataItems.annotations/list) | `GET /v1/{parent}/annotations` Lists Annotations belongs to a dataitem. |
 
 ## REST Resource: [v1.projects.locations.datasets.datasetVersions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.datasetVersions)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/datasetVersions`  
-Create a version from a Dataset.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a Dataset version.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a Dataset version.
-
-`  list  `
-
-`GET /v1/{parent}/datasetVersions`  
-Lists DatasetVersions in a Dataset.
-
-`  patch  `
-
-`PATCH /v1/{datasetVersion.name}`  
-Updates a DatasetVersion.
-
-`  restore  `
-
-`GET /v1/{name}:restore`  
-Restores a dataset version.
+| Methods                                                                                                                                           |                                                                        |
+|---------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.datasetVersions/create)   | `POST /v1/{parent}/datasetVersions` Create a version from a Dataset.   |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.datasetVersions/delete)   | `DELETE /v1/{name}` Deletes a Dataset version.                         |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.datasetVersions/get)         | `GET /v1/{name}` Gets a Dataset version.                               |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.datasetVersions/list)       | `GET /v1/{parent}/datasetVersions` Lists DatasetVersions in a Dataset. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.datasetVersions/patch)     | `PATCH /v1/{datasetVersion.name}` Updates a DatasetVersion.            |
+| [`restore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.datasetVersions/restore) | `GET /v1/{name}:restore` Restores a dataset version.                   |
 
 ## REST Resource: [v1.projects.locations.datasets.savedQueries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.savedQueries)
 
-Methods
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a SavedQuery.
-
-`  list  `
-
-`GET /v1/{parent}/savedQueries`  
-Lists SavedQueries in a Dataset.
+| Methods                                                                                                                                      |                                                                  |
+|----------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.savedQueries/delete) | `DELETE /v1/{name}` Deletes a SavedQuery.                        |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.savedQueries/list)     | `GET /v1/{parent}/savedQueries` Lists SavedQueries in a Dataset. |
 
 ## REST Resource: [v1.projects.locations.deploymentResourcePools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.deploymentResourcePools)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/deploymentResourcePools`  
-Create a DeploymentResourcePool.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Delete a DeploymentResourcePool.
-
-`  get  `
-
-`GET /v1/{name}`  
-Get a DeploymentResourcePool.
-
-`  list  `
-
-`GET /v1/{parent}/deploymentResourcePools`  
-List DeploymentResourcePools in a location.
-
-`  patch  `
-
-`PATCH /v1/{deploymentResourcePool.name}`  
-Update a DeploymentResourcePool.
-
-`  queryDeployedModels  `
-
-`GET /v1/{deploymentResourcePool}:queryDeployedModels`  
-List DeployedModels that have been deployed on this DeploymentResourcePool.
+| Methods                                                                                                                                                                  |                                                                                                                                    |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.deploymentResourcePools/create)                           | `POST /v1/{parent}/deploymentResourcePools` Create a DeploymentResourcePool.                                                       |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.deploymentResourcePools/delete)                           | `DELETE /v1/{name}` Delete a DeploymentResourcePool.                                                                               |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.deploymentResourcePools/get)                                 | `GET /v1/{name}` Get a DeploymentResourcePool.                                                                                     |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.deploymentResourcePools/list)                               | `GET /v1/{parent}/deploymentResourcePools` List DeploymentResourcePools in a location.                                             |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.deploymentResourcePools/patch)                             | `PATCH /v1/{deploymentResourcePool.name}` Update a DeploymentResourcePool.                                                         |
+| [`queryDeployedModels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.deploymentResourcePools/queryDeployedModels) | `GET /v1/{deploymentResourcePool}:queryDeployedModels` List DeployedModels that have been deployed on this DeploymentResourcePool. |
 
 ## REST Resource: [v1.projects.locations.endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints)
 
-Methods
-
-`  computeTokens  `
-
-`POST /v1/{endpoint}:computeTokens`  
-Return a list of tokens based on the input text.
-
-`  countTokens  `
-
-`POST /v1/{endpoint}:countTokens`  
-Perform a token counting.
-
-`  create  `
-
-`POST /v1/{parent}/endpoints`  
-Creates an Endpoint.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes an Endpoint.
-
-`  deployModel  `
-
-`POST /v1/{endpoint}:deployModel`  
-Deploys a Model into this Endpoint, creating a DeployedModel within it.
-
-`  directPredict  `
-
-`POST /v1/{endpoint}:directPredict`  
-Perform an unary online prediction request to a gRPC model server for Vertex first-party products and frameworks.
-
-`  directRawPredict  `
-
-`POST /v1/{endpoint}:directRawPredict`  
-Perform an unary online prediction request to a gRPC model server for custom containers.
-
-`  explain  `
-
-`POST /v1/{endpoint}:explain`  
-Perform an online explanation.
-
-`  generateContent  `
-
-`POST /v1/{model}:generateContent`  
-Generate content with multimodal inputs.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets an Endpoint.
-
-`  list  `
-
-`GET /v1/{parent}/endpoints`  
-Lists Endpoints in a Location.
-
-`  mutateDeployedModel  `
-
-`POST /v1/{endpoint}:mutateDeployedModel`  
-Updates an existing deployed model.
-
-`  patch  `
-
-`PATCH /v1/{endpoint.name}`  
-Updates an Endpoint.
-
-`  predict  `
-
-`POST /v1/{endpoint}:predict`  
-Perform an online inference.
-
-`  rawPredict  `
-
-`POST /v1/{endpoint}:rawPredict`  
-Perform an online prediction with an arbitrary HTTP payload.
-
-`  serverStreamingPredict  `
-
-`POST /v1/{endpoint}:serverStreamingPredict`  
-Perform a server-side streaming online prediction request for Vertex LLM streaming.
-
-`  streamGenerateContent  `
-
-`POST /v1/{model}:streamGenerateContent`  
-Generate content with multimodal inputs with streaming support.
-
-`  streamRawPredict  `
-
-`POST /v1/{endpoint}:streamRawPredict`  
-Perform a streaming online prediction with an arbitrary HTTP payload.
-
-`  undeployModel  `
-
-`POST /v1/{endpoint}:undeployModel`  
-Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freeing all resources it's using.
-
-`  update  `
-
-`POST /v1/{endpoint.name}:update`  
-Updates an Endpoint with a long running operation.
+| Methods                                                                                                                                                          |                                                                                                                                                       |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`computeTokens`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/computeTokens)                   | `POST /v1/{endpoint}:computeTokens` Return a list of tokens based on the input text.                                                                  |
+| [`countTokens`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/countTokens)                       | `POST /v1/{endpoint}:countTokens` Perform a token counting.                                                                                           |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/create)                                 | `POST /v1/{parent}/endpoints` Creates an Endpoint.                                                                                                    |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/delete)                                 | `DELETE /v1/{name}` Deletes an Endpoint.                                                                                                              |
+| [`deployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/deployModel)                       | `POST /v1/{endpoint}:deployModel` Deploys a Model into this Endpoint, creating a DeployedModel within it.                                             |
+| [`directPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/directPredict)                   | `POST /v1/{endpoint}:directPredict` Perform an unary online prediction request to a gRPC model server for Vertex first-party products and frameworks. |
+| [`directRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/directRawPredict)             | `POST /v1/{endpoint}:directRawPredict` Perform an unary online prediction request to a gRPC model server for custom containers.                       |
+| [`explain`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/explain)                               | `POST /v1/{endpoint}:explain` Perform an online explanation.                                                                                          |
+| [`generateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent)               | `POST /v1/{model}:generateContent` Generate content with multimodal inputs.                                                                           |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/get)                                       | `GET /v1/{name}` Gets an Endpoint.                                                                                                                    |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/list)                                     | `GET /v1/{parent}/endpoints` Lists Endpoints in a Location.                                                                                           |
+| [`mutateDeployedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/mutateDeployedModel)       | `POST /v1/{endpoint}:mutateDeployedModel` Updates an existing deployed model.                                                                         |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/patch)                                   | `PATCH /v1/{endpoint.name}` Updates an Endpoint.                                                                                                      |
+| [`predict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict)                               | `POST /v1/{endpoint}:predict` Perform an online inference.                                                                                            |
+| [`rawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/rawPredict)                         | `POST /v1/{endpoint}:rawPredict` Perform an online prediction with an arbitrary HTTP payload.                                                         |
+| [`serverStreamingPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/serverStreamingPredict) | `POST /v1/{endpoint}:serverStreamingPredict` Perform a server-side streaming online prediction request for Vertex LLM streaming.                      |
+| [`streamGenerateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/streamGenerateContent)   | `POST /v1/{model}:streamGenerateContent` Generate content with multimodal inputs with streaming support.                                              |
+| [`streamRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/streamRawPredict)             | `POST /v1/{endpoint}:streamRawPredict` Perform a streaming online prediction with an arbitrary HTTP payload.                                          |
+| [`undeployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/undeployModel)                   | `POST /v1/{endpoint}:undeployModel` Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freeing all resources it's using.       |
+| [`update`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/update)                                 | `POST /v1/{endpoint.name}:update` Updates an Endpoint with a long running operation.                                                                  |
 
 ## REST Resource: [v1.projects.locations.endpoints.responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints.responses)
 
-Methods
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes the response from the endpoint.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets the response from the endpoint.
+| Methods                                                                                                                                    |                                                             |
+|--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints.responses/delete) | `DELETE /v1/{name}` Deletes the response from the endpoint. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints.responses/get)       | `GET /v1/{name}` Gets the response from the endpoint.       |
 
 ## REST Resource: [v1.projects.locations.featureGroups](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/featureGroups`  
-Creates a new FeatureGroup in a given project and location.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a single FeatureGroup.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets details of a single FeatureGroup.
-
-`  getIamPolicy  `
-
-`POST /v1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  list  `
-
-`GET /v1/{parent}/featureGroups`  
-Lists FeatureGroups in a given project and location.
-
-`  patch  `
-
-`PATCH /v1/{featureGroup.name}`  
-Updates the parameters of a single FeatureGroup.
-
-`  setIamPolicy  `
-
-`POST /v1/{resource}:setIamPolicy`  
-Sets the access control policy on the specified resource.
-
-`  testIamPermissions  `
-
-`POST /v1/{resource}:testIamPermissions`  
-Returns permissions that a caller has on the specified resource.
+| Methods                                                                                                                                                      |                                                                                                           |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups/create)                         | `POST /v1/{parent}/featureGroups` Creates a new FeatureGroup in a given project and location.             |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups/delete)                         | `DELETE /v1/{name}` Deletes a single FeatureGroup.                                                        |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups/get)                               | `GET /v1/{name}` Gets details of a single FeatureGroup.                                                   |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups/getIamPolicy)             | `POST /v1/{resource}:getIamPolicy` Gets the access control policy for a resource.                         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups/list)                             | `GET /v1/{parent}/featureGroups` Lists FeatureGroups in a given project and location.                     |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups/patch)                           | `PATCH /v1/{featureGroup.name}` Updates the parameters of a single FeatureGroup.                          |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups/setIamPolicy)             | `POST /v1/{resource}:setIamPolicy` Sets the access control policy on the specified resource.              |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups/testIamPermissions) | `POST /v1/{resource}:testIamPermissions` Returns permissions that a caller has on the specified resource. |
 
 ## REST Resource: [v1.projects.locations.featureGroups.features](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features)
 
-Methods
-
-`  batchCreate  `
-
-`POST /v1/{parent}/features:batchCreate`  
-Creates a batch of Features in a given FeatureGroup.
-
-`  create  `
-
-`POST /v1/{parent}/features`  
-Creates a new Feature in a given FeatureGroup.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a single Feature.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets details of a single Feature.
-
-`  list  `
-
-`GET /v1/{parent}/features`  
-Lists Features in a given FeatureGroup.
-
-`  patch  `
-
-`PATCH /v1/{feature.name}`  
-Updates the parameters of a single Feature.
+| Methods                                                                                                                                                 |                                                                                               |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| [`batchCreate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features/batchCreate) | `POST /v1/{parent}/features:batchCreate` Creates a batch of Features in a given FeatureGroup. |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features/create)           | `POST /v1/{parent}/features` Creates a new Feature in a given FeatureGroup.                   |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features/delete)           | `DELETE /v1/{name}` Deletes a single Feature.                                                 |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features/get)                 | `GET /v1/{name}` Gets details of a single Feature.                                            |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features/list)               | `GET /v1/{parent}/features` Lists Features in a given FeatureGroup.                           |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features/patch)             | `PATCH /v1/{feature.name}` Updates the parameters of a single Feature.                        |
 
 ## REST Resource: [v1.projects.locations.featureOnlineStores](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/featureOnlineStores`  
-Creates a new FeatureOnlineStore in a given project and location.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a single FeatureOnlineStore.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets details of a single FeatureOnlineStore.
-
-`  getIamPolicy  `
-
-`POST /v1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  list  `
-
-`GET /v1/{parent}/featureOnlineStores`  
-Lists FeatureOnlineStores in a given project and location.
-
-`  patch  `
-
-`PATCH /v1/{featureOnlineStore.name}`  
-Updates the parameters of a single FeatureOnlineStore.
-
-`  setIamPolicy  `
-
-`POST /v1/{resource}:setIamPolicy`  
-Sets the access control policy on the specified resource.
-
-`  testIamPermissions  `
-
-`POST /v1/{resource}:testIamPermissions`  
-Returns permissions that a caller has on the specified resource.
+| Methods                                                                                                                                                            |                                                                                                           |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores/create)                         | `POST /v1/{parent}/featureOnlineStores` Creates a new FeatureOnlineStore in a given project and location. |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores/delete)                         | `DELETE /v1/{name}` Deletes a single FeatureOnlineStore.                                                  |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores/get)                               | `GET /v1/{name}` Gets details of a single FeatureOnlineStore.                                             |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores/getIamPolicy)             | `POST /v1/{resource}:getIamPolicy` Gets the access control policy for a resource.                         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores/list)                             | `GET /v1/{parent}/featureOnlineStores` Lists FeatureOnlineStores in a given project and location.         |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores/patch)                           | `PATCH /v1/{featureOnlineStore.name}` Updates the parameters of a single FeatureOnlineStore.              |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores/setIamPolicy)             | `POST /v1/{resource}:setIamPolicy` Sets the access control policy on the specified resource.              |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores/testIamPermissions) | `POST /v1/{resource}:testIamPermissions` Returns permissions that a caller has on the specified resource. |
 
 ## REST Resource: [v1.projects.locations.featureOnlineStores.featureViews](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/featureViews`  
-Creates a new FeatureView in a given FeatureOnlineStore.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a single FeatureView.
-
-`  directWrite  `
-
-`POST /v1/{featureView}:directWrite`  
-Bidirectional streaming RPC to directly write to feature values in a feature view.
-
-`  fetchFeatureValues  `
-
-`POST /v1/{featureView}:fetchFeatureValues`  
-Fetch feature values under a FeatureView.
-
-`  generateFetchAccessToken  `
-
-`POST /v1/{featureView}:generateFetchAccessToken`  
-RPC to generate an access token for the given feature view.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets details of a single FeatureView.
-
-`  getIamPolicy  `
-
-`POST /v1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  list  `
-
-`GET /v1/{parent}/featureViews`  
-Lists FeatureViews in a given FeatureOnlineStore.
-
-`  patch  `
-
-`PATCH /v1/{featureView.name}`  
-Updates the parameters of a single FeatureView.
-
-`  searchNearestEntities  `
-
-`POST /v1/{featureView}:searchNearestEntities`  
-Search the nearest entities under a FeatureView.
-
-`  setIamPolicy  `
-
-`POST /v1/{resource}:setIamPolicy`  
-Sets the access control policy on the specified resource.
-
-`  sync  `
-
-`POST /v1/{featureView}:sync`  
-Triggers on-demand sync for the FeatureView.
-
-`  testIamPermissions  `
-
-`POST /v1/{resource}:testIamPermissions`  
-Returns permissions that a caller has on the specified resource.
+| Methods                                                                                                                                                                                     |                                                                                                                         |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/create)                                     | `POST /v1/{parent}/featureViews` Creates a new FeatureView in a given FeatureOnlineStore.                               |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/delete)                                     | `DELETE /v1/{name}` Deletes a single FeatureView.                                                                       |
+| [`directWrite`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/directWrite)                           | `POST /v1/{featureView}:directWrite` Bidirectional streaming RPC to directly write to feature values in a feature view. |
+| [`fetchFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/fetchFeatureValues)             | `POST /v1/{featureView}:fetchFeatureValues` Fetch feature values under a FeatureView.                                   |
+| [`generateFetchAccessToken`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/generateFetchAccessToken) | `POST /v1/{featureView}:generateFetchAccessToken` RPC to generate an access token for the given feature view.           |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/get)                                           | `GET /v1/{name}` Gets details of a single FeatureView.                                                                  |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/getIamPolicy)                         | `POST /v1/{resource}:getIamPolicy` Gets the access control policy for a resource.                                       |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/list)                                         | `GET /v1/{parent}/featureViews` Lists FeatureViews in a given FeatureOnlineStore.                                       |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/patch)                                       | `PATCH /v1/{featureView.name}` Updates the parameters of a single FeatureView.                                          |
+| [`searchNearestEntities`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/searchNearestEntities)       | `POST /v1/{featureView}:searchNearestEntities` Search the nearest entities under a FeatureView.                         |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/setIamPolicy)                         | `POST /v1/{resource}:setIamPolicy` Sets the access control policy on the specified resource.                            |
+| [`sync`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/sync)                                         | `POST /v1/{featureView}:sync` Triggers on-demand sync for the FeatureView.                                              |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/testIamPermissions)             | `POST /v1/{resource}:testIamPermissions` Returns permissions that a caller has on the specified resource.               |
 
 ## REST Resource: [v1.projects.locations.featureOnlineStores.featureViews.featureViewSyncs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews.featureViewSyncs)
 
-Methods
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets details of a single FeatureViewSync.
-
-`  list  `
-
-`GET /v1/{parent}/featureViewSyncs`  
-Lists FeatureViewSyncs in a given FeatureView.
+| Methods                                                                                                                                                              |                                                                                    |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews.featureViewSyncs/get)   | `GET /v1/{name}` Gets details of a single FeatureViewSync.                         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews.featureViewSyncs/list) | `GET /v1/{parent}/featureViewSyncs` Lists FeatureViewSyncs in a given FeatureView. |
 
 ## REST Resource: [v1.projects.locations.featurestores](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores)
 
-Methods
-
-`  batchReadFeatureValues  `
-
-`POST /v1/{featurestore}:batchReadFeatureValues`  
-Batch reads Feature values from a Featurestore.
-
-`  create  `
-
-`POST /v1/{parent}/featurestores`  
-Creates a new Featurestore in a given project and location.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a single Featurestore.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets details of a single Featurestore.
-
-`  getIamPolicy  `
-
-`POST /v1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  list  `
-
-`GET /v1/{parent}/featurestores`  
-Lists Featurestores in a given project and location.
-
-`  patch  `
-
-`PATCH /v1/{featurestore.name}`  
-Updates the parameters of a single Featurestore.
-
-`  searchFeatures  `
-
-`GET /v1/{location}/featurestores:searchFeatures`  
-Searches Features matching a query in a given project.
-
-`  setIamPolicy  `
-
-`POST /v1/{resource}:setIamPolicy`  
-Sets the access control policy on the specified resource.
-
-`  testIamPermissions  `
-
-`POST /v1/{resource}:testIamPermissions`  
-Returns permissions that a caller has on the specified resource.
+| Methods                                                                                                                                                              |                                                                                                           |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| [`batchReadFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores/batchReadFeatureValues) | `POST /v1/{featurestore}:batchReadFeatureValues` Batch reads Feature values from a Featurestore.          |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores/create)                                 | `POST /v1/{parent}/featurestores` Creates a new Featurestore in a given project and location.             |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores/delete)                                 | `DELETE /v1/{name}` Deletes a single Featurestore.                                                        |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores/get)                                       | `GET /v1/{name}` Gets details of a single Featurestore.                                                   |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores/getIamPolicy)                     | `POST /v1/{resource}:getIamPolicy` Gets the access control policy for a resource.                         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores/list)                                     | `GET /v1/{parent}/featurestores` Lists Featurestores in a given project and location.                     |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores/patch)                                   | `PATCH /v1/{featurestore.name}` Updates the parameters of a single Featurestore.                          |
+| [`searchFeatures`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores/searchFeatures)                 | `GET /v1/{location}/featurestores:searchFeatures` Searches Features matching a query in a given project.  |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores/setIamPolicy)                     | `POST /v1/{resource}:setIamPolicy` Sets the access control policy on the specified resource.              |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores/testIamPermissions)         | `POST /v1/{resource}:testIamPermissions` Returns permissions that a caller has on the specified resource. |
 
 ## REST Resource: [v1.projects.locations.featurestores.entityTypes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/entityTypes`  
-Creates a new EntityType in a given Featurestore.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a single EntityType.
-
-`  deleteFeatureValues  `
-
-`POST /v1/{entityType}:deleteFeatureValues`  
-Delete Feature values from Featurestore.
-
-`  exportFeatureValues  `
-
-`POST /v1/{entityType}:exportFeatureValues`  
-Exports Feature values from all the entities of a target EntityType.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets details of a single EntityType.
-
-`  getIamPolicy  `
-
-`POST /v1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  importFeatureValues  `
-
-`POST /v1/{entityType}:importFeatureValues`  
-Imports Feature values into the Featurestore from a source storage.
-
-`  list  `
-
-`GET /v1/{parent}/entityTypes`  
-Lists EntityTypes in a given Featurestore.
-
-`  patch  `
-
-`PATCH /v1/{entityType.name}`  
-Updates the parameters of a single EntityType.
-
-`  readFeatureValues  `
-
-`POST /v1/{entityType}:readFeatureValues`  
-Reads Feature values of a specific entity of an EntityType.
-
-`  setIamPolicy  `
-
-`POST /v1/{resource}:setIamPolicy`  
-Sets the access control policy on the specified resource.
-
-`  streamingReadFeatureValues  `
-
-`POST /v1/{entityType}:streamingReadFeatureValues`  
-Reads Feature values for multiple entities.
-
-`  testIamPermissions  `
-
-`POST /v1/{resource}:testIamPermissions`  
-Returns permissions that a caller has on the specified resource.
-
-`  writeFeatureValues  `
-
-`POST /v1/{entityType}:writeFeatureValues`  
-Writes Feature values of one or more entities of an EntityType.
+| Methods                                                                                                                                                                                  |                                                                                                                  |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/create)                                         | `POST /v1/{parent}/entityTypes` Creates a new EntityType in a given Featurestore.                                |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/delete)                                         | `DELETE /v1/{name}` Deletes a single EntityType.                                                                 |
+| [`deleteFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/deleteFeatureValues)               | `POST /v1/{entityType}:deleteFeatureValues` Delete Feature values from Featurestore.                             |
+| [`exportFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/exportFeatureValues)               | `POST /v1/{entityType}:exportFeatureValues` Exports Feature values from all the entities of a target EntityType. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/get)                                               | `GET /v1/{name}` Gets details of a single EntityType.                                                            |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/getIamPolicy)                             | `POST /v1/{resource}:getIamPolicy` Gets the access control policy for a resource.                                |
+| [`importFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/importFeatureValues)               | `POST /v1/{entityType}:importFeatureValues` Imports Feature values into the Featurestore from a source storage.  |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/list)                                             | `GET /v1/{parent}/entityTypes` Lists EntityTypes in a given Featurestore.                                        |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/patch)                                           | `PATCH /v1/{entityType.name}` Updates the parameters of a single EntityType.                                     |
+| [`readFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/readFeatureValues)                   | `POST /v1/{entityType}:readFeatureValues` Reads Feature values of a specific entity of an EntityType.            |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/setIamPolicy)                             | `POST /v1/{resource}:setIamPolicy` Sets the access control policy on the specified resource.                     |
+| [`streamingReadFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/streamingReadFeatureValues) | `POST /v1/{entityType}:streamingReadFeatureValues` Reads Feature values for multiple entities.                   |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/testIamPermissions)                 | `POST /v1/{resource}:testIamPermissions` Returns permissions that a caller has on the specified resource.        |
+| [`writeFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/writeFeatureValues)                 | `POST /v1/{entityType}:writeFeatureValues` Writes Feature values of one or more entities of an EntityType.       |
 
 ## REST Resource: [v1.projects.locations.featurestores.entityTypes.features](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes.features)
 
-Methods
-
-`  batchCreate  `
-
-`POST /v1/{parent}/features:batchCreate`  
-Creates a batch of Features in a given EntityType.
-
-`  create  `
-
-`POST /v1/{parent}/features`  
-Creates a new Feature in a given EntityType.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a single Feature.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets details of a single Feature.
-
-`  list  `
-
-`GET /v1/{parent}/features`  
-Lists Features in a given EntityType.
-
-`  patch  `
-
-`PATCH /v1/{feature.name}`  
-Updates the parameters of a single Feature.
+| Methods                                                                                                                                                             |                                                                                             |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| [`batchCreate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes.features/batchCreate) | `POST /v1/{parent}/features:batchCreate` Creates a batch of Features in a given EntityType. |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes.features/create)           | `POST /v1/{parent}/features` Creates a new Feature in a given EntityType.                   |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes.features/delete)           | `DELETE /v1/{name}` Deletes a single Feature.                                               |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes.features/get)                 | `GET /v1/{name}` Gets details of a single Feature.                                          |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes.features/list)               | `GET /v1/{parent}/features` Lists Features in a given EntityType.                           |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes.features/patch)             | `PATCH /v1/{feature.name}` Updates the parameters of a single Feature.                      |
 
 ## REST Resource: [v1.projects.locations.hyperparameterTuningJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.hyperparameterTuningJobs)
 
-Methods
-
-`  cancel  `
-
-`POST /v1/{name}:cancel`  
-Cancels a HyperparameterTuningJob.
-
-`  create  `
-
-`POST /v1/{parent}/hyperparameterTuningJobs`  
-Creates a HyperparameterTuningJob
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a HyperparameterTuningJob.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a HyperparameterTuningJob
-
-`  list  `
-
-`GET /v1/{parent}/hyperparameterTuningJobs`  
-Lists HyperparameterTuningJobs in a Location.
+| Methods                                                                                                                                         |                                                                                           |
+|-------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.hyperparameterTuningJobs/cancel) | `POST /v1/{name}:cancel` Cancels a HyperparameterTuningJob.                               |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.hyperparameterTuningJobs/create) | `POST /v1/{parent}/hyperparameterTuningJobs` Creates a HyperparameterTuningJob            |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.hyperparameterTuningJobs/delete) | `DELETE /v1/{name}` Deletes a HyperparameterTuningJob.                                    |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.hyperparameterTuningJobs/get)       | `GET /v1/{name}` Gets a HyperparameterTuningJob                                           |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.hyperparameterTuningJobs/list)     | `GET /v1/{parent}/hyperparameterTuningJobs` Lists HyperparameterTuningJobs in a Location. |
 
 ## REST Resource: [v1.projects.locations.indexEndpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexEndpoints)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/indexEndpoints`  
-Creates an IndexEndpoint.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes an IndexEndpoint.
-
-`  deployIndex  `
-
-`POST /v1/{indexEndpoint}:deployIndex`  
-Deploys an Index into this IndexEndpoint, creating a DeployedIndex within it.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets an IndexEndpoint.
-
-`  list  `
-
-`GET /v1/{parent}/indexEndpoints`  
-Lists IndexEndpoints in a Location.
-
-`  mutateDeployedIndex  `
-
-`POST /v1/{indexEndpoint}:mutateDeployedIndex`  
-Update an existing DeployedIndex under an IndexEndpoint.
-
-`  patch  `
-
-`PATCH /v1/{indexEndpoint.name}`  
-Updates an IndexEndpoint.
-
-`  undeployIndex  `
-
-`POST /v1/{indexEndpoint}:undeployIndex`  
-Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it, and freeing all resources it's using.
+| Methods                                                                                                                                                         |                                                                                                                                                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexEndpoints/create)                           | `POST /v1/{parent}/indexEndpoints` Creates an IndexEndpoint.                                                                                               |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexEndpoints/delete)                           | `DELETE /v1/{name}` Deletes an IndexEndpoint.                                                                                                              |
+| [`deployIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexEndpoints/deployIndex)                 | `POST /v1/{indexEndpoint}:deployIndex` Deploys an Index into this IndexEndpoint, creating a DeployedIndex within it.                                       |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexEndpoints/get)                                 | `GET /v1/{name}` Gets an IndexEndpoint.                                                                                                                    |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexEndpoints/list)                               | `GET /v1/{parent}/indexEndpoints` Lists IndexEndpoints in a Location.                                                                                      |
+| [`mutateDeployedIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexEndpoints/mutateDeployedIndex) | `POST /v1/{indexEndpoint}:mutateDeployedIndex` Update an existing DeployedIndex under an IndexEndpoint.                                                    |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexEndpoints/patch)                             | `PATCH /v1/{indexEndpoint.name}` Updates an IndexEndpoint.                                                                                                 |
+| [`undeployIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexEndpoints/undeployIndex)             | `POST /v1/{indexEndpoint}:undeployIndex` Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it, and freeing all resources it's using. |
 
 ## REST Resource: [v1.projects.locations.indexes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/indexes`  
-Creates an Index.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes an Index.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets an Index.
-
-`  list  `
-
-`GET /v1/{parent}/indexes`  
-Lists Indexes in a Location.
-
-`  patch  `
-
-`PATCH /v1/{index.name}`  
-Updates an Index.
-
-`  removeDatapoints  `
-
-`POST /v1/{index}:removeDatapoints`  
-Remove Datapoints from an Index.
-
-`  upsertDatapoints  `
-
-`POST /v1/{index}:upsertDatapoints`  
-Add/update Datapoints into an Index.
+| Methods                                                                                                                                            |                                                                          |
+|----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/create)                     | `POST /v1/{parent}/indexes` Creates an Index.                            |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/delete)                     | `DELETE /v1/{name}` Deletes an Index.                                    |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/get)                           | `GET /v1/{name}` Gets an Index.                                          |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/list)                         | `GET /v1/{parent}/indexes` Lists Indexes in a Location.                  |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/patch)                       | `PATCH /v1/{index.name}` Updates an Index.                               |
+| [`removeDatapoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/removeDatapoints) | `POST /v1/{index}:removeDatapoints` Remove Datapoints from an Index.     |
+| [`upsertDatapoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/upsertDatapoints) | `POST /v1/{index}:upsertDatapoints` Add/update Datapoints into an Index. |
 
 ## REST Resource: [v1.projects.locations.metadataStores](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/metadataStores`  
-Initializes a MetadataStore, including allocation of resources.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a single MetadataStore and all its child resources (Artifacts, Executions, and Contexts).
-
-`  get  `
-
-`GET /v1/{name}`  
-Retrieves a specific MetadataStore.
-
-`  list  `
-
-`GET /v1/{parent}/metadataStores`  
-Lists MetadataStores for a Location.
+| Methods                                                                                                                               |                                                                                                                       |
+|---------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores/create) | `POST /v1/{parent}/metadataStores` Initializes a MetadataStore, including allocation of resources.                    |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores/delete) | `DELETE /v1/{name}` Deletes a single MetadataStore and all its child resources (Artifacts, Executions, and Contexts). |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores/get)       | `GET /v1/{name}` Retrieves a specific MetadataStore.                                                                  |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores/list)     | `GET /v1/{parent}/metadataStores` Lists MetadataStores for a Location.                                                |
 
 ## REST Resource: [v1.projects.locations.metadataStores.artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.artifacts)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/artifacts`  
-Creates an Artifact associated with a MetadataStore.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes an Artifact.
-
-`  get  `
-
-`GET /v1/{name}`  
-Retrieves a specific Artifact.
-
-`  list  `
-
-`GET /v1/{parent}/artifacts`  
-Lists Artifacts in the MetadataStore.
-
-`  patch  `
-
-`PATCH /v1/{artifact.name}`  
-Updates a stored Artifact.
-
-`  purge  `
-
-`POST /v1/{parent}/artifacts:purge`  
-Purges Artifacts.
-
-`  queryArtifactLineageSubgraph  `
-
-`GET /v1/{artifact}:queryArtifactLineageSubgraph`  
-Retrieves lineage of an Artifact represented through Artifacts and Executions connected by Event edges and returned as a LineageSubgraph.
+| Methods                                                                                                                                                                                     |                                                                                                                                                                                             |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.artifacts/create)                                             | `POST /v1/{parent}/artifacts` Creates an Artifact associated with a MetadataStore.                                                                                                          |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.artifacts/delete)                                             | `DELETE /v1/{name}` Deletes an Artifact.                                                                                                                                                    |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.artifacts/get)                                                   | `GET /v1/{name}` Retrieves a specific Artifact.                                                                                                                                             |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.artifacts/list)                                                 | `GET /v1/{parent}/artifacts` Lists Artifacts in the MetadataStore.                                                                                                                          |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.artifacts/patch)                                               | `PATCH /v1/{artifact.name}` Updates a stored Artifact.                                                                                                                                      |
+| [`purge`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.artifacts/purge)                                               | `POST /v1/{parent}/artifacts:purge` Purges Artifacts.                                                                                                                                       |
+| [`queryArtifactLineageSubgraph`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.artifacts/queryArtifactLineageSubgraph) | `GET /v1/{artifact}:queryArtifactLineageSubgraph` Retrieves lineage of an Artifact represented through Artifacts and Executions connected by Event edges and returned as a LineageSubgraph. |
 
 ## REST Resource: [v1.projects.locations.metadataStores.contexts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.contexts)
 
-Methods
-
-`  addContextArtifactsAndExecutions  `
-
-`POST /v1/{context}:addContextArtifactsAndExecutions`  
-Adds a set of Artifacts and Executions to a Context.
-
-`  addContextChildren  `
-
-`POST /v1/{context}:addContextChildren`  
-Adds a set of Contexts as children to a parent Context.
-
-`  create  `
-
-`POST /v1/{parent}/contexts`  
-Creates a Context associated with a MetadataStore.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a stored Context.
-
-`  get  `
-
-`GET /v1/{name}`  
-Retrieves a specific Context.
-
-`  list  `
-
-`GET /v1/{parent}/contexts`  
-Lists Contexts on the MetadataStore.
-
-`  patch  `
-
-`PATCH /v1/{context.name}`  
-Updates a stored Context.
-
-`  purge  `
-
-`POST /v1/{parent}/contexts:purge`  
-Purges Contexts.
-
-`  queryContextLineageSubgraph  `
-
-`GET /v1/{context}:queryContextLineageSubgraph`  
-Retrieves Artifacts and Executions within the specified Context, connected by Event edges and returned as a LineageSubgraph.
-
-`  removeContextChildren  `
-
-`POST /v1/{context}:removeContextChildren`  
-Remove a set of children contexts from a parent Context.
+| Methods                                                                                                                                                                                            |                                                                                                                                                                              |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`addContextArtifactsAndExecutions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.contexts/addContextArtifactsAndExecutions) | `POST /v1/{context}:addContextArtifactsAndExecutions` Adds a set of Artifacts and Executions to a Context.                                                                   |
+| [`addContextChildren`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.contexts/addContextChildren)                             | `POST /v1/{context}:addContextChildren` Adds a set of Contexts as children to a parent Context.                                                                              |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.contexts/create)                                                     | `POST /v1/{parent}/contexts` Creates a Context associated with a MetadataStore.                                                                                              |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.contexts/delete)                                                     | `DELETE /v1/{name}` Deletes a stored Context.                                                                                                                                |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.contexts/get)                                                           | `GET /v1/{name}` Retrieves a specific Context.                                                                                                                               |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.contexts/list)                                                         | `GET /v1/{parent}/contexts` Lists Contexts on the MetadataStore.                                                                                                             |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.contexts/patch)                                                       | `PATCH /v1/{context.name}` Updates a stored Context.                                                                                                                         |
+| [`purge`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.contexts/purge)                                                       | `POST /v1/{parent}/contexts:purge` Purges Contexts.                                                                                                                          |
+| [`queryContextLineageSubgraph`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.contexts/queryContextLineageSubgraph)           | `GET /v1/{context}:queryContextLineageSubgraph` Retrieves Artifacts and Executions within the specified Context, connected by Event edges and returned as a LineageSubgraph. |
+| [`removeContextChildren`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.contexts/removeContextChildren)                       | `POST /v1/{context}:removeContextChildren` Remove a set of children contexts from a parent Context.                                                                          |
 
 ## REST Resource: [v1.projects.locations.metadataStores.executions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.executions)
 
-Methods
-
-`  addExecutionEvents  `
-
-`POST /v1/{execution}:addExecutionEvents`  
-Adds Events to the specified Execution.
-
-`  create  `
-
-`POST /v1/{parent}/executions`  
-Creates an Execution associated with a MetadataStore.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes an Execution.
-
-`  get  `
-
-`GET /v1/{name}`  
-Retrieves a specific Execution.
-
-`  list  `
-
-`GET /v1/{parent}/executions`  
-Lists Executions in the MetadataStore.
-
-`  patch  `
-
-`PATCH /v1/{execution.name}`  
-Updates a stored Execution.
-
-`  purge  `
-
-`POST /v1/{parent}/executions:purge`  
-Purges Executions.
-
-`  queryExecutionInputsAndOutputs  `
-
-`GET /v1/{execution}:queryExecutionInputsAndOutputs`  
-Obtains the set of input and output Artifacts for this Execution, in the form of LineageSubgraph that also contains the Execution and connecting Events.
+| Methods                                                                                                                                                                                          |                                                                                                                                                                                                               |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`addExecutionEvents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.executions/addExecutionEvents)                         | `POST /v1/{execution}:addExecutionEvents` Adds Events to the specified Execution.                                                                                                                             |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.executions/create)                                                 | `POST /v1/{parent}/executions` Creates an Execution associated with a MetadataStore.                                                                                                                          |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.executions/delete)                                                 | `DELETE /v1/{name}` Deletes an Execution.                                                                                                                                                                     |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.executions/get)                                                       | `GET /v1/{name}` Retrieves a specific Execution.                                                                                                                                                              |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.executions/list)                                                     | `GET /v1/{parent}/executions` Lists Executions in the MetadataStore.                                                                                                                                          |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.executions/patch)                                                   | `PATCH /v1/{execution.name}` Updates a stored Execution.                                                                                                                                                      |
+| [`purge`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.executions/purge)                                                   | `POST /v1/{parent}/executions:purge` Purges Executions.                                                                                                                                                       |
+| [`queryExecutionInputsAndOutputs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.executions/queryExecutionInputsAndOutputs) | `GET /v1/{execution}:queryExecutionInputsAndOutputs` Obtains the set of input and output Artifacts for this Execution, in the form of LineageSubgraph that also contains the Execution and connecting Events. |
 
 ## REST Resource: [v1.projects.locations.metadataStores.metadataSchemas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.metadataSchemas)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/metadataSchemas`  
-Creates a MetadataSchema.
-
-`  get  `
-
-`GET /v1/{name}`  
-Retrieves a specific MetadataSchema.
-
-`  list  `
-
-`GET /v1/{parent}/metadataSchemas`  
-Lists MetadataSchemas.
+| Methods                                                                                                                                               |                                                               |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.metadataSchemas/create) | `POST /v1/{parent}/metadataSchemas` Creates a MetadataSchema. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.metadataSchemas/get)       | `GET /v1/{name}` Retrieves a specific MetadataSchema.         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.metadataSchemas/list)     | `GET /v1/{parent}/metadataSchemas` Lists MetadataSchemas.     |
 
 ## REST Resource: [v1.projects.locations.migratableResources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.migratableResources)
 
-Methods
-
-`  batchMigrate  `
-
-`POST /v1/{parent}/migratableResources:batchMigrate`  
-Batch migrates resources from ml.googleapis.com, automl.googleapis.com, and datalabeling.googleapis.com to Agent Platform.
-
-`  search  `
-
-`POST /v1/{parent}/migratableResources:search`  
-Searches all of the resources in automl.googleapis.com, datalabeling.googleapis.com and ml.googleapis.com that can be migrated to Agent Platform's given location.
+| Methods                                                                                                                                                |                                                                                                                                                                                                                   |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`batchMigrate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.migratableResources/batchMigrate) | `POST /v1/{parent}/migratableResources:batchMigrate` Batch migrates resources from ml.googleapis.com, automl.googleapis.com, and datalabeling.googleapis.com to Agent Platform.                                   |
+| [`search`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.migratableResources/search)             | `POST /v1/{parent}/migratableResources:search` Searches all of the resources in automl.googleapis.com, datalabeling.googleapis.com and ml.googleapis.com that can be migrated to Agent Platform's given location. |
 
 ## REST Resource: [v1.projects.locations.modelDeploymentMonitoringJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/modelDeploymentMonitoringJobs`  
-Creates a ModelDeploymentMonitoringJob.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a ModelDeploymentMonitoringJob.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a ModelDeploymentMonitoringJob.
-
-`  list  `
-
-`GET /v1/{parent}/modelDeploymentMonitoringJobs`  
-Lists ModelDeploymentMonitoringJobs in a Location.
-
-`  patch  `
-
-`PATCH /v1/{modelDeploymentMonitoringJob.name}`  
-Updates a ModelDeploymentMonitoringJob.
-
-`  pause  `
-
-`POST /v1/{name}:pause`  
-Pauses a ModelDeploymentMonitoringJob.
-
-`  resume  `
-
-`POST /v1/{name}:resume`  
-Resumes a paused ModelDeploymentMonitoringJob.
-
-`  searchModelDeploymentMonitoringStatsAnomalies  `
-
-`POST /v1/{modelDeploymentMonitoringJob}:searchModelDeploymentMonitoringStatsAnomalies`  
-Searches Model Monitoring Statistics generated within a given time window.
+| Methods                                                                                                                                                                                                                            |                                                                                                                                                                    |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/create)                                                                               | `POST /v1/{parent}/modelDeploymentMonitoringJobs` Creates a ModelDeploymentMonitoringJob.                                                                          |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/delete)                                                                               | `DELETE /v1/{name}` Deletes a ModelDeploymentMonitoringJob.                                                                                                        |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/get)                                                                                     | `GET /v1/{name}` Gets a ModelDeploymentMonitoringJob.                                                                                                              |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/list)                                                                                   | `GET /v1/{parent}/modelDeploymentMonitoringJobs` Lists ModelDeploymentMonitoringJobs in a Location.                                                                |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/patch)                                                                                 | `PATCH /v1/{modelDeploymentMonitoringJob.name}` Updates a ModelDeploymentMonitoringJob.                                                                            |
+| [`pause`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/pause)                                                                                 | `POST /v1/{name}:pause` Pauses a ModelDeploymentMonitoringJob.                                                                                                     |
+| [`resume`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/resume)                                                                               | `POST /v1/{name}:resume` Resumes a paused ModelDeploymentMonitoringJob.                                                                                            |
+| [`searchModelDeploymentMonitoringStatsAnomalies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies) | `POST /v1/{modelDeploymentMonitoringJob}:searchModelDeploymentMonitoringStatsAnomalies` Searches Model Monitoring Statistics generated within a given time window. |
 
 ## REST Resource: [v1.projects.locations.models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models)
 
-Methods
-
-`  copy  `
-
-`POST /v1/{parent}/models:copy`  
-Copies an already existing Agent Platform Model into the specified Location.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a Model.
-
-`  deleteVersion  `
-
-`DELETE /v1/{name}:deleteVersion`  
-Deletes a Model version.
-
-`  export  `
-
-`POST /v1/{name}:export`  
-Exports a trained, exportable Model to a location specified by the user.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a Model.
-
-`  getIamPolicy  `
-
-`POST /v1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  list  `
-
-`GET /v1/{parent}/models`  
-Lists Models in a Location.
-
-`  listCheckpoints  `
-
-`GET /v1/{name}:listCheckpoints`  
-Lists checkpoints of the specified model version.
-
-`  listVersions  `
-
-`GET /v1/{name}:listVersions`  
-Lists versions of the specified model.
-
-`  mergeVersionAliases  `
-
-`POST /v1/{name}:mergeVersionAliases`  
-Merges a set of aliases for a Model version.
-
-`  patch  `
-
-`PATCH /v1/{model.name}`  
-Updates a Model.
-
-`  setIamPolicy  `
-
-`POST /v1/{resource}:setIamPolicy`  
-Sets the access control policy on the specified resource.
-
-`  testIamPermissions  `
-
-`POST /v1/{resource}:testIamPermissions`  
-Returns permissions that a caller has on the specified resource.
-
-`  updateExplanationDataset  `
-
-`POST /v1/{model}:updateExplanationDataset`  
-Incrementally update the dataset used for an examples model.
-
-`  upload  `
-
-`POST /v1/{parent}/models:upload`  
-Uploads a Model artifact into Agent Platform.
+| Methods                                                                                                                                                           |                                                                                                              |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| [`copy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/copy)                                         | `POST /v1/{parent}/models:copy` Copies an already existing Agent Platform Model into the specified Location. |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/delete)                                     | `DELETE /v1/{name}` Deletes a Model.                                                                         |
+| [`deleteVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/deleteVersion)                       | `DELETE /v1/{name}:deleteVersion` Deletes a Model version.                                                   |
+| [`export`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/export)                                     | `POST /v1/{name}:export` Exports a trained, exportable Model to a location specified by the user.            |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/get)                                           | `GET /v1/{name}` Gets a Model.                                                                               |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/getIamPolicy)                         | `POST /v1/{resource}:getIamPolicy` Gets the access control policy for a resource.                            |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/list)                                         | `GET /v1/{parent}/models` Lists Models in a Location.                                                        |
+| [`listCheckpoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/listCheckpoints)                   | `GET /v1/{name}:listCheckpoints` Lists checkpoints of the specified model version.                           |
+| [`listVersions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/listVersions)                         | `GET /v1/{name}:listVersions` Lists versions of the specified model.                                         |
+| [`mergeVersionAliases`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/mergeVersionAliases)           | `POST /v1/{name}:mergeVersionAliases` Merges a set of aliases for a Model version.                           |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/patch)                                       | `PATCH /v1/{model.name}` Updates a Model.                                                                    |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/setIamPolicy)                         | `POST /v1/{resource}:setIamPolicy` Sets the access control policy on the specified resource.                 |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/testIamPermissions)             | `POST /v1/{resource}:testIamPermissions` Returns permissions that a caller has on the specified resource.    |
+| [`updateExplanationDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/updateExplanationDataset) | `POST /v1/{model}:updateExplanationDataset` Incrementally update the dataset used for an examples model.     |
+| [`upload`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/upload)                                     | `POST /v1/{parent}/models:upload` Uploads a Model artifact into Agent Platform.                              |
 
 ## REST Resource: [v1.projects.locations.models.evaluations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations)
 
-Methods
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a ModelEvaluation.
-
-`  import  `
-
-`POST /v1/{parent}/evaluations:import`  
-Imports an externally generated ModelEvaluation.
-
-`  list  `
-
-`GET /v1/{parent}/evaluations`  
-Lists ModelEvaluations in a Model.
+| Methods                                                                                                                                   |                                                                                         |
+|-------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations/get)       | `GET /v1/{name}` Gets a ModelEvaluation.                                                |
+| [`import`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations/import) | `POST /v1/{parent}/evaluations:import` Imports an externally generated ModelEvaluation. |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations/list)     | `GET /v1/{parent}/evaluations` Lists ModelEvaluations in a Model.                       |
 
 ## REST Resource: [v1.projects.locations.models.evaluations.slices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices)
 
-Methods
-
-`  batchImport  `
-
-`POST /v1/{parent}:batchImport`  
-Imports a list of externally generated EvaluatedAnnotations.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a ModelEvaluationSlice.
-
-`  list  `
-
-`GET /v1/{parent}/slices`  
-Lists ModelEvaluationSlices in a ModelEvaluation.
+| Methods                                                                                                                                                    |                                                                                              |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| [`batchImport`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport) | `POST /v1/{parent}:batchImport` Imports a list of externally generated EvaluatedAnnotations. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/get)                 | `GET /v1/{name}` Gets a ModelEvaluationSlice.                                                |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/list)               | `GET /v1/{parent}/slices` Lists ModelEvaluationSlices in a ModelEvaluation.                  |
 
 ## REST Resource: [v1.projects.locations.nasJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.nasJobs)
 
-Methods
-
-`  cancel  `
-
-`POST /v1/{name}:cancel`  
-Cancels a NasJob.
-
-`  create  `
-
-`POST /v1/{parent}/nasJobs`  
-Creates a NasJob
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a NasJob.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a NasJob
-
-`  list  `
-
-`GET /v1/{parent}/nasJobs`  
-Lists NasJobs in a Location.
+| Methods                                                                                                                        |                                                         |
+|--------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.nasJobs/cancel) | `POST /v1/{name}:cancel` Cancels a NasJob.              |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.nasJobs/create) | `POST /v1/{parent}/nasJobs` Creates a NasJob            |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.nasJobs/delete) | `DELETE /v1/{name}` Deletes a NasJob.                   |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.nasJobs/get)       | `GET /v1/{name}` Gets a NasJob                          |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.nasJobs/list)     | `GET /v1/{parent}/nasJobs` Lists NasJobs in a Location. |
 
 ## REST Resource: [v1.projects.locations.nasJobs.nasTrialDetails](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.nasJobs.nasTrialDetails)
 
-Methods
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a NasTrialDetail.
-
-`  list  `
-
-`GET /v1/{parent}/nasTrialDetails`  
-List top NasTrialDetails of a NasJob.
+| Methods                                                                                                                                    |                                                                          |
+|--------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.nasJobs.nasTrialDetails/get)   | `GET /v1/{name}` Gets a NasTrialDetail.                                  |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.nasJobs.nasTrialDetails/list) | `GET /v1/{parent}/nasTrialDetails` List top NasTrialDetails of a NasJob. |
 
 ## REST Resource: [v1.projects.locations.notebookExecutionJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/notebookExecutionJobs`  
-Creates a NotebookExecutionJob.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a NotebookExecutionJob.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a NotebookExecutionJob.
-
-`  list  `
-
-`GET /v1/{parent}/notebookExecutionJobs`  
-Lists NotebookExecutionJobs in a Location.
+| Methods                                                                                                                                      |                                                                                     |
+|----------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs/create) | `POST /v1/{parent}/notebookExecutionJobs` Creates a NotebookExecutionJob.           |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs/delete) | `DELETE /v1/{name}` Deletes a NotebookExecutionJob.                                 |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs/get)       | `GET /v1/{name}` Gets a NotebookExecutionJob.                                       |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs/list)     | `GET /v1/{parent}/notebookExecutionJobs` Lists NotebookExecutionJobs in a Location. |
 
 ## REST Resource: [v1.projects.locations.notebookRuntimeTemplates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/notebookRuntimeTemplates`  
-Creates a NotebookRuntimeTemplate.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a NotebookRuntimeTemplate.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a NotebookRuntimeTemplate.
-
-`  getIamPolicy  `
-
-`POST /v1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  list  `
-
-`GET /v1/{parent}/notebookRuntimeTemplates`  
-Lists NotebookRuntimeTemplates in a Location.
-
-`  patch  `
-
-`PATCH /v1/{notebookRuntimeTemplate.name}`  
-Updates a NotebookRuntimeTemplate.
-
-`  setIamPolicy  `
-
-`POST /v1/{resource}:setIamPolicy`  
-Sets the access control policy on the specified resource.
-
-`  testIamPermissions  `
-
-`POST /v1/{resource}:testIamPermissions`  
-Returns permissions that a caller has on the specified resource.
+| Methods                                                                                                                                                                 |                                                                                                           |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates/create)                         | `POST /v1/{parent}/notebookRuntimeTemplates` Creates a NotebookRuntimeTemplate.                           |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates/delete)                         | `DELETE /v1/{name}` Deletes a NotebookRuntimeTemplate.                                                    |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates/get)                               | `GET /v1/{name}` Gets a NotebookRuntimeTemplate.                                                          |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates/getIamPolicy)             | `POST /v1/{resource}:getIamPolicy` Gets the access control policy for a resource.                         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates/list)                             | `GET /v1/{parent}/notebookRuntimeTemplates` Lists NotebookRuntimeTemplates in a Location.                 |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates/patch)                           | `PATCH /v1/{notebookRuntimeTemplate.name}` Updates a NotebookRuntimeTemplate.                             |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates/setIamPolicy)             | `POST /v1/{resource}:setIamPolicy` Sets the access control policy on the specified resource.              |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimeTemplates/testIamPermissions) | `POST /v1/{resource}:testIamPermissions` Returns permissions that a caller has on the specified resource. |
 
 ## REST Resource: [v1.projects.locations.notebookRuntimes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimes)
 
-Methods
-
-`  assign  `
-
-`POST /v1/{parent}/notebookRuntimes:assign`  
-Assigns a NotebookRuntime to a user for a particular Notebook file.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a NotebookRuntime.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a NotebookRuntime.
-
-`  list  `
-
-`GET /v1/{parent}/notebookRuntimes`  
-Lists NotebookRuntimes in a Location.
-
-`  start  `
-
-`POST /v1/{name}:start`  
-Starts a NotebookRuntime.
-
-`  stop  `
-
-`POST /v1/{name}:stop`  
-Stops a NotebookRuntime.
-
-`  upgrade  `
-
-`POST /v1/{name}:upgrade`  
-Upgrades a NotebookRuntime.
+| Methods                                                                                                                                   |                                                                                                                 |
+|-------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| [`assign`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimes/assign)   | `POST /v1/{parent}/notebookRuntimes:assign` Assigns a NotebookRuntime to a user for a particular Notebook file. |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimes/delete)   | `DELETE /v1/{name}` Deletes a NotebookRuntime.                                                                  |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimes/get)         | `GET /v1/{name}` Gets a NotebookRuntime.                                                                        |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimes/list)       | `GET /v1/{parent}/notebookRuntimes` Lists NotebookRuntimes in a Location.                                       |
+| [`start`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimes/start)     | `POST /v1/{name}:start` Starts a NotebookRuntime.                                                               |
+| [`stop`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimes/stop)       | `POST /v1/{name}:stop` Stops a NotebookRuntime.                                                                 |
+| [`upgrade`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookRuntimes/upgrade) | `POST /v1/{name}:upgrade` Upgrades a NotebookRuntime.                                                           |
 
 ## REST Resource: [v1.projects.locations.operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.operations)
 
-Methods
-
-`  cancel  `
-
-`POST /v1/{name}:cancel`  
-Starts asynchronous cancellation on a long-running operation.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a long-running operation.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets the latest state of a long-running operation.
-
-`  list  `
-
-`GET /v1/{name}/operations`  
-Lists operations that match the specified filter in the request.
-
-`  wait  `
-
-`POST /v1/{name}:wait`  
-Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state.
+| Methods                                                                                                                           |                                                                                                                                                     |
+|-----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.operations/cancel) | `POST /v1/{name}:cancel` Starts asynchronous cancellation on a long-running operation.                                                              |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.operations/delete) | `DELETE /v1/{name}` Deletes a long-running operation.                                                                                               |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.operations/get)       | `GET /v1/{name}` Gets the latest state of a long-running operation.                                                                                 |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.operations/list)     | `GET /v1/{name}/operations` Lists operations that match the specified filter in the request.                                                        |
+| [`wait`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.operations/wait)     | `POST /v1/{name}:wait` Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. |
 
 ## REST Resource: [v1.projects.locations.persistentResources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.persistentResources)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/persistentResources`  
-Creates a PersistentResource.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a PersistentResource.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a PersistentResource.
-
-`  list  `
-
-`GET /v1/{parent}/persistentResources`  
-Lists PersistentResources in a Location.
-
-`  patch  `
-
-`PATCH /v1/{persistentResource.name}`  
-Updates a PersistentResource.
-
-`  reboot  `
-
-`POST /v1/{name}:reboot`  
-Reboots a PersistentResource.
+| Methods                                                                                                                                    |                                                                                 |
+|--------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.persistentResources/create) | `POST /v1/{parent}/persistentResources` Creates a PersistentResource.           |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.persistentResources/delete) | `DELETE /v1/{name}` Deletes a PersistentResource.                               |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.persistentResources/get)       | `GET /v1/{name}` Gets a PersistentResource.                                     |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.persistentResources/list)     | `GET /v1/{parent}/persistentResources` Lists PersistentResources in a Location. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.persistentResources/patch)   | `PATCH /v1/{persistentResource.name}` Updates a PersistentResource.             |
+| [`reboot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.persistentResources/reboot) | `POST /v1/{name}:reboot` Reboots a PersistentResource.                          |
 
 ## REST Resource: [v1.projects.locations.pipelineJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.pipelineJobs)
 
-Methods
-
-`  batchCancel  `
-
-`POST /v1/{parent}/pipelineJobs:batchCancel`  
-Batch cancel PipelineJobs.
-
-`  batchDelete  `
-
-`POST /v1/{parent}/pipelineJobs:batchDelete`  
-Batch deletes PipelineJobs The Operation is atomic.
-
-`  cancel  `
-
-`POST /v1/{name}:cancel`  
-Cancels a PipelineJob.
-
-`  create  `
-
-`POST /v1/{parent}/pipelineJobs`  
-Creates a PipelineJob.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a PipelineJob.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a PipelineJob.
-
-`  list  `
-
-`GET /v1/{parent}/pipelineJobs`  
-Lists PipelineJobs in a Location.
+| Methods                                                                                                                                       |                                                                                                  |
+|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| [`batchCancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.pipelineJobs/batchCancel) | `POST /v1/{parent}/pipelineJobs:batchCancel` Batch cancel PipelineJobs.                          |
+| [`batchDelete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.pipelineJobs/batchDelete) | `POST /v1/{parent}/pipelineJobs:batchDelete` Batch deletes PipelineJobs The Operation is atomic. |
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.pipelineJobs/cancel)           | `POST /v1/{name}:cancel` Cancels a PipelineJob.                                                  |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.pipelineJobs/create)           | `POST /v1/{parent}/pipelineJobs` Creates a PipelineJob.                                          |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.pipelineJobs/delete)           | `DELETE /v1/{name}` Deletes a PipelineJob.                                                       |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.pipelineJobs/get)                 | `GET /v1/{name}` Gets a PipelineJob.                                                             |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.pipelineJobs/list)               | `GET /v1/{parent}/pipelineJobs` Lists PipelineJobs in a Location.                                |
 
 ## REST Resource: [v1.projects.locations.publishers.models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models)
 
-Methods
-
-`  computeTokens  `
-
-`POST /v1/{endpoint}:computeTokens`  
-Return a list of tokens based on the input text.
-
-`  countTokens  `
-
-`POST /v1/{endpoint}:countTokens`  
-Perform a token counting.
-
-`  embedContent  `
-
-`POST /v1/{model}:embedContent`  
-Embed content with multimodal inputs.
-
-`  generateContent  `
-
-`POST /v1/{model}:generateContent`  
-Generate content with multimodal inputs.
-
-`  predict  `
-
-`POST /v1/{endpoint}:predict`  
-Perform an online inference.
-
-`  rawPredict  `
-
-`POST /v1/{endpoint}:rawPredict`  
-Perform an online prediction with an arbitrary HTTP payload.
-
-`  serverStreamingPredict  `
-
-`POST /v1/{endpoint}:serverStreamingPredict`  
-Perform a server-side streaming online prediction request for Vertex LLM streaming.
-
-`  streamGenerateContent  `
-
-`POST /v1/{model}:streamGenerateContent`  
-Generate content with multimodal inputs with streaming support.
-
-`  streamRawPredict  `
-
-`POST /v1/{endpoint}:streamRawPredict`  
-Perform a streaming online prediction with an arbitrary HTTP payload.
+| Methods                                                                                                                                                                  |                                                                                                                                  |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| [`computeTokens`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/computeTokens)                   | `POST /v1/{endpoint}:computeTokens` Return a list of tokens based on the input text.                                             |
+| [`countTokens`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/countTokens)                       | `POST /v1/{endpoint}:countTokens` Perform a token counting.                                                                      |
+| [`embedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/embedContent)                     | `POST /v1/{model}:embedContent` Embed content with multimodal inputs.                                                            |
+| [`generateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/generateContent)               | `POST /v1/{model}:generateContent` Generate content with multimodal inputs.                                                      |
+| [`predict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/predict)                               | `POST /v1/{endpoint}:predict` Perform an online inference.                                                                       |
+| [`rawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/rawPredict)                         | `POST /v1/{endpoint}:rawPredict` Perform an online prediction with an arbitrary HTTP payload.                                    |
+| [`serverStreamingPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/serverStreamingPredict) | `POST /v1/{endpoint}:serverStreamingPredict` Perform a server-side streaming online prediction request for Vertex LLM streaming. |
+| [`streamGenerateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent)   | `POST /v1/{model}:streamGenerateContent` Generate content with multimodal inputs with streaming support.                         |
+| [`streamRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/streamRawPredict)             | `POST /v1/{endpoint}:streamRawPredict` Perform a streaming online prediction with an arbitrary HTTP payload.                     |
 
 ## REST Resource: [v1.projects.locations.publishers.v1.responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.v1.responses)
 
-Methods
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes the response from the endpoint.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets the response from the endpoint.
+| Methods                                                                                                                                        |                                                             |
+|------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.v1.responses/delete) | `DELETE /v1/{name}` Deletes the response from the endpoint. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.v1.responses/get)       | `GET /v1/{name}` Gets the response from the endpoint.       |
 
 ## REST Resource: [v1.projects.locations.ragCorpora](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/ragCorpora`  
-Creates a RagCorpus.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a RagCorpus.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a RagCorpus.
-
-`  list  `
-
-`GET /v1/{parent}/ragCorpora`  
-Lists RagCorpora in a Location.
-
-`  patch  `
-
-`PATCH /v1/{ragCorpus.name}`  
-Updates a RagCorpus.
+| Methods                                                                                                                           |                                                               |
+|-----------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/create) | `POST /v1/{parent}/ragCorpora` Creates a RagCorpus.           |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/delete) | `DELETE /v1/{name}` Deletes a RagCorpus.                      |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/get)       | `GET /v1/{name}` Gets a RagCorpus.                            |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/list)     | `GET /v1/{parent}/ragCorpora` Lists RagCorpora in a Location. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/patch)   | `PATCH /v1/{ragCorpus.name}` Updates a RagCorpus.             |
 
 ## REST Resource: [v1.projects.locations.ragCorpora.ragFiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles)
 
-Methods
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a RagFile.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a RagFile.
-
-`  import  `
-
-`POST /v1/{parent}/ragFiles:import`  
-Import files from Google Cloud Storage or Google Drive into a RagCorpus.
-
-`  list  `
-
-`GET /v1/{parent}/ragFiles`  
-Lists RagFiles in a RagCorpus.
+| Methods                                                                                                                                    |                                                                                                              |
+|--------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles/delete) | `DELETE /v1/{name}` Deletes a RagFile.                                                                       |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles/get)       | `GET /v1/{name}` Gets a RagFile.                                                                             |
+| [`import`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles/import) | `POST /v1/{parent}/ragFiles:import` Import files from Google Cloud Storage or Google Drive into a RagCorpus. |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles/list)     | `GET /v1/{parent}/ragFiles` Lists RagFiles in a RagCorpus.                                                   |
 
 ## REST Resource: [v1.projects.locations.reasoningEngines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines)
 
-Methods
-
-`  asyncQuery  `
-
-`POST /v1/{name}:asyncQuery`  
-Async query using a reasoning engine.
-
-`  cancelAsyncQuery  `
-
-`POST /v1/{name}:cancelAsyncQuery`  
-Cancels an AsyncQueryReasoningEngine operation.
-
-`  create  `
-
-`POST /v1/{parent}/reasoningEngines`  
-Creates a reasoning engine.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a reasoning engine.
-
-`  executeCode  `
-
-`POST /v1/{name}:executeCode`  
-Executes code statelessly.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a reasoning engine.
-
-`  getIamPolicy  `
-
-`POST /v1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  list  `
-
-`GET /v1/{parent}/reasoningEngines`  
-Lists reasoning engines in a location.
-
-`  patch  `
-
-`PATCH /v1/{reasoningEngine.name}`  
-Updates a reasoning engine.
-
-`  query  `
-
-`POST /v1/{name}:query`  
-Queries using a reasoning engine.
-
-`  setIamPolicy  `
-
-`POST /v1/{resource}:setIamPolicy`  
-Sets the access control policy on the specified resource.
-
-`  streamQuery  `
-
-`POST /v1/{name}:streamQuery`  
-Streams queries using a reasoning engine.
-
-`  testIamPermissions  `
-
-`POST /v1/{resource}:testIamPermissions`  
-Returns permissions that a caller has on the specified resource.
+| Methods                                                                                                                                                         |                                                                                                           |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| [`asyncQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/asyncQuery)                 | `POST /v1/{name}:asyncQuery` Async query using a reasoning engine.                                        |
+| [`cancelAsyncQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/cancelAsyncQuery)     | `POST /v1/{name}:cancelAsyncQuery` Cancels an AsyncQueryReasoningEngine operation.                        |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/create)                         | `POST /v1/{parent}/reasoningEngines` Creates a reasoning engine.                                          |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/delete)                         | `DELETE /v1/{name}` Deletes a reasoning engine.                                                           |
+| [`executeCode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/executeCode)               | `POST /v1/{name}:executeCode` Executes code statelessly.                                                  |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/get)                               | `GET /v1/{name}` Gets a reasoning engine.                                                                 |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/getIamPolicy)             | `POST /v1/{resource}:getIamPolicy` Gets the access control policy for a resource.                         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/list)                             | `GET /v1/{parent}/reasoningEngines` Lists reasoning engines in a location.                                |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/patch)                           | `PATCH /v1/{reasoningEngine.name}` Updates a reasoning engine.                                            |
+| [`query`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/query)                           | `POST /v1/{name}:query` Queries using a reasoning engine.                                                 |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/setIamPolicy)             | `POST /v1/{resource}:setIamPolicy` Sets the access control policy on the specified resource.              |
+| [`streamQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/streamQuery)               | `POST /v1/{name}:streamQuery` Streams queries using a reasoning engine.                                   |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/testIamPermissions) | `POST /v1/{resource}:testIamPermissions` Returns permissions that a caller has on the specified resource. |
 
 ## REST Resource: [v1.projects.locations.reasoningEngines.runtimeRevisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.runtimeRevisions)
 
-Methods
-
-`  query  `
-
-`POST /v1/{name}:query`  
-Queries using a reasoning engine.
-
-`  streamQuery  `
-
-`POST /v1/{name}:streamQuery`  
-Streams queries using a reasoning engine.
+| Methods                                                                                                                                                            |                                                                         |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| [`query`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.runtimeRevisions/query)             | `POST /v1/{name}:query` Queries using a reasoning engine.               |
+| [`streamQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.runtimeRevisions/streamQuery) | `POST /v1/{name}:streamQuery` Streams queries using a reasoning engine. |
 
 ## REST Resource: [v1.projects.locations.reasoningEngines.sandboxEnvironmentSnapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots)
 
-Methods
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes the specific `  SandboxEnvironmentSnapshot  ` .
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets details of the specific `  SandboxEnvironmentSnapshot  ` .
-
-`  list  `
-
-`GET /v1/{parent}/sandboxEnvironmentSnapshots`  
-Lists `  SandboxEnvironmentSnapshot  ` s in a given reasoning engine.
+| Methods                                                                                                                                                             |                                                                                                                                                                                                                                                                                                 |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots/delete) | `DELETE /v1/{name}` Deletes the specific [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots#SandboxEnvironmentSnapshot) .                                          |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots/get)       | `GET /v1/{name}` Gets details of the specific [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots#SandboxEnvironmentSnapshot) .                                     |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots/list)     | `GET /v1/{parent}/sandboxEnvironmentSnapshots` Lists [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots#SandboxEnvironmentSnapshot) s in a given reasoning engine. |
 
 ## REST Resource: [v1.projects.locations.reasoningEngines.sandboxEnvironmentTemplates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/sandboxEnvironmentTemplates`  
-Creates a `  SandboxEnvironmentTemplate  ` in a given reasoning engine.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes the specific `  SandboxEnvironmentTemplate  ` .
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets details of the specific `  SandboxEnvironmentTemplate  ` .
-
-`  list  `
-
-`GET /v1/{parent}/sandboxEnvironmentTemplates`  
-Lists `  SandboxEnvironmentTemplate  ` s in a given reasoning engine.
+| Methods                                                                                                                                                             |                                                                                                                                                                                                                                                                                                    |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates/create) | `POST /v1/{parent}/sandboxEnvironmentTemplates` Creates a [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates#SandboxEnvironmentTemplate) in a given reasoning engine. |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates/delete) | `DELETE /v1/{name}` Deletes the specific [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates#SandboxEnvironmentTemplate) .                                             |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates/get)       | `GET /v1/{name}` Gets details of the specific [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates#SandboxEnvironmentTemplate) .                                        |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates/list)     | `GET /v1/{parent}/sandboxEnvironmentTemplates` Lists [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates#SandboxEnvironmentTemplate) s in a given reasoning engine.    |
 
 ## REST Resource: [v1.projects.locations.reasoningEngines.sandboxEnvironments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments)
 
-Methods
-
-`  authorizeAccess  `
-
-`POST /v1/{name}:authorizeAccess`  
-Checks whether the caller is authorized to access the sandbox environment.
-
-`  create  `
-
-`POST /v1/{parent}/sandboxEnvironments`  
-Creates a `  SandboxEnvironment  ` in a given reasoning engine.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes the specific `  SandboxEnvironment  ` .
-
-`  execute  `
-
-`POST /v1/{name}:execute`  
-Executes using a sandbox environment.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets details of the specific `  SandboxEnvironment  ` .
-
-`  list  `
-
-`GET /v1/{parent}/sandboxEnvironments`  
-Lists `  SandboxEnvironment  ` s in a given reasoning engine.
-
-`  pause  `
-
-`POST /v1/{name}:pause`  
-Pauses the specific `  SandboxEnvironment  ` .
-
-`  resume  `
-
-`POST /v1/{name}:resume`  
-Resumes the specific `  SandboxEnvironment  ` .
-
-`  snapshot  `
-
-`POST /v1/{name}:snapshot`  
-Snapshots the specific `  SandboxEnvironment  ` resource and creates a `  SandboxEnvironmentSnapshot  ` resource.
+| Methods                                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`authorizeAccess`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments/authorizeAccess) | `POST /v1/{name}:authorizeAccess` Checks whether the caller is authorized to access the sandbox environment.                                                                                                                                                                                                                                                                                                                                                                       |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments/create)                   | `POST /v1/{parent}/sandboxEnvironments` Creates a [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) in a given reasoning engine.                                                                                                                                                                                                                 |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments/delete)                   | `DELETE /v1/{name}` Deletes the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) .                                                                                                                                                                                                                                                     |
+| [`execute`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments/execute)                 | `POST /v1/{name}:execute` Executes using a sandbox environment.                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments/get)                         | `GET /v1/{name}` Gets details of the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) .                                                                                                                                                                                                                                                |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments/list)                       | `GET /v1/{parent}/sandboxEnvironments` Lists [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) s in a given reasoning engine.                                                                                                                                                                                                                    |
+| [`pause`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments/pause)                     | `POST /v1/{name}:pause` Pauses the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) .                                                                                                                                                                                                                                                  |
+| [`resume`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments/resume)                   | `POST /v1/{name}:resume` Resumes the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) .                                                                                                                                                                                                                                                |
+| [`snapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments/snapshot)               | `POST /v1/{name}:snapshot` Snapshots the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) resource and creates a [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots#SandboxEnvironmentSnapshot) resource. |
 
 ## REST Resource: [v1.projects.locations.reasoningEngines.sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions)
 
-Methods
-
-`  appendEvent  `
-
-`POST /v1/{name}:appendEvent`  
-Appends an event to a given session.
-
-`  create  `
-
-`POST /v1/{parent}/sessions`  
-Creates a new `  Session  ` .
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes details of the specific `  Session  ` .
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets details of the specific `  Session  ` .
-
-`  list  `
-
-`GET /v1/{parent}/sessions`  
-Lists `  Sessions  ` in a given reasoning engine.
-
-`  patch  `
-
-`PATCH /v1/{session.name}`  
-Updates the specific `  Session  ` .
+| Methods                                                                                                                                                    |                                                                                                                                                                                                                    |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`appendEvent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions/appendEvent) | `POST /v1/{name}:appendEvent` Appends an event to a given session.                                                                                                                                                 |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions/create)           | `POST /v1/{parent}/sessions` Creates a new [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions#Session) .                    |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions/delete)           | `DELETE /v1/{name}` Deletes details of the specific [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions#Session) .           |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions/get)                 | `GET /v1/{name}` Gets details of the specific [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions#Session) .                 |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions/list)               | `GET /v1/{parent}/sessions` Lists [`Sessions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions#Session) in a given reasoning engine. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions/patch)             | `PATCH /v1/{session.name}` Updates the specific [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions#Session) .               |
 
 ## REST Resource: [v1.projects.locations.reasoningEngines.sessions.events](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions.events)
 
-Methods
-
-`  list  `
-
-`GET /v1/{parent}/events`  
-Lists `  Events  ` in a given session.
+| Methods                                                                                                                                             |                                                                                                                                                        |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions.events/list) | `GET /v1/{parent}/events` Lists [`Events`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Event) in a given session. |
 
 ## REST Resource: [v1.projects.locations.schedules](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.schedules)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/schedules`  
-Creates a Schedule.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a Schedule.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a Schedule.
-
-`  list  `
-
-`GET /v1/{parent}/schedules`  
-Lists Schedules in a Location.
-
-`  patch  `
-
-`PATCH /v1/{schedule.name}`  
-Updates an active or paused Schedule.
-
-`  pause  `
-
-`POST /v1/{name}:pause`  
-Pauses a Schedule.
-
-`  resume  `
-
-`POST /v1/{name}:resume`  
-Resumes a paused Schedule to start scheduling new runs.
+| Methods                                                                                                                          |                                                                                  |
+|----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.schedules/create) | `POST /v1/{parent}/schedules` Creates a Schedule.                                |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.schedules/delete) | `DELETE /v1/{name}` Deletes a Schedule.                                          |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.schedules/get)       | `GET /v1/{name}` Gets a Schedule.                                                |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.schedules/list)     | `GET /v1/{parent}/schedules` Lists Schedules in a Location.                      |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.schedules/patch)   | `PATCH /v1/{schedule.name}` Updates an active or paused Schedule.                |
+| [`pause`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.schedules/pause)   | `POST /v1/{name}:pause` Pauses a Schedule.                                       |
+| [`resume`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.schedules/resume) | `POST /v1/{name}:resume` Resumes a paused Schedule to start scheduling new runs. |
 
 ## REST Resource: [v1.projects.locations.semanticGovernancePolicies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.semanticGovernancePolicies)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/semanticGovernancePolicies`  
-Creates a SemanticGovernancePolicy.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a SemanticGovernancePolicy.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a SemanticGovernancePolicy.
-
-`  list  `
-
-`GET /v1/{parent}/semanticGovernancePolicies`  
-Lists SemanticGovernancePolicies in a given location.
-
-`  patch  `
-
-`PATCH /v1/{semanticGovernancePolicy.name}`  
-Updates a SemanticGovernancePolicy.
+| Methods                                                                                                                                           |                                                                                                     |
+|---------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.semanticGovernancePolicies/create) | `POST /v1/{parent}/semanticGovernancePolicies` Creates a SemanticGovernancePolicy.                  |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.semanticGovernancePolicies/delete) | `DELETE /v1/{name}` Deletes a SemanticGovernancePolicy.                                             |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.semanticGovernancePolicies/get)       | `GET /v1/{name}` Gets a SemanticGovernancePolicy.                                                   |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.semanticGovernancePolicies/list)     | `GET /v1/{parent}/semanticGovernancePolicies` Lists SemanticGovernancePolicies in a given location. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.semanticGovernancePolicies/patch)   | `PATCH /v1/{semanticGovernancePolicy.name}` Updates a SemanticGovernancePolicy.                     |
 
 ## REST Resource: [v1.projects.locations.semanticGovernancePolicyEngine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.semanticGovernancePolicyEngine)
 
-Methods
-
-`  deprovision  `
-
-`POST /v1/{name}:deprovision`  
-Deprovisions the SemanticGovernancePolicyEngine, tearing down the associated tenant project, GKE cluster, and PSC service attachments.
+| Methods                                                                                                                                                         |                                                                                                                                                                      |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`deprovision`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.semanticGovernancePolicyEngine/deprovision) | `POST /v1/{name}:deprovision` Deprovisions the SemanticGovernancePolicyEngine, tearing down the associated tenant project, GKE cluster, and PSC service attachments. |
 
 ## REST Resource: [v1.projects.locations.servingProfiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.servingProfiles)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/servingProfiles`  
-Creates a ServingProfile.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a ServingProfile.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a ServingProfile.
-
-`  list  `
-
-`GET /v1/{parent}/servingProfiles`  
-Lists ServingProfiles in a Location.
-
-`  patch  `
-
-`PATCH /v1/{servingProfile.name}`  
-Updates a ServingProfile.
+| Methods                                                                                                                                |                                                                         |
+|----------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.servingProfiles/create) | `POST /v1/{parent}/servingProfiles` Creates a ServingProfile.           |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.servingProfiles/delete) | `DELETE /v1/{name}` Deletes a ServingProfile.                           |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.servingProfiles/get)       | `GET /v1/{name}` Gets a ServingProfile.                                 |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.servingProfiles/list)     | `GET /v1/{parent}/servingProfiles` Lists ServingProfiles in a Location. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.servingProfiles/patch)   | `PATCH /v1/{servingProfile.name}` Updates a ServingProfile.             |
 
 ## REST Resource: [v1.projects.locations.specialistPools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.specialistPools)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/specialistPools`  
-Creates a SpecialistPool.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a SpecialistPool as well as all Specialists in the pool.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a SpecialistPool.
-
-`  list  `
-
-`GET /v1/{parent}/specialistPools`  
-Lists SpecialistPools in a Location.
-
-`  patch  `
-
-`PATCH /v1/{specialistPool.name}`  
-Updates a SpecialistPool.
+| Methods                                                                                                                                |                                                                                      |
+|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.specialistPools/create) | `POST /v1/{parent}/specialistPools` Creates a SpecialistPool.                        |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.specialistPools/delete) | `DELETE /v1/{name}` Deletes a SpecialistPool as well as all Specialists in the pool. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.specialistPools/get)       | `GET /v1/{name}` Gets a SpecialistPool.                                              |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.specialistPools/list)     | `GET /v1/{parent}/specialistPools` Lists SpecialistPools in a Location.              |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.specialistPools/patch)   | `PATCH /v1/{specialistPool.name}` Updates a SpecialistPool.                          |
 
 ## REST Resource: [v1.projects.locations.studies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/studies`  
-Creates a Study.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a Study.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a Study by name.
-
-`  list  `
-
-`GET /v1/{parent}/studies`  
-Lists all the studies in a region for an associated project.
-
-`  lookup  `
-
-`POST /v1/{parent}/studies:lookup`  
-Looks a study up using the user-defined display\_name field instead of the fully qualified resource name.
+| Methods                                                                                                                        |                                                                                                                                             |
+|--------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies/create) | `POST /v1/{parent}/studies` Creates a Study.                                                                                                |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies/delete) | `DELETE /v1/{name}` Deletes a Study.                                                                                                        |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies/get)       | `GET /v1/{name}` Gets a Study by name.                                                                                                      |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies/list)     | `GET /v1/{parent}/studies` Lists all the studies in a region for an associated project.                                                     |
+| [`lookup`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies/lookup) | `POST /v1/{parent}/studies:lookup` Looks a study up using the user-defined display_name field instead of the fully qualified resource name. |
 
 ## REST Resource: [v1.projects.locations.studies.trials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies.trials)
 
-Methods
-
-`  addTrialMeasurement  `
-
-`POST /v1/{trialName}:addTrialMeasurement`  
-Adds a measurement of the objective metrics to a Trial.
-
-`  checkTrialEarlyStoppingState  `
-
-`POST /v1/{trialName}:checkTrialEarlyStoppingState`  
-Checks whether a Trial should stop or not.
-
-`  complete  `
-
-`POST /v1/{name}:complete`  
-Marks a Trial as complete.
-
-`  create  `
-
-`POST /v1/{parent}/trials`  
-Adds a user provided Trial to a Study.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a Trial.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a Trial.
-
-`  list  `
-
-`GET /v1/{parent}/trials`  
-Lists the Trials associated with a Study.
-
-`  listOptimalTrials  `
-
-`POST /v1/{parent}/trials:listOptimalTrials`  
-Lists the pareto-optimal Trials for multi-objective Study or the optimal Trials for single-objective Study.
-
-`  stop  `
-
-`POST /v1/{name}:stop`  
-Stops a Trial.
-
-`  suggest  `
-
-`POST /v1/{parent}/trials:suggest`  
-Adds one or more Trials to a Study, with parameter values suggested by Agent Platform Vizier.
+| Methods                                                                                                                                                                           |                                                                                                                                                          |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`addTrialMeasurement`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies.trials/addTrialMeasurement)                   | `POST /v1/{trialName}:addTrialMeasurement` Adds a measurement of the objective metrics to a Trial.                                                       |
+| [`checkTrialEarlyStoppingState`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies.trials/checkTrialEarlyStoppingState) | `POST /v1/{trialName}:checkTrialEarlyStoppingState` Checks whether a Trial should stop or not.                                                           |
+| [`complete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies.trials/complete)                                         | `POST /v1/{name}:complete` Marks a Trial as complete.                                                                                                    |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies.trials/create)                                             | `POST /v1/{parent}/trials` Adds a user provided Trial to a Study.                                                                                        |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies.trials/delete)                                             | `DELETE /v1/{name}` Deletes a Trial.                                                                                                                     |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies.trials/get)                                                   | `GET /v1/{name}` Gets a Trial.                                                                                                                           |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies.trials/list)                                                 | `GET /v1/{parent}/trials` Lists the Trials associated with a Study.                                                                                      |
+| [`listOptimalTrials`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies.trials/listOptimalTrials)                       | `POST /v1/{parent}/trials:listOptimalTrials` Lists the pareto-optimal Trials for multi-objective Study or the optimal Trials for single-objective Study. |
+| [`stop`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies.trials/stop)                                                 | `POST /v1/{name}:stop` Stops a Trial.                                                                                                                    |
+| [`suggest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies.trials/suggest)                                           | `POST /v1/{parent}/trials:suggest` Adds one or more Trials to a Study, with parameter values suggested by Agent Platform Vizier.                         |
 
 ## REST Resource: [v1.projects.locations.tensorboards](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards)
 
-Methods
-
-`  batchRead  `
-
-`GET /v1/{tensorboard}:batchRead`  
-Reads multiple TensorboardTimeSeries' data.
-
-`  create  `
-
-`POST /v1/{parent}/tensorboards`  
-Creates a Tensorboard.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a Tensorboard.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a Tensorboard.
-
-`  list  `
-
-`GET /v1/{parent}/tensorboards`  
-Lists Tensorboards in a Location.
-
-`  patch  `
-
-`PATCH /v1/{tensorboard.name}`  
-Updates a Tensorboard.
-
-`  readSize  `
-
-`GET /v1/{tensorboard}:readSize`  
-Returns the storage size for a given TensorBoard instance.
-
-`  readUsage  `
-
-`GET /v1/{tensorboard}:readUsage`  
-Returns a list of monthly active users for a given TensorBoard instance.
+| Methods                                                                                                                                   |                                                                                                            |
+|-------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| [`batchRead`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards/batchRead) | `GET /v1/{tensorboard}:batchRead` Reads multiple TensorboardTimeSeries' data.                              |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards/create)       | `POST /v1/{parent}/tensorboards` Creates a Tensorboard.                                                    |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards/delete)       | `DELETE /v1/{name}` Deletes a Tensorboard.                                                                 |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards/get)             | `GET /v1/{name}` Gets a Tensorboard.                                                                       |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards/list)           | `GET /v1/{parent}/tensorboards` Lists Tensorboards in a Location.                                          |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards/patch)         | `PATCH /v1/{tensorboard.name}` Updates a Tensorboard.                                                      |
+| [`readSize`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards/readSize)   | `GET /v1/{tensorboard}:readSize` Returns the storage size for a given TensorBoard instance.                |
+| [`readUsage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards/readUsage) | `GET /v1/{tensorboard}:readUsage` Returns a list of monthly active users for a given TensorBoard instance. |
 
 ## REST Resource: [v1.projects.locations.tensorboards.experiments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments)
 
-Methods
-
-`  batchCreate  `
-
-`POST /v1/{parent}:batchCreate`  
-Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.
-
-`  create  `
-
-`POST /v1/{parent}/experiments`  
-Creates a TensorboardExperiment.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a TensorboardExperiment.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a TensorboardExperiment.
-
-`  list  `
-
-`GET /v1/{parent}/experiments`  
-Lists TensorboardExperiments in a Location.
-
-`  patch  `
-
-`PATCH /v1/{tensorboardExperiment.name}`  
-Updates a TensorboardExperiment.
-
-`  write  `
-
-`POST /v1/{tensorboardExperiment}:write`  
-Write time series data points of multiple TensorboardTimeSeries in multiple TensorboardRun's.
+| Methods                                                                                                                                                   |                                                                                                                                        |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| [`batchCreate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments/batchCreate) | `POST /v1/{parent}:batchCreate` Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.                             |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments/create)           | `POST /v1/{parent}/experiments` Creates a TensorboardExperiment.                                                                       |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments/delete)           | `DELETE /v1/{name}` Deletes a TensorboardExperiment.                                                                                   |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments/get)                 | `GET /v1/{name}` Gets a TensorboardExperiment.                                                                                         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments/list)               | `GET /v1/{parent}/experiments` Lists TensorboardExperiments in a Location.                                                             |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments/patch)             | `PATCH /v1/{tensorboardExperiment.name}` Updates a TensorboardExperiment.                                                              |
+| [`write`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments/write)             | `POST /v1/{tensorboardExperiment}:write` Write time series data points of multiple TensorboardTimeSeries in multiple TensorboardRun's. |
 
 ## REST Resource: [v1.projects.locations.tensorboards.experiments.runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs)
 
-Methods
-
-`  batchCreate  `
-
-`POST /v1/{parent}/runs:batchCreate`  
-Batch create TensorboardRuns.
-
-`  create  `
-
-`POST /v1/{parent}/runs`  
-Creates a TensorboardRun.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a TensorboardRun.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a TensorboardRun.
-
-`  list  `
-
-`GET /v1/{parent}/runs`  
-Lists TensorboardRuns in a Location.
-
-`  patch  `
-
-`PATCH /v1/{tensorboardRun.name}`  
-Updates a TensorboardRun.
-
-`  write  `
-
-`POST /v1/{tensorboardRun}:write`  
-Write time series data points into multiple TensorboardTimeSeries under a TensorboardRun.
+| Methods                                                                                                                                                        |                                                                                                                             |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| [`batchCreate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/batchCreate) | `POST /v1/{parent}/runs:batchCreate` Batch create TensorboardRuns.                                                          |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/create)           | `POST /v1/{parent}/runs` Creates a TensorboardRun.                                                                          |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/delete)           | `DELETE /v1/{name}` Deletes a TensorboardRun.                                                                               |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/get)                 | `GET /v1/{name}` Gets a TensorboardRun.                                                                                     |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/list)               | `GET /v1/{parent}/runs` Lists TensorboardRuns in a Location.                                                                |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/patch)             | `PATCH /v1/{tensorboardRun.name}` Updates a TensorboardRun.                                                                 |
+| [`write`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/write)             | `POST /v1/{tensorboardRun}:write` Write time series data points into multiple TensorboardTimeSeries under a TensorboardRun. |
 
 ## REST Resource: [v1.projects.locations.tensorboards.experiments.runs.timeSeries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs.timeSeries)
 
-Methods
-
-`  create  `
-
-`POST /v1/{parent}/timeSeries`  
-Creates a TensorboardTimeSeries.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a TensorboardTimeSeries.
-
-`  exportTensorboardTimeSeries  `
-
-`POST /v1/{tensorboardTimeSeries}:exportTensorboardTimeSeries`  
-Exports a TensorboardTimeSeries' data.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a TensorboardTimeSeries.
-
-`  list  `
-
-`GET /v1/{parent}/timeSeries`  
-Lists TensorboardTimeSeries in a Location.
-
-`  patch  `
-
-`PATCH /v1/{tensorboardTimeSeries.name}`  
-Updates a TensorboardTimeSeries.
-
-`  read  `
-
-`GET /v1/{tensorboardTimeSeries}:read`  
-Reads a TensorboardTimeSeries' data.
-
-`  readBlobData  `
-
-`GET /v1/{timeSeries}:readBlobData`  
-Gets bytes of TensorboardBlobs.
+| Methods                                                                                                                                                                                                   |                                                                                                       |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs.timeSeries/create)                                           | `POST /v1/{parent}/timeSeries` Creates a TensorboardTimeSeries.                                       |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs.timeSeries/delete)                                           | `DELETE /v1/{name}` Deletes a TensorboardTimeSeries.                                                  |
+| [`exportTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs.timeSeries/exportTensorboardTimeSeries) | `POST /v1/{tensorboardTimeSeries}:exportTensorboardTimeSeries` Exports a TensorboardTimeSeries' data. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs.timeSeries/get)                                                 | `GET /v1/{name}` Gets a TensorboardTimeSeries.                                                        |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs.timeSeries/list)                                               | `GET /v1/{parent}/timeSeries` Lists TensorboardTimeSeries in a Location.                              |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs.timeSeries/patch)                                             | `PATCH /v1/{tensorboardTimeSeries.name}` Updates a TensorboardTimeSeries.                             |
+| [`read`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs.timeSeries/read)                                               | `GET /v1/{tensorboardTimeSeries}:read` Reads a TensorboardTimeSeries' data.                           |
+| [`readBlobData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs.timeSeries/readBlobData)                               | `GET /v1/{timeSeries}:readBlobData` Gets bytes of TensorboardBlobs.                                   |
 
 ## REST Resource: [v1.projects.locations.trainingPipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.trainingPipelines)
 
-Methods
-
-`  cancel  `
-
-`POST /v1/{name}:cancel`  
-Cancels a TrainingPipeline.
-
-`  create  `
-
-`POST /v1/{parent}/trainingPipelines`  
-Creates a TrainingPipeline.
-
-`  delete  `
-
-`DELETE /v1/{name}`  
-Deletes a TrainingPipeline.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a TrainingPipeline.
-
-`  list  `
-
-`GET /v1/{parent}/trainingPipelines`  
-Lists TrainingPipelines in a Location.
+| Methods                                                                                                                                  |                                                                             |
+|------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.trainingPipelines/cancel) | `POST /v1/{name}:cancel` Cancels a TrainingPipeline.                        |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.trainingPipelines/create) | `POST /v1/{parent}/trainingPipelines` Creates a TrainingPipeline.           |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.trainingPipelines/delete) | `DELETE /v1/{name}` Deletes a TrainingPipeline.                             |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.trainingPipelines/get)       | `GET /v1/{name}` Gets a TrainingPipeline.                                   |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.trainingPipelines/list)     | `GET /v1/{parent}/trainingPipelines` Lists TrainingPipelines in a Location. |
 
 ## REST Resource: [v1.projects.locations.tuningJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs)
 
-Methods
-
-`  cancel  `
-
-`POST /v1/{name}:cancel`  
-Cancels a tuning job.
-
-`  create  `
-
-`POST /v1/{parent}/tuningJobs`  
-Creates a tuning job.
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a tuning job.
-
-`  list  `
-
-`GET /v1/{parent}/tuningJobs`  
-Lists tuning jobs in a location.
-
-`  rebaseTunedModel  `
-
-`POST /v1/{parent}/tuningJobs:rebaseTunedModel`  
-Rebase a tuned model.
+| Methods                                                                                                                                               |                                                                       |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/cancel)                     | `POST /v1/{name}:cancel` Cancels a tuning job.                        |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/create)                     | `POST /v1/{parent}/tuningJobs` Creates a tuning job.                  |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get)                           | `GET /v1/{name}` Gets a tuning job.                                   |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/list)                         | `GET /v1/{parent}/tuningJobs` Lists tuning jobs in a location.        |
+| [`rebaseTunedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/rebaseTunedModel) | `POST /v1/{parent}/tuningJobs:rebaseTunedModel` Rebase a tuned model. |
 
 ## REST Resource: [v1.publishers.models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/publishers.models)
 
-Methods
-
-`  get  `
-
-`GET /v1/{name}`  
-Gets a Model Garden publisher model.
+| Methods                                                                                                         |                                                       |
+|-----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/publishers.models/get) | `GET /v1/{name}` Gets a Model Garden publisher model. |
 
 ## REST Resource: [v1beta1.interactions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/interactions)
 
-Methods
-
-`  cancel  `
-
-`POST /v1beta1/{name}:cancel`  
-Cancels an interaction.
-
-`  getPoll  `
-
-`GET /v1beta1/{name}:poll`  
-Fully typed proto, unary version of GetInteraction that returns Interaction proto.
-
-`  getStream  `
-
-`GET /v1beta1/{name}:stream`  
-Fully typed proto, streaming version of GetInteraction that returns Interaction proto.
+| Methods                                                                                                                     |                                                                                                                     |
+|-----------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/interactions/cancel)       | `POST /v1beta1/{name}:cancel` Cancels an interaction.                                                               |
+| [`getPoll`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/interactions/getPoll)     | `GET /v1beta1/{name}:poll` Fully typed proto, unary version of GetInteraction that returns Interaction proto.       |
+| [`getStream`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/interactions/getStream) | `GET /v1beta1/{name}:stream` Fully typed proto, streaming version of GetInteraction that returns Interaction proto. |
 
 ## REST Resource: [v1beta1.media](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/media)
 
-Methods
-
-`  upload  `
-
-`POST /v1beta1/{parent}/ragFiles:upload`  
-`POST /upload/v1beta1/{parent}/ragFiles:upload`  
-Upload a file into a RagCorpus.
+| Methods                                                                                                        |                                                                                                                          |
+|----------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| [`upload`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/media/upload) | `POST /v1beta1/{parent}/ragFiles:upload` `POST /upload/v1beta1/{parent}/ragFiles:upload` Upload a file into a RagCorpus. |
 
 ## REST Resource: [v1beta1.operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/operations)
 
-Methods
-
-`  cancel  `
-
-`POST /v1beta1/{name}:cancel`  
-Starts asynchronous cancellation on a long-running operation.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a long-running operation.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets the latest state of a long-running operation.
-
-`  list  `
-
-`GET /v1beta1/operations`  
-Lists operations that match the specified filter in the request.
-
-`  wait  `
-
-`POST /v1beta1/{name}:wait`  
-Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state.
+| Methods                                                                                                             |                                                                                                                                                          |
+|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/operations/cancel) | `POST /v1beta1/{name}:cancel` Starts asynchronous cancellation on a long-running operation.                                                              |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/operations/delete) | `DELETE /v1beta1/{name}` Deletes a long-running operation.                                                                                               |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/operations/get)       | `GET /v1beta1/{name}` Gets the latest state of a long-running operation.                                                                                 |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/operations/list)     | `GET /v1beta1/operations` Lists operations that match the specified filter in the request.                                                               |
+| [`wait`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/operations/wait)     | `POST /v1beta1/{name}:wait` Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. |
 
 ## REST Resource: [v1beta1.projects](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects)
 
-Methods
-
-`  fetchPublisherModelConfig  `
-
-`GET /v1beta1/{name}:fetchPublisherModelConfig`  
-Fetches the configs of publisher models.
-
-`  setPublisherModelConfig  `
-
-`POST /v1beta1/{name}:setPublisherModelConfig`  
-Sets (creates or updates) configs of publisher models.
+| Methods                                                                                                                                                 |                                                                                                       |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| [`fetchPublisherModelConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects/fetchPublisherModelConfig) | `GET /v1beta1/{name}:fetchPublisherModelConfig` Fetches the configs of publisher models.              |
+| [`setPublisherModelConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects/setPublisherModelConfig)     | `POST /v1beta1/{name}:setPublisherModelConfig` Sets (creates or updates) configs of publisher models. |
 
 ## REST Resource: [v1beta1.projects.locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations)
 
-Methods
-
-`  askContexts  `
-
-`POST /v1beta1/{parent}:askContexts`  
-Agentic Retrieval Ask API for RAG.
-
-`  asyncRetrieveContexts  `
-
-`POST /v1beta1/{parent}:asyncRetrieveContexts`  
-Asynchronous API to retrieves relevant contexts for a query.
-
-`  augmentPrompt  `
-
-`POST /v1beta1/{parent}:augmentPrompt`  
-Given an input prompt, it returns augmented prompt from vertex rag store to guide LLM towards generating grounded responses.
-
-`  corroborateContent  `
-
-`POST /v1beta1/{parent}:corroborateContent`  
-Given an input text, it returns a score that evaluates the factuality of the text.
-
-`  deploy  `
-
-`POST /v1beta1/{destination}:deploy`  
-Deploys a model to a new endpoint.
-
-`  deployPublisherModel (deprecated)  `
-
-`POST /v1beta1/{destination}:deployPublisherModel`  
-Deploys publisher models.
-
-`  evaluateDataset  `
-
-`POST /v1beta1/{location}:evaluateDataset`  
-Evaluates a dataset based on a set of given metrics.
-
-`  evaluateInstances  `
-
-`POST /v1beta1/{location}:evaluateInstances`  
-Evaluates instances based on a given metric.
-
-`  generateInstanceRubrics  `
-
-`POST /v1beta1/{location}:generateInstanceRubrics`  
-Generates rubrics for a given prompt.
-
-`  generateLossClusters  `
-
-`POST /v1beta1/{location}:generateLossClusters`  
-Generates loss clusters from evaluation results.
-
-`  generateSyntheticData  `
-
-`POST /v1beta1/{location}:generateSyntheticData`  
-Generates synthetic (artificial) data based on a description
-
-`  getRagEngineConfig  `
-
-`GET /v1beta1/{name}`  
-Gets a RagEngineConfig.
-
-`  getSemanticGovernancePolicyEngine  `
-
-`GET /v1beta1/{name}`  
-Gets a SemanticGovernancePolicyEngine.
-
-`  recommendSpec  `
-
-`POST /v1beta1/{parent}:recommendSpec`  
-Gets a Model's spec recommendations.
-
-`  retrieveContexts  `
-
-`POST /v1beta1/{parent}:retrieveContexts`  
-Retrieves relevant contexts for a query.
-
-`  updateRagEngineConfig  `
-
-`PATCH /v1beta1/{ragEngineConfig.name}`  
-Updates a RagEngineConfig.
-
-`  updateSemanticGovernancePolicyEngine  `
-
-`PATCH /v1beta1/{semanticGovernancePolicyEngine.name}`  
-Updates a SemanticGovernancePolicyEngine.
+| Methods                                                                                                                                                                                 |                                                                                                                                                                     |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`askContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/askContexts)                                                   | `POST /v1beta1/{parent}:askContexts` Agentic Retrieval Ask API for RAG.                                                                                             |
+| [`asyncRetrieveContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/asyncRetrieveContexts)                               | `POST /v1beta1/{parent}:asyncRetrieveContexts` Asynchronous API to retrieves relevant contexts for a query.                                                         |
+| [`augmentPrompt`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/augmentPrompt)                                               | `POST /v1beta1/{parent}:augmentPrompt` Given an input prompt, it returns augmented prompt from vertex rag store to guide LLM towards generating grounded responses. |
+| [`corroborateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/corroborateContent)                                     | `POST /v1beta1/{parent}:corroborateContent` Given an input text, it returns a score that evaluates the factuality of the text.                                      |
+| [`deploy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/deploy)                                                             | `POST /v1beta1/{destination}:deploy` Deploys a model to a new endpoint.                                                                                             |
+| [`deployPublisherModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/deployPublisherModel)` `**`(deprecated)`**            | `POST /v1beta1/{destination}:deployPublisherModel` Deploys publisher models.                                                                                        |
+| [`evaluateDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateDataset)                                           | `POST /v1beta1/{location}:evaluateDataset` Evaluates a dataset based on a set of given metrics.                                                                     |
+| [`evaluateInstances`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances)                                       | `POST /v1beta1/{location}:evaluateInstances` Evaluates instances based on a given metric.                                                                           |
+| [`generateInstanceRubrics`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/generateInstanceRubrics)                           | `POST /v1beta1/{location}:generateInstanceRubrics` Generates rubrics for a given prompt.                                                                            |
+| [`generateLossClusters`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/generateLossClusters)                                 | `POST /v1beta1/{location}:generateLossClusters` Generates loss clusters from evaluation results.                                                                    |
+| [`generateSyntheticData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/generateSyntheticData)                               | `POST /v1beta1/{location}:generateSyntheticData` Generates synthetic (artificial) data based on a description                                                       |
+| [`getRagEngineConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/getRagEngineConfig)                                     | `GET /v1beta1/{name}` Gets a RagEngineConfig.                                                                                                                       |
+| [`getSemanticGovernancePolicyEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/getSemanticGovernancePolicyEngine)       | `GET /v1beta1/{name}` Gets a SemanticGovernancePolicyEngine.                                                                                                        |
+| [`recommendSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/recommendSpec)                                               | `POST /v1beta1/{parent}:recommendSpec` Gets a Model's spec recommendations.                                                                                         |
+| [`retrieveContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/retrieveContexts)                                         | `POST /v1beta1/{parent}:retrieveContexts` Retrieves relevant contexts for a query.                                                                                  |
+| [`updateRagEngineConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/updateRagEngineConfig)                               | `PATCH /v1beta1/{ragEngineConfig.name}` Updates a RagEngineConfig.                                                                                                  |
+| [`updateSemanticGovernancePolicyEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/updateSemanticGovernancePolicyEngine) | `PATCH /v1beta1/{semanticGovernancePolicyEngine.name}` Updates a SemanticGovernancePolicyEngine.                                                                    |
 
 ## REST Resource: [v1beta1.projects.locations.agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/agents`  
-Creates an agent.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes an agent.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Retrieves an agent.
-
-`  list  `
-
-`GET /v1beta1/{parent}/agents`  
-Lists the agents in a location that belong to the caller.
-
-`  patch  `
-
-`PATCH /v1beta1/{agent.name}`  
-Updates an agent.
+| Methods                                                                                                                            |                                                                                          |
+|------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents/create) | `POST /v1beta1/{parent}/agents` Creates an agent.                                        |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents/delete) | `DELETE /v1beta1/{name}` Deletes an agent.                                               |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents/get)       | `GET /v1beta1/{name}` Retrieves an agent.                                                |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents/list)     | `GET /v1beta1/{parent}/agents` Lists the agents in a location that belong to the caller. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents/patch)   | `PATCH /v1beta1/{agent.name}` Updates an agent.                                          |
 
 ## REST Resource: [v1beta1.projects.locations.batchPredictionJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs)
 
-Methods
-
-`  cancel  `
-
-`POST /v1beta1/{name}:cancel`  
-Cancels a BatchPredictionJob.
-
-`  create  `
-
-`POST /v1beta1/{parent}/batchPredictionJobs`  
-Creates a BatchPredictionJob.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a BatchPredictionJob.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a BatchPredictionJob
-
-`  list  `
-
-`GET /v1beta1/{parent}/batchPredictionJobs`  
-Lists BatchPredictionJobs in a Location.
+| Methods                                                                                                                                         |                                                                                      |
+|-------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs/cancel) | `POST /v1beta1/{name}:cancel` Cancels a BatchPredictionJob.                          |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs/create) | `POST /v1beta1/{parent}/batchPredictionJobs` Creates a BatchPredictionJob.           |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs/delete) | `DELETE /v1beta1/{name}` Deletes a BatchPredictionJob.                               |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs/get)       | `GET /v1beta1/{name}` Gets a BatchPredictionJob                                      |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs/list)     | `GET /v1beta1/{parent}/batchPredictionJobs` Lists BatchPredictionJobs in a Location. |
 
 ## REST Resource: [v1beta1.projects.locations.cachedContents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.cachedContents)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/cachedContents`  
-Creates cached content, this call will initialize the cached content in the data storage, and users need to pay for the cache data storage.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes cached content
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets cached content configurations
-
-`  list  `
-
-`GET /v1beta1/{parent}/cachedContents`  
-Lists cached contents in a project
-
-`  patch  `
-
-`PATCH /v1beta1/{cachedContent.name}`  
-Updates cached content configurations
+| Methods                                                                                                                                    |                                                                                                                                                                                     |
+|--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.cachedContents/create) | `POST /v1beta1/{parent}/cachedContents` Creates cached content, this call will initialize the cached content in the data storage, and users need to pay for the cache data storage. |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.cachedContents/delete) | `DELETE /v1beta1/{name}` Deletes cached content                                                                                                                                     |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.cachedContents/get)       | `GET /v1beta1/{name}` Gets cached content configurations                                                                                                                            |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.cachedContents/list)     | `GET /v1beta1/{parent}/cachedContents` Lists cached contents in a project                                                                                                           |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.cachedContents/patch)   | `PATCH /v1beta1/{cachedContent.name}` Updates cached content configurations                                                                                                         |
 
 ## REST Resource: [v1beta1.projects.locations.customJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.customJobs)
 
-Methods
-
-`  cancel  `
-
-`POST /v1beta1/{name}:cancel`  
-Cancels a CustomJob.
-
-`  create  `
-
-`POST /v1beta1/{parent}/customJobs`  
-Creates a CustomJob.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a CustomJob.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a CustomJob.
-
-`  list  `
-
-`GET /v1beta1/{parent}/customJobs`  
-Lists CustomJobs in a Location.
+| Methods                                                                                                                                |                                                                    |
+|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.customJobs/cancel) | `POST /v1beta1/{name}:cancel` Cancels a CustomJob.                 |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.customJobs/create) | `POST /v1beta1/{parent}/customJobs` Creates a CustomJob.           |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.customJobs/delete) | `DELETE /v1beta1/{name}` Deletes a CustomJob.                      |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.customJobs/get)       | `GET /v1beta1/{name}` Gets a CustomJob.                            |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.customJobs/list)     | `GET /v1beta1/{parent}/customJobs` Lists CustomJobs in a Location. |
 
 ## REST Resource: [v1beta1.projects.locations.datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets)
 
-Methods
-
-`  assemble  `
-
-`POST /v1beta1/{name}:assemble`  
-Assembles each row of a multimodal dataset and writes the result into a BigQuery table.
-
-`  assess  `
-
-`POST /v1beta1/{name}:assess`  
-Assesses the state or validity of the dataset with respect to a given use case.
-
-`  create  `
-
-`POST /v1beta1/{parent}/datasets`  
-Creates a Dataset.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a Dataset.
-
-`  export  `
-
-`POST /v1beta1/{name}:export`  
-Exports data from a Dataset.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a Dataset.
-
-`  import  `
-
-`POST /v1beta1/{name}:import`  
-Imports data into a Dataset.
-
-`  list  `
-
-`GET /v1beta1/{parent}/datasets`  
-Lists Datasets in a Location.
-
-`  patch  `
-
-`PATCH /v1beta1/{dataset.name}`  
-Updates a Dataset.
-
-`  searchDataItems  `
-
-`GET /v1beta1/{dataset}:searchDataItems`  
-Searches DataItems in a Dataset.
+| Methods                                                                                                                                                |                                                                                                                         |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| [`assemble`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/assemble)               | `POST /v1beta1/{name}:assemble` Assembles each row of a multimodal dataset and writes the result into a BigQuery table. |
+| [`assess`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/assess)                   | `POST /v1beta1/{name}:assess` Assesses the state or validity of the dataset with respect to a given use case.           |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/create)                   | `POST /v1beta1/{parent}/datasets` Creates a Dataset.                                                                    |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/delete)                   | `DELETE /v1beta1/{name}` Deletes a Dataset.                                                                             |
+| [`export`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/export)                   | `POST /v1beta1/{name}:export` Exports data from a Dataset.                                                              |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/get)                         | `GET /v1beta1/{name}` Gets a Dataset.                                                                                   |
+| [`import`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/import)                   | `POST /v1beta1/{name}:import` Imports data into a Dataset.                                                              |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/list)                       | `GET /v1beta1/{parent}/datasets` Lists Datasets in a Location.                                                          |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/patch)                     | `PATCH /v1beta1/{dataset.name}` Updates a Dataset.                                                                      |
+| [`searchDataItems`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/searchDataItems) | `GET /v1beta1/{dataset}:searchDataItems` Searches DataItems in a Dataset.                                               |
 
 ## REST Resource: [v1beta1.projects.locations.datasets.annotationSpecs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.annotationSpecs)
 
-Methods
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets an AnnotationSpec.
+| Methods                                                                                                                                        |                                               |
+|------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.annotationSpecs/get) | `GET /v1beta1/{name}` Gets an AnnotationSpec. |
 
 ## REST Resource: [v1beta1.projects.locations.datasets.dataItems](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.dataItems)
 
-Methods
-
-`  list  `
-
-`GET /v1beta1/{parent}/dataItems`  
-Lists DataItems in a Dataset.
+| Methods                                                                                                                                    |                                                                 |
+|--------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.dataItems/list) | `GET /v1beta1/{parent}/dataItems` Lists DataItems in a Dataset. |
 
 ## REST Resource: [v1beta1.projects.locations.datasets.dataItems.annotations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.dataItems.annotations)
 
-Methods
-
-`  list  `
-
-`GET /v1beta1/{parent}/annotations`  
-Lists Annotations belongs to a dataitem.
+| Methods                                                                                                                                                |                                                                              |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.dataItems.annotations/list) | `GET /v1beta1/{parent}/annotations` Lists Annotations belongs to a dataitem. |
 
 ## REST Resource: [v1beta1.projects.locations.datasets.datasetVersions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.datasetVersions)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/datasetVersions`  
-Create a version from a Dataset.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a Dataset version.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a Dataset version.
-
-`  list  `
-
-`GET /v1beta1/{parent}/datasetVersions`  
-Lists DatasetVersions in a Dataset.
-
-`  patch  `
-
-`PATCH /v1beta1/{datasetVersion.name}`  
-Updates a DatasetVersion.
-
-`  restore  `
-
-`GET /v1beta1/{name}:restore`  
-Restores a dataset version.
+| Methods                                                                                                                                                |                                                                             |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.datasetVersions/create)   | `POST /v1beta1/{parent}/datasetVersions` Create a version from a Dataset.   |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.datasetVersions/delete)   | `DELETE /v1beta1/{name}` Deletes a Dataset version.                         |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.datasetVersions/get)         | `GET /v1beta1/{name}` Gets a Dataset version.                               |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.datasetVersions/list)       | `GET /v1beta1/{parent}/datasetVersions` Lists DatasetVersions in a Dataset. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.datasetVersions/patch)     | `PATCH /v1beta1/{datasetVersion.name}` Updates a DatasetVersion.            |
+| [`restore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.datasetVersions/restore) | `GET /v1beta1/{name}:restore` Restores a dataset version.                   |
 
 ## REST Resource: [v1beta1.projects.locations.datasets.savedQueries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.savedQueries)
 
-Methods
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a SavedQuery.
-
-`  list  `
-
-`GET /v1beta1/{parent}/savedQueries`  
-Lists SavedQueries in a Dataset.
+| Methods                                                                                                                                           |                                                                       |
+|---------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.savedQueries/delete) | `DELETE /v1beta1/{name}` Deletes a SavedQuery.                        |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.savedQueries/list)     | `GET /v1beta1/{parent}/savedQueries` Lists SavedQueries in a Dataset. |
 
 ## REST Resource: [v1beta1.projects.locations.deploymentResourcePools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.deploymentResourcePools)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/deploymentResourcePools`  
-Create a DeploymentResourcePool.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Delete a DeploymentResourcePool.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Get a DeploymentResourcePool.
-
-`  list  `
-
-`GET /v1beta1/{parent}/deploymentResourcePools`  
-List DeploymentResourcePools in a location.
-
-`  patch  `
-
-`PATCH /v1beta1/{deploymentResourcePool.name}`  
-Update a DeploymentResourcePool.
-
-`  queryDeployedModels  `
-
-`GET /v1beta1/{deploymentResourcePool}:queryDeployedModels`  
-List DeployedModels that have been deployed on this DeploymentResourcePool.
+| Methods                                                                                                                                                                       |                                                                                                                                         |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.deploymentResourcePools/create)                           | `POST /v1beta1/{parent}/deploymentResourcePools` Create a DeploymentResourcePool.                                                       |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.deploymentResourcePools/delete)                           | `DELETE /v1beta1/{name}` Delete a DeploymentResourcePool.                                                                               |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.deploymentResourcePools/get)                                 | `GET /v1beta1/{name}` Get a DeploymentResourcePool.                                                                                     |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.deploymentResourcePools/list)                               | `GET /v1beta1/{parent}/deploymentResourcePools` List DeploymentResourcePools in a location.                                             |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.deploymentResourcePools/patch)                             | `PATCH /v1beta1/{deploymentResourcePool.name}` Update a DeploymentResourcePool.                                                         |
+| [`queryDeployedModels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.deploymentResourcePools/queryDeployedModels) | `GET /v1beta1/{deploymentResourcePool}:queryDeployedModels` List DeployedModels that have been deployed on this DeploymentResourcePool. |
 
 ## REST Resource: [v1beta1.projects.locations.endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints)
 
-Methods
-
-`  computeTokens  `
-
-`POST /v1beta1/{endpoint}:computeTokens`  
-Return a list of tokens based on the input text.
-
-`  countTokens  `
-
-`POST /v1beta1/{endpoint}:countTokens`  
-Perform a token counting.
-
-`  create  `
-
-`POST /v1beta1/{parent}/endpoints`  
-Creates an Endpoint.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes an Endpoint.
-
-`  deployModel  `
-
-`POST /v1beta1/{endpoint}:deployModel`  
-Deploys a Model into this Endpoint, creating a DeployedModel within it.
-
-`  directPredict  `
-
-`POST /v1beta1/{endpoint}:directPredict`  
-Perform an unary online prediction request to a gRPC model server for Vertex first-party products and frameworks.
-
-`  directRawPredict  `
-
-`POST /v1beta1/{endpoint}:directRawPredict`  
-Perform an unary online prediction request to a gRPC model server for custom containers.
-
-`  explain  `
-
-`POST /v1beta1/{endpoint}:explain`  
-Perform an online explanation.
-
-`  generateContent  `
-
-`POST /v1beta1/{model}:generateContent`  
-Generate content with multimodal inputs.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets an Endpoint.
-
-`  getIamPolicy  `
-
-`POST /v1beta1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  list  `
-
-`GET /v1beta1/{parent}/endpoints`  
-Lists Endpoints in a Location.
-
-`  mutateDeployedModel  `
-
-`POST /v1beta1/{endpoint}:mutateDeployedModel`  
-Updates an existing deployed model.
-
-`  patch  `
-
-`PATCH /v1beta1/{endpoint.name}`  
-Updates an Endpoint.
-
-`  predict  `
-
-`POST /v1beta1/{endpoint}:predict`  
-Perform an online inference.
-
-`  predictLongRunning  `
-
-`POST /v1beta1/{endpoint}:predictLongRunning`  
-
-`  rawPredict  `
-
-`POST /v1beta1/{endpoint}:rawPredict`  
-Perform an online prediction with an arbitrary HTTP payload.
-
-`  serverStreamingPredict  `
-
-`POST /v1beta1/{endpoint}:serverStreamingPredict`  
-Perform a server-side streaming online prediction request for Vertex LLM streaming.
-
-`  setIamPolicy  `
-
-`POST /v1beta1/{resource}:setIamPolicy`  
-Sets the access control policy on the specified resource.
-
-`  streamGenerateContent  `
-
-`POST /v1beta1/{model}:streamGenerateContent`  
-Generate content with multimodal inputs with streaming support.
-
-`  streamRawPredict  `
-
-`POST /v1beta1/{endpoint}:streamRawPredict`  
-Perform a streaming online prediction with an arbitrary HTTP payload.
-
-`  testIamPermissions  `
-
-`POST /v1beta1/{resource}:testIamPermissions`  
-Returns permissions that a caller has on the specified resource.
-
-`  undeployModel  `
-
-`POST /v1beta1/{endpoint}:undeployModel`  
-Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freeing all resources it's using.
-
-`  update  `
-
-`POST /v1beta1/{endpoint.name}:update`  
-Updates an Endpoint with a long running operation.
+| Methods                                                                                                                                                               |                                                                                                                                                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`computeTokens`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/computeTokens)                   | `POST /v1beta1/{endpoint}:computeTokens` Return a list of tokens based on the input text.                                                                  |
+| [`countTokens`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/countTokens)                       | `POST /v1beta1/{endpoint}:countTokens` Perform a token counting.                                                                                           |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/create)                                 | `POST /v1beta1/{parent}/endpoints` Creates an Endpoint.                                                                                                    |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/delete)                                 | `DELETE /v1beta1/{name}` Deletes an Endpoint.                                                                                                              |
+| [`deployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/deployModel)                       | `POST /v1beta1/{endpoint}:deployModel` Deploys a Model into this Endpoint, creating a DeployedModel within it.                                             |
+| [`directPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/directPredict)                   | `POST /v1beta1/{endpoint}:directPredict` Perform an unary online prediction request to a gRPC model server for Vertex first-party products and frameworks. |
+| [`directRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/directRawPredict)             | `POST /v1beta1/{endpoint}:directRawPredict` Perform an unary online prediction request to a gRPC model server for custom containers.                       |
+| [`explain`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain)                               | `POST /v1beta1/{endpoint}:explain` Perform an online explanation.                                                                                          |
+| [`generateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/generateContent)               | `POST /v1beta1/{model}:generateContent` Generate content with multimodal inputs.                                                                           |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/get)                                       | `GET /v1beta1/{name}` Gets an Endpoint.                                                                                                                    |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/getIamPolicy)                     | `POST /v1beta1/{resource}:getIamPolicy` Gets the access control policy for a resource.                                                                     |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/list)                                     | `GET /v1beta1/{parent}/endpoints` Lists Endpoints in a Location.                                                                                           |
+| [`mutateDeployedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/mutateDeployedModel)       | `POST /v1beta1/{endpoint}:mutateDeployedModel` Updates an existing deployed model.                                                                         |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/patch)                                   | `PATCH /v1beta1/{endpoint.name}` Updates an Endpoint.                                                                                                      |
+| [`predict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/predict)                               | `POST /v1beta1/{endpoint}:predict` Perform an online inference.                                                                                            |
+| [`predictLongRunning`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/predictLongRunning)         | `POST /v1beta1/{endpoint}:predictLongRunning`                                                                                                              |
+| [`rawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/rawPredict)                         | `POST /v1beta1/{endpoint}:rawPredict` Perform an online prediction with an arbitrary HTTP payload.                                                         |
+| [`serverStreamingPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/serverStreamingPredict) | `POST /v1beta1/{endpoint}:serverStreamingPredict` Perform a server-side streaming online prediction request for Vertex LLM streaming.                      |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/setIamPolicy)                     | `POST /v1beta1/{resource}:setIamPolicy` Sets the access control policy on the specified resource.                                                          |
+| [`streamGenerateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/streamGenerateContent)   | `POST /v1beta1/{model}:streamGenerateContent` Generate content with multimodal inputs with streaming support.                                              |
+| [`streamRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/streamRawPredict)             | `POST /v1beta1/{endpoint}:streamRawPredict` Perform a streaming online prediction with an arbitrary HTTP payload.                                          |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/testIamPermissions)         | `POST /v1beta1/{resource}:testIamPermissions` Returns permissions that a caller has on the specified resource.                                             |
+| [`undeployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/undeployModel)                   | `POST /v1beta1/{endpoint}:undeployModel` Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freeing all resources it's using.       |
+| [`update`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/update)                                 | `POST /v1beta1/{endpoint.name}:update` Updates an Endpoint with a long running operation.                                                                  |
 
 ## REST Resource: [v1beta1.projects.locations.endpoints.chat](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints.chat)
 
-Methods
-
-`  completions  `
-
-`POST /v1beta1/{endpoint}/chat/completions`  
-Exposes an OpenAI-compatible endpoint for chat completions.
+| Methods                                                                                                                                              |                                                                                                         |
+|------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| [`completions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints.chat/completions) | `POST /v1beta1/{endpoint}/chat/completions` Exposes an OpenAI-compatible endpoint for chat completions. |
 
 ## REST Resource: [v1beta1.projects.locations.endpoints.responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints.responses)
 
-Methods
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes the response from the endpoint.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets the response from the endpoint.
+| Methods                                                                                                                                         |                                                                  |
+|-------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints.responses/delete) | `DELETE /v1beta1/{name}` Deletes the response from the endpoint. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints.responses/get)       | `GET /v1beta1/{name}` Gets the response from the endpoint.       |
 
 ## REST Resource: [v1beta1.projects.locations.exampleStores](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/exampleStores`  
-Create an ExampleStore.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Delete an ExampleStore.
-
-`  fetchExamples  `
-
-`POST /v1beta1/{exampleStore}:fetchExamples`  
-Get Examples from the Example Store.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Get an ExampleStore.
-
-`  list  `
-
-`GET /v1beta1/{parent}/exampleStores`  
-List ExampleStores in a Location.
-
-`  patch  `
-
-`PATCH /v1beta1/{exampleStore.name}`  
-Update an ExampleStore.
-
-`  removeExamples  `
-
-`POST /v1beta1/{exampleStore}:removeExamples`  
-Remove Examples from the Example Store.
-
-`  searchExamples  `
-
-`POST /v1beta1/{exampleStore}:searchExamples`  
-Search for similar Examples for given selection criteria.
-
-`  upsertExamples  `
-
-`POST /v1beta1/{exampleStore}:upsertExamples`  
-Create or update Examples in the Example Store.
+| Methods                                                                                                                                                   |                                                                                                         |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/create)                 | `POST /v1beta1/{parent}/exampleStores` Create an ExampleStore.                                          |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/delete)                 | `DELETE /v1beta1/{name}` Delete an ExampleStore.                                                        |
+| [`fetchExamples`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/fetchExamples)   | `POST /v1beta1/{exampleStore}:fetchExamples` Get Examples from the Example Store.                       |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/get)                       | `GET /v1beta1/{name}` Get an ExampleStore.                                                              |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/list)                     | `GET /v1beta1/{parent}/exampleStores` List ExampleStores in a Location.                                 |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/patch)                   | `PATCH /v1beta1/{exampleStore.name}` Update an ExampleStore.                                            |
+| [`removeExamples`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/removeExamples) | `POST /v1beta1/{exampleStore}:removeExamples` Remove Examples from the Example Store.                   |
+| [`searchExamples`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/searchExamples) | `POST /v1beta1/{exampleStore}:searchExamples` Search for similar Examples for given selection criteria. |
+| [`upsertExamples`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/upsertExamples) | `POST /v1beta1/{exampleStore}:upsertExamples` Create or update Examples in the Example Store.           |
 
 ## REST Resource: [v1beta1.projects.locations.extensions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions)
 
-Methods
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes an Extension.
-
-`  execute  `
-
-`POST /v1beta1/{name}:execute`  
-Executes the request against a given extension.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets an Extension.
-
-`  import  `
-
-`POST /v1beta1/{parent}/extensions:import`  
-Imports an Extension.
-
-`  list  `
-
-`GET /v1beta1/{parent}/extensions`  
-Lists Extensions in a location.
-
-`  patch  `
-
-`PATCH /v1beta1/{extension.name}`  
-Updates an Extension.
-
-`  query  `
-
-`POST /v1beta1/{name}:query`  
-Queries an extension with a default controller.
+| Methods                                                                                                                                  |                                                                                |
+|------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/delete)   | `DELETE /v1beta1/{name}` Deletes an Extension.                                 |
+| [`execute`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/execute) | `POST /v1beta1/{name}:execute` Executes the request against a given extension. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/get)         | `GET /v1beta1/{name}` Gets an Extension.                                       |
+| [`import`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/import)   | `POST /v1beta1/{parent}/extensions:import` Imports an Extension.               |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/list)       | `GET /v1beta1/{parent}/extensions` Lists Extensions in a location.             |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/patch)     | `PATCH /v1beta1/{extension.name}` Updates an Extension.                        |
+| [`query`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/query)     | `POST /v1beta1/{name}:query` Queries an extension with a default controller.   |
 
 ## REST Resource: [v1beta1.projects.locations.featureGroups](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/featureGroups`  
-Creates a new FeatureGroup in a given project and location.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a single FeatureGroup.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets details of a single FeatureGroup.
-
-`  getIamPolicy  `
-
-`POST /v1beta1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  list  `
-
-`GET /v1beta1/{parent}/featureGroups`  
-Lists FeatureGroups in a given project and location.
-
-`  patch  `
-
-`PATCH /v1beta1/{featureGroup.name}`  
-Updates the parameters of a single FeatureGroup.
-
-`  setIamPolicy  `
-
-`POST /v1beta1/{resource}:setIamPolicy`  
-Sets the access control policy on the specified resource.
-
-`  testIamPermissions  `
-
-`POST /v1beta1/{resource}:testIamPermissions`  
-Returns permissions that a caller has on the specified resource.
+| Methods                                                                                                                                                           |                                                                                                                |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups/create)                         | `POST /v1beta1/{parent}/featureGroups` Creates a new FeatureGroup in a given project and location.             |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups/delete)                         | `DELETE /v1beta1/{name}` Deletes a single FeatureGroup.                                                        |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups/get)                               | `GET /v1beta1/{name}` Gets details of a single FeatureGroup.                                                   |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups/getIamPolicy)             | `POST /v1beta1/{resource}:getIamPolicy` Gets the access control policy for a resource.                         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups/list)                             | `GET /v1beta1/{parent}/featureGroups` Lists FeatureGroups in a given project and location.                     |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups/patch)                           | `PATCH /v1beta1/{featureGroup.name}` Updates the parameters of a single FeatureGroup.                          |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups/setIamPolicy)             | `POST /v1beta1/{resource}:setIamPolicy` Sets the access control policy on the specified resource.              |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups/testIamPermissions) | `POST /v1beta1/{resource}:testIamPermissions` Returns permissions that a caller has on the specified resource. |
 
 ## REST Resource: [v1beta1.projects.locations.featureGroups.featureMonitors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/featureMonitors`  
-Creates a new FeatureMonitor in a given project, location and FeatureGroup.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a single FeatureMonitor.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets details of a single FeatureMonitor.
-
-`  list  `
-
-`GET /v1beta1/{parent}/featureMonitors`  
-Lists FeatureGroups in a given project and location.
-
-`  patch  `
-
-`PATCH /v1beta1/{featureMonitor.name}`  
-Updates the parameters of a single FeatureMonitor.
+| Methods                                                                                                                                                   |                                                                                                                      |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors/create) | `POST /v1beta1/{parent}/featureMonitors` Creates a new FeatureMonitor in a given project, location and FeatureGroup. |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors/delete) | `DELETE /v1beta1/{name}` Deletes a single FeatureMonitor.                                                            |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors/get)       | `GET /v1beta1/{name}` Gets details of a single FeatureMonitor.                                                       |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors/list)     | `GET /v1beta1/{parent}/featureMonitors` Lists FeatureGroups in a given project and location.                         |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors/patch)   | `PATCH /v1beta1/{featureMonitor.name}` Updates the parameters of a single FeatureMonitor.                            |
 
 ## REST Resource: [v1beta1.projects.locations.featureGroups.featureMonitors.featureMonitorJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors.featureMonitorJobs)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/featureMonitorJobs`  
-Creates a new feature monitor job.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Get a feature monitor job.
-
-`  list  `
-
-`GET /v1beta1/{parent}/featureMonitorJobs`  
-List feature monitor jobs.
+| Methods                                                                                                                                                                      |                                                                                |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors.featureMonitorJobs/create) | `POST /v1beta1/{parent}/featureMonitorJobs` Creates a new feature monitor job. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors.featureMonitorJobs/get)       | `GET /v1beta1/{name}` Get a feature monitor job.                               |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors.featureMonitorJobs/list)     | `GET /v1beta1/{parent}/featureMonitorJobs` List feature monitor jobs.          |
 
 ## REST Resource: [v1beta1.projects.locations.featureGroups.features](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.features)
 
-Methods
-
-`  batchCreate  `
-
-`POST /v1beta1/{parent}/features:batchCreate`  
-Creates a batch of Features in a given FeatureGroup.
-
-`  create  `
-
-`POST /v1beta1/{parent}/features`  
-Creates a new Feature in a given FeatureGroup.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a single Feature.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets details of a single Feature.
-
-`  list  `
-
-`GET /v1beta1/{parent}/features`  
-Lists Features in a given FeatureGroup.
-
-`  patch  `
-
-`PATCH /v1beta1/{feature.name}`  
-Updates the parameters of a single Feature.
+| Methods                                                                                                                                                      |                                                                                                    |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| [`batchCreate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.features/batchCreate) | `POST /v1beta1/{parent}/features:batchCreate` Creates a batch of Features in a given FeatureGroup. |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.features/create)           | `POST /v1beta1/{parent}/features` Creates a new Feature in a given FeatureGroup.                   |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.features/delete)           | `DELETE /v1beta1/{name}` Deletes a single Feature.                                                 |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.features/get)                 | `GET /v1beta1/{name}` Gets details of a single Feature.                                            |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.features/list)               | `GET /v1beta1/{parent}/features` Lists Features in a given FeatureGroup.                           |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.features/patch)             | `PATCH /v1beta1/{feature.name}` Updates the parameters of a single Feature.                        |
 
 ## REST Resource: [v1beta1.projects.locations.featureOnlineStores](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/featureOnlineStores`  
-Creates a new FeatureOnlineStore in a given project and location.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a single FeatureOnlineStore.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets details of a single FeatureOnlineStore.
-
-`  getIamPolicy  `
-
-`POST /v1beta1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  list  `
-
-`GET /v1beta1/{parent}/featureOnlineStores`  
-Lists FeatureOnlineStores in a given project and location.
-
-`  patch  `
-
-`PATCH /v1beta1/{featureOnlineStore.name}`  
-Updates the parameters of a single FeatureOnlineStore.
-
-`  setIamPolicy  `
-
-`POST /v1beta1/{resource}:setIamPolicy`  
-Sets the access control policy on the specified resource.
-
-`  testIamPermissions  `
-
-`POST /v1beta1/{resource}:testIamPermissions`  
-Returns permissions that a caller has on the specified resource.
+| Methods                                                                                                                                                                 |                                                                                                                |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores/create)                         | `POST /v1beta1/{parent}/featureOnlineStores` Creates a new FeatureOnlineStore in a given project and location. |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores/delete)                         | `DELETE /v1beta1/{name}` Deletes a single FeatureOnlineStore.                                                  |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores/get)                               | `GET /v1beta1/{name}` Gets details of a single FeatureOnlineStore.                                             |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores/getIamPolicy)             | `POST /v1beta1/{resource}:getIamPolicy` Gets the access control policy for a resource.                         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores/list)                             | `GET /v1beta1/{parent}/featureOnlineStores` Lists FeatureOnlineStores in a given project and location.         |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores/patch)                           | `PATCH /v1beta1/{featureOnlineStore.name}` Updates the parameters of a single FeatureOnlineStore.              |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores/setIamPolicy)             | `POST /v1beta1/{resource}:setIamPolicy` Sets the access control policy on the specified resource.              |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores/testIamPermissions) | `POST /v1beta1/{resource}:testIamPermissions` Returns permissions that a caller has on the specified resource. |
 
 ## REST Resource: [v1beta1.projects.locations.featureOnlineStores.featureViews](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/featureViews`  
-Creates a new FeatureView in a given FeatureOnlineStore.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a single FeatureView.
-
-`  directWrite  `
-
-`POST /v1beta1/{featureView}:directWrite`  
-Bidirectional streaming RPC to directly write to feature values in a feature view.
-
-`  fetchFeatureValues  `
-
-`POST /v1beta1/{featureView}:fetchFeatureValues`  
-Fetch feature values under a FeatureView.
-
-`  generateFetchAccessToken  `
-
-`POST /v1beta1/{featureView}:generateFetchAccessToken`  
-RPC to generate an access token for the given feature view.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets details of a single FeatureView.
-
-`  getIamPolicy  `
-
-`POST /v1beta1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  list  `
-
-`GET /v1beta1/{parent}/featureViews`  
-Lists FeatureViews in a given FeatureOnlineStore.
-
-`  patch  `
-
-`PATCH /v1beta1/{featureView.name}`  
-Updates the parameters of a single FeatureView.
-
-`  searchNearestEntities  `
-
-`POST /v1beta1/{featureView}:searchNearestEntities`  
-Search the nearest entities under a FeatureView.
-
-`  setIamPolicy  `
-
-`POST /v1beta1/{resource}:setIamPolicy`  
-Sets the access control policy on the specified resource.
-
-`  streamingFetchFeatureValues  `
-
-`POST /v1beta1/{featureView}:streamingFetchFeatureValues`  
-Bidirectional streaming RPC to fetch feature values under a FeatureView.
-
-`  sync  `
-
-`POST /v1beta1/{featureView}:sync`  
-Triggers on-demand sync for the FeatureView.
-
-`  testIamPermissions  `
-
-`POST /v1beta1/{resource}:testIamPermissions`  
-Returns permissions that a caller has on the specified resource.
+| Methods                                                                                                                                                                                                |                                                                                                                                    |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/create)                                           | `POST /v1beta1/{parent}/featureViews` Creates a new FeatureView in a given FeatureOnlineStore.                                     |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/delete)                                           | `DELETE /v1beta1/{name}` Deletes a single FeatureView.                                                                             |
+| [`directWrite`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/directWrite)                                 | `POST /v1beta1/{featureView}:directWrite` Bidirectional streaming RPC to directly write to feature values in a feature view.       |
+| [`fetchFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/fetchFeatureValues)                   | `POST /v1beta1/{featureView}:fetchFeatureValues` Fetch feature values under a FeatureView.                                         |
+| [`generateFetchAccessToken`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/generateFetchAccessToken)       | `POST /v1beta1/{featureView}:generateFetchAccessToken` RPC to generate an access token for the given feature view.                 |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/get)                                                 | `GET /v1beta1/{name}` Gets details of a single FeatureView.                                                                        |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/getIamPolicy)                               | `POST /v1beta1/{resource}:getIamPolicy` Gets the access control policy for a resource.                                             |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/list)                                               | `GET /v1beta1/{parent}/featureViews` Lists FeatureViews in a given FeatureOnlineStore.                                             |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/patch)                                             | `PATCH /v1beta1/{featureView.name}` Updates the parameters of a single FeatureView.                                                |
+| [`searchNearestEntities`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/searchNearestEntities)             | `POST /v1beta1/{featureView}:searchNearestEntities` Search the nearest entities under a FeatureView.                               |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/setIamPolicy)                               | `POST /v1beta1/{resource}:setIamPolicy` Sets the access control policy on the specified resource.                                  |
+| [`streamingFetchFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/streamingFetchFeatureValues) | `POST /v1beta1/{featureView}:streamingFetchFeatureValues` Bidirectional streaming RPC to fetch feature values under a FeatureView. |
+| [`sync`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/sync)                                               | `POST /v1beta1/{featureView}:sync` Triggers on-demand sync for the FeatureView.                                                    |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/testIamPermissions)                   | `POST /v1beta1/{resource}:testIamPermissions` Returns permissions that a caller has on the specified resource.                     |
 
 ## REST Resource: [v1beta1.projects.locations.featureOnlineStores.featureViews.featureViewSyncs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews.featureViewSyncs)
 
-Methods
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets details of a single FeatureViewSync.
-
-`  list  `
-
-`GET /v1beta1/{parent}/featureViewSyncs`  
-Lists FeatureViewSyncs in a given FeatureView.
+| Methods                                                                                                                                                                   |                                                                                         |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews.featureViewSyncs/get)   | `GET /v1beta1/{name}` Gets details of a single FeatureViewSync.                         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews.featureViewSyncs/list) | `GET /v1beta1/{parent}/featureViewSyncs` Lists FeatureViewSyncs in a given FeatureView. |
 
 ## REST Resource: [v1beta1.projects.locations.featurestores](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores)
 
-Methods
-
-`  batchReadFeatureValues  `
-
-`POST /v1beta1/{featurestore}:batchReadFeatureValues`  
-Batch reads Feature values from a Featurestore.
-
-`  create  `
-
-`POST /v1beta1/{parent}/featurestores`  
-Creates a new Featurestore in a given project and location.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a single Featurestore.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets details of a single Featurestore.
-
-`  getIamPolicy  `
-
-`POST /v1beta1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  list  `
-
-`GET /v1beta1/{parent}/featurestores`  
-Lists Featurestores in a given project and location.
-
-`  patch  `
-
-`PATCH /v1beta1/{featurestore.name}`  
-Updates the parameters of a single Featurestore.
-
-`  searchFeatures  `
-
-`GET /v1beta1/{location}/featurestores:searchFeatures`  
-Searches Features matching a query in a given project.
-
-`  setIamPolicy  `
-
-`POST /v1beta1/{resource}:setIamPolicy`  
-Sets the access control policy on the specified resource.
-
-`  testIamPermissions  `
-
-`POST /v1beta1/{resource}:testIamPermissions`  
-Returns permissions that a caller has on the specified resource.
+| Methods                                                                                                                                                                   |                                                                                                                |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| [`batchReadFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores/batchReadFeatureValues) | `POST /v1beta1/{featurestore}:batchReadFeatureValues` Batch reads Feature values from a Featurestore.          |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores/create)                                 | `POST /v1beta1/{parent}/featurestores` Creates a new Featurestore in a given project and location.             |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores/delete)                                 | `DELETE /v1beta1/{name}` Deletes a single Featurestore.                                                        |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores/get)                                       | `GET /v1beta1/{name}` Gets details of a single Featurestore.                                                   |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores/getIamPolicy)                     | `POST /v1beta1/{resource}:getIamPolicy` Gets the access control policy for a resource.                         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores/list)                                     | `GET /v1beta1/{parent}/featurestores` Lists Featurestores in a given project and location.                     |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores/patch)                                   | `PATCH /v1beta1/{featurestore.name}` Updates the parameters of a single Featurestore.                          |
+| [`searchFeatures`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores/searchFeatures)                 | `GET /v1beta1/{location}/featurestores:searchFeatures` Searches Features matching a query in a given project.  |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores/setIamPolicy)                     | `POST /v1beta1/{resource}:setIamPolicy` Sets the access control policy on the specified resource.              |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores/testIamPermissions)         | `POST /v1beta1/{resource}:testIamPermissions` Returns permissions that a caller has on the specified resource. |
 
 ## REST Resource: [v1beta1.projects.locations.featurestores.entityTypes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/entityTypes`  
-Creates a new EntityType in a given Featurestore.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a single EntityType.
-
-`  deleteFeatureValues  `
-
-`POST /v1beta1/{entityType}:deleteFeatureValues`  
-Delete Feature values from Featurestore.
-
-`  exportFeatureValues  `
-
-`POST /v1beta1/{entityType}:exportFeatureValues`  
-Exports Feature values from all the entities of a target EntityType.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets details of a single EntityType.
-
-`  getIamPolicy  `
-
-`POST /v1beta1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  importFeatureValues  `
-
-`POST /v1beta1/{entityType}:importFeatureValues`  
-Imports Feature values into the Featurestore from a source storage.
-
-`  list  `
-
-`GET /v1beta1/{parent}/entityTypes`  
-Lists EntityTypes in a given Featurestore.
-
-`  patch  `
-
-`PATCH /v1beta1/{entityType.name}`  
-Updates the parameters of a single EntityType.
-
-`  readFeatureValues  `
-
-`POST /v1beta1/{entityType}:readFeatureValues`  
-Reads Feature values of a specific entity of an EntityType.
-
-`  setIamPolicy  `
-
-`POST /v1beta1/{resource}:setIamPolicy`  
-Sets the access control policy on the specified resource.
-
-`  streamingReadFeatureValues  `
-
-`POST /v1beta1/{entityType}:streamingReadFeatureValues`  
-Reads Feature values for multiple entities.
-
-`  testIamPermissions  `
-
-`POST /v1beta1/{resource}:testIamPermissions`  
-Returns permissions that a caller has on the specified resource.
-
-`  writeFeatureValues  `
-
-`POST /v1beta1/{entityType}:writeFeatureValues`  
-Writes Feature values of one or more entities of an EntityType.
+| Methods                                                                                                                                                                                       |                                                                                                                       |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/create)                                         | `POST /v1beta1/{parent}/entityTypes` Creates a new EntityType in a given Featurestore.                                |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/delete)                                         | `DELETE /v1beta1/{name}` Deletes a single EntityType.                                                                 |
+| [`deleteFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/deleteFeatureValues)               | `POST /v1beta1/{entityType}:deleteFeatureValues` Delete Feature values from Featurestore.                             |
+| [`exportFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/exportFeatureValues)               | `POST /v1beta1/{entityType}:exportFeatureValues` Exports Feature values from all the entities of a target EntityType. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/get)                                               | `GET /v1beta1/{name}` Gets details of a single EntityType.                                                            |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/getIamPolicy)                             | `POST /v1beta1/{resource}:getIamPolicy` Gets the access control policy for a resource.                                |
+| [`importFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/importFeatureValues)               | `POST /v1beta1/{entityType}:importFeatureValues` Imports Feature values into the Featurestore from a source storage.  |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/list)                                             | `GET /v1beta1/{parent}/entityTypes` Lists EntityTypes in a given Featurestore.                                        |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/patch)                                           | `PATCH /v1beta1/{entityType.name}` Updates the parameters of a single EntityType.                                     |
+| [`readFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/readFeatureValues)                   | `POST /v1beta1/{entityType}:readFeatureValues` Reads Feature values of a specific entity of an EntityType.            |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/setIamPolicy)                             | `POST /v1beta1/{resource}:setIamPolicy` Sets the access control policy on the specified resource.                     |
+| [`streamingReadFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/streamingReadFeatureValues) | `POST /v1beta1/{entityType}:streamingReadFeatureValues` Reads Feature values for multiple entities.                   |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/testIamPermissions)                 | `POST /v1beta1/{resource}:testIamPermissions` Returns permissions that a caller has on the specified resource.        |
+| [`writeFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/writeFeatureValues)                 | `POST /v1beta1/{entityType}:writeFeatureValues` Writes Feature values of one or more entities of an EntityType.       |
 
 ## REST Resource: [v1beta1.projects.locations.featurestores.entityTypes.features](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes.features)
 
-Methods
-
-`  batchCreate  `
-
-`POST /v1beta1/{parent}/features:batchCreate`  
-Creates a batch of Features in a given EntityType.
-
-`  create  `
-
-`POST /v1beta1/{parent}/features`  
-Creates a new Feature in a given EntityType.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a single Feature.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets details of a single Feature.
-
-`  list  `
-
-`GET /v1beta1/{parent}/features`  
-Lists Features in a given EntityType.
-
-`  patch  `
-
-`PATCH /v1beta1/{feature.name}`  
-Updates the parameters of a single Feature.
+| Methods                                                                                                                                                                  |                                                                                                  |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| [`batchCreate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes.features/batchCreate) | `POST /v1beta1/{parent}/features:batchCreate` Creates a batch of Features in a given EntityType. |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes.features/create)           | `POST /v1beta1/{parent}/features` Creates a new Feature in a given EntityType.                   |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes.features/delete)           | `DELETE /v1beta1/{name}` Deletes a single Feature.                                               |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes.features/get)                 | `GET /v1beta1/{name}` Gets details of a single Feature.                                          |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes.features/list)               | `GET /v1beta1/{parent}/features` Lists Features in a given EntityType.                           |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes.features/patch)             | `PATCH /v1beta1/{feature.name}` Updates the parameters of a single Feature.                      |
 
 ## REST Resource: [v1beta1.projects.locations.hyperparameterTuningJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.hyperparameterTuningJobs)
 
-Methods
-
-`  cancel  `
-
-`POST /v1beta1/{name}:cancel`  
-Cancels a HyperparameterTuningJob.
-
-`  create  `
-
-`POST /v1beta1/{parent}/hyperparameterTuningJobs`  
-Creates a HyperparameterTuningJob
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a HyperparameterTuningJob.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a HyperparameterTuningJob
-
-`  list  `
-
-`GET /v1beta1/{parent}/hyperparameterTuningJobs`  
-Lists HyperparameterTuningJobs in a Location.
+| Methods                                                                                                                                              |                                                                                                |
+|------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.hyperparameterTuningJobs/cancel) | `POST /v1beta1/{name}:cancel` Cancels a HyperparameterTuningJob.                               |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.hyperparameterTuningJobs/create) | `POST /v1beta1/{parent}/hyperparameterTuningJobs` Creates a HyperparameterTuningJob            |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.hyperparameterTuningJobs/delete) | `DELETE /v1beta1/{name}` Deletes a HyperparameterTuningJob.                                    |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.hyperparameterTuningJobs/get)       | `GET /v1beta1/{name}` Gets a HyperparameterTuningJob                                           |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.hyperparameterTuningJobs/list)     | `GET /v1beta1/{parent}/hyperparameterTuningJobs` Lists HyperparameterTuningJobs in a Location. |
 
 ## REST Resource: [v1beta1.projects.locations.indexEndpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/indexEndpoints`  
-Creates an IndexEndpoint.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes an IndexEndpoint.
-
-`  deployIndex  `
-
-`POST /v1beta1/{indexEndpoint}:deployIndex`  
-Deploys an Index into this IndexEndpoint, creating a DeployedIndex within it.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets an IndexEndpoint.
-
-`  list  `
-
-`GET /v1beta1/{parent}/indexEndpoints`  
-Lists IndexEndpoints in a Location.
-
-`  mutateDeployedIndex  `
-
-`POST /v1beta1/{indexEndpoint}:mutateDeployedIndex`  
-Update an existing DeployedIndex under an IndexEndpoint.
-
-`  patch  `
-
-`PATCH /v1beta1/{indexEndpoint.name}`  
-Updates an IndexEndpoint.
-
-`  undeployIndex  `
-
-`POST /v1beta1/{indexEndpoint}:undeployIndex`  
-Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it, and freeing all resources it's using.
+| Methods                                                                                                                                                              |                                                                                                                                                                 |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/create)                           | `POST /v1beta1/{parent}/indexEndpoints` Creates an IndexEndpoint.                                                                                               |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/delete)                           | `DELETE /v1beta1/{name}` Deletes an IndexEndpoint.                                                                                                              |
+| [`deployIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/deployIndex)                 | `POST /v1beta1/{indexEndpoint}:deployIndex` Deploys an Index into this IndexEndpoint, creating a DeployedIndex within it.                                       |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/get)                                 | `GET /v1beta1/{name}` Gets an IndexEndpoint.                                                                                                                    |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/list)                               | `GET /v1beta1/{parent}/indexEndpoints` Lists IndexEndpoints in a Location.                                                                                      |
+| [`mutateDeployedIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/mutateDeployedIndex) | `POST /v1beta1/{indexEndpoint}:mutateDeployedIndex` Update an existing DeployedIndex under an IndexEndpoint.                                                    |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/patch)                             | `PATCH /v1beta1/{indexEndpoint.name}` Updates an IndexEndpoint.                                                                                                 |
+| [`undeployIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/undeployIndex)             | `POST /v1beta1/{indexEndpoint}:undeployIndex` Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it, and freeing all resources it's using. |
 
 ## REST Resource: [v1beta1.projects.locations.indexes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/indexes`  
-Creates an Index.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes an Index.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets an Index.
-
-`  import  `
-
-`POST /v1beta1/{name}:import`  
-Imports an Index from an external source (e.g., BigQuery).
-
-`  list  `
-
-`GET /v1beta1/{parent}/indexes`  
-Lists Indexes in a Location.
-
-`  patch  `
-
-`PATCH /v1beta1/{index.name}`  
-Updates an Index.
-
-`  removeDatapoints  `
-
-`POST /v1beta1/{index}:removeDatapoints`  
-Remove Datapoints from an Index.
-
-`  upsertDatapoints  `
-
-`POST /v1beta1/{index}:upsertDatapoints`  
-Add/update Datapoints into an Index.
+| Methods                                                                                                                                                 |                                                                                          |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/create)                     | `POST /v1beta1/{parent}/indexes` Creates an Index.                                       |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/delete)                     | `DELETE /v1beta1/{name}` Deletes an Index.                                               |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/get)                           | `GET /v1beta1/{name}` Gets an Index.                                                     |
+| [`import`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/import)                     | `POST /v1beta1/{name}:import` Imports an Index from an external source (e.g., BigQuery). |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/list)                         | `GET /v1beta1/{parent}/indexes` Lists Indexes in a Location.                             |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/patch)                       | `PATCH /v1beta1/{index.name}` Updates an Index.                                          |
+| [`removeDatapoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/removeDatapoints) | `POST /v1beta1/{index}:removeDatapoints` Remove Datapoints from an Index.                |
+| [`upsertDatapoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/upsertDatapoints) | `POST /v1beta1/{index}:upsertDatapoints` Add/update Datapoints into an Index.            |
 
 ## REST Resource: [v1beta1.projects.locations.interactions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.interactions)
 
-Methods
-
-`  createStream  `
-
-`POST /v1beta1/projects/*/locations/*/interactions:createStream`  
-Creates an interaction and streams the response.
-
-`  delete (deprecated)  `
-
-`DELETE /v1beta1/{name}`  
-Deletes an interaction.
+| Methods                                                                                                                                                       |                                                                                                                   |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| [`createStream`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.interactions/createStream)          | `POST /v1beta1/projects/*/locations/*/interactions:createStream` Creates an interaction and streams the response. |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.interactions/delete)` `**`(deprecated)`** | `DELETE /v1beta1/{name}` Deletes an interaction.                                                                  |
 
 ## REST Resource: [v1beta1.projects.locations.interactionsHttp](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.interactionsHttp)
 
-Methods
-
-`  cancel  `
-
-`POST /v1beta1/{name}/cancel`  
-Cancels an interaction by id.
-
-`  create  `
-
-`POST /v1beta1/{parent}/interactionsHttp`  
-Creates a new interaction.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Retrieves the full details of a single interaction based on its `Interaction.id` .
+| Methods                                                                                                                                      |                                                                                                          |
+|----------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.interactionsHttp/cancel) | `POST /v1beta1/{name}/cancel` Cancels an interaction by id.                                              |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.interactionsHttp/create) | `POST /v1beta1/{parent}/interactionsHttp` Creates a new interaction.                                     |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.interactionsHttp/get)       | `GET /v1beta1/{name}` Retrieves the full details of a single interaction based on its `Interaction.id` . |
 
 ## REST Resource: [v1beta1.projects.locations.memoryBanks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks)
 
-Methods
-
-`  ingestEvents  `
-
-`POST /v1beta1/{parent}:ingestEvents`  
-Ingests events for a Memory Bank.
+| Methods                                                                                                                                             |                                                                         |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| [`ingestEvents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks/ingestEvents) | `POST /v1beta1/{parent}:ingestEvents` Ingests events for a Memory Bank. |
 
 ## REST Resource: [v1beta1.projects.locations.memoryBanks.memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks.memories)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/memories`  
-Create a Memory.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Delete a Memory.
-
-`  generate  `
-
-`POST /v1beta1/{parent}/memories:generate`  
-Generate memories.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Get a Memory.
-
-`  list  `
-
-`GET /v1beta1/{parent}/memories`  
-List Memories.
-
-`  patch  `
-
-`PATCH /v1beta1/{memory.name}`  
-Update a Memory.
-
-`  retrieve  `
-
-`POST /v1beta1/{parent}/memories:retrieve`  
-Retrieve memories.
-
-`  retrieveProfiles  `
-
-`POST /v1beta1/{parent}/memories:retrieveProfiles`  
-Retrieves profiles.
+| Methods                                                                                                                                                              |                                                                        |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks.memories/create)                     | `POST /v1beta1/{parent}/memories` Create a Memory.                     |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks.memories/delete)                     | `DELETE /v1beta1/{name}` Delete a Memory.                              |
+| [`generate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks.memories/generate)                 | `POST /v1beta1/{parent}/memories:generate` Generate memories.          |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks.memories/get)                           | `GET /v1beta1/{name}` Get a Memory.                                    |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks.memories/list)                         | `GET /v1beta1/{parent}/memories` List Memories.                        |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks.memories/patch)                       | `PATCH /v1beta1/{memory.name}` Update a Memory.                        |
+| [`retrieve`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks.memories/retrieve)                 | `POST /v1beta1/{parent}/memories:retrieve` Retrieve memories.          |
+| [`retrieveProfiles`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks.memories/retrieveProfiles) | `POST /v1beta1/{parent}/memories:retrieveProfiles` Retrieves profiles. |
 
 ## REST Resource: [v1beta1.projects.locations.metadataStores](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/metadataStores`  
-Initializes a MetadataStore, including allocation of resources.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a single MetadataStore and all its child resources (Artifacts, Executions, and Contexts).
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Retrieves a specific MetadataStore.
-
-`  list  `
-
-`GET /v1beta1/{parent}/metadataStores`  
-Lists MetadataStores for a Location.
+| Methods                                                                                                                                    |                                                                                                                            |
+|--------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores/create) | `POST /v1beta1/{parent}/metadataStores` Initializes a MetadataStore, including allocation of resources.                    |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores/delete) | `DELETE /v1beta1/{name}` Deletes a single MetadataStore and all its child resources (Artifacts, Executions, and Contexts). |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores/get)       | `GET /v1beta1/{name}` Retrieves a specific MetadataStore.                                                                  |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores/list)     | `GET /v1beta1/{parent}/metadataStores` Lists MetadataStores for a Location.                                                |
 
 ## REST Resource: [v1beta1.projects.locations.metadataStores.artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.artifacts)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/artifacts`  
-Creates an Artifact associated with a MetadataStore.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes an Artifact.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Retrieves a specific Artifact.
-
-`  list  `
-
-`GET /v1beta1/{parent}/artifacts`  
-Lists Artifacts in the MetadataStore.
-
-`  patch  `
-
-`PATCH /v1beta1/{artifact.name}`  
-Updates a stored Artifact.
-
-`  purge  `
-
-`POST /v1beta1/{parent}/artifacts:purge`  
-Purges Artifacts.
-
-`  queryArtifactLineageSubgraph  `
-
-`GET /v1beta1/{artifact}:queryArtifactLineageSubgraph`  
-Retrieves lineage of an Artifact represented through Artifacts and Executions connected by Event edges and returned as a LineageSubgraph.
+| Methods                                                                                                                                                                                          |                                                                                                                                                                                                  |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.artifacts/create)                                             | `POST /v1beta1/{parent}/artifacts` Creates an Artifact associated with a MetadataStore.                                                                                                          |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.artifacts/delete)                                             | `DELETE /v1beta1/{name}` Deletes an Artifact.                                                                                                                                                    |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.artifacts/get)                                                   | `GET /v1beta1/{name}` Retrieves a specific Artifact.                                                                                                                                             |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.artifacts/list)                                                 | `GET /v1beta1/{parent}/artifacts` Lists Artifacts in the MetadataStore.                                                                                                                          |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.artifacts/patch)                                               | `PATCH /v1beta1/{artifact.name}` Updates a stored Artifact.                                                                                                                                      |
+| [`purge`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.artifacts/purge)                                               | `POST /v1beta1/{parent}/artifacts:purge` Purges Artifacts.                                                                                                                                       |
+| [`queryArtifactLineageSubgraph`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.artifacts/queryArtifactLineageSubgraph) | `GET /v1beta1/{artifact}:queryArtifactLineageSubgraph` Retrieves lineage of an Artifact represented through Artifacts and Executions connected by Event edges and returned as a LineageSubgraph. |
 
 ## REST Resource: [v1beta1.projects.locations.metadataStores.contexts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.contexts)
 
-Methods
-
-`  addContextArtifactsAndExecutions  `
-
-`POST /v1beta1/{context}:addContextArtifactsAndExecutions`  
-Adds a set of Artifacts and Executions to a Context.
-
-`  addContextChildren  `
-
-`POST /v1beta1/{context}:addContextChildren`  
-Adds a set of Contexts as children to a parent Context.
-
-`  create  `
-
-`POST /v1beta1/{parent}/contexts`  
-Creates a Context associated with a MetadataStore.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a stored Context.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Retrieves a specific Context.
-
-`  list  `
-
-`GET /v1beta1/{parent}/contexts`  
-Lists Contexts on the MetadataStore.
-
-`  patch  `
-
-`PATCH /v1beta1/{context.name}`  
-Updates a stored Context.
-
-`  purge  `
-
-`POST /v1beta1/{parent}/contexts:purge`  
-Purges Contexts.
-
-`  queryContextLineageSubgraph  `
-
-`GET /v1beta1/{context}:queryContextLineageSubgraph`  
-Retrieves Artifacts and Executions within the specified Context, connected by Event edges and returned as a LineageSubgraph.
-
-`  removeContextChildren  `
-
-`POST /v1beta1/{context}:removeContextChildren`  
-Remove a set of children contexts from a parent Context.
+| Methods                                                                                                                                                                                                 |                                                                                                                                                                                   |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`addContextArtifactsAndExecutions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.contexts/addContextArtifactsAndExecutions) | `POST /v1beta1/{context}:addContextArtifactsAndExecutions` Adds a set of Artifacts and Executions to a Context.                                                                   |
+| [`addContextChildren`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.contexts/addContextChildren)                             | `POST /v1beta1/{context}:addContextChildren` Adds a set of Contexts as children to a parent Context.                                                                              |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.contexts/create)                                                     | `POST /v1beta1/{parent}/contexts` Creates a Context associated with a MetadataStore.                                                                                              |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.contexts/delete)                                                     | `DELETE /v1beta1/{name}` Deletes a stored Context.                                                                                                                                |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.contexts/get)                                                           | `GET /v1beta1/{name}` Retrieves a specific Context.                                                                                                                               |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.contexts/list)                                                         | `GET /v1beta1/{parent}/contexts` Lists Contexts on the MetadataStore.                                                                                                             |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.contexts/patch)                                                       | `PATCH /v1beta1/{context.name}` Updates a stored Context.                                                                                                                         |
+| [`purge`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.contexts/purge)                                                       | `POST /v1beta1/{parent}/contexts:purge` Purges Contexts.                                                                                                                          |
+| [`queryContextLineageSubgraph`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.contexts/queryContextLineageSubgraph)           | `GET /v1beta1/{context}:queryContextLineageSubgraph` Retrieves Artifacts and Executions within the specified Context, connected by Event edges and returned as a LineageSubgraph. |
+| [`removeContextChildren`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.contexts/removeContextChildren)                       | `POST /v1beta1/{context}:removeContextChildren` Remove a set of children contexts from a parent Context.                                                                          |
 
 ## REST Resource: [v1beta1.projects.locations.metadataStores.executions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions)
 
-Methods
-
-`  addExecutionEvents  `
-
-`POST /v1beta1/{execution}:addExecutionEvents`  
-Adds Events to the specified Execution.
-
-`  create  `
-
-`POST /v1beta1/{parent}/executions`  
-Creates an Execution associated with a MetadataStore.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes an Execution.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Retrieves a specific Execution.
-
-`  list  `
-
-`GET /v1beta1/{parent}/executions`  
-Lists Executions in the MetadataStore.
-
-`  patch  `
-
-`PATCH /v1beta1/{execution.name}`  
-Updates a stored Execution.
-
-`  purge  `
-
-`POST /v1beta1/{parent}/executions:purge`  
-Purges Executions.
-
-`  queryExecutionInputsAndOutputs  `
-
-`GET /v1beta1/{execution}:queryExecutionInputsAndOutputs`  
-Obtains the set of input and output Artifacts for this Execution, in the form of LineageSubgraph that also contains the Execution and connecting Events.
+| Methods                                                                                                                                                                                               |                                                                                                                                                                                                                    |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`addExecutionEvents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions/addExecutionEvents)                         | `POST /v1beta1/{execution}:addExecutionEvents` Adds Events to the specified Execution.                                                                                                                             |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions/create)                                                 | `POST /v1beta1/{parent}/executions` Creates an Execution associated with a MetadataStore.                                                                                                                          |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions/delete)                                                 | `DELETE /v1beta1/{name}` Deletes an Execution.                                                                                                                                                                     |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions/get)                                                       | `GET /v1beta1/{name}` Retrieves a specific Execution.                                                                                                                                                              |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions/list)                                                     | `GET /v1beta1/{parent}/executions` Lists Executions in the MetadataStore.                                                                                                                                          |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions/patch)                                                   | `PATCH /v1beta1/{execution.name}` Updates a stored Execution.                                                                                                                                                      |
+| [`purge`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions/purge)                                                   | `POST /v1beta1/{parent}/executions:purge` Purges Executions.                                                                                                                                                       |
+| [`queryExecutionInputsAndOutputs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions/queryExecutionInputsAndOutputs) | `GET /v1beta1/{execution}:queryExecutionInputsAndOutputs` Obtains the set of input and output Artifacts for this Execution, in the form of LineageSubgraph that also contains the Execution and connecting Events. |
 
 ## REST Resource: [v1beta1.projects.locations.metadataStores.metadataSchemas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.metadataSchemas)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/metadataSchemas`  
-Creates a MetadataSchema.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Retrieves a specific MetadataSchema.
-
-`  list  `
-
-`GET /v1beta1/{parent}/metadataSchemas`  
-Lists MetadataSchemas.
+| Methods                                                                                                                                                    |                                                                    |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.metadataSchemas/create) | `POST /v1beta1/{parent}/metadataSchemas` Creates a MetadataSchema. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.metadataSchemas/get)       | `GET /v1beta1/{name}` Retrieves a specific MetadataSchema.         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.metadataSchemas/list)     | `GET /v1beta1/{parent}/metadataSchemas` Lists MetadataSchemas.     |
 
 ## REST Resource: [v1beta1.projects.locations.migratableResources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.migratableResources)
 
-Methods
-
-`  batchMigrate  `
-
-`POST /v1beta1/{parent}/migratableResources:batchMigrate`  
-Batch migrates resources from ml.googleapis.com, automl.googleapis.com, and datalabeling.googleapis.com to Agent Platform.
-
-`  search  `
-
-`POST /v1beta1/{parent}/migratableResources:search`  
-Searches all of the resources in automl.googleapis.com, datalabeling.googleapis.com and ml.googleapis.com that can be migrated to Agent Platform's given location.
+| Methods                                                                                                                                                     |                                                                                                                                                                                                                        |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`batchMigrate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.migratableResources/batchMigrate) | `POST /v1beta1/{parent}/migratableResources:batchMigrate` Batch migrates resources from ml.googleapis.com, automl.googleapis.com, and datalabeling.googleapis.com to Agent Platform.                                   |
+| [`search`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.migratableResources/search)             | `POST /v1beta1/{parent}/migratableResources:search` Searches all of the resources in automl.googleapis.com, datalabeling.googleapis.com and ml.googleapis.com that can be migrated to Agent Platform's given location. |
 
 ## REST Resource: [v1beta1.projects.locations.modelDeploymentMonitoringJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/modelDeploymentMonitoringJobs`  
-Creates a ModelDeploymentMonitoringJob.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a ModelDeploymentMonitoringJob.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a ModelDeploymentMonitoringJob.
-
-`  list  `
-
-`GET /v1beta1/{parent}/modelDeploymentMonitoringJobs`  
-Lists ModelDeploymentMonitoringJobs in a Location.
-
-`  patch  `
-
-`PATCH /v1beta1/{modelDeploymentMonitoringJob.name}`  
-Updates a ModelDeploymentMonitoringJob.
-
-`  pause  `
-
-`POST /v1beta1/{name}:pause`  
-Pauses a ModelDeploymentMonitoringJob.
-
-`  resume  `
-
-`POST /v1beta1/{name}:resume`  
-Resumes a paused ModelDeploymentMonitoringJob.
-
-`  searchModelDeploymentMonitoringStatsAnomalies  `
-
-`POST /v1beta1/{modelDeploymentMonitoringJob}:searchModelDeploymentMonitoringStatsAnomalies`  
-Searches Model Monitoring Statistics generated within a given time window.
+| Methods                                                                                                                                                                                                                                 |                                                                                                                                                                         |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs/create)                                                                               | `POST /v1beta1/{parent}/modelDeploymentMonitoringJobs` Creates a ModelDeploymentMonitoringJob.                                                                          |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs/delete)                                                                               | `DELETE /v1beta1/{name}` Deletes a ModelDeploymentMonitoringJob.                                                                                                        |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs/get)                                                                                     | `GET /v1beta1/{name}` Gets a ModelDeploymentMonitoringJob.                                                                                                              |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs/list)                                                                                   | `GET /v1beta1/{parent}/modelDeploymentMonitoringJobs` Lists ModelDeploymentMonitoringJobs in a Location.                                                                |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs/patch)                                                                                 | `PATCH /v1beta1/{modelDeploymentMonitoringJob.name}` Updates a ModelDeploymentMonitoringJob.                                                                            |
+| [`pause`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs/pause)                                                                                 | `POST /v1beta1/{name}:pause` Pauses a ModelDeploymentMonitoringJob.                                                                                                     |
+| [`resume`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs/resume)                                                                               | `POST /v1beta1/{name}:resume` Resumes a paused ModelDeploymentMonitoringJob.                                                                                            |
+| [`searchModelDeploymentMonitoringStatsAnomalies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies) | `POST /v1beta1/{modelDeploymentMonitoringJob}:searchModelDeploymentMonitoringStatsAnomalies` Searches Model Monitoring Statistics generated within a given time window. |
 
 ## REST Resource: [v1beta1.projects.locations.modelMonitors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/modelMonitors`  
-Creates a ModelMonitor.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a ModelMonitor.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a ModelMonitor.
-
-`  list  `
-
-`GET /v1beta1/{parent}/modelMonitors`  
-Lists ModelMonitors in a Location.
-
-`  patch  `
-
-`PATCH /v1beta1/{modelMonitor.name}`  
-Updates a ModelMonitor.
-
-`  searchModelMonitoringAlerts  `
-
-`POST /v1beta1/{modelMonitor}:searchModelMonitoringAlerts`  
-Returns the Model Monitoring alerts.
-
-`  searchModelMonitoringStats  `
-
-`POST /v1beta1/{modelMonitor}:searchModelMonitoringStats`  
-Searches Model Monitoring Stats generated within a given time window.
+| Methods                                                                                                                                                                             |                                                                                                                                 |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/create)                                           | `POST /v1beta1/{parent}/modelMonitors` Creates a ModelMonitor.                                                                  |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/delete)                                           | `DELETE /v1beta1/{name}` Deletes a ModelMonitor.                                                                                |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/get)                                                 | `GET /v1beta1/{name}` Gets a ModelMonitor.                                                                                      |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/list)                                               | `GET /v1beta1/{parent}/modelMonitors` Lists ModelMonitors in a Location.                                                        |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/patch)                                             | `PATCH /v1beta1/{modelMonitor.name}` Updates a ModelMonitor.                                                                    |
+| [`searchModelMonitoringAlerts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/searchModelMonitoringAlerts) | `POST /v1beta1/{modelMonitor}:searchModelMonitoringAlerts` Returns the Model Monitoring alerts.                                 |
+| [`searchModelMonitoringStats`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors/searchModelMonitoringStats)   | `POST /v1beta1/{modelMonitor}:searchModelMonitoringStats` Searches Model Monitoring Stats generated within a given time window. |
 
 ## REST Resource: [v1beta1.projects.locations.modelMonitors.modelMonitoringJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/modelMonitoringJobs`  
-Creates a ModelMonitoringJob.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a ModelMonitoringJob.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a ModelMonitoringJob.
-
-`  list  `
-
-`GET /v1beta1/{parent}/modelMonitoringJobs`  
-Lists ModelMonitoringJobs.
+| Methods                                                                                                                                                       |                                                                            |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs/create) | `POST /v1beta1/{parent}/modelMonitoringJobs` Creates a ModelMonitoringJob. |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs/delete) | `DELETE /v1beta1/{name}` Deletes a ModelMonitoringJob.                     |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs/get)       | `GET /v1beta1/{name}` Gets a ModelMonitoringJob.                           |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs/list)     | `GET /v1beta1/{parent}/modelMonitoringJobs` Lists ModelMonitoringJobs.     |
 
 ## REST Resource: [v1beta1.projects.locations.models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models)
 
-Methods
-
-`  copy  `
-
-`POST /v1beta1/{parent}/models:copy`  
-Copies an already existing Agent Platform Model into the specified Location.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a Model.
-
-`  deleteVersion  `
-
-`DELETE /v1beta1/{name}:deleteVersion`  
-Deletes a Model version.
-
-`  export  `
-
-`POST /v1beta1/{name}:export`  
-Exports a trained, exportable Model to a location specified by the user.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a Model.
-
-`  getIamPolicy  `
-
-`POST /v1beta1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  list  `
-
-`GET /v1beta1/{parent}/models`  
-Lists Models in a Location.
-
-`  listCheckpoints  `
-
-`GET /v1beta1/{name}:listCheckpoints`  
-Lists checkpoints of the specified model version.
-
-`  listVersions  `
-
-`GET /v1beta1/{name}:listVersions`  
-Lists versions of the specified model.
-
-`  mergeVersionAliases  `
-
-`POST /v1beta1/{name}:mergeVersionAliases`  
-Merges a set of aliases for a Model version.
-
-`  patch  `
-
-`PATCH /v1beta1/{model.name}`  
-Updates a Model.
-
-`  setIamPolicy  `
-
-`POST /v1beta1/{resource}:setIamPolicy`  
-Sets the access control policy on the specified resource.
-
-`  testIamPermissions  `
-
-`POST /v1beta1/{resource}:testIamPermissions`  
-Returns permissions that a caller has on the specified resource.
-
-`  updateExplanationDataset  `
-
-`POST /v1beta1/{model}:updateExplanationDataset`  
-Incrementally update the dataset used for an examples model.
-
-`  upload  `
-
-`POST /v1beta1/{parent}/models:upload`  
-Uploads a Model artifact into Agent Platform.
+| Methods                                                                                                                                                                |                                                                                                                   |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| [`copy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/copy)                                         | `POST /v1beta1/{parent}/models:copy` Copies an already existing Agent Platform Model into the specified Location. |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/delete)                                     | `DELETE /v1beta1/{name}` Deletes a Model.                                                                         |
+| [`deleteVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/deleteVersion)                       | `DELETE /v1beta1/{name}:deleteVersion` Deletes a Model version.                                                   |
+| [`export`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/export)                                     | `POST /v1beta1/{name}:export` Exports a trained, exportable Model to a location specified by the user.            |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/get)                                           | `GET /v1beta1/{name}` Gets a Model.                                                                               |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/getIamPolicy)                         | `POST /v1beta1/{resource}:getIamPolicy` Gets the access control policy for a resource.                            |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/list)                                         | `GET /v1beta1/{parent}/models` Lists Models in a Location.                                                        |
+| [`listCheckpoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/listCheckpoints)                   | `GET /v1beta1/{name}:listCheckpoints` Lists checkpoints of the specified model version.                           |
+| [`listVersions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/listVersions)                         | `GET /v1beta1/{name}:listVersions` Lists versions of the specified model.                                         |
+| [`mergeVersionAliases`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/mergeVersionAliases)           | `POST /v1beta1/{name}:mergeVersionAliases` Merges a set of aliases for a Model version.                           |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/patch)                                       | `PATCH /v1beta1/{model.name}` Updates a Model.                                                                    |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/setIamPolicy)                         | `POST /v1beta1/{resource}:setIamPolicy` Sets the access control policy on the specified resource.                 |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/testIamPermissions)             | `POST /v1beta1/{resource}:testIamPermissions` Returns permissions that a caller has on the specified resource.    |
+| [`updateExplanationDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/updateExplanationDataset) | `POST /v1beta1/{model}:updateExplanationDataset` Incrementally update the dataset used for an examples model.     |
+| [`upload`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/upload)                                     | `POST /v1beta1/{parent}/models:upload` Uploads a Model artifact into Agent Platform.                              |
 
 ## REST Resource: [v1beta1.projects.locations.models.evaluations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models.evaluations)
 
-Methods
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a ModelEvaluation.
-
-`  import  `
-
-`POST /v1beta1/{parent}/evaluations:import`  
-Imports an externally generated ModelEvaluation.
-
-`  list  `
-
-`GET /v1beta1/{parent}/evaluations`  
-Lists ModelEvaluations in a Model.
+| Methods                                                                                                                                        |                                                                                              |
+|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models.evaluations/get)       | `GET /v1beta1/{name}` Gets a ModelEvaluation.                                                |
+| [`import`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models.evaluations/import) | `POST /v1beta1/{parent}/evaluations:import` Imports an externally generated ModelEvaluation. |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models.evaluations/list)     | `GET /v1beta1/{parent}/evaluations` Lists ModelEvaluations in a Model.                       |
 
 ## REST Resource: [v1beta1.projects.locations.models.evaluations.slices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models.evaluations.slices)
 
-Methods
-
-`  batchImport  `
-
-`POST /v1beta1/{parent}:batchImport`  
-Imports a list of externally generated EvaluatedAnnotations.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a ModelEvaluationSlice.
-
-`  list  `
-
-`GET /v1beta1/{parent}/slices`  
-Lists ModelEvaluationSlices in a ModelEvaluation.
+| Methods                                                                                                                                                         |                                                                                                   |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| [`batchImport`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models.evaluations.slices/batchImport) | `POST /v1beta1/{parent}:batchImport` Imports a list of externally generated EvaluatedAnnotations. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models.evaluations.slices/get)                 | `GET /v1beta1/{name}` Gets a ModelEvaluationSlice.                                                |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models.evaluations.slices/list)               | `GET /v1beta1/{parent}/slices` Lists ModelEvaluationSlices in a ModelEvaluation.                  |
 
 ## REST Resource: [v1beta1.projects.locations.notebookExecutionJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookExecutionJobs)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/notebookExecutionJobs`  
-Creates a NotebookExecutionJob.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a NotebookExecutionJob.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a NotebookExecutionJob.
-
-`  list  `
-
-`GET /v1beta1/{parent}/notebookExecutionJobs`  
-Lists NotebookExecutionJobs in a Location.
+| Methods                                                                                                                                           |                                                                                          |
+|---------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookExecutionJobs/create) | `POST /v1beta1/{parent}/notebookExecutionJobs` Creates a NotebookExecutionJob.           |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookExecutionJobs/delete) | `DELETE /v1beta1/{name}` Deletes a NotebookExecutionJob.                                 |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookExecutionJobs/get)       | `GET /v1beta1/{name}` Gets a NotebookExecutionJob.                                       |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookExecutionJobs/list)     | `GET /v1beta1/{parent}/notebookExecutionJobs` Lists NotebookExecutionJobs in a Location. |
 
 ## REST Resource: [v1beta1.projects.locations.notebookRuntimeTemplates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimeTemplates)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/notebookRuntimeTemplates`  
-Creates a NotebookRuntimeTemplate.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a NotebookRuntimeTemplate.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a NotebookRuntimeTemplate.
-
-`  getIamPolicy  `
-
-`POST /v1beta1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  list  `
-
-`GET /v1beta1/{parent}/notebookRuntimeTemplates`  
-Lists NotebookRuntimeTemplates in a Location.
-
-`  patch  `
-
-`PATCH /v1beta1/{notebookRuntimeTemplate.name}`  
-Updates a NotebookRuntimeTemplate.
-
-`  setIamPolicy  `
-
-`POST /v1beta1/{resource}:setIamPolicy`  
-Sets the access control policy on the specified resource.
-
-`  testIamPermissions  `
-
-`POST /v1beta1/{resource}:testIamPermissions`  
-Returns permissions that a caller has on the specified resource.
+| Methods                                                                                                                                                                      |                                                                                                                |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimeTemplates/create)                         | `POST /v1beta1/{parent}/notebookRuntimeTemplates` Creates a NotebookRuntimeTemplate.                           |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimeTemplates/delete)                         | `DELETE /v1beta1/{name}` Deletes a NotebookRuntimeTemplate.                                                    |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimeTemplates/get)                               | `GET /v1beta1/{name}` Gets a NotebookRuntimeTemplate.                                                          |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimeTemplates/getIamPolicy)             | `POST /v1beta1/{resource}:getIamPolicy` Gets the access control policy for a resource.                         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimeTemplates/list)                             | `GET /v1beta1/{parent}/notebookRuntimeTemplates` Lists NotebookRuntimeTemplates in a Location.                 |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimeTemplates/patch)                           | `PATCH /v1beta1/{notebookRuntimeTemplate.name}` Updates a NotebookRuntimeTemplate.                             |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimeTemplates/setIamPolicy)             | `POST /v1beta1/{resource}:setIamPolicy` Sets the access control policy on the specified resource.              |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimeTemplates/testIamPermissions) | `POST /v1beta1/{resource}:testIamPermissions` Returns permissions that a caller has on the specified resource. |
 
 ## REST Resource: [v1beta1.projects.locations.notebookRuntimes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimes)
 
-Methods
-
-`  assign  `
-
-`POST /v1beta1/{parent}/notebookRuntimes:assign`  
-Assigns a NotebookRuntime to a user for a particular Notebook file.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a NotebookRuntime.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a NotebookRuntime.
-
-`  list  `
-
-`GET /v1beta1/{parent}/notebookRuntimes`  
-Lists NotebookRuntimes in a Location.
-
-`  start  `
-
-`POST /v1beta1/{name}:start`  
-Starts a NotebookRuntime.
-
-`  stop  `
-
-`POST /v1beta1/{name}:stop`  
-Stops a NotebookRuntime.
-
-`  upgrade  `
-
-`POST /v1beta1/{name}:upgrade`  
-Upgrades a NotebookRuntime.
+| Methods                                                                                                                                        |                                                                                                                      |
+|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| [`assign`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimes/assign)   | `POST /v1beta1/{parent}/notebookRuntimes:assign` Assigns a NotebookRuntime to a user for a particular Notebook file. |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimes/delete)   | `DELETE /v1beta1/{name}` Deletes a NotebookRuntime.                                                                  |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimes/get)         | `GET /v1beta1/{name}` Gets a NotebookRuntime.                                                                        |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimes/list)       | `GET /v1beta1/{parent}/notebookRuntimes` Lists NotebookRuntimes in a Location.                                       |
+| [`start`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimes/start)     | `POST /v1beta1/{name}:start` Starts a NotebookRuntime.                                                               |
+| [`stop`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimes/stop)       | `POST /v1beta1/{name}:stop` Stops a NotebookRuntime.                                                                 |
+| [`upgrade`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimes/upgrade) | `POST /v1beta1/{name}:upgrade` Upgrades a NotebookRuntime.                                                           |
 
 ## REST Resource: [v1beta1.projects.locations.onlineEvaluators](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators)
 
-Methods
-
-`  activate  `
-
-`POST /v1beta1/{name}:activate`  
-Activates an OnlineEvaluator.
-
-`  create  `
-
-`POST /v1beta1/{parent}/onlineEvaluators`  
-Creates an OnlineEvaluator in the given project and location.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes an OnlineEvaluator.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets details of an OnlineEvaluator.
-
-`  list  `
-
-`GET /v1beta1/{parent}/onlineEvaluators`  
-Lists the OnlineEvaluators for the given project and location.
-
-`  patch  `
-
-`PATCH /v1beta1/{onlineEvaluator.name}`  
-Updates the fields of an OnlineEvaluator.
-
-`  suspend  `
-
-`POST /v1beta1/{name}:suspend`  
-Suspends an OnlineEvaluator.
+| Methods                                                                                                                                          |                                                                                                         |
+|--------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| [`activate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators/activate) | `POST /v1beta1/{name}:activate` Activates an OnlineEvaluator.                                           |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators/create)     | `POST /v1beta1/{parent}/onlineEvaluators` Creates an OnlineEvaluator in the given project and location. |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators/delete)     | `DELETE /v1beta1/{name}` Deletes an OnlineEvaluator.                                                    |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators/get)           | `GET /v1beta1/{name}` Gets details of an OnlineEvaluator.                                               |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators/list)         | `GET /v1beta1/{parent}/onlineEvaluators` Lists the OnlineEvaluators for the given project and location. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators/patch)       | `PATCH /v1beta1/{onlineEvaluator.name}` Updates the fields of an OnlineEvaluator.                       |
+| [`suspend`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators/suspend)   | `POST /v1beta1/{name}:suspend` Suspends an OnlineEvaluator.                                             |
 
 ## REST Resource: [v1beta1.projects.locations.operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.operations)
 
-Methods
-
-`  cancel  `
-
-`POST /v1beta1/{name}:cancel`  
-Starts asynchronous cancellation on a long-running operation.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a long-running operation.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets the latest state of a long-running operation.
-
-`  list  `
-
-`GET /v1beta1/{name}/operations`  
-Lists operations that match the specified filter in the request.
-
-`  wait  `
-
-`POST /v1beta1/{name}:wait`  
-Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state.
+| Methods                                                                                                                                |                                                                                                                                                          |
+|----------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.operations/cancel) | `POST /v1beta1/{name}:cancel` Starts asynchronous cancellation on a long-running operation.                                                              |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.operations/delete) | `DELETE /v1beta1/{name}` Deletes a long-running operation.                                                                                               |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.operations/get)       | `GET /v1beta1/{name}` Gets the latest state of a long-running operation.                                                                                 |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.operations/list)     | `GET /v1beta1/{name}/operations` Lists operations that match the specified filter in the request.                                                        |
+| [`wait`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.operations/wait)     | `POST /v1beta1/{name}:wait` Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. |
 
 ## REST Resource: [v1beta1.projects.locations.persistentResources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/persistentResources`  
-Creates a PersistentResource.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a PersistentResource.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a PersistentResource.
-
-`  list  `
-
-`GET /v1beta1/{parent}/persistentResources`  
-Lists PersistentResources in a Location.
-
-`  patch  `
-
-`PATCH /v1beta1/{persistentResource.name}`  
-Updates a PersistentResource.
-
-`  reboot  `
-
-`POST /v1beta1/{name}:reboot`  
-Reboots a PersistentResource.
+| Methods                                                                                                                                         |                                                                                      |
+|-------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources/create) | `POST /v1beta1/{parent}/persistentResources` Creates a PersistentResource.           |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources/delete) | `DELETE /v1beta1/{name}` Deletes a PersistentResource.                               |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources/get)       | `GET /v1beta1/{name}` Gets a PersistentResource.                                     |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources/list)     | `GET /v1beta1/{parent}/persistentResources` Lists PersistentResources in a Location. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources/patch)   | `PATCH /v1beta1/{persistentResource.name}` Updates a PersistentResource.             |
+| [`reboot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.persistentResources/reboot) | `POST /v1beta1/{name}:reboot` Reboots a PersistentResource.                          |
 
 ## REST Resource: [v1beta1.projects.locations.pipelineJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.pipelineJobs)
 
-Methods
-
-`  batchCancel  `
-
-`POST /v1beta1/{parent}/pipelineJobs:batchCancel`  
-Batch cancel PipelineJobs.
-
-`  batchDelete  `
-
-`POST /v1beta1/{parent}/pipelineJobs:batchDelete`  
-Batch deletes PipelineJobs The Operation is atomic.
-
-`  cancel  `
-
-`POST /v1beta1/{name}:cancel`  
-Cancels a PipelineJob.
-
-`  create  `
-
-`POST /v1beta1/{parent}/pipelineJobs`  
-Creates a PipelineJob.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a PipelineJob.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a PipelineJob.
-
-`  list  `
-
-`GET /v1beta1/{parent}/pipelineJobs`  
-Lists PipelineJobs in a Location.
+| Methods                                                                                                                                            |                                                                                                       |
+|----------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| [`batchCancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.pipelineJobs/batchCancel) | `POST /v1beta1/{parent}/pipelineJobs:batchCancel` Batch cancel PipelineJobs.                          |
+| [`batchDelete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.pipelineJobs/batchDelete) | `POST /v1beta1/{parent}/pipelineJobs:batchDelete` Batch deletes PipelineJobs The Operation is atomic. |
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.pipelineJobs/cancel)           | `POST /v1beta1/{name}:cancel` Cancels a PipelineJob.                                                  |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.pipelineJobs/create)           | `POST /v1beta1/{parent}/pipelineJobs` Creates a PipelineJob.                                          |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.pipelineJobs/delete)           | `DELETE /v1beta1/{name}` Deletes a PipelineJob.                                                       |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.pipelineJobs/get)                 | `GET /v1beta1/{name}` Gets a PipelineJob.                                                             |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.pipelineJobs/list)               | `GET /v1beta1/{parent}/pipelineJobs` Lists PipelineJobs in a Location.                                |
 
 ## REST Resource: [v1beta1.projects.locations.publishers.models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models)
 
-Methods
-
-`  computeTokens  `
-
-`POST /v1beta1/{endpoint}:computeTokens`  
-Return a list of tokens based on the input text.
-
-`  countTokens  `
-
-`POST /v1beta1/{endpoint}:countTokens`  
-Perform a token counting.
-
-`  embedContent  `
-
-`POST /v1beta1/{model}:embedContent`  
-Embed content with multimodal inputs.
-
-`  export  `
-
-`POST /v1beta1/{parent}/{name}:export`  
-Exports a publisher model to a user provided Google Cloud Storage bucket.
-
-`  fetchPublisherModelConfig  `
-
-`GET /v1beta1/{name}:fetchPublisherModelConfig`  
-Fetches the configs of publisher models.
-
-`  generateContent  `
-
-`POST /v1beta1/{model}:generateContent`  
-Generate content with multimodal inputs.
-
-`  getIamPolicy  `
-
-`POST /v1beta1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  predict  `
-
-`POST /v1beta1/{endpoint}:predict`  
-Perform an online inference.
-
-`  predictLongRunning  `
-
-`POST /v1beta1/{endpoint}:predictLongRunning`  
-
-`  rawPredict  `
-
-`POST /v1beta1/{endpoint}:rawPredict`  
-Perform an online prediction with an arbitrary HTTP payload.
-
-`  serverStreamingPredict  `
-
-`POST /v1beta1/{endpoint}:serverStreamingPredict`  
-Perform a server-side streaming online prediction request for Vertex LLM streaming.
-
-`  setPublisherModelConfig  `
-
-`POST /v1beta1/{name}:setPublisherModelConfig`  
-Sets (creates or updates) configs of publisher models.
-
-`  streamGenerateContent  `
-
-`POST /v1beta1/{model}:streamGenerateContent`  
-Generate content with multimodal inputs with streaming support.
-
-`  streamRawPredict  `
-
-`POST /v1beta1/{endpoint}:streamRawPredict`  
-Perform a streaming online prediction with an arbitrary HTTP payload.
+| Methods                                                                                                                                                                             |                                                                                                                                       |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| [`computeTokens`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/computeTokens)                         | `POST /v1beta1/{endpoint}:computeTokens` Return a list of tokens based on the input text.                                             |
+| [`countTokens`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/countTokens)                             | `POST /v1beta1/{endpoint}:countTokens` Perform a token counting.                                                                      |
+| [`embedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/embedContent)                           | `POST /v1beta1/{model}:embedContent` Embed content with multimodal inputs.                                                            |
+| [`export`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/export)                                       | `POST /v1beta1/{parent}/{name}:export` Exports a publisher model to a user provided Google Cloud Storage bucket.                      |
+| [`fetchPublisherModelConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/fetchPublisherModelConfig) | `GET /v1beta1/{name}:fetchPublisherModelConfig` Fetches the configs of publisher models.                                              |
+| [`generateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/generateContent)                     | `POST /v1beta1/{model}:generateContent` Generate content with multimodal inputs.                                                      |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/getIamPolicy)                           | `POST /v1beta1/{resource}:getIamPolicy` Gets the access control policy for a resource.                                                |
+| [`predict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/predict)                                     | `POST /v1beta1/{endpoint}:predict` Perform an online inference.                                                                       |
+| [`predictLongRunning`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/predictLongRunning)               | `POST /v1beta1/{endpoint}:predictLongRunning`                                                                                         |
+| [`rawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/rawPredict)                               | `POST /v1beta1/{endpoint}:rawPredict` Perform an online prediction with an arbitrary HTTP payload.                                    |
+| [`serverStreamingPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/serverStreamingPredict)       | `POST /v1beta1/{endpoint}:serverStreamingPredict` Perform a server-side streaming online prediction request for Vertex LLM streaming. |
+| [`setPublisherModelConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/setPublisherModelConfig)     | `POST /v1beta1/{name}:setPublisherModelConfig` Sets (creates or updates) configs of publisher models.                                 |
+| [`streamGenerateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/streamGenerateContent)         | `POST /v1beta1/{model}:streamGenerateContent` Generate content with multimodal inputs with streaming support.                         |
+| [`streamRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/streamRawPredict)                   | `POST /v1beta1/{endpoint}:streamRawPredict` Perform a streaming online prediction with an arbitrary HTTP payload.                     |
 
 ## REST Resource: [v1beta1.projects.locations.publishers.v1.responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.v1.responses)
 
-Methods
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes the response from the endpoint.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets the response from the endpoint.
+| Methods                                                                                                                                             |                                                                  |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.v1.responses/delete) | `DELETE /v1beta1/{name}` Deletes the response from the endpoint. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.v1.responses/get)       | `GET /v1beta1/{name}` Gets the response from the endpoint.       |
 
 ## REST Resource: [v1beta1.projects.locations.ragCorpora](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/ragCorpora`  
-Creates a RagCorpus.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a RagCorpus.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a RagCorpus.
-
-`  list  `
-
-`GET /v1beta1/{parent}/ragCorpora`  
-Lists RagCorpora in a Location.
-
-`  patch  `
-
-`PATCH /v1beta1/{ragCorpus.name}`  
-Updates a RagCorpus.
+| Methods                                                                                                                                |                                                                    |
+|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora/create) | `POST /v1beta1/{parent}/ragCorpora` Creates a RagCorpus.           |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora/delete) | `DELETE /v1beta1/{name}` Deletes a RagCorpus.                      |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora/get)       | `GET /v1beta1/{name}` Gets a RagCorpus.                            |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora/list)     | `GET /v1beta1/{parent}/ragCorpora` Lists RagCorpora in a Location. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora/patch)   | `PATCH /v1beta1/{ragCorpus.name}` Updates a RagCorpus.             |
 
 ## REST Resource: [v1beta1.projects.locations.ragCorpora.ragDataSchemas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragDataSchemas)
 
-Methods
-
-`  batchCreate  `
-
-`POST /v1beta1/{parent}/ragDataSchemas:batchCreate`  
-Batch Create one or more RagDataSchemas
-
-`  batchDelete  `
-
-`POST /v1beta1/{parent}/ragDataSchemas:batchDelete`  
-Batch Deletes one or more RagDataSchemas
-
-`  create  `
-
-`POST /v1beta1/{parent}/ragDataSchemas`  
-Creates a RagDataSchema.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a RagDataSchema.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a RagDataSchema.
-
-`  list  `
-
-`GET /v1beta1/{parent}/ragDataSchemas`  
-Lists RagDataSchemas in a Location.
+| Methods                                                                                                                                                         |                                                                                              |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| [`batchCreate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragDataSchemas/batchCreate) | `POST /v1beta1/{parent}/ragDataSchemas:batchCreate` Batch Create one or more RagDataSchemas  |
+| [`batchDelete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragDataSchemas/batchDelete) | `POST /v1beta1/{parent}/ragDataSchemas:batchDelete` Batch Deletes one or more RagDataSchemas |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragDataSchemas/create)           | `POST /v1beta1/{parent}/ragDataSchemas` Creates a RagDataSchema.                             |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragDataSchemas/delete)           | `DELETE /v1beta1/{name}` Deletes a RagDataSchema.                                            |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragDataSchemas/get)                 | `GET /v1beta1/{name}` Gets a RagDataSchema.                                                  |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragDataSchemas/list)               | `GET /v1beta1/{parent}/ragDataSchemas` Lists RagDataSchemas in a Location.                   |
 
 ## REST Resource: [v1beta1.projects.locations.ragCorpora.ragFiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles)
 
-Methods
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a RagFile.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a RagFile.
-
-`  import  `
-
-`POST /v1beta1/{parent}/ragFiles:import`  
-Import files from Google Cloud Storage or Google Drive into a RagCorpus.
-
-`  list  `
-
-`GET /v1beta1/{parent}/ragFiles`  
-Lists RagFiles in a RagCorpus.
+| Methods                                                                                                                                         |                                                                                                                   |
+|-------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/delete) | `DELETE /v1beta1/{name}` Deletes a RagFile.                                                                       |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/get)       | `GET /v1beta1/{name}` Gets a RagFile.                                                                             |
+| [`import`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/import) | `POST /v1beta1/{parent}/ragFiles:import` Import files from Google Cloud Storage or Google Drive into a RagCorpus. |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/list)     | `GET /v1beta1/{parent}/ragFiles` Lists RagFiles in a RagCorpus.                                                   |
 
 ## REST Resource: [v1beta1.projects.locations.ragCorpora.ragFiles.ragMetadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata)
 
-Methods
-
-`  batchCreate  `
-
-`POST /v1beta1/{parent}/ragMetadata:batchCreate`  
-Batch Create one or more RagMetadatas
-
-`  batchDelete  `
-
-`POST /v1beta1/{parent}/ragMetadata:batchDelete`  
-Batch Deletes one or more RagMetadata.
-
-`  create  `
-
-`POST /v1beta1/{parent}/ragMetadata`  
-Creates a RagMetadata.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a RagMetadata.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a RagMetadata.
-
-`  list  `
-
-`GET /v1beta1/{parent}/ragMetadata`  
-Lists RagMetadata in a RagFile.
-
-`  patch  `
-
-`PATCH /v1beta1/{ragMetadata.name}`  
-Updates a RagMetadata.
+| Methods                                                                                                                                                               |                                                                                         |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| [`batchCreate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/batchCreate) | `POST /v1beta1/{parent}/ragMetadata:batchCreate` Batch Create one or more RagMetadatas  |
+| [`batchDelete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/batchDelete) | `POST /v1beta1/{parent}/ragMetadata:batchDelete` Batch Deletes one or more RagMetadata. |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/create)           | `POST /v1beta1/{parent}/ragMetadata` Creates a RagMetadata.                             |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/delete)           | `DELETE /v1beta1/{name}` Deletes a RagMetadata.                                         |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/get)                 | `GET /v1beta1/{name}` Gets a RagMetadata.                                               |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/list)               | `GET /v1beta1/{parent}/ragMetadata` Lists RagMetadata in a RagFile.                     |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/patch)             | `PATCH /v1beta1/{ragMetadata.name}` Updates a RagMetadata.                              |
 
 ## REST Resource: [v1beta1.projects.locations.reasoningEngines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines)
 
-Methods
-
-`  asyncQuery  `
-
-`POST /v1beta1/{name}:asyncQuery`  
-Async query using a reasoning engine.
-
-`  cancelAsyncQuery  `
-
-`POST /v1beta1/{name}:cancelAsyncQuery`  
-Cancels an AsyncQueryReasoningEngine operation.
-
-`  create  `
-
-`POST /v1beta1/{parent}/reasoningEngines`  
-Creates a reasoning engine.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a reasoning engine.
-
-`  executeCode  `
-
-`POST /v1beta1/{name}:executeCode`  
-Executes code statelessly.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a reasoning engine.
-
-`  getIamPolicy  `
-
-`POST /v1beta1/{resource}:getIamPolicy`  
-Gets the access control policy for a resource.
-
-`  list  `
-
-`GET /v1beta1/{parent}/reasoningEngines`  
-Lists reasoning engines in a location.
-
-`  patch  `
-
-`PATCH /v1beta1/{reasoningEngine.name}`  
-Updates a reasoning engine.
-
-`  query  `
-
-`POST /v1beta1/{name}:query`  
-Queries using a reasoning engine.
-
-`  setIamPolicy  `
-
-`POST /v1beta1/{resource}:setIamPolicy`  
-Sets the access control policy on the specified resource.
-
-`  streamQuery  `
-
-`POST /v1beta1/{name}:streamQuery`  
-Streams queries using a reasoning engine.
-
-`  testIamPermissions  `
-
-`POST /v1beta1/{resource}:testIamPermissions`  
-Returns permissions that a caller has on the specified resource.
+| Methods                                                                                                                                                              |                                                                                                                |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| [`asyncQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines/asyncQuery)                 | `POST /v1beta1/{name}:asyncQuery` Async query using a reasoning engine.                                        |
+| [`cancelAsyncQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines/cancelAsyncQuery)     | `POST /v1beta1/{name}:cancelAsyncQuery` Cancels an AsyncQueryReasoningEngine operation.                        |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines/create)                         | `POST /v1beta1/{parent}/reasoningEngines` Creates a reasoning engine.                                          |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines/delete)                         | `DELETE /v1beta1/{name}` Deletes a reasoning engine.                                                           |
+| [`executeCode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines/executeCode)               | `POST /v1beta1/{name}:executeCode` Executes code statelessly.                                                  |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines/get)                               | `GET /v1beta1/{name}` Gets a reasoning engine.                                                                 |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines/getIamPolicy)             | `POST /v1beta1/{resource}:getIamPolicy` Gets the access control policy for a resource.                         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines/list)                             | `GET /v1beta1/{parent}/reasoningEngines` Lists reasoning engines in a location.                                |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines/patch)                           | `PATCH /v1beta1/{reasoningEngine.name}` Updates a reasoning engine.                                            |
+| [`query`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines/query)                           | `POST /v1beta1/{name}:query` Queries using a reasoning engine.                                                 |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines/setIamPolicy)             | `POST /v1beta1/{resource}:setIamPolicy` Sets the access control policy on the specified resource.              |
+| [`streamQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines/streamQuery)               | `POST /v1beta1/{name}:streamQuery` Streams queries using a reasoning engine.                                   |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines/testIamPermissions) | `POST /v1beta1/{resource}:testIamPermissions` Returns permissions that a caller has on the specified resource. |
 
 ## REST Resource: [v1beta1.projects.locations.reasoningEngines.feedbackEntries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.feedbackEntries)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/feedbackEntries`  
-Creates a new FeedbackEntry.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a FeedbackEntry and its associated FeedbackContext.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Retrieves a single FeedbackEntry by its resource name.
-
-`  getFeedbackContext  `
-
-`GET /v1beta1/{name}`  
-Retrieves the FeedbackContext associated with a FeedbackEntry.
-
-`  list  `
-
-`GET /v1beta1/{parent}/feedbackEntries`  
-Lists FeedbackEntries in a ReasoningEngine.
-
-`  patch  `
-
-`PATCH /v1beta1/{feedbackEntry.name}`  
-Updates an existing FeedbackEntry.
-
-`  updateFeedbackContext  `
-
-`PATCH /v1beta1/{feedbackContext.name}`  
-Updates the FeedbackContext associated with a FeedbackEntry.
+| Methods                                                                                                                                                                                    |                                                                                                      |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.feedbackEntries/create)                               | `POST /v1beta1/{parent}/feedbackEntries` Creates a new FeedbackEntry.                                |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.feedbackEntries/delete)                               | `DELETE /v1beta1/{name}` Deletes a FeedbackEntry and its associated FeedbackContext.                 |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.feedbackEntries/get)                                     | `GET /v1beta1/{name}` Retrieves a single FeedbackEntry by its resource name.                         |
+| [`getFeedbackContext`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.feedbackEntries/getFeedbackContext)       | `GET /v1beta1/{name}` Retrieves the FeedbackContext associated with a FeedbackEntry.                 |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.feedbackEntries/list)                                   | `GET /v1beta1/{parent}/feedbackEntries` Lists FeedbackEntries in a ReasoningEngine.                  |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.feedbackEntries/patch)                                 | `PATCH /v1beta1/{feedbackEntry.name}` Updates an existing FeedbackEntry.                             |
+| [`updateFeedbackContext`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.feedbackEntries/updateFeedbackContext) | `PATCH /v1beta1/{feedbackContext.name}` Updates the FeedbackContext associated with a FeedbackEntry. |
 
 ## REST Resource: [v1beta1.projects.locations.reasoningEngines.memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/memories`  
-Create a Memory.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Delete a Memory.
-
-`  generate  `
-
-`POST /v1beta1/{parent}/memories:generate`  
-Generate memories.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Get a Memory.
-
-`  ingestEvents  `
-
-`POST /v1beta1/{parent}/memories:ingestEvents`  
-Ingests events for a Memory Bank.
-
-`  list  `
-
-`GET /v1beta1/{parent}/memories`  
-List Memories.
-
-`  patch  `
-
-`PATCH /v1beta1/{memory.name}`  
-Update a Memory.
-
-`  retrieve  `
-
-`POST /v1beta1/{parent}/memories:retrieve`  
-Retrieve memories.
-
-`  retrieveProfiles  `
-
-`POST /v1beta1/{parent}/memories:retrieveProfiles`  
-Retrieves profiles.
+| Methods                                                                                                                                                                   |                                                                                  |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/create)                     | `POST /v1beta1/{parent}/memories` Create a Memory.                               |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/delete)                     | `DELETE /v1beta1/{name}` Delete a Memory.                                        |
+| [`generate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/generate)                 | `POST /v1beta1/{parent}/memories:generate` Generate memories.                    |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/get)                           | `GET /v1beta1/{name}` Get a Memory.                                              |
+| [`ingestEvents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/ingestEvents)         | `POST /v1beta1/{parent}/memories:ingestEvents` Ingests events for a Memory Bank. |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/list)                         | `GET /v1beta1/{parent}/memories` List Memories.                                  |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/patch)                       | `PATCH /v1beta1/{memory.name}` Update a Memory.                                  |
+| [`retrieve`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/retrieve)                 | `POST /v1beta1/{parent}/memories:retrieve` Retrieve memories.                    |
+| [`retrieveProfiles`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/retrieveProfiles) | `POST /v1beta1/{parent}/memories:retrieveProfiles` Retrieves profiles.           |
 
 ## REST Resource: [v1beta1.projects.locations.reasoningEngines.runtimeRevisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.runtimeRevisions)
 
-Methods
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a reasoning engine revision.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a reasoning engine runtime revision.
-
-`  list  `
-
-`GET /v1beta1/{parent}/runtimeRevisions`  
-Lists runtime revisions in a reasoning engine.
-
-`  query  `
-
-`POST /v1beta1/{name}:query`  
-Queries using a reasoning engine.
-
-`  streamQuery  `
-
-`POST /v1beta1/{name}:streamQuery`  
-Streams queries using a reasoning engine.
+| Methods                                                                                                                                                                 |                                                                                         |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.runtimeRevisions/delete)           | `DELETE /v1beta1/{name}` Deletes a reasoning engine revision.                           |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.runtimeRevisions/get)                 | `GET /v1beta1/{name}` Gets a reasoning engine runtime revision.                         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.runtimeRevisions/list)               | `GET /v1beta1/{parent}/runtimeRevisions` Lists runtime revisions in a reasoning engine. |
+| [`query`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.runtimeRevisions/query)             | `POST /v1beta1/{name}:query` Queries using a reasoning engine.                          |
+| [`streamQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.runtimeRevisions/streamQuery) | `POST /v1beta1/{name}:streamQuery` Streams queries using a reasoning engine.            |
 
 ## REST Resource: [v1beta1.projects.locations.reasoningEngines.sandboxEnvironmentSnapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots)
 
-Methods
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes the specific `  SandboxEnvironmentSnapshot  ` .
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets details of the specific `  SandboxEnvironmentSnapshot  ` .
-
-`  list  `
-
-`GET /v1beta1/{parent}/sandboxEnvironmentSnapshots`  
-Lists `  SandboxEnvironmentSnapshot  ` s in a given reasoning engine.
+| Methods                                                                                                                                                                  |                                                                                                                                                                                                                                                                                                           |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots/delete) | `DELETE /v1beta1/{name}` Deletes the specific [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots#SandboxEnvironmentSnapshot) .                                          |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots/get)       | `GET /v1beta1/{name}` Gets details of the specific [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots#SandboxEnvironmentSnapshot) .                                     |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots/list)     | `GET /v1beta1/{parent}/sandboxEnvironmentSnapshots` Lists [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots#SandboxEnvironmentSnapshot) s in a given reasoning engine. |
 
 ## REST Resource: [v1beta1.projects.locations.reasoningEngines.sandboxEnvironmentTemplates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/sandboxEnvironmentTemplates`  
-Creates a `  SandboxEnvironmentTemplate  ` in a given reasoning engine.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes the specific `  SandboxEnvironmentTemplate  ` .
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets details of the specific `  SandboxEnvironmentTemplate  ` .
-
-`  list  `
-
-`GET /v1beta1/{parent}/sandboxEnvironmentTemplates`  
-Lists `  SandboxEnvironmentTemplate  ` s in a given reasoning engine.
+| Methods                                                                                                                                                                  |                                                                                                                                                                                                                                                                                                              |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates/create) | `POST /v1beta1/{parent}/sandboxEnvironmentTemplates` Creates a [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates#SandboxEnvironmentTemplate) in a given reasoning engine. |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates/delete) | `DELETE /v1beta1/{name}` Deletes the specific [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates#SandboxEnvironmentTemplate) .                                             |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates/get)       | `GET /v1beta1/{name}` Gets details of the specific [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates#SandboxEnvironmentTemplate) .                                        |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates/list)     | `GET /v1beta1/{parent}/sandboxEnvironmentTemplates` Lists [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates#SandboxEnvironmentTemplate) s in a given reasoning engine.    |
 
 ## REST Resource: [v1beta1.projects.locations.reasoningEngines.sandboxEnvironments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments)
 
-Methods
-
-`  authorizeAccess  `
-
-`POST /v1beta1/{name}:authorizeAccess`  
-Checks whether the caller is authorized to access the sandbox environment.
-
-`  bidiExecute  `
-
-`POST /v1beta1/{name}:bidiExecute`  
-Executes using a sandbox environment with bidirectional streaming.
-
-`  create  `
-
-`POST /v1beta1/{parent}/sandboxEnvironments`  
-Creates a `  SandboxEnvironment  ` in a given reasoning engine.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes the specific `  SandboxEnvironment  ` .
-
-`  execute  `
-
-`POST /v1beta1/{name}:execute`  
-Executes using a sandbox environment.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets details of the specific `  SandboxEnvironment  ` .
-
-`  list  `
-
-`GET /v1beta1/{parent}/sandboxEnvironments`  
-Lists `  SandboxEnvironment  ` s in a given reasoning engine.
-
-`  pause  `
-
-`POST /v1beta1/{name}:pause`  
-Pauses the specific `  SandboxEnvironment  ` .
-
-`  resume  `
-
-`POST /v1beta1/{name}:resume`  
-Resumes the specific `  SandboxEnvironment  ` .
-
-`  snapshot  `
-
-`POST /v1beta1/{name}:snapshot`  
-Snapshots the specific `  SandboxEnvironment  ` resource and creates a `  SandboxEnvironmentSnapshot  ` resource.
+| Methods                                                                                                                                                                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`authorizeAccess`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments/authorizeAccess) | `POST /v1beta1/{name}:authorizeAccess` Checks whether the caller is authorized to access the sandbox environment.                                                                                                                                                                                                                                                                                                                                                                                 |
+| [`bidiExecute`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments/bidiExecute)         | `POST /v1beta1/{name}:bidiExecute` Executes using a sandbox environment with bidirectional streaming.                                                                                                                                                                                                                                                                                                                                                                                             |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments/create)                   | `POST /v1beta1/{parent}/sandboxEnvironments` Creates a [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) in a given reasoning engine.                                                                                                                                                                                                                      |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments/delete)                   | `DELETE /v1beta1/{name}` Deletes the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) .                                                                                                                                                                                                                                                          |
+| [`execute`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments/execute)                 | `POST /v1beta1/{name}:execute` Executes using a sandbox environment.                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments/get)                         | `GET /v1beta1/{name}` Gets details of the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) .                                                                                                                                                                                                                                                     |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments/list)                       | `GET /v1beta1/{parent}/sandboxEnvironments` Lists [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) s in a given reasoning engine.                                                                                                                                                                                                                         |
+| [`pause`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments/pause)                     | `POST /v1beta1/{name}:pause` Pauses the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) .                                                                                                                                                                                                                                                       |
+| [`resume`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments/resume)                   | `POST /v1beta1/{name}:resume` Resumes the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) .                                                                                                                                                                                                                                                     |
+| [`snapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments/snapshot)               | `POST /v1beta1/{name}:snapshot` Snapshots the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) resource and creates a [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots#SandboxEnvironmentSnapshot) resource. |
 
 ## REST Resource: [v1beta1.projects.locations.reasoningEngines.sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions)
 
-Methods
-
-`  appendEvent  `
-
-`POST /v1beta1/{name}:appendEvent`  
-Appends an event to a given session.
-
-`  create  `
-
-`POST /v1beta1/{parent}/sessions`  
-Creates a new `  Session  ` .
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes details of the specific `  Session  ` .
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets details of the specific `  Session  ` .
-
-`  list  `
-
-`GET /v1beta1/{parent}/sessions`  
-Lists `  Sessions  ` in a given reasoning engine.
-
-`  patch  `
-
-`PATCH /v1beta1/{session.name}`  
-Updates the specific `  Session  ` .
+| Methods                                                                                                                                                         |                                                                                                                                                                                                                              |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`appendEvent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions/appendEvent) | `POST /v1beta1/{name}:appendEvent` Appends an event to a given session.                                                                                                                                                      |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions/create)           | `POST /v1beta1/{parent}/sessions` Creates a new [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions#Session) .                    |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions/delete)           | `DELETE /v1beta1/{name}` Deletes details of the specific [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions#Session) .           |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions/get)                 | `GET /v1beta1/{name}` Gets details of the specific [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions#Session) .                 |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions/list)               | `GET /v1beta1/{parent}/sessions` Lists [`Sessions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions#Session) in a given reasoning engine. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions/patch)             | `PATCH /v1beta1/{session.name}` Updates the specific [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions#Session) .               |
 
 ## REST Resource: [v1beta1.projects.locations.reasoningEngines.sessions.events](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions.events)
 
-Methods
-
-`  list  `
-
-`GET /v1beta1/{parent}/events`  
-Lists `  Events  ` in a given session.
+| Methods                                                                                                                                                  |                                                                                                                                                                  |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions.events/list) | `GET /v1beta1/{parent}/events` Lists [`Events`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Event) in a given session. |
 
 ## REST Resource: [v1beta1.projects.locations.schedules](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.schedules)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/schedules`  
-Creates a Schedule.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a Schedule.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a Schedule.
-
-`  list  `
-
-`GET /v1beta1/{parent}/schedules`  
-Lists Schedules in a Location.
-
-`  patch  `
-
-`PATCH /v1beta1/{schedule.name}`  
-Updates an active or paused Schedule.
-
-`  pause  `
-
-`POST /v1beta1/{name}:pause`  
-Pauses a Schedule.
-
-`  resume  `
-
-`POST /v1beta1/{name}:resume`  
-Resumes a paused Schedule to start scheduling new runs.
+| Methods                                                                                                                               |                                                                                       |
+|---------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.schedules/create) | `POST /v1beta1/{parent}/schedules` Creates a Schedule.                                |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.schedules/delete) | `DELETE /v1beta1/{name}` Deletes a Schedule.                                          |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.schedules/get)       | `GET /v1beta1/{name}` Gets a Schedule.                                                |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.schedules/list)     | `GET /v1beta1/{parent}/schedules` Lists Schedules in a Location.                      |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.schedules/patch)   | `PATCH /v1beta1/{schedule.name}` Updates an active or paused Schedule.                |
+| [`pause`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.schedules/pause)   | `POST /v1beta1/{name}:pause` Pauses a Schedule.                                       |
+| [`resume`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.schedules/resume) | `POST /v1beta1/{name}:resume` Resumes a paused Schedule to start scheduling new runs. |
 
 ## REST Resource: [v1beta1.projects.locations.semanticGovernancePolicies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.semanticGovernancePolicies)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/semanticGovernancePolicies`  
-Creates a SemanticGovernancePolicy.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a SemanticGovernancePolicy.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a SemanticGovernancePolicy.
-
-`  list  `
-
-`GET /v1beta1/{parent}/semanticGovernancePolicies`  
-Lists SemanticGovernancePolicies in a given location.
-
-`  patch  `
-
-`PATCH /v1beta1/{semanticGovernancePolicy.name}`  
-Updates a SemanticGovernancePolicy.
+| Methods                                                                                                                                                |                                                                                                          |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.semanticGovernancePolicies/create) | `POST /v1beta1/{parent}/semanticGovernancePolicies` Creates a SemanticGovernancePolicy.                  |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.semanticGovernancePolicies/delete) | `DELETE /v1beta1/{name}` Deletes a SemanticGovernancePolicy.                                             |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.semanticGovernancePolicies/get)       | `GET /v1beta1/{name}` Gets a SemanticGovernancePolicy.                                                   |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.semanticGovernancePolicies/list)     | `GET /v1beta1/{parent}/semanticGovernancePolicies` Lists SemanticGovernancePolicies in a given location. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.semanticGovernancePolicies/patch)   | `PATCH /v1beta1/{semanticGovernancePolicy.name}` Updates a SemanticGovernancePolicy.                     |
 
 ## REST Resource: [v1beta1.projects.locations.semanticGovernancePolicyEngine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.semanticGovernancePolicyEngine)
 
-Methods
-
-`  deprovision  `
-
-`POST /v1beta1/{name}:deprovision`  
-Deprovisions the SemanticGovernancePolicyEngine, tearing down the associated tenant project, GKE cluster, and PSC service attachments.
+| Methods                                                                                                                                                              |                                                                                                                                                                           |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`deprovision`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.semanticGovernancePolicyEngine/deprovision) | `POST /v1beta1/{name}:deprovision` Deprovisions the SemanticGovernancePolicyEngine, tearing down the associated tenant project, GKE cluster, and PSC service attachments. |
 
 ## REST Resource: [v1beta1.projects.locations.servingProfiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.servingProfiles)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/servingProfiles`  
-Creates a ServingProfile.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a ServingProfile.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a ServingProfile.
-
-`  list  `
-
-`GET /v1beta1/{parent}/servingProfiles`  
-Lists ServingProfiles in a Location.
-
-`  patch  `
-
-`PATCH /v1beta1/{servingProfile.name}`  
-Updates a ServingProfile.
+| Methods                                                                                                                                     |                                                                              |
+|---------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.servingProfiles/create) | `POST /v1beta1/{parent}/servingProfiles` Creates a ServingProfile.           |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.servingProfiles/delete) | `DELETE /v1beta1/{name}` Deletes a ServingProfile.                           |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.servingProfiles/get)       | `GET /v1beta1/{name}` Gets a ServingProfile.                                 |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.servingProfiles/list)     | `GET /v1beta1/{parent}/servingProfiles` Lists ServingProfiles in a Location. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.servingProfiles/patch)   | `PATCH /v1beta1/{servingProfile.name}` Updates a ServingProfile.             |
 
 ## REST Resource: [v1beta1.projects.locations.skills](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/skills`  
-Create a Skill.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Delete a Skill.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Get a Skill.
-
-`  list  `
-
-`GET /v1beta1/{parent}/skills`  
-List Skills.
-
-`  patch  `
-
-`PATCH /v1beta1/{skill.name}`  
-Update a Skill.
-
-`  retrieve  `
-
-`GET /v1beta1/{parent}/skills:retrieve`  
-Retrieves skills.
+| Methods                                                                                                                                |                                                           |
+|----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills/create)     | `POST /v1beta1/{parent}/skills` Create a Skill.           |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills/delete)     | `DELETE /v1beta1/{name}` Delete a Skill.                  |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills/get)           | `GET /v1beta1/{name}` Get a Skill.                        |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills/list)         | `GET /v1beta1/{parent}/skills` List Skills.               |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills/patch)       | `PATCH /v1beta1/{skill.name}` Update a Skill.             |
+| [`retrieve`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills/retrieve) | `GET /v1beta1/{parent}/skills:retrieve` Retrieves skills. |
 
 ## REST Resource: [v1beta1.projects.locations.skills.revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills.revisions)
 
-Methods
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Get a Skill Revision.
-
-`  list  `
-
-`GET /v1beta1/{parent}/revisions`  
-List Skill Revisions for a Skill.
+| Methods                                                                                                                                  |                                                                     |
+|------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills.revisions/get)   | `GET /v1beta1/{name}` Get a Skill Revision.                         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills.revisions/list) | `GET /v1beta1/{parent}/revisions` List Skill Revisions for a Skill. |
 
 ## REST Resource: [v1beta1.projects.locations.specialistPools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.specialistPools)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/specialistPools`  
-Creates a SpecialistPool.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a SpecialistPool as well as all Specialists in the pool.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a SpecialistPool.
-
-`  list  `
-
-`GET /v1beta1/{parent}/specialistPools`  
-Lists SpecialistPools in a Location.
-
-`  patch  `
-
-`PATCH /v1beta1/{specialistPool.name}`  
-Updates a SpecialistPool.
+| Methods                                                                                                                                     |                                                                                           |
+|---------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.specialistPools/create) | `POST /v1beta1/{parent}/specialistPools` Creates a SpecialistPool.                        |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.specialistPools/delete) | `DELETE /v1beta1/{name}` Deletes a SpecialistPool as well as all Specialists in the pool. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.specialistPools/get)       | `GET /v1beta1/{name}` Gets a SpecialistPool.                                              |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.specialistPools/list)     | `GET /v1beta1/{parent}/specialistPools` Lists SpecialistPools in a Location.              |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.specialistPools/patch)   | `PATCH /v1beta1/{specialistPool.name}` Updates a SpecialistPool.                          |
 
 ## REST Resource: [v1beta1.projects.locations.studies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/studies`  
-Creates a Study.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a Study.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a Study by name.
-
-`  list  `
-
-`GET /v1beta1/{parent}/studies`  
-Lists all the studies in a region for an associated project.
-
-`  lookup  `
-
-`POST /v1beta1/{parent}/studies:lookup`  
-Looks a study up using the user-defined display\_name field instead of the fully qualified resource name.
+| Methods                                                                                                                             |                                                                                                                                                  |
+|-------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies/create) | `POST /v1beta1/{parent}/studies` Creates a Study.                                                                                                |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies/delete) | `DELETE /v1beta1/{name}` Deletes a Study.                                                                                                        |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies/get)       | `GET /v1beta1/{name}` Gets a Study by name.                                                                                                      |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies/list)     | `GET /v1beta1/{parent}/studies` Lists all the studies in a region for an associated project.                                                     |
+| [`lookup`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies/lookup) | `POST /v1beta1/{parent}/studies:lookup` Looks a study up using the user-defined display_name field instead of the fully qualified resource name. |
 
 ## REST Resource: [v1beta1.projects.locations.studies.trials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies.trials)
 
-Methods
-
-`  addTrialMeasurement  `
-
-`POST /v1beta1/{trialName}:addTrialMeasurement`  
-Adds a measurement of the objective metrics to a Trial.
-
-`  checkTrialEarlyStoppingState  `
-
-`POST /v1beta1/{trialName}:checkTrialEarlyStoppingState`  
-Checks whether a Trial should stop or not.
-
-`  complete  `
-
-`POST /v1beta1/{name}:complete`  
-Marks a Trial as complete.
-
-`  create  `
-
-`POST /v1beta1/{parent}/trials`  
-Adds a user provided Trial to a Study.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a Trial.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a Trial.
-
-`  list  `
-
-`GET /v1beta1/{parent}/trials`  
-Lists the Trials associated with a Study.
-
-`  listOptimalTrials  `
-
-`POST /v1beta1/{parent}/trials:listOptimalTrials`  
-Lists the pareto-optimal Trials for multi-objective Study or the optimal Trials for single-objective Study.
-
-`  stop  `
-
-`POST /v1beta1/{name}:stop`  
-Stops a Trial.
-
-`  suggest  `
-
-`POST /v1beta1/{parent}/trials:suggest`  
-Adds one or more Trials to a Study, with parameter values suggested by Agent Platform Vizier.
+| Methods                                                                                                                                                                                |                                                                                                                                                               |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`addTrialMeasurement`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies.trials/addTrialMeasurement)                   | `POST /v1beta1/{trialName}:addTrialMeasurement` Adds a measurement of the objective metrics to a Trial.                                                       |
+| [`checkTrialEarlyStoppingState`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies.trials/checkTrialEarlyStoppingState) | `POST /v1beta1/{trialName}:checkTrialEarlyStoppingState` Checks whether a Trial should stop or not.                                                           |
+| [`complete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies.trials/complete)                                         | `POST /v1beta1/{name}:complete` Marks a Trial as complete.                                                                                                    |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies.trials/create)                                             | `POST /v1beta1/{parent}/trials` Adds a user provided Trial to a Study.                                                                                        |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies.trials/delete)                                             | `DELETE /v1beta1/{name}` Deletes a Trial.                                                                                                                     |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies.trials/get)                                                   | `GET /v1beta1/{name}` Gets a Trial.                                                                                                                           |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies.trials/list)                                                 | `GET /v1beta1/{parent}/trials` Lists the Trials associated with a Study.                                                                                      |
+| [`listOptimalTrials`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies.trials/listOptimalTrials)                       | `POST /v1beta1/{parent}/trials:listOptimalTrials` Lists the pareto-optimal Trials for multi-objective Study or the optimal Trials for single-objective Study. |
+| [`stop`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies.trials/stop)                                                 | `POST /v1beta1/{name}:stop` Stops a Trial.                                                                                                                    |
+| [`suggest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies.trials/suggest)                                           | `POST /v1beta1/{parent}/trials:suggest` Adds one or more Trials to a Study, with parameter values suggested by Agent Platform Vizier.                         |
 
 ## REST Resource: [v1beta1.projects.locations.tensorboards](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards)
 
-Methods
-
-`  batchRead  `
-
-`GET /v1beta1/{tensorboard}:batchRead`  
-Reads multiple TensorboardTimeSeries' data.
-
-`  create  `
-
-`POST /v1beta1/{parent}/tensorboards`  
-Creates a Tensorboard.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a Tensorboard.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a Tensorboard.
-
-`  list  `
-
-`GET /v1beta1/{parent}/tensorboards`  
-Lists Tensorboards in a Location.
-
-`  patch  `
-
-`PATCH /v1beta1/{tensorboard.name}`  
-Updates a Tensorboard.
-
-`  readSize  `
-
-`GET /v1beta1/{tensorboard}:readSize`  
-Returns the storage size for a given TensorBoard instance.
-
-`  readUsage  `
-
-`GET /v1beta1/{tensorboard}:readUsage`  
-Returns a list of monthly active users for a given TensorBoard instance.
+| Methods                                                                                                                                        |                                                                                                                 |
+|------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| [`batchRead`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards/batchRead) | `GET /v1beta1/{tensorboard}:batchRead` Reads multiple TensorboardTimeSeries' data.                              |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards/create)       | `POST /v1beta1/{parent}/tensorboards` Creates a Tensorboard.                                                    |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards/delete)       | `DELETE /v1beta1/{name}` Deletes a Tensorboard.                                                                 |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards/get)             | `GET /v1beta1/{name}` Gets a Tensorboard.                                                                       |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards/list)           | `GET /v1beta1/{parent}/tensorboards` Lists Tensorboards in a Location.                                          |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards/patch)         | `PATCH /v1beta1/{tensorboard.name}` Updates a Tensorboard.                                                      |
+| [`readSize`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards/readSize)   | `GET /v1beta1/{tensorboard}:readSize` Returns the storage size for a given TensorBoard instance.                |
+| [`readUsage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards/readUsage) | `GET /v1beta1/{tensorboard}:readUsage` Returns a list of monthly active users for a given TensorBoard instance. |
 
 ## REST Resource: [v1beta1.projects.locations.tensorboards.experiments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments)
 
-Methods
-
-`  batchCreate  `
-
-`POST /v1beta1/{parent}:batchCreate`  
-Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.
-
-`  create  `
-
-`POST /v1beta1/{parent}/experiments`  
-Creates a TensorboardExperiment.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a TensorboardExperiment.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a TensorboardExperiment.
-
-`  list  `
-
-`GET /v1beta1/{parent}/experiments`  
-Lists TensorboardExperiments in a Location.
-
-`  patch  `
-
-`PATCH /v1beta1/{tensorboardExperiment.name}`  
-Updates a TensorboardExperiment.
-
-`  write  `
-
-`POST /v1beta1/{tensorboardExperiment}:write`  
-Write time series data points of multiple TensorboardTimeSeries in multiple TensorboardRun's.
+| Methods                                                                                                                                                        |                                                                                                                                             |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| [`batchCreate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments/batchCreate) | `POST /v1beta1/{parent}:batchCreate` Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.                             |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments/create)           | `POST /v1beta1/{parent}/experiments` Creates a TensorboardExperiment.                                                                       |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments/delete)           | `DELETE /v1beta1/{name}` Deletes a TensorboardExperiment.                                                                                   |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments/get)                 | `GET /v1beta1/{name}` Gets a TensorboardExperiment.                                                                                         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments/list)               | `GET /v1beta1/{parent}/experiments` Lists TensorboardExperiments in a Location.                                                             |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments/patch)             | `PATCH /v1beta1/{tensorboardExperiment.name}` Updates a TensorboardExperiment.                                                              |
+| [`write`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments/write)             | `POST /v1beta1/{tensorboardExperiment}:write` Write time series data points of multiple TensorboardTimeSeries in multiple TensorboardRun's. |
 
 ## REST Resource: [v1beta1.projects.locations.tensorboards.experiments.runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs)
 
-Methods
-
-`  batchCreate  `
-
-`POST /v1beta1/{parent}/runs:batchCreate`  
-Batch create TensorboardRuns.
-
-`  create  `
-
-`POST /v1beta1/{parent}/runs`  
-Creates a TensorboardRun.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a TensorboardRun.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a TensorboardRun.
-
-`  list  `
-
-`GET /v1beta1/{parent}/runs`  
-Lists TensorboardRuns in a Location.
-
-`  patch  `
-
-`PATCH /v1beta1/{tensorboardRun.name}`  
-Updates a TensorboardRun.
-
-`  write  `
-
-`POST /v1beta1/{tensorboardRun}:write`  
-Write time series data points into multiple TensorboardTimeSeries under a TensorboardRun.
+| Methods                                                                                                                                                             |                                                                                                                                  |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| [`batchCreate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs/batchCreate) | `POST /v1beta1/{parent}/runs:batchCreate` Batch create TensorboardRuns.                                                          |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs/create)           | `POST /v1beta1/{parent}/runs` Creates a TensorboardRun.                                                                          |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs/delete)           | `DELETE /v1beta1/{name}` Deletes a TensorboardRun.                                                                               |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs/get)                 | `GET /v1beta1/{name}` Gets a TensorboardRun.                                                                                     |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs/list)               | `GET /v1beta1/{parent}/runs` Lists TensorboardRuns in a Location.                                                                |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs/patch)             | `PATCH /v1beta1/{tensorboardRun.name}` Updates a TensorboardRun.                                                                 |
+| [`write`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs/write)             | `POST /v1beta1/{tensorboardRun}:write` Write time series data points into multiple TensorboardTimeSeries under a TensorboardRun. |
 
 ## REST Resource: [v1beta1.projects.locations.tensorboards.experiments.runs.timeSeries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries)
 
-Methods
-
-`  create  `
-
-`POST /v1beta1/{parent}/timeSeries`  
-Creates a TensorboardTimeSeries.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a TensorboardTimeSeries.
-
-`  exportTensorboardTimeSeries  `
-
-`POST /v1beta1/{tensorboardTimeSeries}:exportTensorboardTimeSeries`  
-Exports a TensorboardTimeSeries' data.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a TensorboardTimeSeries.
-
-`  list  `
-
-`GET /v1beta1/{parent}/timeSeries`  
-Lists TensorboardTimeSeries in a Location.
-
-`  patch  `
-
-`PATCH /v1beta1/{tensorboardTimeSeries.name}`  
-Updates a TensorboardTimeSeries.
-
-`  read  `
-
-`GET /v1beta1/{tensorboardTimeSeries}:read`  
-Reads a TensorboardTimeSeries' data.
-
-`  readBlobData  `
-
-`GET /v1beta1/{timeSeries}:readBlobData`  
-Gets bytes of TensorboardBlobs.
+| Methods                                                                                                                                                                                                        |                                                                                                            |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries/create)                                           | `POST /v1beta1/{parent}/timeSeries` Creates a TensorboardTimeSeries.                                       |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries/delete)                                           | `DELETE /v1beta1/{name}` Deletes a TensorboardTimeSeries.                                                  |
+| [`exportTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries/exportTensorboardTimeSeries) | `POST /v1beta1/{tensorboardTimeSeries}:exportTensorboardTimeSeries` Exports a TensorboardTimeSeries' data. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries/get)                                                 | `GET /v1beta1/{name}` Gets a TensorboardTimeSeries.                                                        |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries/list)                                               | `GET /v1beta1/{parent}/timeSeries` Lists TensorboardTimeSeries in a Location.                              |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries/patch)                                             | `PATCH /v1beta1/{tensorboardTimeSeries.name}` Updates a TensorboardTimeSeries.                             |
+| [`read`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries/read)                                               | `GET /v1beta1/{tensorboardTimeSeries}:read` Reads a TensorboardTimeSeries' data.                           |
+| [`readBlobData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries/readBlobData)                               | `GET /v1beta1/{timeSeries}:readBlobData` Gets bytes of TensorboardBlobs.                                   |
 
 ## REST Resource: [v1beta1.projects.locations.trainingPipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines)
 
-Methods
-
-`  cancel  `
-
-`POST /v1beta1/{name}:cancel`  
-Cancels a TrainingPipeline.
-
-`  create  `
-
-`POST /v1beta1/{parent}/trainingPipelines`  
-Creates a TrainingPipeline.
-
-`  delete  `
-
-`DELETE /v1beta1/{name}`  
-Deletes a TrainingPipeline.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a TrainingPipeline.
-
-`  list  `
-
-`GET /v1beta1/{parent}/trainingPipelines`  
-Lists TrainingPipelines in a Location.
+| Methods                                                                                                                                       |                                                                                  |
+|-----------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines/cancel) | `POST /v1beta1/{name}:cancel` Cancels a TrainingPipeline.                        |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines/create) | `POST /v1beta1/{parent}/trainingPipelines` Creates a TrainingPipeline.           |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines/delete) | `DELETE /v1beta1/{name}` Deletes a TrainingPipeline.                             |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines/get)       | `GET /v1beta1/{name}` Gets a TrainingPipeline.                                   |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines/list)     | `GET /v1beta1/{parent}/trainingPipelines` Lists TrainingPipelines in a Location. |
 
 ## REST Resource: [v1beta1.projects.locations.tuningJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs)
 
-Methods
-
-`  cancel  `
-
-`POST /v1beta1/{name}:cancel`  
-Cancels a tuning job.
-
-`  create  `
-
-`POST /v1beta1/{parent}/tuningJobs`  
-Creates a tuning job.
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a tuning job.
-
-`  list  `
-
-`GET /v1beta1/{parent}/tuningJobs`  
-Lists tuning jobs in a location.
-
-`  rebaseTunedModel  `
-
-`POST /v1beta1/{parent}/tuningJobs:rebaseTunedModel`  
-Rebase a tuned model.
-
-`  validateReinforcementTuningReward  `
-
-`POST /v1beta1/{parent}/tuningJobs:validateReinforcementTuningReward`  
-Validates a reward on a given example.
+| Methods                                                                                                                                                                                      |                                                                                                              |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/cancel)                                                       | `POST /v1beta1/{name}:cancel` Cancels a tuning job.                                                          |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/create)                                                       | `POST /v1beta1/{parent}/tuningJobs` Creates a tuning job.                                                    |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/get)                                                             | `GET /v1beta1/{name}` Gets a tuning job.                                                                     |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/list)                                                           | `GET /v1beta1/{parent}/tuningJobs` Lists tuning jobs in a location.                                          |
+| [`rebaseTunedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/rebaseTunedModel)                                   | `POST /v1beta1/{parent}/tuningJobs:rebaseTunedModel` Rebase a tuned model.                                   |
+| [`validateReinforcementTuningReward`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/validateReinforcementTuningReward) | `POST /v1beta1/{parent}/tuningJobs:validateReinforcementTuningReward` Validates a reward on a given example. |
 
 ## REST Resource: [v1beta1.projects.modelGardenEula](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.modelGardenEula)
 
-Methods
-
-`  accept  `
-
-`POST /v1beta1/{parent}/modelGardenEula:accept`  
-Accepts the EULA acceptance status of a publisher model.
-
-`  check  `
-
-`POST /v1beta1/{parent}/modelGardenEula:check`  
-Checks the EULA acceptance status of a publisher model.
+| Methods                                                                                                                           |                                                                                                          |
+|-----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| [`accept`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.modelGardenEula/accept) | `POST /v1beta1/{parent}/modelGardenEula:accept` Accepts the EULA acceptance status of a publisher model. |
+| [`check`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.modelGardenEula/check)   | `POST /v1beta1/{parent}/modelGardenEula:check` Checks the EULA acceptance status of a publisher model.   |
 
 ## REST Resource: [v1beta1.projects.publishers.models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.publishers.models)
 
-Methods
-
-`  enableModel  `
-
-`POST /v1beta1/{parent}/{name}:enableModel`  
-Enables model for the project if prerequisites are met (e.g.
+| Methods                                                                                                                                       |                                                                                                          |
+|-----------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| [`enableModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.publishers.models/enableModel) | `POST /v1beta1/{parent}/{name}:enableModel` Enables model for the project if prerequisites are met (e.g. |
 
 ## REST Resource: [v1beta1.publishers.models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models)
 
-Methods
-
-`  get  `
-
-`GET /v1beta1/{name}`  
-Gets a Model Garden publisher model.
-
-`  list  `
-
-`GET /v1beta1/{parent}/models`  
-Lists publisher models in Model Garden.
+| Methods                                                                                                                |                                                                        |
+|------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models/get)   | `GET /v1beta1/{name}` Gets a Model Garden publisher model.             |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models/list) | `GET /v1beta1/{parent}/models` Lists publisher models in Model Garden. |

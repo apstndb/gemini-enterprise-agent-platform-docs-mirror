@@ -22,22 +22,12 @@ The full name of the Google Compute Engine [network](https://cloud.google.com//c
 
 The name of the subnet that this instance is in. Format: `projects/{project_id_or_number}/regions/{region}/subnetworks/{subnetwork_id}`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;enableInternetAccess&quot;: boolean,
-  &quot;network&quot;: string,
-  &quot;subnetwork&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "enableInternetAccess": boolean,
+  "network": string,
+  "subnetwork": string
+}
+```

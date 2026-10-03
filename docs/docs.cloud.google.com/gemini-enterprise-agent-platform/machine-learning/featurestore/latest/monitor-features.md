@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 Vertex AI Feature Store lets you schedule and run feature monitoring jobs to monitor feature data, retrieve feature statistics, and [detect feature drift](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/monitor-features#detect-drift) . You can monitor feature data only if you've registered your feature data source in the Feature Registry.
@@ -39,11 +39,13 @@ To use the Python samples on this page in a local development environment, insta
 2.  If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 3.  If you're using a local shell, then create local authentication credentials for your user account:
-    
-        gcloud auth application-default login
-    
+
+    ```
+    gcloud auth application-default login
+    ```
+
     You don't need to do this if you're using Cloud Shell.
-    
+
     If an authentication error is returned, and you are using an external identity provider (IdP), confirm that you have [signed in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/authentication#local-development) .
@@ -51,6 +53,10 @@ For more information, see [Set up authentication for a local development environ
 ### REST
 
 To use the REST API samples on this page in a local development environment, you use the credentials you provide to the gcloud CLI.
+
+[Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI.
+
+If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 For more information, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) in the Google Cloud authentication documentation.
 
@@ -66,32 +72,36 @@ To create a [`FeatureMonitor`](https://docs.cloud.google.com/gemini-enterprise-a
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region where you want to create the feature monitor, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREGROUP\_NAME : The name of the feature group where you set up feature monitoring.
-  - FEATURE\_MONITOR\_NAME : A name for the new feature monitor that you want to create.
-  - FEATURE\_ID\_1 and FEATURE\_ID\_2 : The IDs of the features that you want to monitor.
-  - DRIFT\_THRESHOLD\_1 and DRIFT\_THRESHOLD\_2 : Drift thresholds for each feature included in the feature monitor. The drift threshold is used to detect anomalies, such as feature drift. Enter a value in the range `[0, 1)` . If you don't enter a value, the threshold is set to `0.3` , by default.  
-    Vertex AI Feature Store compares the snapshots from consecutive feature monitor job executions and calculates drifts using [the ML.TFDV\_VALIDATE function in BigQuery](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-tfdv-validate) . To classify anomalies, [L-infinity distance](https://en.wikipedia.org/wiki/Chebyshev_distance) is used for categorical features and [Jensen-Shannon divergence](https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence) is used for numerical features.
-  - CRON : Cron schedule expression representing the frquency for running the feature monitoring job. For more information, see [cron](https://en.wikipedia.org/wiki/Cron) .
+- ` LOCATION_ID ` : Region where you want to create the feature monitor, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREGROUP_NAME ` : The name of the feature group where you set up feature monitoring.
+- ` FEATURE_MONITOR_NAME ` : A name for the new feature monitor that you want to create.
+- ` FEATURE_ID_1 ` and ` FEATURE_ID_2 ` : The IDs of the features that you want to monitor.
+- ` DRIFT_THRESHOLD_1 ` and ` DRIFT_THRESHOLD_2 ` : Drift thresholds for each feature included in the feature monitor. The drift threshold is used to detect anomalies, such as feature drift. Enter a value in the range `[0, 1)` . If you don't enter a value, the threshold is set to `0.3` , by default.  
+  Vertex AI Feature Store compares the snapshots from consecutive feature monitor job executions and calculates drifts using [the ML.TFDV_VALIDATE function in BigQuery](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-tfdv-validate) . To classify anomalies, [L-infinity distance](https://en.wikipedia.org/wiki/Chebyshev_distance) is used for categorical features and [Jensen-Shannon divergence](https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence) is used for numerical features.
+- ` CRON ` : Cron schedule expression representing the frquency for running the feature monitoring job. For more information, see [cron](https://en.wikipedia.org/wiki/Cron) .
 
 HTTP method and URL:
 
-    POST https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors?feature_monitor_id=FEATURE_MONITOR_NAME
+```
+POST https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors?feature_monitor_id=FEATURE_MONITOR_NAME
+```
 
 Request JSON body:
 
-    {
-      "feature_selection_config": {
-        "feature_configs": [
-          {"feature_id":"FEATURE_ID_1", "drift_threshold": "DRIFT_THRESHOLD_1" },
-          {"feature_id":"FEATURE_ID_2", "drift_threshold": "DRIFT_THRESHOLD_2" }
-        ],
-      },
-      "schedule_config": {
-        "cron": "CRON"
-      }
-    }
+```
+{
+  "feature_selection_config": {
+    "feature_configs": [
+      {"feature_id":"FEATURE_ID_1", "drift_threshold": "DRIFT_THRESHOLD_1" },
+      {"feature_id":"FEATURE_ID_2", "drift_threshold": "DRIFT_THRESHOLD_2" }
+    ],
+  },
+  "schedule_config": {
+    "cron": "CRON"
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -101,11 +111,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors?feature_monitor_id=FEATURE_MONITOR_NAME"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors?feature_monitor_id=FEATURE_MONITOR_NAME"
+```
 
 #### PowerShell
 
@@ -113,28 +125,32 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors?feature_monitor_id=FEATURE_MONITOR_NAME" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors?feature_monitor_id=FEATURE_MONITOR_NAME" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/operations/OPERATION_ID",
-      "metadata": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1beta1.CreateFeatureMonitorOperationMetadata",
-        "genericMetadata": {
-          "createTime": "2024-12-15T19:35:03.975958Z",
-          "updateTime": "2024-12-15T19:35:03.975958Z"
-        }
-      }
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/operations/OPERATION_ID",
+  "metadata": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1beta1.CreateFeatureMonitorOperationMetadata",
+    "genericMetadata": {
+      "createTime": "2024-12-15T19:35:03.975958Z",
+      "updateTime": "2024-12-15T19:35:03.975958Z"
     }
+  }
+}
+```
 
 ### Python
 
@@ -142,36 +158,38 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/authentication#client-libs) .
 
-    from google.cloud import aiplatform
-    from vertexai.resources.preview import feature_store
-    
-    def create_feature_monitor_sample(
-        project: str,
-        location: str,
-        existing_feature_group_id: str,
-        feature_monitor_id: str,
-        feature_selection_configs: List[Tuple[str, float]]
-        schedule_config: str # Cron string. For example, "0 * * * *" indicates hourly execution.
-    ):
-        aiplatform.init(project="PROJECT_ID", location="LOCATION_ID")
-        feature_group = feature_store.FeatureGroup("FEATUREGROUP_NAME")
-        feature_monitor = feature_group.create_feature_monitor(
-            name= "FEATURE_MONITOR_NAME",
-            feature_selection_configs=[("FEATURE_ID_1", DRIFT_THRESHOLD_1),("FEATURE_ID_2", DRIFT_THRESHOLD_2)],
-            schedule_config="CRON"
-            )
+```
+from google.cloud import aiplatform
+from vertexai.resources.preview import feature_store
+
+def create_feature_monitor_sample(
+    project: str,
+    location: str,
+    existing_feature_group_id: str,
+    feature_monitor_id: str,
+    feature_selection_configs: List[Tuple[str, float]]
+    schedule_config: str # Cron string. For example, "0 * * * *" indicates hourly execution.
+):
+    aiplatform.init(project="PROJECT_ID", location="LOCATION_ID")
+    feature_group = feature_store.FeatureGroup("FEATUREGROUP_NAME")
+    feature_monitor = feature_group.create_feature_monitor(
+        name= "FEATURE_MONITOR_NAME",
+        feature_selection_configs=[("FEATURE_ID_1", DRIFT_THRESHOLD_1),("FEATURE_ID_2", DRIFT_THRESHOLD_2)],
+        schedule_config="CRON"
+        )
+```
 
 Replace the following:
 
-  - LOCATION\_ID : Region where you want to create the feature monitor, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREGROUP\_NAME : The name of the feature group where you set up feature monitoring.
-  - FEATURE\_MONITOR\_NAME : A name for the new feature monitor that you want to create.
-  - FEATURE\_ID\_1 and FEATURE\_ID\_2 : The IDs of the features that you want to monitor.
-  - DRIFT\_THRESHOLD\_1 and DRIFT\_THRESHOLD\_2 : Drift thresholds for each Feature included in the feature monitor. The drift threshold is used to detect feature drift. Enter a value between `0` and `1` . If you don't enter a value, the threshold is set to `0.3` , by default.  
-    Vertex AI Feature Store compares the data snapshot from the current feature monitor job with the data snapshot during the previous feature monitor job. Note that to calculate the distribution deviation, Vertex AI Feature Store uses [the ML.TFDV\_VALIDATE function in BigQuery](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-tfdv-validate) .  
-    For the metric used to compare statistics, [L-infinity distance](https://en.wikipedia.org/wiki/Chebyshev_distance) is used for categorical features and [Jensen-Shannon divergence](https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence) is used for numerical features.
-  - CRON : Cron schedule expression representing the frequency for running the feature monitoring job. For more information, see [cron](https://en.wikipedia.org/wiki/Cron) .
+- ` LOCATION_ID ` : Region where you want to create the feature monitor, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREGROUP_NAME ` : The name of the feature group where you set up feature monitoring.
+- ` FEATURE_MONITOR_NAME ` : A name for the new feature monitor that you want to create.
+- ` FEATURE_ID_1 ` and ` FEATURE_ID_2 ` : The IDs of the features that you want to monitor.
+- ` DRIFT_THRESHOLD_1 ` and ` DRIFT_THRESHOLD_2 ` : Drift thresholds for each Feature included in the feature monitor. The drift threshold is used to detect feature drift. Enter a value between `0` and `1` . If you don't enter a value, the threshold is set to `0.3` , by default.  
+  Vertex AI Feature Store compares the data snapshot from the current feature monitor job with the data snapshot during the previous feature monitor job. Note that to calculate the distribution deviation, Vertex AI Feature Store uses [the ML.TFDV_VALIDATE function in BigQuery](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-tfdv-validate) .  
+  For the metric used to compare statistics, [L-infinity distance](https://en.wikipedia.org/wiki/Chebyshev_distance) is used for categorical features and [Jensen-Shannon divergence](https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence) is used for numerical features.
+- ` CRON ` : Cron schedule expression representing the frequency for running the feature monitoring job. For more information, see [cron](https://en.wikipedia.org/wiki/Cron) .
 
 ## Run a feature monitoring job manually
 
@@ -183,14 +201,16 @@ To run a feature monitoring job manually by creating a [`FeatureMonitorJob`](htt
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region where you want to run the feature monitoring job, such as `us-central1` .
-  - FEATUREGROUP\_NAME : The name of the feature group containing the `FeatureMonitor` resource.
-  - PROJECT\_ID : Your project ID.
-  - FEATURE\_MONITOR\_NAME : The name of the `FeatureMonitor` resource for which you want to run the feature monitoring job.
+- ` LOCATION_ID ` : Region where you want to run the feature monitoring job, such as `us-central1` .
+- ` FEATUREGROUP_NAME ` : The name of the feature group containing the `FeatureMonitor` resource.
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATURE_MONITOR_NAME ` : The name of the `FeatureMonitor` resource for which you want to run the feature monitoring job.
 
 HTTP method and URL:
 
-    POST https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_ID/featureMonitorJobs
+```
+POST https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_ID/featureMonitorJobs
+```
 
 To send your request, choose one of these options:
 
@@ -200,11 +220,13 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d "" \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_ID/featureMonitorJobs"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d "" \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_ID/featureMonitorJobs"
+```
 
 #### PowerShell
 
@@ -212,19 +234,23 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_ID/featureMonitorJobs" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_ID/featureMonitorJobs" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID"
-    }
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID"
+}
+```
 
 ### Python
 
@@ -232,21 +258,23 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/authentication#client-libs) .
 
-    from google.cloud import aiplatform
-    from vertexai.resources.preview import feature_store
-    
-    aiplatofrm.init(project="PROJECT_ID", location="LOCATION_ID")
-    
-    feature_group = FeatureGroup.get("FEATUREGROUP_NAME}")
-    feature_monitor = feature_group.get_feature_monitor(FEATURE_MONITOR_NAME)
-    feature_monitor_job = feature_monitor.create_feature_monitor_job()
+```
+from google.cloud import aiplatform
+from vertexai.resources.preview import feature_store
+
+aiplatofrm.init(project="PROJECT_ID", location="LOCATION_ID")
+
+feature_group = FeatureGroup.get("FEATUREGROUP_NAME}")
+feature_monitor = feature_group.get_feature_monitor(FEATURE_MONITOR_NAME)
+feature_monitor_job = feature_monitor.create_feature_monitor_job()
+```
 
 Replace the following:
 
-  - LOCATION\_ID : Region where you want to run the feature monitoring job, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREGROUP\_NAME : The name of the feature group containing the `FeatureMonitor` resource.
-  - FEATURE\_MONITOR\_NAME : The name of the `FeatureMonitor` resource for which you want to run the feature monitoring job.
+- ` LOCATION_ID ` : Region where you want to run the feature monitoring job, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREGROUP_NAME ` : The name of the feature group containing the `FeatureMonitor` resource.
+- ` FEATURE_MONITOR_NAME ` : The name of the `FeatureMonitor` resource for which you want to run the feature monitoring job.
 
 ## Retrieve feature statistics from a monitoring job
 
@@ -262,14 +290,16 @@ To retrieve a list of [`FeatureMonitorJob`](https://docs.cloud.google.com/gemini
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region where the `Feature` resource is located, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREGROUP\_NAME : The name of the feature group containing the `FeatureMonitor` resource.
-  - FEATURE\_MONITOR\_NAME : The name of the `FeatureMonitor` resource for which you want to list the feature monitoring jobs.
+- ` LOCATION_ID ` : Region where the `Feature` resource is located, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREGROUP_NAME ` : The name of the feature group containing the `FeatureMonitor` resource.
+- ` FEATURE_MONITOR_NAME ` : The name of the `FeatureMonitor` resource for which you want to list the feature monitoring jobs.
 
 HTTP method and URL:
 
-    GET https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs
+```
+GET https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs
+```
 
 To send your request, choose one of these options:
 
@@ -279,9 +309,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs"
+```
 
 #### PowerShell
 
@@ -289,54 +321,58 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
+```
+{
+  "featureMonitorJobs": [
     {
-      "featureMonitorJobs": [
-        {
-          "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID_1",
-          "createTime": "2024-12-18T19:18:18.077161Z",
-          "finalStatus": {},
-          "featureSelectionConfig": {
-            "featureConfigs": [
-              {
-                "featureId": "feature_name_1",
-                "driftThreshold": 0.2
-              },
-              {
-                "featureId": "feature_name_2",
-                "driftThreshold": 0.2
-              }
-            ]
+      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID_1",
+      "createTime": "2024-12-18T19:18:18.077161Z",
+      "finalStatus": {},
+      "featureSelectionConfig": {
+        "featureConfigs": [
+          {
+            "featureId": "feature_name_1",
+            "driftThreshold": 0.2
+          },
+          {
+            "featureId": "feature_name_2",
+            "driftThreshold": 0.2
           }
-        },
-        {
-          "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID_2",
-          "createTime": "2024-12-19T19:18:30.859921Z",
-          "finalStatus": {},
-          "featureSelectionConfig": {
-            "featureConfigs": [
-              {
-                "featureId": "feature_name_1",
-                "driftThreshold": 0.2
-              },
-              {
-                "featureId": "feature_name_2",
-                "driftThreshold": 0.2
-              }
-            ]
+        ]
+      }
+    },
+    {
+      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID_2",
+      "createTime": "2024-12-19T19:18:30.859921Z",
+      "finalStatus": {},
+      "featureSelectionConfig": {
+        "featureConfigs": [
+          {
+            "featureId": "feature_name_1",
+            "driftThreshold": 0.2
+          },
+          {
+            "featureId": "feature_name_2",
+            "driftThreshold": 0.2
           }
-        }
-      ]
+        ]
+      }
     }
+  ]
+}
+```
 
 ### Python
 
@@ -344,21 +380,23 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/authentication#client-libs) .
 
-    from google.cloud import aiplatform
-    from vertexai.resources.preview import feature_store
-    
-    aiplatofrm.init(project="PROJECT_ID", location="LOCATION_ID")
-    
-    feature_group = FeatureGroup.get("FEATUREGROUP_NAME")
-    feature_monitor = feature_group.get_feature_monitor(FEATURE_MONITOR_NAME)
-    feature_monitor_jobs = feature_monitor.list_feature_monitor_jobs()
+```
+from google.cloud import aiplatform
+from vertexai.resources.preview import feature_store
+
+aiplatofrm.init(project="PROJECT_ID", location="LOCATION_ID")
+
+feature_group = FeatureGroup.get("FEATUREGROUP_NAME")
+feature_monitor = feature_group.get_feature_monitor(FEATURE_MONITOR_NAME)
+feature_monitor_jobs = feature_monitor.list_feature_monitor_jobs()
+```
 
 Replace the following:
 
-  - LOCATION\_ID : Region where the `Feature` resource is located, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREGROUP\_NAME : The name of the feature group containing the `FeatureMonitor` resource.
-  - FEATURE\_MONITOR\_NAME : The name of the `FeatureMonitor` resource for which you want to list the feature monitoring jobs.
+- ` LOCATION_ID ` : Region where the `Feature` resource is located, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREGROUP_NAME ` : The name of the feature group containing the `FeatureMonitor` resource.
+- ` FEATURE_MONITOR_NAME ` : The name of the `FeatureMonitor` resource for which you want to list the feature monitoring jobs.
 
 ### View feature statistics from a monitoring job
 
@@ -370,15 +408,17 @@ To view the feature statistics from a monitoring job by retrieving a [`FeatureMo
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region where where the feature monitoring job was run, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREGROUP\_NAME : The name of the feature group containing the `FeatureMonitor` resource.
-  - FEATURE\_MONITOR\_NAME : The name of the `FeatureMonitor` resource for which the feature monitoring job was run.
-  - FEATURE\_MONITOR\_JOB\_ID : The ID of the FeatureMonitorJob resource that you want to retrieve.
+- ` LOCATION_ID ` : Region where where the feature monitoring job was run, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREGROUP_NAME ` : The name of the feature group containing the `FeatureMonitor` resource.
+- ` FEATURE_MONITOR_NAME ` : The name of the `FeatureMonitor` resource for which the feature monitoring job was run.
+- ` FEATURE_MONITOR_JOB_ID ` : The ID of the FeatureMonitorJob resource that you want to retrieve.
 
 HTTP method and URL:
 
-    GET https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID
+```
+GET https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID
+```
 
 To send your request, choose one of these options:
 
@@ -388,9 +428,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID"
+```
 
 #### PowerShell
 
@@ -398,160 +440,164 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID",
-      "createTime": "2024-12-19T19:18:18.077161Z",
-      "finalStatus": {},
-      "jobSummary": {
-        "featureStatsAndAnomalies": [
-          {
-            "featureId": "feature_id_1",
-            "featureStats": {
-              "name": "feature_name_1",
-              "type": "STRING",
-              "stringStats": {
-                "commonStats": {
-                  "numNonMissing": "6",
-                  "minNumValues": "1",
-                  "maxNumValues": "1",
-                  "avgNumValues": 1,
-                  "numValuesHistogram": {
-                    "buckets": [
-                      {
-                        "lowValue": 1,
-                        "highValue": 1,
-                        "sampleCount": 0.6
-                      },
-                      {
-                        "lowValue": 1,
-                        "highValue": 1,
-                        "sampleCount": 0.6
-                      }
-                    ],
-                    "type": "QUANTILES"
-                  },
-                  "totNumValues": "6"
-                },
-                "unique": "2",
-                "topValues": [
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID",
+  "createTime": "2024-12-19T19:18:18.077161Z",
+  "finalStatus": {},
+  "jobSummary": {
+    "featureStatsAndAnomalies": [
+      {
+        "featureId": "feature_id_1",
+        "featureStats": {
+          "name": "feature_name_1",
+          "type": "STRING",
+          "stringStats": {
+            "commonStats": {
+              "numNonMissing": "6",
+              "minNumValues": "1",
+              "maxNumValues": "1",
+              "avgNumValues": 1,
+              "numValuesHistogram": {
+                "buckets": [
                   {
-                    "value": "59",
-                    "frequency": 2
+                    "lowValue": 1,
+                    "highValue": 1,
+                    "sampleCount": 0.6
                   },
                   {
-                    "value": "19",
-                    "frequency": 1
+                    "lowValue": 1,
+                    "highValue": 1,
+                    "sampleCount": 0.6
                   }
                 ],
-                "avgLength": 2,
-                "rankHistogram": {
-                  "buckets": [
-                    {
-                      "label": "59",
-                      "sampleCount": 2
-                    },
-                    {
-                      "lowRank": "1",
-                      "highRank": "1",
-                      "label": "19",
-                      "sampleCount": 1
-                    }
-                  ]
-                }
-              }
+                "type": "QUANTILES"
+              },
+              "totNumValues": "6"
             },
-            "statsTime": "2024-12-19T19:18:18.077161Z",
-            "featureMonitorJobId": "FEATURE_MONITOR_JOB_ID",
-            "featureMonitorId": "FEATURE_MONITOR_NAME"
-          },
-          {
-            "featureId": "feature_id_2",
-            "featureStats": {
-              "name": "feature_name_1",
-              "type": "STRING",
-              "stringStats": {
-                "commonStats": {
-                  "numNonMissing": "6",
-                  "minNumValues": "1",
-                  "maxNumValues": "1",
-                  "avgNumValues": 1,
-                  "numValuesHistogram": {
-                    "buckets": [
-                      {
-                        "lowValue": 1,
-                        "highValue": 1,
-                        "sampleCount": 0.6
-                      },
-                      {
-                        "lowValue": 1,
-                        "highValue": 1,
-                        "sampleCount": 0.6
-                      }
-                    ],
-                    "type": "QUANTILES"
-                  },
-                  "totNumValues": "6"
+            "unique": "2",
+            "topValues": [
+              {
+                "value": "59",
+                "frequency": 2
+              },
+              {
+                "value": "19",
+                "frequency": 1
+              }
+            ],
+            "avgLength": 2,
+            "rankHistogram": {
+              "buckets": [
+                {
+                  "label": "59",
+                  "sampleCount": 2
                 },
-                "unique": "2",
-                "topValues": [
+                {
+                  "lowRank": "1",
+                  "highRank": "1",
+                  "label": "19",
+                  "sampleCount": 1
+                }
+              ]
+            }
+          }
+        },
+        "statsTime": "2024-12-19T19:18:18.077161Z",
+        "featureMonitorJobId": "FEATURE_MONITOR_JOB_ID",
+        "featureMonitorId": "FEATURE_MONITOR_NAME"
+      },
+      {
+        "featureId": "feature_id_2",
+        "featureStats": {
+          "name": "feature_name_1",
+          "type": "STRING",
+          "stringStats": {
+            "commonStats": {
+              "numNonMissing": "6",
+              "minNumValues": "1",
+              "maxNumValues": "1",
+              "avgNumValues": 1,
+              "numValuesHistogram": {
+                "buckets": [
                   {
-                    "value": "59",
-                    "frequency": 2
+                    "lowValue": 1,
+                    "highValue": 1,
+                    "sampleCount": 0.6
                   },
                   {
-                    "value": "19",
-                    "frequency": 1
+                    "lowValue": 1,
+                    "highValue": 1,
+                    "sampleCount": 0.6
                   }
                 ],
-                "avgLength": 2,
-                "rankHistogram": {
-                  "buckets": [
-                    {
-                      "label": "59",
-                      "sampleCount": 2
-                    },
-                    {
-                      "lowRank": "1",
-                      "highRank": "1",
-                      "label": "19",
-                      "sampleCount": 1
-                    }
-                  ]
-                }
-              }
+                "type": "QUANTILES"
+              },
+              "totNumValues": "6"
             },
-            "statsTime": "2024-12-19T19:18:18.077161Z",
-            "featureMonitorJobId": "FEATURE_MONITOR_JOB_ID",
-            "featureMonitorId": "FEATURE_MONITOR_NAME"
+            "unique": "2",
+            "topValues": [
+              {
+                "value": "59",
+                "frequency": 2
+              },
+              {
+                "value": "19",
+                "frequency": 1
+              }
+            ],
+            "avgLength": 2,
+            "rankHistogram": {
+              "buckets": [
+                {
+                  "label": "59",
+                  "sampleCount": 2
+                },
+                {
+                  "lowRank": "1",
+                  "highRank": "1",
+                  "label": "19",
+                  "sampleCount": 1
+                }
+              ]
+            }
           }
-        ]
+        },
+        "statsTime": "2024-12-19T19:18:18.077161Z",
+        "featureMonitorJobId": "FEATURE_MONITOR_JOB_ID",
+        "featureMonitorId": "FEATURE_MONITOR_NAME"
+      }
+    ]
+  },
+  "driftBaseFeatureMonitorJobId": "2250003330000300000",
+  "driftBaseSnapshotTime": "2024-12-12T16:00:01.211686Z",
+  "featureSelectionConfig": {
+    "featureConfigs": [
+      {
+        "featureId": "feature_id_1",
+        "driftThreshold": 0.2
       },
-      "driftBaseFeatureMonitorJobId": "2250003330000300000",
-      "driftBaseSnapshotTime": "2024-12-12T16:00:01.211686Z",
-      "featureSelectionConfig": {
-        "featureConfigs": [
-          {
-            "featureId": "feature_id_1",
-            "driftThreshold": 0.2
-          },
-          {
-            "featureId": "feature_id_2",
-            "driftThreshold": 0.2
-          }
-        ]
-      },
-      "triggerType": "FEATURE_MONITOR_JOB_TRIGGER_ON_DEMAND"
-    }
+      {
+        "featureId": "feature_id_2",
+        "driftThreshold": 0.2
+      }
+    ]
+  },
+  "triggerType": "FEATURE_MONITOR_JOB_TRIGGER_ON_DEMAND"
+}
+```
 
 ### Python
 
@@ -559,26 +605,28 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/authentication#client-libs) .
 
-    from google.cloud import aiplatform
-    from vertexai.resources.preview import feature_store
-    
-    aiplatofrm.init(project="PROJECT_ID", location="LOCATION_ID")
-    feature_group = FeatureGroup.get("FEATUREGROUP_NAME"})
-    
-    feature_monitor = feature_group.get_feature_monitor("FEATURE_MONITOR_NAME")
-    feature_monitor_job = feature_monitor.get_feature_monitor_job("FEATURE_MONITOR_JOB_ID)")
-    
-    # Retrieve feature stats and anomalies
-    feature_stats_and_anomalies = feature_monitor_job.feature_stats_and_anomalies
-    print(feature_stats_and_anomalies)
+```
+from google.cloud import aiplatform
+from vertexai.resources.preview import feature_store
+
+aiplatofrm.init(project="PROJECT_ID", location="LOCATION_ID")
+feature_group = FeatureGroup.get("FEATUREGROUP_NAME"})
+
+feature_monitor = feature_group.get_feature_monitor("FEATURE_MONITOR_NAME")
+feature_monitor_job = feature_monitor.get_feature_monitor_job("FEATURE_MONITOR_JOB_ID)")
+
+# Retrieve feature stats and anomalies
+feature_stats_and_anomalies = feature_monitor_job.feature_stats_and_anomalies
+print(feature_stats_and_anomalies)
+```
 
 Replace the following:
 
-  - LOCATION\_ID : Region where where the feature monitoring job was run, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREGROUP\_NAME : The name of the feature group containing the `FeatureMonitor` resource.
-  - FEATURE\_MONITOR\_NAME : The name of the `FeatureMonitor` resource for which the feature monitoring job was run.
-  - FEATURE\_MONITOR\_JOB\_ID : The ID of the `FeatureMonitorJob` resource that you want to retrieve.
+- ` LOCATION_ID ` : Region where where the feature monitoring job was run, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREGROUP_NAME ` : The name of the feature group containing the `FeatureMonitor` resource.
+- ` FEATURE_MONITOR_NAME ` : The name of the `FeatureMonitor` resource for which the feature monitoring job was run.
+- ` FEATURE_MONITOR_JOB_ID ` : The ID of the `FeatureMonitorJob` resource that you want to retrieve.
 
 ### View feature statistics for a feature
 
@@ -592,15 +640,17 @@ To view the feature statistics for a specific feature in a [`Feature`](https://d
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region where where the feature monitoring job was run, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREGROUP\_NAME : The name of the feature group containing the feature.
-  - FEATURE\_NAME : The name of the `Feature` resource for which you want to retrieve the feature statistics.
-  - LATEST\_STATS\_COUNT : The number of the latest monitoring jobs to retrieve the feature statistics from.
+- ` LOCATION_ID ` : Region where where the feature monitoring job was run, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREGROUP_NAME ` : The name of the feature group containing the feature.
+- ` FEATURE_NAME ` : The name of the `Feature` resource for which you want to retrieve the feature statistics.
+- ` LATEST_STATS_COUNT ` : The number of the latest monitoring jobs to retrieve the feature statistics from.
 
 HTTP method and URL:
 
-    GET https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/features/FEATURE_NAME?feature_stats_and_anomaly_spec.latest_stats_count=LATEST_STATS_COUNT
+```
+GET https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/features/FEATURE_NAME?feature_stats_and_anomaly_spec.latest_stats_count=LATEST_STATS_COUNT
+```
 
 To send your request, choose one of these options:
 
@@ -610,9 +660,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/features/FEATURE_NAME?feature_stats_and_anomaly_spec.latest_stats_count=LATEST_STATS_COUNT"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/features/FEATURE_NAME?feature_stats_and_anomaly_spec.latest_stats_count=LATEST_STATS_COUNT"
+```
 
 #### PowerShell
 
@@ -620,115 +672,119 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/features/FEATURE_NAME?feature_stats_and_anomaly_spec.latest_stats_count=LATEST_STATS_COUNT" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/features/FEATURE_NAME?feature_stats_and_anomaly_spec.latest_stats_count=LATEST_STATS_COUNT" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/features/FEATURE_NAME",
+  "createTime": "2024-12-19T21:17:23.373559Z",
+  "updateTime": "2024-12-19T21:17:23.373559Z",
+  "etag": "sample_etag",
+  "featureStatsAndAnomaly": [
     {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/features/FEATURE_NAME",
-      "createTime": "2024-12-19T21:17:23.373559Z",
-      "updateTime": "2024-12-19T21:17:23.373559Z",
-      "etag": "sample_etag",
-      "featureStatsAndAnomaly": [
-        {
-          "featureStats": {
-            "name": "FEATURE_NAME",
-            "type": "STRING",
-            "stringStats": {
-              "commonStats": {
-                "numNonMissing": "4",
-                "minNumValues": "1",
-                "maxNumValues": "1",
-                "avgNumValues": 1,
-                "numValuesHistogram": {
-                  "buckets": [
-                    {
-                      "lowValue": 1,
-                      "highValue": 1,
-                      "sampleCount": 0.4
-                    },
-                    {
-                      "lowValue": 1,
-                      "highValue": 1,
-                      "sampleCount": 0.4
-                    },
-                    {
-                      "lowValue": 1,
-                      "highValue": 1,
-                      "sampleCount": 0.4
-                    },
-                    {
-                      "lowValue": 1,
-                      "highValue": 1,
-                      "sampleCount": 0.4
-                    }
-                  ],
-                  "type": "QUANTILES"
-                },
-                "totNumValues": "4"
-              },
-              "unique": "4",
-              "topValues": [
+      "featureStats": {
+        "name": "FEATURE_NAME",
+        "type": "STRING",
+        "stringStats": {
+          "commonStats": {
+            "numNonMissing": "4",
+            "minNumValues": "1",
+            "maxNumValues": "1",
+            "avgNumValues": 1,
+            "numValuesHistogram": {
+              "buckets": [
                 {
-                  "value": "feature_value_1",
-                  "frequency": 1
+                  "lowValue": 1,
+                  "highValue": 1,
+                  "sampleCount": 0.4
                 },
                 {
-                  "value": "feature_value_2",
-                  "frequency": 1
+                  "lowValue": 1,
+                  "highValue": 1,
+                  "sampleCount": 0.4
                 },
                 {
-                  "value": "feature_value_3",
-                  "frequency": 1
+                  "lowValue": 1,
+                  "highValue": 1,
+                  "sampleCount": 0.4
                 },
                 {
-                  "value": "feature_value_4",
-                  "frequency": 1
+                  "lowValue": 1,
+                  "highValue": 1,
+                  "sampleCount": 0.4
                 }
               ],
-              "avgLength": 4,
-              "rankHistogram": {
-                "buckets": [
-                  {
-                    "label": "label_1",
-                    "sampleCount": 1
-                  },
-                  {
-                    "lowRank": "1",
-                    "highRank": "1",
-                    "label": "label_2",
-                    "sampleCount": 1
-                  },
-                  {
-                    "lowRank": "2",
-                    "highRank": "2",
-                    "label": "label_3",
-                    "sampleCount": 1
-                  },
-                  {
-                    "lowRank": "3",
-                    "highRank": "3",
-                    "label": "label_4",
-                    "sampleCount": 1
-                  }
-                ]
-              }
-            }
+              "type": "QUANTILES"
+            },
+            "totNumValues": "4"
           },
-          "driftDetectionThreshold": 0.1,
-          "statsTime": "2024-12-19T22:00:02.734796Z",
-          "featureMonitorJobId": "feature_monitor_job_id_1",
-          "featureMonitorId": "feature_monitor_name_1"
+          "unique": "4",
+          "topValues": [
+            {
+              "value": "feature_value_1",
+              "frequency": 1
+            },
+            {
+              "value": "feature_value_2",
+              "frequency": 1
+            },
+            {
+              "value": "feature_value_3",
+              "frequency": 1
+            },
+            {
+              "value": "feature_value_4",
+              "frequency": 1
+            }
+          ],
+          "avgLength": 4,
+          "rankHistogram": {
+            "buckets": [
+              {
+                "label": "label_1",
+                "sampleCount": 1
+              },
+              {
+                "lowRank": "1",
+                "highRank": "1",
+                "label": "label_2",
+                "sampleCount": 1
+              },
+              {
+                "lowRank": "2",
+                "highRank": "2",
+                "label": "label_3",
+                "sampleCount": 1
+              },
+              {
+                "lowRank": "3",
+                "highRank": "3",
+                "label": "label_4",
+                "sampleCount": 1
+              }
+            ]
+          }
         }
-      ],
-      "versionColumnName": "version_column_name"
+      },
+      "driftDetectionThreshold": 0.1,
+      "statsTime": "2024-12-19T22:00:02.734796Z",
+      "featureMonitorJobId": "feature_monitor_job_id_1",
+      "featureMonitorId": "feature_monitor_name_1"
     }
+  ],
+  "versionColumnName": "version_column_name"
+}
+```
 
 ### Python
 
@@ -736,22 +792,24 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/authentication#client-libs) .
 
-    from google.cloud import aiplatform
-    from vertexai.resources.preview import feature_store
-    
-    aiplatofrm.init(project="PROJECT_ID", location="LOCATION_ID")
-    
-    feature_group = FeatureGroup.get("FEATUREGROUP_NAME"})
-    feature_stats_and_anomalies = feature_group.get_feature("FEATURE_NAME", latest_stats_count=LATEST_STATS_COUNT)
-    print(feature_stats_and_anomalies)
+```
+from google.cloud import aiplatform
+from vertexai.resources.preview import feature_store
+
+aiplatofrm.init(project="PROJECT_ID", location="LOCATION_ID")
+
+feature_group = FeatureGroup.get("FEATUREGROUP_NAME"})
+feature_stats_and_anomalies = feature_group.get_feature("FEATURE_NAME", latest_stats_count=LATEST_STATS_COUNT)
+print(feature_stats_and_anomalies)
+```
 
 Replace the following:
 
-  - LOCATION\_ID : Region where where the feature monitoring job was run, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREGROUP\_NAME : The name of the feature group containing the `FeatureMonitor` resource.
-  - FEATURE\_NAME : The name of the feature for which you want to retrieve the feature statistics.
-  - LATEST\_STATS\_COUNT : The number of latest monitoring jobs to retrieve the feature statistics from.
+- ` LOCATION_ID ` : Region where where the feature monitoring job was run, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREGROUP_NAME ` : The name of the feature group containing the `FeatureMonitor` resource.
+- ` FEATURE_NAME ` : The name of the feature for which you want to retrieve the feature statistics.
+- ` LATEST_STATS_COUNT ` : The number of latest monitoring jobs to retrieve the feature statistics from.
 
 ## Example use case: Use feature monitoring to detect feature drift
 
@@ -759,11 +817,11 @@ You can use feature monitoring to detect an anomaly in feature data called featu
 
 For any feature included in the feature monitor, if the difference between the two snapshots exceeds the threshold specified in the [`drift_threshold`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureSelectionConfig#FeatureConfig) parameter, Vertex AI Feature Store identifies a feature drift and returns the following information in the `FeatureMonitorJob` resource:
 
-  - The `driftDetected` parameter is set to `true` .
+- The `driftDetected` parameter is set to `true` .
 
-  - The distribution deviation between the two snapshots. For numerical features, Vertex AI Feature Store calculates this value using [Jensen-Shannon divergence](https://en.wikipedia.org/wiki/Jensen-Shannon_Divergence) . For categorical features, Vertex AI Feature Store calculates this value using [L-infinity distance](https://en.wikipedia.org/wiki/Chebyshev_distance) .
+- The distribution deviation between the two snapshots. For numerical features, Vertex AI Feature Store calculates this value using [Jensen-Shannon divergence](https://en.wikipedia.org/wiki/Jensen-Shannon_Divergence) . For categorical features, Vertex AI Feature Store calculates this value using [L-infinity distance](https://en.wikipedia.org/wiki/Chebyshev_distance) .
 
-  - The threshold that was exceeded by the distribution deviation.
+- The threshold that was exceeded by the distribution deviation.
 
 The following samples show how to retrieve a `FeatureMonitorJob` resource and verify whether a drift was detected.
 
@@ -773,15 +831,17 @@ To retrieve a [`FeatureMonitorJob`](https://docs.cloud.google.com/gemini-enterpr
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region where where the feature monitoring job was run, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREGROUP\_NAME : The name of the feature group containing the `FeatureMonitor` resource.
-  - FEATURE\_MONITOR\_NAME : The name of the `FeatureMonitor` resource for which the feature monitoring job was run.
-  - FEATURE\_MONITOR\_JOB\_ID : The ID of the `FeatureMonitorJob` resource that you want to retrieve.
+- ` LOCATION_ID ` : Region where where the feature monitoring job was run, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREGROUP_NAME ` : The name of the feature group containing the `FeatureMonitor` resource.
+- ` FEATURE_MONITOR_NAME ` : The name of the `FeatureMonitor` resource for which the feature monitoring job was run.
+- ` FEATURE_MONITOR_JOB_ID ` : The ID of the `FeatureMonitorJob` resource that you want to retrieve.
 
 HTTP method and URL:
 
-    GET https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID
+```
+GET https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID
+```
 
 To send your request, choose one of these options:
 
@@ -791,9 +851,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID"
+```
 
 #### PowerShell
 
@@ -801,115 +863,119 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID",
-      "createTime": "2024-12-14T19:45:30.026522Z",
-      "finalStatus": {},
-      "jobSummary": {
-        "featureStatsAndAnomalies": [
-          {
-            "featureId": "feature_id_1",
-            "featureStats": {
-              "name": "feature_name_1",
-              "type": "STRING",
-              "stringStats": {
-                "commonStats": {
-                  "numNonMissing": "3",
-                  "minNumValues": "1",
-                  "maxNumValues": "1",
-                  "avgNumValues": 1,
-                  "numValuesHistogram": {
-                    "buckets": [
-                      {
-                        "lowValue": 1,
-                        "highValue": 1,
-                        "sampleCount": 0.9
-                      },
-                      {
-                        "lowValue": 1,
-                        "highValue": 1,
-                        "sampleCount": 0.9
-                      },
-                      {
-                        "lowValue": 1,
-                        "highValue": 1,
-                        "sampleCount": 0.9
-                      }
-                    ],
-                    "type": "QUANTILES"
-                  },
-                  "totNumValues": "3"
-                },
-                "unique": "3",
-                "topValues": [
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATUREGROUP_NAME/featureMonitors/FEATURE_MONITOR_NAME/featureMonitorJobs/FEATURE_MONITOR_JOB_ID",
+  "createTime": "2024-12-14T19:45:30.026522Z",
+  "finalStatus": {},
+  "jobSummary": {
+    "featureStatsAndAnomalies": [
+      {
+        "featureId": "feature_id_1",
+        "featureStats": {
+          "name": "feature_name_1",
+          "type": "STRING",
+          "stringStats": {
+            "commonStats": {
+              "numNonMissing": "3",
+              "minNumValues": "1",
+              "maxNumValues": "1",
+              "avgNumValues": 1,
+              "numValuesHistogram": {
+                "buckets": [
                   {
-                    "value": "sample_value_1",
-                    "frequency": 1
+                    "lowValue": 1,
+                    "highValue": 1,
+                    "sampleCount": 0.9
                   },
                   {
-                    "value": "sample_value_2",
-                    "frequency": 1
+                    "lowValue": 1,
+                    "highValue": 1,
+                    "sampleCount": 0.9
                   },
                   {
-                    "value": "sample_value_3",
-                    "frequency": 1
+                    "lowValue": 1,
+                    "highValue": 1,
+                    "sampleCount": 0.9
                   }
                 ],
-                "avgLength": 3,
-                "rankHistogram": {
-                  "buckets": [
-                    {
-                      "label": "sample_label_1",
-                      "sampleCount": 1
-                    },
-                    {
-                      "lowRank": "1",
-                      "highRank": "1",
-                      "label": "sample_label_2",
-                      "sampleCount": 1
-                    },
-                    {
-                      "lowRank": "2",
-                      "highRank": "3",
-                      "label": "sample_label_3",
-                      "sampleCount": 1
-                    }
-                  ]
-                }
-              }
+                "type": "QUANTILES"
+              },
+              "totNumValues": "3"
             },
-            "distributionDeviation": 0.1388880008888000,
-            "driftDetectionThreshold": 0.1,
-            "driftDetected": true,
-            "statsTime": "2024-12-15T19:45:37.026522Z",
-            "featureMonitorJobId": "FEATURE_MONITOR_JOB_ID",
-            "featureMonitorId": "FEATURE_MONITOR_NAME"
+            "unique": "3",
+            "topValues": [
+              {
+                "value": "sample_value_1",
+                "frequency": 1
+              },
+              {
+                "value": "sample_value_2",
+                "frequency": 1
+              },
+              {
+                "value": "sample_value_3",
+                "frequency": 1
+              }
+            ],
+            "avgLength": 3,
+            "rankHistogram": {
+              "buckets": [
+                {
+                  "label": "sample_label_1",
+                  "sampleCount": 1
+                },
+                {
+                  "lowRank": "1",
+                  "highRank": "1",
+                  "label": "sample_label_2",
+                  "sampleCount": 1
+                },
+                {
+                  "lowRank": "2",
+                  "highRank": "3",
+                  "label": "sample_label_3",
+                  "sampleCount": 1
+                }
+              ]
+            }
           }
-        ]
-      },
-      "driftBaseFeatureMonitorJobId": "2250003330000300000",
-      "driftBaseSnapshotTime": "2024-12-12T18:18:18.077161Z",
-      "description": "sample_feature_monitor_job_description",
-      "featureSelectionConfig": {
-        "featureConfigs": [
-          {
-            "featureId": "feature_name",
-            "driftThreshold": 0.1
-          }
-        ]
-      },
-      "triggerType": "FEATURE_MONITOR_JOB_TRIGGER_ON_DEMAND"
-    }
+        },
+        "distributionDeviation": 0.1388880008888000,
+        "driftDetectionThreshold": 0.1,
+        "driftDetected": true,
+        "statsTime": "2024-12-15T19:45:37.026522Z",
+        "featureMonitorJobId": "FEATURE_MONITOR_JOB_ID",
+        "featureMonitorId": "FEATURE_MONITOR_NAME"
+      }
+    ]
+  },
+  "driftBaseFeatureMonitorJobId": "2250003330000300000",
+  "driftBaseSnapshotTime": "2024-12-12T18:18:18.077161Z",
+  "description": "sample_feature_monitor_job_description",
+  "featureSelectionConfig": {
+    "featureConfigs": [
+      {
+        "featureId": "feature_name",
+        "driftThreshold": 0.1
+      }
+    ]
+  },
+  "triggerType": "FEATURE_MONITOR_JOB_TRIGGER_ON_DEMAND"
+}
+```
 
 ### Python
 
@@ -917,28 +983,30 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/authentication#client-libs) .
 
-    from google.cloud import aiplatform
-    from vertexai.resources.preview import feature_store
-    
-    aiplatofrm.init(project="PROJECT_ID", location="LOCATION_ID")
-    feature_group = FeatureGroup.get("FEATUREGROUP_NAME"})
-    feature_monitor = feature_group.get_feature_monitor("FEATURE_MONITOR_NAME")
-    feature_monitor_job = feature_monitor.get_feature_monitor_job("FEATURE_MONITOR_JOB_ID)")
-    
-    # Retrieve feature stats and anomalies
-    feature_stats_and_anomalies = feature_monitor_job.feature_stats_and_anomalies
-    print(feature_stats_and_anomalies)
-    
-    # Check whether drifts are detected
-    for feature_stats_and_anomalies in feature_monitor_job.feature_stats_and_anomalies:
-        print("feature: ", feature_stats_and_anomalies.feature_id)
-        print("distribution deviation: ", feature_stats_and_anomalies.distribution_deviation)
-        print("drift detected: ", feature_stats_and_anomalies.drift_detected)
+```
+from google.cloud import aiplatform
+from vertexai.resources.preview import feature_store
+
+aiplatofrm.init(project="PROJECT_ID", location="LOCATION_ID")
+feature_group = FeatureGroup.get("FEATUREGROUP_NAME"})
+feature_monitor = feature_group.get_feature_monitor("FEATURE_MONITOR_NAME")
+feature_monitor_job = feature_monitor.get_feature_monitor_job("FEATURE_MONITOR_JOB_ID)")
+
+# Retrieve feature stats and anomalies
+feature_stats_and_anomalies = feature_monitor_job.feature_stats_and_anomalies
+print(feature_stats_and_anomalies)
+
+# Check whether drifts are detected
+for feature_stats_and_anomalies in feature_monitor_job.feature_stats_and_anomalies:
+    print("feature: ", feature_stats_and_anomalies.feature_id)
+    print("distribution deviation: ", feature_stats_and_anomalies.distribution_deviation)
+    print("drift detected: ", feature_stats_and_anomalies.drift_detected)
+```
 
 Replace the following:
 
-  - LOCATION\_ID : Region where where the feature monitoring job was run, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREGROUP\_NAME : The name of the feature group containing the `FeatureMonitor` resource.
-  - FEATURE\_MONITOR\_NAME : The name of the `FeatureMonitor` resource for which the feature monitoring job was run.
-  - FEATURE\_MONITOR\_JOB\_ID : The ID of the `FeatureMonitorJob` resource that you want to retrieve.
+- ` LOCATION_ID ` : Region where where the feature monitoring job was run, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREGROUP_NAME ` : The name of the feature group containing the `FeatureMonitor` resource.
+- ` FEATURE_MONITOR_NAME ` : The name of the `FeatureMonitor` resource for which the feature monitoring job was run.
+- ` FEATURE_MONITOR_JOB_ID ` : The ID of the `FeatureMonitorJob` resource that you want to retrieve.

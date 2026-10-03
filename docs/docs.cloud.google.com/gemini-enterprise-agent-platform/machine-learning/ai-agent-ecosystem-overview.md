@@ -24,18 +24,18 @@ By participating in the Google Cloud AI Agent Ecosystem Program, you gain access
 
 ### Benefits
 
-  - **Accelerated Development** : Gain access to Google Cloud product and engineering teams for guidance and optimization of your AI agents. Receive early access to cutting-edge AI technologies, technical enablement resources, and dedicated support to bring your solutions to market faster through Google Cloud Marketplace.
-  - **Go-to-Market Success** : Use go-to-market programs and co-selling opportunities that are designed specifically for AI agent solutions. Effectively promote your offerings and reach a wider range of customers.
-  - **Increased Visibility** : Get featured through targeted marketing resources, blogs, and dedicated events. This promotion enhances the visibility of your AI agents and help them stand out in the growing AI ecosystem.
+- **Accelerated Development** : Gain access to Google Cloud product and engineering teams for guidance and optimization of your AI agents. Receive early access to cutting-edge AI technologies, technical enablement resources, and dedicated support to bring your solutions to market faster through Google Cloud Marketplace.
+- **Go-to-Market Success** : Use go-to-market programs and co-selling opportunities that are designed specifically for AI agent solutions. Effectively promote your offerings and reach a wider range of customers.
+- **Increased Visibility** : Get featured through targeted marketing resources, blogs, and dedicated events. This promotion enhances the visibility of your AI agents and help them stand out in the growing AI ecosystem.
 
 ### Eligibility
 
 The program focuses on select independent software vendor (ISV) and systems integrator (SI) partners, as well as larger developer and partner communities. To qualify, your AI agent must meet the following technical requirements:
 
-  - Address a specific goal, potentially using tools, reasoning, or planning capabilities.
-  - Uses a Gemini model or a third-party model from the Model Garden.
-  - Is deployed on Google Cloud.
-  - Uses or plans to migrate to Gemini Enterprise Agent Platform services beyond its Large Language Model (LLM) offerings.
+- Address a specific goal, potentially using tools, reasoning, or planning capabilities.
+- Uses a Gemini model or a third-party model from the Model Garden.
+- Is deployed on Google Cloud.
+- Uses or plans to migrate to Gemini Enterprise Agent Platform services beyond its Large Language Model (LLM) offerings.
 
 ## Apply to the program
 
@@ -43,4 +43,4 @@ Partners can apply by visiting [Google Cloud Marketplace](https://console.cloud.
 
 ## What's next
 
-  - See a list of [AI Agent Ecosystem partners](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ai-agent-ecosystem-partners) .
+- See a list of [AI Agent Ecosystem partners](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ai-agent-ecosystem-partners) .

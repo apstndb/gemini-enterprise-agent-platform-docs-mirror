@@ -20,7 +20,7 @@ Output only. The resource name of the Execution.
 
 user provided display name of the Execution. May be up to 128 Unicode characters.
 
-`state` ` enum ( State  ` )
+`state` `enum ( `[`State`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions#Execution.State)` )`
 
 The state of this Execution. This is a property of the Execution, and does not imply or capture any ongoing process. This property is managed by clients (such as Agent Platform Pipelines) and the system does not prescribe or check the validity of state transitions.
 
@@ -34,13 +34,13 @@ The labels with user-defined metadata to organize your Executions.
 
 label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. No more than 64 user labels can be associated with one Execution (System labels are excluded).
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this Execution was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this Execution was last updated.
 
@@ -58,7 +58,7 @@ The version of the schema in `schemaTitle` to use.
 
 Schema title and version is expected to be registered in earlier Create Schema calls. And both are used together as unique identifiers to identify schemas within the local metadata store.
 
-`metadata` ` object ( Struct  ` format)
+`metadata` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Properties of the Execution. top level metadata keys' heading and trailing spaces will be trimmed. The size of this field should not exceed 200KB.
 
@@ -66,86 +66,50 @@ Properties of the Execution. top level metadata keys' heading and trailing space
 
 description of the Execution
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;state&quot;: enum (State),&quot;etag&quot;: string,&quot;labels&quot;: {string: string,...},&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;schemaTitle&quot;: string,&quot;schemaVersion&quot;: string,&quot;metadata&quot;: {object},&quot;description&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "state": enum (State),
+  "etag": string,
+  "labels": {
+    string: string,
+    ...
+  },
+  "createTime": string,
+  "updateTime": string,
+  "schemaTitle": string,
+  "schemaVersion": string,
+  "metadata": {
+    object
+  },
+  "description": string
+}
+```
 
 ### State
 
 Describes the state of the Execution.
 
-Enums
+| Enums               |                                            |
+|---------------------|--------------------------------------------|
+| `STATE_UNSPECIFIED` | Unspecified Execution state                |
+| `NEW`               | The Execution is new                       |
+| `RUNNING`           | The Execution is running                   |
+| `COMPLETE`          | The Execution has finished running         |
+| `FAILED`            | The Execution has failed                   |
+| `CACHED`            | The Execution completed through Cache hit. |
+| `CANCELLED`         | The Execution was cancelled.               |
 
-`STATE_UNSPECIFIED`
-
-Unspecified Execution state
-
-`NEW`
-
-The Execution is new
-
-`RUNNING`
-
-The Execution is running
-
-`COMPLETE`
-
-The Execution has finished running
-
-`FAILED`
-
-The Execution has failed
-
-`CACHED`
-
-The Execution completed through Cache hit.
-
-`CANCELLED`
-
-The Execution was cancelled.
-
-## Methods
-
-### `            addExecutionEvents           `
-
-Adds Events to the specified Execution.
-
-### `            create           `
-
-Creates an Execution associated with a MetadataStore.
-
-### `            delete           `
-
-Deletes an Execution.
-
-### `            get           `
-
-Retrieves a specific Execution.
-
-### `            list           `
-
-Lists Executions in the MetadataStore.
-
-### `            patch           `
-
-Updates a stored Execution.
-
-### `            purge           `
-
-Purges Executions.
-
-### `            queryExecutionInputsAndOutputs           `
-
-Obtains the set of input and output Artifacts for this Execution, in the form of LineageSubgraph that also contains the Execution and connecting Events.
+| Methods                                                                                                                                                                                               |                                                                                                                                                          |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`addExecutionEvents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions/addExecutionEvents)                         | Adds Events to the specified Execution.                                                                                                                  |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions/create)                                                 | Creates an Execution associated with a MetadataStore.                                                                                                    |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions/delete)                                                 | Deletes an Execution.                                                                                                                                    |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions/get)                                                       | Retrieves a specific Execution.                                                                                                                          |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions/list)                                                     | Lists Executions in the MetadataStore.                                                                                                                   |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions/patch)                                                   | Updates a stored Execution.                                                                                                                              |
+| [`purge`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions/purge)                                                   | Purges Executions.                                                                                                                                       |
+| [`queryExecutionInputsAndOutputs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions/queryExecutionInputsAndOutputs) | Obtains the set of input and output Artifacts for this Execution, in the form of LineageSubgraph that also contains the Execution and connecting Events. |

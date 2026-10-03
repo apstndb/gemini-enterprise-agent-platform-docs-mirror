@@ -24,10 +24,10 @@ You can run training applications based on any ML framework on Google Cloud infr
 
 Key benefits of serverless training include:
 
-  - **Fully managed compute infrastructure** : Train models without provisioning or managing servers.
-  - **High performance** : Optimized training jobs that can provide faster performance.
-  - **Distributed training** : Support for multi-node distributed training to reduce time and cost.
-  - **Hyperparameter optimization** : Automatically discover optimal values for your model.
+- **Fully managed compute infrastructure** : Train models without provisioning or managing servers.
+- **High performance** : Optimized training jobs that can provide faster performance.
+- **Distributed training** : Support for multi-node distributed training to reduce time and cost.
+- **Hyperparameter optimization** : Automatically discover optimal values for your model.
 
 For more information, see [serverless training overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) .
 
@@ -41,6 +41,6 @@ For more information, see [Introduction to Model Registry](https://docs.cloud.go
 
 ## What's next
 
-  - [Create a managed dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/overview) .
-  - [Explore training options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) .
-  - [Learn about Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction) .
+- [Create a managed dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/overview) .
+- [Explore training options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) .
+- [Learn about Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction) .

@@ -46,7 +46,7 @@ If successful, the response body contains data with the following structure:
 
 Fields
 
-`cachedContents[]` ` object ( CachedContent  ` )
+`cachedContents[]` `object ( `[`CachedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.cachedContents#CachedContent)` )`
 
 List of cached contents.
 
@@ -54,18 +54,15 @@ List of cached contents.
 
 A token, which can be sent as `pageToken` to retrieve the next page. If this field is omitted, there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;cachedContents&quot;: [{object (CachedContent)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "cachedContents": [
+    {
+      object (CachedContent)
+    }
+  ],
+  "nextPageToken": string
+}
+```

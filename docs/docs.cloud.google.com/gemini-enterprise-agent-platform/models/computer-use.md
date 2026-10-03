@@ -7,31 +7,31 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This tool is a feature subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) , and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos) . This feature is an "Agentic AI Service" and all terms applicable to Agentic AI Services in the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) , as well as the [Generative AI Prohibited Use Policy](https://policies.google.com/terms/generative-ai/use-policy) , apply to use of this product. Customer agrees not to automatically bypass or circumvent any safety responses requiring end user human confirmation.
-> 
+>
 > Pre-GA products and features are available "as is" and might have limited support. The computer use tool may be prone to errors and security vulnerabilities. Actions suggested by the computer use tool may not be appropriate nor safe; in addition, if adversarial input is present, the suggested action can be malicious. Customers should closely supervise during important tasks, and not use the computer use tool for tasks involving critical decisions, sensitive data, or actions where serious errors cannot be corrected. We encourage you to review the safety best practices outlined in this document.
 
 > To see an example of Intro to Computer Use with Gemini, run the "Introduction to Computer Use with Gemini" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/computer-use/intro_computer_use.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fcomputer-use%2Fintro_computer_use.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fcomputer-use%2Fintro_computer_use.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/computer-use/intro_computer_use.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/computer-use/intro_computer_use.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fcomputer-use%2Fintro_computer_use.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fcomputer-use%2Fintro_computer_use.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/computer-use/intro_computer_use.ipynb)
 
 Gemini's computer use tool lets you enable your applications to interact with and automate tasks in the browser. When computer use is enabled, the model uses screenshots to obtain information about the computer screen, and perform actions by generating specific UI actions like mouse clicks and keyboard inputs.
 
 You can utilize computer use to build agents that can:
 
-  - Automate repetitive data entry or form filling on websites.
-  - Navigate websites to gather information.
-  - Assist users by performing sequences of actions in web applications.
+- Automate repetitive data entry or form filling on websites.
+- Navigate websites to gather information.
+- Assist users by performing sequences of actions in web applications.
 
 This guide covers:
 
-  - [How computer use works](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#how-it-works)
-  - [How to enable computer use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#enable-computer-use)
-  - How to [send requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#send-requests) , [receive responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#receive-responses) , and [build agent loops](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#build-an-agent-loop)
-  - [What computer actions are supported](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#supported-actions)
-  - [Safety and security support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#safety-and-security)
-  - [Preview pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#pricing)
+- [How computer use works](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#how-it-works)
+- [How to enable computer use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#enable-computer-use)
+- How to [send requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#send-requests) , [receive responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#receive-responses) , and [build agent loops](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#build-an-agent-loop)
+- [What computer actions are supported](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#supported-actions)
+- [Safety and security support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#safety-and-security)
+- [Preview pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#pricing)
 
 Similar to [function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling) , you need to write the client-side application code to receive the computer use function call and execute the corresponding actions.
 
@@ -45,12 +45,12 @@ Computer use is supported in the following models:
 
 #### Click to expand supported models
 
-  - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
-  - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
-  - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
-  - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
-  - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
-  - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
+- [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
+- [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
+- [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
+- [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
+- [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+- [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
 
 ## How computer use works
 
@@ -59,27 +59,27 @@ Instead of generating text responses, computer use determines when to take speci
 Computer use interactions follow an agentic loop process:
 
 1.  **Send a request to the model**
-    
-      - Add computer use (and optionally any additional tools) to your API request.
-      - Send a prompt to the model with the user's request and a screenshot representing the current state of the GUI.
+
+    - Add computer use (and optionally any additional tools) to your API request.
+    - Send a prompt to the model with the user's request and a screenshot representing the current state of the GUI.
 
 2.  **Receive the model response**
-    
-      - The model analyzes the user request and screenshot, and generates a response which includes a suggested `function_call` representing a UI action (for example, "click at coordinate (x,y)" or "type 'text'"). See [Supported actions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#supported-actions) for the list of all actions you can use with the model.
-      - The API response may also include a `safety_response` from an internal safety system that has checked the model's proposed action. This `safety_response` classifies the action as:
-          - **Regular or allowed:** The action is considered safe. This may also be represented by no `safety_response` being present.
-          - **Requires confirmation:** The model is about to perform an action that may be risky (for example, clicking on an "accept cookie banner").
+
+    - The model analyzes the user request and screenshot, and generates a response which includes a suggested `function_call` representing a UI action (for example, "click at coordinate (x,y)" or "type 'text'"). See [Supported actions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#supported-actions) for the list of all actions you can use with the model.
+    - The API response may also include a `safety_response` from an internal safety system that has checked the model's proposed action. This `safety_response` classifies the action as:
+      - **Regular or allowed:** The action is considered safe. This may also be represented by no `safety_response` being present.
+      - **Requires confirmation:** The model is about to perform an action that may be risky (for example, clicking on an "accept cookie banner").
 
 3.  **Execute the received action**
-    
-      - Your client-side code receives the `function_call` and any accompanying `safety_response` .
-      - If the `safety_response` indicates regular or allowed (or if no `safety_response` is present), your client-side code can execute the specified `function_call` in your target environment (such as a web browser).
-      - If the `safety_response` indicates required confirmation, your application must prompt the end-user for confirmation before executing the `function_call` . If the user confirms, proceed to execute the action. If the user denies, don't execute the action.
+
+    - Your client-side code receives the `function_call` and any accompanying `safety_response` .
+    - If the `safety_response` indicates regular or allowed (or if no `safety_response` is present), your client-side code can execute the specified `function_call` in your target environment (such as a web browser).
+    - If the `safety_response` indicates required confirmation, your application must prompt the end-user for confirmation before executing the `function_call` . If the user confirms, proceed to execute the action. If the user denies, don't execute the action.
 
 4.  **Capture the new environment state**
-    
-      - If the action has been executed, your client captures a new screenshot of the GUI and the current URL to send back to the model as part of a `function_response` .
-      - If an action was blocked by the safety system or denied confirmation by the user, your application might send a different form of feedback to the model or end the interaction.
+
+    - If the action has been executed, your client captures a new screenshot of the GUI and the current URL to send back to the model as part of a `function_response` .
+    - If an action was blocked by the safety system or denied confirmation by the user, your application might send a different form of feedback to the model or end the interaction.
 
 A new request is sent to the model with the updated state. The process repeats from step 2, with the model using the new screenshot (if provided) and the ongoing goal to suggest the next action. The loop continues until the task is completed, an error occurs, or the process is terminated (for example, if a response is blocked by safety filters or user decision).
 
@@ -93,7 +93,7 @@ To enable computer use, make sure your application is using one of the [supporte
 
 ### Python
 
-``` 
+```
 from google import genai
 from google.genai import types
 from google.genai.types import Content, Part, FunctionResponse
@@ -126,7 +126,6 @@ response = client.models.generate_content(
     contents=contents,
     config=generate_content_config,
   )
-      
 ```
 
 ## Send a request
@@ -135,14 +134,14 @@ After configuring the computer use tool, send a prompt to the model that include
 
 You can also optionally add the following:
 
-  - **Excluded actions:** If there are any actions from the list of [supported UI actions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#supported-actions) that you don't want the model to take, specify these actions in the `excluded_predefined_functions` .
-  - **User-defined functions:** You may want to include custom user-defined functions in addition to computer use.
+- **Excluded actions:** If there are any actions from the list of [supported UI actions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#supported-actions) that you don't want the model to take, specify these actions in the `excluded_predefined_functions` .
+- **User-defined functions:** You may want to include custom user-defined functions in addition to computer use.
 
 The following sample code enables the computer use and sends the request to the model:
 
 ### Python
 
-``` 
+```
 from google import genai
 from google.genai import types
 from google.genai.types import Content, Part
@@ -194,7 +193,6 @@ response = client.models.generate_content(
 
 # Print the response output
 print(response.text)
-      
 ```
 
 You can also include custom user-defined functions to extend the functionality of the model. See [Use computer use for mobile use cases](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#mobile) for information on how you can configure computer use for mobile use cases by adding actions such as `open_app` , `long_press_at` , and `go_home` while excluding browser-specific actions.
@@ -205,51 +203,55 @@ You can also include custom user-defined functions to extend the functionality o
 
 The model responds with one or more `FunctionCalls` if it determines UI actions or user-defined functions are needed to complete the task. Your application code needs to parse these actions, execute them, and collect the results. Computer use supports parallel function calling, meaning the model can return multiple independent actions in a single turn.
 
-    {
-      "content": {
-        "parts": [
-          {
-            "text": "I will type the search query into the search bar. The search bar is in the center of the page."
-          },
-          {
-            "function_call": {
-              "name": "type_text_at",
-              "args": {
-                "x": 371,
-                "y": 470,
-                "text": "highly rated smart fridges with touchscreen, 2 doors, around 25 cu ft, priced below 4000 dollars on Google Shopping",
-                "press_enter": true
-              }
-            }
+```
+{
+  "content": {
+    "parts": [
+      {
+        "text": "I will type the search query into the search bar. The search bar is in the center of the page."
+      },
+      {
+        "function_call": {
+          "name": "type_text_at",
+          "args": {
+            "x": 371,
+            "y": 470,
+            "text": "highly rated smart fridges with touchscreen, 2 doors, around 25 cu ft, priced below 4000 dollars on Google Shopping",
+            "press_enter": true
           }
-        ]
+        }
       }
-    }
+    ]
+  }
+}
+```
 
 Depending on the action, the API response might also return a `safety_response` :
 
-    {
-      "content": {
-        "parts": [
-          {
-            "text": "I have evaluated step 2. It seems Google detected unusual traffic and is asking me to verify I'm not a robot. I need to click the 'I'm not a robot' checkbox located near the top left (y=98, x=95)."
-          },
-          {
-            "function_call": {
-              "name": "click_at",
-              "args": {
-                "x": 60,
-                "y": 100,
-                "safety_decision": {
-                  "explanation": "I have encountered a CAPTCHA challenge that requires interaction. I need you to complete the challenge by clicking the 'I'm not a robot' checkbox and any subsequent verification steps.",
-                  "decision": "require_confirmation"
-                }
-              }
+```
+{
+  "content": {
+    "parts": [
+      {
+        "text": "I have evaluated step 2. It seems Google detected unusual traffic and is asking me to verify I'm not a robot. I need to click the 'I'm not a robot' checkbox located near the top left (y=98, x=95)."
+      },
+      {
+        "function_call": {
+          "name": "click_at",
+          "args": {
+            "x": 60,
+            "y": 100,
+            "safety_decision": {
+              "explanation": "I have encountered a CAPTCHA challenge that requires interaction. I need you to complete the challenge by clicking the 'I'm not a robot' checkbox and any subsequent verification steps.",
+              "decision": "require_confirmation"
             }
           }
-        ]
+        }
       }
-    }
+    ]
+  }
+}
+```
 
 ## Execute received actions
 
@@ -257,176 +259,182 @@ After you receive a response, the model needs to execute the received actions.
 
 The following code extracts function calls from a Gemini response, converts coordinates from 0-1000 range to actual pixels, executes browser actions using [Playwright](https://playwright.dev/) , and returns the success or failure status for each action:
 
-    import time
-    from typing import Any, List, Tuple
-    
-    
-    def normalize_x(x: int, screen_width: int) -> int:
-        """Convert normalized x coordinate (0-1000) to actual pixel coordinate."""
-        return int(x / 1000 * screen_width)
-    
-    
-    def normalize_y(y: int, screen_height: int) -> int:
-        """Convert normalized y coordinate (0-1000) to actual pixel coordinate."""
-        return int(y / 1000 * screen_height)
-    
-    
-    def execute_function_calls(response, page, screen_width: int, screen_height: int) -> List[Tuple[str, Any]]:
-        """
-        Extract and execute function calls from Gemini response.
-    
-        Args:
-            response: Gemini API response object
-            page: Playwright page object
-            screen_width: Screen width in pixels
-            screen_height: Screen height in pixels
-    
-        Returns:
-            List of tuples: [(function_name, result), ...]
-        """
-        # Extract function calls and thoughts from the model's response
-        candidate = response.candidates[0]
-        function_calls = []
-        thoughts = []
-    
-        for part in candidate.content.parts:
-            if hasattr(part, 'function_call') and part.function_call:
-                function_calls.append(part.function_call)
-            elif hasattr(part, 'text') and part.text:
-                thoughts.append(part.text)
-    
-        if thoughts:
-            print(f"Model Reasoning: {' '.join(thoughts)}")
-    
-        # Execute each function call
-        results = []
-        for function_call in function_calls:
-            result = None
-    
-            try:
-                if function_call.name == "open_web_browser":
-                    print("Executing open_web_browser")
-                    # Browser is already open via Playwright, so this is a no-op
-                    result = "success"
-    
-                elif function_call.name == "click_at":
-                    actual_x = normalize_x(function_call.args["x"], screen_width)
-                    actual_y = normalize_y(function_call.args["y"], screen_height)
-    
-                    print(f"Executing click_at: ({actual_x}, {actual_y})")
-                    page.mouse.click(actual_x, actual_y)
-                    result = "success"
-    
-                elif function_call.name == "type_text_at":
-                    actual_x = normalize_x(function_call.args["x"], screen_width)
-                    actual_y = normalize_y(function_call.args["y"], screen_height)
-                    text = function_call.args["text"]
-                    press_enter = function_call.args.get("press_enter", False)
-                    clear_before_typing = function_call.args.get("clear_before_typing", True)
-    
-                    print(f"Executing type_text_at: ({actual_x}, {actual_y}) text='{text}'")
-    
-                    # Click at the specified location
-                    page.mouse.click(actual_x, actual_y)
-                    time.sleep(0.1)
-    
-                    # Clear existing text if requested
-                    if clear_before_typing:
-                        page.keyboard.press("Control+A")
-                        page.keyboard.press("Backspace")
-    
-                    # Type the text
-                    page.keyboard.type(text)
-    
-                    # Press enter if requested
-                    if press_enter:
-                        page.keyboard.press("Enter")
-    
-                    result = "success"
-    
-                else:
-                    # For any functions not parsed above
-                    print(f"Unrecognized function: {function_call.name}")
-                    result = "unknown_function"
-    
-            except Exception as e:
-                print(f"Error executing {function_call.name}: {e}")
-                result = f"error: {str(e)}"
-    
-            results.append((function_call.name, result))
-    
-        return results
+```
+import time
+from typing import Any, List, Tuple
+
+
+def normalize_x(x: int, screen_width: int) -> int:
+    """Convert normalized x coordinate (0-1000) to actual pixel coordinate."""
+    return int(x / 1000 * screen_width)
+
+
+def normalize_y(y: int, screen_height: int) -> int:
+    """Convert normalized y coordinate (0-1000) to actual pixel coordinate."""
+    return int(y / 1000 * screen_height)
+
+
+def execute_function_calls(response, page, screen_width: int, screen_height: int) -> List[Tuple[str, Any]]:
+    """
+    Extract and execute function calls from Gemini response.
+
+    Args:
+        response: Gemini API response object
+        page: Playwright page object
+        screen_width: Screen width in pixels
+        screen_height: Screen height in pixels
+
+    Returns:
+        List of tuples: [(function_name, result), ...]
+    """
+    # Extract function calls and thoughts from the model's response
+    candidate = response.candidates[0]
+    function_calls = []
+    thoughts = []
+
+    for part in candidate.content.parts:
+        if hasattr(part, 'function_call') and part.function_call:
+            function_calls.append(part.function_call)
+        elif hasattr(part, 'text') and part.text:
+            thoughts.append(part.text)
+
+    if thoughts:
+        print(f"Model Reasoning: {' '.join(thoughts)}")
+
+    # Execute each function call
+    results = []
+    for function_call in function_calls:
+        result = None
+
+        try:
+            if function_call.name == "open_web_browser":
+                print("Executing open_web_browser")
+                # Browser is already open via Playwright, so this is a no-op
+                result = "success"
+
+            elif function_call.name == "click_at":
+                actual_x = normalize_x(function_call.args["x"], screen_width)
+                actual_y = normalize_y(function_call.args["y"], screen_height)
+
+                print(f"Executing click_at: ({actual_x}, {actual_y})")
+                page.mouse.click(actual_x, actual_y)
+                result = "success"
+
+            elif function_call.name == "type_text_at":
+                actual_x = normalize_x(function_call.args["x"], screen_width)
+                actual_y = normalize_y(function_call.args["y"], screen_height)
+                text = function_call.args["text"]
+                press_enter = function_call.args.get("press_enter", False)
+                clear_before_typing = function_call.args.get("clear_before_typing", True)
+
+                print(f"Executing type_text_at: ({actual_x}, {actual_y}) text='{text}'")
+
+                # Click at the specified location
+                page.mouse.click(actual_x, actual_y)
+                time.sleep(0.1)
+
+                # Clear existing text if requested
+                if clear_before_typing:
+                    page.keyboard.press("Control+A")
+                    page.keyboard.press("Backspace")
+
+                # Type the text
+                page.keyboard.type(text)
+
+                # Press enter if requested
+                if press_enter:
+                    page.keyboard.press("Enter")
+
+                result = "success"
+
+            else:
+                # For any functions not parsed above
+                print(f"Unrecognized function: {function_call.name}")
+                result = "unknown_function"
+
+        except Exception as e:
+            print(f"Error executing {function_call.name}: {e}")
+            result = f"error: {str(e)}"
+
+        results.append((function_call.name, result))
+
+    return results
+```
 
 If the returned `safety_decision` is `require_confirmation` , you must ask the user to confirm before proceeding with executing the action. Per the terms of service, you are not permitted to bypass requests for human confirmation.
 
 The following adds safety logic to the previous code:
 
-    import termcolor
-    
-    
-    def get_safety_confirmation(safety_decision):
-        """Prompt user for confirmation when safety check is triggered."""
-        termcolor.cprint("Safety service requires explicit confirmation!", color="red")
-        print(safety_decision["explanation"])
-    
-        decision = ""
-        while decision.lower() not in ("y", "n", "ye", "yes", "no"):
-            decision = input("Do you wish to proceed? [Y]es/[N]o\n")
-    
-        if decision.lower() in ("n", "no"):
-            return "TERMINATE"
-        return "CONTINUE"
-    
-    
-    def execute_function_calls(response, page, screen_width: int, screen_height: int):
-        # ... Extract function calls from response ...
-    
-        for function_call in function_calls:
-            extra_fr_fields = {}
-    
-            # Check for safety decision
-            if 'safety_decision' in function_call.args:
-                decision = get_safety_confirmation(function_call.args['safety_decision'])
-                if decision == "TERMINATE":
-                    print("Terminating agent loop")
-                    break
-                extra_fr_fields["safety_acknowledgement"] = "true"
-    
-            # ... Execute function call and append to results ...
+```
+import termcolor
+
+
+def get_safety_confirmation(safety_decision):
+    """Prompt user for confirmation when safety check is triggered."""
+    termcolor.cprint("Safety service requires explicit confirmation!", color="red")
+    print(safety_decision["explanation"])
+
+    decision = ""
+    while decision.lower() not in ("y", "n", "ye", "yes", "no"):
+        decision = input("Do you wish to proceed? [Y]es/[N]o\n")
+
+    if decision.lower() in ("n", "no"):
+        return "TERMINATE"
+    return "CONTINUE"
+
+
+def execute_function_calls(response, page, screen_width: int, screen_height: int):
+    # ... Extract function calls from response ...
+
+    for function_call in function_calls:
+        extra_fr_fields = {}
+
+        # Check for safety decision
+        if 'safety_decision' in function_call.args:
+            decision = get_safety_confirmation(function_call.args['safety_decision'])
+            if decision == "TERMINATE":
+                print("Terminating agent loop")
+                break
+            extra_fr_fields["safety_acknowledgement"] = "true"
+
+        # ... Execute function call and append to results ...
+```
 
 ## Capture the new state
 
 After executing the actions, send the result of the function execution back to the model so it can use this information to generate the next action. If multiple actions (parallel calls) were executed, you must send a `FunctionResponse` for each one in the subsequent user turn. For user-defined functions, the `FunctionResponse` should contain the return value of the executed function.
 
-    function_response_parts = []
-    
-    for name, result in results:
-        # Take screenshot after each action
-        screenshot = page.screenshot()
-        current_url = page.url
-    
-        function_response_parts.append(
-            FunctionResponse(
-                name=name,
-                response={"url": current_url},  # Include safety acknowledgement
-                parts=[
-                    types.FunctionResponsePart(
-                        inline_data=types.FunctionResponseBlob(
-                           mime_type="image/png", data=screenshot
-                        )
+```
+function_response_parts = []
+
+for name, result in results:
+    # Take screenshot after each action
+    screenshot = page.screenshot()
+    current_url = page.url
+
+    function_response_parts.append(
+        FunctionResponse(
+            name=name,
+            response={"url": current_url},  # Include safety acknowledgement
+            parts=[
+                types.FunctionResponsePart(
+                    inline_data=types.FunctionResponseBlob(
+                       mime_type="image/png", data=screenshot
                     )
-                ]
-            )
+                )
+            ]
         )
-    
-    # Create the user feedback content with all responses
-    user_feedback_content = Content(
-        role="user",
-        parts=function_response_parts
     )
-    
-    # Append this feedback to the 'contents' history list for the next API call
-    contents.append(user_feedback_content)
+
+# Create the user feedback content with all responses
+user_feedback_content = Content(
+    role="user",
+    parts=function_response_parts
+)
+
+# Append this feedback to the 'contents' history list for the next API call
+contents.append(user_feedback_content)
+```
 
 ## Build an agent loop
 
@@ -434,7 +442,7 @@ Combine the previous steps into a loop to enable multi-step interactions. The lo
 
 ### Python
 
-``` 
+```
 from google import genai
 from google.genai.types import Content, Part
 from playwright.sync_api import sync_playwright
@@ -492,7 +500,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-      
 ```
 
 ## Gemini 3.5 Flash or later and mobile or desktop use cases
@@ -505,34 +512,38 @@ The following examples demonstrate how to configure the execution environment fo
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your project ID.
+- ` PROJECT_ID ` : Your project ID.
 
 HTTP method and URL:
 
-    POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent
+```
+POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent
+```
 
 Request JSON body:
 
+```
+{
+  "contents": [
     {
-      "contents": [
-        {
-          "role": "user",
-          "parts": {
-            "text": "find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th. start by navigating directly to flights.google.com"
-          }
-        }
-      ],
-      "generation_config": {
-        "candidateCount": 1
-      },
-      "tools": [
-        {
-          "computer_use": {
-            "environment": "ENVIRONMENT_BROWSER"
-          }
-        }
-      ]
+      "role": "user",
+      "parts": {
+        "text": "find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th. start by navigating directly to flights.google.com"
+      }
     }
+  ],
+  "generation_config": {
+    "candidateCount": 1
+  },
+  "tools": [
+    {
+      "computer_use": {
+        "environment": "ENVIRONMENT_BROWSER"
+      }
+    }
+  ]
+}
+```
 
 To send your request, expand one of these options:
 
@@ -540,24 +551,28 @@ To send your request, expand one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer TOKEN" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent"
+```
+curl -X POST \
+     -H "Authorization: Bearer TOKEN" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent"
+```
 
 #### PowerShell (Windows)
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $headers = @{ "Authorization" = "Bearer TOKEN" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
+```
+$headers = @{ "Authorization" = "Bearer TOKEN" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx) and an empty response.
 
@@ -565,45 +580,47 @@ You should receive a successful status code (2xx) and an empty response.
 
 The following example requires [python-genai](https://googleapis.github.io/python-genai/) version 2.7.0 or later.
 
-    from google import genai
-    from google.genai.types import (
-        Part,
-        GenerateContentConfig,
-        Content,
-        Tool,
-        ComputerUse,
-        Environment,
-        ThinkingConfig,
-    )
-    client = genai.Client()
-    
-    response = client.models.generate_content(
-        model="gemini-3.6-flash",
-        contents=[
-            Content(
-                role="user",
-                parts=[
-                    Part(text="find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th"),
-                ],
-            )
-        ],
-        config=GenerateContentConfig(
-            temperature=1,
-            top_p=0.95,
-            top_k=40,
-            max_output_tokens=8192,
-            tools=[
-                Tool(
-                    computer_use=ComputerUse(
-                        environment=Environment.ENVIRONMENT_MOBILE
-                    ),
-                ),
+```
+from google import genai
+from google.genai.types import (
+    Part,
+    GenerateContentConfig,
+    Content,
+    Tool,
+    ComputerUse,
+    Environment,
+    ThinkingConfig,
+)
+client = genai.Client()
+
+response = client.models.generate_content(
+    model="gemini-3.6-flash",
+    contents=[
+        Content(
+            role="user",
+            parts=[
+                Part(text="find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th"),
             ],
-            thinking_config=ThinkingConfig(
-                include_thoughts=True
-            ),
         )
+    ],
+    config=GenerateContentConfig(
+        temperature=1,
+        top_p=0.95,
+        top_k=40,
+        max_output_tokens=8192,
+        tools=[
+            Tool(
+                computer_use=ComputerUse(
+                    environment=Environment.ENVIRONMENT_MOBILE
+                ),
+            ),
+        ],
+        thinking_config=ThinkingConfig(
+            include_thoughts=True
+        ),
     )
+)
+```
 
 ## Gemini 3 Flash and mobile use
 
@@ -611,115 +628,117 @@ The following example for Gemini 3 Flash demonstrates how to define custom funct
 
 > **Caution:** The following example is deprecated and supported only when using Gemini 3 Flash.
 
-    from typing import Optional, Dict, Any
-    
-    from google import genai
-    from google.genai import types
-    from google.genai.types import Content, Part
-    
-    
-    client = genai.Client()
-    
-    def open_app(app_name: str, intent: Optional[str] = None) -> Dict[str, Any]:
-        """Opens an app by name.
-    
-        Args:
-            app_name: Name of the app to open (any string).
-            intent: Optional deep-link or action to pass when launching, if the app supports it.
-    
-        Returns:
-            JSON payload acknowledging the request (app name and optional intent).
-        """
-        return {"status": "requested_open", "app_name": app_name, "intent": intent}
-    
-    
-    def long_press_at(x: int, y: int, duration_ms: int = 500) -> Dict[str, int]:
-        """Long-press at a specific screen coordinate.
-    
-        Args:
-            x: X coordinate (absolute), scaled to the device screen width (pixels).
-            y: Y coordinate (absolute), scaled to the device screen height (pixels).
-            duration_ms: Press duration in milliseconds. Defaults to 500.
-    
-        Returns:
-            Object with the coordinates pressed and the duration used.
-        """
-        return {"x": x, "y": y, "duration_ms": duration_ms}
-    
-    
-    def go_home() -> Dict[str, str]:
-        """Navigates to the device home screen.
-    
-        Returns:
-            A small acknowledgment payload.
-        """
-        return {"status": "home_requested"}
-    
-    
-    #  Build function declarations
-    CUSTOM_FUNCTION_DECLARATIONS = [
-        types.FunctionDeclaration.from_callable(client=client, callable=open_app),
-        types.FunctionDeclaration.from_callable(client=client, callable=long_press_at),
-        types.FunctionDeclaration.from_callable(client=client, callable=go_home),
-    ]
-    
-    # Exclude browser functions
-    
-    EXCLUDED_PREDEFINED_FUNCTIONS = [
-        "open_web_browser",
-        "search",
-        "navigate",
-        "hover_at",
-        "scroll_document",
-        "go_forward",
-        "key_combination",
-        "drag_and_drop",
-    ]
-    
-    # Utility function to construct a GenerateContentConfig
-    
-    def make_generate_content_config() -> genai.types.GenerateContentConfig:
-        """Return a fixed GenerateContentConfig with Computer Use + custom functions."""
-        return genai.types.GenerateContentConfig(
-            tools=[
-                types.Tool(
-                    computer_use=types.ComputerUse(
-                        environment=types.Environment.ENVIRONMENT_BROWSER,
-                        excluded_predefined_functions=EXCLUDED_PREDEFINED_FUNCTIONS,
-                    )
-                ),
-                types.Tool(function_declarations=CUSTOM_FUNCTION_DECLARATIONS),
-            ]
-        )
-    
-    
-    # Create the content with user message
-    contents: list[Content] = [
-        Content(
-            role="user",
-            parts=[
-                # text instruction
-                Part(text="Open Chrome, then long-press at 200,400."),
-                # optional screenshot attachment
-                Part.from_bytes(
-                    data=screenshot_image_bytes,
-                    mime_type="image/png",
-                ),
-            ],
-        )
-    ]
-    
-    # Build your fixed config (from helper)
-    config = make_generate_content_config()
-    
-    # Generate content with the configured settings
-    response = client.models.generate_content(
-            model="gemini-3-flash-preview",
-            contents=contents,
-            config=generate_content_config,
-        )
-    
-        print(response)
+```
+from typing import Optional, Dict, Any
+
+from google import genai
+from google.genai import types
+from google.genai.types import Content, Part
+
+
+client = genai.Client()
+
+def open_app(app_name: str, intent: Optional[str] = None) -> Dict[str, Any]:
+    """Opens an app by name.
+
+    Args:
+        app_name: Name of the app to open (any string).
+        intent: Optional deep-link or action to pass when launching, if the app supports it.
+
+    Returns:
+        JSON payload acknowledging the request (app name and optional intent).
+    """
+    return {"status": "requested_open", "app_name": app_name, "intent": intent}
+
+
+def long_press_at(x: int, y: int, duration_ms: int = 500) -> Dict[str, int]:
+    """Long-press at a specific screen coordinate.
+
+    Args:
+        x: X coordinate (absolute), scaled to the device screen width (pixels).
+        y: Y coordinate (absolute), scaled to the device screen height (pixels).
+        duration_ms: Press duration in milliseconds. Defaults to 500.
+
+    Returns:
+        Object with the coordinates pressed and the duration used.
+    """
+    return {"x": x, "y": y, "duration_ms": duration_ms}
+
+
+def go_home() -> Dict[str, str]:
+    """Navigates to the device home screen.
+
+    Returns:
+        A small acknowledgment payload.
+    """
+    return {"status": "home_requested"}
+
+
+#  Build function declarations
+CUSTOM_FUNCTION_DECLARATIONS = [
+    types.FunctionDeclaration.from_callable(client=client, callable=open_app),
+    types.FunctionDeclaration.from_callable(client=client, callable=long_press_at),
+    types.FunctionDeclaration.from_callable(client=client, callable=go_home),
+]
+
+# Exclude browser functions
+
+EXCLUDED_PREDEFINED_FUNCTIONS = [
+    "open_web_browser",
+    "search",
+    "navigate",
+    "hover_at",
+    "scroll_document",
+    "go_forward",
+    "key_combination",
+    "drag_and_drop",
+]
+
+# Utility function to construct a GenerateContentConfig
+
+def make_generate_content_config() -> genai.types.GenerateContentConfig:
+    """Return a fixed GenerateContentConfig with Computer Use + custom functions."""
+    return genai.types.GenerateContentConfig(
+        tools=[
+            types.Tool(
+                computer_use=types.ComputerUse(
+                    environment=types.Environment.ENVIRONMENT_BROWSER,
+                    excluded_predefined_functions=EXCLUDED_PREDEFINED_FUNCTIONS,
+                )
+            ),
+            types.Tool(function_declarations=CUSTOM_FUNCTION_DECLARATIONS),
+        ]
+    )
+
+
+# Create the content with user message
+contents: list[Content] = [
+    Content(
+        role="user",
+        parts=[
+            # text instruction
+            Part(text="Open Chrome, then long-press at 200,400."),
+            # optional screenshot attachment
+            Part.from_bytes(
+                data=screenshot_image_bytes,
+                mime_type="image/png",
+            ),
+        ],
+    )
+]
+
+# Build your fixed config (from helper)
+config = make_generate_content_config()
+
+# Generate content with the configured settings
+response = client.models.generate_content(
+        model="gemini-3-flash-preview",
+        contents=contents,
+        config=generate_content_config,
+    )
+
+    print(response)
+```
 
 ## Supported actions
 
@@ -731,238 +750,58 @@ Gemini 3.5 Flash: You have access to different sets of function calls depending 
 
 ### Mobile environment
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Command name</th>
-<th>Description</th>
-<th>Arguments (in Function Call)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code dir="ltr" translate="no">open_app</code></td>
-<td>Opens an application by its name.</td>
-<td><code dir="ltr" translate="no">intent:</code> str</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">click</code></td>
-<td>Left clicks at the coordinate.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">list_apps</code></td>
-<td>Lists available applications on the device, returning their names and package names.</td>
-<td><code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">wait</code></td>
-<td>Waits for the specified number of seconds.</td>
-<td><code dir="ltr" translate="no">intent</code> : str<br />
-<code dir="ltr" translate="no">seconds</code> : int(Optional, default 1)</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">go_back</code></td>
-<td>Navigates back to the previous webpage in the browser history.</td>
-<td><code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">type</code></td>
-<td>Types text.</td>
-<td><code dir="ltr" translate="no">text</code> : str<br />
-<code dir="ltr" translate="no">intent</code> : str<br />
-<code dir="ltr" translate="no">press_enter</code> : bool(Optional, default false)</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">drag_and_drop</code></td>
-<td>Drags item from start_y and start_x to end_y and end_x</td>
-<td><code dir="ltr" translate="no">start_y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">start_x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">end_y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">end_x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">long_press</code></td>
-<td>Performs a long press at a specific y (0-999), x (0-999) coordinate on the screen.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str<br />
-<code dir="ltr" translate="no">seconds</code> : int (Optional, default 2)</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">press_key</code></td>
-<td>Presses the specified key and release it.</td>
-<td><code dir="ltr" translate="no">key</code> : str<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">take_screenshot</code></td>
-<td>Returns a screenshot of the current screen.</td>
-<td><code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-</tbody>
-</table>
+| Command name      | Description                                                                          | Arguments (in Function Call)                                                                               |
+|-------------------|--------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| `open_app`        | Opens an application by its name.                                                    | `intent:` str                                                                                              |
+| `click`           | Left clicks at the coordinate.                                                       | `y` : int (0-999) `x` : int (0-999) `intent` : str                                                         |
+| `list_apps`       | Lists available applications on the device, returning their names and package names. | `intent` : str                                                                                             |
+| `wait`            | Waits for the specified number of seconds.                                           | `intent` : str `seconds` : int(Optional, default 1)                                                        |
+| `go_back`         | Navigates back to the previous webpage in the browser history.                       | `intent` : str                                                                                             |
+| `type`            | Types text.                                                                          | `text` : str `intent` : str `press_enter` : bool(Optional, default false)                                  |
+| `drag_and_drop`   | Drags item from start_y and start_x to end_y and end_x                               | `start_y` : int (0-999) `start_x` : int (0-999) `end_y` : int (0-999) `end_x` : int (0-999) `intent` : str |
+| `long_press`      | Performs a long press at a specific y (0-999), x (0-999) coordinate on the screen.   | `y` : int (0-999) `x` : int (0-999) `intent` : str `seconds` : int (Optional, default 2)                   |
+| `press_key`       | Presses the specified key and release it.                                            | `key` : str `intent` : str                                                                                 |
+| `take_screenshot` | Returns a screenshot of the current screen.                                          | `intent` : str                                                                                             |
 
 ### Desktop environment
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Command name</th>
-<th>Description</th>
-<th>Arguments (in Function Call)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code dir="ltr" translate="no">click</code></td>
-<td>Left clicks at the coordinate.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">double_click</code></td>
-<td>Double clicks at the coordinate.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">triple_click</code></td>
-<td>Triple clicks at the coordinate.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">middle_click</code></td>
-<td>Middle clicks at the coordinate.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">right_click</code></td>
-<td>Right clicks at the coordinate.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">mouse_down</code></td>
-<td>Presses and holds the mouse button at the coordinate.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">mouse_up</code></td>
-<td>Releases the mouse button at the coordinate.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">move</code></td>
-<td>Move the cursor to the specified position.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">type</code></td>
-<td>Types text.</td>
-<td><code dir="ltr" translate="no">text</code> : str<br />
-<code dir="ltr" translate="no">intent</code> : str<br />
-<code dir="ltr" translate="no">press_enter</code> : bool(Optional, default false)</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">drag_and_drop</code></td>
-<td>Drags item from start_y and start_x to end_y and end_x.</td>
-<td><code dir="ltr" translate="no">start_y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">start_x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">end_y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">end_x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">wait</code></td>
-<td>Wait for the specified number of seconds.</td>
-<td><code dir="ltr" translate="no">intent</code> : str<br />
-<code dir="ltr" translate="no">seconds</code> : int(Optional, default 1)</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">press_key</code></td>
-<td>Presses the specified key and releases it.</td>
-<td><code dir="ltr" translate="no">key</code> : str<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">key_down</code></td>
-<td>Presses and holds the specified key.</td>
-<td><code dir="ltr" translate="no">key</code> : str<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">key_up</code></td>
-<td>Releases the specified key.</td>
-<td><code dir="ltr" translate="no">key</code> : str<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">hotkey</code></td>
-<td>Presses the specified key combination.</td>
-<td><code dir="ltr" translate="no">keys</code> : List[str]<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">take_screenshot</code></td>
-<td>Returns a screenshot of the current screen.</td>
-<td><code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">scroll</code></td>
-<td>Scrolls up, down, left, or right at a coordinate by a pixel distance.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">direction</code> : str ("up", "down", "left", "right")<br />
-<code dir="ltr" translate="no">intent</code> : str<br />
-<code dir="ltr" translate="no">magnitude_in_pixels</code> : int (0-999, Optional, default 300)</td>
-</tr>
-</tbody>
-</table>
+| Command name      | Description                                                           | Arguments (in Function Call)                                                                                                                                    |
+|-------------------|-----------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `click`           | Left clicks at the coordinate.                                        | `y` : int (0-999) `x` : int (0-999) `intent` : str                                                                                                              |
+| `double_click`    | Double clicks at the coordinate.                                      | `y` : int (0-999) `x` : int (0-999) `intent` : str                                                                                                              |
+| `triple_click`    | Triple clicks at the coordinate.                                      | `y` : int (0-999) `x` : int (0-999) `intent` : str                                                                                                              |
+| `middle_click`    | Middle clicks at the coordinate.                                      | `y` : int (0-999) `x` : int (0-999) `intent` : str                                                                                                              |
+| `right_click`     | Right clicks at the coordinate.                                       | `y` : int (0-999) `x` : int (0-999) `intent` : str                                                                                                              |
+| `mouse_down`      | Presses and holds the mouse button at the coordinate.                 | `y` : int (0-999) `x` : int (0-999) `intent` : str                                                                                                              |
+| `mouse_up`        | Releases the mouse button at the coordinate.                          | `y` : int (0-999) `x` : int (0-999) `intent` : str                                                                                                              |
+| `move`            | Move the cursor to the specified position.                            | `y` : int (0-999) `x` : int (0-999) `intent` : str                                                                                                              |
+| `type`            | Types text.                                                           | `text` : str `intent` : str `press_enter` : bool(Optional, default false)                                                                                       |
+| `drag_and_drop`   | Drags item from start_y and start_x to end_y and end_x.               | `start_y` : int (0-999) `start_x` : int (0-999) `end_y` : int (0-999) `end_x` : int (0-999) `intent` : str                                                      |
+| `wait`            | Wait for the specified number of seconds.                             | `intent` : str `seconds` : int(Optional, default 1)                                                                                                             |
+| `press_key`       | Presses the specified key and releases it.                            | `key` : str `intent` : str                                                                                                                                      |
+| `key_down`        | Presses and holds the specified key.                                  | `key` : str `intent` : str                                                                                                                                      |
+| `key_up`          | Releases the specified key.                                           | `key` : str `intent` : str                                                                                                                                      |
+| `hotkey`          | Presses the specified key combination.                                | `keys` : List\[str\] `intent` : str                                                                                                                             |
+| `take_screenshot` | Returns a screenshot of the current screen.                           | `intent` : str                                                                                                                                                  |
+| `scroll`          | Scrolls up, down, left, or right at a coordinate by a pixel distance. | `y` : int (0-999) `x` : int (0-999) `direction` : str ("up", "down", "left", "right") `intent` : str `magnitude_in_pixels` : int (0-999, Optional, default 300) |
 
 ### Gemini 3 Flash
 
-| Command Name           | Description                                                                                                                                                                       | Arguments (in Function Call)                                                                                                                             | Example Function Call                                                                                  |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| **open\_web\_browser** | Opens the web browser.                                                                                                                                                            | None                                                                                                                                                     | `{"name": "open_web_browser", "args": {}}`                                                             |
-| **wait\_5\_seconds**   | Pauses execution for 5 seconds to allow dynamic content to load or animations to complete.                                                                                        | None                                                                                                                                                     | `{"name": "wait_5_seconds", "args": {}}`                                                               |
-| **go\_back**           | Navigates to the previous page in the browser's history.                                                                                                                          | None                                                                                                                                                     | `{"name": "go_back", "args": {}}`                                                                      |
-| **go\_forward**        | Navigates to the next page in the browser's history.                                                                                                                              | None                                                                                                                                                     | `{"name": "go_forward", "args": {}}`                                                                   |
-| **search**             | Navigates to the default search engine's homepage (for example, Google). Useful for starting a new search task.                                                                   | None                                                                                                                                                     | `{"name": "search", "args": {}}`                                                                       |
-| **navigate**           | Navigates the browser directly to the specified URL.                                                                                                                              | `url` : str                                                                                                                                              | `{"name": "navigate", "args": {"url": "https://www.wikipedia.org"}}`                                   |
-| **click\_at**          | Clicks at a specific coordinate on the webpage. The x and y values are based on a 1000x1000 grid and are scaled to the screen dimensions.                                         | `y` : int (0-999), `x` : int (0-999)                                                                                                                     | `{"name": "click_at", "args": {"y": 300, "x": 500}}`                                                   |
-| **hover\_at**          | 521963309 Hovers the mouse at a specific coordinate on the webpage. Useful for revealing sub-menus. x and y are based on a 1000x1000 grid.                                        | `y` : int (0-999) `x` : int (0-999)                                                                                                                      | `{"name": "hover_at", "args": {"y": 150, "x": 250}}`                                                   |
-| **type\_text\_at**     | Types text at a specific coordinate, defaults to clearing the field first and pressing ENTER after typing, but these can be disabled. x and y are based on a 1000x1000 grid.      | `y` : int (0-999), `x` : int (0-999), `text` : str, `press_enter` : bool (Optional, default True), `clear_before_typing` : bool (Optional, default True) | `{"name": "type_text_at", "args": {"y": 250, "x": 400, "text": "search query", "press_enter": false}}` |
-| **key\_combination**   | Presses keyboard keys or combinations, such as "Control+C" or "Enter". Useful for triggering actions (like submitting a form with "Enter") or clipboard operations.               | `keys` : str (for example, 'enter', 'control+c'. See API reference for full list of allowed keys)                                                        | `{"name": "key_combination", "args": {"keys": "Control+A"}}`                                           |
-| **scroll\_document**   | Scrolls the entire webpage "up", "down", "left", or "right".                                                                                                                      | `direction` : str ("up", "down", "left", or "right")                                                                                                     | `{"name": "scroll_document", "args": {"direction": "down"}}`                                           |
-| **scroll\_at**         | Scrolls a specific element or area at coordinate (x, y) in the specified direction by a certain magnitude. Coordinates and magnitude (default 800) are based on a 1000x1000 grid. | `y` : int (0-999), `x` : int (0-999), `direction` : str ("up", "down", "left", "right"), `magnitude` : int (0-999, Optional, default 800)                | `{"name": "scroll_at", "args": {"y": 500, "x": 500, "direction": "down", "magnitude": 400}}`           |
-| **drag\_and\_drop**    | Drags an element from a starting coordinate (x, y) and drops it at a destination coordinate (destination\_x, destination\_y). All coordinates are based on a 1000x1000 grid.      | `y` : int (0-999), `x` : int (0-999), `destination_y` : int (0-999), `destination_x` : int (0-999)                                                       | `{"name": "drag_and_drop", "args": {"y": 100, "x": 100, "destination_y": 500, "destination_x": 500}}`  |
+| Command Name         | Description                                                                                                                                                                       | Arguments (in Function Call)                                                                                                                             | Example Function Call                                                                                  |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| **open_web_browser** | Opens the web browser.                                                                                                                                                            | None                                                                                                                                                     | `{"name": "open_web_browser", "args": {}}`                                                             |
+| **wait_5\_seconds**  | Pauses execution for 5 seconds to allow dynamic content to load or animations to complete.                                                                                        | None                                                                                                                                                     | `{"name": "wait_5_seconds", "args": {}}`                                                               |
+| **go_back**          | Navigates to the previous page in the browser's history.                                                                                                                          | None                                                                                                                                                     | `{"name": "go_back", "args": {}}`                                                                      |
+| **go_forward**       | Navigates to the next page in the browser's history.                                                                                                                              | None                                                                                                                                                     | `{"name": "go_forward", "args": {}}`                                                                   |
+| **search**           | Navigates to the default search engine's homepage (for example, Google). Useful for starting a new search task.                                                                   | None                                                                                                                                                     | `{"name": "search", "args": {}}`                                                                       |
+| **navigate**         | Navigates the browser directly to the specified URL.                                                                                                                              | `url` : str                                                                                                                                              | `{"name": "navigate", "args": {"url": "https://www.wikipedia.org"}}`                                   |
+| **click_at**         | Clicks at a specific coordinate on the webpage. The x and y values are based on a 1000x1000 grid and are scaled to the screen dimensions.                                         | `y` : int (0-999), `x` : int (0-999)                                                                                                                     | `{"name": "click_at", "args": {"y": 300, "x": 500}}`                                                   |
+| **hover_at**         | 521963309 Hovers the mouse at a specific coordinate on the webpage. Useful for revealing sub-menus. x and y are based on a 1000x1000 grid.                                        | `y` : int (0-999) `x` : int (0-999)                                                                                                                      | `{"name": "hover_at", "args": {"y": 150, "x": 250}}`                                                   |
+| **type_text_at**     | Types text at a specific coordinate, defaults to clearing the field first and pressing ENTER after typing, but these can be disabled. x and y are based on a 1000x1000 grid.      | `y` : int (0-999), `x` : int (0-999), `text` : str, `press_enter` : bool (Optional, default True), `clear_before_typing` : bool (Optional, default True) | `{"name": "type_text_at", "args": {"y": 250, "x": 400, "text": "search query", "press_enter": false}}` |
+| **key_combination**  | Presses keyboard keys or combinations, such as "Control+C" or "Enter". Useful for triggering actions (like submitting a form with "Enter") or clipboard operations.               | `keys` : str (for example, 'enter', 'control+c'. See API reference for full list of allowed keys)                                                        | `{"name": "key_combination", "args": {"keys": "Control+A"}}`                                           |
+| **scroll_document**  | Scrolls the entire webpage "up", "down", "left", or "right".                                                                                                                      | `direction` : str ("up", "down", "left", or "right")                                                                                                     | `{"name": "scroll_document", "args": {"direction": "down"}}`                                           |
+| **scroll_at**        | Scrolls a specific element or area at coordinate (x, y) in the specified direction by a certain magnitude. Coordinates and magnitude (default 800) are based on a 1000x1000 grid. | `y` : int (0-999), `x` : int (0-999), `direction` : str ("up", "down", "left", "right"), `magnitude` : int (0-999, Optional, default 800)                | `{"name": "scroll_at", "args": {"y": 500, "x": 500, "direction": "down", "magnitude": 400}}`           |
+| **drag_and_drop**    | Drags an element from a starting coordinate (x, y) and drops it at a destination coordinate (destination_x, destination_y). All coordinates are based on a 1000x1000 grid.        | `y` : int (0-999), `x` : int (0-999), `destination_y` : int (0-999), `destination_x` : int (0-999)                                                       | `{"name": "drag_and_drop", "args": {"y": 100, "x": 100, "destination_y": 500, "destination_x": 500}}`  |
 
 ## Safety and security
 
@@ -972,81 +811,87 @@ This section describes the safeguards that the computer use tool has in place to
 
 Depending on the action, the response from the model might include a `safety_decision` from an internal safety system. This decision verifies the action proposed by the tool for safety.
 
-    {
-      "content": {
-        "parts": [
-          {
-            "text": "I have evaluated step 2. It seems Google detected unusual traffic and is asking me to verify I'm not a robot. I need to click the 'I'm not a robot' checkbox located near the top left (y=98, x=95)."
-          },
-          {
-            "function_call": {
-              "name": "click_at",
-              "args": {
-                "x": 60,
-                "y": 100,
-                "safety_decision": {
-                  "explanation": "I have encountered a CAPTCHA challenge that requires interaction. I need you to complete the challenge by clicking the 'I'm not a robot' checkbox and any subsequent verification steps.",
-                  "decision": "require_confirmation"
-                }
-              }
+```
+{
+  "content": {
+    "parts": [
+      {
+        "text": "I have evaluated step 2. It seems Google detected unusual traffic and is asking me to verify I'm not a robot. I need to click the 'I'm not a robot' checkbox located near the top left (y=98, x=95)."
+      },
+      {
+        "function_call": {
+          "name": "click_at",
+          "args": {
+            "x": 60,
+            "y": 100,
+            "safety_decision": {
+              "explanation": "I have encountered a CAPTCHA challenge that requires interaction. I need you to complete the challenge by clicking the 'I'm not a robot' checkbox and any subsequent verification steps.",
+              "decision": "require_confirmation"
             }
           }
-        ]
+        }
       }
-    }
+    ]
+  }
+}
+```
 
 If the `safety_decision` is `require_confirmation` , you **must** ask the end user to confirm before proceeding with executing the action.
 
 The following code sample prompts the end for confirmation before executing the action. If the user doesn't confirm the action, the loop terminates. If the user confirms the action, the action is executed and the `safety_acknowledgement` field is marked as `True` .
 
-    import termcolor
-    
-    def get_safety_confirmation(safety_decision):
-        """Prompt user for confirmation when safety check is triggered."""
-        termcolor.cprint("Safety service requires explicit confirmation!", color="red")
-        print(safety_decision["explanation"])
-    
-        decision = ""
-        while decision.lower() not in ("y", "n", "ye", "yes", "no"):
-            decision = input("Do you wish to proceed? [Y]es/[N]o\n")
-    
-        if decision.lower() in ("n", "no"):
-            return "TERMINATE"
-        return "CONTINUE"
-    
-    def execute_function_calls(response, page, screen_width: int, screen_height: int):
-    
-        # ... Extract function calls from response ...
-    
-        for function_call in function_calls:
-            extra_fr_fields = {}
-    
-            # Check for safety decision
-            if 'safety_decision' in function_call.args:
-                decision = get_safety_confirmation(function_call.args['safety_decision'])
-                if decision == "TERMINATE":
-                    print("Terminating agent loop")
-                    break
-                extra_fr_fields["safety_acknowledgement"] = "true" # Safety acknowledgement
-    
-            # ... Execute function call and append to results ...
+```
+import termcolor
+
+def get_safety_confirmation(safety_decision):
+    """Prompt user for confirmation when safety check is triggered."""
+    termcolor.cprint("Safety service requires explicit confirmation!", color="red")
+    print(safety_decision["explanation"])
+
+    decision = ""
+    while decision.lower() not in ("y", "n", "ye", "yes", "no"):
+        decision = input("Do you wish to proceed? [Y]es/[N]o\n")
+
+    if decision.lower() in ("n", "no"):
+        return "TERMINATE"
+    return "CONTINUE"
+
+def execute_function_calls(response, page, screen_width: int, screen_height: int):
+
+    # ... Extract function calls from response ...
+
+    for function_call in function_calls:
+        extra_fr_fields = {}
+
+        # Check for safety decision
+        if 'safety_decision' in function_call.args:
+            decision = get_safety_confirmation(function_call.args['safety_decision'])
+            if decision == "TERMINATE":
+                print("Terminating agent loop")
+                break
+            extra_fr_fields["safety_acknowledgement"] = "true" # Safety acknowledgement
+
+        # ... Execute function call and append to results ...
+```
 
 If the user confirms, you must include the safety acknowledgement in your `FunctionResponse` .
 
-    function_response_parts.append(
-        FunctionResponse(
-            name=name,
-            response={"url": current_url,
-                      **extra_fr_fields},  # Include safety acknowledgement
-            parts=[
-                types.FunctionResponsePart(
-                    inline_data=types.FunctionResponseBlob(
-                        mime_type="image/png", data=screenshot
-                    )
-                 )
-               ]
+```
+function_response_parts.append(
+    FunctionResponse(
+        name=name,
+        response={"url": current_url,
+                  **extra_fr_fields},  # Include safety acknowledgement
+        parts=[
+            types.FunctionResponsePart(
+                inline_data=types.FunctionResponseBlob(
+                    mime_type="image/png", data=screenshot
+                )
              )
-           )
+           ]
+         )
+       )
+```
 
 ### Prompt injection detection
 
@@ -1058,35 +903,39 @@ The following examples demonstrate enabling the computer use configuration to en
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your project ID.
+- ` PROJECT_ID ` : Your project ID.
 
 HTTP method and URL:
 
-    POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent
+```
+POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent
+```
 
 Request JSON body:
 
+```
+{
+  "contents": [
     {
-      "contents": [
-        {
-          "role": "user",
-          "parts": {
-            "text": "find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th. start by navigating directly to flights.google.com"
-          }
-        }
-      ],
-      "generation_config": {
-        "candidateCount": 1
-      },
-      "tools": [
-        {
-          "computer_use": {
-            "environment": "ENVIRONMENT_BROWSER",
-            "enable_prompt_injection_detection": true
-          }
-        }
-      ]
+      "role": "user",
+      "parts": {
+        "text": "find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th. start by navigating directly to flights.google.com"
+      }
     }
+  ],
+  "generation_config": {
+    "candidateCount": 1
+  },
+  "tools": [
+    {
+      "computer_use": {
+        "environment": "ENVIRONMENT_BROWSER",
+        "enable_prompt_injection_detection": true
+      }
+    }
+  ]
+}
+```
 
 To send your request, expand one of these options:
 
@@ -1094,24 +943,28 @@ To send your request, expand one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer TOKEN" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent"
+```
+curl -X POST \
+     -H "Authorization: Bearer TOKEN" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent"
+```
 
 #### PowerShell (Windows)
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $headers = @{ "Authorization" = "Bearer TOKEN" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
+```
+$headers = @{ "Authorization" = "Bearer TOKEN" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx) and an empty response.
 
@@ -1119,71 +972,73 @@ You should receive a successful status code (2xx) and an empty response.
 
 The following example requires [python-genai](https://googleapis.github.io/python-genai/) version 2.7.0 or later.
 
-    from google import genai
-    from google.genai.types import (
-        Part,
-        GenerateContentConfig,
-        Content,
-        Tool,
-        ComputerUse,
-        Environment,
-        ThinkingConfig,
-    )
-    client = genai.Client()
-    
-    response = client.models.generate_content(
-        model="gemini-3.6-flash",
-        contents=[
-            Content(
-                role="user",
-                parts=[
-                    Part(text="find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th"),
-                ],
-            )
-        ],
-        config=GenerateContentConfig(
-            temperature=1,
-            top_p=0.95,
-            top_k=40,
-            max_output_tokens=8192,
-            tools=[
-                Tool(
-                    computer_use=ComputerUse(
-                        environment=Environment.ENVIRONMENT_MOBILE,
-                        enable_prompt_injection_detection=True
-                    ),
-                ),
+```
+from google import genai
+from google.genai.types import (
+    Part,
+    GenerateContentConfig,
+    Content,
+    Tool,
+    ComputerUse,
+    Environment,
+    ThinkingConfig,
+)
+client = genai.Client()
+
+response = client.models.generate_content(
+    model="gemini-3.6-flash",
+    contents=[
+        Content(
+            role="user",
+            parts=[
+                Part(text="find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th"),
             ],
-            thinking_config=ThinkingConfig(
-                include_thoughts=True
-            ),
         )
+    ],
+    config=GenerateContentConfig(
+        temperature=1,
+        top_p=0.95,
+        top_k=40,
+        max_output_tokens=8192,
+        tools=[
+            Tool(
+                computer_use=ComputerUse(
+                    environment=Environment.ENVIRONMENT_MOBILE,
+                    enable_prompt_injection_detection=True
+                ),
+            ),
+        ],
+        thinking_config=ThinkingConfig(
+            include_thoughts=True
+        ),
     )
+)
+```
 
 ### Safety best practices
 
 Computer use presents risks that developers should be mindful of:
 
-  - **Untrusted content & scams:** As the model tries to achieve the user's goal, it may rely on untrustworthy sources of information and instructions from the screen. For example, if the user's goal is to purchase a Pixel phone and the model encounters a "Free Pixel if you complete a survey" scam, there is some chance that the model will complete the survey.
-  - **Occasional unintended actions:** The model can misinterpret a user's goal or webpage content, causing it to take incorrect actions like clicking the wrong button or filling the wrong form. This can lead to failed tasks or data exfiltration.
-  - **Policy violations:** The API's capabilities could be directed, either intentionally or unintentionally, toward activities that violate Google's terms and policies. This includes actions that could interfere with a system's integrity, compromise security, bypass security measures like CAPTCHAs, control medical devices, etc.
+- **Untrusted content & scams:** As the model tries to achieve the user's goal, it may rely on untrustworthy sources of information and instructions from the screen. For example, if the user's goal is to purchase a Pixel phone and the model encounters a "Free Pixel if you complete a survey" scam, there is some chance that the model will complete the survey.
+- **Occasional unintended actions:** The model can misinterpret a user's goal or webpage content, causing it to take incorrect actions like clicking the wrong button or filling the wrong form. This can lead to failed tasks or data exfiltration.
+- **Policy violations:** The API's capabilities could be directed, either intentionally or unintentionally, toward activities that violate Google's terms and policies. This includes actions that could interfere with a system's integrity, compromise security, bypass security measures like CAPTCHAs, control medical devices, etc.
 
 To address these risks, you should implement the following safety measures and best practices:
 
 1.  **Human-in-the-loop (HITL):**
-    
-      - **Implement user confirmation:** When the safety response indicates require\_confirmation, you must implement user confirmation before execution.
-      - **Provide custom safety instructions:** In addition to the built-in user confirmation checks, developers may optionally add a custom system instruction that enforces their own safety policies, either to block certain model actions or require user confirmation before the model takes certain high-stakes irreversible actions. Here is an example of a custom safety system instruction you may include when interacting with the model.
-    
+
+    - **Implement user confirmation:** When the safety response indicates require_confirmation, you must implement user confirmation before execution.
+    - **Provide custom safety instructions:** In addition to the built-in user confirmation checks, developers may optionally add a custom system instruction that enforces their own safety policies, either to block certain model actions or require user confirmation before the model takes certain high-stakes irreversible actions. Here is an example of a custom safety system instruction you may include when interacting with the model.
+
     #### Click to view an example for creating a connection
-    
-    ``` 
+
+    ```
     ## **RULE 1: Seek User Confirmation (USER_CONFIRMATION)**
-    
+
     This is your first and most important check. If the next required action falls
     into any of the following categories, you MUST stop immediately, and seek the
     user's explicit permission.
-    
+
     **Procedure for Seeking Confirmation:**  * **For Consequential Actions:**
     Perform all preparatory steps (e.g., navigating, filling out forms, typing a
     message). You will ask for confirmation **AFTER** all necessary information is
@@ -1192,9 +1047,9 @@ To address these risks, you should implement the following safety measures and b
     Prohibited Actions:** If the action is strictly forbidden (e.g., accepting legal
     terms, solving a CAPTCHA), you must first inform the user about the required
     action and ask for their confirmation to proceed.
-    
+
     **USER_CONFIRMATION Categories:**
-    
+
     *   **Consent and Agreements:** You are FORBIDDEN from accepting, selecting, or
         agreeing to any of the following on the user's behalf. You must ask th e
         user to confirm before performing these actions.
@@ -1236,16 +1091,16 @@ To address these risks, you should implement the following safety measures and b
         a user interface element or are stuck in a loop you cannot resolve, ask the
         user to take over.
     ---
-    
+
     ## **RULE 2: Default Behavior (ACTUATE)**
-    
+
     If an action does **NOT** fall under the conditions for `USER_CONFIRMATION`,
     your default behavior is to **Actuate**.
-    
+
     **Actuation Means:**  You MUST proactively perform all necessary steps to move
     the user's request forward. Continue to actuate until you either complete the
     non-consequential task or encounter a condition defined in Rule 1.
-    
+
     *   **Example 1:** If asked to send money, you will navigate to the payment
         portal, enter the recipient's details, and enter the amount. You will then
         **STOP** as per Rule 1 and ask for confirmation before clicking the final
@@ -1254,10 +1109,10 @@ To address these risks, you should implement the following safety measures and b
         open the post composition window, and write the full message. You will then
         **STOP** as per Rule 1 and ask for confirmation before clicking the final
         "Post" button.
-    
+
         After the user has confirmed, remember to get the user's latest screen
         before continuing to perform actions.
-    
+
     # Final Response Guidelines:
     Write final response to the user in these cases:
     - User confirmation

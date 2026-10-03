@@ -14,27 +14,17 @@ Fields
 
 Output only. A URI safe key uniquely identifying a blob. Can be used to locate the blob stored in the Cloud Storage bucket of the consumer project.
 
-`data` `string ( bytes format)`
+`data` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Optional. The bytes of the blob is not present unless it's returned by the ReadTensorboardBlobData endpoint.
 
 A base64-encoded string.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;id&quot;: string,
-  &quot;data&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "id": string,
+  "data": string
+}
+```

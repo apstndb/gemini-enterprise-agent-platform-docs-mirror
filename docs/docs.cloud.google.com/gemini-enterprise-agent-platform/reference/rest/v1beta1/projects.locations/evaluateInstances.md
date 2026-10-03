@@ -28,19 +28,19 @@ The request body contains data with the following structure:
 
 Fields
 
-`metrics[]` ` object ( Metric  ` )
+`metrics[]` `object ( `[`Metric`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric)` )`
 
 The metrics used for evaluation. Currently, we only support evaluating a single metric. If multiple metrics are provided, only the first one will be evaluated.
 
-`metricSources[]` ` object ( MetricSource  ` )
+`metricSources[]` `object ( `[`MetricSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators#MetricSource)` )`
 
 Optional. The metrics (either inline or registered) used for evaluation. Currently, we only support evaluating a single metric. If multiple metrics are provided, only the first one will be evaluated.
 
-`instance` ` object ( EvaluationInstance  ` )
+`instance` `object ( `[`EvaluationInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#EvaluationInstance)` )`
 
 The instance to be evaluated.
 
-`autoraterConfig` ` object ( AutoraterConfig  ` )
+`autoraterConfig` `object ( `[`AutoraterConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/AutoraterConfig)` )`
 
 Optional. Autorater config used for evaluation. Not applicable for predefined metrics (PredefinedMetricSpec); the server uses its own model configuration for predefined metrics and this field is ignored.
 
@@ -48,131 +48,131 @@ Optional. Autorater config used for evaluation. Not applicable for predefined me
 
 Instances and specs for evaluation The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`exactMatchInput` ` object ( ExactMatchInput  ` )
+`exactMatchInput` `object ( `[`ExactMatchInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ExactMatchInput)` )`
 
 Auto metric instances. Instances and metric spec for exact match metric.
 
-`bleuInput` ` object ( BleuInput  ` )
+`bleuInput` `object ( `[`BleuInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#BleuInput)` )`
 
 Instances and metric spec for bleu metric.
 
-`rougeInput` ` object ( RougeInput  ` )
+`rougeInput` `object ( `[`RougeInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#RougeInput)` )`
 
 Instances and metric spec for rouge metric.
 
-`fluencyInput` ` object ( FluencyInput  ` )
+`fluencyInput` `object ( `[`FluencyInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#FluencyInput)` )`
 
 LLM-based metric instance. General text generation metrics, applicable to other categories. Input for fluency metric.
 
-`coherenceInput` ` object ( CoherenceInput  ` )
+`coherenceInput` `object ( `[`CoherenceInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#CoherenceInput)` )`
 
 Input for coherence metric.
 
-`safetyInput` ` object ( SafetyInput  ` )
+`safetyInput` `object ( `[`SafetyInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#SafetyInput)` )`
 
 Input for safety metric.
 
-`groundednessInput` ` object ( GroundednessInput  ` )
+`groundednessInput` `object ( `[`GroundednessInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#GroundednessInput)` )`
 
 Input for groundedness metric.
 
-`fulfillmentInput` ` object ( FulfillmentInput  ` )
+`fulfillmentInput` `object ( `[`FulfillmentInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#FulfillmentInput)` )`
 
 Input for fulfillment metric.
 
-`summarizationQualityInput` ` object ( SummarizationQualityInput  ` )
+`summarizationQualityInput` `object ( `[`SummarizationQualityInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#SummarizationQualityInput)` )`
 
 Input for summarization quality metric.
 
-`pairwiseSummarizationQualityInput` ` object ( PairwiseSummarizationQualityInput  ` )
+`pairwiseSummarizationQualityInput` `object ( `[`PairwiseSummarizationQualityInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#PairwiseSummarizationQualityInput)` )`
 
 Input for pairwise summarization quality metric.
 
-`summarizationHelpfulnessInput` ` object ( SummarizationHelpfulnessInput  ` )
+`summarizationHelpfulnessInput` `object ( `[`SummarizationHelpfulnessInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#SummarizationHelpfulnessInput)` )`
 
 Input for summarization helpfulness metric.
 
-`summarizationVerbosityInput` ` object ( SummarizationVerbosityInput  ` )
+`summarizationVerbosityInput` `object ( `[`SummarizationVerbosityInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#SummarizationVerbosityInput)` )`
 
 Input for summarization verbosity metric.
 
-`questionAnsweringQualityInput` ` object ( QuestionAnsweringQualityInput  ` )
+`questionAnsweringQualityInput` `object ( `[`QuestionAnsweringQualityInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#QuestionAnsweringQualityInput)` )`
 
 Input for question answering quality metric.
 
-`pairwiseQuestionAnsweringQualityInput` ` object ( PairwiseQuestionAnsweringQualityInput  ` )
+`pairwiseQuestionAnsweringQualityInput` `object ( `[`PairwiseQuestionAnsweringQualityInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#PairwiseQuestionAnsweringQualityInput)` )`
 
 Input for pairwise question answering quality metric.
 
-`questionAnsweringRelevanceInput` ` object ( QuestionAnsweringRelevanceInput  ` )
+`questionAnsweringRelevanceInput` `object ( `[`QuestionAnsweringRelevanceInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#QuestionAnsweringRelevanceInput)` )`
 
 Input for question answering relevance metric.
 
-`questionAnsweringHelpfulnessInput` ` object ( QuestionAnsweringHelpfulnessInput  ` )
+`questionAnsweringHelpfulnessInput` `object ( `[`QuestionAnsweringHelpfulnessInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#QuestionAnsweringHelpfulnessInput)` )`
 
 Input for question answering helpfulness metric.
 
-`questionAnsweringCorrectnessInput` ` object ( QuestionAnsweringCorrectnessInput  ` )
+`questionAnsweringCorrectnessInput` `object ( `[`QuestionAnsweringCorrectnessInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#QuestionAnsweringCorrectnessInput)` )`
 
 Input for question answering correctness metric.
 
-`pointwiseMetricInput` ` object ( PointwiseMetricInput  ` )
+`pointwiseMetricInput` `object ( `[`PointwiseMetricInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#PointwiseMetricInput)` )`
 
 Input for pointwise metric.
 
-`pairwiseMetricInput` ` object ( PairwiseMetricInput  ` )
+`pairwiseMetricInput` `object ( `[`PairwiseMetricInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#PairwiseMetricInput)` )`
 
 Input for pairwise metric.
 
-`toolCallValidInput` ` object ( ToolCallValidInput  ` )
+`toolCallValidInput` `object ( `[`ToolCallValidInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolCallValidInput)` )`
 
 Tool call metric instances. Input for tool call valid metric.
 
-`toolNameMatchInput` ` object ( ToolNameMatchInput  ` )
+`toolNameMatchInput` `object ( `[`ToolNameMatchInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolNameMatchInput)` )`
 
 Input for tool name match metric.
 
-`toolParameterKeyMatchInput` ` object ( ToolParameterKeyMatchInput  ` )
+`toolParameterKeyMatchInput` `object ( `[`ToolParameterKeyMatchInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolParameterKeyMatchInput)` )`
 
 Input for tool parameter key match metric.
 
-`toolParameterKvMatchInput` ` object ( ToolParameterKVMatchInput  ` )
+`toolParameterKvMatchInput` `object ( `[`ToolParameterKVMatchInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolParameterKVMatchInput)` )`
 
 Input for tool parameter key value match metric.
 
-`cometInput` ` object ( CometInput  ` )
+`cometInput` `object ( `[`CometInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#CometInput)` )`
 
 Translation metrics. Input for Comet metric.
 
-`metricxInput` ` object ( MetricxInput  ` )
+`metricxInput` `object ( `[`MetricxInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#MetricxInput)` )`
 
 Input for Metricx metric.
 
-`trajectoryExactMatchInput` ` object ( TrajectoryExactMatchInput  ` )
+`trajectoryExactMatchInput` `object ( `[`TrajectoryExactMatchInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryExactMatchInput)` )`
 
 Input for trajectory exact match metric.
 
-`trajectoryInOrderMatchInput` ` object ( TrajectoryInOrderMatchInput  ` )
+`trajectoryInOrderMatchInput` `object ( `[`TrajectoryInOrderMatchInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryInOrderMatchInput)` )`
 
 Input for trajectory in order match metric.
 
-`trajectoryAnyOrderMatchInput` ` object ( TrajectoryAnyOrderMatchInput  ` )
+`trajectoryAnyOrderMatchInput` `object ( `[`TrajectoryAnyOrderMatchInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryAnyOrderMatchInput)` )`
 
 Input for trajectory match any order metric.
 
-`trajectoryPrecisionInput` ` object ( TrajectoryPrecisionInput  ` )
+`trajectoryPrecisionInput` `object ( `[`TrajectoryPrecisionInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryPrecisionInput)` )`
 
 Input for trajectory precision metric.
 
-`trajectoryRecallInput` ` object ( TrajectoryRecallInput  ` )
+`trajectoryRecallInput` `object ( `[`TrajectoryRecallInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryRecallInput)` )`
 
 Input for trajectory recall metric.
 
-`trajectorySingleToolUseInput` ` object ( TrajectorySingleToolUseInput  ` )
+`trajectorySingleToolUseInput` `object ( `[`TrajectorySingleToolUseInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectorySingleToolUseInput)` )`
 
 Input for trajectory single tool use metric.
 
-`rubricBasedInstructionFollowingInput` ` object ( RubricBasedInstructionFollowingInput  ` )
+`rubricBasedInstructionFollowingInput` `object ( `[`RubricBasedInstructionFollowingInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#RubricBasedInstructionFollowingInput)` )`
 
 Rubric Based Instruction Following metric.
 
@@ -186,7 +186,7 @@ If successful, the response body contains data with the following structure:
 
 Fields
 
-`metricResults[]` ` object ( MetricResult  ` )
+`metricResults[]` `object ( `[`MetricResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#MetricResult)` )`
 
 Metric results for each instance. The order of the metric results is guaranteed to be the same as the order of the instances in the request.
 
@@ -194,151 +194,246 @@ Metric results for each instance. The order of the metric results is guaranteed 
 
 Evaluation results will be served in the same order as presented in EvaluationRequest.instances. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`exactMatchResults` ` object ( ExactMatchResults  ` )
+`exactMatchResults` `object ( `[`ExactMatchResults`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ExactMatchResults)` )`
 
 Auto metric evaluation results. Results for exact match metric.
 
-`bleuResults` ` object ( BleuResults  ` )
+`bleuResults` `object ( `[`BleuResults`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#BleuResults)` )`
 
 Results for bleu metric.
 
-`rougeResults` ` object ( RougeResults  ` )
+`rougeResults` `object ( `[`RougeResults`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#RougeResults)` )`
 
 Results for rouge metric.
 
-`fluencyResult` ` object ( FluencyResult  ` )
+`fluencyResult` `object ( `[`FluencyResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#FluencyResult)` )`
 
 LLM-based metric evaluation result. General text generation metrics, applicable to other categories. result for fluency metric.
 
-`coherenceResult` ` object ( CoherenceResult  ` )
+`coherenceResult` `object ( `[`CoherenceResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#CoherenceResult)` )`
 
 result for coherence metric.
 
-`safetyResult` ` object ( SafetyResult  ` )
+`safetyResult` `object ( `[`SafetyResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#SafetyResult)` )`
 
 result for safety metric.
 
-`groundednessResult` ` object ( GroundednessResult  ` )
+`groundednessResult` `object ( `[`GroundednessResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#GroundednessResult)` )`
 
 result for groundedness metric.
 
-`fulfillmentResult` ` object ( FulfillmentResult  ` )
+`fulfillmentResult` `object ( `[`FulfillmentResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#FulfillmentResult)` )`
 
 result for fulfillment metric.
 
-`summarizationQualityResult` ` object ( SummarizationQualityResult  ` )
+`summarizationQualityResult` `object ( `[`SummarizationQualityResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#SummarizationQualityResult)` )`
 
 Summarization only metrics. result for summarization quality metric.
 
-`pairwiseSummarizationQualityResult` ` object ( PairwiseSummarizationQualityResult  ` )
+`pairwiseSummarizationQualityResult` `object ( `[`PairwiseSummarizationQualityResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#PairwiseSummarizationQualityResult)` )`
 
 result for pairwise summarization quality metric.
 
-`summarizationHelpfulnessResult` ` object ( SummarizationHelpfulnessResult  ` )
+`summarizationHelpfulnessResult` `object ( `[`SummarizationHelpfulnessResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#SummarizationHelpfulnessResult)` )`
 
 result for summarization helpfulness metric.
 
-`summarizationVerbosityResult` ` object ( SummarizationVerbosityResult  ` )
+`summarizationVerbosityResult` `object ( `[`SummarizationVerbosityResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#SummarizationVerbosityResult)` )`
 
 result for summarization verbosity metric.
 
-`questionAnsweringQualityResult` ` object ( QuestionAnsweringQualityResult  ` )
+`questionAnsweringQualityResult` `object ( `[`QuestionAnsweringQualityResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#QuestionAnsweringQualityResult)` )`
 
 Question answering only metrics. result for question answering quality metric.
 
-`pairwiseQuestionAnsweringQualityResult` ` object ( PairwiseQuestionAnsweringQualityResult  ` )
+`pairwiseQuestionAnsweringQualityResult` `object ( `[`PairwiseQuestionAnsweringQualityResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#PairwiseQuestionAnsweringQualityResult)` )`
 
 result for pairwise question answering quality metric.
 
-`questionAnsweringRelevanceResult` ` object ( QuestionAnsweringRelevanceResult  ` )
+`questionAnsweringRelevanceResult` `object ( `[`QuestionAnsweringRelevanceResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#QuestionAnsweringRelevanceResult)` )`
 
 result for question answering relevance metric.
 
-`questionAnsweringHelpfulnessResult` ` object ( QuestionAnsweringHelpfulnessResult  ` )
+`questionAnsweringHelpfulnessResult` `object ( `[`QuestionAnsweringHelpfulnessResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#QuestionAnsweringHelpfulnessResult)` )`
 
 result for question answering helpfulness metric.
 
-`questionAnsweringCorrectnessResult` ` object ( QuestionAnsweringCorrectnessResult  ` )
+`questionAnsweringCorrectnessResult` `object ( `[`QuestionAnsweringCorrectnessResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#QuestionAnsweringCorrectnessResult)` )`
 
 result for question answering correctness metric.
 
-`pointwiseMetricResult` ` object ( PointwiseMetricResult  ` )
+`pointwiseMetricResult` `object ( `[`PointwiseMetricResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#PointwiseMetricResult)` )`
 
 Generic metrics. result for pointwise metric.
 
-`pairwiseMetricResult` ` object ( PairwiseMetricResult  ` )
+`pairwiseMetricResult` `object ( `[`PairwiseMetricResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#PairwiseMetricResult)` )`
 
 result for pairwise metric.
 
-`toolCallValidResults` ` object ( ToolCallValidResults  ` )
+`toolCallValidResults` `object ( `[`ToolCallValidResults`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolCallValidResults)` )`
 
 Tool call metrics. Results for tool call valid metric.
 
-`toolNameMatchResults` ` object ( ToolNameMatchResults  ` )
+`toolNameMatchResults` `object ( `[`ToolNameMatchResults`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolNameMatchResults)` )`
 
 Results for tool name match metric.
 
-`toolParameterKeyMatchResults` ` object ( ToolParameterKeyMatchResults  ` )
+`toolParameterKeyMatchResults` `object ( `[`ToolParameterKeyMatchResults`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolParameterKeyMatchResults)` )`
 
 Results for tool parameter key match metric.
 
-`toolParameterKvMatchResults` ` object ( ToolParameterKVMatchResults  ` )
+`toolParameterKvMatchResults` `object ( `[`ToolParameterKVMatchResults`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolParameterKVMatchResults)` )`
 
 Results for tool parameter key value match metric.
 
-`cometResult` ` object ( CometResult  ` )
+`cometResult` `object ( `[`CometResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#CometResult)` )`
 
 Translation metrics. result for Comet metric.
 
-`metricxResult` ` object ( MetricxResult  ` )
+`metricxResult` `object ( `[`MetricxResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#MetricxResult)` )`
 
 result for Metricx metric.
 
-`trajectoryExactMatchResults` ` object ( TrajectoryExactMatchResults  ` )
+`trajectoryExactMatchResults` `object ( `[`TrajectoryExactMatchResults`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryExactMatchResults)` )`
 
 result for trajectory exact match metric.
 
-`trajectoryInOrderMatchResults` ` object ( TrajectoryInOrderMatchResults  ` )
+`trajectoryInOrderMatchResults` `object ( `[`TrajectoryInOrderMatchResults`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryInOrderMatchResults)` )`
 
 result for trajectory in order match metric.
 
-`trajectoryAnyOrderMatchResults` ` object ( TrajectoryAnyOrderMatchResults  ` )
+`trajectoryAnyOrderMatchResults` `object ( `[`TrajectoryAnyOrderMatchResults`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryAnyOrderMatchResults)` )`
 
 result for trajectory any order match metric.
 
-`trajectoryPrecisionResults` ` object ( TrajectoryPrecisionResults  ` )
+`trajectoryPrecisionResults` `object ( `[`TrajectoryPrecisionResults`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryPrecisionResults)` )`
 
 result for trajectory precision metric.
 
-`trajectoryRecallResults` ` object ( TrajectoryRecallResults  ` )
+`trajectoryRecallResults` `object ( `[`TrajectoryRecallResults`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryRecallResults)` )`
 
 Results for trajectory recall metric.
 
-`trajectorySingleToolUseResults` ` object ( TrajectorySingleToolUseResults  ` )
+`trajectorySingleToolUseResults` `object ( `[`TrajectorySingleToolUseResults`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectorySingleToolUseResults)` )`
 
 Results for trajectory single tool use metric.
 
-`rubricBasedInstructionFollowingResult` ` object ( RubricBasedInstructionFollowingResult  ` )
+`rubricBasedInstructionFollowingResult` `object ( `[`RubricBasedInstructionFollowingResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#RubricBasedInstructionFollowingResult)` )`
 
 result for rubric based instruction following metric.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricResults&quot;: [{object (MetricResult)}],// evaluation_results&quot;exactMatchResults&quot;: {object (ExactMatchResults)},&quot;bleuResults&quot;: {object (BleuResults)},&quot;rougeResults&quot;: {object (RougeResults)},&quot;fluencyResult&quot;: {object (FluencyResult)},&quot;coherenceResult&quot;: {object (CoherenceResult)},&quot;safetyResult&quot;: {object (SafetyResult)},&quot;groundednessResult&quot;: {object (GroundednessResult)},&quot;fulfillmentResult&quot;: {object (FulfillmentResult)},&quot;summarizationQualityResult&quot;: {object (SummarizationQualityResult)},&quot;pairwiseSummarizationQualityResult&quot;: {object (PairwiseSummarizationQualityResult)},&quot;summarizationHelpfulnessResult&quot;: {object (SummarizationHelpfulnessResult)},&quot;summarizationVerbosityResult&quot;: {object (SummarizationVerbosityResult)},&quot;questionAnsweringQualityResult&quot;: {object (QuestionAnsweringQualityResult)},&quot;pairwiseQuestionAnsweringQualityResult&quot;: {object (PairwiseQuestionAnsweringQualityResult)},&quot;questionAnsweringRelevanceResult&quot;: {object (QuestionAnsweringRelevanceResult)},&quot;questionAnsweringHelpfulnessResult&quot;: {object (QuestionAnsweringHelpfulnessResult)},&quot;questionAnsweringCorrectnessResult&quot;: {object (QuestionAnsweringCorrectnessResult)},&quot;pointwiseMetricResult&quot;: {object (PointwiseMetricResult)},&quot;pairwiseMetricResult&quot;: {object (PairwiseMetricResult)},&quot;toolCallValidResults&quot;: {object (ToolCallValidResults)},&quot;toolNameMatchResults&quot;: {object (ToolNameMatchResults)},&quot;toolParameterKeyMatchResults&quot;: {object (ToolParameterKeyMatchResults)},&quot;toolParameterKvMatchResults&quot;: {object (ToolParameterKVMatchResults)},&quot;cometResult&quot;: {object (CometResult)},&quot;metricxResult&quot;: {object (MetricxResult)},&quot;trajectoryExactMatchResults&quot;: {object (TrajectoryExactMatchResults)},&quot;trajectoryInOrderMatchResults&quot;: {object (TrajectoryInOrderMatchResults)},&quot;trajectoryAnyOrderMatchResults&quot;: {object (TrajectoryAnyOrderMatchResults)},&quot;trajectoryPrecisionResults&quot;: {object (TrajectoryPrecisionResults)},&quot;trajectoryRecallResults&quot;: {object (TrajectoryRecallResults)},&quot;trajectorySingleToolUseResults&quot;: {object (TrajectorySingleToolUseResults)},&quot;rubricBasedInstructionFollowingResult&quot;: {object (RubricBasedInstructionFollowingResult)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricResults": [
+    {
+      object (MetricResult)
+    }
+  ],
+
+  // evaluation_results
+  "exactMatchResults": {
+    object (ExactMatchResults)
+  },
+  "bleuResults": {
+    object (BleuResults)
+  },
+  "rougeResults": {
+    object (RougeResults)
+  },
+  "fluencyResult": {
+    object (FluencyResult)
+  },
+  "coherenceResult": {
+    object (CoherenceResult)
+  },
+  "safetyResult": {
+    object (SafetyResult)
+  },
+  "groundednessResult": {
+    object (GroundednessResult)
+  },
+  "fulfillmentResult": {
+    object (FulfillmentResult)
+  },
+  "summarizationQualityResult": {
+    object (SummarizationQualityResult)
+  },
+  "pairwiseSummarizationQualityResult": {
+    object (PairwiseSummarizationQualityResult)
+  },
+  "summarizationHelpfulnessResult": {
+    object (SummarizationHelpfulnessResult)
+  },
+  "summarizationVerbosityResult": {
+    object (SummarizationVerbosityResult)
+  },
+  "questionAnsweringQualityResult": {
+    object (QuestionAnsweringQualityResult)
+  },
+  "pairwiseQuestionAnsweringQualityResult": {
+    object (PairwiseQuestionAnsweringQualityResult)
+  },
+  "questionAnsweringRelevanceResult": {
+    object (QuestionAnsweringRelevanceResult)
+  },
+  "questionAnsweringHelpfulnessResult": {
+    object (QuestionAnsweringHelpfulnessResult)
+  },
+  "questionAnsweringCorrectnessResult": {
+    object (QuestionAnsweringCorrectnessResult)
+  },
+  "pointwiseMetricResult": {
+    object (PointwiseMetricResult)
+  },
+  "pairwiseMetricResult": {
+    object (PairwiseMetricResult)
+  },
+  "toolCallValidResults": {
+    object (ToolCallValidResults)
+  },
+  "toolNameMatchResults": {
+    object (ToolNameMatchResults)
+  },
+  "toolParameterKeyMatchResults": {
+    object (ToolParameterKeyMatchResults)
+  },
+  "toolParameterKvMatchResults": {
+    object (ToolParameterKVMatchResults)
+  },
+  "cometResult": {
+    object (CometResult)
+  },
+  "metricxResult": {
+    object (MetricxResult)
+  },
+  "trajectoryExactMatchResults": {
+    object (TrajectoryExactMatchResults)
+  },
+  "trajectoryInOrderMatchResults": {
+    object (TrajectoryInOrderMatchResults)
+  },
+  "trajectoryAnyOrderMatchResults": {
+    object (TrajectoryAnyOrderMatchResults)
+  },
+  "trajectoryPrecisionResults": {
+    object (TrajectoryPrecisionResults)
+  },
+  "trajectoryRecallResults": {
+    object (TrajectoryRecallResults)
+  },
+  "trajectorySingleToolUseResults": {
+    object (TrajectorySingleToolUseResults)
+  },
+  "rubricBasedInstructionFollowingResult": {
+    object (RubricBasedInstructionFollowingResult)
+  }
+  // Union type
+}
+```
 
 ## ExactMatchInput
 
@@ -346,29 +441,28 @@ Input for exact match metric.
 
 Fields
 
-`metricSpec` ` object ( ExactMatchSpec  ` )
+`metricSpec` `object ( `[`ExactMatchSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#ExactMatchSpec)` )`
 
 Required. Spec for exact match metric.
 
-`instances[]` ` object ( ExactMatchInstance  ` )
+`instances[]` `object ( `[`ExactMatchInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ExactMatchInstance)` )`
 
 Required. Repeated exact match instances.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (ExactMatchSpec)},&quot;instances&quot;: [{object (ExactMatchInstance)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (ExactMatchSpec)
+  },
+  "instances": [
+    {
+      object (ExactMatchInstance)
+    }
+  ]
+}
+```
 
 ## ExactMatchInstance
 
@@ -384,24 +478,14 @@ Required. Output of the evaluated model.
 
 Required. Ground truth used to compare against the prediction.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;reference&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "reference": string
+}
+```
 
 ## BleuInput
 
@@ -409,29 +493,28 @@ Input for bleu metric.
 
 Fields
 
-`metricSpec` ` object ( BleuSpec  ` )
+`metricSpec` `object ( `[`BleuSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#BleuSpec)` )`
 
 Required. Spec for bleu score metric.
 
-`instances[]` ` object ( BleuInstance  ` )
+`instances[]` `object ( `[`BleuInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#BleuInstance)` )`
 
 Required. Repeated bleu instances.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (BleuSpec)},&quot;instances&quot;: [{object (BleuInstance)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (BleuSpec)
+  },
+  "instances": [
+    {
+      object (BleuInstance)
+    }
+  ]
+}
+```
 
 ## BleuInstance
 
@@ -447,24 +530,14 @@ Required. Output of the evaluated model.
 
 Required. Ground truth used to compare against the prediction.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;reference&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "reference": string
+}
+```
 
 ## RougeInput
 
@@ -472,29 +545,28 @@ Input for rouge metric.
 
 Fields
 
-`metricSpec` ` object ( RougeSpec  ` )
+`metricSpec` `object ( `[`RougeSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#RougeSpec)` )`
 
 Required. Spec for rouge score metric.
 
-`instances[]` ` object ( RougeInstance  ` )
+`instances[]` `object ( `[`RougeInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#RougeInstance)` )`
 
 Required. Repeated rouge instances.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (RougeSpec)},&quot;instances&quot;: [{object (RougeInstance)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (RougeSpec)
+  },
+  "instances": [
+    {
+      object (RougeInstance)
+    }
+  ]
+}
+```
 
 ## RougeInstance
 
@@ -510,24 +582,14 @@ Required. Output of the evaluated model.
 
 Required. Ground truth used to compare against the prediction.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;reference&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "reference": string
+}
+```
 
 ## FluencyInput
 
@@ -535,29 +597,26 @@ Input for fluency metric.
 
 Fields
 
-`metricSpec` ` object ( FluencySpec  ` )
+`metricSpec` `object ( `[`FluencySpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#FluencySpec)` )`
 
 Required. Spec for fluency score metric.
 
-`instance` ` object ( FluencyInstance  ` )
+`instance` `object ( `[`FluencyInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#FluencyInstance)` )`
 
 Required. Fluency instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (FluencySpec)},&quot;instance&quot;: {object (FluencyInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (FluencySpec)
+  },
+  "instance": {
+    object (FluencyInstance)
+  }
+}
+```
 
 ## FluencySpec
 
@@ -569,23 +628,13 @@ Fields
 
 Optional. Which version to use for evaluation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;version&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "version": integer
+}
+```
 
 ## FluencyInstance
 
@@ -597,23 +646,13 @@ Fields
 
 Required. Output of the evaluated model.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string
+}
+```
 
 ## CoherenceInput
 
@@ -621,29 +660,26 @@ Input for coherence metric.
 
 Fields
 
-`metricSpec` ` object ( CoherenceSpec  ` )
+`metricSpec` `object ( `[`CoherenceSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#CoherenceSpec)` )`
 
 Required. Spec for coherence score metric.
 
-`instance` ` object ( CoherenceInstance  ` )
+`instance` `object ( `[`CoherenceInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#CoherenceInstance)` )`
 
 Required. Coherence instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (CoherenceSpec)},&quot;instance&quot;: {object (CoherenceInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (CoherenceSpec)
+  },
+  "instance": {
+    object (CoherenceInstance)
+  }
+}
+```
 
 ## CoherenceSpec
 
@@ -655,23 +691,13 @@ Fields
 
 Optional. Which version to use for evaluation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;version&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "version": integer
+}
+```
 
 ## CoherenceInstance
 
@@ -683,23 +709,13 @@ Fields
 
 Required. Output of the evaluated model.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string
+}
+```
 
 ## SafetyInput
 
@@ -707,29 +723,26 @@ Input for safety metric.
 
 Fields
 
-`metricSpec` ` object ( SafetySpec  ` )
+`metricSpec` `object ( `[`SafetySpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#SafetySpec)` )`
 
 Required. Spec for safety metric.
 
-`instance` ` object ( SafetyInstance  ` )
+`instance` `object ( `[`SafetyInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#SafetyInstance)` )`
 
 Required. Safety instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (SafetySpec)},&quot;instance&quot;: {object (SafetyInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (SafetySpec)
+  },
+  "instance": {
+    object (SafetyInstance)
+  }
+}
+```
 
 ## SafetySpec
 
@@ -741,23 +754,13 @@ Fields
 
 Optional. Which version to use for evaluation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;version&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "version": integer
+}
+```
 
 ## SafetyInstance
 
@@ -769,23 +772,13 @@ Fields
 
 Required. Output of the evaluated model.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string
+}
+```
 
 ## GroundednessInput
 
@@ -793,29 +786,26 @@ Input for groundedness metric.
 
 Fields
 
-`metricSpec` ` object ( GroundednessSpec  ` )
+`metricSpec` `object ( `[`GroundednessSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#GroundednessSpec)` )`
 
 Required. Spec for groundedness metric.
 
-`instance` ` object ( GroundednessInstance  ` )
+`instance` `object ( `[`GroundednessInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#GroundednessInstance)` )`
 
 Required. Groundedness instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (GroundednessSpec)},&quot;instance&quot;: {object (GroundednessInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (GroundednessSpec)
+  },
+  "instance": {
+    object (GroundednessInstance)
+  }
+}
+```
 
 ## GroundednessSpec
 
@@ -827,23 +817,13 @@ Fields
 
 Optional. Which version to use for evaluation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;version&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "version": integer
+}
+```
 
 ## GroundednessInstance
 
@@ -859,24 +839,14 @@ Required. Output of the evaluated model.
 
 Required. Background information provided in context used to compare against the prediction.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;context&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "context": string
+}
+```
 
 ## FulfillmentInput
 
@@ -884,29 +854,26 @@ Input for fulfillment metric.
 
 Fields
 
-`metricSpec` ` object ( FulfillmentSpec  ` )
+`metricSpec` `object ( `[`FulfillmentSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#FulfillmentSpec)` )`
 
 Required. Spec for fulfillment score metric.
 
-`instance` ` object ( FulfillmentInstance  ` )
+`instance` `object ( `[`FulfillmentInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#FulfillmentInstance)` )`
 
 Required. Fulfillment instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (FulfillmentSpec)},&quot;instance&quot;: {object (FulfillmentInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (FulfillmentSpec)
+  },
+  "instance": {
+    object (FulfillmentInstance)
+  }
+}
+```
 
 ## FulfillmentSpec
 
@@ -918,23 +885,13 @@ Fields
 
 Optional. Which version to use for evaluation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;version&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "version": integer
+}
+```
 
 ## FulfillmentInstance
 
@@ -950,24 +907,14 @@ Required. Output of the evaluated model.
 
 Required. Inference instruction prompt to compare prediction with.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;instruction&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "instruction": string
+}
+```
 
 ## SummarizationQualityInput
 
@@ -975,29 +922,26 @@ Input for summarization quality metric.
 
 Fields
 
-`metricSpec` ` object ( SummarizationQualitySpec  ` )
+`metricSpec` `object ( `[`SummarizationQualitySpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#SummarizationQualitySpec)` )`
 
 Required. Spec for summarization quality score metric.
 
-`instance` ` object ( SummarizationQualityInstance  ` )
+`instance` `object ( `[`SummarizationQualityInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#SummarizationQualityInstance)` )`
 
 Required. Summarization quality instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (SummarizationQualitySpec)},&quot;instance&quot;: {object (SummarizationQualityInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (SummarizationQualitySpec)
+  },
+  "instance": {
+    object (SummarizationQualityInstance)
+  }
+}
+```
 
 ## SummarizationQualitySpec
 
@@ -1013,24 +957,14 @@ Optional. Whether to use instance.reference to compute summarization quality.
 
 Optional. Which version to use for evaluation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;useReference&quot;: boolean,
-  &quot;version&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "useReference": boolean,
+  "version": integer
+}
+```
 
 ## SummarizationQualityInstance
 
@@ -1054,26 +988,16 @@ Required. Text to be summarized.
 
 Required. Summarization prompt for LLM.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;reference&quot;: string,
-  &quot;context&quot;: string,
-  &quot;instruction&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "reference": string,
+  "context": string,
+  "instruction": string
+}
+```
 
 ## PairwiseSummarizationQualityInput
 
@@ -1081,29 +1005,26 @@ Input for pairwise summarization quality metric.
 
 Fields
 
-`metricSpec` ` object ( PairwiseSummarizationQualitySpec  ` )
+`metricSpec` `object ( `[`PairwiseSummarizationQualitySpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#PairwiseSummarizationQualitySpec)` )`
 
 Required. Spec for pairwise summarization quality score metric.
 
-`instance` ` object ( PairwiseSummarizationQualityInstance  ` )
+`instance` `object ( `[`PairwiseSummarizationQualityInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#PairwiseSummarizationQualityInstance)` )`
 
 Required. Pairwise summarization quality instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (PairwiseSummarizationQualitySpec)},&quot;instance&quot;: {object (PairwiseSummarizationQualityInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (PairwiseSummarizationQualitySpec)
+  },
+  "instance": {
+    object (PairwiseSummarizationQualityInstance)
+  }
+}
+```
 
 ## PairwiseSummarizationQualitySpec
 
@@ -1119,24 +1040,14 @@ Optional. Whether to use instance.reference to compute pairwise summarization qu
 
 Optional. Which version to use for evaluation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;useReference&quot;: boolean,
-  &quot;version&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "useReference": boolean,
+  "version": integer
+}
+```
 
 ## PairwiseSummarizationQualityInstance
 
@@ -1164,27 +1075,17 @@ Required. Text to be summarized.
 
 Required. Summarization prompt for LLM.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;baselinePrediction&quot;: string,
-  &quot;reference&quot;: string,
-  &quot;context&quot;: string,
-  &quot;instruction&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "baselinePrediction": string,
+  "reference": string,
+  "context": string,
+  "instruction": string
+}
+```
 
 ## SummarizationHelpfulnessInput
 
@@ -1192,29 +1093,26 @@ Input for summarization helpfulness metric.
 
 Fields
 
-`metricSpec` ` object ( SummarizationHelpfulnessSpec  ` )
+`metricSpec` `object ( `[`SummarizationHelpfulnessSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#SummarizationHelpfulnessSpec)` )`
 
 Required. Spec for summarization helpfulness score metric.
 
-`instance` ` object ( SummarizationHelpfulnessInstance  ` )
+`instance` `object ( `[`SummarizationHelpfulnessInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#SummarizationHelpfulnessInstance)` )`
 
 Required. Summarization helpfulness instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (SummarizationHelpfulnessSpec)},&quot;instance&quot;: {object (SummarizationHelpfulnessInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (SummarizationHelpfulnessSpec)
+  },
+  "instance": {
+    object (SummarizationHelpfulnessInstance)
+  }
+}
+```
 
 ## SummarizationHelpfulnessSpec
 
@@ -1230,24 +1128,14 @@ Optional. Whether to use instance.reference to compute summarization helpfulness
 
 Optional. Which version to use for evaluation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;useReference&quot;: boolean,
-  &quot;version&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "useReference": boolean,
+  "version": integer
+}
+```
 
 ## SummarizationHelpfulnessInstance
 
@@ -1271,26 +1159,16 @@ Required. Text to be summarized.
 
 Optional. Summarization prompt for LLM.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;reference&quot;: string,
-  &quot;context&quot;: string,
-  &quot;instruction&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "reference": string,
+  "context": string,
+  "instruction": string
+}
+```
 
 ## SummarizationVerbosityInput
 
@@ -1298,29 +1176,26 @@ Input for summarization verbosity metric.
 
 Fields
 
-`metricSpec` ` object ( SummarizationVerbositySpec  ` )
+`metricSpec` `object ( `[`SummarizationVerbositySpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#SummarizationVerbositySpec)` )`
 
 Required. Spec for summarization verbosity score metric.
 
-`instance` ` object ( SummarizationVerbosityInstance  ` )
+`instance` `object ( `[`SummarizationVerbosityInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#SummarizationVerbosityInstance)` )`
 
 Required. Summarization verbosity instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (SummarizationVerbositySpec)},&quot;instance&quot;: {object (SummarizationVerbosityInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (SummarizationVerbositySpec)
+  },
+  "instance": {
+    object (SummarizationVerbosityInstance)
+  }
+}
+```
 
 ## SummarizationVerbositySpec
 
@@ -1336,24 +1211,14 @@ Optional. Whether to use instance.reference to compute summarization verbosity.
 
 Optional. Which version to use for evaluation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;useReference&quot;: boolean,
-  &quot;version&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "useReference": boolean,
+  "version": integer
+}
+```
 
 ## SummarizationVerbosityInstance
 
@@ -1377,26 +1242,16 @@ Required. Text to be summarized.
 
 Optional. Summarization prompt for LLM.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;reference&quot;: string,
-  &quot;context&quot;: string,
-  &quot;instruction&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "reference": string,
+  "context": string,
+  "instruction": string
+}
+```
 
 ## QuestionAnsweringQualityInput
 
@@ -1404,29 +1259,26 @@ Input for question answering quality metric.
 
 Fields
 
-`metricSpec` ` object ( QuestionAnsweringQualitySpec  ` )
+`metricSpec` `object ( `[`QuestionAnsweringQualitySpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#QuestionAnsweringQualitySpec)` )`
 
 Required. Spec for question answering quality score metric.
 
-`instance` ` object ( QuestionAnsweringQualityInstance  ` )
+`instance` `object ( `[`QuestionAnsweringQualityInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#QuestionAnsweringQualityInstance)` )`
 
 Required. Question answering quality instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (QuestionAnsweringQualitySpec)},&quot;instance&quot;: {object (QuestionAnsweringQualityInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (QuestionAnsweringQualitySpec)
+  },
+  "instance": {
+    object (QuestionAnsweringQualityInstance)
+  }
+}
+```
 
 ## QuestionAnsweringQualitySpec
 
@@ -1442,24 +1294,14 @@ Optional. Whether to use instance.reference to compute question answering qualit
 
 Optional. Which version to use for evaluation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;useReference&quot;: boolean,
-  &quot;version&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "useReference": boolean,
+  "version": integer
+}
+```
 
 ## QuestionAnsweringQualityInstance
 
@@ -1483,26 +1325,16 @@ Required. Text to answer the question.
 
 Required. Question Answering prompt for LLM.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;reference&quot;: string,
-  &quot;context&quot;: string,
-  &quot;instruction&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "reference": string,
+  "context": string,
+  "instruction": string
+}
+```
 
 ## PairwiseQuestionAnsweringQualityInput
 
@@ -1510,29 +1342,26 @@ Input for pairwise question answering quality metric.
 
 Fields
 
-`metricSpec` ` object ( PairwiseQuestionAnsweringQualitySpec  ` )
+`metricSpec` `object ( `[`PairwiseQuestionAnsweringQualitySpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#PairwiseQuestionAnsweringQualitySpec)` )`
 
 Required. Spec for pairwise question answering quality score metric.
 
-`instance` ` object ( PairwiseQuestionAnsweringQualityInstance  ` )
+`instance` `object ( `[`PairwiseQuestionAnsweringQualityInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#PairwiseQuestionAnsweringQualityInstance)` )`
 
 Required. Pairwise question answering quality instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (PairwiseQuestionAnsweringQualitySpec)},&quot;instance&quot;: {object (PairwiseQuestionAnsweringQualityInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (PairwiseQuestionAnsweringQualitySpec)
+  },
+  "instance": {
+    object (PairwiseQuestionAnsweringQualityInstance)
+  }
+}
+```
 
 ## PairwiseQuestionAnsweringQualitySpec
 
@@ -1548,24 +1377,14 @@ Optional. Whether to use instance.reference to compute question answering qualit
 
 Optional. Which version to use for evaluation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;useReference&quot;: boolean,
-  &quot;version&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "useReference": boolean,
+  "version": integer
+}
+```
 
 ## PairwiseQuestionAnsweringQualityInstance
 
@@ -1593,27 +1412,17 @@ Required. Text to answer the question.
 
 Required. Question Answering prompt for LLM.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;baselinePrediction&quot;: string,
-  &quot;reference&quot;: string,
-  &quot;context&quot;: string,
-  &quot;instruction&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "baselinePrediction": string,
+  "reference": string,
+  "context": string,
+  "instruction": string
+}
+```
 
 ## QuestionAnsweringRelevanceInput
 
@@ -1621,29 +1430,26 @@ Input for question answering relevance metric.
 
 Fields
 
-`metricSpec` ` object ( QuestionAnsweringRelevanceSpec  ` )
+`metricSpec` `object ( `[`QuestionAnsweringRelevanceSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#QuestionAnsweringRelevanceSpec)` )`
 
 Required. Spec for question answering relevance score metric.
 
-`instance` ` object ( QuestionAnsweringRelevanceInstance  ` )
+`instance` `object ( `[`QuestionAnsweringRelevanceInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#QuestionAnsweringRelevanceInstance)` )`
 
 Required. Question answering relevance instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (QuestionAnsweringRelevanceSpec)},&quot;instance&quot;: {object (QuestionAnsweringRelevanceInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (QuestionAnsweringRelevanceSpec)
+  },
+  "instance": {
+    object (QuestionAnsweringRelevanceInstance)
+  }
+}
+```
 
 ## QuestionAnsweringRelevanceSpec
 
@@ -1659,24 +1465,14 @@ Optional. Whether to use instance.reference to compute question answering releva
 
 Optional. Which version to use for evaluation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;useReference&quot;: boolean,
-  &quot;version&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "useReference": boolean,
+  "version": integer
+}
+```
 
 ## QuestionAnsweringRelevanceInstance
 
@@ -1700,26 +1496,16 @@ Optional. Text provided as context to answer the question.
 
 Required. The question asked and other instruction in the inference prompt.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;reference&quot;: string,
-  &quot;context&quot;: string,
-  &quot;instruction&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "reference": string,
+  "context": string,
+  "instruction": string
+}
+```
 
 ## QuestionAnsweringHelpfulnessInput
 
@@ -1727,29 +1513,26 @@ Input for question answering helpfulness metric.
 
 Fields
 
-`metricSpec` ` object ( QuestionAnsweringHelpfulnessSpec  ` )
+`metricSpec` `object ( `[`QuestionAnsweringHelpfulnessSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#QuestionAnsweringHelpfulnessSpec)` )`
 
 Required. Spec for question answering helpfulness score metric.
 
-`instance` ` object ( QuestionAnsweringHelpfulnessInstance  ` )
+`instance` `object ( `[`QuestionAnsweringHelpfulnessInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#QuestionAnsweringHelpfulnessInstance)` )`
 
 Required. Question answering helpfulness instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (QuestionAnsweringHelpfulnessSpec)},&quot;instance&quot;: {object (QuestionAnsweringHelpfulnessInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (QuestionAnsweringHelpfulnessSpec)
+  },
+  "instance": {
+    object (QuestionAnsweringHelpfulnessInstance)
+  }
+}
+```
 
 ## QuestionAnsweringHelpfulnessSpec
 
@@ -1765,24 +1548,14 @@ Optional. Whether to use instance.reference to compute question answering helpfu
 
 Optional. Which version to use for evaluation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;useReference&quot;: boolean,
-  &quot;version&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "useReference": boolean,
+  "version": integer
+}
+```
 
 ## QuestionAnsweringHelpfulnessInstance
 
@@ -1806,26 +1579,16 @@ Optional. Text provided as context to answer the question.
 
 Required. The question asked and other instruction in the inference prompt.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;reference&quot;: string,
-  &quot;context&quot;: string,
-  &quot;instruction&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "reference": string,
+  "context": string,
+  "instruction": string
+}
+```
 
 ## QuestionAnsweringCorrectnessInput
 
@@ -1833,29 +1596,26 @@ Input for question answering correctness metric.
 
 Fields
 
-`metricSpec` ` object ( QuestionAnsweringCorrectnessSpec  ` )
+`metricSpec` `object ( `[`QuestionAnsweringCorrectnessSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#QuestionAnsweringCorrectnessSpec)` )`
 
 Required. Spec for question answering correctness score metric.
 
-`instance` ` object ( QuestionAnsweringCorrectnessInstance  ` )
+`instance` `object ( `[`QuestionAnsweringCorrectnessInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#QuestionAnsweringCorrectnessInstance)` )`
 
 Required. Question answering correctness instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (QuestionAnsweringCorrectnessSpec)},&quot;instance&quot;: {object (QuestionAnsweringCorrectnessInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (QuestionAnsweringCorrectnessSpec)
+  },
+  "instance": {
+    object (QuestionAnsweringCorrectnessInstance)
+  }
+}
+```
 
 ## QuestionAnsweringCorrectnessSpec
 
@@ -1871,24 +1631,14 @@ Optional. Whether to use instance.reference to compute question answering correc
 
 Optional. Which version to use for evaluation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;useReference&quot;: boolean,
-  &quot;version&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "useReference": boolean,
+  "version": integer
+}
+```
 
 ## QuestionAnsweringCorrectnessInstance
 
@@ -1912,26 +1662,16 @@ Optional. Text provided as context to answer the question.
 
 Required. The question asked and other instruction in the inference prompt.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;reference&quot;: string,
-  &quot;context&quot;: string,
-  &quot;instruction&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "reference": string,
+  "context": string,
+  "instruction": string
+}
+```
 
 ## PointwiseMetricInput
 
@@ -1939,29 +1679,26 @@ Input for pointwise metric.
 
 Fields
 
-`metricSpec` ` object ( PointwiseMetricSpec  ` )
+`metricSpec` `object ( `[`PointwiseMetricSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#PointwiseMetricSpec)` )`
 
 Required. Spec for pointwise metric.
 
-`instance` ` object ( PointwiseMetricInstance  ` )
+`instance` `object ( `[`PointwiseMetricInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#PointwiseMetricInstance)` )`
 
 Required. Pointwise metric instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (PointwiseMetricSpec)},&quot;instance&quot;: {object (PointwiseMetricInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (PointwiseMetricSpec)
+  },
+  "instance": {
+    object (PointwiseMetricInstance)
+  }
+}
+```
 
 ## PointwiseMetricInstance
 
@@ -1975,29 +1712,27 @@ Instance for pointwise metric. The following is a list of mutually exclusive fie
 
 `jsonInstance` `string`
 
-Instance specified as a json string. String key-value pairs are expected in the jsonInstance to render PointwiseMetricSpec.instance\_prompt\_template.
+Instance specified as a json string. String key-value pairs are expected in the jsonInstance to render PointwiseMetricSpec.instance_prompt_template.
 
-`contentMapInstance` ` object ( ContentMap  ` )
+`contentMapInstance` `object ( `[`ContentMap`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ContentMap)` )`
 
 Key-value contents for the mutlimodality input, including text, image, video, audio, and pdf, etc. The key is placeholder in metric prompt template, and the value is the multimodal content.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// instance&quot;jsonInstance&quot;: string,&quot;contentMapInstance&quot;: {object (ContentMap)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // instance
+  "jsonInstance": string,
+  "contentMapInstance": {
+    object (ContentMap)
+  }
+  // Union type
+}
+```
 
 ## ContentMap
 
@@ -2005,25 +1740,22 @@ Map of placeholder in metric prompt template to contents of model input.
 
 Fields
 
-`values` ` map (key: string, value: object ( Contents  ` ))
+`values` `map (key: string, value: object ( `[`Contents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#Contents)` ))`
 
 Optional. Map of placeholder to contents.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;values&quot;: {string: {object (Contents)},...}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "values": {
+    string: {
+      object (Contents)
+    },
+    ...
+  }
+}
+```
 
 ## Contents
 
@@ -2031,25 +1763,21 @@ Repeated Content type.
 
 Fields
 
-`contents[]` ` object ( Content  ` )
+`contents[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Optional. Repeated contents.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;contents&quot;: [{object (Content)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "contents": [
+    {
+      object (Content)
+    }
+  ]
+}
+```
 
 ## PairwiseMetricInput
 
@@ -2057,29 +1785,26 @@ Input for pairwise metric.
 
 Fields
 
-`metricSpec` ` object ( PairwiseMetricSpec  ` )
+`metricSpec` `object ( `[`PairwiseMetricSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#PairwiseMetricSpec)` )`
 
 Required. Spec for pairwise metric.
 
-`instance` ` object ( PairwiseMetricInstance  ` )
+`instance` `object ( `[`PairwiseMetricInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#PairwiseMetricInstance)` )`
 
 Required. Pairwise metric instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (PairwiseMetricSpec)},&quot;instance&quot;: {object (PairwiseMetricInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (PairwiseMetricSpec)
+  },
+  "instance": {
+    object (PairwiseMetricInstance)
+  }
+}
+```
 
 ## PairwiseMetricInstance
 
@@ -2093,29 +1818,27 @@ Instance for pairwise metric. The following is a list of mutually exclusive fiel
 
 `jsonInstance` `string`
 
-Instance specified as a json string. String key-value pairs are expected in the jsonInstance to render PairwiseMetricSpec.instance\_prompt\_template.
+Instance specified as a json string. String key-value pairs are expected in the jsonInstance to render PairwiseMetricSpec.instance_prompt_template.
 
-`contentMapInstance` ` object ( ContentMap  ` )
+`contentMapInstance` `object ( `[`ContentMap`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ContentMap)` )`
 
 Key-value contents for the mutlimodality input, including text, image, video, audio, and pdf, etc. The key is placeholder in metric prompt template, and the value is the multimodal content.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// instance&quot;jsonInstance&quot;: string,&quot;contentMapInstance&quot;: {object (ContentMap)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // instance
+  "jsonInstance": string,
+  "contentMapInstance": {
+    object (ContentMap)
+  }
+  // Union type
+}
+```
 
 ## ToolCallValidInput
 
@@ -2123,29 +1846,28 @@ Input for tool call valid metric.
 
 Fields
 
-`metricSpec` ` object ( ToolCallValidSpec  ` )
+`metricSpec` `object ( `[`ToolCallValidSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolCallValidSpec)` )`
 
 Required. Spec for tool call valid metric.
 
-`instances[]` ` object ( ToolCallValidInstance  ` )
+`instances[]` `object ( `[`ToolCallValidInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolCallValidInstance)` )`
 
 Required. Repeated tool call valid instances.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (ToolCallValidSpec)},&quot;instances&quot;: [{object (ToolCallValidInstance)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (ToolCallValidSpec)
+  },
+  "instances": [
+    {
+      object (ToolCallValidInstance)
+    }
+  ]
+}
+```
 
 ## ToolCallValidSpec
 
@@ -2167,24 +1889,14 @@ Required. Output of the evaluated model.
 
 Required. Ground truth used to compare against the prediction.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;reference&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "reference": string
+}
+```
 
 ## ToolNameMatchInput
 
@@ -2192,29 +1904,28 @@ Input for tool name match metric.
 
 Fields
 
-`metricSpec` ` object ( ToolNameMatchSpec  ` )
+`metricSpec` `object ( `[`ToolNameMatchSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolNameMatchSpec)` )`
 
 Required. Spec for tool name match metric.
 
-`instances[]` ` object ( ToolNameMatchInstance  ` )
+`instances[]` `object ( `[`ToolNameMatchInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolNameMatchInstance)` )`
 
 Required. Repeated tool name match instances.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (ToolNameMatchSpec)},&quot;instances&quot;: [{object (ToolNameMatchInstance)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (ToolNameMatchSpec)
+  },
+  "instances": [
+    {
+      object (ToolNameMatchInstance)
+    }
+  ]
+}
+```
 
 ## ToolNameMatchSpec
 
@@ -2236,24 +1947,14 @@ Required. Output of the evaluated model.
 
 Required. Ground truth used to compare against the prediction.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;reference&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "reference": string
+}
+```
 
 ## ToolParameterKeyMatchInput
 
@@ -2261,29 +1962,28 @@ Input for tool parameter key match metric.
 
 Fields
 
-`metricSpec` ` object ( ToolParameterKeyMatchSpec  ` )
+`metricSpec` `object ( `[`ToolParameterKeyMatchSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolParameterKeyMatchSpec)` )`
 
 Required. Spec for tool parameter key match metric.
 
-`instances[]` ` object ( ToolParameterKeyMatchInstance  ` )
+`instances[]` `object ( `[`ToolParameterKeyMatchInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolParameterKeyMatchInstance)` )`
 
 Required. Repeated tool parameter key match instances.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (ToolParameterKeyMatchSpec)},&quot;instances&quot;: [{object (ToolParameterKeyMatchInstance)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (ToolParameterKeyMatchSpec)
+  },
+  "instances": [
+    {
+      object (ToolParameterKeyMatchInstance)
+    }
+  ]
+}
+```
 
 ## ToolParameterKeyMatchSpec
 
@@ -2305,24 +2005,14 @@ Required. Output of the evaluated model.
 
 Required. Ground truth used to compare against the prediction.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;reference&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "reference": string
+}
+```
 
 ## ToolParameterKVMatchInput
 
@@ -2330,29 +2020,28 @@ Input for tool parameter key value match metric.
 
 Fields
 
-`metricSpec` ` object ( ToolParameterKVMatchSpec  ` )
+`metricSpec` `object ( `[`ToolParameterKVMatchSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolParameterKVMatchSpec)` )`
 
 Required. Spec for tool parameter key value match metric.
 
-`instances[]` ` object ( ToolParameterKVMatchInstance  ` )
+`instances[]` `object ( `[`ToolParameterKVMatchInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolParameterKVMatchInstance)` )`
 
 Required. Repeated tool parameter key value match instances.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (ToolParameterKVMatchSpec)},&quot;instances&quot;: [{object (ToolParameterKVMatchInstance)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (ToolParameterKVMatchSpec)
+  },
+  "instances": [
+    {
+      object (ToolParameterKVMatchInstance)
+    }
+  ]
+}
+```
 
 ## ToolParameterKVMatchSpec
 
@@ -2364,23 +2053,13 @@ Fields
 
 Optional. Whether to use STRICT string match on parameter values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;useStrictStringMatch&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "useStrictStringMatch": boolean
+}
+```
 
 ## ToolParameterKVMatchInstance
 
@@ -2396,24 +2075,14 @@ Required. Output of the evaluated model.
 
 Required. Ground truth used to compare against the prediction.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;reference&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "reference": string
+}
+```
 
 ## CometInput
 
@@ -2421,29 +2090,26 @@ Input for Comet metric.
 
 Fields
 
-`metricSpec` ` object ( CometSpec  ` )
+`metricSpec` `object ( `[`CometSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#CometSpec)` )`
 
 Required. Spec for comet metric.
 
-`instance` ` object ( CometInstance  ` )
+`instance` `object ( `[`CometInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#CometInstance)` )`
 
 Required. Comet instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (CometSpec)},&quot;instance&quot;: {object (CometInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (CometSpec)
+  },
+  "instance": {
+    object (CometInstance)
+  }
+}
+```
 
 ## CometSpec
 
@@ -2459,39 +2125,28 @@ Optional. Source language in BCP-47 format.
 
 Optional. Target language in BCP-47 format. Covers both prediction and reference.
 
-`version` ` enum ( CometVersion  ` )
+`version` `enum ( `[`CometVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#CometVersion)` )`
 
 Required. Which version to use for evaluation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;sourceLanguage&quot;: string,&quot;targetLanguage&quot;: string,&quot;version&quot;: enum (CometVersion)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "sourceLanguage": string,
+  "targetLanguage": string,
+  "version": enum (CometVersion)
+}
+```
 
 ## CometVersion
 
 Comet version options.
 
-Enums
-
-`COMET_VERSION_UNSPECIFIED`
-
-Comet version unspecified.
-
-`COMET_22_SRC_REF`
-
-Comet 22 for translation + source + reference (source-reference-combined).
+| Enums                       |                                                                            |
+|-----------------------------|----------------------------------------------------------------------------|
+| `COMET_VERSION_UNSPECIFIED` | Comet version unspecified.                                                 |
+| `COMET_22_SRC_REF`          | Comet 22 for translation + source + reference (source-reference-combined). |
 
 ## CometInstance
 
@@ -2511,25 +2166,15 @@ Optional. Ground truth used to compare against the prediction.
 
 Optional. Source text in original language.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;reference&quot;: string,
-  &quot;source&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "reference": string,
+  "source": string
+}
+```
 
 ## MetricxInput
 
@@ -2537,29 +2182,26 @@ Input for MetricX metric.
 
 Fields
 
-`metricSpec` ` object ( MetricxSpec  ` )
+`metricSpec` `object ( `[`MetricxSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#MetricxSpec)` )`
 
 Required. Spec for Metricx metric.
 
-`instance` ` object ( MetricxInstance  ` )
+`instance` `object ( `[`MetricxInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#MetricxInstance)` )`
 
 Required. Metricx instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (MetricxSpec)},&quot;instance&quot;: {object (MetricxInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (MetricxSpec)
+  },
+  "instance": {
+    object (MetricxInstance)
+  }
+}
+```
 
 ## MetricxSpec
 
@@ -2575,47 +2217,30 @@ Optional. Source language in BCP-47 format.
 
 Optional. Target language in BCP-47 format. Covers both prediction and reference.
 
-`version` ` enum ( MetricxVersion  ` )
+`version` `enum ( `[`MetricxVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#MetricxVersion)` )`
 
 Required. Which version to use for evaluation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;sourceLanguage&quot;: string,&quot;targetLanguage&quot;: string,&quot;version&quot;: enum (MetricxVersion)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "sourceLanguage": string,
+  "targetLanguage": string,
+  "version": enum (MetricxVersion)
+}
+```
 
 ## MetricxVersion
 
 MetricX version options.
 
-Enums
-
-`METRICX_VERSION_UNSPECIFIED`
-
-MetricX version unspecified.
-
-`METRICX_24_REF`
-
-MetricX 2024 (2.6) for translation + reference (reference-based).
-
-`METRICX_24_SRC`
-
-MetricX 2024 (2.6) for translation + source (QE).
-
-`METRICX_24_SRC_REF`
-
-MetricX 2024 (2.6) for translation + source + reference (source-reference-combined).
+| Enums                         |                                                                                      |
+|-------------------------------|--------------------------------------------------------------------------------------|
+| `METRICX_VERSION_UNSPECIFIED` | MetricX version unspecified.                                                         |
+| `METRICX_24_REF`              | MetricX 2024 (2.6) for translation + reference (reference-based).                    |
+| `METRICX_24_SRC`              | MetricX 2024 (2.6) for translation + source (QE).                                    |
+| `METRICX_24_SRC_REF`          | MetricX 2024 (2.6) for translation + source + reference (source-reference-combined). |
 
 ## MetricxInstance
 
@@ -2635,25 +2260,15 @@ Optional. Ground truth used to compare against the prediction.
 
 Optional. Source text in original language.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;prediction&quot;: string,
-  &quot;reference&quot;: string,
-  &quot;source&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prediction": string,
+  "reference": string,
+  "source": string
+}
+```
 
 ## TrajectoryExactMatchInput
 
@@ -2661,29 +2276,28 @@ Instances and metric spec for TrajectoryExactMatch metric.
 
 Fields
 
-`metricSpec` ` object ( TrajectoryExactMatchSpec  ` )
+`metricSpec` `object ( `[`TrajectoryExactMatchSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryExactMatchSpec)` )`
 
 Required. Spec for TrajectoryExactMatch metric.
 
-`instances[]` ` object ( TrajectoryExactMatchInstance  ` )
+`instances[]` `object ( `[`TrajectoryExactMatchInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryExactMatchInstance)` )`
 
 Required. Repeated TrajectoryExactMatch instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (TrajectoryExactMatchSpec)},&quot;instances&quot;: [{object (TrajectoryExactMatchInstance)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (TrajectoryExactMatchSpec)
+  },
+  "instances": [
+    {
+      object (TrajectoryExactMatchInstance)
+    }
+  ]
+}
+```
 
 ## TrajectoryExactMatchSpec
 
@@ -2697,29 +2311,26 @@ Spec for TrajectoryExactMatch instance.
 
 Fields
 
-`predictedTrajectory` ` object ( Trajectory  ` )
+`predictedTrajectory` `object ( `[`Trajectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#Trajectory)` )`
 
 Required. Spec for predicted tool call trajectory.
 
-`referenceTrajectory` ` object ( Trajectory  ` )
+`referenceTrajectory` `object ( `[`Trajectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#Trajectory)` )`
 
 Required. Spec for reference tool call trajectory.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;predictedTrajectory&quot;: {object (Trajectory)},&quot;referenceTrajectory&quot;: {object (Trajectory)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "predictedTrajectory": {
+    object (Trajectory)
+  },
+  "referenceTrajectory": {
+    object (Trajectory)
+  }
+}
+```
 
 ## Trajectory
 
@@ -2727,25 +2338,21 @@ Spec for trajectory.
 
 Fields
 
-`toolCalls[]` ` object ( ToolCall  ` )
+`toolCalls[]` `object ( `[`ToolCall`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolCall)` )`
 
 Required. Tool calls in the trajectory.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;toolCalls&quot;: [{object (ToolCall)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "toolCalls": [
+    {
+      object (ToolCall)
+    }
+  ]
+}
+```
 
 ## ToolCall
 
@@ -2761,24 +2368,14 @@ Required. Spec for tool name
 
 Optional. Spec for tool input
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;toolName&quot;: string,
-  &quot;toolInput&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "toolName": string,
+  "toolInput": string
+}
+```
 
 ## TrajectoryInOrderMatchInput
 
@@ -2786,29 +2383,28 @@ Instances and metric spec for TrajectoryInOrderMatch metric.
 
 Fields
 
-`metricSpec` ` object ( TrajectoryInOrderMatchSpec  ` )
+`metricSpec` `object ( `[`TrajectoryInOrderMatchSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryInOrderMatchSpec)` )`
 
 Required. Spec for TrajectoryInOrderMatch metric.
 
-`instances[]` ` object ( TrajectoryInOrderMatchInstance  ` )
+`instances[]` `object ( `[`TrajectoryInOrderMatchInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryInOrderMatchInstance)` )`
 
 Required. Repeated TrajectoryInOrderMatch instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (TrajectoryInOrderMatchSpec)},&quot;instances&quot;: [{object (TrajectoryInOrderMatchInstance)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (TrajectoryInOrderMatchSpec)
+  },
+  "instances": [
+    {
+      object (TrajectoryInOrderMatchInstance)
+    }
+  ]
+}
+```
 
 ## TrajectoryInOrderMatchSpec
 
@@ -2822,29 +2418,26 @@ Spec for TrajectoryInOrderMatch instance.
 
 Fields
 
-`predictedTrajectory` ` object ( Trajectory  ` )
+`predictedTrajectory` `object ( `[`Trajectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#Trajectory)` )`
 
 Required. Spec for predicted tool call trajectory.
 
-`referenceTrajectory` ` object ( Trajectory  ` )
+`referenceTrajectory` `object ( `[`Trajectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#Trajectory)` )`
 
 Required. Spec for reference tool call trajectory.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;predictedTrajectory&quot;: {object (Trajectory)},&quot;referenceTrajectory&quot;: {object (Trajectory)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "predictedTrajectory": {
+    object (Trajectory)
+  },
+  "referenceTrajectory": {
+    object (Trajectory)
+  }
+}
+```
 
 ## TrajectoryAnyOrderMatchInput
 
@@ -2852,29 +2445,28 @@ Instances and metric spec for TrajectoryAnyOrderMatch metric.
 
 Fields
 
-`metricSpec` ` object ( TrajectoryAnyOrderMatchSpec  ` )
+`metricSpec` `object ( `[`TrajectoryAnyOrderMatchSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryAnyOrderMatchSpec)` )`
 
 Required. Spec for TrajectoryAnyOrderMatch metric.
 
-`instances[]` ` object ( TrajectoryAnyOrderMatchInstance  ` )
+`instances[]` `object ( `[`TrajectoryAnyOrderMatchInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryAnyOrderMatchInstance)` )`
 
 Required. Repeated TrajectoryAnyOrderMatch instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (TrajectoryAnyOrderMatchSpec)},&quot;instances&quot;: [{object (TrajectoryAnyOrderMatchInstance)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (TrajectoryAnyOrderMatchSpec)
+  },
+  "instances": [
+    {
+      object (TrajectoryAnyOrderMatchInstance)
+    }
+  ]
+}
+```
 
 ## TrajectoryAnyOrderMatchSpec
 
@@ -2888,29 +2480,26 @@ Spec for TrajectoryAnyOrderMatch instance.
 
 Fields
 
-`predictedTrajectory` ` object ( Trajectory  ` )
+`predictedTrajectory` `object ( `[`Trajectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#Trajectory)` )`
 
 Required. Spec for predicted tool call trajectory.
 
-`referenceTrajectory` ` object ( Trajectory  ` )
+`referenceTrajectory` `object ( `[`Trajectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#Trajectory)` )`
 
 Required. Spec for reference tool call trajectory.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;predictedTrajectory&quot;: {object (Trajectory)},&quot;referenceTrajectory&quot;: {object (Trajectory)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "predictedTrajectory": {
+    object (Trajectory)
+  },
+  "referenceTrajectory": {
+    object (Trajectory)
+  }
+}
+```
 
 ## TrajectoryPrecisionInput
 
@@ -2918,29 +2507,28 @@ Instances and metric spec for TrajectoryPrecision metric.
 
 Fields
 
-`metricSpec` ` object ( TrajectoryPrecisionSpec  ` )
+`metricSpec` `object ( `[`TrajectoryPrecisionSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryPrecisionSpec)` )`
 
 Required. Spec for TrajectoryPrecision metric.
 
-`instances[]` ` object ( TrajectoryPrecisionInstance  ` )
+`instances[]` `object ( `[`TrajectoryPrecisionInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryPrecisionInstance)` )`
 
 Required. Repeated TrajectoryPrecision instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (TrajectoryPrecisionSpec)},&quot;instances&quot;: [{object (TrajectoryPrecisionInstance)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (TrajectoryPrecisionSpec)
+  },
+  "instances": [
+    {
+      object (TrajectoryPrecisionInstance)
+    }
+  ]
+}
+```
 
 ## TrajectoryPrecisionSpec
 
@@ -2954,29 +2542,26 @@ Spec for TrajectoryPrecision instance.
 
 Fields
 
-`predictedTrajectory` ` object ( Trajectory  ` )
+`predictedTrajectory` `object ( `[`Trajectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#Trajectory)` )`
 
 Required. Spec for predicted tool call trajectory.
 
-`referenceTrajectory` ` object ( Trajectory  ` )
+`referenceTrajectory` `object ( `[`Trajectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#Trajectory)` )`
 
 Required. Spec for reference tool call trajectory.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;predictedTrajectory&quot;: {object (Trajectory)},&quot;referenceTrajectory&quot;: {object (Trajectory)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "predictedTrajectory": {
+    object (Trajectory)
+  },
+  "referenceTrajectory": {
+    object (Trajectory)
+  }
+}
+```
 
 ## TrajectoryRecallInput
 
@@ -2984,29 +2569,28 @@ Instances and metric spec for TrajectoryRecall metric.
 
 Fields
 
-`metricSpec` ` object ( TrajectoryRecallSpec  ` )
+`metricSpec` `object ( `[`TrajectoryRecallSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryRecallSpec)` )`
 
 Required. Spec for TrajectoryRecall metric.
 
-`instances[]` ` object ( TrajectoryRecallInstance  ` )
+`instances[]` `object ( `[`TrajectoryRecallInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryRecallInstance)` )`
 
 Required. Repeated TrajectoryRecall instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (TrajectoryRecallSpec)},&quot;instances&quot;: [{object (TrajectoryRecallInstance)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (TrajectoryRecallSpec)
+  },
+  "instances": [
+    {
+      object (TrajectoryRecallInstance)
+    }
+  ]
+}
+```
 
 ## TrajectoryRecallSpec
 
@@ -3020,29 +2604,26 @@ Spec for TrajectoryRecall instance.
 
 Fields
 
-`predictedTrajectory` ` object ( Trajectory  ` )
+`predictedTrajectory` `object ( `[`Trajectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#Trajectory)` )`
 
 Required. Spec for predicted tool call trajectory.
 
-`referenceTrajectory` ` object ( Trajectory  ` )
+`referenceTrajectory` `object ( `[`Trajectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#Trajectory)` )`
 
 Required. Spec for reference tool call trajectory.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;predictedTrajectory&quot;: {object (Trajectory)},&quot;referenceTrajectory&quot;: {object (Trajectory)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "predictedTrajectory": {
+    object (Trajectory)
+  },
+  "referenceTrajectory": {
+    object (Trajectory)
+  }
+}
+```
 
 ## TrajectorySingleToolUseInput
 
@@ -3050,29 +2631,28 @@ Instances and metric spec for TrajectorySingleToolUse metric.
 
 Fields
 
-`metricSpec` ` object ( TrajectorySingleToolUseSpec  ` )
+`metricSpec` `object ( `[`TrajectorySingleToolUseSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectorySingleToolUseSpec)` )`
 
 Required. Spec for TrajectorySingleToolUse metric.
 
-`instances[]` ` object ( TrajectorySingleToolUseInstance  ` )
+`instances[]` `object ( `[`TrajectorySingleToolUseInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectorySingleToolUseInstance)` )`
 
 Required. Repeated TrajectorySingleToolUse instance.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (TrajectorySingleToolUseSpec)},&quot;instances&quot;: [{object (TrajectorySingleToolUseInstance)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (TrajectorySingleToolUseSpec)
+  },
+  "instances": [
+    {
+      object (TrajectorySingleToolUseInstance)
+    }
+  ]
+}
+```
 
 ## TrajectorySingleToolUseSpec
 
@@ -3084,23 +2664,13 @@ Fields
 
 Required. Spec for tool name to be checked for in the predicted trajectory.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;toolName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "toolName": string
+}
+```
 
 ## TrajectorySingleToolUseInstance
 
@@ -3108,25 +2678,19 @@ Spec for TrajectorySingleToolUse instance.
 
 Fields
 
-`predictedTrajectory` ` object ( Trajectory  ` )
+`predictedTrajectory` `object ( `[`Trajectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#Trajectory)` )`
 
 Required. Spec for predicted tool call trajectory.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;predictedTrajectory&quot;: {object (Trajectory)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "predictedTrajectory": {
+    object (Trajectory)
+  }
+}
+```
 
 ## RubricBasedInstructionFollowingInput
 
@@ -3134,29 +2698,26 @@ Instance and metric spec for RubricBasedInstructionFollowing metric.
 
 Fields
 
-`metricSpec` ` object ( RubricBasedInstructionFollowingSpec  ` )
+`metricSpec` `object ( `[`RubricBasedInstructionFollowingSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#RubricBasedInstructionFollowingSpec)` )`
 
 Required. Spec for RubricBasedInstructionFollowing metric.
 
-`instance` ` object ( RubricBasedInstructionFollowingInstance  ` )
+`instance` `object ( `[`RubricBasedInstructionFollowingInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#RubricBasedInstructionFollowingInstance)` )`
 
 Required. Instance for RubricBasedInstructionFollowing metric.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricSpec&quot;: {object (RubricBasedInstructionFollowingSpec)},&quot;instance&quot;: {object (RubricBasedInstructionFollowingInstance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricSpec": {
+    object (RubricBasedInstructionFollowingSpec)
+  },
+  "instance": {
+    object (RubricBasedInstructionFollowingInstance)
+  }
+}
+```
 
 ## RubricBasedInstructionFollowingSpec
 
@@ -3180,26 +2741,16 @@ Required. Instance specified as a json string. String key-value pairs are expect
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+**JSON representation**
+
+```
+{
 
   // instance
-  &quot;jsonInstance&quot;: string
+  "jsonInstance": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## EvaluationInstance
 
@@ -3207,51 +2758,66 @@ A single instance to be evaluated. Instances are used to specify the input data 
 
 Fields
 
-`prompt` ` object ( InstanceData  ` )
+`prompt` `object ( `[`InstanceData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/InstanceData)` )`
 
 Optional. data used to populate placeholder `prompt` in a metric prompt template.
 
-`rubricGroups` ` map (key: string, value: object ( RubricGroup  ` ))
+`rubricGroups` `map (key: string, value: object ( `[`RubricGroup`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#RubricGroup)` ))`
 
 Optional. Named groups of rubrics associated with the prompt. This is used for rubric-based evaluations where rubrics can be referenced by a key. The key could represent versions, associated metrics, etc.
 
-`response` ` object ( InstanceData  ` )
+`response` `object ( `[`InstanceData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/InstanceData)` )`
 
 Optional. data used to populate placeholder `response` in a metric prompt template.
 
-`reference` ` object ( InstanceData  ` )
+`reference` `object ( `[`InstanceData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/InstanceData)` )`
 
 Optional. data used to populate placeholder `reference` in a metric prompt template.
 
-`otherData` ` object ( MapInstance  ` )
+`otherData` `object ( `[`MapInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#MapInstance)` )`
 
 Optional. Other data used to populate placeholders based on their key. If a key conflicts with a field in the EvaluationInstance (e.g. `prompt` ), the value of the field will take precedence over the value in otherData.
 
-` agentData (deprecated)  ` ` object ( DeprecatedAgentData  ` )
+`agentData `**`(deprecated)`** `object ( `[`DeprecatedAgentData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#DeprecatedAgentData)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. Deprecated: Use `agentEvalData` instead. data used for agent evaluation.
 
-`agentEvalData` ` object ( AgentData  ` )
+`agentEvalData` `object ( `[`AgentData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#AgentData)` )`
 
 Optional. data used for agent evaluation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;prompt&quot;: {object (InstanceData)},&quot;rubricGroups&quot;: {string: {object (RubricGroup)},...},&quot;response&quot;: {object (InstanceData)},&quot;reference&quot;: {object (InstanceData)},&quot;otherData&quot;: {object (MapInstance)},&quot;agentData&quot;: {object (DeprecatedAgentData)},&quot;agentEvalData&quot;: {object (AgentData)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prompt": {
+    object (InstanceData)
+  },
+  "rubricGroups": {
+    string: {
+      object (RubricGroup)
+    },
+    ...
+  },
+  "response": {
+    object (InstanceData)
+  },
+  "reference": {
+    object (InstanceData)
+  },
+  "otherData": {
+    object (MapInstance)
+  },
+  "agentData": {
+    object (DeprecatedAgentData)
+  },
+  "agentEvalData": {
+    object (AgentData)
+  }
+}
+```
 
 ## RubricGroup
 
@@ -3267,25 +2833,23 @@ Unique identifier for the group.
 
 Human-readable name for the group. This should be unique within a given context if used for display or selection. Example: "Instruction Following V1", "Content Quality - Summarization Task".
 
-`rubrics[]` ` object ( Rubric  ` )
+`rubrics[]` `object ( `[`Rubric`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Rubric)` )`
 
 Rubrics that are part of this group.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;groupId&quot;: string,&quot;displayName&quot;: string,&quot;rubrics&quot;: [{object (Rubric)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "groupId": string,
+  "displayName": string,
+  "rubrics": [
+    {
+      object (Rubric)
+    }
+  ]
+}
+```
 
 ## MapInstance
 
@@ -3293,65 +2857,62 @@ Instance data specified as a map.
 
 Fields
 
-`mapInstance` ` map (key: string, value: object ( InstanceData  ` ))
+`mapInstance` `map (key: string, value: object ( `[`InstanceData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/InstanceData)` ))`
 
 Optional. Map of instance data.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;mapInstance&quot;: {string: {object (InstanceData)},...}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "mapInstance": {
+    string: {
+      object (InstanceData)
+    },
+    ...
+  }
+}
+```
 
 ## DeprecatedAgentData
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Deprecated: Use `agentEvalData` instead. Contains data specific to agent evaluations.
 
 Fields
 
-`agents` ` map (key: string, value: object ( DeprecatedAgentConfig  ` ))
+`agents` `map (key: string, value: object ( `[`DeprecatedAgentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DeprecatedAgentConfig)` ))`
 
 Optional. The static Agent Configuration. This map defines the graph structure of the agent system. Key: agentId (matches the `author` field in events). value: The static configuration of the agent (tools, instructions, sub-agents).
 
-`turns[]` ` object ( ConversationTurn  ` )
+`turns[]` `object ( `[`ConversationTurn`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ConversationTurn)` )`
 
 Optional. The chronological list of conversation turns. Each turn represents a logical execution cycle (e.g., user Input -\> Agent Response).
 
-` developerInstruction (deprecated)  ` ` object ( InstanceData  ` )
+`developerInstruction `**`(deprecated)`** `object ( `[`InstanceData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/InstanceData)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. Deprecated: Use `agents.developer_instruction` or `turns.events.active_instruction` instead. A field containing instructions from the developer for the agent.
 
-`agentConfig` ` object ( DeprecatedAgentConfig  ` )
+`agentConfig` `object ( `[`DeprecatedAgentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DeprecatedAgentConfig)` )`
 
 Optional. Deprecated: Use `agentEvalData` instead. Agent configuration.
 
 `tools_data` `Union type`
 
-\--- Legacy fields below. To be deprecated. --- Deprecated: Use `agents` instead. Data for the tools available to the agent. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+--- Legacy fields below. To be deprecated. --- Deprecated: Use `agents` instead. Data for the tools available to the agent. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-` toolsText (deprecated)  ` `string`
+`toolsText `**`(deprecated)`** `string`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 A JSON string containing a list of tools available to an agent with info such as name, description, parameters and required parameters.
 
-` tools (deprecated)  ` ` object ( Tools  ` )
+`tools `**`(deprecated)`** `object ( `[`Tools`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#Tools)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 List of tools.
 
@@ -3361,27 +2922,48 @@ End of mutually exclusive fields.
 
 The sequence of function calls and function responses that form the agent's trajectory. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`events` ` object ( Events  ` )
+`events` `object ( `[`Events`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#Events)` )`
 
 A list of events.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;agents&quot;: {string: {object (DeprecatedAgentConfig)},...},&quot;turns&quot;: [{object (ConversationTurn)}],&quot;developerInstruction&quot;: {object (InstanceData)},&quot;agentConfig&quot;: {object (DeprecatedAgentConfig)},// tools_data&quot;toolsText&quot;: string,&quot;tools&quot;: {object (Tools)}// Union type// events_data&quot;events&quot;: {object (Events)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "agents": {
+    string: {
+      object (DeprecatedAgentConfig)
+    },
+    ...
+  },
+  "turns": [
+    {
+      object (ConversationTurn)
+    }
+  ],
+  "developerInstruction": {
+    object (InstanceData)
+  },
+  "agentConfig": {
+    object (DeprecatedAgentConfig)
+  },
+
+  // tools_data
+  "toolsText": string,
+  "tools": {
+    object (Tools)
+  }
+  // Union type
+
+  // events_data
+  "events": {
+    object (Events)
+  }
+  // Union type
+}
+```
 
 ## Tools
 
@@ -3389,27 +2971,23 @@ Deprecated: Use `agentEvalData` instead. Represents a list of tools for an agent
 
 Fields
 
-` tool[] (deprecated)  ` ` object ( Tool  ` )
+`tool[] `**`(deprecated)`** `object ( `[`Tool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#Tool)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. List of tools: each tool can have multiple function declarations.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;tool&quot;: [{object (Tool)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "tool": [
+    {
+      object (Tool)
+    }
+  ]
+}
+```
 
 ## Events
 
@@ -3417,25 +2995,21 @@ Represents a list of events for an agent.
 
 Fields
 
-`event[]` ` object ( Content  ` )
+`event[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Optional. A list of events.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;event&quot;: [{object (Content)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "event": [
+    {
+      object (Content)
+    }
+  ]
+}
+```
 
 ## ConversationTurn
 
@@ -3447,7 +3021,7 @@ Fields
 
 Optional. A unique identifier for the turn. Useful for referencing specific turns across systems.
 
-`events[]` ` object ( AgentEvent  ` )
+`events[]` `object ( `[`AgentEvent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#AgentEvent)` )`
 
 Optional. The list of events that occurred during this turn.
 
@@ -3455,21 +3029,19 @@ Optional. The list of events that occurred during this turn.
 
 Required. The 0-based index of the turn in the conversation sequence.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;turnId&quot;: string,&quot;events&quot;: [{object (AgentEvent)}],&quot;turnIndex&quot;: integer}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "turnId": string,
+  "events": [
+    {
+      object (AgentEvent)
+    }
+  ],
+  "turnIndex": integer
+}
+```
 
 ## AgentEvent
 
@@ -3477,21 +3049,21 @@ A single event in the execution trace.
 
 Fields
 
-`content` ` object ( Content  ` )
+`content` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Required. The content of the event (e.g., text response, tool call, tool response).
 
-`eventTime` ` string ( Timestamp  ` format)
+`eventTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Optional. The timestamp when the event occurred.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`stateDelta` ` object ( Struct  ` format)
+`stateDelta` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Optional. The change in the session state caused by this event. This is a key-value map of fields that were modified or added by the event.
 
-`activeTools[]` ` object ( Tool  ` )
+`activeTools[]` `object ( `[`Tool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#Tool)` )`
 
 Optional. The list of tools that were active/available to the agent at the time of this event. This overrides the `AgentConfig.tools` if set.
 
@@ -3499,21 +3071,25 @@ Optional. The list of tools that were active/available to the agent at the time 
 
 Required. The id of the agent or entity that generated this event.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;content&quot;: {object (Content)},&quot;eventTime&quot;: string,&quot;stateDelta&quot;: {object},&quot;activeTools&quot;: [{object (Tool)}],&quot;author&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "content": {
+    object (Content)
+  },
+  "eventTime": string,
+  "stateDelta": {
+    object
+  },
+  "activeTools": [
+    {
+      object (Tool)
+    }
+  ],
+  "author": string
+}
+```
 
 ## AgentData
 
@@ -3521,29 +3097,31 @@ Represents data specific to multi-turn agent evaluations.
 
 Fields
 
-`agents` ` map (key: string, value: object ( AgentConfig  ` ))
+`agents` `map (key: string, value: object ( `[`AgentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#AgentConfig)` ))`
 
 Optional. A map containing the static configurations for each agent in the system. Key: agentId (matches the `author` field in events). value: The static configuration of the agent.
 
-`turns[]` ` object ( ConversationTurn  ` )
+`turns[]` `object ( `[`ConversationTurn`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ConversationTurn_1)` )`
 
 Optional. A chronological list of conversation turns. Each turn represents a logical execution cycle (e.g., user Input -\> Agent Response).
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;agents&quot;: {string: {object (AgentConfig)},...},&quot;turns&quot;: [{object (ConversationTurn)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "agents": {
+    string: {
+      object (AgentConfig)
+    },
+    ...
+  },
+  "turns": [
+    {
+      object (ConversationTurn)
+    }
+  ]
+}
+```
 
 ## AgentConfig
 
@@ -3563,7 +3141,7 @@ Optional. A high-level description of the agent's role and responsibilities. Cri
 
 Optional. Provides instructions for the LLM model, guiding the agent's behavior. Can be static or dynamic. Dynamic instructions can contain placeholders like {variableName} that will be resolved at runtime using the `AgentEvent.state_delta` field.
 
-`tools[]` ` object ( Tool  ` )
+`tools[]` `object ( `[`Tool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#Tool)` )`
 
 Optional. The list of tools available to this agent.
 
@@ -3575,21 +3153,24 @@ Optional. The list of valid agent IDs that this agent can delegate to. This defi
 
 Required. Unique identifier of the agent. This id is used to refer to this agent, e.g., in AgentEvent.author, or in the `subAgents` field. It must be unique within the `agents` map.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;agentType&quot;: string,&quot;description&quot;: string,&quot;instruction&quot;: string,&quot;tools&quot;: [{object (Tool)}],&quot;subAgents&quot;: [string],&quot;agentId&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "agentType": string,
+  "description": string,
+  "instruction": string,
+  "tools": [
+    {
+      object (Tool)
+    }
+  ],
+  "subAgents": [
+    string
+  ],
+  "agentId": string
+}
+```
 
 ## ConversationTurn
 
@@ -3601,7 +3182,7 @@ Fields
 
 Optional. A unique identifier for the turn. Useful for referencing specific turns across systems.
 
-`events[]` ` object ( AgentEvent  ` )
+`events[]` `object ( `[`AgentEvent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#AgentEvent_1)` )`
 
 Optional. The list of events that occurred during this turn.
 
@@ -3609,21 +3190,19 @@ Optional. The list of events that occurred during this turn.
 
 Required. The 0-based index of the turn in the conversation sequence.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;turnId&quot;: string,&quot;events&quot;: [{object (AgentEvent)}],&quot;turnIndex&quot;: integer}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "turnId": string,
+  "events": [
+    {
+      object (AgentEvent)
+    }
+  ],
+  "turnIndex": integer
+}
+```
 
 ## AgentEvent
 
@@ -3631,17 +3210,17 @@ Represents a single event in the execution trace.
 
 Fields
 
-`eventTime` ` string ( Timestamp  ` format)
+`eventTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Optional. The timestamp when the event occurred.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`stateDelta` ` object ( Struct  ` format)
+`stateDelta` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Optional. The change in the session state caused by this event. This is a key-value map of fields that were modified or added by the event.
 
-`activeTools[]` ` object ( Tool  ` )
+`activeTools[]` `object ( `[`Tool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#Tool)` )`
 
 Optional. The list of tools that were active/available to the agent at the time of this event. This overrides the `AgentConfig.tools` if set.
 
@@ -3649,25 +3228,29 @@ Optional. The list of tools that were active/available to the agent at the time 
 
 Required. The id of the agent or entity that generated this event. Use "user" to denote events generated by the end-user.
 
-`content` ` object ( Content  ` )
+`content` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Required. The content of the event (e.g., text response, tool call, tool response).
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;eventTime&quot;: string,&quot;stateDelta&quot;: {object},&quot;activeTools&quot;: [{object (Tool)}],&quot;author&quot;: string,&quot;content&quot;: {object (Content)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "eventTime": string,
+  "stateDelta": {
+    object
+  },
+  "activeTools": [
+    {
+      object (Tool)
+    }
+  ],
+  "author": string,
+  "content": {
+    object (Content)
+  }
+}
+```
 
 ## ExactMatchResults
 
@@ -3675,25 +3258,21 @@ Results for exact match metric.
 
 Fields
 
-`exactMatchMetricValues[]` ` object ( ExactMatchMetricValue  ` )
+`exactMatchMetricValues[]` `object ( `[`ExactMatchMetricValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#ExactMatchMetricValue)` )`
 
 Output only. Exact match metric values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;exactMatchMetricValues&quot;: [{object (ExactMatchMetricValue)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "exactMatchMetricValues": [
+    {
+      object (ExactMatchMetricValue)
+    }
+  ]
+}
+```
 
 ## BleuResults
 
@@ -3701,25 +3280,21 @@ Results for bleu metric.
 
 Fields
 
-`bleuMetricValues[]` ` object ( BleuMetricValue  ` )
+`bleuMetricValues[]` `object ( `[`BleuMetricValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#BleuMetricValue)` )`
 
 Output only. Bleu metric values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;bleuMetricValues&quot;: [{object (BleuMetricValue)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "bleuMetricValues": [
+    {
+      object (BleuMetricValue)
+    }
+  ]
+}
+```
 
 ## RougeResults
 
@@ -3727,25 +3302,21 @@ Results for rouge metric.
 
 Fields
 
-`rougeMetricValues[]` ` object ( RougeMetricValue  ` )
+`rougeMetricValues[]` `object ( `[`RougeMetricValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#RougeMetricValue)` )`
 
 Output only. Rouge metric values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;rougeMetricValues&quot;: [{object (RougeMetricValue)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "rougeMetricValues": [
+    {
+      object (RougeMetricValue)
+    }
+  ]
+}
+```
 
 ## FluencyResult
 
@@ -3765,25 +3336,15 @@ Output only. Fluency score.
 
 Output only. confidence for fluency score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;explanation&quot;: string,
-  &quot;score&quot;: number,
-  &quot;confidence&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "explanation": string,
+  "score": number,
+  "confidence": number
+}
+```
 
 ## CoherenceResult
 
@@ -3803,25 +3364,15 @@ Output only. Coherence score.
 
 Output only. confidence for coherence score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;explanation&quot;: string,
-  &quot;score&quot;: number,
-  &quot;confidence&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "explanation": string,
+  "score": number,
+  "confidence": number
+}
+```
 
 ## SafetyResult
 
@@ -3841,25 +3392,15 @@ Output only. Safety score.
 
 Output only. confidence for safety score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;explanation&quot;: string,
-  &quot;score&quot;: number,
-  &quot;confidence&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "explanation": string,
+  "score": number,
+  "confidence": number
+}
+```
 
 ## GroundednessResult
 
@@ -3879,25 +3420,15 @@ Output only. Groundedness score.
 
 Output only. confidence for groundedness score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;explanation&quot;: string,
-  &quot;score&quot;: number,
-  &quot;confidence&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "explanation": string,
+  "score": number,
+  "confidence": number
+}
+```
 
 ## FulfillmentResult
 
@@ -3917,25 +3448,15 @@ Output only. Fulfillment score.
 
 Output only. confidence for fulfillment score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;explanation&quot;: string,
-  &quot;score&quot;: number,
-  &quot;confidence&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "explanation": string,
+  "score": number,
+  "confidence": number
+}
+```
 
 ## SummarizationQualityResult
 
@@ -3955,25 +3476,15 @@ Output only. Summarization Quality score.
 
 Output only. confidence for summarization quality score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;explanation&quot;: string,
-  &quot;score&quot;: number,
-  &quot;confidence&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "explanation": string,
+  "score": number,
+  "confidence": number
+}
+```
 
 ## PairwiseSummarizationQualityResult
 
@@ -3981,7 +3492,7 @@ Spec for pairwise summarization quality result.
 
 Fields
 
-`pairwiseChoice` ` enum ( PairwiseChoice  ` )
+`pairwiseChoice` `enum ( `[`PairwiseChoice`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#PairwiseChoice)` )`
 
 Output only. Pairwise summarization prediction choice.
 
@@ -3993,21 +3504,15 @@ Output only. Explanation for summarization quality score.
 
 Output only. confidence for summarization quality score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;pairwiseChoice&quot;: enum (PairwiseChoice),&quot;explanation&quot;: string,&quot;confidence&quot;: number}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "pairwiseChoice": enum (PairwiseChoice),
+  "explanation": string,
+  "confidence": number
+}
+```
 
 ## SummarizationHelpfulnessResult
 
@@ -4027,25 +3532,15 @@ Output only. Summarization Helpfulness score.
 
 Output only. confidence for summarization helpfulness score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;explanation&quot;: string,
-  &quot;score&quot;: number,
-  &quot;confidence&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "explanation": string,
+  "score": number,
+  "confidence": number
+}
+```
 
 ## SummarizationVerbosityResult
 
@@ -4065,25 +3560,15 @@ Output only. Summarization Verbosity score.
 
 Output only. confidence for summarization verbosity score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;explanation&quot;: string,
-  &quot;score&quot;: number,
-  &quot;confidence&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "explanation": string,
+  "score": number,
+  "confidence": number
+}
+```
 
 ## QuestionAnsweringQualityResult
 
@@ -4103,25 +3588,15 @@ Output only. Question Answering Quality score.
 
 Output only. confidence for question answering quality score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;explanation&quot;: string,
-  &quot;score&quot;: number,
-  &quot;confidence&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "explanation": string,
+  "score": number,
+  "confidence": number
+}
+```
 
 ## PairwiseQuestionAnsweringQualityResult
 
@@ -4129,7 +3604,7 @@ Spec for pairwise question answering quality result.
 
 Fields
 
-`pairwiseChoice` ` enum ( PairwiseChoice  ` )
+`pairwiseChoice` `enum ( `[`PairwiseChoice`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#PairwiseChoice)` )`
 
 Output only. Pairwise question answering prediction choice.
 
@@ -4141,21 +3616,15 @@ Output only. Explanation for question answering quality score.
 
 Output only. confidence for question answering quality score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;pairwiseChoice&quot;: enum (PairwiseChoice),&quot;explanation&quot;: string,&quot;confidence&quot;: number}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "pairwiseChoice": enum (PairwiseChoice),
+  "explanation": string,
+  "confidence": number
+}
+```
 
 ## QuestionAnsweringRelevanceResult
 
@@ -4175,25 +3644,15 @@ Output only. Question Answering Relevance score.
 
 Output only. confidence for question answering relevance score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;explanation&quot;: string,
-  &quot;score&quot;: number,
-  &quot;confidence&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "explanation": string,
+  "score": number,
+  "confidence": number
+}
+```
 
 ## QuestionAnsweringHelpfulnessResult
 
@@ -4213,25 +3672,15 @@ Output only. Question Answering Helpfulness score.
 
 Output only. confidence for question answering helpfulness score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;explanation&quot;: string,
-  &quot;score&quot;: number,
-  &quot;confidence&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "explanation": string,
+  "score": number,
+  "confidence": number
+}
+```
 
 ## QuestionAnsweringCorrectnessResult
 
@@ -4251,25 +3700,15 @@ Output only. Question Answering Correctness score.
 
 Output only. confidence for question answering correctness score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;explanation&quot;: string,
-  &quot;score&quot;: number,
-  &quot;confidence&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "explanation": string,
+  "score": number,
+  "confidence": number
+}
+```
 
 ## ToolCallValidResults
 
@@ -4277,25 +3716,21 @@ Results for tool call valid metric.
 
 Fields
 
-`toolCallValidMetricValues[]` ` object ( ToolCallValidMetricValue  ` )
+`toolCallValidMetricValues[]` `object ( `[`ToolCallValidMetricValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolCallValidMetricValue)` )`
 
 Output only. Tool call valid metric values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;toolCallValidMetricValues&quot;: [{object (ToolCallValidMetricValue)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "toolCallValidMetricValues": [
+    {
+      object (ToolCallValidMetricValue)
+    }
+  ]
+}
+```
 
 ## ToolCallValidMetricValue
 
@@ -4307,23 +3742,13 @@ Fields
 
 Output only. Tool call valid score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;score&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "score": number
+}
+```
 
 ## ToolNameMatchResults
 
@@ -4331,25 +3756,21 @@ Results for tool name match metric.
 
 Fields
 
-`toolNameMatchMetricValues[]` ` object ( ToolNameMatchMetricValue  ` )
+`toolNameMatchMetricValues[]` `object ( `[`ToolNameMatchMetricValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolNameMatchMetricValue)` )`
 
 Output only. Tool name match metric values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;toolNameMatchMetricValues&quot;: [{object (ToolNameMatchMetricValue)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "toolNameMatchMetricValues": [
+    {
+      object (ToolNameMatchMetricValue)
+    }
+  ]
+}
+```
 
 ## ToolNameMatchMetricValue
 
@@ -4361,23 +3782,13 @@ Fields
 
 Output only. Tool name match score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;score&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "score": number
+}
+```
 
 ## ToolParameterKeyMatchResults
 
@@ -4385,25 +3796,21 @@ Results for tool parameter key match metric.
 
 Fields
 
-`toolParameterKeyMatchMetricValues[]` ` object ( ToolParameterKeyMatchMetricValue  ` )
+`toolParameterKeyMatchMetricValues[]` `object ( `[`ToolParameterKeyMatchMetricValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolParameterKeyMatchMetricValue)` )`
 
 Output only. Tool parameter key match metric values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;toolParameterKeyMatchMetricValues&quot;: [{object (ToolParameterKeyMatchMetricValue)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "toolParameterKeyMatchMetricValues": [
+    {
+      object (ToolParameterKeyMatchMetricValue)
+    }
+  ]
+}
+```
 
 ## ToolParameterKeyMatchMetricValue
 
@@ -4415,23 +3822,13 @@ Fields
 
 Output only. Tool parameter key match score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;score&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "score": number
+}
+```
 
 ## ToolParameterKVMatchResults
 
@@ -4439,25 +3836,21 @@ Results for tool parameter key value match metric.
 
 Fields
 
-`toolParameterKvMatchMetricValues[]` ` object ( ToolParameterKVMatchMetricValue  ` )
+`toolParameterKvMatchMetricValues[]` `object ( `[`ToolParameterKVMatchMetricValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#ToolParameterKVMatchMetricValue)` )`
 
 Output only. Tool parameter key value match metric values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;toolParameterKvMatchMetricValues&quot;: [{object (ToolParameterKVMatchMetricValue)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "toolParameterKvMatchMetricValues": [
+    {
+      object (ToolParameterKVMatchMetricValue)
+    }
+  ]
+}
+```
 
 ## ToolParameterKVMatchMetricValue
 
@@ -4469,23 +3862,13 @@ Fields
 
 Output only. Tool parameter key value match score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;score&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "score": number
+}
+```
 
 ## CometResult
 
@@ -4497,23 +3880,13 @@ Fields
 
 Output only. Comet score. Range depends on version.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;score&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "score": number
+}
+```
 
 ## MetricxResult
 
@@ -4525,23 +3898,13 @@ Fields
 
 Output only. MetricX score. Range depends on version.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;score&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "score": number
+}
+```
 
 ## TrajectoryExactMatchResults
 
@@ -4549,25 +3912,21 @@ Results for TrajectoryExactMatch metric.
 
 Fields
 
-`trajectoryExactMatchMetricValues[]` ` object ( TrajectoryExactMatchMetricValue  ` )
+`trajectoryExactMatchMetricValues[]` `object ( `[`TrajectoryExactMatchMetricValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryExactMatchMetricValue)` )`
 
 Output only. TrajectoryExactMatch metric values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;trajectoryExactMatchMetricValues&quot;: [{object (TrajectoryExactMatchMetricValue)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "trajectoryExactMatchMetricValues": [
+    {
+      object (TrajectoryExactMatchMetricValue)
+    }
+  ]
+}
+```
 
 ## TrajectoryExactMatchMetricValue
 
@@ -4579,23 +3938,13 @@ Fields
 
 Output only. TrajectoryExactMatch score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;score&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "score": number
+}
+```
 
 ## TrajectoryInOrderMatchResults
 
@@ -4603,25 +3952,21 @@ Results for TrajectoryInOrderMatch metric.
 
 Fields
 
-`trajectoryInOrderMatchMetricValues[]` ` object ( TrajectoryInOrderMatchMetricValue  ` )
+`trajectoryInOrderMatchMetricValues[]` `object ( `[`TrajectoryInOrderMatchMetricValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryInOrderMatchMetricValue)` )`
 
 Output only. TrajectoryInOrderMatch metric values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;trajectoryInOrderMatchMetricValues&quot;: [{object (TrajectoryInOrderMatchMetricValue)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "trajectoryInOrderMatchMetricValues": [
+    {
+      object (TrajectoryInOrderMatchMetricValue)
+    }
+  ]
+}
+```
 
 ## TrajectoryInOrderMatchMetricValue
 
@@ -4633,23 +3978,13 @@ Fields
 
 Output only. TrajectoryInOrderMatch score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;score&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "score": number
+}
+```
 
 ## TrajectoryAnyOrderMatchResults
 
@@ -4657,25 +3992,21 @@ Results for TrajectoryAnyOrderMatch metric.
 
 Fields
 
-`trajectoryAnyOrderMatchMetricValues[]` ` object ( TrajectoryAnyOrderMatchMetricValue  ` )
+`trajectoryAnyOrderMatchMetricValues[]` `object ( `[`TrajectoryAnyOrderMatchMetricValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryAnyOrderMatchMetricValue)` )`
 
 Output only. TrajectoryAnyOrderMatch metric values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;trajectoryAnyOrderMatchMetricValues&quot;: [{object (TrajectoryAnyOrderMatchMetricValue)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "trajectoryAnyOrderMatchMetricValues": [
+    {
+      object (TrajectoryAnyOrderMatchMetricValue)
+    }
+  ]
+}
+```
 
 ## TrajectoryAnyOrderMatchMetricValue
 
@@ -4687,23 +4018,13 @@ Fields
 
 Output only. TrajectoryAnyOrderMatch score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;score&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "score": number
+}
+```
 
 ## TrajectoryPrecisionResults
 
@@ -4711,25 +4032,21 @@ Results for TrajectoryPrecision metric.
 
 Fields
 
-`trajectoryPrecisionMetricValues[]` ` object ( TrajectoryPrecisionMetricValue  ` )
+`trajectoryPrecisionMetricValues[]` `object ( `[`TrajectoryPrecisionMetricValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryPrecisionMetricValue)` )`
 
 Output only. TrajectoryPrecision metric values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;trajectoryPrecisionMetricValues&quot;: [{object (TrajectoryPrecisionMetricValue)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "trajectoryPrecisionMetricValues": [
+    {
+      object (TrajectoryPrecisionMetricValue)
+    }
+  ]
+}
+```
 
 ## TrajectoryPrecisionMetricValue
 
@@ -4741,23 +4058,13 @@ Fields
 
 Output only. TrajectoryPrecision score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;score&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "score": number
+}
+```
 
 ## TrajectoryRecallResults
 
@@ -4765,25 +4072,21 @@ Results for TrajectoryRecall metric.
 
 Fields
 
-`trajectoryRecallMetricValues[]` ` object ( TrajectoryRecallMetricValue  ` )
+`trajectoryRecallMetricValues[]` `object ( `[`TrajectoryRecallMetricValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectoryRecallMetricValue)` )`
 
 Output only. TrajectoryRecall metric values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;trajectoryRecallMetricValues&quot;: [{object (TrajectoryRecallMetricValue)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "trajectoryRecallMetricValues": [
+    {
+      object (TrajectoryRecallMetricValue)
+    }
+  ]
+}
+```
 
 ## TrajectoryRecallMetricValue
 
@@ -4795,23 +4098,13 @@ Fields
 
 Output only. TrajectoryRecall score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;score&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "score": number
+}
+```
 
 ## TrajectorySingleToolUseResults
 
@@ -4819,25 +4112,21 @@ Results for TrajectorySingleToolUse metric.
 
 Fields
 
-`trajectorySingleToolUseMetricValues[]` ` object ( TrajectorySingleToolUseMetricValue  ` )
+`trajectorySingleToolUseMetricValues[]` `object ( `[`TrajectorySingleToolUseMetricValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#TrajectorySingleToolUseMetricValue)` )`
 
 Output only. TrajectorySingleToolUse metric values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;trajectorySingleToolUseMetricValues&quot;: [{object (TrajectorySingleToolUseMetricValue)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "trajectorySingleToolUseMetricValues": [
+    {
+      object (TrajectorySingleToolUseMetricValue)
+    }
+  ]
+}
+```
 
 ## TrajectorySingleToolUseMetricValue
 
@@ -4849,23 +4138,13 @@ Fields
 
 Output only. TrajectorySingleToolUse score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;score&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "score": number
+}
+```
 
 ## RubricBasedInstructionFollowingResult
 
@@ -4873,7 +4152,7 @@ result for RubricBasedInstructionFollowing metric.
 
 Fields
 
-`rubricCritiqueResults[]` ` object ( RubricCritiqueResult  ` )
+`rubricCritiqueResults[]` `object ( `[`RubricCritiqueResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#RubricCritiqueResult)` )`
 
 Output only. List of per rubric critique results.
 
@@ -4881,21 +4160,18 @@ Output only. List of per rubric critique results.
 
 Output only. Overall score for the instruction following.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;rubricCritiqueResults&quot;: [{object (RubricCritiqueResult)}],&quot;score&quot;: number}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "rubricCritiqueResults": [
+    {
+      object (RubricCritiqueResult)
+    }
+  ],
+  "score": number
+}
+```
 
 ## RubricCritiqueResult
 
@@ -4911,24 +4187,14 @@ Output only. Rubric to be evaluated.
 
 Output only. Verdict for the rubric - true if the rubric is met, false otherwise.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;rubric&quot;: string,
-  &quot;verdict&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "rubric": string,
+  "verdict": boolean
+}
+```
 
 ## MetricResult
 
@@ -4936,7 +4202,7 @@ result for a single metric on a single instance.
 
 Fields
 
-`rubricVerdicts[]` ` object ( RubricVerdict  ` )
+`rubricVerdicts[]` `object ( `[`RubricVerdict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/evaluateInstances#RubricVerdict)` )`
 
 Output only. For rubric-based metrics, the verdicts for each rubric.
 
@@ -4948,25 +4214,26 @@ Output only. The score for the metric. Please refer to each metric's documentati
 
 Output only. The explanation for the metric result.
 
-`error` ` object ( Status  ` )
+`error` `object ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Status)` )`
 
 Output only. The error status for the metric result.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;rubricVerdicts&quot;: [{object (RubricVerdict)}],&quot;score&quot;: number,&quot;explanation&quot;: string,&quot;error&quot;: {object (Status)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "rubricVerdicts": [
+    {
+      object (RubricVerdict)
+    }
+  ],
+  "score": number,
+  "explanation": string,
+  "error": {
+    object (Status)
+  }
+}
+```
 
 ## RubricVerdict
 
@@ -4974,7 +4241,7 @@ Represents the verdict of an evaluation against a single rubric.
 
 Fields
 
-`evaluatedRubric` ` object ( Rubric  ` )
+`evaluatedRubric` `object ( `[`Rubric`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Rubric)` )`
 
 Required. The full rubric definition that was evaluated. Storing this ensures the verdict is self-contained and understandable, especially if the original rubric definition changes or was dynamically generated.
 
@@ -4986,18 +4253,14 @@ Required. Outcome of the evaluation against the rubric, represented as a boolean
 
 Optional. Human-readable reasoning or explanation for the verdict. This can include specific examples or details from the evaluated content that justify the given verdict.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;evaluatedRubric&quot;: {object (Rubric)},&quot;verdict&quot;: boolean,&quot;reasoning&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "evaluatedRubric": {
+    object (Rubric)
+  },
+  "verdict": boolean,
+  "reasoning": string
+}
+```

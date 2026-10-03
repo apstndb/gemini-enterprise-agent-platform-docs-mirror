@@ -12,101 +12,17 @@ This guide provides a list of errors that you might encounter from using generat
 
 This table provides API error codes and descriptions.
 
-<table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>HTTP error code</th>
-<th>Canonical error code</th>
-<th>Cause</th>
-<th>Example</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>400</td>
-<td><code dir="ltr" translate="no">INVALID_ARGUMENT / FAILED_PRECONDITION</code></td>
-<td>Request fails API validation, or you tried to access a model that requires allowlisting or is disallowed by the organization's policy.</td>
-<td>Request exceeds the model's input token limit.</td>
-<td>Review the model-specific limits. See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models">Google models</a> .</td>
-</tr>
-<tr class="even">
-<td>401</td>
-<td><code dir="ltr" translate="no">UNAUTHENTICATED</code></td>
-<td>Request isn't authenticated due to a missing, invalid, or expired OAuth token.</td>
-<td>Request has invalid authentication credentials.</td>
-<td>Verify that the Authorization header contains a valid access token. If you're using the Google Cloud CLI, run <code dir="ltr" translate="no">gcloud auth print-access-token</code> to generate a valid token.</td>
-</tr>
-<tr class="odd">
-<td>403</td>
-<td><code dir="ltr" translate="no">PERMISSION_DENIED</code></td>
-<td>Client doesn't have sufficient permission to call the API.</td>
-<td>Service account doesn't have permission to access the Cloud Storage bucket hosting image or video resources.</td>
-<td>1. Verify that all necessary APIs are enabled, and the service account has the right permission to access the selected Agent Platform service. See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/access-control">Access control</a> .<br />
-<br />
-2. Agent Platform per-product, per-project service account (P4SA) is granted the necessary permission to access resources referenced in the input.</td>
-</tr>
-<tr class="even">
-<td>404</td>
-<td><code dir="ltr" translate="no">NOT_FOUND</code></td>
-<td>No valid object is found from the designated URL.</td>
-<td>Image file not found in the storage URL.</td>
-<td>Check and fix the file location.</td>
-</tr>
-<tr class="odd">
-<td>429</td>
-<td><code dir="ltr" translate="no">RESOURCE_EXHAUSTED</code></td>
-<td>Depending on the error message, the error could be caused by the following:<br />
-<br />
-1. API quota over the limit.<br />
-<br />
-2. Server overload due to shared server capacity.<br />
-<br />
-3. You've reached the daily limit for requests using <code dir="ltr" translate="no">logprobs</code> .</td>
-<td>Gemini API exceeds request per minute limit.</td>
-<td>1. Check <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Generative AI on Agent Platform quota limits</a> . If needed, apply for a higher quota.<br />
-<br />
-2. Retry after a few seconds. If the error persists after a prolonged period of time (hours), contact <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/support/getting-support">Agent Platform support</a> .<br />
-<br />
-3. Consider purchasing <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/error-code-429">Provisioned Throughput</a> .</td>
-</tr>
-<tr class="even">
-<td>499</td>
-<td><code dir="ltr" translate="no">CANCELLED</code></td>
-<td>Request is cancelled by the client.</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>500</td>
-<td><code dir="ltr" translate="no">UNKNOWN / INTERNAL</code></td>
-<td>Server error due to overload or dependency failure.</td>
-<td>Request is throttled, because the service is temporarily overloaded.</td>
-<td>Retry after a few seconds. If the error persists after a prolonged period of time (hours), contact <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/support/getting-support">Agent Platform support</a> .</td>
-</tr>
-<tr class="even">
-<td>503</td>
-<td><code dir="ltr" translate="no">UNAVAILABLE</code></td>
-<td>Service is temporarily unavailable.</td>
-<td>Server isn't responding to the incoming requests.</td>
-<td>The unavailable status might be temporary. However, if the error persists, contact <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/support/getting-support">Agent Platform support</a> .</td>
-</tr>
-<tr class="odd">
-<td>504</td>
-<td><code dir="ltr" translate="no">DEADLINE_EXCEEDED</code></td>
-<td>The request didn't finish within the deadline. If the client sets a deadline shorter than the server's default deadline, it might cause 504 errors.</td>
-<td>Client sets a deadline of 10 seconds, which is too short for the requests to finish.</td>
-<td>Remove the deadline setting to use the server default, or set a longer deadline.</td>
-</tr>
-</tbody>
-</table>
+| HTTP error code | Canonical error code                     | Cause                                                                                                                                                                                                                        | Example                                                                                                      | Solution                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|-----------------|------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 400             | `INVALID_ARGUMENT / FAILED_PRECONDITION` | Request fails API validation, or you tried to access a model that requires allowlisting or is disallowed by the organization's policy.                                                                                       | Request exceeds the model's input token limit.                                                               | Review the model-specific limits. See [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) .                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| 401             | `UNAUTHENTICATED`                        | Request isn't authenticated due to a missing, invalid, or expired OAuth token.                                                                                                                                               | Request has invalid authentication credentials.                                                              | Verify that the Authorization header contains a valid access token. If you're using the Google Cloud CLI, run `gcloud auth print-access-token` to generate a valid token.                                                                                                                                                                                                                                                                                                                                                                                              |
+| 403             | `PERMISSION_DENIED`                      | Client doesn't have sufficient permission to call the API.                                                                                                                                                                   | Service account doesn't have permission to access the Cloud Storage bucket hosting image or video resources. | 1\. Verify that all necessary APIs are enabled, and the service account has the right permission to access the selected Agent Platform service. See [Access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/access-control) . 2. Agent Platform per-product, per-project service account (P4SA) is granted the necessary permission to access resources referenced in the input.                                                                                                                                                        |
+| 404             | `NOT_FOUND`                              | No valid object is found from the designated URL.                                                                                                                                                                            | Image file not found in the storage URL.                                                                     | Check and fix the file location.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 429             | `RESOURCE_EXHAUSTED`                     | Depending on the error message, the error could be caused by the following: 1. API quota over the limit. 2. Server overload due to shared server capacity. 3. You've reached the daily limit for requests using `logprobs` . | Gemini API exceeds request per minute limit.                                                                 | 1\. Check [Generative AI on Agent Platform quota limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas) . If needed, apply for a higher quota. 2. Retry after a few seconds. If the error persists after a prolonged period of time (hours), contact [Agent Platform support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/support/getting-support) . 3. Consider purchasing [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/error-code-429) . |
+| 499             | `CANCELLED`                              | Request is cancelled by the client.                                                                                                                                                                                          |                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| 500             | `UNKNOWN / INTERNAL`                     | Server error due to overload or dependency failure.                                                                                                                                                                          | Request is throttled, because the service is temporarily overloaded.                                         | Retry after a few seconds. If the error persists after a prolonged period of time (hours), contact [Agent Platform support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/support/getting-support) .                                                                                                                                                                                                                                                                                                                                 |
+| 503             | `UNAVAILABLE`                            | Service is temporarily unavailable.                                                                                                                                                                                          | Server isn't responding to the incoming requests.                                                            | The unavailable status might be temporary. However, if the error persists, contact [Agent Platform support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/support/getting-support) .                                                                                                                                                                                                                                                                                                                                                 |
+| 504             | `DEADLINE_EXCEEDED`                      | The request didn't finish within the deadline. If the client sets a deadline shorter than the server's default deadline, it might cause 504 errors.                                                                          | Client sets a deadline of 10 seconds, which is too short for the requests to finish.                         | Remove the deadline setting to use the server default, or set a longer deadline.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 ## Handle errors
 
@@ -116,8 +32,8 @@ Be careful about retrying an event. We recommend retrying no more than two times
 
 ## What's next
 
-  - Generative AI on Gemini Enterprise Agent Platform has some limitations. To learn more, see [Model limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai#limitations) .
-  - Try a quickstart tutorial using [Vertex AI Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart) or the [Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .
-  - Explore pretrained models in [Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) .
-  - Learn about [quotas and limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/quotas) .
-  - Learn about [pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+- Generative AI on Gemini Enterprise Agent Platform has some limitations. To learn more, see [Model limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai#limitations) .
+- Try a quickstart tutorial using [Vertex AI Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart) or the [Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .
+- Explore pretrained models in [Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) .
+- Learn about [quotas and limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/quotas) .
+- Learn about [pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .

@@ -28,7 +28,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`contents[]` ` object ( Content  ` )
+`contents[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Required. The content of the current conversation with the model.
 
@@ -36,13 +36,13 @@ For single-turn queries, this is a single instance. For multi-turn queries, this
 
 ### Response body
 
-Response message for `  ExtensionExecutionService.QueryExtension  ` .
+Response message for [`ExtensionExecutionService.QueryExtension`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/query#google.cloud.aiplatform.v1beta1.ExtensionExecutionService.QueryExtension) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`steps[]` ` object ( Content  ` )
+`steps[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Steps of extension or LLM interaction, can contain function call, function response, or text response. The last step contains the final response to the query.
 
@@ -50,18 +50,15 @@ Steps of extension or LLM interaction, can contain function call, function respo
 
 Failure message if any.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;steps&quot;: [{object (Content)}],&quot;failureMessage&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "steps": [
+    {
+      object (Content)
+    }
+  ],
+  "failureMessage": string
+}
+```

@@ -12,135 +12,159 @@ Gemini Embedding 2 accepts multimodal inputs to generate 3072-dimensional vector
 
 Gemini Embedding 2 introduces several features to optimize embedding quality and flexibility:
 
-  - **Custom task instructions:** By specifying task instructions (for example, `task:code retrieval` or `task:search result` ) optimize the embeddings for the intended relationships and retrieve more accurate results for the specific goal.
+- **Custom task instructions:** By specifying task instructions (for example, `task:code retrieval` or `task:search result` ) optimize the embeddings for the intended relationships and retrieve more accurate results for the specific goal.
 
-  - **Adjustable result size:** The model generates a 3072-dimensional float vector, by default. However, you can retrieve a smaller dimensional output by specifying the `output_dimensionality` parameter.
+- **Adjustable result size:** The model generates a 3072-dimensional float vector, by default. However, you can retrieve a smaller dimensional output by specifying the `output_dimensionality` parameter.
 
-  - **Document OCR:** Read OCR from document inputs.
+- **Document OCR:** Read OCR from document inputs.
 
-  - **Audio track extraction:** Extract audio tracks from video inputs and interleave them with video frames.
+- **Audio track extraction:** Extract audio tracks from video inputs and interleave them with video frames.
 
 For more information on how to use Gemini Embedding 2, see [Get multimodal embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings) .
 
 [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
-Model ID
-
-`gemini-embedding-2`
-
-Modalities
-
-description
-
-Text  
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<th><code>gemini-embedding-2</code></th>
+<td></td>
+</tr>
+<tr class="even">
+<th>Modalities</th>
+<th>description
+Text<br />
 Input only
-
 photo
-
-Image  
+Image<br />
 Input only
-
 mic
-
-Audio  
+Audio<br />
 Input only
-
 videocam
-
-Video  
+Video<br />
 Input only
-
-graph\_3
-
-Embeddings  
-Output only
-
-Token limits
-
-Maximum input tokens
-
-8,192
-
-Maximum output tokens
-
-N/A
-
-Output dimensions
-
-Up to 3,072 (with MRL support)
-
-Maximum sequence length
-
-8,192 tokens
-
-Consumption options
-
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
-    Not supported
-  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/batch-prediction-genai-embeddings)  
-    Supported
-  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
-    Standard PayGo  
-    Supported
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
-    Not supported
-
-Technical specifications
-
-**Text** description
-
-  - Maximum input tokens: 8,192
-  - Maximum number of files per prompt: 1
-  - Maximum number of pages per file (for PDF): 6
-  - Maximum file size per file: N/A
-  - OCR for scanned PDFs: Not used by default
-  - Supported MIME types:
-    `text/plain` , `application/pdf`
-
-**Image** photo
-
-  - Maximum images per prompt: 6
-  - Maximum file size per file for inline data or direct uploads through the console: No limit
-  - Maximum file size per file from Google Cloud Storage: No limit
-  - Maximum number of output images per prompt: N/A
-  - Supported MIME types:
-    `image/png` , `image/jpeg` , `image/webp` , `image/bmp` , `image/heic` , `image/heif` , `image/avif`
-
-**Video** videocam
-
-  - Maximum video length (with audio): 80 seconds
-  - Maximum video length (without audio): 120 seconds
-  - Maximum number of videos per prompt: 1
-  - Supported MIME types:
-    `video/mpeg` , `video/mp4`
-
-**Audio** mic
-
-  - Maximum audio length per prompt: 180 seconds
-  - Maximum number of audio files per prompt: 1
-  - Supported MIME types:
-    `audio/mp3` , `audio/wav`
-
-Supported regions
-
-**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
-
-  - Global: `global`
-  - United States multi-region: `us`
-  - Europe multi-region: `eu`
-
-Knowledge cutoff date
-
-November 2025
-
-Versions
-
-`gemini-embedding-2`
-
-  - Launch stage: GA
-  - Release date: April 22, 2026
-
-`gemini-embedding-2-preview`
-
-  - Launch stage: Public preview
-  - Release date: March 10, 2026
+graph_3
+Embeddings<br />
+Output only</th>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Token limits</th>
+<th>Maximum input tokens</th>
+<td>8,192</td>
+</tr>
+<tr class="even">
+<th>Maximum output tokens</th>
+<th>N/A</th>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Output dimensions</th>
+<th>Up to 3,072 (with MRL support)</th>
+<td></td>
+</tr>
+<tr class="even">
+<th>Maximum sequence length</th>
+<th>8,192 tokens</th>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Consumption options</th>
+<th><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/batch-prediction-genai-embeddings">Batch inference</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
+Standard PayGo<br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
+Not supported</li>
+</ul></th>
+<td></td>
+</tr>
+<tr class="even">
+<th>Technical specifications</th>
+<th><strong>Text</strong> description</th>
+<td><ul>
+<li>Maximum input tokens: 8,192</li>
+<li>Maximum number of files per prompt: 1</li>
+<li>Maximum number of pages per file (for PDF): 6</li>
+<li>Maximum file size per file: N/A</li>
+<li>OCR for scanned PDFs: Not used by default</li>
+<li>Supported MIME types:
+<code>text/plain</code> , <code>application/pdf</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th><strong>Image</strong> photo</th>
+<th><ul>
+<li>Maximum images per prompt: 6</li>
+<li>Maximum file size per file for inline data or direct uploads through the console: No limit</li>
+<li>Maximum file size per file from Google Cloud Storage: No limit</li>
+<li>Maximum number of output images per prompt: N/A</li>
+<li>Supported MIME types:
+<code>image/png</code> , <code>image/jpeg</code> , <code>image/webp</code> , <code>image/bmp</code> , <code>image/heic</code> , <code>image/heif</code> , <code>image/avif</code></li>
+</ul></th>
+<td></td>
+</tr>
+<tr class="even">
+<th><strong>Video</strong> videocam</th>
+<th><ul>
+<li>Maximum video length (with audio): 80 seconds</li>
+<li>Maximum video length (without audio): 120 seconds</li>
+<li>Maximum number of videos per prompt: 1</li>
+<li>Supported MIME types:
+<code>video/mpeg</code> , <code>video/mp4</code></li>
+</ul></th>
+<td></td>
+</tr>
+<tr class="odd">
+<th><strong>Audio</strong> mic</th>
+<th><ul>
+<li>Maximum audio length per prompt: 180 seconds</li>
+<li>Maximum number of audio files per prompt: 1</li>
+<li>Supported MIME types:
+<code>audio/mp3</code> , <code>audio/wav</code></li>
+</ul></th>
+<td></td>
+</tr>
+<tr class="even">
+<th>Supported regions</th>
+<th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations">Model availability</a></strong></p></th>
+<td><ul>
+<li>Global: <code>global</code></li>
+<li>United States multi-region: <code>us</code></li>
+<li>Europe multi-region: <code>eu</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Knowledge cutoff date</th>
+<th>November 2025</th>
+<td></td>
+</tr>
+<tr class="even">
+<th>Versions</th>
+<th><ul>
+<li><code>gemini-embedding-2</code>
+<ul>
+<li>Launch stage: GA</li>
+<li>Release date: April 22, 2026</li>
+</ul></li>
+<li><code>gemini-embedding-2-preview</code>
+<ul>
+<li>Launch stage: Public preview</li>
+<li>Release date: March 10, 2026</li>
+</ul></li>
+</ul></th>
+<td></td>
+</tr>
+</tbody>
+</table>

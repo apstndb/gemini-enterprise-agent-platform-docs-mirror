@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview — Model Armor insights**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 This document describes how to view content security insights from [Model Armor](https://docs.cloud.google.com/model-armor/overview) for [supported AI agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/monitor-content-security#supported-agents) .
@@ -16,8 +16,8 @@ Model Armor screens the requests and responses for security risks, such as indir
 
 You can view the results of Model Armor operations at the following levels:
 
-  - [Top-level view](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/monitor-content-security#view-security-insights-all-agents) : insights for all supported AI agents in the project
-  - [Agent-level view](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/monitor-content-security#view-security-insights-single-agent) : insights for a single AI agent
+- [Top-level view](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/monitor-content-security#view-security-insights-all-agents) : insights for all supported AI agents in the project
+- [Agent-level view](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/monitor-content-security#view-security-insights-single-agent) : insights for a single AI agent
 
 ## Before you begin
 
@@ -29,10 +29,10 @@ You can view the results of Model Armor operations at the following levels:
 
 To get the permissions that you need to monitor content security violations, ask your administrator to grant you the following IAM roles on the project:
 
-  - [Observability View Accessor](https://docs.cloud.google.com/iam/docs/roles-permissions/observability#observability.viewAccessor) ( `roles/observability.viewAccessor` )
-  - [Observability Analytics User](https://docs.cloud.google.com/iam/docs/roles-permissions/observability#observability.analyticsUser) ( `roles/observability.analyticsUser` )
-  - [Logs Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.viewer) ( `roles/logging.viewer` )
-  - [Logs View Accessor](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.viewAccessor) ( `roles/logging.viewAccessor` )
+- [Observability View Accessor](https://docs.cloud.google.com/iam/docs/roles-permissions/observability#observability.viewAccessor) ( `roles/observability.viewAccessor` )
+- [Observability Analytics User](https://docs.cloud.google.com/iam/docs/roles-permissions/observability#observability.analyticsUser) ( `roles/observability.analyticsUser` )
+- [Logs Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.viewer) ( `roles/logging.viewer` )
+- [Logs View Accessor](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.viewAccessor) ( `roles/logging.viewAccessor` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
@@ -42,8 +42,8 @@ These predefined roles contain the permissions required to monitor content secur
 
 The following permissions are required to monitor content security violations:
 
-  - `monitoring.monitoredResourceDescriptors.list`
-  - `monitoring.metricDescriptors.list`
+- `monitoring.monitoredResourceDescriptors.list`
+- `monitoring.metricDescriptors.list`
 
 You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
@@ -51,9 +51,9 @@ You might also be able to get these permissions with [custom roles](https://docs
 
 The **Security** tab is populated with Model Armor insights for the following agents only:
 
-  - Agents deployed in Agent Runtime and governed by a [gateway where Model Armor is configured](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor) .
-  - Agents deployed in Agent Runtime and [communicating with a Google Cloud MCP server](https://docs.cloud.google.com/model-armor/model-armor-mcp-google-cloud-integration) .
-  - Agents deployed in Agent Runtime in a project where [Model Armor floor settings are configured](https://docs.cloud.google.com/model-armor/configure-floor-settings#configure-floor-settings) .
+- Agents deployed in Agent Runtime and governed by a [gateway where Model Armor is configured](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor) .
+- Agents deployed in Agent Runtime and [communicating with a Google Cloud MCP server](https://docs.cloud.google.com/model-armor/model-armor-mcp-google-cloud-integration) .
+- Agents deployed in Agent Runtime in a project where [Model Armor floor settings are configured](https://docs.cloud.google.com/model-armor/configure-floor-settings#configure-floor-settings) .
 
 ## View content insights for supported AI agents in a project (top-level view)
 
@@ -79,9 +79,9 @@ Go to the [top-level](https://docs.cloud.google.com/gemini-enterprise-agent-plat
 
 On the **Security** tab, view the number of interactions, including flagged and blocked interactions. The **Security** tab displays the following metrics:
 
-  - **Total interactions** : The total number of prompts and responses that are analyzed by Model Armor.
-  - **Interactions flagged** : The number of interactions that violated a configured policy in your Model Armor template or floor settings.
-  - **Interactions blocked** : The number of interactions blocked if you configured Model Armor in the [`INSPECT_AND_BLOCK`](https://docs.cloud.google.com/model-armor/manage-templates#templates-metadata) mode. These blocked interactions violated floor settings or templates.
+- **Total interactions** : The total number of prompts and responses that are analyzed by Model Armor.
+- **Interactions flagged** : The number of interactions that violated a configured policy in your Model Armor template or floor settings.
+- **Interactions blocked** : The number of interactions blocked if you configured Model Armor in the [`INSPECT_AND_BLOCK`](https://docs.cloud.google.com/model-armor/manage-templates#templates-metadata) mode. These blocked interactions violated floor settings or templates.
 
 > **Note:** When Model Armor is configured in `INSPECT_ONLY` mode, violations are logged, but requests proceed to the model. In this mode, you can check what actions Model Armor might take, and because requests aren't blocked, you can also check if the model refused the request independently. Check the `SanitizeOperationLogEntry` records in Cloud Logging and not just the response body.
 
@@ -93,15 +93,15 @@ In the **Violations over time** chart, monitor the number of detected violations
 
 The violations detected are categorized into the following areas:
 
-  - **Prompt injections and jailbreaks** : Content violations indicating the presence of prompts that contain malicious commands or jailbreak attempts. For more information, see [Prompt injection and jailbreak detection](https://docs.cloud.google.com/model-armor/overview#ma-prompt-injection) .
+- **Prompt injections and jailbreaks** : Content violations indicating the presence of prompts that contain malicious commands or jailbreak attempts. For more information, see [Prompt injection and jailbreak detection](https://docs.cloud.google.com/model-armor/overview#ma-prompt-injection) .
 
-  - **Malicious URL** : Content violations indicating the presence of malicious URLs. For more information, see [Malicious URL detection](https://docs.cloud.google.com/model-armor/overview#ma-malicious-url-detection) .
+- **Malicious URL** : Content violations indicating the presence of malicious URLs. For more information, see [Malicious URL detection](https://docs.cloud.google.com/model-armor/overview#ma-malicious-url-detection) .
 
-  - **Responsible AI** : Content violations that are detected by safety filters, such as harassment and hate speech. For a complete list of responsible AI categories, see [Responsible AI safety filter](https://docs.cloud.google.com/model-armor/overview#ma-responsible-ai-safety-categories) .
+- **Responsible AI** : Content violations that are detected by safety filters, such as harassment and hate speech. For a complete list of responsible AI categories, see [Responsible AI safety filter](https://docs.cloud.google.com/model-armor/overview#ma-responsible-ai-safety-categories) .
 
-  - **Sensitive data** : Content violations involving the presence of [sensitive information types](https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference) or [custom information types](https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes) that you define. For more information, see [Sensitive Data Protection](https://docs.cloud.google.com/model-armor/overview#ma-sensitive-data-prot) .
-    
-    > **Note:** Counts for sensitive data content violations are included in the total violations count but aren't displayed in a separate category.
+- **Sensitive data** : Content violations involving the presence of [sensitive information types](https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference) or [custom information types](https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes) that you define. For more information, see [Sensitive Data Protection](https://docs.cloud.google.com/model-armor/overview#ma-sensitive-data-prot) .
+
+  > **Note:** Counts for sensitive data content violations are included in the total violations count but aren't displayed in a separate category.
 
 For more information about these detectors, see [Model Armor filters](https://docs.cloud.google.com/model-armor/overview#ma-filters) .
 
@@ -118,7 +118,7 @@ To view the Model Armor insights for a specific agent in the list, go to Agent R
 To query and analyze telemetry data from Model Armor, use Observability Analytics, which provides a SQL-based query interface.
 
 1.  Go to the [top-level](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/monitor-content-security#view-security-insights-all-agents) **Security** tab.
-2.  For the view that you want to query, click more\_vert **More chart options \> Explore in Observability Analytics** .
+2.  For the view that you want to query, click more_vert **More chart options \> Explore in Observability Analytics** .
 
 For general instructions on how to use Observability Analytics, see [Query and analyze telemetry with Observability Analytics](https://docs.cloud.google.com/stackdriver/docs/observability/analytics) .
 
@@ -127,7 +127,7 @@ For general instructions on how to use Observability Analytics, see [Query and a
 To download violations data to a PNG or CSV file, follow these steps:
 
 1.  In the **Violations over time** view on the **Security** tab, select the period for which you want to download data.
-2.  Click more\_vert **More chart options \> Download** .
+2.  Click more_vert **More chart options \> Download** .
 3.  Click **Download PNG** or **Download CSV** to download the data in your preferred format.
 
 ## View unstructured security log entries in Logs Explorer
@@ -141,10 +141,12 @@ To query these logs, complete the following steps:
 2.  Click the **Show query** toggle.
 
 3.  Paste the following into the query field:
-    
-        logName="projects/PROJECT_ID/logs/modelarmor.googleapis.com%2Fsanitize_operations"
-    
-    Replace `  PROJECT_ID  ` with your Google Cloud project ID.
+
+    ```
+    logName="projects/PROJECT_ID/logs/modelarmor.googleapis.com%2Fsanitize_operations"
+    ```
+
+    Replace `PROJECT_ID` with your Google Cloud project ID.
 
 4.  Click **Run query** .
 

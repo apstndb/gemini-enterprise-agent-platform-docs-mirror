@@ -32,28 +32,28 @@ Fields
 
 Optional. The name of the publisher model requested to serve the prediction. Format: `projects/{project}/locations/{location}/publishers/*/models/*`
 
-`instances[]` ` value ( Value  ` format)
+`instances[]` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
 Optional. The instances that are the input to token counting call. Schema is identical to the prediction schema of the underlying model.
 
-`contents[]` ` object ( Content  ` )
+`contents[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
 
 Optional. Input content.
 
-`tools[]` ` object ( Tool  ` )
+`tools[]` `object ( `[`Tool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents#Tool)` )`
 
 Optional. A list of `Tools` the model may use to generate the next response.
 
 A `Tool` is a piece of code that enables the system to interact with external systems to perform an action, or set of actions, outside of knowledge and scope of the model.
 
-`systemInstruction` ` object ( Content  ` )
+`systemInstruction` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
 
 Optional. The user provided system instructions for the model. Note: only text should be used in parts and content in each part will be in a separate paragraph.
 
-`generationConfig` ` object ( GenerationConfig  ` )
+`generationConfig` `object ( `[`GenerationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs#GenerationConfig)` )`
 
 Optional. Generation config that the model will use to generate the response.
 
 ### Response body
 
-If successful, the response body contains an instance of `  CountTokensResponse  ` .
+If successful, the response body contains an instance of [`CountTokensResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CountTokensResponse) .

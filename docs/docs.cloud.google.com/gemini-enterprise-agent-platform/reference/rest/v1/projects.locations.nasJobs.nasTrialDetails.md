@@ -20,36 +20,30 @@ Output only. Resource name of the NasTrialDetail.
 
 The parameters for the NasJob NasTrial.
 
-`searchTrial` ` object ( NasTrial  ` )
+`searchTrial` `object ( `[`NasTrial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/NasTrial)` )`
 
 The requested search NasTrial.
 
-`trainTrial` ` object ( NasTrial  ` )
+`trainTrial` `object ( `[`NasTrial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/NasTrial)` )`
 
-The train NasTrial corresponding to `  searchTrial  ` . Only populated if `  searchTrial  ` is used for training.
+The train NasTrial corresponding to [`searchTrial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.nasJobs.nasTrialDetails#NasTrialDetail.FIELDS.search_trial) . Only populated if [`searchTrial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.nasJobs.nasTrialDetails#NasTrialDetail.FIELDS.search_trial) is used for training.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;parameters&quot;: string,&quot;searchTrial&quot;: {object (NasTrial)},&quot;trainTrial&quot;: {object (NasTrial)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "name": string,
+  "parameters": string,
+  "searchTrial": {
+    object (NasTrial)
+  },
+  "trainTrial": {
+    object (NasTrial)
+  }
+}
+```
 
-### `            get           `
-
-Gets a NasTrialDetail.
-
-### `            list           `
-
-List top NasTrialDetails of a NasJob.
+| Methods                                                                                                                                    |                                       |
+|--------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.nasJobs.nasTrialDetails/get)   | Gets a NasTrialDetail.                |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.nasJobs.nasTrialDetails/list) | List top NasTrialDetails of a NasJob. |

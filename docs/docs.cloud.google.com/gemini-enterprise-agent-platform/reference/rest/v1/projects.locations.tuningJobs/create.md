@@ -24,8 +24,8 @@ Required. The resource name of the location to create the tuning job in. Format:
 
 ### Request body
 
-The request body contains an instance of `  TuningJob  ` .
+The request body contains an instance of [`TuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs#TuningJob) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  TuningJob  ` .
+If successful, the response body contains a newly created instance of [`TuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs#TuningJob) .

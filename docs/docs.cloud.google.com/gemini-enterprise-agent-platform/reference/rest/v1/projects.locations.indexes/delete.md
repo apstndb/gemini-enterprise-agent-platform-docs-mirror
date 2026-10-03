@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.indexes.delete
 
-Deletes an Index. An Index can only be deleted when all its `  DeployedIndexes  ` had been undeployed.
+Deletes an Index. An Index can only be deleted when all its [`DeployedIndexes`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes#Index.FIELDS.deployed_indexes) had been undeployed.
 
 ### Endpoint
 
@@ -28,4 +28,4 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

@@ -12,9 +12,9 @@ This page describes how to allow traffic from internal IP addresses in a VPC net
 
 In the following reference architecture, a Shared VPC is deployed with a Gemini model in the service project, `ph-fm-svc-project` (foundation model service project) with the following service policy attributes allowing known public access to the Gemini Enterprise API for Generative AI on Gemini Enterprise Agent Platform:
 
-  - A single VPC Service Controls perimeter
-  - Access level - Known external public endpoint CIDR range
-  - Project-defined user identity
+- A single VPC Service Controls perimeter
+- Access level - Known external public endpoint CIDR range
+- Project-defined user identity
 
 ![Architectural diagram of using VPC Service Controls to create a service perimeter.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/images/vertex-vpcsc-cuj1.png)
 
@@ -24,16 +24,16 @@ Access Context Manager allows Google Cloud organization administrators to define
 
 Access levels describe the requirements for requests to be honored. Examples include:
 
-  - Device type and operating system (requires [Chrome Enterprise Premium](https://docs.cloud.google.com/chrome-enterprise-premium/docs/overview) license)
-  - IP address
-  - User identity
+- Device type and operating system (requires [Chrome Enterprise Premium](https://docs.cloud.google.com/chrome-enterprise-premium/docs/overview) license)
+- IP address
+- User identity
 
 In this reference architecture, a public IP subnetwork access level is used to build the VPC Service Controls access policy.
 
 1.  In the project selector at the top of the Google Cloud console, click the **All** tab, and then select your organization.
 
 2.  Create a basic access level by following the directions in the [Create a basic access level](https://docs.cloud.google.com/access-context-manager/docs/create-basic-access-level) page. Specify the following options:
-    
+
     1.  Under **Create conditions in** , choose **Basic mode** .
     2.  In the **Access level title** field, enter `corp-public-block` .
     3.  In the **Conditions** section, for the **When condition is met, return** option, choose **TRUE** .
@@ -57,7 +57,7 @@ In this section, you create a VPC Service Controls service perimeter in [dry run
 4.  Click **New perimeter** .
 
 5.  On the **New VPC Service Perimeter** tab, in the **Perimeter Name** box, type a name for the perimeter. Otherwise, accept the default values.
-    
+
     A perimeter name can have a maximum length of 50 characters, must start with a letter, and can contain only ASCII Latin letters (a-z, A-Z), numbers (0-9), or underscores (\_). The perimeter name is case-sensitive and must be unique within an access policy.
 
 ### Select the resources to protect
@@ -65,16 +65,16 @@ In this section, you create a VPC Service Controls service perimeter in [dry run
 1.  Click **Resources to protect** .
 
 2.  To add projects or VPC networks that you want to secure within the perimeter, do the following:
-    
+
     1.  Click **Add Resources** .
-    
+
     2.  To add projects to the perimeter, in the **Add resources** pane, click **Add project** .
-        
+
         1.  To select a project, in the **Add projects** dialog, select that project's checkbox. Select the checkboxes for the following projects:
-            
-              - `aiml-host-project`
-              - `ph-fm-svc-project`
-        
+
+            - `aiml-host-project`
+            - `ph-fm-svc-project`
+
         2.  Click **Add selected resources** . The added projects appear in the **Projects** section.
 
 ### Select the restricted services
@@ -108,7 +108,7 @@ Allow access to protected resources from outside the perimeter by doing the foll
 1.  Click **Access Levels** .
 
 2.  Click the **Choose Access Level** box.
-    
+
     You can also [add access levels](https://docs.cloud.google.com/vpc-service-controls/docs/manage-service-perimeters#add-access-level) after a perimeter has been created.
 
 3.  Select the checkbox corresponding to the `corp-public-block` access level.

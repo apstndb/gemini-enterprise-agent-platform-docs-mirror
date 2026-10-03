@@ -30,50 +30,52 @@ We only train on the `completions` turn for each `example` .
 
 ## Dataset example for Gemini
 
+```
+{
+  "system_instruction": {
+    "parts": [
+      {
+        "text": "You are a chat bot."
+      }
+    ]
+  },
+  "contents": [
     {
-      "system_instruction": {
-        "parts": [
-          {
-            "text": "You are a chat bot."
-          }
-        ]
-      },
-      "contents": [
+      "role": "user",
+      "parts": [
         {
-          "role": "user",
-          "parts": [
-            {
-              "text": "What is my favorite fruit?"
-            }
-          ]
-        }
-      ],
-      "completions": [
-        {
-          "score": 1,
-          "completion": {
-            "role": "model",
-            "parts": [
-              {
-                "text": "Apple! Apple! Apple!"
-              }
-            ]
-          }
-        },
-        {
-          "score": 0,
-          "completion": {
-            "role": "model",
-            "parts": [
-              {
-                "text": "Your favorite fruit is apple."
-              }
-            ]
-          }
+          "text": "What is my favorite fruit?"
         }
       ]
     }
+  ],
+  "completions": [
+    {
+      "score": 1,
+      "completion": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "Apple! Apple! Apple!"
+          }
+        ]
+      }
+    },
+    {
+      "score": 0,
+      "completion": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "Your favorite fruit is apple."
+          }
+        ]
+      }
+    }
+  ]
+}
+```
 
 ## What's next
 
-  - [Tune Gemini models by using preference tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-preference-tuning) .
+- [Tune Gemini models by using preference tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-preference-tuning) .

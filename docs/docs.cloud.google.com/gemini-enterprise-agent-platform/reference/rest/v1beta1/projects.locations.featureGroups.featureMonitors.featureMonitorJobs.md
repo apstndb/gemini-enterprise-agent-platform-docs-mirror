@@ -16,17 +16,17 @@ Fields
 
 Identifier. name of the FeatureMonitorJob. Format: `projects/{project}/locations/{location}/featureGroups/{featureGroup}/featureMonitors/{featureMonitor}/featureMonitorJobs/{featureMonitorJob}` .
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this FeatureMonitorJob was created. Creation of a FeatureMonitorJob means that the job is pending / waiting for sufficient resources but may not have started running yet.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`finalStatus` ` object ( Status  ` )
+`finalStatus` `object ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Status)` )`
 
 Output only. Final status of the FeatureMonitorJob.
 
-`jobSummary` ` object ( JobSummary  ` )
+`jobSummary` `object ( `[`JobSummary`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors.featureMonitorJobs#JobSummary)` )`
 
 Output only. Summary from the FeatureMonitorJob.
 
@@ -42,39 +42,49 @@ See <https://goo.gl/xmQnxf> for more information on and examples of labels. No m
 
 Optional. description of the FeatureMonitor.
 
-`driftBaseFeatureMonitorJobId` `string ( int64 format)`
+`driftBaseFeatureMonitorJobId` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Output only. FeatureMonitorJob id comparing to which the drift is calculated.
 
-`driftBaseSnapshotTime` ` string ( Timestamp  ` format)
+`driftBaseSnapshotTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. data snapshot time comparing to which the drift is calculated.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`featureSelectionConfig` ` object ( FeatureSelectionConfig  ` )
+`featureSelectionConfig` `object ( `[`FeatureSelectionConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureSelectionConfig)` )`
 
 Output only. feature selection config used when creating FeatureMonitorJob.
 
-`triggerType` ` enum ( FeatureMonitorJobTrigger  ` )
+`triggerType` `enum ( `[`FeatureMonitorJobTrigger`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors.featureMonitorJobs#FeatureMonitorJobTrigger)` )`
 
 Output only. Trigger type of the feature Monitor Job.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;createTime&quot;: string,&quot;finalStatus&quot;: {object (Status)},&quot;jobSummary&quot;: {object (JobSummary)},&quot;labels&quot;: {string: string,...},&quot;description&quot;: string,&quot;driftBaseFeatureMonitorJobId&quot;: string,&quot;driftBaseSnapshotTime&quot;: string,&quot;featureSelectionConfig&quot;: {object (FeatureSelectionConfig)},&quot;triggerType&quot;: enum (FeatureMonitorJobTrigger)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "createTime": string,
+  "finalStatus": {
+    object (Status)
+  },
+  "jobSummary": {
+    object (JobSummary)
+  },
+  "labels": {
+    string: string,
+    ...
+  },
+  "description": string,
+  "driftBaseFeatureMonitorJobId": string,
+  "driftBaseSnapshotTime": string,
+  "featureSelectionConfig": {
+    object (FeatureSelectionConfig)
+  },
+  "triggerType": enum (FeatureMonitorJobTrigger)
+}
+```
 
 ## JobSummary
 
@@ -82,58 +92,39 @@ Summary from the FeatureMonitorJob.
 
 Fields
 
-`totalSlotMs` `string ( int64 format)`
+`totalSlotMs` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Output only. BigQuery slot milliseconds consumed.
 
-`featureStatsAndAnomalies[]` ` object ( FeatureStatsAndAnomaly  ` )
+`featureStatsAndAnomalies[]` `object ( `[`FeatureStatsAndAnomaly`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureStatsAndAnomaly)` )`
 
 Output only. Features and their stats and anomalies
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;totalSlotMs&quot;: string,&quot;featureStatsAndAnomalies&quot;: [{object (FeatureStatsAndAnomaly)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "totalSlotMs": string,
+  "featureStatsAndAnomalies": [
+    {
+      object (FeatureStatsAndAnomaly)
+    }
+  ]
+}
+```
 
 ## FeatureMonitorJobTrigger
 
 Choices of the trigger type.
 
-Enums
+| Enums                                     |                                                           |
+|-------------------------------------------|-----------------------------------------------------------|
+| `FEATURE_MONITOR_JOB_TRIGGER_UNSPECIFIED` | Trigger type unspecified.                                 |
+| `FEATURE_MONITOR_JOB_TRIGGER_PERIODIC`    | Triggered by periodic schedule.                           |
+| `FEATURE_MONITOR_JOB_TRIGGER_ON_DEMAND`   | Triggered on demand by featureMonitorJobs.create request. |
 
-`FEATURE_MONITOR_JOB_TRIGGER_UNSPECIFIED`
-
-Trigger type unspecified.
-
-`FEATURE_MONITOR_JOB_TRIGGER_PERIODIC`
-
-Triggered by periodic schedule.
-
-`FEATURE_MONITOR_JOB_TRIGGER_ON_DEMAND`
-
-Triggered on demand by featureMonitorJobs.create request.
-
-## Methods
-
-### `            create           `
-
-Creates a new feature monitor job.
-
-### `            get           `
-
-Get a feature monitor job.
-
-### `            list           `
-
-List feature monitor jobs.
+| Methods                                                                                                                                                                      |                                    |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors.featureMonitorJobs/create) | Creates a new feature monitor job. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors.featureMonitorJobs/get)       | Get a feature monitor job.         |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors.featureMonitorJobs/list)     | List feature monitor jobs.         |

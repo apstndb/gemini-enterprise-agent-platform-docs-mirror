@@ -30,21 +30,21 @@ Fields
 
 `operationId` `string`
 
-Required. The desired id of the operation to be executed in this extension as defined in `  ExtensionOperation.operation_id  ` .
+Required. The desired id of the operation to be executed in this extension as defined in [`ExtensionOperation.operation_id`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#ExtensionOperation.FIELDS.operation_id) .
 
-`operationParams` ` object ( Struct  ` format)
+`operationParams` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Optional. Request parameters that will be used for executing this operation.
 
 The struct should be in a form of map with param name as the key and actual param value as the value. E.g. If this operation requires a param "name" to be set to "abc". you can set this to something like {"name": "abc"}.
 
-`runtimeAuthConfig` ` object ( AuthConfig  ` )
+`runtimeAuthConfig` `object ( `[`AuthConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#AuthConfig)` )`
 
-Optional. Auth config provided at runtime to override the default value in \[Extension.manifest.auth\_config\]\[\]. The AuthConfig.auth\_type should match the value in \[Extension.manifest.auth\_config\]\[\].
+Optional. Auth config provided at runtime to override the default value in \[Extension.manifest.auth_config\]\[\]. The AuthConfig.auth_type should match the value in \[Extension.manifest.auth_config\]\[\].
 
 ### Response body
 
-Response message for `  ExtensionExecutionService.ExecuteExtension  ` .
+Response message for [`ExtensionExecutionService.ExecuteExtension`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/execute#google.cloud.aiplatform.v1beta1.ExtensionExecutionService.ExecuteExtension) .
 
 If successful, the response body contains data with the following structure:
 
@@ -54,20 +54,10 @@ Fields
 
 Response content from the extension. The content should be conformant to the response.content schema in the extension's manifest/OpenAPI spec.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;content&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "content": string
+}
+```

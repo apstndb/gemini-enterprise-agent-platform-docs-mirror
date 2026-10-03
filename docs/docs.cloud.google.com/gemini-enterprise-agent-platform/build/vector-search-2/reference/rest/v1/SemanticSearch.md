@@ -8,62 +8,32 @@ data_source: docs.cloud.google.com
 
 Defines a semantic search operation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;searchText&quot;: string,&quot;searchField&quot;: string,&quot;taskType&quot;: enum (EmbeddingTaskType),&quot;outputFields&quot;: {object (OutputFields)},&quot;filter&quot;: {object},&quot;searchHint&quot;: {object (SearchHint)},&quot;topK&quot;: integer}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "searchText": string,
+  "searchField": string,
+  "taskType": enum (EmbeddingTaskType),
+  "outputFields": {
+    object (OutputFields)
+  },
+  "filter": {
+    object
+  },
+  "searchHint": {
+    object (SearchHint)
+  },
+  "topK": integer
+}
+```
 
-`searchText`
-
-`string`
-
-Required. The query text, which is used to generate an embedding according to the embedding model specified in the collection config.
-
-`searchField`
-
-`string`
-
-Required. The vector field to search.
-
-`taskType`
-
-` enum ( EmbeddingTaskType  ` )
-
-Required. The task type of the query embedding.
-
-`outputFields`
-
-` object ( OutputFields  ` )
-
-Optional. The fields to return in the search results.
-
-`filter`
-
-` object ( Struct  ` format)
-
-Optional. A JSON filter expression, e.g. {"genre": {"$eq": "sci-fi"}}, represented as a google.protobuf.Struct.
-
-`searchHint`
-
-` object ( SearchHint  ` )
-
-Optional. Sets the search hint. If no strategy is specified, the service will use an index if one is available, and fall back to KNN search otherwise.
-
-`topK`
-
-`integer`
-
-Optional. The number of data objects to return.
+| Fields         |                                                                                                                                                                                                                                                                                                         |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `searchText`   | `string` Required. The query text, which is used to generate an embedding according to the embedding model specified in the collection config.                                                                                                                                                          |
+| `searchField`  | `string` Required. The vector field to search.                                                                                                                                                                                                                                                          |
+| `taskType`     | `enum ( `[`EmbeddingTaskType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1/projects.locations.collections#EmbeddingTaskType)` )` Required. The task type of the query embedding.                                                             |
+| `outputFields` | `object ( `[`OutputFields`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1/OutputFields)` )` Optional. The fields to return in the search results.                                                                                              |
+| `filter`       | `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)` Optional. A JSON filter expression, e.g. {"genre": {"\$eq": "sci-fi"}}, represented as a google.protobuf.Struct.                                                                                       |
+| `searchHint`   | `object ( `[`SearchHint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1/SearchHint)` )` Optional. Sets the search hint. If no strategy is specified, the service will use an index if one is available, and fall back to KNN search otherwise. |
+| `topK`         | `integer` Optional. The number of data objects to return.                                                                                                                                                                                                                                               |

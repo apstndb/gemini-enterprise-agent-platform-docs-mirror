@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 You can update a feature group to register a BigQuery table or view as the feature data source for that feature group. If the feature group already has an associated data source, you can associate a different BigQuery table or view as the feature data source.
@@ -22,6 +22,10 @@ Authenticate to Gemini Enterprise Agent Platform, unless you've done so already.
 
 To use the REST API samples on this page in a local development environment, you use the credentials you provide to the gcloud CLI.
 
+[Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI.
+
+If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
+
 For more information, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) in the Google Cloud authentication documentation.
 
 ## Update a feature group
@@ -34,30 +38,34 @@ To update a [`FeatureGroup`](https://docs.cloud.google.com/gemini-enterprise-age
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region where the feature group is located, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATURE\_GROUP\_NAME : The name of the feature group that you want to update.
-  - ENTITY\_ID\_COLUMNS : The names of the column(s) containing the entity IDs. You can specify either one column or multiple columns.
-      - To specify only one entity ID column, specify the column name in the following format:  
-        `"entity_id_column_name"` .
-      - To specify multiple entity ID columns, specify the column names in the following format:  
-        `["entity_id_column_1_name", "entity_id_column_2_name", ...]` .
-  - BIGQUERY\_SOURCE\_URI : URI of the BigQuery source table or view that you want to associate with the feature group.
+- ` LOCATION_ID ` : Region where the feature group is located, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATURE_GROUP_NAME ` : The name of the feature group that you want to update.
+- ` ENTITY_ID_COLUMNS ` : The names of the column(s) containing the entity IDs. You can specify either one column or multiple columns.
+  - To specify only one entity ID column, specify the column name in the following format:  
+    `"entity_id_column_name"` .
+  - To specify multiple entity ID columns, specify the column names in the following format:  
+    `["entity_id_column_1_name", "entity_id_column_2_name", ...]` .
+- ` BIGQUERY_SOURCE_URI ` : URI of the BigQuery source table or view that you want to associate with the feature group.
 
 HTTP method and URL:
 
-    PATCH https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups?feature_group_id=FEATURE_GROUP_NAME
+```
+PATCH https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups?feature_group_id=FEATURE_GROUP_NAME
+```
 
 Request JSON body:
 
-    {
-      "big_query": {
-        "entity_id_columns": "ENTITY_ID_COLUMNS",
-        "big_query_source": {
-          "input_uri": "BIGQUERY_SOURCE_URI"
-        }
-      }
+```
+{
+  "big_query": {
+    "entity_id_columns": "ENTITY_ID_COLUMNS",
+    "big_query_source": {
+      "input_uri": "BIGQUERY_SOURCE_URI"
     }
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -67,11 +75,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X PATCH \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups?feature_group_id=FEATURE_GROUP_NAME"
+```
+curl -X PATCH \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups?feature_group_id=FEATURE_GROUP_NAME"
+```
 
 #### PowerShell
 
@@ -79,38 +89,42 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method PATCH `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups?feature_group_id=FEATURE_GROUP_NAME" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method PATCH `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups?feature_group_id=FEATURE_GROUP_NAME" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME/operations/OPERATION_ID",
-      "metadata": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.UpdateFeatureGroupOperationMetadata",
-        "genericMetadata": {
-          "createTime": "2023-09-18T03:00:13.060636Z",
-          "updateTime": "2023-09-18T03:00:13.060636Z"
-        }
-      },
-      "done": true,
-      "response": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.FeatureGroup",
-        "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME"
-      }
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME/operations/OPERATION_ID",
+  "metadata": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1.UpdateFeatureGroupOperationMetadata",
+    "genericMetadata": {
+      "createTime": "2023-09-18T03:00:13.060636Z",
+      "updateTime": "2023-09-18T03:00:13.060636Z"
     }
+  },
+  "done": true,
+  "response": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1.FeatureGroup",
+    "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME"
+  }
+}
+```
 
 ## What's next
 
-  - Learn how to [update a feature view](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-featureview) .
+- Learn how to [update a feature view](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-featureview) .
 
-  - Learn how to [update a feature](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-feature) .
+- Learn how to [update a feature](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-feature) .
 
-  - Learn how to [delete a feature group](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-featureview) .
+- Learn how to [delete a feature group](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-featureview) .

@@ -28,15 +28,15 @@ The request body contains data with the following structure:
 
 Fields
 
-`modelConfig` ` object ( ModelConfig  ` )
+`modelConfig` `object ( `[`ModelConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/deploy#ModelConfig)` )`
 
 Optional. The model config to use for the deployment. If not specified, the default model config will be used.
 
-`endpointConfig` ` object ( EndpointConfig  ` )
+`endpointConfig` `object ( `[`EndpointConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/deploy#EndpointConfig)` )`
 
 Optional. The endpoint config to use for the deployment. If not specified, the default endpoint config will be used.
 
-`deployConfig` ` object ( DeployConfig  ` )
+`deployConfig` `object ( `[`DeployConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/deploy#DeployConfig)` )`
 
 Optional. The deploy config to use for the deployment. If not specified, the default deploy config will be used.
 
@@ -56,7 +56,7 @@ End of mutually exclusive fields.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ## ModelConfig
 
@@ -80,7 +80,7 @@ Optional. If true, the model will deploy with a cached version instead of direct
 
 Optional. The user-specified display name of the uploaded model. If not set, a default name will be used.
 
-`containerSpec` ` object ( ModelContainerSpec  ` )
+`containerSpec` `object ( `[`ModelContainerSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ModelContainerSpec)` )`
 
 Optional. The specification of the container that is to be used when deploying. If not set, the default container spec will be used.
 
@@ -90,21 +90,20 @@ Optional. The id to use for the uploaded Model, which will become the final comp
 
 This value may be up to 63 characters, and valid characters are `[a-z0-9_-]` . The first character cannot be a number or hyphen.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;acceptEula&quot;: boolean,&quot;huggingFaceAccessToken&quot;: string,&quot;huggingFaceCacheEnabled&quot;: boolean,&quot;modelDisplayName&quot;: string,&quot;containerSpec&quot;: {object (ModelContainerSpec)},&quot;modelUserId&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "acceptEula": boolean,
+  "huggingFaceAccessToken": string,
+  "huggingFaceCacheEnabled": boolean,
+  "modelDisplayName": string,
+  "containerSpec": {
+    object (ModelContainerSpec)
+  },
+  "modelUserId": string
+}
+```
 
 ## EndpointConfig
 
@@ -116,19 +115,19 @@ Fields
 
 Optional. The user-specified display name of the endpoint. If not set, a default name will be used.
 
-` dedicatedEndpointEnabled (deprecated)  ` `boolean`
+`dedicatedEndpointEnabled `**`(deprecated)`** `boolean`
 
-> This item is deprecated\!
+> This item is deprecated!
 
-Optional. Deprecated. Use dedicatedEndpointDisabled instead. If true, the endpoint will be exposed through a dedicated DNS \[Endpoint.dedicated\_endpoint\_dns\]. Your request to the dedicated DNS will be isolated from other users' traffic and will have better performance and reliability. Note: Once you enabled dedicated endpoint, you won't be able to send request to the shared DNS {region}-aiplatform.googleapis.com. The limitations will be removed soon.
+Optional. Deprecated. Use dedicatedEndpointDisabled instead. If true, the endpoint will be exposed through a dedicated DNS \[Endpoint.dedicated_endpoint_dns\]. Your request to the dedicated DNS will be isolated from other users' traffic and will have better performance and reliability. Note: Once you enabled dedicated endpoint, you won't be able to send request to the shared DNS {region}-aiplatform.googleapis.com. The limitations will be removed soon.
 
 `dedicatedEndpointDisabled` `boolean`
 
-Optional. By default, if dedicated endpoint is enabled and private service connect config is not set, the endpoint will be exposed through a dedicated DNS \[Endpoint.dedicated\_endpoint\_dns\]. If private service connect config is set, the endpoint will be exposed through private service connect. Your request to the dedicated DNS will be isolated from other users' traffic and will have better performance and reliability. Note: Once you enabled dedicated endpoint, you won't be able to send request to the shared DNS {region}-aiplatform.googleapis.com. The limitations will be removed soon.
+Optional. By default, if dedicated endpoint is enabled and private service connect config is not set, the endpoint will be exposed through a dedicated DNS \[Endpoint.dedicated_endpoint_dns\]. If private service connect config is set, the endpoint will be exposed through private service connect. Your request to the dedicated DNS will be isolated from other users' traffic and will have better performance and reliability. Note: Once you enabled dedicated endpoint, you won't be able to send request to the shared DNS {region}-aiplatform.googleapis.com. The limitations will be removed soon.
 
 If this field is set to true, the dedicated endpoint will be disabled and the deployed model will be exposed through the shared DNS {region}-aiplatform.googleapis.com.
 
-`privateServiceConnectConfig` ` object ( PrivateServiceConnectConfig  ` )
+`privateServiceConnectConfig` `object ( `[`PrivateServiceConnectConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/PrivateServiceConnectConfig)` )`
 
 Optional. Configuration for private service connect. If set, the endpoint will be exposed through private service connect.
 
@@ -150,21 +149,23 @@ If the first character is a number, this value may be up to 9 characters, and va
 
 When using HTTP/JSON, this field is populated based on a query string argument, such as `?endpointId=12345` . This is the fallback for fields that are not included in either the URI or the body.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;endpointDisplayName&quot;: string,&quot;dedicatedEndpointEnabled&quot;: boolean,&quot;dedicatedEndpointDisabled&quot;: boolean,&quot;privateServiceConnectConfig&quot;: {object (PrivateServiceConnectConfig)},&quot;labels&quot;: {string: string,...},&quot;endpointUserId&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "endpointDisplayName": string,
+  "dedicatedEndpointEnabled": boolean,
+  "dedicatedEndpointDisabled": boolean,
+  "privateServiceConnectConfig": {
+    object (PrivateServiceConnectConfig)
+  },
+  "labels": {
+    string: string,
+    ...
+  },
+  "endpointUserId": string
+}
+```
 
 ## DeployConfig
 
@@ -172,7 +173,7 @@ The deploy config to use for the deployment.
 
 Fields
 
-`dedicatedResources` ` object ( DedicatedResources  ` )
+`dedicatedResources` `object ( `[`DedicatedResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/DedicatedResources)` )`
 
 Optional. The dedicated resources to use for the endpoint. If not set, the default resources will be used.
 
@@ -184,18 +185,17 @@ Optional. If true, enable the QMT fast tryout feature for this model if possible
 
 Optional. System labels for Model Garden deployments. These labels are managed by Google and for tracking purposes only.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;dedicatedResources&quot;: {object (DedicatedResources)},&quot;fastTryoutEnabled&quot;: boolean,&quot;systemLabels&quot;: {string: string,...}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "dedicatedResources": {
+    object (DedicatedResources)
+  },
+  "fastTryoutEnabled": boolean,
+  "systemLabels": {
+    string: string,
+    ...
+  }
+}
+```

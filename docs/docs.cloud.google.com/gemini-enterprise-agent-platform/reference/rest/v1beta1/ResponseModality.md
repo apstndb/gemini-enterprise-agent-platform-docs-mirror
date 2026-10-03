@@ -8,28 +8,11 @@ data_source: docs.cloud.google.com
 
 The modality of the response.
 
-Enums
-
-`RESPONSE_MODALITY_UNSPECIFIED`
-
-Default value. This value is unused.
-
-`TEXT`
-
-Indicates the model should return text.
-
-`IMAGE`
-
-Indicates the model should return images.
-
-`AUDIO`
-
-Indicates the model should return audio.
-
-`VIDEO`
-
-Indicates the model should return video.
-
-`DOCUMENT`
-
-Indicates the model should return documents.
+| Enums                           |                                              |
+|---------------------------------|----------------------------------------------|
+| `RESPONSE_MODALITY_UNSPECIFIED` | Default value. This value is unused.         |
+| `TEXT`                          | Indicates the model should return text.      |
+| `IMAGE`                         | Indicates the model should return images.    |
+| `AUDIO`                         | Indicates the model should return audio.     |
+| `VIDEO`                         | Indicates the model should return video.     |
+| `DOCUMENT`                      | Indicates the model should return documents. |

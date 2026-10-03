@@ -37,10 +37,10 @@ To turn off idle shutdown or to change the inactivity time period on an existing
 3.  On the **Instance details** page, click the **Software and security** tab.
 
 4.  In the **Modify software and security configuration** section:
-    
-      - To turn off idle shutdown, clear the check mark next to **Enable Idle Shutdown** .
-    
-      - To change the inactivity time period, in **Time of inactivity before shutdown (Minutes)** , change the number to the number of minutes of inactivity that you want. In the Google Cloud console, this setting can be set to any integer value from 10 to 1440.
+
+    - To turn off idle shutdown, clear the check mark next to **Enable Idle Shutdown** .
+
+    - To change the inactivity time period, in **Time of inactivity before shutdown (Minutes)** , change the number to the number of minutes of inactivity that you want. In the Google Cloud console, this setting can be set to any integer value from 10 to 1440.
 
 5.  Click **Submit** .
 
@@ -48,15 +48,21 @@ To turn off idle shutdown or to change the inactivity time period on an existing
 
 Idle shutdown for Agent Platform Workbench instances is managed using the `metadata` flag. To enable idle shutdown, create an instance with the `idle-timeout-seconds` key in the metadata with the value set to the number of seconds.
 
-    gcloud workbench instances create INSTANCE_NAME --metadata=idle-timeout-seconds=86400
+```
+gcloud workbench instances create INSTANCE_NAME --metadata=idle-timeout-seconds=86400
+```
 
 To change the idle shutdown time period, update the value for the `idle-timeout-seconds` key in the metadata.
 
-    gcloud workbench instances update INSTANCE_NAME --metadata=idle-timeout-seconds=43200
+```
+gcloud workbench instances update INSTANCE_NAME --metadata=idle-timeout-seconds=43200
+```
 
 To turn off idle shutdown, use the following command:
 
-    gcloud workbench instances update INSTANCE_NAME --metadata=idle-timeout-seconds=
+```
+gcloud workbench instances update INSTANCE_NAME --metadata=idle-timeout-seconds=
+```
 
 ## Manage idle shutdown on Terraform
 
@@ -90,9 +96,9 @@ If you leave JupyterLab open and you don't interact with the window, the instanc
 
 By default, idle shutdown looks for activity in kernels running in the following addresses of the instance:
 
-  - `127.0.0.1:8080/api/sessions`
-  - `127.0.0.1:8080/api/terminals`
-  - `127.0.0.1:8080/api/kernels`
+- `127.0.0.1:8080/api/sessions`
+- `127.0.0.1:8080/api/terminals`
+- `127.0.0.1:8080/api/kernels`
 
 > **Warning:** By default Jupyter runs on port 8080. If this port is changed, idle shutdown won't detect any kernel activity.
 
@@ -102,4 +108,4 @@ If you have scheduled an execution of a notebook file in a Agent Platform Workbe
 
 ## What's next
 
-  - To run a notebook file on a schedule, even when your instance is shut down, see [schedule a notebook run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/schedule-notebook-run-quickstart) .
+- To run a notebook file on a schedule, even when your instance is shut down, see [schedule a notebook run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/schedule-notebook-run-quickstart) .

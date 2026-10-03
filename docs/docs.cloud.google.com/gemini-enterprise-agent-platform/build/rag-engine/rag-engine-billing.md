@@ -66,7 +66,7 @@ This table explains how billing works when you use the RAG components.
 </ul>
 <p>A RAG-managed database uses a Spanner instance as the backend.</p>
 <p>For each of your projects, RAG Engine provisions a customer-specific Google Cloud project and manages RAG-managed resources that are stored in RAG Engine, so that your data is physically isolated.</p>
-<p>If you choose the <code dir="ltr" translate="no">RagManagedDB</code> Basic tier or Scaled tier, RAG Engine provisions a Spanner Enterprise edition instance in the corresponding project:</p>
+<p>If you choose the <code>RagManagedDB</code> Basic tier or Scaled tier, RAG Engine provisions a Spanner Enterprise edition instance in the corresponding project:</p>
 <ul>
 <li><strong>Basic tier</strong> : 100 processing units with backup</li>
 <li><strong>Scaled tier</strong> : Starting at 1 node (1,000 processing units) and autoscaling up to 10 nodes with backup</li>
@@ -90,20 +90,20 @@ This table explains how billing works when you use the RAG components.
 
 The following code samples demonstrate how to delete a RAG Engine for the Google Cloud console, Python, and REST:
 
-  - Version 1 (v1) API [parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/updateRagEngineConfig) and [code samples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/updateRagEngineConfig) .
+- Version 1 (v1) API [parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/updateRagEngineConfig) and [code samples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/updateRagEngineConfig) .
 
-  - v1beta1 API [parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/updateRagEngineConfig) and [code samples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/updateRagEngineConfig) .
+- v1beta1 API [parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/updateRagEngineConfig) and [code samples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/updateRagEngineConfig) .
 
 ## What's next
 
-  - To learn how to use the Vertex AI SDK to run RAG Engine on Gemini Enterprise Agent Platform tasks, see [RAG quickstart for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-quickstart) .
+- To learn how to use the Vertex AI SDK to run RAG Engine on Gemini Enterprise Agent Platform tasks, see [RAG quickstart for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-quickstart) .
 
-  - To learn about grounding, see [Grounding overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) .
+- To learn about grounding, see [Grounding overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) .
 
-  - To learn more about the responses from RAG, see [Retrieval and Generation Output of RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-output-explained) .
+- To learn more about the responses from RAG, see [Retrieval and Generation Output of RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-output-explained) .
 
-  - To learn about the RAG architecture:
-    
-      - [Infrastructure for a RAG-capable generative AI application using Agent Platform and Vector Search](https://docs.cloud.google.com/architecture/gen-ai-rag-vertex-ai-vector-search)
-    
-      - [Infrastructure for a RAG-capable generative AI application using Agent Platform and AlloyDB for PostgreSQL](https://docs.cloud.google.com/architecture/rag-capable-gen-ai-app-using-vertex-ai) .
+- To learn about the RAG architecture:
+
+  - [Infrastructure for a RAG-capable generative AI application using Agent Platform and Vector Search](https://docs.cloud.google.com/architecture/gen-ai-rag-vertex-ai-vector-search)
+
+  - [Infrastructure for a RAG-capable generative AI application using Agent Platform and AlloyDB for PostgreSQL](https://docs.cloud.google.com/architecture/rag-capable-gen-ai-app-using-vertex-ai) .

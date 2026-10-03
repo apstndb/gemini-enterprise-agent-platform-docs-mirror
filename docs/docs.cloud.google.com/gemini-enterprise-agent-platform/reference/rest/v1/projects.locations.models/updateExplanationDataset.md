@@ -28,10 +28,10 @@ The request body contains data with the following structure:
 
 Fields
 
-`examples` ` object ( Examples  ` )
+`examples` `object ( `[`Examples`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ExplanationSpec#Examples)` )`
 
 The example config containing the location of the dataset.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

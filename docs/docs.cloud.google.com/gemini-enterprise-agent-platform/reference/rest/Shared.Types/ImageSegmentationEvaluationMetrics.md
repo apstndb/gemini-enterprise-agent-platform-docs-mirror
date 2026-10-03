@@ -10,31 +10,27 @@ Metrics for image segmentation evaluation results.
 
 Fields
 
-`confidenceMetricsEntries[]` ` object ( ConfidenceMetricsEntry  ` )
+`confidenceMetricsEntries[]` `object ( `[`ConfidenceMetricsEntry`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ImageSegmentationEvaluationMetrics#ConfidenceMetricsEntry)` )`
 
 Metrics for each confidenceThreshold in 0.00,0.05,0.10,...,0.95,0.96,0.97,0.98,0.99 Precision-recall curve can be derived from it.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;confidenceMetricsEntries&quot;: [{object (ConfidenceMetricsEntry)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "confidenceMetricsEntries": [
+    {
+      object (ConfidenceMetricsEntry)
+    }
+  ]
+}
+```
 
 ## ConfidenceMetricsEntry
 
 Fields
 
-`confusionMatrix` ` object ( ConfusionMatrix  ` )
+`confusionMatrix` `object ( `[`ConfusionMatrix`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ConfusionMatrix)` )`
 
 Confusion matrix for the given confidence threshold.
 
@@ -58,18 +54,17 @@ DSC or the F1 score, The harmonic mean of recall and precision.
 
 The intersection-over-union score. The measure of overlap of the annotation's category mask with ground truth category mask on the DataItem.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;confusionMatrix&quot;: {object (ConfusionMatrix)},&quot;confidenceThreshold&quot;: number,&quot;recall&quot;: number,&quot;precision&quot;: number,&quot;diceScoreCoefficient&quot;: number,&quot;iouScore&quot;: number}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "confusionMatrix": {
+    object (ConfusionMatrix)
+  },
+  "confidenceThreshold": number,
+  "recall": number,
+  "precision": number,
+  "diceScoreCoefficient": number,
+  "iouScore": number
+}
+```

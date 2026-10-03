@@ -10,7 +10,7 @@ This message will be placed in the metadata field of a google.longrunning.Operat
 
 Fields
 
-`genericMetadata` ` object ( GenericOperationMetadata  ` )
+`genericMetadata` `object ( `[`GenericOperationMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenericOperationMetadata)` )`
 
 Operation metadata for suggesting Trials.
 
@@ -22,18 +22,14 @@ The name of the Study that the Trial belongs to.
 
 The Trial name.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;genericMetadata&quot;: {object (GenericOperationMetadata)},&quot;study&quot;: string,&quot;trial&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "genericMetadata": {
+    object (GenericOperationMetadata)
+  },
+  "study": string,
+  "trial": string
+}
+```

@@ -27,8 +27,10 @@ Use the following instructions to set up a Pub/Sub sink and view the logs routed
 7.  In the **Destination** list, select the Pub/Sub topic that you created, and then click **Next** .
 
 8.  Under **Choose logs to include in sink** , specify the following inclusion filter:
-    
-        resource.type="aiplatform.googleapis.com/PipelineJob"
+
+    ```
+    resource.type="aiplatform.googleapis.com/PipelineJob"
+    ```
 
 9.  Click **Create Sink** .
 

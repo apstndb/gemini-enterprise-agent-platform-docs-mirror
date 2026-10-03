@@ -25,8 +25,10 @@ The rest of this document assumes that you are using the same Cloud Shell enviro
 1.  In the Google Cloud console, activate Cloud Shell.
 
 2.  In the Cloud Shell session, run the following command:
-    
-        cd hello-custom-sample
+
+    ```
+    cd hello-custom-sample
+    ```
 
 ## Create an endpoint
 
@@ -39,32 +41,32 @@ To get online predictions from the ML model that you trained when following the 
 3.  On the **Deploy & test** tab, click **Deploy to endpoint** to open the **Deploy to endpoint** pane.
 
 4.  On the **Define your endpoint** step, add some basic information for your endpoint:
-    
+
     1.  Select **Create new endpoint** .
-    
+
     2.  In the **Endpoint name** field, enter `hello_custom` .
-    
+
     3.  In the **Model settings** section, ensure that you see the name of your model, which is also called `hello_custom` . Specify the following model settings:
-        
+
         1.  In the **Traffic split** field, enter `100` . Agent Platform supports splitting traffic for an endpoint to multiple models, but this tutorial doesn't use that feature.
-        
+
         2.  In the **Minimum number of compute nodes** field, enter `1` .
-        
+
         3.  In the **Machine type** drop-down list, select **n1-standard-2** from the **Standard** section.
-        
+
         4.  Click **Done** .
-    
+
     4.  In the **Logging** section, ensure that both types of prediction logging are enabled.
-    
+
     Click **Continue** .
 
 5.  On the **Endpoint details** step, confirm that your endpoint will be deployed to `us-central1 (Iowa)` .
-    
+
     Do not select the **Use a customer-managed encryption key (CMEK)** checkbox. This tutorial does not use [CMEK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) .
 
 6.  Click **Deploy** to create the endpoint and deploy your model to the endpoint.
 
-After a few minutes, check\_circle appears next to the new endpoint in the **Endpoints** table. At the same time, you also receive an email indicating that you have successfully created the endpoint and deployed your model to the endpoint.
+After a few minutes, check_circle appears next to the new endpoint in the **Endpoints** table. At the same time, you also receive an email indicating that you have successfully created the endpoint and deployed your model to the endpoint.
 
 ## Deploy a Cloud Run function
 
@@ -72,13 +74,15 @@ You can get predictions from the Agent Platform endpoint that you just created b
 
 In this section, deploy code to [Cloud Run functions](https://docs.cloud.google.com/functions/docs) to handle unauthenticated requests. The sample code that you downloaded when you read the [first page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom) contains code for this Cloud Run function in the `function/` directory. Optionally, run the following command to explore the Cloud Run function code:
 
-    less function/main.py
+```
+less function/main.py
+```
 
 Deploying the function serves the following purposes:
 
-  - You *can* configure a Cloud Run function to receive unauthenticated requests. Additionally, functions run using [a service account with the Editor role by default](https://docs.cloud.google.com/functions/docs/securing/function-identity) , which includes the `aiplatform.endpoints.predict` permission necessary to get predictions from your Agent Platform endpoint.
+- You *can* configure a Cloud Run function to receive unauthenticated requests. Additionally, functions run using [a service account with the Editor role by default](https://docs.cloud.google.com/functions/docs/securing/function-identity) , which includes the `aiplatform.endpoints.predict` permission necessary to get predictions from your Agent Platform endpoint.
 
-  - This function also performs useful preprocessing on requests. The Agent Platform endpoint expects prediction requests in the format of the trained TensorFlow Keras graph's first layer: a tensor of normalized floats with fixed dimensions. The function takes the URL of an image as input and preprocesses the image into this format before requesting a prediction from the Agent Platform endpoint.
+- This function also performs useful preprocessing on requests. The Agent Platform endpoint expects prediction requests in the format of the trained TensorFlow Keras graph's first layer: a tensor of normalized floats with fixed dimensions. The function takes the URL of an image as input and preprocesses the image into this format before requesting a prediction from the Agent Platform endpoint.
 
 To deploy the Cloud Run function, do the following:
 
@@ -87,23 +91,27 @@ To deploy the Cloud Run function, do the following:
 2.  Find the row of the endpoint that you created in the previous section, named `hello_custom` . In this row, click **Sample request** to open the **Sample request** pane.
 
 3.  In the **Sample request** pane, find the line of shell code that matches the following pattern:
-    
-        ENDPOINT_ID="ENDPOINT_ID"
-    
-    ENDPOINT\_ID is a number that identifies this particular endpoint.
-    
+
+    ```
+    ENDPOINT_ID="ENDPOINT_ID"
+    ```
+
+    ` ENDPOINT_ID ` is a number that identifies this particular endpoint.
+
     Copy this line of code, and run it in your Cloud Shell session to set the `ENDPOINT_ID` variable.
 
 4.  Run the following command in your Cloud Shell session to deploy the Cloud Run function:
-    
-        gcloud functions deploy classify_flower \
-          --region=us-central1 \
-          --source=function \
-          --runtime=python37 \
-          --memory=2048MB \
-          --trigger-http \
-          --allow-unauthenticated \
-          --set-env-vars=ENDPOINT_ID=${ENDPOINT_ID}
+
+    ```
+    gcloud functions deploy classify_flower \
+      --region=us-central1 \
+      --source=function \
+      --runtime=python37 \
+      --memory=2048MB \
+      --trigger-http \
+      --allow-unauthenticated \
+      --set-env-vars=ENDPOINT_ID=${ENDPOINT_ID}
+    ```
 
 ## Deploy a web app to send prediction requests
 
@@ -112,36 +120,46 @@ Finally, host a static web app on Cloud Storage to get predictions from your tra
 The `webapp` directory of the sample code that you downloaded contains a sample web app. In your Cloud Shell session, run the following commands to prepare and deploy the web app:
 
 1.  Set a couple of shell variables for commands in following steps to use:
-    
-        PROJECT_ID=PROJECT_ID
-        BUCKET_NAME=BUCKET_NAME
-    
+
+    ```
+    PROJECT_ID=PROJECT_ID
+    BUCKET_NAME=BUCKET_NAME
+    ```
+
     Replace the following:
-    
-      - PROJECT\_ID : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
-      - BUCKET\_NAME : The name of the Cloud Storage bucket that you created when following the [first page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom) .
+
+    - ` PROJECT_ID ` : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
+    - ` BUCKET_NAME ` : The name of the Cloud Storage bucket that you created when following the [first page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom) .
 
 2.  Edit the app to provide it with the trigger URL of your Cloud Run function:
-    
-        echo "export const CLOUD_FUNCTION_URL = 'https://us-central1-${PROJECT_ID}.cloudfunctions.net/classify_flower';" \
-          > webapp/function-url.js
+
+    ```
+    echo "export const CLOUD_FUNCTION_URL = 'https://us-central1-${PROJECT_ID}.cloudfunctions.net/classify_flower';" \
+      > webapp/function-url.js
+    ```
 
 3.  Upload the `webapp` directory to your Cloud Storage bucket:
-    
-        gcloud storage cp webapp gs://${BUCKET_NAME}/ --recursive
+
+    ```
+    gcloud storage cp webapp gs://${BUCKET_NAME}/ --recursive
+    ```
 
 4.  Make the web app files that you just uploaded [publicly readable](https://docs.cloud.google.com/storage/docs/access-control/making-data-public) :
-    
-        gcloud storage objects update gs://${BUCKET_NAME}/webapp/** --add-acl-grant=entity=allUsers,role=READER
-    
+
+    ```
+    gcloud storage objects update gs://${BUCKET_NAME}/webapp/** --add-acl-grant=entity=allUsers,role=READER
+    ```
+
     > **Note:** Shells (like bash, zsh) sometimes attempt to expand wildcards in ways that can be surprising. For more details, see [URI wildcards](https://docs.cloud.google.com/storage/docs/wildcards#surprising-behavior) .
 
 5.  You can now navigate to the following URL to open web app and get predictions:
-    
-        https://storage.googleapis.com/BUCKET_NAME/webapp/index.html
-    
+
+    ```
+    https://storage.googleapis.com/BUCKET_NAME/webapp/index.html
+    ```
+
     Open the web app and click an image of a flower to see your ML model's classification of the flower type. The web app presents the prediction as a list of flower types and the probability that the image contains each type of flower.
-    
+
     > **Note:** This web app gets predictions for images that were also included in the training dataset for the model. Therefore the model might appear more accurate than it actually is due to [overfitting](https://developers.google.com/machine-learning/glossary#overfitting) .
 
 ![In the following screenshot, the web app has already gotten one prediction and is in the process of sending another prediction request.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/webapp-screenshot.png)

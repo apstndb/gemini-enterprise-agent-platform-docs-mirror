@@ -10,13 +10,13 @@ The email notification component lets you configure email notifications from a p
 
 The Google Cloud SDK includes the following operator related to email notifications in Gemini Enterprise Agent Platform Pipelines:
 
-  - [`VertexNotificationEmailOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/vertex_notification_email.html#v1.vertex_notification_email.VertexNotificationEmailOp)
+- [`VertexNotificationEmailOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/vertex_notification_email.html#v1.vertex_notification_email.VertexNotificationEmailOp)
 
 ## API reference
 
 For component reference, see the [Google Cloud SDK reference page for Email notification components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/vertex_notification_email.html) .
 
-  - [`VertexNotificationEmailOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/vertex_notification_email.html#v1.vertex_notification_email.VertexNotificationEmailOp)
+- [`VertexNotificationEmailOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/vertex_notification_email.html#v1.vertex_notification_email.VertexNotificationEmailOp)
 
 ## Version history and release notes
 

@@ -11,7 +11,7 @@ data_source: docs.cloud.google.com
 The default parser supports the following file types and their file size limits:
 
 | File type                               | File size limit                           |
-| --------------------------------------- | ----------------------------------------- |
+|-----------------------------------------|-------------------------------------------|
 | Google documents                        | 10 MB when exported from Google Workspace |
 | Google drawings                         | 10 MB when exported from Google Workspace |
 | Google slides                           | 10 MB when exported from Google Workspace |
@@ -30,4 +30,4 @@ Using RAG Engine with other document types is possible but can generate lower-qu
 
 ## What's next
 
-  - [Fine-tune RAG transformations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/fine-tune-rag-transformations)
+- [Fine-tune RAG transformations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/fine-tune-rag-transformations)

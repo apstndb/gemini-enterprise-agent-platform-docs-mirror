@@ -12,48 +12,34 @@ A `SafetySetting` consists of a harm `category` and a `threshold` for that categ
 
 Fields
 
-`category` ` enum ( HarmCategory  ` )
+`category` `enum ( `[`HarmCategory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/HarmCategory)` )`
 
 Required. The harm category to be blocked.
 
-`threshold` ` enum ( HarmBlockThreshold  ` )
+`threshold` `enum ( `[`HarmBlockThreshold`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/HarmBlockThreshold)` )`
 
 Required. The threshold for blocking content. If the harm probability exceeds this threshold, the content will be blocked.
 
-`method` ` enum ( HarmBlockMethod  ` )
+`method` `enum ( `[`HarmBlockMethod`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/SafetySetting#HarmBlockMethod)` )`
 
 Optional. The method for blocking content. If not specified, the default behavior is to use the probability score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;category&quot;: enum (HarmCategory),&quot;threshold&quot;: enum (HarmBlockThreshold),&quot;method&quot;: enum (HarmBlockMethod)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "category": enum (HarmCategory),
+  "threshold": enum (HarmBlockThreshold),
+  "method": enum (HarmBlockMethod)
+}
+```
 
 ## HarmBlockMethod
 
 The method for blocking content.
 
-Enums
-
-`HARM_BLOCK_METHOD_UNSPECIFIED`
-
-The harm block method is unspecified.
-
-`SEVERITY`
-
-The harm block method uses both probability and severity scores.
-
-`PROBABILITY`
-
-The harm block method uses the probability score.
+| Enums                           |                                                                  |
+|---------------------------------|------------------------------------------------------------------|
+| `HARM_BLOCK_METHOD_UNSPECIFIED` | The harm block method is unspecified.                            |
+| `SEVERITY`                      | The harm block method uses both probability and severity scores. |
+| `PROBABILITY`                   | The harm block method uses the probability score.                |

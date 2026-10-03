@@ -7,92 +7,113 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 A high-capability model from xAI, built for coding and knowledge work. It works longer on difficult tasks and checks its own work.
 
 [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.7)
 
-Model ID
-
-`grok-4.7`
-
-Launch stage
-
-Preview
-
-Supported inputs & outputs
-
-  - Inputs:
-    Text , Image
-  - Outputs:
-    Text
-
-Capabilities
-
-Supported
-
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/function-calling) preview Preview feature
-  - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/structured-output) preview Preview feature
-  - [Reasoning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning) preview Preview feature
-
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>grok-4.7</code></td>
+</tr>
+<tr class="even">
+<th>Launch stage</th>
+<td>Preview</td>
+</tr>
+<tr class="odd">
+<th>Supported inputs &amp; outputs</th>
+<td><ul>
+<li>Inputs:
+Text , Image</li>
+<li>Outputs:
+Text</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Capabilities</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/function-calling">Function calling</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/structured-output">Structured output</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning">Reasoning</a> preview Preview feature</li>
+</ul>
 Not supported
-
-  - [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction) preview Preview feature
-
-Usage types
-
-Supported
-
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok#quota) preview Preview feature
-
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction">Batch predictions</a> preview Preview feature</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Usage types</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok#quota">Fixed quota</a> preview Preview feature</li>
+</ul>
 Not supported
-
-  - [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) preview Preview feature
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) preview Preview feature
-
-Versions
-
-`grok-4.7`
-
-  - **Launch stage:** Preview
-  - **Release date:** September 30, 2026
-
-Supported regions
-
-Model availability
-
-United States
-
-  - `Multi-region`
-
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo">Standard pay-as-you-go</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a> preview Preview feature</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Versions</th>
+<td><ul>
+<li><code>grok-4.7</code>
+<ul>
+<li><strong>Launch stage:</strong> Preview</li>
+<li><strong>Release date:</strong> September 30, 2026</li>
+</ul></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Supported regions</th>
+<td></td>
+</tr>
+<tr class="even">
+<th><p>Model availability</p></th>
+<td>United States
+<ul>
+<li><code>Multi-region</code></li>
+</ul>
 Global
-
-  - `global endpoint`
-
-ML processing
-
-United States
-
-  - `Multi-region`
-
-Quota limits
-
-Multi-region:
-
-  - QPM: 13
-  - Input TPM: 188,000
-  - Output TPM: 16,000
-  - Context length: 524,288
-
-global endpoint:
-
-  - QPM: 13
-  - Input TPM: 188,000
-  - Output TPM: 16,000
-  - Context length: 524,288
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+<ul>
+<li><code>global endpoint</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th><p>ML processing</p></th>
+<td>United States
+<ul>
+<li><code>Multi-region</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Quota limits</th>
+<td><p>Multi-region:</p>
+<ul>
+<li>QPM: 13</li>
+<li>Input TPM: 188,000</li>
+<li>Output TPM: 16,000</li>
+<li>Context length: 524,288</li>
+</ul>
+<p>global endpoint:</p>
+<ul>
+<li>QPM: 13</li>
+<li>Input TPM: 188,000</li>
+<li>Output TPM: 16,000</li>
+<li>Context length: 524,288</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Pricing</th>
+<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+</tr>
+</tbody>
+</table>

@@ -30,8 +30,8 @@ Optional. user specified id for the notebook runtime template.
 
 ### Request body
 
-The request body contains an instance of `  NotebookRuntimeTemplate  ` .
+The request body contains an instance of [`NotebookRuntimeTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimeTemplates#NotebookRuntimeTemplate) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  Operation  ` .
+If successful, the response body contains a newly created instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

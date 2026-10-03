@@ -10,12 +10,7 @@ data_source: docs.cloud.google.com
 
 There is no persistent data associated with this resource.
 
-## Methods
-
-### `            delete           `
-
-Deletes a SavedQuery.
-
-### `            list           `
-
-Lists SavedQueries in a Dataset.
+| Methods                                                                                                                                           |                                  |
+|---------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.savedQueries/delete) | Deletes a SavedQuery.            |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.savedQueries/list)     | Lists SavedQueries in a Dataset. |

@@ -32,8 +32,8 @@ This value should be 1-128 characters, and valid characters are `/[a-z][0-9]-/` 
 
 ### Request body
 
-The request body contains an instance of `  TensorboardExperiment  ` .
+The request body contains an instance of [`TensorboardExperiment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments#TensorboardExperiment) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  TensorboardExperiment  ` .
+If successful, the response body contains a newly created instance of [`TensorboardExperiment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments#TensorboardExperiment) .

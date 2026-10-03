@@ -28,10 +28,10 @@ The request body contains data with the following structure:
 
 Fields
 
-`geminiRequestReadConfig` ` object ( GeminiRequestReadConfig  ` )
+`geminiRequestReadConfig` `object ( `[`GeminiRequestReadConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiRequestReadConfig)` )`
 
 Optional. The read config for the dataset.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

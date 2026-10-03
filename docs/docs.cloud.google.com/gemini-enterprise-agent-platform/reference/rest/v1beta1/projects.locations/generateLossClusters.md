@@ -28,7 +28,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`configs[]` ` object ( LossAnalysisConfig  ` )
+`configs[]` `object ( `[`LossAnalysisConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/generateLossClusters#LossAnalysisConfig)` )`
 
 Required. Configuration for the analysis algorithm. Analysis for multiple metrics and multiple candidates could be specified.
 
@@ -40,7 +40,7 @@ The source of evaluation data to analyze. The following is a list of mutually ex
 
 Reference to a persisted EvaluationSet. The service will read items from this set.
 
-`inlineResults` ` object ( EvaluationResultList  ` )
+`inlineResults` `object ( `[`EvaluationResultList`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/generateLossClusters#EvaluationResultList)` )`
 
 Inline evaluation results. Useful for ephemeral analysis in notebooks/SDKs where data isn't persisted.
 
@@ -48,7 +48,7 @@ End of mutually exclusive fields.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ## EvaluationResultList
 
@@ -64,27 +64,17 @@ Fields
 
 `metric` `string`
 
-Required. The metric to analyze (e.g., "tool\_use\_quality"). This filters the EvaluationItems in the EvalSet to only those where EvaluationResult.metric matches this value.
+Required. The metric to analyze (e.g., "tool_use_quality"). This filters the EvaluationItems in the EvalSet to only those where EvaluationResult.metric matches this value.
 
 `candidate` `string`
 
 Required. The candidate model/agent to analyze (e.g., "gemini-3.0-pro"). This targets the specific CandidateResult within the EvaluationResult.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;metric&quot;: string,
-  &quot;candidate&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metric": string,
+  "candidate": string
+}
+```

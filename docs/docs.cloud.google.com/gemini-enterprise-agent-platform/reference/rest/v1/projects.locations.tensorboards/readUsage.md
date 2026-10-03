@@ -28,31 +28,28 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  TensorboardService.ReadTensorboardUsage  ` .
+Response message for [`TensorboardService.ReadTensorboardUsage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards/readUsage#google.cloud.aiplatform.v1.TensorboardService.ReadTensorboardUsage) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`monthlyUsageData` ` map (key: string, value: object ( PerMonthUsageData  ` ))
+`monthlyUsageData` `map (key: string, value: object ( `[`PerMonthUsageData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards/readUsage#PerMonthUsageData)` ))`
 
 Maps year-month (YYYYMM) string to per month usage data.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;monthlyUsageData&quot;: {string: {object (PerMonthUsageData)},...}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "monthlyUsageData": {
+    string: {
+      object (PerMonthUsageData)
+    },
+    ...
+  }
+}
+```
 
 ## PerMonthUsageData
 
@@ -60,25 +57,21 @@ Per month usage data
 
 Fields
 
-`userUsageData[]` ` object ( PerUserUsageData  ` )
+`userUsageData[]` `object ( `[`PerUserUsageData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards/readUsage#PerUserUsageData)` )`
 
 Usage data for each user in the given month.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;userUsageData&quot;: [{object (PerUserUsageData)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "userUsageData": [
+    {
+      object (PerUserUsageData)
+    }
+  ]
+}
+```
 
 ## PerUserUsageData
 
@@ -90,25 +83,15 @@ Fields
 
 user's username
 
-`viewCount` `string ( int64 format)`
+`viewCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Number of times the user has read data within the Tensorboard.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;username&quot;: string,
-  &quot;viewCount&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "username": string,
+  "viewCount": string
+}
+```

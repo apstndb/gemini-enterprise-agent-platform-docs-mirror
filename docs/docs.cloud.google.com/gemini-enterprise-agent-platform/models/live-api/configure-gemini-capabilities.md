@@ -9,21 +9,21 @@ data_source: docs.cloud.google.com
 This document shows you how to configure various capabilities of Gemini models when using Gemini Live API. You can configure tool use such as function calling and grounding, and live audio capabilities such as affective dialog and proactive audio.
 
 > To learn more, run the following notebooks in the environment of your choice:
-> 
->   - "Introduction to the Multimodal Live API (WebSocket)":
->     
->     [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/multimodal-live-api/intro_multimodal_live_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fmultimodal-live-api%2Fintro_multimodal_live_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fmultimodal-live-api%2Fintro_multimodal_live_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/multimodal-live-api/intro_multimodal_live_api.ipynb)
-> 
->   - "Introduction to the Multimodal Live API (Google Gen AI SDK)":
->     
->     [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/multimodal-live-api/intro_multimodal_live_api_genai_sdk.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fmultimodal-live-api%2Fintro_multimodal_live_api_genai_sdk.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fmultimodal-live-api%2Fintro_multimodal_live_api_genai_sdk.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/multimodal-live-api/intro_multimodal_live_api_genai_sdk.ipynb)
+>
+> - "Introduction to the Multimodal Live API (WebSocket)":
+>
+>   [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/multimodal-live-api/intro_multimodal_live_api.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fmultimodal-live-api%2Fintro_multimodal_live_api.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fmultimodal-live-api%2Fintro_multimodal_live_api.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/multimodal-live-api/intro_multimodal_live_api.ipynb)
+>
+> - "Introduction to the Multimodal Live API (Google Gen AI SDK)":
+>
+>   [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/multimodal-live-api/intro_multimodal_live_api_genai_sdk.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fmultimodal-live-api%2Fintro_multimodal_live_api_genai_sdk.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fmultimodal-live-api%2Fintro_multimodal_live_api_genai_sdk.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/multimodal-live-api/intro_multimodal_live_api_genai_sdk.ipynb)
 
 ## Configure tool use
 
 Several tools are compatible with various versions of Gemini Live API-supported models, including:
 
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#function-calling)
-  - [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#grounding-google-search)
+- [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#function-calling)
+- [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#grounding-google-search)
 
 To enable a particular tool for usage in returned responses, include the name of the tool in the `tools` list when you initialize the model. The following sections provide examples of how to use each of the built-in tools in your code.
 
@@ -41,7 +41,7 @@ To enable function calling, include `function_declarations` in the `tools` list 
 
 ### Python
 
-``` 
+```
 import asyncio
 
 from google import genai
@@ -113,7 +113,6 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-  
 ```
 
 For examples using function calling in system instructions, see our [best practices example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices#best-practices-example) .
@@ -128,7 +127,7 @@ To enable Grounding with Google Search, include `google_search` in the `tools` l
 
 ### Python
 
-``` 
+```
 import asyncio
 
 from google import genai
@@ -171,7 +170,6 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-  
 ```
 
 ## Configure Affective Dialog
@@ -186,12 +184,11 @@ To enable Affective Dialog, set `enable_affective_dialog` to `true` in the setup
 
 ### Python
 
-``` 
+```
 config = LiveConnectConfig(
     response_modalities=["AUDIO"],
     enable_affective_dialog=True,
 )
-  
 ```
 
 ## Configure Proactive Audio
@@ -204,38 +201,39 @@ To enable Proactive Audio, configure the `proactivity` field in the setup messag
 
 ### Python
 
-``` 
+```
 config = LiveConnectConfig(
     response_modalities=["AUDIO"],
     proactivity=ProactivityConfig(proactive_audio=True),
 )
-  
 ```
 
 **Example conversation**
 
 The following is a sample of what a conversation with Gemini about cooking might look like:
 
-    Prompt: "You are an AI assistant in Italian cooking; only chime in when the topic is about Italian cooking."
-    
-    Speaker A: "I really love cooking!" (No response from Gemini.)
-    
-    Speaker B: "Oh yes, me too! My favorite is French cuisine." (No response from
-    Gemini.)
-    
-    Speaker A: "I really like Italian food; do you know how to make a pizza?"
-    
-    (Italian cooking topic will trigger response from Gemini.)
-    Gemini Live API: "I'd be happy to help! Here's a recipe for a pizza."
+```
+Prompt: "You are an AI assistant in Italian cooking; only chime in when the topic is about Italian cooking."
+
+Speaker A: "I really love cooking!" (No response from Gemini.)
+
+Speaker B: "Oh yes, me too! My favorite is French cuisine." (No response from
+Gemini.)
+
+Speaker A: "I really like Italian food; do you know how to make a pizza?"
+
+(Italian cooking topic will trigger response from Gemini.)
+Gemini Live API: "I'd be happy to help! Here's a recipe for a pizza."
+```
 
 ### Common use cases
 
 When using Proactive Audio, Gemini performs as follows:
 
-  - **Responds with minimal latency** : Gemini responds after the user is done speaking, reducing interruptions and helping Gemini not lose context if an interruption happens.
-  - **Avoids interruptions** : Proactive Audio helps Gemini avoid interruptions from background noise or external chatter, and prevents Gemini from responding if external chatter is introduced during a conversation.
-  - **Handles interruptions** : If the user needs to interrupt during a response from Gemini, Proactive Audio makes it easier for Gemini to appropriately back-channel (meaning appropriate interruptions are handled), rather than if a user uses filler words such as *umm* or *uhh* .
-  - **Co-listens to audio** : Gemini can co-listen to an audio file that's not the speaker's voice and subsequently answer questions about that audio file later in the conversation.
+- **Responds with minimal latency** : Gemini responds after the user is done speaking, reducing interruptions and helping Gemini not lose context if an interruption happens.
+- **Avoids interruptions** : Proactive Audio helps Gemini avoid interruptions from background noise or external chatter, and prevents Gemini from responding if external chatter is introduced during a conversation.
+- **Handles interruptions** : If the user needs to interrupt during a response from Gemini, Proactive Audio makes it easier for Gemini to appropriately back-channel (meaning appropriate interruptions are handled), rather than if a user uses filler words such as *umm* or *uhh* .
+- **Co-listens to audio** : Gemini can co-listen to an audio file that's not the speaker's voice and subsequently answer questions about that audio file later in the conversation.
 
 ### Billing
 
@@ -249,6 +247,6 @@ For more information, see [Gemini Enterprise Agent Platform pricing](https://clo
 
 For more information on using Gemini Live API, see:
 
-  - [Gemini Live API overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)
-  - [Gemini Live API reference guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live)
-  - [Start and manage live sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session)
+- [Gemini Live API overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)
+- [Gemini Live API reference guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live)
+- [Start and manage live sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session)

@@ -34,11 +34,11 @@ Input only. Whether to store the response and request for later retrieval.
 
 The name of the `Model` used for generating the completion.
 
-` interaction.modelInteraction.generationConfig.temperature (deprecated)  ` `number`
+`interaction.modelInteraction.generationConfig.temperature `**`(deprecated)`** `number`
 
 Controls the randomness of the output.
 
-` interaction.modelInteraction.generationConfig.topP (deprecated)  ` `number`
+`interaction.modelInteraction.generationConfig.topP `**`(deprecated)`** `number`
 
 The maximum cumulative probability of tokens to consider when sampling.
 
@@ -50,11 +50,11 @@ Seed used in decoding for reproducibility.
 
 A list of character sequences that will stop output interaction.
 
-`interaction.modelInteraction.generationConfig.thinkingLevel` ` enum ( ThinkingLevel  ` )
+`interaction.modelInteraction.generationConfig.thinkingLevel` `enum ( `[`ThinkingLevel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ThinkingLevel)` )`
 
 The level of thought tokens that the model should generate.
 
-`interaction.modelInteraction.generationConfig.thinkingSummaries` ` enum ( ThinkingSummaries  ` )
+`interaction.modelInteraction.generationConfig.thinkingSummaries` `enum ( `[`ThinkingSummaries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ThinkingSummaries)` )`
 
 Whether to include thought summaries in the response.
 
@@ -62,15 +62,15 @@ Whether to include thought summaries in the response.
 
 The maximum number of tokens to include in the response.
 
-` interaction.modelInteraction.generationConfig.imageConfig (deprecated)  ` ` object ( ImageConfig  ` )
+`interaction.modelInteraction.generationConfig.imageConfig `**`(deprecated)`** `object ( `[`ImageConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ImageConfig)` )`
 
 Configuration for image interaction.
 
-`interaction.modelInteraction.generationConfig.videoConfig` ` object ( VideoConfig  ` )
+`interaction.modelInteraction.generationConfig.videoConfig` `object ( `[`VideoConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#VideoConfig)` )`
 
 Configuration for video generation.
 
-`interaction.modelInteraction.generationConfig.transcriptionConfig` ` object ( TranscriptionConfig  ` )
+`interaction.modelInteraction.generationConfig.transcriptionConfig` `object ( `[`TranscriptionConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#TranscriptionConfig)` )`
 
 Optional. Configuration for speech recognition (transcription). If present, ASR is enabled.
 
@@ -78,7 +78,7 @@ Optional. Configuration for speech recognition (transcription). If present, ASR 
 
 Required. Output only. A unique identifier for the interaction completion.
 
-`interaction.status` ` enum ( Status  ` )
+`interaction.status` `enum ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Status)` )`
 
 Required. Output only. The status of the interaction.
 
@@ -94,19 +94,19 @@ Required. Output only. The time at which the response was last updated in ISO 86
 
 System instruction for the interaction.
 
-`interaction.tools[]` ` object ( Tool  ` )
+`interaction.tools[]` `object ( `[`Tool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#Tool)` )`
 
 A list of tool declarations the model may call during interaction.
 
-`interaction.usage` ` object ( Usage  ` )
+`interaction.usage` `object ( `[`Usage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Usage)` )`
 
 Output only. Statistics on the interaction request's token usage.
 
-` interaction.responseModalities[] (deprecated)  ` ` enum ( ResponseModality  ` )
+`interaction.responseModalities[] `**`(deprecated)`** `enum ( `[`ResponseModality`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ResponseModality)` )`
 
 The requested modalities of the response (TEXT, IMAGE, AUDIO).
 
-` interaction.responseMimeType (deprecated)  ` `string`
+`interaction.responseMimeType `**`(deprecated)`** `string`
 
 The mime type of the response. This is required if responseFormat is set.
 
@@ -118,11 +118,11 @@ The id of the previous interaction, if any.
 
 Output only. The environment id for the interaction. Only populated if environment config is set in the request.
 
-`interaction.steps[]` ` object ( Step  ` )
+`interaction.steps[]` `object ( `[`Step`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Step)` )`
 
 Required. Output only. The steps that make up the interaction, when included in the response.
 
-`interaction.safetySettings[]` ` object ( SafetySetting  ` )
+`interaction.safetySettings[]` `object ( `[`SafetySetting`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#SafetySetting)` )`
 
 Safety settings for the interaction.
 
@@ -132,7 +132,7 @@ The labels with user-defined metadata for the request.
 
 label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. label values are optional. label keys must start with a letter.
 
-`interaction.errors[]` ` object ( Error  ` )
+`interaction.errors[]` `object ( `[`Error`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Error)` )`
 
 Output only. Diagnostic faults / platform errors recorded on the interaction.
 
@@ -144,7 +144,7 @@ Input only. Whether to run the model interaction in the background.
 
 The input for the interaction. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-` interaction.contentList (deprecated)  ` ` object ( ContentList  ` )
+`interaction.contentList `**`(deprecated)`** `object ( `[`ContentList`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ContentList)` )`
 
 The inputs for the interaction.
 
@@ -152,15 +152,15 @@ The inputs for the interaction.
 
 A string input for the interaction, it will be processed as a single text input.
 
-` interaction.turnList (deprecated)  ` `object ( TurnList` )
+`interaction.turnList `**`(deprecated)`** `object ( ``TurnList`` )`
 
 The turns for the interaction.
 
-`interaction.stepList` ` object ( StepList  ` )
+`interaction.stepList` `object ( `[`StepList`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#StepList)` )`
 
 Input only. The steps for the interaction.
 
-`interaction.content` ` object ( Content  ` )
+`interaction.content` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Content)` )`
 
 The content for the interaction.
 
@@ -170,27 +170,27 @@ End of mutually exclusive fields.
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`interaction.stepList.steps[].thought` ` object ( ThoughtStep  ` )
+`interaction.stepList.steps[].thought` `object ( `[`ThoughtStep`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Step#ThoughtStep)` )`
 
-`interaction.stepList.steps[].toolCall` ` object ( ToolCallStep  ` )
+`interaction.stepList.steps[].toolCall` `object ( `[`ToolCallStep`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Step#ToolCallStep)` )`
 
-`interaction.stepList.steps[].toolResult` ` object ( ToolResultStep  ` )
+`interaction.stepList.steps[].toolResult` `object ( `[`ToolResultStep`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Step#ToolResultStep)` )`
 
-`interaction.stepList.steps[].userInput` ` object ( UserInputStep  ` )
+`interaction.stepList.steps[].userInput` `object ( `[`UserInputStep`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Step#UserInputStep)` )`
 
 DO NOT USE -- These are for 3P JSON only
 
-`interaction.stepList.steps[].modelOutput` ` object ( ModelOutputStep  ` )
+`interaction.stepList.steps[].modelOutput` `object ( `[`ModelOutputStep`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Step#ModelOutputStep)` )`
 
-` interaction.stepList.steps[].text (deprecated)  ` `object ( LegacyTextContent` )
+`interaction.stepList.steps[].text `**`(deprecated)`** `object ( ``LegacyTextContent`` )`
 
-` interaction.stepList.steps[].image (deprecated)  ` `object ( LegacyImageContent` )
+`interaction.stepList.steps[].image `**`(deprecated)`** `object ( ``LegacyImageContent`` )`
 
-` interaction.stepList.steps[].audio (deprecated)  ` `object ( LegacyAudioContent` )
+`interaction.stepList.steps[].audio `**`(deprecated)`** `object ( ``LegacyAudioContent`` )`
 
-` interaction.stepList.steps[].document (deprecated)  ` `object ( LegacyDocumentContent` )
+`interaction.stepList.steps[].document `**`(deprecated)`** `object ( ``LegacyDocumentContent`` )`
 
-` interaction.stepList.steps[].video (deprecated)  ` `object ( LegacyVideoContent` )
+`interaction.stepList.steps[].video `**`(deprecated)`** `object ( ``LegacyVideoContent`` )`
 
 End of mutually exclusive fields.
 
@@ -198,13 +198,13 @@ End of mutually exclusive fields.
 
 Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-` interaction.responseFormat (deprecated)  ` ` object ( Value  ` )
+`interaction.responseFormat `**`(deprecated)`** `object ( `[`Value`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Value)` )`
 
 Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
 
-`interaction.responseFormatList` ` object ( ResponseFormatList  ` )
+`interaction.responseFormatList` `object ( `[`ResponseFormatList`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ResponseFormatList)` )`
 
-`interaction.responseFormatSingleton` ` object ( ResponseFormat  ` )
+`interaction.responseFormatSingleton` `object ( `[`ResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ResponseFormat)` )`
 
 End of mutually exclusive fields.
 
@@ -212,11 +212,11 @@ End of mutually exclusive fields.
 
 The tool choice configuration. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`interaction.modelInteraction.generationConfig.toolChoiceMode` ` enum ( ToolChoiceType  ` )
+`interaction.modelInteraction.generationConfig.toolChoiceMode` `enum ( `[`ToolChoiceType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ToolChoiceType)` )`
 
 The mode of the tool choice.
 
-`interaction.modelInteraction.generationConfig.toolChoiceConfig` ` object ( ToolChoiceConfig  ` )
+`interaction.modelInteraction.generationConfig.toolChoiceConfig` `object ( `[`ToolChoiceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ToolChoiceConfig)` )`
 
 The config for the tool choice.
 
@@ -226,11 +226,11 @@ End of mutually exclusive fields.
 
 The request type for the interaction. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`interaction.modelInteraction` ` object ( ModelInteraction  ` )
+`interaction.modelInteraction` `object ( `[`ModelInteraction`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#ModelInteraction)` )`
 
 Interaction for generating the completion using models.
 
-`interaction.agentInteraction` ` object ( AgentInteraction  ` )
+`interaction.agentInteraction` `object ( `[`AgentInteraction`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#AgentInteraction)` )`
 
 Interaction for generating the completion using agents.
 
@@ -244,9 +244,9 @@ The environment configuration for the interaction. Can be an object specifying r
 
 The environment id for the interaction. Can be 'remote' for default environment.
 
-`interaction.remoteEnvironment` ` object ( EnvironmentConfig  ` )
+`interaction.remoteEnvironment` `object ( `[`EnvironmentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#EnvironmentConfig)` )`
 
-`interaction.localEnvironment` ` object ( LocalEnvironmentConfig  ` )
+`interaction.localEnvironment` `object ( `[`LocalEnvironmentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#LocalEnvironmentConfig)` )`
 
 The agent's environment lives on the client connection: its built-in environment operations (filesystem ops and running commands) are yielded to the client to execute, instead of running in a server-managed sandbox. Mutually exclusive with `remoteEnvironment` . (Independent of any client-declared function tools, which are always executed on the client regardless of this field.)
 
@@ -254,4 +254,4 @@ End of mutually exclusive fields.
 
 ### Response body
 
-If successful, the response body contains a stream of `  InteractionStreamingEvent  ` instances.
+If successful, the response body contains a stream of [`InteractionStreamingEvent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/InteractionStreamingEvent) instances.

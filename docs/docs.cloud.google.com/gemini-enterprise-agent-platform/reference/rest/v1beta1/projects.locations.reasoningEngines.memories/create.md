@@ -32,8 +32,8 @@ This value may be up to 63 characters, and valid characters are `[a-z0-9-]` . Th
 
 ### Request body
 
-The request body contains an instance of `  Memory  ` .
+The request body contains an instance of [`Memory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks.memories#Memory) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  Operation  ` .
+If successful, the response body contains a newly created instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

@@ -16,32 +16,36 @@ It can be used as a top-level request field, which is convenient if one wants to
 
 Example:
 
-    message GetResourceRequest {
-      // A unique request id.
-      string requestId = 1;
-    
-      // The raw HTTP body is bound to this field.
-      google.api.HttpBody httpBody = 2;
-    
-    }
-    
-    service ResourceService {
-      rpc GetResource(GetResourceRequest)
-        returns (google.api.HttpBody);
-      rpc UpdateResource(google.api.HttpBody)
-        returns (google.protobuf.Empty);
-    
-    }
+```
+message GetResourceRequest {
+  // A unique request id.
+  string requestId = 1;
+
+  // The raw HTTP body is bound to this field.
+  google.api.HttpBody httpBody = 2;
+
+}
+
+service ResourceService {
+  rpc GetResource(GetResourceRequest)
+    returns (google.api.HttpBody);
+  rpc UpdateResource(google.api.HttpBody)
+    returns (google.protobuf.Empty);
+
+}
+```
 
 Example with streaming methods:
 
-    service CaldavService {
-      rpc GetCalendar(stream google.api.HttpBody)
-        returns (stream google.api.HttpBody);
-      rpc UpdateCalendar(stream google.api.HttpBody)
-        returns (stream google.api.HttpBody);
-    
-    }
+```
+service CaldavService {
+  rpc GetCalendar(stream google.api.HttpBody)
+    returns (stream google.api.HttpBody);
+  rpc UpdateCalendar(stream google.api.HttpBody)
+    returns (stream google.api.HttpBody);
+
+}
+```
 
 Use of this type only changes how the request and response bodies are handled, all other features will continue to work unchanged.
 
@@ -51,7 +55,7 @@ Fields
 
 The HTTP Content-type header value specifying the content type of the body.
 
-`data` `string ( bytes format)`
+`data` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The HTTP request/response body as raw binary.
 
@@ -63,42 +67,24 @@ Application specific response metadata. Must be set in the first response for st
 
 An object containing fields of an arbitrary type. An additional field `"@type"` contains a URI identifying the type. Example: `{ "id": 1234, "@type": "types.example.com/standard/id" }` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;contentType&quot;: string,
-  &quot;data&quot;: string,
-  &quot;extensions&quot;: [
+**JSON representation**
+
+```
+{
+  "contentType": string,
+  "data": string,
+  "extensions": [
     {
-      &quot;@type&quot;: string,
+      "@type": string,
       field1: ...,
       ...
     }
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
-## Methods
-
-### `            cancel           `
-
-Cancels an interaction by id.
-
-### `            create           `
-
-Creates a new interaction.
-
-### `            get           `
-
-Retrieves the full details of a single interaction based on its `Interaction.id` .
+| Methods                                                                                                                                      |                                                                                    |
+|----------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.interactionsHttp/cancel) | Cancels an interaction by id.                                                      |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.interactionsHttp/create) | Creates a new interaction.                                                         |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.interactionsHttp/get)       | Retrieves the full details of a single interaction based on its `Interaction.id` . |

@@ -12,31 +12,31 @@ Build, deploy, and manage AI agents that use reasoning and tools to perform comp
 
 Depending on your technical requirements and expertise, you can build agents using the following primary paths:
 
-  - **[Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio) (Low-code):** A collaborative, visual workspace for discovering models, engineering prompts, and building agents without writing code. Ideal for rapid prototyping and business-centric agents.
+- **[Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio) (Low-code):** A collaborative, visual workspace for discovering models, engineering prompts, and building agents without writing code. Ideal for rapid prototyping and business-centric agents.
 
-  - **[Managed Agents API on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents) (Managed code):** A config-driven, REST-first API for building autonomous agents inside a fully managed sandbox environment for actions. Create and manage agent configurations and sandbox environments with mounted sources, such as skills and artifacts, by using the **Agents API** , and interact directly with your deployed agents at runtime by using the **Interactions API** .
+- **[Managed Agents API on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents) (Managed code):** A config-driven, REST-first API for building autonomous agents inside a fully managed sandbox environment for actions. Create and manage agent configurations and sandbox environments with mounted sources, such as skills and artifacts, by using the **Agents API** , and interact directly with your deployed agents at runtime by using the **Interactions API** .
 
-  - **[Agent Development Kit (ADK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart-adk) (Custom code):** A powerful framework for developers to build complex, multi-agent orchestrations with granular control over logic, tools, and environment simulation.
+- **[Agent Development Kit (ADK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart-adk) (Custom code):** A powerful framework for developers to build complex, multi-agent orchestrations with granular control over logic, tools, and environment simulation.
 
 ## Platform architecture
 
 Agent Platform provides an integrated suite of tools and services to support the end-to-end agent lifecycle across four key pillars:
 
-  - **[Build](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build)** : Create agents using low-code Studio or the code-first ADK. Access over 200 foundation models in Model Garden.
-  - **[Scale](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale)** : Deploy agents to a fully managed runtime with integrated session management and long-term Memory Bank.
-  - **[Govern](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern)** : Secure agents with unique identity, centralize tool access in the Registry, and enforce policies using Agent Gateway.
-  - **[Optimize](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation)** : Improve quality with Gen AI evaluation and gain deep visibility with Cloud Observability and Topology.
+- **[Build](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build)** : Create agents using low-code Studio or the code-first ADK. Access over 200 foundation models in Model Garden.
+- **[Scale](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale)** : Deploy agents to a fully managed runtime with integrated session management and long-term Memory Bank.
+- **[Govern](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern)** : Secure agents with unique identity, centralize tool access in the Registry, and enforce policies using Agent Gateway.
+- **[Optimize](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation)** : Improve quality with Gen AI evaluation and gain deep visibility with Cloud Observability and Topology.
 
 ### Build
 
 The Build pillar provides raw intelligence and connectivity (including Model Garden, ADK, and MCP). Key components include:
 
-  - **[Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio) :** Provides a low-code development environment for agent creation.
-  - **[Agent Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/agent-garden) :** Provides a library of prebuilt agent samples that accelerate agent development for common AI patterns and use cases.
-  - **[CodeMender](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) :** Provides an autonomous AI code security agent that finds, verifies, and fixes vulnerabilities in your codebase.
-  - **[Gemini Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research) :** Provides an autonomous research agent that plans, executes, and synthesizes multi-step research reports.
-  - **[Agent Development Kit (ADK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) :** Is used for code-first development of complex agents and orchestration logic.
-  - **[Model Garden](https://console.cloud.google.com/agent-platform/model-garden) :** Is a library of over 200 foundation models from Google, partners, and open source communities for discovery and experimentation.
+- **[Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio) :** Provides a low-code development environment for agent creation.
+- **[Agent Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/agent-garden) :** Provides a library of prebuilt agent samples that accelerate agent development for common AI patterns and use cases.
+- **[CodeMender](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) :** Provides an autonomous AI code security agent that finds, verifies, and fixes vulnerabilities in your codebase.
+- **[Gemini Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research) :** Provides an autonomous research agent that plans, executes, and synthesizes multi-step research reports.
+- **[Agent Development Kit (ADK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) :** Is used for code-first development of complex agents and orchestration logic.
+- **[Model Garden](https://console.cloud.google.com/agent-platform/model-garden) :** Is a library of over 200 foundation models from Google, partners, and open source communities for discovery and experimentation.
 
 ### Scale
 
@@ -82,8 +82,8 @@ Agent traffic is managed by the [Agent Gateway](https://docs.cloud.google.com/ge
 
 [App Design Center](https://docs.cloud.google.com/application-design-center/docs/overview) helps you design and provision secure infrastructure templates for AI applications. It ensures that dependent services—such as the Agent Gateway, Model Armor security policies, and IAM configurations—are correctly instantiated within your environment. App Design Center simplifies ensuring governance policies are enforced from the moment an agent is deployed. You can copy and customize the following Google-provided templates:
 
-  - [Simple Agent Platform](https://docs.cloud.google.com/application-design-center/docs/simple-agent-platform) .
-  - [Agent Platform with governance](https://docs.cloud.google.com/application-design-center/docs/agent-platform-with-governance) .
+- [Simple Agent Platform](https://docs.cloud.google.com/application-design-center/docs/simple-agent-platform) .
+- [Agent Platform with governance](https://docs.cloud.google.com/application-design-center/docs/agent-platform-with-governance) .
 
 ### Optimize
 
@@ -101,11 +101,11 @@ The [GenAI Evaluation Service](https://docs.cloud.google.com/gemini-enterprise-a
 
 Agents can be applied to a wide variety of enterprise scenarios:
 
-  - **Customer Support:** Automate responses to common inquiries and resolve tickets by integrating agents with your knowledge base and ticketing systems.
-  - **Information Discovery:** Enable users to search across fragmented internal systems (like Drive, Jira, and Slack) using natural language to find experts or project status.
-  - **Business Operations:** Automate repetitive tasks such as scheduling meetings, preparing daily briefings, or processing expense reports.
-  - **Sales & Marketing:** Draft personalized outreach, summarize campaign performance, or research prospects using real-time enterprise data.
-  - **Software Development:** Assist developers in debugging code, navigating complex repositories, or troubleshooting infrastructure issues.
+- **Customer Support:** Automate responses to common inquiries and resolve tickets by integrating agents with your knowledge base and ticketing systems.
+- **Information Discovery:** Enable users to search across fragmented internal systems (like Drive, Jira, and Slack) using natural language to find experts or project status.
+- **Business Operations:** Automate repetitive tasks such as scheduling meetings, preparing daily briefings, or processing expense reports.
+- **Sales & Marketing:** Draft personalized outreach, summarize campaign performance, or research prospects using real-time enterprise data.
+- **Software Development:** Assist developers in debugging code, navigating complex repositories, or troubleshooting infrastructure issues.
 
 ## Admin surfaces
 
@@ -113,33 +113,33 @@ The Agent Platform is the central console for platform and security administrato
 
 ### Agent Platform
 
-  - **[Agent Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry)** : View, manage, version, register, and monitor agents.
-  - **[Agent Gateway Management](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway)** : Configure, manage, and monitor Agent Gateway instances.
-  - **[Policy Enforcement](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/overview)** : Define and apply IAM and Model Armor policies.
-  - **[Observability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview)** : Monitor agent metrics, traces, and logs, and visualize agent dependencies and interactions.
-  - **[Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies)** : Manage agent service accounts and permissions.
-  - **[Security](https://docs.cloud.google.com/gemini-enterprise-agent-platform/security-findings)** : Integrate with Security Command Center for threat detection.
-  - **[Audit Logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/security-findings#iam-audit)** : Track agent activities.
-  - **[Build](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build)** , **[Scale](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale)** , and **[Optimize](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation)** workflows within Agent Platform.
+- **[Agent Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry)** : View, manage, version, register, and monitor agents.
+- **[Agent Gateway Management](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway)** : Configure, manage, and monitor Agent Gateway instances.
+- **[Policy Enforcement](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/overview)** : Define and apply IAM and Model Armor policies.
+- **[Observability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview)** : Monitor agent metrics, traces, and logs, and visualize agent dependencies and interactions.
+- **[Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies)** : Manage agent service accounts and permissions.
+- **[Security](https://docs.cloud.google.com/gemini-enterprise-agent-platform/security-findings)** : Integrate with Security Command Center for threat detection.
+- **[Audit Logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/security-findings#iam-audit)** : Track agent activities.
+- **[Build](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build)** , **[Scale](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale)** , and **[Optimize](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation)** workflows within Agent Platform.
 
 ### Gemini Enterprise Admin
 
-  - Manage Gemini Enterprise licenses and users.
-  - Manage Gemini Enterprise instances and data connectors.
-  - Attach to [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) to set up routing for Gemini Enterprise instances.
-  - Add agents and tools to the Gemini Enterprise instance from Agent and Tool Registry (also support existing paths for BYO-MCP and A2A agents).
-  - Manage Gemini Enterprise user permissions for agents.
-  - Enable observability (logs, metrics, traces) using Google Cloud tools for Gemini Enterprise agents.
-  - Direct to Agent Platform for policy enforcement and additional observability.
+- Manage Gemini Enterprise licenses and users.
+- Manage Gemini Enterprise instances and data connectors.
+- Attach to [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) to set up routing for Gemini Enterprise instances.
+- Add agents and tools to the Gemini Enterprise instance from Agent and Tool Registry (also support existing paths for BYO-MCP and A2A agents).
+- Manage Gemini Enterprise user permissions for agents.
+- Enable observability (logs, metrics, traces) using Google Cloud tools for Gemini Enterprise agents.
+- Direct to Agent Platform for policy enforcement and additional observability.
 
 ### Google Workspace Admin Console
 
-  - Enable or disable Gemini Enterprise service for Google Workspace users.
-  - Manage Google Workspace user permissions for accessing Gemini Enterprise agents.
-  - Enforce Google Workspace domain policies on agent data access.
-  - Google Workspace Audit Logging for agent interactions.
-  - Direct admins to Agent Platform for [Agent Gateway configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) .
-  - Link to Agent Platform for [comprehensive agent governance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern) .
+- Enable or disable Gemini Enterprise service for Google Workspace users.
+- Manage Google Workspace user permissions for accessing Gemini Enterprise agents.
+- Enforce Google Workspace domain policies on agent data access.
+- Google Workspace Audit Logging for agent interactions.
+- Direct admins to Agent Platform for [Agent Gateway configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) .
+- Link to Agent Platform for [comprehensive agent governance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern) .
 
 ## What's next
 

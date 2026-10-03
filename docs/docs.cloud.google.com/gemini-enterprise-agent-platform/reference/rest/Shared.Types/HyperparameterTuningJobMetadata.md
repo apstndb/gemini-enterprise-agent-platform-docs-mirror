@@ -16,21 +16,11 @@ The resource name of the HyperparameterTuningJob that has been created to carry 
 
 The resource name of the CustomJob that has been created to run the best Trial of this HyperparameterTuning task.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;backingHyperparameterTuningJob&quot;: string,
-  &quot;bestTrialBackingCustomJob&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "backingHyperparameterTuningJob": string,
+  "bestTrialBackingCustomJob": string
+}
+```

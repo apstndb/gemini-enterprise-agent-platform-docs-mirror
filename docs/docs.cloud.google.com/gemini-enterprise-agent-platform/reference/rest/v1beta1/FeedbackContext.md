@@ -16,22 +16,19 @@ Identifier. The resource name. Assigned by the server on create.
 
 Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoningEngine}/feedbackEntries/{feedbackEntry}/feedbackContext`
 
-`contextEvents[]` ` object ( SessionEvent  ` )
+`contextEvents[]` `object ( `[`SessionEvent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/SessionEvent)` )`
 
 Optional. The session events from the originating session.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;contextEvents&quot;: [{object (SessionEvent)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "contextEvents": [
+    {
+      object (SessionEvent)
+    }
+  ]
+}
+```

@@ -8,20 +8,9 @@ data_source: docs.cloud.google.com
 
 View enumeration of PublisherModel.
 
-Enums
-
-`PUBLISHER_MODEL_VIEW_UNSPECIFIED`
-
-The default / unset value. The API will default to the BASIC view.
-
-`PUBLISHER_MODEL_VIEW_BASIC`
-
-Include basic metadata about the publisher model, but not the full contents.
-
-`PUBLISHER_MODEL_VIEW_FULL`
-
-Include everything.
-
-`PUBLISHER_MODEL_VERSION_VIEW_BASIC`
-
-Include: VersionId, ModelVersionExternalName, and SupportedActions.
+| Enums                                |                                                                              |
+|--------------------------------------|------------------------------------------------------------------------------|
+| `PUBLISHER_MODEL_VIEW_UNSPECIFIED`   | The default / unset value. The API will default to the BASIC view.           |
+| `PUBLISHER_MODEL_VIEW_BASIC`         | Include basic metadata about the publisher model, but not the full contents. |
+| `PUBLISHER_MODEL_VIEW_FULL`          | Include everything.                                                          |
+| `PUBLISHER_MODEL_VERSION_VIEW_BASIC` | Include: VersionId, ModelVersionExternalName, and SupportedActions.          |

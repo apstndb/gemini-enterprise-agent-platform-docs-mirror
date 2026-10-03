@@ -16,27 +16,33 @@ The following example shows you how to delete a context cache.
 
 #### Install
 
-    pip install --upgrade google-genai
+```
+pip install --upgrade google-genai
+```
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    from google import genai
-    
-    client = genai.Client()
-    # Delete content cache using name
-    # E.g cache_name = 'projects/111111111111/locations/.../cachedContents/1111111111111111111'
-    client.caches.delete(name=cache_name)
-    print("Deleted Cache", cache_name)
-    # Example response
-    #   Deleted Cache projects/111111111111/locations/.../cachedContents/1111111111111111111
+```
+from google import genai
+
+client = genai.Client()
+# Delete content cache using name
+# E.g cache_name = 'projects/111111111111/locations/.../cachedContents/1111111111111111111'
+client.caches.delete(name=cache_name)
+print("Deleted Cache", cache_name)
+# Example response
+#   Deleted Cache projects/111111111111/locations/.../cachedContents/1111111111111111111
+```
 
 ### Go
 
@@ -46,43 +52,47 @@ To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.g
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    import (
-        "context"
-        "fmt"
-        "io"
-    
-        genai "google.golang.org/genai"
-    )
-    
-    // deleteContentCache shows how to delete content cache.
-    func deleteContentCache(w io.Writer, cacheName string) error {
-        ctx := context.Background()
-    
-        client, err := genai.NewClient(ctx, &genai.ClientConfig{
-            HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
-        })
-        if err != nil {
-            return fmt.Errorf("failed to create genai client: %w", err)
-        }
-    
-        _, err = client.Caches.Delete(ctx, cacheName, &genai.DeleteCachedContentConfig{})
-        if err != nil {
-            return fmt.Errorf("failed to delete content cache: %w", err)
-        }
-    
-        fmt.Fprintf(w, "Deleted cache %q\n", cacheName)
-    
-        // Example response:
-        // Deleted cache "projects/111111111111/locations/us-central1/cachedContents/1111111111111111111"
-    
-        return nil
+```
+import (
+    "context"
+    "fmt"
+    "io"
+
+    genai "google.golang.org/genai"
+)
+
+// deleteContentCache shows how to delete content cache.
+func deleteContentCache(w io.Writer, cacheName string) error {
+    ctx := context.Background()
+
+    client, err := genai.NewClient(ctx, &genai.ClientConfig{
+        HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
+    })
+    if err != nil {
+        return fmt.Errorf("failed to create genai client: %w", err)
     }
+
+    _, err = client.Caches.Delete(ctx, cacheName, &genai.DeleteCachedContentConfig{})
+    if err != nil {
+        return fmt.Errorf("failed to delete content cache: %w", err)
+    }
+
+    fmt.Fprintf(w, "Deleted cache %q\n", cacheName)
+
+    // Example response:
+    // Deleted cache "projects/111111111111/locations/us-central1/cachedContents/1111111111111111111"
+
+    return nil
+}
+```
 
 ### Java
 
@@ -92,90 +102,100 @@ To learn more, see the [SDK reference documentation](https://central.sonatype.co
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    import com.google.genai.Client;
-    import com.google.genai.types.HttpOptions;
-    
-    public class ContentCacheDelete {
-    
-      public static void main(String[] args) {
-        // TODO(developer): Replace these variables before running the sample.
-        // E.g cacheName = "projects/111111111111/locations/global/cachedContents/1111111111111111111"
-        String cacheName = "your-cache-name";
-        contentCacheDelete(cacheName);
-      }
-    
-      // Deletes the cache using the specified cache name
-      public static void contentCacheDelete(String cacheName) {
-        // Initialize client that will be used to send requests. This client only needs to be created
-        // once, and can be reused for multiple requests.
-        try (Client client =
-            Client.builder()
-                .location("global")
-                .vertexAI(true)
-                .httpOptions(HttpOptions.builder().apiVersion("v1").build())
-                .build()) {
-    
-          client.caches.delete(cacheName, null);
-          System.out.println("Deleted cache: " + cacheName);
-          // Example response
-          // Deleted cache: projects/111111111111/locations/global/cachedContents/1111111111111111111
-    
-        }
-      }
+```
+import com.google.genai.Client;
+import com.google.genai.types.HttpOptions;
+
+public class ContentCacheDelete {
+
+  public static void main(String[] args) {
+    // TODO(developer): Replace these variables before running the sample.
+    // E.g cacheName = "projects/111111111111/locations/global/cachedContents/1111111111111111111"
+    String cacheName = "your-cache-name";
+    contentCacheDelete(cacheName);
+  }
+
+  // Deletes the cache using the specified cache name
+  public static void contentCacheDelete(String cacheName) {
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests.
+    try (Client client =
+        Client.builder()
+            .location("global")
+            .vertexAI(true)
+            .httpOptions(HttpOptions.builder().apiVersion("v1").build())
+            .build()) {
+
+      client.caches.delete(cacheName, null);
+      System.out.println("Deleted cache: " + cacheName);
+      // Example response
+      // Deleted cache: projects/111111111111/locations/global/cachedContents/1111111111111111111
+
     }
+  }
+}
+```
 
 ### Node.js
 
 #### Install
 
-    npm install @google/genai
+```
+npm install @google/genai
+```
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    const {GoogleGenAI} = require('@google/genai');
-    
-    const GOOGLE_CLOUD_PROJECT = process.env.GOOGLE_CLOUD_PROJECT;
-    const GOOGLE_CLOUD_LOCATION = process.env.GOOGLE_CLOUD_LOCATION || 'global';
-    
-    async function deleteContentCache(
-      projectId = GOOGLE_CLOUD_PROJECT,
-      location = GOOGLE_CLOUD_LOCATION,
-      cacheName = 'example-cache'
-    ) {
-      const client = new GoogleGenAI({
-        vertexai: true,
-        project: projectId,
-        location: location,
-        httpOptions: {
-          apiVersion: 'v1',
-        },
-      });
-    
-      console.log('Removing cache');
-      const contentCache = await client.caches.delete({
-        name: cacheName,
-      });
-    
-      console.log(contentCache.text);
-    
-      return contentCache;
-    }
-    // Example response
-    //    Deleted Cache projects/111111111111/locations/us-central1/cachedContents/1111111111111111111
+```
+const {GoogleGenAI} = require('@google/genai');
+
+const GOOGLE_CLOUD_PROJECT = process.env.GOOGLE_CLOUD_PROJECT;
+const GOOGLE_CLOUD_LOCATION = process.env.GOOGLE_CLOUD_LOCATION || 'global';
+
+async function deleteContentCache(
+  projectId = GOOGLE_CLOUD_PROJECT,
+  location = GOOGLE_CLOUD_LOCATION,
+  cacheName = 'example-cache'
+) {
+  const client = new GoogleGenAI({
+    vertexai: true,
+    project: projectId,
+    location: location,
+    httpOptions: {
+      apiVersion: 'v1',
+    },
+  });
+
+  console.log('Removing cache');
+  const contentCache = await client.caches.delete({
+    name: cacheName,
+  });
+
+  console.log(contentCache.text);
+
+  return contentCache;
+}
+// Example response
+//    Deleted Cache projects/111111111111/locations/us-central1/cachedContents/1111111111111111111
+```
 
 ### REST
 
@@ -183,13 +203,15 @@ The following shows how to use REST to delete a context cache associated with a 
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region where the request to [create the context cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-create) was processed and where the cached content is stored.
-  - CACHE\_ID : The ID of the context cache to delete. The context cache ID is returned when you create the context cache. You can also find context cache IDs by listing the context caches for a Google Cloud project using. For more information, see [create a context cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-create) and [list context caches](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-getinfo#get-context-cache-list) .
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region where the request to [create the context cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-create) was processed and where the cached content is stored.
+- ` CACHE_ID ` : The ID of the context cache to delete. The context cache ID is returned when you create the context cache. You can also find context cache IDs by listing the context caches for a Google Cloud project using. For more information, see [create a context cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-create) and [list context caches](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-getinfo#get-context-cache-list) .
 
 HTTP method and URL:
 
-    DELETE https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents/CACHE_ID
+```
+DELETE https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents/CACHE_ID
+```
 
 To send your request, choose one of these options:
 
@@ -199,9 +221,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X DELETE \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents/CACHE_ID"
+```
+curl -X DELETE \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents/CACHE_ID"
+```
 
 #### PowerShell
 
@@ -209,32 +233,38 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method DELETE `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents/CACHE_ID" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method DELETE `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents/CACHE_ID" | Select-Object -Expand Content
+```
 
 If the delete operation succeeds, the response is empty:
 
 #### Response
 
-    { }
+```
+{ }
+```
 
 ### Example curl command
 
-    LOCATION="us-central1"
-    PROJECT_ID="PROJECT_ID"
-    CACHE_ID="CACHE_ID"
-    
-    curl \
-    -X DELETE \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/${CACHE_ID}
+```
+LOCATION="us-central1"
+PROJECT_ID="PROJECT_ID"
+CACHE_ID="CACHE_ID"
+
+curl \
+-X DELETE \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/${CACHE_ID}
+```
 
 ## What's next
 
-  - Learn how to [create a new context cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-create) .
-  - Learn how to [get information about all context caches associated with a Google Cloud project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-getinfo) .
+- Learn how to [create a new context cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-create) .
+- Learn how to [get information about all context caches associated with a Google Cloud project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-getinfo) .

@@ -34,28 +34,24 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  TensorboardService.ReadTensorboardBlobData  ` .
+Response message for [`TensorboardService.ReadTensorboardBlobData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries/readBlobData#google.cloud.aiplatform.v1beta1.TensorboardService.ReadTensorboardBlobData) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`blobs[]` ` object ( TensorboardBlob  ` )
+`blobs[]` `object ( `[`TensorboardBlob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/TensorboardBlob)` )`
 
 blob messages containing blob bytes.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;blobs&quot;: [{object (TensorboardBlob)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "blobs": [
+    {
+      object (TensorboardBlob)
+    }
+  ]
+}
+```

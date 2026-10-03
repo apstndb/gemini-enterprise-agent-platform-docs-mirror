@@ -25,18 +25,18 @@ You can use the Google Cloud console or the Agent Platform API to export a `Data
 2.  In the **Region** drop-down list, select the location where the `Dataset` is stored.
 
 3.  Find the row of the `Dataset` . You can export metadata and annotations for all [annotation sets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/create-annotation-set) or for a specific annotation set:
-    
-      - **If you want to export metadata and annotations for all of the `Dataset` 's annotation sets,** then click **View more more\_vert** and then click **Export dataset** .
-        
-        This tells Agent Platform to create a set of JSON Lines files for each annotation set.
-    
-      - **If you want to export metadata and annotations for a specific annotation set,** then do the following:
-        
-        1.  Click **Expand node arrow\_drop\_down** to show rows for each of the `Dataset` 's annotation sets.
-        
-        2.  In the row of the annotation set that you want to export, click **View more more\_vert** and then click **Export annotation set** .
-        
-        This tells Agent Platform to create a set of JSON Lines files for the annotation set that you specified.
+
+    - **If you want to export metadata and annotations for all of the `Dataset` 's annotation sets,** then click **View more more_vert** and then click **Export dataset** .
+
+      This tells Agent Platform to create a set of JSON Lines files for each annotation set.
+
+    - **If you want to export metadata and annotations for a specific annotation set,** then do the following:
+
+      1.  Click **Expand node arrow_drop_down** to show rows for each of the `Dataset` 's annotation sets.
+
+      2.  In the row of the annotation set that you want to export, click **View more more_vert** and then click **Export annotation set** .
+
+      This tells Agent Platform to create a set of JSON Lines files for the annotation set that you specified.
 
 4.  In the **Export data** dialog, enter a Cloud Storage directory where you want Agent Platform to save the exported JSON Lines files. Click **Export** .
 
@@ -50,15 +50,17 @@ To export a `Dataset` , you must know the numerical ID of the `Dataset` . If you
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The location where the `Dataset` is stored. For example, `us-central1` .
+- ` LOCATION ` : The location where the `Dataset` is stored. For example, `us-central1` .
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
 
-  - DATASET\_DISPLAY\_NAME : The display name of the `Dataset` .
+- ` DATASET_DISPLAY_NAME ` : The display name of the `Dataset` .
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets?filter=displayName=DATASET_DISPLAY_NAME
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets?filter=displayName=DATASET_DISPLAY_NAME
+```
 
 To send your request, choose one of these options:
 
@@ -68,9 +70,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets?filter=displayName=DATASET_DISPLAY_NAME"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets?filter=displayName=DATASET_DISPLAY_NAME"
+```
 
 #### PowerShell
 
@@ -78,25 +82,29 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth application-default print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets?filter=displayName=DATASET_DISPLAY_NAME" | Select-Object -Expand Content
+```
+$cred = gcloud auth application-default print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
 
-The following example response has been truncated with `...` to emphasize where you can find your `Dataset` 's ID: it is the number that takes the place of DATASET\_ID .
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets?filter=displayName=DATASET_DISPLAY_NAME" | Select-Object -Expand Content
+```
 
+The following example response has been truncated with `...` to emphasize where you can find your `Dataset` 's ID: it is the number that takes the place of ` DATASET_ID ` .
+
+```
+{
+  "datasets": [
     {
-      "datasets": [
-        {
-          "name": "projects/PROJECT_NUMBER/locations/LOCATION/datasets/DATASET_ID",
-          "displayName": "DATASET_DISPLAY_NAME",
-          ...
-        }
-      ]
+      "name": "projects/PROJECT_NUMBER/locations/LOCATION/datasets/DATASET_ID",
+      "displayName": "DATASET_DISPLAY_NAME",
+      ...
     }
+  ]
+}
+```
 
 Alternatively, you can get the `Dataset` 's ID from the Google Cloud console: Go to the Agent Platform **Datasets** page and find the number in the **ID** column.
 
@@ -104,40 +112,46 @@ Alternatively, you can get the `Dataset` 's ID from the Google Cloud console: Go
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The location where the `Dataset` is stored. For example, `us-central1` .
+- ` LOCATION ` : The location where the `Dataset` is stored. For example, `us-central1` .
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
 
-  - DATASET\_ID : The numerical ID of the `Dataset` .
+- ` DATASET_ID ` : The numerical ID of the `Dataset` .
 
-  - EXPORT\_DIRECTORY : Cloud Storage URI (beginning with `gs://` ) of a directory where you want Agent Platform to save the exported JSON Lines files. This must be in a Cloud Storage bucket that you have access to, but the directory does not need to exist yet.
+- ` EXPORT_DIRECTORY ` : Cloud Storage URI (beginning with `gs://` ) of a directory where you want Agent Platform to save the exported JSON Lines files. This must be in a Cloud Storage bucket that you have access to, but the directory does not need to exist yet.
 
-  - FILTER : A filter string that determines which [annotation sets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/create-annotation-set) get exported.
-    
-      - **If you want to export metadata and annotations for all of the `Dataset` 's annotation sets,** replace FILTER with an empty string (or omit the `annotationsFilter` field from the request body entirely). This tells Agent Platform to create a set of JSON Lines files for each annotation set.
-    
-      - **If you want to export metadata and annotations for a specific annotation set,** replace FILTER with the following:
-        
-            labels.aiplatform.googleapis.com/annotation_set_name=ANNOTATION_SET_ID
-        
-        This tells Agent Platform to create a set of JSON Lines files for the annotation set with the numerical ID ANNOTATION\_SET\_ID .
-        
-        To find the numerical ID of the annotation set that you want to specify, view the annotation set in the Google Cloud console and look for the value following `annotationSetId` in the URL.
+- ` FILTER ` : A filter string that determines which [annotation sets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/create-annotation-set) get exported.
+
+  - **If you want to export metadata and annotations for all of the `Dataset` 's annotation sets,** replace ` FILTER ` with an empty string (or omit the `annotationsFilter` field from the request body entirely). This tells Agent Platform to create a set of JSON Lines files for each annotation set.
+
+  - **If you want to export metadata and annotations for a specific annotation set,** replace ` FILTER ` with the following:
+
+    ```
+    labels.aiplatform.googleapis.com/annotation_set_name=ANNOTATION_SET_ID
+    ```
+
+    This tells Agent Platform to create a set of JSON Lines files for the annotation set with the numerical ID ` ANNOTATION_SET_ID ` .
+
+    To find the numerical ID of the annotation set that you want to specify, view the annotation set in the Google Cloud console and look for the value following `annotationSetId` in the URL.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID:export
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID:export
+```
 
 Request JSON body:
 
-    {
-      "exportConfig": {
-        "gcsDestination": {
-          "outputUriPrefix": "EXPORT_DIRECTORY"
-        },
-        "annotationsFilter": "FILTER"
-      }
-    }
+```
+{
+  "exportConfig": {
+    "gcsDestination": {
+      "outputUriPrefix": "EXPORT_DIRECTORY"
+    },
+    "annotationsFilter": "FILTER"
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -147,11 +161,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID:export"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID:export"
+```
 
 #### PowerShell
 
@@ -159,35 +175,39 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth application-default print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID:export" | Select-Object -Expand Content
+```
+$cred = gcloud auth application-default print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID:export" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION/datasets/DATASET_ID/operations/OPERATION_ID",
-      "metadata": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.ExportDataOperationMetadata",
-        "genericMetadata": {
-          "createTime": "2021-02-17T00:54:58.827429Z",
-          "updateTime": "2021-02-17T00:54:58.827429Z"
-        },
-        "gcsOutputDirectory": "EXPORT_DIRECTORY/export-data-DATASET_DISPLAY_NAME-2021-02-17T00:54:58.734772Z"
-      }
-    }
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION/datasets/DATASET_ID/operations/OPERATION_ID",
+  "metadata": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1.ExportDataOperationMetadata",
+    "genericMetadata": {
+      "createTime": "2021-02-17T00:54:58.827429Z",
+      "updateTime": "2021-02-17T00:54:58.827429Z"
+    },
+    "gcsOutputDirectory": "EXPORT_DIRECTORY/export-data-DATASET_DISPLAY_NAME-2021-02-17T00:54:58.734772Z"
+  }
+}
+```
 
 Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/long-running-operations) .
 
 ## Exported files explained
 
-Within the export directory that you specified in the previous section, Agent Platform creates a new directory labeled with the `Dataset` 's display name and a timestamp; for example, `export-data- DATASET_DISPLAY_NAME -2021-02-17T00:54:58.734772Z` . Within this directory, you can find a subdirectory for each annotation set that you exported.
+Within the export directory that you specified in the previous section, Agent Platform creates a new directory labeled with the `Dataset` 's display name and a timestamp; for example, `export-data- `` DATASET_DISPLAY_NAME `` -2021-02-17T00:54:58.734772Z` . Within this directory, you can find a subdirectory for each annotation set that you exported.
 
 For each annotation set, you can find one or more JSON Lines files. Each row of each JSON Lines file represents a data item from the annotation set. Each data item may contain metadata and annotations that you specified when you imported the data to Agent Platform, as well as metadata and annotations that you added after importing the data. For example, if you [added labels or annotations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/label-using-console) to your `Dataset` in the Google Cloud console, then this information is included in the exported files.
 
@@ -199,5 +219,5 @@ The format of the exported files matches the format of the JSON Lines import fil
 
 ## What's next
 
-  - Learn how to [label data using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/label-using-console) .
-  - Read more about [working with datasets in Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview) .
+- Learn how to [label data using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/label-using-console) .
+- Read more about [working with datasets in Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview) .

@@ -8,10 +8,10 @@ data_source: docs.cloud.google.com
 
 This page provides an overview of the workflow for training and using your own machine learning (ML) models on Agent Platform. Agent Platform offers a spectrum of training methods designed to meet your needs, from fully automated to fully custom.
 
-  - **AutoML** : Build high-quality models with minimal technical effort by leveraging Google's automated ML capabilities.
-  - **Agent Platform training clusters** : Run your custom training code in a fully managed, on-demand environment without worrying about infrastructure.
-  - **Agent Platform training clusters** : Run large-scale, high-performance training jobs on a dedicated cluster of accelerators reserved for your exclusive use.
-  - **Ray on Agent Platform** : Scale Python applications and ML workloads using the open-source Ray framework on a managed service.
+- **AutoML** : Build high-quality models with minimal technical effort by leveraging Google's automated ML capabilities.
+- **Agent Platform training clusters** : Run your custom training code in a fully managed, on-demand environment without worrying about infrastructure.
+- **Agent Platform training clusters** : Run large-scale, high-performance training jobs on a dedicated cluster of accelerators reserved for your exclusive use.
+- **Ray on Agent Platform** : Scale Python applications and ML workloads using the open-source Ray framework on a managed service.
 
 For help on deciding which of these methods to use, see [Choose a training method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-methods) .
 
@@ -24,7 +24,7 @@ AutoML on Gemini Enterprise Agent Platform lets you build a code-free ML model b
 The types of models you can build depend on the type of data that you have. Gemini Enterprise Agent Platform offers AutoML solutions for the following data types and model objectives:
 
 | Data type    | Supported objectives                    |
-| ------------ | --------------------------------------- |
+|--------------|-----------------------------------------|
 | Image data   | Classification, object detection.       |
 | Tabular data | Classification/regression, forecasting. |
 
@@ -42,9 +42,9 @@ Serverless training is a fully managed service that lets you run your custom tra
 
 Agent Platform handles the rest:
 
-  - Provisioning the compute resources for the duration of your job.
-  - Executing your training code.
-  - Deleting the resources after the job completes.
+- Provisioning the compute resources for the duration of your job.
+- Executing your training code.
+- Deleting the resources after the job completes.
 
 This pay-per-use, on-demand model is ideal for experimentation, rapid prototyping, and for production jobs that don't require assured, instantaneous capacity.
 

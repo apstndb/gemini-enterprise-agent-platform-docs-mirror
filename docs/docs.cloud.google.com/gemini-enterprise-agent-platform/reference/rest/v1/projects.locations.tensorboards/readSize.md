@@ -28,30 +28,20 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  TensorboardService.ReadTensorboardSize  ` .
+Response message for [`TensorboardService.ReadTensorboardSize`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards/readSize#google.cloud.aiplatform.v1.TensorboardService.ReadTensorboardSize) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`storageSizeByte` `string ( int64 format)`
+`storageSizeByte` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Payload storage size for the TensorBoard
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;storageSizeByte&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "storageSizeByte": string
+}
+```

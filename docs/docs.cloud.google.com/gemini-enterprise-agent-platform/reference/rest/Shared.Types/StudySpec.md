@@ -10,23 +10,23 @@ Represents specification of a Study.
 
 Fields
 
-`metrics[]` ` object ( MetricSpec  ` )
+`metrics[]` `object ( `[`MetricSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#MetricSpec)` )`
 
 Required. Metric specs for the Study.
 
-`parameters[]` ` object ( ParameterSpec  ` )
+`parameters[]` `object ( `[`ParameterSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#ParameterSpec)` )`
 
 Required. The set of parameters to tune.
 
-`algorithm` ` enum ( Algorithm  ` )
+`algorithm` `enum ( `[`Algorithm`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Algorithm)` )`
 
 The search algorithm specified for the Study.
 
-`observationNoise` ` enum ( ObservationNoise  ` )
+`observationNoise` `enum ( `[`ObservationNoise`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ObservationNoise)` )`
 
 The observation noise level of the study. Currently only supported by the Agent Platform Vizier service. Not supported by HyperparameterTuningJob or TrainingPipeline.
 
-`measurementSelectionType` ` enum ( MeasurementSelectionType  ` )
+`measurementSelectionType` `enum ( `[`MeasurementSelectionType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/MeasurementSelectionType)` )`
 
 Describe which measurement selection type will be used
 
@@ -34,39 +34,58 @@ Describe which measurement selection type will be used
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`decayCurveStoppingSpec` ` object ( DecayCurveAutomatedStoppingSpec  ` )
+`decayCurveStoppingSpec` `object ( `[`DecayCurveAutomatedStoppingSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#DecayCurveAutomatedStoppingSpec)` )`
 
 The automated early stopping spec using decay curve rule.
 
-`medianAutomatedStoppingSpec` ` object ( MedianAutomatedStoppingSpec  ` )
+`medianAutomatedStoppingSpec` `object ( `[`MedianAutomatedStoppingSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#MedianAutomatedStoppingSpec)` )`
 
 The automated early stopping spec using median rule.
 
-`convexAutomatedStoppingSpec` ` object ( ConvexAutomatedStoppingSpec  ` )
+`convexAutomatedStoppingSpec` `object ( `[`ConvexAutomatedStoppingSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#ConvexAutomatedStoppingSpec)` )`
 
 The automated early stopping spec using convex stopping rule.
 
 End of mutually exclusive fields.
 
-`studyStoppingConfig` ` object ( StudyStoppingConfig  ` )
+`studyStoppingConfig` `object ( `[`StudyStoppingConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#StudyStoppingConfig)` )`
 
 Conditions for automated stopping of a Study. Enable automated stopping by configuring at least one condition.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metrics&quot;: [{object (MetricSpec)}],&quot;parameters&quot;: [{object (ParameterSpec)}],&quot;algorithm&quot;: enum (Algorithm),&quot;observationNoise&quot;: enum (ObservationNoise),&quot;measurementSelectionType&quot;: enum (MeasurementSelectionType),// automated_stopping_spec&quot;decayCurveStoppingSpec&quot;: {object (DecayCurveAutomatedStoppingSpec)},&quot;medianAutomatedStoppingSpec&quot;: {object (MedianAutomatedStoppingSpec)},&quot;convexAutomatedStoppingSpec&quot;: {object (ConvexAutomatedStoppingSpec)}// Union type&quot;studyStoppingConfig&quot;: {object (StudyStoppingConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metrics": [
+    {
+      object (MetricSpec)
+    }
+  ],
+  "parameters": [
+    {
+      object (ParameterSpec)
+    }
+  ],
+  "algorithm": enum (Algorithm),
+  "observationNoise": enum (ObservationNoise),
+  "measurementSelectionType": enum (MeasurementSelectionType),
+
+  // automated_stopping_spec
+  "decayCurveStoppingSpec": {
+    object (DecayCurveAutomatedStoppingSpec)
+  },
+  "medianAutomatedStoppingSpec": {
+    object (MedianAutomatedStoppingSpec)
+  },
+  "convexAutomatedStoppingSpec": {
+    object (ConvexAutomatedStoppingSpec)
+  }
+  // Union type
+  "studyStoppingConfig": {
+    object (StudyStoppingConfig)
+  }
+}
+```
 
 ## DecayCurveAutomatedStoppingSpec
 
@@ -76,25 +95,15 @@ Fields
 
 `useElapsedDuration` `boolean`
 
-True if `  Measurement.elapsed_duration  ` is used as the x-axis of each Trials Decay Curve. Otherwise, `  Measurement.step_count  ` will be used as the x-axis.
+True if [`Measurement.elapsed_duration`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Measurement#FIELDS.elapsed_duration) is used as the x-axis of each Trials Decay Curve. Otherwise, [`Measurement.step_count`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Measurement#FIELDS.step_count) will be used as the x-axis.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;useElapsedDuration&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "useElapsedDuration": boolean
+}
+```
 
 ## MedianAutomatedStoppingSpec
 
@@ -104,25 +113,15 @@ Fields
 
 `useElapsedDuration` `boolean`
 
-True if median automated stopping rule applies on `  Measurement.elapsed_duration  ` . It means that elapsedDuration field of latest measurement of current Trial is used to compute median objective value for each completed Trials.
+True if median automated stopping rule applies on [`Measurement.elapsed_duration`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Measurement#FIELDS.elapsed_duration) . It means that elapsedDuration field of latest measurement of current Trial is used to compute median objective value for each completed Trials.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;useElapsedDuration&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "useElapsedDuration": boolean
+}
+```
 
 ## ConvexAutomatedStoppingSpec
 
@@ -130,15 +129,15 @@ Configuration for ConvexAutomatedStoppingSpec. When there are enough completed t
 
 Fields
 
-`maxStepCount` `string ( int64 format)`
+`maxStepCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
-Steps used in predicting the final objective for early stopped trials. In general, it's set to be the same as the defined steps in training / tuning. If not defined, it will learn it from the completed trials. When use\_steps is false, this field is set to the maximum elapsed seconds.
+Steps used in predicting the final objective for early stopped trials. In general, it's set to be the same as the defined steps in training / tuning. If not defined, it will learn it from the completed trials. When use_steps is false, this field is set to the maximum elapsed seconds.
 
-`minStepCount` `string ( int64 format)`
+`minStepCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Minimum number of steps for a trial to complete. Trials which do not have a measurement with stepCount \> minStepCount won't be considered for early stopping. It's ok to set it to 0, and a trial can be early stopped at any stage. By default, minStepCount is set to be one-tenth of the maxStepCount. When useElapsedDuration is true, this field is set to the minimum elapsed seconds.
 
-`minMeasurementCount` `string ( int64 format)`
+`minMeasurementCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The minimal number of measurements in a Trial. Early-stopping checks will not trigger if less than minMeasurementCount+1 completed trials or pending trials with less than minMeasurementCount measurements. If not defined, the default value is 5.
 
@@ -148,34 +147,24 @@ The hyper-parameter name used in the tuning job that stands for learning rate. L
 
 `useElapsedDuration` `boolean`
 
-This bool determines whether or not the rule is applied based on elapsed\_secs or steps. If useElapsedDuration==false, the early stopping decision is made according to the predicted objective values according to the target steps. If useElapsedDuration==true, elapsed\_secs is used instead of steps. Also, in this case, the parameters maxNumSteps and minNumSteps are overloaded to contain max\_elapsed\_seconds and min\_elapsed\_seconds.
+This bool determines whether or not the rule is applied based on elapsed_secs or steps. If useElapsedDuration==false, the early stopping decision is made according to the predicted objective values according to the target steps. If useElapsedDuration==true, elapsed_secs is used instead of steps. Also, in this case, the parameters maxNumSteps and minNumSteps are overloaded to contain max_elapsed_seconds and min_elapsed_seconds.
 
 `updateAllStoppedTrials` `boolean`
 
 ConvexAutomatedStoppingSpec by default only updates the trials that needs to be early stopped using a newly trained auto-regressive model. When this flag is set to True, all stopped trials from the beginning are potentially updated in terms of their `finalMeasurement` . Also, note that the training logic of autoregressive models is different in this case. Enabling this option has shown better results and this may be the default option in the future.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;maxStepCount&quot;: string,
-  &quot;minStepCount&quot;: string,
-  &quot;minMeasurementCount&quot;: string,
-  &quot;learningRateParameterName&quot;: string,
-  &quot;useElapsedDuration&quot;: boolean,
-  &quot;updateAllStoppedTrials&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "maxStepCount": string,
+  "minStepCount": string,
+  "minMeasurementCount": string,
+  "learningRateParameterName": string,
+  "useElapsedDuration": boolean,
+  "updateAllStoppedTrials": boolean
+}
+```
 
 ## MetricSpec
 
@@ -187,29 +176,25 @@ Fields
 
 Required. The id of the metric. Must not contain whitespaces and must be unique amongst all MetricSpecs.
 
-`goal` ` enum ( GoalType  ` )
+`goal` `enum ( `[`GoalType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GoalType)` )`
 
 Required. The optimization goal of the metric.
 
-`safetyConfig` ` object ( SafetyMetricConfig  ` )
+`safetyConfig` `object ( `[`SafetyMetricConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#SafetyMetricConfig)` )`
 
 Used for safe search. In the case, the metric will be a safety metric. You must provide a separate metric for objective metric.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metricId&quot;: string,&quot;goal&quot;: enum (GoalType),&quot;safetyConfig&quot;: {object (SafetyMetricConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metricId": string,
+  "goal": enum (GoalType),
+  "safetyConfig": {
+    object (SafetyMetricConfig)
+  }
+}
+```
 
 ## SafetyMetricConfig
 
@@ -225,24 +210,14 @@ Safety threshold (boundary value between safe and unsafe). NOTE that if you leav
 
 Desired minimum fraction of safe trials (over total number of trials) that should be targeted by the algorithm at any time during the study (best effort). This should be between 0.0 and 1.0 and a value of 0.0 means that there is no minimum and an algorithm proceeds without targeting any specific fraction. A value of 1.0 means that the algorithm attempts to only Suggest safe Trials.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;safetyThreshold&quot;: number,
-  &quot;desiredMinSafeTrialsFraction&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "safetyThreshold": number,
+  "desiredMinSafeTrialsFraction": number
+}
+```
 
 ## ParameterSpec
 
@@ -254,53 +229,66 @@ Fields
 
 Required. The id of the parameter. Must not contain whitespaces and must be unique amongst all ParameterSpecs.
 
-`scaleType` ` enum ( ScaleType  ` )
+`scaleType` `enum ( `[`ScaleType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ScaleType)` )`
 
 How the parameter should be scaled. Leave unset for `CATEGORICAL` parameters.
 
-`conditionalParameterSpecs[]` ` object ( ConditionalParameterSpec  ` )
+`conditionalParameterSpecs[]` `object ( `[`ConditionalParameterSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#ConditionalParameterSpec)` )`
 
-A conditional parameter node is active if the parameter's value matches the conditional node's parent\_value\_condition.
+A conditional parameter node is active if the parameter's value matches the conditional node's parent_value_condition.
 
-If two items in conditionalParameterSpecs have the same name, they must have disjoint parent\_value\_condition.
+If two items in conditionalParameterSpecs have the same name, they must have disjoint parent_value_condition.
 
 `parameter_value_spec` `Union type`
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`doubleValueSpec` ` object ( DoubleValueSpec  ` )
+`doubleValueSpec` `object ( `[`DoubleValueSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#DoubleValueSpec)` )`
 
 The value spec for a 'DOUBLE' parameter.
 
-`integerValueSpec` ` object ( IntegerValueSpec  ` )
+`integerValueSpec` `object ( `[`IntegerValueSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#IntegerValueSpec)` )`
 
 The value spec for an 'INTEGER' parameter.
 
-`categoricalValueSpec` ` object ( CategoricalValueSpec  ` )
+`categoricalValueSpec` `object ( `[`CategoricalValueSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#CategoricalValueSpec)` )`
 
 The value spec for a 'CATEGORICAL' parameter.
 
-`discreteValueSpec` ` object ( DiscreteValueSpec  ` )
+`discreteValueSpec` `object ( `[`DiscreteValueSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#DiscreteValueSpec)` )`
 
 The value spec for a 'DISCRETE' parameter.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;parameterId&quot;: string,&quot;scaleType&quot;: enum (ScaleType),&quot;conditionalParameterSpecs&quot;: [{object (ConditionalParameterSpec)}],// parameter_value_spec&quot;doubleValueSpec&quot;: {object (DoubleValueSpec)},&quot;integerValueSpec&quot;: {object (IntegerValueSpec)},&quot;categoricalValueSpec&quot;: {object (CategoricalValueSpec)},&quot;discreteValueSpec&quot;: {object (DiscreteValueSpec)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "parameterId": string,
+  "scaleType": enum (ScaleType),
+  "conditionalParameterSpecs": [
+    {
+      object (ConditionalParameterSpec)
+    }
+  ],
+
+  // parameter_value_spec
+  "doubleValueSpec": {
+    object (DoubleValueSpec)
+  },
+  "integerValueSpec": {
+    object (IntegerValueSpec)
+  },
+  "categoricalValueSpec": {
+    object (CategoricalValueSpec)
+  },
+  "discreteValueSpec": {
+    object (DiscreteValueSpec)
+  }
+  // Union type
+}
+```
 
 ## DoubleValueSpec
 
@@ -322,25 +310,15 @@ A default value for a `DOUBLE` parameter that is assumed to be a relatively good
 
 Currently only supported by the Agent Platform Vizier service. Not supported by HyperparameterTuningJob or TrainingPipeline.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;minValue&quot;: number,
-  &quot;maxValue&quot;: number,
-  &quot;defaultValue&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "minValue": number,
+  "maxValue": number,
+  "defaultValue": number
+}
+```
 
 ## IntegerValueSpec
 
@@ -348,39 +326,29 @@ value specification for a parameter in `INTEGER` type.
 
 Fields
 
-`minValue` `string ( int64 format)`
+`minValue` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Required. Inclusive minimum value of the parameter.
 
-`maxValue` `string ( int64 format)`
+`maxValue` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Required. Inclusive maximum value of the parameter.
 
-`defaultValue` `string ( int64 format)`
+`defaultValue` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 A default value for an `INTEGER` parameter that is assumed to be a relatively good starting point. Unset value signals that there is no offered starting point.
 
 Currently only supported by the Agent Platform Vizier service. Not supported by HyperparameterTuningJob or TrainingPipeline.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;minValue&quot;: string,
-  &quot;maxValue&quot;: string,
-  &quot;defaultValue&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "minValue": string,
+  "maxValue": string,
+  "defaultValue": string
+}
+```
 
 ## CategoricalValueSpec
 
@@ -398,26 +366,16 @@ A default value for a `CATEGORICAL` parameter that is assumed to be a relatively
 
 Currently only supported by the Agent Platform Vizier service. Not supported by HyperparameterTuningJob or TrainingPipeline.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;values&quot;: [
+**JSON representation**
+
+```
+{
+  "values": [
     string
   ],
-  &quot;defaultValue&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+  "defaultValue": string
+}
+```
 
 ## DiscreteValueSpec
 
@@ -435,26 +393,16 @@ A default value for a `DISCRETE` parameter that is assumed to be a relatively go
 
 Currently only supported by the Agent Platform Vizier service. Not supported by HyperparameterTuningJob or TrainingPipeline.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;values&quot;: [
+**JSON representation**
+
+```
+{
+  "values": [
     number
   ],
-  &quot;defaultValue&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+  "defaultValue": number
+}
+```
 
 ## ConditionalParameterSpec
 
@@ -462,7 +410,7 @@ Represents a parameter spec with condition from its parent parameter.
 
 Fields
 
-`parameterSpec` ` object ( ParameterSpec  ` )
+`parameterSpec` `object ( `[`ParameterSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#ParameterSpec)` )`
 
 Required. The spec for a conditional parameter.
 
@@ -470,35 +418,41 @@ Required. The spec for a conditional parameter.
 
 A set of parameter values from the parent ParameterSpec's feasible space. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`parentDiscreteValues` ` object ( DiscreteValueCondition  ` )
+`parentDiscreteValues` `object ( `[`DiscreteValueCondition`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#DiscreteValueCondition)` )`
 
 The spec for matching values from a parent parameter of `DISCRETE` type.
 
-`parentIntValues` ` object ( IntValueCondition  ` )
+`parentIntValues` `object ( `[`IntValueCondition`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#IntValueCondition)` )`
 
 The spec for matching values from a parent parameter of `INTEGER` type.
 
-`parentCategoricalValues` ` object ( CategoricalValueCondition  ` )
+`parentCategoricalValues` `object ( `[`CategoricalValueCondition`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#CategoricalValueCondition)` )`
 
 The spec for matching values from a parent parameter of `CATEGORICAL` type.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;parameterSpec&quot;: {object (ParameterSpec)},// parent_value_condition&quot;parentDiscreteValues&quot;: {object (DiscreteValueCondition)},&quot;parentIntValues&quot;: {object (IntValueCondition)},&quot;parentCategoricalValues&quot;: {object (CategoricalValueCondition)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "parameterSpec": {
+    object (ParameterSpec)
+  },
+
+  // parent_value_condition
+  "parentDiscreteValues": {
+    object (DiscreteValueCondition)
+  },
+  "parentIntValues": {
+    object (IntValueCondition)
+  },
+  "parentCategoricalValues": {
+    object (CategoricalValueCondition)
+  }
+  // Union type
+}
+```
 
 ## DiscreteValueCondition
 
@@ -512,25 +466,15 @@ Required. Matches values of the parent parameter of 'DISCRETE' type. All values 
 
 The Epsilon of the value matching is 1e-10.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;values&quot;: [
+**JSON representation**
+
+```
+{
+  "values": [
     number
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## IntValueCondition
 
@@ -538,29 +482,19 @@ Represents the spec to match integer values from parent parameter.
 
 Fields
 
-`values[]` `string ( int64 format)`
+`values[]` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Required. Matches values of the parent parameter of 'INTEGER' type. All values must lie in `integerValueSpec` of parent parameter.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;values&quot;: [
+**JSON representation**
+
+```
+{
+  "values": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## CategoricalValueCondition
 
@@ -572,25 +506,15 @@ Fields
 
 Required. Matches values of the parent parameter of 'CATEGORICAL' type. All values must exist in `categoricalValueSpec` of parent parameter.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;values&quot;: [
+**JSON representation**
+
+```
+{
+  "values": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## StudyStoppingConfig
 
@@ -600,15 +524,15 @@ Fields
 
 `shouldStopAsap` `boolean`
 
-If true, a Study enters STOPPING\_ASAP whenever it would normally enters STOPPING state.
+If true, a Study enters STOPPING_ASAP whenever it would normally enters STOPPING state.
 
 The bottom line is: set to true if you want to interrupt on-going evaluations of Trials as soon as the study stopping condition is met. (Please see Study.State documentation for the source of truth).
 
-`minimumRuntimeConstraint` ` object ( StudyTimeConstraint  ` )
+`minimumRuntimeConstraint` `object ( `[`StudyTimeConstraint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#StudyTimeConstraint)` )`
 
-Each "stopping rule" in this proto specifies an "if" condition. Before Vizier would generate a new suggestion, it first checks each specified stopping rule, from top to bottom in this list. Note that the first few rules (e.g. minimumRuntimeConstraint, minNumTrials) will prevent other stopping rules from being evaluated until they are met. For example, setting `minNumTrials=5` and `always_stop_after= 1 hour` means that the Study will ONLY stop after it has 5 COMPLETED trials, even if more than an hour has passed since its creation. It follows the first applicable rule (whose "if" condition is satisfied) to make a stopping decision. If none of the specified rules are applicable, then Vizier decides that the study should not stop. If Vizier decides that the study should stop, the study enters STOPPING state (or STOPPING\_ASAP if shouldStopAsap = true). IMPORTANT: The automatic study state transition happens precisely as described above; that is, deleting trials or updating StudyConfig NEVER automatically moves the study state back to ACTIVE. If you want to *resume* a Study that was stopped, 1) change the stopping conditions if necessary, 2) activate the study, and then 3) ask for suggestions. If the specified time or duration has not passed, do not stop the study.
+Each "stopping rule" in this proto specifies an "if" condition. Before Vizier would generate a new suggestion, it first checks each specified stopping rule, from top to bottom in this list. Note that the first few rules (e.g. minimumRuntimeConstraint, minNumTrials) will prevent other stopping rules from being evaluated until they are met. For example, setting `minNumTrials=5` and `always_stop_after= 1 hour` means that the Study will ONLY stop after it has 5 COMPLETED trials, even if more than an hour has passed since its creation. It follows the first applicable rule (whose "if" condition is satisfied) to make a stopping decision. If none of the specified rules are applicable, then Vizier decides that the study should not stop. If Vizier decides that the study should stop, the study enters STOPPING state (or STOPPING_ASAP if shouldStopAsap = true). IMPORTANT: The automatic study state transition happens precisely as described above; that is, deleting trials or updating StudyConfig NEVER automatically moves the study state back to ACTIVE. If you want to *resume* a Study that was stopped, 1) change the stopping conditions if necessary, 2) activate the study, and then 3) ask for suggestions. If the specified time or duration has not passed, do not stop the study.
 
-`maximumRuntimeConstraint` ` object ( StudyTimeConstraint  ` )
+`maximumRuntimeConstraint` `object ( `[`StudyTimeConstraint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#StudyTimeConstraint)` )`
 
 If the specified time or duration has passed, stop the study.
 
@@ -626,7 +550,7 @@ If the objective value has not improved for this many consecutive trials, stop t
 
 WARNING: Effective only for single-objective studies.
 
-`maxDurationNoProgress` ` string ( Duration  ` format)
+`maxDurationNoProgress` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 If the objective value has not improved for this much time, stop the study.
 
@@ -634,21 +558,23 @@ WARNING: Effective only for single-objective studies.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;shouldStopAsap&quot;: boolean,&quot;minimumRuntimeConstraint&quot;: {object (StudyTimeConstraint)},&quot;maximumRuntimeConstraint&quot;: {object (StudyTimeConstraint)},&quot;minNumTrials&quot;: integer,&quot;maxNumTrials&quot;: integer,&quot;maxNumTrialsNoProgress&quot;: integer,&quot;maxDurationNoProgress&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "shouldStopAsap": boolean,
+  "minimumRuntimeConstraint": {
+    object (StudyTimeConstraint)
+  },
+  "maximumRuntimeConstraint": {
+    object (StudyTimeConstraint)
+  },
+  "minNumTrials": integer,
+  "maxNumTrials": integer,
+  "maxNumTrialsNoProgress": integer,
+  "maxDurationNoProgress": string
+}
+```
 
 ## StudyTimeConstraint
 
@@ -660,13 +586,13 @@ Fields
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`maxDuration` ` string ( Duration  ` format)
+`maxDuration` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 Counts the wallclock time passed since the creation of this Study.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
-`endTime` ` string ( Timestamp  ` format)
+`endTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Compares the wallclock time to this time. Must use UTC timezone.
 
@@ -674,24 +600,14 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+**JSON representation**
+
+```
+{
 
   // constraint
-  &quot;maxDuration&quot;: string,
-  &quot;endTime&quot;: string
+  "maxDuration": string,
+  "endTime": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

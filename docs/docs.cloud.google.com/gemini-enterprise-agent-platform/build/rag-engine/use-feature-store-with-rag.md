@@ -9,12 +9,12 @@ data_source: docs.cloud.google.com
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 
 > **Preview**
-> 
+>
 > Some of the RAG features are Preview offerings, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . Pre-GA products and features are available "as-is" and may have limited support, and changes to Pre-GA products and features may not be compatible with other Pre-GA versions. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages) . By using the Gemini API on Gemini Enterprise Agent Platform, you agree to the Generative AI Preview [terms and conditions](https://cloud.google.com/trustedtester/aitos) (Preview Terms).
 
 > To see an example of using RAG Engine with Feature Store, run the "Agent Platform RAG Engine with Agent Platform Feature Store" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_feature_store.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_feature_store.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_feature_store.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_feature_store.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_feature_store.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_feature_store.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_feature_store.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_feature_store.ipynb)
 
 This page shows you how to set up [Vertex AI Feature Store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning//featurestore/latest/overview) as the vector database to use with RAG Engine.
 
@@ -35,7 +35,7 @@ The following sections show you how to set up a Vertex AI Feature Store instance
 Use Google Cloud console to create a BigQuery table schema. It must contain the following fields to serve as the data source.
 
 | Field name          | Data type | Status   |
-| ------------------- | --------- | -------- |
+|---------------------|-----------|----------|
 | `corpus_id`         | `String`  | Required |
 | `file_id`           | `String`  | Required |
 | `chunk_id`          | `String`  | Required |
@@ -48,7 +48,7 @@ This code sample demonstrates how to define your BigQuery table schema.
 
 ### SQL
 
-``` 
+```
   CREATE TABLE `PROJECT_ID.input_us_central1.rag_source_new` (
     `corpus_id` STRING NOT NULL,
     `file_id` STRING NOT NULL,
@@ -70,19 +70,23 @@ To create an online store instance, send a `POST` request by using the [`feature
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region where you want to create the `FeatureOnlineStore` instance, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREONLINESTORE\_NAME : The name of the new `FeatureOnlineStore` instance.
+- ` LOCATION_ID ` : Region where you want to create the `FeatureOnlineStore` instance, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREONLINESTORE_NAME ` : The name of the new `FeatureOnlineStore` instance.
 
 HTTP method and URL:
 
-    POST https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME
+```
+POST https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME
+```
 
 Request JSON body:
 
-    {
-      "optimized": {}
-    }
+```
+{
+  "optimized": {}
+}
+```
 
 To send your request, choose one of these options:
 
@@ -92,11 +96,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME"
+```
 
 #### PowerShell
 
@@ -104,51 +110,57 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/operations/OPERATION_ID",
-      "metadata": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreateFeatureOnlineStoreOperationMetadata",
-        "genericMetadata": {
-          "createTime": "2023-09-18T17:49:23.847496Z",
-          "updateTime": "2023-09-18T17:49:23.847496Z"
-        }
-      }
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/operations/OPERATION_ID",
+  "metadata": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreateFeatureOnlineStoreOperationMetadata",
+    "genericMetadata": {
+      "createTime": "2023-09-18T17:49:23.847496Z",
+      "updateTime": "2023-09-18T17:49:23.847496Z"
     }
+  }
+}
+```
 
 ### Python
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from google.cloud import aiplatform
-    from vertexai.resources.preview import feature_store
-    
-    
-    def create_optimized_public_feature_online_store_sample(
-        project: str,
-        location: str,
-        feature_online_store_id: str,
-    ):
-        aiplatform.init(project=project, location=location)
-        fos = feature_store.FeatureOnlineStore.create_optimized_store(
-            feature_online_store_id
-        )
-        return fos
+```
+from google.cloud import aiplatform
+from vertexai.resources.preview import feature_store
 
-  - `project` : Your project ID.
-  - `location` : Region where you want to create the `FeatureOnlineStore` instance, such as `us-central1` .
-  - `feature_online_store_id` : The name of the new `FeatureOnlineStore` instance.
+
+def create_optimized_public_feature_online_store_sample(
+    project: str,
+    location: str,
+    feature_online_store_id: str,
+):
+    aiplatform.init(project=project, location=location)
+    fos = feature_store.FeatureOnlineStore.create_optimized_store(
+        feature_online_store_id
+    )
+    return fos
+```
+
+- `project` : Your project ID.
+- `location` : Region where you want to create the `FeatureOnlineStore` instance, such as `us-central1` .
+- `feature_online_store_id` : The name of the new `FeatureOnlineStore` instance.
 
 ### Create a `FeatureView` resource
 
@@ -158,7 +170,7 @@ This code sample demonstrates how to create a `FeatureView` resource.
 
 ### REST
 
-``` 
+```
   # TODO(developer): Update and uncomment the following lines:
   # Set feature_view_id
   # Example: "feature_view_test"
@@ -186,40 +198,42 @@ This code sample demonstrates how to create a `FeatureView` resource.
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from google.cloud import aiplatform
-    from vertexai.resources.preview import feature_store
-    
-    
-    def create_feature_view_from_rag_source(
-        project: str,
-        location: str,
-        existing_feature_online_store_id: str,
-        feature_view_id: str,
-        bq_table_uri: str,
-    ):
-        aiplatform.init(project=project, location=location)
-        fos = feature_store.FeatureOnlineStore(existing_feature_online_store_id)
-        fv = fos.create_feature_view(
-            name=feature_view_id,
-            source=feature_store.utils.FeatureViewVertexRagSource(uri=bq_table_uri),
-        )
-        return fv
+```
+from google.cloud import aiplatform
+from vertexai.resources.preview import feature_store
+
+
+def create_feature_view_from_rag_source(
+    project: str,
+    location: str,
+    existing_feature_online_store_id: str,
+    feature_view_id: str,
+    bq_table_uri: str,
+):
+    aiplatform.init(project=project, location=location)
+    fos = feature_store.FeatureOnlineStore(existing_feature_online_store_id)
+    fv = fos.create_feature_view(
+        name=feature_view_id,
+        source=feature_store.utils.FeatureViewVertexRagSource(uri=bq_table_uri),
+    )
+    return fv
+```
 
 ### Upload data and online serving
 
 The RAG API handles data upload and online serving. To learn more about the RAG Engine on Gemini Enterprise Agent Platform API, see the following:
 
-  - [`GenerateContentResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse)
+- [`GenerateContentResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse)
 
-  - [`RagEngineConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagEngineConfig)
+- [`RagEngineConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagEngineConfig)
 
-  - [`RagChunk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagChunk)
+- [`RagChunk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagChunk)
 
-  - [`RagContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagContexts)
+- [`RagContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagContexts)
 
-  - [`RagFileTransformationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagFileTransformationConfig)
+- [`RagFileTransformationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagFileTransformationConfig)
 
-  - [`RagQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagQuery)
+- [`RagQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagQuery)
 
 ## Use Vertex AI Feature Store in RAG Engine
 
@@ -233,72 +247,76 @@ This code sample demonstrates how to use the Vertex AI Feature Store instance as
 
 ### REST
 
-    # TODO(developer): Update and uncomment the following lines:
-    # CORPUS_DISPLAY_NAME = "your-corpus-display-name"
-    #
-    # Full feature view resource name
-    # Format: projects/${PROJECT_ID}/locations/us-central1/featureOnlineStores/${FEATURE_ONLINE_STORE_ID}/featureViews/${FEATURE_VIEW_ID}
-    # FEATURE_VIEW_RESOURCE_NAME = "your-feature-view-resource-name"
-    
-    # Call CreateRagCorpus API to create a new RAG corpus
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-      https://us-central1-aiplatform.googleapis.com/v1beta1/projects/{PROJECT_ID}/locations/us-central1/ragCorpora -d '{
-        "display_name" : '\""${CORPUS_DISPLAY_NAME}"\"',
-        "rag_vector_db_config" : {
-          "vertex_feature_store": {
-            "feature_view_resource_name":'\""${FEATURE_VIEW_RESOURCE_NAME}"\"'
-          }
-        }
-      }'
-    
-    # Call ListRagCorpora API to verify the RAG corpus is created successfully
-    curl -sS -X GET \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    "https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/us-central1/ragCorpora"
+```
+# TODO(developer): Update and uncomment the following lines:
+# CORPUS_DISPLAY_NAME = "your-corpus-display-name"
+#
+# Full feature view resource name
+# Format: projects/${PROJECT_ID}/locations/us-central1/featureOnlineStores/${FEATURE_ONLINE_STORE_ID}/featureViews/${FEATURE_VIEW_ID}
+# FEATURE_VIEW_RESOURCE_NAME = "your-feature-view-resource-name"
+
+# Call CreateRagCorpus API to create a new RAG corpus
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+  https://us-central1-aiplatform.googleapis.com/v1beta1/projects/{PROJECT_ID}/locations/us-central1/ragCorpora -d '{
+    "display_name" : '\""${CORPUS_DISPLAY_NAME}"\"',
+    "rag_vector_db_config" : {
+      "vertex_feature_store": {
+        "feature_view_resource_name":'\""${FEATURE_VIEW_RESOURCE_NAME}"\"'
+      }
+    }
+  }'
+
+# Call ListRagCorpora API to verify the RAG corpus is created successfully
+curl -sS -X GET \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+"https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/us-central1/ragCorpora"
+```
 
 ### Python
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import agentplatform
-    from agentplatform import types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # feature_view_name = "projects/{PROJECT_ID}/locations/{LOCATION}/featureOnlineStores/{FEATURE_ONLINE_STORE_ID}/featureViews/{FEATURE_VIEW_ID}"
-    # display_name = "test_corpus"
-    # description = "Corpus Description"
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
-    
-    # Configure embedding model (Optional)
-    backend_config = types.RagVectorDbConfig(
-        rag_embedding_model_config=types.RagEmbeddingModelConfig(
-            vertex_prediction_endpoint=types.RagEmbeddingModelConfigVertexPredictionEndpoint(
-                endpoint="publishers/google/models/text-embedding-005"
-            ),
+```
+import agentplatform
+from agentplatform import types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# feature_view_name = "projects/{PROJECT_ID}/locations/{LOCATION}/featureOnlineStores/{FEATURE_ONLINE_STORE_ID}/featureViews/{FEATURE_VIEW_ID}"
+# display_name = "test_corpus"
+# description = "Corpus Description"
+
+# Initialize Agent Platform client once per session
+client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+
+# Configure embedding model (Optional)
+backend_config = types.RagVectorDbConfig(
+    rag_embedding_model_config=types.RagEmbeddingModelConfig(
+        vertex_prediction_endpoint=types.RagEmbeddingModelConfigVertexPredictionEndpoint(
+            endpoint="publishers/google/models/text-embedding-005"
         ),
-        vertex_feature_store=types.RagVectorDbConfigVertexFeatureStore(
-            feature_view_resource_name=feature_view_name
-        )
+    ),
+    vertex_feature_store=types.RagVectorDbConfigVertexFeatureStore(
+        feature_view_resource_name=feature_view_name
     )
-    
-    corpus = client.rag.create_corpus(
-        rag_corpus=types.RagCorpus(
-            display_name=display_name,
-            description=description,
-            rag_vector_db_config=backend_config,
-        )
+)
+
+corpus = client.rag.create_corpus(
+    rag_corpus=types.RagCorpus(
+        display_name=display_name,
+        description=description,
+        rag_vector_db_config=backend_config,
     )
-    print(corpus)
-    # Example response:
-    # RagCorpus(name='projects/1234567890/locations/us-central1/ragCorpora/1234567890',
-    # display_name='test_corpus', description='Corpus Description', embedding_model_config=...
-    # ...
+)
+print(corpus)
+# Example response:
+# RagCorpus(name='projects/1234567890/locations/us-central1/ragCorpora/1234567890',
+# display_name='test_corpus', description='Corpus Description', embedding_model_config=...
+# ...
+```
 
 ### Import files into the BigQuery table using the RAG API
 
@@ -308,79 +326,83 @@ This code sample demonstrates how to import files into the BigQuery table using 
 
 ### REST
 
-    # TODO(developer): Update and uncomment the following lines:
-    # RAG_CORPUS_ID = "your-rag-corpus-id"
-    #
-    # Google Cloud Storage bucket/file location.
-    # For example, "gs://rag-fos-test/"
-    # GCS_URIS= "your-gcs-uris"
-    
-    # Call ImportRagFiles API to embed files and store in the BigQuery table
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/us-central1/ragCorpora/${RAG_CORPUS_ID}/ragFiles:import \
-    -d '{
-      "import_rag_files_config": {
-        "gcs_source": {
-          "uris": '\""${GCS_URIS}"\"'
-        },
-        "rag_file_chunking_config": {
-          "chunk_size": 512
-        }
-      }
-    }'
-    
-    # Call ListRagFiles API to verify the files are imported successfully
-    curl -X GET \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/us-central1/ragCorpora/${RAG_CORPUS_ID}/ragFiles
+```
+# TODO(developer): Update and uncomment the following lines:
+# RAG_CORPUS_ID = "your-rag-corpus-id"
+#
+# Google Cloud Storage bucket/file location.
+# For example, "gs://rag-fos-test/"
+# GCS_URIS= "your-gcs-uris"
+
+# Call ImportRagFiles API to embed files and store in the BigQuery table
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/us-central1/ragCorpora/${RAG_CORPUS_ID}/ragFiles:import \
+-d '{
+  "import_rag_files_config": {
+    "gcs_source": {
+      "uris": '\""${GCS_URIS}"\"'
+    },
+    "rag_file_chunking_config": {
+      "chunk_size": 512
+    }
+  }
+}'
+
+# Call ListRagFiles API to verify the files are imported successfully
+curl -X GET \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/us-central1/ragCorpora/${RAG_CORPUS_ID}/ragFiles
+```
 
 ### Python
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import agentplatform
-    from agentplatform import types
-    
-    from google.genai import types as genai_types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
-    
-    # Supports Google Cloud Storage and Google Drive Links
-    # paths = ["https://drive.google.com/file/d/123", "gs://my_bucket/my_files_dir/*"]
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
-    
-    response = client.rag.import_files(
-        name=corpus_name,
-        import_config=types.ImportRagFilesConfig(
-            gcs_source=genai_types.GcsSource(uris=[paths[1]]),
-            google_drive_source=types.GoogleDriveSource(
-                resource_ids=[
-                    types.GoogleDriveSourceResourceId(
-                        resource_id=paths[0],
-                        resource_type=types.ResourceType.RESOURCE_TYPE_FILE
-                    )
-                ]
-            ), # optional
-            rag_file_transformation_config=types.RagFileTransformationConfig(
-                rag_file_chunking_config=types.RagFileChunkingConfig(
-                    chunk_size=512,
-                    chunk_overlap=100,
+```
+import agentplatform
+from agentplatform import types
+
+from google.genai import types as genai_types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+
+# Supports Google Cloud Storage and Google Drive Links
+# paths = ["https://drive.google.com/file/d/123", "gs://my_bucket/my_files_dir/*"]
+
+# Initialize Agent Platform client once per session
+client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+
+response = client.rag.import_files(
+    name=corpus_name,
+    import_config=types.ImportRagFilesConfig(
+        gcs_source=genai_types.GcsSource(uris=[paths[1]]),
+        google_drive_source=types.GoogleDriveSource(
+            resource_ids=[
+                types.GoogleDriveSourceResourceId(
+                    resource_id=paths[0],
+                    resource_type=types.ResourceType.RESOURCE_TYPE_FILE
                 )
-            ), # optional
-            max_embedding_requests_per_min=900, # optional
-        )
+            ]
+        ), # optional
+        rag_file_transformation_config=types.RagFileTransformationConfig(
+            rag_file_chunking_config=types.RagFileChunkingConfig(
+                chunk_size=512,
+                chunk_overlap=100,
+            )
+        ), # optional
+        max_embedding_requests_per_min=900, # optional
     )
-    
-    print(f"Imported {response.imported_rag_files_count} files.")
-    # Example response:
-    # Imported 2 files.
+)
+
+print(f"Imported {response.imported_rag_files_count} files.")
+# Example response:
+# Imported 2 files.
+```
 
 ### Run a synchronization process to construct a `FeatureOnlineStore` index
 
@@ -392,14 +414,16 @@ This code sample demonstrates how to run a synchronization process to construct 
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region where the online store is located, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREONLINESTORE\_NAME : The name of the online store containing the feature view.
-  - FEATUREVIEW\_NAME : The name of the feature view where you want to manually start the data sync.
+- ` LOCATION_ID ` : Region where the online store is located, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREONLINESTORE_NAME ` : The name of the online store containing the feature view.
+- ` FEATUREVIEW_NAME ` : The name of the feature view where you want to manually start the data sync.
 
 HTTP method and URL:
 
-    POST https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME:sync
+```
+POST https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME:sync
+```
 
 To send your request, choose one of these options:
 
@@ -409,11 +433,13 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d "" \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME:sync"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d "" \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME:sync"
+```
 
 #### PowerShell
 
@@ -421,19 +447,23 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME:sync" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME:sync" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "featureViewSync": "projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME/featureViewSyncs/OPERATION_ID"
-    }
+```
+{
+  "featureViewSync": "projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME/featureViewSyncs/OPERATION_ID"
+}
+```
 
 ### Retrieve relevant contexts using the RAG API
 
@@ -441,74 +471,78 @@ After the synchronization process completes, you can retrieve relevant contexts 
 
 ### REST
 
-    # TODO(developer): Update and uncomment the following lines:
-    # RETRIEVAL_QUERY="your-retrieval-query"
-    #
-    # Full RAG corpus resource name
-    # Format:
-    # "projects/${PROJECT_ID}/locations/us-central1/ragCorpora/${RAG_CORPUS_ID}"
-    # RAG_CORPUS_RESOURCE="your-rag-corpus-resource"
-    
-    # Call RetrieveContexts API to retrieve relevant contexts
-    curl -X POST \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/us-central1:retrieveContexts \
-      -d '{
-        "vertex_rag_store": {
-          "rag_resources": {
-              "rag_corpus": '\""${RAG_CORPUS_RESOURCE}"\"',
-            },
+```
+# TODO(developer): Update and uncomment the following lines:
+# RETRIEVAL_QUERY="your-retrieval-query"
+#
+# Full RAG corpus resource name
+# Format:
+# "projects/${PROJECT_ID}/locations/us-central1/ragCorpora/${RAG_CORPUS_ID}"
+# RAG_CORPUS_RESOURCE="your-rag-corpus-resource"
+
+# Call RetrieveContexts API to retrieve relevant contexts
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/us-central1:retrieveContexts \
+  -d '{
+    "vertex_rag_store": {
+      "rag_resources": {
+          "rag_corpus": '\""${RAG_CORPUS_RESOURCE}"\"',
         },
-        "query": {
-          "text": '\""${RETRIEVAL_QUERY}"\"',
-          "similarity_top_k": 10
-        }
-      }'
+    },
+    "query": {
+      "text": '\""${RETRIEVAL_QUERY}"\"',
+      "similarity_top_k": 10
+    }
+  }'
+```
 
 ### Python
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import agentplatform
-    
-    from agentplatform import types
-    from google.genai import types as genai_types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/[PROJECT_ID]/locations/us-central1/ragCorpora/[rag_corpus_id]"
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
-    
-    response = client.rag.retrieve_contexts(
-        vertex_rag_store=genai_types.VertexRagStore(
-            rag_resources=[
-                genai_types.VertexRagStoreRagResource(
-                    rag_corpus=corpus_name,
-                    # Optional: supply IDs from `rag.list_files()`.
-                    # rag_file_ids=["rag-file-1", "rag-file-2", ...],
-                )
-            ],
-        ),
-        query=types.RagQuery(
-            text="Hello World!",
-            rag_retrieval_config=genai_types.RagRetrievalConfig(
-                top_k=10,
-                filter=genai_types.RagRetrievalConfigFilter(
-                    vector_distance_threshold=0.5
-                ),
+```
+import agentplatform
+
+from agentplatform import types
+from google.genai import types as genai_types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# corpus_name = "projects/[PROJECT_ID]/locations/us-central1/ragCorpora/[rag_corpus_id]"
+
+# Initialize Agent Platform client once per session
+client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
+
+response = client.rag.retrieve_contexts(
+    vertex_rag_store=genai_types.VertexRagStore(
+        rag_resources=[
+            genai_types.VertexRagStoreRagResource(
+                rag_corpus=corpus_name,
+                # Optional: supply IDs from `rag.list_files()`.
+                # rag_file_ids=["rag-file-1", "rag-file-2", ...],
+            )
+        ],
+    ),
+    query=types.RagQuery(
+        text="Hello World!",
+        rag_retrieval_config=genai_types.RagRetrievalConfig(
+            top_k=10,
+            filter=genai_types.RagRetrievalConfigFilter(
+                vector_distance_threshold=0.5
             ),
-        )
+        ),
     )
-    print(response)
-    # Example response:
-    # contexts {
-    #   contexts {
-    #     source_uri: "gs://your-bucket-name/file.txt"
-    #     text: "....
-    #   ....
+)
+print(response)
+# Example response:
+# contexts {
+#   contexts {
+#     source_uri: "gs://your-bucket-name/file.txt"
+#     text: "....
+#   ....
+```
 
 ### Generate content using Agent Platform Gemini API
 
@@ -516,79 +550,83 @@ Call the Agent Platform `GenerateContent` API to use Gemini models to generate c
 
 ### REST
 
-    # TODO(developer): Update and uncomment the following lines:
-    # MODEL_ID=gemini-2.5-flash
-    # GENERATE_CONTENT_PROMPT="your-generate-content-prompt"
-    
-    # GenerateContent with contexts retrieved from the FeatureStoreOnline index
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json"  https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/us-central1/publishers/google/models/${MODEL_ID}:generateContent \
-    -d '{
-      "contents": {
-        "role": "user",
-        "parts": {
-          "text": '\""${GENERATE_CONTENT_PROMPT}"\"'
-        }
-      },
-      "tools": {
-        "retrieval": {
-          "vertex_rag_store": {
-            "rag_resources": {
-                "rag_corpus": '\""${RAG_CORPUS_RESOURCE}"\"',
-              },
-            "similarity_top_k": 8,
-          }
-        }
+```
+# TODO(developer): Update and uncomment the following lines:
+# MODEL_ID=gemini-2.5-flash
+# GENERATE_CONTENT_PROMPT="your-generate-content-prompt"
+
+# GenerateContent with contexts retrieved from the FeatureStoreOnline index
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json"  https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/us-central1/publishers/google/models/${MODEL_ID}:generateContent \
+-d '{
+  "contents": {
+    "role": "user",
+    "parts": {
+      "text": '\""${GENERATE_CONTENT_PROMPT}"\"'
+    }
+  },
+  "tools": {
+    "retrieval": {
+      "vertex_rag_store": {
+        "rag_resources": {
+            "rag_corpus": '\""${RAG_CORPUS_RESOURCE}"\"',
+          },
+        "similarity_top_k": 8,
       }
-    }'
+    }
+  }
+}'
+```
 
 ### Python
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from google import genai
-    from google.genai import types as genai_types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
-    
-    rag_retrieval_tool = genai_types.Tool(
-        retrieval=genai_types.Retrieval(
-            vertex_rag_store=genai_types.VertexRagStore(
-                rag_resources=[
-                    genai_types.VertexRagStoreRagResource(
-                        rag_corpus=corpus_name
-                    )
-                ],
-                rag_retrieval_config=genai_types.RagRetrievalConfig(
-                    top_k=10,
-                    filter=genai_types.RagRetrievalConfigFilter(
-                        vector_distance_threshold=0.5
-                    ),
+```
+from google import genai
+from google.genai import types as genai_types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+
+rag_retrieval_tool = genai_types.Tool(
+    retrieval=genai_types.Retrieval(
+        vertex_rag_store=genai_types.VertexRagStore(
+            rag_resources=[
+                genai_types.VertexRagStoreRagResource(
+                    rag_corpus=corpus_name
+                )
+            ],
+            rag_retrieval_config=genai_types.RagRetrievalConfig(
+                top_k=10,
+                filter=genai_types.RagRetrievalConfigFilter(
+                    vector_distance_threshold=0.5
                 ),
             ),
-        )
+        ),
     )
-    
-    # Create a GenAI SDK client to make a generate_content request
-    genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-central1")
-    
-    response = genai_client.models.generate_content(
-        model="gemini-2.5-pro",
-        contents="Why is the sky blue?",
-        config=genai_types.GenerateContentConfig(
-            tools=[rag_retrieval_tool]
-        )
+)
+
+# Create a GenAI SDK client to make a generate_content request
+genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-central1")
+
+response = genai_client.models.generate_content(
+    model="gemini-2.5-pro",
+    contents="Why is the sky blue?",
+    config=genai_types.GenerateContentConfig(
+        tools=[rag_retrieval_tool]
     )
-    print(response.text)
-    # Example response:
-    #   The sky appears blue due to a phenomenon called Rayleigh scattering.
-    #   Sunlight, which contains all colors of the rainbow, is scattered
-    #   by the tiny particles in the Earth's atmosphere....
-    #   ...
+)
+print(response.text)
+# Example response:
+#   The sky appears blue due to a phenomenon called Rayleigh scattering.
+#   Sunlight, which contains all colors of the rainbow, is scattered
+#   by the tiny particles in the Earth's atmosphere....
+#   ...
+```
 
 ## What's next
 
-  - [Use a Weaviate database with RAG Engine on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-weaviate-db)
+- [Use a Weaviate database with RAG Engine on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-weaviate-db)

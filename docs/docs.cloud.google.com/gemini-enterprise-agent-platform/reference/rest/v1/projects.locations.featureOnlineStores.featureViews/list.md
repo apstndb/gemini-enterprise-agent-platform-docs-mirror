@@ -28,15 +28,15 @@ Required. The resource name of the FeatureOnlineStore to list FeatureViews. Form
 
 Lists the FeatureViews that match the filter expression. The following filters are supported:
 
-  - `createTime` : Supports `=` , `!=` , `<` , `>` , `>=` , and `<=` comparisons. Values must be in RFC 3339 format.
-  - `updateTime` : Supports `=` , `!=` , `<` , `>` , `>=` , and `<=` comparisons. Values must be in RFC 3339 format.
-  - `labels` : Supports key-value equality as well as key presence.
+- `createTime` : Supports `=` , `!=` , `<` , `>` , `>=` , and `<=` comparisons. Values must be in RFC 3339 format.
+- `updateTime` : Supports `=` , `!=` , `<` , `>` , `>=` , and `<=` comparisons. Values must be in RFC 3339 format.
+- `labels` : Supports key-value equality as well as key presence.
 
 Examples:
 
-  - `createTime > \"2020-01-31T15:30:00.000000Z\" OR updateTime > \"2020-01-31T15:30:00.000000Z\"` --\> FeatureViews created or updated after 2020-01-31T15:30:00.000000Z.
-  - `labels.active = yes AND labels.env = prod` --\> FeatureViews having both (active: yes) and (env: prod) labels.
-  - `labels.env: *` --\> Any FeatureView which has a label with 'env' as the key.
+- `createTime > \"2020-01-31T15:30:00.000000Z\" OR updateTime > \"2020-01-31T15:30:00.000000Z\"` --\> FeatureViews created or updated after 2020-01-31T15:30:00.000000Z.
+- `labels.active = yes AND labels.env = prod` --\> FeatureViews having both (active: yes) and (env: prod) labels.
+- `labels.env: *` --\> Any FeatureView which has a label with 'env' as the key.
 
 `pageSize` `integer`
 
@@ -44,9 +44,9 @@ The maximum number of FeatureViews to return. The service may return fewer than 
 
 `pageToken` `string`
 
-A page token, received from a previous `  FeatureOnlineStoreAdminService.ListFeatureViews  ` call. Provide this to retrieve the subsequent page.
+A page token, received from a previous [`FeatureOnlineStoreAdminService.ListFeatureViews`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/list#google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService.ListFeatureViews) call. Provide this to retrieve the subsequent page.
 
-When paginating, all other parameters provided to `  FeatureOnlineStoreAdminService.ListFeatureViews  ` must match the call that provided the page token.
+When paginating, all other parameters provided to [`FeatureOnlineStoreAdminService.ListFeatureViews`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/list#google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService.ListFeatureViews) must match the call that provided the page token.
 
 `orderBy` `string`
 
@@ -54,9 +54,9 @@ A comma-separated list of fields to order by, sorted in ascending order. Use "de
 
 Supported fields:
 
-  - `featureViewId`
-  - `createTime`
-  - `updateTime`
+- `featureViewId`
+- `createTime`
+- `updateTime`
 
 ### Request body
 
@@ -64,32 +64,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  FeatureOnlineStoreAdminService.ListFeatureViews  ` .
+Response message for [`FeatureOnlineStoreAdminService.ListFeatureViews`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/list#google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService.ListFeatureViews) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`featureViews[]` ` object ( FeatureView  ` )
+`featureViews[]` `object ( `[`FeatureView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews#FeatureView)` )`
 
 The FeatureViews matching the request.
 
 `nextPageToken` `string`
 
-A token, which can be sent as `  ListFeatureViewsRequest.page_token  ` to retrieve the next page. If this field is omitted, there are no subsequent pages.
+A token, which can be sent as [`ListFeatureViewsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/list#body.QUERY_PARAMETERS.page_token) to retrieve the next page. If this field is omitted, there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;featureViews&quot;: [{object (FeatureView)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "featureViews": [
+    {
+      object (FeatureView)
+    }
+  ],
+  "nextPageToken": string
+}
+```

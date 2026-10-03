@@ -28,69 +28,79 @@ For limitations on datasets, such as maximum input and output tokens, maximum va
 
 We support the following data formats:
 
-  - [Multimodal dataset on Gemini Enterprise Agent Platform (preview)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/datasets) .
+- [Multimodal dataset on Gemini Enterprise Agent Platform (preview)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/datasets) .
 
-  - [JSON Lines](https://jsonlines.org/) (JSONL) format, where each line contains a single tuning example. Before tuning your model, you must [upload your dataset to a Cloud Storage bucket](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data#upload-datasets) .
+- [JSON Lines](https://jsonlines.org/) (JSONL) format, where each line contains a single tuning example. Before tuning your model, you must [upload your dataset to a Cloud Storage bucket](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data#upload-datasets) .
 
 ## Dataset example for Gemini
 
+```
+{
+  "systemInstruction": {
+    "role": string,
+    "parts": [
+      {
+        "text": string
+      }
+    ]
+  },
+  "contents": [
     {
-      "systemInstruction": {
-        "role": string,
-        "parts": [
-          {
-            "text": string
-          }
-        ]
-      },
-      "contents": [
+      "role": string,
+      "parts": [
         {
-          "role": string,
-          "parts": [
-            {
-              // Union field data can be only one of the following:
-              "text": string,
-              "fileData": {
-                "mimeType": string,
-                "fileUri": string
-              }
-            }
-          ]
+          // Union field data can be only one of the following:
+          "text": string,
+          "fileData": {
+            "mimeType": string,
+            "fileUri": string
+          }
         }
       ]
     }
+  ]
+}
+```
 
 ### Parameters
 
 The example contains data with the following parameters:
 
-Parameters
-
-`contents`
-
-Required: `Content`
-
-The content of the current conversation with the model.
-
-For single-turn queries, this is a single instance. For multi-turn queries, this is a repeated field that contains conversation history and the latest request.
-
-`systemInstruction`
-
-Optional: `Content`
-
-See [Supported models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#supported_models) .
-
-Instructions for the model to steer it toward better performance. For example, "Answer as concisely as possible" or "Don't use technical terms in your response".
-
-The `text` strings count toward the token limit.
-
-The `role` field of `systemInstruction` is ignored and doesn't affect the performance of the model.
-
-> **Note:** Only `text` should be used in `parts` and content in each `part` should be in a separate paragraph.
-
-`tools`
-
-Optional. A piece of code that enables the system to interact with external systems to perform an action, or set of actions, outside of knowledge and scope of the model. See [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling) .
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code>contents</code></p></td>
+<td><p>Required: <code>Content</code></p>
+<p>The content of the current conversation with the model.</p>
+<p>For single-turn queries, this is a single instance. For multi-turn queries, this is a repeated field that contains conversation history and the latest request.</p></td>
+</tr>
+<tr class="even">
+<td><p><code>systemInstruction</code></p></td>
+<td><p>Optional: <code>Content</code></p>
+<p>See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#supported_models">Supported models</a> .</p>
+<p>Instructions for the model to steer it toward better performance. For example, "Answer as concisely as possible" or "Don't use technical terms in your response".</p>
+<p>The <code>text</code> strings count toward the token limit.</p>
+<p>The <code>role</code> field of <code>systemInstruction</code> is ignored and doesn't affect the performance of the model.</p>
+<blockquote>
+<strong>Note:</strong> Only <code>text</code> should be used in <code>parts</code> and content in each <code>part</code> should be in a separate paragraph.
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><p><code>tools</code></p></td>
+<td><p>Optional. A piece of code that enables the system to interact with external systems to perform an action, or set of actions, outside of knowledge and scope of the model. See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling">Function calling</a> .</p></td>
+</tr>
+</tbody>
+</table>
 
 ### Contents
 
@@ -98,64 +108,49 @@ The base structured data type containing multi-part content of a message.
 
 This class consists of two main properties: `role` and `parts` . The `role` property denotes the individual producing the content, while the `parts` property contains multiple elements, each representing a segment of data within a message.
 
-Parameters
-
-`role`
-
-Optional: `string`
-
-The identity of the entity that creates the message. The following values are supported:
-
-  - `user` : This indicates that the message is sent by a real person, typically a user-generated message.
-  - `model` : This indicates that the message is generated by the model.
-
-The `model` value is used to insert messages from the model into the conversation during multi-turn conversations.
-
-For non-multi-turn conversations, this field can be left blank or unset.
-
-`parts`
-
-`part`
-
-A list of ordered parts that make up a single message. Different parts may have different [IANA MIME types](https://www.iana.org/assignments/media-types/media-types.xml) .
-
-For limits on the inputs, such as the maximum number of tokens or the number of images, see the model specifications on the [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models) page.
-
-To compute the number of tokens in your request, see [Get token count](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count) .
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code>role</code></p></td>
+<td><p>Optional: <code>string</code></p>
+<p>The identity of the entity that creates the message. The following values are supported:</p>
+<ul>
+<li><code>user</code> : This indicates that the message is sent by a real person, typically a user-generated message.</li>
+<li><code>model</code> : This indicates that the message is generated by the model.</li>
+</ul>
+<p>The <code>model</code> value is used to insert messages from the model into the conversation during multi-turn conversations.</p>
+<p>For non-multi-turn conversations, this field can be left blank or unset.</p></td>
+</tr>
+<tr class="even">
+<td><p><code>parts</code></p></td>
+<td><p><code>part</code></p>
+<p>A list of ordered parts that make up a single message. Different parts may have different <a href="https://www.iana.org/assignments/media-types/media-types.xml">IANA MIME types</a> .</p>
+<p>For limits on the inputs, such as the maximum number of tokens or the number of images, see the model specifications on the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models">Google models</a> page.</p>
+<p>To compute the number of tokens in your request, see <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count">Get token count</a> .</p></td>
+</tr>
+</tbody>
+</table>
 
 ### Parts
 
 A data type containing media that is part of a multi-part `Content` message.
 
-Parameters
-
-`text`
-
-Optional: `string`
-
-A text prompt or code snippet.
-
-`fileData`
-
-Optional: `fileData`
-
-Data stored in a file.
-
-`functionCall`
-
-Optional: `FunctionCall` .
-
-It contains a string representing the `FunctionDeclaration.name` field and a structured JSON object containing any parameters for the function call predicted by the model.
-
-See [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling) .
-
-`functionResponse`
-
-Optional: `FunctionResponse` .
-
-The result output of a `FunctionCall` that contains a string representing the `FunctionDeclaration.name` field and a structured JSON object containing any output from the function call. It is used as context to the model.
-
-See [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling) .
+| Parameters         |                                                                                                                                                                                                                                                                                                                                                                                         |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `text`             | Optional: `string` A text prompt or code snippet.                                                                                                                                                                                                                                                                                                                                       |
+| `fileData`         | Optional: `fileData` Data stored in a file.                                                                                                                                                                                                                                                                                                                                             |
+| `functionCall`     | Optional: `FunctionCall` . It contains a string representing the `FunctionDeclaration.name` field and a structured JSON object containing any parameters for the function call predicted by the model. See [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling) .                                                       |
+| `functionResponse` | Optional: `FunctionResponse` . The result output of a `FunctionCall` that contains a string representing the `FunctionDeclaration.name` field and a structured JSON object containing any output from the function call. It is used as context to the model. See [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling) . |
 
 ## Best practices
 
@@ -179,5 +174,5 @@ Once you have your training dataset and you've trained the model, it's time to d
 
 ## What's next
 
-  - Choose a region to [tune a model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
-  - To learn how supervised fine-tuning can be used in a solution that builds a generative AI knowledge base, see [Jump Start Solution: Generative AI knowledge base](https://docs.cloud.google.com/architecture/ai-ml/generative-ai-knowledge-base) .
+- Choose a region to [tune a model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
+- To learn how supervised fine-tuning can be used in a solution that builds a generative AI knowledge base, see [Jump Start Solution: Generative AI knowledge base](https://docs.cloud.google.com/architecture/ai-ml/generative-ai-knowledge-base) .

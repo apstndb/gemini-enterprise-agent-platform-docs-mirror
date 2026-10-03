@@ -10,10 +10,10 @@ Grounding is a technique that you can use to help produce model responses that a
 
 There are also services and component APIs that implement the RAG lifecycle, such as the Agent Search Builder API, which allows for mix-and-match building. With mix-and-match building, you can implement a RAG solution using any of the following services or APIs:
 
-  - **Grounding generation API** : You can use it to implement grounding, or link to a retrieval provider for the complete RAG lifecycle.
-  - **Document layout parser** : This parser represents the best of Document AI and Gemini for document understanding. For more information about the layout parser, see [Use the layout parser](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/layout-parser-integration) .
-  - **Gemini Enterprise Agent Platform Vector Search** : This search service is highly performant and uses a high-quality vector database.
-  - **Check grounding API** : This API compares RAG output with the retrieved facts and helps to ensure that all statements are grounded before returning the response to the user.
+- **Grounding generation API** : You can use it to implement grounding, or link to a retrieval provider for the complete RAG lifecycle.
+- **Document layout parser** : This parser represents the best of Document AI and Gemini for document understanding. For more information about the layout parser, see [Use the layout parser](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/layout-parser-integration) .
+- **Gemini Enterprise Agent Platform Vector Search** : This search service is highly performant and uses a high-quality vector database.
+- **Check grounding API** : This API compares RAG output with the retrieved facts and helps to ensure that all statements are grounded before returning the response to the user.
 
 ## Ground responses using RAG Engine on Gemini Enterprise Agent Platform
 
@@ -33,5 +33,5 @@ To ground responses using RAG Engine, you must create a prompt. Do the following
 
 ## What's next
 
-  - To learn more about responsible AI and safety filters, see [responsible AI best practices and Gemini Enterprise Agent Platform's safety filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .
-  - To learn more about how RAG is implemented by RAG Engine, see [RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .
+- To learn more about responsible AI and safety filters, see [responsible AI best practices and Gemini Enterprise Agent Platform's safety filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .
+- To learn more about how RAG is implemented by RAG Engine, see [RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .

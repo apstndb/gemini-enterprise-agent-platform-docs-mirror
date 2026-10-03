@@ -8,9 +8,9 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.schedules.resume
 
-Resumes a paused Schedule to start scheduling new runs. Will mark `  Schedule.state  ` to 'ACTIVE'. Only paused Schedule can be resumed.
+Resumes a paused Schedule to start scheduling new runs. Will mark [`Schedule.state`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.schedules#Schedule.FIELDS.state) to 'ACTIVE'. Only paused Schedule can be resumed.
 
-When the Schedule is resumed, new runs will be scheduled starting from the next execution time after the current time based on the time\_specification in the Schedule. If `  Schedule.catch_up  ` is set up true, all missed runs will be scheduled for backfill first.
+When the Schedule is resumed, new runs will be scheduled starting from the next execution time after the current time based on the time_specification in the Schedule. If [`Schedule.catch_up`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.schedules#Schedule.FIELDS.catch_up) is set up true, all missed runs will be scheduled for backfill first.
 
 ### Endpoint
 
@@ -32,7 +32,7 @@ Fields
 
 `catchUp` `boolean`
 
-Optional. Whether to backfill missed runs when the schedule is resumed from PAUSED state. If set to true, all missed runs will be scheduled. New runs will be scheduled after the backfill is complete. This will also update `  Schedule.catch_up  ` field. Default to false.
+Optional. Whether to backfill missed runs when the schedule is resumed from PAUSED state. If set to true, all missed runs will be scheduled. New runs will be scheduled after the backfill is complete. This will also update [`Schedule.catch_up`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.schedules#Schedule.FIELDS.catch_up) field. Default to false.
 
 ### Response body
 

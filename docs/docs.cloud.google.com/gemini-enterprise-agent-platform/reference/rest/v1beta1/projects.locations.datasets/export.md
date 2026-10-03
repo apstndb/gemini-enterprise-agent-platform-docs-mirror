@@ -28,13 +28,13 @@ The request body contains data with the following structure:
 
 Fields
 
-`exportConfig` ` object ( ExportDataConfig  ` )
+`exportConfig` `object ( `[`ExportDataConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/export#ExportDataConfig)` )`
 
 Required. The desired output location.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ## ExportDataConfig
 
@@ -44,13 +44,13 @@ Fields
 
 `annotationsFilter` `string`
 
-An expression for filtering what part of the Dataset is to be exported. Only Annotations that match this filter will be exported. The filter syntax is the same as in `  ListAnnotations  ` .
+An expression for filtering what part of the Dataset is to be exported. Only Annotations that match this filter will be exported. The filter syntax is the same as in [`ListAnnotations`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.dataItems.annotations/list#google.cloud.aiplatform.v1beta1.DatasetService.ListAnnotations) .
 
 `destination` `Union type`
 
 The destination of the output. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`gcsDestination` `object ( GcsDestination` )
+`gcsDestination` `object ( ``GcsDestination`` )`
 
 The Google Cloud Storage location where the output is to be written to. In the given directory a new directory will be created with name: `export-data-<dataset-display-name>-<timestamp-of-export-call>` where timestamp is in YYYY-MM-DDThh:mm:ss.sssZ ISO-8601 format. All export output will be written into that directory. Inside that directory, annotations with the same schema will be grouped into sub directories which are named with the corresponding annotations' schema title. Inside these sub directories, a schema.yaml will be created to describe the output format.
 
@@ -60,27 +60,31 @@ End of mutually exclusive fields.
 
 The instructions how the export data should be split between the training, validation and test sets. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`fractionSplit` ` object ( ExportFractionSplit  ` )
+`fractionSplit` `object ( `[`ExportFractionSplit`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/export#ExportFractionSplit)` )`
 
 Split based on fractions defining the size of each set.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;annotationsFilter&quot;: string,// destination&quot;gcsDestination&quot;: {object (GcsDestination)}// Union type// split&quot;fractionSplit&quot;: {object (ExportFractionSplit)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "annotationsFilter": string,
+
+  // destination
+  "gcsDestination": {
+    object (GcsDestination)
+  }
+  // Union type
+
+  // split
+  "fractionSplit": {
+    object (ExportFractionSplit)
+  }
+  // Union type
+}
+```
 
 ## ExportFractionSplit
 
@@ -100,22 +104,12 @@ The fraction of the input data that is to be used to validate the Model.
 
 The fraction of the input data that is to be used to evaluate the Model.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;trainingFraction&quot;: number,
-  &quot;validationFraction&quot;: number,
-  &quot;testFraction&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "trainingFraction": number,
+  "validationFraction": number,
+  "testFraction": number
+}
+```

@@ -13,7 +13,7 @@ For some API calls, Gemini Enterprise Agent Platform returns operation names. Th
 ## Getting the status of an operation
 
 To get the operation status, use the operation name that was in the response when you requested a long-running operation. For example, when you create a dataset, Agent Platform returns an operation name such as:  
-` projects/ PROJECT_NUMBER /locations/ LOCATION /datasets/ DATASET_ID /operations/ OPERATION_ID  `
+`projects/ `` PROJECT_NUMBER `` /locations/ `` LOCATION `` /datasets/ `` DATASET_ID `` /operations/ `` OPERATION_ID`
 
 You can poll the operation at regular intervals so that you know when an operation completes.
 
@@ -21,11 +21,13 @@ You can poll the operation at regular intervals so that you know when an operati
 
 Before using any of the request data, make the following replacements:
 
-  - OPERATION\_NAME : The operation name that is returned when you start a long-running operation, such as ` projects/ PROJECT_NUMBER /locations/ LOCATION /datasets/ DATASET_ID /operations/ OPERATION_ID  `
+- ` OPERATION_NAME ` : The operation name that is returned when you start a long-running operation, such as `projects/ `` PROJECT_NUMBER `` /locations/ `` LOCATION `` /datasets/ `` DATASET_ID `` /operations/ `` OPERATION_ID`
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1/OPERATION_NAME
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1/OPERATION_NAME
+```
 
 To send your request, choose one of these options:
 
@@ -35,9 +37,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1/OPERATION_NAME"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1/OPERATION_NAME"
+```
 
 #### PowerShell
 
@@ -45,39 +49,43 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/OPERATION_NAME" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/OPERATION_NAME" | Select-Object -Expand Content
+```
 
 In the output, the `metadata` object contains information that is specific to the request type. The `done` field indicates whether the operation is complete. If the operation is complete, the `response` object contains results from the operation.
 
-    {
-      "name": "projects/123456789012/locations/us-central1/datasets/1234567890123456789/operations/1223344556677889900",
-      "metadata": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreateDatasetOperationMetadata",
-        "genericMetadata": {
-          "createTime": "2020-10-12T16:00:44.686500Z",
-          "updateTime": "2020-10-12T16:01:06.115081Z"
-        }
-      },
-      "done": true,
-      "response": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.Dataset",
-        "name": "projects/123456789012/locations/us-central1/datasets/1234567890123456789",
-        "displayName": "image_dataset",
-        "metadataSchemaUri": "gs://google-cloud-aiplatform/schema/dataset/metadata/image_1.0.0.yaml",
-        "labels": {
-          "aiplatform.googleapis.com/dataset_metadata_schema": "IMAGE"
-        },
-        "metadata": {
-          "dataItemSchemaUri": "gs://google-cloud-aiplatform/schema/dataset/dataitem/image_1.0.0.yaml"
-        }
-      }
+```
+{
+  "name": "projects/123456789012/locations/us-central1/datasets/1234567890123456789/operations/1223344556677889900",
+  "metadata": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreateDatasetOperationMetadata",
+    "genericMetadata": {
+      "createTime": "2020-10-12T16:00:44.686500Z",
+      "updateTime": "2020-10-12T16:01:06.115081Z"
     }
+  },
+  "done": true,
+  "response": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1.Dataset",
+    "name": "projects/123456789012/locations/us-central1/datasets/1234567890123456789",
+    "displayName": "image_dataset",
+    "metadataSchemaUri": "gs://google-cloud-aiplatform/schema/dataset/metadata/image_1.0.0.yaml",
+    "labels": {
+      "aiplatform.googleapis.com/dataset_metadata_schema": "IMAGE"
+    },
+    "metadata": {
+      "dataItemSchemaUri": "gs://google-cloud-aiplatform/schema/dataset/dataitem/image_1.0.0.yaml"
+    }
+  }
+}
+```
 
 ## Canceling an Operation
 
@@ -87,11 +95,13 @@ You can cancel a long-running operation so that you can stop it before the opera
 
 Before using any of the request data, make the following replacements:
 
-  - OPERATION\_NAME : The operation name that is returned when you start a long-running operation, such as ` projects/ PROJECT_NUMBER /locations/ LOCATION /datasets/ DATASET_ID /operations/ OPERATION_ID  `
+- ` OPERATION_NAME ` : The operation name that is returned when you start a long-running operation, such as `projects/ `` PROJECT_NUMBER `` /locations/ `` LOCATION `` /datasets/ `` DATASET_ID `` /operations/ `` OPERATION_ID`
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/OPERATION_NAME:cancel
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/OPERATION_NAME:cancel
+```
 
 To send your request, choose one of these options:
 
@@ -101,11 +111,13 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d "" \
-         "https://LOCATION-aiplatform.googleapis.com/v1/OPERATION_NAME:cancel"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d "" \
+     "https://LOCATION-aiplatform.googleapis.com/v1/OPERATION_NAME:cancel"
+```
 
 #### PowerShell
 
@@ -113,12 +125,14 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/OPERATION_NAME:cancel" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/OPERATION_NAME:cancel" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx) and an empty response.

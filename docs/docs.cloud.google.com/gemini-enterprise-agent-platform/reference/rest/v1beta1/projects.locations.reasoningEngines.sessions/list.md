@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.reasoningEngines.sessions.list
 
-Lists `  Sessions  ` in a given reasoning engine.
+Lists [`Sessions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions#Session) in a given reasoning engine.
 
 ### Endpoint
 
@@ -30,7 +30,7 @@ Optional. The maximum number of sessions to return. The service may return fewer
 
 `pageToken` `string`
 
-Optional. The `  nextPageToken  ` value returned from a previous list `  SessionService.ListSessions  ` call.
+Optional. The [`nextPageToken`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions/list#body.ListSessionsResponse.FIELDS.next_page_token) value returned from a previous list [`SessionService.ListSessions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions/list#google.cloud.aiplatform.v1beta1.SessionService.ListSessions) call.
 
 `filter` `string`
 
@@ -50,32 +50,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  SessionService.ListSessions  ` .
+Response message for [`SessionService.ListSessions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions/list#google.cloud.aiplatform.v1beta1.SessionService.ListSessions) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`sessions[]` ` object ( Session  ` )
+`sessions[]` `object ( `[`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions#Session)` )`
 
 A list of sessions matching the request.
 
 `nextPageToken` `string`
 
-A token, which can be sent as `  ListSessionsRequest.page_token  ` to retrieve the next page. Absence of this field indicates there are no subsequent pages.
+A token, which can be sent as [`ListSessionsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions/list#body.QUERY_PARAMETERS.page_token) to retrieve the next page. Absence of this field indicates there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;sessions&quot;: [{object (Session)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "sessions": [
+    {
+      object (Session)
+    }
+  ],
+  "nextPageToken": string
+}
+```

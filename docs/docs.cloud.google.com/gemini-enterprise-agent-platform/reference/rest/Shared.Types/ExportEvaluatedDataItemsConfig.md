@@ -20,21 +20,11 @@ If not specified, then results are exported to the following auto-created BigQue
 
 If true and an export destination is specified, then the contents of the destination are overwritten. Otherwise, if the export destination already exists, then the export operation fails.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;destinationBigqueryUri&quot;: string,
-  &quot;overrideExistingTable&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "destinationBigqueryUri": string,
+  "overrideExistingTable": boolean
+}
+```

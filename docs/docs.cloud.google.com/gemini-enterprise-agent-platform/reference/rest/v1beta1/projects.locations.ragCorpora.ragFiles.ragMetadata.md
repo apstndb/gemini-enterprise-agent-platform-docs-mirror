@@ -16,25 +16,20 @@ Fields
 
 Identifier. Resource name of the RagMetadata. Format: `projects/{project}/locations/{location}/ragCorpora/{ragCorpus}/ragFiles/{ragFile}/ragMetadata/{ragMetadata}`
 
-`userSpecifiedMetadata` ` object ( UserSpecifiedMetadata  ` )
+`userSpecifiedMetadata` `object ( `[`UserSpecifiedMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata#UserSpecifiedMetadata)` )`
 
 user provided metadata.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;userSpecifiedMetadata&quot;: {object (UserSpecifiedMetadata)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "userSpecifiedMetadata": {
+    object (UserSpecifiedMetadata)
+  }
+}
+```
 
 ## UserSpecifiedMetadata
 
@@ -46,25 +41,20 @@ Fields
 
 Required. Key of the metadata. The key must be set with type by CreateRagDataSchema.
 
-`value` ` object ( MetadataValue  ` )
+`value` `object ( `[`MetadataValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata#MetadataValue)` )`
 
 value of the metadata. The value must be able to convert to the type according to the data schema.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;key&quot;: string,&quot;value&quot;: {object (MetadataValue)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "key": string,
+  "value": {
+    object (MetadataValue)
+  }
+}
+```
 
 ## MetadataValue
 
@@ -76,7 +66,7 @@ Fields
 
 The value of the metadata. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`intValue` `string ( int64 format)`
+`intValue` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 value of int type metadata.
 
@@ -96,27 +86,29 @@ value of date time type metadata.
 
 value of boolean type metadata.
 
-`listValue` ` object ( MetadataList  ` )
+`listValue` `object ( `[`MetadataList`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata#MetadataList)` )`
 
 value of list type metadata.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// value&quot;intValue&quot;: string,&quot;floatValue&quot;: number,&quot;strValue&quot;: string,&quot;datetimeValue&quot;: string,&quot;boolValue&quot;: boolean,&quot;listValue&quot;: {object (MetadataList)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // value
+  "intValue": string,
+  "floatValue": number,
+  "strValue": string,
+  "datetimeValue": string,
+  "boolValue": boolean,
+  "listValue": {
+    object (MetadataList)
+  }
+  // Union type
+}
+```
 
 ## MetadataList
 
@@ -124,52 +116,28 @@ List representation in metadata.
 
 Fields
 
-`values[]` ` object ( MetadataValue  ` )
+`values[]` `object ( `[`MetadataValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata#MetadataValue)` )`
 
 The values of `LIST` data type metadata.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;values&quot;: [{object (MetadataValue)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "values": [
+    {
+      object (MetadataValue)
+    }
+  ]
+}
+```
 
-### `            batchCreate           `
-
-Batch Create one or more RagMetadatas
-
-### `            batchDelete           `
-
-Batch Deletes one or more RagMetadata.
-
-### `            create           `
-
-Creates a RagMetadata.
-
-### `            delete           `
-
-Deletes a RagMetadata.
-
-### `            get           `
-
-Gets a RagMetadata.
-
-### `            list           `
-
-Lists RagMetadata in a RagFile.
-
-### `            patch           `
-
-Updates a RagMetadata.
+| Methods                                                                                                                                                               |                                        |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
+| [`batchCreate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/batchCreate) | Batch Create one or more RagMetadatas  |
+| [`batchDelete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/batchDelete) | Batch Deletes one or more RagMetadata. |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/create)           | Creates a RagMetadata.                 |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/delete)           | Deletes a RagMetadata.                 |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/get)                 | Gets a RagMetadata.                    |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/list)               | Lists RagMetadata in a RagFile.        |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/patch)             | Updates a RagMetadata.                 |

@@ -24,7 +24,7 @@ Required. The display name of the IndexEndpoint. The name can be up to 128 chara
 
 The description of the IndexEndpoint.
 
-`deployedIndexes[]` ` object ( DeployedIndex  ` )
+`deployedIndexes[]` `object ( `[`DeployedIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints#DeployedIndex)` )`
 
 Output only. The indexes deployed in this endpoint.
 
@@ -40,13 +40,13 @@ label keys and values can be no longer than 64 characters (Unicode codepoints), 
 
 See <https://goo.gl/xmQnxf> for more information and examples of labels.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this IndexEndpoint was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this IndexEndpoint was last updated. This timestamp is not updated when the endpoint's DeployedIndexes are updated, e.g. due to updates of the original Indexes they are the deployments of.
 
@@ -58,23 +58,23 @@ Optional. The full name of the Google Compute Engine [network](https://cloud.goo
 
 Private services access must already be configured for the network. If left unspecified, the Endpoint is not peered with any network.
 
-`  network  ` and `  privateServiceConnectConfig  ` are mutually exclusive.
+[`network`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints#IndexEndpoint.FIELDS.network) and [`privateServiceConnectConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints#IndexEndpoint.FIELDS.private_service_connect_config) are mutually exclusive.
 
 [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert) : `projects/{project}/global/networks/{network}` . Where {project} is a project number, as in '12345', and {network} is network name.
 
-` enablePrivateServiceConnect (deprecated)  ` `boolean`
+`enablePrivateServiceConnect `**`(deprecated)`** `boolean`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. Deprecated: If true, expose the IndexEndpoint via private service connect.
 
-Only one of the fields, `  network  ` or `  enablePrivateServiceConnect  ` , can be set.
+Only one of the fields, [`network`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints#IndexEndpoint.FIELDS.network) or [`enablePrivateServiceConnect`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints#IndexEndpoint.FIELDS.enable_private_service_connect) , can be set.
 
-`privateServiceConnectConfig` ` object ( PrivateServiceConnectConfig  ` )
+`privateServiceConnectConfig` `object ( `[`PrivateServiceConnectConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/PrivateServiceConnectConfig)` )`
 
 Optional. Configuration for private service connect.
 
-`  network  ` and `  privateServiceConnectConfig  ` are mutually exclusive.
+[`network`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints#IndexEndpoint.FIELDS.network) and [`privateServiceConnectConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints#IndexEndpoint.FIELDS.private_service_connect_config) are mutually exclusive.
 
 `publicEndpointEnabled` `boolean`
 
@@ -82,9 +82,9 @@ Optional. If true, the deployed index will be accessible through public endpoint
 
 `publicEndpointDomainName` `string`
 
-Output only. If `  publicEndpointEnabled  ` is true, this field will be populated with the domain name to use for this index endpoint.
+Output only. If [`publicEndpointEnabled`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints#IndexEndpoint.FIELDS.public_endpoint_enabled) is true, this field will be populated with the domain name to use for this index endpoint.
 
-`encryptionSpec` ` object ( EncryptionSpec  ` )
+`encryptionSpec` `object ( `[`EncryptionSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/EncryptionSpec)` )`
 
 Immutable. Customer-managed encryption key spec for an IndexEndpoint. If set, this IndexEndpoint and all sub-resources of this IndexEndpoint will be secured by this key.
 
@@ -96,21 +96,39 @@ Output only. reserved for future use.
 
 Output only. reserved for future use.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;deployedIndexes&quot;: [{object (DeployedIndex)}],&quot;etag&quot;: string,&quot;labels&quot;: {string: string,...},&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;network&quot;: string,&quot;enablePrivateServiceConnect&quot;: boolean,&quot;privateServiceConnectConfig&quot;: {object (PrivateServiceConnectConfig)},&quot;publicEndpointEnabled&quot;: boolean,&quot;publicEndpointDomainName&quot;: string,&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "description": string,
+  "deployedIndexes": [
+    {
+      object (DeployedIndex)
+    }
+  ],
+  "etag": string,
+  "labels": {
+    string: string,
+    ...
+  },
+  "createTime": string,
+  "updateTime": string,
+  "network": string,
+  "enablePrivateServiceConnect": boolean,
+  "privateServiceConnectConfig": {
+    object (PrivateServiceConnectConfig)
+  },
+  "publicEndpointEnabled": boolean,
+  "publicEndpointDomainName": string,
+  "encryptionSpec": {
+    object (EncryptionSpec)
+  },
+  "satisfiesPzs": boolean,
+  "satisfiesPzi": boolean
+}
+```
 
 ## DeployedIndex
 
@@ -130,27 +148,27 @@ Required. The name of the Index this is the deployment of. We may refer to this 
 
 The display name of the DeployedIndex. If not provided upon creation, the Index's displayName is used.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when the DeployedIndex was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`privateEndpoints` ` object ( IndexPrivateEndpoints  ` )
+`privateEndpoints` `object ( `[`IndexPrivateEndpoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints#IndexPrivateEndpoints)` )`
 
-Output only. Provides paths for users to send requests directly to the deployed index services running on Cloud via private services access. This field is populated if `  network  ` is configured.
+Output only. Provides paths for users to send requests directly to the deployed index services running on Cloud via private services access. This field is populated if [`network`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints#IndexEndpoint.FIELDS.network) is configured.
 
-`indexSyncTime` ` string ( Timestamp  ` format)
+`indexSyncTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
-Output only. The DeployedIndex may depend on various data on its original Index. Additionally when certain changes to the original Index are being done (e.g. when what the Index contains is being changed) the DeployedIndex may be asynchronously updated in the background to reflect these changes. If this timestamp's value is at least the `  Index.update_time  ` of the original Index, it means that this DeployedIndex and the original Index are in sync. If this timestamp is older, then to see which updates this DeployedIndex already contains (and which it does not), one must `  list  ` the operations that are running on the original Index. Only the successfully completed Operations with `  updateTime  ` equal or before this sync time are contained in this DeployedIndex.
+Output only. The DeployedIndex may depend on various data on its original Index. Additionally when certain changes to the original Index are being done (e.g. when what the Index contains is being changed) the DeployedIndex may be asynchronously updated in the background to reflect these changes. If this timestamp's value is at least the [`Index.update_time`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes#Index.FIELDS.update_time) of the original Index, it means that this DeployedIndex and the original Index are in sync. If this timestamp is older, then to see which updates this DeployedIndex already contains (and which it does not), one must [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.operations/list#google.longrunning.Operations.ListOperations) the operations that are running on the original Index. Only the successfully completed Operations with [`updateTime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenericOperationMetadata#FIELDS.update_time) equal or before this sync time are contained in this DeployedIndex.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`automaticResources` ` object ( AutomaticResources  ` )
+`automaticResources` `object ( `[`AutomaticResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/AutomaticResources)` )`
 
 Optional. A description of resources that the DeployedIndex uses, which to large degree are decided by Agent Platform, and optionally allows only a modest additional configuration. If minReplicaCount is not set, the default value is 2 (we don't provide SLA when minReplicaCount=1). If maxReplicaCount is not set, the default value is minReplicaCount. The max allowed replica count is 1000.
 
-`dedicatedResources` ` object ( DedicatedResources  ` )
+`dedicatedResources` `object ( `[`DedicatedResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources)` )`
 
 Optional. A description of resources that are dedicated to the DeployedIndex, and that need a higher degree of manual configuration. The field minReplicaCount must be set to a value strictly greater than 0, or else validation will fail. We don't provide SLA when minReplicaCount=1. If maxReplicaCount is not set, the default value is minReplicaCount. The max allowed replica count is 1000.
 
@@ -178,7 +196,7 @@ Under normal operation conditions, these log entries should be very rare. Howeve
 
 Note that logs may incur a cost, especially if the deployed index receives a high volume of datapoint upserts. Estimate your costs before enabling this option.
 
-`deployedIndexAuthConfig` ` object ( DeployedIndexAuthConfig  ` )
+`deployedIndexAuthConfig` `object ( `[`DeployedIndexAuthConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints#DeployedIndexAuthConfig)` )`
 
 Optional. If set, the authentication is enabled for the private endpoint.
 
@@ -200,29 +218,49 @@ Creating `deployment_groups` with `reservedIpRanges` is a recommended practice w
 
 Note: we only support up to 5 deployment groups(not including 'default').
 
-`deploymentTier` ` enum ( DeploymentTier  ` )
+`deploymentTier` `enum ( `[`DeploymentTier`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints#DeploymentTier)` )`
 
-Optional. The deployment tier that the index is deployed to. DEPLOYMENT\_TIER\_UNSPECIFIED will use a system-chosen default tier.
+Optional. The deployment tier that the index is deployed to. DEPLOYMENT_TIER_UNSPECIFIED will use a system-chosen default tier.
 
-`pscAutomationConfigs[]` ` object ( PSCAutomationConfig  ` )
+`pscAutomationConfigs[]` `object ( `[`PSCAutomationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/PSCAutomationConfig)` )`
 
-Optional. If set for PSC deployed index, PSC connection will be automatically created after deployment is done and the endpoint information is populated in privateEndpoints.psc\_automated\_endpoints.
+Optional. If set for PSC deployed index, PSC connection will be automatically created after deployment is done and the endpoint information is populated in privateEndpoints.psc_automated_endpoints.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;id&quot;: string,&quot;index&quot;: string,&quot;displayName&quot;: string,&quot;createTime&quot;: string,&quot;privateEndpoints&quot;: {object (IndexPrivateEndpoints)},&quot;indexSyncTime&quot;: string,&quot;automaticResources&quot;: {object (AutomaticResources)},&quot;dedicatedResources&quot;: {object (DedicatedResources)},&quot;enableAccessLogging&quot;: boolean,&quot;enableDatapointUpsertLogging&quot;: boolean,&quot;deployedIndexAuthConfig&quot;: {object (DeployedIndexAuthConfig)},&quot;reservedIpRanges&quot;: [string],&quot;deploymentGroup&quot;: string,&quot;deploymentTier&quot;: enum (DeploymentTier),&quot;pscAutomationConfigs&quot;: [{object (PSCAutomationConfig)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "id": string,
+  "index": string,
+  "displayName": string,
+  "createTime": string,
+  "privateEndpoints": {
+    object (IndexPrivateEndpoints)
+  },
+  "indexSyncTime": string,
+  "automaticResources": {
+    object (AutomaticResources)
+  },
+  "dedicatedResources": {
+    object (DedicatedResources)
+  },
+  "enableAccessLogging": boolean,
+  "enableDatapointUpsertLogging": boolean,
+  "deployedIndexAuthConfig": {
+    object (DeployedIndexAuthConfig)
+  },
+  "reservedIpRanges": [
+    string
+  ],
+  "deploymentGroup": string,
+  "deploymentTier": enum (DeploymentTier),
+  "pscAutomationConfigs": [
+    {
+      object (PSCAutomationConfig)
+    }
+  ]
+}
+```
 
 ## IndexPrivateEndpoints
 
@@ -238,25 +276,23 @@ Output only. The ip address used to send match gRPC requests.
 
 Output only. The name of the service attachment resource. Populated if private service connect is enabled.
 
-`pscAutomatedEndpoints[]` ` object ( PscAutomatedEndpoints  ` )
+`pscAutomatedEndpoints[]` `object ( `[`PscAutomatedEndpoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints#PscAutomatedEndpoints)` )`
 
 Output only. PscAutomatedEndpoints is populated if private service connect is enabled if PscAutomatedConfig is set.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;matchGrpcAddress&quot;: string,&quot;serviceAttachment&quot;: string,&quot;pscAutomatedEndpoints&quot;: [{object (PscAutomatedEndpoints)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "matchGrpcAddress": string,
+  "serviceAttachment": string,
+  "pscAutomatedEndpoints": [
+    {
+      object (PscAutomatedEndpoints)
+    }
+  ]
+}
+```
 
 ## PscAutomatedEndpoints
 
@@ -276,25 +312,15 @@ Corresponding network in pscAutomationConfigs.
 
 ip Address created by the automated forwarding rule.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;projectId&quot;: string,
-  &quot;network&quot;: string,
-  &quot;matchAddress&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "projectId": string,
+  "network": string,
+  "matchAddress": string
+}
+```
 
 ## DeployedIndexAuthConfig
 
@@ -302,25 +328,19 @@ Used to set up the auth on the DeployedIndex's private endpoint.
 
 Fields
 
-`authProvider` ` object ( AuthProvider  ` )
+`authProvider` `object ( `[`AuthProvider`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints#AuthProvider)` )`
 
 Defines the authentication provider that the DeployedIndex uses.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;authProvider&quot;: {object (AuthProvider)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "authProvider": {
+    object (AuthProvider)
+  }
+}
+```
 
 ## AuthProvider
 
@@ -338,73 +358,35 @@ A list of allowed JWT issuers. Each entry must be a valid Google service account
 
 `service-account-name@project-id.iam.gserviceaccount.com`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;audiences&quot;: [
+**JSON representation**
+
+```
+{
+  "audiences": [
     string
   ],
-  &quot;allowedIssuers&quot;: [
+  "allowedIssuers": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## DeploymentTier
 
 Tiers encapsulate serving time attributes like latency and throughput.
 
-Enums
+| Enums                         |                          |
+|-------------------------------|--------------------------|
+| `DEPLOYMENT_TIER_UNSPECIFIED` | Default deployment tier. |
+| `STORAGE`                     | Optimized for costs.     |
 
-`DEPLOYMENT_TIER_UNSPECIFIED`
-
-Default deployment tier.
-
-`STORAGE`
-
-Optimized for costs.
-
-## Methods
-
-### `            create           `
-
-Creates an IndexEndpoint.
-
-### `            delete           `
-
-Deletes an IndexEndpoint.
-
-### `            deployIndex           `
-
-Deploys an Index into this IndexEndpoint, creating a DeployedIndex within it.
-
-### `            get           `
-
-Gets an IndexEndpoint.
-
-### `            list           `
-
-Lists IndexEndpoints in a Location.
-
-### `            mutateDeployedIndex           `
-
-Update an existing DeployedIndex under an IndexEndpoint.
-
-### `            patch           `
-
-Updates an IndexEndpoint.
-
-### `            undeployIndex           `
-
-Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it, and freeing all resources it's using.
+| Methods                                                                                                                                                              |                                                                                                                   |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/create)                           | Creates an IndexEndpoint.                                                                                         |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/delete)                           | Deletes an IndexEndpoint.                                                                                         |
+| [`deployIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/deployIndex)                 | Deploys an Index into this IndexEndpoint, creating a DeployedIndex within it.                                     |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/get)                                 | Gets an IndexEndpoint.                                                                                            |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/list)                               | Lists IndexEndpoints in a Location.                                                                               |
+| [`mutateDeployedIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/mutateDeployedIndex) | Update an existing DeployedIndex under an IndexEndpoint.                                                          |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/patch)                             | Updates an IndexEndpoint.                                                                                         |
+| [`undeployIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/undeployIndex)             | Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it, and freeing all resources it's using. |

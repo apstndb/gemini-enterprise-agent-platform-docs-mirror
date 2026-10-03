@@ -10,8 +10,6 @@ data_source: docs.cloud.google.com
 
 There is no persistent data associated with this resource.
 
-## Methods
-
-### `            list           `
-
-Lists Annotations belongs to a dataitem.
+| Methods                                                                                                                                           |                                          |
+|---------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.dataItems.annotations/list) | Lists Annotations belongs to a dataitem. |

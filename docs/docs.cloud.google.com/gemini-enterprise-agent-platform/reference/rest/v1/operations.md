@@ -30,7 +30,7 @@ If the value is `false` , it means the operation is still in progress. If `true`
 
 The operation result, which can be either an `error` or a valid `response` . If `done` == `false` , neither `error` nor `response` is set. If `done` == `true` , exactly one of `error` or `response` can be set. Some services might not provide the result. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`error` ` object ( Status  ` )
+`error` `object ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Status)` )`
 
 The error result of the operation in case of failure or cancellation.
 
@@ -42,40 +42,35 @@ An object containing fields of an arbitrary type. An additional field `"@type"` 
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;metadata&quot;: {&quot;@type&quot;: string,field1: ...,...},&quot;done&quot;: boolean,// result&quot;error&quot;: {object (Status)},&quot;response&quot;: {&quot;@type&quot;: string,field1: ...,...}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "name": string,
+  "metadata": {
+    "@type": string,
+    field1: ...,
+    ...
+  },
+  "done": boolean,
 
-### `            cancel           `
+  // result
+  "error": {
+    object (Status)
+  },
+  "response": {
+    "@type": string,
+    field1: ...,
+    ...
+  }
+  // Union type
+}
+```
 
-Starts asynchronous cancellation on a long-running operation.
-
-### `            delete           `
-
-Deletes a long-running operation.
-
-### `            get           `
-
-Gets the latest state of a long-running operation.
-
-### `            list           `
-
-Lists operations that match the specified filter in the request.
-
-### `            wait           `
-
-Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state.
+| Methods                                                                                                        |                                                                                                                              |
+|----------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/operations/cancel) | Starts asynchronous cancellation on a long-running operation.                                                                |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/operations/delete) | Deletes a long-running operation.                                                                                            |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/operations/get)       | Gets the latest state of a long-running operation.                                                                           |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/operations/list)     | Lists operations that match the specified filter in the request.                                                             |
+| [`wait`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/operations/wait)     | Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. |

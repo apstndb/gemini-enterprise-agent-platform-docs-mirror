@@ -26,7 +26,7 @@ Required. The resource name of the Execution to delete. Format: `projects/{proje
 
 `etag` `string`
 
-Optional. The etag of the Execution to delete. If this is provided, it must match the server's etag. Otherwise, the request will fail with a FAILED\_PRECONDITION.
+Optional. The etag of the Execution to delete. If this is provided, it must match the server's etag. Otherwise, the request will fail with a FAILED_PRECONDITION.
 
 ### Request body
 
@@ -34,4 +34,4 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

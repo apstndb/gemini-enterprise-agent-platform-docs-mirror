@@ -9,7 +9,7 @@ data_source: docs.cloud.google.com
 # Use the Gemini CLI
 
 > **Preview**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 This page describes how to use the Gemini command line interface (CLI) with a Gemini Enterprise Agent Platform Workbench instance.
@@ -22,21 +22,21 @@ The Gemini CLI is an open source AI agent that provides access to Gemini directl
 
 The Gemini CLI is available in Agent Platform Workbench instances. You can use the Gemini CLI to do the following:
 
-  - Create a new notebook.
-  - Run notebook cells.
-  - Write and edit a notebook's code and text cells.
-  - Explain code and technical concepts.
-  - Interact with a Agent Platform Workbench instance's local file system, including performing complex file operations that span multiple files based on a single, high-level instruction.
-  - Run basic shell commands.
-  - Run commands to interact with other Google Cloud services, such as Gemini Enterprise Agent Platform and BigQuery.
+- Create a new notebook.
+- Run notebook cells.
+- Write and edit a notebook's code and text cells.
+- Explain code and technical concepts.
+- Interact with a Agent Platform Workbench instance's local file system, including performing complex file operations that span multiple files based on a single, high-level instruction.
+- Run basic shell commands.
+- Run commands to interact with other Google Cloud services, such as Gemini Enterprise Agent Platform and BigQuery.
 
 ## Limitations
 
 Consider the following limitations when you use the Gemini CLI with Agent Platform Workbench:
 
-  - The Gemini CLI is a CLI only. A graphical chat interface and advanced in-editor tools aren't included.
+- The Gemini CLI is a CLI only. A graphical chat interface and advanced in-editor tools aren't included.
 
-  - When you ask Gemini CLI to modify a notebook, the Gemini CLI changes the notebook file directly on the instance's disk. Because of this, you can't undo edits made by the Gemini CLI by using the notebook editor's **Undo** button or Control+Z ( Command+Z on macOS). However, you can ask the Gemini CLI to undo a change by using a natural language command, such as `Undo your last change` .
+- When you ask Gemini CLI to modify a notebook, the Gemini CLI changes the notebook file directly on the instance's disk. Because of this, you can't undo edits made by the Gemini CLI by using the notebook editor's **Undo** button or <span class="kbd"> Control+Z </span> ( <span class="kbd"> Command+Z </span> on macOS). However, you can ask the Gemini CLI to undo a change by using a natural language command, such as `Undo your last change` .
 
 ## Before you begin
 
@@ -71,7 +71,7 @@ Your administrator might also be able to give your Agent Platform Workbench inst
 1.  In the Google Cloud console, go to the **Instances** page.
 
 2.  Next to a Agent Platform Workbench instance's name, click **Open JupyterLab** .
-    
+
     Your Agent Platform Workbench instance opens JupyterLab.
 
 3.  In JupyterLab, click **File** \> **New launcher** .
@@ -79,44 +79,44 @@ Your administrator might also be able to give your Agent Platform Workbench inst
 4.  In the **Launcher** tab, in the **Other** section, click the **Gemini CLI** tile.
 
 5.  If it's the first time you've opened a Gemini CLI terminal, enter `Y` to agree to the terms and conditions.
-    
+
     Your Agent Platform Workbench instance installs the Gemini CLI.
 
 6.  In the Gemini CLI terminal, enter a prompt.
-    
+
     For example, you might enter `Create a new notebook named 'test-notebook'` . To see examples of prompts that might be helpful, see [Sample prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/gemini-cli#sample-prompts) .
 
 ## Sample prompts
 
 To help you get ideas for how to use the Gemini CLI, see the following sample prompts:
 
-  - "Create a new notebook that trains a model to predict 'income bracket' from bigquery-public-data.ml\_datasets.census\_adult\_income, using BigQuery and Python."
+- "Create a new notebook that trains a model to predict 'income bracket' from bigquery-public-data.ml_datasets.census_adult_income, using BigQuery and Python."
 
-  - "Summarize the notebook named 'test-file', and propose next steps for the project."
+- "Summarize the notebook named 'test-file', and propose next steps for the project."
 
-  - "I want to get a quick overview of the notebooks in this directory. For every .ipynb file, show me the first 5 lines of the file."
+- "I want to get a quick overview of the notebooks in this directory. For every .ipynb file, show me the first 5 lines of the file."
 
-  - "Create a script using the contents of the 'test-file' notebook."
+- "Create a script using the contents of the 'test-file' notebook."
 
-  - "Show me how to access data from BigQuery tables from within Agent Platform Workbench."
+- "Show me how to access data from BigQuery tables from within Agent Platform Workbench."
 
-  - "Query the bigquery-public-data.ml\_datasets.census\_adult\_income table to find the number of people with an income bracket of \> 50K."
+- "Query the bigquery-public-data.ml_datasets.census_adult_income table to find the number of people with an income bracket of \> 50K."
 
-  - "Set my default Google Cloud project to my-project."
+- "Set my default Google Cloud project to my-project."
 
-  - "Create a Cloud Storage bucket, and upload all the CSV files from my current directory to it."
+- "Create a Cloud Storage bucket, and upload all the CSV files from my current directory to it."
 
-  - "Create a Compute Engine instance with a Debian 11 image and an n1-standard-4 machine type."
+- "Create a Compute Engine instance with a Debian 11 image and an n1-standard-4 machine type."
 
-  - "Create a notebook file that runs through the code in the 'test-script'. Add text cells that explain the code."
+- "Create a notebook file that runs through the code in the 'test-script'. Add text cells that explain the code."
 
 ## Control access to the Gemini CLI
 
 You can control access to the Gemini CLI in Agent Platform Workbench by using the following methods:
 
-  - An administrator can set up an organization policy to restrict usage of specific Gemini models at an organization, folder, or project level. See [Control access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access) . The Gemini CLI continues to appear in JupyterLab, but the CLI doesn't respond to prompts.
+- An administrator can set up an organization policy to restrict usage of specific Gemini models at an organization, folder, or project level. See [Control access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access) . The Gemini CLI continues to appear in JupyterLab, but the CLI doesn't respond to prompts.
 
-  - By not granting the `aiplatform.endpoints.predict` permission, an administrator can block some identities from being able to use Gemini endpoints for inference.
+- By not granting the `aiplatform.endpoints.predict` permission, an administrator can block some identities from being able to use Gemini endpoints for inference.
 
 ## Use the Gemini CLI magic command
 
@@ -135,6 +135,6 @@ If you encounter a problem using the Gemini CLI with Agent Platform Workbench in
 
 ## What's next
 
-  - Learn more about [Gemini](https://docs.cloud.google.com/gemini/docs/overview) .
+- Learn more about [Gemini](https://docs.cloud.google.com/gemini/docs/overview) .
 
-  - To learn about methods for querying BigQuery data in Agent Platform Workbench notebooks, see [Query data in BigQuery from within JupyterLab](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/bigquery) .
+- To learn about methods for querying BigQuery data in Agent Platform Workbench notebooks, see [Query data in BigQuery from within JupyterLab](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/bigquery) .

@@ -10,37 +10,40 @@ The objective configuration for model monitoring, including the information need
 
 Fields
 
-`trainingDataset` ` object ( TrainingDataset  ` )
+`trainingDataset` `object ( `[`TrainingDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringObjectiveConfig#TrainingDataset)` )`
 
 Training dataset for models. This field has to be set only if TrainingPredictionSkewDetectionConfig is specified.
 
-`trainingPredictionSkewDetectionConfig` ` object ( TrainingPredictionSkewDetectionConfig  ` )
+`trainingPredictionSkewDetectionConfig` `object ( `[`TrainingPredictionSkewDetectionConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringObjectiveConfig#TrainingPredictionSkewDetectionConfig)` )`
 
 The config for skew between training data and prediction data.
 
-`predictionDriftDetectionConfig` ` object ( PredictionDriftDetectionConfig  ` )
+`predictionDriftDetectionConfig` `object ( `[`PredictionDriftDetectionConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringObjectiveConfig#PredictionDriftDetectionConfig)` )`
 
 The config for drift of prediction data.
 
-`explanationConfig` ` object ( ExplanationConfig  ` )
+`explanationConfig` `object ( `[`ExplanationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringObjectiveConfig#ExplanationConfig)` )`
 
 The config for integrating with Vertex Explainable AI.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;trainingDataset&quot;: {object (TrainingDataset)},&quot;trainingPredictionSkewDetectionConfig&quot;: {object (TrainingPredictionSkewDetectionConfig)},&quot;predictionDriftDetectionConfig&quot;: {object (PredictionDriftDetectionConfig)},&quot;explanationConfig&quot;: {object (ExplanationConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "trainingDataset": {
+    object (TrainingDataset)
+  },
+  "trainingPredictionSkewDetectionConfig": {
+    object (TrainingPredictionSkewDetectionConfig)
+  },
+  "predictionDriftDetectionConfig": {
+    object (PredictionDriftDetectionConfig)
+  },
+  "explanationConfig": {
+    object (ExplanationConfig)
+  }
+}
+```
 
 ## TrainingDataset
 
@@ -60,7 +63,7 @@ data format of the dataset, only applicable if the input is from Google Cloud St
 
 The target field name the model is to predict. This field will be excluded when doing Predict and (or) Explain for the training data.
 
-`loggingSamplingStrategy` ` object ( SamplingStrategy  ` )
+`loggingSamplingStrategy` `object ( `[`SamplingStrategy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/SamplingStrategy)` )`
 
 Strategy to sample data from Training Dataset. If not set, we process the whole dataset.
 
@@ -72,31 +75,37 @@ The following is a list of mutually exclusive fields. At most one of the fields 
 
 The resource name of the Dataset used to train this Model.
 
-`gcsSource` ` object ( GcsSource  ` )
+`gcsSource` `object ( `[`GcsSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GcsSource)` )`
 
 The Google Cloud Storage uri of the unmanaged Dataset used to train this Model.
 
-`bigquerySource` ` object ( BigQuerySource  ` )
+`bigquerySource` `object ( `[`BigQuerySource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/BigQuerySource)` )`
 
 The BigQuery table of the unmanaged Dataset used to train this Model.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;dataFormat&quot;: string,&quot;targetField&quot;: string,&quot;loggingSamplingStrategy&quot;: {object (SamplingStrategy)},// data_source&quot;dataset&quot;: string,&quot;gcsSource&quot;: {object (GcsSource)},&quot;bigquerySource&quot;: {object (BigQuerySource)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "dataFormat": string,
+  "targetField": string,
+  "loggingSamplingStrategy": {
+    object (SamplingStrategy)
+  },
+
+  // data_source
+  "dataset": string,
+  "gcsSource": {
+    object (GcsSource)
+  },
+  "bigquerySource": {
+    object (BigQuerySource)
+  }
+  // Union type
+}
+```
 
 ## TrainingPredictionSkewDetectionConfig
 
@@ -104,33 +113,39 @@ The config for Training & Prediction data skew detection. It specifies the train
 
 Fields
 
-`skewThresholds` ` map (key: string, value: object ( ThresholdConfig  ` ))
+`skewThresholds` `map (key: string, value: object ( `[`ThresholdConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ThresholdConfig)` ))`
 
 Key is the feature name and value is the threshold. If a feature needs to be monitored for skew, a value threshold must be configured for that feature. The threshold here is against feature distribution distance between the training and prediction feature.
 
-`attributionScoreSkewThresholds` ` map (key: string, value: object ( ThresholdConfig  ` ))
+`attributionScoreSkewThresholds` `map (key: string, value: object ( `[`ThresholdConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ThresholdConfig)` ))`
 
 Key is the feature name and value is the threshold. The threshold here is against attribution score distance between the training and prediction feature.
 
-`defaultSkewThreshold` ` object ( ThresholdConfig  ` )
+`defaultSkewThreshold` `object ( `[`ThresholdConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ThresholdConfig)` )`
 
 Skew anomaly detection threshold used by all features. When the per-feature thresholds are not set, this field can be used to specify a threshold for all features.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;skewThresholds&quot;: {string: {object (ThresholdConfig)},...},&quot;attributionScoreSkewThresholds&quot;: {string: {object (ThresholdConfig)},...},&quot;defaultSkewThreshold&quot;: {object (ThresholdConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "skewThresholds": {
+    string: {
+      object (ThresholdConfig)
+    },
+    ...
+  },
+  "attributionScoreSkewThresholds": {
+    string: {
+      object (ThresholdConfig)
+    },
+    ...
+  },
+  "defaultSkewThreshold": {
+    object (ThresholdConfig)
+  }
+}
+```
 
 ## PredictionDriftDetectionConfig
 
@@ -138,33 +153,39 @@ The config for Prediction data drift detection.
 
 Fields
 
-`driftThresholds` ` map (key: string, value: object ( ThresholdConfig  ` ))
+`driftThresholds` `map (key: string, value: object ( `[`ThresholdConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ThresholdConfig)` ))`
 
 Key is the feature name and value is the threshold. If a feature needs to be monitored for drift, a value threshold must be configured for that feature. The threshold here is against feature distribution distance between different time windws.
 
-`attributionScoreDriftThresholds` ` map (key: string, value: object ( ThresholdConfig  ` ))
+`attributionScoreDriftThresholds` `map (key: string, value: object ( `[`ThresholdConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ThresholdConfig)` ))`
 
 Key is the feature name and value is the threshold. The threshold here is against attribution score distance between different time windows.
 
-`defaultDriftThreshold` ` object ( ThresholdConfig  ` )
+`defaultDriftThreshold` `object ( `[`ThresholdConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ThresholdConfig)` )`
 
 Drift anomaly detection threshold used by all features. When the per-feature thresholds are not set, this field can be used to specify a threshold for all features.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;driftThresholds&quot;: {string: {object (ThresholdConfig)},...},&quot;attributionScoreDriftThresholds&quot;: {string: {object (ThresholdConfig)},...},&quot;defaultDriftThreshold&quot;: {object (ThresholdConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "driftThresholds": {
+    string: {
+      object (ThresholdConfig)
+    },
+    ...
+  },
+  "attributionScoreDriftThresholds": {
+    string: {
+      object (ThresholdConfig)
+    },
+    ...
+  },
+  "defaultDriftThreshold": {
+    object (ThresholdConfig)
+  }
+}
+```
 
 ## ExplanationConfig
 
@@ -176,33 +197,28 @@ Fields
 
 If want to analyze the Vertex Explainable AI feature attribute scores or not. If set to true, Agent Platform will log the feature attributions from explain response and do the skew/drift detection for them.
 
-`explanationBaseline` ` object ( ExplanationBaseline  ` )
+`explanationBaseline` `object ( `[`ExplanationBaseline`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringObjectiveConfig#ExplanationBaseline)` )`
 
 Predictions generated by the BatchPredictionJob using baseline dataset.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;enableFeatureAttributes&quot;: boolean,&quot;explanationBaseline&quot;: {object (ExplanationBaseline)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "enableFeatureAttributes": boolean,
+  "explanationBaseline": {
+    object (ExplanationBaseline)
+  }
+}
+```
 
 ## ExplanationBaseline
 
-Output from `  BatchPredictionJob  ` for Model Monitoring baseline dataset, which can be used to generate baseline attribution scores.
+Output from [`BatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs#BatchPredictionJob) for Model Monitoring baseline dataset, which can be used to generate baseline attribution scores.
 
 Fields
 
-`predictionFormat` ` enum ( PredictionFormat  ` )
+`predictionFormat` `enum ( `[`PredictionFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringObjectiveConfig#PredictionFormat)` )`
 
 The storage format of the predictions generated BatchPrediction job.
 
@@ -210,46 +226,39 @@ The storage format of the predictions generated BatchPrediction job.
 
 The configuration specifying of BatchExplain job output. This can be used to generate the baseline of feature attribution scores. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`gcs` `object ( GcsDestination` )
+`gcs` `object ( ``GcsDestination`` )`
 
 Cloud Storage location for BatchExplain output.
 
-`bigquery` ` object ( BigQueryDestination  ` )
+`bigquery` `object ( `[`BigQueryDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/BigQueryDestination)` )`
 
 BigQuery location for BatchExplain output.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;predictionFormat&quot;: enum (PredictionFormat),// destination&quot;gcs&quot;: {object (GcsDestination)},&quot;bigquery&quot;: {object (BigQueryDestination)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "predictionFormat": enum (PredictionFormat),
+
+  // destination
+  "gcs": {
+    object (GcsDestination)
+  },
+  "bigquery": {
+    object (BigQueryDestination)
+  }
+  // Union type
+}
+```
 
 ## PredictionFormat
 
 The storage format of the predictions generated BatchPrediction job.
 
-Enums
-
-`PREDICTION_FORMAT_UNSPECIFIED`
-
-Should not be set.
-
-`JSONL`
-
-Predictions are in JSONL files.
-
-`BIGQUERY`
-
-Predictions are in BigQuery.
+| Enums                           |                                 |
+|---------------------------------|---------------------------------|
+| `PREDICTION_FORMAT_UNSPECIFIED` | Should not be set.              |
+| `JSONL`                         | Predictions are in JSONL files. |
+| `BIGQUERY`                      | Predictions are in BigQuery.    |

@@ -14,35 +14,38 @@ Fields
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`maskAnnotation` ` object ( MaskAnnotation  ` )
+`maskAnnotation` `object ( `[`MaskAnnotation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ImageSegmentationAnnotation#MaskAnnotation)` )`
 
 Mask based segmentation annotation. Only one mask annotation can exist for one image.
 
-`polygonAnnotation` ` object ( PolygonAnnotation  ` )
+`polygonAnnotation` `object ( `[`PolygonAnnotation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ImageSegmentationAnnotation#PolygonAnnotation)` )`
 
 Polygon annotation.
 
-`polylineAnnotation` ` object ( PolylineAnnotation  ` )
+`polylineAnnotation` `object ( `[`PolylineAnnotation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ImageSegmentationAnnotation#PolylineAnnotation)` )`
 
 Polyline annotation.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// annotation&quot;maskAnnotation&quot;: {object (MaskAnnotation)},&quot;polygonAnnotation&quot;: {object (PolygonAnnotation)},&quot;polylineAnnotation&quot;: {object (PolylineAnnotation)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // annotation
+  "maskAnnotation": {
+    object (MaskAnnotation)
+  },
+  "polygonAnnotation": {
+    object (PolygonAnnotation)
+  },
+  "polylineAnnotation": {
+    object (PolylineAnnotation)
+  }
+  // Union type
+}
+```
 
 ## MaskAnnotation
 
@@ -54,25 +57,22 @@ Fields
 
 Google Cloud Storage URI that points to the mask image. The image must be in PNG format. It must have the same size as the DataItem's image. Each pixel in the image mask represents the AnnotationSpec which the pixel in the image DataItem belong to. Each color is mapped to one AnnotationSpec based on annotationSpecColors.
 
-`annotationSpecColors[]` ` object ( AnnotationSpecColor  ` )
+`annotationSpecColors[]` `object ( `[`AnnotationSpecColor`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AnnotationSpecColor)` )`
 
 The mapping between color and AnnotationSpec for this Annotation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;maskGcsUri&quot;: string,&quot;annotationSpecColors&quot;: [{object (AnnotationSpecColor)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "maskGcsUri": string,
+  "annotationSpecColors": [
+    {
+      object (AnnotationSpecColor)
+    }
+  ]
+}
+```
 
 ## PolygonAnnotation
 
@@ -80,7 +80,7 @@ Represents a polygon in image.
 
 Fields
 
-`vertexes[]` ` object ( Vertex  ` )
+`vertexes[]` `object ( `[`Vertex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ImageSegmentationAnnotation#Vertex)` )`
 
 The vertexes are connected one by one and the last vertex is connected to the first one to represent a polygon.
 
@@ -92,21 +92,19 @@ The resource id of the AnnotationSpec that this Annotation pertains to.
 
 The display name of the AnnotationSpec that this Annotation pertains to.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;vertexes&quot;: [{object (Vertex)}],&quot;annotationSpecId&quot;: string,&quot;displayName&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "vertexes": [
+    {
+      object (Vertex)
+    }
+  ],
+  "annotationSpecId": string,
+  "displayName": string
+}
+```
 
 ## Vertex
 
@@ -122,24 +120,14 @@ X coordinate of the vertex, normalized to \[0.0, 1.0\].
 
 Y coordinate of the vertex, normalized to \[0.0, 1.0\].
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;x&quot;: number,
-  &quot;y&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "x": number,
+  "y": number
+}
+```
 
 ## PolylineAnnotation
 
@@ -147,7 +135,7 @@ Represents a polyline in image.
 
 Fields
 
-`vertexes[]` ` object ( Vertex  ` )
+`vertexes[]` `object ( `[`Vertex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ImageSegmentationAnnotation#Vertex)` )`
 
 The vertexes are connected one by one and the last vertex in not connected to the first one.
 
@@ -159,18 +147,16 @@ The resource id of the AnnotationSpec that this Annotation pertains to.
 
 The display name of the AnnotationSpec that this Annotation pertains to.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;vertexes&quot;: [{object (Vertex)}],&quot;annotationSpecId&quot;: string,&quot;displayName&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "vertexes": [
+    {
+      object (Vertex)
+    }
+  ],
+  "annotationSpecId": string,
+  "displayName": string
+}
+```

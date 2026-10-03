@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 Deletes a Model.
 
-A model cannot be deleted if any `  Endpoint  ` resource has a `  DeployedModel  ` based on the model in its `  deployedModels  ` field.
+A model cannot be deleted if any [`Endpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint) resource has a [`DeployedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#DeployedModel) based on the model in its [`deployedModels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint.FIELDS.deployed_models) field.
 
 ### Endpoint
 
@@ -30,4 +30,4 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

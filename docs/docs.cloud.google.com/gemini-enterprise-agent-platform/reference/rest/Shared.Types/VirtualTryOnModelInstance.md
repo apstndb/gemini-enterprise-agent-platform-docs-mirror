@@ -14,29 +14,29 @@ Fields
 
 The text prompt describing the desired image.
 
-`productImages[]` ` object ( ProductImage  ` )
+`productImages[]` `object ( `[`ProductImage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VirtualTryOnModelInstance#ProductImage)` )`
 
 Required. A single product image to try on the person.
 
-`personImage` ` object ( PersonImage  ` )
+`personImage` `object ( `[`PersonImage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VirtualTryOnModelInstance#PersonImage)` )`
 
 The image of the person to virtually try-on clothing.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;prompt&quot;: string,&quot;productImages&quot;: [{object (ProductImage)}],&quot;personImage&quot;: {object (PersonImage)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prompt": string,
+  "productImages": [
+    {
+      object (ProductImage)
+    }
+  ],
+  "personImage": {
+    object (PersonImage)
+  }
+}
+```
 
 ## ProductImage
 
@@ -44,33 +44,33 @@ A ProductImage is used to provide the product image and its associated configura
 
 Fields
 
-`image` ` object ( Image  ` )
+`image` `object ( `[`Image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VirtualTryOnModelInstance#Image)` )`
 
 Required. An image of a product to virtually try on a person. The following values are supported: - A `bytesBase64` encoded string that encodes the image. - A `gcsUri` string URI to a Google Cloud Storage bucket location.
 
-`maskImage` ` object ( Image  ` )
+`maskImage` `object ( `[`Image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VirtualTryOnModelInstance#Image)` )`
 
 (Optional) The mask image associated with this product. If provided, the mask image is used to guide the image editing.
 
-`productImageConfig` ` object ( ProductImageConfig  ` )
+`productImageConfig` `object ( `[`ProductImageConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VirtualTryOnModelInstance#ProductImageConfig)` )`
 
 The configuration for the product image.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;image&quot;: {object (Image)},&quot;maskImage&quot;: {object (Image)},&quot;productImageConfig&quot;: {object (ProductImageConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "image": {
+    object (Image)
+  },
+  "maskImage": {
+    object (Image)
+  },
+  "productImageConfig": {
+    object (ProductImageConfig)
+  }
+}
+```
 
 ## Image
 
@@ -96,28 +96,18 @@ The Google Cloud Storage URI of the image. The URI must be in `gs://` format.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;mimeType&quot;: string,
+**JSON representation**
+
+```
+{
+  "mimeType": string,
 
   // data
-  &quot;bytesBase64Encoded&quot;: string,
-  &quot;gcsUri&quot;: string
+  "bytesBase64Encoded": string,
+  "gcsUri": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## ProductImageConfig
 
@@ -125,7 +115,7 @@ Configuration for the product image.
 
 Fields
 
-`maskMode` ` enum ( MaskMode  ` )
+`maskMode` `enum ( `[`MaskMode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/MaskMode)` )`
 
 Mode used to control the segmentation logic.
 
@@ -137,21 +127,15 @@ Mode used to control the segmentation logic.
 
 (Optional) A text description of the product.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;maskMode&quot;: enum (MaskMode),&quot;dilation&quot;: number,&quot;productDescription&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "maskMode": enum (MaskMode),
+  "dilation": number,
+  "productDescription": string
+}
+```
 
 ## PersonImage
 
@@ -159,22 +143,16 @@ An image of a person. The model generates a virtual try-on image with the suppli
 
 Fields
 
-`image` ` object ( Image  ` )
+`image` `object ( `[`Image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VirtualTryOnModelInstance#Image)` )`
 
 Required. An image of a person to try-on the clothing product. The following values are supported: - A `bytesBase64` encoded string that encodes the image. - A `gcsUri` string URI to a Google Cloud Storage bucket location.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;image&quot;: {object (Image)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "image": {
+    object (Image)
+  }
+}
+```

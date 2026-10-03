@@ -14,13 +14,9 @@ Returns various configuration parameters.
 
 ### Path parameters
 
-Parameters
-
-`name`
-
-`string`
-
-Required. Format: `projects/{projectId}/locations/{location}`
+| Parameters |                                                                        |
+|------------|------------------------------------------------------------------------|
+| `name`     | `string` Required. Format: `projects/{projectId}/locations/{location}` |
 
 ### Request body
 
@@ -32,53 +28,37 @@ Response for getting WbI configurations in a location
 
 If successful, the response body contains data with the following structure:
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;defaultValues&quot;: {object (DefaultValues)},&quot;supportedValues&quot;: {object (SupportedValues)},&quot;availableImages&quot;: [{object (ImageRelease)}],&quot;disableWorkbenchLegacyCreation&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "defaultValues": {
+    object (DefaultValues)
+  },
+  "supportedValues": {
+    object (SupportedValues)
+  },
+  "availableImages": [
+    {
+      object (ImageRelease)
+    }
+  ],
+  "disableWorkbenchLegacyCreation": boolean
+}
+```
 
-`defaultValues`
-
-` object ( DefaultValues  ` )
-
-Output only. The default values for configuration.
-
-`supportedValues`
-
-` object ( SupportedValues  ` )
-
-Output only. The supported values for configuration.
-
-`availableImages[]`
-
-` object ( ImageRelease  ` )
-
-Output only. The list of available images to create a WbI.
-
-`disableWorkbenchLegacyCreation`
-
-`boolean`
-
-Output only. Flag to disable the creation of legacy Workbench notebooks (User-managed notebooks and Google-managed notebooks).
+| Fields                           |                                                                                                                                                                                                                                                      |
+|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `defaultValues`                  | `object ( `[`DefaultValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/getConfig#DefaultValues)` )` Output only. The default values for configuration.       |
+| `supportedValues`                | `object ( `[`SupportedValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/getConfig#SupportedValues)` )` Output only. The supported values for configuration. |
+| `availableImages[]`              | `object ( `[`ImageRelease`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/getConfig#ImageRelease)` )` Output only. The list of available images to create a WbI. |
+| `disableWorkbenchLegacyCreation` | `boolean` Output only. Flag to disable the creation of legacy Workbench notebooks (User-managed notebooks and Google-managed notebooks).                                                                                                             |
 
 ### Authorization scopes
 
 Requires the following OAuth scope:
 
-  - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/cloud-platform`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -86,106 +66,54 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 
 DefaultValues represents the default configuration values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;machineType&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "machineType": string
+}
+```
 
-`machineType`
-
-`string`
-
-Output only. The default machine type used by the backend if not provided by the user.
+| Fields        |                                                                                                 |
+|---------------|-------------------------------------------------------------------------------------------------|
+| `machineType` | `string` Output only. The default machine type used by the backend if not provided by the user. |
 
 ## SupportedValues
 
 SupportedValues represents the values supported by the configuration.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;machineTypes&quot;: [
+**JSON representation**
+
+```
+{
+  "machineTypes": [
     string
   ],
-  &quot;acceleratorTypes&quot;: [
+  "acceleratorTypes": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
-Fields
-
-`machineTypes[]`
-
-`string`
-
-Output only. The machine types supported by WbI.
-
-`acceleratorTypes[]`
-
-`string`
-
-Output only. The accelerator types supported by WbI.
+| Fields               |                                                               |
+|----------------------|---------------------------------------------------------------|
+| `machineTypes[]`     | `string` Output only. The machine types supported by WbI.     |
+| `acceleratorTypes[]` | `string` Output only. The accelerator types supported by WbI. |
 
 ## ImageRelease
 
 ConfigImage represents an image release available to create a WbI
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;imageName&quot;: string,
-  &quot;releaseName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "imageName": string,
+  "releaseName": string
+}
+```
 
-`imageName`
-
-`string`
-
-Output only. The name of the image of the form workbench-instances-vYYYYmmdd- -
-
-`releaseName`
-
-`string`
-
-Output only. The release of the image of the form m123
+| Fields        |                                                                                          |
+|---------------|------------------------------------------------------------------------------------------|
+| `imageName`   | `string` Output only. The name of the image of the form workbench-instances-vYYYYmmdd- - |
+| `releaseName` | `string` Output only. The release of the image of the form m123                          |

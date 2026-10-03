@@ -11,7 +11,7 @@ If you receive a quota-related error while running the Tabular Workflow for End-
 The following table shows our recommended quota values. We recommend setting the quota values as a function of the number of concurrent training jobs ( `num_concurrent_pipeline` ) and the number of CPUs in the requested region. The recommended values are valid only if you use the default Compute Engine resource configuration for your workflow.
 
 | Service            | Quota                                                                       | Recommendation                                  |
-| ------------------ | --------------------------------------------------------------------------- | ----------------------------------------------- |
+|--------------------|-----------------------------------------------------------------------------|-------------------------------------------------|
 | Compute Engine API | CPUs                                                                        | `num_concurrent_pipeline` x 440 CPUs            |
 | Compute Engine API | Persistent Disk Standard (GB)                                               | `num_concurrent_pipeline` x 5TB persistent disk |
 | Agent Platform API | Restricted image training CPUs for N1/E2 machine types per region           | `num_concurrent_pipeline` x 440 CPUs            |
@@ -21,4 +21,4 @@ The following table shows our recommended quota values. We recommend setting the
 
 ## What's next
 
-  - [Train a model using End-to-End AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-train) .
+- [Train a model using End-to-End AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-train) .

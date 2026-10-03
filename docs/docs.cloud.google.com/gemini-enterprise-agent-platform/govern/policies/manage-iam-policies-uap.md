@@ -14,9 +14,9 @@ Agent Gateway uses Identity-Aware Proxy (IAP) to enforce these egress policies a
 
 To get the permissions that you need to manage Access policies and policy bindings, ask your administrator to grant you the following IAM roles on your project:
 
-  - View Access policies and bindings: [Access Policy Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.accessPolicyViewer) ( `roles/iam.accessPolicyViewer` )
-  - Create, update, and delete Access policies and bindings: [Access Policy Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.accessPolicyAdmin) ( `roles/iam.accessPolicyAdmin` )
-  - Bind policies to a project: [Project IAM Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin) ( `roles/resourcemanager.projectIamAdmin` )
+- View Access policies and bindings: [Access Policy Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.accessPolicyViewer) ( `roles/iam.accessPolicyViewer` )
+- Create, update, and delete Access policies and bindings: [Access Policy Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.accessPolicyAdmin) ( `roles/iam.accessPolicyAdmin` )
+- Bind policies to a project: [Project IAM Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin) ( `roles/resourcemanager.projectIamAdmin` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
@@ -37,7 +37,6 @@ For more information about creating Access policies, see [Create IAM Access poli
 3.  To add an IAM Access policy for Agent Gateway egress, click add **Create** .
 
 4.  In the **Policy details** pane, do the following:
-    
     1.  Click the **Policy** field.
     2.  In the drop-down list, select **Create new policy** .
     3.  In the **Policy name** field, enter a descriptive name for the policy.
@@ -57,9 +56,9 @@ gcloud iam access-policies create POLICY_NAME \
 
 Replace the following:
 
-  - `  POLICY_NAME  ` : the name of the policy
-  - `  POLICY_FILE  ` : the path to the policy file—for example: `my-policy.json`
-  - `  PROJECT_ID  ` : the project ID that contains the policy
+- `POLICY_NAME` : the name of the policy
+- `POLICY_FILE` : the path to the policy file—for example: `my-policy.json`
+- `PROJECT_ID` : the project ID that contains the policy
 
 ### API
 
@@ -97,12 +96,12 @@ curl -X POST \
 
 Replace the following:
 
-  - `  PROJECT_ID  ` : your project ID
-  - `  POLICY_NAME  ` : the ID for the new policy
-  - `  PROJECT_NUMBER  ` : the project number
-  - `  LOCATION  ` : the agent location
-  - `  AGENT_NAME  ` : the source agent ID
-  - `  CEL_EXPRESSION  ` : your CEL condition expression
+- `PROJECT_ID` : your project ID
+- `POLICY_NAME` : the ID for the new policy
+- `PROJECT_NUMBER` : the project number
+- `LOCATION` : the agent location
+- `AGENT_NAME` : the source agent ID
+- `CEL_EXPRESSION` : your CEL condition expression
 
 ## Bind a policy to a target resource
 
@@ -126,18 +125,17 @@ gcloud iam policy-bindings create BINDING_NAME \
 
 Replace the following:
 
-  - `  BINDING_NAME  ` : the name for your policy binding
+- `BINDING_NAME` : the name for your policy binding
 
-  - `  PROJECT_ID  ` : your Google Cloud project ID
+- `PROJECT_ID` : your Google Cloud project ID
 
-  - `  POLICY_NAME  ` : the name of your access policy
+- `POLICY_NAME` : the name of your access policy
 
-  - `  TARGET_RESOURCE  ` : the full resource URI for the project, formatted as follows:
-    
-    ```html
-        //cloudresourcemanager.googleapis.com/projects/PROJECT_ID
-        
-    ```
+- `TARGET_RESOURCE` : the full resource URI for the project, formatted as follows:
+
+  ```html
+      //cloudresourcemanager.googleapis.com/projects/PROJECT_ID
+  ```
 
 ### API
 
@@ -158,10 +156,10 @@ curl -X POST \
 
 Replace the following:
 
-  - `  PROJECT_ID  ` : your project ID
-  - `  BINDING_NAME  ` : a name for your policy binding
-  - `  POLICY_NAME  ` : the name of the Access policy
-  - `  TARGET_RESOURCE  ` : the full resource URI for the project, formatted as follows: ` //cloudresourcemanager.googleapis.com/projects/ PROJECT_ID  `
+- `PROJECT_ID` : your project ID
+- `BINDING_NAME` : a name for your policy binding
+- `POLICY_NAME` : the name of the Access policy
+- `TARGET_RESOURCE` : the full resource URI for the project, formatted as follows: `//cloudresourcemanager.googleapis.com/projects/ `` PROJECT_ID`
 
 ## List policies and policy bindings
 
@@ -243,7 +241,7 @@ You can retrieve the detailed configuration and rules of a specific Access polic
 
 3.  In the **Agent policies** table in the Access policies tab, locate the policy that you want to describe.
 
-4.  In the row for the policy, click more\_vert **More actions** , and then click **View rule** .
+4.  In the row for the policy, click more_vert **More actions** , and then click **View rule** .
 
 ### gcloud
 
@@ -305,7 +303,7 @@ You can update the rules inside an existing Access policy or update the target o
 
 3.  In the **Agent policies** table in the Access policies tab, locate the policy row that you want to edit.
 
-4.  Click more\_vert **More actions** , and then click **Edit rule** .
+4.  Click more_vert **More actions** , and then click **Edit rule** .
 
 5.  Modify the rules, effect, principals, or CEL conditions.
 
@@ -422,9 +420,9 @@ To delete an Access policy, you must delete all of the rules in the policy.
 
 2.  In the project selector, select the project that contains the agent gateways that will use the Access policy.
 
-3.  In the **Agent Policies** table of the **Unified Access Policies** tab, filter filter\_list **Filter** or locate the policy that you want to delete.
+3.  In the **Agent Policies** table of the **Unified Access Policies** tab, filter filter_list **Filter** or locate the policy that you want to delete.
 
-4.  Click more\_vert **More actions** , and then click **Delete rule** .
+4.  Click more_vert **More actions** , and then click **Delete rule** .
 
 ### gcloud
 
@@ -448,9 +446,9 @@ curl -X DELETE \
 
 ## What's next
 
-  - [CEL attributes for Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
-  - [Create IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap)
-  - [Troubleshoot IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap)
+- [CEL attributes for Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
+- [Create IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap)
+- [Troubleshoot IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap)
 
 Overview
 

@@ -16,8 +16,8 @@ The management operations ( `Read` , `Update` , `Delete` ) of the context cache 
 
 Make sure that you have the following information:
 
-  - The ID and the version of the tuned Gemini model
-  - The endpoint resource name for the deployed fine-tuned model
+- The ID and the version of the tuned Gemini model
+- The endpoint resource name for the deployed fine-tuned model
 
 ## Supported versions
 

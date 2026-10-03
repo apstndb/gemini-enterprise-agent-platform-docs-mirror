@@ -24,8 +24,8 @@ Required. The name of the Dataset resource. Format: `projects/{project}/location
 
 ### Request body
 
-The request body contains an instance of `  DatasetVersion  ` .
+The request body contains an instance of [`DatasetVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.datasetVersions#DatasetVersion) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  Operation  ` .
+If successful, the response body contains a newly created instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

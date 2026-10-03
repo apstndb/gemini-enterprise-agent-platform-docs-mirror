@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.reasoningEngines.sandboxEnvironmentSnapshots.list
 
-Lists `  SandboxEnvironmentSnapshot  ` s in a given reasoning engine.
+Lists [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots#SandboxEnvironmentSnapshot) s in a given reasoning engine.
 
 ### Endpoint
 
@@ -42,32 +42,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  SandboxEnvironmentService.ListSandboxEnvironmentSnapshots  ` .
+Response message for [`SandboxEnvironmentService.ListSandboxEnvironmentSnapshots`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots/list#google.cloud.aiplatform.v1beta1.SandboxEnvironmentService.ListSandboxEnvironmentSnapshots) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`sandboxEnvironmentSnapshots[]` ` object ( SandboxEnvironmentSnapshot  ` )
+`sandboxEnvironmentSnapshots[]` `object ( `[`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots#SandboxEnvironmentSnapshot)` )`
 
 The SandboxEnvironmentSnapshots matching the request.
 
 `nextPageToken` `string`
 
-A token, which can be sent as `  ListSandboxEnvironmentSnapshotsRequest.page_token  ` to retrieve the next page. Absence of this field indicates there are no subsequent pages.
+A token, which can be sent as [`ListSandboxEnvironmentSnapshotsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots/list#body.QUERY_PARAMETERS.page_token) to retrieve the next page. Absence of this field indicates there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;sandboxEnvironmentSnapshots&quot;: [{object (SandboxEnvironmentSnapshot)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "sandboxEnvironmentSnapshots": [
+    {
+      object (SandboxEnvironmentSnapshot)
+    }
+  ],
+  "nextPageToken": string
+}
+```

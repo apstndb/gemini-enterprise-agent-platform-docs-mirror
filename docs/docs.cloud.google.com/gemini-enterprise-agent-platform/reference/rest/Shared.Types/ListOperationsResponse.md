@@ -6,11 +6,11 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-The response message for `  Operations.ListOperations  ` .
+The response message for [`Operations.ListOperations`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.operations/list#google.longrunning.Operations.ListOperations) .
 
 Fields
 
-`operations[]` ` object ( Operation  ` )
+`operations[]` `object ( `[`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation)` )`
 
 A list of operations that matches the specified filter in the request.
 
@@ -22,21 +22,21 @@ The standard List next-page token.
 
 Unordered list. Unreachable resources. Populated when the request sets `ListOperationsRequest.return_partial_success` and reads across collections. For example, when attempting to list all resources across all supported locations.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;operations&quot;: [{object (Operation)}],&quot;nextPageToken&quot;: string,&quot;unreachable&quot;: [string]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "operations": [
+    {
+      object (Operation)
+    }
+  ],
+  "nextPageToken": string,
+  "unreachable": [
+    string
+  ]
+}
+```
 
 ## Operation
 
@@ -62,7 +62,7 @@ If the value is `false` , it means the operation is still in progress. If `true`
 
 The operation result, which can be either an `error` or a valid `response` . If `done` == `false` , neither `error` nor `response` is set. If `done` == `true` , exactly one of `error` or `response` can be set. Some services might not provide the result. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`error` ` object ( Status  ` )
+`error` `object ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Status)` )`
 
 The error result of the operation in case of failure or cancellation.
 
@@ -74,21 +74,30 @@ An object containing fields of an arbitrary type. An additional field `"@type"` 
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;metadata&quot;: {&quot;@type&quot;: string,field1: ...,...},&quot;done&quot;: boolean,// result&quot;error&quot;: {object (Status)},&quot;response&quot;: {&quot;@type&quot;: string,field1: ...,...}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "metadata": {
+    "@type": string,
+    field1: ...,
+    ...
+  },
+  "done": boolean,
+
+  // result
+  "error": {
+    object (Status)
+  },
+  "response": {
+    "@type": string,
+    field1: ...,
+    ...
+  }
+  // Union type
+}
+```
 
 ## Status
 
@@ -100,11 +109,11 @@ Fields
 
 `code` `integer`
 
-The status code, which should be an enum value of `  google.rpc.Code  ` .
+The status code, which should be an enum value of [`google.rpc.Code`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Code) .
 
 `message` `string`
 
-A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the `  google.rpc.Status.details  ` field, or localized by the client.
+A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [`google.rpc.Status.details`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Status.FIELDS.details) field, or localized by the client.
 
 `details[]` `object`
 
@@ -112,28 +121,18 @@ A list of messages that carry the error details. There is a common set of messag
 
 An object containing fields of an arbitrary type. An additional field `"@type"` contains a URI identifying the type. Example: `{ "id": 1234, "@type": "types.example.com/standard/id" }` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;code&quot;: integer,
-  &quot;message&quot;: string,
-  &quot;details&quot;: [
+**JSON representation**
+
+```
+{
+  "code": integer,
+  "message": string,
+  "details": [
     {
-      &quot;@type&quot;: string,
+      "@type": string,
       field1: ...,
       ...
     }
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

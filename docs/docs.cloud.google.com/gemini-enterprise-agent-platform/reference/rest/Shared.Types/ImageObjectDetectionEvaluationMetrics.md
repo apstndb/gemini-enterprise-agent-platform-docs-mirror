@@ -10,7 +10,7 @@ Metrics for image object detection evaluation results.
 
 Fields
 
-`boundingBoxMetrics[]` ` object ( BoundingBoxMetrics  ` )
+`boundingBoxMetrics[]` `object ( `[`BoundingBoxMetrics`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/BoundingBoxMetrics)` )`
 
 The bounding boxes match metrics for each intersection-over-union threshold 0.05,0.10,...,0.95,0.96,0.97,0.98,0.99 and each label confidence threshold 0.05,0.10,...,0.95,0.96,0.97,0.98,0.99 pair.
 
@@ -22,18 +22,16 @@ The total number of bounding boxes (i.e. summed over all images) the ground trut
 
 The single metric for bounding boxes evaluation: the `meanAveragePrecision` averaged over all `boundingBoxMetricsEntries` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;boundingBoxMetrics&quot;: [{object (BoundingBoxMetrics)}],&quot;evaluatedBoundingBoxCount&quot;: integer,&quot;boundingBoxMeanAveragePrecision&quot;: number}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "boundingBoxMetrics": [
+    {
+      object (BoundingBoxMetrics)
+    }
+  ],
+  "evaluatedBoundingBoxCount": integer,
+  "boundingBoxMeanAveragePrecision": number
+}
+```

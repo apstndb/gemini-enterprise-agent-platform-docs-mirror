@@ -22,9 +22,9 @@ Granting a principal access to a Agent Platform Workbench instance's JupyterLab 
 
 Agent Platform Workbench instances support the following access modes:
 
-  - [Single user only](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab#single-user-only) : The **Single user only** access mode grants access only to the user that you specify.
+- [Single user only](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab#single-user-only) : The **Single user only** access mode grants access only to the user that you specify.
 
-  - [Service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab#service-account) : The **Service account** access mode grants access to a service account. You can grant access to one or more users through this service account.
+- [Service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab#service-account) : The **Service account** access mode grants access to a service account. You can grant access to one or more users through this service account.
 
 > **Note:** To grant access to the instance through the single user option or the service account, you must use an individual's user account email address. Group access is not supported.
 
@@ -39,9 +39,9 @@ When you create a Agent Platform Workbench instance with **Single user only** ac
 To grant access to a single user, complete the following steps.
 
 1.  [Create a Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-console-quickstart) with the following specifications:
-    
+
     1.  In the **Create instance** dialog, in the **IAM and security** section, select the **Single user only** access mode.
-    
+
     2.  In the **User email** field, enter the user account that you want to grant access.
 
 2.  Complete the rest of the dialog, and then click **Create** .
@@ -52,22 +52,22 @@ When you create a Agent Platform Workbench instance with **Service account** acc
 
 When you specify a service account, choose one of the following:
 
-  - Select the Compute Engine default service account.
-  - Specify a custom service account. The custom service account must be in the same project as your Agent Platform Workbench instance. To create the instance, you must have the `iam.serviceAccounts.actAs` permission on the service account.
+- Select the Compute Engine default service account.
+- Specify a custom service account. The custom service account must be in the same project as your Agent Platform Workbench instance. To create the instance, you must have the `iam.serviceAccounts.actAs` permission on the service account.
 
 To grant access to users through a service account, you grant the `iam.serviceAccounts.actAs` permission on the specified service account for each user who needs to access JupyterLab.
 
 ### Grant access to multiple users through a service account
 
 1.  [Create a Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-console-quickstart) with the following specifications:
-    
+
     1.  In the **Create instance** dialog, in the **IAM and security** section, select the **Service account** access mode.
-    
+
     2.  Choose the Compute Engine default service account or a [custom service account](https://docs.cloud.google.com/iam/docs/creating-managing-service-accounts) .
-        
-          - To use the Compute Engine default service account, select **Use Compute Engine default service account** .
-        
-          - To use a custom service account, clear **Use Compute Engine default service account** , and then, in the **Service account email** field, enter your custom service account email address.
+
+        - To use the Compute Engine default service account, select **Use Compute Engine default service account** .
+
+        - To use a custom service account, clear **Use Compute Engine default service account** , and then, in the **Service account email** field, enter your custom service account email address.
 
 2.  Complete the rest of the dialog, and then click **Create** .
 
@@ -79,8 +79,8 @@ The access mode that you configure during Agent Platform Workbench instance crea
 
 When you select the **Single user only** access mode, Agent Platform Workbench stores a value for `proxy-mode` and `proxy-user-mail` . The following are examples of single user access metadata entries:
 
-  - `proxy-mode=mail`
-  - `proxy-user-mail=user@example.com`
+- `proxy-mode=mail`
+- `proxy-user-mail=user@example.com`
 
 When you select the **Service account** access mode, Agent Platform Workbench stores a `proxy-mode=service_account` metadata entry.
 
@@ -88,6 +88,6 @@ When you select the **Service account** access mode, Agent Platform Workbench st
 
 ## What's next
 
-  - [Grant a principal access to a Agent Platform Workbench instance.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access)
+- [Grant a principal access to a Agent Platform Workbench instance.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access)
 
-  - To learn how to grant access to other Google resources, see [Manage access to other resources](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+- To learn how to grant access to other Google resources, see [Manage access to other resources](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .

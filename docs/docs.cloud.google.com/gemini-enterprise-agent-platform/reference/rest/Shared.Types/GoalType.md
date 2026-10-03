@@ -8,16 +8,8 @@ data_source: docs.cloud.google.com
 
 The available types of optimization goals.
 
-Enums
-
-`GOAL_TYPE_UNSPECIFIED`
-
-Goal type will default to maximize.
-
-`MAXIMIZE`
-
-Maximize the goal metric.
-
-`MINIMIZE`
-
-Minimize the goal metric.
+| Enums                   |                                     |
+|-------------------------|-------------------------------------|
+| `GOAL_TYPE_UNSPECIFIED` | Goal type will default to maximize. |
+| `MAXIMIZE`              | Maximize the goal metric.           |
+| `MINIMIZE`              | Minimize the goal metric.           |

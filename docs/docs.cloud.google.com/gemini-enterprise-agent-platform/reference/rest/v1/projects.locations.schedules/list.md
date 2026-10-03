@@ -28,23 +28,23 @@ Required. The resource name of the Location to list the Schedules from. Format: 
 
 Lists the Schedules that match the filter expression. The following fields are supported:
 
-  - `displayName` : Supports `=` , `!=` comparisons, and `:` wildcard.
-  - `state` : Supports `=` and `!=` comparisons.
-  - `request` : Supports existence of the check. (e.g. `createPipelineJobRequest:*` --\> Schedule has createPipelineJobRequest).
-  - `createTime` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons. Values must be in RFC 3339 format.
-  - `startTime` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons. Values must be in RFC 3339 format.
-  - `endTime` : Supports `=` , `!=` , `<` , `>` , `<=` , `>=` comparisons and `:*` existence check. Values must be in RFC 3339 format.
-  - `nextRunTime` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons. Values must be in RFC 3339 format.
+- `displayName` : Supports `=` , `!=` comparisons, and `:` wildcard.
+- `state` : Supports `=` and `!=` comparisons.
+- `request` : Supports existence of the check. (e.g. `createPipelineJobRequest:*` --\> Schedule has createPipelineJobRequest).
+- `createTime` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons. Values must be in RFC 3339 format.
+- `startTime` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons. Values must be in RFC 3339 format.
+- `endTime` : Supports `=` , `!=` , `<` , `>` , `<=` , `>=` comparisons and `:*` existence check. Values must be in RFC 3339 format.
+- `nextRunTime` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons. Values must be in RFC 3339 format.
 
 Filter expressions can be combined together using logical operators ( `NOT` , `AND` & `OR` ). The syntax to define filter expression is based on <https://google.aip.dev/160> .
 
 Examples:
 
-  - `state="ACTIVE" AND displayName:"my_schedule_*"`
-  - `NOT displayName="my_schedule"`
-  - `createTime>"2021-05-18T00:00:00Z"`
-  - `endTime>"2021-05-18T00:00:00Z" OR NOT endTime:*`
-  - `createPipelineJobRequest:*`
+- `state="ACTIVE" AND displayName:"my_schedule_*"`
+- `NOT displayName="my_schedule"`
+- `createTime>"2021-05-18T00:00:00Z"`
+- `endTime>"2021-05-18T00:00:00Z" OR NOT endTime:*`
+- `createPipelineJobRequest:*`
 
 `pageSize` `integer`
 
@@ -52,7 +52,7 @@ The standard list page size. Default to 100 if not specified.
 
 `pageToken` `string`
 
-The standard list page token. Typically obtained via `  ListSchedulesResponse.next_page_token  ` of the previous `  ScheduleService.ListSchedules  ` call.
+The standard list page token. Typically obtained via [`ListSchedulesResponse.next_page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.schedules/list#body.ListSchedulesResponse.FIELDS.next_page_token) of the previous [`ScheduleService.ListSchedules`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.schedules/list#google.cloud.aiplatform.v1.ScheduleService.ListSchedules) call.
 
 `orderBy` `string`
 
@@ -64,10 +64,10 @@ If orderBy is not specified, it will order by default with createTime in descend
 
 Supported fields:
 
-  - `createTime`
-  - `startTime`
-  - `endTime`
-  - `nextRunTime`
+- `createTime`
+- `startTime`
+- `endTime`
+- `nextRunTime`
 
 ### Request body
 
@@ -75,32 +75,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  ScheduleService.ListSchedules  `
+Response message for [`ScheduleService.ListSchedules`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.schedules/list#google.cloud.aiplatform.v1.ScheduleService.ListSchedules)
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`schedules[]` ` object ( Schedule  ` )
+`schedules[]` `object ( `[`Schedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.schedules#Schedule)` )`
 
 List of Schedules in the requested page.
 
 `nextPageToken` `string`
 
-A token to retrieve the next page of results. Pass to `  ListSchedulesRequest.page_token  ` to obtain that page.
+A token to retrieve the next page of results. Pass to [`ListSchedulesRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.schedules/list#body.QUERY_PARAMETERS.page_token) to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;schedules&quot;: [{object (Schedule)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "schedules": [
+    {
+      object (Schedule)
+    }
+  ],
+  "nextPageToken": string
+}
+```

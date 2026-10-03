@@ -28,4 +28,4 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Skill  ` .
+If successful, the response body contains an instance of [`Skill`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills#Skill) .

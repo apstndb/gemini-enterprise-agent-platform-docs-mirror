@@ -12,37 +12,37 @@ data_source: docs.cloud.google.com
 
 Built for long-horizon coding and autonomous agents
 
-  - Improved response quality
-  - More reliable code generation
-  - Stronger multimodal reasoning
+- Improved response quality
+- More reliable code generation
+- Stronger multimodal reasoning
 
-[](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
+[Learn more about 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
 
 3.5 Flash-Lite
 
 Our fast, budget-friendly way to power your everyday applications
 
-  - Optimized for low latency and high-volume traffic
-  - Capable tool orchestration
-  - Precise document understanding
+- Optimized for low latency and high-volume traffic
+- Capable tool orchestration
+- Precise document understanding
 
-[](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
+[Learn more about 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
 
 3.1 Flash Image
 
 Turn ideas into production-ready assets
 
-  - Generate high-quality images
-  - Capable of turn-based conversational editing
-  - Capable of multi-image fusion and character consistency for advanced creative workflows
+- Generate high-quality images
+- Capable of turn-based conversational editing
+- Capable of multi-image fusion and character consistency for advanced creative workflows
 
-[](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
+[Learn more about 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
 
 ## Generally available Gemini models
 
 spark [Gemini 3.8 Flash Cyber (Gemini Cyber)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber) Our model optimized for cyber security.
 
-audio\_spark [Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live) Optimized for live interactions, with improved voice quality, reliability, and real-time agent orchestration.
+audio_spark [Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live) Optimized for live interactions, with improved voice quality, reliability, and real-time agent orchestration.
 
 spark [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) Our most intelligent workhorse model yet, built for long-horizon coding and autonomous agents.
 
@@ -50,27 +50,27 @@ spark [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-p
 
 spark [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash) Optimized for complex, multi-step workflows, improved code generation, and improved multimodal reasoning—all while using fewer tokens.
 
-performance\_auto [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite) Create lightweight agentic workflows at top speeds and minimal cost.
+performance_auto [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite) Create lightweight agentic workflows at top speeds and minimal cost.
 
-banana\_spark [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) Turn ideas into production-ready assets. Designed for high-volume and latency-sensitive workloads.
+banana_spark [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) Turn ideas into production-ready assets. Designed for high-volume and latency-sensitive workloads.
 
-banana\_spark [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) Turn ideas into production-ready assets. Features conversational editing, multi-image fusion, and character consistency for advanced creative workflows.
+banana_spark [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) Turn ideas into production-ready assets. Features conversational editing, multi-image fusion, and character consistency for advanced creative workflows.
 
-banana\_spark [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) High-fidelity image generation with reasoning-enhanced composition. Supports legible text rendering, complex multi-turn editing, and character consistency using up to 14 reference inputs.
+banana_spark [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) High-fidelity image generation with reasoning-enhanced composition. Supports legible text rendering, complex multi-turn editing, and character consistency using up to 14 reference inputs.
 
 spark [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash) Gemini 3.5 Flash delivers near-Pro intelligence at Flash-tier cost and speed: Pro-level coding proficiency, parallel agentic execution, all at the same price point as a Flash model.
 
-performance\_auto [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite) Our most cost-efficient model, optimized for low latency use cases for high-volume, cost-sensitive LLM traffic.
+performance_auto [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite) Our most cost-efficient model, optimized for low latency use cases for high-volume, cost-sensitive LLM traffic.
 
 diamond [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro) Our high-capability model for complex reasoning and coding. Features adaptive thinking capabilities to solve complex agentic and multimodal challenges with a 1 million token context.
 
 spark [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash) Lightning-fast and highly capable. Delivers a balance of intelligence and latency with controllable thinking budgets for versatile applications.
 
-banana\_spark [Gemini 2.5 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image) Turn ideas into production-ready assets. Features conversational editing, multi-image fusion, and character consistency for advanced creative workflows.
+banana_spark [Gemini 2.5 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image) Turn ideas into production-ready assets. Features conversational editing, multi-image fusion, and character consistency for advanced creative workflows.
 
-performance\_auto [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite) Built for massive scale. Balances cost and performance for high-throughput tasks, optimized for efficiency without sacrificing multimodal understanding.
+performance_auto [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite) Built for massive scale. Balances cost and performance for high-throughput tasks, optimized for efficiency without sacrificing multimodal understanding.
 
-audio\_spark [Gemini 2.5 Flash with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api) Designed for real-time, bidirectional streaming. Features low-latency built-in audio and affective dialogue capabilities for natural, conversational interactions.
+audio_spark [Gemini 2.5 Flash with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api) Designed for real-time, bidirectional streaming. Features low-latency built-in audio and affective dialogue capabilities for natural, conversational interactions.
 
 ## Preview Gemini models
 
@@ -114,9 +114,9 @@ preview [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-age
 
 ## Embeddings models
 
-width\_normal [Embeddings for Text](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-embedding-001) Converts text data into vector representations for semantic search, classification, and clustering.
+width_normal [Embeddings for Text](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-embedding-001) Converts text data into vector representations for semantic search, classification, and clustering.
 
-width\_normal [Multimodal Embeddings](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/multimodalembedding) Generates vectors based on images, for tasks such as image classification and search.
+width_normal [Multimodal Embeddings](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/multimodalembedding) Generates vectors based on images, for tasks such as image classification and search.
 
 ## Veo models
 
@@ -134,11 +134,11 @@ movie [Veo 3.1 Lite preview](https://docs.cloud.google.com/gemini-enterprise-age
 
 ## Lyria models
 
-music\_note\_spark [Lyria 3 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/lyria/lyria-3#lyria-3-pro-preview) ( [Preview](https://cloud.google.com/products#product-launch-stages) ) Generates full-length music tracks from text and image prompts.
+music_note_spark [Lyria 3 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/lyria/lyria-3#lyria-3-pro-preview) ( [Preview](https://cloud.google.com/products#product-launch-stages) ) Generates full-length music tracks from text and image prompts.
 
-music\_note\_spark [Lyria 3 Clip](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/lyria/lyria-3#lyria-3-clip-preview) ( [Preview](https://cloud.google.com/products#product-launch-stages) ) Generates 30s audio clips from text and image prompts.
+music_note_spark [Lyria 3 Clip](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/lyria/lyria-3#lyria-3-clip-preview) ( [Preview](https://cloud.google.com/products#product-launch-stages) ) Generates 30s audio clips from text and image prompts.
 
-audio\_spark [Lyria 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/lyria/lyria-002) Generates music from text prompts.
+audio_spark [Lyria 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/lyria/lyria-002) Generates music from text prompts.
 
 ## Language support
 

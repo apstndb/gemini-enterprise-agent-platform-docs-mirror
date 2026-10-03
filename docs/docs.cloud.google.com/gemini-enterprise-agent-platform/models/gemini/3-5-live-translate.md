@@ -14,68 +14,70 @@ To get started, view the [introductory notebook for Gemini 3.5 Live Translate](h
 
 The `BidiGenerateContent` (Live) API maintains a persistent, bidirectional WebSocket connection. You stream raw audio chunks to the session and receive translated audio chunks and optional transcripts in real time.
 
-    import asyncio
-    from google import genai
-    from google.genai import types
-    
-    # Initialize the client for Vertex AI / Agent Platform
-    client = genai.Client(enterprise=True, project=PROJECT_ID, location=LOCATION)
-    
-    model = "gemini-3.5-live-translate-preview"
-    config = types.LiveConnectConfig(
-        response_modalities=["AUDIO"],
-        input_audio_transcription=types.AudioTranscriptionConfig(),
-        output_audio_transcription=types.AudioTranscriptionConfig(),
-        translation_config=types.TranslationConfig(
-            target_language_code="pl",
-            echo_target_language=True,
-        ),
-    )
-    
-    async def streaming_translation(audio_stream_generator):
-        async with client.aio.live.connect(model=model, config=config) as session:
-            # In a complete implementation, stream audio chunks concurrently:
-            # async for chunk in audio_stream_generator:
-            #     await session.send_realtime_input(
-            #         audio=types.Blob(data=chunk, mime_type="audio/pcm;rate=16000")
-            #     )
-    
-            async for response in session.receive():
-                if response.server_content:
-                    server_content = response.server_content
-    
-                    if server_content.input_transcription:
-                        print(f"Input transcript: {server_content.input_transcription.text}")
-    
-                    if server_content.output_transcription:
-                        print(f"Output transcript: {server_content.output_transcription.text}")
-    
-                    if server_content.model_turn:
-                        for part in server_content.model_turn.parts:
-                            if part.inline_data:
-                                translated_audio_chunk = part.inline_data.data
-                                # Process or stream translated audio (24kHz PCM)
-                                print(f"Received translated audio: {len(translated_audio_chunk)} bytes")
+```
+import asyncio
+from google import genai
+from google.genai import types
+
+# Initialize the client for Vertex AI / Agent Platform
+client = genai.Client(enterprise=True, project=PROJECT_ID, location=LOCATION)
+
+model = "gemini-3.5-live-translate-preview"
+config = types.LiveConnectConfig(
+    response_modalities=["AUDIO"],
+    input_audio_transcription=types.AudioTranscriptionConfig(),
+    output_audio_transcription=types.AudioTranscriptionConfig(),
+    translation_config=types.TranslationConfig(
+        target_language_code="pl",
+        echo_target_language=True,
+    ),
+)
+
+async def streaming_translation(audio_stream_generator):
+    async with client.aio.live.connect(model=model, config=config) as session:
+        # In a complete implementation, stream audio chunks concurrently:
+        # async for chunk in audio_stream_generator:
+        #     await session.send_realtime_input(
+        #         audio=types.Blob(data=chunk, mime_type="audio/pcm;rate=16000")
+        #     )
+
+        async for response in session.receive():
+            if response.server_content:
+                server_content = response.server_content
+
+                if server_content.input_transcription:
+                    print(f"Input transcript: {server_content.input_transcription.text}")
+
+                if server_content.output_transcription:
+                    print(f"Output transcript: {server_content.output_transcription.text}")
+
+                if server_content.model_turn:
+                    for part in server_content.model_turn.parts:
+                        if part.inline_data:
+                            translated_audio_chunk = part.inline_data.data
+                            # Process or stream translated audio (24kHz PCM)
+                            print(f"Received translated audio: {len(translated_audio_chunk)} bytes")
+```
 
 ## Audio specifications
 
 Stream audio as raw, little-endian, 16-bit linear PCM:
 
-  - Input format: 16-bit linear PCM at 16kHz (mono, little-endian).
+- Input format: 16-bit linear PCM at 16kHz (mono, little-endian).
 
-  - Output format: 16-bit linear PCM at 24kHz (mono, little-endian).
+- Output format: 16-bit linear PCM at 24kHz (mono, little-endian).
 
-  - Streaming chunk size: Chunks of 100ms duration are recommended for optimal balance between throughput and latency.
+- Streaming chunk size: Chunks of 100ms duration are recommended for optimal balance between throughput and latency.
 
-<!-- end list -->
-
-    # Streaming an audio chunk to an active session
-    await session.send_realtime_input(
-        audio=types.Blob(
-            data=pcm_bytes,
-            mime_type="audio/pcm;rate=16000",
-        )
+```
+# Streaming an audio chunk to an active session
+await session.send_realtime_input(
+    audio=types.Blob(
+        data=pcm_bytes,
+        mime_type="audio/pcm;rate=16000",
     )
+)
+```
 
 ## Configuration
 
@@ -83,19 +85,19 @@ Live Translation is configured by attaching a `TranslationConfig` to your `LiveC
 
 ### Configuration parameters
 
-  - **`target_language_code`** *(string)* : The [BCP-47 language code](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate#supported-languages) for the desired output language (e.g., `"pl"` , `"es"` , `"ja"` ). Defaults to `"en"` .
-  - **`echo_target_language`** *(boolean)* : Controls behavior when spoken input is already in the target language:
-      - `True` : The model reproduces and echoes the input speech in the output stream.
-      - `False` : The model remains silent when input matches the target language. Defaults to `False` .
-  - **`input_audio_transcription`** *(AudioTranscriptionConfig)* : Optional. Enables synchronized text transcription for the incoming source audio.
-  - **`output_audio_transcription`** *(AudioTranscriptionConfig)* : Optional. Enables synchronized text transcription for the outgoing translated audio.
+- **`target_language_code`** *(string)* : The [BCP-47 language code](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate#supported-languages) for the desired output language (e.g., `"pl"` , `"es"` , `"ja"` ). Defaults to `"en"` .
+- **`echo_target_language`** *(boolean)* : Controls behavior when spoken input is already in the target language:
+  - `True` : The model reproduces and echoes the input speech in the output stream.
+  - `False` : The model remains silent when input matches the target language. Defaults to `False` .
+- **`input_audio_transcription`** *(AudioTranscriptionConfig)* : Optional. Enables synchronized text transcription for the incoming source audio.
+- **`output_audio_transcription`** *(AudioTranscriptionConfig)* : Optional. Enables synchronized text transcription for the outgoing translated audio.
 
 ## Language support
 
 The following languages and BCP-47 language codes are supported for Gemini 3.5 Live Translate:
 
 | Language              | BCP-47 Code | Language              | BCP-47 Code |
-| :-------------------- | :---------- | :-------------------- | :---------- |
+|-----------------------|-------------|-----------------------|-------------|
 | Afrikaans             | `af`        | Kazakh                | `kk`        |
 | Akan                  | `ak`        | Khmer                 | `km`        |
 | Albanian              | `sq`        | Kinyarwanda           | `rw`        |
@@ -138,99 +140,118 @@ The following languages and BCP-47 language codes are supported for Gemini 3.5 L
 
 ## Best practices
 
-  - Maintain consistent sampling: Ensure audio input strictly adheres to 16kHz mono PCM to prevent pitch shifts and audio artifacts.
+- Maintain consistent sampling: Ensure audio input strictly adheres to 16kHz mono PCM to prevent pitch shifts and audio artifacts.
 
-  - Handle acoustic environments: While the model filters moderate ambient noise, strong background chatter or overlapping speakers can introduce translation ambiguity.
+- Handle acoustic environments: While the model filters moderate ambient noise, strong background chatter or overlapping speakers can introduce translation ambiguity.
 
-  - Evaluate echo mode per use case: Set echo\_target\_language=False for one-way interpreter setups to suppress unnecessary rebroadcasting when speakers already use the target language.
+- Evaluate echo mode per use case: Set echo_target_language=False for one-way interpreter setups to suppress unnecessary rebroadcasting when speakers already use the target language.
 
 [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
-Model ID
-
-`['gemini-3.5-live-translate-preview']`
-
-Modalities
-
-description
-
-Text  
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>['gemini-3.5-live-translate-preview']</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Modalities</th>
+<td>description
+Text<br />
 Output only
-
-hide\_image
-
-Image  
+hide_image
+Image<br />
 Not supported
-
 mic
-
-Audio  
+Audio<br />
 Input and output
-
-videocam\_off
-
-Video  
-Not supported
-
-Capabilities
-
-  - [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking)  
-    Not supported
-  - [System instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instruction-introduction)  
-    Not supported
-  - [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) preview Preview feature  
-    Not supported
-  - [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)  
-    Not supported
-  - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output)  
-    Not supported
-  - [Context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview)  
-    Not supported
-  - [Count Tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count)  
-    Not supported
-  - [RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview)  
-    Not supported
-  - [Chat completions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview)  
-    Not supported
-  - [Tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models)  
-    Not supported
-  - [URL context](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context)  
-    Not supported
-  - [Agentic video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing) preview Preview feature  
-    Not supported
-
-Tools
-
-  - [Grounding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview)  
-    Not supported
-  - [Code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution)  
-    Not supported
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)  
-    Not supported
-  - [Computer use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use) preview Preview feature  
-    Not supported
-
-Consumption options
-
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
-    Not supported
-  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
-    Not supported
-  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
-    Standard PayGo  
-    Supported
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
-    Not supported
-
-Supported regions
-
-**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
-
-  - Global: `global`
-
-Versions
-
-`gemini-3.5-live-translate-preview`
-
-  - Launch stage: Preview
-  - Release date: August 2026
+videocam_off
+Video<br />
+Not supported</td>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Capabilities</th>
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking">Thinking</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instruction-introduction">System instructions</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions">Interactions API</a> preview Preview feature<br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api">Gemini Live API</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output">Structured output</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview">Context caching</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count">Count Tokens</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview">RAG Engine</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview">Chat completions</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models">Tuning</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context">URL context</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing">Agentic video understanding</a> preview Preview feature<br />
+Not supported</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Tools</th>
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview">Grounding</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution">Code execution</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling">Function calling</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use">Computer use</a> preview Preview feature<br />
+Not supported</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Consumption options</th>
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference">Batch inference</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
+Standard PayGo<br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
+Not supported</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Supported regions</th>
+<td><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations">Model availability</a></strong></p></td>
+<td><ul>
+<li>Global: <code>global</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Versions</th>
+<td><ul>
+<li><code>gemini-3.5-live-translate-preview</code>
+<ul>
+<li>Launch stage: Preview</li>
+<li>Release date: August 2026</li>
+</ul></li>
+</ul></td>
+<td></td>
+</tr>
+</tbody>
+</table>

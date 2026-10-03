@@ -7,18 +7,18 @@ data_source: docs.cloud.google.com
 ---
 
 > To see an example of how to use hybrid search, run the "Combining Semantic & Keyword Search: A Hybrid Search Tutorial with Vector Search" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/embeddings/hybrid-search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fembeddings%2Fhybrid-search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fembeddings%2Fhybrid-search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/embeddings/hybrid-search.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/embeddings/hybrid-search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fembeddings%2Fhybrid-search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fembeddings%2Fhybrid-search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/embeddings/hybrid-search.ipynb)
 
 Vector Search supports hybrid search, a popular architecture pattern in information retrieval (IR) that combines both semantic search and keyword search (also called token-based search). With hybrid search, developers can take advantage of the best of the two approaches, effectively providing higher search quality.
 
 This page explains the concepts of hybrid search, semantic search, and token-based search, and includes examples of how to set up token-based search and hybrid search:
 
-  - [Why does hybrid search matter?](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/about-hybrid-search#why-does-hybrid-search-matter)
-  - [Example: How to use token-based search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/about-hybrid-search#how-to-use-token-based-search)
-  - [Example: How to use hybrid search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/about-hybrid-search#how-to-use-hybrid-search)
-  - [Start using hybrid search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/about-hybrid-search#get-started)
-  - [Additional concepts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/about-hybrid-search#additional-concepts)
+- [Why does hybrid search matter?](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/about-hybrid-search#why-does-hybrid-search-matter)
+- [Example: How to use token-based search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/about-hybrid-search#how-to-use-token-based-search)
+- [Example: How to use hybrid search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/about-hybrid-search#how-to-use-hybrid-search)
+- [Start using hybrid search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/about-hybrid-search#get-started)
+- [Additional concepts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/about-hybrid-search#additional-concepts)
 
 ## Why does hybrid search matter?
 
@@ -70,8 +70,10 @@ The first step is to prepare a data file to build an index for sparse embeddings
 
 In JSON, the data file looks like this:
 
-    {"id": "3", "sparse_embedding": {"values": [0.1, 0.2], "dimensions": [1, 4]}}
-    {"id": "4", "sparse_embedding": {"values": [-0.4, 0.2, -1.3], "dimensions": [10, 20, 30]}}
+```
+{"id": "3", "sparse_embedding": {"values": [0.1, 0.2], "dimensions": [1, 4]}}
+{"id": "4", "sparse_embedding": {"values": [-0.4, 0.2, -1.3], "dimensions": [10, 20, 30]}}
+```
 
 Each item should have a `sparse_embedding` property that has `values` and `dimensions` properties. Sparse embeddings have thousands of dimensions with a few non-zero values. This data format works efficiently because it contains the non-zero values only with their positions in the space.
 
@@ -79,32 +81,36 @@ Each item should have a `sparse_embedding` property that has `values` and `dimen
 
 As a sample dataset, we'll use the [Google Merch Shop](https://shop.merch.google/) dataset, which has about 200 rows of Google-branded goods.
 
-    0                          Google Sticker
-    1                    Google Cloud Sticker
-    2                       Android Black Pen
-    3                   Google Ombre Lime Pen
-    4                    For Everyone Eco Pen
-                          ...
-    197        Google Recycled Black Backpack
-    198    Google Cascades Unisex Zip Sweater
-    199    Google Cascades Womens Zip Sweater
-    200         Google Cloud Skyline Backpack
-    201       Google City Black Tote Backpack
+```
+0                          Google Sticker
+1                    Google Cloud Sticker
+2                       Android Black Pen
+3                   Google Ombre Lime Pen
+4                    For Everyone Eco Pen
+                      ...
+197        Google Recycled Black Backpack
+198    Google Cascades Unisex Zip Sweater
+199    Google Cascades Womens Zip Sweater
+200         Google Cloud Skyline Backpack
+201       Google City Black Tote Backpack
+```
 
 ### Prepare a TF-IDF vectorizer
 
 With this dataset, we'll train a vectorizer, a model that generates sparse embeddings from a text. This example uses [TfidfVectorizer in scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html) , which is a basic vectorizer that uses the [TF-IDF algorithm](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) .
 
-    from sklearn.feature_extraction.text import TfidfVectorizer
-    
-    # Make a list of the item titles
-    corpus = df.title.tolist()
-    
-    # Initialize TfidfVectorizer
-    vectorizer = TfidfVectorizer()
-    
-    # Fit and Transform
-    vectorizer.fit_transform(corpus)
+```
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+# Make a list of the item titles
+corpus = df.title.tolist()
+
+# Initialize TfidfVectorizer
+vectorizer = TfidfVectorizer()
+
+# Fit and Transform
+vectorizer.fit_transform(corpus)
+```
 
 The variable `corpus` holds a list of the 200 item names, such as "Google Sticker" or "Chrome Dino Pin". Then, the code passes them to the vectorizer by calling the `fit_transform()` function. With that, the vectorizer gets ready to generate sparse embeddings.
 
@@ -116,89 +122,109 @@ In this example, we use the basic word-level tokenization and TF-IDF vectorizati
 
 To make the vectorizer easier to use with Vector Search, we'll define a wrapper function, `get_sparse_embedding()` :
 
-    def get_sparse_embedding(text):
-    
-      # Transform Text into TF-IDF Sparse Vector
-      tfidf_vector = vectorizer.transform([text])
-    
-      # Create Sparse Embedding for the New Text
-      values = []
-      dims = []
-      for i, tfidf_value in enumerate(tfidf_vector.data):
-        values.append(float(tfidf_value))
-        dims.append(int(tfidf_vector.indices[i]))
-      return {"values": values, "dimensions": dims}
+```
+def get_sparse_embedding(text):
+
+  # Transform Text into TF-IDF Sparse Vector
+  tfidf_vector = vectorizer.transform([text])
+
+  # Create Sparse Embedding for the New Text
+  values = []
+  dims = []
+  for i, tfidf_value in enumerate(tfidf_vector.data):
+    values.append(float(tfidf_value))
+    dims.append(int(tfidf_vector.indices[i]))
+  return {"values": values, "dimensions": dims}
+```
 
 This function passes the parameter "text" to the vectorizer to generate a sparse embedding. Then convert it to the `{"values": ...., "dimensions": ...}` format mentioned earlier for building a Vector Search sparse index.
 
 You can test this function:
 
-    text_text = "Chrome Dino Pin"
-    get_sparse_embedding(text_text)
+```
+text_text = "Chrome Dino Pin"
+get_sparse_embedding(text_text)
+```
 
 This should output the following sparse embedding:
 
-    {'values': [0.6756557405747007, 0.5212913389979028, 0.5212913389979028],
-     'dimensions': [157, 48, 33]}
+```
+{'values': [0.6756557405747007, 0.5212913389979028, 0.5212913389979028],
+ 'dimensions': [157, 48, 33]}
+```
 
 ### Create an input data file
 
 For this example, we'll generate sparse embeddings for all 200 items.
 
-    items = []
-    for i in range(len(df)):
-      id = i
-      title = df.title[i]
-      sparse_embedding = get_sparse_embedding(title)
-      items.append({"id": id, "title": title, "sparse_embedding": sparse_embedding})
+```
+items = []
+for i in range(len(df)):
+  id = i
+  title = df.title[i]
+  sparse_embedding = get_sparse_embedding(title)
+  items.append({"id": id, "title": title, "sparse_embedding": sparse_embedding})
+```
 
 This code generates the following line for each item:
 
-    {
-      'id': 0,
-      'title': 'Google Sticker',
-      'sparse_embedding': {
-        'values': [0.933008728540452, 0.359853737603667],
-        'dimensions': [191, 78]
-      }
-    }
+```
+{
+  'id': 0,
+  'title': 'Google Sticker',
+  'sparse_embedding': {
+    'values': [0.933008728540452, 0.359853737603667],
+    'dimensions': [191, 78]
+  }
+}
+```
 
 Then, save them as a JSONL file "items.json" and upload to a Cloud Storage bucket.
 
-    # output as a JSONL file and save to bucket
-    with open("items.json", "w") as f:
-      for item in items:
-        f.write(f"{item}\n")
-    ! gcloud storage cp items.json $BUCKET_URI
+```
+# output as a JSONL file and save to bucket
+with open("items.json", "w") as f:
+  for item in items:
+    f.write(f"{item}\n")
+! gcloud storage cp items.json $BUCKET_URI
+```
 
 ### Create a sparse embedding index in Vector Search
 
 Next, we'll build and deploy a sparse embedding index in Vector Search. This is the same procedure that is documented in the [Vector Search quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart#create_an_index) .
 
-    # create Index
-    my_index = aiplatform.MatchingEngineIndex.create_tree_ah_index(
-      display_name = f"vs-hybridsearch-index-{UID}",
-      contents_delta_uri = BUCKET_URI,
-      dimensions = 768,
-      approximate_neighbors_count = 10,
-    )
+```
+# create Index
+my_index = aiplatform.MatchingEngineIndex.create_tree_ah_index(
+  display_name = f"vs-hybridsearch-index-{UID}",
+  contents_delta_uri = BUCKET_URI,
+  dimensions = 768,
+  approximate_neighbors_count = 10,
+)
+```
 
 To use the index, you need to create an index endpoint. It works as a server instance accepting query requests for your index.
 
-    # create IndexEndpoint
-    my_index_endpoint = aiplatform.MatchingEngineIndexEndpoint.create(
-      display_name = f"vs-quickstart-index-endpoint-{UID}",
-      public_endpoint_enabled = True
-    )
+```
+# create IndexEndpoint
+my_index_endpoint = aiplatform.MatchingEngineIndexEndpoint.create(
+  display_name = f"vs-quickstart-index-endpoint-{UID}",
+  public_endpoint_enabled = True
+)
+```
 
 With the index endpoint, deploy the index by specifying a unique deployed index ID.
 
-    DEPLOYED_INDEX_ID = f"vs_quickstart_deployed_{UID}"
+```
+DEPLOYED_INDEX_ID = f"vs_quickstart_deployed_{UID}"
+```
 
-    # deploy the Index to the Index Endpoint
-    my_index_endpoint.deploy_index(
-        index = my_index, deployed_index_id = DEPLOYED_INDEX_ID
-    )
+```
+# deploy the Index to the Index Endpoint
+my_index_endpoint.deploy_index(
+    index = my_index, deployed_index_id = DEPLOYED_INDEX_ID
+)
+```
 
 After waiting for the deployment, we're ready to run a test query.
 
@@ -206,36 +232,42 @@ After waiting for the deployment, we're ready to run a test query.
 
 To run a query with a sparse embedding index, you need to create a `HybridQuery` object to encapsulate the sparse embedding of the query text, like in the following example:
 
-    from google.cloud.aiplatform.matching_engine.matching_engine_index_endpoint import HybridQuery
-    
-    # create HybridQuery
-    query_text = "Kids"
-    query_emb = get_sparse_embedding(query_text)
-    query = HybridQuery(
-      sparse_embedding_dimensions=query_emb['dimensions'],
-      sparse_embedding_values=query_emb['values'],
-    )
+```
+from google.cloud.aiplatform.matching_engine.matching_engine_index_endpoint import HybridQuery
+
+# create HybridQuery
+query_text = "Kids"
+query_emb = get_sparse_embedding(query_text)
+query = HybridQuery(
+  sparse_embedding_dimensions=query_emb['dimensions'],
+  sparse_embedding_values=query_emb['values'],
+)
+```
 
 This example code uses the text "Kids" for the query. Now, run a query with the `HybridQuery` object.
 
-    # build a query request
-    response = my_index_endpoint.find_neighbors(
-      deployed_index_id=DEPLOYED_INDEX_ID,
-      queries=[query],
-      num_neighbors=5,
-    )
-    
-    # print results
-    for idx, neighbor in enumerate(response[0]):
-      title = df.title[int(neighbor.id)]
-      print(f"{title:<40}")
+```
+# build a query request
+response = my_index_endpoint.find_neighbors(
+  deployed_index_id=DEPLOYED_INDEX_ID,
+  queries=[query],
+  num_neighbors=5,
+)
+
+# print results
+for idx, neighbor in enumerate(response[0]):
+  title = df.title[int(neighbor.id)]
+  print(f"{title:<40}")
+```
 
 This should provide output like the following:
 
-    Google Blue Kids Sunglasses
-    Google Red Kids Sunglasses
-    YouTube Kids Coloring Pencils
-    YouTube Kids Character Sticker Sheet
+```
+Google Blue Kids Sunglasses
+Google Red Kids Sunglasses
+YouTube Kids Coloring Pencils
+YouTube Kids Character Sticker Sheet
+```
 
 Out of the 200 items, the result contains the item names that have the keyword "Kids".
 
@@ -245,37 +277,41 @@ This example combines token-based search with semantic search to create hybrid s
 
 ### How to create hybrid index
 
-To build a hybrid index, each item should have both "embedding" (for dense embedding) and "sparse\_embedding":
+To build a hybrid index, each item should have both "embedding" (for dense embedding) and "sparse_embedding":
 
-    items = []
-    for i in range(len(df)):
-      id = i
-      title = df.title[i]
-      dense_embedding = get_dense_embedding(title)
-      sparse_embedding = get_sparse_embedding(title)
-      items.append(
-        {"id": id, "title": title,
-          "embedding": dense_embedding,
-          "sparse_embedding": sparse_embedding,}
-      )
-    items[0]
+```
+items = []
+for i in range(len(df)):
+  id = i
+  title = df.title[i]
+  dense_embedding = get_dense_embedding(title)
+  sparse_embedding = get_sparse_embedding(title)
+  items.append(
+    {"id": id, "title": title,
+      "embedding": dense_embedding,
+      "sparse_embedding": sparse_embedding,}
+  )
+items[0]
+```
 
 The `get_dense_embedding()` function uses [Agent Platform Embedding API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings) for generating text embeddings with up to 768 dimensions. Now both dense and sparse embeddings are combined into the following format:
 
-    {
-      "id": 0,
-      "title": "Google Sticker",
-      "embedding":
-        [0.022880317643284798,
-        -0.03315234184265137,
-        ...
-        -0.03309667482972145,
-        0.04621824622154236],
-      "sparse_embedding": {
-        "values": [0.933008728540452, 0.359853737603667],
-        "dimensions": [191, 78]
-      }
-    }
+```
+{
+  "id": 0,
+  "title": "Google Sticker",
+  "embedding":
+    [0.022880317643284798,
+    -0.03315234184265137,
+    ...
+    -0.03309667482972145,
+    0.04621824622154236],
+  "sparse_embedding": {
+    "values": [0.933008728540452, 0.359853737603667],
+    "dimensions": [191, 78]
+  }
+}
+```
 
 The rest of the process is the same as in [Example: How to use token-based search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/about-hybrid-search#how-to-use-token-based-search) : upload the JSONL file to the Cloud Storage bucket, create a Vector Search index with the file, and deploy the index to the index endpoint.
 
@@ -283,42 +319,48 @@ The rest of the process is the same as in [Example: How to use token-based searc
 
 After deploying the hybrid index, you can run a hybrid query:
 
-    # create HybridQuery
-    query_text = "Kids"
-    query_dense_emb = get_dense_embedding(query_text)
-    query_sparse_emb = get_sparse_embedding(query_text)
-    query = HybridQuery(
-      dense_embedding=query_dense_emb,
-      sparse_embedding_dimensions=query_sparse_emb['dimensions'],
-      sparse_embedding_values=query_sparse_emb['values'],
-      rrf_ranking_alpha=0.5,
-    )
+```
+# create HybridQuery
+query_text = "Kids"
+query_dense_emb = get_dense_embedding(query_text)
+query_sparse_emb = get_sparse_embedding(query_text)
+query = HybridQuery(
+  dense_embedding=query_dense_emb,
+  sparse_embedding_dimensions=query_sparse_emb['dimensions'],
+  sparse_embedding_values=query_sparse_emb['values'],
+  rrf_ranking_alpha=0.5,
+)
+```
 
 For the query text "Kids", generate both dense and sparse embeddings for the word, and encapsulate them to the `HybridQuery` object. The difference from the previous `HybridQuery` is two additional parameters: `dense_embedding` and `rrf_ranking_alpha` .
 
 This time, we'll print distances for each item:
 
-    # print results
-    for idx, neighbor in enumerate(response[0]):
-      title = df.title[int(neighbor.id)]
-      dense_dist = neighbor.distance if neighbor.distance else 0.0
-      sparse_dist = neighbor.sparse_distance if neighbor.sparse_distance else 0.0
-      print(f"{title:<40}: dense_dist: {dense_dist:.3f}, sparse_dist: {sparse_dist:.3f}")
+```
+# print results
+for idx, neighbor in enumerate(response[0]):
+  title = df.title[int(neighbor.id)]
+  dense_dist = neighbor.distance if neighbor.distance else 0.0
+  sparse_dist = neighbor.sparse_distance if neighbor.sparse_distance else 0.0
+  print(f"{title:<40}: dense_dist: {dense_dist:.3f}, sparse_dist: {sparse_dist:.3f}")
+```
 
 In each `neighbor` object, there's a `distance` property that has the distance between the query and the item with the dense embedding, and a `sparse_distance` property that has the distance with the sparse embedding. These values are inverted distances, so a higher value means a shorter distance.
 
 By running a query with `HybridQuery` , you get the following result:
 
-    Google Blue Kids Sunglasses             : dense_dist: 0.677, sparse_dist: 0.606
-    Google Red Kids Sunglasses              : dense_dist: 0.665, sparse_dist: 0.572
-    YouTube Kids Coloring Pencils           : dense_dist: 0.655, sparse_dist: 0.478
-    YouTube Kids Character Sticker Sheet    : dense_dist: 0.644, sparse_dist: 0.468
-    Google White Classic Youth Tee          : dense_dist: 0.645, sparse_dist: 0.000
-    Google Doogler Youth Tee                : dense_dist: 0.639, sparse_dist: 0.000
-    Google Indigo Youth Tee                 : dense_dist: 0.637, sparse_dist: 0.000
-    Google Black Classic Youth Tee          : dense_dist: 0.632, sparse_dist: 0.000
-    Chrome Dino Glow-in-the-Dark Youth Tee  : dense_dist: 0.632, sparse_dist: 0.000
-    Google Bike Youth Tee                   : dense_dist: 0.629, sparse_dist: 0.000
+```
+Google Blue Kids Sunglasses             : dense_dist: 0.677, sparse_dist: 0.606
+Google Red Kids Sunglasses              : dense_dist: 0.665, sparse_dist: 0.572
+YouTube Kids Coloring Pencils           : dense_dist: 0.655, sparse_dist: 0.478
+YouTube Kids Character Sticker Sheet    : dense_dist: 0.644, sparse_dist: 0.468
+Google White Classic Youth Tee          : dense_dist: 0.645, sparse_dist: 0.000
+Google Doogler Youth Tee                : dense_dist: 0.639, sparse_dist: 0.000
+Google Indigo Youth Tee                 : dense_dist: 0.637, sparse_dist: 0.000
+Google Black Classic Youth Tee          : dense_dist: 0.632, sparse_dist: 0.000
+Chrome Dino Glow-in-the-Dark Youth Tee  : dense_dist: 0.632, sparse_dist: 0.000
+Google Bike Youth Tee                   : dense_dist: 0.629, sparse_dist: 0.000
+```
 
 In addition to the token-based search results that have the "Kids" keyword, there are also semantic search results included. For example, "Google White Classic Youth Tee" is included because the embedding model knows that "Youth" and "Kids" are semantically similar.
 
@@ -338,15 +380,15 @@ The following resources can help you get started with using hybrid search in Vec
 
 ### Hybrid search resources
 
-  - [Combining Semantic & Keyword Search: A Hybrid Search Tutorial with Gemini Enterprise Agent Platform Vector Search](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/embeddings/hybrid-search.ipynb) : Sample notebook for getting started with hybrid search
-  - [Input data format and structure](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/format-structure) : Input data format for building sparse embedding index
-  - [Query public index to get nearest neighbors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/query-index-public-endpoint) : How to run queries with hybrid search
-  - [Reciprocal Rank Fusion outperforms Condorcet and individual Rank Learning Methods](https://plg.uwaterloo.ca/%7Egvcormac/cormacksigir09-rrf.pdf) : Discussion of the RRF algorithm
+- [Combining Semantic & Keyword Search: A Hybrid Search Tutorial with Gemini Enterprise Agent Platform Vector Search](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/embeddings/hybrid-search.ipynb) : Sample notebook for getting started with hybrid search
+- [Input data format and structure](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/format-structure) : Input data format for building sparse embedding index
+- [Query public index to get nearest neighbors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/query-index-public-endpoint) : How to run queries with hybrid search
+- [Reciprocal Rank Fusion outperforms Condorcet and individual Rank Learning Methods](https://plg.uwaterloo.ca/%7Egvcormac/cormacksigir09-rrf.pdf) : Discussion of the RRF algorithm
 
 ### Vector Search resources
 
-  - [Overview of Gemini Enterprise Agent Platform Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview)
-  - [Vector Search quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart)
+- [Overview of Gemini Enterprise Agent Platform Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview)
+- [Vector Search quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart)
 
 ## Additional concepts
 
@@ -356,23 +398,23 @@ The following sections describe TF-IDF and TfidVectorizer, Reciprical Rank Fusio
 
 The `fit_transform()` function executes two important processes of the TF-IDF algorithm:
 
-  - **Fit** : The vectorizer calculates the Inverse Document Frequency (IDF) for each term in the vocabulary. IDF reflects how important a term is across the entire corpus. Rare terms get higher IDF scores:
-    
-    `IDF(t) = log_e(Total number of documents / Number of documents containing term t)`
+- **Fit** : The vectorizer calculates the Inverse Document Frequency (IDF) for each term in the vocabulary. IDF reflects how important a term is across the entire corpus. Rare terms get higher IDF scores:
 
-  - **Transform** :
-    
-      - **Tokenization** : Breaks the documents down into individual terms (words or phrases)
-    
-      - **Term Frequency (TF) Calculation** : Counts how often each term appears in each document with:
-        
-        `TF(t, d) = (Number of times term t appears in document d) / (Total number of terms in document d)`
-    
-      - **TF-IDF Calculation** : Combines the TF for each term with the pre-calculated IDF to create a TF-IDF score. This score represents the importance of a term in a particular document relative to the entire corpus.
-        
-        `TF-IDF(t, d) = TF(t, d) * IDF(t)`
-        
-        The TF-IDF vectorizer tries to put higher weight to signature words in the dataset, such as "Shirts" or "Dino", compared to trivial words, such as "The", "a" or "of", and counts how many times those signature words are used in the specified document. Each value of a sparse embedding represents a frequency of each word based on the counts.
+  `IDF(t) = log_e(Total number of documents / Number of documents containing term t)`
+
+- **Transform** :
+
+  - **Tokenization** : Breaks the documents down into individual terms (words or phrases)
+
+  - **Term Frequency (TF) Calculation** : Counts how often each term appears in each document with:
+
+    `TF(t, d) = (Number of times term t appears in document d) / (Total number of terms in document d)`
+
+  - **TF-IDF Calculation** : Combines the TF for each term with the pre-calculated IDF to create a TF-IDF score. This score represents the importance of a term in a particular document relative to the entire corpus.
+
+    `TF-IDF(t, d) = TF(t, d) * IDF(t)`
+
+    The TF-IDF vectorizer tries to put higher weight to signature words in the dataset, such as "Shirts" or "Dino", compared to trivial words, such as "The", "a" or "of", and counts how many times those signature words are used in the specified document. Each value of a sparse embedding represents a frequency of each word based on the counts.
 
 ### What is Reciprocal Rank Fusion?
 
@@ -392,6 +434,6 @@ In short, the items with higher ranks in both dense and sparse results will be p
 
 The example of how to use hybrid search sets the parameter `rrf_ranking_alpha` as 0.5 when creating the `HybridQuery` object. You can specify a weight on ranking the dense and sparse search results using the following values for `rrf_ranking_alpha` :
 
-  - **`1` , or not specified:** Hybrid search uses only dense search results and ignores sparse search results.
-  - **`0` :** Hybrid search uses only sparse search results and ignores dense search results.
-  - **`0` to `1` :** Hybrid search merges both results from dense and sparse with the weight specified by the value. 0.5 means they will be merged with the same weight.
+- **`1` , or not specified:** Hybrid search uses only dense search results and ignores sparse search results.
+- **`0` :** Hybrid search uses only sparse search results and ignores dense search results.
+- **`0` to `1` :** Hybrid search merges both results from dense and sparse with the weight specified by the value. 0.5 means they will be merged with the same weight.

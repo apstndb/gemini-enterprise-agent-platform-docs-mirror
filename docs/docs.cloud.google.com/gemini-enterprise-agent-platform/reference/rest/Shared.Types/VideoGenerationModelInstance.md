@@ -14,15 +14,15 @@ Fields
 
 A text description of the video you want to generate. The prompt should specify the subject, style, and any specific elements or actions that should appear in the video.
 
-`image` ` object ( Image  ` )
+`image` `object ( `[`Image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VideoGenerationModelInstance#Image)` )`
 
 An optional image to use as a starting point for video generation, used as the first frame of the generated video. If `image` is provided, `video` and `referenceImages` cannot be used.
 
-`video` ` object ( Video  ` )
+`video` `object ( `[`Video`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VideoGenerationModelInstance#Video)` )`
 
 An optional input video to use as a starting point for video generation. If `video` is provided, `image` and `referenceImages` cannot be used. If `mask` is also provided, the input video will be edited based on the mask. If `mask` is not provided, the input video will be extended in duration.
 
-`lastFrame` ` object ( Image  ` )
+`lastFrame` `object ( `[`Image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VideoGenerationModelInstance#Image)` )`
 
 Image to use as the last frame of the generated video. This field can only be used if `image` is also provided.
 
@@ -30,29 +30,39 @@ Image to use as the last frame of the generated video. This field can only be us
 
 The camera motion to apply to the generated video. This field can only be used if `image` is also provided. Supported values: - `fixed` : No camera motion. - `pan_left` : Pan camera to the left. - `pan_right` : Pan camera to the right. - `tilt_up` : Tilt camera up. - `tilt_down` : Tilt camera down. - `truck_left` : Move camera to the left. - `truck_right` : Move camera to the right. - `pedestal_up` : Move camera up. - `pedestal_down` : Move camera down. - `push_in` : Move camera closer to the subject. - `pull_out` : Move camera away from the subject.
 
-`mask` ` object ( Mask  ` )
+`mask` `object ( `[`Mask`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VideoGenerationModelInstance#Mask)` )`
 
 An optional mask to apply to the input `video` for video editing tasks like inserting or removing objects, or outpainting.
 
-`referenceImages[]` ` object ( ReferenceImage  ` )
+`referenceImages[]` `object ( `[`ReferenceImage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VideoGenerationModelInstance#ReferenceImage)` )`
 
 Optional reference images to guide video generation. If `referenceImages` are provided, `prompt` must also be provided, and `image` , `video` , and `lastFrame` cannot be used. You can provide up to 3 `asset` images or 1 `style` image.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;prompt&quot;: string,&quot;image&quot;: {object (Image)},&quot;video&quot;: {object (Video)},&quot;lastFrame&quot;: {object (Image)},&quot;cameraControl&quot;: string,&quot;mask&quot;: {object (Mask)},&quot;referenceImages&quot;: [{object (ReferenceImage)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prompt": string,
+  "image": {
+    object (Image)
+  },
+  "video": {
+    object (Video)
+  },
+  "lastFrame": {
+    object (Image)
+  },
+  "cameraControl": string,
+  "mask": {
+    object (Mask)
+  },
+  "referenceImages": [
+    {
+      object (ReferenceImage)
+    }
+  ]
+}
+```
 
 ## Image
 
@@ -78,28 +88,18 @@ A Google Cloud Storage URI pointing to the image file.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;mimeType&quot;: string,
+**JSON representation**
+
+```
+{
+  "mimeType": string,
 
   // data
-  &quot;bytesBase64Encoded&quot;: string,
-  &quot;gcsUri&quot;: string
+  "bytesBase64Encoded": string,
+  "gcsUri": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## Video
 
@@ -125,28 +125,18 @@ The video bytes encoded in base64.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;mimeType&quot;: string,
+**JSON representation**
+
+```
+{
+  "mimeType": string,
 
   // data
-  &quot;gcsUri&quot;: string,
-  &quot;bytesBase64Encoded&quot;: string
+  "gcsUri": string,
+  "bytesBase64Encoded": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## Mask
 
@@ -176,29 +166,19 @@ A Google Cloud Storage URI pointing to the mask file.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;mimeType&quot;: string,
-  &quot;maskMode&quot;: string,
+**JSON representation**
+
+```
+{
+  "mimeType": string,
+  "maskMode": string,
 
   // data
-  &quot;bytesBase64Encoded&quot;: string,
-  &quot;gcsUri&quot;: string
+  "bytesBase64Encoded": string,
+  "gcsUri": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## ReferenceImage
 
@@ -206,7 +186,7 @@ Defines the input reference image format. A reference image provides additional 
 
 Fields
 
-`image` ` object ( Image  ` )
+`image` `object ( `[`Image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VideoGenerationModelInstance#Image)` )`
 
 The image data for the reference image.
 
@@ -214,18 +194,13 @@ The image data for the reference image.
 
 The type of reference image, which defines how it influences video generation. Supported values: - `asset` : The reference image provides assets to the generated video, such as the scene, an object, or a character. - `style` : The aesthetics of the reference image (e.g., colors, lighting, texture) are used to define the style of the generated video, such as 'anime', 'photography', or 'origami'.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;image&quot;: {object (Image)},&quot;referenceType&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "image": {
+    object (Image)
+  },
+  "referenceType": string
+}
+```

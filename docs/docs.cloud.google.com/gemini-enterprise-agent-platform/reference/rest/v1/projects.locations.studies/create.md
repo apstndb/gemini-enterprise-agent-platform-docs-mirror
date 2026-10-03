@@ -24,8 +24,8 @@ Required. The resource name of the Location to create the CustomJob in. Format: 
 
 ### Request body
 
-The request body contains an instance of `  Study  ` .
+The request body contains an instance of [`Study`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies#Study) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  Study  ` .
+If successful, the response body contains a newly created instance of [`Study`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies#Study) .

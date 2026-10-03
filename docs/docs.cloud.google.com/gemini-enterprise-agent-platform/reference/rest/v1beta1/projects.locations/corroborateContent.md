@@ -28,15 +28,15 @@ The request body contains data with the following structure:
 
 Fields
 
-`facts[]` ` object ( Fact  ` )
+`facts[]` `object ( `[`Fact`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Fact)` )`
 
 Optional. Facts used to generate the text can also be used to corroborate the text.
 
-`parameters` ` object ( Parameters  ` )
+`parameters` `object ( `[`Parameters`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/corroborateContent#Parameters)` )`
 
 Optional. Parameters that can be set to override default settings per request.
 
-`content` ` object ( Content  ` )
+`content` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Optional. Input content to corroborate, only text format is supported for now.
 
@@ -48,7 +48,7 @@ If successful, the response body contains data with the following structure:
 
 Fields
 
-`claims[]` ` object ( Claim  ` )
+`claims[]` `object ( `[`Claim`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/corroborateContent#Claim)` )`
 
 Claims that are extracted from the input content and facts that support the claims.
 
@@ -56,21 +56,18 @@ Claims that are extracted from the input content and facts that support the clai
 
 confidence score of corroborating content. value is \[0,1\] with 1 is the most confidence.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;claims&quot;: [{object (Claim)}],&quot;corroborationScore&quot;: number}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "claims": [
+    {
+      object (Claim)
+    }
+  ],
+  "corroborationScore": number
+}
+```
 
 ## Parameters
 
@@ -82,23 +79,13 @@ Fields
 
 Optional. Only return claims with citation score larger than the threshold.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;citationThreshold&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "citationThreshold": number
+}
+```
 
 ## Claim
 
@@ -122,25 +109,15 @@ Index in the input text where the claim ends (exclusive).
 
 confidence score of this corroboration.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;factIndexes&quot;: [
+**JSON representation**
+
+```
+{
+  "factIndexes": [
     integer
   ],
-  &quot;startIndex&quot;: integer,
-  &quot;endIndex&quot;: integer,
-  &quot;score&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+  "startIndex": integer,
+  "endIndex": integer,
+  "score": number
+}
+```

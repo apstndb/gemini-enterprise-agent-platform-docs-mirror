@@ -10,16 +10,8 @@ data_source: docs.cloud.google.com
 
 A Model Garden Publisher Model that's available in express mode.
 
-## Methods
-
-### `            countTokens           `
-
-Perform a token counting.
-
-### `            generateContent           `
-
-Generate content with multimodal inputs.
-
-### `            streamGenerateContent           `
-
-Generate content with multimodal inputs with streaming support.
+| Methods                                                                                                                                                          |                                                                 |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| [`countTokens`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/express-mode/rest/v1/publishers.models/countTokens)                     | Perform a token counting.                                       |
+| [`generateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/express-mode/rest/v1/publishers.models/generateContent)             | Generate content with multimodal inputs.                        |
+| [`streamGenerateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/express-mode/rest/v1/publishers.models/streamGenerateContent) | Generate content with multimodal inputs with streaming support. |

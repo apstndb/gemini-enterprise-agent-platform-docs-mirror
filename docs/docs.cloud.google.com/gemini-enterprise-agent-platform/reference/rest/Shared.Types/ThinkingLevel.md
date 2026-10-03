@@ -8,24 +8,10 @@ data_source: docs.cloud.google.com
 
 The thinking level for the model.
 
-Enums
-
-`THINKING_LEVEL_UNSPECIFIED`
-
-Unspecified thinking level.
-
-`LOW`
-
-Low thinking level.
-
-`MEDIUM`
-
-Medium thinking level.
-
-`HIGH`
-
-High thinking level.
-
-`MINIMAL`
-
-MINIMAL thinking level.
+| Enums                        |                             |
+|------------------------------|-----------------------------|
+| `THINKING_LEVEL_UNSPECIFIED` | Unspecified thinking level. |
+| `LOW`                        | Low thinking level.         |
+| `MEDIUM`                     | Medium thinking level.      |
+| `HIGH`                       | High thinking level.        |
+| `MINIMAL`                    | MINIMAL thinking level.     |

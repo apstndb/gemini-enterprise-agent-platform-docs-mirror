@@ -28,41 +28,37 @@ The request body contains data with the following structure:
 
 Fields
 
-`requests[]` ` object ( CreateTensorboardTimeSeriesRequest  ` )
+`requests[]` `object ( `[`CreateTensorboardTimeSeriesRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments/batchCreate#CreateTensorboardTimeSeriesRequest)` )`
 
 Required. The request message specifying the TensorboardTimeSeries to create. A maximum of 1000 TensorboardTimeSeries can be created in a batch.
 
 ### Response body
 
-Response message for `  TensorboardService.BatchCreateTensorboardTimeSeries  ` .
+Response message for [`TensorboardService.BatchCreateTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments/batchCreate#google.cloud.aiplatform.v1beta1.TensorboardService.BatchCreateTensorboardTimeSeries) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`tensorboardTimeSeries[]` ` object ( TensorboardTimeSeries  ` )
+`tensorboardTimeSeries[]` `object ( `[`TensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries#TensorboardTimeSeries)` )`
 
 The created TensorboardTimeSeries.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;tensorboardTimeSeries&quot;: [{object (TensorboardTimeSeries)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "tensorboardTimeSeries": [
+    {
+      object (TensorboardTimeSeries)
+    }
+  ]
+}
+```
 
 ## CreateTensorboardTimeSeriesRequest
 
-Request message for `  TensorboardService.CreateTensorboardTimeSeries  ` .
+Request message for [`TensorboardService.CreateTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries/create#google.cloud.aiplatform.v1beta1.TensorboardService.CreateTensorboardTimeSeries) .
 
 Fields
 
@@ -74,22 +70,18 @@ Required. The resource name of the TensorboardRun to create the TensorboardTimeS
 
 Optional. The user specified unique id to use for the TensorboardTimeSeries, which becomes the final component of the TensorboardTimeSeries's resource name. This value should match "\[a-z0-9\]\[a-z0-9-\]{0, 127}"
 
-`tensorboardTimeSeries` ` object ( TensorboardTimeSeries  ` )
+`tensorboardTimeSeries` `object ( `[`TensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries#TensorboardTimeSeries)` )`
 
 Required. The TensorboardTimeSeries to create.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;parent&quot;: string,&quot;tensorboardTimeSeriesId&quot;: string,&quot;tensorboardTimeSeries&quot;: {object (TensorboardTimeSeries)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "parent": string,
+  "tensorboardTimeSeriesId": string,
+  "tensorboardTimeSeries": {
+    object (TensorboardTimeSeries)
+  }
+}
+```

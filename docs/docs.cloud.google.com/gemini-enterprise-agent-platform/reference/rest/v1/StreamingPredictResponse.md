@@ -10,26 +10,25 @@ Response message for `PredictionService.StreamingPredict` .
 
 Fields
 
-`outputs[]` ` object ( Tensor  ` )
+`outputs[]` `object ( `[`Tensor`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Tensor)` )`
 
 The prediction output.
 
-`parameters` ` object ( Tensor  ` )
+`parameters` `object ( `[`Tensor`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Tensor)` )`
 
 The parameters that govern the prediction.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;outputs&quot;: [{object (Tensor)}],&quot;parameters&quot;: {object (Tensor)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "outputs": [
+    {
+      object (Tensor)
+    }
+  ],
+  "parameters": {
+    object (Tensor)
+  }
+}
+```

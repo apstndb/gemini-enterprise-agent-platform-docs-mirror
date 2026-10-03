@@ -104,22 +104,22 @@ To learn more about managing tags for Compute Engine instances, see [Manage tags
 
 Consider the following limitations of Agent Platform Workbench instances when planning your project:
 
-  - Third party JupyterLab extensions aren't supported.
+- Third party JupyterLab extensions aren't supported.
 
-  - When you use [Access Context Manager](https://docs.cloud.google.com/access-context-manager/docs/create-basic-access-level#corporate-network-example) and [Chrome Enterprise Premium](https://docs.cloud.google.com/chrome-enterprise-premium/docs/access-levels) to protect Agent Platform Workbench instances with context-aware access controls, access is evaluated each time the user authenticates to the instance. For example, access is evaluated the first time the user accesses JupyterLab and whenever they access it thereafter if their web browser's cookie has expired.
+- When you use [Access Context Manager](https://docs.cloud.google.com/access-context-manager/docs/create-basic-access-level#corporate-network-example) and [Chrome Enterprise Premium](https://docs.cloud.google.com/chrome-enterprise-premium/docs/access-levels) to protect Agent Platform Workbench instances with context-aware access controls, access is evaluated each time the user authenticates to the instance. For example, access is evaluated the first time the user accesses JupyterLab and whenever they access it thereafter if their web browser's cookie has expired.
 
-  - Using a custom container that isn't derived from the Google-provided base container ( `gcr.io/deeplearning-platform-release/workbench-container:latest` ) increases the risks of compatibility issues with our services and isn't supported. Instead, modify the base container to create a custom container that meets your needs, and then [create an instance using the custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container) .
+- Using a custom container that isn't derived from the Google-provided base container ( `gcr.io/deeplearning-platform-release/workbench-container:latest` ) increases the risks of compatibility issues with our services and isn't supported. Instead, modify the base container to create a custom container that meets your needs, and then [create an instance using the custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container) .
 
-  - Agent Platform Workbench instances expect images from the `cloud-notebooks-managed` project. The list of image names is available at the creation page in the Google Cloud console. Although the use of custom virtual machine (VM) images or [Deep Learning VM](https://docs.cloud.google.com/deep-learning-vm/docs/introduction) images with Agent Platform Workbench instances can be possible, Agent Platform Workbench doesn't provide any support for unexpected behaviors or malfunctions when using those images.
+- Agent Platform Workbench instances expect images from the `cloud-notebooks-managed` project. The list of image names is available at the creation page in the Google Cloud console. Although the use of custom virtual machine (VM) images or [Deep Learning VM](https://docs.cloud.google.com/deep-learning-vm/docs/introduction) images with Agent Platform Workbench instances can be possible, Agent Platform Workbench doesn't provide any support for unexpected behaviors or malfunctions when using those images.
 
-  - You can't edit the underlying VM of a Agent Platform Workbench instance by using the Google Cloud console or the Compute Engine API. To edit a Agent Platform Workbench instance's underlying VM, use the [`projects.locations.instances.patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/patch) method in the Notebooks API or the [`gcloud workbench instances update`](https://docs.cloud.google.com/sdk/gcloud/reference/workbench/instances/update) command in the Agent Platform SDK.
+- You can't edit the underlying VM of a Agent Platform Workbench instance by using the Google Cloud console or the Compute Engine API. To edit a Agent Platform Workbench instance's underlying VM, use the [`projects.locations.instances.patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/patch) method in the Notebooks API or the [`gcloud workbench instances update`](https://docs.cloud.google.com/sdk/gcloud/reference/workbench/instances/update) command in the Agent Platform SDK.
 
-  - In instances that use VPC Service Controls, use of the [executor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/schedule-notebook-run-quickstart) isn't supported.
+- In instances that use VPC Service Controls, use of the [executor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/schedule-notebook-run-quickstart) isn't supported.
 
-  - To use accelerators with Agent Platform Workbench instances, the accelerator type that you want must be available in your instance's zone. To learn about accelerator availability by zone, see [GPU regions and zones availability](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones) .
+- To use accelerators with Agent Platform Workbench instances, the accelerator type that you want must be available in your instance's zone. To learn about accelerator availability by zone, see [GPU regions and zones availability](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones) .
 
 ## What's next
 
-  - [Create a Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create) .
+- [Create a Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create) .
 
-  - [Compare Gemini Enterprise Agent Platform's notebook solutions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/notebook-solution) .
+- [Compare Gemini Enterprise Agent Platform's notebook solutions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/notebook-solution) .

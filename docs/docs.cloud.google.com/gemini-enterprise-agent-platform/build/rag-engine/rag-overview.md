@@ -15,7 +15,7 @@ data_source: docs.cloud.google.com
 This page describes what RAG Engine is and how it works.
 
 | **Description**                                                                                                                                                                                                                          | **Console** |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
 | To learn how to use the Vertex AI SDK to run RAG Engine on Gemini Enterprise Agent Platform tasks, see the [RAG quickstart for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-quickstart) . |             |
 
 ## Overview
@@ -49,7 +49,7 @@ These concepts are listed in the order of the retrieval-augmented generation (RA
 RAG Engine is supported in the following regions:
 
 | Region              | Location               | Description                                | Launch stage       |
-| ------------------- | ---------------------- | ------------------------------------------ | ------------------ |
+|---------------------|------------------------|--------------------------------------------|--------------------|
 | `us-central1`       | Iowa                   | `v1` and `v1beta1` versions are supported. | Allowlist, GA      |
 | `us-east4`          | Virginia               | `v1` and `v1beta1` versions are supported. | Allowlist, GA      |
 | `us-east1`          | Moncks Corner, SC      | `v1` and `v1beta1` versions are supported. | Allowlist, Preview |
@@ -73,20 +73,20 @@ RAG Engine is supported in the following regions:
 | `us-west1`          | Oregon                 | `v1` and `v1beta1` versions are supported. | Preview            |
 | `us-west4`          | Las Vegas, NV          | `v1` and `v1beta1` versions are supported. | Preview            |
 
-  - `us-central1` , `us-east1` , and `us-east4` are changed to `Allowlist` . If you'd like to experiment with RAG Engine, try other regions.
+- `us-central1` , `us-east1` , and `us-east4` are changed to `Allowlist` . If you'd like to experiment with RAG Engine, try other regions.
 
 ## Delete RAG Engine
 
 For more information about deleting a RAG Engine, see the following:
 
-  - Version 1 (v1) API [parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/updateRagEngineConfig)
+- Version 1 (v1) API [parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/updateRagEngineConfig)
 
-  - v1beta1 API [parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/updateRagEngineConfig)
+- v1beta1 API [parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/updateRagEngineConfig)
 
 ## What's next
 
-  - To learn how to use the Vertex AI SDK to run RAG Engine on Gemini Enterprise Agent Platform tasks, see [RAG quickstart for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-quickstart) .
+- To learn how to use the Vertex AI SDK to run RAG Engine on Gemini Enterprise Agent Platform tasks, see [RAG quickstart for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-quickstart) .
 
-  - To learn about grounding, see [Grounding overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) .
+- To learn about grounding, see [Grounding overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) .
 
-  - To learn more about the responses from RAG, see [`GenerateContentResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse) .
+- To learn more about the responses from RAG, see [`GenerateContentResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse) .

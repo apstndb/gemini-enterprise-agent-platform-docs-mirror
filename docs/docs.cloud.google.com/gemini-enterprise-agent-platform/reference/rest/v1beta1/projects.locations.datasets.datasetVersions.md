@@ -16,13 +16,13 @@ Fields
 
 Output only. Identifier. The resource name of the DatasetVersion. Format: `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{datasetVersion}`
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this DatasetVersion was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this DatasetVersion was last updated.
 
@@ -40,7 +40,7 @@ Output only. name of the associated BigQuery dataset.
 
 The user-defined name of the DatasetVersion. The name can be up to 128 characters long and can consist of any UTF-8 characters.
 
-`metadata` ` value ( Value  ` format)
+`metadata` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
 Required. Output only. Additional information about the DatasetVersion.
 
@@ -56,55 +56,28 @@ Output only. reserved for future use.
 
 Output only. reserved for future use.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;name&quot;: string,
-  &quot;createTime&quot;: string,
-  &quot;updateTime&quot;: string,
-  &quot;etag&quot;: string,
-  &quot;bigQueryDatasetName&quot;: string,
-  &quot;displayName&quot;: string,
-  &quot;metadata&quot;: value,
-  &quot;modelReference&quot;: string,
-  &quot;satisfiesPzs&quot;: boolean,
-  &quot;satisfiesPzi&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "name": string,
+  "createTime": string,
+  "updateTime": string,
+  "etag": string,
+  "bigQueryDatasetName": string,
+  "displayName": string,
+  "metadata": value,
+  "modelReference": string,
+  "satisfiesPzs": boolean,
+  "satisfiesPzi": boolean
+}
+```
 
-### `            create           `
-
-Create a version from a Dataset.
-
-### `            delete           `
-
-Deletes a Dataset version.
-
-### `            get           `
-
-Gets a Dataset version.
-
-### `            list           `
-
-Lists DatasetVersions in a Dataset.
-
-### `            patch           `
-
-Updates a DatasetVersion.
-
-### `            restore           `
-
-Restores a dataset version.
+| Methods                                                                                                                                                |                                     |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.datasetVersions/create)   | Create a version from a Dataset.    |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.datasetVersions/delete)   | Deletes a Dataset version.          |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.datasetVersions/get)         | Gets a Dataset version.             |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.datasetVersions/list)       | Lists DatasetVersions in a Dataset. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.datasetVersions/patch)     | Updates a DatasetVersion.           |
+| [`restore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.datasetVersions/restore) | Restores a dataset version.         |

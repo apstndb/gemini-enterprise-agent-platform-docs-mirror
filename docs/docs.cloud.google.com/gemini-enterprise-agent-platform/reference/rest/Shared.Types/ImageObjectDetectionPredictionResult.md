@@ -10,7 +10,7 @@ Prediction output format for Image Object Detection.
 
 Fields
 
-`ids[]` `string ( int64 format)`
+`ids[]` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The resource IDs of the AnnotationSpecs that had been identified, ordered by the confidence score descendingly.
 
@@ -22,35 +22,25 @@ The display names of the AnnotationSpecs that had been identified, order matches
 
 The Model's confidences in correctness of the predicted IDs, higher value means higher confidence. Order matches the Ids.
 
-`bboxes[]` ` array ( ListValue  ` format)
+`bboxes[]` `array ( `[`ListValue`](https://protobuf.dev/reference/protobuf/google.protobuf/#list-value)` format)`
 
 Bounding boxes, i.e. the rectangles over the image, that pinpoint the found AnnotationSpecs. Given in order that matches the IDs. Each bounding box is an array of 4 numbers `xMin` , `xMax` , `yMin` , and `yMax` , which represent the extremal coordinates of the box. They are relative to the image size, and the point 0,0 is in the top left of the image.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;ids&quot;: [
+**JSON representation**
+
+```
+{
+  "ids": [
     string
   ],
-  &quot;displayNames&quot;: [
+  "displayNames": [
     string
   ],
-  &quot;confidences&quot;: [
+  "confidences": [
     number
   ],
-  &quot;bboxes&quot;: [
+  "bboxes": [
     array
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

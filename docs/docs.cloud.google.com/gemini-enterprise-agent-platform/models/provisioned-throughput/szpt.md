@@ -16,23 +16,23 @@ To view the list of supported models and regions, see [Deployments and endpoints
 
 This section outlines the key features of Single Zone Provisioned Throughput:
 
-  - **Pricing and units are consistent with standard Provisioned Throughput** : Single Zone Provisioned Throughput uses the same measure of throughput ( [GSUs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/measure-provisioned-throughput#gsu-burndown-rate) ), [pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#provisioned-throughput) , and terms as standard [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput) .
+- **Pricing and units are consistent with standard Provisioned Throughput** : Single Zone Provisioned Throughput uses the same measure of throughput ( [GSUs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/measure-provisioned-throughput#gsu-burndown-rate) ), [pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#provisioned-throughput) , and terms as standard [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput) .
 
-  - **Single Zone Provisioned Throughput supports in-region ML processing** : All requests are processed in the purchased region, including traffic that exceeds your purchased amount of throughput. This traffic is billed at the [pay-as-you-go rate](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#provisioned-throughput) using buffer capacity in the region.
+- **Single Zone Provisioned Throughput supports in-region ML processing** : All requests are processed in the purchased region, including traffic that exceeds your purchased amount of throughput. This traffic is billed at the [pay-as-you-go rate](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#provisioned-throughput) using buffer capacity in the region.
 
-  - **You control the overages** : You can [control overflow traffic](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#use-rest-api) using the same headers as with standard Provisioned Throughput.
+- **You control the overages** : You can [control overflow traffic](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#use-rest-api) using the same headers as with standard Provisioned Throughput.
 
-  - **You can monitor your order** : You can monitor your Single Zone Provisioned Throughput order using the existing [Provisioned Throughput monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#monitor_provisioned_throughput) capabilities.
+- **You can monitor your order** : You can monitor your Single Zone Provisioned Throughput order using the existing [Provisioned Throughput monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#monitor_provisioned_throughput) capabilities.
 
 ## Limitations
 
 Single Zone Provisioned Throughput has the following limitations:
 
-  - Single Zone Provisioned Throughput is **not** a Covered Service under the Monthly Latency Target Attainment Percentage SLO in the [Gemini Online Inference API on Gemini Enterprise Agent Platform Service Level Agreement](https://cloud.google.com/vertex-ai/generative-ai/sla) .
+- Single Zone Provisioned Throughput is **not** a Covered Service under the Monthly Latency Target Attainment Percentage SLO in the [Gemini Online Inference API on Gemini Enterprise Agent Platform Service Level Agreement](https://cloud.google.com/vertex-ai/generative-ai/sla) .
 
-  - Single Zone Provisioned Throughput doesn't integrate with or support [fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
+- Single Zone Provisioned Throughput doesn't integrate with or support [fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
 
-  - In regions without ML processing, latency for Single Zone Provisioned Throughput might be higher than standard Provisioned Throughput or pay-as-you-go.
+- In regions without ML processing, latency for Single Zone Provisioned Throughput might be higher than standard Provisioned Throughput or pay-as-you-go.
 
 ## Purchase Single Zone Provisioned Throughput
 
@@ -40,4 +40,4 @@ For assistance with purchasing Single Zone Provisioned Throughput, [contact your
 
 ## What's next
 
-  - [Purchase standard Provisioned Throughput.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput)
+- [Purchase standard Provisioned Throughput.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput)

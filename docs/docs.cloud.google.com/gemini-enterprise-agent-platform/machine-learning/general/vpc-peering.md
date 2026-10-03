@@ -8,12 +8,12 @@ data_source: docs.cloud.google.com
 
 You can configure Gemini Enterprise Agent Platform to peer with [Virtual Private Cloud (VPC)](https://docs.cloud.google.com/vpc/docs/vpc-peering) to connect directly with certain resources in Agent Platform, including:
 
-  - [Custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip)
-  - [NFS shares for custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/train-nfs-share)
-  - [Private inference endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints)
-  - [Ray on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#use-psc-i-egress)
-  - [Vector matching online queries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/vpc#vpc-network-peering-setup)
-  - [Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/use-components#set_up)
+- [Custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip)
+- [NFS shares for custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/train-nfs-share)
+- [Private inference endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints)
+- [Ray on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#use-psc-i-egress)
+- [Vector matching online queries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/vpc#vpc-network-peering-setup)
+- [Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/use-components#set_up)
 
 This guide shows how to set up [VPC Network Peering](https://docs.cloud.google.com/vpc/docs/vpc-peering) to peer your network with Agent Platform resources. This guide is recommended for networking administrators who are already familiar with Google Cloud networking concepts.
 
@@ -21,27 +21,28 @@ This guide shows how to set up [VPC Network Peering](https://docs.cloud.google.c
 
 This guide covers the following tasks:
 
-  - Configure [private services access](https://docs.cloud.google.com/vpc/docs/configure-private-services-access) for the VPC. This establishes a peering connection between your VPC and Google's shared VPC network.
-  - Consider the IP range you need to reserve for Agent Platform.
-  - If applicable, export custom routes so that Agent Platform can import them.
+- Configure [private services access](https://docs.cloud.google.com/vpc/docs/configure-private-services-access) for the VPC. This establishes a peering connection between your VPC and Google's shared VPC network.
+- Consider the IP range you need to reserve for Agent Platform.
+- If applicable, export custom routes so that Agent Platform can import them.
 
 ## Before you begin
 
-  - Select a VPC that you want to peer with Agent Platform resources. Agent Platform can be peered with only one network per region at a time.
+- Select a VPC that you want to peer with Agent Platform resources. Agent Platform can be peered with only one network per region at a time.
 
-  - Select or create a Google Cloud project to use for Agent Platform.
+- Select or create a Google Cloud project to use for Agent Platform.
 
-  - [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project) .
+- [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project) .
 
-  - Enable the Compute Engine API, Agent Platform API, and Service Networking APIs, if any are not already enabled.
-    
-    **Roles required to enable APIs**
-    
-    To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role ( `roles/owner` ). Otherwise, you can get this permission through the Service Usage Admin role ( `roles/serviceusage.serviceUsageAdmin` ). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+- Enable the Compute Engine API, Agent Platform API, and Service Networking APIs, if any are not already enabled.
 
-  - Optionally, you can use [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc) . If you use Shared VPC, you usually use Agent Platform in a separate Google Cloud project than your VPC host project. Enable the Compute Engine API and Service Networking APIs in both projects. Learn how to [provision Shared VPC](https://docs.cloud.google.com/vpc/docs/provisioning-shared-vpc) .
+  **Roles required to enable APIs**
 
-  - Install the [gcloud CLI](https://docs.cloud.google.com/sdk/docs) if you want to run the `gcloud` examples in this guide.
+  To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role ( `roles/owner` ). Otherwise, you can get this permission through the Service Usage Admin role ( `roles/serviceusage.serviceUsageAdmin` ). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+
+<!-- -->
+
+- Optionally, you can use [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc) . If you use Shared VPC, you usually use Agent Platform in a separate Google Cloud project than your VPC host project. Enable the Compute Engine API and Service Networking APIs in both projects. Learn how to [provision Shared VPC](https://docs.cloud.google.com/vpc/docs/provisioning-shared-vpc) .
+- Install the [gcloud CLI](https://docs.cloud.google.com/sdk/docs) if you want to run the `gcloud` examples in this guide.
 
 ### Required roles
 
@@ -68,34 +69,36 @@ If you already have a VPC with [private services access](https://docs.cloud.goog
 3.  Set a reserved range using [`gcloud compute addresses create`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/addresses/create) .
 
 4.  Establish a peering connection between your VPC host project and Google's Service Networking, using [`gcloud services vpc-peerings connect`](https://docs.cloud.google.com/sdk/gcloud/reference/services/vpc-peerings/connect) .
-    
+
     For [private inference endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints) , we recommended reserving at least a `/21` block for the subnet for model hosting. Reserving a smaller block can result in deployment errors due to insufficient IP addresses.
-    
+
     The `172.16.0.0/16` subnet is reserved for Vertex AI Training. You must specify a subnet that doesn't overlap with this CIDR range.
-    
-        PROJECT_ID=YOUR_PROJECT_ID
-        gcloud config set project $PROJECT_ID
-        
-        # This is for display only; you can name the range anything.
-        PEERING_RANGE_NAME=google-reserved-range
-        
-        NETWORK=YOUR_NETWORK_NAME
-        
-        # NOTE: `prefix-length=16` means a CIDR block with mask /16 will be
-        # reserved for use by Google services, such as Agent Platform.
-        gcloud compute addresses create $PEERING_RANGE_NAME \
-          --global \
-          --prefix-length=16 \
-          --description="peering range for Google service" \
-          --network=$NETWORK \
-          --purpose=VPC_PEERING
-        
-        # Create the VPC connection.
-        gcloud services vpc-peerings connect \
-          --service=servicenetworking.googleapis.com \
-          --network=$NETWORK \
-          --ranges=$PEERING_RANGE_NAME \
-          --project=$PROJECT_ID
+
+    ```
+    PROJECT_ID=YOUR_PROJECT_ID
+    gcloud config set project $PROJECT_ID
+
+    # This is for display only; you can name the range anything.
+    PEERING_RANGE_NAME=google-reserved-range
+
+    NETWORK=YOUR_NETWORK_NAME
+
+    # NOTE: `prefix-length=16` means a CIDR block with mask /16 will be
+    # reserved for use by Google services, such as Agent Platform.
+    gcloud compute addresses create $PEERING_RANGE_NAME \
+      --global \
+      --prefix-length=16 \
+      --description="peering range for Google service" \
+      --network=$NETWORK \
+      --purpose=VPC_PEERING
+
+    # Create the VPC connection.
+    gcloud services vpc-peerings connect \
+      --service=servicenetworking.googleapis.com \
+      --network=$NETWORK \
+      --ranges=$PEERING_RANGE_NAME \
+      --project=$PROJECT_ID
+    ```
 
 Learn more about [private services access](https://docs.cloud.google.com/vpc/docs/private-services-access) .
 
@@ -149,25 +152,31 @@ Learn more about [private connections with on-premises networks](https://docs.cl
 ### gcloud
 
 1.  Find the name of the peering connection to update. If you have multiple peering connections, omit the `--format` flag.
-    
-        gcloud services vpc-peerings list \
-          --network=$NETWORK \
-          --service=servicenetworking.googleapis.com \
-          --project=$PROJECT_ID \
-          --format "value(peering)"
+
+    ```
+    gcloud services vpc-peerings list \
+      --network=$NETWORK \
+      --service=servicenetworking.googleapis.com \
+      --project=$PROJECT_ID \
+      --format "value(peering)"
+    ```
 
 2.  Update the peering connection to export custom routes.
-    
-        gcloud compute networks peerings update PEERING-NAME \
-            --network=$NETWORK \
-            --export-custom-routes \
-            --project=$PROJECT_ID
+
+    ```
+    gcloud compute networks peerings update PEERING-NAME \
+        --network=$NETWORK \
+        --export-custom-routes \
+        --project=$PROJECT_ID
+    ```
 
 ## Check the status of your peering connections
 
 To see that peering connections are active, you can list them using the following command:
 
-    gcloud compute networks peerings list --network $NETWORK
+```
+gcloud compute networks peerings list --network $NETWORK
+```
 
 You should see that the state of the peering you just created is `ACTIVE` . Learn more about [active peering connections](https://docs.cloud.google.com/vpc/docs/peer-two-networks#peering-becomes-active) .
 
@@ -175,39 +184,39 @@ You should see that the state of the peering you just created is `ACTIVE` . Lear
 
 This section lists some common issues for configuring VPC Network Peering with Agent Platform.
 
-  - When you configure Agent Platform to use a Shared VPC network, specify the network URI in the following way.
-    
-    "projects/ YOUR\_SHARED\_VPC\_HOST\_PROJECT /global/networks/ YOUR\_SHARED\_VPC\_NETWORK "
+- When you configure Agent Platform to use a Shared VPC network, specify the network URI in the following way.
 
-  - If you specify a [Shared VPC network](https://docs.cloud.google.com/vpc/docs/provisioning-shared-vpc#setting_up) for Agent Platform to use, then make sure that any user or Service Account actors for Agent Platform in the service project have `compute.networkUser` role granted in your host project.
+  "projects/ ` YOUR_SHARED_VPC_HOST_PROJECT ` /global/networks/ ` YOUR_SHARED_VPC_NETWORK ` "
 
-  - Make sure that you've allocated a sufficient IP range for all service producers your network connects to, including Agent Platform.
+- If you specify a [Shared VPC network](https://docs.cloud.google.com/vpc/docs/provisioning-shared-vpc#setting_up) for Agent Platform to use, then make sure that any user or Service Account actors for Agent Platform in the service project have `compute.networkUser` role granted in your host project.
 
-  - If you encounter the error messages `IP_SPACE_EXHAUSTED` , `RANGES_EXHAUSTED` , or `PEERING_RANGE_EXHAUSTED` you must increase the amount of available IP addresses for the `servicenetworking` reservation in your network. You can [add a new range](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#modifying-connection) to the existing VPC Network Peering configuration or delete some Agent Platform resources to release allocated IP addresses.
+- Make sure that you've allocated a sufficient IP range for all service producers your network connects to, including Agent Platform.
 
-  - Connection Timeouts: After exporting custom routes, connections from Agent Platform will be routed through your network to reach endpoints in other networks. However, those endpoints may not route through your network to send responses *back* to Agent Platform. Make sure that you also add static or dynamic routes in those networks for the return-path to the Agent Platform allocated IP range.
+- If you encounter the error messages `IP_SPACE_EXHAUSTED` , `RANGES_EXHAUSTED` , or `PEERING_RANGE_EXHAUSTED` you must increase the amount of available IP addresses for the `servicenetworking` reservation in your network. You can [add a new range](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#modifying-connection) to the existing VPC Network Peering configuration or delete some Agent Platform resources to release allocated IP addresses.
 
-  - Connection Timeouts / Host Unreachable errors: Since [transitive peering is not supported](https://docs.cloud.google.com/vpc/docs/vpc-peering#transit-network) , connections from Agent Platform won't be able to reach endpoints in other networks that are directly peered to your network, even with "Export custom routes" enabled. Work with your network administrator to make sure that there are no attempts to route directly your network from one directly peered network to another. If needed, you may replace one of these peering hops with a solution that supports static or dynamic routes.
+- Connection Timeouts: After exporting custom routes, connections from Agent Platform will be routed through your network to reach endpoints in other networks. However, those endpoints may not route through your network to send responses *back* to Agent Platform. Make sure that you also add static or dynamic routes in those networks for the return-path to the Agent Platform allocated IP range.
 
-  - Host Unreachable DNS errors: If your Gemini Enterprise Agent Platform job needs to resolve hostnames in your VPC, ensure that you have completed the configuration to [Share private DNS zones with service producers](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#dns-peering) .
+- Connection Timeouts / Host Unreachable errors: Since [transitive peering is not supported](https://docs.cloud.google.com/vpc/docs/vpc-peering#transit-network) , connections from Agent Platform won't be able to reach endpoints in other networks that are directly peered to your network, even with "Export custom routes" enabled. Work with your network administrator to make sure that there are no attempts to route directly your network from one directly peered network to another. If needed, you may replace one of these peering hops with a solution that supports static or dynamic routes.
 
-  - If your pipeline job fails to create with "internal error" identified in Logs Explorer, ensure you have a VPC network deployed in addition to the private services access subnet.
+- Host Unreachable DNS errors: If your Gemini Enterprise Agent Platform job needs to resolve hostnames in your VPC, ensure that you have completed the configuration to [Share private DNS zones with service producers](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#dns-peering) .
 
-  - You can check which services are using which IP addresses so that, for example, you can see which services are using large blocks of IP addresses and avoid IP address exhaustion.
+- If your pipeline job fails to create with "internal error" identified in Logs Explorer, ensure you have a VPC network deployed in addition to the private services access subnet.
 
-  - If you encounter the error `Unable to create an instance within a Shared VPC network` , see [Troubleshooting Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench?component=any#create-shared-vpc-instances) .
+- You can check which services are using which IP addresses so that, for example, you can see which services are using large blocks of IP addresses and avoid IP address exhaustion.
 
-  - If you encounter the error message `For the peered network $network_name, couldn't find a free blocks in allocated IP ranges. This is needed to create the cluster.` , you must increase the amount of available allocated ranges for the service. You can accomplish this in the following ways:
-    
-      - [Add a new allocated range to your network](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#procedure) and [add it to your `servicenetworking-googleapis-com` private connection](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#modifying-connection) . Note that the minimum required allocated range size is `/18` .
-      - Delete existing unused Agent Platform resources to release allocated IP addresses.
-      - Use [Network Analyzer](https://docs.cloud.google.com/network-intelligence-center/docs/network-analyzer/overview) to identify subnet utilization and potential issues.
+- If you encounter the error `Unable to create an instance within a Shared VPC network` , see [Troubleshooting Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench?component=any#create-shared-vpc-instances) .
+
+- If you encounter the error message `For the peered network $network_name, couldn't find a free blocks in allocated IP ranges. This is needed to create the cluster.` , you must increase the amount of available allocated ranges for the service. You can accomplish this in the following ways:
+
+  - [Add a new allocated range to your network](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#procedure) and [add it to your `servicenetworking-googleapis-com` private connection](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#modifying-connection) . Note that the minimum required allocated range size is `/18` .
+  - Delete existing unused Agent Platform resources to release allocated IP addresses.
+  - Use [Network Analyzer](https://docs.cloud.google.com/network-intelligence-center/docs/network-analyzer/overview) to identify subnet utilization and potential issues.
 
 For additional troubleshooting information, refer to [VPC Network Peering troubleshooting guide](https://docs.cloud.google.com/vpc/docs/using-vpc-peering#troubleshooting) .
 
 ## What's next
 
-  - Learn [how to use private IP for custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip) .
-  - Learn [how to use private endpoints for inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints) .
-  - Learn more about [VPC Network Peering](https://docs.cloud.google.com/vpc/docs/vpc-peering) .
-  - See [reference architectures and best practices](https://docs.cloud.google.com/solutions/best-practices-vpc-design#shared-service) for VPC design.
+- Learn [how to use private IP for custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip) .
+- Learn [how to use private endpoints for inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints) .
+- Learn more about [VPC Network Peering](https://docs.cloud.google.com/vpc/docs/vpc-peering) .
+- See [reference architectures and best practices](https://docs.cloud.google.com/solutions/best-practices-vpc-design#shared-service) for VPC design.

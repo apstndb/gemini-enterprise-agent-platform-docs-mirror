@@ -25,17 +25,17 @@ To convert speech to text, do the following:
 5.  In the **Language** selector box, select the language of the speech in the audio file.
 
 6.  Click **Submit** .
-    
+
     The converted text appears in **Text** .
 
 ## Limitations
 
-  - Audio files can be a maximum 60 seconds or 10 MB (whichever is less).
-  - Files are transcribed with the [Chirp](https://cloud.google.com/speech-to-text/v2/docs/usm/usm-model) model.
-  - Only 16-bit linear PCM WAV files are supported.
+- Audio files can be a maximum 60 seconds or 10 MB (whichever is less).
+- Files are transcribed with the [Chirp](https://cloud.google.com/speech-to-text/v2/docs/usm/usm-model) model.
+- Only 16-bit linear PCM WAV files are supported.
 
 You can use the [Speech-to-Text UI](https://docs.cloud.google.com/speech-to-text/docs/transcribe-console) directly to overcome these limitations.
 
 ## What's next
 
-  - For more models, advanced features, and ability to transcribe files up to 8 hours, see [Speech-to-Text](https://docs.cloud.google.com/speech-to-text/docs/transcribe-console) .
+- For more models, advanced features, and ability to transcribe files up to 8 hours, see [Speech-to-Text](https://docs.cloud.google.com/speech-to-text/docs/transcribe-console) .

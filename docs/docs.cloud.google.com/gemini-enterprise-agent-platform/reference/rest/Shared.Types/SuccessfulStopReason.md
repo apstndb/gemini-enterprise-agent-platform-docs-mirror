@@ -6,16 +6,8 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Enums
-
-`SUCCESSFUL_STOP_REASON_UNSPECIFIED`
-
-Should not be set.
-
-`BUDGET_REACHED`
-
-The inputs.budgetMilliNodeHours had been reached.
-
-`MODEL_CONVERGED`
-
-Further training of the Model ceased to increase its quality, since it already has converged.
+| Enums                                |                                                                                               |
+|--------------------------------------|-----------------------------------------------------------------------------------------------|
+| `SUCCESSFUL_STOP_REASON_UNSPECIFIED` | Should not be set.                                                                            |
+| `BUDGET_REACHED`                     | The inputs.budgetMilliNodeHours had been reached.                                             |
+| `MODEL_CONVERGED`                    | Further training of the Model ceased to increase its quality, since it already has converged. |

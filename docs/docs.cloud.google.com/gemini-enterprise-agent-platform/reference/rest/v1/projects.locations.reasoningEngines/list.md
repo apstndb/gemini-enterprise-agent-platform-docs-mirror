@@ -42,32 +42,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  ReasoningEngineService.ListReasoningEngines  `
+Response message for [`ReasoningEngineService.ListReasoningEngines`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/list#google.cloud.aiplatform.v1.ReasoningEngineService.ListReasoningEngines)
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`reasoningEngines[]` ` object ( ReasoningEngine  ` )
+`reasoningEngines[]` `object ( `[`ReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#ReasoningEngine)` )`
 
 List of ReasoningEngines in the requested page.
 
 `nextPageToken` `string`
 
-A token to retrieve the next page of results. Pass to `  ListReasoningEnginesRequest.page_token  ` to obtain that page.
+A token to retrieve the next page of results. Pass to [`ListReasoningEnginesRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/list#body.QUERY_PARAMETERS.page_token) to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;reasoningEngines&quot;: [{object (ReasoningEngine)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "reasoningEngines": [
+    {
+      object (ReasoningEngine)
+    }
+  ],
+  "nextPageToken": string
+}
+```

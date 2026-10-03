@@ -38,9 +38,9 @@ The maximum number of data points to return per page. The default pageSize is 10
 
 `pageToken` `string`
 
-A page token, received from a previous `  timeSeries.exportTensorboardTimeSeries  ` call. Provide this to retrieve the subsequent page.
+A page token, received from a previous [`timeSeries.exportTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries/exportTensorboardTimeSeries#google.cloud.aiplatform.v1beta1.TensorboardService.ExportTensorboardTimeSeriesData) call. Provide this to retrieve the subsequent page.
 
-When paginating, all other parameters provided to `  timeSeries.exportTensorboardTimeSeries  ` must match the call that provided the page token.
+When paginating, all other parameters provided to [`timeSeries.exportTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries/exportTensorboardTimeSeries#google.cloud.aiplatform.v1beta1.TensorboardService.ExportTensorboardTimeSeriesData) must match the call that provided the page token.
 
 `orderBy` `string`
 
@@ -48,32 +48,29 @@ Field to use to sort the TensorboardTimeSeries' data. By default, TensorboardTim
 
 ### Response body
 
-Response message for `  TensorboardService.ExportTensorboardTimeSeriesData  ` .
+Response message for [`TensorboardService.ExportTensorboardTimeSeriesData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries/exportTensorboardTimeSeries#google.cloud.aiplatform.v1beta1.TensorboardService.ExportTensorboardTimeSeriesData) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`timeSeriesDataPoints[]` ` object ( TimeSeriesDataPoint  ` )
+`timeSeriesDataPoints[]` `object ( `[`TimeSeriesDataPoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/TimeSeriesDataPoint)` )`
 
 The returned time series data points.
 
 `nextPageToken` `string`
 
-A token, which can be sent as `  pageToken  ` to retrieve the next page. If this field is omitted, there are no subsequent pages.
+A token, which can be sent as [`pageToken`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries/exportTensorboardTimeSeries#body.request_body.FIELDS.page_token) to retrieve the next page. If this field is omitted, there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;timeSeriesDataPoints&quot;: [{object (TimeSeriesDataPoint)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "timeSeriesDataPoints": [
+    {
+      object (TimeSeriesDataPoint)
+    }
+  ],
+  "nextPageToken": string
+}
+```

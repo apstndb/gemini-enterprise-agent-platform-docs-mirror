@@ -18,73 +18,18 @@ Your traffic isn't strictly capped at the Baseline Throughput limit. Agent Platf
 
 The following tiers are available in Standard PayGo:
 
-Model Family
-
-Tier
-
-Customer Spend (30 Days)
-
-Traffic TPM (Org-Level)
-
-**Gemini Pro models**
-
-Tier 1
-
-$10 - $250
-
-500,000
-
-Tier 2
-
-$250 - $2,000
-
-1,000,000
-
-Tier 3
-
-$2,000 - $50,000
-
-2,000,000
-
-Tier 4
-
-\> $50,000
-
-10,000,000
-
-Custom Tier
-
-Contact your sales team for more information
-
-**Gemini Flash and Flash-Lite models**
-
-Tier 1
-
-$10 - $250
-
-2,000,000
-
-Tier 2
-
-$250 - $2,000
-
-4,000,000
-
-Tier 3
-
-$2,000 - $50,000
-
-10,000,000
-
-Tier 4
-
-\> $50,000
-
-50,000,000
-
-Custom Tier
-
-Contact your sales team for more information
+| Model Family                           | Tier        | Customer Spend (30 Days)                     | Traffic TPM (Org-Level) |
+|----------------------------------------|-------------|----------------------------------------------|-------------------------|
+| **Gemini Pro models**                  | Tier 1      | \$10 - \$250                                 | 500,000                 |
+|                                        | Tier 2      | \$250 - \$2,000                              | 1,000,000               |
+|                                        | Tier 3      | \$2,000 - \$50,000                           | 2,000,000               |
+|                                        | Tier 4      | \> \$50,000                                  | 10,000,000              |
+|                                        | Custom Tier | Contact your sales team for more information |                         |
+| **Gemini Flash and Flash-Lite models** | Tier 1      | \$10 - \$250                                 | 2,000,000               |
+|                                        | Tier 2      | \$250 - \$2,000                              | 4,000,000               |
+|                                        | Tier 3      | \$2,000 - \$50,000                           | 10,000,000              |
+|                                        | Tier 4      | \> \$50,000                                  | 50,000,000              |
+|                                        | Custom Tier | Contact your sales team for more information |                         |
 
 Note that the throughput limit shown for a model family applies independently to each model within that family. For example, a customer in Tier 3 has a baseline throughput of 10,000,000 TPM for Gemini 3.5 Flash. Usage against one of these limits doesn't impact the throughput for other models. There's no separate requests-per-minute (RPM) limit for each tier. Gemini requests with multimodal inputs are subject to the corresponding [system rate limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#multimodal-input-quotas) .
 
@@ -103,7 +48,7 @@ This calculation includes a wide range of services, from predictions on all Gemi
 The following table lists the categories of [Google Cloud SKUs](https://cloud.google.com/skus) that are included in the calculation of the total spend.
 
 | Category                   | Description of included SKUs                                                                                                                                                                                        |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Gemini Models**          | All Gemini model families (e.g., 2.0, 2.5, 3.0 in Pro, Flash, and Lite versions) for predictions across all modalities (Text, Image, Audio, Video), including batch, long-context, tuned, and "thinking" variations |
 | **Gemini Model Features**  | All related Gemini SKUs for features like Caching, Caching Storage, and Priority Tiers, across all modalities and model versions                                                                                    |
 | **Agent Platform CPU**     | Online and Batch Predictions on all CPU-based instance families (e.g., C2, C3, E2, N1, N2, and their variants)                                                                                                      |
@@ -133,18 +78,18 @@ The following [generally available (GA)](https://cloud.google.com/products#produ
 
 #### Click to expand supported models
 
-  - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
-  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
-  - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
-  - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
+- [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+- [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
+- [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
+- [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+- [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 The following [GA](https://cloud.google.com/products#product-launch-stages) Gemini models and their [supervised fine-tuned](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning) models also support Standard PayGo, but the usage tiers don't apply to these models:
 
-  - [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
-  - [Gemini 3.1 Flash-Lite Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image)
-  - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
-  - [Gemini 2.5 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)
+- [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
+- [Gemini 3.1 Flash-Lite Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image)
+- [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
+- [Gemini 2.5 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)
 
 Note that these tiers don't apply to preview models. Refer to the specific official documentation of each model for the most accurate and up-to-date information.
 

@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 This page describes how to update and delete model monitors.
@@ -32,17 +32,19 @@ Update a model monitor to modify the default configuration for monitoring jobs. 
 
 You can update the following specifications:
 
-  - Display name
-  - Training dataset
-  - Model schema
-  - Default monitoring objectives
-  - Default monitoring output specification
-  - Default monitoring notification specification
-  - Default explanation specification for feature attribution
+- Display name
+- Training dataset
+- Model schema
+- Default monitoring objectives
+- Default monitoring output specification
+- Default monitoring notification specification
+- Default explanation specification for feature attribution
 
 The following example updates the model schema:
 
-    monitor_2.update(model_monitoring_schema=MODEL_MONITORING_SCHEMA)
+```
+monitor_2.update(model_monitoring_schema=MODEL_MONITORING_SCHEMA)
+```
 
 ## Delete a model monitor
 
@@ -58,7 +60,9 @@ Remove model monitors to prevent authorized users from inadvertently running mon
 
 ### Python SDK
 
-    from google.cloud.aiplatform.private_preview.centralized_model_monitoring
-    import model_monitor
-    
-    my_model_monitor.delete(force=true)
+```
+from google.cloud.aiplatform.private_preview.centralized_model_monitoring
+import model_monitor
+
+my_model_monitor.delete(force=true)
+```

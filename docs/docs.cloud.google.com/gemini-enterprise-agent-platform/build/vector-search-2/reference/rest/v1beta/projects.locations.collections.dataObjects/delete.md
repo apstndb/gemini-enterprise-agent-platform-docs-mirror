@@ -14,23 +14,15 @@ Deletes a dataObject.
 
 ### Path parameters
 
-Parameters
-
-`name`
-
-`string`
-
-Required. The name of the DataObject resource to be deleted. Format: `projects/{project}/locations/{location}/collections/{collection}/dataObjects/{dataObject}`
+| Parameters |                                                                                                                                                                           |
+|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`     | `string` Required. The name of the DataObject resource to be deleted. Format: `projects/{project}/locations/{location}/collections/{collection}/dataObjects/{dataObject}` |
 
 ### Query parameters
 
-Parameters
-
-`etag`
-
-`string`
-
-Optional. The current etag of the DataObject. If an etag is provided and does not match the current etag of the DataObject, deletion will be blocked and an ABORTED error will be returned.
+| Parameters |                                                                                                                                                                                                      |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `etag`     | `string` Optional. The current etag of the DataObject. If an etag is provided and does not match the current etag of the DataObject, deletion will be blocked and an ABORTED error will be returned. |
 
 ### Request body
 
@@ -44,7 +36,7 @@ If successful, the response body is an empty JSON object.
 
 Requires the following OAuth scope:
 
-  - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/cloud-platform`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -52,6 +44,6 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 
 Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
 
-  - `vectorsearch.dataObjects.delete`
+- `vectorsearch.dataObjects.delete`
 
 For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

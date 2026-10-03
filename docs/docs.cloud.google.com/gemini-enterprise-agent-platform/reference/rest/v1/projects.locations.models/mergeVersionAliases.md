@@ -38,4 +38,4 @@ There is NO ordering in aliases, which means 1) The aliases returned from models
 
 ### Response body
 
-If successful, the response body contains an instance of `  Model  ` .
+If successful, the response body contains an instance of [`Model`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models#Model) .

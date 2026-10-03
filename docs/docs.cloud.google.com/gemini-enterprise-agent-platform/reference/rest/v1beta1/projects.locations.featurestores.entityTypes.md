@@ -22,13 +22,13 @@ The last part entityType is assigned by the client. The entityType can be up to 
 
 Optional. description of the EntityType.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this EntityType was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this EntityType was most recently updated.
 
@@ -46,11 +46,11 @@ See <https://goo.gl/xmQnxf> for more information on and examples of labels. No m
 
 Optional. Used to perform a consistent read-modify-write updates. If not set, a blind "overwrite" update happens.
 
-`monitoringConfig` ` object ( FeaturestoreMonitoringConfig  ` )
+`monitoringConfig` `object ( `[`FeaturestoreMonitoringConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeaturestoreMonitoringConfig)` )`
 
-Optional. The default monitoring configuration for all Features with value type ( `  feature.ValueType  ` ) BOOL, STRING, DOUBLE or INT64 under this EntityType.
+Optional. The default monitoring configuration for all Features with value type ( [`feature.ValueType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.features#Feature.ValueType) ) BOOL, STRING, DOUBLE or INT64 under this EntityType.
 
-If this is populated with \[FeaturestoreMonitoringConfig.monitoring\_interval\] specified, snapshot analysis monitoring is enabled. Otherwise, snapshot analysis monitoring is disabled.
+If this is populated with \[FeaturestoreMonitoringConfig.monitoring_interval\] specified, snapshot analysis monitoring is enabled. Otherwise, snapshot analysis monitoring is disabled.
 
 `offlineStorageTtlDays` `integer`
 
@@ -64,76 +64,41 @@ Output only. reserved for future use.
 
 Output only. reserved for future use.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;description&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;labels&quot;: {string: string,...},&quot;etag&quot;: string,&quot;monitoringConfig&quot;: {object (FeaturestoreMonitoringConfig)},&quot;offlineStorageTtlDays&quot;: integer,&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "name": string,
+  "description": string,
+  "createTime": string,
+  "updateTime": string,
+  "labels": {
+    string: string,
+    ...
+  },
+  "etag": string,
+  "monitoringConfig": {
+    object (FeaturestoreMonitoringConfig)
+  },
+  "offlineStorageTtlDays": integer,
+  "satisfiesPzs": boolean,
+  "satisfiesPzi": boolean
+}
+```
 
-### `            create           `
-
-Creates a new EntityType in a given Featurestore.
-
-### `            delete           `
-
-Deletes a single EntityType.
-
-### `            deleteFeatureValues           `
-
-Delete Feature values from Featurestore.
-
-### `            exportFeatureValues           `
-
-Exports Feature values from all the entities of a target EntityType.
-
-### `            get           `
-
-Gets details of a single EntityType.
-
-### `            getIamPolicy           `
-
-Gets the access control policy for a resource.
-
-### `            importFeatureValues           `
-
-Imports Feature values into the Featurestore from a source storage.
-
-### `            list           `
-
-Lists EntityTypes in a given Featurestore.
-
-### `            patch           `
-
-Updates the parameters of a single EntityType.
-
-### `            readFeatureValues           `
-
-Reads Feature values of a specific entity of an EntityType.
-
-### `            setIamPolicy           `
-
-Sets the access control policy on the specified resource.
-
-### `            streamingReadFeatureValues           `
-
-Reads Feature values for multiple entities.
-
-### `            testIamPermissions           `
-
-Returns permissions that a caller has on the specified resource.
-
-### `            writeFeatureValues           `
-
-Writes Feature values of one or more entities of an EntityType.
+| Methods                                                                                                                                                                                       |                                                                      |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/create)                                         | Creates a new EntityType in a given Featurestore.                    |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/delete)                                         | Deletes a single EntityType.                                         |
+| [`deleteFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/deleteFeatureValues)               | Delete Feature values from Featurestore.                             |
+| [`exportFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/exportFeatureValues)               | Exports Feature values from all the entities of a target EntityType. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/get)                                               | Gets details of a single EntityType.                                 |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/getIamPolicy)                             | Gets the access control policy for a resource.                       |
+| [`importFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/importFeatureValues)               | Imports Feature values into the Featurestore from a source storage.  |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/list)                                             | Lists EntityTypes in a given Featurestore.                           |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/patch)                                           | Updates the parameters of a single EntityType.                       |
+| [`readFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/readFeatureValues)                   | Reads Feature values of a specific entity of an EntityType.          |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/setIamPolicy)                             | Sets the access control policy on the specified resource.            |
+| [`streamingReadFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/streamingReadFeatureValues) | Reads Feature values for multiple entities.                          |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/testIamPermissions)                 | Returns permissions that a caller has on the specified resource.     |
+| [`writeFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/writeFeatureValues)                 | Writes Feature values of one or more entities of an EntityType.      |

@@ -8,20 +8,9 @@ data_source: docs.cloud.google.com
 
 The model routing preference.
 
-Enums
-
-`UNKNOWN`
-
-Unspecified model routing preference.
-
-`PRIORITIZE_QUALITY`
-
-The model will be selected to prioritize the quality of the response.
-
-`BALANCED`
-
-The model will be selected to balance quality and cost.
-
-`PRIORITIZE_COST`
-
-The model will be selected to prioritize the cost of the request.
+| Enums                |                                                                       |
+|----------------------|-----------------------------------------------------------------------|
+| `UNKNOWN`            | Unspecified model routing preference.                                 |
+| `PRIORITIZE_QUALITY` | The model will be selected to prioritize the quality of the response. |
+| `BALANCED`           | The model will be selected to balance quality and cost.               |
+| `PRIORITIZE_COST`    | The model will be selected to prioritize the cost of the request.     |

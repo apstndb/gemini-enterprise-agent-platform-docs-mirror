@@ -8,20 +8,9 @@ data_source: docs.cloud.google.com
 
 Enumeration of possible outcomes of the code execution.
 
-Enums
-
-`OUTCOME_UNSPECIFIED`
-
-Unspecified status. This value should not be used.
-
-`OUTCOME_OK`
-
-code execution completed successfully. `output` contains the stdout, if any.
-
-`OUTCOME_FAILED`
-
-code execution failed. `output` contains the stderr and stdout, if any.
-
-`OUTCOME_DEADLINE_EXCEEDED`
-
-code execution ran for too long, and was cancelled. There may or may not be a partial `output` present.
+| Enums                       |                                                                                                         |
+|-----------------------------|---------------------------------------------------------------------------------------------------------|
+| `OUTCOME_UNSPECIFIED`       | Unspecified status. This value should not be used.                                                      |
+| `OUTCOME_OK`                | code execution completed successfully. `output` contains the stdout, if any.                            |
+| `OUTCOME_FAILED`            | code execution failed. `output` contains the stderr and stdout, if any.                                 |
+| `OUTCOME_DEADLINE_EXCEEDED` | code execution ran for too long, and was cancelled. There may or may not be a partial `output` present. |

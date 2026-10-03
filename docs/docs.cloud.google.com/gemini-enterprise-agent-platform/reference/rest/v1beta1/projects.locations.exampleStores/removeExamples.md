@@ -36,7 +36,7 @@ Optional. Example IDs to remove. If both metadata filters and Example IDs are sp
 
 The metadata filters that will be used to select which examples should be removed. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`storedContentsExampleFilter` ` object ( StoredContentsExampleFilter  ` )
+`storedContentsExampleFilter` `object ( `[`StoredContentsExampleFilter`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/StoredContentsExampleFilter)` )`
 
 The metadata filters for StoredContentsExamples.
 
@@ -44,7 +44,7 @@ End of mutually exclusive fields.
 
 ### Response body
 
-Response message for `  ExampleStoreService.RemoveExamples  ` .
+Response message for [`ExampleStoreService.RemoveExamples`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/removeExamples#google.cloud.aiplatform.v1beta1.ExampleStoreService.RemoveExamples) .
 
 If successful, the response body contains data with the following structure:
 
@@ -54,22 +54,12 @@ Fields
 
 The IDs for the removed examples.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;exampleIds&quot;: [
+**JSON representation**
+
+```
+{
+  "exampleIds": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

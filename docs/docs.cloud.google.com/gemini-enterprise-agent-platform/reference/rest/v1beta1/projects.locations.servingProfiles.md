@@ -24,17 +24,17 @@ Required. The display name of the ServingProfile. The name can be up to 128 char
 
 Optional. The description of the ServingProfile.
 
-`scope` ` enum ( ServingProfileScope  ` )
+`scope` `enum ( `[`ServingProfileScope`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.servingProfiles#ServingProfileScope)` )`
 
 Required. The specific API this ServingProfile applies to.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when the ServingProfile was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when the ServingProfile was last updated.
 
@@ -44,27 +44,30 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 The profile spec for the ServingProfile. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`cmekConfig` ` object ( CmekConfig  ` )
+`cmekConfig` `object ( `[`CmekConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.servingProfiles#CmekConfig)` )`
 
 CMEK configuration for the ServingProfile.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;scope&quot;: enum (ServingProfileScope),&quot;createTime&quot;: string,&quot;updateTime&quot;: string,// profile_spec&quot;cmekConfig&quot;: {object (CmekConfig)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "description": string,
+  "scope": enum (ServingProfileScope),
+  "createTime": string,
+  "updateTime": string,
+
+  // profile_spec
+  "cmekConfig": {
+    object (CmekConfig)
+  }
+  // Union type
+}
+```
 
 ## CmekConfig
 
@@ -72,66 +75,35 @@ Configuration for Customer-Managed Encryption Keys (CMEK).
 
 Fields
 
-`encryptionSpec` ` object ( EncryptionSpec  ` )
+`encryptionSpec` `object ( `[`EncryptionSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/EncryptionSpec)` )`
 
 Required. The customer-managed encryption key spec for the Serving Profile.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;encryptionSpec&quot;: {object (EncryptionSpec)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "encryptionSpec": {
+    object (EncryptionSpec)
+  }
+}
+```
 
 ## ServingProfileScope
 
 The specific API this ServingProfile applies to.
 
-Enums
+| Enums                               |                                                                                                    |
+|-------------------------------------|----------------------------------------------------------------------------------------------------|
+| `SERVING_PROFILE_SCOPE_UNSPECIFIED` | Default value. This value is unused. When users create a ServingProfile, they must choose a scope. |
+| `GEMINI_LIVE`                       | The scope for Gemini Live.                                                                         |
+| `INTERACTIONS_API`                  | The scope for Interactions API.                                                                    |
+| `RESPONSE_API`                      | The scope for Response API.                                                                        |
 
-`SERVING_PROFILE_SCOPE_UNSPECIFIED`
-
-Default value. This value is unused. When users create a ServingProfile, they must choose a scope.
-
-`GEMINI_LIVE`
-
-The scope for Gemini Live.
-
-`INTERACTIONS_API`
-
-The scope for Interactions API.
-
-`RESPONSE_API`
-
-The scope for Response API.
-
-## Methods
-
-### `            create           `
-
-Creates a ServingProfile.
-
-### `            delete           `
-
-Deletes a ServingProfile.
-
-### `            get           `
-
-Gets a ServingProfile.
-
-### `            list           `
-
-Lists ServingProfiles in a Location.
-
-### `            patch           `
-
-Updates a ServingProfile.
+| Methods                                                                                                                                     |                                      |
+|---------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.servingProfiles/create) | Creates a ServingProfile.            |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.servingProfiles/delete) | Deletes a ServingProfile.            |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.servingProfiles/get)       | Gets a ServingProfile.               |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.servingProfiles/list)     | Lists ServingProfiles in a Location. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.servingProfiles/patch)   | Updates a ServingProfile.            |

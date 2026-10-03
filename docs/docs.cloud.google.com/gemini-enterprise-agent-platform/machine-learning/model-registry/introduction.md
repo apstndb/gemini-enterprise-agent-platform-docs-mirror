@@ -7,8 +7,8 @@ data_source: docs.cloud.google.com
 ---
 
 > To see an example of getting started with Model Registry, run the "Get started with " notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_registry/get_started_with_model_registry.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fmodel_registry%2Fget_started_with_model_registry.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fmodel_registry%2Fget_started_with_model_registry.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_registry/get_started_with_model_registry.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_registry/get_started_with_model_registry.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fmodel_registry%2Fget_started_with_model_registry.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fmodel_registry%2Fget_started_with_model_registry.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_registry/get_started_with_model_registry.ipynb)
 
 Model Registry on Gemini Enterprise Agent Platform is a central repository where you can manage the lifecycle of your ML models. From Model Registry, you have an overview of your models so you can better organize, track, and train new versions. When you have a model version you would like to deploy, you can assign it to an endpoint directly from the registry, or using aliases, deploy models to an endpoint.
 
@@ -16,12 +16,12 @@ Model Registry supports custom models and all AutoML data types - tabular and im
 
 There are many valid workflows for working in Model Registry. Follow these guidelines to understand what you can do in Model Registry and at what stage in your model-training journey.
 
-  - Import models to Model Registry.
-  - Create new models, assign a model version the default alias, ready for production.
-  - Add other aliases or labels to help you manage and organize your models and model versions.
-  - Deploy your models to an endpoint for online inference.
-  - Run batch inference, and start your model evaluation pipeline.
-  - View your model details and view performance metrics from the model details page. To learn more about how to integrate your BigQuery ML models with Gemini Enterprise Agent Platform, see the [BigQuery ML documentation.](https://docs.cloud.google.com/bigquery/docs/managing-models-vertex)
+- Import models to Model Registry.
+- Create new models, assign a model version the default alias, ready for production.
+- Add other aliases or labels to help you manage and organize your models and model versions.
+- Deploy your models to an endpoint for online inference.
+- Run batch inference, and start your model evaluation pipeline.
+- View your model details and view performance metrics from the model details page. To learn more about how to integrate your BigQuery ML models with Gemini Enterprise Agent Platform, see the [BigQuery ML documentation.](https://docs.cloud.google.com/bigquery/docs/managing-models-vertex)
 
 ## Search and discover models using Knowledge Catalog
 
@@ -33,7 +33,7 @@ For more information, see [About data catalog management in Knowledge Catalog](h
 
 To get started using Model Registry, see:
 
-  - [Import models to Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/import-model)
-  - [Model versioning with Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/versioning)
-  - [How to use model version aliases](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/model-alias)
-  - [Copy a model in Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/copy-model)
+- [Import models to Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/import-model)
+- [Model versioning with Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/versioning)
+- [How to use model version aliases](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/model-alias)
+- [Copy a model in Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/copy-model)

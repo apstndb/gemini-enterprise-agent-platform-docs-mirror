@@ -24,59 +24,61 @@ To create a serverless training job that runs on a persistent resource, make the
 
 ### gcloud
 
-  - Specify the `--persistent-resource-id` flag and set the value to the ID of the persistent resource ( PERSISTENT\_RESOURCE\_ID ) that you want to use.
-  - Specify the `--worker-pool-spec` flag such that the values for `machine-type` and `disk-type` matches exactly with a corresponding resource pool from the persistent resource. Specify one `--worker-pool-spec` for single node training and multiple for distributed training.
-  - Specify a `replica-count` less than or equal to the `replica-count` or `max-replica-count` of the corresponding resource pool.
+- Specify the `--persistent-resource-id` flag and set the value to the ID of the persistent resource ( ` PERSISTENT_RESOURCE_ID ` ) that you want to use.
+- Specify the `--worker-pool-spec` flag such that the values for `machine-type` and `disk-type` matches exactly with a corresponding resource pool from the persistent resource. Specify one `--worker-pool-spec` for single node training and multiple for distributed training.
+- Specify a `replica-count` less than or equal to the `replica-count` or `max-replica-count` of the corresponding resource pool.
 
 ### Python
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    def create_custom_job_on_persistent_resource_sample(
-        project: str,
-        location: str,
-        staging_bucket: str,
-        display_name: str,
-        container_uri: str,
-        persistent_resource_id: str,
-        service_account: Optional[str] = None,
-    ) -> None:
-        aiplatform.init(
-            project=project, location=location, staging_bucket=staging_bucket
-        )
-    
-        worker_pool_specs = [{
-            "machine_spec": {
-                "machine_type": "n1-standard-4",
-                "accelerator_type": "NVIDIA_TESLA_K80",
-                "accelerator_count": 1,
-            },
-            "replica_count": 1,
-            "container_spec": {
-                "image_uri": container_uri,
-                "command": [],
-                "args": [],
-            },
-        }]
-    
-        custom_job = aiplatform.CustomJob(
-            display_name=display_name,
-            worker_pool_specs=worker_pool_specs,
-            persistent_resource_id=persistent_resource_id,
-        )
-    
-        custom_job.run(service_account=service_account)
+```
+def create_custom_job_on_persistent_resource_sample(
+    project: str,
+    location: str,
+    staging_bucket: str,
+    display_name: str,
+    container_uri: str,
+    persistent_resource_id: str,
+    service_account: Optional[str] = None,
+) -> None:
+    aiplatform.init(
+        project=project, location=location, staging_bucket=staging_bucket
+    )
+
+    worker_pool_specs = [{
+        "machine_spec": {
+            "machine_type": "n1-standard-4",
+            "accelerator_type": "NVIDIA_TESLA_K80",
+            "accelerator_count": 1,
+        },
+        "replica_count": 1,
+        "container_spec": {
+            "image_uri": container_uri,
+            "command": [],
+            "args": [],
+        },
+    }]
+
+    custom_job = aiplatform.CustomJob(
+        display_name=display_name,
+        worker_pool_specs=worker_pool_specs,
+        persistent_resource_id=persistent_resource_id,
+    )
+
+    custom_job.run(service_account=service_account)
+```
 
 ### REST
 
-  - Specify the `persistent_resource_id` parameter and set the value to the ID of the persistent resource ( PERSISTENT\_RESOURCE\_ID ) that you want to use.
-  - Specify the `worker_pool_specs` parameter such that the values of `machine_spec` and `disk_spec` for each resource pool matches exactly with a corresponding resource pool from the persistent resource. Specify one `machine_spec` for single node training and multiple for distributed training.
-  - Specify a `replica_count` less than or equal to the `replica_count` or `max_replica_count` of the corresponding resource pool, excluding the replica count of any other jobs running on that resource pool.
+- Specify the `persistent_resource_id` parameter and set the value to the ID of the persistent resource ( ` PERSISTENT_RESOURCE_ID ` ) that you want to use.
+- Specify the `worker_pool_specs` parameter such that the values of `machine_spec` and `disk_spec` for each resource pool matches exactly with a corresponding resource pool from the persistent resource. Specify one `machine_spec` for single node training and multiple for distributed training.
+- Specify a `replica_count` less than or equal to the `replica_count` or `max_replica_count` of the corresponding resource pool, excluding the replica count of any other jobs running on that resource pool.
 
 ## What's next
 
-  - [Learn about persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-overview) .
-  - [Create and use a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-create) .
-  - [Get information about a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-get) .
-  - [Reboot a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-reboot) .
-  - [Delete a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-delete) .
+- [Learn about persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-overview) .
+- [Create and use a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-create) .
+- [Get information about a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-get) .
+- [Reboot a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-reboot) .
+- [Delete a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-delete) .

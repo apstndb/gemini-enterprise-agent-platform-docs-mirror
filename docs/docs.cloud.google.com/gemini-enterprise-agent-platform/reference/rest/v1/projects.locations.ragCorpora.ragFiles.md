@@ -24,19 +24,19 @@ Required. The display name of the RagFile. The name can be up to 128 characters 
 
 Optional. The description of the RagFile.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this RagFile was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this RagFile was last updated.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`fileStatus` ` object ( FileStatus  ` )
+`fileStatus` `object ( `[`FileStatus`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#FileStatus)` )`
 
 Output only. state of the RagFile.
 
@@ -48,47 +48,68 @@ Output only. The metadata for metadata search. The userMetadata Needs to be in J
 
 The origin location of the RagFile if it is imported from Google Cloud Storage or Google Drive. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`gcsSource` ` object ( GcsSource  ` )
+`gcsSource` `object ( `[`GcsSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GcsSource)` )`
 
 Output only. Google Cloud Storage location of the RagFile. It does not support wildcards in the Cloud Storage uri for now.
 
-`googleDriveSource` ` object ( GoogleDriveSource  ` )
+`googleDriveSource` `object ( `[`GoogleDriveSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#GoogleDriveSource)` )`
 
 Output only. Google Drive location. Supports importing individual files as well as Google Drive folders.
 
-`directUploadSource` ` object ( DirectUploadSource  ` )
+`directUploadSource` `object ( `[`DirectUploadSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#DirectUploadSource)` )`
 
 Output only. The RagFile is encapsulated and uploaded in the UploadRagFile request.
 
-`slackSource` ` object ( SlackSource  ` )
+`slackSource` `object ( `[`SlackSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#SlackSource)` )`
 
 The RagFile is imported from a Slack channel.
 
-`jiraSource` ` object ( JiraSource  ` )
+`jiraSource` `object ( `[`JiraSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#JiraSource)` )`
 
 The RagFile is imported from a Jira query.
 
-`sharePointSources` ` object ( SharePointSources  ` )
+`sharePointSources` `object ( `[`SharePointSources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#SharePointSources)` )`
 
 The RagFile is imported from a SharePoint source.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;fileStatus&quot;: {object (FileStatus)},&quot;userMetadata&quot;: string,// rag_file_source&quot;gcsSource&quot;: {object (GcsSource)},&quot;googleDriveSource&quot;: {object (GoogleDriveSource)},&quot;directUploadSource&quot;: {object (DirectUploadSource)},&quot;slackSource&quot;: {object (SlackSource)},&quot;jiraSource&quot;: {object (JiraSource)},&quot;sharePointSources&quot;: {object (SharePointSources)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "description": string,
+  "createTime": string,
+  "updateTime": string,
+  "fileStatus": {
+    object (FileStatus)
+  },
+  "userMetadata": string,
+
+  // rag_file_source
+  "gcsSource": {
+    object (GcsSource)
+  },
+  "googleDriveSource": {
+    object (GoogleDriveSource)
+  },
+  "directUploadSource": {
+    object (DirectUploadSource)
+  },
+  "slackSource": {
+    object (SlackSource)
+  },
+  "jiraSource": {
+    object (JiraSource)
+  },
+  "sharePointSources": {
+    object (SharePointSources)
+  }
+  // Union type
+}
+```
 
 ## GoogleDriveSource
 
@@ -96,25 +117,21 @@ The Google Drive location for the input content.
 
 Fields
 
-`resourceIds[]` ` object ( ResourceId  ` )
+`resourceIds[]` `object ( `[`ResourceId`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#ResourceId)` )`
 
 Required. Google Drive resource IDs.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;resourceIds&quot;: [{object (ResourceId)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "resourceIds": [
+    {
+      object (ResourceId)
+    }
+  ]
+}
+```
 
 ## ResourceId
 
@@ -122,7 +139,7 @@ The type and id of the Google Drive resource.
 
 Fields
 
-`resourceType` ` enum ( ResourceType  ` )
+`resourceType` `enum ( `[`ResourceType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#ResourceType)` )`
 
 Required. The type of the Google Drive resource.
 
@@ -130,39 +147,24 @@ Required. The type of the Google Drive resource.
 
 Required. The id of the Google Drive resource.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;resourceType&quot;: enum (ResourceType),&quot;resourceId&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "resourceType": enum (ResourceType),
+  "resourceId": string
+}
+```
 
 ## ResourceType
 
 The type of the Google Drive resource.
 
-Enums
-
-`RESOURCE_TYPE_UNSPECIFIED`
-
-Unspecified resource type.
-
-`RESOURCE_TYPE_FILE`
-
-File resource type.
-
-`RESOURCE_TYPE_FOLDER`
-
-Folder resource type.
+| Enums                       |                            |
+|-----------------------------|----------------------------|
+| `RESOURCE_TYPE_UNSPECIFIED` | Unspecified resource type. |
+| `RESOURCE_TYPE_FILE`        | File resource type.        |
+| `RESOURCE_TYPE_FOLDER`      | Folder resource type.      |
 
 ## DirectUploadSource
 
@@ -176,25 +178,21 @@ The Slack source for the ImportRagFilesRequest.
 
 Fields
 
-`channels[]` ` object ( SlackChannels  ` )
+`channels[]` `object ( `[`SlackChannels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#SlackChannels)` )`
 
 Required. The Slack channels.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;channels&quot;: [{object (SlackChannels)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "channels": [
+    {
+      object (SlackChannels)
+    }
+  ]
+}
+```
 
 ## SlackChannels
 
@@ -202,29 +200,28 @@ SlackChannels contains the Slack channels and corresponding access token.
 
 Fields
 
-`channels[]` ` object ( SlackChannel  ` )
+`channels[]` `object ( `[`SlackChannel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#SlackChannel)` )`
 
 Required. The Slack channel IDs.
 
-`apiKeyConfig` ` object ( ApiKeyConfig  ` )
+`apiKeyConfig` `object ( `[`ApiKeyConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ApiKeyConfig)` )`
 
 Required. The SecretManager secret version resource name (e.g. projects/{project}/secrets/{secret}/versions/{version}) storing the Slack channel access token that has access to the slack channel IDs. See: <https://api.slack.com/tutorials/tracks/getting-a-token> .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;channels&quot;: [{object (SlackChannel)}],&quot;apiKeyConfig&quot;: {object (ApiKeyConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "channels": [
+    {
+      object (SlackChannel)
+    }
+  ],
+  "apiKeyConfig": {
+    object (ApiKeyConfig)
+  }
+}
+```
 
 ## SlackChannel
 
@@ -236,37 +233,27 @@ Fields
 
 Required. The Slack channel id.
 
-`startTime` ` string ( Timestamp  ` format)
+`startTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Optional. The starting timestamp for messages to import.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`endTime` ` string ( Timestamp  ` format)
+`endTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Optional. The ending timestamp for messages to import.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;channelId&quot;: string,
-  &quot;startTime&quot;: string,
-  &quot;endTime&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "channelId": string,
+  "startTime": string,
+  "endTime": string
+}
+```
 
 ## JiraSource
 
@@ -274,25 +261,21 @@ The Jira source for the ImportRagFilesRequest.
 
 Fields
 
-`jiraQueries[]` ` object ( JiraQueries  ` )
+`jiraQueries[]` `object ( `[`JiraQueries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#JiraQueries)` )`
 
 Required. The Jira queries.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;jiraQueries&quot;: [{object (JiraQueries)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "jiraQueries": [
+    {
+      object (JiraQueries)
+    }
+  ]
+}
+```
 
 ## JiraQueries
 
@@ -316,25 +299,27 @@ Required. The Jira email address.
 
 Required. The Jira server URI.
 
-`apiKeyConfig` ` object ( ApiKeyConfig  ` )
+`apiKeyConfig` `object ( `[`ApiKeyConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ApiKeyConfig)` )`
 
 Required. The SecretManager secret version resource name (e.g. projects/{project}/secrets/{secret}/versions/{version}) storing the Jira API key. See [Manage API tokens for your Atlassian account](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/) .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;projects&quot;: [string],&quot;customQueries&quot;: [string],&quot;email&quot;: string,&quot;serverUri&quot;: string,&quot;apiKeyConfig&quot;: {object (ApiKeyConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "projects": [
+    string
+  ],
+  "customQueries": [
+    string
+  ],
+  "email": string,
+  "serverUri": string,
+  "apiKeyConfig": {
+    object (ApiKeyConfig)
+  }
+}
+```
 
 ## SharePointSources
 
@@ -342,25 +327,21 @@ The SharePointSources to pass to ragFiles.import.
 
 Fields
 
-`sharePointSources[]` ` object ( SharePointSource  ` )
+`sharePointSources[]` `object ( `[`SharePointSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#SharePointSource)` )`
 
 The SharePoint sources.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;sharePointSources&quot;: [{object (SharePointSource)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "sharePointSources": [
+    {
+      object (SharePointSource)
+    }
+  ]
+}
+```
 
 ## SharePointSource
 
@@ -372,7 +353,7 @@ Fields
 
 The Application id for the app registered in Microsoft Azure Portal. The application must also be configured with MS Graph permissions "Files.ReadAll", "Sites.ReadAll" and BrowserSiteLists.Read.All.
 
-`clientSecret` ` object ( ApiKeyConfig  ` )
+`clientSecret` `object ( `[`ApiKeyConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ApiKeyConfig)` )`
 
 The application secret for the app registered in Azure.
 
@@ -416,21 +397,29 @@ The id of the drive to download from.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;clientId&quot;: string,&quot;clientSecret&quot;: {object (ApiKeyConfig)},&quot;tenantId&quot;: string,&quot;sharepointSiteName&quot;: string,&quot;fileId&quot;: string,// folder_source&quot;sharepointFolderPath&quot;: string,&quot;sharepointFolderId&quot;: string// Union type// drive_source&quot;driveName&quot;: string,&quot;driveId&quot;: string// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "clientId": string,
+  "clientSecret": {
+    object (ApiKeyConfig)
+  },
+  "tenantId": string,
+  "sharepointSiteName": string,
+  "fileId": string,
+
+  // folder_source
+  "sharepointFolderPath": string,
+  "sharepointFolderId": string
+  // Union type
+
+  // drive_source
+  "driveName": string,
+  "driveId": string
+  // Union type
+}
+```
 
 ## FileStatus
 
@@ -438,7 +427,7 @@ RagFile status.
 
 Fields
 
-`state` ` enum ( State  ` )
+`state` `enum ( `[`State`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#State)` )`
 
 Output only. RagFile state.
 
@@ -446,54 +435,28 @@ Output only. RagFile state.
 
 Output only. Only when the `state` field is ERROR.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;state&quot;: enum (State),&quot;errorStatus&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "state": enum (State),
+  "errorStatus": string
+}
+```
 
 ## State
 
 RagFile state.
 
-Enums
+| Enums               |                                                                                   |
+|---------------------|-----------------------------------------------------------------------------------|
+| `STATE_UNSPECIFIED` | RagFile state is unspecified.                                                     |
+| `ACTIVE`            | RagFile resource has been created and indexed successfully.                       |
+| `ERROR`             | RagFile resource is in a problematic state. See `errorMessage` field for details. |
 
-`STATE_UNSPECIFIED`
-
-RagFile state is unspecified.
-
-`ACTIVE`
-
-RagFile resource has been created and indexed successfully.
-
-`ERROR`
-
-RagFile resource is in a problematic state. See `errorMessage` field for details.
-
-## Methods
-
-### `            delete           `
-
-Deletes a RagFile.
-
-### `            get           `
-
-Gets a RagFile.
-
-### `            import           `
-
-Import files from Google Cloud Storage or Google Drive into a RagCorpus.
-
-### `            list           `
-
-Lists RagFiles in a RagCorpus.
+| Methods                                                                                                                                    |                                                                          |
+|--------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles/delete) | Deletes a RagFile.                                                       |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles/get)       | Gets a RagFile.                                                          |
+| [`import`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles/import) | Import files from Google Cloud Storage or Google Drive into a RagCorpus. |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles/list)     | Lists RagFiles in a RagCorpus.                                           |

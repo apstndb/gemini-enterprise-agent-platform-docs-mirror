@@ -9,20 +9,20 @@ data_source: docs.cloud.google.com
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 
 > To see an example of using RAG Engine with Agent Platform Search, run the "RAG Engine with Agent Platform Search" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vertex_ai_search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vertex_ai_search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vertex_ai_search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vertex_ai_search.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vertex_ai_search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vertex_ai_search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vertex_ai_search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vertex_ai_search.ipynb)
 
 This page introduces Agent Search integration with the RAG Engine.
 
 Agent Search provides a solution for retrieving and managing data within your Gemini Enterprise Agent Platform RAG applications. By using Agent Search as your retrieval backend, you can improve performance, scalability, and ease of integration.
 
-  - **Enhanced performance and scalability** : Agent Search is designed to handle large volumes of data with exceptionally low latency. This translates to faster response times and improved performance for your RAG applications, especially when dealing with complex or extensive knowledge bases.
+- **Enhanced performance and scalability** : Agent Search is designed to handle large volumes of data with exceptionally low latency. This translates to faster response times and improved performance for your RAG applications, especially when dealing with complex or extensive knowledge bases.
 
-  - **Simplified data management** : Import your data from various sources, such as websites, BigQuery datasets, and Cloud Storage buckets, that can streamline your [data ingestion process](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .
+- **Simplified data management** : Import your data from various sources, such as websites, BigQuery datasets, and Cloud Storage buckets, that can streamline your [data ingestion process](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .
 
-  - **Seamless integration** : Agent Platform provides built-in integration with Agent Search, which lets you select Agent Search as the corpus backend for your RAG application. This simplifies the integration process and helps to ensure optimal compatibility between components.
+- **Seamless integration** : Agent Platform provides built-in integration with Agent Search, which lets you select Agent Search as the corpus backend for your RAG application. This simplifies the integration process and helps to ensure optimal compatibility between components.
 
-  - **Improved LLM output quality** : By using the retrieval capabilities of Agent Search, you can help to ensure that your RAG application retrieves the most relevant information from your corpus, which leads to more accurate and informative LLM-generated outputs.
+- **Improved LLM output quality** : By using the retrieval capabilities of Agent Search, you can help to ensure that your RAG application retrieves the most relevant information from your corpus, which leads to more accurate and informative LLM-generated outputs.
 
 ## Agent Search
 
@@ -51,46 +51,46 @@ These code samples show you how to configure Agent Search as the retrieval backe
 To use the command line to create a RAG corpus, do the following:
 
 1.  Create a RAG corpus
-    
+
     Replace the following variables used in the code sample:
-    
-      - **PROJECT\_ID** : The ID of your Google Cloud project.
-    
-      - **LOCATION** : The region to process the request.
-    
-      - **DISPLAY\_NAME** : The display name of the RAG corpus that you want to create.
-    
-      - **ENGINE\_NAME** : The full resource name of the Agent Search engine or Agent Search Datastore. For example,
-        
-        `projects/ PROJECT_NUMBER /locations/ LOCATION /collections/default_collection/engines/ ENGINE_NAME /servingConfigs/default_search`
-    
-    <!-- end list -->
-    
-        curl -X POST \
-        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        -H "Content-Type: application/json" \
-        "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/ragCorpora" \
-        -d '{
-          "display_name" : "DISPLAY_NAME",
-          "vertex_ai_search_config" : {
-            "serving_config": "ENGINE_NAME/servingConfigs/default_search"
-          }
-        }'
+
+    - **` PROJECT_ID `** : The ID of your Google Cloud project.
+
+    - **` LOCATION `** : The region to process the request.
+
+    - **` DISPLAY_NAME `** : The display name of the RAG corpus that you want to create.
+
+    - **` ENGINE_NAME `** : The full resource name of the Agent Search engine or Agent Search Datastore. For example,
+
+      `projects/ `` PROJECT_NUMBER `` /locations/ `` LOCATION `` /collections/default_collection/engines/ `` ENGINE_NAME `` /servingConfigs/default_search`
+
+    ```
+    curl -X POST \
+    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+    -H "Content-Type: application/json" \
+    "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/ragCorpora" \
+    -d '{
+      "display_name" : "DISPLAY_NAME",
+      "vertex_ai_search_config" : {
+        "serving_config": "ENGINE_NAME/servingConfigs/default_search"
+      }
+    }'
+    ```
 
 2.  Monitor progress
-    
+
     Replace the following variables used in the code sample:
-    
-      - **PROJECT\_ID** : The ID of your Google Cloud project.
-      - **LOCATION** : The region to process the request.
-      - **OPERATION\_ID** : The ID of the RAG corpus create operation.
-    
-    <!-- end list -->
-    
-        curl -X GET \
-        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        -H "Content-Type: application/json" \
-        "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/operations/OPERATION_ID"
+
+    - **` PROJECT_ID `** : The ID of your Google Cloud project.
+    - **` LOCATION `** : The region to process the request.
+    - **` OPERATION_ID `** : The ID of the RAG corpus create operation.
+
+    ```
+    curl -X GET \
+    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+    -H "Content-Type: application/json" \
+    "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/operations/OPERATION_ID"
+    ```
 
 ### Python
 
@@ -98,35 +98,37 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    import agentplatform
-    from agentplatform import types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # vertex_ai_search_engine_name = "projects/{PROJECT_ID}/locations/{LOCATION}/collections/default_collection/engines/{ENGINE_ID}"
-    # display_name = "test_corpus"
-    # description = "Corpus Description"
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
-    
-    # Configure Search
-    vertex_ai_search_config = types.VertexAiSearchConfig(
-        serving_config=f"{vertex_ai_search_engine_name}/servingConfigs/default_search",
-    )
-    
-    corpus = client.rag.create_corpus(
-        rag_corpus=types.RagCorpus(
-            display_name=display_name,
-            description=description,
-            vertex_ai_search_config=vertex_ai_search_config,
-        ),
-    )
-    print(corpus)
-    # Example response:
-    # RagCorpus(name='projects/1234567890/locations/us-central1/ragCorpora/1234567890',
-    # display_name='test_corpus', description='Corpus Description'.
-    # ...
+```python
+import agentplatform
+from agentplatform import types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# vertex_ai_search_engine_name = "projects/{PROJECT_ID}/locations/{LOCATION}/collections/default_collection/engines/{ENGINE_ID}"
+# display_name = "test_corpus"
+# description = "Corpus Description"
+
+# Initialize Agent Platform client once per session
+client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+
+# Configure Search
+vertex_ai_search_config = types.VertexAiSearchConfig(
+    serving_config=f"{vertex_ai_search_engine_name}/servingConfigs/default_search",
+)
+
+corpus = client.rag.create_corpus(
+    rag_corpus=types.RagCorpus(
+        display_name=display_name,
+        description=description,
+        vertex_ai_search_config=vertex_ai_search_config,
+    ),
+)
+print(corpus)
+# Example response:
+# RagCorpus(name='projects/1234567890/locations/us-central1/ragCorpora/1234567890',
+# display_name='test_corpus', description='Corpus Description'.
+# ...
+```
 
 ### Retrieve contexts using the RAG API
 
@@ -138,76 +140,78 @@ This code sample demonstrates how to retrieve contexts using REST.
 
 Replace the following variables used in the code sample:
 
-  - **PROJECT\_ID** : The ID of your Google Cloud project.
+- **` PROJECT_ID `** : The ID of your Google Cloud project.
 
-  - **LOCATION** : The region to process the request.
+- **` LOCATION `** : The region to process the request.
 
-  - **RAG\_CORPUS\_RESOURCE** : The name of the RAG corpus resource.
-    
-    Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}.`
+- **` RAG_CORPUS_RESOURCE `** : The name of the RAG corpus resource.
 
-  - **TEXT** : The query text to get relevant contexts.
+  Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}.`
 
-<!-- end list -->
+- **` TEXT `** : The query text to get relevant contexts.
 
-    curl -X POST \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION:retrieveContexts" \
-      -d '{
-        "vertex_rag_store": {
-          "rag_resources": {
-            "rag_corpus": "RAG_CORPUS_RESOURCE"
-          }
-        },
-        "query": {
-          "text": "TEXT"
-        }
-      }'
+```
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+"https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION:retrieveContexts" \
+  -d '{
+    "vertex_rag_store": {
+      "rag_resources": {
+        "rag_corpus": "RAG_CORPUS_RESOURCE"
+      }
+    },
+    "query": {
+      "text": "TEXT"
+    }
+  }'
+```
 
 ### Python
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import agentplatform
-    
-    from agentplatform import types
-    from google.genai import types as genai_types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/[PROJECT_ID]/locations/us-central1/ragCorpora/[rag_corpus_id]"
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
-    
-    response = client.rag.retrieve_contexts(
-        vertex_rag_store=genai_types.VertexRagStore(
-            rag_resources=[
-                genai_types.VertexRagStoreRagResource(
-                    rag_corpus=corpus_name,
-                    # Optional: supply IDs from `rag.list_files()`.
-                    # rag_file_ids=["rag-file-1", "rag-file-2", ...],
-                )
-            ],
-        ),
-        query=types.RagQuery(
-            text="Hello World!",
-            rag_retrieval_config=genai_types.RagRetrievalConfig(
-                top_k=10,
-                filter=genai_types.RagRetrievalConfigFilter(
-                    vector_distance_threshold=0.5
-                ),
+```
+import agentplatform
+
+from agentplatform import types
+from google.genai import types as genai_types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# corpus_name = "projects/[PROJECT_ID]/locations/us-central1/ragCorpora/[rag_corpus_id]"
+
+# Initialize Agent Platform client once per session
+client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
+
+response = client.rag.retrieve_contexts(
+    vertex_rag_store=genai_types.VertexRagStore(
+        rag_resources=[
+            genai_types.VertexRagStoreRagResource(
+                rag_corpus=corpus_name,
+                # Optional: supply IDs from `rag.list_files()`.
+                # rag_file_ids=["rag-file-1", "rag-file-2", ...],
+            )
+        ],
+    ),
+    query=types.RagQuery(
+        text="Hello World!",
+        rag_retrieval_config=genai_types.RagRetrievalConfig(
+            top_k=10,
+            filter=genai_types.RagRetrievalConfigFilter(
+                vector_distance_threshold=0.5
             ),
-        )
+        ),
     )
-    print(response)
-    # Example response:
-    # contexts {
-    #   contexts {
-    #     source_uri: "gs://your-bucket-name/file.txt"
-    #     text: "....
-    #   ....
+)
+print(response)
+# Example response:
+# contexts {
+#   contexts {
+#     source_uri: "gs://your-bucket-name/file.txt"
+#     text: "....
+#   ....
+```
 
 ### Generate content using Agent Platform Gemini API
 
@@ -217,90 +221,94 @@ To generate content using Gemini models, make a call to the Agent Platform `Gene
 
 Replace the following variables used in the sample code:
 
-  - **PROJECT\_ID** : The ID of your Google Cloud project.
+- **` PROJECT_ID `** : The ID of your Google Cloud project.
 
-  - **LOCATION** : The region to process the request.
+- **` LOCATION `** : The region to process the request.
 
-  - **MODEL\_ID** : LLM model for content generation. For example, `gemini-2.0-flash` .
+- **` MODEL_ID `** : LLM model for content generation. For example, `gemini-2.0-flash` .
 
-  - **GENERATION\_METHOD** : LLM method for content generation. For example, `generateContent` , `streamGenerateContent` .
+- **` GENERATION_METHOD `** : LLM method for content generation. For example, `generateContent` , `streamGenerateContent` .
 
-  - **INPUT\_PROMPT** : The text that is sent to the LLM for content generation. Try to use a prompt relevant to the documents in Agent Search.
+- **` INPUT_PROMPT `** : The text that is sent to the LLM for content generation. Try to use a prompt relevant to the documents in Agent Search.
 
-  - **RAG\_CORPUS\_RESOURCE** : The name of the RAG corpus resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .
+- **` RAG_CORPUS_RESOURCE `** : The name of the RAG corpus resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .
 
-  - **SIMILARITY\_TOP\_K** : Optional: The number of top contexts to retrieve.
-    
-        curl -X POST \
-        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        -H "Content-Type: application/json" \
-        "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATION_METHOD" \
-        -d '{
-          "contents": {
-            "role": "user",
-            "parts": {
-              "text": "INPUT_PROMPT"
-            }
-          },
-          "tools": {
-            "retrieval": {
-              "disable_attribution": false,
-              "vertex_rag_store": {
-                "rag_resources": {
-                    "rag_corpus": "RAG_CORPUS_RESOURCE"
-                  },
-                "similarity_top_k": SIMILARITY_TOP_K
-              }
-            }
-          }
-        }'
+- **` SIMILARITY_TOP_K `** : Optional: The number of top contexts to retrieve.
+
+  ```
+  curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATION_METHOD" \
+  -d '{
+    "contents": {
+      "role": "user",
+      "parts": {
+        "text": "INPUT_PROMPT"
+      }
+    },
+    "tools": {
+      "retrieval": {
+        "disable_attribution": false,
+        "vertex_rag_store": {
+          "rag_resources": {
+              "rag_corpus": "RAG_CORPUS_RESOURCE"
+            },
+          "similarity_top_k": SIMILARITY_TOP_K
+        }
+      }
+    }
+  }'
+  ```
 
 ### Python
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from google import genai
-    from google.genai import types as genai_types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
-    
-    rag_retrieval_tool = genai_types.Tool(
-        retrieval=genai_types.Retrieval(
-            vertex_rag_store=genai_types.VertexRagStore(
-                rag_resources=[
-                    genai_types.VertexRagStoreRagResource(
-                        rag_corpus=corpus_name
-                    )
-                ],
-                rag_retrieval_config=genai_types.RagRetrievalConfig(
-                    top_k=10,
-                    filter=genai_types.RagRetrievalConfigFilter(
-                        vector_distance_threshold=0.5
-                    ),
+```
+from google import genai
+from google.genai import types as genai_types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+
+rag_retrieval_tool = genai_types.Tool(
+    retrieval=genai_types.Retrieval(
+        vertex_rag_store=genai_types.VertexRagStore(
+            rag_resources=[
+                genai_types.VertexRagStoreRagResource(
+                    rag_corpus=corpus_name
+                )
+            ],
+            rag_retrieval_config=genai_types.RagRetrievalConfig(
+                top_k=10,
+                filter=genai_types.RagRetrievalConfigFilter(
+                    vector_distance_threshold=0.5
                 ),
             ),
-        )
+        ),
     )
-    
-    # Create a GenAI SDK client to make a generate_content request
-    genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-central1")
-    
-    response = genai_client.models.generate_content(
-        model="gemini-2.5-pro",
-        contents="Why is the sky blue?",
-        config=genai_types.GenerateContentConfig(
-            tools=[rag_retrieval_tool]
-        )
+)
+
+# Create a GenAI SDK client to make a generate_content request
+genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-central1")
+
+response = genai_client.models.generate_content(
+    model="gemini-2.5-pro",
+    contents="Why is the sky blue?",
+    config=genai_types.GenerateContentConfig(
+        tools=[rag_retrieval_tool]
     )
-    print(response.text)
-    # Example response:
-    #   The sky appears blue due to a phenomenon called Rayleigh scattering.
-    #   Sunlight, which contains all colors of the rainbow, is scattered
-    #   by the tiny particles in the Earth's atmosphere....
-    #   ...
+)
+print(response.text)
+# Example response:
+#   The sky appears blue due to a phenomenon called Rayleigh scattering.
+#   Sunlight, which contains all colors of the rainbow, is scattered
+#   by the tiny particles in the Earth's atmosphere....
+#   ...
+```
 
 ## What's next
 
-  - [Retrieval and ranking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/retrieval-and-ranking)
+- [Retrieval and ranking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/retrieval-and-ranking)

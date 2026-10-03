@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.reasoningEngines.sandboxEnvironmentTemplates.create
 
-Creates a `  SandboxEnvironmentTemplate  ` in a given reasoning engine.
+Creates a [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates#SandboxEnvironmentTemplate) in a given reasoning engine.
 
 ### Endpoint
 
@@ -24,8 +24,8 @@ Required. The resource name of the reasoning engine to create the SandboxEnviron
 
 ### Request body
 
-The request body contains an instance of `  SandboxEnvironmentTemplate  ` .
+The request body contains an instance of [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates#SandboxEnvironmentTemplate) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  Operation  ` .
+If successful, the response body contains a newly created instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

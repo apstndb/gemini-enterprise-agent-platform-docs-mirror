@@ -24,13 +24,13 @@ Optional. Represents the display name of the Memory.
 
 Optional. Represents the description of the Memory.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. Represents the timestamp when this Memory was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. Represents the timestamp when this Memory was most recently updated.
 
@@ -48,11 +48,11 @@ Required. Immutable. Represents the scope of the Memory. Memories are isolated w
 
 Optional. Input only. Represents the labels to apply to the Memory Revision created as a result of this request.
 
-`memoryType` ` enum ( MemoryType  ` )
+`memoryType` `enum ( `[`MemoryType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/MemoryType)` )`
 
 Optional. Represents the type of the memory. If not set, the `NATURAL_LANGUAGE_COLLECTION` type is used. If `STRUCTURED_COLLECTION` or `STRUCTURED_PROFILE` is used, then `structuredData` must be provided.
 
-`structuredContent` ` object ( StructuredContent  ` )
+`structuredContent` `object ( `[`StructuredContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks.memories#Memory.StructuredContent)` )`
 
 Optional. Represents the structured content of the memory.
 
@@ -60,13 +60,13 @@ Optional. Represents the structured content of the memory.
 
 The expiration of the Memory. If not set, the Memory will not be automatically deleted. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`expireTime` ` string ( Timestamp  ` format)
+`expireTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Optional. Represents the timestamp of when this resource is considered expired. This is *always* provided on output when `expiration` is set on input, regardless of whether `expireTime` or `ttl` was provided.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`ttl` ` string ( Duration  ` format)
+`ttl` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 Optional. Input only. Represents the TTL for this resource. The expiration time is computed: now + TTL.
 
@@ -78,13 +78,13 @@ End of mutually exclusive fields.
 
 (Input-only) The expiration of the Memory Revision created as a result of this request. If not set, Memory Bank will defer to `MemoryBankConfig.memory_revision_default_ttl` or the global default, 365 days. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`revisionExpireTime` ` string ( Timestamp  ` format)
+`revisionExpireTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Optional. Input only. Represents the timestamp of when the revision is considered expired. If not set, the memory revision will be kept until manually deleted.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`revisionTtl` ` string ( Duration  ` format)
+`revisionTtl` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 Optional. Input only. Represents the TTL for the revision. The expiration time is computed: now + TTL.
 
@@ -96,56 +96,50 @@ Optional. Input only. Indicates whether no revision will be created for this req
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;fact&quot;: string,&quot;scope&quot;: {string: string,...},&quot;revisionLabels&quot;: {string: string,...},&quot;memoryType&quot;: enum (MemoryType),&quot;structuredContent&quot;: {object (StructuredContent)},// expiration&quot;expireTime&quot;: string,&quot;ttl&quot;: string// Union type// revision_expiration&quot;revisionExpireTime&quot;: string,&quot;revisionTtl&quot;: string,&quot;disableMemoryRevisions&quot;: boolean// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "name": string,
+  "displayName": string,
+  "description": string,
+  "createTime": string,
+  "updateTime": string,
+  "fact": string,
+  "scope": {
+    string: string,
+    ...
+  },
+  "revisionLabels": {
+    string: string,
+    ...
+  },
+  "memoryType": enum (MemoryType),
+  "structuredContent": {
+    object (StructuredContent)
+  },
 
-### `            create           `
+  // expiration
+  "expireTime": string,
+  "ttl": string
+  // Union type
 
-Create a Memory.
+  // revision_expiration
+  "revisionExpireTime": string,
+  "revisionTtl": string,
+  "disableMemoryRevisions": boolean
+  // Union type
+}
+```
 
-### `            delete           `
-
-Delete a Memory.
-
-### `            generate           `
-
-Generate memories.
-
-### `            get           `
-
-Get a Memory.
-
-### `            ingestEvents           `
-
-Ingests events for a Memory Bank.
-
-### `            list           `
-
-List Memories.
-
-### `            patch           `
-
-Update a Memory.
-
-### `            retrieve           `
-
-Retrieve memories.
-
-### `            retrieveProfiles           `
-
-Retrieves profiles.
+| Methods                                                                                                                                                                   |                                   |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/create)                     | Create a Memory.                  |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/delete)                     | Delete a Memory.                  |
+| [`generate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/generate)                 | Generate memories.                |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/get)                           | Get a Memory.                     |
+| [`ingestEvents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/ingestEvents)         | Ingests events for a Memory Bank. |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/list)                         | List Memories.                    |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/patch)                       | Update a Memory.                  |
+| [`retrieve`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/retrieve)                 | Retrieve memories.                |
+| [`retrieveProfiles`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/retrieveProfiles) | Retrieves profiles.               |

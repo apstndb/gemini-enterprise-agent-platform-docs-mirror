@@ -33,9 +33,9 @@ The above figure shows a typical Agent Platform Neural Architecture Search curve
 
 Agent Platform Neural Architecture Search works in two stages:
 
-  - Stage1-search uses a much smaller *representation* of the full training which typically finishes within \~1-2 hours. This representation is called a **proxy task** and it helps keep the [search cost](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/suggested-workflow#nas_search_cost) down.
+- Stage1-search uses a much smaller *representation* of the full training which typically finishes within \~1-2 hours. This representation is called a **proxy task** and it helps keep the [search cost](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/suggested-workflow#nas_search_cost) down.
 
-  - Stage2-full-training involves doing full-training for the top \~10 scoring models from stage1-search. Due to the stochastic nature of the search, the topmost model from stage1-search may not be the topmost model during the stage2-full-training and, therefore, it is important to select a pool of models for full-training.
+- Stage2-full-training involves doing full-training for the top \~10 scoring models from stage1-search. Due to the stochastic nature of the search, the topmost model from stage1-search may not be the topmost model during the stage2-full-training and, therefore, it is important to select a pool of models for full-training.
 
 Because the controller gets the reward signal from the smaller proxy task instead of the complete training, it is important to [find an optimal proxy-task for your task.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design)
 
@@ -53,13 +53,13 @@ Since the Agent Platform Neural Architecture Search cost is high, it is advisabl
 
 Assuming that you already have the **training-data** and the **validation-data** for your baseline training, the following dataset split is recommended for the two stages of NAS Agent Platform Neural Architecture Search:
 
-  - Stage1-search training: \~90% of training-data
+- Stage1-search training: \~90% of training-data
 
-  - Stage1-search validation: \~10% of training-data
+- Stage1-search validation: \~10% of training-data
 
-  - Stage2-full-training training: 100% of training-data
+- Stage2-full-training training: 100% of training-data
 
-  - Stage2-full-training validation: 100% of validation-data
+- Stage2-full-training validation: 100% of validation-data
 
 The stage2-full-training data split is the same as the regular training. But, the stage1-search uses a training data split for validation. Using different validation data in stage1 and stage2 helps detect any model-search bias due to the dataset split. Ensure that the training-data is well shuffled before partitioning it further and that the final 10% training-data-split has similar distribution as the original validation data.
 
@@ -71,27 +71,27 @@ In this case you may only run the [augmentation-search](https://docs.cloud.googl
 
 ## Search space design
 
-  - The architecture search should not be mixed with augmentation search or hyperparameter search (such as learning rate or optimizer settings). The goal of architecture search is to compare model-A performance with model-B when there are only architecture-based differences. Therefore, the augmentation and hyperparameter settings should remain the same.
+- The architecture search should not be mixed with augmentation search or hyperparameter search (such as learning rate or optimizer settings). The goal of architecture search is to compare model-A performance with model-B when there are only architecture-based differences. Therefore, the augmentation and hyperparameter settings should remain the same.
 
-  - The [augmentation search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design#augmentation_search) can be done as different stage after the architecture search is done.
+- The [augmentation search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design#augmentation_search) can be done as different stage after the architecture search is done.
 
-  - Agent Platform Neural Architecture Search can go up to 10^20 in search space size. But if your search space is larger, you can divide your search space into *mutually-exclusive* parts. For example, you can search for encoder separately from the decoder or the head first. If you still want to do a joint search over all of them, then you can create a smaller search space around previously found best individual options.
+- Agent Platform Neural Architecture Search can go up to 10^20 in search space size. But if your search space is larger, you can divide your search space into *mutually-exclusive* parts. For example, you can search for encoder separately from the decoder or the head first. If you still want to do a joint search over all of them, then you can create a smaller search space around previously found best individual options.
 
-  - (Optional) You can separate *model scaling* from *block design* when designing a search space. The block design search should be done first with a scaled-down model. This can keep the cost of proxy-task runtime much lower. You can then do a separate search to *scale* the model up. For more information, see [`Examples of scaled down models`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design#scaled_down_model) .
+- (Optional) You can separate *model scaling* from *block design* when designing a search space. The block design search should be done first with a scaled-down model. This can keep the cost of proxy-task runtime much lower. You can then do a separate search to *scale* the model up. For more information, see [`Examples of scaled down models`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design#scaled_down_model) .
 
 ## Optimizing training and search time
 
 Before running Agent Platform Neural Architecture Search, it is important to optimize the training time for your baseline model. This will save you cost over the long run. Here are some of the options to optimize the training:
 
-  - Maximize data loading speed:
-      - Ensure that the bucket where your data resides is in the same region as your job.
-      - If using TensorFlow, see [`Best practice summary`](https://www.tensorflow.org/guide/data_performance#best_practice_summary) . You may also try using [TFRecord format](https://www.tensorflow.org/tutorials/load_data/tfrecord) for your data.
-      - If using PyTorch, follow [the guidelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/pytorch-efficient-training) for efficient PyTorch training.
-  - Use [distributed training](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training) to take advantage of multiple accelerators or multiple machines.
-  - Use [mixed precision training](https://docs.nvidia.com/deeplearning/performance/mixed-precision-training/index.html#mptrain) to get significant training speedup and reduction in memory usage. For TensorFlow mixed precision training, [see `Mixed Precision`](https://www.tensorflow.org/guide/mixed_precision) .
-  - Some accelerators (like A100) are typically more cost efficient.
-  - Tune the batch-size to ensure that you are maximizing GPU utilization. The following plot shows under-utilization of GPUs (at 50%). ![GPU utilization](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/gpu_utilization.png) Increasing the batch-size can help utilize GPUs more. However, batch-size should be increased carefully as it can increase [out-of-memory errors during the search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design#oom_error) .
-  - If certain architecture-blocks are **independent of the search space** , then you can try loading pretrained checkpoints for these blocks for faster training. The pretrained checkpoints should be the **same** over the search space and should not introduce a bias. For example, if your search space is only for the decoder, then the encoder can use pretrained checkpoints.
+- Maximize data loading speed:
+  - Ensure that the bucket where your data resides is in the same region as your job.
+  - If using TensorFlow, see [`Best practice summary`](https://www.tensorflow.org/guide/data_performance#best_practice_summary) . You may also try using [TFRecord format](https://www.tensorflow.org/tutorials/load_data/tfrecord) for your data.
+  - If using PyTorch, follow [the guidelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/pytorch-efficient-training) for efficient PyTorch training.
+- Use [distributed training](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training) to take advantage of multiple accelerators or multiple machines.
+- Use [mixed precision training](https://docs.nvidia.com/deeplearning/performance/mixed-precision-training/index.html#mptrain) to get significant training speedup and reduction in memory usage. For TensorFlow mixed precision training, [see `Mixed Precision`](https://www.tensorflow.org/guide/mixed_precision) .
+- Some accelerators (like A100) are typically more cost efficient.
+- Tune the batch-size to ensure that you are maximizing GPU utilization. The following plot shows under-utilization of GPUs (at 50%). ![GPU utilization](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/gpu_utilization.png) Increasing the batch-size can help utilize GPUs more. However, batch-size should be increased carefully as it can increase [out-of-memory errors during the search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design#oom_error) .
+- If certain architecture-blocks are **independent of the search space** , then you can try loading pretrained checkpoints for these blocks for faster training. The pretrained checkpoints should be the **same** over the search space and should not introduce a bias. For example, if your search space is only for the decoder, then the encoder can use pretrained checkpoints.
 
 ### Number of GPUs for each search-trial
 
@@ -123,8 +123,8 @@ The max failed trials should be set to around 1/3th of `max_nas_trial` setting. 
 
 You should stop the search when:
 
-  - The search-curve starts to converge (the variance decreases): ![NAS search.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/nas_search.png) **Note:** If no latency constraint is used or the hard latency constraint is used with loose latency limit, then the curve may not show an increase in reward but should still show convergence. This is because the controller may already have seen good accuracies early on in the search.
+- The search-curve starts to converge (the variance decreases): ![NAS search.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/nas_search.png) **Note:** If no latency constraint is used or the hard latency constraint is used with loose latency limit, then the curve may not show an increase in reward but should still show convergence. This is because the controller may already have seen good accuracies early on in the search.
 
-  - More than 20% of your trials are showing invalid rewards (failures): ![NAS search failure.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/search_failures.png)
+- More than 20% of your trials are showing invalid rewards (failures): ![NAS search failure.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/search_failures.png)
 
-  - The search curve neither increases nor converges (as shown above) even after \~500 trials. If it shows any of the reward increase or variance decrease then you can continue.
+- The search curve neither increases nor converges (as shown above) even after \~500 trials. If it shows any of the reward increase or variance decrease then you can continue.

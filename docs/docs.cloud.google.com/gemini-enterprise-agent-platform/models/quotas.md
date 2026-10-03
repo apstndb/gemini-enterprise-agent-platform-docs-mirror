@@ -8,16 +8,16 @@ data_source: docs.cloud.google.com
 
 This document lists the quotas and system limits that apply to Generative AI models on Agent Platform.
 
-  - **Quotas** have default values, but you can typically request adjustments.
-  - **System limits** are fixed values that can't be changed.
+- **Quotas** have default values, but you can typically request adjustments.
+- **System limits** are fixed values that can't be changed.
 
 Google Cloud uses quotas to help ensure fairness and reduce spikes in resource use and availability. A quota restricts how much of a Google Cloud resource your Google Cloud project can use. Quotas apply to a range of resource types, including hardware, software, and network components. For example, quotas can restrict the number of API calls to a service, the number of load balancers used concurrently by your project, or the number of projects that you can create. Quotas protect the community of Google Cloud users by preventing the overloading of services. Quotas also help you to manage your own Google Cloud resources.
 
 The Cloud Quotas system does the following:
 
-  - Monitors your consumption of Google Cloud products and services
-  - Restricts your consumption of those resources
-  - Provides a way to [request changes to the quota value](https://docs.cloud.google.com/docs/quotas/help/request_increase) and [automate quota adjustments](https://docs.cloud.google.com/docs/quotas/quota-adjuster)
+- Monitors your consumption of Google Cloud products and services
+- Restricts your consumption of those resources
+- Provides a way to [request changes to the quota value](https://docs.cloud.google.com/docs/quotas/help/request_increase) and [automate quota adjustments](https://docs.cloud.google.com/docs/quotas/quota-adjuster)
 
 In most cases, when you attempt to consume more of a resource than its quota allows, the system blocks access to the resource, and the task that you're trying to perform fails.
 
@@ -37,25 +37,25 @@ Tuned model inference shares the same quota as the base model. There is no separ
 
 Requests for `gemini-embedding-001` and `gemini-embedding-2` are subject to global quotas.
 
-| Base model                      | Quota       | Metric                                                                                  |
-| ------------------------------- | ----------- | --------------------------------------------------------------------------------------- |
-| base\_model: gemini-embedding   | 100,000,000 | `aiplatform.googleapis.com/global_embed_content_input_tokens_per_minute_per_base_model` |
-| base\_model: gemini-embedding   | 100,000     | `aiplatform.googleapis.com/global_embed_content_requests_per_minute_per_base_model`     |
-| base\_model: gemini-embedding-2 | 200,000,000 | `aiplatform.googleapis.com/global_embed_content_input_tokens_per_minute_per_base_model` |
-| base\_model: gemini-embedding-2 | 60,000      | `aiplatform.googleapis.com/global_embed_content_requests_per_minute_per_base_model`     |
+| Base model                     | Quota       | Metric                                                                                  |
+|--------------------------------|-------------|-----------------------------------------------------------------------------------------|
+| base_model: gemini-embedding   | 100,000,000 | `aiplatform.googleapis.com/global_embed_content_input_tokens_per_minute_per_base_model` |
+| base_model: gemini-embedding   | 100,000     | `aiplatform.googleapis.com/global_embed_content_requests_per_minute_per_base_model`     |
+| base_model: gemini-embedding-2 | 200,000,000 | `aiplatform.googleapis.com/global_embed_content_input_tokens_per_minute_per_base_model` |
+| base_model: gemini-embedding-2 | 60,000      | `aiplatform.googleapis.com/global_embed_content_requests_per_minute_per_base_model`     |
 
 Requests for `gemini-embedding-001` using the `predict` API are also subject to the following quotas:
 
-| Base model       | Quota  | Metric                                                 |
-| ---------------- | ------ | ------------------------------------------------------ |
-| base\_model: N/A | 30,000 | `aiplatform.googleapis.com/online_prediction_requests` |
+| Base model      | Quota  | Metric                                                 |
+|-----------------|--------|--------------------------------------------------------|
+| base_model: N/A | 30,000 | `aiplatform.googleapis.com/online_prediction_requests` |
 
 ## Agent Runtime quotas
 
 The following quotas apply to [Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) for a given project in each region:
 
 | Description                                                                          | Quota | Metric                                                                         |
-| ------------------------------------------------------------------------------------ | ----- | ------------------------------------------------------------------------------ |
+|--------------------------------------------------------------------------------------|-------|--------------------------------------------------------------------------------|
 | Create, delete, or update Agent Runtime resources per minute                         | 10    | `aiplatform.googleapis.com/reasoning_engine_service_write_requests`            |
 | Create, delete, or update Agent Runtime sessions per minute                          | 100   | `aiplatform.googleapis.com/session_write_requests`                             |
 | Get, list, or retrieve Agent Runtime sessions per minute                             | 10000 | `aiplatform.googleapis.com/session_read_requests`                              |
@@ -76,7 +76,7 @@ The following quotas apply to [Agent Runtime](https://docs.cloud.google.com/gemi
 The following quotas apply to multimodal input for `generateContent` and `streamGenerateContent` requests for a given project in each region. Each quota is enforced per base model and resolution. The same limits apply to requests served by the global endpoint, using the corresponding `..._global` metric.
 
 | Description                                                                            | Quota       | Metric                                                                                       |
-| -------------------------------------------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------- |
+|----------------------------------------------------------------------------------------|-------------|----------------------------------------------------------------------------------------------|
 | Generate content requests with image input per minute per base model and resolution    | 34,000,000  | `aiplatform.googleapis.com/generate_content_image_input_per_base_model_id_and_resolution`    |
 | Generate content requests with video input per minute per base model and resolution    | 192,000,000 | `aiplatform.googleapis.com/generate_content_video_input_per_base_model_id_and_resolution`    |
 | Generate content requests with audio input per minute per base model and resolution    | 11,000,000  | `aiplatform.googleapis.com/generate_content_audio_input_per_base_model_id_and_resolution`    |
@@ -93,18 +93,18 @@ To view and edit generative media quotas in the Google Cloud console, do the fol
 2.  Go to the **Quotas and System Limits** page.
 
 3.  In the **Filter** text box, enter the following queries:
-    
-    ` Metric: METRIC_NAME Dimensions (e.g. location): MODEL_NAME  `
-    
-    Replace the following:
-    
-      - METRIC\_NAME : The metric name to search for, one of the following:
-          - **Gemini Omni** : `global_generate_content_requests_per_minute_per_project_per_base_model`
-          - **Veo** : `long_running_online_prediction_requests_per_base_model`
-          - **Lyria** : `global_generate_content_requests_per_minute_per_project_per_base_model`
-      - MODEL\_NAME : The name of the model that you are using.
 
-4.  To adjust the quota, click more\_vert **More** and then select **Edit quota** .
+    `Metric: `` METRIC_NAME `` Dimensions (e.g. location): `` MODEL_NAME`
+
+    Replace the following:
+
+    - ` METRIC_NAME ` : The metric name to search for, one of the following:
+      - **Gemini Omni** : `global_generate_content_requests_per_minute_per_project_per_base_model`
+      - **Veo** : `long_running_online_prediction_requests_per_base_model`
+      - **Lyria** : `global_generate_content_requests_per_minute_per_project_per_base_model`
+    - ` MODEL_NAME ` : The name of the model that you are using.
+
+4.  To adjust the quota, click more_vert **More** and then select **Edit quota** .
 
 5.  Enter a new quota value in the pane, and click **Submit request** .
 
@@ -121,7 +121,7 @@ There are no predefined quota limits on batch inference for Gemini models. Inste
 The following table lists the quotas for the number of concurrent batch inference jobs, which don't apply to Gemini models:
 
 | **Quota**                                                                        | **Value** |
-| -------------------------------------------------------------------------------- | --------- |
+|----------------------------------------------------------------------------------|-----------|
 | `aiplatform.googleapis.com/textembedding_gecko_concurrent_batch_prediction_jobs` | 4         |
 
 If the number of tasks submitted exceeds the allocated quota, the tasks are placed in a queue and processed when the quota capacity becomes available.
@@ -142,7 +142,7 @@ To view and edit the quotas in the Google Cloud console, do the following:
 The following quotas apply to [Semantic Governance Policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview) for a given project in each region:
 
 | Description                                                                  | Quota | Metric                                                                |
-| ---------------------------------------------------------------------------- | ----- | --------------------------------------------------------------------- |
+|------------------------------------------------------------------------------|-------|-----------------------------------------------------------------------|
 | Get or list Semantic governance policy resources per minute                  | 600   | `aiplatform.googleapis.com/semantic_governance/policy_read_requests`  |
 | Create, update, or delete Semantic governance policy resources per minute    | 60    | `aiplatform.googleapis.com/semantic_governance/policy_write_requests` |
 | Get Semantic governance policy engine resources per minute                   | 600   | `aiplatform.googleapis.com/semantic_governance/engine_read_requests`  |
@@ -166,46 +166,17 @@ To view and edit the quotas in the Google Cloud console, do the following:
 
 For each service to perform retrieval-augmented generation (RAG) using RAG Engine, the following quotas apply, with the quota measured as requests per minute (RPM).
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Service</th>
-<th style="text-align: right;">Quota</th>
-<th>Metric</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>RAG Engine data management APIs</td>
-<td style="text-align: right;">60 RPM</td>
-<td><code dir="ltr" translate="no">VertexRagDataService requests per minute per region</code></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">RetrievalContexts</code> API</td>
-<td style="text-align: right;">600 RPM</td>
-<td><code dir="ltr" translate="no">VertexRagService retrieve requests per minute per region</code></td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">base_model: textembedding-gecko</code></td>
-<td style="text-align: right;">1,500 RPM</td>
-<td><code dir="ltr" translate="no">Online prediction requests per base model per minute per region per base_model</code><br />
-<br />
-An additional filter for you to specify is <code dir="ltr" translate="no">base_model: textembedding-gecko</code><br />
-</td>
-</tr>
-</tbody>
-</table>
+| Service                           | Quota     | Metric                                                                                                                                                        |
+|-----------------------------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| RAG Engine data management APIs   | 60 RPM    | `VertexRagDataService requests per minute per region`                                                                                                         |
+| `RetrievalContexts` API           | 600 RPM   | `VertexRagService retrieve requests per minute per region`                                                                                                    |
+| `base_model: textembedding-gecko` | 1,500 RPM | `Online prediction requests per base model per minute per region per base_model` An additional filter for you to specify is `base_model: textembedding-gecko` |
 
 The following limits apply:
 
-| Service                                              |  Limit | Metric                                                   |
-| ---------------------------------------------------- | -----: | -------------------------------------------------------- |
-| Concurrent `ImportRagFiles` requests                 |  3 RPM | `VertexRagService concurrent import requests per region` |
+| Service                                              | Limit  | Metric                                                   |
+|------------------------------------------------------|--------|----------------------------------------------------------|
+| Concurrent `ImportRagFiles` requests                 | 3 RPM  | `VertexRagService concurrent import requests per region` |
 | Maximum number of files per `ImportRagFiles` request | 10,000 | `VertexRagService import rag files requests per region`  |
 
 ## Gen AI evaluation service
@@ -213,7 +184,7 @@ The following limits apply:
 The Gen AI evaluation service uses Gemini 2.5 Flash as a default judge model for model-based metrics. A single evaluation request for a model-based metric might result in multiple underlying requests to the Gen AI evaluation service. Each model's consumption is calculated at the organization level, which means that any requests directed to judge model for model inference and model-based evaluation contribute to the model's consumption. Quotas for the Gen AI evaluation service and the underlying judge model are shown in the following table:
 
 | **Request quota**                             | **Default quota**                                                                                                               |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | Gen AI evaluation service requests per minute | 1,000 requests per project per region                                                                                           |
 | Gemini throughput                             | Depends on model and [consumption option](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) |
 | Concurrent evaluation runs                    | 20 concurrent evaluation runs per project per region                                                                            |
@@ -221,7 +192,7 @@ The Gen AI evaluation service uses Gemini 2.5 Flash as a default judge model for
 If you receive an error related to quotas while using the Gen AI evaluation service, you might need to file a quota increase request. See [View and manage quotas](https://docs.cloud.google.com/docs/quotas/view-manage) for more information.
 
 | **Limit**                                 | **Value**  |
-| ----------------------------------------- | ---------- |
+|-------------------------------------------|------------|
 | Gen AI evaluation service request timeout | 60 seconds |
 
 When you use the Gen AI evaluation service for the first time in a new project, you might experience an initial setup delay up to two minutes. If your first request fails, wait a few minutes and then retry. Subsequent evaluation requests typically complete within 60 seconds.

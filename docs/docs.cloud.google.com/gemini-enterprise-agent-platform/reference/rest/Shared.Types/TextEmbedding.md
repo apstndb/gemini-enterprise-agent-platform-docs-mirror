@@ -14,25 +14,22 @@ Fields
 
 The embedding vector. The size of the vector is fixed and determined by the model used for embedding generation.
 
-`statistics` ` object ( Statistics  ` )
+`statistics` `object ( `[`Statistics`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/TextEmbedding#Statistics)` )`
 
 Statistics about the input text.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;values&quot;: [number],&quot;statistics&quot;: {object (Statistics)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "values": [
+    number
+  ],
+  "statistics": {
+    object (Statistics)
+  }
+}
+```
 
 ## Statistics
 
@@ -48,21 +45,11 @@ The number of tokens in the input text.
 
 Whether the input text was truncated. If true, the embedding was generated from a truncated version of the input text. This can happen if the input text was longer than the model's input token limit.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;tokenCount&quot;: integer,
-  &quot;truncated&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "tokenCount": integer,
+  "truncated": boolean
+}
+```

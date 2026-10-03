@@ -12,13 +12,13 @@ Gemini Enterprise Agent Platform Workbench instances provide several methods for
 
 You can monitor the health of your Agent Platform Workbench instances in a few different ways. This page describes how to use the following methods:
 
-  - [Use guest attributes to report system health](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health#guest-attributes)
+- [Use guest attributes to report system health](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health#guest-attributes)
 
-  - [Report custom metrics to Cloud Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health#report-custom-metrics)
+- [Report custom metrics to Cloud Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health#report-custom-metrics)
 
-  - [Report system and application metrics to Monitoring by installing Monitoring on a Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health#install-monitoring)
+- [Report system and application metrics to Monitoring by installing Monitoring on a Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health#install-monitoring)
 
-  - [Use the diagnostic tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health#diagnostic-tool)
+- [Use the diagnostic tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health#diagnostic-tool)
 
 ### Before you begin
 
@@ -26,10 +26,10 @@ You can monitor the health of your Agent Platform Workbench instances in a few d
 
 You can use guest attributes to report the system health of the following core services:
 
-  - Docker service
-  - Docker reverse proxy agent
-  - Jupyter service
-  - Jupyter API
+- Docker service
+- Docker reverse proxy agent
+- Jupyter service
+- Jupyter API
 
 *Guest attributes* are a specific type of custom metadata that applications can write to while running on your Agent Platform Workbench instance. To learn more about guest attributes, see [About VM metadata](https://docs.cloud.google.com/compute/docs/metadata/overview#guest_attributes) .
 
@@ -39,8 +39,8 @@ The `notebooks-collection-agent` service runs a Python process in the background
 
 To use the `notebooks-collection-agent` service to report on your Agent Platform Workbench instance's health, you must enable the following guest attributes *while creating* a Agent Platform Workbench instance:
 
-  - `enable-guest-attributes=TRUE` : This enables guest attributes on your Agent Platform Workbench instance. All new instances enable this attribute by default.
-  - `report-event-health=TRUE` : This records system health check results to your guest attributes.
+- `enable-guest-attributes=TRUE` : This enables guest attributes on your Agent Platform Workbench instance. All new instances enable this attribute by default.
+- `report-event-health=TRUE` : This records system health check results to your guest attributes.
 
 The `notebooks-collection-agent` service doesn't need any special permissions to write to the instance's guest attributes.
 
@@ -56,15 +56,15 @@ You can enable the system health report by using the Google Cloud console or the
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Click add\_box **Create new** .
+2.  Click add_box **Create new** .
 
 3.  In the **New instance** dialog, click **Advanced options** .
 
 4.  In the **Create instance** dialog, in the **Details** section, provide the following information for your new instance:
-    
-      - **Name** : Provide a name for your new instance.
-    
-      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#workbench-locations) .
+
+    - **Name** : Provide a name for your new instance.
+
+    - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#workbench-locations) .
 
 5.  In the **System health** section, in **Reporting** , select **Report system health** .
 
@@ -73,20 +73,22 @@ You can enable the system health report by using the Google Cloud console or the
 ### gcloud
 
 1.  From [Cloud Shell](https://docs.cloud.google.com/shell/docs/starting-cloud-shell) or any environment where the [Google Cloud CLI](https://docs.cloud.google.com/sdk/docs) is installed, enter the following [Google Cloud CLI](https://docs.cloud.google.com/sdk/gcloud) command:
-    
-        gcloud workbench instances create INSTANCE_NAME \
-            --vm-image-project=cloud-notebooks-managed \
-            --vm-image-family=IMAGE_FAMILY \
-            --machine-type=MACHINE_TYPE \
-            --location=ZONE \
-            --metadata=enable-guest-attributes=TRUE,report-event-health=TRUE
-    
+
+    ```
+    gcloud workbench instances create INSTANCE_NAME \
+        --vm-image-project=cloud-notebooks-managed \
+        --vm-image-family=IMAGE_FAMILY \
+        --machine-type=MACHINE_TYPE \
+        --location=ZONE \
+        --metadata=enable-guest-attributes=TRUE,report-event-health=TRUE
+    ```
+
     Replace the following:
-    
-      - `  INSTANCE_NAME  ` : the name of your new instance
-      - `  IMAGE_FAMILY  ` : the image family name that you want to use to create your instance
-      - `  MACHINE_TYPE  ` : the [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) of your instance's VM; for example, `n1-standard-4`
-      - `  ZONE  ` : the zone where you want your new instance to be located, for example, `us-west1-a`
+
+    - `INSTANCE_NAME` : the name of your new instance
+    - `IMAGE_FAMILY` : the image family name that you want to use to create your instance
+    - `MACHINE_TYPE` : the [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) of your instance's VM; for example, `n1-standard-4`
+    - `ZONE` : the zone where you want your new instance to be located, for example, `us-west1-a`
 
 2.  Access your instance from the [Google Cloud console](https://console.cloud.google.com/agent-platform/workbench/instances?project=) .
 
@@ -104,17 +106,19 @@ For Agent Platform Workbench instances that have [the related guest attributes e
 
 ### gcloud with Compute Engine
 
-    gcloud compute instances get-guest-attributes INSTANCE_NAME \
-        --zone ZONE
+```
+gcloud compute instances get-guest-attributes INSTANCE_NAME \
+    --zone ZONE
+```
 
 Replace the following:
 
-  - `  INSTANCE_NAME  ` : the name of your instance
-  - `  ZONE  ` : the zone where your instance is located
+- `INSTANCE_NAME` : the name of your instance
+- `ZONE` : the zone where your instance is located
 
 If your core services are healthy, the results look like the following. A value of `1` means no failure was detected.
 
-``` 
+```
  NAMESPACE   KEY                         VALUE
  notebooks   docker_proxy_agent_status   1
  notebooks   docker_status               1
@@ -128,7 +132,7 @@ If any of the four core services fail, system-health reports a `-1` value to ind
 
 An example of a failure result might look like the following.
 
-``` 
+```
  NAMESPACE   KEY                         VALUE
  notebooks   docker_proxy_agent_status   -1
  notebooks   docker_status               -1
@@ -144,22 +148,22 @@ Agent Platform Workbench instances let you collect system status and JupyterLab 
 
 The custom metrics reported to Monitoring include the following:
 
-  - The system health of these Agent Platform Workbench core services:
-    
-      - Docker service
-      - Docker reverse proxy agent
-      - Jupyter service
-      - Jupyter API
+- The system health of these Agent Platform Workbench core services:
 
-  - The following JupyterLab metrics:
-    
-      - Number of kernels
-      - Number of terminals
-      - Number of connections
-      - Number of sessions
-      - Maximum memory
-      - High memory
-      - Current memory
+  - Docker service
+  - Docker reverse proxy agent
+  - Jupyter service
+  - Jupyter API
+
+- The following JupyterLab metrics:
+
+  - Number of kernels
+  - Number of terminals
+  - Number of connections
+  - Number of sessions
+  - Maximum memory
+  - High memory
+  - Current memory
 
 ### How instances report custom metrics to Monitoring
 
@@ -177,14 +181,14 @@ You can enable reporting custom metrics to Cloud Monitoring by using the Google 
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Click add\_box **Create new** .
+2.  Click add_box **Create new** .
 
 3.  In the **New instance** dialog, click **Advanced options** .
 
 4.  In the **Create instance** dialog, in the **Details** section, provide the following information for your new instance:
-    
-      - **Name** : Provide a name for your new instance.
-      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#workbench-locations) .
+
+    - **Name** : Provide a name for your new instance.
+    - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#workbench-locations) .
 
 5.  In the **System health** section, in **Reporting** , select **Report custom metrics to Cloud Monitoring** .
 
@@ -193,20 +197,22 @@ You can enable reporting custom metrics to Cloud Monitoring by using the Google 
 ### gcloud
 
 1.  From [Cloud Shell](https://docs.cloud.google.com/shell/docs/starting-cloud-shell) or any environment where the [Google Cloud CLI](https://docs.cloud.google.com/sdk/docs) is installed, enter the following [Google Cloud CLI](https://docs.cloud.google.com/sdk/gcloud) command:
-    
-        gcloud workbench instances create INSTANCE_NAME \
-            --vm-image-project=cloud-notebooks-managed \
-            --vm-image-family=IMAGE_FAMILY \
-            --machine-type=MACHINE_TYPE \
-            --location=ZONE \
-            --metadata=report-notebook-metrics=TRUE
-    
+
+    ```
+    gcloud workbench instances create INSTANCE_NAME \
+        --vm-image-project=cloud-notebooks-managed \
+        --vm-image-family=IMAGE_FAMILY \
+        --machine-type=MACHINE_TYPE \
+        --location=ZONE \
+        --metadata=report-notebook-metrics=TRUE
+    ```
+
     Replace the following:
-    
-      - `  INSTANCE_NAME  ` : the name of your new instance
-      - `  IMAGE_FAMILY  ` : the image family name that you want to use to create your instance
-      - `  MACHINE_TYPE  ` : the [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) of your instance's VM, for example, `n1-standard-4`
-      - `  ZONE  ` : the zone where you want your new instance to be located, for example, `us-west1-a`
+
+    - `INSTANCE_NAME` : the name of your new instance
+    - `IMAGE_FAMILY` : the image family name that you want to use to create your instance
+    - `MACHINE_TYPE` : the [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) of your instance's VM, for example, `n1-standard-4`
+    - `ZONE` : the zone where you want your new instance to be located, for example, `us-west1-a`
 
 2.  Access your instance from the [Google Cloud console](https://console.cloud.google.com/agent-platform/workbench/instances?project=) .
 
@@ -240,14 +246,14 @@ To install Monitoring on your Agent Platform Workbench instance, you can use the
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Click add\_box **Create new** .
+2.  Click add_box **Create new** .
 
 3.  In the **New instance** dialog, click **Advanced options** .
 
 4.  In the **Create instance** dialog, in the **Details** section, provide the following information for your new instance:
-    
-      - **Name** : Provide a name for your new instance.
-      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#workbench-locations) .
+
+    - **Name** : Provide a name for your new instance.
+    - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#workbench-locations) .
 
 5.  In the **System health** section, in **Reporting** , select **Install Cloud Monitoring** .
 
@@ -256,20 +262,22 @@ To install Monitoring on your Agent Platform Workbench instance, you can use the
 ### gcloud
 
 1.  From [Cloud Shell](https://docs.cloud.google.com/shell/docs/starting-cloud-shell) or any environment where the [Google Cloud CLI](https://docs.cloud.google.com/sdk/docs) is installed, enter the following [Google Cloud CLI](https://docs.cloud.google.com/sdk/gcloud) command:
-    
-        gcloud workbench instances create INSTANCE_NAME \
-            --vm-image-project=cloud-notebooks-managed \
-            --vm-image-family=IMAGE_FAMILY \
-            --machine-type=MACHINE_TYPE \
-            --location=ZONE \
-            --metadata=install-monitoring-agent=TRUE
-    
+
+    ```
+    gcloud workbench instances create INSTANCE_NAME \
+        --vm-image-project=cloud-notebooks-managed \
+        --vm-image-family=IMAGE_FAMILY \
+        --machine-type=MACHINE_TYPE \
+        --location=ZONE \
+        --metadata=install-monitoring-agent=TRUE
+    ```
+
     Replace the following:
-    
-      - `  INSTANCE_NAME  ` : the name of your new instance
-      - `  IMAGE_FAMILY  ` : the image family name that you want to use to create your instance
-      - `  MACHINE_TYPE  ` : the [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) of your instance's VM; for example, `n1-standard-4`
-      - `  ZONE  ` : the zone where you want your new instance to be located, for example, `us-west1-a`
+
+    - `INSTANCE_NAME` : the name of your new instance
+    - `IMAGE_FAMILY` : the image family name that you want to use to create your instance
+    - `MACHINE_TYPE` : the [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) of your instance's VM; for example, `n1-standard-4`
+    - `ZONE` : the zone where you want your new instance to be located, for example, `us-west1-a`
 
 2.  Access your instance from the [Google Cloud console](https://console.cloud.google.com/agent-platform/workbench/instances?project=) .
 
@@ -291,36 +299,36 @@ Agent Platform Workbench instances include a built-in diagnostic tool that can h
 
 The diagnostic tool performs the following tasks:
 
-  - Verifies the status of the following Agent Platform Workbench core services:
-    
-      - Docker service
-      - Docker reverse proxy agent
-      - Jupyter service
-      - Jupyter API
+- Verifies the status of the following Agent Platform Workbench core services:
 
-  - Checks whether the disk space for boot and data disks is used beyond an 85% threshold.
+  - Docker service
+  - Docker reverse proxy agent
+  - Jupyter service
+  - Jupyter API
 
-  - Installs [`lsof`](https://github.com/lsof-org/lsof) (internet connection required).
+- Checks whether the disk space for boot and data disks is used beyond an 85% threshold.
 
-  - Collects the following instance logs:
-    
-      - Network information ( `ifconfig` , `netstat` )
-      - Logs in the `/var/log/` folder
-      - Docker status information
-      - `lsof` (open files) data
-      - Docker service status
-      - Proxy reverse agent status
-      - Jupyter service status
-      - Jupyter API status
-      - Proxy agent configuration file
-      - Python processes
+- Installs [`lsof`](https://github.com/lsof-org/lsof) (internet connection required).
 
-  - Runs the following commands and collects the results:
-    
-      - pip freeze
-      - conda list
-      - gcloud compute instances describe `  INSTANCE_NAME  `
-      - gcloud config list
+- Collects the following instance logs:
+
+  - Network information ( `ifconfig` , `netstat` )
+  - Logs in the `/var/log/` folder
+  - Docker status information
+  - `lsof` (open files) data
+  - Docker service status
+  - Proxy reverse agent status
+  - Jupyter service status
+  - Jupyter API status
+  - Proxy agent configuration file
+  - Python processes
+
+- Runs the following commands and collects the results:
+
+  - pip freeze
+  - conda list
+  - gcloud compute instances describe `INSTANCE_NAME`
+  - gcloud config list
 
 ### Run the diagnostic tool
 
@@ -331,34 +339,36 @@ To run the diagnostic tool in an instance that doesn't use a custom container, c
 1.  [Use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/ssh-access) .
 
 2.  In the SSH terminal, run the following commands:
-    
-        sudo -i
-        cd /opt/deeplearning/bin/
-        ./diagnostic_tool.sh
-    
+
+    ```
+    sudo -i
+    cd /opt/deeplearning/bin/
+    ./diagnostic_tool.sh
+    ```
+
     The diagnostic tool collects the logs, compresses them in a `.tar.gz` file, and places the file in the `/tmp/` folder.
 
 3.  Extract the file and then evaluate the contents. The contents include:
-    
-      - **`log` folder** : Logs from the `var/log/` folder
-      - **`report.log`** : Output for all commands collected
-      - **`proxy-agent-config.json`** : Proxy configuration information
-      - **Docker log** : A `-json.log` file that includes Docker container logs
+
+    - **`log` folder** : Logs from the `var/log/` folder
+    - **`report.log`** : Output for all commands collected
+    - **`proxy-agent-config.json`** : Proxy configuration information
+    - **Docker log** : A `-json.log` file that includes Docker container logs
 
 You can use the following options with the diagnostic tool.
 
 | Option | Description                                                                                      |
-| ------ | ------------------------------------------------------------------------------------------------ |
-| \-r    | A repair option that tries to restore failed Agent Platform Workbench core services status       |
-| \-s    | Runs without a confirmation                                                                      |
-| \-b    | Uploads the `.tar.gz` file to a Cloud Storage bucket.                                            |
-| \-v    | A debug option for troubleshooting the tool in case of failures                                  |
-| \-c    | Captures 30 seconds of packet traffic into your Agent Platform Workbench instance, filtering SSH |
-| \-d    | A destination folder in which to save the logs                                                   |
-| \-h    | Help                                                                                             |
+|--------|--------------------------------------------------------------------------------------------------|
+| -r     | A repair option that tries to restore failed Agent Platform Workbench core services status       |
+| -s     | Runs without a confirmation                                                                      |
+| -b     | Uploads the `.tar.gz` file to a Cloud Storage bucket.                                            |
+| -v     | A debug option for troubleshooting the tool in case of failures                                  |
+| -c     | Captures 30 seconds of packet traffic into your Agent Platform Workbench instance, filtering SSH |
+| -d     | A destination folder in which to save the logs                                                   |
+| -h     | Help                                                                                             |
 
 ## What's next
 
-  - [Learn more about VM metadata](https://docs.cloud.google.com/compute/docs/metadata/overview) .
+- [Learn more about VM metadata](https://docs.cloud.google.com/compute/docs/metadata/overview) .
 
-  - [Learn more about Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) .
+- [Learn more about Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) .

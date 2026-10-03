@@ -30,15 +30,15 @@ The request body contains data with the following structure:
 
 Fields
 
-`tunedModelRef` ` object ( TunedModelRef  ` )
+`tunedModelRef` `object ( `[`TunedModelRef`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/rebaseTunedModel#TunedModelRef)` )`
 
 Required. A reference to the tuned model to rebase.
 
-`tuningJob` ` object ( TuningJob  ` )
+`tuningJob` `object ( `[`TuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs#TuningJob)` )`
 
 Optional. The tuning job to be updated. Users can use this field to overwrite tuning configs.
 
-`artifactDestination` ` object ( GcsDestination  ` )
+`artifactDestination` `object ( `[`GcsDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#GcsDestination)` )`
 
 Optional. The Google Cloud Storage location to write the artifacts to.
 
@@ -50,7 +50,7 @@ WARNING: If you deploy to the same endpoint, the original model will be un-deplo
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ## TunedModelRef
 
@@ -76,25 +76,15 @@ Support migration from tuning job list page, from bison model to gemini model.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+**JSON representation**
+
+```
+{
 
   // tuned_model_ref
-  &quot;tunedModel&quot;: string,
-  &quot;tuningJob&quot;: string,
-  &quot;pipelineJob&quot;: string
+  "tunedModel": string,
+  "tuningJob": string,
+  "pipelineJob": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

@@ -28,11 +28,11 @@ Required. The resource name of the FeatureView to list FeatureViewSyncs. Format:
 
 Lists the FeatureViewSyncs that match the filter expression. The following filters are supported:
 
-  - `createTime` : Supports `=` , `!=` , `<` , `>` , `>=` , and `<=` comparisons. Values must be in RFC 3339 format.
+- `createTime` : Supports `=` , `!=` , `<` , `>` , `>=` , and `<=` comparisons. Values must be in RFC 3339 format.
 
 Examples:
 
-  - `createTime > \"2020-01-31T15:30:00.000000Z\"` --\> FeatureViewSyncs created after 2020-01-31T15:30:00.000000Z.
+- `createTime > \"2020-01-31T15:30:00.000000Z\"` --\> FeatureViewSyncs created after 2020-01-31T15:30:00.000000Z.
 
 `pageSize` `integer`
 
@@ -40,9 +40,9 @@ The maximum number of FeatureViewSyncs to return. The service may return fewer t
 
 `pageToken` `string`
 
-A page token, received from a previous `  FeatureOnlineStoreAdminService.ListFeatureViewSyncs  ` call. Provide this to retrieve the subsequent page.
+A page token, received from a previous [`FeatureOnlineStoreAdminService.ListFeatureViewSyncs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews.featureViewSyncs/list#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureViewSyncs) call. Provide this to retrieve the subsequent page.
 
-When paginating, all other parameters provided to `  FeatureOnlineStoreAdminService.ListFeatureViewSyncs  ` must match the call that provided the page token.
+When paginating, all other parameters provided to [`FeatureOnlineStoreAdminService.ListFeatureViewSyncs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews.featureViewSyncs/list#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureViewSyncs) must match the call that provided the page token.
 
 `orderBy` `string`
 
@@ -50,7 +50,7 @@ A comma-separated list of fields to order by, sorted in ascending order. Use "de
 
 Supported fields:
 
-  - `createTime`
+- `createTime`
 
 ### Request body
 
@@ -58,32 +58,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  FeatureOnlineStoreAdminService.ListFeatureViewSyncs  ` .
+Response message for [`FeatureOnlineStoreAdminService.ListFeatureViewSyncs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews.featureViewSyncs/list#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureViewSyncs) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`featureViewSyncs[]` ` object ( FeatureViewSync  ` )
+`featureViewSyncs[]` `object ( `[`FeatureViewSync`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews.featureViewSyncs#FeatureViewSync)` )`
 
 The FeatureViewSyncs matching the request.
 
 `nextPageToken` `string`
 
-A token, which can be sent as `  ListFeatureViewSyncsRequest.page_token  ` to retrieve the next page. If this field is omitted, there are no subsequent pages.
+A token, which can be sent as [`ListFeatureViewSyncsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews.featureViewSyncs/list#body.QUERY_PARAMETERS.page_token) to retrieve the next page. If this field is omitted, there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;featureViewSyncs&quot;: [{object (FeatureViewSync)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "featureViewSyncs": [
+    {
+      object (FeatureViewSync)
+    }
+  ],
+  "nextPageToken": string
+}
+```

@@ -10,11 +10,11 @@ Model evaluation metrics for video object tracking problems. Evaluates predictio
 
 Fields
 
-`boundingBoxMetrics[]` ` object ( BoundingBoxMetrics  ` )
+`boundingBoxMetrics[]` `object ( `[`BoundingBoxMetrics`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/BoundingBoxMetrics)` )`
 
 The bounding boxes match metrics for each intersection-over-union threshold 0.05,0.10,...,0.95,0.96,0.97,0.98,0.99 and each label confidence threshold 0.05,0.10,...,0.95,0.96,0.97,0.98,0.99 pair.
 
-`trackMetrics[]` ` object ( TrackMetrics  ` )
+`trackMetrics[]` `object ( `[`TrackMetrics`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/TrackMetrics)` )`
 
 UNIMPLEMENTED. The tracks match metrics for each intersection-over-union threshold 0.05,0.10,...,0.95,0.96,0.97,0.98,0.99 and each label confidence threshold 0.05,0.10,...,0.95,0.96,0.97,0.98,0.99 pair.
 
@@ -46,18 +46,26 @@ UNIMPLEMENTED. The single metric for tracks bounding box iou evaluation: the `me
 
 UNIMPLEMENTED. The single metric for tracking consistency evaluation: the `meanMismatchRate` averaged over all `trackMetrics` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;boundingBoxMetrics&quot;: [{object (BoundingBoxMetrics)}],&quot;trackMetrics&quot;: [{object (TrackMetrics)}],&quot;evaluatedFrameCount&quot;: integer,&quot;evaluatedBoundingBoxCount&quot;: integer,&quot;evaluatedTrackCount&quot;: integer,&quot;boundingBoxMeanAveragePrecision&quot;: number,&quot;trackMeanAveragePrecision&quot;: number,&quot;trackMeanBoundingBoxIou&quot;: number,&quot;trackMeanMismatchRate&quot;: number}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "boundingBoxMetrics": [
+    {
+      object (BoundingBoxMetrics)
+    }
+  ],
+  "trackMetrics": [
+    {
+      object (TrackMetrics)
+    }
+  ],
+  "evaluatedFrameCount": integer,
+  "evaluatedBoundingBoxCount": integer,
+  "evaluatedTrackCount": integer,
+  "boundingBoxMeanAveragePrecision": number,
+  "trackMeanAveragePrecision": number,
+  "trackMeanBoundingBoxIou": number,
+  "trackMeanMismatchRate": number
+}
+```

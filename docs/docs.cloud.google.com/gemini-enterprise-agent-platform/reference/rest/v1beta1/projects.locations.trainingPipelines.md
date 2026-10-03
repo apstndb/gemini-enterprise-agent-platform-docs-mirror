@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 ## Resource: TrainingPipeline
 
-The TrainingPipeline orchestrates tasks associated with training a Model. It always executes the training task, and optionally may also export data from Agent Platform's Dataset which becomes the training input, `  upload  ` the Model to Agent Platform, and evaluate the Model.
+The TrainingPipeline orchestrates tasks associated with training a Model. It always executes the training task, and optionally may also export data from Agent Platform's Dataset which becomes the training input, [`upload`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/upload#google.cloud.aiplatform.v1beta1.ModelService.UploadModel) the Model to Agent Platform, and evaluate the Model.
 
 Fields
 
@@ -20,25 +20,25 @@ Output only. Resource name of the TrainingPipeline.
 
 Required. The user-defined name of this TrainingPipeline.
 
-`inputDataConfig` ` object ( InputDataConfig  ` )
+`inputDataConfig` `object ( `[`InputDataConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#InputDataConfig)` )`
 
-Specifies Agent Platform owned input data that may be used for training the Model. The TrainingPipeline's `  trainingTaskDefinition  ` should make clear whether this config is used and if there are any special requirements on how it should be filled. If nothing about this config is mentioned in the `  trainingTaskDefinition  ` , then it should be assumed that the TrainingPipeline does not depend on this configuration.
+Specifies Agent Platform owned input data that may be used for training the Model. The TrainingPipeline's [`trainingTaskDefinition`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#TrainingPipeline.FIELDS.training_task_definition) should make clear whether this config is used and if there are any special requirements on how it should be filled. If nothing about this config is mentioned in the [`trainingTaskDefinition`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#TrainingPipeline.FIELDS.training_task_definition) , then it should be assumed that the TrainingPipeline does not depend on this configuration.
 
 `trainingTaskDefinition` `string`
 
 Required. A Google Cloud Storage path to the YAML file that defines the training task which is responsible for producing the model artifact, and may also include additional auxiliary work. The definition files that can be used here are found in gs://google-cloud-aiplatform/schema/trainingjob/definition/. Note: The URI given on output will be immutable and probably different, including the URI scheme, than the one given on input. The output URI will point to a location where the user only has a read access.
 
-`trainingTaskInputs` ` value ( Value  ` format)
+`trainingTaskInputs` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
-Required. The training task's parameter(s), as specified in the `  trainingTaskDefinition  ` 's `inputs` .
+Required. The training task's parameter(s), as specified in the [`trainingTaskDefinition`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#TrainingPipeline.FIELDS.training_task_definition) 's `inputs` .
 
-`trainingTaskMetadata` ` value ( Value  ` format)
+`trainingTaskMetadata` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
-Output only. The metadata information as specified in the `  trainingTaskDefinition  ` 's `metadata` . This metadata is an auxiliary runtime and final information about the training task. While the pipeline is running this information is populated only at a best effort basis. Only present if the pipeline's `  trainingTaskDefinition  ` contains `metadata` object.
+Output only. The metadata information as specified in the [`trainingTaskDefinition`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#TrainingPipeline.FIELDS.training_task_definition) 's `metadata` . This metadata is an auxiliary runtime and final information about the training task. While the pipeline is running this information is populated only at a best effort basis. Only present if the pipeline's [`trainingTaskDefinition`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#TrainingPipeline.FIELDS.training_task_definition) contains `metadata` object.
 
-`modelToUpload` ` object ( Model  ` )
+`modelToUpload` `object ( `[`Model`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models#Model)` )`
 
-Describes the Model that may be uploaded (via `  ModelService.UploadModel  ` ) by this TrainingPipeline. The TrainingPipeline's `  trainingTaskDefinition  ` should make clear whether this Model description should be populated, and if there are any special requirements regarding how it should be filled. If nothing is mentioned in the `  trainingTaskDefinition  ` , then it should be assumed that this field should not be filled and the training task either uploads the Model without a need of this information, or that training task does not support uploading a Model as part of the pipeline. When the Pipeline's state becomes `PIPELINE_STATE_SUCCEEDED` and the trained Model had been uploaded into Agent Platform, then the modelToUpload's resource `  name  ` is populated. The Model is always uploaded into the Project and Location in which this pipeline is.
+Describes the Model that may be uploaded (via [`ModelService.UploadModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/upload#google.cloud.aiplatform.v1beta1.ModelService.UploadModel) ) by this TrainingPipeline. The TrainingPipeline's [`trainingTaskDefinition`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#TrainingPipeline.FIELDS.training_task_definition) should make clear whether this Model description should be populated, and if there are any special requirements regarding how it should be filled. If nothing is mentioned in the [`trainingTaskDefinition`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#TrainingPipeline.FIELDS.training_task_definition) , then it should be assumed that this field should not be filled and the training task either uploads the Model without a need of this information, or that training task does not support uploading a Model as part of the pipeline. When the Pipeline's state becomes `PIPELINE_STATE_SUCCEEDED` and the trained Model had been uploaded into Agent Platform, then the modelToUpload's resource [`name`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models#Model.FIELDS.name) is populated. The Model is always uploaded into the Project and Location in which this pipeline is.
 
 `modelId` `string`
 
@@ -50,33 +50,33 @@ This value may be up to 63 characters, and valid characters are `[a-z0-9_-]` . T
 
 Optional. When specify this field, the `modelToUpload` will not be uploaded as a new model, instead, it will become a new version of this `parentModel` .
 
-`state` ` enum ( PipelineState  ` )
+`state` `enum ( `[`PipelineState`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/PipelineState)` )`
 
 Output only. The detailed state of the pipeline.
 
-`error` ` object ( Status  ` )
+`error` `object ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Status)` )`
 
 Output only. Only populated when the pipeline's state is `PIPELINE_STATE_FAILED` or `PIPELINE_STATE_CANCELLED` .
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. time when the TrainingPipeline was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`startTime` ` string ( Timestamp  ` format)
+`startTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. time when the TrainingPipeline for the first time entered the `PIPELINE_STATE_RUNNING` state.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`endTime` ` string ( Timestamp  ` format)
+`endTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. time when the TrainingPipeline entered any of the following states: `PIPELINE_STATE_SUCCEEDED` , `PIPELINE_STATE_FAILED` , `PIPELINE_STATE_CANCELLED` .
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. time when the TrainingPipeline was most recently updated.
 
@@ -90,27 +90,46 @@ label keys and values can be no longer than 64 characters (Unicode codepoints), 
 
 See <https://goo.gl/xmQnxf> for more information and examples of labels.
 
-`encryptionSpec` ` object ( EncryptionSpec  ` )
+`encryptionSpec` `object ( `[`EncryptionSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/EncryptionSpec)` )`
 
 Customer-managed encryption key spec for a TrainingPipeline. If set, this TrainingPipeline will be secured by this key.
 
-Note: Model trained by this TrainingPipeline is also secured by this key if `  modelToUpload  ` is not set separately.
+Note: Model trained by this TrainingPipeline is also secured by this key if [`modelToUpload`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#TrainingPipeline.FIELDS.encryption_spec) is not set separately.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;inputDataConfig&quot;: {object (InputDataConfig)},&quot;trainingTaskDefinition&quot;: string,&quot;trainingTaskInputs&quot;: value,&quot;trainingTaskMetadata&quot;: value,&quot;modelToUpload&quot;: {object (Model)},&quot;modelId&quot;: string,&quot;parentModel&quot;: string,&quot;state&quot;: enum (PipelineState),&quot;error&quot;: {object (Status)},&quot;createTime&quot;: string,&quot;startTime&quot;: string,&quot;endTime&quot;: string,&quot;updateTime&quot;: string,&quot;labels&quot;: {string: string,...},&quot;encryptionSpec&quot;: {object (EncryptionSpec)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "inputDataConfig": {
+    object (InputDataConfig)
+  },
+  "trainingTaskDefinition": string,
+  "trainingTaskInputs": value,
+  "trainingTaskMetadata": value,
+  "modelToUpload": {
+    object (Model)
+  },
+  "modelId": string,
+  "parentModel": string,
+  "state": enum (PipelineState),
+  "error": {
+    object (Status)
+  },
+  "createTime": string,
+  "startTime": string,
+  "endTime": string,
+  "updateTime": string,
+  "labels": {
+    string: string,
+    ...
+  },
+  "encryptionSpec": {
+    object (EncryptionSpec)
+  }
+}
+```
 
 ## InputDataConfig
 
@@ -120,33 +139,33 @@ Fields
 
 `datasetId` `string`
 
-Required. The id of the Dataset in the same Project and Location which data will be used to train the Model. The Dataset must use schema compatible with Model being trained, and what is compatible should be described in the used TrainingPipeline's `  trainingTaskDefinition  ` . For tabular Datasets, all their data is exported to training, to pick and choose from.
+Required. The id of the Dataset in the same Project and Location which data will be used to train the Model. The Dataset must use schema compatible with Model being trained, and what is compatible should be described in the used TrainingPipeline's [`trainingTaskDefinition`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#TrainingPipeline.FIELDS.training_task_definition) . For tabular Datasets, all their data is exported to training, to pick and choose from.
 
 `annotationsFilter` `string`
 
 Applicable only to Datasets that have DataItems and Annotations.
 
-A filter on Annotations of the Dataset. Only Annotations that both match this filter and belong to DataItems not ignored by the split method are used in respectively training, validation or test role, depending on the role of the DataItem they are on (for the auto-assigned that role is decided by Agent Platform). A filter with same syntax as the one used in `  ListAnnotations  ` may be used, but note here it filters across all Annotations of the Dataset, and not just within a single DataItem.
+A filter on Annotations of the Dataset. Only Annotations that both match this filter and belong to DataItems not ignored by the split method are used in respectively training, validation or test role, depending on the role of the DataItem they are on (for the auto-assigned that role is decided by Agent Platform). A filter with same syntax as the one used in [`ListAnnotations`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.dataItems.annotations/list#google.cloud.aiplatform.v1beta1.DatasetService.ListAnnotations) may be used, but note here it filters across all Annotations of the Dataset, and not just within a single DataItem.
 
 `annotationSchemaUri` `string`
 
 Applicable only to custom training with Datasets that have DataItems and Annotations.
 
-Cloud Storage URI that points to a YAML file describing the annotation schema. The schema is defined as an OpenAPI 3.0.2 [Schema Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#schemaObject) . The schema files that can be used here are found in gs://google-cloud-aiplatform/schema/dataset/annotation/ , note that the chosen schema must be consistent with `  metadata  ` of the Dataset specified by `  datasetId  ` .
+Cloud Storage URI that points to a YAML file describing the annotation schema. The schema is defined as an OpenAPI 3.0.2 [Schema Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#schemaObject) . The schema files that can be used here are found in gs://google-cloud-aiplatform/schema/dataset/annotation/ , note that the chosen schema must be consistent with [`metadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets#Dataset.FIELDS.metadata_schema_uri) of the Dataset specified by [`datasetId`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#InputDataConfig.FIELDS.dataset_id) .
 
 Only Annotations that both match this schema and belong to DataItems not ignored by the split method are used in respectively training, validation or test role, depending on the role of the DataItem they are on.
 
-When used in conjunction with `  annotationsFilter  ` , the Annotations used for training are filtered by both `  annotationsFilter  ` and `  annotationSchemaUri  ` .
+When used in conjunction with [`annotationsFilter`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#InputDataConfig.FIELDS.annotations_filter) , the Annotations used for training are filtered by both [`annotationsFilter`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#InputDataConfig.FIELDS.annotations_filter) and [`annotationSchemaUri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#InputDataConfig.FIELDS.annotation_schema_uri) .
 
 `savedQueryId` `string`
 
 Only applicable to Datasets that have SavedQueries.
 
-The id of a SavedQuery (annotation set) under the Dataset specified by `  datasetId  ` used for filtering Annotations for training.
+The id of a SavedQuery (annotation set) under the Dataset specified by [`datasetId`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#InputDataConfig.FIELDS.dataset_id) used for filtering Annotations for training.
 
-Only Annotations that are associated with this SavedQuery are used in respectively training. When used in conjunction with `  annotationsFilter  ` , the Annotations used for training are filtered by both `  savedQueryId  ` and `  annotationsFilter  ` .
+Only Annotations that are associated with this SavedQuery are used in respectively training. When used in conjunction with [`annotationsFilter`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#InputDataConfig.FIELDS.annotations_filter) , the Annotations used for training are filtered by both [`savedQueryId`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#InputDataConfig.FIELDS.saved_query_id) and [`annotationsFilter`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#InputDataConfig.FIELDS.annotations_filter) .
 
-Only one of `  savedQueryId  ` and `  annotationSchemaUri  ` should be specified as both of them represent the same thing: problem type.
+Only one of [`savedQueryId`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#InputDataConfig.FIELDS.saved_query_id) and [`annotationSchemaUri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#InputDataConfig.FIELDS.annotation_schema_uri) should be specified as both of them represent the same thing: problem type.
 
 `persistMlUseAssignment` `boolean`
 
@@ -154,29 +173,29 @@ Whether to persist the ML use assignment to data item system labels.
 
 `split` `Union type`
 
-The instructions how the input data should be split between the training, validation and test sets. If no split type is provided, the `  fraction_split  ` is used by default. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+The instructions how the input data should be split between the training, validation and test sets. If no split type is provided, the [`fraction_split`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#InputDataConfig.FIELDS.fraction_split) is used by default. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`fractionSplit` ` object ( FractionSplit  ` )
+`fractionSplit` `object ( `[`FractionSplit`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#FractionSplit)` )`
 
 Split based on fractions defining the size of each set.
 
-`filterSplit` ` object ( FilterSplit  ` )
+`filterSplit` `object ( `[`FilterSplit`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#FilterSplit)` )`
 
 Split based on the provided filters for each set.
 
-`predefinedSplit` ` object ( PredefinedSplit  ` )
+`predefinedSplit` `object ( `[`PredefinedSplit`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#PredefinedSplit)` )`
 
 Supported only for tabular Datasets.
 
 Split based on a predefined key.
 
-`timestampSplit` ` object ( TimestampSplit  ` )
+`timestampSplit` `object ( `[`TimestampSplit`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#TimestampSplit)` )`
 
 Supported only for tabular Datasets.
 
 Split based on the timestamp of the input data pieces.
 
-`stratifiedSplit` ` object ( StratifiedSplit  ` )
+`stratifiedSplit` `object ( `[`StratifiedSplit`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines#StratifiedSplit)` )`
 
 Supported only for tabular Datasets.
 
@@ -194,56 +213,79 @@ Supported destination file formats: \* For non-tabular data: "jsonl". \* For tab
 
 The following Agent Platform environment variables are passed to containers or python modules of the training task when this field is set:
 
-  - AIP\_DATA\_FORMAT : Exported data format.
-  - AIP\_TRAINING\_DATA\_URI : Sharded exported training data uris.
-  - AIP\_VALIDATION\_DATA\_URI : Sharded exported validation data uris.
-  - AIP\_TEST\_DATA\_URI : Sharded exported test data uris. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+- AIP_DATA_FORMAT : Exported data format.
+- AIP_TRAINING_DATA_URI : Sharded exported training data uris.
+- AIP_VALIDATION_DATA_URI : Sharded exported validation data uris.
+- AIP_TEST_DATA_URI : Sharded exported test data uris. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`gcsDestination` `object ( GcsDestination` )
+`gcsDestination` `object ( ``GcsDestination`` )`
 
 The Cloud Storage location where the training data is to be written to. In the given directory a new directory is created with name: `dataset-<dataset-id>-<annotation-type>-<timestamp-of-training-call>` where timestamp is in YYYY-MM-DDThh:mm:ss.sssZ ISO-8601 format. All training input data is written into that directory.
 
 The Agent Platform environment variables representing Cloud Storage data URIs are represented in the Cloud Storage wildcard format to support sharded data. e.g.: "gs://.../training-\*.jsonl"
 
-  - AIP\_DATA\_FORMAT = "jsonl" for non-tabular data, "csv" for tabular data
+- AIP_DATA_FORMAT = "jsonl" for non-tabular data, "csv" for tabular data
 
-  - AIP\_TRAINING\_DATA\_URI = "gcsDestination/dataset- - - /training-\*.${AIP\_DATA\_FORMAT}"
+- AIP_TRAINING_DATA_URI = "gcsDestination/dataset- - - /training-\*.\${AIP_DATA_FORMAT}"
 
-  - AIP\_VALIDATION\_DATA\_URI = "gcsDestination/dataset- - - /validation-\*.${AIP\_DATA\_FORMAT}"
+- AIP_VALIDATION_DATA_URI = "gcsDestination/dataset- - - /validation-\*.\${AIP_DATA_FORMAT}"
 
-  - AIP\_TEST\_DATA\_URI = "gcsDestination/dataset- - - /test-\*.${AIP\_DATA\_FORMAT}"
+- AIP_TEST_DATA_URI = "gcsDestination/dataset- - - /test-\*.\${AIP_DATA_FORMAT}"
 
-`bigqueryDestination` ` object ( BigQueryDestination  ` )
+`bigqueryDestination` `object ( `[`BigQueryDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/BigQueryDestination)` )`
 
 Only applicable to custom training with tabular Dataset with BigQuery source.
 
-The BigQuery project location where the training data is to be written to. In the given project a new dataset is created with name `dataset_<dataset-id>_<annotation-type>_<timestamp-of-training-call>` where timestamp is in YYYY\_MM\_DDThh\_mm\_ss\_sssZ format. All training input data is written into that dataset. In the dataset three tables are created, `training` , `validation` and `test` .
+The BigQuery project location where the training data is to be written to. In the given project a new dataset is created with name `dataset_<dataset-id>_<annotation-type>_<timestamp-of-training-call>` where timestamp is in YYYY_MM_DDThh_mm_ss_sssZ format. All training input data is written into that dataset. In the dataset three tables are created, `training` , `validation` and `test` .
 
-  - AIP\_DATA\_FORMAT = "bigquery".
+- AIP_DATA_FORMAT = "bigquery".
 
-  - AIP\_TRAINING\_DATA\_URI = "bigqueryDestination.dataset\_ \_ \_ .training"
+- AIP_TRAINING_DATA_URI = "bigqueryDestination.dataset\_ \_ \_ .training"
 
-  - AIP\_VALIDATION\_DATA\_URI = "bigqueryDestination.dataset\_ \_ \_ .validation"
+- AIP_VALIDATION_DATA_URI = "bigqueryDestination.dataset\_ \_ \_ .validation"
 
-  - AIP\_TEST\_DATA\_URI = "bigqueryDestination.dataset\_ \_ \_ .test"
+- AIP_TEST_DATA_URI = "bigqueryDestination.dataset\_ \_ \_ .test"
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;datasetId&quot;: string,&quot;annotationsFilter&quot;: string,&quot;annotationSchemaUri&quot;: string,&quot;savedQueryId&quot;: string,&quot;persistMlUseAssignment&quot;: boolean,// split&quot;fractionSplit&quot;: {object (FractionSplit)},&quot;filterSplit&quot;: {object (FilterSplit)},&quot;predefinedSplit&quot;: {object (PredefinedSplit)},&quot;timestampSplit&quot;: {object (TimestampSplit)},&quot;stratifiedSplit&quot;: {object (StratifiedSplit)}// Union type// destination&quot;gcsDestination&quot;: {object (GcsDestination)},&quot;bigqueryDestination&quot;: {object (BigQueryDestination)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "datasetId": string,
+  "annotationsFilter": string,
+  "annotationSchemaUri": string,
+  "savedQueryId": string,
+  "persistMlUseAssignment": boolean,
+
+  // split
+  "fractionSplit": {
+    object (FractionSplit)
+  },
+  "filterSplit": {
+    object (FilterSplit)
+  },
+  "predefinedSplit": {
+    object (PredefinedSplit)
+  },
+  "timestampSplit": {
+    object (TimestampSplit)
+  },
+  "stratifiedSplit": {
+    object (StratifiedSplit)
+  }
+  // Union type
+
+  // destination
+  "gcsDestination": {
+    object (GcsDestination)
+  },
+  "bigqueryDestination": {
+    object (BigQueryDestination)
+  }
+  // Union type
+}
+```
 
 ## FractionSplit
 
@@ -263,25 +305,15 @@ The fraction of the input data that is to be used to validate the Model.
 
 The fraction of the input data that is to be used to evaluate the Model.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;trainingFraction&quot;: number,
-  &quot;validationFraction&quot;: number,
-  &quot;testFraction&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "trainingFraction": number,
+  "validationFraction": number,
+  "testFraction": number
+}
+```
 
 ## FilterSplit
 
@@ -293,35 +325,25 @@ Fields
 
 `trainingFilter` `string`
 
-Required. A filter on DataItems of the Dataset. DataItems that match this filter are used to train the Model. A filter with same syntax as the one used in `  DatasetService.ListDataItems  ` may be used. If a single DataItem is matched by more than one of the FilterSplit filters, then it is assigned to the first set that applies to it in the training, validation, test order.
+Required. A filter on DataItems of the Dataset. DataItems that match this filter are used to train the Model. A filter with same syntax as the one used in [`DatasetService.ListDataItems`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.dataItems/list#google.cloud.aiplatform.v1beta1.DatasetService.ListDataItems) may be used. If a single DataItem is matched by more than one of the FilterSplit filters, then it is assigned to the first set that applies to it in the training, validation, test order.
 
 `validationFilter` `string`
 
-Required. A filter on DataItems of the Dataset. DataItems that match this filter are used to validate the Model. A filter with same syntax as the one used in `  DatasetService.ListDataItems  ` may be used. If a single DataItem is matched by more than one of the FilterSplit filters, then it is assigned to the first set that applies to it in the training, validation, test order.
+Required. A filter on DataItems of the Dataset. DataItems that match this filter are used to validate the Model. A filter with same syntax as the one used in [`DatasetService.ListDataItems`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.dataItems/list#google.cloud.aiplatform.v1beta1.DatasetService.ListDataItems) may be used. If a single DataItem is matched by more than one of the FilterSplit filters, then it is assigned to the first set that applies to it in the training, validation, test order.
 
 `testFilter` `string`
 
-Required. A filter on DataItems of the Dataset. DataItems that match this filter are used to test the Model. A filter with same syntax as the one used in `  DatasetService.ListDataItems  ` may be used. If a single DataItem is matched by more than one of the FilterSplit filters, then it is assigned to the first set that applies to it in the training, validation, test order.
+Required. A filter on DataItems of the Dataset. DataItems that match this filter are used to test the Model. A filter with same syntax as the one used in [`DatasetService.ListDataItems`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets.dataItems/list#google.cloud.aiplatform.v1beta1.DatasetService.ListDataItems) may be used. If a single DataItem is matched by more than one of the FilterSplit filters, then it is assigned to the first set that applies to it in the training, validation, test order.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;trainingFilter&quot;: string,
-  &quot;validationFilter&quot;: string,
-  &quot;testFilter&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "trainingFilter": string,
+  "validationFilter": string,
+  "testFilter": string
+}
+```
 
 ## PredefinedSplit
 
@@ -335,23 +357,13 @@ Fields
 
 Required. The key is a name of one of the Dataset's data columns. The value of the key (either the label's value or value in the column) must be one of { `training` , `validation` , `test` }, and it defines to which set the given piece of data is assigned. If for a piece of data the key is not present or has an invalid value, that piece is ignored by the pipeline.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;key&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "key": string
+}
+```
 
 ## TimestampSplit
 
@@ -377,26 +389,16 @@ The fraction of the input data that is to be used to evaluate the Model.
 
 Required. The key is a name of one of the Dataset's data columns. The values of the key (the values in the column) must be in RFC 3339 `date-time` format, where `time-offset` = `"Z"` (e.g. 1985-04-12T23:20:50.52Z). If for a piece of data the key is not present or has an invalid value, that piece is ignored by the pipeline.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;trainingFraction&quot;: number,
-  &quot;validationFraction&quot;: number,
-  &quot;testFraction&quot;: number,
-  &quot;key&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "trainingFraction": number,
+  "validationFraction": number,
+  "testFraction": number,
+  "key": string
+}
+```
 
 ## StratifiedSplit
 
@@ -426,45 +428,21 @@ The fraction of the input data that is to be used to evaluate the Model.
 
 Required. The key is a name of one of the Dataset's data columns. The key provided must be for a categorical column.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;trainingFraction&quot;: number,
-  &quot;validationFraction&quot;: number,
-  &quot;testFraction&quot;: number,
-  &quot;key&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "trainingFraction": number,
+  "validationFraction": number,
+  "testFraction": number,
+  "key": string
+}
+```
 
-### `            cancel           `
-
-Cancels a TrainingPipeline.
-
-### `            create           `
-
-Creates a TrainingPipeline.
-
-### `            delete           `
-
-Deletes a TrainingPipeline.
-
-### `            get           `
-
-Gets a TrainingPipeline.
-
-### `            list           `
-
-Lists TrainingPipelines in a Location.
+| Methods                                                                                                                                       |                                        |
+|-----------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
+| [`cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines/cancel) | Cancels a TrainingPipeline.            |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines/create) | Creates a TrainingPipeline.            |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines/delete) | Deletes a TrainingPipeline.            |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines/get)       | Gets a TrainingPipeline.               |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.trainingPipelines/list)     | Lists TrainingPipelines in a Location. |

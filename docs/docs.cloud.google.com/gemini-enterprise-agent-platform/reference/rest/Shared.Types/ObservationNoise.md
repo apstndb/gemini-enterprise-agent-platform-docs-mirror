@@ -10,16 +10,8 @@ Describes the noise level of the repeated observations.
 
 "Noisy" means that the repeated observations with the same Trial parameters may lead to different metric evaluations.
 
-Enums
-
-`OBSERVATION_NOISE_UNSPECIFIED`
-
-The default noise level chosen by Agent Platform.
-
-`LOW`
-
-Agent Platform assumes that the objective function is (nearly) perfectly reproducible, and will never repeat the same Trial parameters.
-
-`HIGH`
-
-Agent Platform will estimate the amount of noise in metric evaluations, it may repeat the same Trial parameters more than once.
+| Enums                           |                                                                                                                                         |
+|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| `OBSERVATION_NOISE_UNSPECIFIED` | The default noise level chosen by Agent Platform.                                                                                       |
+| `LOW`                           | Agent Platform assumes that the objective function is (nearly) perfectly reproducible, and will never repeat the same Trial parameters. |
+| `HIGH`                          | Agent Platform will estimate the amount of noise in metric evaluations, it may repeat the same Trial parameters more than once.         |

@@ -32,7 +32,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`contents[]` ` object ( Content  ` )
+`contents[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
 
 Required. The content of the current conversation with the model.
 
@@ -42,13 +42,13 @@ For single-turn queries, this is a single instance. For multi-turn queries, this
 
 Optional. The name of the cached content used as context to serve the prediction. Note: only used in explicit caching, where users can have control over caching (e.g. what content to cache) and enjoy guaranteed cost savings. Format: `projects/{project}/locations/{location}/cachedContents/{cachedContent}`
 
-`tools[]` ` object ( Tool  ` )
+`tools[]` `object ( `[`Tool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents#Tool)` )`
 
 Optional. A list of `Tools` the model may use to generate the next response.
 
 A `Tool` is a piece of code that enables the system to interact with external systems to perform an action, or set of actions, outside of knowledge and scope of the model.
 
-`toolConfig` ` object ( ToolConfig  ` )
+`toolConfig` `object ( `[`ToolConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents#ToolConfig)` )`
 
 Optional. Tool config. This config is shared for all tools provided in the request.
 
@@ -58,22 +58,22 @@ Optional. The labels with user-defined metadata for the request. It is used for 
 
 label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. label values are optional. label keys must start with a letter.
 
-`safetySettings[]` ` object ( SafetySetting  ` )
+`safetySettings[]` `object ( `[`SafetySetting`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/SafetySetting)` )`
 
 Optional. Per request settings for blocking unsafe content. Enforced on GenerateContentResponse.candidates.
 
-`modelArmorConfig` ` object ( ModelArmorConfig  ` )
+`modelArmorConfig` `object ( `[`ModelArmorConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ModelArmorConfig)` )`
 
 Optional. Settings for prompt and response sanitization using the Model Armor service. If supplied, safetySettings must not be supplied.
 
-`generationConfig` ` object ( GenerationConfig  ` )
+`generationConfig` `object ( `[`GenerationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs#GenerationConfig)` )`
 
 Optional. Generation config.
 
-`systemInstruction` ` object ( Content  ` )
+`systemInstruction` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
 
 Optional. The user provided system instructions for the model. Note: only text should be used in parts and content in each part will be in a separate paragraph.
 
 ### Response body
 
-If successful, the response body contains an instance of `  GenerateContentResponse  ` .
+If successful, the response body contains an instance of [`GenerateContentResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse) .

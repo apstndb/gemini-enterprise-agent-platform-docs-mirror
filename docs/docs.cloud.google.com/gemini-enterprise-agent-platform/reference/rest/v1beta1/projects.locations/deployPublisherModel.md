@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-> This item is deprecated\!
+> This item is deprecated!
 
 **Full name** : projects.locations.deployPublisherModel
 
@@ -38,7 +38,7 @@ Required. The model to deploy. Format: 1. `publishers/{publisher}/models/{publis
 
 Optional. The user-specified display name of the endpoint. If not set, a default name will be used.
 
-`dedicatedResources` ` object ( DedicatedResources  ` )
+`dedicatedResources` `object ( `[`DedicatedResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources)` )`
 
 Optional. The dedicated resources to use for the endpoint. If not set, the default resources will be used.
 
@@ -56,4 +56,4 @@ Optional. Whether the user accepts the End user License Agreement (EULA) for the
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

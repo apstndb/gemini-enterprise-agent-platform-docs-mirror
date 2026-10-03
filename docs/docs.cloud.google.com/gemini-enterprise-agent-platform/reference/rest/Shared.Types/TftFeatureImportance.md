@@ -22,37 +22,27 @@ TFT feature importance values. Each pair for {context/horizon/attribute} should 
 
 `attributeColumns[]` `string`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;contextWeights&quot;: [
+**JSON representation**
+
+```
+{
+  "contextWeights": [
     number
   ],
-  &quot;contextColumns&quot;: [
+  "contextColumns": [
     string
   ],
-  &quot;horizonWeights&quot;: [
+  "horizonWeights": [
     number
   ],
-  &quot;horizonColumns&quot;: [
+  "horizonColumns": [
     string
   ],
-  &quot;attributeWeights&quot;: [
+  "attributeWeights": [
     number
   ],
-  &quot;attributeColumns&quot;: [
+  "attributeColumns": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

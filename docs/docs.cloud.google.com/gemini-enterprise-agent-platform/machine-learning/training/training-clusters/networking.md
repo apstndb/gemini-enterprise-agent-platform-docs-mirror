@@ -18,8 +18,8 @@ To achieve optimal network performance for the training infrastructure, you must
 
 The recommended MTU value depends on the GPU machine type in your cluster:
 
-  - For A3 Ultra and A4 nodes: Use an MTU of 8896.
-  - For A3 Mega nodes: Use an MTU of 8244.
+- For A3 Ultra and A4 nodes: Use an MTU of 8896.
+- For A3 Mega nodes: Use an MTU of 8244.
 
 > **Important:** The MTU is a network-wide setting. The value you select applies to all VM instances within that VPC, which can impact existing workloads. For guidance on applying this setting, see [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc) .
 
@@ -41,42 +41,39 @@ Following this order, the cluster's VM instances will automatically inherit the 
 
 ### Create and set up a new VPC
 
-1.  Create the VPC network. To enable jumbo frames, set NETWORK\_MTU to 8896.
-    
-    ``` 
+1.  Create the VPC network. To enable jumbo frames, set ` NETWORK_MTU ` to 8896.
+
+    ```
         # create VPC network
         gcloud compute networks create NETWORK \
           --project=PROJECT_ID \
           --subnet-mode=custom \
           --mtu=NETWORK_MTU
-        
     ```
 
 2.  Create the subnet used to deploy the training cluster, and update the range based on your environment's requirements. In this example, the subnet 192.168.0.0/19 is used for the training cluster deployment.
-    
-    ``` 
-        # create VPC subnet
+
+    ```
+    # create VPC subnet
         gcloud compute networks subnets create SUBNETWORK \
           --project=PROJECT_ID \
           --network=NETWORK \
           --region=REGION \
           --enable-private-ip-google-access \
           --range=192.168.0.0/19
-        
     ```
 
 3.  Create an IAP firewall rule that allows SSH connectivity to the training cluster.
-    
-    ``` 
+
+    ```
         gcloud compute firewall-rules create allow-ssh-ingress-from-iap \
         --direction=INGRESS   --action=allow   --rules=tcp:22 \
         --source-ranges=35.235.240.0/20 --network NETWORK
-        
     ```
 
 4.  Create an ingress firewall rule that allows all ports and protocols to the training cluster subnet.
-    
-    ``` 
+
+    ```
        gcloud compute --project=PROJECT_ID firewall-rules create allow-internal \
        --direction=INGRESS --priority=1000 --network=NETWORK \
        --action=ALLOW --rules=tcp:1-65535,udp:1-65535,icmp \
@@ -100,17 +97,17 @@ Once all VMs are stopped, you can proceed with these steps:
 
 Further requirements:
 
-  - Enable Private Google Access in the subnet used to deploy the cluster.
-  - Create an ingress firewall rule to grant IAP access to the cluster.
-  - Create an ingress firewall rule to permit all traffic to the cluster.
+- Enable Private Google Access in the subnet used to deploy the cluster.
+- Create an ingress firewall rule to grant IAP access to the cluster.
+- Create an ingress firewall rule to permit all traffic to the cluster.
 
 ## What's next
 
 After preparing the VPC network with the correct MTU settings and firewall rules, the next steps are to create and secure the training cluster.
 
-  - Verify your network configuration: Before creating your cluster, run a [Connectivity Test](https://docs.cloud.google.com/network-intelligence-center/docs/connectivity-tests/how-to/running-connectivity-tests) to verify your VPC network and MTU settings, especially if you modified an existing VPC.
-  - Secure your cluster with a service perimeter: For enhanced data security, use VPC Service Controls to create a service perimeter around your Gemini Enterprise Agent Platform resources. This helps prevent data exfiltration.
-      - [Learn about VPC Service Controls with Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls)
-  - Connect from a hybrid or multi-cloud environment: To access your training cluster from an on-premises data center or a public cloud, use Google Cloud's options for hybrid connectivity.
-      - [Learn about Cloud VPN](https://docs.cloud.google.com/network-connectivity/docs/vpn/concepts/overview)
-      - [Learn about Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/overview)
+- Verify your network configuration: Before creating your cluster, run a [Connectivity Test](https://docs.cloud.google.com/network-intelligence-center/docs/connectivity-tests/how-to/running-connectivity-tests) to verify your VPC network and MTU settings, especially if you modified an existing VPC.
+- Secure your cluster with a service perimeter: For enhanced data security, use VPC Service Controls to create a service perimeter around your Gemini Enterprise Agent Platform resources. This helps prevent data exfiltration.
+  - [Learn about VPC Service Controls with Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls)
+- Connect from a hybrid or multi-cloud environment: To access your training cluster from an on-premises data center or a public cloud, use Google Cloud's options for hybrid connectivity.
+  - [Learn about Cloud VPN](https://docs.cloud.google.com/network-connectivity/docs/vpn/concepts/overview)
+  - [Learn about Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/overview)

@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 Model Garden lets you self-deploy select partner models (preview). Self-deployed models aren't serverless. You must deploy them on Gemini Enterprise Agent Platform before you use them. These models deploy securely within your Google Cloud project and VPC network. For more information about self-deployed models, see the [self-deployed models documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/self-deployed-models) .
@@ -52,28 +52,30 @@ To deploy a partner model in the Google Cloud console, do the following:
 
 The following sample shows how to deploy a partner model using the Agent Platform SDK for Python. Replace the placeholder values with your specific information.
 
-    import vertexai
-    from vertexai import model_garden
-    
-    vertexai.init(project="PROJECT_ID", location="LOCATION")
-    
-    # Replace with the actual partner model ID from Model Garden
-    model = model_garden.OpenModel("PARTNER_MODEL_ID")
-    endpoint = model.deploy(
-      accept_eula=True,
-      machine_type="MACHINE_TYPE",  # e.g., "a3-ultragpu-8g"
-      accelerator_type="ACCELERATOR_TYPE",  # e.g., "NVIDIA_H200_141GB"
-      accelerator_count=ACCELERATOR_COUNT,  # e.g., 8
-      serving_container_image_uri="SERVING_CONTAINER_IMAGE_URI",
-      endpoint_display_name="ENDPOINT_DISPLAY_NAME",
-      model_display_name="MODEL_DISPLAY_NAME",
-      use_dedicated_endpoint=True,
-    )
-    print(f"Model deployed to endpoint: {endpoint.resource_name}")
+```
+import vertexai
+from vertexai import model_garden
+
+vertexai.init(project="PROJECT_ID", location="LOCATION")
+
+# Replace with the actual partner model ID from Model Garden
+model = model_garden.OpenModel("PARTNER_MODEL_ID")
+endpoint = model.deploy(
+  accept_eula=True,
+  machine_type="MACHINE_TYPE",  # e.g., "a3-ultragpu-8g"
+  accelerator_type="ACCELERATOR_TYPE",  # e.g., "NVIDIA_H200_141GB"
+  accelerator_count=ACCELERATOR_COUNT,  # e.g., 8
+  serving_container_image_uri="SERVING_CONTAINER_IMAGE_URI",
+  endpoint_display_name="ENDPOINT_DISPLAY_NAME",
+  model_display_name="MODEL_DISPLAY_NAME",
+  use_dedicated_endpoint=True,
+)
+print(f"Model deployed to endpoint: {endpoint.resource_name}")
+```
 
 ## What's next
 
-  - [Choose an open model serving option](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/choose-serving-option)
-  - [Use open models using Model as a Service (MaaS)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-maas)
-  - [Deploy open models with prebuilt containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-prebuilt-containers)
-  - [Deploy open models with a custom vLLM container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/deploy-custom-vllm)
+- [Choose an open model serving option](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/choose-serving-option)
+- [Use open models using Model as a Service (MaaS)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-maas)
+- [Deploy open models with prebuilt containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-prebuilt-containers)
+- [Deploy open models with a custom vLLM container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/deploy-custom-vllm)

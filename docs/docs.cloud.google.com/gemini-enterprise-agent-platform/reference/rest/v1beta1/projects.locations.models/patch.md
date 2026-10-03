@@ -26,16 +26,16 @@ Identifier. The resource name of the Model.
 
 ### Query parameters
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
-Required. The update mask applies to the resource. For the `FieldMask` definition, see `  google.protobuf.FieldMask  ` .
+Required. The update mask applies to the resource. For the `FieldMask` definition, see [`google.protobuf.FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask) .
 
 This is a comma-separated list of fully qualified names of fields. Example: `"user.displayName,photo"` .
 
 ### Request body
 
-The request body contains an instance of `  Model  ` .
+The request body contains an instance of [`Model`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models#Model) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Model  ` .
+If successful, the response body contains an instance of [`Model`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models#Model) .

@@ -32,7 +32,7 @@ If true, streams the interaction events as Server-Sent events.
 
 If set, resumes the interaction stream from the chunk after the event marked by the event id. Can only be used if `stream` is true.
 
-` includeInput (deprecated)  ` `boolean`
+`includeInput `**`(deprecated)`** `boolean`
 
 If true, includes the input in the response.
 
@@ -42,4 +42,4 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Interaction  ` .
+If successful, the response body contains an instance of [`Interaction`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction) .

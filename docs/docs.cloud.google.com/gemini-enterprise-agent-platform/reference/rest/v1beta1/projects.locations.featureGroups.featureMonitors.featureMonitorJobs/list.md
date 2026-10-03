@@ -28,11 +28,11 @@ Required. The resource name of the FeatureMonitor to list FeatureMonitorJobs. Fo
 
 Optional. Lists the FeatureMonitorJobs that match the filter expression. The following fields are supported:
 
-  - `createTime` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons. Values must be
+- `createTime` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons. Values must be
 
 Examples:
 
-  - `createTime > "2020-01-01"` FeatureMonitorJobs created after 2020-01-01.
+- `createTime > "2020-01-01"` FeatureMonitorJobs created after 2020-01-01.
 
 `pageSize` `integer`
 
@@ -40,15 +40,15 @@ Optional. The maximum number of FeatureMonitorJobs to return. The service may re
 
 `pageToken` `string`
 
-Optional. A page token, received from a previous `  FeatureRegistryService.ListFeatureMonitorJobs  ` call. Provide this to retrieve the subsequent page.
+Optional. A page token, received from a previous [`FeatureRegistryService.ListFeatureMonitorJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors.featureMonitorJobs/list#google.cloud.aiplatform.v1beta1.FeatureRegistryService.ListFeatureMonitorJobs) call. Provide this to retrieve the subsequent page.
 
-When paginating, all other parameters provided to `  FeatureRegistryService.ListFeatureMonitorJobs  ` must match the call that provided the page token.
+When paginating, all other parameters provided to [`FeatureRegistryService.ListFeatureMonitorJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors.featureMonitorJobs/list#google.cloud.aiplatform.v1beta1.FeatureRegistryService.ListFeatureMonitorJobs) must match the call that provided the page token.
 
 `orderBy` `string`
 
 Optional. A comma-separated list of fields to order by, sorted in ascending order. Use "desc" after a field name for descending. Supported Fields:
 
-  - `createTime`
+- `createTime`
 
 ### Request body
 
@@ -56,32 +56,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  FeatureRegistryService.ListFeatureMonitorJobs  ` .
+Response message for [`FeatureRegistryService.ListFeatureMonitorJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors.featureMonitorJobs/list#google.cloud.aiplatform.v1beta1.FeatureRegistryService.ListFeatureMonitorJobs) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`featureMonitorJobs[]` ` object ( FeatureMonitorJob  ` )
+`featureMonitorJobs[]` `object ( `[`FeatureMonitorJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors.featureMonitorJobs#FeatureMonitorJob)` )`
 
 The FeatureMonitorJobs matching the request.
 
 `nextPageToken` `string`
 
-A token, which can be sent as `  ListFeatureMonitorJobsRequest.page_token  ` to retrieve the next page. If this field is omitted, there are no subsequent pages.
+A token, which can be sent as [`ListFeatureMonitorJobsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors.featureMonitorJobs/list#body.QUERY_PARAMETERS.page_token) to retrieve the next page. If this field is omitted, there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;featureMonitorJobs&quot;: [{object (FeatureMonitorJob)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "featureMonitorJobs": [
+    {
+      object (FeatureMonitorJob)
+    }
+  ],
+  "nextPageToken": string
+}
+```

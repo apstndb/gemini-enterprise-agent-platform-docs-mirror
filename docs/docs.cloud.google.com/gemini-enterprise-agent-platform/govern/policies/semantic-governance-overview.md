@@ -7,11 +7,11 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) and the [Generative AI Service Specific Terms](https://cloud.google.com/terms/service-terms#20) , as well as the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos?e=48754805) .
-> 
+>
 > When you use this feature with AI Agents, the terms applicable to AI Agents in the Agreement apply.
-> 
+>
 > Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 > **Note:** Semantic governance policy is a Generative AI Service that uses an LLM to implement natural language policies. LLMs are probabilistic and can make mistakes. Verdicts may not be accurate.
@@ -24,9 +24,9 @@ data_source: docs.cloud.google.com
 
 This capability relies on two components:
 
-  - **Semantic Governance Policy** : The natural language rules (constraints) that you write to govern agents' tool calls. You configure these policies to govern an agent or a tool called by an agent.
+- **Semantic Governance Policy** : The natural language rules (constraints) that you write to govern agents' tool calls. You configure these policies to govern an agent or a tool called by an agent.
 
-  - **Semantic governance policy engine** (or **policy engine** ): The underlying, managed infrastructure that you provision and enable within your VPC network. The engine hosts the runtime environment that processes and enforces your Semantic governance policies.
+- **Semantic governance policy engine** (or **policy engine** ): The underlying, managed infrastructure that you provision and enable within your VPC network. The engine hosts the runtime environment that processes and enforces your Semantic governance policies.
 
 These components work together to evaluate and enforce your Semantic governance policies.
 
@@ -39,7 +39,7 @@ Whereas security mechanisms like Identity and Access Management (IAM) are static
 The benefits at a glance:
 
 | Benefit                         | Description                                                                                                                                 |
-| :------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------ |
+|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | **User intent alignment**       | Verifies that an agent's proposed tool calls match the original semantic intent of the user prompt to the agent.                            |
 | **Security & safety**           | Prevents "rogue actions" and protects against context poisoning and data exfiltration.                                                      |
 | **Business compliance**         | Ensures that agent actions comply with organizational business constraints.                                                                 |
@@ -51,12 +51,12 @@ The benefits at a glance:
 
 Semantic governance policies help you flexibly enforce security and compliance for your agents. Key use cases include:
 
-  - **Enforcing business logic:** Ensuring agents follow organizational policies that are too complex to hard-code, such as requiring verification of approvals before submitting an invoice.
-  - **Mitigating context poisoning:** Protecting agents from being manipulated by untrusted data (such as a malicious email) that would subvert or override original user intent, potentially leading to data exfiltration.
-  - **Preventing unauthorized actions:** Blocking unauthorized tool use or parameter values (also called *rogue actions* ) that could lead to financial loss, such as enforcing strict dollar thresholds on autonomous agents.
-  - **Managing mutating actions:** Protecting agents that perform updates to a database, issue refunds, or book travel where tool misuse has real-world consequences.
-  - **Enforcing dynamic business rules:** Handling policies that change frequently without redeploying agent code.
-  - **Governing the Agent Skills lifecycle:** Controlling which skill packages (composed of sets of tools, prompts, or resources) an agent can dynamically load, helping to mitigate supply-chain code exploits and tainted contexts. For more details, see [Governing Agent Skills](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/govern-agent-skills) .
+- **Enforcing business logic:** Ensuring agents follow organizational policies that are too complex to hard-code, such as requiring verification of approvals before submitting an invoice.
+- **Mitigating context poisoning:** Protecting agents from being manipulated by untrusted data (such as a malicious email) that would subvert or override original user intent, potentially leading to data exfiltration.
+- **Preventing unauthorized actions:** Blocking unauthorized tool use or parameter values (also called *rogue actions* ) that could lead to financial loss, such as enforcing strict dollar thresholds on autonomous agents.
+- **Managing mutating actions:** Protecting agents that perform updates to a database, issue refunds, or book travel where tool misuse has real-world consequences.
+- **Enforcing dynamic business rules:** Handling policies that change frequently without redeploying agent code.
+- **Governing the Agent Skills lifecycle:** Controlling which skill packages (composed of sets of tools, prompts, or resources) an agent can dynamically load, helping to mitigate supply-chain code exploits and tainted contexts. For more details, see [Governing Agent Skills](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/govern-agent-skills) .
 
 ## Background: the agent conversation
 
@@ -72,7 +72,7 @@ Semantic governance policy acts as a security check (also called an "intent gate
 
 1.  The policy engine verifies that proposed actions match the meaning of the original trusted user intent. For example, if a user asks the agent, *"summarize my calendar"* and the agent receives a directive to use the `send_email` tool, the policy engine detects the misalignment and rejects the instruction.
 
-2.  The policy engine verifies that proposed actions comply with any applicable organizational constraints, expressed in Natural Language. For example, a constraint might say *"Disallow automated processing of refund requests, for amounts in excess of $75."* If a customer service agent receives a user prompt requesting refund of an order that was $89, the policy engine will reject any tool call that would refund that higher amount.
+2.  The policy engine verifies that proposed actions comply with any applicable organizational constraints, expressed in Natural Language. For example, a constraint might say *"Disallow automated processing of refund requests, for amounts in excess of \$75."* If a customer service agent receives a user prompt requesting refund of an order that was \$89, the policy engine will reject any tool call that would refund that higher amount.
 
 Both checks must pass for the policy engine to approve the tool call.
 
@@ -81,7 +81,7 @@ Both checks must pass for the policy engine to approve the tool call.
 A Semantic governance policy complements access control and other governance mechanisms; it doesn't override or replace them. Baseline controls, such as IAM, rate limits, and network security, remain essential. Semantic governance policy adds an intelligent security layer to ensure that even when an agent technically has permission to use a tool, the action must match the trusted user's intent and comply with any constraints configured for the agent.
 
 | Control                                              | Mechanism                                                                                                                                        |
-| :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Authentication**                                   | Identity-aware gateways (Identity-Aware Proxy, Apigee, etc.)                                                                                     |
 | **Role-based access control (RBAC) on ingress**      | RBAC rules (for example, procurement department access)                                                                                          |
 | **Attribute-based access control (ABAC) on ingress** | ABAC rules (for example, approval limits based on employee role)                                                                                 |
@@ -110,7 +110,7 @@ Verification and enforcement rely on the **Agent Gateway** , which acts as a run
 At runtime, the system considers the following inputs to reach a verdict:
 
 | Input                          | Description                                                          |
-| :----------------------------- | :------------------------------------------------------------------- |
+|--------------------------------|----------------------------------------------------------------------|
 | **Current User Prompt**        | The original request from the user.                                  |
 | **Constraints**                | Agent-wide or tool-specific rules defined in the policy.             |
 | **Tools Manifest**             | The list of available tools combined with tool-specific constraints. |
@@ -125,28 +125,28 @@ The policy is evaluated as expressed; it is not translated to a special-purpose 
 
 For every evaluation, the system returns a verdict:
 
-  - **`ALLOW`** : The action proceeds.
-  - **`DENY`** : The action is blocked. The policy engine also returns a structured denial response containing a human-readable rationale for denial to the calling agent, so the agent can explain the block to the user.
+- **`ALLOW`** : The action proceeds.
+- **`DENY`** : The action is blocked. The policy engine also returns a structured denial response containing a human-readable rationale for denial to the calling agent, so the agent can explain the block to the user.
 
 > **Information exposure risk:** Semantic governance policies are Service Data and subject to the [Google Cloud Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice) . When a policy blocks an action, the policy engine returns a structured denial response containing a rationale that cites your constraint details. For example, a denial rationale might read: `"The requested refund amount exceeds the limit of $100 for refunds that can be granted."` Because this rationale may be presented to end users, don't include sensitive, confidential, or proprietary information in your constraints.
-> 
+>
 > **Workarounds:** To prevent policy rationales from being shown to end users, do either of the following:
-> 
->   - Set a fixed [**Denial message**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#create-a-policy) on the policy (up to 1,000 characters). When configured, the policy engine shows this message to end users in place of the rationale on denial. Configure it in the Google Cloud console on the policy create or edit page, set `agentResponseCustomization.denialMessage` on the policy resource using the REST API, or set `--agent-response-denial-message` on `gcloud beta ai semantic-governance-policies create` or `gcloud beta ai semantic-governance-policies update` . See also [Denial messages with multiple policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#denial-messages-multiple-policies) .
->   - Write logic in your agent application code to intercept the denial response and redact or replace the rationale before presenting the message to the user.
+>
+> - Set a fixed [**Denial message**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#create-a-policy) on the policy (up to 1,000 characters). When configured, the policy engine shows this message to end users in place of the rationale on denial. Configure it in the Google Cloud console on the policy create or edit page, set `agentResponseCustomization.denialMessage` on the policy resource using the REST API, or set `--agent-response-denial-message` on `gcloud beta ai semantic-governance-policies create` or `gcloud beta ai semantic-governance-policies update` . See also [Denial messages with multiple policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#denial-messages-multiple-policies) .
+> - Write logic in your agent application code to intercept the denial response and redact or replace the rationale before presenting the message to the user.
 
 ### Applying Constraints
 
 When you configure a constraint you can choose:
 
-  - **All tools for the agent:** Apply the constraint to all tools available to an agent. For example: *"Tool calls associated to order processing and management are permitted only for accounts entitled at the Silver or Gold level."*
+- **All tools for the agent:** Apply the constraint to all tools available to an agent. For example: *"Tool calls associated to order processing and management are permitted only for accounts entitled at the Silver or Gold level."*
 
-  - **A single selected tool:** Apply the constraint to a specific tool available to an agent. The policy engine only evaluates the constraint when the agent proposes calling that targeted tool, ignoring it for any other tool calls. For example, if you target a `new_shipping_request` tool, the constraint could be: *"Allow shipping requests only for addresses that have been previously validated."*
-    
-    If you want a constraint to apply to a specific parameter that a tool accepts, reference the parameter's name within the constraint statement. For example, if applied to the `request_refund` tool, the constraint could specify the `amount` parameter: *"Accept refund requests only where the amount is $80 or less."*
+- **A single selected tool:** Apply the constraint to a specific tool available to an agent. The policy engine only evaluates the constraint when the agent proposes calling that targeted tool, ignoring it for any other tool calls. For example, if you target a `new_shipping_request` tool, the constraint could be: *"Allow shipping requests only for addresses that have been previously validated."*
+
+  If you want a constraint to apply to a specific parameter that a tool accepts, reference the parameter's name within the constraint statement. For example, if applied to the `request_refund` tool, the constraint could specify the `amount` parameter: *"Accept refund requests only where the amount is \$80 or less."*
 
 ## What's next
 
-  - Author effective rules in [Best practices for using Semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/best-practices) .
-  - Learn about governing skills in [Governing Agent Skills](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/govern-agent-skills) .
-  - Configure policies in [Configure semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) .
+- Author effective rules in [Best practices for using Semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/best-practices) .
+- Learn about governing skills in [Governing Agent Skills](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/govern-agent-skills) .
+- Configure policies in [Configure semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) .

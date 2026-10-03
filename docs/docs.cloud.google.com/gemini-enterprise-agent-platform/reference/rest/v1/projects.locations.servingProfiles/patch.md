@@ -26,7 +26,7 @@ Identifier. The resource name of the ServingProfile.
 
 ### Query parameters
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Optional. The list of fields to update; see <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask> . If omitted, all populated (non-empty) mutable fields are updated; if set to `["*"]` , all mutable fields are fully replaced (unpopulated values are cleared).
 
@@ -34,8 +34,8 @@ This is a comma-separated list of fully qualified names of fields. Example: `"us
 
 ### Request body
 
-The request body contains an instance of `  ServingProfile  ` .
+The request body contains an instance of [`ServingProfile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.servingProfiles#ServingProfile) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  ServingProfile  ` .
+If successful, the response body contains an instance of [`ServingProfile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.servingProfiles#ServingProfile) .

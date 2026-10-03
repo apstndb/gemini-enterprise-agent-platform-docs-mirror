@@ -34,8 +34,8 @@ To create a runtime:
 
 2.  In the **Region** menu, select the region where you want your runtime. It must be in the same region as the notebook that uses it.
 
-3.  Click add\_box **Create** .
-    
+3.  Click add_box **Create** .
+
     The **Create Agent Platform runtime** dialog appears.
 
 4.  In the **Runtime template** menu, select a runtime template. If there aren't any runtime templates listed, [create a runtime template](https://docs.cloud.google.com/colab/docs/create-runtime-template) .
@@ -50,10 +50,10 @@ By default, when you create a runtime, you automatically have the required permi
 
 Before using any of the command data below, make the following replacements:
 
-  - `  DISPLAY_NAME  ` : the display name for your runtime.
-  - `  RUNTIME_TEMPLATE_ID  ` : the ID of the runtime template. The runtime template specifies your runtime's compute configuration.
-  - `  PROJECT_ID  ` : your project ID.
-  - `  REGION  ` : the region where you want your runtime.
+- `DISPLAY_NAME` : the display name for your runtime.
+- `RUNTIME_TEMPLATE_ID` : the ID of the runtime template. The runtime template specifies your runtime's compute configuration.
+- `PROJECT_ID` : your project ID.
+- `REGION` : the region where you want your runtime.
 
 Execute the following command:
 
@@ -61,28 +61,34 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud colab runtimes create --display-name="DISPLAY_NAME" \
-        --runtime-template=RUNTIME_TEMPLATE_ID \
-        --project=PROJECT_ID \
-        --region=REGION
+```
+gcloud colab runtimes create --display-name="DISPLAY_NAME" \
+    --runtime-template=RUNTIME_TEMPLATE_ID \
+    --project=PROJECT_ID \
+    --region=REGION
+```
 
 #### Windows (PowerShell)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud colab runtimes create --display-name="DISPLAY_NAME" `
-        --runtime-template=RUNTIME_TEMPLATE_ID `
-        --project=PROJECT_ID `
-        --region=REGION
+```
+gcloud colab runtimes create --display-name="DISPLAY_NAME" `
+    --runtime-template=RUNTIME_TEMPLATE_ID `
+    --project=PROJECT_ID `
+    --region=REGION
+```
 
 #### Windows (cmd.exe)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud colab runtimes create --display-name="DISPLAY_NAME" ^
-        --runtime-template=RUNTIME_TEMPLATE_ID ^
-        --project=PROJECT_ID ^
-        --region=REGION
+```
+gcloud colab runtimes create --display-name="DISPLAY_NAME" ^
+    --runtime-template=RUNTIME_TEMPLATE_ID ^
+    --project=PROJECT_ID ^
+    --region=REGION
+```
 
 By default, when you create a runtime, you automatically have the required permissions to start and delete that runtime.
 
@@ -108,9 +114,9 @@ To start a runtime:
 
 Before using any of the command data below, make the following replacements:
 
-  - `  RUNTIME_ID  ` : the ID of your runtime.
-  - `  PROJECT_ID  ` : your project ID.
-  - `  REGION  ` : the region where your runtime is located.
+- `RUNTIME_ID` : the ID of your runtime.
+- `PROJECT_ID` : your project ID.
+- `REGION` : the region where your runtime is located.
 
 Execute the following command:
 
@@ -118,25 +124,31 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud colab runtimes start RUNTIME_ID \
-        --project=PROJECT_ID \
-        --region=REGION
+```
+gcloud colab runtimes start RUNTIME_ID \
+    --project=PROJECT_ID \
+    --region=REGION
+```
 
 #### Windows (PowerShell)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud colab runtimes start RUNTIME_ID `
-        --project=PROJECT_ID `
-        --region=REGION
+```
+gcloud colab runtimes start RUNTIME_ID `
+    --project=PROJECT_ID `
+    --region=REGION
+```
 
 #### Windows (cmd.exe)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud colab runtimes start RUNTIME_ID ^
-        --project=PROJECT_ID ^
-        --region=REGION
+```
+gcloud colab runtimes start RUNTIME_ID ^
+    --project=PROJECT_ID ^
+    --region=REGION
+```
 
 For more information about the command for creating a runtime template from the command line, see the [gcloud CLI documentation](https://docs.cloud.google.com/sdk/gcloud/reference/colab/runtime-templates/create) .
 
@@ -162,9 +174,9 @@ To delete a runtime:
 
 Before using any of the command data below, make the following replacements:
 
-  - `  RUNTIME_ID  ` : the ID of your runtime.
-  - `  PROJECT_ID  ` : your project ID.
-  - `  REGION  ` : the region where your runtime is located.
+- `RUNTIME_ID` : the ID of your runtime.
+- `PROJECT_ID` : your project ID.
+- `REGION` : the region where your runtime is located.
 
 Execute the following command:
 
@@ -172,25 +184,31 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud colab runtimes delete RUNTIME_ID \
-        --project=PROJECT_ID \
-        --region=REGION
+```
+gcloud colab runtimes delete RUNTIME_ID \
+    --project=PROJECT_ID \
+    --region=REGION
+```
 
 #### Windows (PowerShell)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud colab runtimes delete RUNTIME_ID `
-        --project=PROJECT_ID `
-        --region=REGION
+```
+gcloud colab runtimes delete RUNTIME_ID `
+    --project=PROJECT_ID `
+    --region=REGION
+```
 
 #### Windows (cmd.exe)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud colab runtimes delete RUNTIME_ID ^
-        --project=PROJECT_ID ^
-        --region=REGION
+```
+gcloud colab runtimes delete RUNTIME_ID ^
+    --project=PROJECT_ID ^
+    --region=REGION
+```
 
 For more information about the command for creating a runtime template from the command line, see the [gcloud CLI documentation](https://docs.cloud.google.com/sdk/gcloud/reference/colab/runtimes/delete) .
 
@@ -214,24 +232,28 @@ To resolve this issue, [Request a quota adjustment](https://docs.cloud.google.co
 
 The following error occurs when you try to create a runtime.
 
-    No available zone found for runtime RUNTIME_ID
-    for machine type MACHINE_TYPE
-    with accelerator type: ACCELERATOR. Please try again later.
+```
+No available zone found for runtime RUNTIME_ID
+for machine type MACHINE_TYPE
+with accelerator type: ACCELERATOR. Please try again later.
+```
 
 This error occurs if there are no resources available for your machine type configuration within your notebook's region.
 
 To resolve this issue, try any of the following:
 
-  - Create a runtime in a different region.
-  - Create a runtime template with a different machine type configuration, and then create a runtime based on the new runtime template.
+- Create a runtime in a different region.
+- Create a runtime template with a different machine type configuration, and then create a runtime based on the new runtime template.
 
 #### Default runtime already exists
 
 The following error occurs when you try to create a runtime from the default runtime template when the default runtime already exists.
 
-    Failed to create runtime
-    
-    One click runtime already exists.
+```
+Failed to create runtime
+
+One click runtime already exists.
+```
 
 If you try to create a runtime from a default runtime template, Colab Enterprise tries to create a default runtime. There can only be one default runtime per user, project, and region. If the default runtime already exists, Colab Enterprise is unable to create another default runtime.
 
@@ -245,6 +267,6 @@ To resolve this issue, ask your administrator to grant you a role that includes 
 
 ## What's next
 
-  - Learn more about [runtimes and runtime templates](https://docs.cloud.google.com/colab/docs/runtimes) .
-  - [Connect to your runtime](https://docs.cloud.google.com/colab/docs/connect-to-runtime) .
-  - Learn how to [create a runtime template](https://docs.cloud.google.com/colab/docs/create-runtime-template) .
+- Learn more about [runtimes and runtime templates](https://docs.cloud.google.com/colab/docs/runtimes) .
+- [Connect to your runtime](https://docs.cloud.google.com/colab/docs/connect-to-runtime) .
+- Learn how to [create a runtime template](https://docs.cloud.google.com/colab/docs/create-runtime-template) .

@@ -28,34 +28,30 @@ The request body contains data with the following structure:
 
 Fields
 
-`inputs[]` ` object ( Chunk  ` )
+`inputs[]` `object ( `[`Chunk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Chunk)` )`
 
 Required. The inputs used for the stateless code execution.
 
 ### Response body
 
-Response message for `  SandboxEnvironmentExecutionService.ExecuteCode  ` .
+Response message for [`SandboxEnvironmentExecutionService.ExecuteCode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines/executeCode#google.cloud.aiplatform.v1beta1.SandboxEnvironmentExecutionService.ExecuteCode) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`outputs[]` ` object ( Chunk  ` )
+`outputs[]` `object ( `[`Chunk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Chunk)` )`
 
 The outputs from the sandbox environment.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;outputs&quot;: [{object (Chunk)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "outputs": [
+    {
+      object (Chunk)
+    }
+  ]
+}
+```

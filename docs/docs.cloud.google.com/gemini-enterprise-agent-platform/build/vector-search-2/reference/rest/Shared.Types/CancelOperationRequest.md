@@ -8,28 +8,14 @@ data_source: docs.cloud.google.com
 
 The request message for `Operations.CancelOperation` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;name&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "name": string
+}
+```
 
-`name`
-
-`string`
-
-The name of the operation resource to be cancelled.
+| Fields |                                                              |
+|--------|--------------------------------------------------------------|
+| `name` | `string` The name of the operation resource to be cancelled. |

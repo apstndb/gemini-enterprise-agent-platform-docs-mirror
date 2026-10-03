@@ -24,6 +24,10 @@ When you use the Google Cloud console to access Google Cloud services and APIs, 
 
 To use the REST API samples on this page in a local development environment, you use the credentials you provide to the gcloud CLI.
 
+[Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI.
+
+If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
+
 For more information, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) in the Google Cloud authentication documentation.
 
 ## Delete a feature view instance
@@ -50,14 +54,16 @@ To delete a [`FeatureView`](https://docs.cloud.google.com/gemini-enterprise-agen
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region where the online store is located, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREONLINESTORE\_NAME : The name of the online store containing the feature view.
-  - FEATUREVIEW\_NAME : The name of the feature view you want to delete.
+- ` LOCATION_ID ` : Region where the online store is located, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREONLINESTORE_NAME ` : The name of the online store containing the feature view.
+- ` FEATUREVIEW_NAME ` : The name of the feature view you want to delete.
 
 HTTP method and URL:
 
-    DELETE https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME
+```
+DELETE https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME
+```
 
 To send your request, choose one of these options:
 
@@ -67,9 +73,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X DELETE \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME"
+```
+curl -X DELETE \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME"
+```
 
 #### PowerShell
 
@@ -77,27 +85,31 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method DELETE `
-        -Headers $headers `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method DELETE `
+    -Headers $headers `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/operations/OPERATION_ID",
-      "metadata": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.DeleteOperationMetadata",
-        "genericMetadata": {
-          "createTime": "2023-09-15T17:30:31.741064Z",
-          "updateTime": "2023-09-15T17:30:31.741064Z"
-        }
-      }
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/operations/OPERATION_ID",
+  "metadata": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1.DeleteOperationMetadata",
+    "genericMetadata": {
+      "createTime": "2023-09-15T17:30:31.741064Z",
+      "updateTime": "2023-09-15T17:30:31.741064Z"
     }
+  }
+}
+```
 
 ## What's next
 
-  - Learn how to [update a feature view](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-featureview) .
+- Learn how to [update a feature view](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-featureview) .

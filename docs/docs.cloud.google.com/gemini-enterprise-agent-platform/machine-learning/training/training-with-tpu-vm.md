@@ -30,7 +30,7 @@ Select the `tensorflow` version of your choice and its corresponding `libtpu` li
 
 For example, if you want to use TensorFlow 2.15, include the following instructions in your Dockerfile:
 
-``` 
+```
   # Download and install `tensorflow`.
   RUN pip install https://storage.googleapis.com/cloud-tpu-tpuvm-artifacts/tensorflow/tf-2.15.0/tensorflow-2.15.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
 
@@ -65,17 +65,17 @@ For example, if you want to use TensorFlow 2.15, include the following instructi
 <tbody>
 <tr class="odd">
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/training/tf-tpu-pod-base-cp38:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/training/tf-tpu-pod-base-cp38:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/training/tf-tpu-pod-base-cp38:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/training/tf-tpu-pod-base-cp38:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/training/tf-tpu-pod-base-cp38:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/training/tf-tpu-pod-base-cp38:latest</code></li>
 </ul></td>
 <td>Python 3.8</td>
 </tr>
 <tr class="even">
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/training/tf-tpu-pod-base-cp310:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/training/tf-tpu-pod-base-cp310:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/training/tf-tpu-pod-base-cp310:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/training/tf-tpu-pod-base-cp310:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/training/tf-tpu-pod-base-cp310:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/training/tf-tpu-pod-base-cp310:latest</code></li>
 </ul></td>
 <td>Python 3.10</td>
 </tr>
@@ -87,33 +87,33 @@ Here are the steps to build your custom container:
 1.  Choose the base image for the Python version of your choice. TPU TensorFlow wheels for TensorFlow 2.12 and lower support Python 3.8. TensorFlow 2.13 and greater support Python 3.10 or greater. For the specific TensorFlow wheels, see [Cloud TPU configurations](https://docs.cloud.google.com/tpu/docs/supported-tpu-configurations#tpu_vm_with_tpu_v4) .
 2.  Extend the image with your trainer code and the startup command.
 
-<!-- end list -->
+```
+# Specifies base image and tag
+FROM us-docker.pkg.dev/vertex-ai/training/tf-tpu-pod-base-cp310:latest
+WORKDIR /root
 
-    # Specifies base image and tag
-    FROM us-docker.pkg.dev/vertex-ai/training/tf-tpu-pod-base-cp310:latest
-    WORKDIR /root
-    
-    # Download and install `tensorflow`.
-    RUN pip install https://storage.googleapis.com/cloud-tpu-tpuvm-artifacts/tensorflow/tf-2.15.0/tensorflow-2.15.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-    
-    # Download and install `libtpu`.
-    # You must save `libtpu.so` in the '/lib' directory of the container image.
-    RUN curl -L https://storage.googleapis.com/cloud-tpu-tpuvm-artifacts/libtpu/1.9.0/libtpu.so -o /lib/libtpu.so
-    
-    # Copies the trainer code to the docker image.
-    COPY your-path-to/model.py /root/model.py
-    COPY your-path-to/trainer.py /root/trainer.py
-    
-    # The base image is setup so that it runs the CMD that you provide.
-    # You can provide CMD inside the Dockerfile like as follows.
-    # Use CMD, not ENTRYPOINT, to avoid accidentally overriding the pod base image's ENTRYPOINT.
-    # Alternatively, you can pass it as an `args` value in ContainerSpec:
-    # (https://cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#containerspec)
-    CMD ["python3", "trainer.py"]
+# Download and install `tensorflow`.
+RUN pip install https://storage.googleapis.com/cloud-tpu-tpuvm-artifacts/tensorflow/tf-2.15.0/tensorflow-2.15.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+
+# Download and install `libtpu`.
+# You must save `libtpu.so` in the '/lib' directory of the container image.
+RUN curl -L https://storage.googleapis.com/cloud-tpu-tpuvm-artifacts/libtpu/1.9.0/libtpu.so -o /lib/libtpu.so
+
+# Copies the trainer code to the docker image.
+COPY your-path-to/model.py /root/model.py
+COPY your-path-to/trainer.py /root/trainer.py
+
+# The base image is setup so that it runs the CMD that you provide.
+# You can provide CMD inside the Dockerfile like as follows.
+# Use CMD, not ENTRYPOINT, to avoid accidentally overriding the pod base image's ENTRYPOINT.
+# Alternatively, you can pass it as an `args` value in ContainerSpec:
+# (https://cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#containerspec)
+CMD ["python3", "trainer.py"]
+```
 
 > To see an example of how to train a custom TensorFlow model by using TPUs in Pipelines, run the " Pipelines: TPU model train, upload, and deploy using google-cloud-pipeline-components" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/google_cloud_pipeline_components_TPU_model_train_upload_deploy.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Fgoogle_cloud_pipeline_components_TPU_model_train_upload_deploy.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Fgoogle_cloud_pipeline_components_TPU_model_train_upload_deploy.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/google_cloud_pipeline_components_TPU_model_train_upload_deploy.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/google_cloud_pipeline_components_TPU_model_train_upload_deploy.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Fgoogle_cloud_pipeline_components_TPU_model_train_upload_deploy.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Fgoogle_cloud_pipeline_components_TPU_model_train_upload_deploy.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/google_cloud_pipeline_components_TPU_model_train_upload_deploy.ipynb)
 
 ## PyTorch training
 
@@ -129,20 +129,22 @@ Use a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-p
 
 For example, your Dockerfile might look like the following:
 
-    FROM python:3.10
-    
-    # v5e, v6e specific requirement - enable PJRT runtime
-    ENV PJRT_DEVICE=TPU
-    
-    # install pytorch and torch_xla
-    RUN pip3 install torch~=2.1.0 torchvision torch_xla[tpu]~=2.1.0
-     -f https://storage.googleapis.com/libtpu-releases/index.html
-    
-    # Add your artifacts here
-    COPY trainer.py .
-    
-    # Run the trainer code
-    CMD ["python3", "trainer.py"]
+```
+FROM python:3.10
+
+# v5e, v6e specific requirement - enable PJRT runtime
+ENV PJRT_DEVICE=TPU
+
+# install pytorch and torch_xla
+RUN pip3 install torch~=2.1.0 torchvision torch_xla[tpu]~=2.1.0
+ -f https://storage.googleapis.com/libtpu-releases/index.html
+
+# Add your artifacts here
+COPY trainer.py .
+
+# Run the trainer code
+CMD ["python3", "trainer.py"]
+```
 
 #### TPU Pod
 
@@ -164,14 +166,16 @@ Use a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-p
 
 For example, your Dockerfile might look like the following:
 
-    # Install JAX.
-    RUN pip install 'jax[tpu]>=0.4.6' -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
-    
-    # Add your artifacts here
-    COPY trainer.py trainer.py
-    
-    # Set an entrypoint.
-    ENTRYPOINT ["python3", "trainer.py"]
+```
+# Install JAX.
+RUN pip install 'jax[tpu]>=0.4.6' -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
+
+# Add your artifacts here
+COPY trainer.py trainer.py
+
+# Set an entrypoint.
+ENTRYPOINT ["python3", "trainer.py"]
+```
 
 #### TPU Pod
 
@@ -179,23 +183,25 @@ The training runs on all hosts of the TPU Pod (see [Run JAX code on TPU Pod slic
 
 Agent Platform watches the first host of the TPU Pod to decide completion of the job. You can use the following code snippet to make sure that all hosts exit at the same time:
 
-    # Your training logic
-    ...
-    
-    if jax.process_count() > 1:
-      # Make sure all hosts stay up until the end of main.
-      x = jnp.ones([jax.local_device_count()])
-      x = jax.device_get(jax.pmap(lambda x: jax.lax.psum(x, 'i'), 'i')(x))
-      assert x[0] == jax.device_count()
+```
+# Your training logic
+...
+
+if jax.process_count() > 1:
+  # Make sure all hosts stay up until the end of main.
+  x = jnp.ones([jax.local_device_count()])
+  x = jax.device_get(jax.pmap(lambda x: jax.lax.psum(x, 'i'), 'i')(x))
+  assert x[0] == jax.device_count()
+```
 
 ## Environment variables
 
 The following table details the environment variables that you can use within the container:
 
-| Name            | Value                                                                                              |
-| --------------- | -------------------------------------------------------------------------------------------------- |
-| TPU\_NODE\_NAME | my-first-tpu-node                                                                                  |
-| TPU\_CONFIG     | {"project": "tenant-project-xyz", "zone": "us-central1-b", "tpu\_node\_name": "my-first-tpu-node"} |
+| Name          | Value                                                                                            |
+|---------------|--------------------------------------------------------------------------------------------------|
+| TPU_NODE_NAME | my-first-tpu-node                                                                                |
+| TPU_CONFIG    | {"project": "tenant-project-xyz", "zone": "us-central1-b", "tpu_node_name": "my-first-tpu-node"} |
 
 ## Custom Service Account
 
@@ -213,7 +219,7 @@ VPC Service Controls enabled projects can submit TPU training jobs.
 
 The following limitations apply when you train using a TPU VM:
 
-  - [TPUs are only available in certain Agent Platform regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#accelerators) .
+- [TPUs are only available in certain Agent Platform regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#accelerators) .
 
 ## TPU types
 

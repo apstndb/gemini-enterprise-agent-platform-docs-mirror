@@ -61,9 +61,9 @@ To test a model or make online predictions, you need to deploy it to an endpoint
 8.  Turn off model monitoring for this endpoint.
 
 9.  To create your endpoint and deploy your model to the endpoint, click **Deploy** .
-    
+
     Model deployment takes around 5 minutes. When your endpoint is ready, proceed to the next part of the tutorial.
-    
+
     > **Note:** Make sure to undeploy the model later so you aren't charged for additional compute resources. We'll show you how to do that at the end of this tutorial.
 
 ## Request a prediction
@@ -73,17 +73,17 @@ Now that your model is deployed to an endpoint, you can send prediction requests
 1.  In the **Test your model** section, you'll see a **Value** column that's pre-filled. You can use those values or enter new ones.
 
 2.  At the bottom of the section, press **Predict** .
-    
+
     For this model, a prediction result of `1` represents a negative outcome—a deposit is not made at the bank. A prediction result of `2` represents a positive outcome—a deposit is made at the bank.
-    
+
     Your model will return a confidence score, which is the model's level of certainty that the selected label is the correct one. The default value probably returned a high confidence score.
 
 3.  **Optional** . Try changing **duration** to a much higher value and press Predict again.
 
 ## What's next
 
-  - To avoid incurring unexpected charges, follow the instructions in [Clean up your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-automl/cleanup)
+- To avoid incurring unexpected charges, follow the instructions in [Clean up your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-automl/cleanup)
 
-  - [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/evaluate-model) about model evaluation.
+- [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/evaluate-model) about model evaluation.
 
-  - [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions) about model predictions.
+- [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions) about model predictions.

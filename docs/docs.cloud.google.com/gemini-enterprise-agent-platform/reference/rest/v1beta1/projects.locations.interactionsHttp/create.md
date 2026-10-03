@@ -30,7 +30,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`httpBody` ` object ( HttpBody  ` )
+`httpBody` `object ( `[`HttpBody`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/HttpBody)` )`
 
 Required. The interaction to create.
 

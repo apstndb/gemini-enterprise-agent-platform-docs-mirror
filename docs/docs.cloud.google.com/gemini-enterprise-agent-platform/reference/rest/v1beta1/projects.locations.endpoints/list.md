@@ -26,22 +26,22 @@ Required. The resource name of the Location from which to list the endpoints. Fo
 
 `filter` `string`
 
-Optional. An expression for filtering the results of the request. For field names both snake\_case and camelCase are supported.
+Optional. An expression for filtering the results of the request. For field names both snake_case and camelCase are supported.
 
-  - `endpoint` supports `=` and `!=` . `endpoint` represents the Endpoint id, i.e. the last segment of the Endpoint's `  resource name  ` .
-  - `displayName` supports `=` and `!=` .
-  - `labels` supports general map functions that is:
-      - `labels.key=value` - key:value equality
-      - `labels.key:*` or `labels:key` - key existence
-      - A key including a space must be quoted. `labels."a key"` .
-  - `base_model_name` only supports `=` .
+- `endpoint` supports `=` and `!=` . `endpoint` represents the Endpoint id, i.e. the last segment of the Endpoint's [`resource name`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint.FIELDS.name) .
+- `displayName` supports `=` and `!=` .
+- `labels` supports general map functions that is:
+  - `labels.key=value` - key:value equality
+  - `labels.key:*` or `labels:key` - key existence
+  - A key including a space must be quoted. `labels."a key"` .
+- `base_model_name` only supports `=` .
 
 Some examples:
 
-  - `endpoint=1`
-  - `displayName="myDisplayName"`
-  - `labels.myKey="myValue"`
-  - `baseModelName="text-bison"`
+- `endpoint=1`
+- `displayName="myDisplayName"`
+- `labels.myKey="myValue"`
+- `baseModelName="text-bison"`
 
 `pageSize` `integer`
 
@@ -49,9 +49,9 @@ Optional. The standard list page size.
 
 `pageToken` `string`
 
-Optional. The standard list page token. Typically obtained via `  ListEndpointsResponse.next_page_token  ` of the previous `  EndpointService.ListEndpoints  ` call.
+Optional. The standard list page token. Typically obtained via [`ListEndpointsResponse.next_page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/list#body.ListEndpointsResponse.FIELDS.next_page_token) of the previous [`EndpointService.ListEndpoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/list#google.cloud.aiplatform.v1beta1.EndpointService.ListEndpoints) call.
 
-`readMask` ` string ( FieldMask  ` format)
+`readMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Optional. Mask specifying which fields to read.
 
@@ -67,32 +67,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  EndpointService.ListEndpoints  ` .
+Response message for [`EndpointService.ListEndpoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/list#google.cloud.aiplatform.v1beta1.EndpointService.ListEndpoints) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`endpoints[]` ` object ( Endpoint  ` )
+`endpoints[]` `object ( `[`Endpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint)` )`
 
 List of endpoints in the requested page.
 
 `nextPageToken` `string`
 
-A token to retrieve the next page of results. Pass to `  ListEndpointsRequest.page_token  ` to obtain that page.
+A token to retrieve the next page of results. Pass to [`ListEndpointsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/list#body.QUERY_PARAMETERS.page_token) to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;endpoints&quot;: [{object (Endpoint)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "endpoints": [
+    {
+      object (Endpoint)
+    }
+  ],
+  "nextPageToken": string
+}
+```

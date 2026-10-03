@@ -18,22 +18,22 @@ This section covers the Gemini Enterprise Agent Platform, BigQuery, and BigQuery
 
 Agent Platform is an AI/ML platform for model development and governance. Common use cases include the following:
 
-  - Machine learning tasks, such as forecasting, prediction, recommendation, and anomaly detection
+- Machine learning tasks, such as forecasting, prediction, recommendation, and anomaly detection
 
-  - Generative AI tasks, such as:
-    
-      - Text generation, classification, summarization, and extraction
-      - Code generation and completion
-      - Image generation
-      - Embedding generation
+- Generative AI tasks, such as:
+
+  - Text generation, classification, summarization, and extraction
+  - Code generation and completion
+  - Image generation
+  - Embedding generation
 
 You can use BigQuery to prepare training data for Agent Platform models, which you can [make available as features in Agent Platform Feature Store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/sync-data) .
 
 You can train models in Agent Platform in three ways:
 
-  - [AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/beginner/beginners-guide) : Train models on image, tabular, and video datasets without writing code.
-  - [Custom Training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/understanding-training-service) : Run custom training code catered to your specific use case.
-  - [Ray on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray) : Use Ray to scale AI and Python applications like machine learning.
+- [AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/beginner/beginners-guide) : Train models on image, tabular, and video datasets without writing code.
+- [Custom Training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/understanding-training-service) : Run custom training code catered to your specific use case.
+- [Ray on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray) : Use Ray to scale AI and Python applications like machine learning.
 
 You can also import a model trained on another platform like BigQuery ML or XGBoost.
 
@@ -43,7 +43,7 @@ From the registry, you can manage model versions, deploy to endpoints for online
 
 **Available languages:**
 
-  - The [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-sdk) supports Python, Java, Node.js, and Go.
+- The [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-sdk) supports Python, Java, Node.js, and Go.
 
 ### BigQuery: A serverless, multicloud enterprise data warehouse
 
@@ -53,9 +53,9 @@ You can also use BigQuery as a data store that you reference when building tabul
 
 **Available languages:**
 
-  - SDKs for BigQuery. To learn more, see the [BigQuery API Client Libraries](https://docs.cloud.google.com/bigquery/docs/reference/libraries) .
-  - GoogleSQL
-  - Legacy SQL
+- SDKs for BigQuery. To learn more, see the [BigQuery API Client Libraries](https://docs.cloud.google.com/bigquery/docs/reference/libraries) .
+- GoogleSQL
+- Legacy SQL
 
 To learn more, see [BigQuery SQL dialects](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/introduction#bigquery-sql-dialects) .
 
@@ -67,8 +67,8 @@ You can also access Agent Platform models by using BigQuery ML. You can create a
 
 **Available language:**
 
-  - GoogleSQL
-  - [BigQuery client libraries](https://docs.cloud.google.com/bigquery/docs/reference/libraries)
+- GoogleSQL
+- [BigQuery client libraries](https://docs.cloud.google.com/bigquery/docs/reference/libraries)
 
 To learn more about the advantages of using BigQuery ML, see [Introduction to AI and ML in BigQuery](https://docs.cloud.google.com/bigquery/docs/bqml-introduction) .
 
@@ -76,9 +76,9 @@ To learn more about the advantages of using BigQuery ML, see [Introduction to AI
 
 You can register your BigQuery ML models to the Model Registry in order to manage the models in Agent Platform. Managing BigQuery ML models in Agent Platform provides two main benefits:
 
-  - **Online model serving** : BigQuery ML only supports batch predictions for your models. To get online predictions, you can train your models in BigQuery ML and deploy them to Agent Platform endpoints through Model Registry.
+- **Online model serving** : BigQuery ML only supports batch predictions for your models. To get online predictions, you can train your models in BigQuery ML and deploy them to Agent Platform endpoints through Model Registry.
 
-  - **MLOps capabilities** : Models are most beneficial when they are kept up to date through continuous training. Agent Platform offers MLOps tools that automate the monitoring and retraining of models to maintain the accuracy of predictions over time. With Agent Platform Pipelines, you can use BigQuery operators to plug any BigQuery jobs (including BigQuery ML) into an ML pipeline. With Gemini Enterprise Agent Platform Model Monitoring, you can monitor your BigQuery ML predictions over time.
+- **MLOps capabilities** : Models are most beneficial when they are kept up to date through continuous training. Agent Platform offers MLOps tools that automate the monitoring and retraining of models to maintain the accuracy of predictions over time. With Agent Platform Pipelines, you can use BigQuery operators to plug any BigQuery jobs (including BigQuery ML) into an ML pipeline. With Gemini Enterprise Agent Platform Model Monitoring, you can monitor your BigQuery ML predictions over time.
 
 ![Google Cloud products and where they fit in an MLOps workflow](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/beginner/images/mlops_bq2_new.png)
 
@@ -87,7 +87,7 @@ To learn how to register your BigQuery ML models to the Model Registry, see [Man
 ## Related notebook tutorials
 
 | What do you want to do?                                                                                                           | Resource                                                                                                                                                                                                                                                          |
-| --------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Use BigQuery ML to generate text on BigQuery tables or unstructured data with foundation models on Agent Platform                 | [Generate text using BigQuery ML and foundation models in Agent Platform](https://docs.cloud.google.com/bigquery/docs/generate-text-tutorial)                                                                                                                     |
 | Generate vector embeddings with BigQuery ML over text and images                                                                  | [Call a multimodal embedding endpoint in Agent Platform from BigQuery ML to generate embeddings for semantic search](https://github.com/GoogleCloudPlatform/bigquery-ml-utils/blob/master/notebooks/bqml-generate-embedding-with-multimodalembedding-model.ipynb) |
 | Use two Agent Platform Tabular Workflows pipelines to train an AutoML model using different configurations.                       | [Tabular Workflow: AutoML Tabular Pipeline](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/automl/automl_tabular_on_vertex_pipelines.ipynb)                                                                                |
@@ -97,6 +97,6 @@ To learn how to register your BigQuery ML models to the Model Registry, see [Man
 
 ## What's next
 
-  - To get started with Gemini Enterprise Agent Platform see:
-      - [Choose a training method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-methods)
-      - [Integrate a BigQuery ML model with Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/model-registry-bqml)
+- To get started with Gemini Enterprise Agent Platform see:
+  - [Choose a training method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-methods)
+  - [Integrate a BigQuery ML model with Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/model-registry-bqml)

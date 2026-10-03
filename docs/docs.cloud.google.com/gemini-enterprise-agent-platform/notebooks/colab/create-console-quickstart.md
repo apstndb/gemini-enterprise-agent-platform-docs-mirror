@@ -28,8 +28,8 @@ To create a Colab Enterprise notebook by using the Google Cloud console:
 
 2.  In the **Region** menu, select the region where you want to create your notebook.
 
-3.  Click add\_box **New notebook** .
-    
+3.  Click add_box **New notebook** .
+
     Agent Platform creates and opens your notebook.
 
 When you finish the tasks that are described in this document, you can avoid continued billing by deleting the resources that you created. For more information, see [Clean up](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/colab/create-console-quickstart#clean-up) .
@@ -47,17 +47,17 @@ To run a Colab Enterprise notebook's code on the default runtime, do the followi
 4.  Hold the pointer over the code cell that you want to run, and then click the ![](https://docs.cloud.google.com/static/colab/images/icon-run-cell.png) **Run cell** button.
 
 5.  If this is your first time connecting to a runtime with end-user credentials enabled, a **Sign in** dialog appears.
-    
+
     > The default runtime has end-user credentials enabled to make it easier to [run code that interacts with Google Cloud](https://docs.cloud.google.com/colab/docs/run-code-adc) .
-    
+
     To grant Colab Enterprise access to your user credentials, complete the following steps:
-    
+
     1.  In the **Sign in** dialog, click your user account.
-    
+
     2.  Select **See, edit, configure, and delete your Google Cloud data...** to grant Colab Enterprise access to your user credentials.
-        
+
         ![The checkbox is next to a statement that says, "See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account."](https://docs.cloud.google.com/static/colab/images/access-checkbox.png)
-    
+
     3.  Click **Continue** .
 
 After your runtime starts, Colab Enterprise connects to the runtime and runs the code in the cell.
@@ -70,7 +70,7 @@ To rename a Colab Enterprise notebook:
 
 2.  In the **Region** menu, select the region that contains your notebook.
 
-3.  Next to the notebook that you want to rename, click the more\_vert **Actions** menu, and then select **Rename** .
+3.  Next to the notebook that you want to rename, click the more_vert **Actions** menu, and then select **Rename** .
 
 4.  In the **Rename notebook** dialog, change the name of the notebook, and then click **Rename** .
 
@@ -87,17 +87,17 @@ To import a notebook into Colab Enterprise:
 4.  In the **Import notebooks** dialog, select an **Import source** .
 
 5.  If you selected:
-    
-      - **Your computer** , navigate to and select a notebook file to import.
-      - **Cloud Storage** , navigate to and select a notebook in Cloud Storage.
-      - **URL** , enter the URL of the notebook file to import.
-    
+
+    - **Your computer** , navigate to and select a notebook file to import.
+    - **Cloud Storage** , navigate to and select a notebook in Cloud Storage.
+    - **URL** , enter the URL of the notebook file to import.
+
     > The notebook must be fewer than 20 MB.
 
-6.  To add another notebook, click add\_box **Add notebook** .
+6.  To add another notebook, click add_box **Add notebook** .
 
 7.  After you've added the notebooks that you want to import, click **Import** .
-    
+
     Colab Enterprise imports your notebook files.
 
 ## Clean up
@@ -109,17 +109,15 @@ To avoid incurring charges to your Google Cloud account for the resources used i
 ### Delete the project
 
 > **Caution** : Deleting a project has the following effects:
-> 
->   - **Everything in the project is deleted.** If you used an existing project for the tasks in this document, when you delete it, you also delete any other work you've done in the project.
->   - **Custom project IDs are lost.** When you created this project, you might have created a custom project ID that you want to use in the future. To preserve the URLs that use the project ID, such as an `appspot.com` URL, delete selected resources inside the project instead of deleting the whole project.
-> 
+>
+> - **Everything in the project is deleted.** If you used an existing project for the tasks in this document, when you delete it, you also delete any other work you've done in the project.
+> - **Custom project IDs are lost.** When you created this project, you might have created a custom project ID that you want to use in the future. To preserve the URLs that use the project ID, such as an `appspot.com` URL, delete selected resources inside the project instead of deleting the whole project.
+>
 > If you plan to explore multiple architectures, tutorials, or quickstarts, reusing projects can help you avoid exceeding project quota limits.
 
-In the Google Cloud console, go to the **Manage resources** page.
-
-In the project list, select the project that you want to delete, and then click **Delete** .
-
-In the dialog, type the project ID, and then click **Shut down** to delete the project.
+1.  In the Google Cloud console, go to the **Manage resources** page.
+2.  In the project list, select the project that you want to delete, and then click **Delete** .
+3.  In the dialog, type the project ID, and then click **Shut down** to delete the project.
 
 ### Delete your notebook
 
@@ -129,14 +127,14 @@ To delete a Colab Enterprise notebook:
 
 2.  In the **Region** menu, select the region that contains the notebook that you want to delete.
 
-3.  Next to the notebook that you want to delete, click the more\_vert **Actions** menu, and then select delete **Delete notebook** .
+3.  Next to the notebook that you want to delete, click the more_vert **Actions** menu, and then select delete **Delete notebook** .
 
 4.  In the **Delete notebook** dialog, click **Confirm** .
 
 ## What's next
 
-  - Read the [Introduction to Colab Enterprise](https://docs.cloud.google.com/colab/docs/introduction) .
+- Read the [Introduction to Colab Enterprise](https://docs.cloud.google.com/colab/docs/introduction) .
 
-  - To find a notebook that can help you get your project started quickly, see the [notebook gallery](https://console.cloud.google.com/agent-platform/colab/notebook-gallery) .
+- To find a notebook that can help you get your project started quickly, see the [notebook gallery](https://console.cloud.google.com/agent-platform/colab/notebook-gallery) .
 
-  - [Connect to a runtime](https://docs.cloud.google.com/colab/docs/connect-to-runtime) .
+- [Connect to a runtime](https://docs.cloud.google.com/colab/docs/connect-to-runtime) .

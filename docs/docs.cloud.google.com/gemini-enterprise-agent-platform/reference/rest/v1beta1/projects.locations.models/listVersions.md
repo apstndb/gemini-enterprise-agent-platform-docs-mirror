@@ -30,22 +30,22 @@ The standard list page size.
 
 `pageToken` `string`
 
-The standard list page token. Typically obtained via `  nextPageToken  ` of the previous `  models.listVersions  ` call.
+The standard list page token. Typically obtained via [`nextPageToken`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/listVersions#body.ListModelVersionsResponse.FIELDS.next_page_token) of the previous [`models.listVersions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/listVersions#google.cloud.aiplatform.v1beta1.ModelService.ListModelVersions) call.
 
 `filter` `string`
 
-An expression for filtering the results of the request. For field names both snake\_case and camelCase are supported.
+An expression for filtering the results of the request. For field names both snake_case and camelCase are supported.
 
-  - `labels` supports general map functions that is:
-      - `labels.key=value` - key:value equality
-      - \`labels.key:\* or labels:key - key existence
-      - A key including a space must be quoted. `labels."a key"` .
+- `labels` supports general map functions that is:
+  - `labels.key=value` - key:value equality
+  - \`labels.key:\* or labels:key - key existence
+  - A key including a space must be quoted. `labels."a key"` .
 
 Some examples:
 
-  - `labels.myKey="myValue"`
+- `labels.myKey="myValue"`
 
-`readMask` ` string ( FieldMask  ` format)
+`readMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Mask specifying which fields to read.
 
@@ -55,8 +55,8 @@ This is a comma-separated list of fully qualified names of fields. Example: `"us
 
 A comma-separated list of fields to order by, sorted in ascending order. Use "desc" after a field name for descending. Supported fields:
 
-  - `createTime`
-  - `updateTime`
+- `createTime`
+- `updateTime`
 
 Example: `updateTime asc, createTime desc` .
 
@@ -66,32 +66,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  ModelService.ListModelVersions  `
+Response message for [`ModelService.ListModelVersions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/listVersions#google.cloud.aiplatform.v1beta1.ModelService.ListModelVersions)
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`models[]` ` object ( Model  ` )
+`models[]` `object ( `[`Model`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models#Model)` )`
 
 List of Model versions in the requested page. In the returned Model name field, version id instead of regvision tag will be included.
 
 `nextPageToken` `string`
 
-A token to retrieve the next page of results. Pass to `  ListModelVersionsRequest.page_token  ` to obtain that page.
+A token to retrieve the next page of results. Pass to [`ListModelVersionsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/listVersions#body.QUERY_PARAMETERS.page_token) to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;models&quot;: [{object (Model)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "models": [
+    {
+      object (Model)
+    }
+  ],
+  "nextPageToken": string
+}
+```

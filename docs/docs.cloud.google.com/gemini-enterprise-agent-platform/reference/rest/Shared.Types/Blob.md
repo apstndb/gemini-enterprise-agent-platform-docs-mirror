@@ -16,7 +16,7 @@ Fields
 
 Required. The IANA standard MIME type of the source data.
 
-`data` `string ( bytes format)`
+`data` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Required. The raw bytes of the data.
 
@@ -28,22 +28,12 @@ Optional. The display name of the blob. Used to provide a label or filename to d
 
 This field is only returned in `PromptMessage` for prompt management. It is used in the Gemini calls only when server-side tools ( `codeExecution` , `googleSearch` , and `urlContext` ) are enabled.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;mimeType&quot;: string,
-  &quot;data&quot;: string,
-  &quot;displayName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "mimeType": string,
+  "data": string,
+  "displayName": string
+}
+```

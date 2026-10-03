@@ -12,22 +12,22 @@ Learn more about [Managed Service for Apache Spark](https://docs.cloud.google.co
 
 In Managed Service for Apache Spark, a `Batch` resource represents a batch workload. The Google Cloud SDK includes the following operators to create `Batch` resources and monitor their execution:
 
-  - [`DataprocPySparkBatchOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataproc.html#v1.dataproc.DataprocPySparkBatchOp)
-  - [`DataprocSparkBatchOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataproc.html#v1.dataproc.DataprocSparkBatchOp)
-  - [`DataprocSparkRBatchOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataproc.html#v1.dataproc.DataprocSparkRBatchOp)
-  - [`DataprocSparkSqlBatchOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataproc.html#v1.dataproc.DataprocSparkSqlBatchOp)
+- [`DataprocPySparkBatchOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataproc.html#v1.dataproc.DataprocPySparkBatchOp)
+- [`DataprocSparkBatchOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataproc.html#v1.dataproc.DataprocSparkBatchOp)
+- [`DataprocSparkRBatchOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataproc.html#v1.dataproc.DataprocSparkRBatchOp)
+- [`DataprocSparkSqlBatchOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataproc.html#v1.dataproc.DataprocSparkSqlBatchOp)
 
 ## API reference
 
-  - For component reference, see the [Google Cloud SDK reference for Managed Service for Apache Spark components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataproc.html) .
+- For component reference, see the [Google Cloud SDK reference for Managed Service for Apache Spark components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataproc.html) .
 
-  - For Managed Service for Apache Spark resource reference, see the following API reference page:
-    
-      - [`Batch`](https://docs.cloud.google.com/dataproc-serverless/docs/reference/rest/v1/projects.locations.batches#resource:-batch) resource
+- For Managed Service for Apache Spark resource reference, see the following API reference page:
+
+  - [`Batch`](https://docs.cloud.google.com/dataproc-serverless/docs/reference/rest/v1/projects.locations.batches#resource:-batch) resource
 
 ## Tutorials
 
-  - [Get started with Managed Service for Apache Spark pipeline components](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/ml_ops/stage3/get_started_with_dataproc_serverless_pipeline_components.ipynb)
+- [Get started with Managed Service for Apache Spark pipeline components](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/ml_ops/stage3/get_started_with_dataproc_serverless_pipeline_components.ipynb)
 
 ## Version history and release notes
 

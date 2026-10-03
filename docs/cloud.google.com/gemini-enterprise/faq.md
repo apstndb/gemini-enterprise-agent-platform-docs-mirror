@@ -40,8 +40,8 @@ If you are a government or educational institution, we provide tailored offering
 
 **No.** While both are part of the broader Gemini Enterprise ecosystem, they must be purchased separately:
 
-  - **Gemini Enterprise app:** A subscription-based service built for business users to run and design no-code agents. It is billed on a **per-seat, per-month** basis and requires an active user license.
-  - **Gemini Enterprise Agent Platform:** A developer-focused platform (the evolution of Vertex AI) built for technical teams to code, scale, and govern complex agent architectures. It requires an active **Google Cloud account** and uses **pay-as-you-go** consumption billing.
+- **Gemini Enterprise app:** A subscription-based service built for business users to run and design no-code agents. It is billed on a **per-seat, per-month** basis and requires an active user license.
+- **Gemini Enterprise Agent Platform:** A developer-focused platform (the evolution of Vertex AI) built for technical teams to code, scale, and govern complex agent architectures. It requires an active **Google Cloud account** and uses **pay-as-you-go** consumption billing.
 
 #### How are the Gemini Enterprise app and Gemini Enterprise Agent Platform related?
 
@@ -51,7 +51,7 @@ Gemini Enteprise Agent Platform provides the foundational capabilities to build,
 
 Both the Gemini app and Gemini Enterprise app come with enterprise-grade security and compliance controls and leverage the latest Gemini models to help users get their work done faster and with higher quality. The choice of which AI solution is a better fit for your teams largely depends on the specific needs and requirements of your business.
 
-The **Gemini app** is an everyday AI assistant, designed to enhance creativity and boost productivity for individuals and teams in companies of all sizes. The Gemini app is included at no additional cost for Google Workspace commercial and public sector customers and comes with [enterprise-grade security and complianc](https://support.google.com/a/answer/15706919)[e](https://cloud.google.com/gemini-enterprise/%5Bobject%20Object%5D)[controls](https://cloud.google.com/gemini-enterprise/%5Bobject%20Object%5D). It leverages data from Workspace apps, such as Gmail, Drive, and Chat, to provide personalized responses and can be centrally managed from the Workspace admin console.
+The **Gemini app** is an everyday AI assistant, designed to enhance creativity and boost productivity for individuals and teams in companies of all sizes. The Gemini app is included at no additional cost for Google Workspace commercial and public sector customers and comes with [enterprise-grade security and complianc](https://support.google.com/a/answer/15706919)[e](https://cloud.google.com/gemini-enterprise/%5Bobject%20Object%5D) [controls](https://cloud.google.com/gemini-enterprise/%5Bobject%20Object%5D). It leverages data from Workspace apps, such as Gmail, Drive, and Chat, to provide personalized responses and can be centrally managed from the Workspace admin console.
 
 **Gemini Enterprise app** is a powerful agentic platform built to understand the full context of your business and automate complex, end-to-end workflows. Specifically developed for businesses and enterprises, it securely connects to a broad set of your organization's applications and data, allowing you to chat with Gemini grounded in your business context. Gemini Enterprise app also allows teams to use a single interface to interact with Google-made, custom no-code or code, or 3rd-party agents to automate simple to complex workflows. It also provides a single pane of glass for organizations to centrally govern all the agents across the teams.
 
@@ -61,8 +61,8 @@ While both the Gemini app and Gemini Enterprise app benefit from Google's cuttin
 
 Here are two ways you can get started today:
 
-  - [Try Business edition free for 30 days](https://business.gemini.google): Great for individuals, small businesses, and teams up to 300—no IT setup needed.
-  - [Try Standard or Plus edition free for 30 days](https://console.cloud.google.com/freetrial?redirectPath=gemini-enterprise): Get advanced features, including higher quota, unlimited seats, enterprise-grade compliance, and access to Gemini Code Assist.
+- [Try Business edition free for 30 days](https://business.gemini.google): Great for individuals, small businesses, and teams up to 300—no IT setup needed.
+- [Try Standard or Plus edition free for 30 days](https://console.cloud.google.com/freetrial?redirectPath=gemini-enterprise): Get advanced features, including higher quota, unlimited seats, enterprise-grade compliance, and access to Gemini Code Assist.
 
 To learn more about purchasing the Standard, Plus or Frontline editions, please [contact Google Cloud sales](https://cloud.google.com/contact/gemini-enterprise). 
 
@@ -84,9 +84,9 @@ Gemini Enterprise also comes with a ready-to-deploy "taskforce" of specialized a
 
 Gemini Enterprise app offers several prebuilt agents made by Google, including:
 
-  - Deep Research agent, which explores complex topics on the employee’s behalf, synthesizing information across internal and external sources into comprehensive, easy-to-read reports—all with a single prompt. 
-  - Gemini Notebook for enterprise, which brings new ways for employees to synthesize information, uncover insights, and engage with the data. It’s the same experience millions of Gemini Enterprise users love, enhanced with additional security and privacy features needed for work use.
-  - Data Insights Agent (Preview)\* to let your employees easily access data-insights by “talking” to your data sources in natural language, freeing up data analysts to work on higher-value tasks, while ensuring that all employees can make well-informed business decisions.
+- Deep Research agent, which explores complex topics on the employee’s behalf, synthesizing information across internal and external sources into comprehensive, easy-to-read reports—all with a single prompt. 
+- Gemini Notebook for enterprise, which brings new ways for employees to synthesize information, uncover insights, and engage with the data. It’s the same experience millions of Gemini Enterprise users love, enhanced with additional security and privacy features needed for work use.
+- Data Insights Agent (Preview)\* to let your employees easily access data-insights by “talking” to your data sources in natural language, freeing up data analysts to work on higher-value tasks, while ensuring that all employees can make well-informed business decisions.
 
 Additionally, you can find and access partner-built agents for your specialized needs inside of [Agent Marketplace](https://console.cloud.google.com/marketplace/browse?filter=category:ai-agent&filter=validations:gemini-enterprise-compatible).\*
 
@@ -98,18 +98,18 @@ For more information about agents, click [here](https://cloud.google.com/gemini-
 
 Yes. Standard and Plus edition customers can bring their own agents via two paths:
 
-  - If you or your company’s developers create agents on Agent Platform or Agent Development Kit (ADK), you can publish them directly to Gemini Enterprise app.
-  - If you have agents running on external platforms, you can integrate them into Gemini Enterprise app by using the Agent-to-Agent (A2A) protocol.
+- If you or your company’s developers create agents on Agent Platform or Agent Development Kit (ADK), you can publish them directly to Gemini Enterprise app.
+- If you have agents running on external platforms, you can integrate them into Gemini Enterprise app by using the Agent-to-Agent (A2A) protocol.
 
 #### What data connectors are available in Gemini Enterprise app?
 
 Gemini Enterprise app offers a range of connectors to integrate with your organization’s existing data sources. Popular connectors include:
 
-  - Google Workspace: Drive, Calendar, Gmail, Groups with real-time syncing
-  - Microsoft: OneDrive, Outlook, SharePoint, Entra ID 
-  - ServiceNow
-  - Jira
-  - Confluence
+- Google Workspace: Drive, Calendar, Gmail, Groups with real-time syncing
+- Microsoft: OneDrive, Outlook, SharePoint, Entra ID 
+- ServiceNow
+- Jira
+- Confluence
 
 [See all available connectors in Business edition](https://support.google.com/g/answer/16550932)
 
@@ -121,20 +121,20 @@ Gemini Enterprise app offers a range of connectors to integrate with your organi
 
 The Business, Standard and Plus editions of Gemini Enterprise app are built on Google’s secure-by-design infrastructure, giving you the peace of mind to deploy AI agents across your organization confidently.
 
-  - You own your data, not Google
-  - Your data—including prompts, outputs, and training—aren’t used to train Google models or models for any other customer
-  - Google never sells customer data to third parties
-  - Google doesn’t use customer data for advertising
+- You own your data, not Google
+- Your data—including prompts, outputs, and training—aren’t used to train Google models or models for any other customer
+- Google never sells customer data to third parties
+- Google doesn’t use customer data for advertising
 
 #### What cloud compliance requirements does Gemini Enterprise app meet?
 
 The Standard and Plus editions of Gemini Enterprise app meet strict cloud compliance requirements around retention, accessibility, and maintaining integrity of your records, such as:
 
-  - [Data residency](https://docs.cloud.google.com/gemini/enterprise/docs/locations) to help ensure your data stays in the region of your choice 
-  - [Google Cloud audit logging](https://cloud.google.com/logging/docs/audit) to preserve immutable electronic logs on your company’s activity and help your security, auditing, and compliance entities monitor for possible vulnerabilities or external data misuse 
-  - [Customer Managed Encryption Keys (CMEK)](https://docs.cloud.google.com/gemini/enterprise/docs/cmek) through Cloud Key Management Service to encrypt your data with customer-controlled keys, giving your organization control over protection level, location, rotation schedule, usage and access permissions, and cryptographic boundaries
-  - [VPC Security Controls](https://cloud.google.com/vpc-service-controls/docs/supported-products) to block access from untrusted locations outside your organization’s network and mitigate data exfiltration risks
-  - Industry-standard compliance such as [FedRamp](https://cloud.google.com/security/compliance/fedramp) and [HIPAA](https://cloud.google.com/security/compliance/hipaa)  
+- [Data residency](https://docs.cloud.google.com/gemini/enterprise/docs/locations) to help ensure your data stays in the region of your choice 
+- [Google Cloud audit logging](https://cloud.google.com/logging/docs/audit) to preserve immutable electronic logs on your company’s activity and help your security, auditing, and compliance entities monitor for possible vulnerabilities or external data misuse 
+- [Customer Managed Encryption Keys (CMEK)](https://docs.cloud.google.com/gemini/enterprise/docs/cmek) through Cloud Key Management Service to encrypt your data with customer-controlled keys, giving your organization control over protection level, location, rotation schedule, usage and access permissions, and cryptographic boundaries
+- [VPC Security Controls](https://cloud.google.com/vpc-service-controls/docs/supported-products) to block access from untrusted locations outside your organization’s network and mitigate data exfiltration risks
+- Industry-standard compliance such as [FedRamp](https://cloud.google.com/security/compliance/fedramp) and [HIPAA](https://cloud.google.com/security/compliance/hipaa)  
 
 Check [here](https://docs.cloud.google.com/gemini/enterprise/docs/security-overview) for more details about compliance certifications and security controls that are supported by Gemini Enterprise app. 
 
@@ -144,10 +144,10 @@ The Standard and Plus editions of Gemini Enterprise app support various identity
 
 Gemini Enterprise app enforces identity and access controls at various levels: 
 
-  - [Cloud Identity and Access Management](https://cloud.google.com/security/products/iam) to restrict access to provisioned admins and users
-  - The ability to select the content indexed from connectors and use the minimum level of permissions required to index data
-  - Support for Google and third-party identity systems and user groups to authenticate users to Gemini Enterprise
-  - Enforcement of document-level access controls to help prevent potential leakage of information via search, assistant, or agents
+- [Cloud Identity and Access Management](https://cloud.google.com/security/products/iam) to restrict access to provisioned admins and users
+- The ability to select the content indexed from connectors and use the minimum level of permissions required to index data
+- Support for Google and third-party identity systems and user groups to authenticate users to Gemini Enterprise
+- Enforcement of document-level access controls to help prevent potential leakage of information via search, assistant, or agents
 
 #### What safeguards are available to protect user prompts and responses with Gemini Enterprise app?
 

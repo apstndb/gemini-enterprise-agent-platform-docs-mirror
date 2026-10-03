@@ -16,11 +16,11 @@ Fields
 
 Immutable. The resource name of the DeploymentResourcePool. Format: `projects/{project}/locations/{location}/deploymentResourcePools/{deploymentResourcePool}`
 
-`dedicatedResources` ` object ( DedicatedResources  ` )
+`dedicatedResources` `object ( `[`DedicatedResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources)` )`
 
 Required. The underlying DedicatedResources that the DeploymentResourcePool uses.
 
-`encryptionSpec` ` object ( EncryptionSpec  ` )
+`encryptionSpec` `object ( `[`EncryptionSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/EncryptionSpec)` )`
 
 Customer-managed encryption key spec for a DeploymentResourcePool. If set, this DeploymentResourcePool will be secured by this key. endpoints and the DeploymentResourcePool they deploy in need to have the same EncryptionSpec.
 
@@ -36,7 +36,7 @@ If the DeploymentResourcePool is deployed with custom-trained Models or AutoML T
 
 user can disable container logging by setting this flag to true.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this DeploymentResourcePool was created.
 
@@ -50,44 +50,30 @@ Output only. reserved for future use.
 
 Output only. reserved for future use.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;dedicatedResources&quot;: {object (DedicatedResources)},&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;serviceAccount&quot;: string,&quot;disableContainerLogging&quot;: boolean,&quot;createTime&quot;: string,&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "name": string,
+  "dedicatedResources": {
+    object (DedicatedResources)
+  },
+  "encryptionSpec": {
+    object (EncryptionSpec)
+  },
+  "serviceAccount": string,
+  "disableContainerLogging": boolean,
+  "createTime": string,
+  "satisfiesPzs": boolean,
+  "satisfiesPzi": boolean
+}
+```
 
-### `            create           `
-
-Create a DeploymentResourcePool.
-
-### `            delete           `
-
-Delete a DeploymentResourcePool.
-
-### `            get           `
-
-Get a DeploymentResourcePool.
-
-### `            list           `
-
-List DeploymentResourcePools in a location.
-
-### `            patch           `
-
-Update a DeploymentResourcePool.
-
-### `            queryDeployedModels           `
-
-List DeployedModels that have been deployed on this DeploymentResourcePool.
+| Methods                                                                                                                                                                       |                                                                             |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.deploymentResourcePools/create)                           | Create a DeploymentResourcePool.                                            |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.deploymentResourcePools/delete)                           | Delete a DeploymentResourcePool.                                            |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.deploymentResourcePools/get)                                 | Get a DeploymentResourcePool.                                               |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.deploymentResourcePools/list)                               | List DeploymentResourcePools in a location.                                 |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.deploymentResourcePools/patch)                             | Update a DeploymentResourcePool.                                            |
+| [`queryDeployedModels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.deploymentResourcePools/queryDeployedModels) | List DeployedModels that have been deployed on this DeploymentResourcePool. |

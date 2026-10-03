@@ -26,8 +26,8 @@ Output only. The resource name of the RagCorpus.
 
 ### Request body
 
-The request body contains an instance of `  RagCorpus  ` .
+The request body contains an instance of [`RagCorpus`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora#RagCorpus) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

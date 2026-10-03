@@ -26,8 +26,8 @@ The 20B model delivers similar results to OpenAI o3-mini on common benchmarks an
 
 For managed models, you can use curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names:
 
-  - For gpt-oss 120B, use `gpt-oss-120b-maas`
-  - For gpt-oss 20B, use `gpt-oss-20b-maas`
+- For gpt-oss 120B, use `gpt-oss-120b-maas`
+- For gpt-oss 20B, use `gpt-oss-20b-maas`
 
 To learn how to make streaming and non-streaming calls to OpenAI models, see [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .
 
@@ -58,13 +58,13 @@ OpenAI models are available in the following regions:
 <tr class="odd">
 <td>gpt-oss 120B</td>
 <td><ul>
-<li><code dir="ltr" translate="no">global</code></li>
+<li><code>global</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td>gpt-oss 20B</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-central1</code></li>
+<li><code>us-central1</code></li>
 </ul></td>
 </tr>
 </tbody>

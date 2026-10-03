@@ -7,8 +7,8 @@ data_source: docs.cloud.google.com
 ---
 
 > To see an example of getting started with Vector Search, run the "Get started with Vector Search" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/embeddings/vector-search-quickstart.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fembeddings%2Fvector-search-quickstart.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fembeddings%2Fvector-search-quickstart.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/embeddings/vector-search-quickstart.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/embeddings/vector-search-quickstart.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fembeddings%2Fvector-search-quickstart.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fembeddings%2Fvector-search-quickstart.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/embeddings/vector-search-quickstart.ipynb)
 
 In the Gemini Enterprise Agent Platform Vector Search quickstart, learn how to create an index out of a sample dataset from a fictitious ecommerce clothing site. For the purpose of this quickstart, the embeddings have already been created. This quickstart is intended to be a way to get started creating and deploying an index in under 30 minutes.
 
@@ -20,8 +20,8 @@ This tutorial requires a Google Cloud project that is linked with a billing acco
 
 This tutorial can be run on either Colab or Gemini Enterprise Agent Platform Workbench.
 
-  - **Colab** : Open this tutorial in [Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/embeddings/vector-search-quickstart.ipynb)
-  - **Gemini Enterprise Agent Platform Workbench** : Open this tutorial in [Gemini Enterprise Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/generative-ai/main/embeddings/vector-search-quickstart.ipynb) . If this is the first time you're using Gemini Enterprise Agent Platform Workbench in your Google Cloud project, go to the Gemini Enterprise Agent Platform Workbench section of the Google Cloud console and click **Enable** to enable the Notebooks API.
+- **Colab** : Open this tutorial in [Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/embeddings/vector-search-quickstart.ipynb)
+- **Gemini Enterprise Agent Platform Workbench** : Open this tutorial in [Gemini Enterprise Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/generative-ai/main/embeddings/vector-search-quickstart.ipynb) . If this is the first time you're using Gemini Enterprise Agent Platform Workbench in your Google Cloud project, go to the Gemini Enterprise Agent Platform Workbench section of the Google Cloud console and click **Enable** to enable the Notebooks API.
 
 To view this notebook in GitHub, see [GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/embeddings/vector-search-quickstart.ipynb) .
 
@@ -29,9 +29,9 @@ To view this notebook in GitHub, see [GitHub](https://github.com/GoogleCloudPlat
 
 To complete this tutorial costs roughly a few US dollars. The pricing of the Google Cloud services used in this tutorial are available in the following pages:
 
-  - [Gemini Enterprise Agent Platform Vector Search](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#vector-search)
-  - [Cloud Storage](https://cloud.google.com/storage/pricing)
-  - [Gemini Enterprise Agent Platform Workbench](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#notebooks)
+- [Gemini Enterprise Agent Platform Vector Search](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#vector-search)
+- [Cloud Storage](https://cloud.google.com/storage/pricing)
+- [Gemini Enterprise Agent Platform Workbench](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#notebooks)
 
 You can also use the [pricing calculator](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) to generate a cost estimate based on your projected usage.
 
@@ -41,69 +41,81 @@ You can also use the [pricing calculator](https://cloud.google.com/gemini-enterp
 
 Before you get started with Gemini Enterprise Agent Platform, you need to set up the following:
 
-  - [Install the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart#install-sdk)
-  - [Set environment variables](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart#variables)
-  - [Authenticate (Colab only)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart#authentication)
-  - [Set IAM permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart#permissions)
-  - [Enable APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart#enable-apis)
+- [Install the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart#install-sdk)
+- [Set environment variables](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart#variables)
+- [Authenticate (Colab only)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart#authentication)
+- [Set IAM permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart#permissions)
+- [Enable APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart#enable-apis)
 
 ### Install the Agent Platform SDK for Python
 
 Gemini Enterprise Agent Platform and Cloud Storage APIs can be accessed multiple ways, including REST API and Agent Platform SDK for Python. In this tutorial, the Agent Platform SDK for Python is used.
 
-    !pip install --upgrade --user google-cloud-aiplatform>=1.29.0 google-cloud-storage
+```
+!pip install --upgrade --user google-cloud-aiplatform>=1.29.0 google-cloud-storage
+```
 
 To use the newly installed packages in this Jupyter runtime, you need to restart the runtime, as shown in the following code snippet.
 
-    # Restart kernel after installs so that your environment can access the new packages
-    import IPython
-    
-    app = IPython.Application.instance()
-    app.kernel.do_shutdown(True)
+```
+# Restart kernel after installs so that your environment can access the new packages
+import IPython
+
+app = IPython.Application.instance()
+app.kernel.do_shutdown(True)
+```
 
 ### Environment variables
 
 Set the environment variables. If asked, replace `your-project-id` with your project ID and run the cell.
 
-    # get project ID
-    PROJECT_ID = ! gcloud config get-value project
-    PROJECT_ID = PROJECT_ID[0]
-    LOCATION = "us-central1"
-    if PROJECT_ID == "(unset)":
-        print(f"Please set the project ID manually below")
+```
+# get project ID
+PROJECT_ID = ! gcloud config get-value project
+PROJECT_ID = PROJECT_ID[0]
+LOCATION = "us-central1"
+if PROJECT_ID == "(unset)":
+    print(f"Please set the project ID manually below")
+```
 
-    # define project information
-    if PROJECT_ID == "(unset)":
-      PROJECT_ID = "[your-project-id]"
-    
-    # generate a unique id for this session
-    from datetime import datetime
-    UID = datetime.now().strftime("%m%d%H%M")
+```
+# define project information
+if PROJECT_ID == "(unset)":
+  PROJECT_ID = "[your-project-id]"
+
+# generate a unique id for this session
+from datetime import datetime
+UID = datetime.now().strftime("%m%d%H%M")
+```
 
 #### Authentication (Colab only)
 
 If you are running this notebook on Colab, you need to run the following cell authentication. This step is not required if you are using Gemini Enterprise Agent Platform Workbench as it is pre-authenticated.
 
-    import sys
-    
-    # if it's Colab runtime, authenticate the user with Google Cloud
-    if 'google.colab' in sys.modules:
-        from google.colab import auth
-        auth.authenticate_user()
+```
+import sys
+
+# if it's Colab runtime, authenticate the user with Google Cloud
+if 'google.colab' in sys.modules:
+    from google.colab import auth
+    auth.authenticate_user()
+```
 
 ### Set IAM permissions
 
 You need to add access permissions to the default service account for using the services.
 
 1.  Go to the IAM page in the Google Cloud console.
-2.  Look for the principal for default compute service account. It should look like: `  compute@developer.gserviceaccount.com  `
+2.  Look for the principal for default compute service account. It should look like: `compute@developer.gserviceaccount.com`
 3.  Click the edit button and grant the default compute service account with the following roles: Gemini Enterprise Agent Platform User and Storage Admin and Service Usage Admin.
 
 ### Enable APIs
 
 Run the following command to enable APIs for Compute Engine, Gemini Enterprise Agent Platform, and Cloud Storage with this Google Cloud project.
 
-    ! gcloud services enable compute.googleapis.com aiplatform.googleapis.com storage.googleapis.com --project {PROJECT_ID}
+```
+! gcloud services enable compute.googleapis.com aiplatform.googleapis.com storage.googleapis.com --project {PROJECT_ID}
+```
 
 ## Prepare the sample data
 
@@ -128,16 +140,20 @@ For building an index with Gemini Enterprise Agent Platform, place the embedding
 1.  Creates a Cloud Storage bucket.
 2.  Copies the example file to your Cloud Storage bucket.
 
-<!-- end list -->
+```
+BUCKET_URI = f"gs://{PROJECT_ID}-vs-quickstart-{UID}"
+```
 
-    BUCKET_URI = f"gs://{PROJECT_ID}-vs-quickstart-{UID}"
-
-    ! gcloud storage buckets create $BUCKET_URI --location=$LOCATION --project=$PROJECT_ID
-    ! gcloud storage cp "gs://github-repo/data/vs-quickstart/product-embs.json" $BUCKET_URI
+```
+! gcloud storage buckets create $BUCKET_URI --location=$LOCATION --project=$PROJECT_ID
+! gcloud storage cp "gs://github-repo/data/vs-quickstart/product-embs.json" $BUCKET_URI
+```
 
 For using Vector Search to run queries, you also need to copy the embedding file to local directory:
 
-    ! gcloud storage cp "gs://github-repo/data/vs-quickstart/product-embs.json" . # for query tests
+```
+! gcloud storage cp "gs://github-repo/data/vs-quickstart/product-embs.json" . # for query tests
+```
 
 ## Build and deploy a Vector Search index
 
@@ -147,27 +163,31 @@ Learn how to create an index, create an index endpoint, and then deploy your ind
 
 Now it's time to load the embeddings to Vector Search. The APIs are available under the `aiplatform` package of the SDK.
 
-    # init the aiplatform package
-    from google.cloud import aiplatform
-    aiplatform.init(project=PROJECT_ID, location=LOCATION)
+```
+# init the aiplatform package
+from google.cloud import aiplatform
+aiplatform.init(project=PROJECT_ID, location=LOCATION)
+```
 
 Create a [MatchingEngineIndex](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.MatchingEngineIndex) with its `create_tree_ah_index` function (Matching Engine is the previous name of Vector Search).
 
-    # create Index
-    my_index = aiplatform.MatchingEngineIndex.create_tree_ah_index(
-        display_name = f"vs-quickstart-index-{UID}",
-        contents_delta_uri = BUCKET_URI,
-        dimensions = 768,
-        approximate_neighbors_count = 100,
-    )
+```
+# create Index
+my_index = aiplatform.MatchingEngineIndex.create_tree_ah_index(
+    display_name = f"vs-quickstart-index-{UID}",
+    contents_delta_uri = BUCKET_URI,
+    dimensions = 768,
+    approximate_neighbors_count = 100,
+)
+```
 
 The `MatchingEngineIndex.create_tree_ah_index()` method builds an index. This takes under 10 minutes if the dataset is small, otherwise about 60 minutes or more depending on the size of the dataset. You can check status of the index creation on the Vector Search Google Cloud console
 
 The parameters for creating index:
 
-  - `contents_delta_uri` : the URI of Cloud Storage directory where you stored the embedding JSON files
-  - `dimensions` : dimension size of each embedding. In this case, it is 768 as you are using the embeddings from the text embeddings API.
-  - `approximate_neighbors_count` : how many similar items you want to retrieve in typical cases
+- `contents_delta_uri` : the URI of Cloud Storage directory where you stored the embedding JSON files
+- `dimensions` : dimension size of each embedding. In this case, it is 768 as you are using the embeddings from the text embeddings API.
+- `approximate_neighbors_count` : how many similar items you want to retrieve in typical cases
 
 To learn more about creating the index and the available parameters, see [Create and manage your index](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/create-manage-index)
 
@@ -175,20 +195,26 @@ To learn more about creating the index and the available parameters, see [Create
 
 To use the index, you need to create an index endpoint. It works as a server instance accepting query requests for your index.
 
-    ## create `IndexEndpoint`
-    my_index_endpoint = aiplatform.MatchingEngineIndexEndpoint.create(
-        display_name = f"vs-quickstart-index-endpoint-{UID}",
-        public_endpoint_enabled = True
-    )
+```
+## create `IndexEndpoint`
+my_index_endpoint = aiplatform.MatchingEngineIndexEndpoint.create(
+    display_name = f"vs-quickstart-index-endpoint-{UID}",
+    public_endpoint_enabled = True
+)
+```
 
 With the index endpoint, deploy the index by specifying a unique deployed index ID.
 
-    DEPLOYED_INDEX_ID = f"vs_quickstart_deployed_{UID}"
+```
+DEPLOYED_INDEX_ID = f"vs_quickstart_deployed_{UID}"
+```
 
-    # deploy the Index to the Index Endpoint
-    my_index_endpoint.deploy_index(
-        index = my_index, deployed_index_id = DEPLOYED_INDEX_ID
-    )
+```
+# deploy the Index to the Index Endpoint
+my_index_endpoint.deploy_index(
+    index = my_index, deployed_index_id = DEPLOYED_INDEX_ID
+)
+```
 
 If it is the first time deploying this index to an index endpoint, it can take around 30 minutes to automatically build and initiate the backend. To see the status of the index deployment, in the Agent Platform section of the Google Cloud console, go to the **Deploy and Use** section. Select **Indexes** .
 
@@ -200,21 +226,23 @@ In the following code, it finds an embedding for a specified product name, and f
 
 First, load the embedding JSON file to build a `dict` of product names and embeddings.
 
-    import json
-    
-    # build dicts for product names and embs
-    product_names = {}
-    product_embs = {}
-    with open('product-embs.json') as f:
-        for l in f.readlines():
-            p = json.loads(l)
-            id = p['id']
-            product_names[id] = p['name']
-            product_embs[id] = p['embedding']
+```
+import json
+
+# build dicts for product names and embs
+product_names = {}
+product_embs = {}
+with open('product-embs.json') as f:
+    for l in f.readlines():
+        p = json.loads(l)
+        id = p['id']
+        product_names[id] = p['name']
+        product_embs[id] = p['embedding']
+```
 
 With the `product_embs` dictionary, you can specify a product ID to get an embedding for it.
 
-``` 
+```
  # Get the embedding for ID 6523 "cloudveil women's excursion short"
  # You can also try with other IDs such as 12711, 18090, 19536 and 11863
 query_emb = product_embs['6523']
@@ -224,16 +252,18 @@ query_emb = product_embs['6523']
 
 Pass the embedding to `Endpoint.find_neighbors()` method to find similar product names.
 
-    # run query
-    response = my_index_endpoint.find_neighbors(
-        deployed_index_id = DEPLOYED_INDEX_ID,
-        queries = [query_emb],
-        num_neighbors = 10
-    )
-    
-    # show the results
-    for idx, neighbor in enumerate(response[0]):
-        print(f"{neighbor.distance:.2f} {product_names[neighbor.id]}")
+```
+# run query
+response = my_index_endpoint.find_neighbors(
+    deployed_index_id = DEPLOYED_INDEX_ID,
+    queries = [query_emb],
+    num_neighbors = 10
+)
+
+# show the results
+for idx, neighbor in enumerate(response[0]):
+    print(f"{neighbor.distance:.2f} {product_names[neighbor.id]}")
+```
 
 The `find_neighbors()` method only takes milliseconds to fetch the similar items even when you have billions of items on the index, thanks to the [ScaNN algorithm](https://blog.research.google/2020/07/announcing-scann-efficient-vector.html) . Vector Search also supports autoscaling which can automatically resize the number of nodes based on the demands of your workloads.
 
@@ -243,18 +273,20 @@ In case you are using your own Cloud project, not a temporary project on Qwiklab
 
 If you used Workbench, you might also need to delete the notebooks from the console.
 
-    # wait for a confirmation
-    input("Press Enter to delete Index Endpoint, Index and Cloud Storage bucket:")
-    
-    # delete Index Endpoint
-    my_index_endpoint.undeploy_all()
-    my_index_endpoint.delete(force = True)
-    
-    # delete Index
-    my_index.delete()
-    
-    # delete Cloud Storage bucket
-    ! gcloud storage rm {BUCKET_URI} --recursive
+```
+# wait for a confirmation
+input("Press Enter to delete Index Endpoint, Index and Cloud Storage bucket:")
+
+# delete Index Endpoint
+my_index_endpoint.undeploy_all()
+my_index_endpoint.delete(force = True)
+
+# delete Index
+my_index.delete()
+
+# delete Cloud Storage bucket
+! gcloud storage rm {BUCKET_URI} --recursive
+```
 
 ## Utilities
 
@@ -264,12 +296,16 @@ It can take some time to create or deploy indexes, and in that time you might lo
 
 To get an index object that already exists, replace the following `your-index-id` with the index ID and run the cell. You can get the index ID by checking the Vector Search Google Cloud console. In the Agent Platform section of the Google Cloud console, go to the **Deploy and Use** section. Select **Indexes** .
 
-    my_index_id = "[your-index-id]"
-    my_index = aiplatform.MatchingEngineIndex(my_index_id)
+```
+my_index_id = "[your-index-id]"
+my_index = aiplatform.MatchingEngineIndex(my_index_id)
+```
 
 ### Get an existing index endpoint
 
 To get an index endpoint object that already exists, replace the following `your-index-endpoint-id` with the index endpoint ID and run the cell. You can get the index endpoint by checking the Vector Search Google Cloud console. In the Agent Platform section of the Google Cloud console, go to the **Deploy and Use** section. Select **Index Endpoints** .
 
-    my_index_endpoint_id = "[your-index-endpoint-id]"
-    my_index_endpoint = aiplatform.MatchingEngineIndexEndpoint(my_index_endpoint_id)
+```
+my_index_endpoint_id = "[your-index-endpoint-id]"
+my_index_endpoint = aiplatform.MatchingEngineIndexEndpoint(my_index_endpoint_id)
+```

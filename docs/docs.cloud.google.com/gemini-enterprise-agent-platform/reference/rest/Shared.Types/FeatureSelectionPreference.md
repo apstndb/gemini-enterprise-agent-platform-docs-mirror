@@ -8,20 +8,9 @@ data_source: docs.cloud.google.com
 
 Options for feature selection preference.
 
-Enums
-
-`FEATURE_SELECTION_PREFERENCE_UNSPECIFIED`
-
-Unspecified feature selection preference.
-
-`PRIORITIZE_QUALITY`
-
-Prefer higher quality over lower cost.
-
-`BALANCED`
-
-Balanced feature selection preference.
-
-`PRIORITIZE_COST`
-
-Prefer lower cost over higher quality.
+| Enums                                      |                                           |
+|--------------------------------------------|-------------------------------------------|
+| `FEATURE_SELECTION_PREFERENCE_UNSPECIFIED` | Unspecified feature selection preference. |
+| `PRIORITIZE_QUALITY`                       | Prefer higher quality over lower cost.    |
+| `BALANCED`                                 | Balanced feature selection preference.    |
+| `PRIORITIZE_COST`                          | Prefer lower cost over higher quality.    |

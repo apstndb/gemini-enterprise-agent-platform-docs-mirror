@@ -28,7 +28,7 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  FeatureOnlineStoreService.GenerateFetchAccessToken  ` .
+Response message for [`FeatureOnlineStoreService.GenerateFetchAccessToken`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/generateFetchAccessToken#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService.GenerateFetchAccessToken) .
 
 If successful, the response body contains data with the following structure:
 
@@ -38,27 +38,17 @@ Fields
 
 The OAuth 2.0 access token.
 
-`expireTime` ` string ( Timestamp  ` format)
+`expireTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 token expiration time. This is always set
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;accessToken&quot;: string,
-  &quot;expireTime&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "accessToken": string,
+  "expireTime": string
+}
+```

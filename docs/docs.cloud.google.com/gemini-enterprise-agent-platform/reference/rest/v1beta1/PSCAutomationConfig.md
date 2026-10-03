@@ -26,7 +26,7 @@ Output only. IP address rule created by the PSC service automation.
 
 Output only. Forwarding rule created by the PSC service automation.
 
-`state` ` enum ( PSCAutomationState  ` )
+`state` `enum ( `[`PSCAutomationState`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/PSCAutomationConfig#PSCAutomationState)` )`
 
 Output only. The state of the PSC service automation.
 
@@ -34,36 +34,25 @@ Output only. The state of the PSC service automation.
 
 Output only. Error message if the PSC service automation failed.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;projectId&quot;: string,&quot;network&quot;: string,&quot;ipAddress&quot;: string,&quot;forwardingRule&quot;: string,&quot;state&quot;: enum (PSCAutomationState),&quot;errorMessage&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "projectId": string,
+  "network": string,
+  "ipAddress": string,
+  "forwardingRule": string,
+  "state": enum (PSCAutomationState),
+  "errorMessage": string
+}
+```
 
 ## PSCAutomationState
 
 The state of the PSC service automation.
 
-Enums
-
-`PSC_AUTOMATION_STATE_UNSPECIFIED`
-
-Should not be used.
-
-`PSC_AUTOMATION_STATE_SUCCESSFUL`
-
-The PSC service automation is successful.
-
-`PSC_AUTOMATION_STATE_FAILED`
-
-The PSC service automation has failed.
+| Enums                              |                                           |
+|------------------------------------|-------------------------------------------|
+| `PSC_AUTOMATION_STATE_UNSPECIFIED` | Should not be used.                       |
+| `PSC_AUTOMATION_STATE_SUCCESSFUL`  | The PSC service automation is successful. |
+| `PSC_AUTOMATION_STATE_FAILED`      | The PSC service automation has failed.    |

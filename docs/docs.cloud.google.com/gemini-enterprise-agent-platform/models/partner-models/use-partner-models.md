@@ -19,7 +19,7 @@ Anthropic's Claude and Mistral models are examples of third-party managed models
 The following partner models are offered as managed APIs on Gemini Enterprise Agent Platform Model Garden (MaaS):
 
 | Model name                                                                                           | Modality         | Description                                                                                                                                                                                                                                            | Quickstart                                                                                                                |
-| ---------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+|------------------------------------------------------------------------------------------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | Muse Spark 1.3 from Meta ( [Preview](https://cloud.google.com/products#product-launch-stages) )      | Language         | Muse Spark 1.3 from Meta is a reasoning model trained for agentic workflows and competitive coding. It delivers higher first-attempt accuracy, reliable built-in tool calling with MCP support, and 1M-token long context for multi-step tasks.        | [Model details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-spark-1-3) |
 | Grok 4.7 ( [Preview](https://cloud.google.com/products#product-launch-stages) )                      | Language         | A high-capability model from xAI, built for coding and knowledge work. It works longer on difficult tasks and checks its own work.                                                                                                                     | [Model card](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.7)                        |
 | Grok 4.6                                                                                             | Language         | A high-capability model from xAI, built for coding, agentic tasks, and knowledge work.                                                                                                                                                                 | [Model card](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.6)                        |
@@ -75,7 +75,7 @@ There is a price difference depending on the endpoint type you select. For more 
 
 To use the global endpoint, set the region to `global` .
 
-For example, the request URL for a curl command uses the following format: ` https://aiplatform.googleapis.com/v1/projects/ PROJECT_ID /locations/ global /publishers/ PUBLISHER_NAME /models/ MODEL_NAME  `
+For example, the request URL for a curl command uses the following format: `https://aiplatform.googleapis.com/v1/projects/ `` PROJECT_ID `` /locations/ `**`global`**` /publishers/ `` PUBLISHER_NAME `` /models/ `` MODEL_NAME`
 
 For the Agent Platform SDK, a regional endpoint is the default. Set the region to `GLOBAL` to use the global endpoint.
 
@@ -83,30 +83,30 @@ For the Agent Platform SDK, a regional endpoint is the default. Set the region t
 
 The global endpoint is available for the following models:
 
-  - [Claude Sonnet 5.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Claude Fable 5.1 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Claude Sonnet 5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Claude Opus 5.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Claude Opus 5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Claude Fable 5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Claude Opus 4.8 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Claude Opus 4.7 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Claude Opus 4.6 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Claude Sonnet 4.6 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Claude Opus 4.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Claude Opus 4.1 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Claude Opus 4 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Claude Sonnet 4.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Claude Sonnet 4 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Claude 3.7 Sonnet on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Claude 3.5 Sonnet v2 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Claude Haiku 4.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
-  - [Grok 4.1 Fast](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-1-fast)
-  - [Grok 4.20](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-20)
-  - [Grok 4.3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-3)
-  - [Grok 4.6](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-6)
-  - [Grok 4.7](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-7)
-  - [Muse Spark 1.3 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-spark-1-3)
+- [Claude Sonnet 5.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Claude Fable 5.1 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Claude Sonnet 5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Claude Opus 5.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Claude Opus 5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Claude Fable 5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Claude Opus 4.8 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Claude Opus 4.7 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Claude Opus 4.6 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Claude Sonnet 4.6 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Claude Opus 4.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Claude Opus 4.1 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Claude Opus 4 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Claude Sonnet 4.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Claude Sonnet 4 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Claude 3.7 Sonnet on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Claude 3.5 Sonnet v2 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Claude Haiku 4.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions)
+- [Grok 4.1 Fast](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-1-fast)
+- [Grok 4.20](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-20)
+- [Grok 4.3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-3)
+- [Grok 4.6](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-6)
+- [Grok 4.7](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-7)
+- [Muse Spark 1.3 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-spark-1-3)
 
 > **Note:** Prompt Caching is supported when using the global endpoint. Provisioned Throughput isn't supported when using the global endpoint.
 
@@ -124,13 +124,13 @@ Select the appropriate tab for the multi-region you want to use:
 
 To use the US multi-region endpoint, set the endpoint URL to `aiplatform.us.rep.googleapis.com` .
 
-The request URL for a curl command uses the following format: ` https://aiplatform.us.rep.googleapis.com/v1/projects/ PROJECT_ID /locations/ us /publishers/anthropic/models/ MODEL_NAME  `
+The request URL for a curl command uses the following format: `https://aiplatform.us.rep.googleapis.com/v1/projects/ `` PROJECT_ID `` /locations/ `**`us`**` /publishers/anthropic/models/ `` MODEL_NAME`
 
 ### EU
 
 To use the EU multi-region endpoint, set the endpoint URL to `aiplatform.eu.rep.googleapis.com` .
 
-The request URL for a curl command uses the following format: ` https://aiplatform.eu.rep.googleapis.com/v1/projects/ PROJECT_ID /locations/ eu /publishers/anthropic/models/ MODEL_NAME  `
+The request URL for a curl command uses the following format: `https://aiplatform.eu.rep.googleapis.com/v1/projects/ `` PROJECT_ID `` /locations/ `**`eu`**` /publishers/anthropic/models/ `` MODEL_NAME`
 
 For more information on the `MODEL_NAME` format, see the [Anthropic documentation](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai#accessing-vertex-ai) .
 
@@ -138,62 +138,64 @@ For more information on the `MODEL_NAME` format, see the [Anthropic documentatio
 
 Multi-region endpoints support all Claude models with versions 4.7 and later (for example, `claude-opus-4-7` , `claude-opus-4-8` , and `claude-fable-5` ). Use the full Model ID including the version date where applicable.
 
-Grok 4.6 ( `grok-4.6` ) and Grok 4.7 ( `grok-4.7` ) are available on the US multi-region endpoint. Grok models use the OpenAI-compatible chat completions and [Responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/responses) APIs, so the request path uses `endpoints/openapi` . For example: `https://aiplatform.us.rep.googleapis.com/v1/projects/ PROJECT_ID /locations/ us /endpoints/openapi/responses` .
+Grok 4.6 ( `grok-4.6` ) and Grok 4.7 ( `grok-4.7` ) are available on the US multi-region endpoint. Grok models use the OpenAI-compatible chat completions and [Responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/responses) APIs, so the request path uses `endpoints/openapi` . For example: `https://aiplatform.us.rep.googleapis.com/v1/projects/ `` PROJECT_ID `` /locations/ `**`us`**` /endpoints/openapi/responses` .
 
 **Example Request:**
 
 Here's how you can call the multi-region endpoint using `curl` :
 
-    export PROJECT_ID="YOUR_PROJECT_ID"
-    # Example using claude-opus-4-7
-    
-    # Option 1: US Region
-    export LOCATION="us"
-    export ENDPOINT="aiplatform.us.rep.googleapis.com"
-    
-    # Option 2: EU Region
-    # export LOCATION="eu"
-    # export ENDPOINT="aiplatform.eu.rep.googleapis.com"
-    
-    export MODEL_ID="claude-opus-4-7"
-    
-    curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-      -H "Content-Type: application/json" \
-      "https://${ENDPOINT}/v1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/anthropic/models/${MODEL_ID}:rawPredict" \
-      -d '{
-        "max_tokens": 300,
-        "messages": [
+```
+export PROJECT_ID="YOUR_PROJECT_ID"
+# Example using claude-opus-4-7
+
+# Option 1: US Region
+export LOCATION="us"
+export ENDPOINT="aiplatform.us.rep.googleapis.com"
+
+# Option 2: EU Region
+# export LOCATION="eu"
+# export ENDPOINT="aiplatform.eu.rep.googleapis.com"
+
+export MODEL_ID="claude-opus-4-7"
+
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+  -H "Content-Type: application/json" \
+  "https://${ENDPOINT}/v1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/anthropic/models/${MODEL_ID}:rawPredict" \
+  -d '{
+    "max_tokens": 300,
+    "messages": [
+      {
+        "role": "user",
+        "content": [
           {
-            "role": "user",
-            "content": [
-              {
-                "type": "text",
-                "text": "Why is the sky blue?"
-              }
-            ]
+            "type": "text",
+            "text": "Why is the sky blue?"
           }
-        ],
-        "anthropic_version": "vertex-2023-10-16"
-      }'
+        ]
+      }
+    ],
+    "anthropic_version": "vertex-2023-10-16"
+  }'
+```
 
 **Multi-region quotas:**
 
 Dedicated multi-region quotas are enforced. You can view and request increases for these default quota values in the Google Cloud console.
 
-  - **US Quota Examples:**
-    
-      - `UsOnlinePredictionInputTokensPerMinutePerBaseModel`
-      - `UsOnlinePredictionOutputTokensPerMinutePerBaseModel`
-      - `UsOnlinePredictionRequestsPerMinPerProjectPerBaseModel`
-      - `UsOnlinePredictionWebSearchRequestsPerProjectPerPublisher`
+- **US Quota Examples:**
 
-  - **EU Quota Examples:**
-    
-      - `EuOnlinePredictionInputTokensPerMinutePerBaseModel`
-      - `EuOnlinePredictionOutputTokensPerMinutePerBaseModel`
-      - `EuOnlinePredictionRequestsPerMinPerProjectPerBaseModel`
-      - `EuOnlinePredictionWebSearchRequestsPerProjectPerPublisher`
+  - `UsOnlinePredictionInputTokensPerMinutePerBaseModel`
+  - `UsOnlinePredictionOutputTokensPerMinutePerBaseModel`
+  - `UsOnlinePredictionRequestsPerMinPerProjectPerBaseModel`
+  - `UsOnlinePredictionWebSearchRequestsPerProjectPerPublisher`
+
+- **EU Quota Examples:**
+
+  - `EuOnlinePredictionInputTokensPerMinutePerBaseModel`
+  - `EuOnlinePredictionOutputTokensPerMinutePerBaseModel`
+  - `EuOnlinePredictionRequestsPerMinPerProjectPerBaseModel`
+  - `EuOnlinePredictionWebSearchRequestsPerProjectPerPublisher`
 
 > **Note:** Prompt Caching is supported when using the multi-region endpoint. Provisioned Throughput isn't supported when using the multi-region endpoint.
 
@@ -205,9 +207,9 @@ For you to enable partner models and make a prompt request, a Google Cloud admin
 
 The following roles and permissions are required to use partner models:
 
-  - You must have the Consumer Procurement Entitlement Manager Identity and Access Management (IAM) role. Anyone who's been granted this role can enable partner models in Model Garden.
+- You must have the Consumer Procurement Entitlement Manager Identity and Access Management (IAM) role. Anyone who's been granted this role can enable partner models in Model Garden.
 
-  - You must have the `aiplatform.endpoints.predict` permission. This permission is included in the Agent Platform User IAM role. For more information, see [Gemini Enterprise Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user) and [Access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/access-control#permissions) .
+- You must have the `aiplatform.endpoints.predict` permission. This permission is included in the Agent Platform User IAM role. For more information, see [Gemini Enterprise Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user) and [Access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/access-control#permissions) .
 
 ### Console
 
@@ -230,23 +232,29 @@ The following roles and permissions are required to use partner models:
 1.  In the Google Cloud console, activate Cloud Shell.
 
 2.  Grant the Consumer Procurement Entitlement Manager role that's required to enable partner models in Model Garden
-    
-        gcloud projects add-iam-policy-binding  PROJECT_ID \
-        --member=PRINCIPAL --role=roles/consumerprocurement.entitlementManager
+
+    ```
+    gcloud projects add-iam-policy-binding  PROJECT_ID \
+    --member=PRINCIPAL --role=roles/consumerprocurement.entitlementManager
+    ```
 
 3.  Grant the Agent Platform User role that includes the `aiplatform.endpoints.predict` permission which is required to make prompt requests:
-    
-        gcloud projects add-iam-policy-binding  PROJECT_ID \
-        --member=PRINCIPAL --role=roles/aiplatform.user
-    
-    Replace `  PRINCIPAL  ` with the identifier for the principal. The identifier takes the form `user|group|serviceAccount:email` or `domain:domain` —for example, `user:cloudysanfrancisco@gmail.com` , `group:admins@example.com` , `serviceAccount:test123@example.domain.com` , or `domain:example.domain.com` .
-    
+
+    ```
+    gcloud projects add-iam-policy-binding  PROJECT_ID \
+    --member=PRINCIPAL --role=roles/aiplatform.user
+    ```
+
+    Replace `PRINCIPAL` with the identifier for the principal. The identifier takes the form `user|group|serviceAccount:email` or `domain:domain` —for example, `user:cloudysanfrancisco@gmail.com` , `group:admins@example.com` , `serviceAccount:test123@example.domain.com` , or `domain:example.domain.com` .
+
     The output is a list of policy bindings that includes the following:
-    
-        -   members:
-          -   user:PRINCIPAL
-          role: roles/roles/consumerprocurement.entitlementManager
-    
+
+    ```
+    -   members:
+      -   user:PRINCIPAL
+      role: roles/roles/consumerprocurement.entitlementManager
+    ```
+
     For more information, see [Grant a single role](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access#grant-single-role) and [`gcloud projects add-iam-policy-binding`](https://docs.cloud.google.com/sdk/gcloud/reference/projects/add-iam-policy-binding) .
 
 ### Set the organization policy for partner model access

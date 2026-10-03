@@ -22,13 +22,13 @@ When you use the Google Cloud console to access Google Cloud services and APIs, 
 
 Data Catalog lets you discover Google Cloud resources as data assets. The following Vertex AI Feature Store resources are categorized as data types in the Knowledge Catalog search filter:
 
-  - `FeatureOnlineStore`
+- `FeatureOnlineStore`
 
-  - `FeatureView`
-    
-    > **Note:** If your project name contains `:` , Knowledge Catalog catalogs `FeatureOnlineStore` resources, but doesn't catalog `FeatureView` and `Feature` resources created in the project.
+- `FeatureView`
 
-  - `FeatureGroup`
+  > **Note:** If your project name contains `:` , Knowledge Catalog catalogs `FeatureOnlineStore` resources, but doesn't catalog `FeatureView` and `Feature` resources created in the project.
+
+- `FeatureGroup`
 
 Note that `Feature` is not listed as a data type in the search filters. However, you can view the list of features and feature metadata by viewing the metadata of the parent feature groups.
 
@@ -47,12 +47,12 @@ To search for a [`FeatureOnlineStore`](https://docs.cloud.google.com/gemini-ente
 1.  To launch a search query in the Google Cloud console, go to the Knowledge Catalog **Search** page.
 
 2.  Use the following **Filters** to define your search parameters:
-    
-      - **Projects** : Click **Add project** to search for and select a specific project.
-    
-      - **Data types** : Select **FeatureOnlineStore** .
-        
-        You can also define your query in the search field. To learn how to define your search query in Data Catalog, see [Data Catalog search syntax](https://docs.cloud.google.com/data-catalog/docs/how-to/search-reference) .
+
+    - **Projects** : Click **Add project** to search for and select a specific project.
+
+    - **Data types** : Select **FeatureOnlineStore** .
+
+      You can also define your query in the search field. To learn how to define your search query in Data Catalog, see [Data Catalog search syntax](https://docs.cloud.google.com/data-catalog/docs/how-to/search-reference) .
 
 3.  To view the resource metadata, in the filtered list of data assets, click the name of the online store instance.
 
@@ -65,12 +65,12 @@ To search for a [`FeatureView`](https://docs.cloud.google.com/gemini-enterprise-
 1.  To launch a search query in the Google Cloud console, go to the Knowledge Catalog **Search** page.
 
 2.  Use the following **Filters** to define your search parameters:
-    
-      - **Projects** : Click **Add project** to search for and select a specific project.
-    
-      - **Data types** : Select **FeatureView** .
-        
-        You can also define your query in the search field. To learn how to define your search query in Data Catalog, see [Data Catalog search syntax](https://docs.cloud.google.com/data-catalog/docs/how-to/search-reference) .
+
+    - **Projects** : Click **Add project** to search for and select a specific project.
+
+    - **Data types** : Select **FeatureView** .
+
+      You can also define your query in the search field. To learn how to define your search query in Data Catalog, see [Data Catalog search syntax](https://docs.cloud.google.com/data-catalog/docs/how-to/search-reference) .
 
 3.  To view the resource metadata, in the filtered list of data assets, click the name of the feature view.
 
@@ -83,12 +83,12 @@ To search for a [`FeatureGroup`](https://docs.cloud.google.com/gemini-enterprise
 1.  To launch a search query in the Google Cloud console, go to the Knowledge Catalog **Search** page.
 
 2.  Use the following **Filters** to define your search parameters:
-    
-      - **Projects** : Click **Add project** to search for and select a specific project.
-    
-      - **Data types** : Select **FeatureGroup** .
-        
-        You can also define your query in the search field. To learn how to define your search query in Data Catalog, see [Data Catalog search syntax](https://docs.cloud.google.com/data-catalog/docs/how-to/search-reference) .
+
+    - **Projects** : Click **Add project** to search for and select a specific project.
+
+    - **Data types** : Select **FeatureGroup** .
+
+      You can also define your query in the search field. To learn how to define your search query in Data Catalog, see [Data Catalog search syntax](https://docs.cloud.google.com/data-catalog/docs/how-to/search-reference) .
 
 3.  To view the resource metadata, in the filtered list of data assets, click the name of the feature group.
 
@@ -101,12 +101,12 @@ To view the list of [`Feature`](https://docs.cloud.google.com/gemini-enterprise-
 1.  To launch a search query in the Google Cloud console, go to the Knowledge Catalog **Search** page.
 
 2.  Use the following **Filters** to define your search parameters:
-    
-      - **Projects** : Click **Add project** to search for and select a specific project.
-    
-      - **Data types** : Select **FeatureGroup** .
-        
-        You can also define your query in the search field. To learn how to define your search query in Data Catalog, see [Data Catalog search syntax](https://docs.cloud.google.com/data-catalog/docs/how-to/search-reference) .
+
+    - **Projects** : Click **Add project** to search for and select a specific project.
+
+    - **Data types** : Select **FeatureGroup** .
+
+      You can also define your query in the search field. To learn how to define your search query in Data Catalog, see [Data Catalog search syntax](https://docs.cloud.google.com/data-catalog/docs/how-to/search-reference) .
 
 3.  In the filtered list of data assets, click the name of the parent feature group containing the features.
 
@@ -114,6 +114,6 @@ To view the list of [`Feature`](https://docs.cloud.google.com/gemini-enterprise-
 
 ## What's next
 
-  - Perform an [advanced search for Vertex AI Feature Store resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/search-resources) .
+- Perform an [advanced search for Vertex AI Feature Store resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/search-resources) .
 
-  - Learn more about [Data Catalog](https://docs.cloud.google.com/data-catalog/docs/concepts/overview) .
+- Learn more about [Data Catalog](https://docs.cloud.google.com/data-catalog/docs/concepts/overview) .

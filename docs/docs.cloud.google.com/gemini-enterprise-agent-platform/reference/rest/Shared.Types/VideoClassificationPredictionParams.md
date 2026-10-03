@@ -30,24 +30,14 @@ Set to true to request shot-level classification. Agent Platform determines the 
 
 Set to true to request classification for a video at one-second intervals. Agent Platform returns labels and their confidence scores for each second of the entire time segment of the video that user specified in the input WARNING: Model evaluation is not done for this classification type, the quality of it depends on the training data, but there are no metrics provided to describe that quality. Default value is false
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;confidenceThreshold&quot;: number,
-  &quot;maxPredictions&quot;: integer,
-  &quot;segmentClassification&quot;: boolean,
-  &quot;shotClassification&quot;: boolean,
-  &quot;oneSecIntervalClassification&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "confidenceThreshold": number,
+  "maxPredictions": integer,
+  "segmentClassification": boolean,
+  "shotClassification": boolean,
+  "oneSecIntervalClassification": boolean
+}
+```

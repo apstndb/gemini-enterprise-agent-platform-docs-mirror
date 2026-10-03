@@ -34,9 +34,9 @@ The standard list page size.
 
 `pageToken` `string`
 
-The standard list page token. Typically obtained via `  ListIndexesResponse.next_page_token  ` of the previous `  IndexService.ListIndexes  ` call.
+The standard list page token. Typically obtained via [`ListIndexesResponse.next_page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/list#body.ListIndexesResponse.FIELDS.next_page_token) of the previous [`IndexService.ListIndexes`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/list#google.cloud.aiplatform.v1beta1.IndexService.ListIndexes) call.
 
-`readMask` ` string ( FieldMask  ` format)
+`readMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Mask specifying which fields to read.
 
@@ -48,32 +48,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  IndexService.ListIndexes  ` .
+Response message for [`IndexService.ListIndexes`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/list#google.cloud.aiplatform.v1beta1.IndexService.ListIndexes) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`indexes[]` ` object ( Index  ` )
+`indexes[]` `object ( `[`Index`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes#Index)` )`
 
 List of indexes in the requested page.
 
 `nextPageToken` `string`
 
-A token to retrieve next page of results. Pass to `  ListIndexesRequest.page_token  ` to obtain that page.
+A token to retrieve next page of results. Pass to [`ListIndexesRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/list#body.QUERY_PARAMETERS.page_token) to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;indexes&quot;: [{object (Index)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "indexes": [
+    {
+      object (Index)
+    }
+  ],
+  "nextPageToken": string
+}
+```

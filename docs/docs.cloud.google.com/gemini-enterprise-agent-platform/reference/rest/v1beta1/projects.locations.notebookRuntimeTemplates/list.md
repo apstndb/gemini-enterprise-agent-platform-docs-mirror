@@ -26,26 +26,26 @@ Required. The resource name of the Location from which to list the NotebookRunti
 
 `filter` `string`
 
-Optional. An expression for filtering the results of the request. For field names both snake\_case and camelCase are supported.
+Optional. An expression for filtering the results of the request. For field names both snake_case and camelCase are supported.
 
-  - `notebookRuntimeTemplate` supports = and \!=. `notebookRuntimeTemplate` represents the NotebookRuntimeTemplate id, i.e. the last segment of the NotebookRuntimeTemplate's `  resource name  ` .
-  - `displayName` supports = and \!=
-  - `labels` supports general map functions that is:
-      - `labels.key=value` - key:value equality
-      - \`labels.key:\* or labels:key - key existence
-      - A key including a space must be quoted. `labels."a key"` .
-  - `notebookRuntimeType` supports = and \!=. notebookRuntimeType enum: \[USER\_DEFINED, ONE\_CLICK\].
-  - `machineType` supports = and \!=.
-  - `acceleratorType` supports = and \!=.
+- `notebookRuntimeTemplate` supports = and !=. `notebookRuntimeTemplate` represents the NotebookRuntimeTemplate id, i.e. the last segment of the NotebookRuntimeTemplate's [`resource name`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimeTemplates#NotebookRuntimeTemplate.FIELDS.name) .
+- `displayName` supports = and !=
+- `labels` supports general map functions that is:
+  - `labels.key=value` - key:value equality
+  - \`labels.key:\* or labels:key - key existence
+  - A key including a space must be quoted. `labels."a key"` .
+- `notebookRuntimeType` supports = and !=. notebookRuntimeType enum: \[USER_DEFINED, ONE_CLICK\].
+- `machineType` supports = and !=.
+- `acceleratorType` supports = and !=.
 
 Some examples:
 
-  - `notebookRuntimeTemplate=notebookRuntimeTemplate123`
-  - `displayName="myDisplayName"`
-  - `labels.myKey="myValue"`
-  - `notebookRuntimeType=USER_DEFINED`
-  - `machineType=e2-standard-4`
-  - `acceleratorType=NVIDIA_TESLA_T4`
+- `notebookRuntimeTemplate=notebookRuntimeTemplate123`
+- `displayName="myDisplayName"`
+- `labels.myKey="myValue"`
+- `notebookRuntimeType=USER_DEFINED`
+- `machineType=e2-standard-4`
+- `acceleratorType=NVIDIA_TESLA_T4`
 
 `pageSize` `integer`
 
@@ -53,9 +53,9 @@ Optional. The standard list page size.
 
 `pageToken` `string`
 
-Optional. The standard list page token. Typically obtained via `  ListNotebookRuntimeTemplatesResponse.next_page_token  ` of the previous `  NotebookService.ListNotebookRuntimeTemplates  ` call.
+Optional. The standard list page token. Typically obtained via [`ListNotebookRuntimeTemplatesResponse.next_page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimeTemplates/list#body.ListNotebookRuntimeTemplatesResponse.FIELDS.next_page_token) of the previous [`NotebookService.ListNotebookRuntimeTemplates`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimeTemplates/list#google.cloud.aiplatform.v1beta1.NotebookService.ListNotebookRuntimeTemplates) call.
 
-`readMask` ` string ( FieldMask  ` format)
+`readMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Optional. Mask specifying which fields to read.
 
@@ -65,9 +65,9 @@ This is a comma-separated list of fully qualified names of fields. Example: `"us
 
 Optional. A comma-separated list of fields to order by, sorted in ascending order. Use "desc" after a field name for descending. Supported fields:
 
-  - `displayName`
-  - `createTime`
-  - `updateTime`
+- `displayName`
+- `createTime`
+- `updateTime`
 
 Example: `displayName, createTime desc` .
 
@@ -77,32 +77,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  NotebookService.ListNotebookRuntimeTemplates  ` .
+Response message for [`NotebookService.ListNotebookRuntimeTemplates`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimeTemplates/list#google.cloud.aiplatform.v1beta1.NotebookService.ListNotebookRuntimeTemplates) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`notebookRuntimeTemplates[]` ` object ( NotebookRuntimeTemplate  ` )
+`notebookRuntimeTemplates[]` `object ( `[`NotebookRuntimeTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimeTemplates#NotebookRuntimeTemplate)` )`
 
 List of NotebookRuntimeTemplates in the requested page.
 
 `nextPageToken` `string`
 
-A token to retrieve next page of results. Pass to `  ListNotebookRuntimeTemplatesRequest.page_token  ` to obtain that page.
+A token to retrieve next page of results. Pass to [`ListNotebookRuntimeTemplatesRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimeTemplates/list#body.QUERY_PARAMETERS.page_token) to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;notebookRuntimeTemplates&quot;: [{object (NotebookRuntimeTemplate)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "notebookRuntimeTemplates": [
+    {
+      object (NotebookRuntimeTemplate)
+    }
+  ],
+  "nextPageToken": string
+}
+```

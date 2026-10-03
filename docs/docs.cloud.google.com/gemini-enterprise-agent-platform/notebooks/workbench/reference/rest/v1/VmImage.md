@@ -8,40 +8,22 @@ data_source: docs.cloud.google.com
 
 Definition of a custom Compute Engine virtual machine image for starting a notebook instance with the environment installed directly on the VM.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;project&quot;: string,// Union field image can be only one of the following:&quot;imageName&quot;: string,&quot;imageFamily&quot;: string// End of list of possible types for union field image.}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "project": string,
 
-`project`
+  // Union field image can be only one of the following:
+  "imageName": string,
+  "imageFamily": string
+  // End of list of possible types for union field image.
+}
+```
 
-`string`
-
-Required. The name of the Google Cloud project that this VM image belongs to. Format: `{projectId}`
-
-Union field `image` . The reference to an external Compute Engine VM image. `image` can be only one of the following:
-
-`imageName`
-
-`string`
-
-Use VM image name to find the image.
-
-`imageFamily`
-
-`string`
-
-Use this VM image family to find the image; the newest image in this family will be used.
+| Fields                                                                                                                |                                                                                                              |
+|-----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| `project`                                                                                                             | `string` Required. The name of the Google Cloud project that this VM image belongs to. Format: `{projectId}` |
+| Union field `image` . The reference to an external Compute Engine VM image. `image` can be only one of the following: |                                                                                                              |
+| `imageName`                                                                                                           | `string` Use VM image name to find the image.                                                                |
+| `imageFamily`                                                                                                         | `string` Use this VM image family to find the image; the newest image in this family will be used.           |

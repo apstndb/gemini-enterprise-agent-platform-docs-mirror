@@ -12,12 +12,7 @@ This type has no fields.
 
 Config of GenAI caching features. This is a singleton resource.
 
-## Methods
-
-### `            fetchPublisherModelConfig           `
-
-Fetches the configs of publisher models.
-
-### `            setPublisherModelConfig           `
-
-Sets (creates or updates) configs of publisher models.
+| Methods                                                                                                                                                 |                                                        |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| [`fetchPublisherModelConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects/fetchPublisherModelConfig) | Fetches the configs of publisher models.               |
+| [`setPublisherModelConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects/setPublisherModelConfig)     | Sets (creates or updates) configs of publisher models. |

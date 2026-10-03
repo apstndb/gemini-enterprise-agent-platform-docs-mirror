@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.reasoningEngines.sessions.create
 
-Creates a new `  Session  ` .
+Creates a new [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions#Session) .
 
 ### Endpoint
 
@@ -32,8 +32,8 @@ This value may be up to 63 characters, and valid characters are `[a-z0-9-]` . Th
 
 ### Request body
 
-The request body contains an instance of `  Session  ` .
+The request body contains an instance of [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions#Session) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  Operation  ` .
+If successful, the response body contains a newly created instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

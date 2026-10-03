@@ -13,7 +13,7 @@ When you no longer need a particular annotation set, you can use the Google Clou
 1.  In the Agent Platform section, go to the **Datasets** page.
 2.  Select your project.
 3.  Select the checkbox corresponding to the dataset or annotation set you want to remove.
-4.  Click more\_vert **View more** . List of options appears.
+4.  Click more_vert **View more** . List of options appears.
 5.  Select **Delete dataset** .
 
 ![delete annotation set](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/datasets/images/delete-dataset.png)

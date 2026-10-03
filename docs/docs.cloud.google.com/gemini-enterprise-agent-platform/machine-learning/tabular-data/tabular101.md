@@ -46,16 +46,16 @@ Start with your problem: What outcome do you want to achieve?
 
 What kind of data is the target column? How much data do you have access to? Depending on your answers, Agent Platform creates the necessary model to solve your use case:
 
-  - **Binary classification** models predict a binary outcome (one of two classes). Use this model type for yes or no questions. For example, you might want to build a binary classification model to predict whether a customer would buy a subscription. Generally, a binary classification problem requires less data than other model types.
-  - **Multi-class classification** models predict one class from three or more discrete classes. Use this model type for categorization. For example, as a retailer, you might want to build a multi-class classification model to segment customers into different personas.
-  - **Regression** models predict a continuous value. For example, as a retailer, you might want to build a regression model to predict how much a customer will spend next month.
-  - **Forecasting** models predict a sequence of values. For example, as a retailer, you might want to forecast daily demand of your products for the next 3 months so that you can appropriately stock product inventories in advance.
+- **Binary classification** models predict a binary outcome (one of two classes). Use this model type for yes or no questions. For example, you might want to build a binary classification model to predict whether a customer would buy a subscription. Generally, a binary classification problem requires less data than other model types.
+- **Multi-class classification** models predict one class from three or more discrete classes. Use this model type for categorization. For example, as a retailer, you might want to build a multi-class classification model to segment customers into different personas.
+- **Regression** models predict a continuous value. For example, as a retailer, you might want to build a regression model to predict how much a customer will spend next month.
+- **Forecasting** models predict a sequence of values. For example, as a retailer, you might want to forecast daily demand of your products for the next 3 months so that you can appropriately stock product inventories in advance.
 
 Forecasting on tabular data is different from classification and regression in two key ways:
 
-  - In classification and regression, the target's predicted value depends only on the values of the feature columns in the same row. In forecasting, the predicted values also depends on the context values of the target and the features.
+- In classification and regression, the target's predicted value depends only on the values of the feature columns in the same row. In forecasting, the predicted values also depends on the context values of the target and the features.
 
-  - In regression and classification problems, the output is one value. In forecasting problems, the output is a sequence of values.
+- In regression and classification problems, the output is one value. In forecasting problems, the output is a sequence of values.
 
 #### Gather your data
 
@@ -69,13 +69,13 @@ A feature is an input attribute used for model training. Features are how your m
 
 Consider the retail email marketing use case from the introduction. Here's some feature columns you might require:
 
-  - List of items purchased (including brands, categories, prices, discounts)
-  - Number of items purchased (last day, week, month, year)
-  - Sum of money spent (last day, week, month, year)
-  - For each item, total number sold each day
-  - For each item, total in stock each day
-  - Whether you're running a promotion for a particular day
-  - Known demographic profile of shopper
+- List of items purchased (including brands, categories, prices, discounts)
+- Number of items purchased (last day, week, month, year)
+- Sum of money spent (last day, week, month, year)
+- For each item, total number sold each day
+- For each item, total in stock each day
+- Whether you're running a promotion for a particular day
+- Known demographic profile of shopper
 
 #### Include enough data
 
@@ -83,14 +83,11 @@ Consider the retail email marketing use case from the introduction. Here's some 
 
 There's no perfect formula, but there are recommended minimums of example data:
 
-**Classification** problem: 50 rows x the number features
-
-**Forecasting** problem:
-
+- **Classification** problem: 50 rows x the number features
+- **Forecasting** problem:
   - 5000 rows x the number of features
   - 10 unique values in the time series identifier column x the number of features
-
-**Regression** problem: 200 x the number of features
+- **Regression** problem: 200 x the number of features
 
 #### Capture variation
 
@@ -108,17 +105,17 @@ Training-serving skew is when input features used during training time are diffe
 
 Understanding your training data is important to preventing data leakage and training-serving skew:
 
-  - Before using any data, make sure you know what the data means and whether or not you should use it as a feature
-  - Check the correlation in the Train tab. High correlations should be flagged for review.
-  - Training-serving skew: make sure you only provide input features to the model that are available in the exact same form at serving time.
+- Before using any data, make sure you know what the data means and whether or not you should use it as a feature
+- Check the correlation in the Train tab. High correlations should be flagged for review.
+- Training-serving skew: make sure you only provide input features to the model that are available in the exact same form at serving time.
 
 #### Clean up missing, incomplete, and inconsistent data
 
 It's common to have missing and inaccurate values in your example data. Take time to review and, when possible, improve your data quality before using it for training. The more missing values, the less useful your data will be for training a machine learning model.
 
-  - Check your data for missing values and correct them if possible, or leave the value blank if the column is set to be nullable. Agent Platform can handle missing values, but you are more likely to get optimal results if all values are available.
-  - For forecasting, check that the interval between training rows is consistent. Agent Platform can impute missing values, but you are more likely to get optimal results if all rows are available.
-  - Clean your data by correcting or deleting data errors or noise. Make your data consistent: Review spelling, abbreviations, and formatting.
+- Check your data for missing values and correct them if possible, or leave the value blank if the column is set to be nullable. Agent Platform can handle missing values, but you are more likely to get optimal results if all values are available.
+- For forecasting, check that the interval between training rows is consistent. Agent Platform can impute missing values, but you are more likely to get optimal results if all rows are available.
+- Clean your data by correcting or deleting data errors or noise. Make your data consistent: Review spelling, abbreviations, and formatting.
 
 #### Analyze your data after importing
 
@@ -130,10 +127,10 @@ After your dataset is imported, the next step is to train a model. Agent Platfor
 
 Try to select as many feature columns as possible for training, but review each to make sure that it's appropriate for training. Keep in mind the following for feature selection:
 
-  - Don't select feature columns that will create noise, like randomly assigned identifier columns with a unique value for each row.
-  - Make sure you understand each feature column and its values.
-  - If you're creating multiple models from one dataset, remove target columns that aren't part of the current inference problem.
-  - Recall the fairness principles: Are you training your model with a feature that could lead to biased or unfair decision-making for marginalized groups?
+- Don't select feature columns that will create noise, like randomly assigned identifier columns with a unique value for each row.
+- Make sure you understand each feature column and its values.
+- If you're creating multiple models from one dataset, remove target columns that aren't part of the current inference problem.
+- Recall the fairness principles: Are you training your model with a feature that could lead to biased or unfair decision-making for marginalized groups?
 
 #### How Agent Platform uses your dataset
 
@@ -170,10 +167,10 @@ If your score threshold is low, your model will run the risk of misclassificatio
 
 After applying the score threshold, inferences made by your model will fall into one of four categories. To understand these categories, imagine again a jacket binary classification model. In this example, the positive class (what the model is attempting to predict) is that the customer will purchase a jacket in the next year.
 
-  - **True positive** : The model correctly predicts the positive class. The model correctly predicted that a customer purchased a jacket.
-  - **False positive** : The model incorrectly predicts the positive class. The model predicted that a customer purchased a jacket, but they didn't.
-  - **True negative** : The model correctly predicts the negative class. The model correctly predicted that a customer didn't purchase a jacket.
-  - **False negative** : The model incorrectly predicts a negative class. The model predicted that a customer didn't purchase a jacket, but they did.
+- **True positive** : The model correctly predicts the positive class. The model correctly predicted that a customer purchased a jacket.
+- **False positive** : The model incorrectly predicts the positive class. The model predicted that a customer purchased a jacket, but they didn't.
+- **True negative** : The model correctly predicts the negative class. The model correctly predicted that a customer didn't purchase a jacket.
+- **False negative** : The model incorrectly predicts a negative class. The model predicted that a customer didn't purchase a jacket, but they did.
 
 ![prediction outcomes](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/beginner/images/prediction-outcomes-tables.png)
 
@@ -181,18 +178,18 @@ After applying the score threshold, inferences made by your model will fall into
 
 Precision and recall metrics help you understand how well your model is capturing information and what it's leaving out. Learn more about [precision and recall](https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall) .
 
-  - **Precision** is the fraction of the positive inferences that were correct. Of all the inferences of a customer purchase, what fraction were actual purchases?
-  - **Recall** is the fraction of rows with this label that the model correctly predicted. Of all the customer purchases that could have been identified, what fraction were?
+- **Precision** is the fraction of the positive inferences that were correct. Of all the inferences of a customer purchase, what fraction were actual purchases?
+- **Recall** is the fraction of rows with this label that the model correctly predicted. Of all the customer purchases that could have been identified, what fraction were?
 
 Depending on your use case, you may need to optimize for either precision or recall.
 
 ##### Other classification metrics
 
-  - AUC PR: The area under the precision-recall (PR) curve. This value ranges from zero to one, where a higher value indicates a higher-quality model.
-  - AUC ROC: The area under the receiver operating characteristic (ROC) curve. This ranges from zero to one, where a higher value indicates a higher-quality model.
-  - Accuracy: The fraction of classification inferences produced by the model that were correct.
-  - Log loss: The cross-entropy between the model inferences and the target values. This ranges from zero to infinity, where a lower value indicates a higher-quality model.
-  - F1 score: The harmonic mean of precision and recall. F1 is a useful metric if you're looking for a balance between precision and recall and there's an uneven class distribution.
+- AUC PR: The area under the precision-recall (PR) curve. This value ranges from zero to one, where a higher value indicates a higher-quality model.
+- AUC ROC: The area under the receiver operating characteristic (ROC) curve. This ranges from zero to one, where a higher value indicates a higher-quality model.
+- Accuracy: The fraction of classification inferences produced by the model that were correct.
+- Log loss: The cross-entropy between the model inferences and the target values. This ranges from zero to infinity, where a lower value indicates a higher-quality model.
+- F1 score: The harmonic mean of precision and recall. F1 is a useful metric if you're looking for a balance between precision and recall and there's an uneven class distribution.
 
 #### Forecasting and regression metrics
 
@@ -242,5 +239,5 @@ To help avoid unwanted charges, undeploy your model when it's not in use.
 
 When you're finished using your model, delete the resources that you created to avoid incurring unwanted charges to your account.
 
-  - [Hello image data: Clean up your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/cleanup)
-  - [Hello tabular data: Clean up your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-automl/cleanup)
+- [Hello image data: Clean up your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/cleanup)
+- [Hello tabular data: Clean up your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-automl/cleanup)

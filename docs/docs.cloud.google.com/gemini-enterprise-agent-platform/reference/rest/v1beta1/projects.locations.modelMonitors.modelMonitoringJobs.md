@@ -20,55 +20,59 @@ Output only. Resource name of a ModelMonitoringJob. Format: `projects/{projectId
 
 The display name of the ModelMonitoringJob. The name can be up to 128 characters long and can consist of any UTF-8.
 
-`modelMonitoringSpec` ` object ( ModelMonitoringSpec  ` )
+`modelMonitoringSpec` `object ( `[`ModelMonitoringSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs#ModelMonitoringJob.ModelMonitoringSpec)` )`
 
 Monitoring monitoring job spec. It outlines the specifications for monitoring objectives, notifications, and result exports. If left blank, the default monitoring specifications from the top-level resource 'ModelMonitor' will be applied. If provided, we will use the specification defined here rather than the default one.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this ModelMonitoringJob was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this ModelMonitoringJob was updated most recently.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`state` ` enum ( JobState  ` )
+`state` `enum ( `[`JobState`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/JobState)` )`
 
-Output only. The state of the monitoring job. \* When the job is still creating, the state will be 'JOB\_STATE\_PENDING'. \* Once the job is successfully created, the state will be 'JOB\_STATE\_RUNNING'. \* Once the job is finished, the state will be one of 'JOB\_STATE\_FAILED', 'JOB\_STATE\_SUCCEEDED', 'JOB\_STATE\_PARTIALLY\_SUCCEEDED'.
+Output only. The state of the monitoring job. \* When the job is still creating, the state will be 'JOB_STATE_PENDING'. \* Once the job is successfully created, the state will be 'JOB_STATE_RUNNING'. \* Once the job is finished, the state will be one of 'JOB_STATE_FAILED', 'JOB_STATE_SUCCEEDED', 'JOB_STATE_PARTIALLY_SUCCEEDED'.
 
 `schedule` `string`
 
 Output only. Schedule resource name. It will only appear when this job is triggered by a schedule.
 
-`jobExecutionDetail` ` object ( ModelMonitoringJobExecutionDetail  ` )
+`jobExecutionDetail` `object ( `[`ModelMonitoringJobExecutionDetail`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs#ModelMonitoringJob.ModelMonitoringJobExecutionDetail)` )`
 
 Output only. Execution results for all the monitoring objectives.
 
-`scheduleTime` ` string ( Timestamp  ` format)
+`scheduleTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this ModelMonitoringJob was scheduled. It will only appear when this job is triggered by a schedule.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;modelMonitoringSpec&quot;: {object (ModelMonitoringSpec)},&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;state&quot;: enum (JobState),&quot;schedule&quot;: string,&quot;jobExecutionDetail&quot;: {object (ModelMonitoringJobExecutionDetail)},&quot;scheduleTime&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "modelMonitoringSpec": {
+    object (ModelMonitoringSpec)
+  },
+  "createTime": string,
+  "updateTime": string,
+  "state": enum (JobState),
+  "schedule": string,
+  "jobExecutionDetail": {
+    object (ModelMonitoringJobExecutionDetail)
+  },
+  "scheduleTime": string
+}
+```
 
 ### ModelMonitoringSpec
 
@@ -76,33 +80,33 @@ Monitoring monitoring job spec. It outlines the specifications for monitoring ob
 
 Fields
 
-`objectiveSpec` ` object ( ModelMonitoringObjectiveSpec  ` )
+`objectiveSpec` `object ( `[`ModelMonitoringObjectiveSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs#ModelMonitoringJob.ModelMonitoringObjectiveSpec)` )`
 
 The monitoring objective spec.
 
-`notificationSpec` ` object ( ModelMonitoringNotificationSpec  ` )
+`notificationSpec` `object ( `[`ModelMonitoringNotificationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringNotificationSpec)` )`
 
 The model monitoring notification spec.
 
-`outputSpec` ` object ( ModelMonitoringOutputSpec  ` )
+`outputSpec` `object ( `[`ModelMonitoringOutputSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringOutputSpec)` )`
 
 The Output destination spec for metrics, error logs, etc.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;objectiveSpec&quot;: {object (ModelMonitoringObjectiveSpec)},&quot;notificationSpec&quot;: {object (ModelMonitoringNotificationSpec)},&quot;outputSpec&quot;: {object (ModelMonitoringOutputSpec)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "objectiveSpec": {
+    object (ModelMonitoringObjectiveSpec)
+  },
+  "notificationSpec": {
+    object (ModelMonitoringNotificationSpec)
+  },
+  "outputSpec": {
+    object (ModelMonitoringOutputSpec)
+  }
+}
+```
 
 ### ModelMonitoringObjectiveSpec
 
@@ -110,15 +114,15 @@ Monitoring objectives spec.
 
 Fields
 
-`explanationSpec` ` object ( ExplanationSpec  ` )
+`explanationSpec` `object ( `[`ExplanationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ExplanationSpec)` )`
 
 The explanation spec. This spec is required when the objectives spec includes feature attribution objectives.
 
-`baselineDataset` ` object ( ModelMonitoringInput  ` )
+`baselineDataset` `object ( `[`ModelMonitoringInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringInput)` )`
 
 baseline dataset. It could be the training dataset or production serving dataset from a previous period.
 
-`targetDataset` ` object ( ModelMonitoringInput  ` )
+`targetDataset` `object ( `[`ModelMonitoringInput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringInput)` )`
 
 Target dataset.
 
@@ -126,27 +130,33 @@ Target dataset.
 
 The monitoring objective. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`tabularObjective` ` object ( TabularObjective  ` )
+`tabularObjective` `object ( `[`TabularObjective`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/TabularObjective)` )`
 
 Tabular monitoring objective.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;explanationSpec&quot;: {object (ExplanationSpec)},&quot;baselineDataset&quot;: {object (ModelMonitoringInput)},&quot;targetDataset&quot;: {object (ModelMonitoringInput)},// objective&quot;tabularObjective&quot;: {object (TabularObjective)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "explanationSpec": {
+    object (ExplanationSpec)
+  },
+  "baselineDataset": {
+    object (ModelMonitoringInput)
+  },
+  "targetDataset": {
+    object (ModelMonitoringInput)
+  },
+
+  // objective
+  "tabularObjective": {
+    object (TabularObjective)
+  }
+  // Union type
+}
+```
 
 ### ModelMonitoringJobExecutionDetail
 
@@ -154,37 +164,47 @@ Represent the execution details of the job.
 
 Fields
 
-`baselineDatasets[]` ` object ( ProcessedDataset  ` )
+`baselineDatasets[]` `object ( `[`ProcessedDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs#ModelMonitoringJob.ProcessedDataset)` )`
 
 Processed baseline datasets.
 
-`targetDatasets[]` ` object ( ProcessedDataset  ` )
+`targetDatasets[]` `object ( `[`ProcessedDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs#ModelMonitoringJob.ProcessedDataset)` )`
 
 Processed target datasets.
 
-`objectiveStatus` ` map (key: string, value: object ( Status  ` ))
+`objectiveStatus` `map (key: string, value: object ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Status)` ))`
 
 status of data processing for each monitoring objective. Key is the objective.
 
-`error` ` object ( Status  ` )
+`error` `object ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Status)` )`
 
 Additional job error status.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;baselineDatasets&quot;: [{object (ProcessedDataset)}],&quot;targetDatasets&quot;: [{object (ProcessedDataset)}],&quot;objectiveStatus&quot;: {string: {object (Status)},...},&quot;error&quot;: {object (Status)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "baselineDatasets": [
+    {
+      object (ProcessedDataset)
+    }
+  ],
+  "targetDatasets": [
+    {
+      object (ProcessedDataset)
+    }
+  ],
+  "objectiveStatus": {
+    string: {
+      object (Status)
+    },
+    ...
+  },
+  "error": {
+    object (Status)
+  }
+}
+```
 
 ### ProcessedDataset
 
@@ -196,40 +216,24 @@ Fields
 
 Actual data location of the processed dataset.
 
-`timeRange` ` object ( Interval  ` )
+`timeRange` `object ( `[`Interval`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Interval)` )`
 
 Dataset time range information if any.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;location&quot;: string,&quot;timeRange&quot;: {object (Interval)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "location": string,
+  "timeRange": {
+    object (Interval)
+  }
+}
+```
 
-### `            create           `
-
-Creates a ModelMonitoringJob.
-
-### `            delete           `
-
-Deletes a ModelMonitoringJob.
-
-### `            get           `
-
-Gets a ModelMonitoringJob.
-
-### `            list           `
-
-Lists ModelMonitoringJobs.
+| Methods                                                                                                                                                       |                               |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs/create) | Creates a ModelMonitoringJob. |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs/delete) | Deletes a ModelMonitoringJob. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs/get)       | Gets a ModelMonitoringJob.    |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs/list)     | Lists ModelMonitoringJobs.    |

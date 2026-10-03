@@ -16,8 +16,8 @@ The MIME type of the output image.
 
 The following values are supported:
 
-  - `image/jpeg`
-  - `image/png`
+- `image/jpeg`
+- `image/png`
 
 If not set, defaults to `image/png` .
 
@@ -27,21 +27,11 @@ Specifies the compression quality for JPEG images. Accepted values are in the ra
 
 If not set, defaults to `75` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;mimeType&quot;: string,
-  &quot;compressionQuality&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "mimeType": string,
+  "compressionQuality": integer
+}
+```

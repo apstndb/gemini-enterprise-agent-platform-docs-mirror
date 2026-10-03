@@ -10,9 +10,9 @@ This page describes the differences between Gemini Enterprise Agent Platform's n
 
 Agent Platform provides two notebook environment solutions:
 
-  - **Colab Enterprise:** A collaborative, managed notebook environment with the security and compliance capabilities of Google Cloud. If your project's priorities are to collaborate with others and to avoid spending time managing infrastructure, Colab Enterprise might be the best option for you. See the following [Colab Enterprise](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/notebook-solution#colab-enterprise) section.
+- **Colab Enterprise:** A collaborative, managed notebook environment with the security and compliance capabilities of Google Cloud. If your project's priorities are to collaborate with others and to avoid spending time managing infrastructure, Colab Enterprise might be the best option for you. See the following [Colab Enterprise](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/notebook-solution#colab-enterprise) section.
 
-  - **Gemini Enterprise Agent Platform Workbench:** A Jupyter notebook-based environment provided through virtual machine (VM) instances with features that support the entire data science workflow. If your project's priorities are control and customizability, Agent Platform Workbench might be the best option for you. See the following [Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/notebook-solution#agent-platform-workbench) section.
+- **Gemini Enterprise Agent Platform Workbench:** A Jupyter notebook-based environment provided through virtual machine (VM) instances with features that support the entire data science workflow. If your project's priorities are control and customizability, Agent Platform Workbench might be the best option for you. See the following [Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/notebook-solution#agent-platform-workbench) section.
 
 ## Colab Enterprise
 
@@ -33,7 +33,7 @@ Colab Enterprise's integrations with Google Cloud services make it easier to use
 ### Write code with Gemini assistance
 
 > **Preview**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 You can use Gemini in Agent Platform, which is a product in the [Gemini for Google Cloud](https://docs.cloud.google.com/gemini/docs/overview) portfolio, to help you write and generate code in a Gemini Enterprise Agent Platform notebook. Gemini in Agent Platform can generate code completion suggestions while you type in a code cell. You can also use the **Help me code** tool to generate code based on a description of what you want. To learn more, see [Write code with Gemini assistance](https://docs.cloud.google.com/colab/docs/use-code-completion) .
@@ -46,11 +46,11 @@ Learn about a few of Agent Platform Workbench's strengths in the sections that f
 
 All Agent Platform Workbench instances provide the following:
 
-  - Prepackaged with [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html) .
-  - A preinstalled suite of deep learning packages, including support for the TensorFlow and PyTorch frameworks.
-  - Support for GPU accelerators.
-  - The ability to sync with a [GitHub](https://github.com/) repository.
-  - Google Cloud authentication and authorization.
+- Prepackaged with [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html) .
+- A preinstalled suite of deep learning packages, including support for the TensorFlow and PyTorch frameworks.
+- Support for GPU accelerators.
+- The ability to sync with a [GitHub](https://github.com/) repository.
+- Google Cloud authentication and authorization.
 
 ### Add conda environments
 
@@ -102,6 +102,6 @@ Agent Platform Workbench provides API methods for modifying the underlying VM th
 
 To get started:
 
-  - [Create a Colab Enterprise notebook](https://docs.cloud.google.com/colab/docs/create-console-quickstart) .
+- [Create a Colab Enterprise notebook](https://docs.cloud.google.com/colab/docs/create-console-quickstart) .
 
-  - [Create a Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create) .
+- [Create a Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create) .

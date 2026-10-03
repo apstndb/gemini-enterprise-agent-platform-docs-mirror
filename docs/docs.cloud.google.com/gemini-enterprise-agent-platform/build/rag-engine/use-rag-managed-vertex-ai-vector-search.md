@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > Some of the RAG features are Preview offerings, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . Pre-GA products and features are available "as-is" and may have limited support, and changes to Pre-GA products and features may not be compatible with other Pre-GA versions. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages) . By using the Gemini API on Gemini Enterprise Agent Platform, you agree to the Generative AI Preview [terms and conditions](https://cloud.google.com/trustedtester/aitos) (Preview Terms).
 
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
@@ -23,7 +23,7 @@ RAG will manage the Vector Search 2.0 collections for you and you will have full
 When using RAG Engine on Gemini Enterprise Agent Platform, you can choose between different backend storage options for your RAG corpora. The following table summarizes the key differences:
 
 | Backend Option                 | Underlying Technology                              | Management by RAG Engine                                                         | Data Visibility in Project           | CMEK Support |
-| :----------------------------- | :------------------------------------------------- | :------------------------------------------------------------------------------- | :----------------------------------- | :----------- |
+|--------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|--------------------------------------|--------------|
 | `RagManagedVertexVectorSearch` | Gemini Enterprise Agent Platform Vector Search 2.0 | Fully managed by Google.                                                         | Visible in your Google Cloud project | No           |
 | `VertexVectorSearch`           | Gemini Enterprise Agent Platform Vector Search 1.0 | User is expected to set up, manage, and clean up the Vector Search 1.0 instance. | Visible in your Google Cloud project | No           |
 | `RagManagedDb`                 | Spanner                                            | Fully managed by Google.                                                         | Not directly visible in your project | Yes          |
@@ -40,44 +40,46 @@ This code samples demonstrates how to create a RAG corpus using `RagManagedVerte
 
 ### Python
 
-    from vertexai.preview import rag
-    import vertexai
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    DISPLAY_NAME = YOUR_RAG_CORPUS_DISPLAY_NAME
-    
-    # Initialize Agent Platform API once per session
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    vector_db = rag.RagManagedVertexVectorSearch()
-    rag_corpus = rag.create_corpus(
-        display_name=DISPLAY_NAME, backend_config=rag.RagVectorDbConfig(vector_db=vector_db))
+```
+from vertexai.preview import rag
+import vertexai
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+DISPLAY_NAME = YOUR_RAG_CORPUS_DISPLAY_NAME
+
+# Initialize Agent Platform API once per session
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+vector_db = rag.RagManagedVertexVectorSearch()
+rag_corpus = rag.create_corpus(
+    display_name=DISPLAY_NAME, backend_config=rag.RagVectorDbConfig(vector_db=vector_db))
+```
 
 ### REST
 
 Replace the following variables:
 
-  - **PROJECT\_ID** : Your project ID.
-  - **LOCATION** : The region to process the request.
-  - **CORPUS\_DISPLAY\_NAME** : The display name of the RAG corpus.
+- **` PROJECT_ID `** : Your project ID.
+- **` LOCATION `** : The region to process the request.
+- **` CORPUS_DISPLAY_NAME `** : The display name of the RAG corpus.
 
-<!-- end list -->
+```
+PROJECT_ID=PROJECT_ID
+LOCATION=LOCATION
+CORPUS_DISPLAY_NAME=CORPUS_DISPLAY_NAME
 
-    PROJECT_ID=PROJECT_ID
-    LOCATION=LOCATION
-    CORPUS_DISPLAY_NAME=CORPUS_DISPLAY_NAME
-    
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://${LOCATION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION}/ragCorpora \
-    -d '{
-          "display_name" : '\""${CORPUS_DISPLAY_NAME}"\"',
-          "vector_db_config": {
-            "rag_managed_vertex_vector_search": {}
-          }
-        }'
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://${LOCATION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION}/ragCorpora \
+-d '{
+      "display_name" : '\""${CORPUS_DISPLAY_NAME}"\"',
+      "vector_db_config": {
+        "rag_managed_vertex_vector_search": {}
+      }
+    }'
+```
 
 ### Importing your data into `RagManagedVertexVectorSearch`
 
@@ -87,47 +89,51 @@ To upload your local file into your RAG corpus, see [Upload a RAG file](https://
 
 ### Python
 
-    from vertexai.preview import rag
-    import vertexai
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    CORPUS_ID = YOUR_CORPUS_ID
-    PATHS = ["gs://my_bucket/my_files_dir"]
-    
-    # Initialize Agent Platform API once per session
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    corpus_name = f"projects/{PROJECT_ID}/locations/{LOCATION}/ragCorpora/{CORPUS_ID}"
-    # This is a non blocking call.
-    response = await rag.import_files_async(
-        corpus_name=corpus_name,
-        paths=PATHS,
-    )
-    
-    # Wait for the import to complete.
-    await response.result()
+```
+from vertexai.preview import rag
+import vertexai
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+CORPUS_ID = YOUR_CORPUS_ID
+PATHS = ["gs://my_bucket/my_files_dir"]
+
+# Initialize Agent Platform API once per session
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+corpus_name = f"projects/{PROJECT_ID}/locations/{LOCATION}/ragCorpora/{CORPUS_ID}"
+# This is a non blocking call.
+response = await rag.import_files_async(
+    corpus_name=corpus_name,
+    paths=PATHS,
+)
+
+# Wait for the import to complete.
+await response.result()
+```
 
 ### REST
 
-    GCS_URI=GCS_URI
-    
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://${LOCATION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION}/ragCorpora/${CORPUS_ID}/ragFiles:import \
-    -d '{
-      "import_rag_files_config": {
-        "gcs_source": {
-          "uris": '\""${GCS_URI}"\"',
-          },
-      }
-    }'
+```
+GCS_URI=GCS_URI
+
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://${LOCATION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION}/ragCorpora/${CORPUS_ID}/ragFiles:import \
+-d '{
+  "import_rag_files_config": {
+    "gcs_source": {
+      "uris": '\""${GCS_URI}"\"',
+      },
+  }
+}'
+```
 
 ## What's next
 
-  - To import files and folders from Google Drive or Cloud Storage, see [Import RAG files example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/import) .
+- To import files and folders from Google Drive or Cloud Storage, see [Import RAG files example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/import) .
 
-  - To list RAG files, see [List RAG files example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/list) .
+- To list RAG files, see [List RAG files example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/list) .
 
-  - To use a reranker for retrieval, see [Reranking for Gemini Enterprise Agent Platform RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/retrieval-and-ranking)
+- To use a reranker for retrieval, see [Reranking for Gemini Enterprise Agent Platform RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/retrieval-and-ranking)

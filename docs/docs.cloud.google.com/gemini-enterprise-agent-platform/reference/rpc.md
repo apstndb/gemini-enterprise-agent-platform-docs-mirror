@@ -12,3858 +12,1354 @@ The Agent Platform API lets you manage Agent Platform resources in Google Cloud.
 
 The Service name `aiplatform.googleapis.com` is needed to create RPC client stubs.
 
-## `        genai.vertex.v1beta1.InteractionsHttpService       `
-
-Methods
-
-`  CancelInteractionHttp  `
-
-Cancels an interaction.
-
-`  CreateInteractionHttp  `
-
-`  GetInteractionHttp  `
-
-Gets an interaction.
-
-`  ListInteractionsHttp  `
-
-Lists interactions.
-
-## `        google.cloud.aiplatform.v1.DataFoundryService       `
-
-Methods
-
-`  GenerateSyntheticData  `
-
-Generates synthetic (artificial) data based on a description
-
-## `        google.cloud.aiplatform.v1.DatasetService       `
-
-Methods
-
-`  CreateDataset  `
-
-Creates a Dataset.
-
-`  CreateDatasetVersion  `
-
-Create a version from a Dataset.
-
-`  DeleteDataset  `
-
-Deletes a Dataset.
-
-`  DeleteDatasetVersion  `
-
-Deletes a Dataset version.
-
-`  DeleteSavedQuery  `
-
-Deletes a SavedQuery.
-
-`  ExportData  `
-
-Exports data from a Dataset.
-
-`  GetAnnotationSpec  `
-
-Gets an AnnotationSpec.
-
-`  GetDataset  `
-
-Gets a Dataset.
-
-`  GetDatasetVersion  `
-
-Gets a Dataset version.
-
-`  ImportData  `
-
-Imports data into a Dataset.
-
-`  ListAnnotations  `
-
-Lists Annotations belongs to a dataitem.
-
-`  ListDataItems  `
-
-Lists DataItems in a Dataset.
-
-`  ListDatasetVersions  `
-
-Lists DatasetVersions in a Dataset.
-
-`  ListDatasets  `
-
-Lists Datasets in a Location.
-
-`  ListSavedQueries  `
-
-Lists SavedQueries in a Dataset.
-
-`  RestoreDatasetVersion  `
-
-Restores a dataset version.
-
-`  SearchDataItems  `
-
-Searches DataItems in a Dataset.
-
-`  UpdateDataset  `
-
-Updates a Dataset.
-
-`  UpdateDatasetVersion  `
-
-Updates a DatasetVersion.
-
-## `        google.cloud.aiplatform.v1.DeploymentResourcePoolService       `
-
-Methods
-
-`  CreateDeploymentResourcePool  `
-
-Create a DeploymentResourcePool.
-
-`  DeleteDeploymentResourcePool  `
-
-Delete a DeploymentResourcePool.
-
-`  GetDeploymentResourcePool  `
-
-Get a DeploymentResourcePool.
-
-`  ListDeploymentResourcePools  `
-
-List DeploymentResourcePools in a location.
-
-`  QueryDeployedModels  `
-
-List DeployedModels that have been deployed on this DeploymentResourcePool.
-
-`  UpdateDeploymentResourcePool  `
-
-Update a DeploymentResourcePool.
-
-## `        google.cloud.aiplatform.v1.EndpointService       `
-
-Methods
-
-`  CreateEndpoint  `
-
-Creates an Endpoint.
-
-`  DeleteEndpoint  `
-
-Deletes an Endpoint.
-
-`  DeployModel  `
-
-Deploys a Model into this Endpoint, creating a DeployedModel within it.
-
-`  GetEndpoint  `
-
-Gets an Endpoint.
-
-`  ListEndpoints  `
-
-Lists Endpoints in a Location.
-
-`  MutateDeployedModel  `
-
-Updates an existing deployed model.
-
-`  UndeployModel  `
-
-Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freeing all resources it's using.
-
-`  UpdateEndpoint  `
-
-Updates an Endpoint.
-
-`  UpdateEndpointLongRunning  `
-
-Updates an Endpoint with a long running operation.
-
-## `        google.cloud.aiplatform.v1.EvaluationService       `
-
-Methods
-
-`  EvaluateInstances  `
-
-Evaluates instances based on a given metric.
-
-## `        google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService       `
-
-Methods
-
-`  CreateFeatureOnlineStore  `
-
-Creates a new FeatureOnlineStore in a given project and location.
-
-`  CreateFeatureView  `
-
-Creates a new FeatureView in a given FeatureOnlineStore.
-
-`  DeleteFeatureOnlineStore  `
-
-Deletes a single FeatureOnlineStore.
-
-`  DeleteFeatureView  `
-
-Deletes a single FeatureView.
-
-`  GetFeatureOnlineStore  `
-
-Gets details of a single FeatureOnlineStore.
-
-`  GetFeatureView  `
-
-Gets details of a single FeatureView.
-
-`  GetFeatureViewSync  `
-
-Gets details of a single FeatureViewSync.
-
-`  ListFeatureOnlineStores  `
-
-Lists FeatureOnlineStores in a given project and location.
-
-`  ListFeatureViewSyncs  `
-
-Lists FeatureViewSyncs in a given FeatureView.
-
-`  ListFeatureViews  `
-
-Lists FeatureViews in a given FeatureOnlineStore.
-
-`  SyncFeatureView  `
-
-Triggers on-demand sync for the FeatureView.
-
-`  UpdateFeatureOnlineStore  `
-
-Updates the parameters of a single FeatureOnlineStore.
-
-`  UpdateFeatureView  `
-
-Updates the parameters of a single FeatureView.
-
-## `        google.cloud.aiplatform.v1.FeatureOnlineStoreService       `
-
-Methods
-
-`  FeatureViewDirectWrite  `
-
-Bidirectional streaming RPC to directly write to feature values in a feature view.
-
-`  FetchFeatureValues  `
-
-Fetch feature values under a FeatureView.
-
-`  GenerateFetchAccessToken  `
-
-RPC to generate an access token for the given feature view.
-
-`  SearchNearestEntities  `
-
-Search the nearest entities under a FeatureView.
-
-## `        google.cloud.aiplatform.v1.FeatureRegistryService       `
-
-Methods
-
-`  BatchCreateFeatures  `
-
-Creates a batch of Features in a given FeatureGroup.
-
-`  CreateFeature  `
-
-Creates a new Feature in a given FeatureGroup.
-
-`  CreateFeatureGroup  `
-
-Creates a new FeatureGroup in a given project and location.
-
-`  DeleteFeature  `
-
-Deletes a single Feature.
-
-`  DeleteFeatureGroup  `
-
-Deletes a single FeatureGroup.
-
-`  GetFeature  `
-
-Gets details of a single Feature.
-
-`  GetFeatureGroup  `
-
-Gets details of a single FeatureGroup.
-
-`  ListFeatureGroups  `
-
-Lists FeatureGroups in a given project and location.
-
-`  ListFeatures  `
-
-Lists Features in a given FeatureGroup.
-
-`  UpdateFeature  `
-
-Updates the parameters of a single Feature.
-
-`  UpdateFeatureGroup  `
-
-Updates the parameters of a single FeatureGroup.
-
-## `        google.cloud.aiplatform.v1.FeaturestoreOnlineServingService       `
-
-Methods
-
-`  ReadFeatureValues  `
-
-Reads Feature values of a specific entity of an EntityType.
-
-`  StreamingReadFeatureValues  `
-
-Reads Feature values for multiple entities.
-
-`  WriteFeatureValues  `
-
-Writes Feature values of one or more entities of an EntityType.
-
-## `        google.cloud.aiplatform.v1.FeaturestoreService       `
-
-Methods
-
-`  BatchCreateFeatures  `
-
-Creates a batch of Features in a given EntityType.
-
-`  BatchReadFeatureValues  `
-
-Batch reads Feature values from a Featurestore.
-
-`  CreateEntityType  `
-
-Creates a new EntityType in a given Featurestore.
-
-`  CreateFeature  `
-
-Creates a new Feature in a given EntityType.
-
-`  CreateFeaturestore  `
-
-Creates a new Featurestore in a given project and location.
-
-`  DeleteEntityType  `
-
-Deletes a single EntityType.
-
-`  DeleteFeature  `
-
-Deletes a single Feature.
-
-`  DeleteFeatureValues  `
-
-Delete Feature values from Featurestore.
-
-`  DeleteFeaturestore  `
-
-Deletes a single Featurestore.
-
-`  ExportFeatureValues  `
-
-Exports Feature values from all the entities of a target EntityType.
-
-`  GetEntityType  `
-
-Gets details of a single EntityType.
-
-`  GetFeature  `
-
-Gets details of a single Feature.
-
-`  GetFeaturestore  `
-
-Gets details of a single Featurestore.
-
-`  ImportFeatureValues  `
-
-Imports Feature values into the Featurestore from a source storage.
-
-`  ListEntityTypes  `
-
-Lists EntityTypes in a given Featurestore.
-
-`  ListFeatures  `
-
-Lists Features in a given EntityType.
-
-`  ListFeaturestores  `
-
-Lists Featurestores in a given project and location.
-
-`  SearchFeatures  `
-
-Searches Features matching a query in a given project.
-
-`  UpdateEntityType  `
-
-Updates the parameters of a single EntityType.
-
-`  UpdateFeature  `
-
-Updates the parameters of a single Feature.
-
-`  UpdateFeaturestore  `
-
-Updates the parameters of a single Featurestore.
-
-## `        google.cloud.aiplatform.v1.GenAiCacheService       `
-
-Methods
-
-`  CreateCachedContent  `
-
-Creates cached content, this call will initialize the cached content in the data storage, and users need to pay for the cache data storage.
-
-`  DeleteCachedContent  `
-
-Deletes cached content
-
-`  GetCachedContent  `
-
-Gets cached content configurations
-
-`  ListCachedContents  `
-
-Lists cached contents in a project
-
-`  UpdateCachedContent  `
-
-Updates cached content configurations
-
-## `        google.cloud.aiplatform.v1.GenAiTuningService       `
-
-Methods
-
-`  CancelTuningJob  `
-
-Cancels a tuning job.
-
-`  CreateTuningJob  `
-
-Creates a tuning job.
-
-`  GetTuningJob  `
-
-Gets a tuning job.
-
-`  ListTuningJobs  `
-
-Lists tuning jobs in a location.
-
-`  RebaseTunedModel  `
-
-Rebase a tuned model.
-
-## `        google.cloud.aiplatform.v1.IndexEndpointService       `
-
-Methods
-
-`  CreateIndexEndpoint  `
-
-Creates an IndexEndpoint.
-
-`  DeleteIndexEndpoint  `
-
-Deletes an IndexEndpoint.
-
-`  DeployIndex  `
-
-Deploys an Index into this IndexEndpoint, creating a DeployedIndex within it.
-
-`  GetIndexEndpoint  `
-
-Gets an IndexEndpoint.
-
-`  ListIndexEndpoints  `
-
-Lists IndexEndpoints in a Location.
-
-`  MutateDeployedIndex  `
-
-Update an existing DeployedIndex under an IndexEndpoint.
-
-`  UndeployIndex  `
-
-Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it, and freeing all resources it's using.
-
-`  UpdateIndexEndpoint  `
-
-Updates an IndexEndpoint.
-
-## `        google.cloud.aiplatform.v1.IndexService       `
-
-Methods
-
-`  CreateIndex  `
-
-Creates an Index.
-
-`  DeleteIndex  `
-
-Deletes an Index.
-
-`  GetIndex  `
-
-Gets an Index.
-
-`  ListIndexes  `
-
-Lists Indexes in a Location.
-
-`  RemoveDatapoints  `
-
-Remove Datapoints from an Index.
-
-`  UpdateIndex  `
-
-Updates an Index.
-
-`  UpsertDatapoints  `
-
-Add/update Datapoints into an Index.
-
-## `        google.cloud.aiplatform.v1.JobService       `
-
-Methods
-
-`  CancelBatchPredictionJob  `
-
-Cancels a BatchPredictionJob.
-
-`  CancelCustomJob  `
-
-Cancels a CustomJob.
-
-`  CancelHyperparameterTuningJob  `
-
-Cancels a HyperparameterTuningJob.
-
-`  CancelNasJob  `
-
-Cancels a NasJob.
-
-`  CreateBatchPredictionJob  `
-
-Creates a BatchPredictionJob.
-
-`  CreateCustomJob  `
-
-Creates a CustomJob.
-
-`  CreateHyperparameterTuningJob  `
-
-Creates a HyperparameterTuningJob
-
-`  CreateModelDeploymentMonitoringJob  `
-
-Creates a ModelDeploymentMonitoringJob.
-
-`  CreateNasJob  `
-
-Creates a NasJob
-
-`  DeleteBatchPredictionJob  `
-
-Deletes a BatchPredictionJob.
-
-`  DeleteCustomJob  `
-
-Deletes a CustomJob.
-
-`  DeleteHyperparameterTuningJob  `
-
-Deletes a HyperparameterTuningJob.
-
-`  DeleteModelDeploymentMonitoringJob  `
-
-Deletes a ModelDeploymentMonitoringJob.
-
-`  DeleteNasJob  `
-
-Deletes a NasJob.
-
-`  GetBatchPredictionJob  `
-
-Gets a BatchPredictionJob
-
-`  GetCustomJob  `
-
-Gets a CustomJob.
-
-`  GetHyperparameterTuningJob  `
-
-Gets a HyperparameterTuningJob
-
-`  GetModelDeploymentMonitoringJob  `
-
-Gets a ModelDeploymentMonitoringJob.
-
-`  GetNasJob  `
-
-Gets a NasJob
-
-`  GetNasTrialDetail  `
-
-Gets a NasTrialDetail.
-
-`  ListBatchPredictionJobs  `
-
-Lists BatchPredictionJobs in a Location.
-
-`  ListCustomJobs  `
-
-Lists CustomJobs in a Location.
-
-`  ListHyperparameterTuningJobs  `
-
-Lists HyperparameterTuningJobs in a Location.
-
-`  ListModelDeploymentMonitoringJobs  `
-
-Lists ModelDeploymentMonitoringJobs in a Location.
-
-`  ListNasJobs  `
-
-Lists NasJobs in a Location.
-
-`  ListNasTrialDetails  `
-
-List top NasTrialDetails of a NasJob.
-
-`  PauseModelDeploymentMonitoringJob  `
-
-Pauses a ModelDeploymentMonitoringJob.
-
-`  ResumeModelDeploymentMonitoringJob  `
-
-Resumes a paused ModelDeploymentMonitoringJob.
-
-`  SearchModelDeploymentMonitoringStatsAnomalies  `
-
-Searches Model Monitoring Statistics generated within a given time window.
-
-`  UpdateModelDeploymentMonitoringJob  `
-
-Updates a ModelDeploymentMonitoringJob.
-
-## `        google.cloud.aiplatform.v1.LlmBidiService       `
-
-Methods
-
-`  BidiGenerateContent  `
-
-Bidirectional streaming predict.
-
-## `        google.cloud.aiplatform.v1.LlmUtilityService       `
-
-Methods
-
-`  ComputeTokens  `
-
-Return a list of tokens based on the input text.
-
-`  CountTokens  `
-
-Perform a token counting.
-
-## `        google.cloud.aiplatform.v1.MatchService       `
-
-Methods
-
-## `        google.cloud.aiplatform.v1.MetadataService       `
-
-Methods
-
-`  AddContextArtifactsAndExecutions  `
-
-Adds a set of Artifacts and Executions to a Context.
-
-`  AddContextChildren  `
-
-Adds a set of Contexts as children to a parent Context.
-
-`  AddExecutionEvents  `
-
-Adds Events to the specified Execution.
-
-`  CreateArtifact  `
-
-Creates an Artifact associated with a MetadataStore.
-
-`  CreateContext  `
-
-Creates a Context associated with a MetadataStore.
-
-`  CreateExecution  `
-
-Creates an Execution associated with a MetadataStore.
-
-`  CreateMetadataSchema  `
-
-Creates a MetadataSchema.
-
-`  CreateMetadataStore  `
-
-Initializes a MetadataStore, including allocation of resources.
-
-`  DeleteArtifact  `
-
-Deletes an Artifact.
-
-`  DeleteContext  `
-
-Deletes a stored Context.
-
-`  DeleteExecution  `
-
-Deletes an Execution.
-
-`  DeleteMetadataStore  `
-
-Deletes a single MetadataStore and all its child resources (Artifacts, Executions, and Contexts).
-
-`  GetArtifact  `
-
-Retrieves a specific Artifact.
-
-`  GetContext  `
-
-Retrieves a specific Context.
-
-`  GetExecution  `
-
-Retrieves a specific Execution.
-
-`  GetMetadataSchema  `
-
-Retrieves a specific MetadataSchema.
-
-`  GetMetadataStore  `
-
-Retrieves a specific MetadataStore.
-
-`  ListArtifacts  `
-
-Lists Artifacts in the MetadataStore.
-
-`  ListContexts  `
-
-Lists Contexts on the MetadataStore.
-
-`  ListExecutions  `
-
-Lists Executions in the MetadataStore.
-
-`  ListMetadataSchemas  `
-
-Lists MetadataSchemas.
-
-`  ListMetadataStores  `
-
-Lists MetadataStores for a Location.
-
-`  PurgeArtifacts  `
-
-Purges Artifacts.
-
-`  PurgeContexts  `
-
-Purges Contexts.
-
-`  PurgeExecutions  `
-
-Purges Executions.
-
-`  QueryArtifactLineageSubgraph  `
-
-Retrieves lineage of an Artifact represented through Artifacts and Executions connected by Event edges and returned as a LineageSubgraph.
-
-`  QueryContextLineageSubgraph  `
-
-Retrieves Artifacts and Executions within the specified Context, connected by Event edges and returned as a LineageSubgraph.
-
-`  QueryExecutionInputsAndOutputs  `
-
-Obtains the set of input and output Artifacts for this Execution, in the form of LineageSubgraph that also contains the Execution and connecting Events.
-
-`  RemoveContextChildren  `
-
-Remove a set of children contexts from a parent Context.
-
-`  UpdateArtifact  `
-
-Updates a stored Artifact.
-
-`  UpdateContext  `
-
-Updates a stored Context.
-
-`  UpdateExecution  `
-
-Updates a stored Execution.
-
-## `        google.cloud.aiplatform.v1.MigrationService       `
-
-Methods
-
-`  BatchMigrateResources  `
-
-Batch migrates resources from ml.googleapis.com, automl.googleapis.com, and datalabeling.googleapis.com to Agent Platform.
-
-`  SearchMigratableResources  `
-
-Searches all of the resources in automl.googleapis.com, datalabeling.googleapis.com and ml.googleapis.com that can be migrated to Agent Platform's given location.
-
-## `        google.cloud.aiplatform.v1.ModelGardenService       `
-
-Methods
-
-`  Deploy  `
-
-Deploys a model to a new endpoint.
-
-`  GetPublisherModel  `
-
-Gets a Model Garden publisher model.
-
-## `        google.cloud.aiplatform.v1.ModelService       `
-
-Methods
-
-`  BatchImportEvaluatedAnnotations  `
-
-Imports a list of externally generated EvaluatedAnnotations.
-
-`  BatchImportModelEvaluationSlices  `
-
-Imports a list of externally generated ModelEvaluationSlice.
-
-`  CopyModel  `
-
-Copies an already existing Agent Platform Model into the specified Location.
-
-`  DeleteModel  `
-
-Deletes a Model.
-
-`  DeleteModelVersion  `
-
-Deletes a Model version.
-
-`  ExportModel  `
-
-Exports a trained, exportable Model to a location specified by the user.
-
-`  GetModel  `
-
-Gets a Model.
-
-`  GetModelEvaluation  `
-
-Gets a ModelEvaluation.
-
-`  GetModelEvaluationSlice  `
-
-Gets a ModelEvaluationSlice.
-
-`  ImportModelEvaluation  `
-
-Imports an externally generated ModelEvaluation.
-
-`  ListModelEvaluationSlices  `
-
-Lists ModelEvaluationSlices in a ModelEvaluation.
-
-`  ListModelEvaluations  `
-
-Lists ModelEvaluations in a Model.
-
-`  ListModelVersionCheckpoints  `
-
-Lists checkpoints of the specified model version.
-
-`  ListModelVersions  `
-
-Lists versions of the specified model.
-
-`  ListModels  `
-
-Lists Models in a Location.
-
-`  MergeVersionAliases  `
-
-Merges a set of aliases for a Model version.
-
-`  UpdateExplanationDataset  `
-
-Incrementally update the dataset used for an examples model.
-
-`  UpdateModel  `
-
-Updates a Model.
-
-`  UploadModel  `
-
-Uploads a Model artifact into Agent Platform.
-
-## `        google.cloud.aiplatform.v1.NotebookService       `
-
-Methods
-
-`  AssignNotebookRuntime  `
-
-Assigns a NotebookRuntime to a user for a particular Notebook file.
-
-`  CreateNotebookExecutionJob  `
-
-Creates a NotebookExecutionJob.
-
-`  CreateNotebookRuntimeTemplate  `
-
-Creates a NotebookRuntimeTemplate.
-
-`  DeleteNotebookExecutionJob  `
-
-Deletes a NotebookExecutionJob.
-
-`  DeleteNotebookRuntime  `
-
-Deletes a NotebookRuntime.
-
-`  DeleteNotebookRuntimeTemplate  `
-
-Deletes a NotebookRuntimeTemplate.
-
-`  GetNotebookExecutionJob  `
-
-Gets a NotebookExecutionJob.
-
-`  GetNotebookRuntime  `
-
-Gets a NotebookRuntime.
-
-`  GetNotebookRuntimeTemplate  `
-
-Gets a NotebookRuntimeTemplate.
-
-`  ListNotebookExecutionJobs  `
-
-Lists NotebookExecutionJobs in a Location.
-
-`  ListNotebookRuntimeTemplates  `
-
-Lists NotebookRuntimeTemplates in a Location.
-
-`  ListNotebookRuntimes  `
-
-Lists NotebookRuntimes in a Location.
-
-`  StartNotebookRuntime  `
-
-Starts a NotebookRuntime.
-
-`  StopNotebookRuntime  `
-
-Stops a NotebookRuntime.
-
-`  UpdateNotebookRuntimeTemplate  `
-
-Updates a NotebookRuntimeTemplate.
-
-`  UpgradeNotebookRuntime  `
-
-Upgrades a NotebookRuntime.
-
-## `        google.cloud.aiplatform.v1.PersistentResourceService       `
-
-Methods
-
-`  CreatePersistentResource  `
-
-Creates a PersistentResource.
-
-`  DeletePersistentResource  `
-
-Deletes a PersistentResource.
-
-`  GetPersistentResource  `
-
-Gets a PersistentResource.
-
-`  ListPersistentResources  `
-
-Lists PersistentResources in a Location.
-
-`  RebootPersistentResource  `
-
-Reboots a PersistentResource.
-
-`  UpdatePersistentResource  `
-
-Updates a PersistentResource.
-
-## `        google.cloud.aiplatform.v1.PipelineService       `
-
-Methods
-
-`  BatchCancelPipelineJobs  `
-
-Batch cancel PipelineJobs.
-
-`  BatchDeletePipelineJobs  `
-
-Batch deletes PipelineJobs The Operation is atomic.
-
-`  CancelPipelineJob  `
-
-Cancels a PipelineJob.
-
-`  CancelTrainingPipeline  `
-
-Cancels a TrainingPipeline.
-
-`  CreatePipelineJob  `
-
-Creates a PipelineJob.
-
-`  CreateTrainingPipeline  `
-
-Creates a TrainingPipeline.
-
-`  DeletePipelineJob  `
-
-Deletes a PipelineJob.
-
-`  DeleteTrainingPipeline  `
-
-Deletes a TrainingPipeline.
-
-`  GetPipelineJob  `
-
-Gets a PipelineJob.
-
-`  GetTrainingPipeline  `
-
-Gets a TrainingPipeline.
-
-`  ListPipelineJobs  `
-
-Lists PipelineJobs in a Location.
-
-`  ListTrainingPipelines  `
-
-Lists TrainingPipelines in a Location.
-
-## `        google.cloud.aiplatform.v1.PredictionService       `
-
-Methods
-
-`  DeleteResponse  `
-
-Deletes the response from the endpoint.
-
-`  DirectPredict  `
-
-Perform an unary online prediction request to a gRPC model server for Vertex first-party products and frameworks.
-
-`  DirectRawPredict  `
-
-Perform an unary online prediction request to a gRPC model server for custom containers.
-
-`  EmbedContent  `
-
-Embed content with multimodal inputs.
-
-`  Explain  `
-
-Perform an online explanation.
-
-`  GenerateContent  `
-
-Generate content with multimodal inputs.
-
-`  GetResponse  `
-
-Gets the response from the endpoint.
-
-`  Predict  `
-
-Perform an online inference.
-
-`  RawPredict  `
-
-Perform an online prediction with an arbitrary HTTP payload.
-
-`  ServerStreamingPredict  `
-
-Perform a server-side streaming online prediction request for Vertex LLM streaming.
-
-`  StreamDirectPredict  `
-
-Perform a streaming online prediction request to a gRPC model server for Vertex first-party products and frameworks.
-
-`  StreamDirectRawPredict  `
-
-Perform a streaming online prediction request to a gRPC model server for custom containers.
-
-`  StreamGenerateContent  `
-
-Generate content with multimodal inputs with streaming support.
-
-`  StreamRawPredict  `
-
-Perform a streaming online prediction with an arbitrary HTTP payload.
-
-`  StreamingPredict  `  
-**(deprecated)**
-
-Deprecated: Renamed to `  PredictionService.StreamDirectPredict  ` .
-
-`  StreamingRawPredict  `
-
-Perform a streaming online prediction request through gRPC.
-
-## `        google.cloud.aiplatform.v1.ReasoningEngineExecutionService       `
-
-Methods
-
-`  AsyncQueryReasoningEngine  `
-
-Async query using a reasoning engine.
-
-`  BidiInvokeReasoningEngine  `
-
-Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming
-
-`  CancelAsyncQueryReasoningEngine  `
-
-Cancels an AsyncQueryReasoningEngine operation.
-
-`  InvokeReasoningEngine  `
-
-Invokes reasoning engine with arbitrary HTTP requests for both unary and server-side streaming cases.
-
-`  QueryReasoningEngine  `
-
-Queries using a reasoning engine.
-
-`  StreamQueryReasoningEngine  `
-
-Streams queries using a reasoning engine.
-
-## `        google.cloud.aiplatform.v1.ReasoningEngineService       `
-
-Methods
-
-`  CreateReasoningEngine  `
-
-Creates a reasoning engine.
-
-`  DeleteReasoningEngine  `
-
-Deletes a reasoning engine.
-
-`  GetReasoningEngine  `
-
-Gets a reasoning engine.
-
-`  ListReasoningEngines  `
-
-Lists reasoning engines in a location.
-
-`  UpdateReasoningEngine  `
-
-Updates a reasoning engine.
-
-## `        google.cloud.aiplatform.v1.SandboxEnvironmentExecutionService       `
-
-Methods
-
-`  AuthorizeSandboxEnvironmentAccess  `
-
-Checks whether the caller is authorized to access the sandbox environment.
-
-`  ExecuteCode  `
-
-Executes code statelessly.
-
-`  ExecuteSandboxEnvironment  `
-
-Executes using a sandbox environment.
-
-## `        google.cloud.aiplatform.v1.SandboxEnvironmentService       `
-
-Methods
-
-`  CreateSandboxEnvironment  `
-
-Creates a `  SandboxEnvironment  ` in a given reasoning engine.
-
-`  CreateSandboxEnvironmentTemplate  `
-
-Creates a `  SandboxEnvironmentTemplate  ` in a given reasoning engine.
-
-`  DeleteSandboxEnvironment  `
-
-Deletes the specific `  SandboxEnvironment  ` .
-
-`  DeleteSandboxEnvironmentSnapshot  `
-
-Deletes the specific `  SandboxEnvironmentSnapshot  ` .
-
-`  DeleteSandboxEnvironmentTemplate  `
-
-Deletes the specific `  SandboxEnvironmentTemplate  ` .
-
-`  GetSandboxEnvironment  `
-
-Gets details of the specific `  SandboxEnvironment  ` .
-
-`  GetSandboxEnvironmentSnapshot  `
-
-Gets details of the specific `  SandboxEnvironmentSnapshot  ` .
-
-`  GetSandboxEnvironmentTemplate  `
-
-Gets details of the specific `  SandboxEnvironmentTemplate  ` .
-
-`  ListSandboxEnvironmentSnapshots  `
-
-Lists `  SandboxEnvironmentSnapshot  ` s in a given reasoning engine.
-
-`  ListSandboxEnvironmentTemplates  `
-
-Lists `  SandboxEnvironmentTemplate  ` s in a given reasoning engine.
-
-`  ListSandboxEnvironments  `
-
-Lists `  SandboxEnvironment  ` s in a given reasoning engine.
-
-`  PauseSandboxEnvironment  `
-
-Pauses the specific `  SandboxEnvironment  ` .
-
-`  ResumeSandboxEnvironment  `
-
-Resumes the specific `  SandboxEnvironment  ` .
-
-`  SnapshotSandboxEnvironment  `
-
-Snapshots the specific `  SandboxEnvironment  ` resource and creates a `  SandboxEnvironmentSnapshot  ` resource.
-
-## `        google.cloud.aiplatform.v1.ScheduleService       `
-
-Methods
-
-`  CreateSchedule  `
-
-Creates a Schedule.
-
-`  DeleteSchedule  `
-
-Deletes a Schedule.
-
-`  GetSchedule  `
-
-Gets a Schedule.
-
-`  ListSchedules  `
-
-Lists Schedules in a Location.
-
-`  PauseSchedule  `
-
-Pauses a Schedule.
-
-`  ResumeSchedule  `
-
-Resumes a paused Schedule to start scheduling new runs.
-
-`  UpdateSchedule  `
-
-Updates an active or paused Schedule.
-
-## `        google.cloud.aiplatform.v1.SemanticGovernancePolicyEngineService       `
-
-Methods
-
-`  DeprovisionSemanticGovernancePolicyEngine  `
-
-Deprovisions the SemanticGovernancePolicyEngine, tearing down the associated tenant project, GKE cluster, and PSC service attachments.
-
-`  GetSemanticGovernancePolicyEngine  `
-
-Gets a SemanticGovernancePolicyEngine.
-
-`  UpdateSemanticGovernancePolicyEngine  `
-
-Updates a SemanticGovernancePolicyEngine.
-
-## `        google.cloud.aiplatform.v1.SemanticGovernancePolicyService       `
-
-Methods
-
-`  CreateSemanticGovernancePolicy  `
-
-Creates a SemanticGovernancePolicy.
-
-`  DeleteSemanticGovernancePolicy  `
-
-Deletes a SemanticGovernancePolicy.
-
-`  GetSemanticGovernancePolicy  `
-
-Gets a SemanticGovernancePolicy.
-
-`  ListSemanticGovernancePolicies  `
-
-Lists SemanticGovernancePolicies in a given location.
-
-`  UpdateSemanticGovernancePolicy  `
-
-Updates a SemanticGovernancePolicy.
-
-## `        google.cloud.aiplatform.v1.ServingProfileService       `
-
-Methods
-
-`  CreateServingProfile  `
-
-Creates a ServingProfile.
-
-`  DeleteServingProfile  `
-
-Deletes a ServingProfile.
-
-`  GetServingProfile  `
-
-Gets a ServingProfile.
-
-`  ListServingProfiles  `
-
-Lists ServingProfiles in a Location.
-
-`  UpdateServingProfile  `
-
-Updates a ServingProfile.
-
-## `        google.cloud.aiplatform.v1.SessionService       `
-
-Methods
-
-`  AppendEvent  `
-
-Appends an event to a given session.
-
-`  CreateSession  `
-
-Creates a new `  Session  ` .
-
-`  DeleteSession  `
-
-Deletes details of the specific `  Session  ` .
-
-`  GetSession  `
-
-Gets details of the specific `  Session  ` .
-
-`  ListEvents  `
-
-Lists `  Events  ` in a given session.
-
-`  ListSessions  `
-
-Lists `  Sessions  ` in a given reasoning engine.
-
-`  UpdateSession  `
-
-Updates the specific `  Session  ` .
-
-## `        google.cloud.aiplatform.v1.SpecialistPoolService       `
-
-Methods
-
-`  CreateSpecialistPool  `
-
-Creates a SpecialistPool.
-
-`  DeleteSpecialistPool  `
-
-Deletes a SpecialistPool as well as all Specialists in the pool.
-
-`  GetSpecialistPool  `
-
-Gets a SpecialistPool.
-
-`  ListSpecialistPools  `
-
-Lists SpecialistPools in a Location.
-
-`  UpdateSpecialistPool  `
-
-Updates a SpecialistPool.
-
-## `        google.cloud.aiplatform.v1.TensorboardService       `
-
-Methods
-
-`  BatchCreateTensorboardRuns  `
-
-Batch create TensorboardRuns.
-
-`  BatchCreateTensorboardTimeSeries  `
-
-Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.
-
-`  BatchReadTensorboardTimeSeriesData  `
-
-Reads multiple TensorboardTimeSeries' data.
-
-`  CreateTensorboard  `
-
-Creates a Tensorboard.
-
-`  CreateTensorboardExperiment  `
-
-Creates a TensorboardExperiment.
-
-`  CreateTensorboardRun  `
-
-Creates a TensorboardRun.
-
-`  CreateTensorboardTimeSeries  `
-
-Creates a TensorboardTimeSeries.
-
-`  DeleteTensorboard  `
-
-Deletes a Tensorboard.
-
-`  DeleteTensorboardExperiment  `
-
-Deletes a TensorboardExperiment.
-
-`  DeleteTensorboardRun  `
-
-Deletes a TensorboardRun.
-
-`  DeleteTensorboardTimeSeries  `
-
-Deletes a TensorboardTimeSeries.
-
-`  ExportTensorboardTimeSeriesData  `
-
-Exports a TensorboardTimeSeries' data.
-
-`  GetTensorboard  `
-
-Gets a Tensorboard.
-
-`  GetTensorboardExperiment  `
-
-Gets a TensorboardExperiment.
-
-`  GetTensorboardRun  `
-
-Gets a TensorboardRun.
-
-`  GetTensorboardTimeSeries  `
-
-Gets a TensorboardTimeSeries.
-
-`  ListTensorboardExperiments  `
-
-Lists TensorboardExperiments in a Location.
-
-`  ListTensorboardRuns  `
-
-Lists TensorboardRuns in a Location.
-
-`  ListTensorboardTimeSeries  `
-
-Lists TensorboardTimeSeries in a Location.
-
-`  ListTensorboards  `
-
-Lists Tensorboards in a Location.
-
-`  ReadTensorboardBlobData  `
-
-Gets bytes of TensorboardBlobs.
-
-`  ReadTensorboardSize  `
-
-Returns the storage size for a given TensorBoard instance.
-
-`  ReadTensorboardTimeSeriesData  `
-
-Reads a TensorboardTimeSeries' data.
-
-`  ReadTensorboardUsage  `
-
-Returns a list of monthly active users for a given TensorBoard instance.
-
-`  UpdateTensorboard  `
-
-Updates a Tensorboard.
-
-`  UpdateTensorboardExperiment  `
-
-Updates a TensorboardExperiment.
-
-`  UpdateTensorboardRun  `
-
-Updates a TensorboardRun.
-
-`  UpdateTensorboardTimeSeries  `
-
-Updates a TensorboardTimeSeries.
-
-`  WriteTensorboardExperimentData  `
-
-Write time series data points of multiple TensorboardTimeSeries in multiple TensorboardRun's.
-
-`  WriteTensorboardRunData  `
-
-Write time series data points into multiple TensorboardTimeSeries under a TensorboardRun.
-
-## `        google.cloud.aiplatform.v1.VertexRagDataService       `
-
-Methods
-
-`  CreateRagCorpus  `
-
-Creates a RagCorpus.
-
-`  DeleteRagCorpus  `
-
-Deletes a RagCorpus.
-
-`  DeleteRagFile  `
-
-Deletes a RagFile.
-
-`  GetRagCorpus  `
-
-Gets a RagCorpus.
-
-`  GetRagEngineConfig  `
-
-Gets a RagEngineConfig.
-
-`  GetRagFile  `
-
-Gets a RagFile.
-
-`  ImportRagFiles  `
-
-Import files from Google Cloud Storage or Google Drive into a RagCorpus.
-
-`  ListRagCorpora  `
-
-Lists RagCorpora in a Location.
-
-`  ListRagFiles  `
-
-Lists RagFiles in a RagCorpus.
-
-`  UpdateRagCorpus  `
-
-Updates a RagCorpus.
-
-`  UpdateRagEngineConfig  `
-
-Updates a RagEngineConfig.
-
-## `        google.cloud.aiplatform.v1.VertexRagService       `
-
-Methods
-
-`  AskContexts  `
-
-Agentic Retrieval Ask API for RAG.
-
-`  AsyncRetrieveContexts  `
-
-Asynchronous API to retrieves relevant contexts for a query.
-
-`  AugmentPrompt  `
-
-Given an input prompt, it returns augmented prompt from vertex rag store to guide LLM towards generating grounded responses.
-
-`  CorroborateContent  `
-
-Given an input text, it returns a score that evaluates the factuality of the text.
-
-`  RetrieveContexts  `
-
-Retrieves relevant contexts for a query.
-
-## `        google.cloud.aiplatform.v1.VizierService       `
-
-Methods
-
-`  AddTrialMeasurement  `
-
-Adds a measurement of the objective metrics to a Trial.
-
-`  CheckTrialEarlyStoppingState  `
-
-Checks whether a Trial should stop or not.
-
-`  CompleteTrial  `
-
-Marks a Trial as complete.
-
-`  CreateStudy  `
-
-Creates a Study.
-
-`  CreateTrial  `
-
-Adds a user provided Trial to a Study.
-
-`  DeleteStudy  `
-
-Deletes a Study.
-
-`  DeleteTrial  `
-
-Deletes a Trial.
-
-`  GetStudy  `
-
-Gets a Study by name.
-
-`  GetTrial  `
-
-Gets a Trial.
-
-`  ListOptimalTrials  `
-
-Lists the pareto-optimal Trials for multi-objective Study or the optimal Trials for single-objective Study.
-
-`  ListStudies  `
-
-Lists all the studies in a region for an associated project.
-
-`  ListTrials  `
-
-Lists the Trials associated with a Study.
-
-`  LookupStudy  `
-
-Looks a study up using the user-defined display\_name field instead of the fully qualified resource name.
-
-`  StopTrial  `
-
-Stops a Trial.
-
-`  SuggestTrials  `
-
-Adds one or more Trials to a Study, with parameter values suggested by Agent Platform Vizier.
-
-## `        google.cloud.aiplatform.v1beta1.AgentService       `
-
-Methods
-
-`  CreateAgent  `
-
-Creates an agent.
-
-`  DeleteAgent  `
-
-Deletes an agent.
-
-`  GetAgent  `
-
-Retrieves an agent.
-
-`  ListAgents  `
-
-Lists the agents in a location that belong to the caller.
-
-`  UpdateAgent  `
-
-Updates an agent.
-
-## `        google.cloud.aiplatform.v1beta1.DataFoundryService       `
-
-Methods
-
-`  GenerateSyntheticData  `
-
-Generates synthetic (artificial) data based on a description
-
-## `        google.cloud.aiplatform.v1beta1.DatasetService       `
-
-Methods
-
-`  AssembleData  `
-
-Assembles each row of a multimodal dataset and writes the result into a BigQuery table.
-
-`  AssessData  `
-
-Assesses the state or validity of the dataset with respect to a given use case.
-
-`  CreateDataset  `
-
-Creates a Dataset.
-
-`  CreateDatasetVersion  `
-
-Create a version from a Dataset.
-
-`  DeleteDataset  `
-
-Deletes a Dataset.
-
-`  DeleteDatasetVersion  `
-
-Deletes a Dataset version.
-
-`  DeleteSavedQuery  `
-
-Deletes a SavedQuery.
-
-`  ExportData  `
-
-Exports data from a Dataset.
-
-`  GetAnnotationSpec  `
-
-Gets an AnnotationSpec.
-
-`  GetDataset  `
-
-Gets a Dataset.
-
-`  GetDatasetVersion  `
-
-Gets a Dataset version.
-
-`  ImportData  `
-
-Imports data into a Dataset.
-
-`  ListAnnotations  `
-
-Lists Annotations belongs to a dataitem.
-
-`  ListDataItems  `
-
-Lists DataItems in a Dataset.
-
-`  ListDatasetVersions  `
-
-Lists DatasetVersions in a Dataset.
-
-`  ListDatasets  `
-
-Lists Datasets in a Location.
-
-`  ListSavedQueries  `
-
-Lists SavedQueries in a Dataset.
-
-`  RestoreDatasetVersion  `
-
-Restores a dataset version.
-
-`  SearchDataItems  `
-
-Searches DataItems in a Dataset.
-
-`  UpdateDataset  `
-
-Updates a Dataset.
-
-`  UpdateDatasetVersion  `
-
-Updates a DatasetVersion.
-
-## `        google.cloud.aiplatform.v1beta1.DeploymentResourcePoolService       `
-
-Methods
-
-`  CreateDeploymentResourcePool  `
-
-Create a DeploymentResourcePool.
-
-`  DeleteDeploymentResourcePool  `
-
-Delete a DeploymentResourcePool.
-
-`  GetDeploymentResourcePool  `
-
-Get a DeploymentResourcePool.
-
-`  ListDeploymentResourcePools  `
-
-List DeploymentResourcePools in a location.
-
-`  QueryDeployedModels  `
-
-List DeployedModels that have been deployed on this DeploymentResourcePool.
-
-`  UpdateDeploymentResourcePool  `
-
-Update a DeploymentResourcePool.
-
-## `        google.cloud.aiplatform.v1beta1.EndpointService       `
-
-Methods
-
-`  CreateEndpoint  `
-
-Creates an Endpoint.
-
-`  DeleteEndpoint  `
-
-Deletes an Endpoint.
-
-`  DeployModel  `
-
-Deploys a Model into this Endpoint, creating a DeployedModel within it.
-
-`  FetchPublisherModelConfig  `
-
-Fetches the configs of publisher models.
-
-`  GetEndpoint  `
-
-Gets an Endpoint.
-
-`  ListEndpoints  `
-
-Lists Endpoints in a Location.
-
-`  MutateDeployedModel  `
-
-Updates an existing deployed model.
-
-`  SetPublisherModelConfig  `
-
-Sets (creates or updates) configs of publisher models.
-
-`  UndeployModel  `
-
-Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freeing all resources it's using.
-
-`  UpdateEndpoint  `
-
-Updates an Endpoint.
-
-`  UpdateEndpointLongRunning  `
-
-Updates an Endpoint with a long running operation.
-
-## `        google.cloud.aiplatform.v1beta1.EvaluationAnalyticsService       `
-
-Methods
-
-`  GenerateLossClusters  `
-
-Generates loss clusters from evaluation results.
-
-## `        google.cloud.aiplatform.v1beta1.EvaluationService       `
-
-Methods
-
-`  EvaluateDataset  `
-
-Evaluates a dataset based on a set of given metrics.
-
-`  EvaluateInstances  `
-
-Evaluates instances based on a given metric.
-
-`  GenerateInstanceRubrics  `
-
-Generates rubrics for a given prompt.
-
-## `        google.cloud.aiplatform.v1beta1.ExampleStoreService       `
-
-Methods
-
-`  CreateExampleStore  `
-
-Create an ExampleStore.
-
-`  DeleteExampleStore  `
-
-Delete an ExampleStore.
-
-`  FetchExamples  `
-
-Get Examples from the Example Store.
-
-`  GetExampleStore  `
-
-Get an ExampleStore.
-
-`  ListExampleStores  `
-
-List ExampleStores in a Location.
-
-`  RemoveExamples  `
-
-Remove Examples from the Example Store.
-
-`  SearchExamples  `
-
-Search for similar Examples for given selection criteria.
-
-`  UpdateExampleStore  `
-
-Update an ExampleStore.
-
-`  UpsertExamples  `
-
-Create or update Examples in the Example Store.
-
-## `        google.cloud.aiplatform.v1beta1.ExtensionExecutionService       `
-
-Methods
-
-`  ExecuteExtension  `
-
-Executes the request against a given extension.
-
-`  QueryExtension  `
-
-Queries an extension with a default controller.
-
-## `        google.cloud.aiplatform.v1beta1.ExtensionRegistryService       `
-
-Methods
-
-`  DeleteExtension  `
-
-Deletes an Extension.
-
-`  GetExtension  `
-
-Gets an Extension.
-
-`  ImportExtension  `
-
-Imports an Extension.
-
-`  ListExtensions  `
-
-Lists Extensions in a location.
-
-`  UpdateExtension  `
-
-Updates an Extension.
-
-## `        google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService       `
-
-Methods
-
-`  CreateFeatureOnlineStore  `
-
-Creates a new FeatureOnlineStore in a given project and location.
-
-`  CreateFeatureView  `
-
-Creates a new FeatureView in a given FeatureOnlineStore.
-
-`  DeleteFeatureOnlineStore  `
-
-Deletes a single FeatureOnlineStore.
-
-`  DeleteFeatureView  `
-
-Deletes a single FeatureView.
-
-`  GetFeatureOnlineStore  `
-
-Gets details of a single FeatureOnlineStore.
-
-`  GetFeatureView  `
-
-Gets details of a single FeatureView.
-
-`  GetFeatureViewSync  `
-
-Gets details of a single FeatureViewSync.
-
-`  ListFeatureOnlineStores  `
-
-Lists FeatureOnlineStores in a given project and location.
-
-`  ListFeatureViewSyncs  `
-
-Lists FeatureViewSyncs in a given FeatureView.
-
-`  ListFeatureViews  `
-
-Lists FeatureViews in a given FeatureOnlineStore.
-
-`  SyncFeatureView  `
-
-Triggers on-demand sync for the FeatureView.
-
-`  UpdateFeatureOnlineStore  `
-
-Updates the parameters of a single FeatureOnlineStore.
-
-`  UpdateFeatureView  `
-
-Updates the parameters of a single FeatureView.
-
-## `        google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService       `
-
-Methods
-
-`  FeatureViewDirectWrite  `
-
-Bidirectional streaming RPC to directly write to feature values in a feature view.
-
-`  FetchFeatureValues  `
-
-Fetch feature values under a FeatureView.
-
-`  GenerateFetchAccessToken  `
-
-RPC to generate an access token for the given feature view.
-
-`  SearchNearestEntities  `
-
-Search the nearest entities under a FeatureView.
-
-`  StreamingFetchFeatureValues  `
-
-Bidirectional streaming RPC to fetch feature values under a FeatureView.
-
-## `        google.cloud.aiplatform.v1beta1.FeatureRegistryService       `
-
-Methods
-
-`  BatchCreateFeatures  `
-
-Creates a batch of Features in a given FeatureGroup.
-
-`  CreateFeature  `
-
-Creates a new Feature in a given FeatureGroup.
-
-`  CreateFeatureGroup  `
-
-Creates a new FeatureGroup in a given project and location.
-
-`  CreateFeatureMonitor  `
-
-Creates a new FeatureMonitor in a given project, location and FeatureGroup.
-
-`  CreateFeatureMonitorJob  `
-
-Creates a new feature monitor job.
-
-`  DeleteFeature  `
-
-Deletes a single Feature.
-
-`  DeleteFeatureGroup  `
-
-Deletes a single FeatureGroup.
-
-`  DeleteFeatureMonitor  `
-
-Deletes a single FeatureMonitor.
-
-`  GetFeature  `
-
-Gets details of a single Feature.
-
-`  GetFeatureGroup  `
-
-Gets details of a single FeatureGroup.
-
-`  GetFeatureMonitor  `
-
-Gets details of a single FeatureMonitor.
-
-`  GetFeatureMonitorJob  `
-
-Get a feature monitor job.
-
-`  ListFeatureGroups  `
-
-Lists FeatureGroups in a given project and location.
-
-`  ListFeatureMonitorJobs  `
-
-List feature monitor jobs.
-
-`  ListFeatureMonitors  `
-
-Lists FeatureGroups in a given project and location.
-
-`  ListFeatures  `
-
-Lists Features in a given FeatureGroup.
-
-`  UpdateFeature  `
-
-Updates the parameters of a single Feature.
-
-`  UpdateFeatureGroup  `
-
-Updates the parameters of a single FeatureGroup.
-
-`  UpdateFeatureMonitor  `
-
-Updates the parameters of a single FeatureMonitor.
-
-## `        google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService       `
-
-Methods
-
-`  ReadFeatureValues  `
-
-Reads Feature values of a specific entity of an EntityType.
-
-`  StreamingReadFeatureValues  `
-
-Reads Feature values for multiple entities.
-
-`  WriteFeatureValues  `
-
-Writes Feature values of one or more entities of an EntityType.
-
-## `        google.cloud.aiplatform.v1beta1.FeaturestoreService       `
-
-Methods
-
-`  BatchCreateFeatures  `
-
-Creates a batch of Features in a given EntityType.
-
-`  BatchReadFeatureValues  `
-
-Batch reads Feature values from a Featurestore.
-
-`  CreateEntityType  `
-
-Creates a new EntityType in a given Featurestore.
-
-`  CreateFeature  `
-
-Creates a new Feature in a given EntityType.
-
-`  CreateFeaturestore  `
-
-Creates a new Featurestore in a given project and location.
-
-`  DeleteEntityType  `
-
-Deletes a single EntityType.
-
-`  DeleteFeature  `
-
-Deletes a single Feature.
-
-`  DeleteFeatureValues  `
-
-Delete Feature values from Featurestore.
-
-`  DeleteFeaturestore  `
-
-Deletes a single Featurestore.
-
-`  ExportFeatureValues  `
-
-Exports Feature values from all the entities of a target EntityType.
-
-`  GetEntityType  `
-
-Gets details of a single EntityType.
-
-`  GetFeature  `
-
-Gets details of a single Feature.
-
-`  GetFeaturestore  `
-
-Gets details of a single Featurestore.
-
-`  ImportFeatureValues  `
-
-Imports Feature values into the Featurestore from a source storage.
-
-`  ListEntityTypes  `
-
-Lists EntityTypes in a given Featurestore.
-
-`  ListFeatures  `
-
-Lists Features in a given EntityType.
-
-`  ListFeaturestores  `
-
-Lists Featurestores in a given project and location.
-
-`  SearchFeatures  `
-
-Searches Features matching a query in a given project.
-
-`  UpdateEntityType  `
-
-Updates the parameters of a single EntityType.
-
-`  UpdateFeature  `
-
-Updates the parameters of a single Feature.
-
-`  UpdateFeaturestore  `
-
-Updates the parameters of a single Featurestore.
-
-## `        google.cloud.aiplatform.v1beta1.FeedbackService       `
-
-Methods
-
-`  CreateFeedbackEntry  `
-
-Creates a new FeedbackEntry.
-
-`  DeleteFeedbackEntry  `
-
-Deletes a FeedbackEntry and its associated FeedbackContext.
-
-`  GetFeedbackContext  `
-
-Retrieves the FeedbackContext associated with a FeedbackEntry.
-
-`  GetFeedbackEntry  `
-
-Retrieves a single FeedbackEntry by its resource name.
-
-`  ListFeedbackEntries  `
-
-Lists FeedbackEntries in a ReasoningEngine.
-
-`  UpdateFeedbackContext  `
-
-Updates the FeedbackContext associated with a FeedbackEntry.
-
-`  UpdateFeedbackEntry  `
-
-Updates an existing FeedbackEntry.
-
-## `        google.cloud.aiplatform.v1beta1.GenAiCacheService       `
-
-Methods
-
-`  CreateCachedContent  `
-
-Creates cached content, this call will initialize the cached content in the data storage, and users need to pay for the cache data storage.
-
-`  DeleteCachedContent  `
-
-Deletes cached content
-
-`  GetCachedContent  `
-
-Gets cached content configurations
-
-`  ListCachedContents  `
-
-Lists cached contents in a project
-
-`  UpdateCachedContent  `
-
-Updates cached content configurations
-
-## `        google.cloud.aiplatform.v1beta1.GenAiTuningService       `
-
-Methods
-
-`  CancelTuningJob  `
-
-Cancels a tuning job.
-
-`  CreateTuningJob  `
-
-Creates a tuning job.
-
-`  GetTuningJob  `
-
-Gets a tuning job.
-
-`  ListTuningJobs  `
-
-Lists tuning jobs in a location.
-
-`  RebaseTunedModel  `
-
-Rebase a tuned model.
-
-`  ValidateReinforcementTuningReward  `
-
-Validates a reward on a given example.
-
-## `        google.cloud.aiplatform.v1beta1.IndexEndpointService       `
-
-Methods
-
-`  CreateIndexEndpoint  `
-
-Creates an IndexEndpoint.
-
-`  DeleteIndexEndpoint  `
-
-Deletes an IndexEndpoint.
-
-`  DeployIndex  `
-
-Deploys an Index into this IndexEndpoint, creating a DeployedIndex within it.
-
-`  GetIndexEndpoint  `
-
-Gets an IndexEndpoint.
-
-`  ListIndexEndpoints  `
-
-Lists IndexEndpoints in a Location.
-
-`  MutateDeployedIndex  `
-
-Update an existing DeployedIndex under an IndexEndpoint.
-
-`  UndeployIndex  `
-
-Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it, and freeing all resources it's using.
-
-`  UpdateIndexEndpoint  `
-
-Updates an IndexEndpoint.
-
-## `        google.cloud.aiplatform.v1beta1.IndexService       `
-
-Methods
-
-`  CreateIndex  `
-
-Creates an Index.
-
-`  DeleteIndex  `
-
-Deletes an Index.
-
-`  GetIndex  `
-
-Gets an Index.
-
-`  ImportIndex  `
-
-Imports an Index from an external source (e.g., BigQuery).
-
-`  ListIndexes  `
-
-Lists Indexes in a Location.
-
-`  RemoveDatapoints  `
-
-Remove Datapoints from an Index.
-
-`  UpdateIndex  `
-
-Updates an Index.
-
-`  UpsertDatapoints  `
-
-Add/update Datapoints into an Index.
-
-## `        google.cloud.aiplatform.v1beta1.JobService       `
-
-Methods
-
-`  CancelBatchPredictionJob  `
-
-Cancels a BatchPredictionJob.
-
-`  CancelCustomJob  `
-
-Cancels a CustomJob.
-
-`  CancelHyperparameterTuningJob  `
-
-Cancels a HyperparameterTuningJob.
-
-`  CreateBatchPredictionJob  `
-
-Creates a BatchPredictionJob.
-
-`  CreateCustomJob  `
-
-Creates a CustomJob.
-
-`  CreateHyperparameterTuningJob  `
-
-Creates a HyperparameterTuningJob
-
-`  CreateModelDeploymentMonitoringJob  `
-
-Creates a ModelDeploymentMonitoringJob.
-
-`  DeleteBatchPredictionJob  `
-
-Deletes a BatchPredictionJob.
-
-`  DeleteCustomJob  `
-
-Deletes a CustomJob.
-
-`  DeleteHyperparameterTuningJob  `
-
-Deletes a HyperparameterTuningJob.
-
-`  DeleteModelDeploymentMonitoringJob  `
-
-Deletes a ModelDeploymentMonitoringJob.
-
-`  GetBatchPredictionJob  `
-
-Gets a BatchPredictionJob
-
-`  GetCustomJob  `
-
-Gets a CustomJob.
-
-`  GetHyperparameterTuningJob  `
-
-Gets a HyperparameterTuningJob
-
-`  GetModelDeploymentMonitoringJob  `
-
-Gets a ModelDeploymentMonitoringJob.
-
-`  ListBatchPredictionJobs  `
-
-Lists BatchPredictionJobs in a Location.
-
-`  ListCustomJobs  `
-
-Lists CustomJobs in a Location.
-
-`  ListHyperparameterTuningJobs  `
-
-Lists HyperparameterTuningJobs in a Location.
-
-`  ListModelDeploymentMonitoringJobs  `
-
-Lists ModelDeploymentMonitoringJobs in a Location.
-
-`  PauseModelDeploymentMonitoringJob  `
-
-Pauses a ModelDeploymentMonitoringJob.
-
-`  ResumeModelDeploymentMonitoringJob  `
-
-Resumes a paused ModelDeploymentMonitoringJob.
-
-`  SearchModelDeploymentMonitoringStatsAnomalies  `
-
-Searches Model Monitoring Statistics generated within a given time window.
-
-`  UpdateModelDeploymentMonitoringJob  `
-
-Updates a ModelDeploymentMonitoringJob.
-
-## `        google.cloud.aiplatform.v1beta1.LlmBidiService       `
-
-Methods
-
-`  BidiGenerateContent  `
-
-Bidirectional streaming predict.
-
-## `        google.cloud.aiplatform.v1beta1.LlmUtilityService       `
-
-Methods
-
-`  ComputeTokens  `
-
-Return a list of tokens based on the input text.
-
-## `        google.cloud.aiplatform.v1beta1.MatchService       `
-
-Methods
-
-## `        google.cloud.aiplatform.v1beta1.MemoryBankService       `
-
-Methods
-
-`  CreateMemory  `
-
-Create a Memory.
-
-`  DeleteMemory  `
-
-Delete a Memory.
-
-`  GenerateMemories  `
-
-Generate memories.
-
-`  GetMemory  `
-
-Get a Memory.
-
-`  IngestEvents  `
-
-Ingests events for a Memory Bank.
-
-`  ListMemories  `
-
-List Memories.
-
-`  RetrieveMemories  `
-
-Retrieve memories.
-
-`  RetrieveProfiles  `
-
-Retrieves profiles.
-
-`  UpdateMemory  `
-
-Update a Memory.
-
-## `        google.cloud.aiplatform.v1beta1.MetadataService       `
-
-Methods
-
-`  AddContextArtifactsAndExecutions  `
-
-Adds a set of Artifacts and Executions to a Context.
-
-`  AddContextChildren  `
-
-Adds a set of Contexts as children to a parent Context.
-
-`  AddExecutionEvents  `
-
-Adds Events to the specified Execution.
-
-`  CreateArtifact  `
-
-Creates an Artifact associated with a MetadataStore.
-
-`  CreateContext  `
-
-Creates a Context associated with a MetadataStore.
-
-`  CreateExecution  `
-
-Creates an Execution associated with a MetadataStore.
-
-`  CreateMetadataSchema  `
-
-Creates a MetadataSchema.
-
-`  CreateMetadataStore  `
-
-Initializes a MetadataStore, including allocation of resources.
-
-`  DeleteArtifact  `
-
-Deletes an Artifact.
-
-`  DeleteContext  `
-
-Deletes a stored Context.
-
-`  DeleteExecution  `
-
-Deletes an Execution.
-
-`  DeleteMetadataStore  `
-
-Deletes a single MetadataStore and all its child resources (Artifacts, Executions, and Contexts).
-
-`  GetArtifact  `
-
-Retrieves a specific Artifact.
-
-`  GetContext  `
-
-Retrieves a specific Context.
-
-`  GetExecution  `
-
-Retrieves a specific Execution.
-
-`  GetMetadataSchema  `
-
-Retrieves a specific MetadataSchema.
-
-`  GetMetadataStore  `
-
-Retrieves a specific MetadataStore.
-
-`  ListArtifacts  `
-
-Lists Artifacts in the MetadataStore.
-
-`  ListContexts  `
-
-Lists Contexts on the MetadataStore.
-
-`  ListExecutions  `
-
-Lists Executions in the MetadataStore.
-
-`  ListMetadataSchemas  `
-
-Lists MetadataSchemas.
-
-`  ListMetadataStores  `
-
-Lists MetadataStores for a Location.
-
-`  PurgeArtifacts  `
-
-Purges Artifacts.
-
-`  PurgeContexts  `
-
-Purges Contexts.
-
-`  PurgeExecutions  `
-
-Purges Executions.
-
-`  QueryArtifactLineageSubgraph  `
-
-Retrieves lineage of an Artifact represented through Artifacts and Executions connected by Event edges and returned as a LineageSubgraph.
-
-`  QueryContextLineageSubgraph  `
-
-Retrieves Artifacts and Executions within the specified Context, connected by Event edges and returned as a LineageSubgraph.
-
-`  QueryExecutionInputsAndOutputs  `
-
-Obtains the set of input and output Artifacts for this Execution, in the form of LineageSubgraph that also contains the Execution and connecting Events.
-
-`  RemoveContextChildren  `
-
-Remove a set of children contexts from a parent Context.
-
-`  UpdateArtifact  `
-
-Updates a stored Artifact.
-
-`  UpdateContext  `
-
-Updates a stored Context.
-
-`  UpdateExecution  `
-
-Updates a stored Execution.
-
-## `        google.cloud.aiplatform.v1beta1.MigrationService       `
-
-Methods
-
-`  BatchMigrateResources  `
-
-Batch migrates resources from ml.googleapis.com, automl.googleapis.com, and datalabeling.googleapis.com to Agent Platform.
-
-`  SearchMigratableResources  `
-
-Searches all of the resources in automl.googleapis.com, datalabeling.googleapis.com and ml.googleapis.com that can be migrated to Agent Platform's given location.
-
-## `        google.cloud.aiplatform.v1beta1.ModelGardenService       `
-
-Methods
-
-`  AcceptPublisherModelEula  `
-
-Accepts the EULA acceptance status of a publisher model.
-
-`  CheckPublisherModelEulaAcceptance  `
-
-Checks the EULA acceptance status of a publisher model.
-
-`  Deploy  `
-
-Deploys a model to a new endpoint.
-
-`  DeployPublisherModel  `  
-**(deprecated)**
-
-Deploys publisher models.
-
-`  EnableModel  `
-
-Enables model for the project if prerequisites are met (e.g.
-
-`  ExportPublisherModel  `
-
-Exports a publisher model to a user provided Google Cloud Storage bucket.
-
-`  GetPublisherModel  `
-
-Gets a Model Garden publisher model.
-
-`  ListPublisherModels  `
-
-Lists publisher models in Model Garden.
-
-## `        google.cloud.aiplatform.v1beta1.ModelMonitoringService       `
-
-Methods
-
-`  CreateModelMonitor  `
-
-Creates a ModelMonitor.
-
-`  CreateModelMonitoringJob  `
-
-Creates a ModelMonitoringJob.
-
-`  DeleteModelMonitor  `
-
-Deletes a ModelMonitor.
-
-`  DeleteModelMonitoringJob  `
-
-Deletes a ModelMonitoringJob.
-
-`  GetModelMonitor  `
-
-Gets a ModelMonitor.
-
-`  GetModelMonitoringJob  `
-
-Gets a ModelMonitoringJob.
-
-`  ListModelMonitoringJobs  `
-
-Lists ModelMonitoringJobs.
-
-`  ListModelMonitors  `
-
-Lists ModelMonitors in a Location.
-
-`  SearchModelMonitoringAlerts  `
-
-Returns the Model Monitoring alerts.
-
-`  SearchModelMonitoringStats  `
-
-Searches Model Monitoring Stats generated within a given time window.
-
-`  UpdateModelMonitor  `
-
-Updates a ModelMonitor.
-
-## `        google.cloud.aiplatform.v1beta1.ModelService       `
-
-Methods
-
-`  BatchImportEvaluatedAnnotations  `
-
-Imports a list of externally generated EvaluatedAnnotations.
-
-`  BatchImportModelEvaluationSlices  `
-
-Imports a list of externally generated ModelEvaluationSlice.
-
-`  CopyModel  `
-
-Copies an already existing Agent Platform Model into the specified Location.
-
-`  DeleteModel  `
-
-Deletes a Model.
-
-`  DeleteModelVersion  `
-
-Deletes a Model version.
-
-`  ExportModel  `
-
-Exports a trained, exportable Model to a location specified by the user.
-
-`  GetModel  `
-
-Gets a Model.
-
-`  GetModelEvaluation  `
-
-Gets a ModelEvaluation.
-
-`  GetModelEvaluationSlice  `
-
-Gets a ModelEvaluationSlice.
-
-`  ImportModelEvaluation  `
-
-Imports an externally generated ModelEvaluation.
-
-`  ListModelEvaluationSlices  `
-
-Lists ModelEvaluationSlices in a ModelEvaluation.
-
-`  ListModelEvaluations  `
-
-Lists ModelEvaluations in a Model.
-
-`  ListModelVersionCheckpoints  `
-
-Lists checkpoints of the specified model version.
-
-`  ListModelVersions  `
-
-Lists versions of the specified model.
-
-`  ListModels  `
-
-Lists Models in a Location.
-
-`  MergeVersionAliases  `
-
-Merges a set of aliases for a Model version.
-
-`  RecommendSpec  `
-
-Gets a Model's spec recommendations.
-
-`  UpdateExplanationDataset  `
-
-Incrementally update the dataset used for an examples model.
-
-`  UpdateModel  `
-
-Updates a Model.
-
-`  UploadModel  `
-
-Uploads a Model artifact into Agent Platform.
-
-## `        google.cloud.aiplatform.v1beta1.NotebookService       `
-
-Methods
-
-`  AssignNotebookRuntime  `
-
-Assigns a NotebookRuntime to a user for a particular Notebook file.
-
-`  CreateNotebookExecutionJob  `
-
-Creates a NotebookExecutionJob.
-
-`  CreateNotebookRuntimeTemplate  `
-
-Creates a NotebookRuntimeTemplate.
-
-`  DeleteNotebookExecutionJob  `
-
-Deletes a NotebookExecutionJob.
-
-`  DeleteNotebookRuntime  `
-
-Deletes a NotebookRuntime.
-
-`  DeleteNotebookRuntimeTemplate  `
-
-Deletes a NotebookRuntimeTemplate.
-
-`  GetNotebookExecutionJob  `
-
-Gets a NotebookExecutionJob.
-
-`  GetNotebookRuntime  `
-
-Gets a NotebookRuntime.
-
-`  GetNotebookRuntimeTemplate  `
-
-Gets a NotebookRuntimeTemplate.
-
-`  ListNotebookExecutionJobs  `
-
-Lists NotebookExecutionJobs in a Location.
-
-`  ListNotebookRuntimeTemplates  `
-
-Lists NotebookRuntimeTemplates in a Location.
-
-`  ListNotebookRuntimes  `
-
-Lists NotebookRuntimes in a Location.
-
-`  StartNotebookRuntime  `
-
-Starts a NotebookRuntime.
-
-`  StopNotebookRuntime  `
-
-Stops a NotebookRuntime.
-
-`  UpdateNotebookRuntimeTemplate  `
-
-Updates a NotebookRuntimeTemplate.
-
-`  UpgradeNotebookRuntime  `
-
-Upgrades a NotebookRuntime.
-
-## `        google.cloud.aiplatform.v1beta1.OnlineEvaluatorService       `
-
-Methods
-
-`  ActivateOnlineEvaluator  `
-
-Activates an OnlineEvaluator.
-
-`  CreateOnlineEvaluator  `
-
-Creates an OnlineEvaluator in the given project and location.
-
-`  DeleteOnlineEvaluator  `
-
-Deletes an OnlineEvaluator.
-
-`  GetOnlineEvaluator  `
-
-Gets details of an OnlineEvaluator.
-
-`  ListOnlineEvaluators  `
-
-Lists the OnlineEvaluators for the given project and location.
-
-`  SuspendOnlineEvaluator  `
-
-Suspends an OnlineEvaluator.
-
-`  UpdateOnlineEvaluator  `
-
-Updates the fields of an OnlineEvaluator.
-
-## `        google.cloud.aiplatform.v1beta1.PersistentResourceService       `
-
-Methods
-
-`  CreatePersistentResource  `
-
-Creates a PersistentResource.
-
-`  DeletePersistentResource  `
-
-Deletes a PersistentResource.
-
-`  GetPersistentResource  `
-
-Gets a PersistentResource.
-
-`  ListPersistentResources  `
-
-Lists PersistentResources in a Location.
-
-`  RebootPersistentResource  `
-
-Reboots a PersistentResource.
-
-`  UpdatePersistentResource  `
-
-Updates a PersistentResource.
-
-## `        google.cloud.aiplatform.v1beta1.PipelineService       `
-
-Methods
-
-`  BatchCancelPipelineJobs  `
-
-Batch cancel PipelineJobs.
-
-`  BatchDeletePipelineJobs  `
-
-Batch deletes PipelineJobs The Operation is atomic.
-
-`  CancelPipelineJob  `
-
-Cancels a PipelineJob.
-
-`  CancelTrainingPipeline  `
-
-Cancels a TrainingPipeline.
-
-`  CreatePipelineJob  `
-
-Creates a PipelineJob.
-
-`  CreateTrainingPipeline  `
-
-Creates a TrainingPipeline.
-
-`  DeletePipelineJob  `
-
-Deletes a PipelineJob.
-
-`  DeleteTrainingPipeline  `
-
-Deletes a TrainingPipeline.
-
-`  GetPipelineJob  `
-
-Gets a PipelineJob.
-
-`  GetTrainingPipeline  `
-
-Gets a TrainingPipeline.
-
-`  ListPipelineJobs  `
-
-Lists PipelineJobs in a Location.
-
-`  ListTrainingPipelines  `
-
-Lists TrainingPipelines in a Location.
-
-## `        google.cloud.aiplatform.v1beta1.PredictionService       `
-
-Methods
-
-`  ChatCompletions  `
-
-Exposes an OpenAI-compatible endpoint for chat completions.
-
-`  CountTokens  `
-
-Perform a token counting.
-
-`  DeleteResponse  `
-
-Deletes the response from the endpoint.
-
-`  DirectPredict  `
-
-Perform an unary online prediction request to a gRPC model server for Vertex first-party products and frameworks.
-
-`  DirectRawPredict  `
-
-Perform an unary online prediction request to a gRPC model server for custom containers.
-
-`  EmbedContent  `
-
-Embed content with multimodal inputs.
-
-`  Explain  `
-
-Perform an online explanation.
-
-`  GenerateContent  `
-
-Generate content with multimodal inputs.
-
-`  GetResponse  `
-
-Gets the response from the endpoint.
-
-`  Predict  `
-
-Perform an online inference.
-
-`  PredictLongRunning  `
-
-`  RawPredict  `
-
-Perform an online prediction with an arbitrary HTTP payload.
-
-`  ServerStreamingPredict  `
-
-Perform a server-side streaming online prediction request for Vertex LLM streaming.
-
-`  StreamDirectPredict  `
-
-Perform a streaming online prediction request to a gRPC model server for Vertex first-party products and frameworks.
-
-`  StreamDirectRawPredict  `
-
-Perform a streaming online prediction request to a gRPC model server for custom containers.
-
-`  StreamGenerateContent  `
-
-Generate content with multimodal inputs with streaming support.
-
-`  StreamRawPredict  `
-
-Perform a streaming online prediction with an arbitrary HTTP payload.
-
-`  StreamingPredict  `  
-**(deprecated)**
-
-Deprecated: Renamed to `  PredictionService.StreamDirectPredict  ` .
-
-`  StreamingRawPredict  `
-
-Perform a streaming online prediction request through gRPC.
-
-## `        google.cloud.aiplatform.v1beta1.ReasoningEngineExecutionService       `
-
-Methods
-
-`  AsyncQueryReasoningEngine  `
-
-Async query using a reasoning engine.
-
-`  BidiInvokeReasoningEngine  `
-
-Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming
-
-`  CancelAsyncQueryReasoningEngine  `
-
-Cancels an AsyncQueryReasoningEngine operation.
-
-`  InvokeReasoningEngine  `
-
-Invokes reasoning engine with arbitrary HTTP requests for both unary and server-side streaming cases.
-
-`  QueryReasoningEngine  `
-
-Queries using a reasoning engine.
-
-`  StreamQueryReasoningEngine  `
-
-Streams queries using a reasoning engine.
-
-## `        google.cloud.aiplatform.v1beta1.ReasoningEngineRuntimeRevisionService       `
-
-Methods
-
-`  DeleteReasoningEngineRuntimeRevision  `
-
-Deletes a reasoning engine revision.
-
-`  GetReasoningEngineRuntimeRevision  `
-
-Gets a reasoning engine runtime revision.
-
-`  ListReasoningEngineRuntimeRevisions  `
-
-Lists runtime revisions in a reasoning engine.
-
-## `        google.cloud.aiplatform.v1beta1.ReasoningEngineService       `
-
-Methods
-
-`  CreateReasoningEngine  `
-
-Creates a reasoning engine.
-
-`  DeleteReasoningEngine  `
-
-Deletes a reasoning engine.
-
-`  GetReasoningEngine  `
-
-Gets a reasoning engine.
-
-`  ListReasoningEngines  `
-
-Lists reasoning engines in a location.
-
-`  UpdateReasoningEngine  `
-
-Updates a reasoning engine.
-
-## `        google.cloud.aiplatform.v1beta1.SandboxEnvironmentExecutionService       `
-
-Methods
-
-`  AuthorizeSandboxEnvironmentAccess  `
-
-Checks whether the caller is authorized to access the sandbox environment.
-
-`  BidiExecuteSandboxEnvironment  `
-
-Executes using a sandbox environment with bidirectional streaming.
-
-`  ExecuteCode  `
-
-Executes code statelessly.
-
-`  ExecuteSandboxEnvironment  `
-
-Executes using a sandbox environment.
-
-## `        google.cloud.aiplatform.v1beta1.SandboxEnvironmentService       `
-
-Methods
-
-`  CreateSandboxEnvironment  `
-
-Creates a `  SandboxEnvironment  ` in a given reasoning engine.
-
-`  CreateSandboxEnvironmentTemplate  `
-
-Creates a `  SandboxEnvironmentTemplate  ` in a given reasoning engine.
-
-`  DeleteSandboxEnvironment  `
-
-Deletes the specific `  SandboxEnvironment  ` .
-
-`  DeleteSandboxEnvironmentSnapshot  `
-
-Deletes the specific `  SandboxEnvironmentSnapshot  ` .
-
-`  DeleteSandboxEnvironmentTemplate  `
-
-Deletes the specific `  SandboxEnvironmentTemplate  ` .
-
-`  GetSandboxEnvironment  `
-
-Gets details of the specific `  SandboxEnvironment  ` .
-
-`  GetSandboxEnvironmentSnapshot  `
-
-Gets details of the specific `  SandboxEnvironmentSnapshot  ` .
-
-`  GetSandboxEnvironmentTemplate  `
-
-Gets details of the specific `  SandboxEnvironmentTemplate  ` .
-
-`  ListSandboxEnvironmentSnapshots  `
-
-Lists `  SandboxEnvironmentSnapshot  ` s in a given reasoning engine.
-
-`  ListSandboxEnvironmentTemplates  `
-
-Lists `  SandboxEnvironmentTemplate  ` s in a given reasoning engine.
-
-`  ListSandboxEnvironments  `
-
-Lists `  SandboxEnvironment  ` s in a given reasoning engine.
-
-`  PauseSandboxEnvironment  `
-
-Pauses the specific `  SandboxEnvironment  ` .
-
-`  ResumeSandboxEnvironment  `
-
-Resumes the specific `  SandboxEnvironment  ` .
-
-`  SnapshotSandboxEnvironment  `
-
-Snapshots the specific `  SandboxEnvironment  ` resource and creates a `  SandboxEnvironmentSnapshot  ` resource.
-
-## `        google.cloud.aiplatform.v1beta1.ScheduleService       `
-
-Methods
-
-`  CreateSchedule  `
-
-Creates a Schedule.
-
-`  DeleteSchedule  `
-
-Deletes a Schedule.
-
-`  GetSchedule  `
-
-Gets a Schedule.
-
-`  ListSchedules  `
-
-Lists Schedules in a Location.
-
-`  PauseSchedule  `
-
-Pauses a Schedule.
-
-`  ResumeSchedule  `
-
-Resumes a paused Schedule to start scheduling new runs.
-
-`  UpdateSchedule  `
-
-Updates an active or paused Schedule.
-
-## `        google.cloud.aiplatform.v1beta1.SemanticGovernancePolicyEngineService       `
-
-Methods
-
-`  DeprovisionSemanticGovernancePolicyEngine  `
-
-Deprovisions the SemanticGovernancePolicyEngine, tearing down the associated tenant project, GKE cluster, and PSC service attachments.
-
-`  GetSemanticGovernancePolicyEngine  `
-
-Gets a SemanticGovernancePolicyEngine.
-
-`  UpdateSemanticGovernancePolicyEngine  `
-
-Updates a SemanticGovernancePolicyEngine.
-
-## `        google.cloud.aiplatform.v1beta1.SemanticGovernancePolicyService       `
-
-Methods
-
-`  CreateSemanticGovernancePolicy  `
-
-Creates a SemanticGovernancePolicy.
-
-`  DeleteSemanticGovernancePolicy  `
-
-Deletes a SemanticGovernancePolicy.
-
-`  GetSemanticGovernancePolicy  `
-
-Gets a SemanticGovernancePolicy.
-
-`  ListSemanticGovernancePolicies  `
-
-Lists SemanticGovernancePolicies in a given location.
-
-`  UpdateSemanticGovernancePolicy  `
-
-Updates a SemanticGovernancePolicy.
-
-## `        google.cloud.aiplatform.v1beta1.ServingProfileService       `
-
-Methods
-
-`  CreateServingProfile  `
-
-Creates a ServingProfile.
-
-`  DeleteServingProfile  `
-
-Deletes a ServingProfile.
-
-`  GetServingProfile  `
-
-Gets a ServingProfile.
-
-`  ListServingProfiles  `
-
-Lists ServingProfiles in a Location.
-
-`  UpdateServingProfile  `
-
-Updates a ServingProfile.
-
-## `        google.cloud.aiplatform.v1beta1.SessionService       `
-
-Methods
-
-`  AppendEvent  `
-
-Appends an event to a given session.
-
-`  CreateSession  `
-
-Creates a new `  Session  ` .
-
-`  DeleteSession  `
-
-Deletes details of the specific `  Session  ` .
-
-`  GetSession  `
-
-Gets details of the specific `  Session  ` .
-
-`  ListEvents  `
-
-Lists `  Events  ` in a given session.
-
-`  ListSessions  `
-
-Lists `  Sessions  ` in a given reasoning engine.
-
-`  UpdateSession  `
-
-Updates the specific `  Session  ` .
-
-## `        google.cloud.aiplatform.v1beta1.SkillRegistryService       `
-
-Methods
-
-`  CreateSkill  `
-
-Create a Skill.
-
-`  DeleteSkill  `
-
-Delete a Skill.
-
-`  GetSkill  `
-
-Get a Skill.
-
-`  GetSkillRevision  `
-
-Get a Skill Revision.
-
-`  ListSkillRevisions  `
-
-List Skill Revisions for a Skill.
-
-`  ListSkills  `
-
-List Skills.
-
-`  RetrieveSkills  `
-
-Retrieves skills.
-
-`  UpdateSkill  `
-
-Update a Skill.
-
-## `        google.cloud.aiplatform.v1beta1.SpecialistPoolService       `
-
-Methods
-
-`  CreateSpecialistPool  `
-
-Creates a SpecialistPool.
-
-`  DeleteSpecialistPool  `
-
-Deletes a SpecialistPool as well as all Specialists in the pool.
-
-`  GetSpecialistPool  `
-
-Gets a SpecialistPool.
-
-`  ListSpecialistPools  `
-
-Lists SpecialistPools in a Location.
-
-`  UpdateSpecialistPool  `
-
-Updates a SpecialistPool.
-
-## `        google.cloud.aiplatform.v1beta1.TensorboardService       `
-
-Methods
-
-`  BatchCreateTensorboardRuns  `
-
-Batch create TensorboardRuns.
-
-`  BatchCreateTensorboardTimeSeries  `
-
-Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.
-
-`  BatchReadTensorboardTimeSeriesData  `
-
-Reads multiple TensorboardTimeSeries' data.
-
-`  CreateTensorboard  `
-
-Creates a Tensorboard.
-
-`  CreateTensorboardExperiment  `
-
-Creates a TensorboardExperiment.
-
-`  CreateTensorboardRun  `
-
-Creates a TensorboardRun.
-
-`  CreateTensorboardTimeSeries  `
-
-Creates a TensorboardTimeSeries.
-
-`  DeleteTensorboard  `
-
-Deletes a Tensorboard.
-
-`  DeleteTensorboardExperiment  `
-
-Deletes a TensorboardExperiment.
-
-`  DeleteTensorboardRun  `
-
-Deletes a TensorboardRun.
-
-`  DeleteTensorboardTimeSeries  `
-
-Deletes a TensorboardTimeSeries.
-
-`  ExportTensorboardTimeSeriesData  `
-
-Exports a TensorboardTimeSeries' data.
-
-`  GetTensorboard  `
-
-Gets a Tensorboard.
-
-`  GetTensorboardExperiment  `
-
-Gets a TensorboardExperiment.
-
-`  GetTensorboardRun  `
-
-Gets a TensorboardRun.
-
-`  GetTensorboardTimeSeries  `
-
-Gets a TensorboardTimeSeries.
-
-`  ListTensorboardExperiments  `
-
-Lists TensorboardExperiments in a Location.
-
-`  ListTensorboardRuns  `
-
-Lists TensorboardRuns in a Location.
-
-`  ListTensorboardTimeSeries  `
-
-Lists TensorboardTimeSeries in a Location.
-
-`  ListTensorboards  `
-
-Lists Tensorboards in a Location.
-
-`  ReadTensorboardBlobData  `
-
-Gets bytes of TensorboardBlobs.
-
-`  ReadTensorboardSize  `
-
-Returns the storage size for a given TensorBoard instance.
-
-`  ReadTensorboardTimeSeriesData  `
-
-Reads a TensorboardTimeSeries' data.
-
-`  ReadTensorboardUsage  `
-
-Returns a list of monthly active users for a given TensorBoard instance.
-
-`  UpdateTensorboard  `
-
-Updates a Tensorboard.
-
-`  UpdateTensorboardExperiment  `
-
-Updates a TensorboardExperiment.
-
-`  UpdateTensorboardRun  `
-
-Updates a TensorboardRun.
-
-`  UpdateTensorboardTimeSeries  `
-
-Updates a TensorboardTimeSeries.
-
-`  WriteTensorboardExperimentData  `
-
-Write time series data points of multiple TensorboardTimeSeries in multiple TensorboardRun's.
-
-`  WriteTensorboardRunData  `
-
-Write time series data points into multiple TensorboardTimeSeries under a TensorboardRun.
-
-## `        google.cloud.aiplatform.v1beta1.VertexRagDataService       `
-
-Methods
-
-`  BatchCreateRagDataSchemas  `
-
-Batch Create one or more RagDataSchemas
-
-`  BatchCreateRagMetadata  `
-
-Batch Create one or more RagMetadatas
-
-`  BatchDeleteRagDataSchemas  `
-
-Batch Deletes one or more RagDataSchemas
-
-`  BatchDeleteRagMetadata  `
-
-Batch Deletes one or more RagMetadata.
-
-`  CreateRagCorpus  `
-
-Creates a RagCorpus.
-
-`  CreateRagDataSchema  `
-
-Creates a RagDataSchema.
-
-`  CreateRagMetadata  `
-
-Creates a RagMetadata.
-
-`  DeleteRagCorpus  `
-
-Deletes a RagCorpus.
-
-`  DeleteRagDataSchema  `
-
-Deletes a RagDataSchema.
-
-`  DeleteRagFile  `
-
-Deletes a RagFile.
-
-`  DeleteRagMetadata  `
-
-Deletes a RagMetadata.
-
-`  GetRagCorpus  `
-
-Gets a RagCorpus.
-
-`  GetRagDataSchema  `
-
-Gets a RagDataSchema.
-
-`  GetRagEngineConfig  `
-
-Gets a RagEngineConfig.
-
-`  GetRagFile  `
-
-Gets a RagFile.
-
-`  GetRagMetadata  `
-
-Gets a RagMetadata.
-
-`  ImportRagFiles  `
-
-Import files from Google Cloud Storage or Google Drive into a RagCorpus.
-
-`  ListRagCorpora  `
-
-Lists RagCorpora in a Location.
-
-`  ListRagDataSchemas  `
-
-Lists RagDataSchemas in a Location.
-
-`  ListRagFiles  `
-
-Lists RagFiles in a RagCorpus.
-
-`  ListRagMetadata  `
-
-Lists RagMetadata in a RagFile.
-
-`  UpdateRagCorpus  `
-
-Updates a RagCorpus.
-
-`  UpdateRagEngineConfig  `
-
-Updates a RagEngineConfig.
-
-`  UpdateRagMetadata  `
-
-Updates a RagMetadata.
-
-## `        google.cloud.aiplatform.v1beta1.VertexRagService       `
-
-Methods
-
-`  AskContexts  `
-
-Agentic Retrieval Ask API for RAG.
-
-`  AsyncRetrieveContexts  `
-
-Asynchronous API to retrieves relevant contexts for a query.
-
-`  AugmentPrompt  `
-
-Given an input prompt, it returns augmented prompt from vertex rag store to guide LLM towards generating grounded responses.
-
-`  CorroborateContent  `
-
-Given an input text, it returns a score that evaluates the factuality of the text.
-
-`  RetrieveContexts  `
-
-Retrieves relevant contexts for a query.
-
-## `        google.cloud.aiplatform.v1beta1.VizierService       `
-
-Methods
-
-`  AddTrialMeasurement  `
-
-Adds a measurement of the objective metrics to a Trial.
-
-`  CheckTrialEarlyStoppingState  `
-
-Checks whether a Trial should stop or not.
-
-`  CompleteTrial  `
-
-Marks a Trial as complete.
-
-`  CreateStudy  `
-
-Creates a Study.
-
-`  CreateTrial  `
-
-Adds a user provided Trial to a Study.
-
-`  DeleteStudy  `
-
-Deletes a Study.
-
-`  DeleteTrial  `
-
-Deletes a Trial.
-
-`  GetStudy  `
-
-Gets a Study by name.
-
-`  GetTrial  `
-
-Gets a Trial.
-
-`  ListOptimalTrials  `
-
-Lists the pareto-optimal Trials for multi-objective Study or the optimal Trials for single-objective Study.
-
-`  ListStudies  `
-
-Lists all the studies in a region for an associated project.
-
-`  ListTrials  `
-
-Lists the Trials associated with a Study.
-
-`  LookupStudy  `
-
-Looks a study up using the user-defined display\_name field instead of the fully qualified resource name.
-
-`  StopTrial  `
-
-Stops a Trial.
-
-`  SuggestTrials  `
-
-Adds one or more Trials to a Study, with parameter values suggested by Agent Platform Vizier.
-
-## `        google.iam.v1.IAMPolicy       `
-
-Methods
-
-`  GetIamPolicy  `
-
-Gets the access control policy for a resource.
-
-`  SetIamPolicy  `
-
-Sets the access control policy on the specified resource.
-
-`  TestIamPermissions  `
-
-Returns permissions that a caller has on the specified resource.
-
-## `        google.learning.vertex.api.interactions.v1beta1.InteractionsService       `
-
-Methods
-
-`  CancelInteraction  `
-
-Cancels an interaction.
-
-`  CancelInteractionHttp  `
-
-Cancels an interaction by id.
-
-`  CreateInteraction  `
-
-Creates an interaction.
-
-`  CreateInteractionHttp  `
-
-Creates a new interaction.
-
-`  CreateInteractionStream  `
-
-Creates an interaction and streams the response.
-
-`  DeleteInteraction  `  
-**(deprecated)**
-
-Deletes an interaction.
-
-`  GetInteraction  `
-
-Fully typed proto, unary version of GetInteraction that returns Interaction proto.
-
-`  GetInteractionHttp  `
-
-Retrieves the full details of a single interaction based on its `Interaction.id` .
-
-`  GetInteractionStream  `
-
-Fully typed proto, streaming version of GetInteraction that returns Interaction proto.
-
-`  ListInteractions  `
-
-List interactions.
-
-`  ListInteractionsHttp  `
-
-List interactions.
-
-## `        google.learning.vertex.api.interactions.v1beta1.VoicesHttpService       `
-
-Methods
-
-## `        google.learning.vertex.api.interactions.v1beta1.VoicesService       `
-
-Methods
-
-## `        google.longrunning.Operations       `
-
-Methods
-
-`  CancelOperation  `
-
-Starts asynchronous cancellation on a long-running operation.
-
-`  DeleteOperation  `
-
-Deletes a long-running operation.
-
-`  GetOperation  `
-
-Gets the latest state of a long-running operation.
-
-`  ListOperations  `
-
-Lists operations that match the specified filter in the request.
-
-`  WaitOperation  `
-
-Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state.
+## [`genai.vertex.v1beta1.InteractionsHttpService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.InteractionsHttpService)
+
+| Methods                                                                                                                                                                                         |                         |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
+| [`CancelInteractionHttp`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.InteractionsHttpService.CancelInteractionHttp) | Cancels an interaction. |
+| [`CreateInteractionHttp`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.InteractionsHttpService.CreateInteractionHttp) |                         |
+| [`GetInteractionHttp`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.InteractionsHttpService.GetInteractionHttp)       | Gets an interaction.    |
+| [`ListInteractionsHttp`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.InteractionsHttpService.ListInteractionsHttp)   | Lists interactions.     |
+
+## [`google.cloud.aiplatform.v1.DataFoundryService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DataFoundryService)
+
+| Methods                                                                                                                                                                                                |                                                              |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| [`GenerateSyntheticData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DataFoundryService.GenerateSyntheticData) | Generates synthetic (artificial) data based on a description |
+
+## [`google.cloud.aiplatform.v1.DatasetService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService)
+
+| Methods                                                                                                                                                                                            |                                          |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|
+| [`CreateDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.CreateDataset)                 | Creates a Dataset.                       |
+| [`CreateDatasetVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.CreateDatasetVersion)   | Create a version from a Dataset.         |
+| [`DeleteDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.DeleteDataset)                 | Deletes a Dataset.                       |
+| [`DeleteDatasetVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.DeleteDatasetVersion)   | Deletes a Dataset version.               |
+| [`DeleteSavedQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.DeleteSavedQuery)           | Deletes a SavedQuery.                    |
+| [`ExportData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.ExportData)                       | Exports data from a Dataset.             |
+| [`GetAnnotationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.GetAnnotationSpec)         | Gets an AnnotationSpec.                  |
+| [`GetDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.GetDataset)                       | Gets a Dataset.                          |
+| [`GetDatasetVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.GetDatasetVersion)         | Gets a Dataset version.                  |
+| [`ImportData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.ImportData)                       | Imports data into a Dataset.             |
+| [`ListAnnotations`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.ListAnnotations)             | Lists Annotations belongs to a dataitem. |
+| [`ListDataItems`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.ListDataItems)                 | Lists DataItems in a Dataset.            |
+| [`ListDatasetVersions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.ListDatasetVersions)     | Lists DatasetVersions in a Dataset.      |
+| [`ListDatasets`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.ListDatasets)                   | Lists Datasets in a Location.            |
+| [`ListSavedQueries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.ListSavedQueries)           | Lists SavedQueries in a Dataset.         |
+| [`RestoreDatasetVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.RestoreDatasetVersion) | Restores a dataset version.              |
+| [`SearchDataItems`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.SearchDataItems)             | Searches DataItems in a Dataset.         |
+| [`UpdateDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.UpdateDataset)                 | Updates a Dataset.                       |
+| [`UpdateDatasetVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DatasetService.UpdateDatasetVersion)   | Updates a DatasetVersion.                |
+
+## [`google.cloud.aiplatform.v1.DeploymentResourcePoolService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DeploymentResourcePoolService)
+
+| Methods                                                                                                                                                                                                                         |                                                                             |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| [`CreateDeploymentResourcePool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DeploymentResourcePoolService.CreateDeploymentResourcePool) | Create a DeploymentResourcePool.                                            |
+| [`DeleteDeploymentResourcePool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DeploymentResourcePoolService.DeleteDeploymentResourcePool) | Delete a DeploymentResourcePool.                                            |
+| [`GetDeploymentResourcePool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DeploymentResourcePoolService.GetDeploymentResourcePool)       | Get a DeploymentResourcePool.                                               |
+| [`ListDeploymentResourcePools`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DeploymentResourcePoolService.ListDeploymentResourcePools)   | List DeploymentResourcePools in a location.                                 |
+| [`QueryDeployedModels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DeploymentResourcePoolService.QueryDeployedModels)                   | List DeployedModels that have been deployed on this DeploymentResourcePool. |
+| [`UpdateDeploymentResourcePool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DeploymentResourcePoolService.UpdateDeploymentResourcePool) | Update a DeploymentResourcePool.                                            |
+
+## [`google.cloud.aiplatform.v1.EndpointService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.EndpointService)
+
+| Methods                                                                                                                                                                                                     |                                                                                                             |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| [`CreateEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.EndpointService.CreateEndpoint)                       | Creates an Endpoint.                                                                                        |
+| [`DeleteEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.EndpointService.DeleteEndpoint)                       | Deletes an Endpoint.                                                                                        |
+| [`DeployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.EndpointService.DeployModel)                             | Deploys a Model into this Endpoint, creating a DeployedModel within it.                                     |
+| [`GetEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.EndpointService.GetEndpoint)                             | Gets an Endpoint.                                                                                           |
+| [`ListEndpoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.EndpointService.ListEndpoints)                         | Lists Endpoints in a Location.                                                                              |
+| [`MutateDeployedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.EndpointService.MutateDeployedModel)             | Updates an existing deployed model.                                                                         |
+| [`UndeployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.EndpointService.UndeployModel)                         | Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freeing all resources it's using. |
+| [`UpdateEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.EndpointService.UpdateEndpoint)                       | Updates an Endpoint.                                                                                        |
+| [`UpdateEndpointLongRunning`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.EndpointService.UpdateEndpointLongRunning) | Updates an Endpoint with a long running operation.                                                          |
+
+## [`google.cloud.aiplatform.v1.EvaluationService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.EvaluationService)
+
+| Methods                                                                                                                                                                                       |                                              |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+| [`EvaluateInstances`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.EvaluationService.EvaluateInstances) | Evaluates instances based on a given metric. |
+
+## [`google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService)
+
+| Methods                                                                                                                                                                                                                  |                                                                   |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
+| [`CreateFeatureOnlineStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService.CreateFeatureOnlineStore) | Creates a new FeatureOnlineStore in a given project and location. |
+| [`CreateFeatureView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService.CreateFeatureView)               | Creates a new FeatureView in a given FeatureOnlineStore.          |
+| [`DeleteFeatureOnlineStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService.DeleteFeatureOnlineStore) | Deletes a single FeatureOnlineStore.                              |
+| [`DeleteFeatureView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService.DeleteFeatureView)               | Deletes a single FeatureView.                                     |
+| [`GetFeatureOnlineStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService.GetFeatureOnlineStore)       | Gets details of a single FeatureOnlineStore.                      |
+| [`GetFeatureView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService.GetFeatureView)                     | Gets details of a single FeatureView.                             |
+| [`GetFeatureViewSync`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService.GetFeatureViewSync)             | Gets details of a single FeatureViewSync.                         |
+| [`ListFeatureOnlineStores`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService.ListFeatureOnlineStores)   | Lists FeatureOnlineStores in a given project and location.        |
+| [`ListFeatureViewSyncs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService.ListFeatureViewSyncs)         | Lists FeatureViewSyncs in a given FeatureView.                    |
+| [`ListFeatureViews`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService.ListFeatureViews)                 | Lists FeatureViews in a given FeatureOnlineStore.                 |
+| [`SyncFeatureView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService.SyncFeatureView)                   | Triggers on-demand sync for the FeatureView.                      |
+| [`UpdateFeatureOnlineStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService.UpdateFeatureOnlineStore) | Updates the parameters of a single FeatureOnlineStore.            |
+| [`UpdateFeatureView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService.UpdateFeatureView)               | Updates the parameters of a single FeatureView.                   |
+
+## [`google.cloud.aiplatform.v1.FeatureOnlineStoreService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreService)
+
+| Methods                                                                                                                                                                                                             |                                                                                    |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| [`FeatureViewDirectWrite`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreService.FeatureViewDirectWrite)     | Bidirectional streaming RPC to directly write to feature values in a feature view. |
+| [`FetchFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreService.FetchFeatureValues)             | Fetch feature values under a FeatureView.                                          |
+| [`GenerateFetchAccessToken`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreService.GenerateFetchAccessToken) | RPC to generate an access token for the given feature view.                        |
+| [`SearchNearestEntities`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureOnlineStoreService.SearchNearestEntities)       | Search the nearest entities under a FeatureView.                                   |
+
+## [`google.cloud.aiplatform.v1.FeatureRegistryService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureRegistryService)
+
+| Methods                                                                                                                                                                                                |                                                             |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
+| [`BatchCreateFeatures`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureRegistryService.BatchCreateFeatures) | Creates a batch of Features in a given FeatureGroup.        |
+| [`CreateFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureRegistryService.CreateFeature)             | Creates a new Feature in a given FeatureGroup.              |
+| [`CreateFeatureGroup`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureRegistryService.CreateFeatureGroup)   | Creates a new FeatureGroup in a given project and location. |
+| [`DeleteFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureRegistryService.DeleteFeature)             | Deletes a single Feature.                                   |
+| [`DeleteFeatureGroup`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureRegistryService.DeleteFeatureGroup)   | Deletes a single FeatureGroup.                              |
+| [`GetFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureRegistryService.GetFeature)                   | Gets details of a single Feature.                           |
+| [`GetFeatureGroup`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureRegistryService.GetFeatureGroup)         | Gets details of a single FeatureGroup.                      |
+| [`ListFeatureGroups`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureRegistryService.ListFeatureGroups)     | Lists FeatureGroups in a given project and location.        |
+| [`ListFeatures`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureRegistryService.ListFeatures)               | Lists Features in a given FeatureGroup.                     |
+| [`UpdateFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureRegistryService.UpdateFeature)             | Updates the parameters of a single Feature.                 |
+| [`UpdateFeatureGroup`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeatureRegistryService.UpdateFeatureGroup)   | Updates the parameters of a single FeatureGroup.            |
+
+## [`google.cloud.aiplatform.v1.FeaturestoreOnlineServingService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreOnlineServingService)
+
+| Methods                                                                                                                                                                                                                        |                                                                 |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| [`ReadFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreOnlineServingService.ReadFeatureValues)                   | Reads Feature values of a specific entity of an EntityType.     |
+| [`StreamingReadFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreOnlineServingService.StreamingReadFeatureValues) | Reads Feature values for multiple entities.                     |
+| [`WriteFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreOnlineServingService.WriteFeatureValues)                 | Writes Feature values of one or more entities of an EntityType. |
+
+## [`google.cloud.aiplatform.v1.FeaturestoreService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService)
+
+| Methods                                                                                                                                                                                                   |                                                                      |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| [`BatchCreateFeatures`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.BatchCreateFeatures)       | Creates a batch of Features in a given EntityType.                   |
+| [`BatchReadFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.BatchReadFeatureValues) | Batch reads Feature values from a Featurestore.                      |
+| [`CreateEntityType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.CreateEntityType)             | Creates a new EntityType in a given Featurestore.                    |
+| [`CreateFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.CreateFeature)                   | Creates a new Feature in a given EntityType.                         |
+| [`CreateFeaturestore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.CreateFeaturestore)         | Creates a new Featurestore in a given project and location.          |
+| [`DeleteEntityType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.DeleteEntityType)             | Deletes a single EntityType.                                         |
+| [`DeleteFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.DeleteFeature)                   | Deletes a single Feature.                                            |
+| [`DeleteFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.DeleteFeatureValues)       | Delete Feature values from Featurestore.                             |
+| [`DeleteFeaturestore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.DeleteFeaturestore)         | Deletes a single Featurestore.                                       |
+| [`ExportFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.ExportFeatureValues)       | Exports Feature values from all the entities of a target EntityType. |
+| [`GetEntityType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.GetEntityType)                   | Gets details of a single EntityType.                                 |
+| [`GetFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.GetFeature)                         | Gets details of a single Feature.                                    |
+| [`GetFeaturestore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.GetFeaturestore)               | Gets details of a single Featurestore.                               |
+| [`ImportFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.ImportFeatureValues)       | Imports Feature values into the Featurestore from a source storage.  |
+| [`ListEntityTypes`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.ListEntityTypes)               | Lists EntityTypes in a given Featurestore.                           |
+| [`ListFeatures`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.ListFeatures)                     | Lists Features in a given EntityType.                                |
+| [`ListFeaturestores`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.ListFeaturestores)           | Lists Featurestores in a given project and location.                 |
+| [`SearchFeatures`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.SearchFeatures)                 | Searches Features matching a query in a given project.               |
+| [`UpdateEntityType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.UpdateEntityType)             | Updates the parameters of a single EntityType.                       |
+| [`UpdateFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.UpdateFeature)                   | Updates the parameters of a single Feature.                          |
+| [`UpdateFeaturestore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.FeaturestoreService.UpdateFeaturestore)         | Updates the parameters of a single Featurestore.                     |
+
+## [`google.cloud.aiplatform.v1.GenAiCacheService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.GenAiCacheService)
+
+| Methods                                                                                                                                                                                           |                                                                                                                                             |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| [`CreateCachedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.GenAiCacheService.CreateCachedContent) | Creates cached content, this call will initialize the cached content in the data storage, and users need to pay for the cache data storage. |
+| [`DeleteCachedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.GenAiCacheService.DeleteCachedContent) | Deletes cached content                                                                                                                      |
+| [`GetCachedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.GenAiCacheService.GetCachedContent)       | Gets cached content configurations                                                                                                          |
+| [`ListCachedContents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.GenAiCacheService.ListCachedContents)   | Lists cached contents in a project                                                                                                          |
+| [`UpdateCachedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.GenAiCacheService.UpdateCachedContent) | Updates cached content configurations                                                                                                       |
+
+## [`google.cloud.aiplatform.v1.GenAiTuningService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.GenAiTuningService)
+
+| Methods                                                                                                                                                                                      |                                  |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|
+| [`CancelTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.GenAiTuningService.CancelTuningJob)   | Cancels a tuning job.            |
+| [`CreateTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.GenAiTuningService.CreateTuningJob)   | Creates a tuning job.            |
+| [`GetTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.GenAiTuningService.GetTuningJob)         | Gets a tuning job.               |
+| [`ListTuningJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.GenAiTuningService.ListTuningJobs)     | Lists tuning jobs in a location. |
+| [`RebaseTunedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.GenAiTuningService.RebaseTunedModel) | Rebase a tuned model.            |
+
+## [`google.cloud.aiplatform.v1.IndexEndpointService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.IndexEndpointService)
+
+| Methods                                                                                                                                                                                              |                                                                                                                   |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| [`CreateIndexEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.IndexEndpointService.CreateIndexEndpoint) | Creates an IndexEndpoint.                                                                                         |
+| [`DeleteIndexEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.IndexEndpointService.DeleteIndexEndpoint) | Deletes an IndexEndpoint.                                                                                         |
+| [`DeployIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.IndexEndpointService.DeployIndex)                 | Deploys an Index into this IndexEndpoint, creating a DeployedIndex within it.                                     |
+| [`GetIndexEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.IndexEndpointService.GetIndexEndpoint)       | Gets an IndexEndpoint.                                                                                            |
+| [`ListIndexEndpoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.IndexEndpointService.ListIndexEndpoints)   | Lists IndexEndpoints in a Location.                                                                               |
+| [`MutateDeployedIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.IndexEndpointService.MutateDeployedIndex) | Update an existing DeployedIndex under an IndexEndpoint.                                                          |
+| [`UndeployIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.IndexEndpointService.UndeployIndex)             | Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it, and freeing all resources it's using. |
+| [`UpdateIndexEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.IndexEndpointService.UpdateIndexEndpoint) | Updates an IndexEndpoint.                                                                                         |
+
+## [`google.cloud.aiplatform.v1.IndexService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.IndexService)
+
+| Methods                                                                                                                                                                                |                                      |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
+| [`CreateIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.IndexService.CreateIndex)           | Creates an Index.                    |
+| [`DeleteIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.IndexService.DeleteIndex)           | Deletes an Index.                    |
+| [`GetIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.IndexService.GetIndex)                 | Gets an Index.                       |
+| [`ListIndexes`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.IndexService.ListIndexes)           | Lists Indexes in a Location.         |
+| [`RemoveDatapoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.IndexService.RemoveDatapoints) | Remove Datapoints from an Index.     |
+| [`UpdateIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.IndexService.UpdateIndex)           | Updates an Index.                    |
+| [`UpsertDatapoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.IndexService.UpsertDatapoints) | Add/update Datapoints into an Index. |
+
+## [`google.cloud.aiplatform.v1.JobService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService)
+
+| Methods                                                                                                                                                                                                                                        |                                                                            |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| [`CancelBatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.CancelBatchPredictionJob)                                           | Cancels a BatchPredictionJob.                                              |
+| [`CancelCustomJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.CancelCustomJob)                                                             | Cancels a CustomJob.                                                       |
+| [`CancelHyperparameterTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.CancelHyperparameterTuningJob)                                 | Cancels a HyperparameterTuningJob.                                         |
+| [`CancelNasJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.CancelNasJob)                                                                   | Cancels a NasJob.                                                          |
+| [`CreateBatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.CreateBatchPredictionJob)                                           | Creates a BatchPredictionJob.                                              |
+| [`CreateCustomJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.CreateCustomJob)                                                             | Creates a CustomJob.                                                       |
+| [`CreateHyperparameterTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.CreateHyperparameterTuningJob)                                 | Creates a HyperparameterTuningJob                                          |
+| [`CreateModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.CreateModelDeploymentMonitoringJob)                       | Creates a ModelDeploymentMonitoringJob.                                    |
+| [`CreateNasJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.CreateNasJob)                                                                   | Creates a NasJob                                                           |
+| [`DeleteBatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.DeleteBatchPredictionJob)                                           | Deletes a BatchPredictionJob.                                              |
+| [`DeleteCustomJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.DeleteCustomJob)                                                             | Deletes a CustomJob.                                                       |
+| [`DeleteHyperparameterTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.DeleteHyperparameterTuningJob)                                 | Deletes a HyperparameterTuningJob.                                         |
+| [`DeleteModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.DeleteModelDeploymentMonitoringJob)                       | Deletes a ModelDeploymentMonitoringJob.                                    |
+| [`DeleteNasJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.DeleteNasJob)                                                                   | Deletes a NasJob.                                                          |
+| [`GetBatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.GetBatchPredictionJob)                                                 | Gets a BatchPredictionJob                                                  |
+| [`GetCustomJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.GetCustomJob)                                                                   | Gets a CustomJob.                                                          |
+| [`GetHyperparameterTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.GetHyperparameterTuningJob)                                       | Gets a HyperparameterTuningJob                                             |
+| [`GetModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.GetModelDeploymentMonitoringJob)                             | Gets a ModelDeploymentMonitoringJob.                                       |
+| [`GetNasJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.GetNasJob)                                                                         | Gets a NasJob                                                              |
+| [`GetNasTrialDetail`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.GetNasTrialDetail)                                                         | Gets a NasTrialDetail.                                                     |
+| [`ListBatchPredictionJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.ListBatchPredictionJobs)                                             | Lists BatchPredictionJobs in a Location.                                   |
+| [`ListCustomJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.ListCustomJobs)                                                               | Lists CustomJobs in a Location.                                            |
+| [`ListHyperparameterTuningJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.ListHyperparameterTuningJobs)                                   | Lists HyperparameterTuningJobs in a Location.                              |
+| [`ListModelDeploymentMonitoringJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.ListModelDeploymentMonitoringJobs)                         | Lists ModelDeploymentMonitoringJobs in a Location.                         |
+| [`ListNasJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.ListNasJobs)                                                                     | Lists NasJobs in a Location.                                               |
+| [`ListNasTrialDetails`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.ListNasTrialDetails)                                                     | List top NasTrialDetails of a NasJob.                                      |
+| [`PauseModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.PauseModelDeploymentMonitoringJob)                         | Pauses a ModelDeploymentMonitoringJob.                                     |
+| [`ResumeModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.ResumeModelDeploymentMonitoringJob)                       | Resumes a paused ModelDeploymentMonitoringJob.                             |
+| [`SearchModelDeploymentMonitoringStatsAnomalies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.SearchModelDeploymentMonitoringStatsAnomalies) | Searches Model Monitoring Statistics generated within a given time window. |
+| [`UpdateModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.JobService.UpdateModelDeploymentMonitoringJob)                       | Updates a ModelDeploymentMonitoringJob.                                    |
+
+## [`google.cloud.aiplatform.v1.LlmBidiService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.LlmBidiService)
+
+| Methods                                                                                                                                                                                        |                                  |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|
+| [`BidiGenerateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.LlmBidiService.BidiGenerateContent) | Bidirectional streaming predict. |
+
+## [`google.cloud.aiplatform.v1.LlmUtilityService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.LlmUtilityService)
+
+| Methods                                                                                                                                                                               |                                                  |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| [`ComputeTokens`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.LlmUtilityService.ComputeTokens) | Return a list of tokens based on the input text. |
+| [`CountTokens`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.LlmUtilityService.CountTokens)     | Perform a token counting.                        |
+
+## [`google.cloud.aiplatform.v1.MatchService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MatchService)
+
+| Methods |
+|---------|
+
+## [`google.cloud.aiplatform.v1.MetadataService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService)
+
+| Methods                                                                                                                                                                                                                   |                                                                                                                                                          |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`AddContextArtifactsAndExecutions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.AddContextArtifactsAndExecutions) | Adds a set of Artifacts and Executions to a Context.                                                                                                     |
+| [`AddContextChildren`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.AddContextChildren)                             | Adds a set of Contexts as children to a parent Context.                                                                                                  |
+| [`AddExecutionEvents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.AddExecutionEvents)                             | Adds Events to the specified Execution.                                                                                                                  |
+| [`CreateArtifact`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.CreateArtifact)                                     | Creates an Artifact associated with a MetadataStore.                                                                                                     |
+| [`CreateContext`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.CreateContext)                                       | Creates a Context associated with a MetadataStore.                                                                                                       |
+| [`CreateExecution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.CreateExecution)                                   | Creates an Execution associated with a MetadataStore.                                                                                                    |
+| [`CreateMetadataSchema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.CreateMetadataSchema)                         | Creates a MetadataSchema.                                                                                                                                |
+| [`CreateMetadataStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.CreateMetadataStore)                           | Initializes a MetadataStore, including allocation of resources.                                                                                          |
+| [`DeleteArtifact`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.DeleteArtifact)                                     | Deletes an Artifact.                                                                                                                                     |
+| [`DeleteContext`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.DeleteContext)                                       | Deletes a stored Context.                                                                                                                                |
+| [`DeleteExecution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.DeleteExecution)                                   | Deletes an Execution.                                                                                                                                    |
+| [`DeleteMetadataStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.DeleteMetadataStore)                           | Deletes a single MetadataStore and all its child resources (Artifacts, Executions, and Contexts).                                                        |
+| [`GetArtifact`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.GetArtifact)                                           | Retrieves a specific Artifact.                                                                                                                           |
+| [`GetContext`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.GetContext)                                             | Retrieves a specific Context.                                                                                                                            |
+| [`GetExecution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.GetExecution)                                         | Retrieves a specific Execution.                                                                                                                          |
+| [`GetMetadataSchema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.GetMetadataSchema)                               | Retrieves a specific MetadataSchema.                                                                                                                     |
+| [`GetMetadataStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.GetMetadataStore)                                 | Retrieves a specific MetadataStore.                                                                                                                      |
+| [`ListArtifacts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.ListArtifacts)                                       | Lists Artifacts in the MetadataStore.                                                                                                                    |
+| [`ListContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.ListContexts)                                         | Lists Contexts on the MetadataStore.                                                                                                                     |
+| [`ListExecutions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.ListExecutions)                                     | Lists Executions in the MetadataStore.                                                                                                                   |
+| [`ListMetadataSchemas`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.ListMetadataSchemas)                           | Lists MetadataSchemas.                                                                                                                                   |
+| [`ListMetadataStores`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.ListMetadataStores)                             | Lists MetadataStores for a Location.                                                                                                                     |
+| [`PurgeArtifacts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.PurgeArtifacts)                                     | Purges Artifacts.                                                                                                                                        |
+| [`PurgeContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.PurgeContexts)                                       | Purges Contexts.                                                                                                                                         |
+| [`PurgeExecutions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.PurgeExecutions)                                   | Purges Executions.                                                                                                                                       |
+| [`QueryArtifactLineageSubgraph`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.QueryArtifactLineageSubgraph)         | Retrieves lineage of an Artifact represented through Artifacts and Executions connected by Event edges and returned as a LineageSubgraph.                |
+| [`QueryContextLineageSubgraph`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.QueryContextLineageSubgraph)           | Retrieves Artifacts and Executions within the specified Context, connected by Event edges and returned as a LineageSubgraph.                             |
+| [`QueryExecutionInputsAndOutputs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.QueryExecutionInputsAndOutputs)     | Obtains the set of input and output Artifacts for this Execution, in the form of LineageSubgraph that also contains the Execution and connecting Events. |
+| [`RemoveContextChildren`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.RemoveContextChildren)                       | Remove a set of children contexts from a parent Context.                                                                                                 |
+| [`UpdateArtifact`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.UpdateArtifact)                                     | Updates a stored Artifact.                                                                                                                               |
+| [`UpdateContext`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.UpdateContext)                                       | Updates a stored Context.                                                                                                                                |
+| [`UpdateExecution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MetadataService.UpdateExecution)                                   | Updates a stored Execution.                                                                                                                              |
+
+## [`google.cloud.aiplatform.v1.MigrationService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MigrationService)
+
+| Methods                                                                                                                                                                                                      |                                                                                                                                                                    |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`BatchMigrateResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MigrationService.BatchMigrateResources)         | Batch migrates resources from ml.googleapis.com, automl.googleapis.com, and datalabeling.googleapis.com to Agent Platform.                                         |
+| [`SearchMigratableResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.MigrationService.SearchMigratableResources) | Searches all of the resources in automl.googleapis.com, datalabeling.googleapis.com and ml.googleapis.com that can be migrated to Agent Platform's given location. |
+
+## [`google.cloud.aiplatform.v1.ModelGardenService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelGardenService)
+
+| Methods                                                                                                                                                                                        |                                      |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
+| [`Deploy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelGardenService.Deploy)                       | Deploys a model to a new endpoint.   |
+| [`GetPublisherModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelGardenService.GetPublisherModel) | Gets a Model Garden publisher model. |
+
+## [`google.cloud.aiplatform.v1.ModelService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService)
+
+| Methods                                                                                                                                                                                                                |                                                                              |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| [`BatchImportEvaluatedAnnotations`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.BatchImportEvaluatedAnnotations)   | Imports a list of externally generated EvaluatedAnnotations.                 |
+| [`BatchImportModelEvaluationSlices`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.BatchImportModelEvaluationSlices) | Imports a list of externally generated ModelEvaluationSlice.                 |
+| [`CopyModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.CopyModel)                                               | Copies an already existing Agent Platform Model into the specified Location. |
+| [`DeleteModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.DeleteModel)                                           | Deletes a Model.                                                             |
+| [`DeleteModelVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.DeleteModelVersion)                             | Deletes a Model version.                                                     |
+| [`ExportModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.ExportModel)                                           | Exports a trained, exportable Model to a location specified by the user.     |
+| [`GetModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.GetModel)                                                 | Gets a Model.                                                                |
+| [`GetModelEvaluation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.GetModelEvaluation)                             | Gets a ModelEvaluation.                                                      |
+| [`GetModelEvaluationSlice`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.GetModelEvaluationSlice)                   | Gets a ModelEvaluationSlice.                                                 |
+| [`ImportModelEvaluation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.ImportModelEvaluation)                       | Imports an externally generated ModelEvaluation.                             |
+| [`ListModelEvaluationSlices`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.ListModelEvaluationSlices)               | Lists ModelEvaluationSlices in a ModelEvaluation.                            |
+| [`ListModelEvaluations`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.ListModelEvaluations)                         | Lists ModelEvaluations in a Model.                                           |
+| [`ListModelVersionCheckpoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.ListModelVersionCheckpoints)           | Lists checkpoints of the specified model version.                            |
+| [`ListModelVersions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.ListModelVersions)                               | Lists versions of the specified model.                                       |
+| [`ListModels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.ListModels)                                             | Lists Models in a Location.                                                  |
+| [`MergeVersionAliases`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.MergeVersionAliases)                           | Merges a set of aliases for a Model version.                                 |
+| [`UpdateExplanationDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.UpdateExplanationDataset)                 | Incrementally update the dataset used for an examples model.                 |
+| [`UpdateModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.UpdateModel)                                           | Updates a Model.                                                             |
+| [`UploadModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ModelService.UploadModel)                                           | Uploads a Model artifact into Agent Platform.                                |
+
+## [`google.cloud.aiplatform.v1.NotebookService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.NotebookService)
+
+| Methods                                                                                                                                                                                                             |                                                                     |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
+| [`AssignNotebookRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.NotebookService.AssignNotebookRuntime)                 | Assigns a NotebookRuntime to a user for a particular Notebook file. |
+| [`CreateNotebookExecutionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.NotebookService.CreateNotebookExecutionJob)       | Creates a NotebookExecutionJob.                                     |
+| [`CreateNotebookRuntimeTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.NotebookService.CreateNotebookRuntimeTemplate) | Creates a NotebookRuntimeTemplate.                                  |
+| [`DeleteNotebookExecutionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.NotebookService.DeleteNotebookExecutionJob)       | Deletes a NotebookExecutionJob.                                     |
+| [`DeleteNotebookRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.NotebookService.DeleteNotebookRuntime)                 | Deletes a NotebookRuntime.                                          |
+| [`DeleteNotebookRuntimeTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.NotebookService.DeleteNotebookRuntimeTemplate) | Deletes a NotebookRuntimeTemplate.                                  |
+| [`GetNotebookExecutionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.NotebookService.GetNotebookExecutionJob)             | Gets a NotebookExecutionJob.                                        |
+| [`GetNotebookRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.NotebookService.GetNotebookRuntime)                       | Gets a NotebookRuntime.                                             |
+| [`GetNotebookRuntimeTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.NotebookService.GetNotebookRuntimeTemplate)       | Gets a NotebookRuntimeTemplate.                                     |
+| [`ListNotebookExecutionJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.NotebookService.ListNotebookExecutionJobs)         | Lists NotebookExecutionJobs in a Location.                          |
+| [`ListNotebookRuntimeTemplates`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.NotebookService.ListNotebookRuntimeTemplates)   | Lists NotebookRuntimeTemplates in a Location.                       |
+| [`ListNotebookRuntimes`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.NotebookService.ListNotebookRuntimes)                   | Lists NotebookRuntimes in a Location.                               |
+| [`StartNotebookRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.NotebookService.StartNotebookRuntime)                   | Starts a NotebookRuntime.                                           |
+| [`StopNotebookRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.NotebookService.StopNotebookRuntime)                     | Stops a NotebookRuntime.                                            |
+| [`UpdateNotebookRuntimeTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.NotebookService.UpdateNotebookRuntimeTemplate) | Updates a NotebookRuntimeTemplate.                                  |
+| [`UpgradeNotebookRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.NotebookService.UpgradeNotebookRuntime)               | Upgrades a NotebookRuntime.                                         |
+
+## [`google.cloud.aiplatform.v1.PersistentResourceService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PersistentResourceService)
+
+| Methods                                                                                                                                                                                                             |                                          |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|
+| [`CreatePersistentResource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PersistentResourceService.CreatePersistentResource) | Creates a PersistentResource.            |
+| [`DeletePersistentResource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PersistentResourceService.DeletePersistentResource) | Deletes a PersistentResource.            |
+| [`GetPersistentResource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PersistentResourceService.GetPersistentResource)       | Gets a PersistentResource.               |
+| [`ListPersistentResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PersistentResourceService.ListPersistentResources)   | Lists PersistentResources in a Location. |
+| [`RebootPersistentResource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PersistentResourceService.RebootPersistentResource) | Reboots a PersistentResource.            |
+| [`UpdatePersistentResource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PersistentResourceService.UpdatePersistentResource) | Updates a PersistentResource.            |
+
+## [`google.cloud.aiplatform.v1.PipelineService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PipelineService)
+
+| Methods                                                                                                                                                                                                 |                                                     |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| [`BatchCancelPipelineJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PipelineService.BatchCancelPipelineJobs) | Batch cancel PipelineJobs.                          |
+| [`BatchDeletePipelineJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PipelineService.BatchDeletePipelineJobs) | Batch deletes PipelineJobs The Operation is atomic. |
+| [`CancelPipelineJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PipelineService.CancelPipelineJob)             | Cancels a PipelineJob.                              |
+| [`CancelTrainingPipeline`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PipelineService.CancelTrainingPipeline)   | Cancels a TrainingPipeline.                         |
+| [`CreatePipelineJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PipelineService.CreatePipelineJob)             | Creates a PipelineJob.                              |
+| [`CreateTrainingPipeline`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PipelineService.CreateTrainingPipeline)   | Creates a TrainingPipeline.                         |
+| [`DeletePipelineJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PipelineService.DeletePipelineJob)             | Deletes a PipelineJob.                              |
+| [`DeleteTrainingPipeline`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PipelineService.DeleteTrainingPipeline)   | Deletes a TrainingPipeline.                         |
+| [`GetPipelineJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PipelineService.GetPipelineJob)                   | Gets a PipelineJob.                                 |
+| [`GetTrainingPipeline`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PipelineService.GetTrainingPipeline)         | Gets a TrainingPipeline.                            |
+| [`ListPipelineJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PipelineService.ListPipelineJobs)               | Lists PipelineJobs in a Location.                   |
+| [`ListTrainingPipelines`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PipelineService.ListTrainingPipelines)     | Lists TrainingPipelines in a Location.              |
+
+## [`google.cloud.aiplatform.v1.PredictionService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService)
+
+| Methods                                                                                                                                                                                                          |                                                                                                                                                                                                                                              |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`DeleteResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService.DeleteResponse)                          | Deletes the response from the endpoint.                                                                                                                                                                                                      |
+| [`DirectPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService.DirectPredict)                            | Perform an unary online prediction request to a gRPC model server for Vertex first-party products and frameworks.                                                                                                                            |
+| [`DirectRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService.DirectRawPredict)                      | Perform an unary online prediction request to a gRPC model server for custom containers.                                                                                                                                                     |
+| [`EmbedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService.EmbedContent)                              | Embed content with multimodal inputs.                                                                                                                                                                                                        |
+| [`Explain`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService.Explain)                                        | Perform an online explanation.                                                                                                                                                                                                               |
+| [`GenerateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService.GenerateContent)                        | Generate content with multimodal inputs.                                                                                                                                                                                                     |
+| [`GetResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService.GetResponse)                                | Gets the response from the endpoint.                                                                                                                                                                                                         |
+| [`Predict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService.Predict)                                        | Perform an online inference.                                                                                                                                                                                                                 |
+| [`RawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService.RawPredict)                                  | Perform an online prediction with an arbitrary HTTP payload.                                                                                                                                                                                 |
+| [`ServerStreamingPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService.ServerStreamingPredict)          | Perform a server-side streaming online prediction request for Vertex LLM streaming.                                                                                                                                                          |
+| [`StreamDirectPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService.StreamDirectPredict)                | Perform a streaming online prediction request to a gRPC model server for Vertex first-party products and frameworks.                                                                                                                         |
+| [`StreamDirectRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService.StreamDirectRawPredict)          | Perform a streaming online prediction request to a gRPC model server for custom containers.                                                                                                                                                  |
+| [`StreamGenerateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService.StreamGenerateContent)            | Generate content with multimodal inputs with streaming support.                                                                                                                                                                              |
+| [`StreamRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService.StreamRawPredict)                      | Perform a streaming online prediction with an arbitrary HTTP payload.                                                                                                                                                                        |
+| [`StreamingPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService.StreamingPredict)` `**`(deprecated)`** | Deprecated: Renamed to [`PredictionService.StreamDirectPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService.StreamDirectPredict) . |
+| [`StreamingRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.PredictionService.StreamingRawPredict)                | Perform a streaming online prediction request through gRPC.                                                                                                                                                                                  |
+
+## [`google.cloud.aiplatform.v1.ReasoningEngineExecutionService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ReasoningEngineExecutionService)
+
+| Methods                                                                                                                                                                                                                                 |                                                                                                       |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| [`AsyncQueryReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ReasoningEngineExecutionService.AsyncQueryReasoningEngine)             | Async query using a reasoning engine.                                                                 |
+| [`BidiInvokeReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ReasoningEngineExecutionService.BidiInvokeReasoningEngine)             | Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming                         |
+| [`CancelAsyncQueryReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ReasoningEngineExecutionService.CancelAsyncQueryReasoningEngine) | Cancels an AsyncQueryReasoningEngine operation.                                                       |
+| [`InvokeReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ReasoningEngineExecutionService.InvokeReasoningEngine)                     | Invokes reasoning engine with arbitrary HTTP requests for both unary and server-side streaming cases. |
+| [`QueryReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ReasoningEngineExecutionService.QueryReasoningEngine)                       | Queries using a reasoning engine.                                                                     |
+| [`StreamQueryReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ReasoningEngineExecutionService.StreamQueryReasoningEngine)           | Streams queries using a reasoning engine.                                                             |
+
+## [`google.cloud.aiplatform.v1.ReasoningEngineService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ReasoningEngineService)
+
+| Methods                                                                                                                                                                                                    |                                        |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
+| [`CreateReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ReasoningEngineService.CreateReasoningEngine) | Creates a reasoning engine.            |
+| [`DeleteReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ReasoningEngineService.DeleteReasoningEngine) | Deletes a reasoning engine.            |
+| [`GetReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ReasoningEngineService.GetReasoningEngine)       | Gets a reasoning engine.               |
+| [`ListReasoningEngines`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ReasoningEngineService.ListReasoningEngines)   | Lists reasoning engines in a location. |
+| [`UpdateReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ReasoningEngineService.UpdateReasoningEngine) | Updates a reasoning engine.            |
+
+## [`google.cloud.aiplatform.v1.SandboxEnvironmentExecutionService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentExecutionService)
+
+| Methods                                                                                                                                                                                                                                        |                                                                            |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| [`AuthorizeSandboxEnvironmentAccess`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentExecutionService.AuthorizeSandboxEnvironmentAccess) | Checks whether the caller is authorized to access the sandbox environment. |
+| [`ExecuteCode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentExecutionService.ExecuteCode)                                             | Executes code statelessly.                                                 |
+| [`ExecuteSandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentExecutionService.ExecuteSandboxEnvironment)                 | Executes using a sandbox environment.                                      |
+
+## [`google.cloud.aiplatform.v1.SandboxEnvironmentService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentService)
+
+| Methods                                                                                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`CreateSandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentService.CreateSandboxEnvironment)                 | Creates a [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironment) in a given reasoning engine.                                                                                                                                                                                                                |
+| [`CreateSandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentService.CreateSandboxEnvironmentTemplate) | Creates a [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentTemplate) in a given reasoning engine.                                                                                                                                                                                                |
+| [`DeleteSandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentService.DeleteSandboxEnvironment)                 | Deletes the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironment) .                                                                                                                                                                                                                                |
+| [`DeleteSandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentService.DeleteSandboxEnvironmentSnapshot) | Deletes the specific [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentSnapshot) .                                                                                                                                                                                                                |
+| [`DeleteSandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentService.DeleteSandboxEnvironmentTemplate) | Deletes the specific [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentTemplate) .                                                                                                                                                                                                                |
+| [`GetSandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentService.GetSandboxEnvironment)                       | Gets details of the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironment) .                                                                                                                                                                                                                        |
+| [`GetSandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentService.GetSandboxEnvironmentSnapshot)       | Gets details of the specific [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentSnapshot) .                                                                                                                                                                                                        |
+| [`GetSandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentService.GetSandboxEnvironmentTemplate)       | Gets details of the specific [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentTemplate) .                                                                                                                                                                                                        |
+| [`ListSandboxEnvironmentSnapshots`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentService.ListSandboxEnvironmentSnapshots)   | Lists [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentSnapshot) s in a given reasoning engine.                                                                                                                                                                                                  |
+| [`ListSandboxEnvironmentTemplates`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentService.ListSandboxEnvironmentTemplates)   | Lists [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentTemplate) s in a given reasoning engine.                                                                                                                                                                                                  |
+| [`ListSandboxEnvironments`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentService.ListSandboxEnvironments)                   | Lists [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironment) s in a given reasoning engine.                                                                                                                                                                                                                  |
+| [`PauseSandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentService.PauseSandboxEnvironment)                   | Pauses the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironment) .                                                                                                                                                                                                                                 |
+| [`ResumeSandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentService.ResumeSandboxEnvironment)                 | Resumes the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironment) .                                                                                                                                                                                                                                |
+| [`SnapshotSandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentService.SnapshotSandboxEnvironment)             | Snapshots the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironment) resource and creates a [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SandboxEnvironmentSnapshot) resource. |
+
+## [`google.cloud.aiplatform.v1.ScheduleService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ScheduleService)
+
+| Methods                                                                                                                                                                               |                                                         |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
+| [`CreateSchedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ScheduleService.CreateSchedule) | Creates a Schedule.                                     |
+| [`DeleteSchedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ScheduleService.DeleteSchedule) | Deletes a Schedule.                                     |
+| [`GetSchedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ScheduleService.GetSchedule)       | Gets a Schedule.                                        |
+| [`ListSchedules`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ScheduleService.ListSchedules)   | Lists Schedules in a Location.                          |
+| [`PauseSchedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ScheduleService.PauseSchedule)   | Pauses a Schedule.                                      |
+| [`ResumeSchedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ScheduleService.ResumeSchedule) | Resumes a paused Schedule to start scheduling new runs. |
+| [`UpdateSchedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ScheduleService.UpdateSchedule) | Updates an active or paused Schedule.                   |
+
+## [`google.cloud.aiplatform.v1.SemanticGovernancePolicyEngineService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SemanticGovernancePolicyEngineService)
+
+| Methods                                                                                                                                                                                                                                                           |                                                                                                                                        |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| [`DeprovisionSemanticGovernancePolicyEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SemanticGovernancePolicyEngineService.DeprovisionSemanticGovernancePolicyEngine) | Deprovisions the SemanticGovernancePolicyEngine, tearing down the associated tenant project, GKE cluster, and PSC service attachments. |
+| [`GetSemanticGovernancePolicyEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SemanticGovernancePolicyEngineService.GetSemanticGovernancePolicyEngine)                 | Gets a SemanticGovernancePolicyEngine.                                                                                                 |
+| [`UpdateSemanticGovernancePolicyEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SemanticGovernancePolicyEngineService.UpdateSemanticGovernancePolicyEngine)           | Updates a SemanticGovernancePolicyEngine.                                                                                              |
+
+## [`google.cloud.aiplatform.v1.SemanticGovernancePolicyService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SemanticGovernancePolicyService)
+
+| Methods                                                                                                                                                                                                                               |                                                       |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+| [`CreateSemanticGovernancePolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SemanticGovernancePolicyService.CreateSemanticGovernancePolicy) | Creates a SemanticGovernancePolicy.                   |
+| [`DeleteSemanticGovernancePolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SemanticGovernancePolicyService.DeleteSemanticGovernancePolicy) | Deletes a SemanticGovernancePolicy.                   |
+| [`GetSemanticGovernancePolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SemanticGovernancePolicyService.GetSemanticGovernancePolicy)       | Gets a SemanticGovernancePolicy.                      |
+| [`ListSemanticGovernancePolicies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SemanticGovernancePolicyService.ListSemanticGovernancePolicies) | Lists SemanticGovernancePolicies in a given location. |
+| [`UpdateSemanticGovernancePolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SemanticGovernancePolicyService.UpdateSemanticGovernancePolicy) | Updates a SemanticGovernancePolicy.                   |
+
+## [`google.cloud.aiplatform.v1.ServingProfileService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ServingProfileService)
+
+| Methods                                                                                                                                                                                                 |                                      |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
+| [`CreateServingProfile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ServingProfileService.CreateServingProfile) | Creates a ServingProfile.            |
+| [`DeleteServingProfile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ServingProfileService.DeleteServingProfile) | Deletes a ServingProfile.            |
+| [`GetServingProfile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ServingProfileService.GetServingProfile)       | Gets a ServingProfile.               |
+| [`ListServingProfiles`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ServingProfileService.ListServingProfiles)   | Lists ServingProfiles in a Location. |
+| [`UpdateServingProfile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.ServingProfileService.UpdateServingProfile) | Updates a ServingProfile.            |
+
+## [`google.cloud.aiplatform.v1.SessionService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SessionService)
+
+| Methods                                                                                                                                                                            |                                                                                                                                                                                             |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`AppendEvent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SessionService.AppendEvent)     | Appends an event to a given session.                                                                                                                                                        |
+| [`CreateSession`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SessionService.CreateSession) | Creates a new [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.Session) .                     |
+| [`DeleteSession`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SessionService.DeleteSession) | Deletes details of the specific [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.Session) .   |
+| [`GetSession`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SessionService.GetSession)       | Gets details of the specific [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.Session) .      |
+| [`ListEvents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SessionService.ListEvents)       | Lists [`Events`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.Event) in a given session.              |
+| [`ListSessions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SessionService.ListSessions)   | Lists [`Sessions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.Session) in a given reasoning engine. |
+| [`UpdateSession`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SessionService.UpdateSession) | Updates the specific [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.Session) .              |
+
+## [`google.cloud.aiplatform.v1.SpecialistPoolService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SpecialistPoolService)
+
+| Methods                                                                                                                                                                                                 |                                                                  |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| [`CreateSpecialistPool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SpecialistPoolService.CreateSpecialistPool) | Creates a SpecialistPool.                                        |
+| [`DeleteSpecialistPool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SpecialistPoolService.DeleteSpecialistPool) | Deletes a SpecialistPool as well as all Specialists in the pool. |
+| [`GetSpecialistPool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SpecialistPoolService.GetSpecialistPool)       | Gets a SpecialistPool.                                           |
+| [`ListSpecialistPools`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SpecialistPoolService.ListSpecialistPools)   | Lists SpecialistPools in a Location.                             |
+| [`UpdateSpecialistPool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.SpecialistPoolService.UpdateSpecialistPool) | Updates a SpecialistPool.                                        |
+
+## [`google.cloud.aiplatform.v1.TensorboardService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService)
+
+| Methods                                                                                                                                                                                                                          |                                                                                               |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| [`BatchCreateTensorboardRuns`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.BatchCreateTensorboardRuns)                 | Batch create TensorboardRuns.                                                                 |
+| [`BatchCreateTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.BatchCreateTensorboardTimeSeries)     | Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.                    |
+| [`BatchReadTensorboardTimeSeriesData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.BatchReadTensorboardTimeSeriesData) | Reads multiple TensorboardTimeSeries' data.                                                   |
+| [`CreateTensorboard`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.CreateTensorboard)                                   | Creates a Tensorboard.                                                                        |
+| [`CreateTensorboardExperiment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.CreateTensorboardExperiment)               | Creates a TensorboardExperiment.                                                              |
+| [`CreateTensorboardRun`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.CreateTensorboardRun)                             | Creates a TensorboardRun.                                                                     |
+| [`CreateTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.CreateTensorboardTimeSeries)               | Creates a TensorboardTimeSeries.                                                              |
+| [`DeleteTensorboard`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.DeleteTensorboard)                                   | Deletes a Tensorboard.                                                                        |
+| [`DeleteTensorboardExperiment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.DeleteTensorboardExperiment)               | Deletes a TensorboardExperiment.                                                              |
+| [`DeleteTensorboardRun`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.DeleteTensorboardRun)                             | Deletes a TensorboardRun.                                                                     |
+| [`DeleteTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.DeleteTensorboardTimeSeries)               | Deletes a TensorboardTimeSeries.                                                              |
+| [`ExportTensorboardTimeSeriesData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.ExportTensorboardTimeSeriesData)       | Exports a TensorboardTimeSeries' data.                                                        |
+| [`GetTensorboard`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.GetTensorboard)                                         | Gets a Tensorboard.                                                                           |
+| [`GetTensorboardExperiment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.GetTensorboardExperiment)                     | Gets a TensorboardExperiment.                                                                 |
+| [`GetTensorboardRun`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.GetTensorboardRun)                                   | Gets a TensorboardRun.                                                                        |
+| [`GetTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.GetTensorboardTimeSeries)                     | Gets a TensorboardTimeSeries.                                                                 |
+| [`ListTensorboardExperiments`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.ListTensorboardExperiments)                 | Lists TensorboardExperiments in a Location.                                                   |
+| [`ListTensorboardRuns`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.ListTensorboardRuns)                               | Lists TensorboardRuns in a Location.                                                          |
+| [`ListTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.ListTensorboardTimeSeries)                   | Lists TensorboardTimeSeries in a Location.                                                    |
+| [`ListTensorboards`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.ListTensorboards)                                     | Lists Tensorboards in a Location.                                                             |
+| [`ReadTensorboardBlobData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.ReadTensorboardBlobData)                       | Gets bytes of TensorboardBlobs.                                                               |
+| [`ReadTensorboardSize`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.ReadTensorboardSize)                               | Returns the storage size for a given TensorBoard instance.                                    |
+| [`ReadTensorboardTimeSeriesData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.ReadTensorboardTimeSeriesData)           | Reads a TensorboardTimeSeries' data.                                                          |
+| [`ReadTensorboardUsage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.ReadTensorboardUsage)                             | Returns a list of monthly active users for a given TensorBoard instance.                      |
+| [`UpdateTensorboard`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.UpdateTensorboard)                                   | Updates a Tensorboard.                                                                        |
+| [`UpdateTensorboardExperiment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.UpdateTensorboardExperiment)               | Updates a TensorboardExperiment.                                                              |
+| [`UpdateTensorboardRun`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.UpdateTensorboardRun)                             | Updates a TensorboardRun.                                                                     |
+| [`UpdateTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.UpdateTensorboardTimeSeries)               | Updates a TensorboardTimeSeries.                                                              |
+| [`WriteTensorboardExperimentData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.WriteTensorboardExperimentData)         | Write time series data points of multiple TensorboardTimeSeries in multiple TensorboardRun's. |
+| [`WriteTensorboardRunData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.TensorboardService.WriteTensorboardRunData)                       | Write time series data points into multiple TensorboardTimeSeries under a TensorboardRun.     |
+
+## [`google.cloud.aiplatform.v1.VertexRagDataService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagDataService)
+
+| Methods                                                                                                                                                                                                  |                                                                          |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| [`CreateRagCorpus`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagDataService.CreateRagCorpus)             | Creates a RagCorpus.                                                     |
+| [`DeleteRagCorpus`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagDataService.DeleteRagCorpus)             | Deletes a RagCorpus.                                                     |
+| [`DeleteRagFile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagDataService.DeleteRagFile)                 | Deletes a RagFile.                                                       |
+| [`GetRagCorpus`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagDataService.GetRagCorpus)                   | Gets a RagCorpus.                                                        |
+| [`GetRagEngineConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagDataService.GetRagEngineConfig)       | Gets a RagEngineConfig.                                                  |
+| [`GetRagFile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagDataService.GetRagFile)                       | Gets a RagFile.                                                          |
+| [`ImportRagFiles`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagDataService.ImportRagFiles)               | Import files from Google Cloud Storage or Google Drive into a RagCorpus. |
+| [`ListRagCorpora`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagDataService.ListRagCorpora)               | Lists RagCorpora in a Location.                                          |
+| [`ListRagFiles`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagDataService.ListRagFiles)                   | Lists RagFiles in a RagCorpus.                                           |
+| [`UpdateRagCorpus`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagDataService.UpdateRagCorpus)             | Updates a RagCorpus.                                                     |
+| [`UpdateRagEngineConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagDataService.UpdateRagEngineConfig) | Updates a RagEngineConfig.                                               |
+
+## [`google.cloud.aiplatform.v1.VertexRagService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagService)
+
+| Methods                                                                                                                                                                                              |                                                                                                                              |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| [`AskContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagService.AskContexts)                     | Agentic Retrieval Ask API for RAG.                                                                                           |
+| [`AsyncRetrieveContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagService.AsyncRetrieveContexts) | Asynchronous API to retrieves relevant contexts for a query.                                                                 |
+| [`AugmentPrompt`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagService.AugmentPrompt)                 | Given an input prompt, it returns augmented prompt from vertex rag store to guide LLM towards generating grounded responses. |
+| [`CorroborateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagService.CorroborateContent)       | Given an input text, it returns a score that evaluates the factuality of the text.                                           |
+| [`RetrieveContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VertexRagService.RetrieveContexts)           | Retrieves relevant contexts for a query.                                                                                     |
+
+## [`google.cloud.aiplatform.v1.VizierService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VizierService)
+
+| Methods                                                                                                                                                                                                         |                                                                                                             |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| [`AddTrialMeasurement`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VizierService.AddTrialMeasurement)                   | Adds a measurement of the objective metrics to a Trial.                                                     |
+| [`CheckTrialEarlyStoppingState`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VizierService.CheckTrialEarlyStoppingState) | Checks whether a Trial should stop or not.                                                                  |
+| [`CompleteTrial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VizierService.CompleteTrial)                               | Marks a Trial as complete.                                                                                  |
+| [`CreateStudy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VizierService.CreateStudy)                                   | Creates a Study.                                                                                            |
+| [`CreateTrial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VizierService.CreateTrial)                                   | Adds a user provided Trial to a Study.                                                                      |
+| [`DeleteStudy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VizierService.DeleteStudy)                                   | Deletes a Study.                                                                                            |
+| [`DeleteTrial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VizierService.DeleteTrial)                                   | Deletes a Trial.                                                                                            |
+| [`GetStudy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VizierService.GetStudy)                                         | Gets a Study by name.                                                                                       |
+| [`GetTrial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VizierService.GetTrial)                                         | Gets a Trial.                                                                                               |
+| [`ListOptimalTrials`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VizierService.ListOptimalTrials)                       | Lists the pareto-optimal Trials for multi-objective Study or the optimal Trials for single-objective Study. |
+| [`ListStudies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VizierService.ListStudies)                                   | Lists all the studies in a region for an associated project.                                                |
+| [`ListTrials`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VizierService.ListTrials)                                     | Lists the Trials associated with a Study.                                                                   |
+| [`LookupStudy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VizierService.LookupStudy)                                   | Looks a study up using the user-defined display_name field instead of the fully qualified resource name.    |
+| [`StopTrial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VizierService.StopTrial)                                       | Stops a Trial.                                                                                              |
+| [`SuggestTrials`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.VizierService.SuggestTrials)                               | Adds one or more Trials to a Study, with parameter values suggested by Agent Platform Vizier.               |
+
+## [`google.cloud.aiplatform.v1beta1.AgentService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.AgentService)
+
+| Methods                                                                                                                                                                                |                                                           |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| [`CreateAgent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.AgentService.CreateAgent) | Creates an agent.                                         |
+| [`DeleteAgent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.AgentService.DeleteAgent) | Deletes an agent.                                         |
+| [`GetAgent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.AgentService.GetAgent)       | Retrieves an agent.                                       |
+| [`ListAgents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.AgentService.ListAgents)   | Lists the agents in a location that belong to the caller. |
+| [`UpdateAgent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.AgentService.UpdateAgent) | Updates an agent.                                         |
+
+## [`google.cloud.aiplatform.v1beta1.DataFoundryService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DataFoundryService)
+
+| Methods                                                                                                                                                                                                          |                                                              |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| [`GenerateSyntheticData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DataFoundryService.GenerateSyntheticData) | Generates synthetic (artificial) data based on a description |
+
+## [`google.cloud.aiplatform.v1beta1.DatasetService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService)
+
+| Methods                                                                                                                                                                                                      |                                                                                         |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| [`AssembleData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.AssembleData)                   | Assembles each row of a multimodal dataset and writes the result into a BigQuery table. |
+| [`AssessData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.AssessData)                       | Assesses the state or validity of the dataset with respect to a given use case.         |
+| [`CreateDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.CreateDataset)                 | Creates a Dataset.                                                                      |
+| [`CreateDatasetVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.CreateDatasetVersion)   | Create a version from a Dataset.                                                        |
+| [`DeleteDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.DeleteDataset)                 | Deletes a Dataset.                                                                      |
+| [`DeleteDatasetVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.DeleteDatasetVersion)   | Deletes a Dataset version.                                                              |
+| [`DeleteSavedQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.DeleteSavedQuery)           | Deletes a SavedQuery.                                                                   |
+| [`ExportData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.ExportData)                       | Exports data from a Dataset.                                                            |
+| [`GetAnnotationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.GetAnnotationSpec)         | Gets an AnnotationSpec.                                                                 |
+| [`GetDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.GetDataset)                       | Gets a Dataset.                                                                         |
+| [`GetDatasetVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.GetDatasetVersion)         | Gets a Dataset version.                                                                 |
+| [`ImportData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.ImportData)                       | Imports data into a Dataset.                                                            |
+| [`ListAnnotations`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.ListAnnotations)             | Lists Annotations belongs to a dataitem.                                                |
+| [`ListDataItems`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.ListDataItems)                 | Lists DataItems in a Dataset.                                                           |
+| [`ListDatasetVersions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.ListDatasetVersions)     | Lists DatasetVersions in a Dataset.                                                     |
+| [`ListDatasets`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.ListDatasets)                   | Lists Datasets in a Location.                                                           |
+| [`ListSavedQueries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.ListSavedQueries)           | Lists SavedQueries in a Dataset.                                                        |
+| [`RestoreDatasetVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.RestoreDatasetVersion) | Restores a dataset version.                                                             |
+| [`SearchDataItems`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.SearchDataItems)             | Searches DataItems in a Dataset.                                                        |
+| [`UpdateDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.UpdateDataset)                 | Updates a Dataset.                                                                      |
+| [`UpdateDatasetVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DatasetService.UpdateDatasetVersion)   | Updates a DatasetVersion.                                                               |
+
+## [`google.cloud.aiplatform.v1beta1.DeploymentResourcePoolService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DeploymentResourcePoolService)
+
+| Methods                                                                                                                                                                                                                                   |                                                                             |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| [`CreateDeploymentResourcePool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DeploymentResourcePoolService.CreateDeploymentResourcePool) | Create a DeploymentResourcePool.                                            |
+| [`DeleteDeploymentResourcePool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DeploymentResourcePoolService.DeleteDeploymentResourcePool) | Delete a DeploymentResourcePool.                                            |
+| [`GetDeploymentResourcePool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DeploymentResourcePoolService.GetDeploymentResourcePool)       | Get a DeploymentResourcePool.                                               |
+| [`ListDeploymentResourcePools`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DeploymentResourcePoolService.ListDeploymentResourcePools)   | List DeploymentResourcePools in a location.                                 |
+| [`QueryDeployedModels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DeploymentResourcePoolService.QueryDeployedModels)                   | List DeployedModels that have been deployed on this DeploymentResourcePool. |
+| [`UpdateDeploymentResourcePool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DeploymentResourcePoolService.UpdateDeploymentResourcePool) | Update a DeploymentResourcePool.                                            |
+
+## [`google.cloud.aiplatform.v1beta1.EndpointService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EndpointService)
+
+| Methods                                                                                                                                                                                                               |                                                                                                             |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| [`CreateEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EndpointService.CreateEndpoint)                       | Creates an Endpoint.                                                                                        |
+| [`DeleteEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EndpointService.DeleteEndpoint)                       | Deletes an Endpoint.                                                                                        |
+| [`DeployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EndpointService.DeployModel)                             | Deploys a Model into this Endpoint, creating a DeployedModel within it.                                     |
+| [`FetchPublisherModelConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EndpointService.FetchPublisherModelConfig) | Fetches the configs of publisher models.                                                                    |
+| [`GetEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EndpointService.GetEndpoint)                             | Gets an Endpoint.                                                                                           |
+| [`ListEndpoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EndpointService.ListEndpoints)                         | Lists Endpoints in a Location.                                                                              |
+| [`MutateDeployedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EndpointService.MutateDeployedModel)             | Updates an existing deployed model.                                                                         |
+| [`SetPublisherModelConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EndpointService.SetPublisherModelConfig)     | Sets (creates or updates) configs of publisher models.                                                      |
+| [`UndeployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EndpointService.UndeployModel)                         | Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freeing all resources it's using. |
+| [`UpdateEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EndpointService.UpdateEndpoint)                       | Updates an Endpoint.                                                                                        |
+| [`UpdateEndpointLongRunning`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EndpointService.UpdateEndpointLongRunning) | Updates an Endpoint with a long running operation.                                                          |
+
+## [`google.cloud.aiplatform.v1beta1.EvaluationAnalyticsService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EvaluationAnalyticsService)
+
+| Methods                                                                                                                                                                                                                |                                                  |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| [`GenerateLossClusters`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EvaluationAnalyticsService.GenerateLossClusters) | Generates loss clusters from evaluation results. |
+
+## [`google.cloud.aiplatform.v1beta1.EvaluationService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EvaluationService)
+
+| Methods                                                                                                                                                                                                             |                                                      |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
+| [`EvaluateDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EvaluationService.EvaluateDataset)                 | Evaluates a dataset based on a set of given metrics. |
+| [`EvaluateInstances`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EvaluationService.EvaluateInstances)             | Evaluates instances based on a given metric.         |
+| [`GenerateInstanceRubrics`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.EvaluationService.GenerateInstanceRubrics) | Generates rubrics for a given prompt.                |
+
+## [`google.cloud.aiplatform.v1beta1.ExampleStoreService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExampleStoreService)
+
+| Methods                                                                                                                                                                                                     |                                                           |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| [`CreateExampleStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExampleStoreService.CreateExampleStore) | Create an ExampleStore.                                   |
+| [`DeleteExampleStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExampleStoreService.DeleteExampleStore) | Delete an ExampleStore.                                   |
+| [`FetchExamples`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExampleStoreService.FetchExamples)           | Get Examples from the Example Store.                      |
+| [`GetExampleStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExampleStoreService.GetExampleStore)       | Get an ExampleStore.                                      |
+| [`ListExampleStores`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExampleStoreService.ListExampleStores)   | List ExampleStores in a Location.                         |
+| [`RemoveExamples`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExampleStoreService.RemoveExamples)         | Remove Examples from the Example Store.                   |
+| [`SearchExamples`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExampleStoreService.SearchExamples)         | Search for similar Examples for given selection criteria. |
+| [`UpdateExampleStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExampleStoreService.UpdateExampleStore) | Update an ExampleStore.                                   |
+| [`UpsertExamples`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExampleStoreService.UpsertExamples)         | Create or update Examples in the Example Store.           |
+
+## [`google.cloud.aiplatform.v1beta1.ExtensionExecutionService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExtensionExecutionService)
+
+| Methods                                                                                                                                                                                                       |                                                 |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
+| [`ExecuteExtension`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExtensionExecutionService.ExecuteExtension) | Executes the request against a given extension. |
+| [`QueryExtension`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExtensionExecutionService.QueryExtension)     | Queries an extension with a default controller. |
+
+## [`google.cloud.aiplatform.v1beta1.ExtensionRegistryService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExtensionRegistryService)
+
+| Methods                                                                                                                                                                                                    |                                 |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|
+| [`DeleteExtension`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExtensionRegistryService.DeleteExtension) | Deletes an Extension.           |
+| [`GetExtension`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExtensionRegistryService.GetExtension)       | Gets an Extension.              |
+| [`ImportExtension`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExtensionRegistryService.ImportExtension) | Imports an Extension.           |
+| [`ListExtensions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExtensionRegistryService.ListExtensions)   | Lists Extensions in a location. |
+| [`UpdateExtension`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ExtensionRegistryService.UpdateExtension) | Updates an Extension.           |
+
+## [`google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService)
+
+| Methods                                                                                                                                                                                                                            |                                                                   |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
+| [`CreateFeatureOnlineStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.CreateFeatureOnlineStore) | Creates a new FeatureOnlineStore in a given project and location. |
+| [`CreateFeatureView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.CreateFeatureView)               | Creates a new FeatureView in a given FeatureOnlineStore.          |
+| [`DeleteFeatureOnlineStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.DeleteFeatureOnlineStore) | Deletes a single FeatureOnlineStore.                              |
+| [`DeleteFeatureView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.DeleteFeatureView)               | Deletes a single FeatureView.                                     |
+| [`GetFeatureOnlineStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.GetFeatureOnlineStore)       | Gets details of a single FeatureOnlineStore.                      |
+| [`GetFeatureView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.GetFeatureView)                     | Gets details of a single FeatureView.                             |
+| [`GetFeatureViewSync`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.GetFeatureViewSync)             | Gets details of a single FeatureViewSync.                         |
+| [`ListFeatureOnlineStores`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureOnlineStores)   | Lists FeatureOnlineStores in a given project and location.        |
+| [`ListFeatureViewSyncs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureViewSyncs)         | Lists FeatureViewSyncs in a given FeatureView.                    |
+| [`ListFeatureViews`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureViews)                 | Lists FeatureViews in a given FeatureOnlineStore.                 |
+| [`SyncFeatureView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.SyncFeatureView)                   | Triggers on-demand sync for the FeatureView.                      |
+| [`UpdateFeatureOnlineStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.UpdateFeatureOnlineStore) | Updates the parameters of a single FeatureOnlineStore.            |
+| [`UpdateFeatureView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.UpdateFeatureView)               | Updates the parameters of a single FeatureView.                   |
+
+## [`google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService)
+
+| Methods                                                                                                                                                                                                                             |                                                                                    |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| [`FeatureViewDirectWrite`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService.FeatureViewDirectWrite)           | Bidirectional streaming RPC to directly write to feature values in a feature view. |
+| [`FetchFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService.FetchFeatureValues)                   | Fetch feature values under a FeatureView.                                          |
+| [`GenerateFetchAccessToken`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService.GenerateFetchAccessToken)       | RPC to generate an access token for the given feature view.                        |
+| [`SearchNearestEntities`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService.SearchNearestEntities)             | Search the nearest entities under a FeatureView.                                   |
+| [`StreamingFetchFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService.StreamingFetchFeatureValues) | Bidirectional streaming RPC to fetch feature values under a FeatureView.           |
+
+## [`google.cloud.aiplatform.v1beta1.FeatureRegistryService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService)
+
+| Methods                                                                                                                                                                                                                  |                                                                             |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| [`BatchCreateFeatures`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.BatchCreateFeatures)         | Creates a batch of Features in a given FeatureGroup.                        |
+| [`CreateFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.CreateFeature)                     | Creates a new Feature in a given FeatureGroup.                              |
+| [`CreateFeatureGroup`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.CreateFeatureGroup)           | Creates a new FeatureGroup in a given project and location.                 |
+| [`CreateFeatureMonitor`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.CreateFeatureMonitor)       | Creates a new FeatureMonitor in a given project, location and FeatureGroup. |
+| [`CreateFeatureMonitorJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.CreateFeatureMonitorJob) | Creates a new feature monitor job.                                          |
+| [`DeleteFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.DeleteFeature)                     | Deletes a single Feature.                                                   |
+| [`DeleteFeatureGroup`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.DeleteFeatureGroup)           | Deletes a single FeatureGroup.                                              |
+| [`DeleteFeatureMonitor`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.DeleteFeatureMonitor)       | Deletes a single FeatureMonitor.                                            |
+| [`GetFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.GetFeature)                           | Gets details of a single Feature.                                           |
+| [`GetFeatureGroup`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.GetFeatureGroup)                 | Gets details of a single FeatureGroup.                                      |
+| [`GetFeatureMonitor`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.GetFeatureMonitor)             | Gets details of a single FeatureMonitor.                                    |
+| [`GetFeatureMonitorJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.GetFeatureMonitorJob)       | Get a feature monitor job.                                                  |
+| [`ListFeatureGroups`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.ListFeatureGroups)             | Lists FeatureGroups in a given project and location.                        |
+| [`ListFeatureMonitorJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.ListFeatureMonitorJobs)   | List feature monitor jobs.                                                  |
+| [`ListFeatureMonitors`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.ListFeatureMonitors)         | Lists FeatureGroups in a given project and location.                        |
+| [`ListFeatures`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.ListFeatures)                       | Lists Features in a given FeatureGroup.                                     |
+| [`UpdateFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.UpdateFeature)                     | Updates the parameters of a single Feature.                                 |
+| [`UpdateFeatureGroup`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.UpdateFeatureGroup)           | Updates the parameters of a single FeatureGroup.                            |
+| [`UpdateFeatureMonitor`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeatureRegistryService.UpdateFeatureMonitor)       | Updates the parameters of a single FeatureMonitor.                          |
+
+## [`google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService)
+
+| Methods                                                                                                                                                                                                                                  |                                                                 |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| [`ReadFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService.ReadFeatureValues)                   | Reads Feature values of a specific entity of an EntityType.     |
+| [`StreamingReadFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService.StreamingReadFeatureValues) | Reads Feature values for multiple entities.                     |
+| [`WriteFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService.WriteFeatureValues)                 | Writes Feature values of one or more entities of an EntityType. |
+
+## [`google.cloud.aiplatform.v1beta1.FeaturestoreService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService)
+
+| Methods                                                                                                                                                                                                             |                                                                      |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| [`BatchCreateFeatures`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.BatchCreateFeatures)       | Creates a batch of Features in a given EntityType.                   |
+| [`BatchReadFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.BatchReadFeatureValues) | Batch reads Feature values from a Featurestore.                      |
+| [`CreateEntityType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.CreateEntityType)             | Creates a new EntityType in a given Featurestore.                    |
+| [`CreateFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.CreateFeature)                   | Creates a new Feature in a given EntityType.                         |
+| [`CreateFeaturestore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.CreateFeaturestore)         | Creates a new Featurestore in a given project and location.          |
+| [`DeleteEntityType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.DeleteEntityType)             | Deletes a single EntityType.                                         |
+| [`DeleteFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.DeleteFeature)                   | Deletes a single Feature.                                            |
+| [`DeleteFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.DeleteFeatureValues)       | Delete Feature values from Featurestore.                             |
+| [`DeleteFeaturestore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.DeleteFeaturestore)         | Deletes a single Featurestore.                                       |
+| [`ExportFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.ExportFeatureValues)       | Exports Feature values from all the entities of a target EntityType. |
+| [`GetEntityType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.GetEntityType)                   | Gets details of a single EntityType.                                 |
+| [`GetFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.GetFeature)                         | Gets details of a single Feature.                                    |
+| [`GetFeaturestore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.GetFeaturestore)               | Gets details of a single Featurestore.                               |
+| [`ImportFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.ImportFeatureValues)       | Imports Feature values into the Featurestore from a source storage.  |
+| [`ListEntityTypes`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.ListEntityTypes)               | Lists EntityTypes in a given Featurestore.                           |
+| [`ListFeatures`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeatures)                     | Lists Features in a given EntityType.                                |
+| [`ListFeaturestores`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeaturestores)           | Lists Featurestores in a given project and location.                 |
+| [`SearchFeatures`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.SearchFeatures)                 | Searches Features matching a query in a given project.               |
+| [`UpdateEntityType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.UpdateEntityType)             | Updates the parameters of a single EntityType.                       |
+| [`UpdateFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.UpdateFeature)                   | Updates the parameters of a single Feature.                          |
+| [`UpdateFeaturestore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeaturestoreService.UpdateFeaturestore)         | Updates the parameters of a single Featurestore.                     |
+
+## [`google.cloud.aiplatform.v1beta1.FeedbackService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeedbackService)
+
+| Methods                                                                                                                                                                                                       |                                                                |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| [`CreateFeedbackEntry`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeedbackService.CreateFeedbackEntry)     | Creates a new FeedbackEntry.                                   |
+| [`DeleteFeedbackEntry`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeedbackService.DeleteFeedbackEntry)     | Deletes a FeedbackEntry and its associated FeedbackContext.    |
+| [`GetFeedbackContext`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeedbackService.GetFeedbackContext)       | Retrieves the FeedbackContext associated with a FeedbackEntry. |
+| [`GetFeedbackEntry`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeedbackService.GetFeedbackEntry)           | Retrieves a single FeedbackEntry by its resource name.         |
+| [`ListFeedbackEntries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeedbackService.ListFeedbackEntries)     | Lists FeedbackEntries in a ReasoningEngine.                    |
+| [`UpdateFeedbackContext`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeedbackService.UpdateFeedbackContext) | Updates the FeedbackContext associated with a FeedbackEntry.   |
+| [`UpdateFeedbackEntry`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.FeedbackService.UpdateFeedbackEntry)     | Updates an existing FeedbackEntry.                             |
+
+## [`google.cloud.aiplatform.v1beta1.GenAiCacheService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.GenAiCacheService)
+
+| Methods                                                                                                                                                                                                     |                                                                                                                                             |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| [`CreateCachedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.GenAiCacheService.CreateCachedContent) | Creates cached content, this call will initialize the cached content in the data storage, and users need to pay for the cache data storage. |
+| [`DeleteCachedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.GenAiCacheService.DeleteCachedContent) | Deletes cached content                                                                                                                      |
+| [`GetCachedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.GenAiCacheService.GetCachedContent)       | Gets cached content configurations                                                                                                          |
+| [`ListCachedContents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.GenAiCacheService.ListCachedContents)   | Lists cached contents in a project                                                                                                          |
+| [`UpdateCachedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.GenAiCacheService.UpdateCachedContent) | Updates cached content configurations                                                                                                       |
+
+## [`google.cloud.aiplatform.v1beta1.GenAiTuningService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.GenAiTuningService)
+
+| Methods                                                                                                                                                                                                                                  |                                        |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
+| [`CancelTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.GenAiTuningService.CancelTuningJob)                                     | Cancels a tuning job.                  |
+| [`CreateTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.GenAiTuningService.CreateTuningJob)                                     | Creates a tuning job.                  |
+| [`GetTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.GenAiTuningService.GetTuningJob)                                           | Gets a tuning job.                     |
+| [`ListTuningJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.GenAiTuningService.ListTuningJobs)                                       | Lists tuning jobs in a location.       |
+| [`RebaseTunedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.GenAiTuningService.RebaseTunedModel)                                   | Rebase a tuned model.                  |
+| [`ValidateReinforcementTuningReward`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.GenAiTuningService.ValidateReinforcementTuningReward) | Validates a reward on a given example. |
+
+## [`google.cloud.aiplatform.v1beta1.IndexEndpointService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexEndpointService)
+
+| Methods                                                                                                                                                                                                        |                                                                                                                   |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| [`CreateIndexEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexEndpointService.CreateIndexEndpoint) | Creates an IndexEndpoint.                                                                                         |
+| [`DeleteIndexEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexEndpointService.DeleteIndexEndpoint) | Deletes an IndexEndpoint.                                                                                         |
+| [`DeployIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexEndpointService.DeployIndex)                 | Deploys an Index into this IndexEndpoint, creating a DeployedIndex within it.                                     |
+| [`GetIndexEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexEndpointService.GetIndexEndpoint)       | Gets an IndexEndpoint.                                                                                            |
+| [`ListIndexEndpoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexEndpointService.ListIndexEndpoints)   | Lists IndexEndpoints in a Location.                                                                               |
+| [`MutateDeployedIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexEndpointService.MutateDeployedIndex) | Update an existing DeployedIndex under an IndexEndpoint.                                                          |
+| [`UndeployIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexEndpointService.UndeployIndex)             | Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it, and freeing all resources it's using. |
+| [`UpdateIndexEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexEndpointService.UpdateIndexEndpoint) | Updates an IndexEndpoint.                                                                                         |
+
+## [`google.cloud.aiplatform.v1beta1.IndexService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexService)
+
+| Methods                                                                                                                                                                                          |                                                            |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
+| [`CreateIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexService.CreateIndex)           | Creates an Index.                                          |
+| [`DeleteIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexService.DeleteIndex)           | Deletes an Index.                                          |
+| [`GetIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexService.GetIndex)                 | Gets an Index.                                             |
+| [`ImportIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexService.ImportIndex)           | Imports an Index from an external source (e.g., BigQuery). |
+| [`ListIndexes`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexService.ListIndexes)           | Lists Indexes in a Location.                               |
+| [`RemoveDatapoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexService.RemoveDatapoints) | Remove Datapoints from an Index.                           |
+| [`UpdateIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexService.UpdateIndex)           | Updates an Index.                                          |
+| [`UpsertDatapoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.IndexService.UpsertDatapoints) | Add/update Datapoints into an Index.                       |
+
+## [`google.cloud.aiplatform.v1beta1.JobService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService)
+
+| Methods                                                                                                                                                                                                                                                  |                                                                            |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| [`CancelBatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.CancelBatchPredictionJob)                                           | Cancels a BatchPredictionJob.                                              |
+| [`CancelCustomJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.CancelCustomJob)                                                             | Cancels a CustomJob.                                                       |
+| [`CancelHyperparameterTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.CancelHyperparameterTuningJob)                                 | Cancels a HyperparameterTuningJob.                                         |
+| [`CreateBatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.CreateBatchPredictionJob)                                           | Creates a BatchPredictionJob.                                              |
+| [`CreateCustomJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.CreateCustomJob)                                                             | Creates a CustomJob.                                                       |
+| [`CreateHyperparameterTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.CreateHyperparameterTuningJob)                                 | Creates a HyperparameterTuningJob                                          |
+| [`CreateModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.CreateModelDeploymentMonitoringJob)                       | Creates a ModelDeploymentMonitoringJob.                                    |
+| [`DeleteBatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.DeleteBatchPredictionJob)                                           | Deletes a BatchPredictionJob.                                              |
+| [`DeleteCustomJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.DeleteCustomJob)                                                             | Deletes a CustomJob.                                                       |
+| [`DeleteHyperparameterTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.DeleteHyperparameterTuningJob)                                 | Deletes a HyperparameterTuningJob.                                         |
+| [`DeleteModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.DeleteModelDeploymentMonitoringJob)                       | Deletes a ModelDeploymentMonitoringJob.                                    |
+| [`GetBatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.GetBatchPredictionJob)                                                 | Gets a BatchPredictionJob                                                  |
+| [`GetCustomJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.GetCustomJob)                                                                   | Gets a CustomJob.                                                          |
+| [`GetHyperparameterTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.GetHyperparameterTuningJob)                                       | Gets a HyperparameterTuningJob                                             |
+| [`GetModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.GetModelDeploymentMonitoringJob)                             | Gets a ModelDeploymentMonitoringJob.                                       |
+| [`ListBatchPredictionJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.ListBatchPredictionJobs)                                             | Lists BatchPredictionJobs in a Location.                                   |
+| [`ListCustomJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.ListCustomJobs)                                                               | Lists CustomJobs in a Location.                                            |
+| [`ListHyperparameterTuningJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.ListHyperparameterTuningJobs)                                   | Lists HyperparameterTuningJobs in a Location.                              |
+| [`ListModelDeploymentMonitoringJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.ListModelDeploymentMonitoringJobs)                         | Lists ModelDeploymentMonitoringJobs in a Location.                         |
+| [`PauseModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.PauseModelDeploymentMonitoringJob)                         | Pauses a ModelDeploymentMonitoringJob.                                     |
+| [`ResumeModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.ResumeModelDeploymentMonitoringJob)                       | Resumes a paused ModelDeploymentMonitoringJob.                             |
+| [`SearchModelDeploymentMonitoringStatsAnomalies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.SearchModelDeploymentMonitoringStatsAnomalies) | Searches Model Monitoring Statistics generated within a given time window. |
+| [`UpdateModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.JobService.UpdateModelDeploymentMonitoringJob)                       | Updates a ModelDeploymentMonitoringJob.                                    |
+
+## [`google.cloud.aiplatform.v1beta1.LlmBidiService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.LlmBidiService)
+
+| Methods                                                                                                                                                                                                  |                                  |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|
+| [`BidiGenerateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.LlmBidiService.BidiGenerateContent) | Bidirectional streaming predict. |
+
+## [`google.cloud.aiplatform.v1beta1.LlmUtilityService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.LlmUtilityService)
+
+| Methods                                                                                                                                                                                         |                                                  |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| [`ComputeTokens`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.LlmUtilityService.ComputeTokens) | Return a list of tokens based on the input text. |
+
+## [`google.cloud.aiplatform.v1beta1.MatchService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MatchService)
+
+| Methods |
+|---------|
+
+## [`google.cloud.aiplatform.v1beta1.MemoryBankService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MemoryBankService)
+
+| Methods                                                                                                                                                                                               |                                   |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| [`CreateMemory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MemoryBankService.CreateMemory)         | Create a Memory.                  |
+| [`DeleteMemory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MemoryBankService.DeleteMemory)         | Delete a Memory.                  |
+| [`GenerateMemories`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MemoryBankService.GenerateMemories) | Generate memories.                |
+| [`GetMemory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MemoryBankService.GetMemory)               | Get a Memory.                     |
+| [`IngestEvents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MemoryBankService.IngestEvents)         | Ingests events for a Memory Bank. |
+| [`ListMemories`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MemoryBankService.ListMemories)         | List Memories.                    |
+| [`RetrieveMemories`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MemoryBankService.RetrieveMemories) | Retrieve memories.                |
+| [`RetrieveProfiles`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MemoryBankService.RetrieveProfiles) | Retrieves profiles.               |
+| [`UpdateMemory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MemoryBankService.UpdateMemory)         | Update a Memory.                  |
+
+## [`google.cloud.aiplatform.v1beta1.MetadataService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService)
+
+| Methods                                                                                                                                                                                                                             |                                                                                                                                                          |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`AddContextArtifactsAndExecutions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.AddContextArtifactsAndExecutions) | Adds a set of Artifacts and Executions to a Context.                                                                                                     |
+| [`AddContextChildren`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.AddContextChildren)                             | Adds a set of Contexts as children to a parent Context.                                                                                                  |
+| [`AddExecutionEvents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.AddExecutionEvents)                             | Adds Events to the specified Execution.                                                                                                                  |
+| [`CreateArtifact`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.CreateArtifact)                                     | Creates an Artifact associated with a MetadataStore.                                                                                                     |
+| [`CreateContext`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.CreateContext)                                       | Creates a Context associated with a MetadataStore.                                                                                                       |
+| [`CreateExecution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.CreateExecution)                                   | Creates an Execution associated with a MetadataStore.                                                                                                    |
+| [`CreateMetadataSchema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.CreateMetadataSchema)                         | Creates a MetadataSchema.                                                                                                                                |
+| [`CreateMetadataStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.CreateMetadataStore)                           | Initializes a MetadataStore, including allocation of resources.                                                                                          |
+| [`DeleteArtifact`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.DeleteArtifact)                                     | Deletes an Artifact.                                                                                                                                     |
+| [`DeleteContext`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.DeleteContext)                                       | Deletes a stored Context.                                                                                                                                |
+| [`DeleteExecution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.DeleteExecution)                                   | Deletes an Execution.                                                                                                                                    |
+| [`DeleteMetadataStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.DeleteMetadataStore)                           | Deletes a single MetadataStore and all its child resources (Artifacts, Executions, and Contexts).                                                        |
+| [`GetArtifact`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.GetArtifact)                                           | Retrieves a specific Artifact.                                                                                                                           |
+| [`GetContext`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.GetContext)                                             | Retrieves a specific Context.                                                                                                                            |
+| [`GetExecution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.GetExecution)                                         | Retrieves a specific Execution.                                                                                                                          |
+| [`GetMetadataSchema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.GetMetadataSchema)                               | Retrieves a specific MetadataSchema.                                                                                                                     |
+| [`GetMetadataStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.GetMetadataStore)                                 | Retrieves a specific MetadataStore.                                                                                                                      |
+| [`ListArtifacts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.ListArtifacts)                                       | Lists Artifacts in the MetadataStore.                                                                                                                    |
+| [`ListContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.ListContexts)                                         | Lists Contexts on the MetadataStore.                                                                                                                     |
+| [`ListExecutions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.ListExecutions)                                     | Lists Executions in the MetadataStore.                                                                                                                   |
+| [`ListMetadataSchemas`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.ListMetadataSchemas)                           | Lists MetadataSchemas.                                                                                                                                   |
+| [`ListMetadataStores`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.ListMetadataStores)                             | Lists MetadataStores for a Location.                                                                                                                     |
+| [`PurgeArtifacts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.PurgeArtifacts)                                     | Purges Artifacts.                                                                                                                                        |
+| [`PurgeContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.PurgeContexts)                                       | Purges Contexts.                                                                                                                                         |
+| [`PurgeExecutions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.PurgeExecutions)                                   | Purges Executions.                                                                                                                                       |
+| [`QueryArtifactLineageSubgraph`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.QueryArtifactLineageSubgraph)         | Retrieves lineage of an Artifact represented through Artifacts and Executions connected by Event edges and returned as a LineageSubgraph.                |
+| [`QueryContextLineageSubgraph`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.QueryContextLineageSubgraph)           | Retrieves Artifacts and Executions within the specified Context, connected by Event edges and returned as a LineageSubgraph.                             |
+| [`QueryExecutionInputsAndOutputs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.QueryExecutionInputsAndOutputs)     | Obtains the set of input and output Artifacts for this Execution, in the form of LineageSubgraph that also contains the Execution and connecting Events. |
+| [`RemoveContextChildren`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.RemoveContextChildren)                       | Remove a set of children contexts from a parent Context.                                                                                                 |
+| [`UpdateArtifact`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.UpdateArtifact)                                     | Updates a stored Artifact.                                                                                                                               |
+| [`UpdateContext`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.UpdateContext)                                       | Updates a stored Context.                                                                                                                                |
+| [`UpdateExecution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MetadataService.UpdateExecution)                                   | Updates a stored Execution.                                                                                                                              |
+
+## [`google.cloud.aiplatform.v1beta1.MigrationService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MigrationService)
+
+| Methods                                                                                                                                                                                                                |                                                                                                                                                                    |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`BatchMigrateResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MigrationService.BatchMigrateResources)         | Batch migrates resources from ml.googleapis.com, automl.googleapis.com, and datalabeling.googleapis.com to Agent Platform.                                         |
+| [`SearchMigratableResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.MigrationService.SearchMigratableResources) | Searches all of the resources in automl.googleapis.com, datalabeling.googleapis.com and ml.googleapis.com that can be migrated to Agent Platform's given location. |
+
+## [`google.cloud.aiplatform.v1beta1.ModelGardenService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelGardenService)
+
+| Methods                                                                                                                                                                                                                                  |                                                                           |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| [`AcceptPublisherModelEula`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelGardenService.AcceptPublisherModelEula)                   | Accepts the EULA acceptance status of a publisher model.                  |
+| [`CheckPublisherModelEulaAcceptance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelGardenService.CheckPublisherModelEulaAcceptance) | Checks the EULA acceptance status of a publisher model.                   |
+| [`Deploy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelGardenService.Deploy)                                                       | Deploys a model to a new endpoint.                                        |
+| [`DeployPublisherModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelGardenService.DeployPublisherModel)` `**`(deprecated)`**      | Deploys publisher models.                                                 |
+| [`EnableModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelGardenService.EnableModel)                                             | Enables model for the project if prerequisites are met (e.g.              |
+| [`ExportPublisherModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelGardenService.ExportPublisherModel)                           | Exports a publisher model to a user provided Google Cloud Storage bucket. |
+| [`GetPublisherModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelGardenService.GetPublisherModel)                                 | Gets a Model Garden publisher model.                                      |
+| [`ListPublisherModels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelGardenService.ListPublisherModels)                             | Lists publisher models in Model Garden.                                   |
+
+## [`google.cloud.aiplatform.v1beta1.ModelMonitoringService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelMonitoringService)
+
+| Methods                                                                                                                                                                                                                          |                                                                       |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| [`CreateModelMonitor`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelMonitoringService.CreateModelMonitor)                   | Creates a ModelMonitor.                                               |
+| [`CreateModelMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelMonitoringService.CreateModelMonitoringJob)       | Creates a ModelMonitoringJob.                                         |
+| [`DeleteModelMonitor`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelMonitoringService.DeleteModelMonitor)                   | Deletes a ModelMonitor.                                               |
+| [`DeleteModelMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelMonitoringService.DeleteModelMonitoringJob)       | Deletes a ModelMonitoringJob.                                         |
+| [`GetModelMonitor`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelMonitoringService.GetModelMonitor)                         | Gets a ModelMonitor.                                                  |
+| [`GetModelMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelMonitoringService.GetModelMonitoringJob)             | Gets a ModelMonitoringJob.                                            |
+| [`ListModelMonitoringJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelMonitoringService.ListModelMonitoringJobs)         | Lists ModelMonitoringJobs.                                            |
+| [`ListModelMonitors`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelMonitoringService.ListModelMonitors)                     | Lists ModelMonitors in a Location.                                    |
+| [`SearchModelMonitoringAlerts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelMonitoringService.SearchModelMonitoringAlerts) | Returns the Model Monitoring alerts.                                  |
+| [`SearchModelMonitoringStats`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelMonitoringService.SearchModelMonitoringStats)   | Searches Model Monitoring Stats generated within a given time window. |
+| [`UpdateModelMonitor`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelMonitoringService.UpdateModelMonitor)                   | Updates a ModelMonitor.                                               |
+
+## [`google.cloud.aiplatform.v1beta1.ModelService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService)
+
+| Methods                                                                                                                                                                                                                          |                                                                              |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| [`BatchImportEvaluatedAnnotations`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.BatchImportEvaluatedAnnotations)   | Imports a list of externally generated EvaluatedAnnotations.                 |
+| [`BatchImportModelEvaluationSlices`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.BatchImportModelEvaluationSlices) | Imports a list of externally generated ModelEvaluationSlice.                 |
+| [`CopyModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.CopyModel)                                               | Copies an already existing Agent Platform Model into the specified Location. |
+| [`DeleteModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.DeleteModel)                                           | Deletes a Model.                                                             |
+| [`DeleteModelVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.DeleteModelVersion)                             | Deletes a Model version.                                                     |
+| [`ExportModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.ExportModel)                                           | Exports a trained, exportable Model to a location specified by the user.     |
+| [`GetModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.GetModel)                                                 | Gets a Model.                                                                |
+| [`GetModelEvaluation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.GetModelEvaluation)                             | Gets a ModelEvaluation.                                                      |
+| [`GetModelEvaluationSlice`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.GetModelEvaluationSlice)                   | Gets a ModelEvaluationSlice.                                                 |
+| [`ImportModelEvaluation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.ImportModelEvaluation)                       | Imports an externally generated ModelEvaluation.                             |
+| [`ListModelEvaluationSlices`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.ListModelEvaluationSlices)               | Lists ModelEvaluationSlices in a ModelEvaluation.                            |
+| [`ListModelEvaluations`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.ListModelEvaluations)                         | Lists ModelEvaluations in a Model.                                           |
+| [`ListModelVersionCheckpoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.ListModelVersionCheckpoints)           | Lists checkpoints of the specified model version.                            |
+| [`ListModelVersions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.ListModelVersions)                               | Lists versions of the specified model.                                       |
+| [`ListModels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.ListModels)                                             | Lists Models in a Location.                                                  |
+| [`MergeVersionAliases`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.MergeVersionAliases)                           | Merges a set of aliases for a Model version.                                 |
+| [`RecommendSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.RecommendSpec)                                       | Gets a Model's spec recommendations.                                         |
+| [`UpdateExplanationDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.UpdateExplanationDataset)                 | Incrementally update the dataset used for an examples model.                 |
+| [`UpdateModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.UpdateModel)                                           | Updates a Model.                                                             |
+| [`UploadModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ModelService.UploadModel)                                           | Uploads a Model artifact into Agent Platform.                                |
+
+## [`google.cloud.aiplatform.v1beta1.NotebookService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.NotebookService)
+
+| Methods                                                                                                                                                                                                                       |                                                                     |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
+| [`AssignNotebookRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.NotebookService.AssignNotebookRuntime)                 | Assigns a NotebookRuntime to a user for a particular Notebook file. |
+| [`CreateNotebookExecutionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.NotebookService.CreateNotebookExecutionJob)       | Creates a NotebookExecutionJob.                                     |
+| [`CreateNotebookRuntimeTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.NotebookService.CreateNotebookRuntimeTemplate) | Creates a NotebookRuntimeTemplate.                                  |
+| [`DeleteNotebookExecutionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.NotebookService.DeleteNotebookExecutionJob)       | Deletes a NotebookExecutionJob.                                     |
+| [`DeleteNotebookRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.NotebookService.DeleteNotebookRuntime)                 | Deletes a NotebookRuntime.                                          |
+| [`DeleteNotebookRuntimeTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.NotebookService.DeleteNotebookRuntimeTemplate) | Deletes a NotebookRuntimeTemplate.                                  |
+| [`GetNotebookExecutionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.NotebookService.GetNotebookExecutionJob)             | Gets a NotebookExecutionJob.                                        |
+| [`GetNotebookRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.NotebookService.GetNotebookRuntime)                       | Gets a NotebookRuntime.                                             |
+| [`GetNotebookRuntimeTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.NotebookService.GetNotebookRuntimeTemplate)       | Gets a NotebookRuntimeTemplate.                                     |
+| [`ListNotebookExecutionJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.NotebookService.ListNotebookExecutionJobs)         | Lists NotebookExecutionJobs in a Location.                          |
+| [`ListNotebookRuntimeTemplates`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.NotebookService.ListNotebookRuntimeTemplates)   | Lists NotebookRuntimeTemplates in a Location.                       |
+| [`ListNotebookRuntimes`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.NotebookService.ListNotebookRuntimes)                   | Lists NotebookRuntimes in a Location.                               |
+| [`StartNotebookRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.NotebookService.StartNotebookRuntime)                   | Starts a NotebookRuntime.                                           |
+| [`StopNotebookRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.NotebookService.StopNotebookRuntime)                     | Stops a NotebookRuntime.                                            |
+| [`UpdateNotebookRuntimeTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.NotebookService.UpdateNotebookRuntimeTemplate) | Updates a NotebookRuntimeTemplate.                                  |
+| [`UpgradeNotebookRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.NotebookService.UpgradeNotebookRuntime)               | Upgrades a NotebookRuntime.                                         |
+
+## [`google.cloud.aiplatform.v1beta1.OnlineEvaluatorService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.OnlineEvaluatorService)
+
+| Methods                                                                                                                                                                                                                  |                                                                |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| [`ActivateOnlineEvaluator`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.OnlineEvaluatorService.ActivateOnlineEvaluator) | Activates an OnlineEvaluator.                                  |
+| [`CreateOnlineEvaluator`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.OnlineEvaluatorService.CreateOnlineEvaluator)     | Creates an OnlineEvaluator in the given project and location.  |
+| [`DeleteOnlineEvaluator`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.OnlineEvaluatorService.DeleteOnlineEvaluator)     | Deletes an OnlineEvaluator.                                    |
+| [`GetOnlineEvaluator`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.OnlineEvaluatorService.GetOnlineEvaluator)           | Gets details of an OnlineEvaluator.                            |
+| [`ListOnlineEvaluators`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.OnlineEvaluatorService.ListOnlineEvaluators)       | Lists the OnlineEvaluators for the given project and location. |
+| [`SuspendOnlineEvaluator`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.OnlineEvaluatorService.SuspendOnlineEvaluator)   | Suspends an OnlineEvaluator.                                   |
+| [`UpdateOnlineEvaluator`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.OnlineEvaluatorService.UpdateOnlineEvaluator)     | Updates the fields of an OnlineEvaluator.                      |
+
+## [`google.cloud.aiplatform.v1beta1.PersistentResourceService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PersistentResourceService)
+
+| Methods                                                                                                                                                                                                                       |                                          |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|
+| [`CreatePersistentResource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PersistentResourceService.CreatePersistentResource) | Creates a PersistentResource.            |
+| [`DeletePersistentResource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PersistentResourceService.DeletePersistentResource) | Deletes a PersistentResource.            |
+| [`GetPersistentResource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PersistentResourceService.GetPersistentResource)       | Gets a PersistentResource.               |
+| [`ListPersistentResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PersistentResourceService.ListPersistentResources)   | Lists PersistentResources in a Location. |
+| [`RebootPersistentResource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PersistentResourceService.RebootPersistentResource) | Reboots a PersistentResource.            |
+| [`UpdatePersistentResource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PersistentResourceService.UpdatePersistentResource) | Updates a PersistentResource.            |
+
+## [`google.cloud.aiplatform.v1beta1.PipelineService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PipelineService)
+
+| Methods                                                                                                                                                                                                           |                                                     |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| [`BatchCancelPipelineJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PipelineService.BatchCancelPipelineJobs) | Batch cancel PipelineJobs.                          |
+| [`BatchDeletePipelineJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PipelineService.BatchDeletePipelineJobs) | Batch deletes PipelineJobs The Operation is atomic. |
+| [`CancelPipelineJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PipelineService.CancelPipelineJob)             | Cancels a PipelineJob.                              |
+| [`CancelTrainingPipeline`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PipelineService.CancelTrainingPipeline)   | Cancels a TrainingPipeline.                         |
+| [`CreatePipelineJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PipelineService.CreatePipelineJob)             | Creates a PipelineJob.                              |
+| [`CreateTrainingPipeline`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PipelineService.CreateTrainingPipeline)   | Creates a TrainingPipeline.                         |
+| [`DeletePipelineJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PipelineService.DeletePipelineJob)             | Deletes a PipelineJob.                              |
+| [`DeleteTrainingPipeline`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PipelineService.DeleteTrainingPipeline)   | Deletes a TrainingPipeline.                         |
+| [`GetPipelineJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PipelineService.GetPipelineJob)                   | Gets a PipelineJob.                                 |
+| [`GetTrainingPipeline`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PipelineService.GetTrainingPipeline)         | Gets a TrainingPipeline.                            |
+| [`ListPipelineJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PipelineService.ListPipelineJobs)               | Lists PipelineJobs in a Location.                   |
+| [`ListTrainingPipelines`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PipelineService.ListTrainingPipelines)     | Lists TrainingPipelines in a Location.              |
+
+## [`google.cloud.aiplatform.v1beta1.PredictionService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService)
+
+| Methods                                                                                                                                                                                                                    |                                                                                                                                                                                                                                                        |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`ChatCompletions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.ChatCompletions)                        | Exposes an OpenAI-compatible endpoint for chat completions.                                                                                                                                                                                            |
+| [`CountTokens`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.CountTokens)                                | Perform a token counting.                                                                                                                                                                                                                              |
+| [`DeleteResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.DeleteResponse)                          | Deletes the response from the endpoint.                                                                                                                                                                                                                |
+| [`DirectPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.DirectPredict)                            | Perform an unary online prediction request to a gRPC model server for Vertex first-party products and frameworks.                                                                                                                                      |
+| [`DirectRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.DirectRawPredict)                      | Perform an unary online prediction request to a gRPC model server for custom containers.                                                                                                                                                               |
+| [`EmbedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.EmbedContent)                              | Embed content with multimodal inputs.                                                                                                                                                                                                                  |
+| [`Explain`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.Explain)                                        | Perform an online explanation.                                                                                                                                                                                                                         |
+| [`GenerateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.GenerateContent)                        | Generate content with multimodal inputs.                                                                                                                                                                                                               |
+| [`GetResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.GetResponse)                                | Gets the response from the endpoint.                                                                                                                                                                                                                   |
+| [`Predict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.Predict)                                        | Perform an online inference.                                                                                                                                                                                                                           |
+| [`PredictLongRunning`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.PredictLongRunning)                  |                                                                                                                                                                                                                                                        |
+| [`RawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.RawPredict)                                  | Perform an online prediction with an arbitrary HTTP payload.                                                                                                                                                                                           |
+| [`ServerStreamingPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.ServerStreamingPredict)          | Perform a server-side streaming online prediction request for Vertex LLM streaming.                                                                                                                                                                    |
+| [`StreamDirectPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.StreamDirectPredict)                | Perform a streaming online prediction request to a gRPC model server for Vertex first-party products and frameworks.                                                                                                                                   |
+| [`StreamDirectRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.StreamDirectRawPredict)          | Perform a streaming online prediction request to a gRPC model server for custom containers.                                                                                                                                                            |
+| [`StreamGenerateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.StreamGenerateContent)            | Generate content with multimodal inputs with streaming support.                                                                                                                                                                                        |
+| [`StreamRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.StreamRawPredict)                      | Perform a streaming online prediction with an arbitrary HTTP payload.                                                                                                                                                                                  |
+| [`StreamingPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.StreamingPredict)` `**`(deprecated)`** | Deprecated: Renamed to [`PredictionService.StreamDirectPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.StreamDirectPredict) . |
+| [`StreamingRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.PredictionService.StreamingRawPredict)                | Perform a streaming online prediction request through gRPC.                                                                                                                                                                                            |
+
+## [`google.cloud.aiplatform.v1beta1.ReasoningEngineExecutionService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ReasoningEngineExecutionService)
+
+| Methods                                                                                                                                                                                                                                           |                                                                                                       |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| [`AsyncQueryReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ReasoningEngineExecutionService.AsyncQueryReasoningEngine)             | Async query using a reasoning engine.                                                                 |
+| [`BidiInvokeReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ReasoningEngineExecutionService.BidiInvokeReasoningEngine)             | Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming                         |
+| [`CancelAsyncQueryReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ReasoningEngineExecutionService.CancelAsyncQueryReasoningEngine) | Cancels an AsyncQueryReasoningEngine operation.                                                       |
+| [`InvokeReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ReasoningEngineExecutionService.InvokeReasoningEngine)                     | Invokes reasoning engine with arbitrary HTTP requests for both unary and server-side streaming cases. |
+| [`QueryReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ReasoningEngineExecutionService.QueryReasoningEngine)                       | Queries using a reasoning engine.                                                                     |
+| [`StreamQueryReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ReasoningEngineExecutionService.StreamQueryReasoningEngine)           | Streams queries using a reasoning engine.                                                             |
+
+## [`google.cloud.aiplatform.v1beta1.ReasoningEngineRuntimeRevisionService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ReasoningEngineRuntimeRevisionService)
+
+| Methods                                                                                                                                                                                                                                                           |                                                |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
+| [`DeleteReasoningEngineRuntimeRevision`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ReasoningEngineRuntimeRevisionService.DeleteReasoningEngineRuntimeRevision) | Deletes a reasoning engine revision.           |
+| [`GetReasoningEngineRuntimeRevision`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ReasoningEngineRuntimeRevisionService.GetReasoningEngineRuntimeRevision)       | Gets a reasoning engine runtime revision.      |
+| [`ListReasoningEngineRuntimeRevisions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ReasoningEngineRuntimeRevisionService.ListReasoningEngineRuntimeRevisions)   | Lists runtime revisions in a reasoning engine. |
+
+## [`google.cloud.aiplatform.v1beta1.ReasoningEngineService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ReasoningEngineService)
+
+| Methods                                                                                                                                                                                                              |                                        |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
+| [`CreateReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ReasoningEngineService.CreateReasoningEngine) | Creates a reasoning engine.            |
+| [`DeleteReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ReasoningEngineService.DeleteReasoningEngine) | Deletes a reasoning engine.            |
+| [`GetReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ReasoningEngineService.GetReasoningEngine)       | Gets a reasoning engine.               |
+| [`ListReasoningEngines`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ReasoningEngineService.ListReasoningEngines)   | Lists reasoning engines in a location. |
+| [`UpdateReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ReasoningEngineService.UpdateReasoningEngine) | Updates a reasoning engine.            |
+
+## [`google.cloud.aiplatform.v1beta1.SandboxEnvironmentExecutionService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentExecutionService)
+
+| Methods                                                                                                                                                                                                                                                  |                                                                            |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| [`AuthorizeSandboxEnvironmentAccess`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentExecutionService.AuthorizeSandboxEnvironmentAccess) | Checks whether the caller is authorized to access the sandbox environment. |
+| [`BidiExecuteSandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentExecutionService.BidiExecuteSandboxEnvironment)         | Executes using a sandbox environment with bidirectional streaming.         |
+| [`ExecuteCode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentExecutionService.ExecuteCode)                                             | Executes code statelessly.                                                 |
+| [`ExecuteSandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentExecutionService.ExecuteSandboxEnvironment)                 | Executes using a sandbox environment.                                      |
+
+## [`google.cloud.aiplatform.v1beta1.SandboxEnvironmentService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentService)
+
+| Methods                                                                                                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`CreateSandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentService.CreateSandboxEnvironment)                 | Creates a [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironment) in a given reasoning engine.                                                                                                                                                                                                                          |
+| [`CreateSandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentService.CreateSandboxEnvironmentTemplate) | Creates a [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentTemplate) in a given reasoning engine.                                                                                                                                                                                                          |
+| [`DeleteSandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentService.DeleteSandboxEnvironment)                 | Deletes the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironment) .                                                                                                                                                                                                                                          |
+| [`DeleteSandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentService.DeleteSandboxEnvironmentSnapshot) | Deletes the specific [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentSnapshot) .                                                                                                                                                                                                                          |
+| [`DeleteSandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentService.DeleteSandboxEnvironmentTemplate) | Deletes the specific [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentTemplate) .                                                                                                                                                                                                                          |
+| [`GetSandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentService.GetSandboxEnvironment)                       | Gets details of the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironment) .                                                                                                                                                                                                                                  |
+| [`GetSandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentService.GetSandboxEnvironmentSnapshot)       | Gets details of the specific [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentSnapshot) .                                                                                                                                                                                                                  |
+| [`GetSandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentService.GetSandboxEnvironmentTemplate)       | Gets details of the specific [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentTemplate) .                                                                                                                                                                                                                  |
+| [`ListSandboxEnvironmentSnapshots`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentService.ListSandboxEnvironmentSnapshots)   | Lists [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentSnapshot) s in a given reasoning engine.                                                                                                                                                                                                            |
+| [`ListSandboxEnvironmentTemplates`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentService.ListSandboxEnvironmentTemplates)   | Lists [`SandboxEnvironmentTemplate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentTemplate) s in a given reasoning engine.                                                                                                                                                                                                            |
+| [`ListSandboxEnvironments`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentService.ListSandboxEnvironments)                   | Lists [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironment) s in a given reasoning engine.                                                                                                                                                                                                                            |
+| [`PauseSandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentService.PauseSandboxEnvironment)                   | Pauses the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironment) .                                                                                                                                                                                                                                           |
+| [`ResumeSandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentService.ResumeSandboxEnvironment)                 | Resumes the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironment) .                                                                                                                                                                                                                                          |
+| [`SnapshotSandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentService.SnapshotSandboxEnvironment)             | Snapshots the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironment) resource and creates a [`SandboxEnvironmentSnapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SandboxEnvironmentSnapshot) resource. |
+
+## [`google.cloud.aiplatform.v1beta1.ScheduleService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ScheduleService)
+
+| Methods                                                                                                                                                                                         |                                                         |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
+| [`CreateSchedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ScheduleService.CreateSchedule) | Creates a Schedule.                                     |
+| [`DeleteSchedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ScheduleService.DeleteSchedule) | Deletes a Schedule.                                     |
+| [`GetSchedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ScheduleService.GetSchedule)       | Gets a Schedule.                                        |
+| [`ListSchedules`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ScheduleService.ListSchedules)   | Lists Schedules in a Location.                          |
+| [`PauseSchedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ScheduleService.PauseSchedule)   | Pauses a Schedule.                                      |
+| [`ResumeSchedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ScheduleService.ResumeSchedule) | Resumes a paused Schedule to start scheduling new runs. |
+| [`UpdateSchedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ScheduleService.UpdateSchedule) | Updates an active or paused Schedule.                   |
+
+## [`google.cloud.aiplatform.v1beta1.SemanticGovernancePolicyEngineService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SemanticGovernancePolicyEngineService)
+
+| Methods                                                                                                                                                                                                                                                                     |                                                                                                                                        |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| [`DeprovisionSemanticGovernancePolicyEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SemanticGovernancePolicyEngineService.DeprovisionSemanticGovernancePolicyEngine) | Deprovisions the SemanticGovernancePolicyEngine, tearing down the associated tenant project, GKE cluster, and PSC service attachments. |
+| [`GetSemanticGovernancePolicyEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SemanticGovernancePolicyEngineService.GetSemanticGovernancePolicyEngine)                 | Gets a SemanticGovernancePolicyEngine.                                                                                                 |
+| [`UpdateSemanticGovernancePolicyEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SemanticGovernancePolicyEngineService.UpdateSemanticGovernancePolicyEngine)           | Updates a SemanticGovernancePolicyEngine.                                                                                              |
+
+## [`google.cloud.aiplatform.v1beta1.SemanticGovernancePolicyService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SemanticGovernancePolicyService)
+
+| Methods                                                                                                                                                                                                                                         |                                                       |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+| [`CreateSemanticGovernancePolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SemanticGovernancePolicyService.CreateSemanticGovernancePolicy) | Creates a SemanticGovernancePolicy.                   |
+| [`DeleteSemanticGovernancePolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SemanticGovernancePolicyService.DeleteSemanticGovernancePolicy) | Deletes a SemanticGovernancePolicy.                   |
+| [`GetSemanticGovernancePolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SemanticGovernancePolicyService.GetSemanticGovernancePolicy)       | Gets a SemanticGovernancePolicy.                      |
+| [`ListSemanticGovernancePolicies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SemanticGovernancePolicyService.ListSemanticGovernancePolicies) | Lists SemanticGovernancePolicies in a given location. |
+| [`UpdateSemanticGovernancePolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SemanticGovernancePolicyService.UpdateSemanticGovernancePolicy) | Updates a SemanticGovernancePolicy.                   |
+
+## [`google.cloud.aiplatform.v1beta1.ServingProfileService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ServingProfileService)
+
+| Methods                                                                                                                                                                                                           |                                      |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
+| [`CreateServingProfile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ServingProfileService.CreateServingProfile) | Creates a ServingProfile.            |
+| [`DeleteServingProfile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ServingProfileService.DeleteServingProfile) | Deletes a ServingProfile.            |
+| [`GetServingProfile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ServingProfileService.GetServingProfile)       | Gets a ServingProfile.               |
+| [`ListServingProfiles`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ServingProfileService.ListServingProfiles)   | Lists ServingProfiles in a Location. |
+| [`UpdateServingProfile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ServingProfileService.UpdateServingProfile) | Updates a ServingProfile.            |
+
+## [`google.cloud.aiplatform.v1beta1.SessionService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SessionService)
+
+| Methods                                                                                                                                                                                      |                                                                                                                                                                                                       |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`AppendEvent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SessionService.AppendEvent)     | Appends an event to a given session.                                                                                                                                                                  |
+| [`CreateSession`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SessionService.CreateSession) | Creates a new [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.Session) .                     |
+| [`DeleteSession`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SessionService.DeleteSession) | Deletes details of the specific [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.Session) .   |
+| [`GetSession`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SessionService.GetSession)       | Gets details of the specific [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.Session) .      |
+| [`ListEvents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SessionService.ListEvents)       | Lists [`Events`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.Event) in a given session.              |
+| [`ListSessions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SessionService.ListSessions)   | Lists [`Sessions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.Session) in a given reasoning engine. |
+| [`UpdateSession`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SessionService.UpdateSession) | Updates the specific [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.Session) .              |
+
+## [`google.cloud.aiplatform.v1beta1.SkillRegistryService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SkillRegistryService)
+
+| Methods                                                                                                                                                                                                      |                                   |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| [`CreateSkill`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SkillRegistryService.CreateSkill)               | Create a Skill.                   |
+| [`DeleteSkill`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SkillRegistryService.DeleteSkill)               | Delete a Skill.                   |
+| [`GetSkill`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SkillRegistryService.GetSkill)                     | Get a Skill.                      |
+| [`GetSkillRevision`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SkillRegistryService.GetSkillRevision)     | Get a Skill Revision.             |
+| [`ListSkillRevisions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SkillRegistryService.ListSkillRevisions) | List Skill Revisions for a Skill. |
+| [`ListSkills`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SkillRegistryService.ListSkills)                 | List Skills.                      |
+| [`RetrieveSkills`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SkillRegistryService.RetrieveSkills)         | Retrieves skills.                 |
+| [`UpdateSkill`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SkillRegistryService.UpdateSkill)               | Update a Skill.                   |
+
+## [`google.cloud.aiplatform.v1beta1.SpecialistPoolService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SpecialistPoolService)
+
+| Methods                                                                                                                                                                                                           |                                                                  |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| [`CreateSpecialistPool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SpecialistPoolService.CreateSpecialistPool) | Creates a SpecialistPool.                                        |
+| [`DeleteSpecialistPool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SpecialistPoolService.DeleteSpecialistPool) | Deletes a SpecialistPool as well as all Specialists in the pool. |
+| [`GetSpecialistPool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SpecialistPoolService.GetSpecialistPool)       | Gets a SpecialistPool.                                           |
+| [`ListSpecialistPools`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SpecialistPoolService.ListSpecialistPools)   | Lists SpecialistPools in a Location.                             |
+| [`UpdateSpecialistPool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.SpecialistPoolService.UpdateSpecialistPool) | Updates a SpecialistPool.                                        |
+
+## [`google.cloud.aiplatform.v1beta1.TensorboardService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService)
+
+| Methods                                                                                                                                                                                                                                    |                                                                                               |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| [`BatchCreateTensorboardRuns`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.BatchCreateTensorboardRuns)                 | Batch create TensorboardRuns.                                                                 |
+| [`BatchCreateTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.BatchCreateTensorboardTimeSeries)     | Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.                    |
+| [`BatchReadTensorboardTimeSeriesData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.BatchReadTensorboardTimeSeriesData) | Reads multiple TensorboardTimeSeries' data.                                                   |
+| [`CreateTensorboard`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.CreateTensorboard)                                   | Creates a Tensorboard.                                                                        |
+| [`CreateTensorboardExperiment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.CreateTensorboardExperiment)               | Creates a TensorboardExperiment.                                                              |
+| [`CreateTensorboardRun`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.CreateTensorboardRun)                             | Creates a TensorboardRun.                                                                     |
+| [`CreateTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.CreateTensorboardTimeSeries)               | Creates a TensorboardTimeSeries.                                                              |
+| [`DeleteTensorboard`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.DeleteTensorboard)                                   | Deletes a Tensorboard.                                                                        |
+| [`DeleteTensorboardExperiment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.DeleteTensorboardExperiment)               | Deletes a TensorboardExperiment.                                                              |
+| [`DeleteTensorboardRun`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.DeleteTensorboardRun)                             | Deletes a TensorboardRun.                                                                     |
+| [`DeleteTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.DeleteTensorboardTimeSeries)               | Deletes a TensorboardTimeSeries.                                                              |
+| [`ExportTensorboardTimeSeriesData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.ExportTensorboardTimeSeriesData)       | Exports a TensorboardTimeSeries' data.                                                        |
+| [`GetTensorboard`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.GetTensorboard)                                         | Gets a Tensorboard.                                                                           |
+| [`GetTensorboardExperiment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.GetTensorboardExperiment)                     | Gets a TensorboardExperiment.                                                                 |
+| [`GetTensorboardRun`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.GetTensorboardRun)                                   | Gets a TensorboardRun.                                                                        |
+| [`GetTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.GetTensorboardTimeSeries)                     | Gets a TensorboardTimeSeries.                                                                 |
+| [`ListTensorboardExperiments`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.ListTensorboardExperiments)                 | Lists TensorboardExperiments in a Location.                                                   |
+| [`ListTensorboardRuns`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.ListTensorboardRuns)                               | Lists TensorboardRuns in a Location.                                                          |
+| [`ListTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.ListTensorboardTimeSeries)                   | Lists TensorboardTimeSeries in a Location.                                                    |
+| [`ListTensorboards`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.ListTensorboards)                                     | Lists Tensorboards in a Location.                                                             |
+| [`ReadTensorboardBlobData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.ReadTensorboardBlobData)                       | Gets bytes of TensorboardBlobs.                                                               |
+| [`ReadTensorboardSize`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.ReadTensorboardSize)                               | Returns the storage size for a given TensorBoard instance.                                    |
+| [`ReadTensorboardTimeSeriesData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.ReadTensorboardTimeSeriesData)           | Reads a TensorboardTimeSeries' data.                                                          |
+| [`ReadTensorboardUsage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.ReadTensorboardUsage)                             | Returns a list of monthly active users for a given TensorBoard instance.                      |
+| [`UpdateTensorboard`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.UpdateTensorboard)                                   | Updates a Tensorboard.                                                                        |
+| [`UpdateTensorboardExperiment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.UpdateTensorboardExperiment)               | Updates a TensorboardExperiment.                                                              |
+| [`UpdateTensorboardRun`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.UpdateTensorboardRun)                             | Updates a TensorboardRun.                                                                     |
+| [`UpdateTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.UpdateTensorboardTimeSeries)               | Updates a TensorboardTimeSeries.                                                              |
+| [`WriteTensorboardExperimentData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.WriteTensorboardExperimentData)         | Write time series data points of multiple TensorboardTimeSeries in multiple TensorboardRun's. |
+| [`WriteTensorboardRunData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.TensorboardService.WriteTensorboardRunData)                       | Write time series data points into multiple TensorboardTimeSeries under a TensorboardRun.     |
+
+## [`google.cloud.aiplatform.v1beta1.VertexRagDataService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService)
+
+| Methods                                                                                                                                                                                                                    |                                                                          |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| [`BatchCreateRagDataSchemas`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.BatchCreateRagDataSchemas) | Batch Create one or more RagDataSchemas                                  |
+| [`BatchCreateRagMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.BatchCreateRagMetadata)       | Batch Create one or more RagMetadatas                                    |
+| [`BatchDeleteRagDataSchemas`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.BatchDeleteRagDataSchemas) | Batch Deletes one or more RagDataSchemas                                 |
+| [`BatchDeleteRagMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.BatchDeleteRagMetadata)       | Batch Deletes one or more RagMetadata.                                   |
+| [`CreateRagCorpus`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.CreateRagCorpus)                     | Creates a RagCorpus.                                                     |
+| [`CreateRagDataSchema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.CreateRagDataSchema)             | Creates a RagDataSchema.                                                 |
+| [`CreateRagMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.CreateRagMetadata)                 | Creates a RagMetadata.                                                   |
+| [`DeleteRagCorpus`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.DeleteRagCorpus)                     | Deletes a RagCorpus.                                                     |
+| [`DeleteRagDataSchema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.DeleteRagDataSchema)             | Deletes a RagDataSchema.                                                 |
+| [`DeleteRagFile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.DeleteRagFile)                         | Deletes a RagFile.                                                       |
+| [`DeleteRagMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.DeleteRagMetadata)                 | Deletes a RagMetadata.                                                   |
+| [`GetRagCorpus`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.GetRagCorpus)                           | Gets a RagCorpus.                                                        |
+| [`GetRagDataSchema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.GetRagDataSchema)                   | Gets a RagDataSchema.                                                    |
+| [`GetRagEngineConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.GetRagEngineConfig)               | Gets a RagEngineConfig.                                                  |
+| [`GetRagFile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.GetRagFile)                               | Gets a RagFile.                                                          |
+| [`GetRagMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.GetRagMetadata)                       | Gets a RagMetadata.                                                      |
+| [`ImportRagFiles`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.ImportRagFiles)                       | Import files from Google Cloud Storage or Google Drive into a RagCorpus. |
+| [`ListRagCorpora`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.ListRagCorpora)                       | Lists RagCorpora in a Location.                                          |
+| [`ListRagDataSchemas`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.ListRagDataSchemas)               | Lists RagDataSchemas in a Location.                                      |
+| [`ListRagFiles`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.ListRagFiles)                           | Lists RagFiles in a RagCorpus.                                           |
+| [`ListRagMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.ListRagMetadata)                     | Lists RagMetadata in a RagFile.                                          |
+| [`UpdateRagCorpus`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.UpdateRagCorpus)                     | Updates a RagCorpus.                                                     |
+| [`UpdateRagEngineConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.UpdateRagEngineConfig)         | Updates a RagEngineConfig.                                               |
+| [`UpdateRagMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagDataService.UpdateRagMetadata)                 | Updates a RagMetadata.                                                   |
+
+## [`google.cloud.aiplatform.v1beta1.VertexRagService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagService)
+
+| Methods                                                                                                                                                                                                        |                                                                                                                              |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| [`AskContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagService.AskContexts)                     | Agentic Retrieval Ask API for RAG.                                                                                           |
+| [`AsyncRetrieveContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagService.AsyncRetrieveContexts) | Asynchronous API to retrieves relevant contexts for a query.                                                                 |
+| [`AugmentPrompt`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagService.AugmentPrompt)                 | Given an input prompt, it returns augmented prompt from vertex rag store to guide LLM towards generating grounded responses. |
+| [`CorroborateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagService.CorroborateContent)       | Given an input text, it returns a score that evaluates the factuality of the text.                                           |
+| [`RetrieveContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VertexRagService.RetrieveContexts)           | Retrieves relevant contexts for a query.                                                                                     |
+
+## [`google.cloud.aiplatform.v1beta1.VizierService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VizierService)
+
+| Methods                                                                                                                                                                                                                   |                                                                                                             |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| [`AddTrialMeasurement`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VizierService.AddTrialMeasurement)                   | Adds a measurement of the objective metrics to a Trial.                                                     |
+| [`CheckTrialEarlyStoppingState`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VizierService.CheckTrialEarlyStoppingState) | Checks whether a Trial should stop or not.                                                                  |
+| [`CompleteTrial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VizierService.CompleteTrial)                               | Marks a Trial as complete.                                                                                  |
+| [`CreateStudy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VizierService.CreateStudy)                                   | Creates a Study.                                                                                            |
+| [`CreateTrial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VizierService.CreateTrial)                                   | Adds a user provided Trial to a Study.                                                                      |
+| [`DeleteStudy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VizierService.DeleteStudy)                                   | Deletes a Study.                                                                                            |
+| [`DeleteTrial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VizierService.DeleteTrial)                                   | Deletes a Trial.                                                                                            |
+| [`GetStudy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VizierService.GetStudy)                                         | Gets a Study by name.                                                                                       |
+| [`GetTrial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VizierService.GetTrial)                                         | Gets a Trial.                                                                                               |
+| [`ListOptimalTrials`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VizierService.ListOptimalTrials)                       | Lists the pareto-optimal Trials for multi-objective Study or the optimal Trials for single-objective Study. |
+| [`ListStudies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VizierService.ListStudies)                                   | Lists all the studies in a region for an associated project.                                                |
+| [`ListTrials`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VizierService.ListTrials)                                     | Lists the Trials associated with a Study.                                                                   |
+| [`LookupStudy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VizierService.LookupStudy)                                   | Looks a study up using the user-defined display_name field instead of the fully qualified resource name.    |
+| [`StopTrial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VizierService.StopTrial)                                       | Stops a Trial.                                                                                              |
+| [`SuggestTrials`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.VizierService.SuggestTrials)                               | Adds one or more Trials to a Study, with parameter values suggested by Agent Platform Vizier.               |
+
+## [`google.iam.v1.IAMPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.iam.v1#google.iam.v1.IAMPolicy)
+
+| Methods                                                                                                                                                       |                                                                  |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| [`GetIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.iam.v1#google.iam.v1.IAMPolicy.GetIamPolicy)             | Gets the access control policy for a resource.                   |
+| [`SetIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.iam.v1#google.iam.v1.IAMPolicy.SetIamPolicy)             | Sets the access control policy on the specified resource.        |
+| [`TestIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.iam.v1#google.iam.v1.IAMPolicy.TestIamPermissions) | Returns permissions that a caller has on the specified resource. |
+
+## [`google.learning.vertex.api.interactions.v1beta1.InteractionsService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.InteractionsService)
+
+| Methods                                                                                                                                                                                                                                                        |                                                                                        |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| [`CancelInteraction`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.InteractionsService.CancelInteraction)                      | Cancels an interaction.                                                                |
+| [`CancelInteractionHttp`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.InteractionsService.CancelInteractionHttp)              | Cancels an interaction by id.                                                          |
+| [`CreateInteraction`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.InteractionsService.CreateInteraction)                      | Creates an interaction.                                                                |
+| [`CreateInteractionHttp`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.InteractionsService.CreateInteractionHttp)              | Creates a new interaction.                                                             |
+| [`CreateInteractionStream`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.InteractionsService.CreateInteractionStream)          | Creates an interaction and streams the response.                                       |
+| [`DeleteInteraction`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.InteractionsService.DeleteInteraction)` `**`(deprecated)`** | Deletes an interaction.                                                                |
+| [`GetInteraction`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.InteractionsService.GetInteraction)                            | Fully typed proto, unary version of GetInteraction that returns Interaction proto.     |
+| [`GetInteractionHttp`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.InteractionsService.GetInteractionHttp)                    | Retrieves the full details of a single interaction based on its `Interaction.id` .     |
+| [`GetInteractionStream`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.InteractionsService.GetInteractionStream)                | Fully typed proto, streaming version of GetInteraction that returns Interaction proto. |
+| [`ListInteractions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.InteractionsService.ListInteractions)                        | List interactions.                                                                     |
+| [`ListInteractionsHttp`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.InteractionsService.ListInteractionsHttp)                | List interactions.                                                                     |
+
+## [`google.learning.vertex.api.interactions.v1beta1.VoicesHttpService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.VoicesHttpService)
+
+| Methods |
+|---------|
+
+## [`google.learning.vertex.api.interactions.v1beta1.VoicesService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.VoicesService)
+
+| Methods |
+|---------|
+
+## [`google.longrunning.Operations`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.longrunning#google.longrunning.Operations)
+
+| Methods                                                                                                                                                            |                                                                                                                              |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| [`CancelOperation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.longrunning#google.longrunning.Operations.CancelOperation) | Starts asynchronous cancellation on a long-running operation.                                                                |
+| [`DeleteOperation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.longrunning#google.longrunning.Operations.DeleteOperation) | Deletes a long-running operation.                                                                                            |
+| [`GetOperation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.longrunning#google.longrunning.Operations.GetOperation)       | Gets the latest state of a long-running operation.                                                                           |
+| [`ListOperations`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.longrunning#google.longrunning.Operations.ListOperations)   | Lists operations that match the specified filter in the request.                                                             |
+| [`WaitOperation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.longrunning#google.longrunning.Operations.WaitOperation)     | Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. |

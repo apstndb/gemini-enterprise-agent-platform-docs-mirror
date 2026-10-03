@@ -26,14 +26,30 @@ Feature
 
 [Grok 4.7](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-7) is available in [Preview](https://cloud.google.com/products#product-launch-stages) in Model Garden.
 
+Fixed
+
+**CodeMender updates (v0.11.0)**
+
+This release introduces updates to CodeMender:
+
+- **Tiered location configuration** : Added support for configuring the service location using the `CM_LOCATION` environment variable or `location` in `config.yaml` (defaulting to `global` ), replacing the `--location` command-line flag.
+- **CI gate severity validation** : Updated `cm find` to validate `--fail-on` severity values ( `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , or `NONE` ) up front instead of silently ignoring misspelled severities.
+- **Sandboxed VCS branching and hardening** : Enabled `vcs_branch` creation and candidate branch cleanup inside the default sandboxed worker for `--architecture` sessions, and hardened VCS template expansion against shell metacharacters and command injection.
+- **Bug fixes** :
+  - Normalized vulnerability type casing and relative file paths during `cm find` and consensus runs to prevent duplicate findings.
+  - Extended HTTP 429 retry backoff ( `Retry-After` support and up to 60-second quota refill windows) and automatic stream reconnection to improve scan resilience under rate limiting.
+  - Preserved standalone `cm find` , `cm verify` , and `cm fix` sessions on interrupt ( `SIGINT` / `SIGTERM` ) so interrupted runs can be resumed with `cm session resume` , while still canceling parallel consensus worker operations.
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
+
 Feature
 
 The App Topology API that provides agent topologies in Gemini Enterprise Agent Platform is now [generally available](https://cloud.google.com/products#product-launch-stages)
 
 This launch introduces the following changes:
 
-  - A new query builder for customizing suggested quick queries or creating your own query on the **Topologies** page. Custom queries let you explore more data related to your agents, such as identity, alerts, vulnerabilities, and underlying infrastructure. For details, see [View topologies for a project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/view-project-topology) .
-  - A streamlined experience for the [single-agent topology](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/view-agent-registry-topology) in Agent Registry. A topology with single-hop traffic to and from the agent automatically loads on the page.
+- A new query builder for customizing suggested quick queries or creating your own query on the **Topologies** page. Custom queries let you explore more data related to your agents, such as identity, alerts, vulnerabilities, and underlying infrastructure. For details, see [View topologies for a project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/view-project-topology) .
+- A streamlined experience for the [single-agent topology](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/view-agent-registry-topology) in Agent Registry. A topology with single-hop traffic to and from the agent automatically loads on the page.
 
 ## September 29, 2026
 
@@ -99,8 +115,14 @@ Gemini 3.8 Live is generally available. This release introduces improvements in 
 
 For more information, see the following:
 
-  - [Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)
-  - [Gemini Live API overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)
+- [Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)
+- [Gemini Live API overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)
+
+Feature
+
+**Muse Spark 1.3 from Meta**
+
+[Muse Spark 1.3 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-spark-1-3) is available in [Preview](https://cloud.google.com/products#product-launch-stages) . Muse Spark 1.3 from Meta is a reasoning model trained for agentic workflows and competitive coding. It delivers higher first-attempt accuracy, reliable built-in tool calling with MCP support, and 1M-token long context for multi-step tasks.
 
 Fixed
 
@@ -108,23 +130,17 @@ Fixed
 
 This release introduces updates to CodeMender:
 
-  - **Impact-aware PR delta scanning** : Added `--diff` and `--staged` flags to `cm find` to audit modified pull request hunks and 1-hop neighbor files while suppressing pre-existing vulnerabilities.
-  - **SARIF report export and CI gating** : Added SARIF v2.1.0 export ( `--format sarif` , `--output` ) and severity-based CI gating ( `--fail-on` ) to `cm report` to integrate scan results into CI/CD pipelines and code scanning tools.
-  - **Adaptive hybrid deep scanning** : Added `--deep` and `--deep-workers` flags to `cm find` to combine deterministic file pruning, parallel package-batched analysis, and post-triage verification for higher vulnerability recall and precision.
-  - **Custom workspace directory** : Added support for the `CM_HOME` environment variable to override the default `~/.codemender` directory for configuration, local state ( `state.db` ), backups, and artifacts.
-  - **Bug fixes** :
-      - Required build and test validation ( `build.command` ) to succeed during `cm fix` before marking a patch as applied and a finding as fixed.
-      - Stabilized vulnerability fingerprints across multiple scans and bound `cm verify` directly to the target finding ID to prevent duplicate findings.
-      - Restored the configured session model automatically when reconnecting to an active session with `cm session resume` .
-      - Updated `cm verify` to add `.exploit` to `.gitignore` before execution so cancelled verification sessions do not leave untracked proof-of-concept scripts.
+- **Impact-aware PR delta scanning** : Added `--diff` and `--staged` flags to `cm find` to audit modified pull request hunks and 1-hop neighbor files while suppressing pre-existing vulnerabilities.
+- **SARIF report export and CI gating** : Added SARIF v2.1.0 export ( `--format sarif` , `--output` ) and severity-based CI gating ( `--fail-on` ) to `cm report` to integrate scan results into CI/CD pipelines and code scanning tools.
+- **Adaptive hybrid deep scanning** : Added `--deep` and `--deep-workers` flags to `cm find` to combine deterministic file pruning, parallel package-batched analysis, and post-triage verification for higher vulnerability recall and precision.
+- **Custom workspace directory** : Added support for the `CM_HOME` environment variable to override the default `~/.codemender` directory for configuration, local state ( `state.db` ), backups, and artifacts.
+- **Bug fixes** :
+  - Required build and test validation ( `build.command` ) to succeed during `cm fix` before marking a patch as applied and a finding as fixed.
+  - Stabilized vulnerability fingerprints across multiple scans and bound `cm verify` directly to the target finding ID to prevent duplicate findings.
+  - Restored the configured session model automatically when reconnecting to an active session with `cm session resume` .
+  - Updated `cm verify` to add `.exploit` to `.gitignore` before execution so cancelled verification sessions do not leave untracked proof-of-concept scripts.
 
-For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
-
-Feature
-
-**Muse Spark 1.3 from Meta**
-
-[Muse Spark 1.3 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-spark-1-3) is available in [Preview](https://cloud.google.com/products#product-launch-stages) . Muse Spark 1.3 from Meta is a reasoning model trained for agentic workflows and competitive coding. It delivers higher first-attempt accuracy, reliable built-in tool calling with MCP support, and 1M-token long context for multi-step tasks.
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
 
 ## September 22, 2026
 
@@ -142,14 +158,14 @@ Fixed
 
 This release introduces updates to CodeMender:
 
-  - **Interactive HTML security reports** : Overhauled `cm report --format html` to provide a modern, interactive dashboard featuring severity metric cards, syntax-highlighted code snippets with line numbers, and an inline patch diff viewer. Added the `--open` ( `-o` ) flag to automatically open the generated report in the default browser.
-  - **Expanded language support** : Added out-of-the-box vulnerability scanning support for C\# ( `.cs` ), Rust ( `.rs` ), Kotlin ( `.kt` , `.kts` ), Ruby ( `.rb` ), and PHP ( `.php` ) to the default discovery configuration and initialization templates.
-  - **Per-turn latency metrics** : Enhanced `cm stats` and session exports to report per-turn latency breakdowns, distinguishing time spent waiting on model inference from local tool execution.
-  - **Bug fixes** :
-      - Improved session reliability and error recovery during long-running repository scans.
-      - Fixed local workspace state compatibility issues when upgrading from earlier CLI versions.
+- **Interactive HTML security reports** : Overhauled `cm report --format html` to provide a modern, interactive dashboard featuring severity metric cards, syntax-highlighted code snippets with line numbers, and an inline patch diff viewer. Added the `--open` ( `-o` ) flag to automatically open the generated report in the default browser.
+- **Expanded language support** : Added out-of-the-box vulnerability scanning support for C# ( `.cs` ), Rust ( `.rs` ), Kotlin ( `.kt` , `.kts` ), Ruby ( `.rb` ), and PHP ( `.php` ) to the default discovery configuration and initialization templates.
+- **Per-turn latency metrics** : Enhanced `cm stats` and session exports to report per-turn latency breakdowns, distinguishing time spent waiting on model inference from local tool execution.
+- **Bug fixes** :
+  - Improved session reliability and error recovery during long-running repository scans.
+  - Fixed local workspace state compatibility issues when upgrading from earlier CLI versions.
 
-For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
 
 ## September 18, 2026
 
@@ -185,15 +201,15 @@ Feature
 
 This release introduces updates to CodeMender:
 
-  - **Gemini 3.8 Flash default** : Gemini 3.8 Flash ( `gemini-3.8-flash` ) is now supported and enabled as the default model for CodeMender CLI sessions, delivering faster inference and improved reasoning. A one-time notice in the CLI informs users when the new default is active.
-  - **Tool payload guardrails** : Introduced safe output limits for file reading (2 MiB) and codebase grep search (512 KiB) with centered match context windows, eliminating payload overflow errors and improving stability during large repository scans.
-  - **Bug fixes** :
-      - Fixed an issue where shell detection and command execution on Windows could fail during repository resets and exploit verification when Git Bash was installed in standard registry or non-PATH locations.
-      - Fixed an issue in `cm verify` where verified findings could report "not found" or fail to persist confidence and status upon session completion or resumption.
-      - Fixed syntax errors in generated verification scripts caused by invalid regex escaping in grep assertions during `cm verify` .
-      - Prevented HTTP 409 lease conflict errors during long-running sessions by ensuring streaming HTTP connections are promptly released.
+- **Gemini 3.8 Flash default** : Gemini 3.8 Flash ( `gemini-3.8-flash` ) is now supported and enabled as the default model for CodeMender CLI sessions, delivering faster inference and improved reasoning. A one-time notice in the CLI informs users when the new default is active.
+- **Tool payload guardrails** : Introduced safe output limits for file reading (2 MiB) and codebase grep search (512 KiB) with centered match context windows, eliminating payload overflow errors and improving stability during large repository scans.
+- **Bug fixes** :
+  - Fixed an issue where shell detection and command execution on Windows could fail during repository resets and exploit verification when Git Bash was installed in standard registry or non-PATH locations.
+  - Fixed an issue in `cm verify` where verified findings could report "not found" or fail to persist confidence and status upon session completion or resumption.
+  - Fixed syntax errors in generated verification scripts caused by invalid regex escaping in grep assertions during `cm verify` .
+  - Prevented HTTP 409 lease conflict errors during long-running sessions by ensuring streaming HTTP connections are promptly released.
 
-For more information, see [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
+For more information, see [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
 
 Feature
 
@@ -221,8 +237,8 @@ Deprecated
 
 The retirement and deprecation dates for the following Gemini models have been updated:
 
-  - **Gemini 2.5 Flash Image ( `gemini-2.5-flash-image` )** : Deprecated and scheduled for retirement on March 15, 2027 (extended from October 2, 2026). Migrate to [Gemini 3.1 Flash-Lite Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) ( `gemini-3.1-flash-lite-image` ).
-  - **Gemini 3.1 Flash-Lite Image ( `gemini-3.1-flash-lite-image` )** : Retirement date is scheduled for June 28, 2027 or later.
+- **Gemini 2.5 Flash Image ( `gemini-2.5-flash-image` )** : Deprecated and scheduled for retirement on March 15, 2027 (extended from October 2, 2026). Migrate to [Gemini 3.1 Flash-Lite Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) ( `gemini-3.1-flash-lite-image` ).
+- **Gemini 3.1 Flash-Lite Image ( `gemini-3.1-flash-lite-image` )** : Retirement date is scheduled for June 28, 2027 or later.
 
 For more information, see [Gemini model versions and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions) .
 
@@ -232,14 +248,14 @@ Fixed
 
 This release introduces updates to CodeMender:
 
-  - **Network stream resilience** : Improved CLI session stability with automatic reconnection and transient error recovery during long-running scans and remediation workflows.
-  - **Configuration uniformity** : Standardized directory exclusion rules across configuration files and CLI scanning flags under `scan_config.exclude_dirs` .
-  - **Bug fixes** :
-      - Fixed an issue where `cm report` incorrectly categorized `DISMISSED` findings as `OPEN` in the summary table.
-      - Resolved sandbox permission denial errors by preventing child worker processes from attempting to create internal session logs on disk.
-      - Hardened sandbox command policy to prevent directory traversal and file inspection outside the designated repository root into adjacent directories.
+- **Network stream resilience** : Improved CLI session stability with automatic reconnection and transient error recovery during long-running scans and remediation workflows.
+- **Configuration uniformity** : Standardized directory exclusion rules across configuration files and CLI scanning flags under `scan_config.exclude_dirs` .
+- **Bug fixes** :
+  - Fixed an issue where `cm report` incorrectly categorized `DISMISSED` findings as `OPEN` in the summary table.
+  - Resolved sandbox permission denial errors by preventing child worker processes from attempting to create internal session logs on disk.
+  - Hardened sandbox command policy to prevent directory traversal and file inspection outside the designated repository root into adjacent directories.
 
-For more information, see [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
+For more information, see [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
 
 Feature
 
@@ -255,7 +271,7 @@ Feature
 
 **Standard PayGo adds Tier 4**
 
-Tier 4 is added to the Standard PayGo usage tiers, for spend above $50,000 per 30-day period, and Tier 3 is bounded at $2,000 to $50,000 per 30-day period. For details, see [Standard PayGo usage tiers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo#usage-tiers-and-throughput) .
+Tier 4 is added to the Standard PayGo usage tiers, for spend above \$50,000 per 30-day period, and Tier 3 is bounded at \$2,000 to \$50,000 per 30-day period. For details, see [Standard PayGo usage tiers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo#usage-tiers-and-throughput) .
 
 Change
 
@@ -279,13 +295,13 @@ Feature
 
 [Computer Use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use) and Shell sandboxes in Gemini Enterprise Agent Platform are now generally available (GA). This release also includes the following new features for Agent Platform sandboxes:
 
-  - **Shell sandboxes** : Run untrusted shell commands, install packages, and manipulate files in an isolated Linux container using direct API `/exec` calls. For more information, see the [Shell sandbox quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/shell-sandbox-quickstart) .
+- **Shell sandboxes** : Run untrusted shell commands, install packages, and manipulate files in an isolated Linux container using direct API `/exec` calls. For more information, see the [Shell sandbox quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/shell-sandbox-quickstart) .
 
-  - **VPC Service Controls & Private Service Connect** : Protect sandbox data and isolate network boundaries with VPC Service Controls, private ingress endpoints (PSC-E), and private egress routing (PSC-I). For more information, see [Configure VPC Service Controls and Private Service Connect with sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-vpc-sc) .
+- **VPC Service Controls & Private Service Connect** : Protect sandbox data and isolate network boundaries with VPC Service Controls, private ingress endpoints (PSC-E), and private egress routing (PSC-I). For more information, see [Configure VPC Service Controls and Private Service Connect with sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-vpc-sc) .
 
-  - **Customer-Managed Encryption Keys (CMEK)** : Protect sandbox data at rest, including disk storage and snapshot checkpoints, using Cloud KMS keys. For more information, see [Configure customer-managed encryption keys (CMEK) for sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek) .
+- **Customer-Managed Encryption Keys (CMEK)** : Protect sandbox data at rest, including disk storage and snapshot checkpoints, using Cloud KMS keys. For more information, see [Configure customer-managed encryption keys (CMEK) for sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek) .
 
-  - **Pausing and resuming sandboxes** : Deschedule compute resources for idle sandboxes while preserving file system state and connection identity, and resume them in seconds. For more information, see [Manage sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-sandboxes#pause-a-sandbox) .
+- **Pausing and resuming sandboxes** : Deschedule compute resources for idle sandboxes while preserving file system state and connection identity, and resume them in seconds. For more information, see [Manage sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-sandboxes#pause-a-sandbox) .
 
 Feature
 
@@ -335,6 +351,22 @@ Feature
 
 Provisioned Throughput supports Gemini Omni. To learn more, see [supported models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models) .
 
+Fixed
+
+**CodeMender updates (v0.6.0)**
+
+This release introduces updates to CodeMender:
+
+- **Machine-readable metrics** : Added the `--json` flag to `cm stats` to export aggregate and per-session metrics ( `CACHE_HIT%` , `THINK_RATIO%` , `TOOL_CALLS` , `DURATION` ).
+- **Session drill-down** : Added `cm stats --session <id>` to inspect turn-by-turn token consumption for specific sessions.
+- **Bug fixes** :
+  - Improved codebase search reliability by skipping binary archives and non-regular files during traversal.
+  - Fixed an issue where `cm report import` failed on native JSON reports or findings referencing new files.
+  - Fixed an issue where preview mode could create empty directories on disk before user confirmation.
+  - Prevented erroneous verification verdicts when workspace reset fails.
+
+For more information, see [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
+
 Feature
 
 **Deferred tier for autonomous agent scheduling (Preview)**
@@ -343,28 +375,12 @@ The *deferred tier* is available in Preview. The deferred tier automatically que
 
 Key capabilities and benefits include:
 
-  - **50% token discount** : Receive a 50% discount on consumed tokens for deferred workloads.
-  - **Reduced rate limiting** : Mitigate resource exhaustion (429) errors and infrastructure pressure during long-running background tasks.
-  - **Supported agents** :
-      - **Deep Research Agent** : Pass `service_tier="deferred"` in the Python SDK or `"service_tier": "deferred"` in REST API interaction requests.
+- **50% token discount** : Receive a 50% discount on consumed tokens for deferred workloads.
+- **Reduced rate limiting** : Mitigate resource exhaustion (429) errors and infrastructure pressure during long-running background tasks.
+- **Supported agents** :
+  - **Deep Research Agent** : Pass `service_tier="deferred"` in the Python SDK or `"service_tier": "deferred"` in REST API interaction requests.
 
 For more information, see [Autonomous agent scheduling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/efficiency/autonomous-scheduling) .
-
-Fixed
-
-**CodeMender updates (v0.6.0)**
-
-This release introduces updates to CodeMender:
-
-  - **Machine-readable metrics** : Added the `--json` flag to `cm stats` to export aggregate and per-session metrics ( `CACHE_HIT%` , `THINK_RATIO%` , `TOOL_CALLS` , `DURATION` ).
-  - **Session drill-down** : Added `cm stats --session <id>` to inspect turn-by-turn token consumption for specific sessions.
-  - **Bug fixes** :
-      - Improved codebase search reliability by skipping binary archives and non-regular files during traversal.
-      - Fixed an issue where `cm report import` failed on native JSON reports or findings referencing new files.
-      - Fixed an issue where preview mode could create empty directories on disk before user confirmation.
-      - Prevented erroneous verification verdicts when workspace reset fails.
-
-For more information, see [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
 
 ## September 01, 2026
 
@@ -380,9 +396,9 @@ Change
 
 Memory bank uses the following embedding model SKUs:
 
-  - 6E46-5623-C0B6
-  - C15D-A68F-5C1E
-  - 2D07-D52C-A93B
+- 6E46-5623-C0B6
+- C15D-A68F-5C1E
+- 2D07-D52C-A93B
 
 For detailed information about individual SKUs, see [Google Cloud Platform SKUs](https://cloud.google.com/skus) .
 
@@ -408,17 +424,17 @@ Feature
 
 This release introduces feature updates and expanded endpoint availability for Gemini 3.1 Flash Image and Gemini 3 Pro Image:
 
-  - **Multi-region endpoint support** : [Gemini 3.1 Flash Image ( `gemini-3.1-flash-image` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) is now available on US ( `us` ) and EU ( `eu` ) multi-region endpoints for model availability, ML processing, Provisioned Throughput, and PayGo Standard.
+- **Multi-region endpoint support** : [Gemini 3.1 Flash Image ( `gemini-3.1-flash-image` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) is now available on US ( `us` ) and EU ( `eu` ) multi-region endpoints for model availability, ML processing, Provisioned Throughput, and PayGo Standard.
 
-  - **4K image output in GA** : Generating 4K resolution images is now [Generally Available (GA)](https://cloud.google.com/products#product-launch-stages) for both [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) and [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) .
+- **4K image output in GA** : Generating 4K resolution images is now [Generally Available (GA)](https://cloud.google.com/products#product-launch-stages) for both [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) and [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) .
 
-  - **Video inputs in GA** : Image generation from video inputs is now [Generally Available (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) .
+- **Video inputs in GA** : Image generation from video inputs is now [Generally Available (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) .
 
 For more information, see the following:
 
-  - [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
-  - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
-  - [Model locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#multi-region)
+- [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
+- [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
+- [Model locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#multi-region)
 
 Feature
 
@@ -428,10 +444,10 @@ IAM Unified Access Policies (Access policies) for Gemini Enterprise Agent Platfo
 
 Key capabilities include:
 
-  - Multiple allow and deny rules within a single Access policy to establish fine-grained behavioral guardrails.
-  - Common Expression Language (CEL) conditions in rules to enforce access criteria based on tool names, read-only constraints, HTTP methods, and URL path attributes.
-  - Dry-run and enforcement modes to validate and audit policy evaluation before blocking agent traffic.
-  - End-to-end agent identity authentication and authorization using mutual TLS (mTLS) and Context-Aware Access (CAA) with Demonstrating Proof of Possession (DPoP).
+- Multiple allow and deny rules within a single Access policy to establish fine-grained behavioral guardrails.
+- Common Expression Language (CEL) conditions in rules to enforce access criteria based on tool names, read-only constraints, HTTP methods, and URL path attributes.
+- Dry-run and enforcement modes to validate and audit policy evaluation before blocking agent traffic.
+- End-to-end agent identity authentication and authorization using mutual TLS (mTLS) and Context-Aware Access (CAA) with Demonstrating Proof of Possession (DPoP).
 
 For more information, see [IAM access policies overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap) .
 
@@ -443,15 +459,15 @@ Feature
 
 This release introduces updates to CodeMender:
 
-  - **Model support** : Support for Gemini 3.6 Flash ( `gemini-3.6-flash` ) and Gemini 3.7 Flash ( `gemini-3.7-flash` , default).
-  - **Unrestricted verification** : Added the `--unrestricted` flag to `cm verify` to bypass command policy restrictions during exploit verification in isolated environments.
-  - **Bug fixes** :
-      - Improved reliability of long sessions.
-      - Improved shell resolution across operating environments.
-      - Clearer permission denied error messages.
-      - Fixed an issue where the CodeMender sandbox would fail to initialize with an error due to relative paths.
+- **Model support** : Support for Gemini 3.6 Flash ( `gemini-3.6-flash` ) and Gemini 3.7 Flash ( `gemini-3.7-flash` , default).
+- **Unrestricted verification** : Added the `--unrestricted` flag to `cm verify` to bypass command policy restrictions during exploit verification in isolated environments.
+- **Bug fixes** :
+  - Improved reliability of long sessions.
+  - Improved shell resolution across operating environments.
+  - Clearer permission denied error messages.
+  - Fixed an issue where the CodeMender sandbox would fail to initialize with an error due to relative paths.
 
-For more information, see [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
+For more information, see [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
 
 Feature
 
@@ -485,9 +501,9 @@ Feature
 
 This release introduces updates to CodeMender:
 
-  - **Gemini 3 Flash removal** : Gemini 3 Flash ( `gemini-3-flash-preview` ) is no longer supported as a model backend for CodeMender. CodeMender supports Gemini 3.5 Flash (default) and Gemini 3.1 Pro Preview.
+- **Gemini 3 Flash removal** : Gemini 3 Flash ( `gemini-3-flash-preview` ) is no longer supported as a model backend for CodeMender. CodeMender supports Gemini 3.5 Flash (default) and Gemini 3.1 Pro Preview.
 
-For more information, see [Specifying the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender#specifying-the-model) .
+For more information, see [Specifying the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender#specifying-the-model) .
 
 ## August 15, 2026
 
@@ -533,9 +549,9 @@ Feature
 
 This release updates the CodeMender CLI default behavior:
 
-  - **Sandbox enabled by default** : The CLI now runs commands inside the process-level sandbox by default to protect your workstation. You can disable the sandbox in your `config.yaml` , by passing `--sandbox=false` to CLI commands, or bypass it using the `--unrestricted` flag.
+- **Sandbox enabled by default** : The CLI now runs commands inside the process-level sandbox by default to protect your workstation. You can disable the sandbox in your `config.yaml` , by passing `--sandbox=false` to CLI commands, or bypass it using the `--unrestricted` flag.
 
-For more information, see [Install the CLI and configure](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment) .
+For more information, see [Install the CLI and configure](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment) .
 
 ## August 04, 2026
 
@@ -545,12 +561,12 @@ Feature
 
 This release introduces process-level sandboxing, automatic update checks, and other improvements to the CodeMender CLI (Preview):
 
-  - **Process-level sandboxing** : To safeguard your workstation against unintended file modifications or unexpected tool side effects, you can now execute all agent-proposed tools (such as compiling code, running tests, or executing shell scripts) inside an OS-level sandbox. Sandboxing is disabled by default to allow seamless dependency resolution, but can be enabled persistently in `config.yaml` or per-command using the new `--sandbox` flag.
-  - **Automatic updates** : The CLI now automatically checks for updates in the background (at most once every 24 hours) when running in an interactive terminal. You can also run `cm update` to forcefully check for and apply updates immediately.
-  - **Token usage statistics** : You can now use the `cm stats` subcommand to view a summary of token usage (input, output, cached, thought, tool-use) for your local sessions.
-  - **Improved Windows support** : The standalone CLI now has improved support for running on Windows.
+- **Process-level sandboxing** : To safeguard your workstation against unintended file modifications or unexpected tool side effects, you can now execute all agent-proposed tools (such as compiling code, running tests, or executing shell scripts) inside an OS-level sandbox. Sandboxing is disabled by default to allow seamless dependency resolution, but can be enabled persistently in `config.yaml` or per-command using the new `--sandbox` flag.
+- **Automatic updates** : The CLI now automatically checks for updates in the background (at most once every 24 hours) when running in an interactive terminal. You can also run `cm update` to forcefully check for and apply updates immediately.
+- **Token usage statistics** : You can now use the `cm stats` subcommand to view a summary of token usage (input, output, cached, thought, tool-use) for your local sessions.
+- **Improved Windows support** : The standalone CLI now has improved support for running on Windows.
 
-For more information, see [Install the CLI and configure](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment) .
+For more information, see [Install the CLI and configure](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment) .
 
 ## July 29, 2026
 
@@ -580,11 +596,34 @@ Feature
 
 This release includes some potentially breaking changes from previous Flash and Flash-Lite models:
 
-  - **Sampling parameters** : Custom values for temperature, top-K, and top-P are not supported and will be ignored if set.
-  - **Penalty parameters** : Custom values for frequency and presence penalty parameters are not supported. Setting these will result in an API error.
-  - **API turn structure** : API requests where the last input turn has a role of `Model` are no longer supported and will return an error:
-      - **Interactions API** : Requests where the last object in the input array has `"type": "model_output"` will fail.
-      - **GenerateContent API** : Requests where the last object in the contents array has `"role": "model"` will fail.
+- **Sampling parameters** : Custom values for temperature, top-K, and top-P are not supported and will be ignored if set.
+- **Penalty parameters** : Custom values for frequency and presence penalty parameters are not supported. Setting these will result in an API error.
+- **API turn structure** : API requests where the last input turn has a role of `Model` are no longer supported and will return an error:
+  - **Interactions API** : Requests where the last object in the input array has `"type": "model_output"` will fail.
+  - **GenerateContent API** : Requests where the last object in the contents array has `"role": "model"` will fail.
+
+Deprecated
+
+**Open model endpoint deprecations**
+
+The following open model endpoints are deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
+
+- `deepseek-ocr-maas`
+- `deepseek-r1-0528-maas`
+- `deepseek-v3.2-maas`
+- `deepseek-v3.1-maas`
+- `glm-5-maas`
+- `glm-4.7-maas`
+- `gpt-oss-20b-maas`
+- `kimi-k2-thinking-maas`
+- `llama-3.3-70b-instruct-maas`
+- `minimax-m2-maas`
+- `multilingual-e5-large-instruct-maas`
+- `multilingual-e5-small-maas`
+- `qwen3-235b-a22b-instruct-2507-maas`
+- `qwen3-coder-480b-a35b-instruct-maas`
+- `qwen3-next-80b-a3b-instruct-maas`
+- `qwen3-next-80b-a3b-thinking-maas`
 
 Feature
 
@@ -594,35 +633,12 @@ CodeMender is now available in [Preview](https://cloud.google.com/products#produ
 
 Key capabilities include:
 
-  - **Find vulnerabilities** : Scan your codebase using an agent-guided LLM with specialized security tools, or import findings from external static analysis tools.
-  - **Verify vulnerabilities** : Build code and execute proof-of-concept (PoC) exploits in your local sandbox to confirm exploitability and reduce false positives.
-  - **Fix vulnerabilities** : Automatically generate, validate, and apply source code patches tested against local builds and unit tests to prevent regressions.
-  - **Manage sessions and diffs** : Track scan and remediation attempts as stateful sessions, inspect unified diffs, and export detailed findings reports in HTML, Markdown, JSON, or SARIF formats.
+- **Find vulnerabilities** : Scan your codebase using an agent-guided LLM with specialized security tools, or import findings from external static analysis tools.
+- **Verify vulnerabilities** : Build code and execute proof-of-concept (PoC) exploits in your local sandbox to confirm exploitability and reduce false positives.
+- **Fix vulnerabilities** : Automatically generate, validate, and apply source code patches tested against local builds and unit tests to prevent regressions.
+- **Manage sessions and diffs** : Track scan and remediation attempts as stateful sessions, inspect unified diffs, and export detailed findings reports in HTML, Markdown, JSON, or SARIF formats.
 
-For more information, see [CodeMender overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
-
-Deprecated
-
-**Open model endpoint deprecations**
-
-The following open model endpoints are deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
-
-  - `deepseek-ocr-maas`
-  - `deepseek-r1-0528-maas`
-  - `deepseek-v3.2-maas`
-  - `deepseek-v3.1-maas`
-  - `glm-5-maas`
-  - `glm-4.7-maas`
-  - `gpt-oss-20b-maas`
-  - `kimi-k2-thinking-maas`
-  - `llama-3.3-70b-instruct-maas`
-  - `minimax-m2-maas`
-  - `multilingual-e5-large-instruct-maas`
-  - `multilingual-e5-small-maas`
-  - `qwen3-235b-a22b-instruct-2507-maas`
-  - `qwen3-coder-480b-a35b-instruct-maas`
-  - `qwen3-next-80b-a3b-instruct-maas`
-  - `qwen3-next-80b-a3b-thinking-maas`
+For more information, see [CodeMender overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
 
 Announcement
 
@@ -632,12 +648,12 @@ CodeMender is now available in Public Preview for select customers. CodeMender i
 
 Key capabilities in this release include:
 
-  - **Scan and find** : Scan your codebase for application logic, memory management, and authentication vulnerabilities, or import findings from external scanners.
-  - **Verify** : Build your code and run tests locally to confirm whether findings are exploitable, minimizing false positives.
-  - **Fix** : Auto-generate security patches and verify them locally before applying them to your workspace.
-  - **Safety controls** : Enforces a Human-in-the-Loop workflow with mandatory manual confirmations for all disk writes and command executions by default.
+- **Scan and find** : Scan your codebase for application logic, memory management, and authentication vulnerabilities, or import findings from external scanners.
+- **Verify** : Build your code and run tests locally to confirm whether findings are exploitable, minimizing false positives.
+- **Fix** : Auto-generate security patches and verify them locally before applying them to your workspace.
+- **Safety controls** : Enforces a Human-in-the-Loop workflow with mandatory manual confirmations for all disk writes and command executions by default.
 
-For more information, see the [CodeMender overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
+For more information, see the [CodeMender overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
 
 ## July 20, 2026
 
@@ -677,9 +693,9 @@ Feature
 
 The following preview model endpoints have been retired and are no longer accessible:
 
-  - `gemini-2.5-flash-lite-preview-09-2025`
-  - `gemini-2.5-flash-preview-05-2025`
-  - `gemini-3.1-flash-lite-preview`
+- `gemini-2.5-flash-lite-preview-09-2025`
+- `gemini-2.5-flash-preview-05-2025`
+- `gemini-3.1-flash-lite-preview`
 
 See [Migrate to the latest Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate) for information on how to migrate your project.
 
@@ -699,9 +715,9 @@ The Memory Bank `IngestEvents` API is generally available. The `IngestEvents` AP
 
 This GA release includes the following features:
 
-  - **Carry over context between generation windows:** Use the `overlap_event_count` parameter to re-include already-processed events at the start of the next window to keep memories coherent.
-  - **Configure memory revisions for ingested events:** Use `revision_labels` , `revision_ttl` , or `disable_memory_revisions` to customize how generated revisions are managed.
-  - **Attach metadata to memories:** Use the `metadata` and `metadata_merge_strategy` configuration parameters to store structured information alongside generated memories.
+- **Carry over context between generation windows:** Use the `overlap_event_count` parameter to re-include already-processed events at the start of the next window to keep memories coherent.
+- **Configure memory revisions for ingested events:** Use `revision_labels` , `revision_ttl` , or `disable_memory_revisions` to customize how generated revisions are managed.
+- **Attach metadata to memories:** Use the `metadata` and `metadata_merge_strategy` configuration parameters to store structured information alongside generated memories.
 
 For details, see [Ingest events](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/ingest-events) .
 
@@ -757,11 +773,11 @@ Semantic governance policies and the policy engine are now available in [Preview
 
 Key capabilities include:
 
-  - **Natural Language Constraints (NLC):** Author declarative business rules and security guardrails in plain English without needing to write code or redeploy agent applications.
-  - **Layered Intent Gating:** Intercepts agent tool calls at runtime to verify alignment with trusted user intent and prevent unauthorized actions, rogue tool use, and data exfiltration.
-  - **Granular Scoping:** Apply constraints globally across all tools for an agent or target specific tools and parameters (e.g., enforcing strict financial limits or geographic restrictions).
-  - **Agent Skills Lifecycle Governance:** Protects agents from context poisoning and supply-chain exploits by governing the dynamic loading of Agent Skills (tool packages) during sessions.
-  - **Dry Run Mode:** Test and observe policy verdicts in Log Explorer before enforcing them on active traffic.
+- **Natural Language Constraints (NLC):** Author declarative business rules and security guardrails in plain English without needing to write code or redeploy agent applications.
+- **Layered Intent Gating:** Intercepts agent tool calls at runtime to verify alignment with trusted user intent and prevent unauthorized actions, rogue tool use, and data exfiltration.
+- **Granular Scoping:** Apply constraints globally across all tools for an agent or target specific tools and parameters (e.g., enforcing strict financial limits or geographic restrictions).
+- **Agent Skills Lifecycle Governance:** Protects agents from context poisoning and supply-chain exploits by governing the dynamic loading of Agent Skills (tool packages) during sessions.
+- **Dry Run Mode:** Test and observe policy verdicts in Log Explorer before enforcing them on active traffic.
 
 For more information, see [Semantic governance policies overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview) .
 
@@ -779,10 +795,10 @@ Feature
 
 The following Provisioned Throughput features are generally available:
 
-  - **Change an order** : See [Change a standard Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) .
-  - **Schedule a new order** : Set a start date and time when you create an order. See [Place a standard Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#place-an-order) .
-  - **Schedule a change to an order** : Set a start date and time when you change an order. See [Change a standard Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) .
-  - **Split an order** : Divide an active order into two orders. See [Split an order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#split-order) .
+- **Change an order** : See [Change a standard Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) .
+- **Schedule a new order** : Set a start date and time when you create an order. See [Place a standard Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#place-an-order) .
+- **Schedule a change to an order** : Set a start date and time when you change an order. See [Change a standard Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) .
+- **Split an order** : Divide an active order into two orders. See [Split an order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#split-order) .
 
 ## June 25, 2026
 
@@ -804,8 +820,8 @@ With this release, the **Security** dashboard introduces the **Top security find
 
 Also, specific features within the AI security widgets are available in [Preview](https://cloud.google.com/products#product-launch-stages) , including the following:
 
-  - Vulnerability findings and threat monitoring for agent runtimes (such as Cloud Run)
-  - Historical content violation trends ( **Violations over time** )
+- Vulnerability findings and threat monitoring for agent runtimes (such as Cloud Run)
+- Historical content violation trends ( **Violations over time** )
 
 For more information, see [View security findings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/view-security-findings) .
 
@@ -851,15 +867,15 @@ This release provides visibility into the performance, behavior, and health of d
 
 Key updates in this release include:
 
-  - **Default-On Tracing:** OpenTelemetry tracing is now enabled by default for newly deployed Agent Development Kit (ADK) agents on Agent Engine, simplifying the observability setup process without requiring manual configuration.
-  - **Storage Prioritization:** Google Cloud Storage (GCS) is the default storage choice in the Google Cloud Console, instead of Cloud Logging. We recommend that you store your multimodal prompt and response payloads in a Cloud Storage (GCS) bucket. This solution provides robust support for large payloads and it enables fine-grained lifecycle management.
-  - **Enhanced Tracing:** Inspect step-by-step session execution and view directed acyclic graphs (DAGs) of trace spans.
+- **Default-On Tracing:** OpenTelemetry tracing is now enabled by default for newly deployed Agent Development Kit (ADK) agents on Agent Engine, simplifying the observability setup process without requiring manual configuration.
+- **Storage Prioritization:** Google Cloud Storage (GCS) is the default storage choice in the Google Cloud Console, instead of Cloud Logging. We recommend that you store your multimodal prompt and response payloads in a Cloud Storage (GCS) bucket. This solution provides robust support for large payloads and it enables fine-grained lifecycle management.
+- **Enhanced Tracing:** Inspect step-by-step session execution and view directed acyclic graphs (DAGs) of trace spans.
 
 For more information, see the following:
 
-  - [Observability overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview)
-  - [View agent traces](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/traces)
-  - [Set up tracing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/tracing)
+- [Observability overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview)
+- [View agent traces](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/traces)
+- [Set up tracing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/tracing)
 
 Feature
 
@@ -869,14 +885,14 @@ Agent Registry is [generally available (GA)](https://cloud.google.com/products#p
 
 The following features are available in Agent Registry for the GA launch stage:
 
-  - **API v1 and client libraries:** The `v1` version of the Agent Registry API is available. Cloud client libraries are available in C\#, Go, Java, Node.js, PHP, Python, and Ruby.
-  - **A2A v1 support:** Agent Registry supports Agent-to-Agent (A2A) protocol version `1.0` , letting you explicitly declare transport endpoints and bindings inside the `supportedInterfaces` array, in addition to the existing `0.3` schema support.
-  - **Terraform support:** Terraform scripts for Application Default Credentials (ADC) have graduated to General Availability. You can use Terraform to configure and manage your agents, MCP servers, endpoints, and bindings.
+- **API v1 and client libraries:** The `v1` version of the Agent Registry API is available. Cloud client libraries are available in C#, Go, Java, Node.js, PHP, Python, and Ruby.
+- **A2A v1 support:** Agent Registry supports Agent-to-Agent (A2A) protocol version `1.0` , letting you explicitly declare transport endpoints and bindings inside the `supportedInterfaces` array, in addition to the existing `0.3` schema support.
+- **Terraform support:** Terraform scripts for Application Default Credentials (ADC) have graduated to General Availability. You can use Terraform to configure and manage your agents, MCP servers, endpoints, and bindings.
 
 **Known limitations:**
 
-  - **Access Transparency and Access Approval:** [Access Transparency](https://docs.cloud.google.com/assured-workloads/access-transparency/docs/overview) logs, which provide visibility into when Google personnel access your content, and [Access Approval](https://docs.cloud.google.com/assured-workloads/access-approval/docs/overview) controls aren't available for Agent Registry configurations.
-  - **Data Residency:** If you configure the [resource location constraint](https://docs.cloud.google.com/organization-policy/restrict-locations) in your organization policy, Agent Registry enforces the constraint when you register a resource. However, detective controls for data residency compliance reporting are limited.
+- **Access Transparency and Access Approval:** [Access Transparency](https://docs.cloud.google.com/assured-workloads/access-transparency/docs/overview) logs, which provide visibility into when Google personnel access your content, and [Access Approval](https://docs.cloud.google.com/assured-workloads/access-approval/docs/overview) controls aren't available for Agent Registry configurations.
+- **Data Residency:** If you configure the [resource location constraint](https://docs.cloud.google.com/organization-policy/restrict-locations) in your organization policy, Agent Registry enforces the constraint when you register a resource. However, detective controls for data residency compliance reporting are limited.
 
 For more information, see the [Agent Registry overview](https://docs.cloud.google.com/agent-registry/overview) .
 
@@ -922,9 +938,9 @@ Documentation for abuse monitoring, zero data retention, and responsible AI has 
 
 For more information, see:
 
-  - [Abuse monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring)
-  - [Zero data retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention)
-  - [Responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai)
+- [Abuse monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring)
+- [Zero data retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention)
+- [Responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai)
 
 ## June 01, 2026
 
@@ -948,8 +964,8 @@ Also supported in this release, Gemini 3.1 Flash Image supports video inputs in 
 
 For more information, see the following:
 
-  - [Gemini 3.1 Flash Image (Nano Banana 2)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
-  - [Gemini 3 Pro Image (Nano Banana Pro)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
+- [Gemini 3.1 Flash Image (Nano Banana 2)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
+- [Gemini 3 Pro Image (Nano Banana Pro)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
 
 Deprecated
 
@@ -960,7 +976,7 @@ Gemini Enterprise Agent Platform Gemini 3.1 Flash Image Preview and Gemini 3 Pro
 The following are the discontinued endpoints and recommended endpoint migration:
 
 | Discontinued endpoints           | Recommended endpoint migration |
-| -------------------------------- | ------------------------------ |
+|----------------------------------|--------------------------------|
 | `gemini-3.1-flash-image-preview` | `gemini-3.1-flash-image`       |
 | `gemini-3-pro-image-preview`     | `gemini-3-pro-image`           |
 
@@ -998,10 +1014,10 @@ Feature
 
 Additional Agent Platform [sandbox](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox) features are now available:
 
-  - **[Computer use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use) (Preview)** : Enables agents to automate browser-based tasks within an isolated web browser environment. You can control the browser using the API or connect directly using the Chrome DevTools Protocol (CDP).
-  - **[Custom container sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/custom-containers) (Preview)** : Bring your own container (BYOC) to run custom workloads with specialized dependencies hosted in Artifact Registry.
-  - **[Sandbox templates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-templates) (Preview)** : Define sandbox specifications as reusable templates relying on pre-warmed pools to facilitate rapid, reliable startups.
-  - **[Sandbox snapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-snapshots) (Preview)** : Save the exact state of your sandbox environment (including dependencies and file systems) and restore it to a new sandbox.
+- **[Computer use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use) (Preview)** : Enables agents to automate browser-based tasks within an isolated web browser environment. You can control the browser using the API or connect directly using the Chrome DevTools Protocol (CDP).
+- **[Custom container sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/custom-containers) (Preview)** : Bring your own container (BYOC) to run custom workloads with specialized dependencies hosted in Artifact Registry.
+- **[Sandbox templates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-templates) (Preview)** : Define sandbox specifications as reusable templates relying on pre-warmed pools to facilitate rapid, reliable startups.
+- **[Sandbox snapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-snapshots) (Preview)** : Save the exact state of your sandbox environment (including dependencies and file systems) and restore it to a new sandbox.
 
 Feature
 
@@ -1027,9 +1043,9 @@ Supervised fine-tuning now supports `Part` -level `mediaResolution` declarations
 
 See the following media type–specific pages for more information:
 
-  - [Document tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/doc_tune)
-  - [Image tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/image_tune)
-  - [Video tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/video_tune)
+- [Document tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/doc_tune)
+- [Image tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/image_tune)
+- [Video tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/video_tune)
 
 ## May 19, 2026
 
@@ -1053,8 +1069,8 @@ Manage and discover agent skills with the Skill Registry, in public preview. Thi
 
 For more information, see:
 
-  - [Skill Registry overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry)
-  - [Create and manage skills](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage)
+- [Skill Registry overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry)
+- [Create and manage skills](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage)
 
 Feature
 
@@ -1066,10 +1082,10 @@ This feature allows you to build and scale autonomous agents, including those bu
 
 For more information, see the following:
 
-  - [Managed Agents API on Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents)
-  - [Create and manage agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/create-manage)
-  - [Interact with agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/interact-with-agents)
-  - [Managed Agents API on Agent Platform sandbox environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/sandbox-environment)
+- [Managed Agents API on Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents)
+- [Create and manage agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/create-manage)
+- [Interact with agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/interact-with-agents)
+- [Managed Agents API on Agent Platform sandbox environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/sandbox-environment)
 
 Feature
 
@@ -1117,9 +1133,9 @@ Change
 
 **Improvements to the Provisioned Throughput orders page** have now made it possible to:
 
-  - View all scheduled orders by using the Start Date column.
-  - Enable filtering and sorting of orders by using column names.
-  - Download all order data to a CSV file (including across all regions).
+- View all scheduled orders by using the Start Date column.
+- Enable filtering and sorting of orders by using column names.
+- Download all order data to a CSV file (including across all regions).
 
 See [View standard Provisioned Throughput orders](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#view-orders) .
 
@@ -1147,10 +1163,10 @@ Change
 
 Gemini Enterprise Agent Platform Gemini 3.1 Flash Image Preview and Gemini 3 Pro Image Preview are introducing the following changes:
 
-  - Upgrades to improve 4K outputs and efficiency in both models
-  - Gemini 3.1 Flash Image Preview and Gemini 3 Pro Image Preview will now return a maximum of 1 thought image.
-  - The image\_size parameter for Gemini 3.1 Flash Image Preview now accepts "512", "512p", "512P", "512PX", "512px" to generate 0.5MP resolution output images.
-  - The default thinking level for Gemini 3.1 Flash Image Preview changed to Minimal.
+- Upgrades to improve 4K outputs and efficiency in both models
+- Gemini 3.1 Flash Image Preview and Gemini 3 Pro Image Preview will now return a maximum of 1 thought image.
+- The image_size parameter for Gemini 3.1 Flash Image Preview now accepts "512", "512p", "512P", "512PX", "512px" to generate 0.5MP resolution output images.
+- The default thinking level for Gemini 3.1 Flash Image Preview changed to Minimal.
 
 ## April 28, 2026
 
@@ -1179,7 +1195,7 @@ The table below lists all of the features that have been transitioned from Verte
 #### Click to expand naming changes list
 
 | Vertex AI name                                                                             | Agent Platform name                                           |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------- |
+|--------------------------------------------------------------------------------------------|---------------------------------------------------------------|
 | Vertex AI Platform                                                                         | Agent Platform                                                |
 | Generative AI on Vertex AI                                                                 | Generative AI                                                 |
 | Vertex AI Studio                                                                           | Agent Studio                                                  |
@@ -1243,33 +1259,33 @@ Change
 
 This initial release includes (but is not limited to) the following releases or changes:
 
-  - Change **Vertex AI** is now part of Gemini Enterprise Agent Platform. Information on model support for Vertex AI is now under [Gemini Enterprise Agent Platform \> Models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview) .
-  - Change **Agent Builder** is now part of Gemini Enterprise Agent Platform. Features have been renamed as follows:
-      - **Agent Engine** is now [**Agent Runtime**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) .
-      - **Agent Builder Sessions** is [**Agent Platform Sessions**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) .
-      - **Memory Bank** is now [**Agent Platform Memory Bank**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) .
-  - Change **Agent Runtime** now supports long-running operations (up to 7 days).
-  - Change **Agent Runtime** now supports sub-second cold starts.
-  - Change Provisioning for **Agent Runtime** has been reduced to less than 1 minute.
-  - Release You can now use your own [custom-built containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/gemini-enterprise-agent-platform/build/runtime/setup#byoc) when you deploy agents with **Agent Runtime** .
-  - Change When [creating a Session](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-api) , you can specify your own session ID.
-  - Release Memory Bank now enables continuous event streaming with automated memory generation triggered by configurable criteria like event count or idle time. For more information, see [Ingest events](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/ingest-events) .
-  - Release Memory Bank now automatically maintains an immutable version history of memories through revision resources. For more information, see [Memory revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/gemini-enterprise-agent-platform/scale/memory-bank/revisions) .
-  - Release [**Agent Identity**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) for General Availability. Agent Identity helps let your agent securely authenticate to MCP servers, cloud resources, endpoints, and other agents, either acting as itself or acting on behalf of the end user.
-  - Release [**Agent Gateway**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) for Private Preview. Agent Gateway is the networking component of the Gemini Enterprise Agent Platform ecosystem. It secures and governs connectivity for all agentic interactions, whether they occur between users and agents, agents and tools, or among agents themselves.
-  - Release [**Agent Registry**](https://docs.cloud.google.com/agent-registry/overview) for Public Preview. Agent Registry is a centralized, unified catalog that lets you store, discover, and govern Model Context Protocol (MCP) servers, tools, and AI agents within Google Cloud.
-  - Release New [**IAM governance policies**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/gemini-enterprise-agent-platform/govern/policies/overview) are available in Private Preview.
-  - Release [**Agent Observability**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview) for Preview. Agent Observability in Gemini Enterprise Agent Platform provides comprehensive visibility into the performance, behavior, and health of your deployed agents and Model Context Protocol (MCP) servers. By monitoring key metrics, tracing execution paths, and observing your multi-agent system as a whole, you can diagnose issues, optimize resource consumption, and improve the reliability of your agents.
-  - Release [**Gemini Embedding 2**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2) ( `gemini-embedding-2` ) for General Availability.
-  - Release The [**Gemini Deep Research Agent**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/deep-research) , a pre-built agent designed to help you plan, execute, and synthesize multi-step research tasks. It uses Gemini 3.1 Pro to bridge the gap between public web data and private enterprise context by simultaneously grounding research across three distinct, high-fidelity data streams.
-  - Release [**Agent Platform remote MCP server**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/use-agent-platform-mcp) for General Availability. Support for Model Context Protocol (MCP) use is available for Agent Platform.
-  - Change **Google Cloud console navigation** : The navigation menus under Agent Platform (formerly Vertex AI) and Data Analytics have been updated to centralize agentic products and features. Bookmarked links will continue to work via automatic redirects.
+- Change **Vertex AI** is now part of Gemini Enterprise Agent Platform. Information on model support for Vertex AI is now under [Gemini Enterprise Agent Platform \> Models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview) .
+- Change **Agent Builder** is now part of Gemini Enterprise Agent Platform. Features have been renamed as follows:
+  - **Agent Engine** is now [**Agent Runtime**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) .
+  - **Agent Builder Sessions** is [**Agent Platform Sessions**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) .
+  - **Memory Bank** is now [**Agent Platform Memory Bank**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) .
+- Change **Agent Runtime** now supports long-running operations (up to 7 days).
+- Change **Agent Runtime** now supports sub-second cold starts.
+- Change Provisioning for **Agent Runtime** has been reduced to less than 1 minute.
+- Release You can now use your own [custom-built containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/gemini-enterprise-agent-platform/build/runtime/setup#byoc) when you deploy agents with **Agent Runtime** .
+- Change When [creating a Session](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-api) , you can specify your own session ID.
+- Release Memory Bank now enables continuous event streaming with automated memory generation triggered by configurable criteria like event count or idle time. For more information, see [Ingest events](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/ingest-events) .
+- Release Memory Bank now automatically maintains an immutable version history of memories through revision resources. For more information, see [Memory revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/gemini-enterprise-agent-platform/scale/memory-bank/revisions) .
+- Release [**Agent Identity**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) for General Availability. Agent Identity helps let your agent securely authenticate to MCP servers, cloud resources, endpoints, and other agents, either acting as itself or acting on behalf of the end user.
+- Release [**Agent Gateway**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) for Private Preview. Agent Gateway is the networking component of the Gemini Enterprise Agent Platform ecosystem. It secures and governs connectivity for all agentic interactions, whether they occur between users and agents, agents and tools, or among agents themselves.
+- Release [**Agent Registry**](https://docs.cloud.google.com/agent-registry/overview) for Public Preview. Agent Registry is a centralized, unified catalog that lets you store, discover, and govern Model Context Protocol (MCP) servers, tools, and AI agents within Google Cloud.
+- Release New [**IAM governance policies**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/gemini-enterprise-agent-platform/govern/policies/overview) are available in Private Preview.
+- Release [**Agent Observability**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview) for Preview. Agent Observability in Gemini Enterprise Agent Platform provides comprehensive visibility into the performance, behavior, and health of your deployed agents and Model Context Protocol (MCP) servers. By monitoring key metrics, tracing execution paths, and observing your multi-agent system as a whole, you can diagnose issues, optimize resource consumption, and improve the reliability of your agents.
+- Release [**Gemini Embedding 2**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2) ( `gemini-embedding-2` ) for General Availability.
+- Release The [**Gemini Deep Research Agent**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/deep-research) , a pre-built agent designed to help you plan, execute, and synthesize multi-step research tasks. It uses Gemini 3.1 Pro to bridge the gap between public web data and private enterprise context by simultaneously grounding research across three distinct, high-fidelity data streams.
+- Release [**Agent Platform remote MCP server**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/use-agent-platform-mcp) for General Availability. Support for Model Context Protocol (MCP) use is available for Agent Platform.
+- Change **Google Cloud console navigation** : The navigation menus under Agent Platform (formerly Vertex AI) and Data Analytics have been updated to centralize agentic products and features. Bookmarked links will continue to work via automatic redirects.
 
 Issue
 
 The following known issues affect Gemini Enterprise Agent Platform:
 
-  - **Audio track extraction (Gemini Embedding 2 only):** The `audio_track_extraction` feature does not work. For more information, see [Issue \#504505771](https://issuetracker.google.com/504505771) .
+- **Audio track extraction (Gemini Embedding 2 only):** The `audio_track_extraction` feature does not work. For more information, see [Issue \#504505771](https://issuetracker.google.com/504505771) .
 
 ## March 31, 2026
 

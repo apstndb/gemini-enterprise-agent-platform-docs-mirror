@@ -14,13 +14,9 @@ Gets the latest state of a long-running operation. Clients can use this method t
 
 ### Path parameters
 
-Parameters
-
-`name`
-
-`string`
-
-The name of the operation resource.
+| Parameters |                                              |
+|------------|----------------------------------------------|
+| `name`     | `string` The name of the operation resource. |
 
 ### Request body
 
@@ -28,12 +24,12 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ### Authorization scopes
 
 Requires the following OAuth scope:
 
-  - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/cloud-platform`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .

@@ -8,4 +8,4 @@ data_source: docs.cloud.google.com
 
 This type has no fields.
 
-Response message for `  EndpointService.UndeployModel  ` .
+Response message for [`EndpointService.UndeployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/undeployModel#google.cloud.aiplatform.v1beta1.EndpointService.UndeployModel) .

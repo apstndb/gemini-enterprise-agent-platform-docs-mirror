@@ -14,15 +14,15 @@ Fields
 
 Dataset source. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`columnizedDataset` ` object ( ModelMonitoringDataset  ` )
+`columnizedDataset` `object ( `[`ModelMonitoringDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringInput#ModelMonitoringDataset)` )`
 
 Columnized dataset.
 
-`batchPredictionOutput` ` object ( BatchPredictionOutput  ` )
+`batchPredictionOutput` `object ( `[`BatchPredictionOutput`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringInput#BatchPredictionOutput)` )`
 
 Agent Platform Batch prediction Job.
 
-`vertexEndpointLogs` ` object ( VertexEndpointLogs  ` )
+`vertexEndpointLogs` `object ( `[`VertexEndpointLogs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringInput#VertexEndpointLogs)` )`
 
 Agent Platform Endpoint request & response logging.
 
@@ -32,31 +32,43 @@ End of mutually exclusive fields.
 
 Time specification for the dataset. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`timeInterval` ` object ( Interval  ` )
+`timeInterval` `object ( `[`Interval`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Interval)` )`
 
 The time interval (pair of startTime and endTime) for which results should be returned.
 
-`timeOffset` ` object ( TimeOffset  ` )
+`timeOffset` `object ( `[`TimeOffset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringInput#TimeOffset)` )`
 
 The time offset setting for which results should be returned.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// dataset&quot;columnizedDataset&quot;: {object (ModelMonitoringDataset)},&quot;batchPredictionOutput&quot;: {object (BatchPredictionOutput)},&quot;vertexEndpointLogs&quot;: {object (VertexEndpointLogs)}// Union type// time_spec&quot;timeInterval&quot;: {object (Interval)},&quot;timeOffset&quot;: {object (TimeOffset)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // dataset
+  "columnizedDataset": {
+    object (ModelMonitoringDataset)
+  },
+  "batchPredictionOutput": {
+    object (BatchPredictionOutput)
+  },
+  "vertexEndpointLogs": {
+    object (VertexEndpointLogs)
+  }
+  // Union type
+
+  // time_spec
+  "timeInterval": {
+    object (Interval)
+  },
+  "timeOffset": {
+    object (TimeOffset)
+  }
+  // Union type
+}
+```
 
 ## ModelMonitoringDataset
 
@@ -76,31 +88,33 @@ Choose one of supported data location for columnized dataset. The following is a
 
 Resource name of the Agent Platform managed dataset.
 
-`gcsSource` ` object ( ModelMonitoringGcsSource  ` )
+`gcsSource` `object ( `[`ModelMonitoringGcsSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringInput#ModelMonitoringGcsSource)` )`
 
 Google Cloud Storage data source.
 
-`bigquerySource` ` object ( ModelMonitoringBigQuerySource  ` )
+`bigquerySource` `object ( `[`ModelMonitoringBigQuerySource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringInput#ModelMonitoringBigQuerySource)` )`
 
 BigQuery data source.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;timestampField&quot;: string,// data_location&quot;vertexDataset&quot;: string,&quot;gcsSource&quot;: {object (ModelMonitoringGcsSource)},&quot;bigquerySource&quot;: {object (ModelMonitoringBigQuerySource)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "timestampField": string,
+
+  // data_location
+  "vertexDataset": string,
+  "gcsSource": {
+    object (ModelMonitoringGcsSource)
+  },
+  "bigquerySource": {
+    object (ModelMonitoringBigQuerySource)
+  }
+  // Union type
+}
+```
 
 ## ModelMonitoringGcsSource
 
@@ -112,47 +126,29 @@ Fields
 
 Google Cloud Storage URI to the input file(s). May contain wildcards. For more information on wildcards, see <https://cloud.google.com/storage/docs/wildcards> .
 
-`format` ` enum ( DataFormat  ` )
+`format` `enum ( `[`DataFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringInput#DataFormat)` )`
 
 data format of the dataset.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;gcsUri&quot;: string,&quot;format&quot;: enum (DataFormat)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "gcsUri": string,
+  "format": enum (DataFormat)
+}
+```
 
 ## DataFormat
 
 Supported data format.
 
-Enums
-
-`DATA_FORMAT_UNSPECIFIED`
-
-data format unspecified, used when this field is unset.
-
-`CSV`
-
-CSV files.
-
-`TF_RECORD`
-
-TfRecord files
-
-`JSONL`
-
-JsonL files.
+| Enums                     |                                                         |
+|---------------------------|---------------------------------------------------------|
+| `DATA_FORMAT_UNSPECIFIED` | data format unspecified, used when this field is unset. |
+| `CSV`                     | CSV files.                                              |
+| `TF_RECORD`               | TfRecord files                                          |
+| `JSONL`                   | JsonL files.                                            |
 
 ## ModelMonitoringBigQuerySource
 
@@ -168,7 +164,7 @@ The following is a list of mutually exclusive fields. At most one of the fields 
 
 BigQuery URI to a table, up to 2000 characters long. All the columns in the table will be selected. Accepted forms:
 
-  - BigQuery path. For example: `bq://projectId.bqDatasetId.bqTableId` .
+- BigQuery path. For example: `bq://projectId.bqDatasetId.bqTableId` .
 
 `query` `string`
 
@@ -176,27 +172,17 @@ Standard SQL to be used instead of the `tableUri` .
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+**JSON representation**
+
+```
+{
 
   // connection
-  &quot;tableUri&quot;: string,
-  &quot;query&quot;: string
+  "tableUri": string,
+  "query": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## BatchPredictionOutput
 
@@ -208,23 +194,13 @@ Fields
 
 Agent Platform Batch prediction job resource name. The job must match the model version specified in \[ModelMonitor\].\[modelMonitoringTarget\].
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;batchPredictionJob&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "batchPredictionJob": string
+}
+```
 
 ## VertexEndpointLogs
 
@@ -236,25 +212,15 @@ Fields
 
 List of endpoint resource names. The endpoints must enable the logging with the \[Endpoint\].\[requestResponseLoggingConfig\], and must contain the deployed model corresponding to the model version specified in \[ModelMonitor\].\[modelMonitoringTarget\].
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;endpoints&quot;: [
+**JSON representation**
+
+```
+{
+  "endpoints": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## TimeOffset
 
@@ -264,27 +230,17 @@ Fields
 
 `offset` `string`
 
-\[offset\] is the time difference from the cut-off time. For scheduled jobs, the cut-off time is the scheduled time. For non-scheduled jobs, it's the time when the job was created. Currently we support the following format: 'w|W': Week, 'd|D': Day, 'h|H': Hour E.g. '1h' stands for 1 hour, '2d' stands for 2 days.
+\[offset\] is the time difference from the cut-off time. For scheduled jobs, the cut-off time is the scheduled time. For non-scheduled jobs, it's the time when the job was created. Currently we support the following format: 'w\|W': Week, 'd\|D': Day, 'h\|H': Hour E.g. '1h' stands for 1 hour, '2d' stands for 2 days.
 
 `window` `string`
 
-\[window\] refers to the scope of data selected for analysis. It allows you to specify the quantity of data you wish to examine. Currently we support the following format: 'w|W': Week, 'd|D': Day, 'h|H': Hour E.g. '1h' stands for 1 hour, '2d' stands for 2 days.
+\[window\] refers to the scope of data selected for analysis. It allows you to specify the quantity of data you wish to examine. Currently we support the following format: 'w\|W': Week, 'd\|D': Day, 'h\|H': Hour E.g. '1h' stands for 1 hour, '2d' stands for 2 days.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;offset&quot;: string,
-  &quot;window&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "offset": string,
+  "window": string
+}
+```

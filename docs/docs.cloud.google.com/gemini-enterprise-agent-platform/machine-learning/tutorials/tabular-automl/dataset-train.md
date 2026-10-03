@@ -17,11 +17,11 @@ Use the Google Cloud console to create a tabular dataset and train a classificat
 3.  Enter `Structured_AutoML_Tutorial` for the dataset name and select the **Tabular** tab.
 
 4.  Select the **Regression/Classification** objective.
-    
+
     Leave the **Region** set to **us-central1** .
 
 5.  Click **Create** to create the dataset.
-    
+
     For this tutorial, you'll use a publicly available bank dataset hosted on Cloud Storage.
 
 6.  For **Select a data source** , click **Select CSV files from Cloud Storage**
@@ -55,15 +55,15 @@ Because our dataset is formatted correctly for this tutorial, you don't need to 
 6.  Click **Continue** .
 
 7.  In the **Model details** pane, select **Deposit** for the target column and click **Continue** .
-    
+
     The target column is what we're training the model to predict. For the `bank-marketing.csv` dataset, the `Deposit` column indicates whether the client purchased a term deposit (2 = yes, 1 = no).
-    
+
     The **Training options** pane gives you an opportunity to add features and transform column data. If no columns are selected, then by default all non- target columns will be used as features for training. This dataset is ready to use, so there's no need to apply any transformations.
 
 8.  Click **Continue** .
 
 9.  In the **Compute and pricing** pane, enter `1` for the training budget.
-    
+
     The training budget is the maximum time (may vary slightly) that the model spends training. This value is multiplied by the [price per node hour](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#automl_models) to calculate to total training cost. More training hours results in a more accurate (up to a point) model but results in a higher cost. For development purposes, a low budget is fine but for production it's important to strike a balance between cost and accuracy.
 
 10. Click **Start training** .

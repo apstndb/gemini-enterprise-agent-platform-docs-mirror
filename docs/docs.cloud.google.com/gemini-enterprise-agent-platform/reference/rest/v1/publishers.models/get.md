@@ -28,7 +28,7 @@ Required. The name of the PublisherModel resource. Format: `publishers/{publishe
 
 Optional. The IETF BCP-47 language code representing the language in which the publisher model's text information should be written in.
 
-`view` ` enum ( PublisherModelView  ` )
+`view` `enum ( `[`PublisherModelView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/publishers.models/get#PublisherModelView)` )`
 
 Optional. PublisherModel view specifying which fields to read.
 
@@ -46,26 +46,15 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  PublisherModel  ` .
+If successful, the response body contains an instance of [`PublisherModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/publishers.models#PublisherModel) .
 
 ## PublisherModelView
 
 View enumeration of PublisherModel.
 
-Enums
-
-`PUBLISHER_MODEL_VIEW_UNSPECIFIED`
-
-The default / unset value. The API will default to the BASIC view.
-
-`PUBLISHER_MODEL_VIEW_BASIC`
-
-Include basic metadata about the publisher model, but not the full contents.
-
-`PUBLISHER_MODEL_VIEW_FULL`
-
-Include everything.
-
-`PUBLISHER_MODEL_VERSION_VIEW_BASIC`
-
-Include: VersionId, ModelVersionExternalName, and SupportedActions.
+| Enums                                |                                                                              |
+|--------------------------------------|------------------------------------------------------------------------------|
+| `PUBLISHER_MODEL_VIEW_UNSPECIFIED`   | The default / unset value. The API will default to the BASIC view.           |
+| `PUBLISHER_MODEL_VIEW_BASIC`         | Include basic metadata about the publisher model, but not the full contents. |
+| `PUBLISHER_MODEL_VIEW_FULL`          | Include everything.                                                          |
+| `PUBLISHER_MODEL_VERSION_VIEW_BASIC` | Include: VersionId, ModelVersionExternalName, and SupportedActions.          |

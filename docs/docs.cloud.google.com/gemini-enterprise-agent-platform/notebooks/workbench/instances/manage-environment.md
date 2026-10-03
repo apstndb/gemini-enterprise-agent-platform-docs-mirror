@@ -21,7 +21,7 @@ You might have added a conda environment to your instance to use a kernel that i
 1.  In the Google Cloud console, go to the **Instances** page.
 
 2.  Next to your Agent Platform Workbench instance's name, click **Open JupyterLab** .
-    
+
     Your Agent Platform Workbench instance opens JupyterLab.
 
 ## Modify a conda kernel
@@ -30,27 +30,31 @@ Gemini Enterprise Agent Platform Workbench instances come with pre-installed fra
 
 For example, if you want to upgrade PyTorch:
 
-    # Check the name of the conda environment for PyTorch
-    conda env list
-    
-    # Activate the environment for PyTorch
-    conda activate pytorch
-    
-    # Display the PyTorch version
-    python -c "import torch; print(torch.__version__)"
-    
-    # Make sure to use pip from the conda environment for PyTorch
-    # This should be `/opt/conda/envs/pytorch/bin/pip`
-    which pip
-    
-    # Upgrade PyTorch
-    pip install --upgrade torch
+```
+# Check the name of the conda environment for PyTorch
+conda env list
+
+# Activate the environment for PyTorch
+conda activate pytorch
+
+# Display the PyTorch version
+python -c "import torch; print(torch.__version__)"
+
+# Make sure to use pip from the conda environment for PyTorch
+# This should be `/opt/conda/envs/pytorch/bin/pip`
+which pip
+
+# Upgrade PyTorch
+pip install --upgrade torch
+```
 
 ## Delete a conda kernel
 
 Some conda packages add default kernels to your environment when the packages are installed. For example, when you install R, conda might also add a `python3` kernel. This can cause a duplication of kernels in your environment. To avoid duplicated kernels, delete the default kernel before you create a new kernel with the same name.
 
-    rm -rf /opt/conda/envs/CONDA_ENVIRONMENT_NAME/share/jupyter/kernels/python3
+```
+rm -rf /opt/conda/envs/CONDA_ENVIRONMENT_NAME/share/jupyter/kernels/python3
+```
 
 ## Troubleshoot
 
@@ -58,4 +62,4 @@ To diagnose and resolve issues related to managing a conda environment in your A
 
 ## What's next
 
-  - Learn more about [conda](https://docs.conda.io/en/latest/) .
+- Learn more about [conda](https://docs.conda.io/en/latest/) .

@@ -63,49 +63,51 @@ This code samples demonstrates how to create a RAG corpus using KNN `RagManagedD
 
 ### Python
 
-    from vertexai.preview import rag
-    import vertexai
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    DISPLAY_NAME = YOUR_RAG_CORPUS_DISPLAY_NAME
-    
-    # Initialize Agent Platform API once per session
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    vector_db = rag.RagManagedDb(retrieval_strategy=rag.KNN())
-    rag_corpus = rag.create_corpus(
-        display_name=DISPLAY_NAME, backend_config=rag.RagVectorDbConfig(vector_db=vector_db))
+```
+from vertexai.preview import rag
+import vertexai
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+DISPLAY_NAME = YOUR_RAG_CORPUS_DISPLAY_NAME
+
+# Initialize Agent Platform API once per session
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+vector_db = rag.RagManagedDb(retrieval_strategy=rag.KNN())
+rag_corpus = rag.create_corpus(
+    display_name=DISPLAY_NAME, backend_config=rag.RagVectorDbConfig(vector_db=vector_db))
+```
 
 ### REST
 
 Replace the following variables:
 
-  - **PROJECT\_ID** : Your project ID.
-  - **LOCATION** : The region to process the request.
-  - **CORPUS\_DISPLAY\_NAME** : The display name of the RAG corpus.
+- **` PROJECT_ID `** : Your project ID.
+- **` LOCATION `** : The region to process the request.
+- **` CORPUS_DISPLAY_NAME `** : The display name of the RAG corpus.
 
-<!-- end list -->
+```
+PROJECT_ID=PROJECT_ID
+LOCATION=LOCATION
+CORPUS_DISPLAY_NAME=CORPUS_DISPLAY_NAME
 
-    PROJECT_ID=PROJECT_ID
-    LOCATION=LOCATION
-    CORPUS_DISPLAY_NAME=CORPUS_DISPLAY_NAME
-    
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://${LOCATION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION}/ragCorpora \
-    -d '{
-          "display_name" : '\""${CORPUS_DISPLAY_NAME}"\"',
-          "vector_db_config": {
-            "ragManagedDb": {
-              "knn": {}
-            }
-          }
-        }'
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://${LOCATION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION}/ragCorpora \
+-d '{
+      "display_name" : '\""${CORPUS_DISPLAY_NAME}"\"',
+      "vector_db_config": {
+        "ragManagedDb": {
+          "knn": {}
+        }
+      }
+    }'
+```
 
 > **Preview**
-> 
+>
 > Some of the RAG features are Preview offerings, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . Pre-GA products and features are available "as-is" and may have limited support, and changes to Pre-GA products and features may not be compatible with other Pre-GA versions. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages) . By using the Gemini API on Gemini Enterprise Agent Platform, you agree to the Generative AI Preview [terms and conditions](https://cloud.google.com/trustedtester/aitos) (Preview Terms).
 
 ### Create a RAG corpus with ANN `RagManagedDb`
@@ -114,71 +116,73 @@ To offer the ANN feature, `RagManagedDb` uses a tree-based structure to partitio
 
 The `tree_depth` determines the number of layers or the levels in the tree. Follow these guidelines:
 
-  - If you have approximately 10,000 RAG files in the RAG corpus, set the value to 2.
-  - If you have more RAG files than that, set this to 3.
-  - If the `tree_depth` isn't specified, RAG Engine assigns a default value of 2 for this parameter.
+- If you have approximately 10,000 RAG files in the RAG corpus, set the value to 2.
+- If you have more RAG files than that, set this to 3.
+- If the `tree_depth` isn't specified, RAG Engine assigns a default value of 2 for this parameter.
 
 The `leaf_count` determines the number of leaf nodes in the tree-based structure. Each leaf node contains groups of closely related vectors along with their corresponding centroid. Follow these guidelines:
 
-  - The recommended value is `10 * sqrt(num of RAG files in your RAG corpus)` .
+- The recommended value is `10 * sqrt(num of RAG files in your RAG corpus)` .
 
-  - If not specified, RAG Engine assigns a *default value of 500* for this parameter.
+- If not specified, RAG Engine assigns a *default value of 500* for this parameter.
 
 ### Python
 
-    from vertexai.preview import rag
-    import vertexai
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    DISPLAY_NAME = YOUR_RAG_CORPUS_DISPLAY_NAME
-    TREE_DEPTH = YOUR_TREE_DEPTH # Optional: Acceptable values are 2 or 3. Default is 2.
-    LEAF_COUNT = YOUR_LEAF_COUNT # Optional: Default is 500.
-    
-    # Initialize Agent Platform API once per session
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    ann_config = rag.ANN(tree_depth=TREE_DEPTH, leaf_count=LEAF_COUNT)
-    vector_db = rag.RagManagedDb(retrieval_strategy=ann_config)
-    rag_corpus = rag.create_corpus(
-        display_name=DISPLAY_NAME, backend_config=rag.RagVectorDbConfig(vector_db=vector_db))
+```
+from vertexai.preview import rag
+import vertexai
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+DISPLAY_NAME = YOUR_RAG_CORPUS_DISPLAY_NAME
+TREE_DEPTH = YOUR_TREE_DEPTH # Optional: Acceptable values are 2 or 3. Default is 2.
+LEAF_COUNT = YOUR_LEAF_COUNT # Optional: Default is 500.
+
+# Initialize Agent Platform API once per session
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+ann_config = rag.ANN(tree_depth=TREE_DEPTH, leaf_count=LEAF_COUNT)
+vector_db = rag.RagManagedDb(retrieval_strategy=ann_config)
+rag_corpus = rag.create_corpus(
+    display_name=DISPLAY_NAME, backend_config=rag.RagVectorDbConfig(vector_db=vector_db))
+```
 
 ### REST
 
 Replace the following variables:
 
-  - **PROJECT\_ID** : Your project ID.
-  - **LOCATION** : The region to process the request.
-  - **CORPUS\_DISPLAY\_NAME** : The display name of the RAG corpus.
-  - **TREE\_DEPTH** : Your tree depth.
-  - **LEAF\_COUNT** : Your leaf count.
+- **` PROJECT_ID `** : Your project ID.
+- **` LOCATION `** : The region to process the request.
+- **` CORPUS_DISPLAY_NAME `** : The display name of the RAG corpus.
+- **` TREE_DEPTH `** : Your tree depth.
+- **` LEAF_COUNT `** : Your leaf count.
 
-<!-- end list -->
+```
+PROJECT_ID=PROJECT_ID
+LOCATION=LOCATION
+CORPUS_DISPLAY_NAME=CORPUS_DISPLAY_NAME
+TREE_DEPTH=TREE_DEPTH
+LEAF_COUNT=LEAF_COUNT
 
-    PROJECT_ID=PROJECT_ID
-    LOCATION=LOCATION
-    CORPUS_DISPLAY_NAME=CORPUS_DISPLAY_NAME
-    TREE_DEPTH=TREE_DEPTH
-    LEAF_COUNT=LEAF_COUNT
-    
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://${LOCATION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION}/ragCorpora \
-    -d '{
-          "display_name" : '\""${CORPUS_DISPLAY_NAME}"\"',
-          "vector_db_config": {
-            "ragManagedDb": {
-              "ann": {
-                "tree_depth": '"${TREE_DEPTH}"',
-                "leaf_count": '"${LEAF_COUNT}"'
-              }
-            }
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://${LOCATION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION}/ragCorpora \
+-d '{
+      "display_name" : '\""${CORPUS_DISPLAY_NAME}"\"',
+      "vector_db_config": {
+        "ragManagedDb": {
+          "ann": {
+            "tree_depth": '"${TREE_DEPTH}"',
+            "leaf_count": '"${LEAF_COUNT}"'
           }
-        }'
+        }
+      }
+    }'
+```
 
 > **Preview**
-> 
+>
 > Some of the RAG features are Preview offerings, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . Pre-GA products and features are available "as-is" and may have limited support, and changes to Pre-GA products and features may not be compatible with other Pre-GA versions. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages) . By using the Gemini API on Gemini Enterprise Agent Platform, you agree to the Generative AI Preview [terms and conditions](https://cloud.google.com/trustedtester/aitos) (Preview Terms).
 
 ### Importing your data into ANN `RagManagedDb`
@@ -194,46 +198,50 @@ To upload your local file into your RAG corpus, see [Upload a RAG file](https://
 
 ### Python
 
-    from vertexai.preview import rag
-    import vertexai
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    CORPUS_ID = YOUR_CORPUS_ID
-    PATHS = ["gs://my_bucket/my_files_dir"]
-    REBUILD_ANN_INDEX = REBUILD_ANN_INDEX # Choose true or false.
-    
-    # Initialize Agent Platform API once per session
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    corpus_name = f"projects/{PROJECT_ID}/locations/{LOCATION}/ragCorpora/{CORPUS_ID}"
-    # This is a non blocking call.
-    response = await rag.import_files_async(
-        corpus_name=corpus_name,
-        paths=PATHS,
-        rebuild_ann_index=REBUILD_ANN_INDEX
-    )
-    
-    # Wait for the import to complete.
-    await response.result()
+```
+from vertexai.preview import rag
+import vertexai
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+CORPUS_ID = YOUR_CORPUS_ID
+PATHS = ["gs://my_bucket/my_files_dir"]
+REBUILD_ANN_INDEX = REBUILD_ANN_INDEX # Choose true or false.
+
+# Initialize Agent Platform API once per session
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+corpus_name = f"projects/{PROJECT_ID}/locations/{LOCATION}/ragCorpora/{CORPUS_ID}"
+# This is a non blocking call.
+response = await rag.import_files_async(
+    corpus_name=corpus_name,
+    paths=PATHS,
+    rebuild_ann_index=REBUILD_ANN_INDEX
+)
+
+# Wait for the import to complete.
+await response.result()
+```
 
 ### REST
 
-    GCS_URI=GCS_URI
-    REBUILD_ANN_INDEX=<true/false>
-    
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://${LOCATION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION}/ragCorpora/${CORPUS_ID}/ragFiles:import \
-    -d '{
-      "import_rag_files_config": {
-        "gcs_source": {
-          "uris": '\""${GCS_URI}"\"',
-          },
-        "rebuild_ann_index": '${REBUILD_ANN_INDEX}'
-      }
-    }'
+```
+GCS_URI=GCS_URI
+REBUILD_ANN_INDEX=<true/false>
+
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://${LOCATION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION}/ragCorpora/${CORPUS_ID}/ragFiles:import \
+-d '{
+  "import_rag_files_config": {
+    "gcs_source": {
+      "uris": '\""${GCS_URI}"\"',
+      },
+    "rebuild_ann_index": '${REBUILD_ANN_INDEX}'
+  }
+}'
+```
 
 ## Manage your encryption
 
@@ -265,26 +273,26 @@ To enable the Cloud Key Management Service API, do the following:
 To create a key ring, do the following:
 
 1.  In the **Key Management** section, click **Create Key Ring** .
-    
+
     Enter the following:
-    
-      - **Key ring name** : Enter a unique name for your key ring such as rag-engine-cmek-keys.
-      - **Location type** : Select Region. The Cloud Key Management Service key ring must be in the same region as the RAG Engine endpoint that you're using when you're encrypting a RAG corpus with CMEK.
-      - **Location** : Choose the selected region such as `us-central1` . This region should ideally match the region where your RAG Engine resources will reside.
+
+    - **Key ring name** : Enter a unique name for your key ring such as rag-engine-cmek-keys.
+    - **Location type** : Select Region. The Cloud Key Management Service key ring must be in the same region as the RAG Engine endpoint that you're using when you're encrypting a RAG corpus with CMEK.
+    - **Location** : Choose the selected region such as `us-central1` . This region should ideally match the region where your RAG Engine resources will reside.
 
 2.  Click **Create** .
 
 To create a key within the key ring, do the following:
 
 1.  After the key ring is created, you'll be prompted, or you can navigate to **Create Key** .
-    
+
     Enter the following:
-    
-      - **Key name** : Enter a unique name for your key such as `my-rag-corpus-key` .
-      - **Protection level** : Choose a protection level ( *Software* or *HSM* ). If you require hardware-backed keys, select *HSM* .
-      - **Purpose** : Select *Symmetric encrypt/decrypt* . This is required for CMEK.
-      - **Key material source** : Select *Generated key* .
-      - **Rotation period** : Optional. Recommended. Configure a key rotation schedule according to your organization's security policies such as every 90 days.
+
+    - **Key name** : Enter a unique name for your key such as `my-rag-corpus-key` .
+    - **Protection level** : Choose a protection level ( *Software* or *HSM* ). If you require hardware-backed keys, select *HSM* .
+    - **Purpose** : Select *Symmetric encrypt/decrypt* . This is required for CMEK.
+    - **Key material source** : Select *Generated key* .
+    - **Rotation period** : Optional. Recommended. Configure a key rotation schedule according to your organization's security policies such as every 90 days.
 
 2.  Click **Create** .
 
@@ -292,11 +300,11 @@ To copy the key resource name, do the following:
 
 1.  After the key is created, navigate to its details page.
 
-2.  Locate the resource name. The format is `projects/ YOUR_PROJECT_ID /locations/ YOUR_REGION /keyRings/ YOUR_KEY_RING_NAME /cryptoKeys/ YOUR_KEY_NAME /cryptoKeyVersions/1` .
-    
+2.  Locate the resource name. The format is `projects/ `` YOUR_PROJECT_ID `` /locations/ `` YOUR_REGION `` /keyRings/ `` YOUR_KEY_RING_NAME `` /cryptoKeys/ `` YOUR_KEY_NAME `` /cryptoKeyVersions/1` .
+
     > **Important:** For the `EncryptionSpec` in your RAG corpus, you must use the key resource name without the version number.
 
-3.  Copy the resource name, and remove the `/cryptoKeyVersions/VERSION_NUMBER` part. The correctly formatted resource name is ` projects/ YOUR_PROJECT_ID /locations/ YOUR_REGION /keyRings/ YOUR_KEY_RING_NAME /cryptoKeys/ YOUR_KEY_NAME  ` .
+3.  Copy the resource name, and remove the `/cryptoKeyVersions/VERSION_NUMBER` part. The correctly formatted resource name is `projects/ `` YOUR_PROJECT_ID `` /locations/ `` YOUR_REGION `` /keyRings/ `` YOUR_KEY_RING_NAME `` /cryptoKeys/ `` YOUR_KEY_NAME` .
 
 #### Grant Permissions to the RAG Engine service agent
 
@@ -308,22 +316,26 @@ To identify your RAG Engine service agent, do the following:
 
 2.  On the Identity and Access Management page, enable the **Include Google-provided role grants** checkbox.
 
-3.  In the filter or search bar for the principals list, search for the RAG Engine service agent. It follows the pattern `service- YOUR_PROJECT_NUMBER @gcp-sa-vertex-rag.iam.gserviceaccount.com` .
-    
-    Replace YOUR\_PROJECT\_NUMBER with your Google Cloud project number.
+3.  In the filter or search bar for the principals list, search for the RAG Engine service agent. It follows the pattern `service- `` YOUR_PROJECT_NUMBER `` @gcp-sa-vertex-rag.iam.gserviceaccount.com` .
+
+    Replace ` YOUR_PROJECT_NUMBER ` with your Google Cloud project number.
 
 If your RAG Engine service agent isn't present yet, do the following to trigger service agent creation:
 
 1.  [Enable the Resource Manager API](https://console.cloud.google.com/apis/enableflow?apiid=cloudresourcemanager.googleapis.com) .
 
 2.  Execute this command in the Cloud Shell or command line:
-    
-        gcloud beta services identity create --service=aiplatform.googleapis.com \
-            --projects=PROJECT_ID
-    
+
+    ```
+    gcloud beta services identity create --service=aiplatform.googleapis.com \
+        --projects=PROJECT_ID
+    ```
+
     Alternatively, send the REST API call:
-    
-        curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json; charset=utf-8" -d "" "https://serviceusage.googleapis.com/v1beta1/projects/PROJECT_ID/services/aiplatform.googleapis.com:generateServiceIdentity"
+
+    ```
+    curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json; charset=utf-8" -d "" "https://serviceusage.googleapis.com/v1beta1/projects/PROJECT_ID/services/aiplatform.googleapis.com:generateServiceIdentity"
+    ```
 
 3.  Verify that the RAG Engine service agent was created.
 
@@ -353,37 +365,41 @@ Replace the variables in the following code samples:
 
 ### Python
 
-    import vertexai
-    from google.cloud import aiplatform
-    from vertexai import rag
-    from google.cloud.aiplatform_v1.types.encryption_spec import EncryptionSpec
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    DISPLAY_NAME = YOUR_RAG_CORPUS_DISPLAY_NAME
-    KMS_KEY_NAME = YOUR_KMS_KEY_NAME
-    
-    vertexai.init(project=PROJECT_ID)
-    
-    rag_corpus = rag.create_corpus(display_name=DISPLAY_NAME, encryption_spec=EncryptionSpec(kms_key_name=KMS_KEY_NAME))
+```
+import vertexai
+from google.cloud import aiplatform
+from vertexai import rag
+from google.cloud.aiplatform_v1.types.encryption_spec import EncryptionSpec
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+DISPLAY_NAME = YOUR_RAG_CORPUS_DISPLAY_NAME
+KMS_KEY_NAME = YOUR_KMS_KEY_NAME
+
+vertexai.init(project=PROJECT_ID)
+
+rag_corpus = rag.create_corpus(display_name=DISPLAY_NAME, encryption_spec=EncryptionSpec(kms_key_name=KMS_KEY_NAME))
+```
 
 ### REST
 
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    DISPLAY_NAME = YOUR_RAG_CORPUS_DISPLAY_NAME
-    KMS_KEY_NAME = YOUR_KMS_KEY_NAME
-    
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/ragCorpora \
-    -d '{
-          "display_name" : '\""${CORPUS_DISPLAY_NAME}"\"',
-          "encryption_spec" : {
-            "kms_key_name" : '\""${KMS_KEY_NAME}"\"'
-          }
-        }'
+```
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+DISPLAY_NAME = YOUR_RAG_CORPUS_DISPLAY_NAME
+KMS_KEY_NAME = YOUR_KMS_KEY_NAME
+
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/ragCorpora \
+-d '{
+      "display_name" : '\""${CORPUS_DISPLAY_NAME}"\"',
+      "encryption_spec" : {
+        "kms_key_name" : '\""${KMS_KEY_NAME}"\"'
+      }
+    }'
+```
 
 ### Quotas
 
@@ -397,6 +413,6 @@ For more information on how to request a quota increase, see [View and edit the 
 
 ## What's next
 
-  - To learn more about RagManagedDb, see [Deployment modes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/deployment-modes) .
-  - To import files and folders from Google Drive or Cloud Storage, see [Import RAG files example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/import) .
-  - To list RAG files, see [List RAG files example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/list) .
+- To learn more about RagManagedDb, see [Deployment modes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/deployment-modes) .
+- To import files and folders from Google Drive or Cloud Storage, see [Import RAG files example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/import) .
+- To list RAG files, see [List RAG files example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/list) .

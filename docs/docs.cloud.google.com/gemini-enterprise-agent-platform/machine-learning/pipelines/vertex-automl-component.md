@@ -12,46 +12,46 @@ The Google Cloud SDK includes the following operators related to AutoML models a
 
 **Operators related to AutoML forecasting**
 
-  - [`ProphetTrainerOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/forecasting.html#v1.automl.forecasting.ProphetTrainerOp)
+- [`ProphetTrainerOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/forecasting.html#v1.automl.forecasting.ProphetTrainerOp)
 
 **Operators related to AutoML Tabular models**
 
-  - [`CvTrainerOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.CvTrainerOp)
-  - [`EnsembleOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.EnsembleOp)
-  - [`FinalizerOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.FinalizerOp)
-  - [`InfraValidatorOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.InfraValidatorOp)
-  - [`SplitMaterializedDataOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.SplitMaterializedDataOp)
-  - [`Stage1TunerOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.Stage1TunerOp)
-  - [`StatsAndExampleGenOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.StatsAndExampleGenOp)
-  - [`TrainingConfiguratorAndValidatorOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.TrainingConfiguratorAndValidatorOp)
-  - [`TransformOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.TransformOp)
+- [`CvTrainerOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.CvTrainerOp)
+- [`EnsembleOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.EnsembleOp)
+- [`FinalizerOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.FinalizerOp)
+- [`InfraValidatorOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.InfraValidatorOp)
+- [`SplitMaterializedDataOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.SplitMaterializedDataOp)
+- [`Stage1TunerOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.Stage1TunerOp)
+- [`StatsAndExampleGenOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.StatsAndExampleGenOp)
+- [`TrainingConfiguratorAndValidatorOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.TrainingConfiguratorAndValidatorOp)
+- [`TransformOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/tabular.html#v1.automl.tabular.TransformOp)
 
 **Operators related to AutoML `model` resource creation**
 
-  - [`AutoMLForecastingTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLForecastingTrainingJobRunOp)
-  - [`AutoMLImageTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLImageTrainingJobRunOp)
-  - [`AutoMLTabularTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLTabularTrainingJobRunOp)
-  - [`AutoMLTextTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLTextTrainingJobRunOp)
+- [`AutoMLForecastingTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLForecastingTrainingJobRunOp)
+- [`AutoMLImageTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLImageTrainingJobRunOp)
+- [`AutoMLTabularTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLTabularTrainingJobRunOp)
+- [`AutoMLTextTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLTextTrainingJobRunOp)
 
 [Learn more about training and using your own AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview#automl) .
 
 ## API reference
 
-  - For AutoML component reference, see the [Google Cloud SDK reference for AutoML components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html) .
+- For AutoML component reference, see the [Google Cloud SDK reference for AutoML components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html) .
 
-  - For Agent Platform API reference, see the following API reference pages:
-    
-      - [`Dataset` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets)
-    
-      - [`TrainingPipeline` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.trainingPipelines)
+- For Agent Platform API reference, see the following API reference pages:
+
+  - [`Dataset` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets)
+
+  - [`TrainingPipeline` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.trainingPipelines)
 
 ## Tutorials
 
-  - [Learn how to use the Google Cloud pipeline components to train an image classification model using Gemini Enterprise Agent Platform AutoML.](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/google_cloud_pipeline_components_automl_images.ipynb)
-  - [Learn how to use the Google Cloud pipeline components to train a classification model using tabular data and Gemini Enterprise Agent Platform AutoML.](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/automl_tabular_classification_beans.ipynb)
-  - [Learn how to use the Google Cloud pipeline components to train a linear regression model using tabular data and Gemini Enterprise Agent Platform AutoML.](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/google_cloud_pipeline_components_automl_tabular.ipynb)
-  - [Learn how to use the Google Cloud pipeline components to train a text classification model using Gemini Enterprise Agent Platform AutoML.](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/google_cloud_pipeline_components_automl_text.ipynb)
-  - [Learn how to use the Google Cloud pipeline components to upload and deploy a model.](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/google_cloud_pipeline_components_model_train_upload_deploy.ipynb)
+- [Learn how to use the Google Cloud pipeline components to train an image classification model using Gemini Enterprise Agent Platform AutoML.](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/google_cloud_pipeline_components_automl_images.ipynb)
+- [Learn how to use the Google Cloud pipeline components to train a classification model using tabular data and Gemini Enterprise Agent Platform AutoML.](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/automl_tabular_classification_beans.ipynb)
+- [Learn how to use the Google Cloud pipeline components to train a linear regression model using tabular data and Gemini Enterprise Agent Platform AutoML.](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/google_cloud_pipeline_components_automl_tabular.ipynb)
+- [Learn how to use the Google Cloud pipeline components to train a text classification model using Gemini Enterprise Agent Platform AutoML.](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/google_cloud_pipeline_components_automl_text.ipynb)
+- [Learn how to use the Google Cloud pipeline components to upload and deploy a model.](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/google_cloud_pipeline_components_model_train_upload_deploy.ipynb)
 
 ## Version history and release notes
 

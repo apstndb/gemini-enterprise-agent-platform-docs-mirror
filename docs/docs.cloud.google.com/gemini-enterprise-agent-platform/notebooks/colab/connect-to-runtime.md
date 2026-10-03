@@ -16,9 +16,9 @@ To run code in your notebook, you must connect to a runtime. A *runtime* is a co
 
 This page shows you how to connect to a runtime by using the following methods:
 
-  - [Use the default runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/colab/connect-to-runtime#default)
-  - [Connect to an existing runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/colab/connect-to-runtime#existing)
-  - [Create a runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/colab/connect-to-runtime#create)
+- [Use the default runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/colab/connect-to-runtime#default)
+- [Connect to an existing runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/colab/connect-to-runtime#existing)
+- [Create a runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/colab/connect-to-runtime#create)
 
 ## Use the default runtime
 
@@ -48,17 +48,17 @@ To connect to the default runtime without running code, do the following:
     ![](https://docs.cloud.google.com/static/colab/images/connect-button.png)
 
 5.  If this is your first time connecting to a runtime with end-user credentials enabled, a **Sign in** dialog appears.
-    
+
     > The default runtime has end-user credentials enabled by default. To use a runtime that doesn't have access to your user credentials, [create a runtime template](https://docs.cloud.google.com/colab/docs/create-runtime-template) without end-user credentials enabled.
-    
+
     To grant Colab Enterprise access to your user credentials, complete the following steps:
-    
+
     1.  In the **Sign in** dialog, click your user account.
-    
+
     2.  Select **See, edit, configure, and delete your Google Cloud data...** to grant Colab Enterprise access to your user credentials.
-        
+
         ![The checkbox is next to a statement that says, "See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account."](https://docs.cloud.google.com/static/colab/images/access-checkbox.png)
-    
+
     3.  Click **Continue** .
 
 Colab Enterprise connects to the default runtime. If the default runtime isn't running, Colab Enterprise starts the default runtime, and then connects to it.
@@ -87,7 +87,7 @@ To connect to an existing runtime:
 
 4.  In your notebook, click the **Additional connection options** expander arrow, and then select **Connect to a runtime** .  
     ![](https://docs.cloud.google.com/static/colab/images/additional-connection-options.png)
-    
+
     The **Connect to Agent Platform runtime** dialog opens.
 
 5.  For **Select a runtime** , select **Connect to an existing runtime** .
@@ -97,17 +97,17 @@ To connect to an existing runtime:
 7.  Click **Connect** .
 
 8.  If your runtime has end-user credentials enabled, and this is your first time connecting to a runtime with end-user credentials enabled, a **Sign in** dialog appears.
-    
+
     > To use a runtime that doesn't have access to your user credentials, [create a runtime template](https://docs.cloud.google.com/colab/docs/create-runtime-template) without end-user credentials enabled.
-    
+
     To grant Colab Enterprise access to your user credentials, complete the following steps:
-    
+
     1.  In the **Sign in** dialog, click your user account.
-    
+
     2.  Select **See, edit, configure, and delete your Google Cloud data...** to grant Colab Enterprise access to your user credentials.
-        
+
         ![The checkbox is next to a statement that says, "See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account."](https://docs.cloud.google.com/static/colab/images/access-checkbox.png)
-    
+
     3.  Click **Continue** .
 
 Colab Enterprise connects to the runtime. If the runtime isn't running, Colab Enterprise starts the runtime, and then connects to it.
@@ -136,7 +136,7 @@ To create a runtime and connect to it by using the **Connect to Agent Platform r
 
 4.  In your notebook, click the **Additional connection options** expander arrow, and then select **Connect to a runtime** .  
     ![](https://docs.cloud.google.com/static/colab/images/additional-connection-options.png)
-    
+
     The **Connect to Agent Platform runtime** dialog opens.
 
 5.  For **Select a runtime** , select **Create new runtime** .
@@ -148,17 +148,17 @@ To create a runtime and connect to it by using the **Connect to Agent Platform r
 8.  Click **Connect** .
 
 9.  If the runtime template that you selected has end-user credentials enabled, and this is your first time connecting to a runtime with end-user credentials enabled, a **Sign in** dialog appears.
-    
+
     > To use a runtime that doesn't have access to your user credentials, [create a runtime template](https://docs.cloud.google.com/colab/docs/create-runtime-template) without end-user credentials enabled.
-    
+
     To grant Colab Enterprise access to your user credentials, complete the following steps:
-    
+
     1.  In the **Sign in** dialog, click your user account.
-    
+
     2.  Select **See, edit, configure, and delete your Google Cloud data...** to grant Colab Enterprise access to your user credentials.
-        
+
         ![The checkbox is next to a statement that says, "See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account."](https://docs.cloud.google.com/static/colab/images/access-checkbox.png)
-    
+
     3.  Click **Continue** .
 
 Colab Enterprise starts the default runtime, and then connects to it.
@@ -191,6 +191,6 @@ To resolve this issue, configure your network's firewall rules to allow outbound
 
 ## What's next
 
-  - Learn more about [runtimes and runtime templates](https://docs.cloud.google.com/colab/docs/runtimes) .
-  - [Create a runtime template](https://docs.cloud.google.com/colab/docs/create-runtime-template) .
-  - To find a notebook that can help you get your project started quickly, see the [notebook gallery](https://console.cloud.google.com/agent-platform/colab/notebook-gallery) .
+- Learn more about [runtimes and runtime templates](https://docs.cloud.google.com/colab/docs/runtimes) .
+- [Create a runtime template](https://docs.cloud.google.com/colab/docs/create-runtime-template) .
+- To find a notebook that can help you get your project started quickly, see the [notebook gallery](https://console.cloud.google.com/agent-platform/colab/notebook-gallery) .

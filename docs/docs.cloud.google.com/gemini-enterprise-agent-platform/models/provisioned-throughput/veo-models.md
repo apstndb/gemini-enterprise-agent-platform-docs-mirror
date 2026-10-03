@@ -10,15 +10,15 @@ This section explains how Provisioned Throughput works for the Veo 3 and later m
 
 For Veo 3 models, the [quota enforcement period](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#pt-quota-enforcement-period) varies based on the number of GSUs you purchase for the model, and is subject to change. The quota enforcement periods for different GSU sizes are as follows:
 
-  - 1-9 GSUs: 2000 seconds
+- 1-9 GSUs: 2000 seconds
 
-  - 10-19 GSUs: 400 seconds
+- 10-19 GSUs: 400 seconds
 
-  - 20-39 GSUs: 200 seconds
+- 20-39 GSUs: 200 seconds
 
-  - 40-66 GSUs: 100 seconds
+- 40-66 GSUs: 100 seconds
 
-  - 67 or more GSUs: 60 seconds
+- 67 or more GSUs: 60 seconds
 
 Note that this isn't connected to the request latency. The time to process your request isn't the same as the quota enforcement period.
 
@@ -26,4 +26,4 @@ For example, if you have a workload that requires generating a four-second video
 
 ## What's next
 
-  - [Purchase standard Provisioned Throughput.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput)
+- [Purchase standard Provisioned Throughput.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput)

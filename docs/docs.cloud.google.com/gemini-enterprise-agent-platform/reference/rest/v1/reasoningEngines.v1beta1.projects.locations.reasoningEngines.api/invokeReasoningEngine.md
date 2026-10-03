@@ -24,7 +24,7 @@ Required. The name of the ReasoningEngine resource to use. Format: `projects/{pr
 
 ### Request body
 
-The request body contains an instance of `  HttpBody  ` .
+The request body contains an instance of [`HttpBody`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/HttpBody) .
 
 ### Response body
 

@@ -22,22 +22,23 @@ Quantile values.
 
 Quantile predictions, in 1-1 correspondence with quantileValues.
 
-`tftFeatureImportance` ` object ( TftFeatureImportance  ` )
+`tftFeatureImportance` `object ( `[`TftFeatureImportance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/TftFeatureImportance)` )`
 
 Only use these if TFt is enabled.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;value&quot;: number,&quot;quantileValues&quot;: [number],&quot;quantilePredictions&quot;: [number],&quot;tftFeatureImportance&quot;: {object (TftFeatureImportance)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "value": number,
+  "quantileValues": [
+    number
+  ],
+  "quantilePredictions": [
+    number
+  ],
+  "tftFeatureImportance": {
+    object (TftFeatureImportance)
+  }
+}
+```

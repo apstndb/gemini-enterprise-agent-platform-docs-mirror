@@ -26,11 +26,11 @@ Required. The resource name of the Location from which to list the NotebookExecu
 
 `filter` `string`
 
-Optional. An expression for filtering the results of the request. For field names both snake\_case and camelCase are supported.
+Optional. An expression for filtering the results of the request. For field names both snake_case and camelCase are supported.
 
-  - `notebookExecutionJob` supports = and \!=. `notebookExecutionJob` represents the NotebookExecutionJob id.
-  - `displayName` supports = and \!= and regex.
-  - `schedule` supports = and \!= and regex.
+- `notebookExecutionJob` supports = and !=. `notebookExecutionJob` represents the NotebookExecutionJob id.
+- `displayName` supports = and != and regex.
+- `schedule` supports = and != and regex.
 
 Some examples: \* `notebookExecutionJob="123"` \* `notebookExecutionJob="my-execution-job"` \* `displayName="myDisplayName"` and `displayName=~"myDisplayNameRegex"`
 
@@ -40,19 +40,19 @@ Optional. The standard list page size.
 
 `pageToken` `string`
 
-Optional. The standard list page token. Typically obtained via `  ListNotebookExecutionJobsResponse.next_page_token  ` of the previous `  NotebookService.ListNotebookExecutionJobs  ` call.
+Optional. The standard list page token. Typically obtained via [`ListNotebookExecutionJobsResponse.next_page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs/list#body.ListNotebookExecutionJobsResponse.FIELDS.next_page_token) of the previous [`NotebookService.ListNotebookExecutionJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs/list#google.cloud.aiplatform.v1.NotebookService.ListNotebookExecutionJobs) call.
 
 `orderBy` `string`
 
 Optional. A comma-separated list of fields to order by, sorted in ascending order. Use "desc" after a field name for descending. Supported fields:
 
-  - `displayName`
-  - `createTime`
-  - `updateTime`
+- `displayName`
+- `createTime`
+- `updateTime`
 
 Example: `displayName, createTime desc` .
 
-`view` ` enum ( NotebookExecutionJobView  ` )
+`view` `enum ( `[`NotebookExecutionJobView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/NotebookExecutionJobView)` )`
 
 Optional. The NotebookExecutionJob view. Defaults to BASIC.
 
@@ -68,26 +68,23 @@ If successful, the response body contains data with the following structure:
 
 Fields
 
-`notebookExecutionJobs[]` ` object ( NotebookExecutionJob  ` )
+`notebookExecutionJobs[]` `object ( `[`NotebookExecutionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs#NotebookExecutionJob)` )`
 
 List of NotebookExecutionJobs in the requested page.
 
 `nextPageToken` `string`
 
-A token to retrieve next page of results. Pass to `  ListNotebookExecutionJobsRequest.page_token  ` to obtain that page.
+A token to retrieve next page of results. Pass to [`ListNotebookExecutionJobsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.notebookExecutionJobs/list#body.QUERY_PARAMETERS.page_token) to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;notebookExecutionJobs&quot;: [{object (NotebookExecutionJob)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "notebookExecutionJobs": [
+    {
+      object (NotebookExecutionJob)
+    }
+  ],
+  "nextPageToken": string
+}
+```

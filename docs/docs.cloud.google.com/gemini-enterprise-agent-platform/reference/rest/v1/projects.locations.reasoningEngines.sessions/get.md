@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.reasoningEngines.sessions.get
 
-Gets details of the specific `  Session  ` .
+Gets details of the specific [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions#Session) .
 
 ### Endpoint
 
@@ -28,4 +28,4 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Session  ` .
+If successful, the response body contains an instance of [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions#Session) .

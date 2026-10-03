@@ -28,14 +28,14 @@ The request body contains data with the following structure:
 
 Fields
 
-`inputs[]` ` object ( Tensor  ` )
+`inputs[]` `object ( `[`Tensor`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor)` )`
 
 The prediction input.
 
-`parameters` ` object ( Tensor  ` )
+`parameters` `object ( `[`Tensor`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor)` )`
 
 The parameters that govern the prediction.
 
 ### Response body
 
-If successful, the response body contains a stream of `  StreamingPredictResponse  ` instances.
+If successful, the response body contains a stream of [`StreamingPredictResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/StreamingPredictResponse) instances.

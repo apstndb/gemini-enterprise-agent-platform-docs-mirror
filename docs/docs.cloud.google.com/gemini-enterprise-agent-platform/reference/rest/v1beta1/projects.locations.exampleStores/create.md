@@ -24,8 +24,8 @@ Required. The resource name of the Location to create the ExampleStore in. Forma
 
 ### Request body
 
-The request body contains an instance of `  ExampleStore  ` .
+The request body contains an instance of [`ExampleStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores#ExampleStore) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  Operation  ` .
+If successful, the response body contains a newly created instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

@@ -30,7 +30,7 @@ Optional. The standard list page size. The maximum value is 100. If not specifie
 
 `pageToken` `string`
 
-Optional. The standard list page token. Typically obtained via `  ListRagFilesResponse.next_page_token  ` of the previous `  VertexRagDataService.ListRagFiles  ` call.
+Optional. The standard list page token. Typically obtained via [`ListRagFilesResponse.next_page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/list#body.ListRagFilesResponse.FIELDS.next_page_token) of the previous [`VertexRagDataService.ListRagFiles`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/list#google.cloud.aiplatform.v1beta1.VertexRagDataService.ListRagFiles) call.
 
 ### Request body
 
@@ -38,32 +38,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  VertexRagDataService.ListRagFiles  ` .
+Response message for [`VertexRagDataService.ListRagFiles`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/list#google.cloud.aiplatform.v1beta1.VertexRagDataService.ListRagFiles) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`ragFiles[]` ` object ( RagFile  ` )
+`ragFiles[]` `object ( `[`RagFile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles#RagFile)` )`
 
 List of RagFiles in the requested page.
 
 `nextPageToken` `string`
 
-A token to retrieve the next page of results. Pass to `  ListRagFilesRequest.page_token  ` to obtain that page.
+A token to retrieve the next page of results. Pass to [`ListRagFilesRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/list#body.QUERY_PARAMETERS.page_token) to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;ragFiles&quot;: [{object (RagFile)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "ragFiles": [
+    {
+      object (RagFile)
+    }
+  ],
+  "nextPageToken": string
+}
+```

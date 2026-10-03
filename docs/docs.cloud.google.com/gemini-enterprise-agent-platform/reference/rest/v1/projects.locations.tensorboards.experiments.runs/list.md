@@ -34,15 +34,15 @@ The maximum number of TensorboardRuns to return. The service may return fewer th
 
 `pageToken` `string`
 
-A page token, received from a previous `  TensorboardService.ListTensorboardRuns  ` call. Provide this to retrieve the subsequent page.
+A page token, received from a previous [`TensorboardService.ListTensorboardRuns`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/list#google.cloud.aiplatform.v1.TensorboardService.ListTensorboardRuns) call. Provide this to retrieve the subsequent page.
 
-When paginating, all other parameters provided to `  TensorboardService.ListTensorboardRuns  ` must match the call that provided the page token.
+When paginating, all other parameters provided to [`TensorboardService.ListTensorboardRuns`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/list#google.cloud.aiplatform.v1.TensorboardService.ListTensorboardRuns) must match the call that provided the page token.
 
 `orderBy` `string`
 
 Field to use to sort the list.
 
-`readMask` ` string ( FieldMask  ` format)
+`readMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Mask specifying which fields to read.
 
@@ -54,32 +54,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  TensorboardService.ListTensorboardRuns  ` .
+Response message for [`TensorboardService.ListTensorboardRuns`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/list#google.cloud.aiplatform.v1.TensorboardService.ListTensorboardRuns) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`tensorboardRuns[]` ` object ( TensorboardRun  ` )
+`tensorboardRuns[]` `object ( `[`TensorboardRun`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs#TensorboardRun)` )`
 
 The TensorboardRuns mathching the request.
 
 `nextPageToken` `string`
 
-A token, which can be sent as `  ListTensorboardRunsRequest.page_token  ` to retrieve the next page. If this field is omitted, there are no subsequent pages.
+A token, which can be sent as [`ListTensorboardRunsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/list#body.QUERY_PARAMETERS.page_token) to retrieve the next page. If this field is omitted, there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;tensorboardRuns&quot;: [{object (TensorboardRun)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "tensorboardRuns": [
+    {
+      object (TensorboardRun)
+    }
+  ],
+  "nextPageToken": string
+}
+```

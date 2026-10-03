@@ -25,7 +25,7 @@ Before you create an IAM Access policy, do the following:
 2.  Set up a Google Cloud billing project.
 
 3.  Enable the required APIs:
-    
+
     ```sh
     gcloud services enable \
         agentregistry.googleapis.com \
@@ -46,9 +46,9 @@ Before you create an IAM Access policy, do the following:
 
 To get the permissions that you need to configure Agent Platform for AI agents, ask your administrator to grant you the following IAM roles on your project:
 
-  - Create Agent Gateway instances: IAP Policy Admin ( `roles/iap.admin` ) or Network Security Admin ( `roles/networksecurity.admin` )
-  - Create and bind Access policies: [Access Policy Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.accessPolicyAdmin) ( `roles/iam.accessPolicyAdmin` )
-  - Bind policy to a project: [Project IAM Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin) ( `roles/resourcemanager.projectIamAdmin` )
+- Create Agent Gateway instances: IAP Policy Admin ( `roles/iap.admin` ) or Network Security Admin ( `roles/networksecurity.admin` )
+- Create and bind Access policies: [Access Policy Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.accessPolicyAdmin) ( `roles/iam.accessPolicyAdmin` )
+- Bind policy to a project: [Project IAM Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin) ( `roles/resourcemanager.projectIamAdmin` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
@@ -75,7 +75,6 @@ To create an Access policy in the Google Cloud console, do the following:
 3.  To add an IAM Access policy for Agent Gateway egress, click add **Create** .
 
 4.  In **Policy details** , do the following:
-    
     1.  Click the **Policy** field.
     2.  In the drop-down list, select **Create new policy** .
     3.  In the **Policy name** field, enter the name of the policy. The policy ID is automatically generated based on the policy name.
@@ -88,18 +87,18 @@ To create an Access policy in the Google Cloud console, do the following:
 
 After you save your policy, the following happens:
 
-  - The IAM `iap.resources.egressViaIAP` permission is granted to the principals in your policy.
+- The IAM `iap.resources.egressViaIAP` permission is granted to the principals in your policy.
 
-  - The policy is automatically bound to the selected project.
+- The policy is automatically bound to the selected project.
 
-  - All Agent Gateway instances in this project can enforce any policy associated with the project.
+- All Agent Gateway instances in this project can enforce any policy associated with the project.
 
 ### gcloud
 
 To create an Access policy in the gcloud CLI, do the following:
 
 1.  Create a JSON-formatted policy file. Access policies can contain one or more [rules](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#rules) . Each rule controls access from one or more agent principals to one or more target resources.
-    
+
     ```json
     [
       {
@@ -121,77 +120,78 @@ To create an Access policy in the gcloud CLI, do the following:
       }
     ]
     ```
-    
+
     Replace the following:
-    
-      - `  RULE_DESCRIPTION  ` : the description of the rule
-    
-      - `  RULE_EFFECT  ` : the effect of the rule, which is either `ALLOW` or `DENY`
-    
-      - `  AGENT_PRINCIPALS  ` : the principals for the source agent identity. Agent principals can be an array of one or more individual principals or principal sets:
-        
-          - **Built-in agent identities:** ` principal:// TRUST_DOMAIN / AGENT_UNIQUE_IDENTIFIER  `
-            
-            The structure of `  AGENT_UNIQUE_IDENTIFIER  ` depends on the Google Cloud service hosting the agent:
-            
-              - **Agent Runtime (Reasoning Engine):** `principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-agent`
-              - **Gemini Enterprise (Discovery Engine):** `principal://agents.global.org-123456789012.system.id.goog/resources/discoveryengine/projects/9876543210/locations/global/engines/my-engine/assistants/default_assistant/agents/default/core_assistant`
-              - **Cloud Run (Agent Identity):** `principal://agents.global.org-123456789012.system.id.goog/resources/run/projects/9876543210/locations/us-central1/services/my-cloud-run-agent`
-            
-            Replace the following:
-            
-              - `  TRUST_DOMAIN  ` : the trust domain of the project or organization that contains the agent principal (for example, `agents.global.org- ORGANIZATION_ID .system.id.goog` or `agents.global.proj- PROJECT_NUMBER .system.id.goog` )
-              - `  AGENT_UNIQUE_IDENTIFIER  ` : the resource URI path of the agent instance
-        
-          - **Workload Identity Federation (custom or external agents):** ` principal://iam.googleapis.com/projects/ PROJECT_NUMBER /locations/global/workloadIdentityPools/ POOL_ID /subject/ SUBJECT  ` —for example, `principal://iam.googleapis.com/projects/1234567890/locations/global/workloadIdentityPools/my-agent-identity/subject/ns/default/sa/my-agent`
-            
-            Replace the following:
-            
-              - `  PROJECT_NUMBER  ` : the project number of the project that contains the workload identity pool
-              - `  POOL_ID  ` : the ID of the workload identity pool
-              - `  SUBJECT  ` : the subject identifier of the agent principal
-    
-      - `  CONDITION  ` : the condition parameter, formatted as follows:
-        
-        ```json
-        "conditions": {
-          "iap.googleapis.com": {
-            "expression": "CEL_EXPRESSION"
-          }
+
+    - `RULE_DESCRIPTION` : the description of the rule
+
+    - `RULE_EFFECT` : the effect of the rule, which is either `ALLOW` or `DENY`
+
+    - `AGENT_PRINCIPALS` : the principals for the source agent identity. Agent principals can be an array of one or more individual principals or principal sets:
+      - **Built-in agent identities:** `principal:// `` TRUST_DOMAIN `` / `` AGENT_UNIQUE_IDENTIFIER`
+
+        The structure of `AGENT_UNIQUE_IDENTIFIER` depends on the Google Cloud service hosting the agent:
+
+        - **Agent Runtime (Reasoning Engine):** `principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-agent`
+        - **Gemini Enterprise (Discovery Engine):** `principal://agents.global.org-123456789012.system.id.goog/resources/discoveryengine/projects/9876543210/locations/global/engines/my-engine/assistants/default_assistant/agents/default/core_assistant`
+        - **Cloud Run (Agent Identity):** `principal://agents.global.org-123456789012.system.id.goog/resources/run/projects/9876543210/locations/us-central1/services/my-cloud-run-agent`
+
+        Replace the following:
+
+        - `TRUST_DOMAIN` : the trust domain of the project or organization that contains the agent principal (for example, `agents.global.org- `` ORGANIZATION_ID `` .system.id.goog` or `agents.global.proj- `` PROJECT_NUMBER `` .system.id.goog` )
+        - `AGENT_UNIQUE_IDENTIFIER` : the resource URI path of the agent instance
+
+      - **Workload Identity Federation (custom or external agents):** `principal://iam.googleapis.com/projects/ `` PROJECT_NUMBER `` /locations/global/workloadIdentityPools/ `` POOL_ID `` /subject/ `` SUBJECT` —for example, `principal://iam.googleapis.com/projects/1234567890/locations/global/workloadIdentityPools/my-agent-identity/subject/ns/default/sa/my-agent`
+
+        Replace the following:
+
+        - `PROJECT_NUMBER` : the project number of the project that contains the workload identity pool
+        - `POOL_ID` : the ID of the workload identity pool
+        - `SUBJECT` : the subject identifier of the agent principal
+
+    - `CONDITION` : the condition parameter, formatted as follows:
+
+      ```json
+      "conditions": {
+        "iap.googleapis.com": {
+          "expression": "CEL_EXPRESSION"
         }
-        ```
-        
-        Replace `  CEL_EXPRESSION  ` with a conditional expression—for example:
-        
-            "destination.agent_registry.mcp_server.name == '/projects/corp-apim-prod/locations/us-east1/mcpServers/finance-data-service' && destination.agent_registry.mcp_server.tool.name == 'updateRecord'"
-        
-        This expression must be a valid CEL expression. It must evaluate to `true` for access to be allowed.
-    
+      }
+      ```
+
+      Replace `CEL_EXPRESSION` with a conditional expression—for example:
+
+      ```
+      "destination.agent_registry.mcp_server.name == '/projects/corp-apim-prod/locations/us-east1/mcpServers/finance-data-service' && destination.agent_registry.mcp_server.tool.name == 'updateRecord'"
+      ```
+
+      This expression must be a valid CEL expression. It must evaluate to `true` for access to be allowed.
+
     In all agent egress policies, you must set the permission to `iap.resources.egressViaIAP` .
-    
+
     For more information, see [Access policy rules](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#rules) and [Example policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#example-policies) .
 
 2.  To create the Access policy, run the following command:
-    
+
     ```sh
     gcloud iam access-policies create POLICY_NAME \
         --details-rules=POLICY_FILE \
         --project=PROJECT_ID \
         --location=global
     ```
-    
+
     Replace the following:
-    
-      - `  POLICY_NAME  ` : the name of the policy
-      - `  POLICY_FILE  ` : the path to the policy file—for example: `my-policy.json`
-      - `  PROJECT_ID  ` : the project ID that contains the policy
+
+    - `POLICY_NAME` : the name of the policy
+    - `POLICY_FILE` : the path to the policy file—for example: `my-policy.json`
+    - `PROJECT_ID` : the project ID that contains the policy
 
 ### REST API
 
 To create and bind a policy using the REST API, do the following:
 
 1.  Save the JSON-formatted policy details to a file named `agent-access-policy.json` :
-    
+
     ```json
     {
       "details": {
@@ -201,11 +201,11 @@ To create and bind a policy using the REST API, do the following:
       }
     }
     ```
-    
-    Replace `  RULES  ` with one or more [rules](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#rules) .
+
+    Replace `RULES` with one or more [rules](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#rules) .
 
 2.  To create the Access policy, make a `POST` request to the `accessPolicies` endpoint:
-    
+
     ```sh
     curl -X POST \
     "https://iam.googleapis.com/v3beta/projects/PROJECT_ID/locations/global/accessPolicies?accessPolicyId=POLICY_NAME" \
@@ -213,11 +213,11 @@ To create and bind a policy using the REST API, do the following:
     -H "Content-Type: application/json" \
     -d @agent-access-policy.json
     ```
-    
+
     Replace the following:
-    
-      - `  PROJECT_ID  ` : the project ID
-      - `  POLICY_NAME  ` : the policy name
+
+    - `PROJECT_ID` : the project ID
+    - `POLICY_NAME` : the policy name
 
 ### Create a combination allow and deny Access policy
 
@@ -246,7 +246,7 @@ To create an Access policy with both allow and deny rules in the Google Cloud co
 To create an Access policy file containing both allow and deny rules, do the following:
 
 1.  Save the following to your JSON-formatted policy file:
-    
+
     ```json
     [
       {
@@ -281,30 +281,30 @@ To create an Access policy file containing both allow and deny rules, do the fol
       }
     ]
     ```
-    
+
     Replace the following:
-    
-      - `  ALLOW_RULE_DESCRIPTION  ` : the description of the allow rule
-      - `  DENY_RULE_DESCRIPTION  ` : the description of the deny rule
-      - `  AGENT_PRINCIPALS_ALLOW  ` : the agent principals that you want to allow—for example, ` principal://agents.global.proj- PROJECT_NUMBER .system.id.goog/resources/aiplatform/projects/ PROJECT_ID /locations/ LOCATION /reasoningEngines/ AGENT_NAME  `
-      - `  AGENT_PRINCIPALS_DENY  ` : the agent principals that you want to deny—for example, ` principal://agents.global.proj- PROJECT_NUMBER .system.id.goog/resources/aiplatform/projects/ PROJECT_ID /locations/ LOCATION /reasoningEngines/ AGENT_NAME  `
-      - `  CEL_EXPRESSION_ALLOW  ` : the CEL expression for the allow rule—for example, `destination.agent_registry.mcp_server.name == "/projects/my-project/locations/us-east1/mcpServers/finance-data-service" && destination.agent_registry.mcp_server.tool.name == "getStatements"`
-      - `  CEL_EXPRESSION_DENY  ` : the CEL expression for the deny rule—for example, `destination.agent_registry.mcp_server.name == "/projects/my-project/locations/us-east1/mcpServers/finance-data-service" && destination.agent_registry.mcp_server.tool.name == "updateRecord"`
+
+    - `ALLOW_RULE_DESCRIPTION` : the description of the allow rule
+    - `DENY_RULE_DESCRIPTION` : the description of the deny rule
+    - `AGENT_PRINCIPALS_ALLOW` : the agent principals that you want to allow—for example, `principal://agents.global.proj- `` PROJECT_NUMBER `` .system.id.goog/resources/aiplatform/projects/ `` PROJECT_ID `` /locations/ `` LOCATION `` /reasoningEngines/ `` AGENT_NAME`
+    - `AGENT_PRINCIPALS_DENY` : the agent principals that you want to deny—for example, `principal://agents.global.proj- `` PROJECT_NUMBER `` .system.id.goog/resources/aiplatform/projects/ `` PROJECT_ID `` /locations/ `` LOCATION `` /reasoningEngines/ `` AGENT_NAME`
+    - `CEL_EXPRESSION_ALLOW` : the CEL expression for the allow rule—for example, `destination.agent_registry.mcp_server.name == "/projects/my-project/locations/us-east1/mcpServers/finance-data-service" && destination.agent_registry.mcp_server.tool.name == "getStatements"`
+    - `CEL_EXPRESSION_DENY` : the CEL expression for the deny rule—for example, `destination.agent_registry.mcp_server.name == "/projects/my-project/locations/us-east1/mcpServers/finance-data-service" && destination.agent_registry.mcp_server.tool.name == "updateRecord"`
 
 2.  To create the Access policy, run the following command:
-    
+
     ```sh
     gcloud iam access-policies create POLICY_NAME \
         --details-rules=POLICY_FILE \
         --project=PROJECT_ID \
         --location=global
     ```
-    
+
     Replace the following:
-    
-      - `  POLICY_NAME  ` : the name of the policy
-      - `  POLICY_FILE  ` : the path to the policy file—for example: `my-policy.json`
-      - `  PROJECT_ID  ` : the project ID that contains the policy
+
+    - `POLICY_NAME` : the name of the policy
+    - `POLICY_FILE` : the path to the policy file—for example: `my-policy.json`
+    - `PROJECT_ID` : the project ID that contains the policy
 
 3.  To activate the policy, [bind the Access policy to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
@@ -313,7 +313,7 @@ To create an Access policy file containing both allow and deny rules, do the fol
 To create an Access policy containing both allow and deny rules using the REST API, do the following:
 
 1.  Save the following to a JSON-formatted policy file named `agent-access-policy.json` :
-    
+
     ```json
     {
       "details": {
@@ -352,18 +352,18 @@ To create an Access policy containing both allow and deny rules using the REST A
       }
     }
     ```
-    
+
     Replace the following:
-    
-      - `  ALLOW_RULE_DESCRIPTION  ` : the description of the allow rule
-      - `  DENY_RULE_DESCRIPTION  ` : the description of the deny rule
-      - `  AGENT_PRINCIPALS_ALLOW  ` : the agent principals that you want to allow
-      - `  AGENT_PRINCIPALS_DENY  ` : the agent principals that you want to deny
-      - `  CEL_EXPRESSION_ALLOW  ` : the CEL expression for the allow rule
-      - `  CEL_EXPRESSION_DENY  ` : the CEL expression for the deny rule
+
+    - `ALLOW_RULE_DESCRIPTION` : the description of the allow rule
+    - `DENY_RULE_DESCRIPTION` : the description of the deny rule
+    - `AGENT_PRINCIPALS_ALLOW` : the agent principals that you want to allow
+    - `AGENT_PRINCIPALS_DENY` : the agent principals that you want to deny
+    - `CEL_EXPRESSION_ALLOW` : the CEL expression for the allow rule
+    - `CEL_EXPRESSION_DENY` : the CEL expression for the deny rule
 
 2.  To create the policy, run the following `curl` command:
-    
+
     ```sh
     curl -X POST \
     "https://iam.googleapis.com/v3beta/projects/PROJECT_ID/locations/global/accessPolicies?accessPolicyId=POLICY_NAME" \
@@ -371,11 +371,11 @@ To create an Access policy containing both allow and deny rules using the REST A
     -H "Content-Type: application/json" \
     -d @agent-access-policy.json
     ```
-    
+
     Replace the following:
-    
-      - `  PROJECT_ID  ` : the project ID
-      - `  POLICY_NAME  ` : the policy name
+
+    - `PROJECT_ID` : the project ID
+    - `POLICY_NAME` : the policy name
 
 3.  To activate the policy, [bind the Access policy to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
@@ -385,11 +385,11 @@ To create an Access policy containing both allow and deny rules using the REST A
 
 After you save your policy, the following happens:
 
-  - The IAM `iap.resources.egressViaIAP` permission is granted to the principals in your policy.
+- The IAM `iap.resources.egressViaIAP` permission is granted to the principals in your policy.
 
-  - The policy is automatically bound to the selected project.
+- The policy is automatically bound to the selected project.
 
-  - All Agent Gateway instances in this project can enforce any policy associated with the project.
+- All Agent Gateway instances in this project can enforce any policy associated with the project.
 
 ### gcloud
 
@@ -405,18 +405,17 @@ gcloud iam policy-bindings create BINDING_NAME \
 
 Replace the following:
 
-  - `  BINDING_NAME  ` : the name for your policy binding
+- `BINDING_NAME` : the name for your policy binding
 
-  - `  PROJECT_ID  ` : your Google Cloud project ID
+- `PROJECT_ID` : your Google Cloud project ID
 
-  - `  POLICY_NAME  ` : the name of your access policy
+- `POLICY_NAME` : the name of your access policy
 
-  - `  TARGET_RESOURCE  ` : the full resource URI for the project, formatted as follows:
-    
-    ```html
-        //cloudresourcemanager.googleapis.com/projects/PROJECT_ID
-        
-    ```
+- `TARGET_RESOURCE` : the full resource URI for the project, formatted as follows:
+
+  ```html
+      //cloudresourcemanager.googleapis.com/projects/PROJECT_ID
+  ```
 
 ### REST API
 
@@ -437,12 +436,12 @@ curl -X POST \
 
 Replace the following:
 
-  - `  PROJECT_ID  ` : the project ID
-  - `  BINDING_NAME  ` : a name for the binding
-  - `  POLICY_NAME  ` : the name of the policy that you created earlier in this document
-  - `  TARGET_RESOURCE  ` : the full resource URI for the binding target, which can be one of the following:
-      - Project: ` //cloudresourcemanager.googleapis.com/projects/ PROJECT_ID  `
-      - Agent Gateway: ` //networkservices.googleapis.com/projects/ PROJECT_ID /locations/ LOCATION /agentGateways/ GATEWAY_NAME  `
+- `PROJECT_ID` : the project ID
+- `BINDING_NAME` : a name for the binding
+- `POLICY_NAME` : the name of the policy that you created earlier in this document
+- `TARGET_RESOURCE` : the full resource URI for the binding target, which can be one of the following:
+  - Project: `//cloudresourcemanager.googleapis.com/projects/ `` PROJECT_ID`
+  - Agent Gateway: `//networkservices.googleapis.com/projects/ `` PROJECT_ID `` /locations/ `` LOCATION `` /agentGateways/ `` GATEWAY_NAME`
 
 ### Create rules
 
@@ -455,24 +454,24 @@ In the Google Cloud console, edit your Access policy and do the following:
 1.  Edit your existing rule. To add a rule, click **Add a rule** .
 2.  **Rule description** : a human-readable description for this rule
 3.  **Select principals** : The source agent principals that the rule manages access from. Principals can be one of the following:
-      - **All agents in this project** : All agents that exist in the current project.
-      - **Individual agents** : One or more specific principals that you can select. Agents are defined by their agent identities.
-      - **Custom principal set** : One or more principal sets that you can specify by entering a [principal identifier](https://docs.cloud.google.com/iam/docs/principal-identifiers) . Principal identifiers must start with `principalSet://` and refer to agent identities.
+    - **All agents in this project** : All agents that exist in the current project.
+    - **Individual agents** : One or more specific principals that you can select. Agents are defined by their agent identities.
+    - **Custom principal set** : One or more principal sets that you can specify by entering a [principal identifier](https://docs.cloud.google.com/iam/docs/principal-identifiers) . Principal identifiers must start with `principalSet://` and refer to agent identities.
 4.  **Effect** : the rule's effect, which can be one of the following:
-      - **Allow** : allows the principals to access the resources
-      - **Deny** : disallows the principals from accessing the resources
+    - **Allow** : allows the principals to access the resources
+    - **Deny** : disallows the principals from accessing the resources
 5.  **Select resources** : One or more types of destination resources that you can select. Resource types include the following:
-      - **Registry** : All resources that are registered in an Agent Registry location
-    
-      - **Agent** : A destination agent that is registered in Agent Registry
-    
-      - **MCP server** : A destination MCP server that is registered in Agent Registry. You can use [conditions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#conditions) to further control MCP server access.
-        
-        > **Important:** The condition builder and condition editor support a subset of CEL attributes. To create a condition with full attribute support, use the **Custom** tab in **Select resources** , or use the gcloud CLI or the IAP REST API.
-    
-      - **Endpoint** : A destination endpoint that is registered in Agent Registry
-    
-      - **Unregistered endpoint** : A destination endpoint that is not registered in Agent Registry and is accessed through an external URL. You can use [conditions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#conditions) to further control unregistered endpoint access.
+    - **Registry** : All resources that are registered in an Agent Registry location
+
+    - **Agent** : A destination agent that is registered in Agent Registry
+
+    - **MCP server** : A destination MCP server that is registered in Agent Registry. You can use [conditions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#conditions) to further control MCP server access.
+
+      > **Important:** The condition builder and condition editor support a subset of CEL attributes. To create a condition with full attribute support, use the **Custom** tab in **Select resources** , or use the gcloud CLI or the IAP REST API.
+
+    - **Endpoint** : A destination endpoint that is registered in Agent Registry
+
+    - **Unregistered endpoint** : A destination endpoint that is not registered in Agent Registry and is accessed through an external URL. You can use [conditions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#conditions) to further control unregistered endpoint access.
 
 ### gcloud
 
@@ -498,19 +497,19 @@ Rules in a JSON-formatted file have the following general format:
 
 The policy file contains the following:
 
-  - `  RULE_DESCRIPTION  ` : a human-readable description for this rule
+- `RULE_DESCRIPTION` : a human-readable description for this rule
 
-  - `  EFFECT  ` : the rule's effect, which can be one of the following:
+- `EFFECT` : the rule's effect, which can be one of the following:
 
-  - `ALLOW` allows the principal to access the resources
+- `ALLOW` allows the principal to access the resources
 
-  - `DENY` disallows the principal from accessing the resources
+- `DENY` disallows the principal from accessing the resources
 
-  - `  CONDITION  ` : a CEL expression that conditionally evaluates to true or false. If the expression evaluates to true, then the rule goes into effect. Conditions can also contain references to specific resources that principals can access:
+- `CONDITION` : a CEL expression that conditionally evaluates to true or false. If the expression evaluates to true, then the rule goes into effect. Conditions can also contain references to specific resources that principals can access:
 
-  - `destination.agent_registry` : the destination resource is registered in Agent Registry.
+- `destination.agent_registry` : the destination resource is registered in Agent Registry.
 
-  - `destination.unregistered` : the destination resource is unregistered. It is accessed through a URL. Access can be controlled in the condition.
+- `destination.unregistered` : the destination resource is unregistered. It is accessed through a URL. Access can be controlled in the condition.
 
 To learn more about conditions, see [Conditions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#conditions) . Learn more about conditions attributes in [CEL attributes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap) .
 
@@ -519,7 +518,7 @@ To learn more about conditions, see [Conditions](https://docs.cloud.google.com/g
 To create and bind a policy using the REST API, do the following:
 
 1.  Save the JSON-formatted policy details to a file named `agent-access-policy.json` :
-    
+
     ```json
     {
       "details": {
@@ -543,28 +542,28 @@ To create and bind a policy using the REST API, do the following:
       }
     }
     ```
-    
+
     Add one or more rules to the `details` field. In each rule, replace the following:
-    
-      - `  RULE_DESCRIPTION  ` : one or more [rules](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#rules)
-    
-      - `  EFFECT  ` : the rule's effect, which can be one of the following:
-        
-          - `ALLOW` allows the principal to access the resources
-        
-          - `DENY` disallows the principal from accessing the resources
-    
-      - `  AGENT_PRINCIPALS  ` : the agent principals that you want to grant access to.
-    
-      - `  CONDITION  ` : a CEL expression that conditionally evaluates to true or false. If the expression evaluates to true, then the rule goes into effect. Conditions can also contain references to specific resources that principals can access:
-        
-          - `destination.agent_registry` : the destination resource is registered in Agent Registry.
-          - `destination.unregistered` : the destination resource is unregistered. It is accessed through a URL. Access can be controlled in the condition.
-    
+
+    - `RULE_DESCRIPTION` : one or more [rules](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#rules)
+
+    - `EFFECT` : the rule's effect, which can be one of the following:
+
+      - `ALLOW` allows the principal to access the resources
+
+      - `DENY` disallows the principal from accessing the resources
+
+    - `AGENT_PRINCIPALS` : the agent principals that you want to grant access to.
+
+    - `CONDITION` : a CEL expression that conditionally evaluates to true or false. If the expression evaluates to true, then the rule goes into effect. Conditions can also contain references to specific resources that principals can access:
+
+      - `destination.agent_registry` : the destination resource is registered in Agent Registry.
+      - `destination.unregistered` : the destination resource is unregistered. It is accessed through a URL. Access can be controlled in the condition.
+
     To learn more about conditions, see [Conditions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#conditions) . Learn more about conditions attributes in [CEL attributes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap) .
 
 2.  To create the Access policy, make a `POST` request to the `accessPolicies` endpoint:
-    
+
     ```sh
     curl -X POST \
     "https://iam.googleapis.com/v3beta/projects/PROJECT_ID/locations/global/accessPolicies?accessPolicyId=POLICY_NAME" \
@@ -572,14 +571,14 @@ To create and bind a policy using the REST API, do the following:
     -H "Content-Type: application/json" \
     -d @agent-access-policy.json
     ```
-    
+
     Replace the following:
-    
-      - `  PROJECT_ID  ` : the project ID
-      - `  POLICY_NAME  ` : the policy name
+
+    - `PROJECT_ID` : the project ID
+    - `POLICY_NAME` : the policy name
 
 3.  To bind the policy to the target resource, make a `POST` request to the `policyBindings` endpoint:
-    
+
     ```sh
     curl -X POST \
     "https://iam.googleapis.com/v3beta/projects/PROJECT_ID/locations/global/policyBindings?policyBindingId=BINDING_NAME" \
@@ -592,13 +591,13 @@ To create and bind a policy using the REST API, do the following:
       }
     }'
     ```
-    
+
     Replace the following:
-    
-      - `  PROJECT_ID  ` : the project ID
-      - `  BINDING_NAME  ` : a name for the binding
-      - `  POLICY_NAME  ` : the name of the policy that you created earlier in this document
-      - `  TARGET_RESOURCE  ` : the full resource URI for the project formatted as follows: ` //cloudresourcemanager.googleapis.com/projects/ PROJECT_ID  `
+
+    - `PROJECT_ID` : the project ID
+    - `BINDING_NAME` : a name for the binding
+    - `POLICY_NAME` : the name of the policy that you created earlier in this document
+    - `TARGET_RESOURCE` : the full resource URI for the project formatted as follows: `//cloudresourcemanager.googleapis.com/projects/ `` PROJECT_ID`
 
 ### Create conditions
 
@@ -609,12 +608,12 @@ Conditions are Boolean CEL expressions that determine access from agent principa
 In the Google Cloud console you can create conditions by doing the following:
 
 1.  In the **Select resource(s)** section of your rule, select one of the following tabs:
-    
-      - **Standard** : In the **Standard** tab, select one or more resource types and then use the condition builder or the condition editor to create a condition.
-        
-        > **Important:** The condition builder and condition editor support a subset of CEL attributes. To create a condition with full attribute support, use the **Custom** tab in **Select resources** , or use the gcloud CLI or the IAP REST API.
-    
-      - **Custom** : In the **Custom** tab, you can use the condition editor to create a custom condition in which you can use CEL attributes to specify your destination resources and other conditions.
+
+    - **Standard** : In the **Standard** tab, select one or more resource types and then use the condition builder or the condition editor to create a condition.
+
+      > **Important:** The condition builder and condition editor support a subset of CEL attributes. To create a condition with full attribute support, use the **Custom** tab in **Select resources** , or use the gcloud CLI or the IAP REST API.
+
+    - **Custom** : In the **Custom** tab, you can use the condition editor to create a custom condition in which you can use CEL attributes to specify your destination resources and other conditions.
 
 2.  To save the condition along with your rule, click **Save** .
 
@@ -657,15 +656,15 @@ After you create and bind your policies, verify that your agent can access the r
 1.  Trigger actions from your agents to test the rules in your Access policy. Make sure that you test that allow effect rules and deny effect rules perform as you expect.
 
 2.  Inspect Cloud Audit Logs for IAP entries by filtering logs with the following query:
-    
+
     ```text
     protoPayload.metadata.iapPolicyVersion="v2"
     protoPayload.serviceName="iap.googleapis.com"
     resource.labels.project_id="PROJECT_ID"
     ```
-    
-    Replace `  PROJECT_ID  ` with your project ID.
-    
+
+    Replace `PROJECT_ID` with your project ID.
+
     The log entries display the access decision, principal, target, and CEL expression evaluation details. We recommend that, during testing, you use `DRY_RUN` mode so that policy violations don't block access.
 
 3.  Adjust policy rules based on evaluation results in the audit logs.
@@ -676,11 +675,11 @@ After you create and bind your policies, verify that your agent can access the r
 
 The following are examples of egress policies for agent principal interactions:
 
-  - [Agent to registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-registry)
-  - [Agent to agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-agent)
-  - [Agent to MCP server](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-mcp-server)
-  - [Agent to endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-endpoint)
-  - [Agent to unregistered endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#example-unregistered-endpoints)
+- [Agent to registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-registry)
+- [Agent to agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-agent)
+- [Agent to MCP server](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-mcp-server)
+- [Agent to endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-endpoint)
+- [Agent to unregistered endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#example-unregistered-endpoints)
 
 For instructions on creating and binding policies, see [Create Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#create-ag-iam-policy) .
 
@@ -699,11 +698,10 @@ To create an agent-to-registry policy in the Google Cloud console, do the follow
 3.  In **Policy details** , select a policy or create a new one. If you're creating a new policy, enter a policy name—for example, `allow-registry-access` .
 
 4.  In **Add Rules** , configure the rule:
-    
-      - **Rule description** : `Allow all agents in project to access us-central1 registry`
-      - **Rule effect** : **Allow**
-      - **Select principals** : In **Principal sets** , select **All agents in this project** .
-      - **Select resource(s)** : Select **Standard** \> **Registry** , and select `us-central1` .
+    - **Rule description** : `Allow all agents in project to access us-central1 registry`
+    - **Rule effect** : **Allow**
+    - **Select principals** : In **Principal sets** , select **All agents in this project** .
+    - **Select resource(s)** : Select **Standard** \> **Registry** , and select `us-central1` .
 
 5.  To save the rule, click **Save** .
 
@@ -744,7 +742,7 @@ To activate the policy, [bind the Access policy to your project](https://docs.cl
 To create an Access policy that allows all agents in a project access to all destination resources in a specific registry, do the following:
 
 1.  Save the following to a JSON-formatted policy file named `agent-access-policy.json` :
-    
+
     ```json
     {
       "details": {
@@ -770,7 +768,7 @@ To create an Access policy that allows all agents in a project access to all des
     ```
 
 2.  To create the policy, run the following `curl` command:
-    
+
     ```sh
     curl -X POST \
     "https://iam.googleapis.com/v3beta/projects/PROJECT_ID/locations/global/accessPolicies?accessPolicyId=POLICY_NAME" \
@@ -778,11 +776,11 @@ To create an Access policy that allows all agents in a project access to all des
     -H "Content-Type: application/json" \
     -d @agent-access-policy.json
     ```
-    
+
     Replace the following:
-    
-      - `  PROJECT_ID  ` : the project ID
-      - `  POLICY_NAME  ` : the policy name
+
+    - `PROJECT_ID` : the project ID
+    - `POLICY_NAME` : the policy name
 
 To activate the policy, [bind the Access policy to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
@@ -803,7 +801,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr" translate="no">destination.is_registered</code></td>
+<td><code>destination.is_registered</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -812,17 +810,17 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="even">
 <td>Supported values</td>
-<td><code dir="ltr" translate="no">true</code> , <code dir="ltr" translate="no">false</code></td>
+<td><code>true</code> , <code>false</code></td>
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code></td>
+<td><code>==</code> , <code>!=</code></td>
 </tr>
 </tbody>
 </table></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">destination.agent_registry.resource_type</code></td>
+<td><code>destination.agent_registry.resource_type</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -831,17 +829,17 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="even">
 <td>Supported values</td>
-<td><code dir="ltr" translate="no">'AGENT'</code> , <code dir="ltr" translate="no">'ENDPOINT'</code> , <code dir="ltr" translate="no">'MCP_SERVER'</code> , <code dir="ltr" translate="no">'SKILL'</code></td>
+<td><code>'AGENT'</code> , <code>'ENDPOINT'</code> , <code>'MCP_SERVER'</code> , <code>'SKILL'</code></td>
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
 </tr>
 </tbody>
 </table></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">destination.agent_registry.location</code></td>
+<td><code>destination.agent_registry.location</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -850,17 +848,17 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="even">
 <td>Supported values</td>
-<td>Google Cloud location ID (for example, <code dir="ltr" translate="no">'global'</code> , <code dir="ltr" translate="no">'us-central1'</code> )</td>
+<td>Google Cloud location ID (for example, <code>'global'</code> , <code>'us-central1'</code> )</td>
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
 </tr>
 </tbody>
 </table></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">destination.agent_registry.project_id</code></td>
+<td><code>destination.agent_registry.project_id</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -873,7 +871,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
 </tr>
 </tbody>
 </table></td>
@@ -896,11 +894,10 @@ To create an agent-to-agent policy in the Google Cloud console, do the following
 3.  In **Policy details** , select a policy or create a new one. If you're creating a new policy, enter a policy name—for example, `allow-orchestrator-to-support-agent` .
 
 4.  In **Add Rules** , configure the rule:
-    
-      - **Rule description** : `Allow orchestrator agent to invoke customer-support agent`
-      - **Rule effect** : **Allow**
-      - **Select principals** : Select **Specific agents** , and select `orchestrator-agent` .
-      - **Select resource(s)** : Select **Standard** \> **Agent** , and select `customer-support-agent` .
+    - **Rule description** : `Allow orchestrator agent to invoke customer-support agent`
+    - **Rule effect** : **Allow**
+    - **Select principals** : Select **Specific agents** , and select `orchestrator-agent` .
+    - **Select resource(s)** : Select **Standard** \> **Agent** , and select `customer-support-agent` .
 
 5.  To save the rule, click **Save** .
 
@@ -941,7 +938,7 @@ To create and bind the policy by using the gcloud CLI, see [Create IAM Access po
 To create an IAM policy with an allow rule that allows an orchestrator agent to invoke a specific subagent registered in the Agent Registry, do the following:
 
 1.  Save the following to a JSON-formatted policy file named `agent-access-policy.json` :
-    
+
     ```json
     {
       "details": {
@@ -967,7 +964,7 @@ To create an IAM policy with an allow rule that allows an orchestrator agent to 
     ```
 
 2.  To create the policy, run the following `curl` command:
-    
+
     ```sh
     curl -X POST \
     "https://iam.googleapis.com/v3beta/projects/PROJECT_ID/locations/global/accessPolicies?accessPolicyId=POLICY_NAME" \
@@ -975,11 +972,11 @@ To create an IAM policy with an allow rule that allows an orchestrator agent to 
     -H "Content-Type: application/json" \
     -d @agent-access-policy.json
     ```
-    
+
     Replace the following:
-    
-      - `  PROJECT_ID  ` : the project ID
-      - `  POLICY_NAME  ` : the policy name
+
+    - `PROJECT_ID` : the project ID
+    - `POLICY_NAME` : the policy name
 
 To activate the policy, [bind the Access policy to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
@@ -1000,7 +997,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr" translate="no">destination.agent_registry.agent.name</code></td>
+<td><code>destination.agent_registry.agent.name</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -1009,11 +1006,11 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="even">
 <td>Supported values</td>
-<td>Agent resource name ( <code dir="ltr" translate="no">projects/             PROJECT_ID            /locations/             LOCATION            /agents/             AGENT_NAME           </code> )</td>
+<td>Agent resource name ( <code>projects/ </code><var translate="no"> PROJECT_ID </var><code> /locations/ </code><var translate="no"> LOCATION </var><code> /agents/ </code><var translate="no"> AGENT_NAME</var> )</td>
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
 </tr>
 </tbody>
 </table></td>
@@ -1036,20 +1033,19 @@ To create an agent-to-MCP server policy in the Google Cloud console, do the foll
 3.  In **Policy details** , select a policy or create a new one. If you're creating a new policy, enter a policy name—for example, `allow-github-read-only` .
 
 4.  In **Add Rules** , configure the rule:
-    
-      - **Rule description** : `Allow read-only access to GitHubTool on MCP server`
-    
-      - **Rule effect** : **Allow**
-    
-      - **Select principals** : Select the agent principal—for example, `my-ae-agent` .
-    
-      - **Select resource(s)** : Select the **Custom** tab.
-    
-      - **Conditions** : In the condition editor, enter:
-        
-        ```text
-        destination.agent_registry.mcp_server.tool.name == 'GitHubTool' && destination.agent_registry.mcp_server.tool.annotations.read_only_hint == true
-        ```
+    - **Rule description** : `Allow read-only access to GitHubTool on MCP server`
+
+    - **Rule effect** : **Allow**
+
+    - **Select principals** : Select the agent principal—for example, `my-ae-agent` .
+
+    - **Select resource(s)** : Select the **Custom** tab.
+
+    - **Conditions** : In the condition editor, enter:
+
+      ```text
+      destination.agent_registry.mcp_server.tool.name == 'GitHubTool' && destination.agent_registry.mcp_server.tool.annotations.read_only_hint == true
+      ```
 
 5.  To save the rule, click **Save** .
 
@@ -1085,9 +1081,9 @@ The following example policy shows an IAM allow rule that allows a Workload Iden
 
 Replace the following:
 
-  - `  POOL_ID  ` : the workload identity pool ID. Depending on your pool type, format the ID as follows:
-  - **Google-managed pool:** `  PROJECT_ID .svc.id.goog `
-  - **Self-managed pool:** `  POOL_NAME .global. POOL_HOST_PROJECT_NUMBER .workload.id.goog `
+- `POOL_ID` : the workload identity pool ID. Depending on your pool type, format the ID as follows:
+- **Google-managed pool:** `PROJECT_ID `` .svc.id.goog`
+- **Self-managed pool:** `POOL_NAME `` .global. `` POOL_HOST_PROJECT_NUMBER `` .workload.id.goog`
 
 To create and bind the policy by using the gcloud CLI, see [Create IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#create-ag-iam-policy) .
 
@@ -1096,7 +1092,7 @@ To create and bind the policy by using the gcloud CLI, see [Create IAM Access po
 To create an IAM Access policy that allows an agent using Workload Identity Federation read-only access to a tool called `GitHubTool` , do the following:
 
 1.  Save the following to a JSON-formatted policy file named `agent-access-policy.json` :
-    
+
     ```json
     {
       "details": {
@@ -1122,7 +1118,7 @@ To create an IAM Access policy that allows an agent using Workload Identity Fede
     ```
 
 2.  To create the policy, run the following `curl` command:
-    
+
     ```sh
     curl -X POST \
     "https://iam.googleapis.com/v3beta/projects/PROJECT_ID/locations/global/accessPolicies?accessPolicyId=POLICY_NAME" \
@@ -1130,14 +1126,14 @@ To create an IAM Access policy that allows an agent using Workload Identity Fede
     -H "Content-Type: application/json" \
     -d @agent-access-policy.json
     ```
-    
+
     Replace the following:
-    
-      - `  POOL_ID  ` : the workload identity pool ID. Depending on your pool type, format the ID as follows:
-      - **Google-managed pool:** `  PROJECT_ID .svc.id.goog `
-      - **Self-managed pool:** `  POOL_NAME .global. POOL_HOST_PROJECT_NUMBER .workload.id.goog `
-      - `  PROJECT_ID  ` : the project ID
-      - `  POLICY_NAME  ` : the policy name
+
+    - `POOL_ID` : the workload identity pool ID. Depending on your pool type, format the ID as follows:
+    - **Google-managed pool:** `PROJECT_ID `` .svc.id.goog`
+    - **Self-managed pool:** `POOL_NAME `` .global. `` POOL_HOST_PROJECT_NUMBER `` .workload.id.goog`
+    - `PROJECT_ID` : the project ID
+    - `POLICY_NAME` : the policy name
 
 To create and bind the policy by using the REST API, see [Create Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#create-ag-iam-policy) .
 
@@ -1158,7 +1154,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr" translate="no">destination.agent_registry.mcp_server.name</code></td>
+<td><code>destination.agent_registry.mcp_server.name</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -1167,17 +1163,17 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="even">
 <td>Supported values</td>
-<td>MCP server resource name ( <code dir="ltr" translate="no">projects/             PROJECT_ID            /locations/             LOCATION            /mcpServers/             MCP_SERVER_NAME           </code> )</td>
+<td>MCP server resource name ( <code>projects/ </code><var translate="no"> PROJECT_ID </var><code> /locations/ </code><var translate="no"> LOCATION </var><code> /mcpServers/ </code><var translate="no"> MCP_SERVER_NAME</var> )</td>
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
 </tr>
 </tbody>
 </table></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">destination.agent_registry.mcp_server.method</code></td>
+<td><code>destination.agent_registry.mcp_server.method</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -1186,17 +1182,17 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="even">
 <td>Supported values</td>
-<td>MCP method name (for example, <code dir="ltr" translate="no">'tools'</code> , <code dir="ltr" translate="no">'prompts'</code> , <code dir="ltr" translate="no">'resources'</code> )</td>
+<td>MCP method name (for example, <code>'tools'</code> , <code>'prompts'</code> , <code>'resources'</code> )</td>
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
 </tr>
 </tbody>
 </table></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">destination.agent_registry.mcp_server.tool.name</code></td>
+<td><code>destination.agent_registry.mcp_server.tool.name</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -1205,17 +1201,17 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="even">
 <td>Supported values</td>
-<td>Tool name (for example, <code dir="ltr" translate="no">'search_code'</code> , <code dir="ltr" translate="no">'execute'</code> )</td>
+<td>Tool name (for example, <code>'search_code'</code> , <code>'execute'</code> )</td>
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
 </tr>
 </tbody>
 </table></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">destination.agent_registry.mcp_server.tool.annotations.read_only_hint</code></td>
+<td><code>destination.agent_registry.mcp_server.tool.annotations.read_only_hint</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -1224,17 +1220,17 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="even">
 <td>Supported values</td>
-<td><code dir="ltr" translate="no">true</code> , <code dir="ltr" translate="no">false</code></td>
+<td><code>true</code> , <code>false</code></td>
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code></td>
+<td><code>==</code> , <code>!=</code></td>
 </tr>
 </tbody>
 </table></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">destination.agent_registry.mcp_server.tool.annotations.destructive_hint</code></td>
+<td><code>destination.agent_registry.mcp_server.tool.annotations.destructive_hint</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -1243,17 +1239,17 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="even">
 <td>Supported values</td>
-<td><code dir="ltr" translate="no">true</code> , <code dir="ltr" translate="no">false</code></td>
+<td><code>true</code> , <code>false</code></td>
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code></td>
+<td><code>==</code> , <code>!=</code></td>
 </tr>
 </tbody>
 </table></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">destination.agent_registry.mcp_server.tool.annotations.idempotent_hint</code></td>
+<td><code>destination.agent_registry.mcp_server.tool.annotations.idempotent_hint</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -1262,17 +1258,17 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="even">
 <td>Supported values</td>
-<td><code dir="ltr" translate="no">true</code> , <code dir="ltr" translate="no">false</code></td>
+<td><code>true</code> , <code>false</code></td>
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code></td>
+<td><code>==</code> , <code>!=</code></td>
 </tr>
 </tbody>
 </table></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">destination.agent_registry.mcp_server.tool.annotations.open_world_hint</code></td>
+<td><code>destination.agent_registry.mcp_server.tool.annotations.open_world_hint</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -1281,17 +1277,17 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="even">
 <td>Supported values</td>
-<td><code dir="ltr" translate="no">true</code> , <code dir="ltr" translate="no">false</code></td>
+<td><code>true</code> , <code>false</code></td>
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code></td>
+<td><code>==</code> , <code>!=</code></td>
 </tr>
 </tbody>
 </table></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">destination.agent_registry.mcp_server.prompt.name</code></td>
+<td><code>destination.agent_registry.mcp_server.prompt.name</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -1304,13 +1300,13 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
 </tr>
 </tbody>
 </table></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">destination.agent_registry.mcp_server.resource.name</code></td>
+<td><code>destination.agent_registry.mcp_server.resource.name</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -1323,7 +1319,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
 </tr>
 </tbody>
 </table></td>
@@ -1346,20 +1342,19 @@ To create an agent-to-endpoint policy in the Google Cloud console, do the follow
 3.  In **Policy details** , select a policy or create a new one. If you're creating a new policy, enter a policy name—for example, `allow-translator-to-endpoint` .
 
 4.  In **Add Rules** , configure the rule:
-    
-      - **Rule description** : `Allow translator agent to access translation endpoint`
-    
-      - **Rule effect** : **Allow**
-    
-      - **Select principals** : Select **Specific agents** , and select `translator-agent` .
-    
-      - **Select resource(s)** : Select the **Custom** tab.
-    
-      - **Conditions** : In the condition editor, enter:
-        
-        ```text
-        destination.agent_registry.endpoint.name == '/projects/9876543210/locations/us-central1/endpoints/translation-service'
-        ```
+    - **Rule description** : `Allow translator agent to access translation endpoint`
+
+    - **Rule effect** : **Allow**
+
+    - **Select principals** : Select **Specific agents** , and select `translator-agent` .
+
+    - **Select resource(s)** : Select the **Custom** tab.
+
+    - **Conditions** : In the condition editor, enter:
+
+      ```text
+      destination.agent_registry.endpoint.name == '/projects/9876543210/locations/us-central1/endpoints/translation-service'
+      ```
 
 5.  To save the rule, click **Save** .
 
@@ -1398,7 +1393,7 @@ To activate the policy, [bind the Access policy to your project](https://docs.cl
 To create an IAM allow policy that allows an agent to access a registered service endpoint, do the following:
 
 1.  Save the following to a JSON-formatted policy file named `agent-access-policy.json` :
-    
+
     ```json
     {
       "details": {
@@ -1424,7 +1419,7 @@ To create an IAM allow policy that allows an agent to access a registered servic
     ```
 
 2.  To create the policy, run the following `curl` command:
-    
+
     ```sh
     curl -X POST \
     "https://iam.googleapis.com/v3beta/projects/PROJECT_ID/locations/global/accessPolicies?accessPolicyId=POLICY_NAME" \
@@ -1432,11 +1427,11 @@ To create an IAM allow policy that allows an agent to access a registered servic
     -H "Content-Type: application/json" \
     -d @agent-access-policy.json
     ```
-    
+
     Replace the following:
-    
-      - `  PROJECT_ID  ` : the project ID
-      - `  POLICY_NAME  ` : the policy name
+
+    - `PROJECT_ID` : the project ID
+    - `POLICY_NAME` : the policy name
 
 To activate the policy, [bind the Access policy to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
@@ -1457,7 +1452,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr" translate="no">destination.agent_registry.endpoint.name</code></td>
+<td><code>destination.agent_registry.endpoint.name</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -1466,11 +1461,11 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="even">
 <td>Supported values</td>
-<td>Endpoint resource name ( <code dir="ltr" translate="no">projects/             PROJECT_ID            /locations/             LOCATION            /endpoints/             ENDPOINT_NAME           </code> )</td>
+<td>Endpoint resource name ( <code>projects/ </code><var translate="no"> PROJECT_ID </var><code> /locations/ </code><var translate="no"> LOCATION </var><code> /endpoints/ </code><var translate="no"> ENDPOINT_NAME</var> )</td>
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
 </tr>
 </tbody>
 </table></td>
@@ -1493,22 +1488,21 @@ To create an agent-to-unregistered endpoint policy in the Google Cloud console, 
 3.  In **Policy details** , select a policy or create a new one. If you're creating a new policy, enter a policy name—for example, `allow-ocr-api-access` .
 
 4.  In **Add Rules** , configure the rule:
-    
-      - **Rule description** : `Allow POST access to external OCR service`
-    
-      - **Rule effect** : **Allow**
-    
-      - **Select principals** : Select the agent principal (for example, `my-ae-agent` ).
-    
-      - **Select resource(s)** : Select **Standard** \> **Unregistered endpoint** .
-    
-      - **Conditions** : Click the **Custom** tab.
-    
-      - In the condition editor, enter:
-        
-        ```text
-        destination.unregistered.host.endsWith('example-ocr.com') && destination.unregistered.path.startsWith('/v2/process') && destination.unregistered.method == 'POST'
-        ```
+    - **Rule description** : `Allow POST access to external OCR service`
+
+    - **Rule effect** : **Allow**
+
+    - **Select principals** : Select the agent principal (for example, `my-ae-agent` ).
+
+    - **Select resource(s)** : Select **Standard** \> **Unregistered endpoint** .
+
+    - **Conditions** : Click the **Custom** tab.
+
+    - In the condition editor, enter:
+
+      ```text
+      destination.unregistered.host.endsWith('example-ocr.com') && destination.unregistered.path.startsWith('/v2/process') && destination.unregistered.method == 'POST'
+      ```
 
 5.  To save the rule, click **Save** .
 
@@ -1542,9 +1536,9 @@ The following example shows an Access policy that allows an agent to access an u
 
 Replace the following:
 
-  - `  POOL_ID  ` : the workload identity pool ID. Depending on your pool type, format the ID as follows:
-  - **Google-managed pool:** `  PROJECT_ID .svc.id.goog `
-  - **Self-managed pool:** `  POOL_NAME .global. POOL_HOST_PROJECT_NUMBER .workload.id.goog `
+- `POOL_ID` : the workload identity pool ID. Depending on your pool type, format the ID as follows:
+- **Google-managed pool:** `PROJECT_ID `` .svc.id.goog`
+- **Self-managed pool:** `POOL_NAME `` .global. `` POOL_HOST_PROJECT_NUMBER `` .workload.id.goog`
 
 To activate the policy, [bind the Access policy to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
@@ -1553,7 +1547,7 @@ To activate the policy, [bind the Access policy to your project](https://docs.cl
 To create an Access policy that allows an agent to access an unregistered endpoint with a path that starts with `/v2/process` and ends with `example-ocr.com` , do the following:
 
 1.  Save the following to a JSON-formatted policy file named `agent-access-policy.json` :
-    
+
     ```json
     {
       "details": {
@@ -1579,7 +1573,7 @@ To create an Access policy that allows an agent to access an unregistered endpoi
     ```
 
 2.  To create the policy, run the following `curl` command:
-    
+
     ```sh
     curl -X POST \
     "https://iam.googleapis.com/v3beta/projects/PROJECT_ID/locations/global/accessPolicies?accessPolicyId=POLICY_NAME" \
@@ -1587,14 +1581,14 @@ To create an Access policy that allows an agent to access an unregistered endpoi
     -H "Content-Type: application/json" \
     -d @agent-access-policy.json
     ```
-    
+
     Replace the following:
-    
-      - `  POOL_ID  ` : the workload identity pool ID. Depending on your pool type, format the ID as follows:
-      - **Google-managed pool:** `  PROJECT_ID .svc.id.goog `
-      - **Self-managed pool:** `  POOL_NAME .global. POOL_HOST_PROJECT_NUMBER .workload.id.goog `
-      - `  PROJECT_ID  ` : the project ID
-      - `  POLICY_NAME  ` : the policy name
+
+    - `POOL_ID` : the workload identity pool ID. Depending on your pool type, format the ID as follows:
+    - **Google-managed pool:** `PROJECT_ID `` .svc.id.goog`
+    - **Self-managed pool:** `POOL_NAME `` .global. `` POOL_HOST_PROJECT_NUMBER `` .workload.id.goog`
+    - `PROJECT_ID` : the project ID
+    - `POLICY_NAME` : the policy name
 
 To activate the policy, [bind the Access policy to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
@@ -1615,7 +1609,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr" translate="no">destination.unregistered.host</code></td>
+<td><code>destination.unregistered.host</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -1624,17 +1618,17 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="even">
 <td>Supported values</td>
-<td>Hostname (for example, <code dir="ltr" translate="no">'google.com'</code> , <code dir="ltr" translate="no">'example.com'</code> )</td>
+<td>Hostname (for example, <code>'google.com'</code> , <code>'example.com'</code> )</td>
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code> , <code dir="ltr" translate="no">.startsWith()</code> , <code dir="ltr" translate="no">.endsWith()</code> , <code dir="ltr" translate="no">.contains()</code></td>
+<td><code>==</code> , <code>!=</code> , <code>in</code> , <code>.startsWith()</code> , <code>.endsWith()</code> , <code>.contains()</code></td>
 </tr>
 </tbody>
 </table></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">destination.unregistered.path</code></td>
+<td><code>destination.unregistered.path</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -1643,17 +1637,17 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="even">
 <td>Supported values</td>
-<td>Request path (for example, <code dir="ltr" translate="no">'/admin'</code> , <code dir="ltr" translate="no">'/api/v1'</code> )</td>
+<td>Request path (for example, <code>'/admin'</code> , <code>'/api/v1'</code> )</td>
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code> , <code dir="ltr" translate="no">.startsWith()</code> , <code dir="ltr" translate="no">.endsWith()</code> , <code dir="ltr" translate="no">.contains()</code></td>
+<td><code>==</code> , <code>!=</code> , <code>in</code> , <code>.startsWith()</code> , <code>.endsWith()</code> , <code>.contains()</code></td>
 </tr>
 </tbody>
 </table></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">destination.unregistered.method</code></td>
+<td><code>destination.unregistered.method</code></td>
 <td><table>
 <tbody>
 <tr class="odd">
@@ -1662,11 +1656,11 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="even">
 <td>Supported values</td>
-<td>HTTP method (for example, <code dir="ltr" translate="no">'get'</code> , <code dir="ltr" translate="no">'post'</code> , <code dir="ltr" translate="no">'put'</code> , <code dir="ltr" translate="no">'delete'</code> )</td>
+<td>HTTP method (for example, <code>'get'</code> , <code>'post'</code> , <code>'put'</code> , <code>'delete'</code> )</td>
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
 </tr>
 </tbody>
 </table></td>
@@ -1678,9 +1672,9 @@ The following table describes the CEL attributes that you can use in an agent-to
 
 ## What's next
 
-  - [CEL attributes for Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
-  - [Manage IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap)
-  - [Troubleshoot IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap)
+- [CEL attributes for Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
+- [Manage IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap)
+- [Troubleshoot IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap)
 
 Overview
 

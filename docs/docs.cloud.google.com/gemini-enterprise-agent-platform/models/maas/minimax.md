@@ -24,7 +24,7 @@ MiniMax M2 is a model from MiniMax that's designed for agentic and code-related 
 
 For managed models, you can use curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names:
 
-  - For MiniMax M2, use `minimax-m2-maas`
+- For MiniMax M2, use `minimax-m2-maas`
 
 To learn how to make streaming and non-streaming calls to MiniMax models, see [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .
 
@@ -55,7 +55,7 @@ MiniMax models are available in the following regions:
 <tr class="odd">
 <td>MiniMax M2</td>
 <td><ul>
-<li><code dir="ltr" translate="no">global</code></li>
+<li><code>global</code></li>
 </ul></td>
 </tr>
 </tbody>

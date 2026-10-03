@@ -10,8 +10,6 @@ data_source: docs.cloud.google.com
 
 There is no persistent data associated with this resource.
 
-## Methods
-
-### `            enableModel           `
-
-Enables model for the project if prerequisites are met (e.g.
+| Methods                                                                                                                                       |                                                              |
+|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| [`enableModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.publishers.models/enableModel) | Enables model for the project if prerequisites are met (e.g. |

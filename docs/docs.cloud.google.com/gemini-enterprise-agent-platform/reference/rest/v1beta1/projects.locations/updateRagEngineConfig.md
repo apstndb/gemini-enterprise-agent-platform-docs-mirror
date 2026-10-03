@@ -26,8 +26,8 @@ Identifier. The name of the RagEngineConfig. Format: `projects/{project}/locatio
 
 ### Request body
 
-The request body contains an instance of `  RagEngineConfig  ` .
+The request body contains an instance of [`RagEngineConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagEngineConfig) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.studies.trials.checkTrialEarlyStoppingState
 
-Checks whether a Trial should stop or not. Returns a long-running operation. When the operation is successful, it will contain a `  CheckTrialEarlyStoppingStateResponse  ` .
+Checks whether a Trial should stop or not. Returns a long-running operation. When the operation is successful, it will contain a [`CheckTrialEarlyStoppingStateResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/CheckTrialEarlyStoppingStateResponse) .
 
 ### Endpoint
 
@@ -28,4 +28,4 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

@@ -17,7 +17,7 @@ Before you can use open models, you need to [grant user access to open models](h
 The following open models are offered as managed APIs on Gemini Enterprise Agent Platform Model Garden (MaaS):
 
 | Model name                | Modality         | Description                                                                                                                                                                                                                                                               | Quickstart                                                                                                                         |
-| ------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+|---------------------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | DeepSeek-OCR              | Language, Vision | A comprehensive Optical Character Recognition (OCR) model that analyzes and understands complex documents. It excels at challenging OCR tasks.                                                                                                                            | [Model card](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)                |
 | DeepSeek R1 (0528)        | Language         | A version of the DeepSeek R1 model from DeepSeek.                                                                                                                                                                                                                         | [Model card](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)            |
 | DeepSeek-V3.1             | Language         | DeepSeek's hybrid model that supports both thinking mode and non-thinking mode.                                                                                                                                                                                           | [Model card](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)               |
@@ -41,7 +41,7 @@ The following open models are offered as managed APIs on Gemini Enterprise Agent
 The following open embedding models are offered as managed APIs on Gemini Enterprise Agent Platform Model Garden (MaaS):
 
 | Model name            | Description                                                                       | Output dimensions | Max sequence length | Supported text languages                                                                         | Quickstart                                                                                                                         |
-| --------------------- | --------------------------------------------------------------------------------- | ----------------- | ------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------------|-----------------------------------------------------------------------------------|-------------------|---------------------|--------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | multilingual-e5-small | Part of the E5 family of text embedding models. Small variant contains 12 layers. | Up to 384         | 512 tokens          | [Supported languages](https://huggingface.co/intfloat/multilingual-e5-small#supported-languages) | [Model card](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas) |
 | multilingual-e5-large | Part of the E5 family of text embedding models. Large variant contains 24 layers. | Up to 1024        | 512 tokens          | [Supported languages](https://huggingface.co/intfloat/multilingual-e5-small#supported-languages) | [Model card](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas) |
 
@@ -56,7 +56,7 @@ Customer prompts and model responses are not shared with third parties when usin
 ## Context caching
 
 > **Preview**
-> 
+>
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 Context caching helps reduce the cost and latency of requests to Open Models that contain repeated content. This is enabled while using pay-as-you-go traffic only, and doesn't support other traffic types, such as Provisioned Throughput and Batch.
@@ -65,24 +65,24 @@ The supported type of caching is implicit caching, which is automatic caching th
 
 ### Supported models
 
-  - qwen3-coder-480b-a35b-instruct-maas
-  - kimi-k2-thinking-maas
-  - minimax-m2-maas
-  - gpt-oss-20b-maas
-  - deepseek-v3.1-maas
-  - deepseek-v3.2-maas
-  - gemma-4-26b-a4b-it-maas
-  - glm-5-maas
-  - glm-5.2-maas
+- qwen3-coder-480b-a35b-instruct-maas
+- kimi-k2-thinking-maas
+- minimax-m2-maas
+- gpt-oss-20b-maas
+- deepseek-v3.1-maas
+- deepseek-v3.2-maas
+- gemma-4-26b-a4b-it-maas
+- glm-5-maas
+- glm-5.2-maas
 
 The [`cachedContentTokenCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse) field in your response's metadata indicates the number of tokens in the cached part of your input. Caching requests must contain a minimum of 4096 tokens (this minimum is subject to change during Preview).
 
 When enabled, implicit cache hit cost savings are automatically passed on to you. Cache hits aren't guaranteed and are dependent on requests sent and other factors. To increase the chances of an implicit cache hit, try the following:
 
-  - Place large and common contents at the beginning of your prompt.
-  - Send requests with a similar prefix in a short amount of time.
+- Place large and common contents at the beginning of your prompt.
+- Send requests with a similar prefix in a short amount of time.
 
 ## What's next
 
-  - Before using open models, [Grant user access to open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/grant-access-open-models) .
-  - Learn how to [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .
+- Before using open models, [Grant user access to open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/grant-access-open-models) .
+- Learn how to [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .

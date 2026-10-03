@@ -30,27 +30,29 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 Before running this sample, make sure to set the `OPENAI_BASE_URL` environment variable. For more information, see [Authentication and credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/auth-and-credentials) .
 
-    from openai import OpenAI
-    client = OpenAI()
-    
-    stream = client.chat.completions.create(
-        model="MODEL",
-        messages=[{"role": "ROLE", "content": "CONTENT"}],
-        max_tokens=MAX_OUTPUT_TOKENS,
-        stream=True,
-    )
-    for chunk in stream:
-        print(chunk.choices[0].delta.content or "", end="")
+```
+from openai import OpenAI
+client = OpenAI()
 
-  - MODEL : The model name you want to use, for example `deepseek-ai/deepseek-v3.1-maas` .
+stream = client.chat.completions.create(
+    model="MODEL",
+    messages=[{"role": "ROLE", "content": "CONTENT"}],
+    max_tokens=MAX_OUTPUT_TOKENS,
+    stream=True,
+)
+for chunk in stream:
+    print(chunk.choices[0].delta.content or "", end="")
+```
 
-  - ROLE : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
+- ` MODEL ` : The model name you want to use, for example `deepseek-ai/deepseek-v3.1-maas` .
 
-  - CONTENT : The content, such as text, of the `user` or `assistant` message.
+- ` ROLE ` : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
 
-  - MAX\_OUTPUT\_TOKENS : Maximum number of tokens that can be generated in the response. A token is approximately four characters. 100 tokens correspond to roughly 60-80 words.
-    
-    Specify a lower value for shorter responses and a higher value for potentially longer responses.
+- ` CONTENT ` : The content, such as text, of the `user` or `assistant` message.
+
+- ` MAX_OUTPUT_TOKENS ` : Maximum number of tokens that can be generated in the response. A token is approximately four characters. 100 tokens correspond to roughly 60-80 words.
+
+  Specify a lower value for shorter responses and a higher value for potentially longer responses.
 
 ### REST
 
@@ -58,37 +60,41 @@ After you set up your environment, you can use REST to test a text prompt. The f
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : A region that supports open models.
+- ` LOCATION ` : A region that supports open models.
 
-  - MODEL : The model name you want to use, for example `deepseek-ai/deepseek-v2` .
+- ` MODEL ` : The model name you want to use, for example `deepseek-ai/deepseek-v2` .
 
-  - ROLE : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
+- ` ROLE ` : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
 
-  - CONTENT : The content, such as text, of the `user` or `assistant` message.
+- ` CONTENT ` : The content, such as text, of the `user` or `assistant` message.
 
-  - MAX\_OUTPUT\_TOKENS : Maximum number of tokens that can be generated in the response. A token is approximately four characters. 100 tokens correspond to roughly 60-80 words.
-    
-    Specify a lower value for shorter responses and a higher value for potentially longer responses.
+- ` MAX_OUTPUT_TOKENS ` : Maximum number of tokens that can be generated in the response. A token is approximately four characters. 100 tokens correspond to roughly 60-80 words.
 
-  - STREAM : A boolean that specifies whether the response is streamed or not. Stream your response to reduce the end-use latency perception. Set to `true` to stream the response and `false` to return the response all at once.
+  Specify a lower value for shorter responses and a higher value for potentially longer responses.
+
+- ` STREAM ` : A boolean that specifies whether the response is streamed or not. Stream your response to reduce the end-use latency perception. Set to `true` to stream the response and `false` to return the response all at once.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions
+```
 
 Request JSON body:
 
+```
+{
+  "model": "MODEL",
+  "messages": [
     {
-      "model": "MODEL",
-      "messages": [
-        {
-          "role": "ROLE",
-          "content": "CONTENT"
-        }
-      ],
-      "max_tokens": MAX_OUTPUT_TOKENS,
-      "stream": true
+      "role": "ROLE",
+      "content": "CONTENT"
     }
+  ],
+  "max_tokens": MAX_OUTPUT_TOKENS,
+  "stream": true
+}
+```
 
 To send your request, choose one of these options:
 
@@ -98,11 +104,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions"
+```
 
 #### PowerShell
 
@@ -110,63 +118,67 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following.
 
 #### Response
 
-    data: {
-      "choices": [
-        {
-          "delta": {
-            "content": "CONTENT",
-            "role": "assistant"
-          },
-          "index": 0,
-          "logprobs": null
-        }
-      ],
-      "created": 1234567890,
-      "id": "2025-06-11|10:00:00.292195-07|9.7.144.202|-123456789",
-      "model": "MODEL",
-      "object": "chat.completion.chunk",
-      "system_fingerprint": ""
+```
+data: {
+  "choices": [
+    {
+      "delta": {
+        "content": "CONTENT",
+        "role": "assistant"
+      },
+      "index": 0,
+      "logprobs": null
     }
-    
-    data: {
-      "choices": [
-        {
-          "delta": {
-            "content": "CONTENT",
-            "role": "assistant"
-          },
-          "finish_reason": "stop",
-          "index": 0,
-          "logprobs": null
-        }
-      ],
-      "created": 1234567890,
-      "id": "2025-06-11|10:00:00.292195-07|9.7.144.202|-123456789",
-      "model": "MODEL",
-      "object": "chat.completion.chunk",
-      "system_fingerprint": "",
-      "usage": {
-        "completion_tokens": 131,
-        "prompt_tokens": 14,
-        "total_tokens": 145
-      }
+  ],
+  "created": 1234567890,
+  "id": "2025-06-11|10:00:00.292195-07|9.7.144.202|-123456789",
+  "model": "MODEL",
+  "object": "chat.completion.chunk",
+  "system_fingerprint": ""
+}
+
+data: {
+  "choices": [
+    {
+      "delta": {
+        "content": "CONTENT",
+        "role": "assistant"
+      },
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null
     }
-    
-    data: [DONE]
+  ],
+  "created": 1234567890,
+  "id": "2025-06-11|10:00:00.292195-07|9.7.144.202|-123456789",
+  "model": "MODEL",
+  "object": "chat.completion.chunk",
+  "system_fingerprint": "",
+  "usage": {
+    "completion_tokens": 131,
+    "prompt_tokens": 14,
+    "total_tokens": 145
+  }
+}
+
+data: [DONE]
+```
 
 ## Make a non-streaming call to an open model
 
@@ -180,26 +192,28 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 Before running this sample, make sure to set the `OPENAI_BASE_URL` environment variable. For more information, see [Authentication and credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/auth-and-credentials) .
 
-    from openai import OpenAI
-    client = OpenAI()
-    
-    completion = client.chat.completions.create(
-        model="MODEL",
-        messages=[{"role": "ROLE", "content": "CONTENT"}],
-        max_tokens=MAX_OUTPUT_TOKENS,
-        stream=False,
-    )
-    print(completion.choices[0].message)
+```
+from openai import OpenAI
+client = OpenAI()
 
-  - MODEL : The model name you want to use, for example `deepseek-ai/deepseek-v3.1-maas` .
+completion = client.chat.completions.create(
+    model="MODEL",
+    messages=[{"role": "ROLE", "content": "CONTENT"}],
+    max_tokens=MAX_OUTPUT_TOKENS,
+    stream=False,
+)
+print(completion.choices[0].message)
+```
 
-  - ROLE : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
+- ` MODEL ` : The model name you want to use, for example `deepseek-ai/deepseek-v3.1-maas` .
 
-  - CONTENT : The content, such as text, of the `user` or `assistant` message.
+- ` ROLE ` : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
 
-  - MAX\_OUTPUT\_TOKENS : Maximum number of tokens that can be generated in the response. A token is approximately four characters. 100 tokens correspond to roughly 60-80 words.
-    
-    Specify a lower value for shorter responses and a higher value for potentially longer responses.
+- ` CONTENT ` : The content, such as text, of the `user` or `assistant` message.
+
+- ` MAX_OUTPUT_TOKENS ` : Maximum number of tokens that can be generated in the response. A token is approximately four characters. 100 tokens correspond to roughly 60-80 words.
+
+  Specify a lower value for shorter responses and a higher value for potentially longer responses.
 
 ### REST
 
@@ -207,37 +221,41 @@ After you set up your environment, you can use REST to test a text prompt. The f
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : A region that supports open models.
+- ` LOCATION ` : A region that supports open models.
 
-  - MODEL : The model name you want to use, for example `deepseek-ai/deepseek-v2` .
+- ` MODEL ` : The model name you want to use, for example `deepseek-ai/deepseek-v2` .
 
-  - ROLE : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
+- ` ROLE ` : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
 
-  - CONTENT : The content, such as text, of the `user` or `assistant` message.
+- ` CONTENT ` : The content, such as text, of the `user` or `assistant` message.
 
-  - MAX\_OUTPUT\_TOKENS : Maximum number of tokens that can be generated in the response. A token is approximately four characters. 100 tokens correspond to roughly 60-80 words.
-    
-    Specify a lower value for shorter responses and a higher value for potentially longer responses.
+- ` MAX_OUTPUT_TOKENS ` : Maximum number of tokens that can be generated in the response. A token is approximately four characters. 100 tokens correspond to roughly 60-80 words.
 
-  - STREAM : A boolean that specifies whether the response is streamed or not. Stream your response to reduce the end-use latency perception. Set to `true` to stream the response and `false` to return the response all at once.
+  Specify a lower value for shorter responses and a higher value for potentially longer responses.
+
+- ` STREAM ` : A boolean that specifies whether the response is streamed or not. Stream your response to reduce the end-use latency perception. Set to `true` to stream the response and `false` to return the response all at once.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions
+```
 
 Request JSON body:
 
+```
+{
+  "model": "MODEL",
+  "messages": [
     {
-      "model": "MODEL",
-      "messages": [
-        {
-          "role": "ROLE",
-          "content": "CONTENT"
-        }
-      ],
-      "max_tokens": MAX_OUTPUT_TOKENS,
-      "stream": false
+      "role": "ROLE",
+      "content": "CONTENT"
     }
+  ],
+  "max_tokens": MAX_OUTPUT_TOKENS,
+  "stream": false
+}
+```
 
 To send your request, choose one of these options:
 
@@ -247,11 +265,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions"
+```
 
 #### PowerShell
 
@@ -259,43 +279,47 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following.
 
 #### Response
 
+```
+{
+  "choices": [
     {
-      "choices": [
-        {
-          "finish_reason": "stop",
-          "index": 0,
-          "logprobs": null,
-          "message": {
-            "content": "CONTENT",
-            "role": "assistant"
-          }
-        }
-      ],
-      "created": 1234567890,
-      "id": "2025-06-11|10:00:00.292195-07|9.7.144.202|-123456789",
-      "model": "MODEL",
-      "object": "chat.completion",
-      "system_fingerprint": "",
-      "usage": {
-        "completion_tokens": 367,
-        "prompt_tokens": 14,
-        "total_tokens": 381
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "CONTENT",
+        "role": "assistant"
       }
     }
+  ],
+  "created": 1234567890,
+  "id": "2025-06-11|10:00:00.292195-07|9.7.144.202|-123456789",
+  "model": "MODEL",
+  "object": "chat.completion",
+  "system_fingerprint": "",
+  "usage": {
+    "completion_tokens": 367,
+    "prompt_tokens": 14,
+    "total_tokens": 381
+  }
+}
+```
 
 ## Regional and global endpoints
 
@@ -309,7 +333,7 @@ There is no price difference with the regional endpoints when you use the global
 
 To use the global endpoint, set the region to `global` .
 
-For example, the request URL for a curl command uses the following format: `https://aiplatform.googleapis.com/v1/projects/ PROJECT_ID /locations/ global /endpoints/openapi`
+For example, the request URL for a curl command uses the following format: `https://aiplatform.googleapis.com/v1/projects/ `` PROJECT_ID `` /locations/ `**`global`**` /endpoints/openapi`
 
 For the Agent Platform SDK, a regional endpoint is the default. Set the region to `GLOBAL` to use the global endpoint.
 
@@ -319,6 +343,6 @@ To help enforce the use of regional endpoints, use the `constraints/gcp.restrict
 
 ## What's next
 
-  - Learn how to use [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/function-calling) .
-  - Learn about [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/structured-output) .
-  - Learn about [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction) .
+- Learn how to use [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/function-calling) .
+- Learn about [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/structured-output) .
+- Learn about [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction) .

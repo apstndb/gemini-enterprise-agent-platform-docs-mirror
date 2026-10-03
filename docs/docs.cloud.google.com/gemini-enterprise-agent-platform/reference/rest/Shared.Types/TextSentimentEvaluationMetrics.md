@@ -10,7 +10,7 @@ Model evaluation metrics for text sentiment problems.
 
 Fields
 
-`confusionMatrix` ` object ( ConfusionMatrix  ` )
+`confusionMatrix` `object ( `[`ConfusionMatrix`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ConfusionMatrix)` )`
 
 Confusion matrix of the evaluation. Only set for ModelEvaluations, not for ModelEvaluationSlices.
 
@@ -42,18 +42,19 @@ Linear weighted kappa. Only set for ModelEvaluations, not for ModelEvaluationSli
 
 Quadratic weighted kappa. Only set for ModelEvaluations, not for ModelEvaluationSlices.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;confusionMatrix&quot;: {object (ConfusionMatrix)},&quot;precision&quot;: number,&quot;recall&quot;: number,&quot;f1Score&quot;: number,&quot;meanAbsoluteError&quot;: number,&quot;meanSquaredError&quot;: number,&quot;linearKappa&quot;: number,&quot;quadraticKappa&quot;: number}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "confusionMatrix": {
+    object (ConfusionMatrix)
+  },
+  "precision": number,
+  "recall": number,
+  "f1Score": number,
+  "meanAbsoluteError": number,
+  "meanSquaredError": number,
+  "linearKappa": number,
+  "quadraticKappa": number
+}
+```

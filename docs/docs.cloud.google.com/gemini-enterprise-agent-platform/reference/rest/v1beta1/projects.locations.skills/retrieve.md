@@ -38,31 +38,27 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  SkillRegistryService.RetrieveSkills  ` .
+Response message for [`SkillRegistryService.RetrieveSkills`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills/retrieve#google.cloud.aiplatform.v1beta1.SkillRegistryService.RetrieveSkills) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`retrievedSkills[]` ` object ( RetrievedSkill  ` )
+`retrievedSkills[]` `object ( `[`RetrievedSkill`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills/retrieve#RetrievedSkill)` )`
 
 Skills ranked by similarity if applicable; otherwise, the order is undefined.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;retrievedSkills&quot;: [{object (RetrievedSkill)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "retrievedSkills": [
+    {
+      object (RetrievedSkill)
+    }
+  ]
+}
+```
 
 ## RetrievedSkill
 
@@ -78,21 +74,11 @@ The skill resource name. Format: projects/{project}/locations/{location}/skills/
 
 The skill description.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;skillName&quot;: string,
-  &quot;description&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "skillName": string,
+  "description": string
+}
+```

@@ -54,7 +54,7 @@ If successful, the response body contains data with the following structure:
 
 Fields
 
-`onlineEvaluators[]` ` object ( OnlineEvaluator  ` )
+`onlineEvaluators[]` `object ( `[`OnlineEvaluator`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators#OnlineEvaluator)` )`
 
 A list of OnlineEvaluators matching the request.
 
@@ -62,18 +62,15 @@ A list of OnlineEvaluators matching the request.
 
 A token to retrieve the next page. Absence of this field indicates there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;onlineEvaluators&quot;: [{object (OnlineEvaluator)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "onlineEvaluators": [
+    {
+      object (OnlineEvaluator)
+    }
+  ],
+  "nextPageToken": string
+}
+```

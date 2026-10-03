@@ -28,22 +28,22 @@ The request body contains data with the following structure:
 
 Fields
 
-`dataset` ` object ( EvaluationDataset  ` )
+`dataset` `object ( `[`EvaluationDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#EvaluationDataset)` )`
 
 Required. The dataset used for evaluation.
 
-`metrics[]` ` object ( Metric  ` )
+`metrics[]` `object ( `[`Metric`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric)` )`
 
 Required. The metrics used for evaluation.
 
-`outputConfig` ` object ( OutputConfig  ` )
+`outputConfig` `object ( `[`OutputConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#OutputConfig)` )`
 
 Required. Config for evaluation output.
 
-`autoraterConfig` ` object ( AutoraterConfig  ` )
+`autoraterConfig` `object ( `[`AutoraterConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/AutoraterConfig)` )`
 
 Optional. Autorater config used for evaluation. Currently only publisher Gemini models are supported. Format: `projects/{PROJECT}/locations/{LOCATION}/publishers/google/models/{MODEL}.`
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

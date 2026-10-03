@@ -10,11 +10,11 @@ Configuration for audio-specific output formatting.
 
 Fields
 
-`delivery` ` enum ( DeliveryMode  ` )
+`delivery` `enum ( `[`DeliveryMode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/DeliveryMode)` )`
 
 Optional. Delivery mode for the generated content.
 
-`mimeType` ` enum ( MimeType  ` )
+`mimeType` `enum ( `[`MimeType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/MimeType)` )`
 
 Optional. The MIME type of the audio output.
 
@@ -26,18 +26,13 @@ Optional. Sample rate for the generated audio in Hertz.
 
 Optional. Bit rate in bits per second (bps). Only applicable for compressed formats (MP3, Opus).
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;delivery&quot;: enum (DeliveryMode),&quot;mimeType&quot;: enum (MimeType),&quot;sampleRate&quot;: integer,&quot;bitRate&quot;: integer}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "delivery": enum (DeliveryMode),
+  "mimeType": enum (MimeType),
+  "sampleRate": integer,
+  "bitRate": integer
+}
+```

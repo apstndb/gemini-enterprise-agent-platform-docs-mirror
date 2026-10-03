@@ -8,28 +8,14 @@ data_source: docs.cloud.google.com
 
 The request message for `Locations.GetLocation` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;name&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "name": string
+}
+```
 
-`name`
-
-`string`
-
-Resource name for the location.
+| Fields |                                          |
+|--------|------------------------------------------|
+| `name` | `string` Resource name for the location. |

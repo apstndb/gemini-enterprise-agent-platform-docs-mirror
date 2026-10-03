@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Response message for `  FeaturestoreService.DeleteFeatureValues  ` .
+Response message for [`FeaturestoreService.DeleteFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/deleteFeatureValues#google.cloud.aiplatform.v1.FeaturestoreService.DeleteFeatureValues) .
 
 Fields
 
@@ -14,31 +14,31 @@ Fields
 
 Response based on which delete option is specified in the request The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`selectEntity` ` object ( SelectEntity  ` )
+`selectEntity` `object ( `[`SelectEntity`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/DeleteFeatureValuesResponse#SelectEntity)` )`
 
 Response for request specifying the entities to delete
 
-`selectTimeRangeAndFeature` ` object ( SelectTimeRangeAndFeature  ` )
+`selectTimeRangeAndFeature` `object ( `[`SelectTimeRangeAndFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/DeleteFeatureValuesResponse#SelectTimeRangeAndFeature)` )`
 
 Response for request specifying time range and feature
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// response&quot;selectEntity&quot;: {object (SelectEntity)},&quot;selectTimeRangeAndFeature&quot;: {object (SelectTimeRangeAndFeature)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // response
+  "selectEntity": {
+    object (SelectEntity)
+  },
+  "selectTimeRangeAndFeature": {
+    object (SelectTimeRangeAndFeature)
+  }
+  // Union type
+}
+```
 
 ## SelectEntity
 
@@ -46,32 +46,22 @@ Response message if the request uses the SelectEntity option.
 
 Fields
 
-`offlineStorageDeletedEntityRowCount` `string ( int64 format)`
+`offlineStorageDeletedEntityRowCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The count of deleted entity rows in the offline storage. Each row corresponds to the combination of an entity id and a timestamp. One entity id can have multiple rows in the offline storage.
 
-`onlineStorageDeletedEntityCount` `string ( int64 format)`
+`onlineStorageDeletedEntityCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The count of deleted entities in the online storage. Each entity id corresponds to one entity.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;offlineStorageDeletedEntityRowCount&quot;: string,
-  &quot;onlineStorageDeletedEntityCount&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "offlineStorageDeletedEntityRowCount": string,
+  "onlineStorageDeletedEntityCount": string
+}
+```
 
 ## SelectTimeRangeAndFeature
 
@@ -79,34 +69,24 @@ Response message if the request uses the SelectTimeRangeAndFeature option.
 
 Fields
 
-`impactedFeatureCount` `string ( int64 format)`
+`impactedFeatureCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The count of the features or columns impacted. This is the same as the feature count in the request.
 
-`offlineStorageModifiedEntityRowCount` `string ( int64 format)`
+`offlineStorageModifiedEntityRowCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The count of modified entity rows in the offline storage. Each row corresponds to the combination of an entity id and a timestamp. One entity id can have multiple rows in the offline storage. Within each row, only the features specified in the request are deleted.
 
-`onlineStorageModifiedEntityCount` `string ( int64 format)`
+`onlineStorageModifiedEntityCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The count of modified entities in the online storage. Each entity id corresponds to one entity. Within each entity, only the features specified in the request are deleted.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;impactedFeatureCount&quot;: string,
-  &quot;offlineStorageModifiedEntityRowCount&quot;: string,
-  &quot;onlineStorageModifiedEntityCount&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "impactedFeatureCount": string,
+  "offlineStorageModifiedEntityRowCount": string,
+  "onlineStorageModifiedEntityCount": string
+}
+```

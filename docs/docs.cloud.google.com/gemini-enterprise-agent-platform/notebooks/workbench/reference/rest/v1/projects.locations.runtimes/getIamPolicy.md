@@ -14,23 +14,15 @@ Gets the access control policy for a resource. Returns an empty policy if the re
 
 ### Path parameters
 
-Parameters
-
-`resource`
-
-`string`
-
-REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field.
+| Parameters |                                                                                                                                                                                              |
+|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `resource` | `string` REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. |
 
 ### Query parameters
 
-Parameters
-
-`options`
-
-` object ( GetPolicyOptions  ` )
-
-OPTIONAL: A `GetPolicyOptions` object for specifying options to `runtimes.getIamPolicy` .
+| Parameters |                                                                                                                                                                                                                                                                                    |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `options`  | `object ( `[`GetPolicyOptions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/Shared.Types/GetIamPolicyRequest#GetPolicyOptions)` )` OPTIONAL: A `GetPolicyOptions` object for specifying options to `runtimes.getIamPolicy` . |
 
 ### Request body
 
@@ -38,12 +30,12 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Policy  ` .
+If successful, the response body contains an instance of [`Policy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/Shared.Types/Policy) .
 
 ### Authorization scopes
 
 Requires the following OAuth scope:
 
-  - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/cloud-platform`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .

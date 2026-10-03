@@ -10,29 +10,26 @@ A TrainingJob that trains and uploads an AutoML Forecasting Model.
 
 Fields
 
-`inputs` ` object ( AutoMlForecastingInputs  ` )
+`inputs` `object ( `[`AutoMlForecastingInputs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlForecasting#AutoMlForecastingInputs)` )`
 
 The input parameters of this TrainingJob.
 
-`metadata` ` object ( AutoMlForecastingMetadata  ` )
+`metadata` `object ( `[`AutoMlForecastingMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlForecasting#AutoMlForecastingMetadata)` )`
 
 The metadata information.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;inputs&quot;: {object (AutoMlForecastingInputs)},&quot;metadata&quot;: {object (AutoMlForecastingMetadata)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "inputs": {
+    object (AutoMlForecastingInputs)
+  },
+  "metadata": {
+    object (AutoMlForecastingMetadata)
+  }
+}
+```
 
 ## AutoMlForecastingInputs
 
@@ -50,7 +47,7 @@ The name of the column that identifies the time series.
 
 The name of the column that identifies time order in the time series. This column must be available at forecast.
 
-`transformations[]` ` object ( Transformation  ` )
+`transformations[]` `object ( `[`Transformation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlForecasting#Transformation)` )`
 
 Each transformation will apply transform function to given input column. And the result will be used for training. When creating transformation for BigQuery Struct column, the column should be flattened using "." as the delimiter.
 
@@ -60,21 +57,21 @@ Objective function the model is optimizing towards. The training process creates
 
 The supported optimization objectives:
 
-  - "minimize-rmse" (default) - Minimize root-mean-squared error (RMSE).
+- "minimize-rmse" (default) - Minimize root-mean-squared error (RMSE).
 
-  - "minimize-mae" - Minimize mean-absolute error (MAE).
+- "minimize-mae" - Minimize mean-absolute error (MAE).
 
-  - "minimize-rmsle" - Minimize root-mean-squared log error (RMSLE).
+- "minimize-rmsle" - Minimize root-mean-squared log error (RMSLE).
 
-  - "minimize-rmspe" - Minimize root-mean-squared percentage error (RMSPE).
+- "minimize-rmspe" - Minimize root-mean-squared percentage error (RMSPE).
 
-  - "minimize-wape-mae" - Minimize the combination of weighted absolute percentage error (WAPE) and mean-absolute-error (MAE).
+- "minimize-wape-mae" - Minimize the combination of weighted absolute percentage error (WAPE) and mean-absolute-error (MAE).
 
-  - "minimize-quantile-loss" - Minimize the quantile loss at the quantiles defined in `quantiles` .
+- "minimize-quantile-loss" - Minimize the quantile loss at the quantiles defined in `quantiles` .
 
-  - "minimize-mape" - Minimize the mean absolute percentage error.
+- "minimize-mape" - Minimize the mean absolute percentage error.
 
-`trainBudgetMilliNodeHours` `string ( int64 format)`
+`trainBudgetMilliNodeHours` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Required. The train budget of creating this model, expressed in milli node hours i.e. 1,000 value in this field means 1 node hour.
 
@@ -100,19 +97,19 @@ Names of columns that are unavailable when a forecast is requested. This column 
 
 Names of columns that are available and provided when a forecast is requested. These columns contain information for the given entity (identified by the timeSeriesIdentifierColumn column) that is known at forecast. For example, predicted weather for a specific day.
 
-`dataGranularity` ` object ( Granularity  ` )
+`dataGranularity` `object ( `[`Granularity`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlForecasting#Granularity)` )`
 
 Expected difference in time granularity between rows in the data.
 
-`forecastHorizon` `string ( int64 format)`
+`forecastHorizon` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The amount of time into the future for which forecasted values for the target are returned. Expressed in number of units defined by the `dataGranularity` field.
 
-`contextWindow` `string ( int64 format)`
+`contextWindow` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The amount of time into the past training and prediction data is used for model training and prediction respectively. Expressed in number of units defined by the `dataGranularity` field.
 
-`exportEvaluatedDataItemsConfig` ` object ( ExportEvaluatedDataItemsConfig  ` )
+`exportEvaluatedDataItemsConfig` `object ( `[`ExportEvaluatedDataItemsConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ExportEvaluatedDataItemsConfig)` )`
 
 Configuration for exporting test set predictions to a BigQuery table. If this configuration is absent, then the export is not performed.
 
@@ -120,11 +117,11 @@ Configuration for exporting test set predictions to a BigQuery table. If this co
 
 Quantiles to use for minimize-quantile-loss `optimizationObjective` , or for probabilistic inference. Up to 5 quantiles are allowed of values between 0 and 1, exclusive. Required if the value of optimizationObjective is minimize-quantile-loss. Represents the percent quantiles to use for that objective. Quantiles must be unique.
 
-`hierarchyConfig` ` object ( HierarchyConfig  ` )
+`hierarchyConfig` `object ( `[`HierarchyConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/HierarchyConfig)` )`
 
 Configuration that defines the hierarchical relationship of time series and parameters for hierarchical forecasting strategies.
 
-`windowConfig` ` object ( WindowConfig  ` )
+`windowConfig` `object ( `[`WindowConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/WindowConfig)` )`
 
 Config containing strategy for generating sliding windows.
 
@@ -140,29 +137,65 @@ If probabilistic inference is enabled, the model will fit a distribution that ca
 
 Validation options for the data validation component. The available options are:
 
-  - "fail-pipeline" - default, will validate against the validation and fail the pipeline if it fails.
+- "fail-pipeline" - default, will validate against the validation and fail the pipeline if it fails.
 
-  - "ignore-validation" - ignore the results of the validation and continue
+- "ignore-validation" - ignore the results of the validation and continue
 
 `additionalExperiments[]` `string`
 
 Additional experiment flags for the time series forcasting training.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;targetColumn&quot;: string,&quot;timeSeriesIdentifierColumn&quot;: string,&quot;timeColumn&quot;: string,&quot;transformations&quot;: [{object (Transformation)}],&quot;optimizationObjective&quot;: string,&quot;trainBudgetMilliNodeHours&quot;: string,&quot;weightColumn&quot;: string,&quot;timeSeriesAttributeColumns&quot;: [string],&quot;unavailableAtForecastColumns&quot;: [string],&quot;availableAtForecastColumns&quot;: [string],&quot;dataGranularity&quot;: {object (Granularity)},&quot;forecastHorizon&quot;: string,&quot;contextWindow&quot;: string,&quot;exportEvaluatedDataItemsConfig&quot;: {object (ExportEvaluatedDataItemsConfig)},&quot;quantiles&quot;: [number],&quot;hierarchyConfig&quot;: {object (HierarchyConfig)},&quot;windowConfig&quot;: {object (WindowConfig)},&quot;holidayRegions&quot;: [string],&quot;enableProbabilisticInference&quot;: boolean,&quot;validationOptions&quot;: string,&quot;additionalExperiments&quot;: [string]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "targetColumn": string,
+  "timeSeriesIdentifierColumn": string,
+  "timeColumn": string,
+  "transformations": [
+    {
+      object (Transformation)
+    }
+  ],
+  "optimizationObjective": string,
+  "trainBudgetMilliNodeHours": string,
+  "weightColumn": string,
+  "timeSeriesAttributeColumns": [
+    string
+  ],
+  "unavailableAtForecastColumns": [
+    string
+  ],
+  "availableAtForecastColumns": [
+    string
+  ],
+  "dataGranularity": {
+    object (Granularity)
+  },
+  "forecastHorizon": string,
+  "contextWindow": string,
+  "exportEvaluatedDataItemsConfig": {
+    object (ExportEvaluatedDataItemsConfig)
+  },
+  "quantiles": [
+    number
+  ],
+  "hierarchyConfig": {
+    object (HierarchyConfig)
+  },
+  "windowConfig": {
+    object (WindowConfig)
+  },
+  "holidayRegions": [
+    string
+  ],
+  "enableProbabilisticInference": boolean,
+  "validationOptions": string,
+  "additionalExperiments": [
+    string
+  ]
+}
+```
 
 ## Transformation
 
@@ -172,33 +205,42 @@ Fields
 
 The transformation that the training pipeline will apply to the input columns. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`auto` ` object ( AutoTransformation  ` )
+`auto` `object ( `[`AutoTransformation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlForecasting#AutoTransformation)` )`
 
-`numeric` ` object ( NumericTransformation  ` )
+`numeric` `object ( `[`NumericTransformation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlForecasting#NumericTransformation)` )`
 
-`categorical` ` object ( CategoricalTransformation  ` )
+`categorical` `object ( `[`CategoricalTransformation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlForecasting#CategoricalTransformation)` )`
 
-`timestamp` ` object ( TimestampTransformation  ` )
+`timestamp` `object ( `[`TimestampTransformation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlForecasting#TimestampTransformation)` )`
 
-`text` ` object ( TextTransformation  ` )
+`text` `object ( `[`TextTransformation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlForecasting#TextTransformation)` )`
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// transformation_detail&quot;auto&quot;: {object (AutoTransformation)},&quot;numeric&quot;: {object (NumericTransformation)},&quot;categorical&quot;: {object (CategoricalTransformation)},&quot;timestamp&quot;: {object (TimestampTransformation)},&quot;text&quot;: {object (TextTransformation)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // transformation_detail
+  "auto": {
+    object (AutoTransformation)
+  },
+  "numeric": {
+    object (NumericTransformation)
+  },
+  "categorical": {
+    object (CategoricalTransformation)
+  },
+  "timestamp": {
+    object (TimestampTransformation)
+  },
+  "text": {
+    object (TextTransformation)
+  }
+  // Union type
+}
+```
 
 ## AutoTransformation
 
@@ -208,101 +250,71 @@ Fields
 
 `columnName` `string`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;columnName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "columnName": string
+}
+```
 
 ## NumericTransformation
 
 Training pipeline will perform following transformation functions.
 
-  - The value converted to float32.
+- The value converted to float32.
 
-  - The z\_score of the value.
+- The z_score of the value.
 
-  - log(value+1) when the value is greater than or equal to 0. Otherwise, this transformation is not applied and the value is considered a missing value.
+- log(value+1) when the value is greater than or equal to 0. Otherwise, this transformation is not applied and the value is considered a missing value.
 
-  - z\_score of log(value+1) when the value is greater than or equal to 0. Otherwise, this transformation is not applied and the value is considered a missing value.
+- z_score of log(value+1) when the value is greater than or equal to 0. Otherwise, this transformation is not applied and the value is considered a missing value.
 
-  - A boolean value that indicates whether the value is valid.
+- A boolean value that indicates whether the value is valid.
 
 Fields
 
 `columnName` `string`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;columnName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "columnName": string
+}
+```
 
 ## CategoricalTransformation
 
 Training pipeline will perform following transformation functions.
 
-  - The categorical string as is--no change to case, punctuation, spelling, tense, and so on.
+- The categorical string as is--no change to case, punctuation, spelling, tense, and so on.
 
-  - Convert the category name to a dictionary lookup index and generate an embedding for each index.
+- Convert the category name to a dictionary lookup index and generate an embedding for each index.
 
-  - Categories that appear less than 5 times in the training dataset are treated as the "unknown" category. The "unknown" category gets its own special lookup index and resulting embedding.
+- Categories that appear less than 5 times in the training dataset are treated as the "unknown" category. The "unknown" category gets its own special lookup index and resulting embedding.
 
 Fields
 
 `columnName` `string`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;columnName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "columnName": string
+}
+```
 
 ## TimestampTransformation
 
 Training pipeline will perform following transformation functions.
 
-  - Apply the transformation functions for Numerical columns.
+- Apply the transformation functions for Numerical columns.
 
-  - Determine the year, month, day,and weekday. Treat each value from the timestamp as a Categorical column.
+- Determine the year, month, day,and weekday. Treat each value from the timestamp as a Categorical column.
 
-  - Invalid numerical values (for example, values that fall outside of a typical timestamp range, or are extreme values) receive no special treatment and are not removed.
+- Invalid numerical values (for example, values that fall outside of a typical timestamp range, or are extreme values) receive no special treatment and are not removed.
 
 Fields
 
@@ -312,13 +324,13 @@ Fields
 
 The format in which that time field is expressed. The timeFormat must either be one of:
 
-  - `unix-seconds`
+- `unix-seconds`
 
-  - `unix-milliseconds`
+- `unix-milliseconds`
 
-  - `unix-microseconds`
+- `unix-microseconds`
 
-  - `unix-nanoseconds`
+- `unix-nanoseconds`
 
 (for respectively number of seconds, milliseconds, microseconds and nanoseconds since start of the Unix epoch);
 
@@ -326,54 +338,34 @@ or be written in `strftime` syntax.
 
 If timeFormat is not set, then the default format is RFC 3339 `date-time` format, where `time-offset` = `"Z"` (e.g. 1985-04-12T23:20:50.52Z)
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;columnName&quot;: string,
-  &quot;timeFormat&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "columnName": string,
+  "timeFormat": string
+}
+```
 
 ## TextTransformation
 
 Training pipeline will perform following transformation functions.
 
-  - The text as is--no change to case, punctuation, spelling, tense, and so on.
+- The text as is--no change to case, punctuation, spelling, tense, and so on.
 
-  - Convert the category name to a dictionary lookup index and generate an embedding for each index.
+- Convert the category name to a dictionary lookup index and generate an embedding for each index.
 
 Fields
 
 `columnName` `string`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;columnName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "columnName": string
+}
+```
 
 ## Granularity
 
@@ -385,40 +377,30 @@ Fields
 
 The time granularity unit of this time period. The supported units are:
 
-  - "minute"
+- "minute"
 
-  - "hour"
+- "hour"
 
-  - "day"
+- "day"
 
-  - "week"
+- "week"
 
-  - "month"
+- "month"
 
-  - "year"
+- "year"
 
-`quantity` `string ( int64 format)`
+`quantity` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
-The number of granularity\_units between data points in the training data. If `granularity_unit` is `minute` , can be 1, 5, 10, 15, or 30. For all other values of `granularity_unit` , must be 1.
+The number of granularity_units between data points in the training data. If `granularity_unit` is `minute` , can be 1, 5, 10, 15, or 30. For all other values of `granularity_unit` , must be 1.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;unit&quot;: string,
-  &quot;quantity&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "unit": string,
+  "quantity": string
+}
+```
 
 ## AutoMlForecastingMetadata
 
@@ -426,7 +408,7 @@ Model metadata specific to AutoML Forecasting.
 
 Fields
 
-`trainCostMilliNodeHours` `string ( int64 format)`
+`trainCostMilliNodeHours` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Output only. The actual training cost of the model, expressed in milli node hours, i.e. 1,000 value in this field means 1 node hour. Guaranteed to not exceed the train budget.
 
@@ -434,21 +416,11 @@ Output only. The actual training cost of the model, expressed in milli node hour
 
 BigQuery destination uri for exported evaluated examples.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;trainCostMilliNodeHours&quot;: string,
-  &quot;evaluatedDataItemsBigqueryUri&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "trainCostMilliNodeHours": string,
+  "evaluatedDataItemsBigqueryUri": string
+}
+```

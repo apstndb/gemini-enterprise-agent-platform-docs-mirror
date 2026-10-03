@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > This product is a Pre-GA offering, subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) , the "Agentic AI Services" terms in the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) , and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos) . Pre-GA products and features may have limited support, and changes to pre-GA products and features may not be compatible with other pre-GA versions. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-> 
+>
 > These Pre-GA products are in various stages of internal testing and review. As such, **do not use proprietary, sensitive, or other confidential data with these products** . These products are made available to Customers solely for limited testing and evaluation, and may not be used for commercial or production purposes.
 
 Reinforcement learning is a powerful technique to adapt large language models (LLMs) to maximize feedback rewards provided by a user-defined reward function. The model explores many possible answers, observes a numeric reward for each, and gradually shifts its behavior so that high-reward answers become more likely and low-reward answers become less likely. This approach excels in scenarios that require multi-step reasoning, intricate decision-making, or understanding subtle nuances in prompts.
@@ -24,15 +24,15 @@ The following diagram shows the overall reinforcement learning fine-tuning workf
 
 ## Key features
 
-  - **Customizable reward functions:** Define your own reward functions to precisely optimize for a wide range of custom use cases and align the model's behavior with specific objectives. For details on the supported reward types, see the [Reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) page.
+- **Customizable reward functions:** Define your own reward functions to precisely optimize for a wide range of custom use cases and align the model's behavior with specific objectives. For details on the supported reward types, see the [Reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) page.
 
-  - **Adapters for efficient tuning:** Reinforcement learning fine-tuning uses adapters, which enable effective adaptation while reusing the existing serving infrastructure.
+- **Adapters for efficient tuning:** Reinforcement learning fine-tuning uses adapters, which enable effective adaptation while reusing the existing serving infrastructure.
 
-  - **Multiple thinking levels:** The service supports tuning at two thinking levels, `MINIMAL` and `HIGH` (dynamic thinking), so you can choose the approach that best suits your model's learning objectives and desired response generation patterns. For details, see the [Hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) page.
+- **Multiple thinking levels:** The service supports tuning at two thinking levels, `MINIMAL` and `HIGH` (dynamic thinking), so you can choose the approach that best suits your model's learning objectives and desired response generation patterns. For details, see the [Hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) page.
 
-  - **Continuous tuning:** Further refine a previously tuned model by incorporating additional training examples or epochs. Using an existing tuned model or checkpoint as the foundation enables a more efficient process for tuning experimentation. For details, see the [Continuous tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/continuous-tuning) page.
+- **Continuous tuning:** Further refine a previously tuned model by incorporating additional training examples or epochs. Using an existing tuned model or checkpoint as the foundation enables a more efficient process for tuning experimentation. For details, see the [Continuous tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/continuous-tuning) page.
 
-  - **Multimodal datasets:** Supports text, image, video (Gemini 3.5 Flash only), and audio data modalities.
+- **Multimodal datasets:** Supports text, image, video (Gemini 3.5 Flash only), and audio data modalities.
 
 ## When to use reinforcement learning fine-tuning
 
@@ -40,11 +40,11 @@ Reinforcement learning fine-tuning is preferred for fine-tuning LLMs in situatio
 
 The following are some scenarios where reinforcement learning fine-tuning is preferred:
 
-  - **Complex instruction following:** When the model needs to follow intricate instructions where the "correct" output isn't a single answer but requires a set of checks. Reinforcement learning can help the model learn to navigate these complex instruction sets.
+- **Complex instruction following:** When the model needs to follow intricate instructions where the "correct" output isn't a single answer but requires a set of checks. Reinforcement learning can help the model learn to navigate these complex instruction sets.
 
-  - **Creative content generation:** For tasks like generating creative writing, poetry, or highly specialized code, where objective metrics are difficult to define. Reinforcement learning, with a well-designed reward function (potentially involving human feedback or expert evaluation), can guide the model toward more desirable and innovative outputs.
+- **Creative content generation:** For tasks like generating creative writing, poetry, or highly specialized code, where objective metrics are difficult to define. Reinforcement learning, with a well-designed reward function (potentially involving human feedback or expert evaluation), can guide the model toward more desirable and innovative outputs.
 
-  - **Reasoning tasks:** For tasks that require heavy reasoning, such as solving word puzzles or mathematical problems, reinforcement learning can incentivize the model to explore different "thought" sequences to learn which patterns of reasoning are most effective at solving problems.
+- **Reasoning tasks:** For tasks that require heavy reasoning, such as solving word puzzles or mathematical problems, reinforcement learning can incentivize the model to explore different "thought" sequences to learn which patterns of reasoning are most effective at solving problems.
 
 ## Supported models and regions
 
@@ -67,20 +67,20 @@ The following Gemini models support reinforcement learning fine-tuning:
 <tr class="odd">
 <td>Supported endpoints for model tuning</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-central1</code> — <code dir="ltr" translate="no">us-central1-aiplatform.googleapis.com</code></li>
-<li><code dir="ltr" translate="no">europe-west4</code> — <code dir="ltr" translate="no">europe-west4-aiplatform.googleapis.com</code></li>
+<li><code>us-central1</code> — <code>us-central1-aiplatform.googleapis.com</code></li>
+<li><code>europe-west4</code> — <code>europe-west4-aiplatform.googleapis.com</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td>Supported endpoints for tuned model serving</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us</code> multi-region endpoint ( <code dir="ltr" translate="no">aiplatform.us.rep.googleapis.com</code> ) when tuning in <code dir="ltr" translate="no">us-central1</code></li>
-<li><code dir="ltr" translate="no">eu</code> multi-region endpoint ( <code dir="ltr" translate="no">aiplatform.eu.rep.googleapis.com</code> ) when tuning in <code dir="ltr" translate="no">europe-west4</code></li>
+<li><code>us</code> multi-region endpoint ( <code>aiplatform.us.rep.googleapis.com</code> ) when tuning in <code>us-central1</code></li>
+<li><code>eu</code> multi-region endpoint ( <code>aiplatform.eu.rep.googleapis.com</code> ) when tuning in <code>europe-west4</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
 <td>API version</td>
-<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs"><code dir="ltr" translate="no">v1beta1</code></a> only</td>
+<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs"><code>v1beta1</code></a> only</td>
 </tr>
 </tbody>
 </table>
@@ -102,20 +102,20 @@ The following Gemini models support reinforcement learning fine-tuning:
 <tr class="odd">
 <td>Supported endpoints for model tuning</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-central1</code> — <code dir="ltr" translate="no">us-central1-aiplatform.googleapis.com</code></li>
-<li><code dir="ltr" translate="no">europe-west4</code> — <code dir="ltr" translate="no">europe-west4-aiplatform.googleapis.com</code></li>
+<li><code>us-central1</code> — <code>us-central1-aiplatform.googleapis.com</code></li>
+<li><code>europe-west4</code> — <code>europe-west4-aiplatform.googleapis.com</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td>Supported endpoints for tuned model serving</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us</code> multi-region endpoint ( <code dir="ltr" translate="no">aiplatform.us.rep.googleapis.com</code> ) when tuning in <code dir="ltr" translate="no">us-central1</code></li>
-<li><code dir="ltr" translate="no">eu</code> multi-region endpoint ( <code dir="ltr" translate="no">aiplatform.eu.rep.googleapis.com</code> ) when tuning in <code dir="ltr" translate="no">europe-west4</code></li>
+<li><code>us</code> multi-region endpoint ( <code>aiplatform.us.rep.googleapis.com</code> ) when tuning in <code>us-central1</code></li>
+<li><code>eu</code> multi-region endpoint ( <code>aiplatform.eu.rep.googleapis.com</code> ) when tuning in <code>europe-west4</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
 <td>API version</td>
-<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs"><code dir="ltr" translate="no">v1beta1</code></a> only</td>
+<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs"><code>v1beta1</code></a> only</td>
 </tr>
 </tbody>
 </table>
@@ -124,10 +124,10 @@ The following Gemini models support reinforcement learning fine-tuning:
 
 Reinforcement learning fine-tuning supports the following data modalities in your tuning datasets:
 
-  - Text
-  - Audio
-  - Image
-  - Video (supported only for Gemini 3.5 Flash)
+- Text
+- Audio
+- Image
+- Video (supported only for Gemini 3.5 Flash)
 
 For per-modality dataset limits (such as maximum number of files per prompt, maximum file size, and maximum total length), see the [Tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/tuning-dataset) page.
 
@@ -135,8 +135,8 @@ For per-modality dataset limits (such as maximum number of files per prompt, max
 
 You can use the output of a previous tuning job as the base for a new reinforcement learning fine-tuning job. The following continuous tuning patterns are supported:
 
-  - Supervised fine-tuning → Reinforcement learning fine-tuning
-  - Reinforcement learning fine-tuning → Reinforcement learning fine-tuning
+- Supervised fine-tuning → Reinforcement learning fine-tuning
+- Reinforcement learning fine-tuning → Reinforcement learning fine-tuning
 
 For configuration details, see the [Continuous tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/continuous-tuning) page.
 
@@ -160,6 +160,6 @@ If you configure the Gen AI evaluation service to run automatically during tunin
 
 ## What's next
 
-  - Follow the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or the [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.
-  - Learn how to prepare a [tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/tuning-dataset) and configure [reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) .
-  - Learn about [deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy-a-tuned-model) .
+- Follow the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or the [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.
+- Learn how to prepare a [tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/tuning-dataset) and configure [reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) .
+- Learn about [deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy-a-tuned-model) .

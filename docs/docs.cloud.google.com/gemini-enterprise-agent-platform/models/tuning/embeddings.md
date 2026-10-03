@@ -12,9 +12,9 @@ Foundation embedding models are pre-trained on a massive dataset of text, provid
 
 #### Click to expand supported models
 
-  - `text-embedding-004`
-  - `text-embedding-005`
-  - `text-multilingual-embedding-002`
+- `text-embedding-004`
+- `text-embedding-005`
+- `text-multilingual-embedding-002`
 
 Text embedding models support [supervised tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) . Supervised tuning uses labeled examples that demonstrate the type of output you'd like from your text embedding model during inference.
 
@@ -25,8 +25,8 @@ To learn more about model tuning, see [How model tuning works](https://docs.clou
 Gemini Enterprise Agent Platform uses a parameter efficient tuning method for customization. This methodology shows significant gains in quality of up to 41% (average 12%) on experiments performed on public retrieval benchmark datasets.
 
 > To see an example of getting tuned text embeddings, run the "Getting Tuned Text-Embeddings on Agent Platform" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/generative_ai/tuned_text-embeddings.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fgenerative_ai%2Ftuned_text-embeddings.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fgenerative_ai%2Ftuned_text-embeddings.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/generative_ai/tuned_text-embeddings.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/generative_ai/tuned_text-embeddings.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fgenerative_ai%2Ftuned_text-embeddings.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fgenerative_ai%2Ftuned_text-embeddings.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/generative_ai/tuned_text-embeddings.ipynb)
 
 ## Use case for tuning an embedding model
 
@@ -36,11 +36,11 @@ Tuning a text embeddings model can enable your model to adapt to the embeddings 
 
 The model tuning workflow on Gemini Enterprise Agent Platform is as follows:
 
-  - Prepare your model tuning dataset.
-  - Upload the model tuning dataset to a Cloud Storage bucket.
-  - Configure your project for Gemini Enterprise Agent Platform Pipelines.
-  - Create a model tuning job.
-  - Deploy the tuned model to a Gemini Enterprise Agent Platform endpoint of the same name. Unlike text model tuning jobs, a text embedding tuning job doesn't deploy your tuned models to a Gemini Enterprise Agent Platform endpoint.
+- Prepare your model tuning dataset.
+- Upload the model tuning dataset to a Cloud Storage bucket.
+- Configure your project for Gemini Enterprise Agent Platform Pipelines.
+- Create a model tuning job.
+- Deploy the tuned model to a Gemini Enterprise Agent Platform endpoint of the same name. Unlike text model tuning jobs, a text embedding tuning job doesn't deploy your tuned models to a Gemini Enterprise Agent Platform endpoint.
 
 ## Prepare your embeddings dataset
 
@@ -50,54 +50,60 @@ The dataset used to tune an embeddings model includes data that align with the t
 
 The training dataset consists of the following files, which need to be in Cloud Storage. The path of the files are defined by parameters when launching the tuning pipeline. The three types of files are the **corpus file** , **query file** , and **labels** . Only train labels are necessary, but you may also provide validation and test labels for greater control.
 
-  - **Corpus file** : The path is defined by parameter `corpus_path` . It's a JSONL file where each line has the fields `_id` , `title` , and `text` with string values. `_id` and `text` are required, while `title` is optional. Here is an example `corpus.jsonl` file:
-    
-        {"_id": "doc1", "title": "Get an introduction to Agent Platform", "text": "Agent Platform Studio offers a Google Cloud console tool for rapidly prototyping and testing generative AI models. Learn how you can use Agent Platform Studio to test models using prompt samples, design and save prompts, tune a foundation model, and convert between speech and text."}
-        {"_id": "doc2", "title": "Use gen AI for summarization, classification, and extraction", "text": "Learn how to create text prompts for handling any number of tasks with Agent Platform's generative AI support. Some of the most common tasks are classification, summarization, and extraction. Agent Platform's PaLM API for text lets you design prompts with flexibility in terms of their structure and format."}
-        {"_id": "doc3", "title": "Custom ML training overview and documentation", "text": "Get an overview of the custom training workflow in Agent Platform, the benefits of custom training, and the various training options that are available. This page also details every step involved in the ML training workflow from preparing data to inferences."}
-        {"_id": "doc4", "text": "Text embeddings are useful for clustering, information retrieval, retrieval-augmented generation (RAG), and more."}
-        {"_id": "doc5", "title": "Text embedding tuning", "text": "Google's text embedding models can be tuned on Agent Platform."}
+- **Corpus file** : The path is defined by parameter `corpus_path` . It's a JSONL file where each line has the fields `_id` , `title` , and `text` with string values. `_id` and `text` are required, while `title` is optional. Here is an example `corpus.jsonl` file:
 
-  - **Query file** : The query file contains your example queries. The path is defined by the parameter `queries_path` . The query file is in JSONL format and has the same fields as the corpus file. Here is an example `queries.jsonl` file:
-    
-        {"_id": "query1", "text": "Does Vertex support generative AI?"}
-        {"_id": "query2", "text": "What can I do with Vertex GenAI offerings?"}
-        {"_id": "query3", "text": "How do I train my models using Vertex?"}
-        {"_id": "query4", "text": "What is a text embedding?"}
-        {"_id": "query5", "text": "Can text embedding models be tuned on Vertex?"}
-        {"_id": "query6", "text": "embeddings"}
-        {"_id": "query7", "text": "embeddings for rag"}
-        {"_id": "query8", "text": "custom model training"}
-        {"_id": "query9", "text": "Google Cloud PaLM API"}
+  ```
+  {"_id": "doc1", "title": "Get an introduction to Agent Platform", "text": "Agent Platform Studio offers a Google Cloud console tool for rapidly prototyping and testing generative AI models. Learn how you can use Agent Platform Studio to test models using prompt samples, design and save prompts, tune a foundation model, and convert between speech and text."}
+  {"_id": "doc2", "title": "Use gen AI for summarization, classification, and extraction", "text": "Learn how to create text prompts for handling any number of tasks with Agent Platform's generative AI support. Some of the most common tasks are classification, summarization, and extraction. Agent Platform's PaLM API for text lets you design prompts with flexibility in terms of their structure and format."}
+  {"_id": "doc3", "title": "Custom ML training overview and documentation", "text": "Get an overview of the custom training workflow in Agent Platform, the benefits of custom training, and the various training options that are available. This page also details every step involved in the ML training workflow from preparing data to inferences."}
+  {"_id": "doc4", "text": "Text embeddings are useful for clustering, information retrieval, retrieval-augmented generation (RAG), and more."}
+  {"_id": "doc5", "title": "Text embedding tuning", "text": "Google's text embedding models can be tuned on Agent Platform."}
+  ```
 
-  - **Training labels** : The path is defined by the parameter `train_label_path` . The train\_label\_path is the Cloud Storage URI to the train label data location and is specified when you create your tuning job. The labels need to be a TSV file with a header. A subset of the queries and the corpus need be included in your training labels file. The file must have the columns `query-id` , `corpus-id` and `score` . The `query-id` is a string that matches the `_id` key from the query file, the `corpus-id` is a string that matches the `_id` in the corpus file. `Score` is a non-negative integer value. If a pair of query and document is unrelated, you may either leave it out of the training labels file, or include it with a score of zero. Any score greater than zero indicates that the document is related to the query. Larger numbers indicate a greater level of relevance. If the score is omitted, the default value is 1. Here is an example `train_labels.tsv` file:
-    
-        query-id  corpus-id   score
-        query1    doc1    1
-        query2    doc2    1
-        query3    doc3    2
-        query3    doc5  1
-        query4    doc4  1
-        query4    doc5  1
-        query5    doc5  2
-        query6    doc4  1
-        query6    doc5  1
-        query7    doc4  1
-        query8    doc3  1
-        query9    doc2  1
+- **Query file** : The query file contains your example queries. The path is defined by the parameter `queries_path` . The query file is in JSONL format and has the same fields as the corpus file. Here is an example `queries.jsonl` file:
 
-  - **Test labels** : Optional. The test labels have the same format as the training labels and are specified by the `test_label_path` parameter. If no `test_label_path` is provided, the test labels will be autosplit from the training labels.
+  ```
+  {"_id": "query1", "text": "Does Vertex support generative AI?"}
+  {"_id": "query2", "text": "What can I do with Vertex GenAI offerings?"}
+  {"_id": "query3", "text": "How do I train my models using Vertex?"}
+  {"_id": "query4", "text": "What is a text embedding?"}
+  {"_id": "query5", "text": "Can text embedding models be tuned on Vertex?"}
+  {"_id": "query6", "text": "embeddings"}
+  {"_id": "query7", "text": "embeddings for rag"}
+  {"_id": "query8", "text": "custom model training"}
+  {"_id": "query9", "text": "Google Cloud PaLM API"}
+  ```
 
-  - **Validation labels** : Optional. The validation labels have the same format as the training labels and are specified by the `validation_label_path` parameter. If no `validation_label_path` is provided, the validation labels will be autosplit from the training labels.
+- **Training labels** : The path is defined by the parameter `train_label_path` . The train_label_path is the Cloud Storage URI to the train label data location and is specified when you create your tuning job. The labels need to be a TSV file with a header. A subset of the queries and the corpus need be included in your training labels file. The file must have the columns `query-id` , `corpus-id` and `score` . The `query-id` is a string that matches the `_id` key from the query file, the `corpus-id` is a string that matches the `_id` in the corpus file. `Score` is a non-negative integer value. If a pair of query and document is unrelated, you may either leave it out of the training labels file, or include it with a score of zero. Any score greater than zero indicates that the document is related to the query. Larger numbers indicate a greater level of relevance. If the score is omitted, the default value is 1. Here is an example `train_labels.tsv` file:
+
+  ```
+  query-id  corpus-id   score
+  query1    doc1    1
+  query2    doc2    1
+  query3    doc3    2
+  query3    doc5  1
+  query4    doc4  1
+  query4    doc5  1
+  query5    doc5  2
+  query6    doc4  1
+  query6    doc5  1
+  query7    doc4  1
+  query8    doc3  1
+  query9    doc2  1
+  ```
+
+- **Test labels** : Optional. The test labels have the same format as the training labels and are specified by the `test_label_path` parameter. If no `test_label_path` is provided, the test labels will be autosplit from the training labels.
+
+- **Validation labels** : Optional. The validation labels have the same format as the training labels and are specified by the `validation_label_path` parameter. If no `validation_label_path` is provided, the validation labels will be autosplit from the training labels.
 
 ### Dataset size requirements
 
 The provided dataset files must meet the following constraints:
 
-  - The number of queries must be between 9 and 10,000.
-  - The number of documents in the corpus must be between 9 and 500,000.
-  - Each dataset label file must include at least 3 query IDs, and across all dataset splits there must be at least 9 query IDs.
-  - The total number of labels must be less than 500,000.
+- The number of queries must be between 9 and 10,000.
+- The number of documents in the corpus must be between 9 and 500,000.
+- Each dataset label file must include at least 3 query IDs, and across all dataset splits there must be at least 9 query IDs.
+- The total number of labels must be less than 500,000.
 
 ### Configure your project for Gemini Enterprise Agent Platform Pipelines
 
@@ -111,24 +117,28 @@ The pipeline executes training code under two service agents. These service agen
 
 ##### Compute Engine default service account
 
-    PROJECT_NUMBER-compute@developer.gserviceaccount.com
+```
+PROJECT_NUMBER-compute@developer.gserviceaccount.com
+```
 
 This service account requires:
 
-  - `Storage Object Viewer` access to each dataset file you created in Cloud Storage.
-  - `Storage Object User` access to the output Cloud Storage directory of your pipeline, PIPELINE\_OUTPUT\_DIRECTORY .
-  - `Agent Platform User` access to your project.
+- `Storage Object Viewer` access to each dataset file you created in Cloud Storage.
+- `Storage Object User` access to the output Cloud Storage directory of your pipeline, ` PIPELINE_OUTPUT_DIRECTORY ` .
+- `Agent Platform User` access to your project.
 
 Instead of the [Compute Engine default service account](https://docs.cloud.google.com/compute/docs/access/service-accounts#default_service_account) , you can specify a custom service account. For more information, see [Configure a service account with granular permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) .
 
 ##### Gemini Enterprise Agent Platform Tuning Service Agent
 
-    service-PROJECT_NUMBER@gcp-sa-aiplatform-ft.iam.gserviceaccount.com
+```
+service-PROJECT_NUMBER@gcp-sa-aiplatform-ft.iam.gserviceaccount.com
+```
 
 This service account requires:
 
-  - `Storage Object Viewer` access to each dataset file you created in Cloud Storage.
-  - `Storage Object User` access to the output Cloud Storage directory of your pipeline, PIPELINE\_OUTPUT\_DIRECTORY .
+- `Storage Object Viewer` access to each dataset file you created in Cloud Storage.
+- `Storage Object User` access to the output Cloud Storage directory of your pipeline, ` PIPELINE_OUTPUT_DIRECTORY ` .
 
 > **Note:** The Gemini Enterprise Agent Platform Tuning [Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) runs proprietary Google code and cannot be substituted with a custom service account.
 
@@ -138,11 +148,11 @@ For more information about configuring Cloud Storage dataset permissions, see [C
 
 Tuning requires GPU accelerators. Any of the following accelerators can be used for the text embedding tuning pipeline:
 
-  - `NVIDIA_L4`
-  - `NVIDIA_TESLA_A100`
-  - `NVIDIA_TESLA_T4`
-  - `NVIDIA_TESLA_V100`
-  - `NVIDIA_TESLA_P100`
+- `NVIDIA_L4`
+- `NVIDIA_TESLA_A100`
+- `NVIDIA_TESLA_T4`
+- `NVIDIA_TESLA_V100`
+- `NVIDIA_TESLA_P100`
 
 Launching a tuning job requires adequate `Restricted image training GPUs` quota for the accelerator type and region you have selected, for example `Restricted image training Nvidia V100 GPUs per region` . To increase the quota of your project, see [request additional quota](https://docs.cloud.google.com/docs/quota_detail/view_manage#requesting_higher_quota) .
 
@@ -160,34 +170,38 @@ To create an embedding model tuning job, use the [`projects.locations.pipelineJo
 
 Before using any of the request data, make the following replacements:
 
-  - `  PROJECT_ID  ` : Your Google Cloud project ID.
-  - `  PIPELINE_OUTPUT_DIRECTORY  ` : Path for the pipeline output artifacts, starting with "gs://".
+- `PROJECT_ID` : Your Google Cloud project ID.
+- `PIPELINE_OUTPUT_DIRECTORY` : Path for the pipeline output artifacts, starting with "gs://".
 
 HTTP method and URL:
 
-    POST https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/pipelineJobs
+```
+POST https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/pipelineJobs
+```
 
 Request JSON body:
 
-    {
-      "displayName": "tune_text_embeddings_model_sample",
-      "runtimeConfig": {
-        "gcsOutputDirectory": "PIPELINE_OUTPUT_DIRECTORY",
-        "parameterValues": {
-          "corpus_path": "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/corpus.jsonl",
-          "queries_path": "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/queries.jsonl",
-          "train_label_path": "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/train.tsv",
-          "test_label_path": "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/test.tsv",
-          "base_model_version_id":"text-embedding-004",
-          "task_type": "DEFAULT",
-          "batch_size": "128",
-          "train_steps": "1000",
-          "output_dimensionality": "768",
-          "learning_rate_multiplier": "1.0"
-        }
-      },
-      "templateUri": "https://us-kfp.pkg.dev/ml-pipeline/llm-text-embedding/tune-text-embedding-model/v1.1.3"
+```
+{
+  "displayName": "tune_text_embeddings_model_sample",
+  "runtimeConfig": {
+    "gcsOutputDirectory": "PIPELINE_OUTPUT_DIRECTORY",
+    "parameterValues": {
+      "corpus_path": "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/corpus.jsonl",
+      "queries_path": "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/queries.jsonl",
+      "train_label_path": "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/train.tsv",
+      "test_label_path": "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/test.tsv",
+      "base_model_version_id":"text-embedding-004",
+      "task_type": "DEFAULT",
+      "batch_size": "128",
+      "train_steps": "1000",
+      "output_dimensionality": "768",
+      "learning_rate_multiplier": "1.0"
     }
+  },
+  "templateUri": "https://us-kfp.pkg.dev/ml-pipeline/llm-text-embedding/tune-text-embedding-model/v1.1.3"
+}
+```
 
 To send your request, expand one of these options:
 
@@ -197,11 +211,13 @@ To send your request, expand one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/pipelineJobs"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/pipelineJobs"
+```
 
 #### PowerShell (Windows)
 
@@ -209,48 +225,52 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/pipelineJobs" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/pipelineJobs" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
 #### Response
 
-    {
-      "name": "projects/123456789012/locations/us-central1/pipelineJobs/tune-text-embedding-20231003231411",
-      "displayName": "tune_text_embeddings_model_sample",
-      "createTime": "2023-10-03T23:14:11.705749Z",
-      "updateTime": "2023-10-03T23:14:11.705749Z",
-      "pipelineSpec": { ... },
-      "state": "PIPELINE_STATE_PENDING",
-      "labels": {
-        "vertex-ai-pipelines-run-billing-id": "1234567890123456789"
-      },
-      "runtimeConfig": {
-        "gcsOutputDirectory": "gs://my-bucket/output-dir",
-        "parameterValues": {
-          "corpus_path": "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/corpus.jsonl",
-          "queries_path": "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/queries.jsonl",
-          "train_label_path": "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/train.tsv",
-          "test_label_path": "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/test.tsv",
-          "base_model_version_id": "text-embedding-004",
-          "task_type": "DEFAULT",
-          "batch_size": "128",
-          "train_steps": "1000",
-          "output_dimensionality": "768",
-          "learning_rate_multiplier": "1.0"
-        }
-      },
-      "serviceAccount": "123456789-compute@developer.gserviceaccount.com",
-      "templateUri": "https://us-kfp.pkg.dev/ml-pipeline/llm-text-embedding/tune-text-embedding-model/v1.1.3"
+```
+{
+  "name": "projects/123456789012/locations/us-central1/pipelineJobs/tune-text-embedding-20231003231411",
+  "displayName": "tune_text_embeddings_model_sample",
+  "createTime": "2023-10-03T23:14:11.705749Z",
+  "updateTime": "2023-10-03T23:14:11.705749Z",
+  "pipelineSpec": { ... },
+  "state": "PIPELINE_STATE_PENDING",
+  "labels": {
+    "vertex-ai-pipelines-run-billing-id": "1234567890123456789"
+  },
+  "runtimeConfig": {
+    "gcsOutputDirectory": "gs://my-bucket/output-dir",
+    "parameterValues": {
+      "corpus_path": "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/corpus.jsonl",
+      "queries_path": "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/queries.jsonl",
+      "train_label_path": "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/train.tsv",
+      "test_label_path": "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/test.tsv",
+      "base_model_version_id": "text-embedding-004",
+      "task_type": "DEFAULT",
+      "batch_size": "128",
+      "train_steps": "1000",
+      "output_dimensionality": "768",
+      "learning_rate_multiplier": "1.0"
     }
+  },
+  "serviceAccount": "123456789-compute@developer.gserviceaccount.com",
+  "templateUri": "https://us-kfp.pkg.dev/ml-pipeline/llm-text-embedding/tune-text-embedding-model/v1.1.3"
+}
+```
 
 After launching the pipeline, follow the progress of your tuning job through the **Google Cloud console** .
 
@@ -260,66 +280,68 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    import os
-    
-    from google.cloud import aiplatform
-    
-    # TODO (Developer) set the following environment variables.
-    PROJECT_ID = os.getenv("PROJECT_ID")
-    LOCATION_ID = os.getenv("LOCATION_ID", "us-central1")
-    MODEL_NAME = os.getenv("MODEL_NAME", "text-embedding-004")
-    # A storage bucket: gs://your-bucket-name/embedding-tuning-output
-    OUTPUT_URI = os.getenv("OUTPUT_DIR")
-    
-    TRAIN_LABEL_PATH = (
-        "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/train.tsv"
+```python
+import os
+
+from google.cloud import aiplatform
+
+# TODO (Developer) set the following environment variables.
+PROJECT_ID = os.getenv("PROJECT_ID")
+LOCATION_ID = os.getenv("LOCATION_ID", "us-central1")
+MODEL_NAME = os.getenv("MODEL_NAME", "text-embedding-004")
+# A storage bucket: gs://your-bucket-name/embedding-tuning-output
+OUTPUT_URI = os.getenv("OUTPUT_DIR")
+
+TRAIN_LABEL_PATH = (
+    "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/train.tsv"
+)
+TEST_LABEL_PATH = (
+    "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/test.tsv"
+)
+CORPUS_PATH = (
+    "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/corpus.jsonl"
+)
+QUERIES_PATH = (
+    "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/queries.jsonl"
+)
+
+ACCELERATOR_TYPE = "NVIDIA_L4"
+
+# Official Google Cloud KFP pipeline template URI for text embedding model tuning
+EMBEDDING_TUNING_PIPELINE_URI = "https://us-kfp.pkg.dev/ml-pipeline/llm-text-embedding/tune-text-embedding-model/v1.1.3"
+
+
+def tune_embedding_model() -> aiplatform.PipelineJob:
+    """Tune an embedding model using the specified parameters."""
+
+    aiplatform.init(project=PROJECT_ID, location=LOCATION_ID)
+
+    # Configure parameters expected by the embedding tuning pipeline template
+    pipeline_parameters = {
+        "base_model_version_id": MODEL_NAME,
+        "corpus_path": CORPUS_PATH,
+        "queries_path": QUERIES_PATH,
+        "train_label_path": TRAIN_LABEL_PATH,
+        "test_label_path": TEST_LABEL_PATH,
+        "accelerator_type": ACCELERATOR_TYPE,
+    }
+
+    # Instantiate the Vertex AI Pipeline job
+    pipeline_job = aiplatform.PipelineJob(
+        display_name="tune-text-embedding-model-job",
+        template_path=EMBEDDING_TUNING_PIPELINE_URI,
+        pipeline_root=OUTPUT_URI,
+        parameter_values=pipeline_parameters,
+        project=PROJECT_ID,
+        location=LOCATION_ID,
     )
-    TEST_LABEL_PATH = (
-        "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/test.tsv"
-    )
-    CORPUS_PATH = (
-        "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/corpus.jsonl"
-    )
-    QUERIES_PATH = (
-        "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/queries.jsonl"
-    )
-    
-    ACCELERATOR_TYPE = "NVIDIA_L4"
-    
-    # Official Google Cloud KFP pipeline template URI for text embedding model tuning
-    EMBEDDING_TUNING_PIPELINE_URI = "https://us-kfp.pkg.dev/ml-pipeline/llm-text-embedding/tune-text-embedding-model/v1.1.3"
-    
-    
-    def tune_embedding_model() -> aiplatform.PipelineJob:
-        """Tune an embedding model using the specified parameters."""
-    
-        aiplatform.init(project=PROJECT_ID, location=LOCATION_ID)
-    
-        # Configure parameters expected by the embedding tuning pipeline template
-        pipeline_parameters = {
-            "base_model_version_id": MODEL_NAME,
-            "corpus_path": CORPUS_PATH,
-            "queries_path": QUERIES_PATH,
-            "train_label_path": TRAIN_LABEL_PATH,
-            "test_label_path": TEST_LABEL_PATH,
-            "accelerator_type": ACCELERATOR_TYPE,
-        }
-    
-        # Instantiate the Vertex AI Pipeline job
-        pipeline_job = aiplatform.PipelineJob(
-            display_name="tune-text-embedding-model-job",
-            template_path=EMBEDDING_TUNING_PIPELINE_URI,
-            pipeline_root=OUTPUT_URI,
-            parameter_values=pipeline_parameters,
-            project=PROJECT_ID,
-            location=LOCATION_ID,
-        )
-    
-        pipeline_job.submit()
-    
-        print(f"Pipeline submitted successfully: {pipeline_job.resource_name}")
-    
-        return pipeline_job
+
+    pipeline_job.submit()
+
+    print(f"Pipeline submitted successfully: {pipeline_job.resource_name}")
+
+    return pipeline_job
+```
 
 ### Java
 
@@ -327,119 +349,121 @@ Before trying this sample, follow the Java setup instructions in the [Agent Plat
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    import com.google.cloud.aiplatform.v1.CreatePipelineJobRequest;
-    import com.google.cloud.aiplatform.v1.LocationName;
-    import com.google.cloud.aiplatform.v1.PipelineJob;
-    import com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig;
-    import com.google.cloud.aiplatform.v1.PipelineServiceClient;
-    import com.google.cloud.aiplatform.v1.PipelineServiceSettings;
-    import com.google.protobuf.Value;
-    import java.io.IOException;
-    import java.util.Map;
-    import java.util.regex.Matcher;
-    import java.util.regex.Pattern;
-    
-    public class EmbeddingModelTuningSample {
-      public static void main(String[] args) throws IOException {
-        // TODO(developer): Replace these variables before running this sample.
-        String apiEndpoint = "us-central1-aiplatform.googleapis.com:443";
-        String project = "PROJECT";
-        String baseModelVersionId = "BASE_MODEL_VERSION_ID";
-        String taskType = "DEFAULT";
-        String pipelineJobDisplayName = "PIPELINE_JOB_DISPLAY_NAME";
-        String outputDir = "OUTPUT_DIR";
-        String queriesPath = "QUERIES_PATH";
-        String corpusPath = "CORPUS_PATH";
-        String trainLabelPath = "TRAIN_LABEL_PATH";
-        String testLabelPath = "TEST_LABEL_PATH";
-        double learningRateMultiplier = 1.0;
-        int outputDimensionality = 768;
-        int batchSize = 128;
-        int trainSteps = 1000;
-    
-        createEmbeddingModelTuningPipelineJob(
-            apiEndpoint,
-            project,
-            baseModelVersionId,
-            taskType,
-            pipelineJobDisplayName,
-            outputDir,
-            queriesPath,
-            corpusPath,
-            trainLabelPath,
-            testLabelPath,
-            learningRateMultiplier,
-            outputDimensionality,
-            batchSize,
-            trainSteps);
-      }
-    
-      public static PipelineJob createEmbeddingModelTuningPipelineJob(
-          String apiEndpoint,
-          String project,
-          String baseModelVersionId,
-          String taskType,
-          String pipelineJobDisplayName,
-          String outputDir,
-          String queriesPath,
-          String corpusPath,
-          String trainLabelPath,
-          String testLabelPath,
-          double learningRateMultiplier,
-          int outputDimensionality,
-          int batchSize,
-          int trainSteps)
-          throws IOException {
-        Matcher matcher = Pattern.compile("^(?<Location>\\w+-\\w+)").matcher(apiEndpoint);
-        String location = matcher.matches() ? matcher.group("Location") : "us-central1";
-        String templateUri =
-            "https://us-kfp.pkg.dev/ml-pipeline/llm-text-embedding/tune-text-embedding-model/v1.1.4";
-        PipelineServiceSettings settings =
-            PipelineServiceSettings.newBuilder().setEndpoint(apiEndpoint).build();
-        try (PipelineServiceClient client = PipelineServiceClient.create(settings)) {
-          Map<String, Value> parameterValues =
-              Map.of(
-                  "base_model_version_id", valueOf(baseModelVersionId),
-                  "task_type", valueOf(taskType),
-                  "queries_path", valueOf(queriesPath),
-                  "corpus_path", valueOf(corpusPath),
-                  "train_label_path", valueOf(trainLabelPath),
-                  "test_label_path", valueOf(testLabelPath),
-                  "learning_rate_multiplier", valueOf(learningRateMultiplier),
-                  "output_dimensionality", valueOf(outputDimensionality),
-                  "batch_size", valueOf(batchSize),
-                  "train_steps", valueOf(trainSteps));
-          PipelineJob pipelineJob =
-              PipelineJob.newBuilder()
-                  .setTemplateUri(templateUri)
-                  .setDisplayName(pipelineJobDisplayName)
-                  .setRuntimeConfig(
-                      RuntimeConfig.newBuilder()
-                          .setGcsOutputDirectory(outputDir)
-                          .putAllParameterValues(parameterValues)
-                          .build())
-                  .build();
-          CreatePipelineJobRequest request =
-              CreatePipelineJobRequest.newBuilder()
-                  .setParent(LocationName.of(project, location).toString())
-                  .setPipelineJob(pipelineJob)
-                  .build();
-          return client.createPipelineJob(request);
-        }
-      }
-    
-      private static Value valueOf(String s) {
-        return Value.newBuilder().setStringValue(s).build();
-      }
-    
-      private static Value valueOf(int n) {
-        return Value.newBuilder().setNumberValue(n).build();
-      }
-    
-      private static Value valueOf(double n) {
-        return Value.newBuilder().setNumberValue(n).build();
-      }
+```java
+import com.google.cloud.aiplatform.v1.CreatePipelineJobRequest;
+import com.google.cloud.aiplatform.v1.LocationName;
+import com.google.cloud.aiplatform.v1.PipelineJob;
+import com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig;
+import com.google.cloud.aiplatform.v1.PipelineServiceClient;
+import com.google.cloud.aiplatform.v1.PipelineServiceSettings;
+import com.google.protobuf.Value;
+import java.io.IOException;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class EmbeddingModelTuningSample {
+  public static void main(String[] args) throws IOException {
+    // TODO(developer): Replace these variables before running this sample.
+    String apiEndpoint = "us-central1-aiplatform.googleapis.com:443";
+    String project = "PROJECT";
+    String baseModelVersionId = "BASE_MODEL_VERSION_ID";
+    String taskType = "DEFAULT";
+    String pipelineJobDisplayName = "PIPELINE_JOB_DISPLAY_NAME";
+    String outputDir = "OUTPUT_DIR";
+    String queriesPath = "QUERIES_PATH";
+    String corpusPath = "CORPUS_PATH";
+    String trainLabelPath = "TRAIN_LABEL_PATH";
+    String testLabelPath = "TEST_LABEL_PATH";
+    double learningRateMultiplier = 1.0;
+    int outputDimensionality = 768;
+    int batchSize = 128;
+    int trainSteps = 1000;
+
+    createEmbeddingModelTuningPipelineJob(
+        apiEndpoint,
+        project,
+        baseModelVersionId,
+        taskType,
+        pipelineJobDisplayName,
+        outputDir,
+        queriesPath,
+        corpusPath,
+        trainLabelPath,
+        testLabelPath,
+        learningRateMultiplier,
+        outputDimensionality,
+        batchSize,
+        trainSteps);
+  }
+
+  public static PipelineJob createEmbeddingModelTuningPipelineJob(
+      String apiEndpoint,
+      String project,
+      String baseModelVersionId,
+      String taskType,
+      String pipelineJobDisplayName,
+      String outputDir,
+      String queriesPath,
+      String corpusPath,
+      String trainLabelPath,
+      String testLabelPath,
+      double learningRateMultiplier,
+      int outputDimensionality,
+      int batchSize,
+      int trainSteps)
+      throws IOException {
+    Matcher matcher = Pattern.compile("^(?<Location>\\w+-\\w+)").matcher(apiEndpoint);
+    String location = matcher.matches() ? matcher.group("Location") : "us-central1";
+    String templateUri =
+        "https://us-kfp.pkg.dev/ml-pipeline/llm-text-embedding/tune-text-embedding-model/v1.1.4";
+    PipelineServiceSettings settings =
+        PipelineServiceSettings.newBuilder().setEndpoint(apiEndpoint).build();
+    try (PipelineServiceClient client = PipelineServiceClient.create(settings)) {
+      Map<String, Value> parameterValues =
+          Map.of(
+              "base_model_version_id", valueOf(baseModelVersionId),
+              "task_type", valueOf(taskType),
+              "queries_path", valueOf(queriesPath),
+              "corpus_path", valueOf(corpusPath),
+              "train_label_path", valueOf(trainLabelPath),
+              "test_label_path", valueOf(testLabelPath),
+              "learning_rate_multiplier", valueOf(learningRateMultiplier),
+              "output_dimensionality", valueOf(outputDimensionality),
+              "batch_size", valueOf(batchSize),
+              "train_steps", valueOf(trainSteps));
+      PipelineJob pipelineJob =
+          PipelineJob.newBuilder()
+              .setTemplateUri(templateUri)
+              .setDisplayName(pipelineJobDisplayName)
+              .setRuntimeConfig(
+                  RuntimeConfig.newBuilder()
+                      .setGcsOutputDirectory(outputDir)
+                      .putAllParameterValues(parameterValues)
+                      .build())
+              .build();
+      CreatePipelineJobRequest request =
+          CreatePipelineJobRequest.newBuilder()
+              .setParent(LocationName.of(project, location).toString())
+              .setPipelineJob(pipelineJob)
+              .build();
+      return client.createPipelineJob(request);
     }
+  }
+
+  private static Value valueOf(String s) {
+    return Value.newBuilder().setStringValue(s).build();
+  }
+
+  private static Value valueOf(int n) {
+    return Value.newBuilder().setNumberValue(n).build();
+  }
+
+  private static Value valueOf(double n) {
+    return Value.newBuilder().setNumberValue(n).build();
+  }
+}
+```
 
 ### Node.js
 
@@ -447,62 +471,64 @@ Before trying this sample, follow the Node.js setup instructions in the [Agent P
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    async function main(
-      apiEndpoint,
-      project,
-      outputDir,
-      pipelineJobDisplayName = 'embedding-customization-pipeline-sample',
-      baseModelVersionId = 'text-embedding-005',
-      taskType = 'DEFAULT',
-      corpusPath = 'gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/corpus.jsonl',
-      queriesPath = 'gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/queries.jsonl',
-      trainLabelPath = 'gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/train.tsv',
-      testLabelPath = 'gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/test.tsv',
-      outputDimensionality = 768,
-      learningRateMultiplier = 1.0,
-      batchSize = 128,
-      trainSteps = 1000
-    ) {
-      const aiplatform = require('@google-cloud/aiplatform');
-      const {PipelineServiceClient} = aiplatform.v1;
-      const {helpers} = aiplatform; // helps construct protobuf.Value objects.
-    
-      const client = new PipelineServiceClient({apiEndpoint});
-      const match = apiEndpoint.match(/(?<L>\w+-\w+)/);
-      const location = match ? match.groups.L : 'us-central1';
-      const parent = `projects/${project}/locations/${location}`;
-      const params = {
-        base_model_version_id: baseModelVersionId,
-        task_type: taskType,
-        queries_path: queriesPath,
-        corpus_path: corpusPath,
-        train_label_path: trainLabelPath,
-        test_label_path: testLabelPath,
-        batch_size: batchSize,
-        train_steps: trainSteps,
-        output_dimensionality: outputDimensionality,
-        learning_rate_multiplier: learningRateMultiplier,
-      };
-      const runtimeConfig = {
-        gcsOutputDirectory: outputDir,
-        parameterValues: Object.fromEntries(
-          Object.entries(params).map(([k, v]) => [k, helpers.toValue(v)])
-        ),
-      };
-      const pipelineJob = {
-        templateUri:
-          'https://us-kfp.pkg.dev/ml-pipeline/llm-text-embedding/tune-text-embedding-model/v1.1.4',
-        displayName: pipelineJobDisplayName,
-        runtimeConfig,
-      };
-      async function createTuneJob() {
-        const [response] = await client.createPipelineJob({parent, pipelineJob});
-        console.log(`job_name: ${response.name}`);
-        console.log(`job_state: ${response.state}`);
-      }
-    
-      await createTuneJob();
-    }
+```javascript
+async function main(
+  apiEndpoint,
+  project,
+  outputDir,
+  pipelineJobDisplayName = 'embedding-customization-pipeline-sample',
+  baseModelVersionId = 'text-embedding-005',
+  taskType = 'DEFAULT',
+  corpusPath = 'gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/corpus.jsonl',
+  queriesPath = 'gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/queries.jsonl',
+  trainLabelPath = 'gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/train.tsv',
+  testLabelPath = 'gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/test.tsv',
+  outputDimensionality = 768,
+  learningRateMultiplier = 1.0,
+  batchSize = 128,
+  trainSteps = 1000
+) {
+  const aiplatform = require('@google-cloud/aiplatform');
+  const {PipelineServiceClient} = aiplatform.v1;
+  const {helpers} = aiplatform; // helps construct protobuf.Value objects.
+
+  const client = new PipelineServiceClient({apiEndpoint});
+  const match = apiEndpoint.match(/(?<L>\w+-\w+)/);
+  const location = match ? match.groups.L : 'us-central1';
+  const parent = `projects/${project}/locations/${location}`;
+  const params = {
+    base_model_version_id: baseModelVersionId,
+    task_type: taskType,
+    queries_path: queriesPath,
+    corpus_path: corpusPath,
+    train_label_path: trainLabelPath,
+    test_label_path: testLabelPath,
+    batch_size: batchSize,
+    train_steps: trainSteps,
+    output_dimensionality: outputDimensionality,
+    learning_rate_multiplier: learningRateMultiplier,
+  };
+  const runtimeConfig = {
+    gcsOutputDirectory: outputDir,
+    parameterValues: Object.fromEntries(
+      Object.entries(params).map(([k, v]) => [k, helpers.toValue(v)])
+    ),
+  };
+  const pipelineJob = {
+    templateUri:
+      'https://us-kfp.pkg.dev/ml-pipeline/llm-text-embedding/tune-text-embedding-model/v1.1.4',
+    displayName: pipelineJobDisplayName,
+    runtimeConfig,
+  };
+  async function createTuneJob() {
+    const [response] = await client.createPipelineJob({parent, pipelineJob});
+    console.log(`job_name: ${response.name}`);
+    console.log(`job_state: ${response.state}`);
+  }
+
+  await createTuneJob();
+}
+```
 
 ### Console
 
@@ -552,24 +578,26 @@ Once your tuned model is deployed, you can use one of the following commands to 
 
 To get inferences from a tuned version of `textembedding-gecko@001` , use the following example curl command.
 
-    PROJECT_ID=PROJECT_ID
-    LOCATION=LOCATION
-    ENDPOINT_URI=https://${LOCATION}-aiplatform.googleapis.com
-    MODEL_ENDPOINT=TUNED_MODEL_ENDPOINT_ID
-    
-    curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        -H "Content-Type: application/json"  \
-        ${ENDPOINT_URI}/v1/projects/${PROJECT_ID}/locations/${LOCATION}/endpoints/${MODEL_ENDPOINT}:predict \
-        -d '{
-      "instances": [
-        {
-          "content": "Dining in New York City"
-        },
-        {
-          "content": "Best resorts on the east coast"
-        }
-      ]
-    }'
+```
+PROJECT_ID=PROJECT_ID
+LOCATION=LOCATION
+ENDPOINT_URI=https://${LOCATION}-aiplatform.googleapis.com
+MODEL_ENDPOINT=TUNED_MODEL_ENDPOINT_ID
+
+curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+    -H "Content-Type: application/json"  \
+    ${ENDPOINT_URI}/v1/projects/${PROJECT_ID}/locations/${LOCATION}/endpoints/${MODEL_ENDPOINT}:predict \
+    -d '{
+  "instances": [
+    {
+      "content": "Dining in New York City"
+    },
+    {
+      "content": "Best resorts on the east coast"
+    }
+  ]
+}'
+```
 
 #### Example curl commands for *non* `textembedding-gecko@001` models
 
@@ -577,47 +605,51 @@ Tuned versions of other models (for example, `textembedding-gecko@003` and `text
 
 > **Note:** `task_type` and `title` are required for every request. For default behavior, set `task_type="DEFAULT"` and `title=""` .
 
-    PROJECT_ID=PROJECT_ID
-    LOCATION=LOCATION
-    ENDPOINT_URI=https://${LOCATION}-aiplatform.googleapis.com
-    MODEL_ENDPOINT=TUNED_MODEL_ENDPOINT_ID
-    
-    curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        -H "Content-Type: application/json"  \
-        ${ENDPOINT_URI}/v1/projects/${PROJECT_ID}/locations/${LOCATION}/endpoints/${MODEL_ENDPOINT}:predict \
-        -d '{
-      "instances": [
-        {
-          "content": "Dining in New York City",
-          "task_type": "DEFAULT",
-          "title": ""
-        },
-        {
-          "content": "There are many resorts to choose from on the East coast...",
-          "task_type": "RETRIEVAL_DOCUMENT",
-          "title": "East Coast Resorts"
-        }
-      ]
-    }'
+```
+PROJECT_ID=PROJECT_ID
+LOCATION=LOCATION
+ENDPOINT_URI=https://${LOCATION}-aiplatform.googleapis.com
+MODEL_ENDPOINT=TUNED_MODEL_ENDPOINT_ID
+
+curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+    -H "Content-Type: application/json"  \
+    ${ENDPOINT_URI}/v1/projects/${PROJECT_ID}/locations/${LOCATION}/endpoints/${MODEL_ENDPOINT}:predict \
+    -d '{
+  "instances": [
+    {
+      "content": "Dining in New York City",
+      "task_type": "DEFAULT",
+      "title": ""
+    },
+    {
+      "content": "There are many resorts to choose from on the East coast...",
+      "task_type": "RETRIEVAL_DOCUMENT",
+      "title": "East Coast Resorts"
+    }
+  ]
+}'
+```
 
 #### Example output
 
 The output of an inference request to the deployed tuned model is not in the same format as the output of a request to the text embedding API.
 
-    {
-     "predictions": [
-       [ ... ],
-       [ ... ],
-       ...
-     ],
-     "deployedModelId": "...",
-     "model": "projects/.../locations/.../models/...",
-     "modelDisplayName": "tuned-text-embedding-model",
-     "modelVersionId": "1"
-    }
+```
+{
+ "predictions": [
+   [ ... ],
+   [ ... ],
+   ...
+ ],
+ "deployedModelId": "...",
+ "model": "projects/.../locations/.../models/...",
+ "modelDisplayName": "tuned-text-embedding-model",
+ "modelVersionId": "1"
+}
+```
 
 ## What's next
 
-  - To get batch inferences for embeddings, see [Get batch text embeddings inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/batch-prediction-genai-embeddings)
-  - To learn more about multimodal embeddings, see [Get multimodal embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings)
-  - For information about text-only use cases (text-based semantic search, clustering, long-form document analysis, and other text retrieval or question-answering use cases), read [Get text embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings) .
+- To get batch inferences for embeddings, see [Get batch text embeddings inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/batch-prediction-genai-embeddings)
+- To learn more about multimodal embeddings, see [Get multimodal embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings)
+- For information about text-only use cases (text-based semantic search, clustering, long-form document analysis, and other text retrieval or question-answering use cases), read [Get text embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings) .

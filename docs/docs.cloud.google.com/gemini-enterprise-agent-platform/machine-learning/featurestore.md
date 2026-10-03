@@ -12,7 +12,7 @@ In machine learning (ML), features are characteristic attributes of an instance 
 
 A product or service that includes feature management services to store, discover, share, and serve ML features is called a *feature store* . Gemini Enterprise Agent Platform incorporates the following feature store services:
 
-  - [Agent Platform Feature Store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore#vaifs)
+- [Agent Platform Feature Store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore#vaifs)
 
 This page provides an overview of the capabilities of Agent Platform Feature Store.
 
@@ -24,10 +24,10 @@ Vertex AI Feature Store is integrated with Knowledge Catalog to track feature me
 
 Vertex AI Feature Store is optimized for ultra-low latency serving and lets you do the following:
 
-  - Store and maintain your offline feature data in BigQuery, taking advantage of the data management capabilities of BigQuery.
+- Store and maintain your offline feature data in BigQuery, taking advantage of the data management capabilities of BigQuery.
 
-  - Share and reuse features by adding them to the feature registry.
+- Share and reuse features by adding them to the feature registry.
 
-  - Serve features for online predictions at low latencies using Bigtable online serving.
+- Serve features for online predictions at low latencies using Bigtable online serving.
 
-  - Track feature metadata in Knowledge Catalog.
+- Track feature metadata in Knowledge Catalog.

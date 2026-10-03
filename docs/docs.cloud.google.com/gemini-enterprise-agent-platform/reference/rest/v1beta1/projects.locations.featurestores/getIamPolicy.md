@@ -28,10 +28,10 @@ The request body contains data with the following structure:
 
 Fields
 
-`options` ` object ( GetPolicyOptions  ` )
+`options` `object ( `[`GetPolicyOptions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GetIamPolicyRequest#GetPolicyOptions)` )`
 
 OPTIONAL: A `GetPolicyOptions` object for specifying options to `featurestores.getIamPolicy` .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Policy  ` .
+If successful, the response body contains an instance of [`Policy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Policy) .

@@ -14,31 +14,27 @@ Fields
 
 Required. Mime type of the chunk data. See <https://www.iana.org/assignments/media-types/media-types.xhtml> for the full list.
 
-`data` `string ( bytes format)`
+`data` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Required. The data in the chunk.
 
 A base64-encoded string.
 
-`metadata` ` object ( Metadata  ` )
+`metadata` `object ( `[`Metadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Chunk#Metadata)` )`
 
 Optional. metadata that is associated with the data in the payload.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;mimeType&quot;: string,&quot;data&quot;: string,&quot;metadata&quot;: {object (Metadata)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "mimeType": string,
+  "data": string,
+  "metadata": {
+    object (Metadata)
+  }
+}
+```
 
 ## Metadata
 
@@ -46,27 +42,17 @@ metadata for a chunk.
 
 Fields
 
-`attributes` `map (key: string, value: string ( bytes format))`
+`attributes` `map (key: string, value: string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format))`
 
 Optional. Attributes attached to the data. The keys have semantic conventions and the consumers of the attributes should know how to deserialize the value bytes based on the keys.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;attributes&quot;: {
+**JSON representation**
+
+```
+{
+  "attributes": {
     string: string,
     ...
   }
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

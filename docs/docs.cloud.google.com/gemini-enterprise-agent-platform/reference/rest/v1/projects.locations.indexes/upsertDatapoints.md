@@ -28,17 +28,17 @@ The request body contains data with the following structure:
 
 Fields
 
-`datapoints[]` ` object ( IndexDatapoint  ` )
+`datapoints[]` `object ( `[`IndexDatapoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/upsertDatapoints#IndexDatapoint)` )`
 
 A list of datapoints to be created/updated.
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Optional. Update mask is used to specify the fields to be overwritten in the datapoints by the update. The fields specified in the updateMask are relative to each IndexDatapoint inside datapoints, not the full request.
 
 Updatable fields:
 
-  - Use `all_restricts` to update both restricts and numericRestricts.
+- Use `all_restricts` to update both restricts and numericRestricts.
 
 This is a comma-separated list of fully qualified names of fields. Example: `"user.displayName,photo"` .
 
@@ -60,41 +60,55 @@ Required. Unique identifier of the datapoint.
 
 Required. feature embedding vector for dense index. An array of numbers with the length of \[NearestNeighborSearchConfig.dimensions\].
 
-`sparseEmbedding` ` object ( SparseEmbedding  ` )
+`sparseEmbedding` `object ( `[`SparseEmbedding`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/upsertDatapoints#SparseEmbedding)` )`
 
 Optional. feature embedding vector for sparse index.
 
-`restricts[]` ` object ( Restriction  ` )
+`restricts[]` `object ( `[`Restriction`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/upsertDatapoints#Restriction)` )`
 
 Optional. List of Restrict of the datapoint, used to perform "restricted searches" where boolean rule are used to filter the subset of the database eligible for matching. This uses categorical tokens. See: <https://cloud.google.com/vertex-ai/docs/matching-engine/filtering>
 
-`numericRestricts[]` ` object ( NumericRestriction  ` )
+`numericRestricts[]` `object ( `[`NumericRestriction`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/upsertDatapoints#NumericRestriction)` )`
 
 Optional. List of Restrict of the datapoint, used to perform "restricted searches" where boolean rule are used to filter the subset of the database eligible for matching. This uses numeric comparisons.
 
-`crowdingTag` ` object ( CrowdingTag  ` )
+`crowdingTag` `object ( `[`CrowdingTag`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/upsertDatapoints#CrowdingTag)` )`
 
 Optional. CrowdingTag of the datapoint, the number of neighbors to return in each crowding can be configured during query.
 
-`embeddingMetadata` ` object ( Struct  ` format)
+`embeddingMetadata` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Optional. The key-value map of additional metadata for the datapoint.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;datapointId&quot;: string,&quot;featureVector&quot;: [number],&quot;sparseEmbedding&quot;: {object (SparseEmbedding)},&quot;restricts&quot;: [{object (Restriction)}],&quot;numericRestricts&quot;: [{object (NumericRestriction)}],&quot;crowdingTag&quot;: {object (CrowdingTag)},&quot;embeddingMetadata&quot;: {object}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "datapointId": string,
+  "featureVector": [
+    number
+  ],
+  "sparseEmbedding": {
+    object (SparseEmbedding)
+  },
+  "restricts": [
+    {
+      object (Restriction)
+    }
+  ],
+  "numericRestricts": [
+    {
+      object (NumericRestriction)
+    }
+  ],
+  "crowdingTag": {
+    object (CrowdingTag)
+  },
+  "embeddingMetadata": {
+    object
+  }
+}
+```
 
 ## SparseEmbedding
 
@@ -106,32 +120,22 @@ Fields
 
 Required. The list of embedding values of the sparse vector.
 
-`dimensions[]` `string ( int64 format)`
+`dimensions[]` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Required. The list of indexes for the embedding values of the sparse vector.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;values&quot;: [
+**JSON representation**
+
+```
+{
+  "values": [
     number
   ],
-  &quot;dimensions&quot;: [
+  "dimensions": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## Restriction
 
@@ -151,29 +155,19 @@ The attributes to allow in this namespace. e.g.: 'red'
 
 The attributes to deny in this namespace. e.g.: 'blue'
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;namespace&quot;: string,
-  &quot;allowList&quot;: [
+**JSON representation**
+
+```
+{
+  "namespace": string,
+  "allowList": [
     string
   ],
-  &quot;denyList&quot;: [
+  "denyList": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## NumericRestriction
 
@@ -185,7 +179,7 @@ Fields
 
 The namespace of this restriction. e.g.: cost.
 
-`op` ` enum ( Operator  ` )
+`op` `enum ( `[`Operator`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/upsertDatapoints#Operator)` )`
 
 This MUST be specified for queries and must NOT be specified for datapoints.
 
@@ -193,7 +187,7 @@ This MUST be specified for queries and must NOT be specified for datapoints.
 
 The type of Value must be consistent for all datapoints with a given namespace name. This is verified at runtime. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`valueInt` `string ( int64 format)`
+`valueInt` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Represents 64 bit integer.
 
@@ -207,21 +201,20 @@ Represents 64 bit float.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;namespace&quot;: string,&quot;op&quot;: enum (Operator),// Value&quot;valueInt&quot;: string,&quot;valueFloat&quot;: number,&quot;valueDouble&quot;: number// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "namespace": string,
+  "op": enum (Operator),
+
+  // Value
+  "valueInt": string,
+  "valueFloat": number,
+  "valueDouble": number
+  // Union type
+}
+```
 
 ## Operator
 
@@ -229,35 +222,15 @@ Which comparison operator to use. Should be specified for queries only; specifyi
 
 Datapoints for which Operator is true relative to the query's value field will be allowlisted.
 
-Enums
-
-`OPERATOR_UNSPECIFIED`
-
-Default value of the enum.
-
-`LESS`
-
-Datapoints are eligible iff their value is \< the query's.
-
-`LESS_EQUAL`
-
-Datapoints are eligible iff their value is \<= the query's.
-
-`EQUAL`
-
-Datapoints are eligible iff their value is == the query's.
-
-`GREATER_EQUAL`
-
-Datapoints are eligible iff their value is \>= the query's.
-
-`GREATER`
-
-Datapoints are eligible iff their value is \> the query's.
-
-`NOT_EQUAL`
-
-Datapoints are eligible iff their value is \!= the query's.
+| Enums                  |                                                             |
+|------------------------|-------------------------------------------------------------|
+| `OPERATOR_UNSPECIFIED` | Default value of the enum.                                  |
+| `LESS`                 | Datapoints are eligible iff their value is \< the query's.  |
+| `LESS_EQUAL`           | Datapoints are eligible iff their value is \<= the query's. |
+| `EQUAL`                | Datapoints are eligible iff their value is == the query's.  |
+| `GREATER_EQUAL`        | Datapoints are eligible iff their value is \>= the query's. |
+| `GREATER`              | Datapoints are eligible iff their value is \> the query's.  |
+| `NOT_EQUAL`            | Datapoints are eligible iff their value is != the query's.  |
 
 ## CrowdingTag
 
@@ -269,20 +242,10 @@ Fields
 
 The attribute value used for crowding. The maximum number of neighbors to return per crowding attribute value (perCrowdingAttributeNumNeighbors) is configured per-query. This field is ignored if perCrowdingAttributeNumNeighbors is larger than the total number of neighbors to return for a given query.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;crowdingAttribute&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "crowdingAttribute": string
+}
+```

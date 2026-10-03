@@ -24,9 +24,9 @@ Required. The display name of the Endpoint. The name can be up to 128 characters
 
 The description of the Endpoint.
 
-`deployedModels[]` ` object ( DeployedModel  ` )
+`deployedModels[]` `object ( `[`DeployedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#DeployedModel)` )`
 
-Output only. The models deployed in this Endpoint. To add or remove DeployedModels use `  EndpointService.DeployModel  ` and `  EndpointService.UndeployModel  ` respectively.
+Output only. The models deployed in this Endpoint. To add or remove DeployedModels use [`EndpointService.DeployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/deployModel#google.cloud.aiplatform.v1beta1.EndpointService.DeployModel) and [`EndpointService.UndeployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/undeployModel#google.cloud.aiplatform.v1beta1.EndpointService.UndeployModel) respectively.
 
 `trafficSplit` `map (key: string, value: integer)`
 
@@ -48,19 +48,19 @@ label keys and values can be no longer than 64 characters (Unicode codepoints), 
 
 See <https://goo.gl/xmQnxf> for more information and examples of labels.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this Endpoint was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this Endpoint was last updated.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`encryptionSpec` ` object ( EncryptionSpec  ` )
+`encryptionSpec` `object ( `[`EncryptionSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/EncryptionSpec)` )`
 
 Customer-managed encryption key spec for an Endpoint. If set, this Endpoint and all sub-resources of this Endpoint will be secured by this key.
 
@@ -70,45 +70,45 @@ Optional. The full name of the Google Compute Engine [network](https://cloud.goo
 
 Private services access must already be configured for the network. If left unspecified, the Endpoint is not peered with any network.
 
-Only one of the fields, `  network  ` or `  enablePrivateServiceConnect  ` , can be set.
+Only one of the fields, [`network`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint.FIELDS.network) or [`enablePrivateServiceConnect`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint.FIELDS.enable_private_service_connect) , can be set.
 
 [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert) : `projects/{project}/global/networks/{network}` . Where `{project}` is a project number, as in `12345` , and `{network}` is network name.
 
-` enablePrivateServiceConnect (deprecated)  ` `boolean`
+`enablePrivateServiceConnect `**`(deprecated)`** `boolean`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Deprecated: If true, expose the Endpoint via private service connect.
 
-Only one of the fields, `  network  ` or `  enablePrivateServiceConnect  ` , can be set.
+Only one of the fields, [`network`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint.FIELDS.network) or [`enablePrivateServiceConnect`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint.FIELDS.enable_private_service_connect) , can be set.
 
-`privateServiceConnectConfig` ` object ( PrivateServiceConnectConfig  ` )
+`privateServiceConnectConfig` `object ( `[`PrivateServiceConnectConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/PrivateServiceConnectConfig)` )`
 
 Optional. Configuration for private service connect.
 
-`  network  ` and `  privateServiceConnectConfig  ` are mutually exclusive.
+[`network`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint.FIELDS.network) and [`privateServiceConnectConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint.FIELDS.private_service_connect_config) are mutually exclusive.
 
 `modelDeploymentMonitoringJob` `string`
 
-Output only. Resource name of the Model Monitoring job associated with this Endpoint if monitoring is enabled by `  JobService.CreateModelDeploymentMonitoringJob  ` . Format: `projects/{project}/locations/{location}/modelDeploymentMonitoringJobs/{modelDeploymentMonitoringJob}`
+Output only. Resource name of the Model Monitoring job associated with this Endpoint if monitoring is enabled by [`JobService.CreateModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs/create#google.cloud.aiplatform.v1beta1.JobService.CreateModelDeploymentMonitoringJob) . Format: `projects/{project}/locations/{location}/modelDeploymentMonitoringJobs/{modelDeploymentMonitoringJob}`
 
-`predictRequestResponseLoggingConfig` ` object ( PredictRequestResponseLoggingConfig  ` )
+`predictRequestResponseLoggingConfig` `object ( `[`PredictRequestResponseLoggingConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#PredictRequestResponseLoggingConfig)` )`
 
 Configures the request-response logging for online prediction.
 
 `dedicatedEndpointEnabled` `boolean`
 
-If true, the endpoint will be exposed through a dedicated DNS \[Endpoint.dedicated\_endpoint\_dns\]. Your request to the dedicated DNS will be isolated from other users' traffic and will have better performance and reliability. Note: Once you enabled dedicated endpoint, you won't be able to send request to the shared DNS {region}-aiplatform.googleapis.com. The limitation will be removed soon.
+If true, the endpoint will be exposed through a dedicated DNS \[Endpoint.dedicated_endpoint_dns\]. Your request to the dedicated DNS will be isolated from other users' traffic and will have better performance and reliability. Note: Once you enabled dedicated endpoint, you won't be able to send request to the shared DNS {region}-aiplatform.googleapis.com. The limitation will be removed soon.
 
 `dedicatedEndpointDns` `string`
 
-Output only. DNS of the dedicated endpoint. Will only be populated if dedicatedEndpointEnabled is true. Depending on the features enabled, uid might be a random number or a string. For example, if fast\_tryout is enabled, uid will be fasttryout. Format: `https://{endpointId}.{region}-{uid}.prediction.vertexai.goog` .
+Output only. DNS of the dedicated endpoint. Will only be populated if dedicatedEndpointEnabled is true. Depending on the features enabled, uid might be a random number or a string. For example, if fast_tryout is enabled, uid will be fasttryout. Format: `https://{endpointId}.{region}-{uid}.prediction.vertexai.goog` .
 
-`gdcConfig` ` object ( GdcConfig  ` )
+`gdcConfig` `object ( `[`GdcConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#GdcConfig)` )`
 
 Configures the Google Distributed Cloud (GDC) environment for online prediction. Only set this field when the Endpoint is to be deployed in a GDC environment.
 
-`clientConnectionConfig` ` object ( ClientConnectionConfig  ` )
+`clientConnectionConfig` `object ( `[`ClientConnectionConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#ClientConnectionConfig)` )`
 
 Configurations that are applied to the endpoint for online prediction.
 
@@ -120,29 +120,67 @@ Output only. reserved for future use.
 
 Output only. reserved for future use.
 
-`genAiAdvancedFeaturesConfig` ` object ( GenAiAdvancedFeaturesConfig  ` )
+`genAiAdvancedFeaturesConfig` `object ( `[`GenAiAdvancedFeaturesConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#GenAiAdvancedFeaturesConfig)` )`
 
 Optional. Configuration for GenAiAdvancedFeatures. If the endpoint is serving GenAI models, advanced features like native RAG integration can be configured. Currently, only Model Garden models are supported.
 
-`publisherModelConfig` ` object ( PublisherModelConfig  ` )
+`publisherModelConfig` `object ( `[`PublisherModelConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#PublisherModelConfig)` )`
 
 Optional. Configuration for a Publisher Model. This message contains details about a publisher model used with this Endpoint, such as logging config or data sharing settings.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;deployedModels&quot;: [{object (DeployedModel)}],&quot;trafficSplit&quot;: {string: integer,...},&quot;etag&quot;: string,&quot;labels&quot;: {string: string,...},&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;network&quot;: string,&quot;enablePrivateServiceConnect&quot;: boolean,&quot;privateServiceConnectConfig&quot;: {object (PrivateServiceConnectConfig)},&quot;modelDeploymentMonitoringJob&quot;: string,&quot;predictRequestResponseLoggingConfig&quot;: {object (PredictRequestResponseLoggingConfig)},&quot;dedicatedEndpointEnabled&quot;: boolean,&quot;dedicatedEndpointDns&quot;: string,&quot;gdcConfig&quot;: {object (GdcConfig)},&quot;clientConnectionConfig&quot;: {object (ClientConnectionConfig)},&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean,&quot;genAiAdvancedFeaturesConfig&quot;: {object (GenAiAdvancedFeaturesConfig)},&quot;publisherModelConfig&quot;: {object (PublisherModelConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "description": string,
+  "deployedModels": [
+    {
+      object (DeployedModel)
+    }
+  ],
+  "trafficSplit": {
+    string: integer,
+    ...
+  },
+  "etag": string,
+  "labels": {
+    string: string,
+    ...
+  },
+  "createTime": string,
+  "updateTime": string,
+  "encryptionSpec": {
+    object (EncryptionSpec)
+  },
+  "network": string,
+  "enablePrivateServiceConnect": boolean,
+  "privateServiceConnectConfig": {
+    object (PrivateServiceConnectConfig)
+  },
+  "modelDeploymentMonitoringJob": string,
+  "predictRequestResponseLoggingConfig": {
+    object (PredictRequestResponseLoggingConfig)
+  },
+  "dedicatedEndpointEnabled": boolean,
+  "dedicatedEndpointDns": string,
+  "gdcConfig": {
+    object (GdcConfig)
+  },
+  "clientConnectionConfig": {
+    object (ClientConnectionConfig)
+  },
+  "satisfiesPzs": boolean,
+  "satisfiesPzi": boolean,
+  "genAiAdvancedFeaturesConfig": {
+    object (GenAiAdvancedFeaturesConfig)
+  },
+  "publisherModelConfig": {
+    object (PublisherModelConfig)
+  }
+}
+```
 
 ## DeployedModel
 
@@ -174,21 +212,21 @@ Output only. The version id of the model that is deployed.
 
 The display name of the DeployedModel. If not provided upon creation, the Model's displayName is used.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when the DeployedModel was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`explanationSpec` ` object ( ExplanationSpec  ` )
+`explanationSpec` `object ( `[`ExplanationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ExplanationSpec)` )`
 
 Explanation configuration for this DeployedModel.
 
-When deploying a Model using `  EndpointService.DeployModel  ` , this value overrides the value of `  Model.explanation_spec  ` . All fields of `  explanationSpec  ` are optional in the request. If a field of `  explanationSpec  ` is not populated, the value of the same field of `  Model.explanation_spec  ` is inherited. If the corresponding `  Model.explanation_spec  ` is not populated, all fields of the `  explanationSpec  ` will be used for the explanation configuration.
+When deploying a Model using [`EndpointService.DeployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/deployModel#google.cloud.aiplatform.v1beta1.EndpointService.DeployModel) , this value overrides the value of [`Model.explanation_spec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models#Model.FIELDS.explanation_spec) . All fields of [`explanationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#DeployedModel.FIELDS.explanation_spec) are optional in the request. If a field of [`explanationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#DeployedModel.FIELDS.explanation_spec) is not populated, the value of the same field of [`Model.explanation_spec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models#Model.FIELDS.explanation_spec) is inherited. If the corresponding [`Model.explanation_spec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models#Model.FIELDS.explanation_spec) is not populated, all fields of the [`explanationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#DeployedModel.FIELDS.explanation_spec) will be used for the explanation configuration.
 
 `disableExplanations` `boolean`
 
-If true, deploy the model without explainable feature, regardless the existence of `  Model.explanation_spec  ` or `  explanationSpec  ` .
+If true, deploy the model without explainable feature, regardless the existence of [`Model.explanation_spec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models#Model.FIELDS.explanation_spec) or [`explanationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#DeployedModel.FIELDS.explanation_spec) .
 
 `serviceAccount` `string`
 
@@ -214,19 +252,19 @@ If true, online prediction access logs are sent to Cloud Logging. These logs are
 
 Note that logs may incur a cost, especially if your project receives prediction requests at a high queries per second rate (QPS). Estimate your costs before enabling this option.
 
-`privateEndpoints` ` object ( PrivateEndpoints  ` )
+`privateEndpoints` `object ( `[`PrivateEndpoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#PrivateEndpoints)` )`
 
-Output only. Provide paths for users to send predict/explain/health requests directly to the deployed model services running on Cloud via private services access. This field is populated if `  network  ` is configured.
+Output only. Provide paths for users to send predict/explain/health requests directly to the deployed model services running on Cloud via private services access. This field is populated if [`network`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint.FIELDS.network) is configured.
 
-`fasterDeploymentConfig` ` object ( FasterDeploymentConfig  ` )
+`fasterDeploymentConfig` `object ( `[`FasterDeploymentConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#FasterDeploymentConfig)` )`
 
 Configuration for faster model deployment.
 
-`rolloutOptions` ` object ( RolloutOptions  ` )
+`rolloutOptions` `object ( `[`RolloutOptions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#RolloutOptions)` )`
 
 Options for configuring rolling deployments.
 
-`status` ` object ( Status  ` )
+`status` `object ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Status)` )`
 
 Output only. Runtime status of the deployed model.
 
@@ -238,19 +276,19 @@ System labels to apply to Model Garden deployments. System labels are managed by
 
 The checkpoint id of the model.
 
-`speculativeDecodingSpec` ` object ( SpeculativeDecodingSpec  ` )
+`speculativeDecodingSpec` `object ( `[`SpeculativeDecodingSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#SpeculativeDecodingSpec)` )`
 
 Optional. Spec for configuring speculative decoding.
 
 `prediction_resources` `Union type`
 
-The prediction (for example, the machine) resources that the DeployedModel uses. The user is billed for the resources (at least their minimal amount) even if the DeployedModel receives no traffic. Not all Models support all resources types. See `  Model.supported_deployment_resources_types  ` . Required except for Large Model Deploy use cases. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+The prediction (for example, the machine) resources that the DeployedModel uses. The user is billed for the resources (at least their minimal amount) even if the DeployedModel receives no traffic. Not all Models support all resources types. See [`Model.supported_deployment_resources_types`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models#Model.FIELDS.supported_deployment_resources_types) . Required except for Large Model Deploy use cases. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`dedicatedResources` ` object ( DedicatedResources  ` )
+`dedicatedResources` `object ( `[`DedicatedResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources)` )`
 
 A description of resources that are dedicated to the DeployedModel, and that need a higher degree of manual configuration.
 
-`automaticResources` ` object ( AutomaticResources  ` )
+`automaticResources` `object ( `[`AutomaticResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/AutomaticResources)` )`
 
 A description of resources that to large degree are decided by Agent Platform, and require only a modest additional configuration.
 
@@ -258,27 +296,65 @@ A description of resources that to large degree are decided by Agent Platform, a
 
 The resource name of the shared DeploymentResourcePool to deploy on. Format: `projects/{project}/locations/{location}/deploymentResourcePools/{deploymentResourcePool}`
 
-`fullFineTunedResources` ` object ( FullFineTunedResources  ` )
+`fullFineTunedResources` `object ( `[`FullFineTunedResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#FullFineTunedResources)` )`
 
 Optional. Resources for a full fine tuned model.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;id&quot;: string,&quot;model&quot;: string,&quot;gdcConnectedModel&quot;: string,&quot;modelVersionId&quot;: string,&quot;displayName&quot;: string,&quot;createTime&quot;: string,&quot;explanationSpec&quot;: {object (ExplanationSpec)},&quot;disableExplanations&quot;: boolean,&quot;serviceAccount&quot;: string,&quot;enableContainerLogging&quot;: boolean,&quot;disableContainerLogging&quot;: boolean,&quot;enableAccessLogging&quot;: boolean,&quot;privateEndpoints&quot;: {object (PrivateEndpoints)},&quot;fasterDeploymentConfig&quot;: {object (FasterDeploymentConfig)},&quot;rolloutOptions&quot;: {object (RolloutOptions)},&quot;status&quot;: {object (Status)},&quot;systemLabels&quot;: {string: string,...},&quot;checkpointId&quot;: string,&quot;speculativeDecodingSpec&quot;: {object (SpeculativeDecodingSpec)},// prediction_resources&quot;dedicatedResources&quot;: {object (DedicatedResources)},&quot;automaticResources&quot;: {object (AutomaticResources)},&quot;sharedResources&quot;: string,&quot;fullFineTunedResources&quot;: {object (FullFineTunedResources)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "id": string,
+  "model": string,
+  "gdcConnectedModel": string,
+  "modelVersionId": string,
+  "displayName": string,
+  "createTime": string,
+  "explanationSpec": {
+    object (ExplanationSpec)
+  },
+  "disableExplanations": boolean,
+  "serviceAccount": string,
+  "enableContainerLogging": boolean,
+  "disableContainerLogging": boolean,
+  "enableAccessLogging": boolean,
+  "privateEndpoints": {
+    object (PrivateEndpoints)
+  },
+  "fasterDeploymentConfig": {
+    object (FasterDeploymentConfig)
+  },
+  "rolloutOptions": {
+    object (RolloutOptions)
+  },
+  "status": {
+    object (Status)
+  },
+  "systemLabels": {
+    string: string,
+    ...
+  },
+  "checkpointId": string,
+  "speculativeDecodingSpec": {
+    object (SpeculativeDecodingSpec)
+  },
+
+  // prediction_resources
+  "dedicatedResources": {
+    object (DedicatedResources)
+  },
+  "automaticResources": {
+    object (AutomaticResources)
+  },
+  "sharedResources": string,
+  "fullFineTunedResources": {
+    object (FullFineTunedResources)
+  }
+  // Union type
+}
+```
 
 ## FullFineTunedResources
 
@@ -286,47 +362,32 @@ Resources for an fft model.
 
 Fields
 
-`deploymentType` ` enum ( DeploymentType  ` )
+`deploymentType` `enum ( `[`DeploymentType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#DeploymentType)` )`
 
 Required. The kind of deployment.
 
 `modelInferenceUnitCount` `integer`
 
-Optional. The number of model inference units to use for this deployment. This can only be specified for DEPLOYMENT\_TYPE\_PROD. The following table lists the number of model inference units for different model types: \* Gemini 2.5 Flash \* Foundation FMIU: 25 \* Expansion FMIU: 4 \* Gemini 2.5 Pro \* Foundation FMIU: 32 \* Expansion FMIU: 16 \* Veo 3.0 (undistilled) \* Foundation FMIU: 63 \* Expansion FMIU: 7 \* Veo 3.0 (distilled) \* Foundation FMIU: 30 \* Expansion FMIU: 10
+Optional. The number of model inference units to use for this deployment. This can only be specified for DEPLOYMENT_TYPE_PROD. The following table lists the number of model inference units for different model types: \* Gemini 2.5 Flash \* Foundation FMIU: 25 \* Expansion FMIU: 4 \* Gemini 2.5 Pro \* Foundation FMIU: 32 \* Expansion FMIU: 16 \* Veo 3.0 (undistilled) \* Foundation FMIU: 63 \* Expansion FMIU: 7 \* Veo 3.0 (distilled) \* Foundation FMIU: 30 \* Expansion FMIU: 10
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;deploymentType&quot;: enum (DeploymentType),&quot;modelInferenceUnitCount&quot;: integer}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "deploymentType": enum (DeploymentType),
+  "modelInferenceUnitCount": integer
+}
+```
 
 ## DeploymentType
 
 The type of deployment.
 
-Enums
-
-`DEPLOYMENT_TYPE_UNSPECIFIED`
-
-Unspecified deployment type.
-
-`DEPLOYMENT_TYPE_EVAL`
-
-Eval deployment type.
-
-`DEPLOYMENT_TYPE_PROD`
-
-Prod deployment type.
+| Enums                         |                              |
+|-------------------------------|------------------------------|
+| `DEPLOYMENT_TYPE_UNSPECIFIED` | Unspecified deployment type. |
+| `DEPLOYMENT_TYPE_EVAL`        | Eval deployment type.        |
+| `DEPLOYMENT_TYPE_PROD`        | Prod deployment type.        |
 
 ## PrivateEndpoints
 
@@ -350,26 +411,16 @@ Output only. Http(s) path to send health check requests.
 
 Output only. The name of the service attachment resource. Populated if private service connect is enabled.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;predictHttpUri&quot;: string,
-  &quot;explainHttpUri&quot;: string,
-  &quot;healthHttpUri&quot;: string,
-  &quot;serviceAttachment&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "predictHttpUri": string,
+  "explainHttpUri": string,
+  "healthHttpUri": string,
+  "serviceAttachment": string
+}
+```
 
 ## FasterDeploymentConfig
 
@@ -381,23 +432,13 @@ Fields
 
 If true, enable fast tryout feature for this deployed model.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;fastTryoutEnabled&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "fastTryoutEnabled": boolean
+}
+```
 
 ## RolloutOptions
 
@@ -441,34 +482,24 @@ Percentage of allowed additional replicas. For autoscaling deployments, this ref
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;previousDeployedModel&quot;: string,
-  &quot;revisionNumber&quot;: integer,
+**JSON representation**
+
+```
+{
+  "previousDeployedModel": string,
+  "revisionNumber": integer,
 
   // max_unavailable
-  &quot;maxUnavailableReplicas&quot;: integer,
-  &quot;maxUnavailablePercentage&quot;: integer
+  "maxUnavailableReplicas": integer,
+  "maxUnavailablePercentage": integer
   // Union type
 
   // max_surge
-  &quot;maxSurgeReplicas&quot;: integer,
-  &quot;maxSurgePercentage&quot;: integer
+  "maxSurgeReplicas": integer,
+  "maxSurgePercentage": integer
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## Status
 
@@ -480,7 +511,7 @@ Fields
 
 Output only. The latest deployed model's status message (if any).
 
-`lastUpdateTime` ` string ( Timestamp  ` format)
+`lastUpdateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. The time at which the status was last updated.
 
@@ -490,25 +521,15 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 Output only. The number of available replicas of the deployed model.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;message&quot;: string,
-  &quot;lastUpdateTime&quot;: string,
-  &quot;availableReplicaCount&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "message": string,
+  "lastUpdateTime": string,
+  "availableReplicaCount": integer
+}
+```
 
 ## SpeculativeDecodingSpec
 
@@ -524,31 +545,32 @@ The number of speculative tokens to generate at each step.
 
 The type of speculation method to use. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`draftModelSpeculation` ` object ( DraftModelSpeculation  ` )
+`draftModelSpeculation` `object ( `[`DraftModelSpeculation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#DraftModelSpeculation)` )`
 
 draft model speculation.
 
-`ngramSpeculation` ` object ( NgramSpeculation  ` )
+`ngramSpeculation` `object ( `[`NgramSpeculation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#NgramSpeculation)` )`
 
 N-Gram speculation.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;speculativeTokenCount&quot;: integer,// speculation&quot;draftModelSpeculation&quot;: {object (DraftModelSpeculation)},&quot;ngramSpeculation&quot;: {object (NgramSpeculation)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "speculativeTokenCount": integer,
+
+  // speculation
+  "draftModelSpeculation": {
+    object (DraftModelSpeculation)
+  },
+  "ngramSpeculation": {
+    object (NgramSpeculation)
+  }
+  // Union type
+}
+```
 
 ## DraftModelSpeculation
 
@@ -560,23 +582,13 @@ Fields
 
 Required. The resource name of the draft model.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;draftModel&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "draftModel": string
+}
+```
 
 ## NgramSpeculation
 
@@ -588,23 +600,13 @@ Fields
 
 The number of last N input tokens used as ngram to search/match against the previous prompt sequence. This is equal to the N in N-Gram. The default value is 3 if not specified.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;ngramSize&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "ngramSize": integer
+}
+```
 
 ## PredictRequestResponseLoggingConfig
 
@@ -624,7 +626,7 @@ Percentage of requests to be logged, expressed as a fraction in range(0,1\].
 
 Optional. Percentage of failed requests to be logged, expressed as a fraction in range \[0,1\]. Only non-transient errors will be logged (currently `500/Internal` errors).
 
-`bigqueryDestination` ` object ( BigQueryDestination  ` )
+`bigqueryDestination` `object ( `[`BigQueryDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/BigQueryDestination)` )`
 
 BigQuery table for logging. If only given a project, a new dataset will be created with name `logging_<endpoint-display-name>_<endpoint-id>` where will be made BigQuery-dataset-name compatible (e.g. most special characters will become underscores). If no table name is given, a new table will be created with name `request_response_logging`
 
@@ -634,23 +636,22 @@ Output only. The schema version used in creating the BigQuery table for the requ
 
 `enableOtelLogging` `boolean`
 
-This field is used for large models. If true, in addition to the original large model logs, logs will be converted in OTel schema format, and saved in otel\_log column. Default value is false.
+This field is used for large models. If true, in addition to the original large model logs, logs will be converted in OTel schema format, and saved in otel_log column. Default value is false.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;enabled&quot;: boolean,&quot;samplingRate&quot;: number,&quot;errorSamplingRate&quot;: number,&quot;bigqueryDestination&quot;: {object (BigQueryDestination)},&quot;requestResponseLoggingSchemaVersion&quot;: string,&quot;enableOtelLogging&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "enabled": boolean,
+  "samplingRate": number,
+  "errorSamplingRate": number,
+  "bigqueryDestination": {
+    object (BigQueryDestination)
+  },
+  "requestResponseLoggingSchemaVersion": string,
+  "enableOtelLogging": boolean
+}
+```
 
 ## GdcConfig
 
@@ -662,23 +663,13 @@ Fields
 
 GDC zone. A cluster will be designated for the Agent Platform workload in this zone.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;zone&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "zone": string
+}
+```
 
 ## ClientConnectionConfig
 
@@ -686,29 +677,19 @@ Configurations (e.g. inference timeout) that are applied on your endpoints.
 
 Fields
 
-`inferenceTimeout` ` string ( Duration  ` format)
+`inferenceTimeout` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 Customizable online prediction request timeout.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;inferenceTimeout&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "inferenceTimeout": string
+}
+```
 
 ## GenAiAdvancedFeaturesConfig
 
@@ -716,25 +697,19 @@ Configuration for GenAiAdvancedFeatures.
 
 Fields
 
-`ragConfig` ` object ( RagConfig  ` )
+`ragConfig` `object ( `[`RagConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#RagConfig)` )`
 
 Configuration for Retrieval Augmented Generation feature.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;ragConfig&quot;: {object (RagConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "ragConfig": {
+    object (RagConfig)
+  }
+}
+```
 
 ## RagConfig
 
@@ -746,23 +721,13 @@ Fields
 
 If true, enable Retrieval Augmented Generation in ChatCompletion request. Once enabled, the endpoint will be identified as GenAI endpoint and Arthedain router will be used.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;enableRag&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "enableRag": boolean
+}
+```
 
 ## PublisherModelConfig
 
@@ -770,136 +735,57 @@ This message contains configs of a publisher model.
 
 Fields
 
-`loggingConfig` ` object ( PredictRequestResponseLoggingConfig  ` )
+`loggingConfig` `object ( `[`PredictRequestResponseLoggingConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#PredictRequestResponseLoggingConfig)` )`
 
 Optional. The prediction request/response logging config.
 
-`dataSharingEnabledProvider` ` enum ( ModelProvider  ` )
+`dataSharingEnabledProvider` `enum ( `[`ModelProvider`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#ModelProvider)` )`
 
 Optional. The model provider (publisher) for which the customer has enabled data sharing. For publisher models that are configured to require data sharing, a prediction request is only allowed when the model's publisher matches this provider. Otherwise, the request is rejected.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;loggingConfig&quot;: {object (PredictRequestResponseLoggingConfig)},&quot;dataSharingEnabledProvider&quot;: enum (ModelProvider)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "loggingConfig": {
+    object (PredictRequestResponseLoggingConfig)
+  },
+  "dataSharingEnabledProvider": enum (ModelProvider)
+}
+```
 
 ## ModelProvider
 
 A model provider (publisher) that prediction data may be shared with.
 
-Enums
+| Enums                        |                             |
+|------------------------------|-----------------------------|
+| `MODEL_PROVIDER_UNSPECIFIED` | Unspecified model provider. |
+| `ANTHROPIC`                  | Anthropic.                  |
 
-`MODEL_PROVIDER_UNSPECIFIED`
-
-Unspecified model provider.
-
-`ANTHROPIC`
-
-Anthropic.
-
-## Methods
-
-### `            computeTokens           `
-
-Return a list of tokens based on the input text.
-
-### `            countTokens           `
-
-Perform a token counting.
-
-### `            create           `
-
-Creates an Endpoint.
-
-### `            delete           `
-
-Deletes an Endpoint.
-
-### `            deployModel           `
-
-Deploys a Model into this Endpoint, creating a DeployedModel within it.
-
-### `            directPredict           `
-
-Perform an unary online prediction request to a gRPC model server for Vertex first-party products and frameworks.
-
-### `            directRawPredict           `
-
-Perform an unary online prediction request to a gRPC model server for custom containers.
-
-### `            explain           `
-
-Perform an online explanation.
-
-### `            generateContent           `
-
-Generate content with multimodal inputs.
-
-### `            get           `
-
-Gets an Endpoint.
-
-### `            getIamPolicy           `
-
-Gets the access control policy for a resource.
-
-### `            list           `
-
-Lists Endpoints in a Location.
-
-### `            mutateDeployedModel           `
-
-Updates an existing deployed model.
-
-### `            patch           `
-
-Updates an Endpoint.
-
-### `            predict           `
-
-Perform an online inference.
-
-### `            predictLongRunning           `
-
-### `            rawPredict           `
-
-Perform an online prediction with an arbitrary HTTP payload.
-
-### `            serverStreamingPredict           `
-
-Perform a server-side streaming online prediction request for Vertex LLM streaming.
-
-### `            setIamPolicy           `
-
-Sets the access control policy on the specified resource.
-
-### `            streamGenerateContent           `
-
-Generate content with multimodal inputs with streaming support.
-
-### `            streamRawPredict           `
-
-Perform a streaming online prediction with an arbitrary HTTP payload.
-
-### `            testIamPermissions           `
-
-Returns permissions that a caller has on the specified resource.
-
-### `            undeployModel           `
-
-Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freeing all resources it's using.
-
-### `            update           `
-
-Updates an Endpoint with a long running operation.
+| Methods                                                                                                                                                               |                                                                                                                   |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| [`computeTokens`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/computeTokens)                   | Return a list of tokens based on the input text.                                                                  |
+| [`countTokens`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/countTokens)                       | Perform a token counting.                                                                                         |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/create)                                 | Creates an Endpoint.                                                                                              |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/delete)                                 | Deletes an Endpoint.                                                                                              |
+| [`deployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/deployModel)                       | Deploys a Model into this Endpoint, creating a DeployedModel within it.                                           |
+| [`directPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/directPredict)                   | Perform an unary online prediction request to a gRPC model server for Vertex first-party products and frameworks. |
+| [`directRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/directRawPredict)             | Perform an unary online prediction request to a gRPC model server for custom containers.                          |
+| [`explain`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain)                               | Perform an online explanation.                                                                                    |
+| [`generateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/generateContent)               | Generate content with multimodal inputs.                                                                          |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/get)                                       | Gets an Endpoint.                                                                                                 |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/getIamPolicy)                     | Gets the access control policy for a resource.                                                                    |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/list)                                     | Lists Endpoints in a Location.                                                                                    |
+| [`mutateDeployedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/mutateDeployedModel)       | Updates an existing deployed model.                                                                               |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/patch)                                   | Updates an Endpoint.                                                                                              |
+| [`predict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/predict)                               | Perform an online inference.                                                                                      |
+| [`predictLongRunning`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/predictLongRunning)         |                                                                                                                   |
+| [`rawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/rawPredict)                         | Perform an online prediction with an arbitrary HTTP payload.                                                      |
+| [`serverStreamingPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/serverStreamingPredict) | Perform a server-side streaming online prediction request for Vertex LLM streaming.                               |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/setIamPolicy)                     | Sets the access control policy on the specified resource.                                                         |
+| [`streamGenerateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/streamGenerateContent)   | Generate content with multimodal inputs with streaming support.                                                   |
+| [`streamRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/streamRawPredict)             | Perform a streaming online prediction with an arbitrary HTTP payload.                                             |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/testIamPermissions)         | Returns permissions that a caller has on the specified resource.                                                  |
+| [`undeployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/undeployModel)                   | Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freeing all resources it's using.       |
+| [`update`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/update)                                 | Updates an Endpoint with a long running operation.                                                                |

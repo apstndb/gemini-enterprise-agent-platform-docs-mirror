@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > Some of the RAG features are Preview offerings, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . Pre-GA products and features are available "as-is" and may have limited support, and changes to Pre-GA products and features may not be compatible with other Pre-GA versions. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages) . By using the Gemini API on Gemini Enterprise Agent Platform, you agree to the Generative AI Preview [terms and conditions](https://cloud.google.com/trustedtester/aitos) (Preview Terms).
 
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
@@ -24,8 +24,8 @@ In this section, we discuss the two deployment modes available for RAG Engine:
 
 Serverless mode is the most affordable and recommended way to get started with RAG Engine. It provides a fully managed, planet-scale, enterprise-ready database that abstracts away all database provisioning and scaling.
 
-  - **Best for** : Most users, quick onboarding, and seamless scaling without the need to manage infrastructure configurations.
-  - **Key features** : Requires no tier management. It automatically uses RAG-managed Vector Search as the default vector database to provide a streamlined and out-of-the-box RAG experience.
+- **Best for** : Most users, quick onboarding, and seamless scaling without the need to manage infrastructure configurations.
+- **Key features** : Requires no tier management. It automatically uses RAG-managed Vector Search as the default vector database to provide a streamlined and out-of-the-box RAG experience.
 
 > **Note:** Customer-Managed Encryption Keys (CMEK) are not supported in Serverless mode.
 
@@ -39,8 +39,8 @@ Spanner mode allocates dedicated Spanner infrastructure specifically to serve as
 
 When using Spanner mode, you must manage your infrastructure by selecting a performance tier:
 
-  - **Basic tier (default):** A fixed, cost-effective, low-compute tier suitable for experimentation, small data sizes, or latency-insensitive workloads.
-  - **Scaled tier:** Offers production-scale performance with autoscaling functionality. It is suitable for customers with large amounts of data or performance-sensitive workloads.
+- **Basic tier (default):** A fixed, cost-effective, low-compute tier suitable for experimentation, small data sizes, or latency-insensitive workloads.
+- **Scaled tier:** Offers production-scale performance with autoscaling functionality. It is suitable for customers with large amounts of data or performance-sensitive workloads.
 
 ## Data isolation and switching modes
 
@@ -52,9 +52,9 @@ As a helpful tool, you can imagine that your project behaves as if it has two co
 
 As illustrated in the diagram:
 
-  - **Unified API** : You use the exact same Agent Platform RAG APIs to create and manage resources. The API automatically routes your requests to the backend associated with your active deployment mode.
-  - **Visibility** : If Serverless mode is active, your application can only see and interact with RagCorpus A and B. RagCorpus C, which was created under Spanner mode, remains safely stored but is completely hidden and inaccessible to your application until you switch your project's mode back to Spanner.
-  - **No data loss** : Switching modes does not delete your data. It just changes which "backend" the API is looking at.
+- **Unified API** : You use the exact same Agent Platform RAG APIs to create and manage resources. The API automatically routes your requests to the backend associated with your active deployment mode.
+- **Visibility** : If Serverless mode is active, your application can only see and interact with RagCorpus A and B. RagCorpus C, which was created under Spanner mode, remains safely stored but is completely hidden and inaccessible to your application until you switch your project's mode back to Spanner.
+- **No data loss** : Switching modes does not delete your data. It just changes which "backend" the API is looking at.
 
 ## Manage your deployment mode
 
@@ -64,8 +64,8 @@ The deployment mode is a project-level setting. You can view or change your curr
 
 Because data is isolated between modes, the processes for cleaning up resources and halting billing differ slightly depending on where your data lives.
 
-  - **To delete Serverless data:** Ensure your active mode is set to Serverless. Call the `ListRagCorpora` API to view your resources, and then manually delete each corpus using the `DeleteRagCorpus` API.
-  - **To delete Spanner data (Deprovisioning):** Ensure your active mode is set to Spanner. Update your `RagEngineConfig` and set the Spanner tier to `Unprovisioned` . This will immediately delete your dedicated Spanner instance and all RAG data held within it, halting any associated billing for the Spanner mode. Note: Data deleted using the Unprovisioned tier cannot be recovered.
+- **To delete Serverless data:** Ensure your active mode is set to Serverless. Call the `ListRagCorpora` API to view your resources, and then manually delete each corpus using the `DeleteRagCorpus` API.
+- **To delete Spanner data (Deprovisioning):** Ensure your active mode is set to Spanner. Update your `RagEngineConfig` and set the Spanner tier to `Unprovisioned` . This will immediately delete your dedicated Spanner instance and all RAG data held within it, halting any associated billing for the Spanner mode. Note: Data deleted using the Unprovisioned tier cannot be recovered.
 
 ## Spanner mode versus Serverless mode
 
@@ -91,7 +91,7 @@ Because data is isolated between modes, the processes for cleaning up resources 
 </ul></td>
 <td><ul>
 <li>Pricing depends on choice of tier. Includes resource management and orchestration.</li>
-<li>Vector DB cost covered for all corpora with <code dir="ltr" translate="no">RagManagedDb</code> as choice of vector database.</li>
+<li>Vector DB cost covered for all corpora with <code>RagManagedDb</code> as choice of vector database.</li>
 <li>For the rest of the corpora, vector DB billed directly according to users choice of database.</li>
 </ul></td>
 </tr>
@@ -118,12 +118,12 @@ Because data is isolated between modes, the processes for cleaning up resources 
 <tr class="even">
 <td>Supported Vector DBs</td>
 <td><ul>
-<li><code dir="ltr" translate="no">Managed Vector Search 2.0</code> (Default)</li>
+<li><code>Managed Vector Search 2.0</code> (Default)</li>
 <li>Pinecone</li>
 <li>Weaviate</li>
 </ul></td>
 <td><ul>
-<li><code dir="ltr" translate="no">RagManagedDb</code> (Default)</li>
+<li><code>RagManagedDb</code> (Default)</li>
 <li>Managed Vector Search 2.0</li>
 <li>Vector Search 1.0</li>
 <li>Pinecone</li>
@@ -135,9 +135,9 @@ Because data is isolated between modes, the processes for cleaning up resources 
 
 ## What's next
 
-  - To start using RAG Engine, see [RAG quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-quickstart) .
-  - To change your deployment mode or update the tier of your Spanner mode, see [Switching between modes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/switching-modes) .
-  - To delete your Spanner instance, see [Update to Unprovisioned Tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/switching-modes#update-spanner-tier) .
-  - To learn more about Spanner mode, see [Managing Spanner mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/spanner-mode) .
-  - To learn more about Serverless mode, see [Serverless mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/serverless-mode) .
-  - To learn about pricing, see [RAG Engine on Gemini Enterprise Agent Platform billing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-engine-billing) .
+- To start using RAG Engine, see [RAG quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-quickstart) .
+- To change your deployment mode or update the tier of your Spanner mode, see [Switching between modes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/switching-modes) .
+- To delete your Spanner instance, see [Update to Unprovisioned Tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/switching-modes#update-spanner-tier) .
+- To learn more about Spanner mode, see [Managing Spanner mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/spanner-mode) .
+- To learn more about Serverless mode, see [Serverless mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/serverless-mode) .
+- To learn about pricing, see [RAG Engine on Gemini Enterprise Agent Platform billing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-engine-billing) .

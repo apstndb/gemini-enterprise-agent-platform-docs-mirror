@@ -14,27 +14,24 @@ Fields
 
 The method for generating the search key. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`lastEntry` ` object ( LastEntry  ` )
+`lastEntry` `object ( `[`LastEntry`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/SearchKeyGenerationMethod#LastEntry)` )`
 
 Use only the last entry of the conversation history ( `contentsExample.contents` ) as the search key.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// method&quot;lastEntry&quot;: {object (LastEntry)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // method
+  "lastEntry": {
+    object (LastEntry)
+  }
+  // Union type
+}
+```
 
 ## LastEntry
 

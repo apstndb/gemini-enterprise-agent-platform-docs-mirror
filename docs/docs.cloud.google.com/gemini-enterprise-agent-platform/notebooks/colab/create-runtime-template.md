@@ -32,8 +32,8 @@ To create a runtime template:
 
 1.  In the Google Cloud console, go to the Colab Enterprise **Runtime templates** page.
 
-2.  Click add\_box **New template** .
-    
+2.  Click add_box **New template** .
+
     The **Create new runtime template** dialog appears.
 
 ### Runtime basics
@@ -51,7 +51,7 @@ To create a runtime template:
 ### Configure compute
 
 1.  In the **Configure compute** section, in the **Machine type** menu, select a machine type. For information on machine types, see the [Machine families resource and comparison guide](https://docs.cloud.google.com/compute/docs/machine-resource) .
-    
+
     If you select a machine type that has GPUs, select the **Accelerator type** and **Accelerator count** . If you're unable to select the number of GPUs that you want, you might need to increase your quota. See [Request a quota adjustment](https://docs.cloud.google.com/docs/quotas/help/request_increase) .
 
 2.  In the **Data disk type** menu, select a disk type.
@@ -59,10 +59,10 @@ To create a runtime template:
 3.  In the **Data disk size** field, enter a size in GB.
 
 4.  In the **Idle shutdown** section:
-    
-      - To turn off idle shutdown, clear **Enable idle shutdown** .
-    
-      - To change the inactivity time period, in **Time of inactivity before shutdown (Minutes)** , change the number to the number of minutes of inactivity that you want. In the Google Cloud console, this setting can be set to any integer value from 10 to 1440.
+
+    - To turn off idle shutdown, clear **Enable idle shutdown** .
+
+    - To change the inactivity time period, in **Time of inactivity before shutdown (Minutes)** , change the number to the number of minutes of inactivity that you want. In the Google Cloud console, this setting can be set to any integer value from 10 to 1440.
 
 5.  Click **Continue** .
 
@@ -98,12 +98,12 @@ Your runtime template appears in the list on the **Runtime templates** tab.
 
 Before using any of the command data below, make the following replacements:
 
-  - `  DISPLAY_NAME  ` : the display name of your runtime template.
-  - `  PROJECT_ID  ` : your project ID.
-  - `  REGION  ` : the region where you want your runtime template.
-  - `  MACHINE_TYPE  ` : the [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) to use for your runtime.
-  - `  ACCELERATOR_TYPE  ` : the type of hardware accelerator to use for your runtime.
-  - `  ACCELERATOR_COUNT  ` : the number of accelerators to use for your runtime.
+- `DISPLAY_NAME` : the display name of your runtime template.
+- `PROJECT_ID` : your project ID.
+- `REGION` : the region where you want your runtime template.
+- `MACHINE_TYPE` : the [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) to use for your runtime.
+- `ACCELERATOR_TYPE` : the type of hardware accelerator to use for your runtime.
+- `ACCELERATOR_COUNT` : the number of accelerators to use for your runtime.
 
 Execute the following command:
 
@@ -111,34 +111,40 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud colab runtime-templates create --display-name="DISPLAY_NAME" \
-        --project=PROJECT_ID \
-        --region=REGION \
-        --machine-type=MACHINE_TYPE \
-        --accelerator-type=ACCELERATOR_TYPE \
-        --accelerator-count=ACCELERATOR_COUNT
+```
+gcloud colab runtime-templates create --display-name="DISPLAY_NAME" \
+    --project=PROJECT_ID \
+    --region=REGION \
+    --machine-type=MACHINE_TYPE \
+    --accelerator-type=ACCELERATOR_TYPE \
+    --accelerator-count=ACCELERATOR_COUNT
+```
 
 #### Windows (PowerShell)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud colab runtime-templates create --display-name="DISPLAY_NAME" `
-        --project=PROJECT_ID `
-        --region=REGION `
-        --machine-type=MACHINE_TYPE `
-        --accelerator-type=ACCELERATOR_TYPE `
-        --accelerator-count=ACCELERATOR_COUNT
+```
+gcloud colab runtime-templates create --display-name="DISPLAY_NAME" `
+    --project=PROJECT_ID `
+    --region=REGION `
+    --machine-type=MACHINE_TYPE `
+    --accelerator-type=ACCELERATOR_TYPE `
+    --accelerator-count=ACCELERATOR_COUNT
+```
 
 #### Windows (cmd.exe)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud colab runtime-templates create --display-name="DISPLAY_NAME" ^
-        --project=PROJECT_ID ^
-        --region=REGION ^
-        --machine-type=MACHINE_TYPE ^
-        --accelerator-type=ACCELERATOR_TYPE ^
-        --accelerator-count=ACCELERATOR_COUNT
+```
+gcloud colab runtime-templates create --display-name="DISPLAY_NAME" ^
+    --project=PROJECT_ID ^
+    --region=REGION ^
+    --machine-type=MACHINE_TYPE ^
+    --accelerator-type=ACCELERATOR_TYPE ^
+    --accelerator-count=ACCELERATOR_COUNT
+```
 
 For more information about the command for creating a runtime template from the command line, see the [gcloud CLI documentation](https://docs.cloud.google.com/sdk/gcloud/reference/colab/runtime-templates/create) .
 
@@ -146,29 +152,33 @@ For more information about the command for creating a runtime template from the 
 
 Before using any of the request data, make the following replacements:
 
-  - `  REGION  ` : the region where you want your runtime template.
-  - `  PROJECT_ID  ` : your project ID.
-  - `  DISPLAY_NAME  ` : the display name of your runtime template.
-  - `  MACHINE_TYPE  ` : the [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) to use for your runtime.
-  - `  ACCELERATOR_TYPE  ` : the type of hardware accelerator to use for your runtime.
-  - `  ACCELERATOR_COUNT  ` : the number of accelerators to use for your runtime.
+- `REGION` : the region where you want your runtime template.
+- `PROJECT_ID` : your project ID.
+- `DISPLAY_NAME` : the display name of your runtime template.
+- `MACHINE_TYPE` : the [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) to use for your runtime.
+- `ACCELERATOR_TYPE` : the type of hardware accelerator to use for your runtime.
+- `ACCELERATOR_COUNT` : the number of accelerators to use for your runtime.
 
 HTTP method and URL:
 
-    POST https://REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/notebookRuntimeTemplates
+```
+POST https://REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/notebookRuntimeTemplates
+```
 
 Request JSON body:
 
+```
+{
+  "displayName": "DISPLAY_NAME",
+  "machineSpec": {
     {
-      "displayName": "DISPLAY_NAME",
-      "machineSpec": {
-        {
-          "machineType": MACHINE_TYPE
-          "acceleratorType": ACCELERATOR_TYPE,
-          "acceleratorCount": ACCELERATOR_COUNT,
-        }
-      },
+      "machineType": MACHINE_TYPE
+      "acceleratorType": ACCELERATOR_TYPE,
+      "acceleratorCount": ACCELERATOR_COUNT,
     }
+  },
+}
+```
 
 To send your request, choose one of these options:
 
@@ -178,11 +188,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/notebookRuntimeTemplates"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/notebookRuntimeTemplates"
+```
 
 #### PowerShell
 
@@ -190,15 +202,17 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/notebookRuntimeTemplates" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/notebookRuntimeTemplates" | Select-Object -Expand Content
+```
 
 If successful, the response body contains an instance of [Operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
@@ -208,10 +222,10 @@ For more information, see the [`notebookRuntimeTemplates.create` REST API docume
 
 After you create a runtime template, you must grant access to it for a principal to be able to use it. A principal can [create a runtime](https://docs.cloud.google.com/colab/docs/create-runtime) from a runtime template only when they have the following:
 
-  - Access to the runtime template.
-  - The required permissions for creating runtimes.
+- Access to the runtime template.
+- The required permissions for creating runtimes.
 
 ## What's next
 
-  - Learn more about [runtimes and runtime templates](https://docs.cloud.google.com/colab/docs/runtimes) .
-  - Learn how to [create a runtime](https://docs.cloud.google.com/colab/docs/create-runtime) based on a runtime template.
+- Learn more about [runtimes and runtime templates](https://docs.cloud.google.com/colab/docs/runtimes) .
+- Learn how to [create a runtime](https://docs.cloud.google.com/colab/docs/create-runtime) based on a runtime template.

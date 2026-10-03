@@ -10,90 +10,110 @@ Lyria is a music generation model from Google. This page documents the capabilit
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/music) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
-Model ID
-
-`lyria-002`
-
-Modalities
-
-description
-
-Text  
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>lyria-002</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Modalities</th>
+<td>description
+Text<br />
 Input only
-
-hide\_image
-
-Image  
+hide_image
+Image<br />
 Not supported
-
 mic
-
-Audio  
+Audio<br />
 Output only
-
-videocam\_off
-
-Video  
-Not supported
-
-Capabilities
-
-  - [Text to music](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
-    Supported
-  - [Image to music](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
-    Not supported
-  - [Vocal generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
-    Not supported
-  - [Instrumental mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
-    Not supported
-  - [Lyrics generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
-    Not supported
-  - [User-provided lyrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
-    Not supported
-  - [Negative prompting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#negative-prompts)  
-    Supported
-  - [Song generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
-    Not supported
-  - [Detailed structure controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#detailed-structure)  
-    Not supported
-  - [Audio watermarking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
-    Not supported
-  - [Filtering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
-    Not supported
-  - [Prompt rewriter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
-    Not supported
-  - [Content Credentials (C2PA)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials)  
-    Not supported
-
-Technical specifications
-
-**Audio** mic
-
-  - Maximum audio clip length: 32.8 seconds
-  - Maximum number of clips per prompt: 4
-  - Supported sample rates: 48kHz
-  - Supported MIME types:
-    `audio/wav`
-
-Prompt languages
-
-  - US English ( `en-us` )
-
-Supported regions
-
-**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
-
-  - Global: `global`
-
-Quotas
-
-  - **Regional online prediction requests per minute per base model** : 10 tokens per minute
-
-Versions
-
-`lyria-002`
-
-  - Launch stage: GA
-  - Release date: 2025-10-27
+videocam_off
+Video<br />
+Not supported</td>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Capabilities</th>
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music">Text to music</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music">Image to music</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music">Vocal generation</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music">Instrumental mode</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music">Lyrics generation</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music">User-provided lyrics</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#negative-prompts">Negative prompting</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music">Song generation</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#detailed-structure">Detailed structure controls</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music">Audio watermarking</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music">Filtering</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music">Prompt rewriter</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials">Content Credentials (C2PA)</a><br />
+Not supported</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Technical specifications</th>
+<td><strong>Audio</strong> mic</td>
+<td><ul>
+<li>Maximum audio clip length: 32.8 seconds</li>
+<li>Maximum number of clips per prompt: 4</li>
+<li>Supported sample rates: 48kHz</li>
+<li>Supported MIME types:
+<code>audio/wav</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Prompt languages</th>
+<td><ul>
+<li>US English ( <code>en-us</code> )</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Supported regions</th>
+<td><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations">Model availability</a></strong></p></td>
+<td><ul>
+<li>Global: <code>global</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Quotas</th>
+<td><ul>
+<li><strong>Regional online prediction requests per minute per base model</strong> : 10 tokens per minute</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Versions</th>
+<td><ul>
+<li><code>lyria-002</code>
+<ul>
+<li>Launch stage: GA</li>
+<li>Release date: 2025-10-27</li>
+</ul></li>
+</ul></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 For Lyria pricing information, see the [Lyria](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#lyria) section of the [Cost of building and deploying AI models in Vertex AI](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#lyria-models) page.

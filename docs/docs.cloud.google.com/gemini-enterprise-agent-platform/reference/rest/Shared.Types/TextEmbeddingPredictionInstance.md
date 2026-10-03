@@ -18,22 +18,16 @@ The text passage to generate the embedding for. This can be a phrase, sentence, 
 
 The title for the text passage in the `content` field. If you are embedding documents for the `RETRIEVAL_DOCUMENT` task type, providing a title can improve the quality of the embedding.
 
-`taskType` ` enum ( TaskType  ` )
+`taskType` `enum ( `[`TaskType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/TaskType)` )`
 
 The task that the generated embeddings will be used for. The model uses this hint to generate embeddings that are optimized for your use case. If not set, the default task type is used.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;content&quot;: string,&quot;title&quot;: string,&quot;taskType&quot;: enum (TaskType)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "content": string,
+  "title": string,
+  "taskType": enum (TaskType)
+}
+```

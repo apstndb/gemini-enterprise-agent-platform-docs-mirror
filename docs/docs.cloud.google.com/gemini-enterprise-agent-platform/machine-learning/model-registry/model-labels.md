@@ -15,15 +15,15 @@ Labels can't begin with `vertex-ai-` or `goog-` .
 Use the following instructions to add a label to a model.
 
 1.  In the Google Cloud console, go to the **Model Registry** page.  
-2.  From the Gemini Enterprise Agent Platform Model Registry, locate the name of the model you want to label. Select the **More actions** menu more\_vert for the specific model.
+2.  From the Gemini Enterprise Agent Platform Model Registry, locate the name of the model you want to label. Select the **More actions** menu more_vert for the specific model.
 3.  From the drop-down, select **Edit labels** .
-4.  Click the **Add label** action button and add your key and value. For example, the key can represent a value like **created\_by** and the value can be **datascientist1** .
+4.  Click the **Add label** action button and add your key and value. For example, the key can represent a value like **created_by** and the value can be **datascientist1** .
 5.  Click **Save** .
 
 Add a label to a model version
 
 1.  In the Google Cloud console, go to the **Model Registry** page.  
 2.  From the Gemini Enterprise Agent Platform Model Registry, select the name of the model which has the version you want to label. The model details page opens.
-3.  Select the **More actions** menu more\_vert for the specific model version you want to label.
+3.  Select the **More actions** menu more_vert for the specific model version you want to label.
 4.  Click **Edit labels** . Enter the name of the new label you want to apply to the model version.
 5.  Click **Save** .

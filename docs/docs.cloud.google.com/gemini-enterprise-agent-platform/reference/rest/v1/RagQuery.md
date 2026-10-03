@@ -10,7 +10,7 @@ A query to retrieve relevant contexts.
 
 Fields
 
-`ragRetrievalConfig` ` object ( RagRetrievalConfig  ` )
+`ragRetrievalConfig` `object ( `[`RagRetrievalConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents#RagRetrievalConfig)` )`
 
 Optional. The retrieval config for the query.
 
@@ -24,18 +24,16 @@ Optional. The query in text format to get relevant contexts.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;ragRetrievalConfig&quot;: {object (RagRetrievalConfig)},// query&quot;text&quot;: string// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "ragRetrievalConfig": {
+    object (RagRetrievalConfig)
+  },
+
+  // query
+  "text": string
+  // Union type
+}
+```

@@ -42,7 +42,7 @@ Optional. If true, check user quota for the recommended regions. Returns all the
 
 ### Response body
 
-Response message for `  ModelService.RecommendSpec  ` .
+Response message for [`ModelService.RecommendSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/recommendSpec#google.cloud.aiplatform.v1beta1.ModelService.RecommendSpec) .
 
 If successful, the response body contains data with the following structure:
 
@@ -52,29 +52,31 @@ Fields
 
 Output only. The base model used to finetune the custom model.
 
-`recommendations[]` ` object ( Recommendation  ` )
+`recommendations[]` `object ( `[`Recommendation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/recommendSpec#Recommendation)` )`
 
 Output only. Recommendations of deployment options for the given custom weights model.
 
-`specs[]` ` object ( MachineAndModelContainerSpec  ` )
+`specs[]` `object ( `[`MachineAndModelContainerSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/recommendSpec#MachineAndModelContainerSpec)` )`
 
 Output only. The machine and model container specs.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;baseModel&quot;: string,&quot;recommendations&quot;: [{object (Recommendation)}],&quot;specs&quot;: [{object (MachineAndModelContainerSpec)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "baseModel": string,
+  "recommendations": [
+    {
+      object (Recommendation)
+    }
+  ],
+  "specs": [
+    {
+      object (MachineAndModelContainerSpec)
+    }
+  ]
+}
+```
 
 ## Recommendation
 
@@ -86,29 +88,25 @@ Fields
 
 The region for the deployment spec (machine).
 
-`spec` ` object ( MachineAndModelContainerSpec  ` )
+`spec` `object ( `[`MachineAndModelContainerSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/recommendSpec#MachineAndModelContainerSpec)` )`
 
 Output only. The machine and model container specs.
 
-`userQuotaState` ` enum ( QuotaState  ` )
+`userQuotaState` `enum ( `[`QuotaState`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/recommendSpec#QuotaState)` )`
 
 Output only. The user accelerator quota state.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;region&quot;: string,&quot;spec&quot;: {object (MachineAndModelContainerSpec)},&quot;userQuotaState&quot;: enum (QuotaState)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "region": string,
+  "spec": {
+    object (MachineAndModelContainerSpec)
+  },
+  "userQuotaState": enum (QuotaState)
+}
+```
 
 ## MachineAndModelContainerSpec
 
@@ -116,44 +114,33 @@ A machine and model container spec.
 
 Fields
 
-`machineSpec` `object ( MachineSpec` )
+`machineSpec` `object ( ``MachineSpec`` )`
 
 Output only. The machine spec.
 
-`containerSpec` ` object ( ModelContainerSpec  ` )
+`containerSpec` `object ( `[`ModelContainerSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelContainerSpec)` )`
 
 Output only. The model container spec.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;machineSpec&quot;: {object (MachineSpec)},&quot;containerSpec&quot;: {object (ModelContainerSpec)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "machineSpec": {
+    object (MachineSpec)
+  },
+  "containerSpec": {
+    object (ModelContainerSpec)
+  }
+}
+```
 
 ## QuotaState
 
 The user accelerator quota state.
 
-Enums
-
-`QUOTA_STATE_UNSPECIFIED`
-
-Unspecified quota state. Quota information not available.
-
-`QUOTA_STATE_USER_HAS_QUOTA`
-
-user has enough accelerator quota for the machine type.
-
-`QUOTA_STATE_NO_USER_QUOTA`
-
-user does not have enough accelerator quota for the machine type.
+| Enums                        |                                                                   |
+|------------------------------|-------------------------------------------------------------------|
+| `QUOTA_STATE_UNSPECIFIED`    | Unspecified quota state. Quota information not available.         |
+| `QUOTA_STATE_USER_HAS_QUOTA` | user has enough accelerator quota for the machine type.           |
+| `QUOTA_STATE_NO_USER_QUOTA`  | user does not have enough accelerator quota for the machine type. |

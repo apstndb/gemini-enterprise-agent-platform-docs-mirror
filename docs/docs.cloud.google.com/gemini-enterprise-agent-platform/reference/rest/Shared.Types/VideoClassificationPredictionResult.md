@@ -22,13 +22,13 @@ The display name of the AnnotationSpec that had been identified.
 
 The type of the prediction. The requested types can be configured via parameters. This will be one of - segment-classification - shot-classification - one-sec-interval-classification
 
-`timeSegmentStart` ` string ( Duration  ` format)
+`timeSegmentStart` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 The beginning, inclusive, of the video's time segment in which the AnnotationSpec has been identified. Expressed as a number of seconds as measured from the start of the video, with fractions up to a microsecond precision, and with "s" appended at the end. Note that for 'segment-classification' prediction type, this equals the original 'timeSegmentStart' from the input instance, for other types it is the start of a shot or a 1 second interval respectively.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
-`timeSegmentEnd` ` string ( Duration  ` format)
+`timeSegmentEnd` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 The end, exclusive, of the video's time segment in which the AnnotationSpec has been identified. Expressed as a number of seconds as measured from the start of the video, with fractions up to a microsecond precision, and with "s" appended at the end. Note that for 'segment-classification' prediction type, this equals the original 'timeSegmentEnd' from the input instance, for other types it is the end of a shot or a 1 second interval respectively.
 
@@ -38,25 +38,15 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
 
 The Model's confidence in correction of this prediction, higher value means higher confidence.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;id&quot;: string,
-  &quot;displayName&quot;: string,
-  &quot;type&quot;: string,
-  &quot;timeSegmentStart&quot;: string,
-  &quot;timeSegmentEnd&quot;: string,
-  &quot;confidence&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "id": string,
+  "displayName": string,
+  "type": string,
+  "timeSegmentStart": string,
+  "timeSegmentEnd": string,
+  "confidence": number
+}
+```

@@ -24,21 +24,21 @@ This section lists the models that support grounding with Search.
 
 #### Click to expand supported models
 
-  - [Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)
-  - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
-  - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
-  - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
-  - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
-  - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
-  - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
-  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
-  - [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
-  - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
-  - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
-  - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
-  - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
-  - [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
+- [Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)
+- [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
+- [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
+- [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
+- [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
+- [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+- [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
+- [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
+- [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
+- [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
+- [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
+- [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
+- [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+- [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)
+- [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 ## Supported languages
 
@@ -50,13 +50,13 @@ Use the following instructions to ground a model with publicly available web dat
 
 ### Considerations
 
-  - To use Grounding with Google Search, you must enable Google Search Suggestions. For more information, see [Use Google Search suggestions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search#use-google-search-suggestions) .
+- To use Grounding with Google Search, you must enable Google Search Suggestions. For more information, see [Use Google Search suggestions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search#use-google-search-suggestions) .
 
-  - For ideal results, use a temperature of `1.0` . To learn more about setting this configuration, see the [Gemini API request body](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#request_body) from the model reference.
+- For ideal results, use a temperature of `1.0` . To learn more about setting this configuration, see the [Gemini API request body](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#request_body) from the model reference.
 
-  - Grounding with Google Search has a limit of one million queries per day. If you require more queries, contact [Google Cloud support](https://cloud.google.com/support-hub) for assistance.
+- Grounding with Google Search has a limit of one million queries per day. If you require more queries, contact [Google Cloud support](https://cloud.google.com/support-hub) for assistance.
 
-  - **Tool combinations:** The Gemini API doesn't support combining search tools (such as `googleSearch` ) with non-search tools (such as function calling or the Gemini Enterprise Agent Platform RAG Engine `retrieval` tool) in the same `generateContent` request. Multiple tools are supported only when they are all search tools.
+- **Tool combinations:** The Gemini API doesn't support combining search tools (such as `googleSearch` ) with non-search tools (such as function calling or the Gemini Enterprise Agent Platform RAG Engine `retrieval` tool) in the same `generateContent` request. Multiple tools are supported only when they are all search tools.
 
 > **Important:** If you receive Search Suggestions with a response, that response is a *grounded result* subject to the Grounding with Search terms in the [Service Terms section of the Service Specific Terms](https://cloud.google.com/terms/service-terms) . For more information about using Google Search Suggestions, see [Use Search Suggestions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search#use-google-search-suggestions) .
 
@@ -76,47 +76,53 @@ Your prompt responses now use Grounding with Google Search.
 
 #### Install
 
-    pip install --upgrade google-genai
+```
+pip install --upgrade google-genai
+```
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    from google import genai
-    from google.genai.types import (
-        GenerateContentConfig,
-        GoogleSearch,
-        HttpOptions,
-        Tool,
-    )
-    
-    client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    
-    response = client.models.generate_content(
-        model="gemini-3.5-flash",
-        contents="When is the next total solar eclipse in the United States?",
-        config=GenerateContentConfig(
-            tools=[
-                # Use Google Search Tool
-                Tool(
-                    google_search=GoogleSearch(
-                        # Optional: Domains to exclude from results
-                        exclude_domains=["domain.com", "domain2.com"]
-                    )
+```
+from google import genai
+from google.genai.types import (
+    GenerateContentConfig,
+    GoogleSearch,
+    HttpOptions,
+    Tool,
+)
+
+client = genai.Client(http_options=HttpOptions(api_version="v1"))
+
+response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents="When is the next total solar eclipse in the United States?",
+    config=GenerateContentConfig(
+        tools=[
+            # Use Google Search Tool
+            Tool(
+                google_search=GoogleSearch(
+                    # Optional: Domains to exclude from results
+                    exclude_domains=["domain.com", "domain2.com"]
                 )
-            ],
-        ),
-    )
-    
-    print(response.text)
-    # Example response:
-    # 'The next total solar eclipse in the United States will occur on ...'
+            )
+        ],
+    ),
+)
+
+print(response.text)
+# Example response:
+# 'The next total solar eclipse in the United States will occur on ...'
+```
 
 ### Go
 
@@ -126,58 +132,62 @@ To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.g
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    import (
-        "context"
-        "fmt"
-        "io"
-    
-        genai "google.golang.org/genai"
-    )
-    
-    // generateWithGoogleSearch shows how to generate text using Google Search.
-    func generateWithGoogleSearch(w io.Writer) error {
-        ctx := context.Background()
-    
-        client, err := genai.NewClient(ctx, &genai.ClientConfig{
-            HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
-        })
-        if err != nil {
-            return fmt.Errorf("failed to create genai client: %w", err)
-        }
-    
-        modelName := "gemini-2.5-flash"
-        contents := []*genai.Content{
-            {Parts: []*genai.Part{
-                {Text: "When is the next total solar eclipse in the United States?"},
-            },
-                Role: genai.RoleUser},
-        }
-        config := &genai.GenerateContentConfig{
-            Tools: []*genai.Tool{
-                {GoogleSearch: &genai.GoogleSearch{ExcludeDomains: []string{"example.com", "example.org"}}},
-            },
-        }
-    
-        resp, err := client.Models.GenerateContent(ctx, modelName, contents, config)
-        if err != nil {
-            return fmt.Errorf("failed to generate content: %w", err)
-        }
-    
-        respText := resp.Text()
-    
-        fmt.Fprintln(w, respText)
-    
-        // Example response:
-        // The next total solar eclipse in the United States will occur on March 30, 2033, but it will only ...
-    
-        return nil
+```
+import (
+    "context"
+    "fmt"
+    "io"
+
+    genai "google.golang.org/genai"
+)
+
+// generateWithGoogleSearch shows how to generate text using Google Search.
+func generateWithGoogleSearch(w io.Writer) error {
+    ctx := context.Background()
+
+    client, err := genai.NewClient(ctx, &genai.ClientConfig{
+        HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
+    })
+    if err != nil {
+        return fmt.Errorf("failed to create genai client: %w", err)
     }
+
+    modelName := "gemini-2.5-flash"
+    contents := []*genai.Content{
+        {Parts: []*genai.Part{
+            {Text: "When is the next total solar eclipse in the United States?"},
+        },
+            Role: genai.RoleUser},
+    }
+    config := &genai.GenerateContentConfig{
+        Tools: []*genai.Tool{
+            {GoogleSearch: &genai.GoogleSearch{ExcludeDomains: []string{"example.com", "example.org"}}},
+        },
+    }
+
+    resp, err := client.Models.GenerateContent(ctx, modelName, contents, config)
+    if err != nil {
+        return fmt.Errorf("failed to generate content: %w", err)
+    }
+
+    respText := resp.Text()
+
+    fmt.Fprintln(w, respText)
+
+    // Example response:
+    // The next total solar eclipse in the United States will occur on March 30, 2033, but it will only ...
+
+    return nil
+}
+```
 
 ### Java
 
@@ -187,147 +197,161 @@ To learn more, see the [SDK reference documentation](https://central.sonatype.co
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    import com.google.genai.Client;
-    import com.google.genai.types.GenerateContentConfig;
-    import com.google.genai.types.GenerateContentResponse;
-    import com.google.genai.types.GoogleSearch;
-    import com.google.genai.types.HttpOptions;
-    import com.google.genai.types.Tool;
-    
-    public class ToolsGoogleSearchWithText {
-    
-      public static void main(String[] args) {
-        // TODO(developer): Replace these variables before running the sample.
-        String modelId = "gemini-2.5-flash";
-        generateContent(modelId);
-      }
-    
-      // Generates content with Google Search tool
-      public static String generateContent(String modelId) {
-        // Initialize client that will be used to send requests. This client only needs to be created
-        // once, and can be reused for multiple requests.
-        try (Client client =
-            Client.builder()
-                .location("global")
-                .vertexAI(true)
-                .httpOptions(HttpOptions.builder().apiVersion("v1").build())
-                .build()) {
-    
-          // Create a GenerateContentConfig and set Google Search tool
-          GenerateContentConfig contentConfig =
-              GenerateContentConfig.builder()
-                  .tools(Tool.builder().googleSearch(GoogleSearch.builder().build()).build())
-                  .build();
-    
-          GenerateContentResponse response =
-              client.models.generateContent(
-                  modelId, "When is the next total solar eclipse in the United States?", contentConfig);
-    
-          System.out.print(response.text());
-          // Example response:
-          // The next total solar eclipse in the United States will occur on...
-          return response.text();
-        }
-      }
+```
+import com.google.genai.Client;
+import com.google.genai.types.GenerateContentConfig;
+import com.google.genai.types.GenerateContentResponse;
+import com.google.genai.types.GoogleSearch;
+import com.google.genai.types.HttpOptions;
+import com.google.genai.types.Tool;
+
+public class ToolsGoogleSearchWithText {
+
+  public static void main(String[] args) {
+    // TODO(developer): Replace these variables before running the sample.
+    String modelId = "gemini-2.5-flash";
+    generateContent(modelId);
+  }
+
+  // Generates content with Google Search tool
+  public static String generateContent(String modelId) {
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests.
+    try (Client client =
+        Client.builder()
+            .location("global")
+            .vertexAI(true)
+            .httpOptions(HttpOptions.builder().apiVersion("v1").build())
+            .build()) {
+
+      // Create a GenerateContentConfig and set Google Search tool
+      GenerateContentConfig contentConfig =
+          GenerateContentConfig.builder()
+              .tools(Tool.builder().googleSearch(GoogleSearch.builder().build()).build())
+              .build();
+
+      GenerateContentResponse response =
+          client.models.generateContent(
+              modelId, "When is the next total solar eclipse in the United States?", contentConfig);
+
+      System.out.print(response.text());
+      // Example response:
+      // The next total solar eclipse in the United States will occur on...
+      return response.text();
     }
+  }
+}
+```
 
 ### Node.js
 
 #### Install
 
-    npm install @google/genai
+```
+npm install @google/genai
+```
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    const {GoogleGenAI} = require('@google/genai');
-    
-    const GOOGLE_CLOUD_PROJECT = process.env.GOOGLE_CLOUD_PROJECT;
-    const GOOGLE_CLOUD_LOCATION = process.env.GOOGLE_CLOUD_LOCATION || 'global';
-    
-    async function generateGoogleSearch(
-      projectId = GOOGLE_CLOUD_PROJECT,
-      location = GOOGLE_CLOUD_LOCATION
-    ) {
-      const client = new GoogleGenAI({
-        vertexai: true,
-        project: projectId,
-        location: location,
-      });
-    
-      const response = await client.models.generateContent({
-        model: 'gemini-2.5-flash',
-        contents: 'When is the next total solar eclipse in the United States?',
-        config: {
-          tools: [
-            {
-              googleSearch: {},
-            },
-          ],
+```
+const {GoogleGenAI} = require('@google/genai');
+
+const GOOGLE_CLOUD_PROJECT = process.env.GOOGLE_CLOUD_PROJECT;
+const GOOGLE_CLOUD_LOCATION = process.env.GOOGLE_CLOUD_LOCATION || 'global';
+
+async function generateGoogleSearch(
+  projectId = GOOGLE_CLOUD_PROJECT,
+  location = GOOGLE_CLOUD_LOCATION
+) {
+  const client = new GoogleGenAI({
+    vertexai: true,
+    project: projectId,
+    location: location,
+  });
+
+  const response = await client.models.generateContent({
+    model: 'gemini-2.5-flash',
+    contents: 'When is the next total solar eclipse in the United States?',
+    config: {
+      tools: [
+        {
+          googleSearch: {},
         },
-      });
-    
-      console.log(response.text);
-    
-      // Example response:
-      //    'The next total solar eclipse in United States will occur on ...'
-    
-      return response.text;
-    }
+      ],
+    },
+  });
+
+  console.log(response.text);
+
+  // Example response:
+  //    'The next total solar eclipse in United States will occur on ...'
+
+  return response.text;
+}
+```
 
 ### REST
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region to process the request. To use the [global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#use_the_global_endpoint) , exclude the location from the endpoint name and configure the location of the resource to global.
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - MODEL\_ID : The model ID of the multimodal model.
-  - TEXT : The text instructions to include in the prompt.
-  - EXCLUDE\_DOMAINS : Optional: List of domains that aren't to be used for grounding.
-  - LATITUDE : Optional: The latitude of the end user's location. For example, a latitude of `37.7749` represents San Francisco. You can obtain latitude and longitude coordinates using services like Google Maps or other geocoding tools.
-  - LONGITUDE : Optional: The longitude of the end user's location. For example, a longitude of `-122.4194` represents San Francisco.
+- ` LOCATION ` : The region to process the request. To use the [global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#use_the_global_endpoint) , exclude the location from the endpoint name and configure the location of the resource to global.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` MODEL_ID ` : The model ID of the multimodal model.
+- ` TEXT ` : The text instructions to include in the prompt.
+- ` EXCLUDE_DOMAINS ` : Optional: List of domains that aren't to be used for grounding.
+- ` LATITUDE ` : Optional: The latitude of the end user's location. For example, a latitude of `37.7749` represents San Francisco. You can obtain latitude and longitude coordinates using services like Google Maps or other geocoding tools.
+- ` LONGITUDE ` : Optional: The longitude of the end user's location. For example, a longitude of `-122.4194` represents San Francisco.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent
+```
 
 Request JSON body:
 
-    {
-      "contents": [{
-        "role": "user",
-        "parts": [{
-          "text": "TEXT"
-        }]
-      }],
-      "tools": [{
-        "googleSearch": {
-          "exclude_domains": [ "domain.com", "domain2.com" ]
-        }
-      }],
-      "toolConfig": {
-        "retrievalConfig": {
-          "latLng": {
-            "latitude": LATITUDE,
-            "longitude": LONGITUDE
-          }
-        }
-      },
-      "model": "projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID"
+```
+{
+  "contents": [{
+    "role": "user",
+    "parts": [{
+      "text": "TEXT"
+    }]
+  }],
+  "tools": [{
+    "googleSearch": {
+      "exclude_domains": [ "domain.com", "domain2.com" ]
     }
+  }],
+  "toolConfig": {
+    "retrievalConfig": {
+      "latLng": {
+        "latitude": LATITUDE,
+        "longitude": LONGITUDE
+      }
+    }
+  },
+  "model": "projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID"
+}
+```
 
 To send your request, expand one of these options:
 
@@ -337,11 +361,13 @@ To send your request, expand one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent"
+```
 
 #### PowerShell (Windows)
 
@@ -349,114 +375,118 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
+```
+{
+  "candidates": [
     {
-      "candidates": [
-        {
-          "content": {
-            "role": "model",
-            "parts": [
-              {
-                "text": "The weather in Chicago this weekend, will be partly cloudy. The temperature will be between 49°F (9°C) and 55°F (13°C) on Saturday and between 51°F (11°C) and 56°F (13°C) on Sunday. There is a slight chance of rain on both days.\n"
-              }
-            ]
-          },
-          "finishReason": "STOP",
-          "groundingMetadata": {
-            "webSearchQueries": [
-              "weather in Chicago this weekend"
-            ],
-            "searchEntryPoint": {
-              "renderedContent": "..."
-            },
-            "groundingChunks": [
-              {
-                "web": {
-                  "uri": "https://www.google.com/search?q=weather+in+Chicago,+IL",
-                  "title": "Weather information for locality: Chicago, administrative_area: IL",
-                  "domain": "google.com"
-                }
-              },
-              {
-                "web": {
-                  "uri": "...",
-                  "title": "weatherbug.com",
-                  "domain": "weatherbug.com"
-                }
-              }
-            ],
-            "groundingSupports": [
-              {
-                "segment": {
-                  "startIndex": 85,
-                  "endIndex": 214,
-                  "text": "The temperature will be between 49°F (9°C) and 55°F (13°C) on Saturday and between 51°F (11°C) and 56°F (13°C) on Sunday."
-                },
-                "groundingChunkIndices": [
-                  0
-                ],
-                "confidenceScores": [
-                  0.8662828
-                ]
-              },
-              {
-                "segment": {
-                  "startIndex": 215,
-                  "endIndex": 261,
-                  "text": "There is a slight chance of rain on both days."
-                },
-                "groundingChunkIndices": [
-                  1,
-                  0
-                ],
-                "confidenceScores": [
-                  0.62836814,
-                  0.6488607
-                ]
-              }
-            ],
-            "retrievalMetadata": {}
-          }
-        }
-      ],
-      "usageMetadata": {
-        "promptTokenCount": 10,
-        "candidatesTokenCount": 98,
-        "totalTokenCount": 108,
-        "trafficType": "ON_DEMAND",
-        "promptTokensDetails": [
+      "content": {
+        "role": "model",
+        "parts": [
           {
-            "modality": "TEXT",
-            "tokenCount": 10
-          }
-        ],
-        "candidatesTokensDetails": [
-          {
-            "modality": "TEXT",
-            "tokenCount": 98
+            "text": "The weather in Chicago this weekend, will be partly cloudy. The temperature will be between 49°F (9°C) and 55°F (13°C) on Saturday and between 51°F (11°C) and 56°F (13°C) on Sunday. There is a slight chance of rain on both days.\n"
           }
         ]
       },
-      "modelVersion": "gemini-2.0-flash",
-      "createTime": "2025-05-19T14:42:55.000643Z",
-      "responseId": "b0MraIMFoqnf-Q-D66G4BQ"
+      "finishReason": "STOP",
+      "groundingMetadata": {
+        "webSearchQueries": [
+          "weather in Chicago this weekend"
+        ],
+        "searchEntryPoint": {
+          "renderedContent": "..."
+        },
+        "groundingChunks": [
+          {
+            "web": {
+              "uri": "https://www.google.com/search?q=weather+in+Chicago,+IL",
+              "title": "Weather information for locality: Chicago, administrative_area: IL",
+              "domain": "google.com"
+            }
+          },
+          {
+            "web": {
+              "uri": "...",
+              "title": "weatherbug.com",
+              "domain": "weatherbug.com"
+            }
+          }
+        ],
+        "groundingSupports": [
+          {
+            "segment": {
+              "startIndex": 85,
+              "endIndex": 214,
+              "text": "The temperature will be between 49°F (9°C) and 55°F (13°C) on Saturday and between 51°F (11°C) and 56°F (13°C) on Sunday."
+            },
+            "groundingChunkIndices": [
+              0
+            ],
+            "confidenceScores": [
+              0.8662828
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 215,
+              "endIndex": 261,
+              "text": "There is a slight chance of rain on both days."
+            },
+            "groundingChunkIndices": [
+              1,
+              0
+            ],
+            "confidenceScores": [
+              0.62836814,
+              0.6488607
+            ]
+          }
+        ],
+        "retrievalMetadata": {}
+      }
     }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 10,
+    "candidatesTokenCount": 98,
+    "totalTokenCount": 108,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 10
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 98
+      }
+    ]
+  },
+  "modelVersion": "gemini-2.0-flash",
+  "createTime": "2025-05-19T14:42:55.000643Z",
+  "responseId": "b0MraIMFoqnf-Q-D66G4BQ"
+}
+```
 
 ## Grounding with Google Image Search
 
 > **Preview**
-> 
+>
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 Grounding with Google Image Search lets models use web images retrieved from Google Image Search as visual context when generating images. Google Image Search is a new search type within the existing Grounding with Google Search tool, and exists alongside standard Google Web Search. Grounding with Google Image Search is available in [Preview](https://cloud.google.com/products#product-launch-stages) only for the [Gemini 3.1 Flash Image model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) .
@@ -469,33 +499,103 @@ To enable Google Image Search, configure the `googleSearch` tool in your API req
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region to process the request. To use the [global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#use_the_global_endpoint) , exclude the location from the endpoint name and configure the location of the resource to global.
-  - PROJECT\_ID : .
-  - MODEL\_ID : The model ID of the multimodal model.
-  - SEARCH\_TERM : A search term for an image.
+- ` LOCATION ` : The region to process the request. To use the [global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#use_the_global_endpoint) , exclude the location from the endpoint name and configure the location of the resource to global.
+- ` PROJECT_ID ` : .
+- ` MODEL_ID ` : The model ID of the multimodal model.
+- ` SEARCH_TERM ` : A search term for an image.
+
+HTTP method and URL:
+
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent
+```
+
+Request JSON body:
+
+```
+{
+  "contents": [
+    {
+      "role": "user",
+      "parts": [
+        {
+        "text": "SEARCH_TERM"
+        }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "googleSearch": {
+        "searchTypes": {
+          "imageSearch": {},
+          "webSearch": {}
+        }
+      }
+    }
+  ],
+  "model": "projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID"
+}
+```
+
+To send your request, choose one of these options:
+
+#### curl
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent"
+```
+
+#### PowerShell
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent" | Select-Object -Expand Content
+```
+
+You should receive a successful status code (2xx) and an empty response.
 
 ### Display requirements
 
 When using Google Image Search with Grounding with Google Search, you must comply with the following conditions:
 
-  - **Source attribution** : you must provide a link to the webpage that containing the source image (the "containing page, "not the image file itself) in a manner that the user will recognize as a link.
+- **Source attribution** : you must provide a link to the webpage that containing the source image (the "containing page, "not the image file itself) in a manner that the user will recognize as a link.
 
-  - **Direct navigation** : if you also choose to display the source images, you must provide a direct, single-click path from the source images to its containing source webpage. Any other implementation that delays or abstracts the end users' access to the source webpages, including but not limited to any multi-click path or the use of an intermediate image viewer, is not permitted.
+- **Direct navigation** : if you also choose to display the source images, you must provide a direct, single-click path from the source images to its containing source webpage. Any other implementation that delays or abstracts the end users' access to the source webpages, including but not limited to any multi-click path or the use of an intermediate image viewer, is not permitted.
 
 ### Response
 
 For grounded responses using image search, the API provides clear attribution and metadata to link its output to verified sources. The `groundingMetadata` object includes the following fields:
 
-  - **`imageSearchQueries`** : the specific query used by the model for visual context (also known as the "image search").
+- **`imageSearchQueries`** : the specific query used by the model for visual context (also known as the "image search").
 
-  - **`groundingChunks`** : contains the source information for retrieved results. For image sources, these are returned as redirect URLs using a new image chunk type. The chunk includes the following:
-    
-      - **`url`** : the web page URL for attribution (also known as the "landing page").
-      - **`image_url`** : the direct image URL.
+- **`groundingChunks`** : contains the source information for retrieved results. For image sources, these are returned as redirect URLs using a new image chunk type. The chunk includes the following:
 
-  - **`groundingSupports`** : provides specific mappings that link the generated content to its relevant citation source in the chunks.
+  - **`url`** : the web page URL for attribution (also known as the "landing page").
+  - **`image_url`** : the direct image URL.
 
-  - **`searchEntryPoint`** : includes the Google Search chip that contains compliant HTML and CSS to render Google Search Suggestions.
+- **`groundingSupports`** : provides specific mappings that link the generated content to its relevant citation source in the chunks.
+
+- **`searchEntryPoint`** : includes the Google Search chip that contains compliant HTML and CSS to render Google Search Suggestions.
 
 ## Understand your response
 
@@ -507,27 +607,31 @@ Inline citations use the structured `grounding_metadata` returned by the API to 
 
 This capability supports all grounding methods including Search, Google Maps, and Agent Search, providing the precise source details required to display accurate, interactive citations within your application.
 
-    response = client.models.generate_content(
-       model="gemini-3.5-flash",
-       contents="Where will the next FIFA World Cup be held?",
-       config=types.GenerateContentConfig(
-           tools=[types.Tool(google_search=types.GoogleSearch())],
-       ),
-    )
-    
-    display(Markdown(response.text))
-    print(response.candidates[0].grounding_metadata.grounding_chunks)
-    display(HTML(response.candidates[0].grounding_metadata.search_entry_point.rendered_content))
+```
+response = client.models.generate_content(
+   model="gemini-3.5-flash",
+   contents="Where will the next FIFA World Cup be held?",
+   config=types.GenerateContentConfig(
+       tools=[types.Tool(google_search=types.GoogleSearch())],
+   ),
+)
+
+display(Markdown(response.text))
+print(response.candidates[0].grounding_metadata.grounding_chunks)
+display(HTML(response.candidates[0].grounding_metadata.search_entry_point.rendered_content))
+```
 
 Example output:
 
-    …
-    
-    Citations:
-    Wikipedia. "2026 FIFA World Cup." Retrieved February 11, 2026. (https://en.wikipedia.org/wiki/2026_FIFA_World_Cup)
-    US Soccer Players. "2026 FIFA World Cup FAQ — Dates, Hosts, Tickets, Teams & More." (https://ussoccerplayers.com/2026-fifa-world-cup-faq)
-    Holafly. "2026 World Cup host cities and countries: Full list of stadiums." (https://travel.holafly.com/esims/2026-world-cup-host-cities/)
-    …
+```
+…
+
+Citations:
+Wikipedia. "2026 FIFA World Cup." Retrieved February 11, 2026. (https://en.wikipedia.org/wiki/2026_FIFA_World_Cup)
+US Soccer Players. "2026 FIFA World Cup FAQ — Dates, Hosts, Tickets, Teams & More." (https://ussoccerplayers.com/2026-fifa-world-cup-faq)
+Holafly. "2026 World Cup host cities and countries: Full list of stadiums." (https://travel.holafly.com/esims/2026-world-cup-host-cities/)
+…
+```
 
 ## Grounding support
 
@@ -541,20 +645,20 @@ Grounding support for responses from web sources should be shown both inline and
 
 When using Grounding with Google Search a Customer Application can:
 
-  - Offer alternative search engine options,
-  - Make other search engines the default option,
-  - Display their own or third-party search suggestions or search results as long as: any non-Google results must be displayed separately from Google's Grounded Results and Search Suggestions, and shown in a way that does not confuse users or suggest they are from Google.
+- Offer alternative search engine options,
+- Make other search engines the default option,
+- Display their own or third-party search suggestions or search results as long as: any non-Google results must be displayed separately from Google's Grounded Results and Search Suggestions, and shown in a way that does not confuse users or suggest they are from Google.
 
 ## Benefits
 
 The following complex prompts and workflows that require planning, reasoning, and thinking can be done when you use Grounding with Google Search as a tool:
 
-  - You can ground to help ensure responses are based on the latest and most accurate information.
-  - You can retrieve artifacts from the web to do analysis.
-  - You can find relevant images, videos, or other media to assist in multimodal reasoning or task generation.
-  - You can perform coding, technical troubleshooting, and other specialized tasks.
-  - You can find region-specific information, or assist in translating content accurately.
-  - You can find relevant websites for browsing.
+- You can ground to help ensure responses are based on the latest and most accurate information.
+- You can retrieve artifacts from the web to do analysis.
+- You can find relevant images, videos, or other media to assist in multimodal reasoning or task generation.
+- You can perform coding, technical troubleshooting, and other specialized tasks.
+- You can find region-specific information, or assist in translating content accurately.
+- You can find relevant websites for browsing.
 
 ## Use Google Search Suggestions
 
@@ -562,19 +666,21 @@ When you use Grounding with Google Search, and you receive Search Suggestions in
 
 Specifically, you must display the search queries that are included in the grounded response's metadata. The response includes:
 
-  - **`"content"`** : LLM-generated response.
-  - **`"webSearchQueries"`** : The queries to be used for Search Suggestions.
+- **`"content"`** : LLM-generated response.
+- **`"webSearchQueries"`** : The queries to be used for Search Suggestions.
 
 For example, in the following code snippet, Gemini responds to a Search grounded prompt, which is asking about a type of tropical plant.
 
-    "predictions": [
-      {
-        "content": "Monstera is a type of vine that thrives in bright indirect light…",
-        "groundingMetadata": {
-          "webSearchQueries": ["What's a monstera?"],
-        }
-      }
-    ]
+```
+"predictions": [
+  {
+    "content": "Monstera is a type of vine that thrives in bright indirect light…",
+    "groundingMetadata": {
+      "webSearchQueries": ["What's a monstera?"],
+    }
+  }
+]
+```
 
 You can take this output, and display it by using Search Suggestions.
 
@@ -615,13 +721,13 @@ The following is required for Search Suggestions:
 
 The following are the display requirements:
 
-  - Display the Search Suggestion exactly as provided, and don't make any modifications to colors, fonts, or appearance. Ensure the Search Suggestion renders as specified in the following mocks such as light and dark mode:
+- Display the Search Suggestion exactly as provided, and don't make any modifications to colors, fonts, or appearance. Ensure the Search Suggestion renders as specified in the following mocks such as light and dark mode:
 
 ![](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/images/gemini/entrypoints-preview.png)
 
-  - Whenever a grounded response is shown, its corresponding Search Suggestion should remain visible.
-  - For branding, you must strictly follow Google's guidelines for third-party use of Google brand features at the [Welcome to our Brand Resource Center](https://about.google/brand-resource-center/) .
-  - When you use grounding with Search, Search Suggestion chips display. The field that contains the Search Suggestions chips must be the same width as the grounded response from the LLM.
+- Whenever a grounded response is shown, its corresponding Search Suggestion should remain visible.
+- For branding, you must strictly follow Google's guidelines for third-party use of Google brand features at the [Welcome to our Brand Resource Center](https://about.google/brand-resource-center/) .
+- When you use grounding with Search, Search Suggestion chips display. The field that contains the Search Suggestions chips must be the same width as the grounded response from the LLM.
 
 #### Behavior on tap
 
@@ -641,22 +747,24 @@ Also, Search Suggestions were referred to as *Search Entry Points* before. Altho
 
 The following shows example curl usage to ground a response to search:
 
-    curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent -d '{
-        "contents": {
-          "role": "user",
-          "parts": {
-            "text": "Why is the sky blue?"
-          }
-        },
-        "tools": [
-          {
-            "googleSearch": {}
-          }
-        ]
-      }'
+```
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent -d '{
+    "contents": {
+      "role": "user",
+      "parts": {
+        "text": "Why is the sky blue?"
+      }
+    },
+    "tools": [
+      {
+        "googleSearch": {}
+      }
+    ]
+  }'
+```
 
 ## Billing changes with Gemini 3
 
@@ -666,16 +774,16 @@ When you are using Grounding with Google Search on Gemini 3 models, the billing 
 
 This example shows you a sample user prompt and search queries that might be charged.
 
-  - User prompt: *Tell me about the life of Albert Einstein.*
-  - Gemini might generate these search queries:
-      - Albert Einstein birth and early life education
-      - Albert Einstein theory of relativity
-      - Albert Einstein life in the US
+- User prompt: *Tell me about the life of Albert Einstein.*
+- Gemini might generate these search queries:
+  - Albert Einstein birth and early life education
+  - Albert Einstein theory of relativity
+  - Albert Einstein life in the US
 
 In this example, these three search queries are charged.
 
 ## What's next
 
-  - To learn more about grounding, see [Grounding overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview) .
-  - Learn how to [send chat prompt requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/send-chat-prompts-gemini) .
-  - Learn about [responsible AI best practices and Gemini Enterprise Agent Platform safety filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .
+- To learn more about grounding, see [Grounding overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview) .
+- Learn how to [send chat prompt requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/send-chat-prompts-gemini) .
+- Learn about [responsible AI best practices and Gemini Enterprise Agent Platform safety filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .

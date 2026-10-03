@@ -14,46 +14,49 @@ Creates a new Runtime in a given project and location.
 
 ### Path parameters
 
-Parameters
-
-`parent`
-
-`string`
-
-Required. Format: `parent=projects/{projectId}/locations/{location}`
-
-Authorization requires the following [IAM](https://cloud.google.com/iam/docs/) permission on the specified resource `parent` :
-
-  - `notebooks.runtimes.create`
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>parent</code></td>
+<td><p><code>string</code></p>
+<p>Required. Format: <code>parent=projects/{projectId}/locations/{location}</code></p>
+<p>Authorization requires the following <a href="https://cloud.google.com/iam/docs/">IAM</a> permission on the specified resource <code>parent</code> :</p>
+<ul>
+<li><code>notebooks.runtimes.create</code></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
 
 ### Query parameters
 
-Parameters
-
-`runtimeId`
-
-`string`
-
-Required. User-defined unique ID of this Runtime.
-
-`requestId`
-
-`string`
-
-Idempotent request UUID.
+| Parameters  |                                                            |
+|-------------|------------------------------------------------------------|
+| `runtimeId` | `string` Required. User-defined unique ID of this Runtime. |
+| `requestId` | `string` Idempotent request UUID.                          |
 
 ### Request body
 
-The request body contains an instance of `  Runtime  ` .
+The request body contains an instance of [`Runtime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v1/projects.locations.runtimes#Runtime) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  Operation  ` .
+If successful, the response body contains a newly created instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ### Authorization scopes
 
 Requires the following OAuth scope:
 
-  - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/cloud-platform`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .

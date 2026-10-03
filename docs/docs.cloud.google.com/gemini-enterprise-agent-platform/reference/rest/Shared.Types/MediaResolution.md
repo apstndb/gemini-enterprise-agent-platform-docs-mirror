@@ -8,20 +8,9 @@ data_source: docs.cloud.google.com
 
 Media resolution for the input media.
 
-Enums
-
-`MEDIA_RESOLUTION_UNSPECIFIED`
-
-Media resolution has not been set.
-
-`MEDIA_RESOLUTION_LOW`
-
-Media resolution set to low (64 tokens).
-
-`MEDIA_RESOLUTION_MEDIUM`
-
-Media resolution set to medium (256 tokens).
-
-`MEDIA_RESOLUTION_HIGH`
-
-Media resolution set to high (zoomed reframing with 256 tokens).
+| Enums                          |                                                                  |
+|--------------------------------|------------------------------------------------------------------|
+| `MEDIA_RESOLUTION_UNSPECIFIED` | Media resolution has not been set.                               |
+| `MEDIA_RESOLUTION_LOW`         | Media resolution set to low (64 tokens).                         |
+| `MEDIA_RESOLUTION_MEDIUM`      | Media resolution set to medium (256 tokens).                     |
+| `MEDIA_RESOLUTION_HIGH`        | Media resolution set to high (zoomed reframing with 256 tokens). |

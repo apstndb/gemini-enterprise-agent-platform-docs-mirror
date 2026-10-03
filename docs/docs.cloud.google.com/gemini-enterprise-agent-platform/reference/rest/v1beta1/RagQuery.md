@@ -10,19 +10,19 @@ A query to retrieve relevant contexts.
 
 Fields
 
-` similarityTopK (deprecated)  ` `integer`
+`similarityTopK `**`(deprecated)`** `integer`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. The number of contexts to retrieve.
 
-` ranking (deprecated)  ` ` object ( Ranking  ` )
+`ranking `**`(deprecated)`** `object ( `[`Ranking`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagQuery#Ranking)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. Configurations for hybrid search results ranking.
 
-`ragRetrievalConfig` ` object ( RagRetrievalConfig  ` )
+`ragRetrievalConfig` `object ( `[`RagRetrievalConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#RagRetrievalConfig)` )`
 
 Optional. The retrieval config for the query.
 
@@ -36,21 +36,23 @@ Optional. The query in text format to get relevant contexts.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;similarityTopK&quot;: integer,&quot;ranking&quot;: {object (Ranking)},&quot;ragRetrievalConfig&quot;: {object (RagRetrievalConfig)},// query&quot;text&quot;: string// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "similarityTopK": integer,
+  "ranking": {
+    object (Ranking)
+  },
+  "ragRetrievalConfig": {
+    object (RagRetrievalConfig)
+  },
+
+  // query
+  "text": string
+  // Union type
+}
+```
 
 ## Ranking
 
@@ -62,20 +64,10 @@ Fields
 
 Optional. Alpha value controls the weight between dense and sparse vector search results. The range is \[0, 1\], while 0 means sparse vector search only and 1 means dense vector search only. The default value is 0.5 which balances sparse and dense vector search equally.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;alpha&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "alpha": number
+}
+```

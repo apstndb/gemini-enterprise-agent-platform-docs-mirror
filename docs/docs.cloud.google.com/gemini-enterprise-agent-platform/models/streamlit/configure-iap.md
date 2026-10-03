@@ -21,10 +21,10 @@ In this step, you configure Identity-Aware Proxy (IAP) to provision a centralize
 1.  In the Google Cloud console, go to the **OAuth consent screen** .
 
 2.  Select one of the following user types for your app:
-    
-      - **External** : Any user with a Google Account can make authorization requests. For the purpose of completing this tutorial, we recommend selecting **External** .
-    
-      - **Internal** : Only members of your Google Cloud organization can make authorization requests to the app.
+
+    - **External** : Any user with a Google Account can make authorization requests. For the purpose of completing this tutorial, we recommend selecting **External** .
+
+    - **Internal** : Only members of your Google Cloud organization can make authorization requests to the app.
 
 3.  Click **Create** .
 
@@ -37,9 +37,9 @@ In this step, you configure Identity-Aware Proxy (IAP) to provision a centralize
 7.  On the **Scopes** page, click **Save and Continue** .
 
 8.  Optional: If you selected **External** as the user type, add test users on the **Test users** page, as follows:
-    
+
     1.  Click **Add users** .
-    
+
     2.  Enter your email address and any other authorized test users, and then click **Save and continue** .
 
 9.  Review your app registration summary. To make changes, click **Edit** . If the app registration looks OK, click **Back to dashboard** .
@@ -55,13 +55,15 @@ In this step, you configure Identity-Aware Proxy (IAP) to provision a centralize
 4.  In the **Name** field, enter `gemini-streamlit-app` .
 
 5.  In the **Authorized JavaScript origins** section, click **Add URI** and then enter the following URI:
-    
-        https://DOMAIN_NAME
-    
-    Replace DOMAIN\_NAME with the domain name used during certificate creation.
+
+    ```
+    https://DOMAIN_NAME
+    ```
+
+    Replace ` DOMAIN_NAME ` with the domain name used during certificate creation.
 
 6.  Click **Create** .
-    
+
     The **Oauth client created** screen appears, displaying the **Client ID** and **Client secret** .
 
 7.  Copy the **Client ID** and **Client secret** . You'll need details in the next step of the tutorial.
@@ -69,22 +71,22 @@ In this step, you configure Identity-Aware Proxy (IAP) to provision a centralize
 ## Enable IAP on the load balancer
 
 1.  In the Google Cloud console, activate Cloud Shell.
-    
+
     At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) session starts and displays a command-line prompt. Cloud Shell is a shell environment with the Google Cloud CLI already installed and with values already set for your current project. It can take a few seconds for the session to initialize.
 
 2.  In the Cloud Shell terminal, run the following command:  
-    
-    ``` 
+
+    ```
           gcloud compute backend-services update gemini-streamlit-app-backend \
           --iap=enabled,oauth2-client-id=CLIENT_ID,oauth2-client-secret=CLIENT_SECRET \
           --global
           
     ```
-    
+
     Replace the following
-    
-      - CLIENT\_ID : The OAuth client ID from the OAuth credentials that you just created.
-      - CLIENT\_SECRET : The OAuth client secret from the OAuth credentials that you just created.
+
+    - ` CLIENT_ID ` : The OAuth client ID from the OAuth credentials that you just created.
+    - ` CLIENT_SECRET ` : The OAuth client secret from the OAuth credentials that you just created.
 
 ## Set up and use IAP
 
@@ -99,18 +101,18 @@ In this step, you configure Identity-Aware Proxy (IAP) to provision a centralize
 4.  Click **Add principal** .
 
 5.  Enter the details in the following fields:
-    
-      - **New principals** : Enter the email addresses of groups or individuals to grant them access to your app. Any of the following can be a principal:
-        
-          - Google Account
-        
-          - Google Group
-        
-          - Service account
-        
-          - Google Workspace domain
-        
-        Ensure that you include a Google Account that you have access to.
+
+    - **New principals** : Enter the email addresses of groups or individuals to grant them access to your app. Any of the following can be a principal:
+
+      - Google Account
+
+      - Google Group
+
+      - Service account
+
+      - Google Workspace domain
+
+      Ensure that you include a Google Account that you have access to.
 
 6.  In the **Role** list, select **Cloud IAP** \> **IAP-secured Web App User** .
 

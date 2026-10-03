@@ -20,25 +20,27 @@ Using Kubeflow Pipelines SDK, build a scheduled pipeline and compile it into a Y
 
 Sample `hello-world-scheduled-pipeline` :
 
-    from kfp import compiler
-    from kfp import dsl
-    
-    # A simple component that prints and returns a greeting string
-    @dsl.component
-    def hello_world(message: str) -> str:
-        greeting_str = f'Hello, {message}'
-        print(greeting_str)
-        return greeting_str
-    
-    # A simple pipeline that contains a single hello_world task
-    @dsl.pipeline(
-        name='hello-world-scheduled-pipeline')
-    def hello_world_scheduled_pipeline(greet_name: str):
-        hello_world_task = hello_world(greet_name)
-    
-    # Compile the pipeline and generate a YAML file
-    compiler.Compiler().compile(pipeline_func=hello_world_scheduled_pipeline,
-                                package_path='hello_world_scheduled_pipeline.yaml')
+```
+from kfp import compiler
+from kfp import dsl
+
+# A simple component that prints and returns a greeting string
+@dsl.component
+def hello_world(message: str) -> str:
+    greeting_str = f'Hello, {message}'
+    print(greeting_str)
+    return greeting_str
+
+# A simple pipeline that contains a single hello_world task
+@dsl.pipeline(
+    name='hello-world-scheduled-pipeline')
+def hello_world_scheduled_pipeline(greet_name: str):
+    hello_world_task = hello_world(greet_name)
+
+# Compile the pipeline and generate a YAML file
+compiler.Compiler().compile(pipeline_func=hello_world_scheduled_pipeline,
+                            package_path='hello_world_scheduled_pipeline.yaml')
+```
 
 ### Upload compiled pipeline YAML to Cloud Storage bucket
 
@@ -59,7 +61,7 @@ Sample `hello-world-scheduled-pipeline` :
 3.  In the **Basics** section, give your function a name (for example `my-scheduled-pipeline-function` ).
 
 4.  In the **Trigger** section, select **Cloud Pub/Sub** as the Trigger type.
-    
+
     ![create function configuration choose pubsub as Trigger type image](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/pipelines/images/trigger-type-cloud-pubsub.png)
 
 5.  In the **Select a Cloud Pub/Sub topic** list, click **Create a topic** .
@@ -77,16 +79,16 @@ Sample `hello-world-scheduled-pipeline` :
 11. Under **Source code** , select **Inline Editor** if it's not already selected.
 
 12. In the `main.py` file, add in the following code:
-    
-    ``` 
+
+    ```
       import base64
       import json
       from google.cloud import aiplatform
-    
+
       PROJECT_ID = 'your-project-id'                     # <---CHANGE THIS
       REGION = 'your-region'                             # <---CHANGE THIS
       PIPELINE_ROOT = 'your-cloud-storage-pipeline-root' # <---CHANGE THIS
-    
+
       def subscribe(event, context):
         """Triggered from a message on a Cloud Pub/Sub topic.
         Args:
@@ -99,7 +101,7 @@ Sample `hello-world-scheduled-pipeline` :
         payload_json = json.loads(payload_message)
         # trigger pipeline run with payload
         trigger_pipeline_run(payload_json)
-    
+
       def trigger_pipeline_run(payload_json):
         """Triggers a pipeline run
         Args:
@@ -113,7 +115,7 @@ Sample `hello-world-scheduled-pipeline` :
         """
         pipeline_spec_uri = payload_json['pipeline_spec_uri']
         parameter_values = payload_json['parameter_values']
-    
+
         # Create a PipelineJob using the compiled pipeline from pipeline_spec_uri
         aiplatform.init(
             project=PROJECT_ID,
@@ -126,27 +128,29 @@ Sample `hello-world-scheduled-pipeline` :
             enable_caching=False,
             parameter_values=parameter_values
         )
-    
+
         # Submit the PipelineJob
         job.submit()
     ```
-    
+
     Replace the following:
-    
-      - PROJECT\_ID : The Google Cloud project that this pipeline runs in.
-      - REGION : The region that this pipeline runs in.
-      - PIPELINE\_ROOT : Specify a Cloud Storage URI that your pipelines service account can access. The artifacts of your pipeline runs are stored in the pipeline root.
+
+    - ` PROJECT_ID ` : The Google Cloud project that this pipeline runs in.
+    - ` REGION ` : The region that this pipeline runs in.
+    - ` PIPELINE_ROOT ` : Specify a Cloud Storage URI that your pipelines service account can access. The artifacts of your pipeline runs are stored in the pipeline root.
 
 13. In the `requirements.txt` file, replace the contents with the following package requirements:
-    
-        google-api-python-client>=1.7.8,<2
-        google-cloud-aiplatform
+
+    ```
+    google-api-python-client>=1.7.8,<2
+    google-cloud-aiplatform
+    ```
 
 14. Click **deploy** to deploy the Function.
 
 ## What's next
 
-  - Learn more about [Google Cloud Pub/Sub](https://docs.cloud.google.com/pubsub/docs) .
-  - [Visualize and analyze pipeline results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/visualize-pipeline) .
-  - Learn how to [create triggers in Cloud Runfrom Pub/Sub events](https://docs.cloud.google.com/functions/docs/calling/pubsub) .
-  - To view code samples for using Pub/Sub, refer to the [Google Cloud sample browser](https://docs.cloud.google.com/docs/samples?p=pubsub) .
+- Learn more about [Google Cloud Pub/Sub](https://docs.cloud.google.com/pubsub/docs) .
+- [Visualize and analyze pipeline results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/visualize-pipeline) .
+- Learn how to [create triggers in Cloud Runfrom Pub/Sub events](https://docs.cloud.google.com/functions/docs/calling/pubsub) .
+- To view code samples for using Pub/Sub, refer to the [Google Cloud sample browser](https://docs.cloud.google.com/docs/samples?p=pubsub) .

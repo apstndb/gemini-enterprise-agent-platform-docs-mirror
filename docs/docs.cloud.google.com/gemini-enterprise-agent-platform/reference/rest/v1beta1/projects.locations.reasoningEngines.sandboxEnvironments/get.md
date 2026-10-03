@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.reasoningEngines.sandboxEnvironments.get
 
-Gets details of the specific `  SandboxEnvironment  ` .
+Gets details of the specific [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) .
 
 ### Endpoint
 
@@ -28,4 +28,4 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  SandboxEnvironment  ` .
+If successful, the response body contains an instance of [`SandboxEnvironment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments#SandboxEnvironment) .

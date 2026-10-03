@@ -10,70 +10,92 @@ Gemma 4 26B A4B IT is a multimodal model from Google handling text and image inp
 
 [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
-Model ID
-
-`gemma-4-26b-a4b-it-maas`
-
-Modalities
-
-description
-
-Text  
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>gemma-4-26b-a4b-it-maas</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Modalities</th>
+<td>description
+Text<br />
 Input and output
-
 photo
-
-Image  
+Image<br />
 Input only
-
-mic\_off
-
-Audio  
+mic_off
+Audio<br />
 Not supported
-
-videocam\_off
-
-Video  
-Not supported
-
-Capabilities
-
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)  
-    Supported
-  - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output)  
-    Supported
-  - [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/thinking)  
-    Not supported
-
-Consumption options
-
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
-    Supported
-  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
-    Not supported
-  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
-    Standard PayGo  
-    Supported
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
-    Not supported
-
-Supported regions
-
-**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
-
-  - Global: `global`
-
-**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)**
-
-  - Multi-region: `us`
-
-Quotas
-
-  - **`global`** : 128,000 maximum output, 262,144 context length
-
-Versions
-
-`gemma-4-26b-a4b-it-maas`
-
-  - Launch stage: Experimental
-  - Release date: April 3, 2026
+videocam_off
+Video<br />
+Not supported</td>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Capabilities</th>
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling">Function calling</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output">Structured output</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/thinking">Thinking</a><br />
+Not supported</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Consumption options</th>
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference">Batch inference</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
+Standard PayGo<br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
+Not supported</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Supported regions</th>
+<td><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations">Model availability</a></strong></p></td>
+<td><ul>
+<li>Global: <code>global</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency">ML processing</a></strong></p></th>
+<td><ul>
+<li>Multi-region: <code>us</code></li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Quotas</th>
+<td><ul>
+<li><strong><code>global</code></strong> : 128,000 maximum output, 262,144 context length</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Versions</th>
+<td><ul>
+<li><code>gemma-4-26b-a4b-it-maas</code>
+<ul>
+<li>Launch stage: Experimental</li>
+<li>Release date: April 3, 2026</li>
+</ul></li>
+</ul></td>
+<td></td>
+</tr>
+</tbody>
+</table>

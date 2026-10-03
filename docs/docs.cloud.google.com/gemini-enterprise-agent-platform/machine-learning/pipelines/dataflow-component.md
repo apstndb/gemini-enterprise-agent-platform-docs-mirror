@@ -10,8 +10,8 @@ The Dataflow components let you submit Apache Beam jobs to Dataflow for executio
 
 The Google Cloud SDK includes the following operators for creating `Job` resources and monitor their execution:
 
-  - [`DataflowFlexTemplateJobOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataflow.html#preview.dataflow.DataflowFlexTemplateJobOp)
-  - [`DataflowPythonJobOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataflow.html#v1.dataflow.DataflowPythonJobOp)
+- [`DataflowFlexTemplateJobOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataflow.html#preview.dataflow.DataflowFlexTemplateJobOp)
+- [`DataflowPythonJobOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataflow.html#v1.dataflow.DataflowPythonJobOp)
 
 Additionally, the Google Cloud SDK includes the [`WaitGcpResourcesOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/wait_gcp_resources.html#v1.wait_gcp_resources.WaitGcpResourcesOp) component, which you can use to mitigate costs while running Dataflow jobs.
 
@@ -39,8 +39,8 @@ Dataflow jobs can often take long time to complete. The costs of a `busy-wait` c
 
 After submitting the Dataflow job using the Beam runner, the [`DataflowPythonJobOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataflow.html#v1.dataflow.DataflowPythonJobOp) component terminates immediately and returns a `job_id` output parameter as a [serialized `gcp_resources` proto](https://github.com/kubeflow/pipelines/blob/master/components/google-cloud/google_cloud_pipeline_components/proto/README.md#usage) . You can pass this parameter to a `WaitGcpResourcesOp` component, to wait for the Dataflow job to complete.
 
-``` 
-    dataflow_python_op = DataflowPythonJobOp(
+```
+dataflow_python_op = DataflowPythonJobOp(
         project=project_id,
         location=location,
         python_module_path=python_file_path,
@@ -62,20 +62,20 @@ For more information about how to create `gcp_resources` output parameter, see [
 
 ## API reference
 
-  - For component reference, see the [Google Cloud SDK reference for Dataflow components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataflow.html) .
+- For component reference, see the [Google Cloud SDK reference for Dataflow components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataflow.html) .
 
-  - For Dataflow resource reference, see the following API reference pages:
-    
-      - [`LaunchFlexTemplateParameter`](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.locations.flexTemplates/launch#LaunchFlexTemplateParameter) resource
-    
-      - [`Job`](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.jobs#Job) resource
+- For Dataflow resource reference, see the following API reference pages:
+
+  - [`LaunchFlexTemplateParameter`](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.locations.flexTemplates/launch#LaunchFlexTemplateParameter) resource
+
+  - [`Job`](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.jobs#Job) resource
 
 ### Tutorials
 
-  - [Get started with the Dataflow Flex Template component](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/fe7d3e4b8edc137d90ec061789b879b7cc8d3854/notebooks/community/ml_ops/stage3/get_started_with_dataflow_flex_template_component.ipynb)
-  - [Get started with the Dataflow Python Job component](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/139d805c9fac45f3a663d4f4651fbca4bb0932b7/notebooks/community/ml_ops/stage3/get_started_with_dataflow_pipeline_components.ipynb)
-  - [Specify a network and subnetwork](https://docs.cloud.google.com/dataflow/docs/guides/specifying-networks#network_parameter)
-  - [Using customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/dataflow/docs/guides/customer-managed-encryption-keys)
+- [Get started with the Dataflow Flex Template component](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/fe7d3e4b8edc137d90ec061789b879b7cc8d3854/notebooks/community/ml_ops/stage3/get_started_with_dataflow_flex_template_component.ipynb)
+- [Get started with the Dataflow Python Job component](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/139d805c9fac45f3a663d4f4651fbca4bb0932b7/notebooks/community/ml_ops/stage3/get_started_with_dataflow_pipeline_components.ipynb)
+- [Specify a network and subnetwork](https://docs.cloud.google.com/dataflow/docs/guides/specifying-networks#network_parameter)
+- [Using customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/dataflow/docs/guides/customer-managed-encryption-keys)
 
 ## Version history and release notes
 

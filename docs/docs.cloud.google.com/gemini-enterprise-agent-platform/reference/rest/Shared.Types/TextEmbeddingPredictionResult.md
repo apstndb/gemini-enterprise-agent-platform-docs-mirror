@@ -10,22 +10,16 @@ Prediction output format for Text Embedding. LINT.IfChange Represents the predic
 
 Fields
 
-`embeddings` ` object ( TextEmbedding  ` )
+`embeddings` `object ( `[`TextEmbedding`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/TextEmbedding)` )`
 
 The embedding generated from the input text.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;embeddings&quot;: {object (TextEmbedding)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "embeddings": {
+    object (TextEmbedding)
+  }
+}
+```

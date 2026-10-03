@@ -12,9 +12,9 @@ A Gemini Enterprise Agent Platform persistent resource is a long-running cluster
 
 We recommend using persistent resources in the following scenarios:
 
-  - You want to ensure capacity availability for critical ML workloads or during peak seasons. Unlike custom jobs, where the training service releases the resource after job completion, persistent resource remains available until it's deleted.
-  - You're submitting the same job multiple times and can benefit from data and image caching by running the jobs on the same persistent resource.
-  - You run many short-lived training jobs where the actual training time is shorter than the job startup time.
+- You want to ensure capacity availability for critical ML workloads or during peak seasons. Unlike custom jobs, where the training service releases the resource after job completion, persistent resource remains available until it's deleted.
+- You're submitting the same job multiple times and can benefit from data and image caching by running the jobs on the same persistent resource.
+- You run many short-lived training jobs where the actual training time is shorter than the job startup time.
 
 For more context on when to and why use a persistent resource, see the blog post [Bringing capacity assurance and faster startup times to Gemini Enterprise Agent Platform Training](https://cloud.google.com/blog/products/ai-machine-learning/vertex-ai-persistent-resources-and-capacity-assurance) .
 
@@ -30,8 +30,8 @@ Persistent resources use your training quota, so verify you have sufficient quot
 
 ## What's next
 
-  - [Create and use a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-create) .
-  - [Run training jobs on a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-train) .
-  - [Get information about a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-get) .
-  - [Reboot a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-reboot) .
-  - [Delete a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-delete) .
+- [Create and use a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-create) .
+- [Run training jobs on a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-train) .
+- [Get information about a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-get) .
+- [Reboot a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-reboot) .
+- [Delete a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-delete) .

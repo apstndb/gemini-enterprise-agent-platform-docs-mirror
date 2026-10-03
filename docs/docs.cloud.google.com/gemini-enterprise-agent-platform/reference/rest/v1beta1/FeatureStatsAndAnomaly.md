@@ -14,7 +14,7 @@ Fields
 
 feature id.
 
-`featureStats` ` value ( Value  ` format)
+`featureStats` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
 feature stats. e.g. histogram buckets. In the format of tensorflow.metadata.v0.DatasetFeatureStatistics.
 
@@ -24,19 +24,19 @@ Deviation from the current stats to baseline stats. 1. For categorical feature, 
 
 `driftDetectionThreshold` `number`
 
-This is the threshold used when detecting drifts, which is set in FeatureMonitor.FeatureSelectionConfig.FeatureConfig.drift\_threshold
+This is the threshold used when detecting drifts, which is set in FeatureMonitor.FeatureSelectionConfig.FeatureConfig.drift_threshold
 
 `driftDetected` `boolean`
 
 If set to true, indicates current stats is detected as and comparing with baseline stats.
 
-`statsTime` ` string ( Timestamp  ` format)
+`statsTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 The timestamp we take snapshot for feature values to generate stats.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`featureMonitorJobId` `string ( int64 format)`
+`featureMonitorJobId` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The id of the FeatureMonitorJob that generated this FeatureStatsAndAnomaly.
 
@@ -44,27 +44,17 @@ The id of the FeatureMonitorJob that generated this FeatureStatsAndAnomaly.
 
 The id of the FeatureMonitor that this FeatureStatsAndAnomaly generated according to.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;featureId&quot;: string,
-  &quot;featureStats&quot;: value,
-  &quot;distributionDeviation&quot;: number,
-  &quot;driftDetectionThreshold&quot;: number,
-  &quot;driftDetected&quot;: boolean,
-  &quot;statsTime&quot;: string,
-  &quot;featureMonitorJobId&quot;: string,
-  &quot;featureMonitorId&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "featureId": string,
+  "featureStats": value,
+  "distributionDeviation": number,
+  "driftDetectionThreshold": number,
+  "driftDetected": boolean,
+  "statsTime": string,
+  "featureMonitorJobId": string,
+  "featureMonitorId": string
+}
+```

@@ -16,54 +16,36 @@ Note: This operation is designed to be used for building permission-aware UIs an
 
 ### Path parameters
 
-Parameters
-
-`resource`
-
-`string`
-
-REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field.
+| Parameters |                                                                                                                                                                                                     |
+|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `resource` | `string` REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. |
 
 ### Request body
 
 The request body contains data with the following structure:
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;permissions&quot;: [
+**JSON representation**
+
+```
+{
+  "permissions": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
-Fields
-
-`permissions[]`
-
-`string`
-
-The set of permissions to check for the `resource` . Permissions with wildcards (such as `*` or `storage.*` ) are not allowed. For more information see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions) .
+| Fields          |                                                                                                                                                                                                                                           |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `permissions[]` | `string` The set of permissions to check for the `resource` . Permissions with wildcards (such as `*` or `storage.*` ) are not allowed. For more information see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions) . |
 
 ### Response body
 
-If successful, the response body contains an instance of `  TestIamPermissionsResponse  ` .
+If successful, the response body contains an instance of [`TestIamPermissionsResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/Shared.Types/TestIamPermissionsResponse) .
 
 ### Authorization scopes
 
 Requires the following OAuth scope:
 
-  - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/cloud-platform`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .

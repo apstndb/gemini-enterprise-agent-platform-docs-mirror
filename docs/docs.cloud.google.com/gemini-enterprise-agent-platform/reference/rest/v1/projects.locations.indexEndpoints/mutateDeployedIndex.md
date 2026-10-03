@@ -24,16 +24,16 @@ Required. The name of the IndexEndpoint resource into which to deploy an Index. 
 
 ### Query parameters
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
-Optional. The update mask applies to the resource. The supported paths are `automaticResources` , `dedicatedResources` , `enableAccessLogging` and `deployedIndexAuthConfig` . When omitted, the service will perform a full update of all fields. See `  google.protobuf.FieldMask  ` .
+Optional. The update mask applies to the resource. The supported paths are `automaticResources` , `dedicatedResources` , `enableAccessLogging` and `deployedIndexAuthConfig` . When omitted, the service will perform a full update of all fields. See [`google.protobuf.FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask) .
 
 This is a comma-separated list of fully qualified names of fields. Example: `"user.displayName,photo"` .
 
 ### Request body
 
-The request body contains an instance of `  DeployedIndex  ` .
+The request body contains an instance of [`DeployedIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexEndpoints#DeployedIndex) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

@@ -14,10 +14,10 @@ To share an agent, you grant the `aiplatform.reasoningEngines.query` permission 
 
 Sharing an agent allows multiple users or automated systems to query the agent. Common scenarios for sharing an agent include the following:
 
-  - **Collaboration** : Share an agent with other members of your team or organization to use it for their tasks.
-  - **Application integration** : Grant access to a service account so that a custom application, such as an internal chatbot or a customer support portal, can call the agent to handle specific user requests.
-  - **Agent-to-agent communication** : In a multi-agent system, one agent might need to call another agent for information or to delegate a sub-task.
-  - **Information access** : Provide users with controlled access to data through a conversational interface without granting them direct access to the underlying data sources. For example, share an agent connected to a knowledge base (like HR policies or technical documentation) with all employees.
+- **Collaboration** : Share an agent with other members of your team or organization to use it for their tasks.
+- **Application integration** : Grant access to a service account so that a custom application, such as an internal chatbot or a customer support portal, can call the agent to handle specific user requests.
+- **Agent-to-agent communication** : In a multi-agent system, one agent might need to call another agent for information or to delegate a sub-task.
+- **Information access** : Provide users with controlled access to data through a conversational interface without granting them direct access to the underlying data sources. For example, share an agent connected to a knowledge base (like HR policies or technical documentation) with all employees.
 
 ## Before you begin
 
@@ -50,11 +50,11 @@ gcloud iam roles create ROLE_ID --organization=ORGANIZATION_ID \
 
 Replace the following:
 
-  - `ROLE_ID` : The ID of the role, such as `agentUser` .
-  - `ROLE_TITLE` : A title for the role, such as `Agent Runtime user` .
-  - `ROLE_DESCRIPTION` : A short description of the role, such as `Allows querying agents` .
-  - `PROJECT_ID` : The project ID.
-  - `ORGANIZATION_ID` : The organization ID.
+- `ROLE_ID` : The ID of the role, such as `agentUser` .
+- `ROLE_TITLE` : A title for the role, such as `Agent Runtime user` .
+- `ROLE_DESCRIPTION` : A short description of the role, such as `Allows querying agents` .
+- `PROJECT_ID` : The project ID.
+- `ORGANIZATION_ID` : The organization ID.
 
 ### Terraform
 
@@ -71,9 +71,9 @@ permissions = ["aiplatform.reasoningEngines.query"]
 
 Replace the following:
 
-  - `ROLE_ID` : The ID of the role, such as `agentUser` .
-  - `ROLE_TITLE` : A title for the role, such as `Agent Runtime user` .
-  - `PROJECT_ID` : The project ID.
+- `ROLE_ID` : The ID of the role, such as `agentUser` .
+- `ROLE_TITLE` : A title for the role, such as `Agent Runtime user` .
+- `PROJECT_ID` : The project ID.
 
 The custom role name will be `projects/PROJECT_ID/roles/ROLE_ID` or `organizations/ORGANIZATION_ID/roles/ROLE_ID` .
 
@@ -109,11 +109,11 @@ client.set_iam_policy(request={"resource": resource, "policy": policy})
 
 Replace the following:
 
-  - `LOCATION` : The region where the agent is deployed, such as `us-central1` .
-  - `PROJECT_ID` : The project ID.
-  - `REASONING_ENGINE_ID` : The reasoning engine ID of the agent.
-  - `ROLE_ID` : The ID of the role, such as `agentUser` .
-  - `USER_OR_SA` : The user email or service account, such as `user:someone@example.com` or `serviceAccount:my-sa@my-project.iam.gserviceaccount.com` .
+- `LOCATION` : The region where the agent is deployed, such as `us-central1` .
+- `PROJECT_ID` : The project ID.
+- `REASONING_ENGINE_ID` : The reasoning engine ID of the agent.
+- `ROLE_ID` : The ID of the role, such as `agentUser` .
+- `USER_OR_SA` : The user email or service account, such as `user:someone@example.com` or `serviceAccount:my-sa@my-project.iam.gserviceaccount.com` .
 
 ### Terraform
 
@@ -131,20 +131,20 @@ member           = "USER_OR_SA"
 
 Replace the following:
 
-  - `PROJECT_ID` : The project ID.
-  - `REGION` : The region.
-  - `REASONING_ENGINE_ID` : The reasoning engine ID of the agent.
-  - `USER_OR_SA` : The user or service account.
+- `PROJECT_ID` : The project ID.
+- `REGION` : The region.
+- `REASONING_ENGINE_ID` : The reasoning engine ID of the agent.
+- `USER_OR_SA` : The user or service account.
 
 ## Security considerations
 
 Granting access to the agent provides direct access to send messages to the agent's endpoint. The security controls are determined by the code of the receiving agent.
 
-  - **Trusted frontend** : Most default Agent Development Kit (ADK) agents operate from a trusted frontend. The agent trusts the frontend commands, which gives the frontend full control of sessions and users. In these cases, don't grant direct access to the agent to untrusted entities.
-  - **A2A agents** : Other agents, like Agent2Agent (A2A) agents, can be exposed to untrusted entities if they implement their own authentication and authorization. Agent Runtime only provides coarse access control to the agent interface.
+- **Trusted frontend** : Most default Agent Development Kit (ADK) agents operate from a trusted frontend. The agent trusts the frontend commands, which gives the frontend full control of sessions and users. In these cases, don't grant direct access to the agent to untrusted entities.
+- **A2A agents** : Other agents, like Agent2Agent (A2A) agents, can be exposed to untrusted entities if they implement their own authentication and authorization. Agent Runtime only provides coarse access control to the agent interface.
 
 ## What's next
 
-  - Learn about [Agent Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) .
-  - Learn about [managing access for deployed agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-agent-access) .
-  - Learn about [creating IAM policies for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies) .
+- Learn about [Agent Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) .
+- Learn about [managing access for deployed agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-agent-access) .
+- Learn about [creating IAM policies for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies) .

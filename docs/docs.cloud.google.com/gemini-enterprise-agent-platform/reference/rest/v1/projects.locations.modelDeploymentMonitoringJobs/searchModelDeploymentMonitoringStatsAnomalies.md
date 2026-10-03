@@ -30,13 +30,13 @@ Fields
 
 `deployedModelId` `string`
 
-Required. The DeployedModel id of the \[ModelDeploymentMonitoringObjectiveConfig.deployed\_model\_id\].
+Required. The DeployedModel id of the \[ModelDeploymentMonitoringObjectiveConfig.deployed_model_id\].
 
 `featureDisplayName` `string`
 
-The feature display name. If specified, only return the stats belonging to this feature. Format: `  ModelMonitoringStatsAnomalies.FeatureHistoricStatsAnomalies.feature_display_name  ` , example: "user\_destination".
+The feature display name. If specified, only return the stats belonging to this feature. Format: [`ModelMonitoringStatsAnomalies.FeatureHistoricStatsAnomalies.feature_display_name`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#FeatureHistoricStatsAnomalies.FIELDS.feature_display_name) , example: "user_destination".
 
-`objectives[]` ` object ( StatsAnomaliesObjective  ` )
+`objectives[]` `object ( `[`StatsAnomaliesObjective`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#StatsAnomaliesObjective)` )`
 
 Required. Objectives of the stats to retrieve.
 
@@ -46,15 +46,15 @@ The standard list page size.
 
 `pageToken` `string`
 
-A page token received from a previous `  JobService.SearchModelDeploymentMonitoringStatsAnomalies  ` call.
+A page token received from a previous [`JobService.SearchModelDeploymentMonitoringStatsAnomalies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#google.cloud.aiplatform.v1.JobService.SearchModelDeploymentMonitoringStatsAnomalies) call.
 
-`startTime` ` string ( Timestamp  ` format)
+`startTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 The earliest timestamp of stats being generated. If not set, indicates fetching stats till the earliest possible one.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`endTime` ` string ( Timestamp  ` format)
+`endTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 The latest timestamp of stats being generated. If not set, indicates feching stats till the latest possible one.
 
@@ -62,35 +62,32 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 ### Response body
 
-Response message for `  JobService.SearchModelDeploymentMonitoringStatsAnomalies  ` .
+Response message for [`JobService.SearchModelDeploymentMonitoringStatsAnomalies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#google.cloud.aiplatform.v1.JobService.SearchModelDeploymentMonitoringStatsAnomalies) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`monitoringStats[]` ` object ( ModelMonitoringStatsAnomalies  ` )
+`monitoringStats[]` `object ( `[`ModelMonitoringStatsAnomalies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#ModelMonitoringStatsAnomalies)` )`
 
-Stats retrieved for requested objectives. There are at most 1000 `  ModelMonitoringStatsAnomalies.FeatureHistoricStatsAnomalies.prediction_stats  ` in the response.
+Stats retrieved for requested objectives. There are at most 1000 [`ModelMonitoringStatsAnomalies.FeatureHistoricStatsAnomalies.prediction_stats`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#FeatureHistoricStatsAnomalies.FIELDS.prediction_stats) in the response.
 
 `nextPageToken` `string`
 
-The page token that can be used by the next `  JobService.SearchModelDeploymentMonitoringStatsAnomalies  ` call.
+The page token that can be used by the next [`JobService.SearchModelDeploymentMonitoringStatsAnomalies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#google.cloud.aiplatform.v1.JobService.SearchModelDeploymentMonitoringStatsAnomalies) call.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;monitoringStats&quot;: [{object (ModelMonitoringStatsAnomalies)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "monitoringStats": [
+    {
+      object (ModelMonitoringStatsAnomalies)
+    }
+  ],
+  "nextPageToken": string
+}
+```
 
 ## StatsAnomaliesObjective
 
@@ -98,53 +95,32 @@ Stats requested for specific objective.
 
 Fields
 
-`type` ` enum ( ModelDeploymentMonitoringObjectiveType  ` )
+`type` `enum ( `[`ModelDeploymentMonitoringObjectiveType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#ModelDeploymentMonitoringObjectiveType)` )`
 
 `topFeatureCount` `integer`
 
-If set, all attribution scores between `  SearchModelDeploymentMonitoringStatsAnomaliesRequest.start_time  ` and `  SearchModelDeploymentMonitoringStatsAnomaliesRequest.end_time  ` are fetched, and page token doesn't take effect in this case. Only used to retrieve attribution score for the top Features which has the highest attribution score in the latest monitoring run.
+If set, all attribution scores between [`SearchModelDeploymentMonitoringStatsAnomaliesRequest.start_time`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#body.request_body.FIELDS.start_time) and [`SearchModelDeploymentMonitoringStatsAnomaliesRequest.end_time`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#body.request_body.FIELDS.end_time) are fetched, and page token doesn't take effect in this case. Only used to retrieve attribution score for the top Features which has the highest attribution score in the latest monitoring run.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;type&quot;: enum (ModelDeploymentMonitoringObjectiveType),&quot;topFeatureCount&quot;: integer}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "type": enum (ModelDeploymentMonitoringObjectiveType),
+  "topFeatureCount": integer
+}
+```
 
 ## ModelDeploymentMonitoringObjectiveType
 
 The Model Monitoring Objective types.
 
-Enums
-
-`MODEL_DEPLOYMENT_MONITORING_OBJECTIVE_TYPE_UNSPECIFIED`
-
-Default value, should not be set.
-
-`RAW_FEATURE_SKEW`
-
-Raw feature values' stats to detect skew between Training-Prediction datasets.
-
-`RAW_FEATURE_DRIFT`
-
-Raw feature values' stats to detect drift between Serving-Prediction datasets.
-
-`FEATURE_ATTRIBUTION_SKEW`
-
-feature attribution scores to detect skew between Training-Prediction datasets.
-
-`FEATURE_ATTRIBUTION_DRIFT`
-
-feature attribution scores to detect skew between Prediction datasets collected within different time windows.
+| Enums                                                    |                                                                                                                |
+|----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| `MODEL_DEPLOYMENT_MONITORING_OBJECTIVE_TYPE_UNSPECIFIED` | Default value, should not be set.                                                                              |
+| `RAW_FEATURE_SKEW`                                       | Raw feature values' stats to detect skew between Training-Prediction datasets.                                 |
+| `RAW_FEATURE_DRIFT`                                      | Raw feature values' stats to detect drift between Serving-Prediction datasets.                                 |
+| `FEATURE_ATTRIBUTION_SKEW`                               | feature attribution scores to detect skew between Training-Prediction datasets.                                |
+| `FEATURE_ATTRIBUTION_DRIFT`                              | feature attribution scores to detect skew between Prediction datasets collected within different time windows. |
 
 ## ModelMonitoringStatsAnomalies
 
@@ -152,7 +128,7 @@ Statistics and anomalies generated by Model Monitoring.
 
 Fields
 
-`objective` ` enum ( ModelDeploymentMonitoringObjectiveType  ` )
+`objective` `enum ( `[`ModelDeploymentMonitoringObjectiveType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#ModelDeploymentMonitoringObjectiveType)` )`
 
 Model Monitoring Objective those stats and anomalies belonging to.
 
@@ -164,25 +140,24 @@ Deployed Model id.
 
 Number of anomalies within all stats.
 
-`featureStats[]` ` object ( FeatureHistoricStatsAnomalies  ` )
+`featureStats[]` `object ( `[`FeatureHistoricStatsAnomalies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/searchModelDeploymentMonitoringStatsAnomalies#FeatureHistoricStatsAnomalies)` )`
 
 A list of historical Stats and Anomalies generated for all Features.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;objective&quot;: enum (ModelDeploymentMonitoringObjectiveType),&quot;deployedModelId&quot;: string,&quot;anomalyCount&quot;: integer,&quot;featureStats&quot;: [{object (FeatureHistoricStatsAnomalies)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "objective": enum (ModelDeploymentMonitoringObjectiveType),
+  "deployedModelId": string,
+  "anomalyCount": integer,
+  "featureStats": [
+    {
+      object (FeatureHistoricStatsAnomalies)
+    }
+  ]
+}
+```
 
 ## FeatureHistoricStatsAnomalies
 
@@ -194,30 +169,33 @@ Fields
 
 Display name of the feature.
 
-`threshold` ` object ( ThresholdConfig  ` )
+`threshold` `object ( `[`ThresholdConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs#ThresholdConfig)` )`
 
 Threshold for anomaly detection.
 
-`trainingStats` ` object ( FeatureStatsAnomaly  ` )
+`trainingStats` `object ( `[`FeatureStatsAnomaly`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features#Feature.FeatureStatsAnomaly)` )`
 
 Stats calculated for the Training Dataset.
 
-`predictionStats[]` ` object ( FeatureStatsAnomaly  ` )
+`predictionStats[]` `object ( `[`FeatureStatsAnomaly`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features#Feature.FeatureStatsAnomaly)` )`
 
 A list of historical stats generated by different time window's Prediction Dataset.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;featureDisplayName&quot;: string,&quot;threshold&quot;: {object (ThresholdConfig)},&quot;trainingStats&quot;: {object (FeatureStatsAnomaly)},&quot;predictionStats&quot;: [{object (FeatureStatsAnomaly)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "featureDisplayName": string,
+  "threshold": {
+    object (ThresholdConfig)
+  },
+  "trainingStats": {
+    object (FeatureStatsAnomaly)
+  },
+  "predictionStats": [
+    {
+      object (FeatureStatsAnomaly)
+    }
+  ]
+}
+```

@@ -12,138 +12,178 @@ Grok 4.20 is a high-performance model from xAI that offers fast inference speed 
 
 [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.20-reasoning)
 
-Model ID
-
-`grok-4.20-reasoning`
-
-Launch stage
-
-GA
-
-Supported inputs & outputs
-
-  - Inputs:
-    Text , Image
-  - Outputs:
-    Text
-
-Capabilities
-
-Supported
-
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/function-calling)
-  - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/structured-output)
-  - [Reasoning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning)
-
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>grok-4.20-reasoning</code></td>
+</tr>
+<tr class="even">
+<th>Launch stage</th>
+<td>GA</td>
+</tr>
+<tr class="odd">
+<th>Supported inputs &amp; outputs</th>
+<td><ul>
+<li>Inputs:
+Text , Image</li>
+<li>Outputs:
+Text</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Capabilities</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/function-calling">Function calling</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/structured-output">Structured output</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning">Reasoning</a></li>
+</ul>
 Not supported
-
-  - [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction) preview Preview feature
-
-Usage types
-
-Supported
-
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok#quota)
-
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction">Batch predictions</a> preview Preview feature</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Usage types</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok#quota">Fixed quota</a></li>
+</ul>
 Not supported
-
-  - [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) preview Preview feature
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) preview Preview feature
-
-Versions
-
-`grok-4.20-reasoning`
-
-  - **Launch stage:** GA
-  - **Release date:** April 14, 2026
-
-Supported regions
-
-Model availability
-
-Global
-
-  - `global endpoint`
-
-Quota limits
-
-global endpoint:
-
-  - QPM: 100
-  - Input TPM: 540,000
-  - Output TPM: 80,000
-  - Context length: 2,000,000
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo">Standard pay-as-you-go</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a> preview Preview feature</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Versions</th>
+<td><ul>
+<li><code>grok-4.20-reasoning</code>
+<ul>
+<li><strong>Launch stage:</strong> GA</li>
+<li><strong>Release date:</strong> April 14, 2026</li>
+</ul></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Supported regions</th>
+<td></td>
+</tr>
+<tr class="even">
+<th><p>Model availability</p></th>
+<td>Global
+<ul>
+<li><code>global endpoint</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Quota limits</th>
+<td><p>global endpoint:</p>
+<ul>
+<li>QPM: 100</li>
+<li>Input TPM: 540,000</li>
+<li>Output TPM: 80,000</li>
+<li>Context length: 2,000,000</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Pricing</th>
+<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+</tr>
+</tbody>
+</table>
 
 ## Non-Reasoning
 
 [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.20-non-reasoning)
 
-Model ID
-
-`grok-4.20-non-reasoning`
-
-Launch stage
-
-GA
-
-Supported inputs & outputs
-
-  - Inputs:
-    Text , Image
-  - Outputs:
-    Text
-
-Capabilities
-
-Supported
-
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/function-calling)
-  - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/structured-output)
-
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>grok-4.20-non-reasoning</code></td>
+</tr>
+<tr class="even">
+<th>Launch stage</th>
+<td>GA</td>
+</tr>
+<tr class="odd">
+<th>Supported inputs &amp; outputs</th>
+<td><ul>
+<li>Inputs:
+Text , Image</li>
+<li>Outputs:
+Text</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Capabilities</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/function-calling">Function calling</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/structured-output">Structured output</a></li>
+</ul>
 Not supported
-
-  - [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction) preview Preview feature
-  - [Reasoning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning) preview Preview feature
-
-Usage types
-
-Supported
-
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok#quota)
-
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction">Batch predictions</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning">Reasoning</a> preview Preview feature</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Usage types</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok#quota">Fixed quota</a></li>
+</ul>
 Not supported
-
-  - [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/throughput-quota) preview Preview feature
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) preview Preview feature
-
-Versions
-
-`grok-4.20-non-reasoning`
-
-  - **Launch stage:** GA
-  - **Release date:** April 7, 2026
-
-Supported regions
-
-Model availability
-
-Global
-
-  - `global endpoint`
-
-Quota limits
-
-global endpoint:
-
-  - QPM: 100
-  - Input TPM: 540,000
-  - Output TPM: 80,000
-  - Context length: 2,000,000
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/throughput-quota">Standard pay-as-you-go</a> preview Preview feature</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a> preview Preview feature</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Versions</th>
+<td><ul>
+<li><code>grok-4.20-non-reasoning</code>
+<ul>
+<li><strong>Launch stage:</strong> GA</li>
+<li><strong>Release date:</strong> April 7, 2026</li>
+</ul></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Supported regions</th>
+<td></td>
+</tr>
+<tr class="even">
+<th><p>Model availability</p></th>
+<td>Global
+<ul>
+<li><code>global endpoint</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Quota limits</th>
+<td><p>global endpoint:</p>
+<ul>
+<li>QPM: 100</li>
+<li>Input TPM: 540,000</li>
+<li>Output TPM: 80,000</li>
+<li>Context length: 2,000,000</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Pricing</th>
+<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+</tr>
+</tbody>
+</table>

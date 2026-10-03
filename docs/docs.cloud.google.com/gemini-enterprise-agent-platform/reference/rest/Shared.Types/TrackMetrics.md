@@ -10,7 +10,7 @@ UNIMPLEMENTED. Track matching model metrics for a single track match threshold a
 
 Fields
 
-`confidenceMetrics[]` ` object ( ConfidenceMetrics  ` )
+`confidenceMetrics[]` `object ( `[`ConfidenceMetrics`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/TrackMetrics#ConfidenceMetrics)` )`
 
 Metrics for each label-match `confidenceThreshold` from 0.05,0.10,...,0.95,0.96,0.97,0.98,0.99. Precision-recall curve is derived from them.
 
@@ -30,21 +30,21 @@ The mean bounding box iou over all confidence thresholds.
 
 The mean mismatch rate over all confidence thresholds.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;confidenceMetrics&quot;: [{object (ConfidenceMetrics)}],&quot;iouThreshold&quot;: number,&quot;meanTrackingAveragePrecision&quot;: number,&quot;meanBoundingBoxIou&quot;: number,&quot;meanMismatchRate&quot;: number}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "confidenceMetrics": [
+    {
+      object (ConfidenceMetrics)
+    }
+  ],
+  "iouThreshold": number,
+  "meanTrackingAveragePrecision": number,
+  "meanBoundingBoxIou": number,
+  "meanMismatchRate": number
+}
+```
 
 ## ConfidenceMetrics
 
@@ -72,24 +72,14 @@ Bounding box intersection-over-union precision. Measures how well the bounding b
 
 Mismatch rate, which measures the tracking consistency, i.e. correctness of instance id continuity.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;confidenceThreshold&quot;: number,
-  &quot;trackingPrecision&quot;: number,
-  &quot;trackingRecall&quot;: number,
-  &quot;boundingBoxIou&quot;: number,
-  &quot;mismatchRate&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "confidenceThreshold": number,
+  "trackingPrecision": number,
+  "trackingRecall": number,
+  "boundingBoxIou": number,
+  "mismatchRate": number
+}
+```

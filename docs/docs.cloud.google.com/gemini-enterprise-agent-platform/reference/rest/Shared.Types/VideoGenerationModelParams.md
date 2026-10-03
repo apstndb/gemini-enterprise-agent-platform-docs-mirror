@@ -48,9 +48,9 @@ The Cloud Pub/Sub topic to publish video generation progress to. If this field i
 
 Things that shouldn't appear in the generated videos. For example: "low quality", "ugly", "deformed".
 
-` enablePromptRewriting (deprecated)  ` `boolean`
+`enablePromptRewriting `**`(deprecated)`** `boolean`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Deprecated: This field is deprecated and has no effect. Use `enhancePrompt` instead.
 
@@ -74,35 +74,25 @@ The task to perform. If not specified, the task is inferred from other input fie
 
 The resize mode for the generated videos. Supported values: \* `pad` : Pad the video to the specified aspect ratio. \* `crop` : Crop the video to the specified aspect ratio. If not specified, `pad` is used.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;sampleCount&quot;: integer,
-  &quot;storageUri&quot;: string,
-  &quot;fps&quot;: integer,
-  &quot;durationSeconds&quot;: number,
-  &quot;seed&quot;: integer,
-  &quot;aspectRatio&quot;: string,
-  &quot;resolution&quot;: string,
-  &quot;personGeneration&quot;: string,
-  &quot;pubsubTopic&quot;: string,
-  &quot;negativePrompt&quot;: string,
-  &quot;enablePromptRewriting&quot;: boolean,
-  &quot;enhancePrompt&quot;: boolean,
-  &quot;generateAudio&quot;: boolean,
-  &quot;compressionQuality&quot;: string,
-  &quot;task&quot;: string,
-  &quot;resizeMode&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "sampleCount": integer,
+  "storageUri": string,
+  "fps": integer,
+  "durationSeconds": number,
+  "seed": integer,
+  "aspectRatio": string,
+  "resolution": string,
+  "personGeneration": string,
+  "pubsubTopic": string,
+  "negativePrompt": string,
+  "enablePromptRewriting": boolean,
+  "enhancePrompt": boolean,
+  "generateAudio": boolean,
+  "compressionQuality": string,
+  "task": string,
+  "resizeMode": string
+}
+```

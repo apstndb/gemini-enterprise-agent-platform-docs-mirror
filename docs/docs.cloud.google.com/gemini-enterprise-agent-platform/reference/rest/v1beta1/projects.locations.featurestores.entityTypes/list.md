@@ -28,15 +28,15 @@ Required. The resource name of the Featurestore to list EntityTypes. Format: `pr
 
 Lists the EntityTypes that match the filter expression. The following filters are supported:
 
-  - `createTime` : Supports `=` , `!=` , `<` , `>` , `>=` , and `<=` comparisons. Values must be in RFC 3339 format.
-  - `updateTime` : Supports `=` , `!=` , `<` , `>` , `>=` , and `<=` comparisons. Values must be in RFC 3339 format.
-  - `labels` : Supports key-value equality as well as key presence.
+- `createTime` : Supports `=` , `!=` , `<` , `>` , `>=` , and `<=` comparisons. Values must be in RFC 3339 format.
+- `updateTime` : Supports `=` , `!=` , `<` , `>` , `>=` , and `<=` comparisons. Values must be in RFC 3339 format.
+- `labels` : Supports key-value equality as well as key presence.
 
 Examples:
 
-  - `createTime > \"2020-01-31T15:30:00.000000Z\" OR updateTime > \"2020-01-31T15:30:00.000000Z\"` --\> EntityTypes created or updated after 2020-01-31T15:30:00.000000Z.
-  - `labels.active = yes AND labels.env = prod` --\> EntityTypes having both (active: yes) and (env: prod) labels.
-  - `labels.env: *` --\> Any EntityType which has a label with 'env' as the key.
+- `createTime > \"2020-01-31T15:30:00.000000Z\" OR updateTime > \"2020-01-31T15:30:00.000000Z\"` --\> EntityTypes created or updated after 2020-01-31T15:30:00.000000Z.
+- `labels.active = yes AND labels.env = prod` --\> EntityTypes having both (active: yes) and (env: prod) labels.
+- `labels.env: *` --\> Any EntityType which has a label with 'env' as the key.
 
 `pageSize` `integer`
 
@@ -44,9 +44,9 @@ The maximum number of EntityTypes to return. The service may return fewer than t
 
 `pageToken` `string`
 
-A page token, received from a previous `  FeaturestoreService.ListEntityTypes  ` call. Provide this to retrieve the subsequent page.
+A page token, received from a previous [`FeaturestoreService.ListEntityTypes`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/list#google.cloud.aiplatform.v1beta1.FeaturestoreService.ListEntityTypes) call. Provide this to retrieve the subsequent page.
 
-When paginating, all other parameters provided to `  FeaturestoreService.ListEntityTypes  ` must match the call that provided the page token.
+When paginating, all other parameters provided to [`FeaturestoreService.ListEntityTypes`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/list#google.cloud.aiplatform.v1beta1.FeaturestoreService.ListEntityTypes) must match the call that provided the page token.
 
 `orderBy` `string`
 
@@ -54,11 +54,11 @@ A comma-separated list of fields to order by, sorted in ascending order. Use "de
 
 Supported fields:
 
-  - `entityTypeId`
-  - `createTime`
-  - `updateTime`
+- `entityTypeId`
+- `createTime`
+- `updateTime`
 
-`readMask` ` string ( FieldMask  ` format)
+`readMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Mask specifying which fields to read.
 
@@ -70,32 +70,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  FeaturestoreService.ListEntityTypes  ` .
+Response message for [`FeaturestoreService.ListEntityTypes`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/list#google.cloud.aiplatform.v1beta1.FeaturestoreService.ListEntityTypes) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`entityTypes[]` ` object ( EntityType  ` )
+`entityTypes[]` `object ( `[`EntityType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes#EntityType)` )`
 
 The EntityTypes matching the request.
 
 `nextPageToken` `string`
 
-A token, which can be sent as `  ListEntityTypesRequest.page_token  ` to retrieve the next page. If this field is omitted, there are no subsequent pages.
+A token, which can be sent as [`ListEntityTypesRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featurestores.entityTypes/list#body.QUERY_PARAMETERS.page_token) to retrieve the next page. If this field is omitted, there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;entityTypes&quot;: [{object (EntityType)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "entityTypes": [
+    {
+      object (EntityType)
+    }
+  ],
+  "nextPageToken": string
+}
+```

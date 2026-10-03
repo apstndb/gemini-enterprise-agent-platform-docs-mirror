@@ -14,11 +14,11 @@ For [Gemini Omni models](https://docs.cloud.google.com/gemini-enterprise-agent-p
 
 The following are the quota enforcement windows for different GSU sizes for Gemini Omni Flash Preview:
 
-  - 1-9 GSUs: 2,000 seconds
-  - 10-19 GSUs: 200 seconds
-  - 20-39 GSUs: 100 seconds
-  - 40-66 GSUs: 50 seconds
-  - 67+ GSUs: 30 seconds
+- 1-9 GSUs: 2,000 seconds
+- 10-19 GSUs: 200 seconds
+- 20-39 GSUs: 100 seconds
+- 40-66 GSUs: 50 seconds
+- 67+ GSUs: 30 seconds
 
 The listed values are independent of the request latency. The time to process your request isn't the same as the quota enforcement window.
 
@@ -34,18 +34,18 @@ We recommend using the estimation tool on the [Provisioned Throughput page](http
 
 To estimate token counts, use the following methods:
 
-  - **Input text tokens** : Use the SDK tokenizer or the [countTokens API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count) .
-  - **Input tokens of other modalities** : Use estimates based on the assumptions in the [pricing page](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#gemini-omni) .
-  - **Existing workloads** : Sum the token usage from responses generated within a specific time window.
+- **Input text tokens** : Use the SDK tokenizer or the [countTokens API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count) .
+- **Input tokens of other modalities** : Use estimates based on the assumptions in the [pricing page](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#gemini-omni) .
+- **Existing workloads** : Sum the token usage from responses generated within a specific time window.
 
 For example, consider a workload that generates five 10-second 720p videos and five 10-second 1080p videos every 30 seconds (10 requests total). Suppose each request has 20 input text tokens, one image (1,120 tokens), and 100 response thinking tokens. The inputs for the GSU estimator are as follows:
 
-  - **Frequency** : 30s
-  - **Total input text tokens** : 20 × 10 (requests) = 200
-  - **Total image tokens** : 1,120 × 10 (requests) = 11,200
-  - **Total output reasoning tokens** : 100 × 10 (requests) = 1,000
-  - **Total output video tokens** : 10s (duration) × 5,792 (tokens/s) × 5 videos (720p) + 10s (duration) × 8,688 (tokens/s) × 5 videos (1080p) = 724,000
-  - **Estimated GSUs** : 434
+- **Frequency** : 30s
+- **Total input text tokens** : 20 × 10 (requests) = 200
+- **Total image tokens** : 1,120 × 10 (requests) = 11,200
+- **Total output reasoning tokens** : 100 × 10 (requests) = 1,000
+- **Total output video tokens** : 10s (duration) × 5,792 (tokens/s) × 5 videos (720p) + 10s (duration) × 8,688 (tokens/s) × 5 videos (1080p) = 724,000
+- **Estimated GSUs** : 434
 
 ## High resolution and duration scenarios
 
@@ -56,7 +56,7 @@ This affects only 4K videos of 7 seconds or longer. At 360p, 720p, and 1080p, ev
 If you generate 4K videos of 7 seconds or longer, compare the estimation tool's result against the following table and order whichever number is larger:
 
 | Longest 4K video | 1–9 GSUs | 10–19 GSUs | 20–39 GSUs | 40–66 GSUs | 67+ GSUs |
-| :--------------- | :------- | :--------- | :--------- | :--------- | :------- |
+|------------------|----------|------------|------------|------------|----------|
 | 7 seconds        | 2        | 12         | 23         | 46         | 76       |
 | 8 seconds        | 2        | 13         | 26         | 52         | 87       |
 | 9 seconds        | 2        | 15         | 29         | 58         | 97       |
@@ -68,4 +68,4 @@ These figures assume typical prompt and reasoning tokens—a text or image promp
 
 ## What's next
 
-  - [Purchase Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#place-an-order)
+- [Purchase Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#place-an-order)

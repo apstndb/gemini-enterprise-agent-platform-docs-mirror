@@ -7,14 +7,14 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > Some of the RAG features are Preview offerings, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . Pre-GA products and features are available "as-is" and may have limited support, and changes to Pre-GA products and features may not be compatible with other Pre-GA versions. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages) . By using the Gemini API on Gemini Enterprise Agent Platform, you agree to the Generative AI Preview [terms and conditions](https://cloud.google.com/trustedtester/aitos) (Preview Terms).
 
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 
 > To see an example of using RAG Engine with Weaviate, run the "RAG Engine with Weaviate" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_weaviate.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_weaviate.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_weaviate.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_weaviate.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_weaviate.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_weaviate.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_weaviate.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_weaviate.ipynb)
 
 This page shows you how to connect your RAG Engine corpus to your [Weaviate](https://weaviate.io/) database.
 
@@ -67,7 +67,7 @@ Because the RAG Engine corpus and the Weaviate collection have a one-to-one mapp
 When creating a collection in Weaviate, you must use the following schema:
 
 | Property name     | Data type |
-| ----------------- | --------- |
+|-------------------|-----------|
 | `fileId`          | `text`    |
 | `corpusId`        | `text`    |
 | `chunkId`         | `text`    |
@@ -98,15 +98,15 @@ To protect SPII, do the following:
 1.  Store your API key in Secret Manager.
 2.  Grant your RAG Engine service account the permissions to your secret(s), and manage the access control at the secret resource level.
     1.  Navigate to your [project's permissions](https://console.cloud.google.com/iam-admin/iam) .
-    
+
     2.  Enable the option **Include Google-provided role grants** .
-    
+
     3.  Find the service account, which has the format
-        
+
         `service-{project number}@gcp-sa-vertex-rag.iam.gserviceaccount.com`
-    
+
     4.  Edit the service account's principals.
-    
+
     5.  Add the **Secret Manager Secret Accessor** role to the service account.
 3.  During the creation or update of the RAG corpus, pass the secret resource name to RAG Engine, and store the secret resource name.
 
@@ -122,10 +122,10 @@ For example, `service-123456789@gcp-sa-vertex-rag.iam.gserviceaccount.com` .
 
 When integrating with the Weaviate database, your service account is used in the following scenarios:
 
-  - You can use your service account to generate your Weaviate API key for authentication. In some cases, generating the API key doesn't require any user information, which means that a service account isn't required when generating the API key.
-  - You can bind your service account with the API key in your Weaviate database to configure the authentication ( `AuthN` ) and authorization ( `AuthZ` ). However, your service account isn't required.
-  - You can store the API key Secret Manager in your project, and you can grant your service account permissions to these secret resources.
-  - RAG Engine uses service accounts to access the API key from the Secret Manager in your projects.
+- You can use your service account to generate your Weaviate API key for authentication. In some cases, generating the API key doesn't require any user information, which means that a service account isn't required when generating the API key.
+- You can bind your service account with the API key in your Weaviate database to configure the authentication ( `AuthN` ) and authorization ( `AuthZ` ). However, your service account isn't required.
+- You can store the API key Secret Manager in your project, and you can grant your service account permissions to these secret resources.
+- RAG Engine uses service accounts to access the API key from the Secret Manager in your projects.
 
 ## Set up your Google Cloud console environment
 
@@ -136,22 +136,24 @@ Learn how to set up your environment by selecting one of the following tabs:
 ### Python
 
 1.  In the Google Cloud console, activate Cloud Shell.
-    
+
     At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) session starts and displays a command-line prompt. Cloud Shell is a shell environment with the Google Cloud CLI already installed and with values already set for your current project. It can take a few seconds for the session to initialize.
-    
+
     > **Note:** If you are familiar with Gemini API in Google AI Studio, note that Gemini API for Agent Platform uses Identity and Access Management instead of API keys to manage access.
 
 2.  If you're using a local shell, then create local authentication credentials for your user account:
-    
-        gcloud auth application-default login
-    
+
+    ```
+    gcloud auth application-default login
+    ```
+
     You don't need to do this if you're using Cloud Shell.
-    
+
     If an authentication error is returned, and you are using an external identity provider (IdP), confirm that you have [signed in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 3.  Install or update the Agent Platform SDK for Python by running the following command:
-    
-    ``` 
+
+    ```
     pip3 install --upgrade "google-cloud-aiplatform>=1.38"
         
     ```
@@ -159,22 +161,24 @@ Learn how to set up your environment by selecting one of the following tabs:
 ### Node.js
 
 1.  In the Google Cloud console, activate Cloud Shell.
-    
+
     At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) session starts and displays a command-line prompt. Cloud Shell is a shell environment with the Google Cloud CLI already installed and with values already set for your current project. It can take a few seconds for the session to initialize.
-    
+
     > **Note:** If you are familiar with Gemini API in Google AI Studio, note that Gemini API for Agent Platform uses Identity and Access Management instead of API keys to manage access.
 
 2.  If you're using a local shell, then create local authentication credentials for your user account:
-    
-        gcloud auth application-default login
-    
+
+    ```
+    gcloud auth application-default login
+    ```
+
     You don't need to do this if you're using Cloud Shell.
-    
+
     If an authentication error is returned, and you are using an external identity provider (IdP), confirm that you have [signed in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 3.  Install or update the Agent Platform SDK for Node.js by running the following command:
-    
-    ``` 
+
+    ```
     npm install @google-cloud/vertexai
         
     ```
@@ -182,26 +186,28 @@ Learn how to set up your environment by selecting one of the following tabs:
 ### Java
 
 1.  In the Google Cloud console, activate Cloud Shell.
-    
+
     At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) session starts and displays a command-line prompt. Cloud Shell is a shell environment with the Google Cloud CLI already installed and with values already set for your current project. It can take a few seconds for the session to initialize.
-    
+
     > **Note:** If you are familiar with Gemini API in Google AI Studio, note that Gemini API for Agent Platform uses Identity and Access Management instead of API keys to manage access.
 
 2.  If you're using a local shell, then create local authentication credentials for your user account:
-    
-        gcloud auth application-default login
-    
+
+    ```
+    gcloud auth application-default login
+    ```
+
     You don't need to do this if you're using Cloud Shell.
-    
+
     If an authentication error is returned, and you are using an external identity provider (IdP), confirm that you have [signed in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 3.  To add `google-cloud-vertexai` as a dependency, add the appropriate code for your environment:
-    
+
     ### Maven with BOM
-    
+
     Add the following HTML to your `pom.xml` :
-    
-    ``` 
+
+    ```
     <dependencyManagement>
       <dependencies>
         <dependency>
@@ -221,12 +227,12 @@ Learn how to set up your environment by selecting one of the following tabs:
     </dependencies>
                 
     ```
-    
+
     ### Maven without BOM
-    
+
     Add the following HTML to your `pom.xml` :
-    
-    ``` 
+
+    ```
     <dependency>
       <groupId>com.google.cloud</groupId>
       <artifactId>google-cloud-vertexai</artifactId>
@@ -234,90 +240,96 @@ Learn how to set up your environment by selecting one of the following tabs:
     </dependency>
                 
     ```
-    
+
     ### Gradle without BOM
-    
+
     Add the following to your `build.gradle`
-    
-        implementation 'com.google.cloud:google-cloud-vertexai:0.4.0'
+
+    ```
+    implementation 'com.google.cloud:google-cloud-vertexai:0.4.0'
+    ```
 
 ### Go
 
 1.  In the Google Cloud console, activate Cloud Shell.
-    
+
     At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) session starts and displays a command-line prompt. Cloud Shell is a shell environment with the Google Cloud CLI already installed and with values already set for your current project. It can take a few seconds for the session to initialize.
-    
+
     > **Note:** If you are familiar with Gemini API in Google AI Studio, note that Gemini API for Agent Platform uses Identity and Access Management instead of API keys to manage access.
 
 2.  If you're using a local shell, then create local authentication credentials for your user account:
-    
-        gcloud auth application-default login
-    
+
+    ```
+    gcloud auth application-default login
+    ```
+
     You don't need to do this if you're using Cloud Shell.
-    
+
     If an authentication error is returned, and you are using an external identity provider (IdP), confirm that you have [signed in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 3.  Review the available Agent Platform API Go packages to determine which package best meets your project's needs:
-    
-      - Package [**cloud.google.com/go/vertexai**](https://pkg.go.dev/cloud.google.com/go/vertexai) ( **recommended** )
-        
-        `vertexai` is a human authored package that provides access to common capabilities and features.
-        
-        This package is recommended as the starting point for most developers building with the Agent Platform API. To access capabilities and features not yet covered by this package, use the auto-generated `aiplatform` instead.
-    
-      - Package [**cloud.google.com/go/aiplatform**](https://pkg.go.dev/cloud.google.com/go/aiplatform)
-        
-        `aiplatform` is an auto-generated package.
-        
-        This package is intended for projects that require access to Agent Platform API capabilities and features not yet provided by the human authored `vertexai` package.
+
+    - Package [**cloud.google.com/go/vertexai**](https://pkg.go.dev/cloud.google.com/go/vertexai) ( **recommended** )
+
+      `vertexai` is a human authored package that provides access to common capabilities and features.
+
+      This package is recommended as the starting point for most developers building with the Agent Platform API. To access capabilities and features not yet covered by this package, use the auto-generated `aiplatform` instead.
+
+    - Package [**cloud.google.com/go/aiplatform**](https://pkg.go.dev/cloud.google.com/go/aiplatform)
+
+      `aiplatform` is an auto-generated package.
+
+      This package is intended for projects that require access to Agent Platform API capabilities and features not yet provided by the human authored `vertexai` package.
 
 4.  Install the desired Go package based on your project's needs by running one of the following commands:
-    
-    ``` 
+
+    ```
     # Human authored package. Recommended for most developers.
     go get cloud.google.com/go/vertexai
         
-    
+
     # Auto-generated package.
     go get cloud.google.com/go/aiplatform
         
     ```
 
-### C\#
+### C#
 
 1.  In the Google Cloud console, activate Cloud Shell.
-    
+
     At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) session starts and displays a command-line prompt. Cloud Shell is a shell environment with the Google Cloud CLI already installed and with values already set for your current project. It can take a few seconds for the session to initialize.
-    
+
     > **Note:** If you are familiar with Gemini API in Google AI Studio, note that Gemini API for Agent Platform uses Identity and Access Management instead of API keys to manage access.
 
 2.  If you're using a local shell, then create local authentication credentials for your user account:
-    
-        gcloud auth application-default login
-    
+
+    ```
+    gcloud auth application-default login
+    ```
+
     You don't need to do this if you're using Cloud Shell.
-    
+
     If an authentication error is returned, and you are using an external identity provider (IdP), confirm that you have [signed in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 ### REST
 
 1.  In the Google Cloud console, activate Cloud Shell.
-    
+
     At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) session starts and displays a command-line prompt. Cloud Shell is a shell environment with the Google Cloud CLI already installed and with values already set for your current project. It can take a few seconds for the session to initialize.
-    
+
     > **Note:** If you are familiar with Gemini API in Google AI Studio, note that Gemini API for Agent Platform uses Identity and Access Management instead of API keys to manage access.
 
-2.  Configure environment variables by entering the following. Replace `PROJECT_ID` with the ID of your Google Cloud project.
-    
-    ``` 
+2.  Configure environment variables by entering the following. Replace ` ``PROJECT_ID`` ` with the ID of your Google Cloud project.
+
+    ```
     MODEL_ID="gemini-3.5-flash"
     PROJECT_ID="PROJECT_ID"
         
     ```
 
 3.  Provision the endpoint:
-    
-    ``` 
+
+    ```
     gcloud beta services identity create --service=aiplatform.googleapis.com --project=${PROJECT_ID}
         
     ```
@@ -332,27 +344,27 @@ To access data from your Weaviate database, RAG Engine must have access to a RAG
 
 You must specify the following fields when calling the `CreateRagCorpus` and `UpdateRagCorpus` APIs:
 
-  - **`rag_vector_db_config.weaviate`** : After you call the `CreateRagCorpus` API, the vector database configuration is chosen. The vector database configuration contains all of the configuration fields. If the `rag_vector_db_config.weaviate` field isn't set, then `rag_vector_db_config.rag_managed_db` is set by default.
-  - **`weaviate.http_endpoint`** : The HTTPS or HTTP Weaviate endpoint is created during provisioning of the Weaviate database instance.
-  - **`weaviate.collection_name`** : The name of the collection that is created during the Weaviate instance provisioning. The name must start with a capital letter.
-  - **`api_auth.api_key_config`** : The configuration specifies to use an API key to authorize your access to the vector database.
-  - **`api_key_config.api_key_secret_version`** : The resource name of the secret that is stored in Secret Manager, which contains your Weaviate API key.
+- **`rag_vector_db_config.weaviate`** : After you call the `CreateRagCorpus` API, the vector database configuration is chosen. The vector database configuration contains all of the configuration fields. If the `rag_vector_db_config.weaviate` field isn't set, then `rag_vector_db_config.rag_managed_db` is set by default.
+- **`weaviate.http_endpoint`** : The HTTPS or HTTP Weaviate endpoint is created during provisioning of the Weaviate database instance.
+- **`weaviate.collection_name`** : The name of the collection that is created during the Weaviate instance provisioning. The name must start with a capital letter.
+- **`api_auth.api_key_config`** : The configuration specifies to use an API key to authorize your access to the vector database.
+- **`api_key_config.api_key_secret_version`** : The resource name of the secret that is stored in Secret Manager, which contains your Weaviate API key.
 
 You can create and associate your RAG corpus to the Weaviate collection in your database instance. However, you might need the service account to generate your API key and to configure your Weaviate database instance. When you create your first RAG corpus, the service account is generated. After you create your first RAG corpus, the association between the Weaviate database and the API key might not be ready for use in the creation of another RAG corpus.
 
 Just in case your database and key aren't ready to be associated to your RAG corpus, do the following to your RAG corpus:
 
 1.  Set the `weaviate` field in `rag_vector_db_config` .
-    
-      - You can't change the associated vector database.
-      - Leave both the `http_endpoint` and the `collection_name` fields empty. Both fields can be updated at a later time.
+
+    - You can't change the associated vector database.
+    - Leave both the `http_endpoint` and the `collection_name` fields empty. Both fields can be updated at a later time.
 
 2.  If you don't have your API key stored in Secret Manager, then you can leave the `api_auth` field empty. When you call the `UpdateRagCorpus` API, you can update the `api_auth` field. Weaviate requires that the following be done:
-    
+
     1.  Set the `api_key_config` in the `api_auth` field.
-    
+
     2.  Set the `api_key_secret_version` of your Weaviate API key in Secret Manager. The `api_key_secret_version` field uses the following format:
-        
+
         `projects/{project}/secrets/{secret}/versions/{version}`
 
 3.  If you specify fields that can only be set one time, like `http_endpoint` or `collection_name` , you can't change them unless you delete your RAG corpus, and create your RAG corpus again. Other fields like the API key field, `api_key_secret_version` , can be updated.
@@ -362,7 +374,7 @@ Just in case your database and key aren't ready to be associated to your RAG cor
 This table lists the `WeaviateConfig` mutable and immutable fields that are used in your code.
 
 | Field name               | Mutable or Immutable |
-| ------------------------ | -------------------- |
+|--------------------------|----------------------|
 | `http_endpoint`          | Immutable once set   |
 | `collection_name`        | Immutable once set   |
 | `api_key_authentication` | Mutable              |
@@ -374,23 +386,21 @@ When the RAG Engine service account doesn't exist, do the following:
 1.  Create a RAG corpus in RAG Engine with an empty Weaviate configuration, which initiates RAG Engine provisioning to create a service account.
 
 2.  Choose a name for your RAG Engine service account that follows this format:  
-    
+
     `service-{project number}@gcp-sa-vertex-rag.iam.gserviceaccount.com`
-    
+
     For example, `service-123456789@gcp-sa-vertex-rag.iam.gserviceaccount.com` .
 
 3.  Using your service account, access your secret that is stored in your project's Secret Manager, which contains your Weaviate API key.
 
 4.  Get the following information after Weaviate provisioning completes:
-    
-      - Your Weaviate HTTPS or HTTP endpoint.
-      - The name of your Weaviate collection.
+    - Your Weaviate HTTPS or HTTP endpoint.
+    - The name of your Weaviate collection.
 
 5.  Call the `CreateRagCorpus` API to create a RAG corpus with an empty Weaviate configuration, and call the `UpdateRagCorpus` API to update the RAG corpus with the following information:
-    
-      - Your Weaviate HTTPS or HTTP endpoint.
-      - The name of your Weaviate collection.
-      - The API key resource name.
+    - Your Weaviate HTTPS or HTTP endpoint.
+    - The name of your Weaviate collection.
+    - The API key resource name.
 
 ### Create another RAG corpus
 
@@ -401,23 +411,21 @@ When the RAG Engine service account exists, do the following:
 2.  Enable the option "Include Google-provided role grants"
 
 3.  Choose a name for your RAG Engine service account that follows this format:  
-    
+
     `service-{project number}@gcp-sa-vertex-rag.iam.gserviceaccount.com`
 
 4.  Using your service account, access your secret that is stored in your project's Secret Manager, which contains your Weaviate API key.
 
 5.  During Weaviate provisioning, get the following information:
-    
-      - The Weaviate HTTPS or HTTP endpoint.
-      - The name of your Weaviate collection.
+    - The Weaviate HTTPS or HTTP endpoint.
+    - The name of your Weaviate collection.
 
 6.  Create a RAG corpus in RAG Engine, and connect with your Weaviate collection by doing one of the following:
-    
     1.  Make a `CreateRagCorpus` API call to create a RAG corpus with a populated Weaviate configuration, which is the preferred option.
     2.  Make a `CreateRagCorpus` API call to create a RAG corpus with an empty Weaviate configuration, and make an `UpdateRagCorpus` API call to update the RAG corpus with the following information:
-          - Weaviate database HTTP endpoint
-          - Weaviate Collection name
-          - API key
+        - Weaviate database HTTP endpoint
+        - Weaviate Collection name
+        - API key
 
 ## Examples
 
@@ -431,36 +439,38 @@ This code sample demonstrates how to set up your Weaviate data and the Secret Ma
 
 ### REST
 
-    # TODO(developer): Update the variables.
-    # The HTTPS/HTTP Weaviate endpoint you created during provisioning.
-    HTTP_ENDPOINT_NAME="https://your.weaviate.endpoint.com"
-    
-    # Your Weaviate API Key.
-    WEAVIATE_API_KEY="example-api-key"
-    
-    # Select your Weaviate collection name, which roughly corresponds to a Agent Platform Knowledge Engine Corpus.
-    # For example, "MyCollectionName"
-    # Note that the first letter needs to be capitalized.
-    # Otherwise, Weavaite will capitalize it for you.
-    WEAVIATE_COLLECTION_NAME="MyCollectionName"
-    
-    # Create a collection in Weaviate which includes the required schema fields shown below.
-    echo '{
-      "class": "'${WEAVIATE_COLLECTION_NAME}'",
-      "properties": [
-        { "name": "fileId", "dataType": [ "string" ] },
-        { "name": "corpusId", "dataType": [ "string" ] },
-        { "name": "chunkId", "dataType": [ "string" ] },
-        { "name": "chunkDataType", "dataType": [ "string" ] },
-        { "name": "chunkData", "dataType": [ "string" ] },
-        { "name": "fileOriginalUri", "dataType": [ "string" ] }
-      ]
-    }' | curl \
-        -X POST \
-        -H 'Content-Type: application/json' \
-        -H "Authorization: Bearer "${WEAVIATE_API_KEY} \
-        -d @- \
-        ${HTTP_ENDPOINT_NAME}/v1/schema
+```
+# TODO(developer): Update the variables.
+# The HTTPS/HTTP Weaviate endpoint you created during provisioning.
+HTTP_ENDPOINT_NAME="https://your.weaviate.endpoint.com"
+
+# Your Weaviate API Key.
+WEAVIATE_API_KEY="example-api-key"
+
+# Select your Weaviate collection name, which roughly corresponds to a Agent Platform Knowledge Engine Corpus.
+# For example, "MyCollectionName"
+# Note that the first letter needs to be capitalized.
+# Otherwise, Weavaite will capitalize it for you.
+WEAVIATE_COLLECTION_NAME="MyCollectionName"
+
+# Create a collection in Weaviate which includes the required schema fields shown below.
+echo '{
+  "class": "'${WEAVIATE_COLLECTION_NAME}'",
+  "properties": [
+    { "name": "fileId", "dataType": [ "string" ] },
+    { "name": "corpusId", "dataType": [ "string" ] },
+    { "name": "chunkId", "dataType": [ "string" ] },
+    { "name": "chunkDataType", "dataType": [ "string" ] },
+    { "name": "chunkData", "dataType": [ "string" ] },
+    { "name": "fileOriginalUri", "dataType": [ "string" ] }
+  ]
+}' | curl \
+    -X POST \
+    -H 'Content-Type: application/json' \
+    -H "Authorization: Bearer "${WEAVIATE_API_KEY} \
+    -d @- \
+    ${HTTP_ENDPOINT_NAME}/v1/schema
+```
 
 ### Set up your Secret Manager
 
@@ -479,7 +489,7 @@ To enable your Secret Manager, do the following:
 3.  Enter the **Name** of your secret. Secret names can only contain English letters (A-Z), numbers (0-9), dashes (-), and underscores (\_).
 
 4.  Specifying the following fields is optional:
-    
+
     1.  To upload the file with your secret, click **Browse** .
     2.  Read the **Replication policy** .
     3.  If you want to manually manage the locations for your secret, then check **Manually manage locations for this secret** . At least one region must be selected.
@@ -495,12 +505,14 @@ To enable your Secret Manager, do the following:
 
 ### REST
 
-    # Create a secret in SecretManager.
-    curl "https://secretmanager.googleapis.com/v1/projects/${PROJECT_ID}/secrets?secretId=${SECRET_NAME}" \
-        --request "POST" \
-        --header "authorization: Bearer $(gcloud auth print-access-token)" \
-        --header "content-type: application/json" \
-        --data "{\"replication\": {\"automatic\": {}}}"
+```
+# Create a secret in SecretManager.
+curl "https://secretmanager.googleapis.com/v1/projects/${PROJECT_ID}/secrets?secretId=${SECRET_NAME}" \
+    --request "POST" \
+    --header "authorization: Bearer $(gcloud auth print-access-token)" \
+    --header "content-type: application/json" \
+    --data "{\"replication\": {\"automatic\": {}}}"
+```
 
 ### Python
 
@@ -508,54 +520,56 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    # Import the Secret Manager client library.
-    from google.cloud import secretmanager
-    
-    
-    def create_secret(
-        project_id: str, secret_id: str, ttl: Optional[str] = None
-    ) -> secretmanager.Secret:
-        """
-        Create a new secret with the given name. A secret is a logical wrapper
-        around a collection of secret versions. Secret versions hold the actual
-        secret material.
-    
-         Args:
-            project_id (str): The project ID where the secret is to be created.
-            secret_id (str): The ID to assign to the new secret. This ID must be unique within the project.
-            ttl (Optional[str]): An optional string that specifies the secret's time-to-live in seconds with
-                                 format (e.g., "900s" for 15 minutes). If specified, the secret
-                                 versions will be automatically deleted upon reaching the end of the TTL period.
-    
-        Returns:
-            secretmanager.Secret: An object representing the newly created secret, containing details like the
-                                  secret's name, replication settings, and optionally its TTL.
-    
-        Example:
-            # Create a secret with automatic replication and no TTL
-            new_secret = create_secret("my-project", "my-new-secret")
-    
-            # Create a secret with a TTL of 30 days
-            new_secret_with_ttl = create_secret("my-project", "my-timed-secret", "7776000s")
-        """
-    
-        # Create the Secret Manager client.
-        client = secretmanager.SecretManagerServiceClient()
-    
-        # Build the resource name of the parent project.
-        parent = f"projects/{project_id}"
-    
-        # Create the secret.
-        response = client.create_secret(
-            request={
-                "parent": parent,
-                "secret_id": secret_id,
-                "secret": {"replication": {"automatic": {}}, "ttl": ttl},
-            }
-        )
-    
-        # Print the new secret name.
-        print(f"Created secret: {response.name}")
+```python
+# Import the Secret Manager client library.
+from google.cloud import secretmanager
+
+
+def create_secret(
+    project_id: str, secret_id: str, ttl: Optional[str] = None
+) -> secretmanager.Secret:
+    """
+    Create a new secret with the given name. A secret is a logical wrapper
+    around a collection of secret versions. Secret versions hold the actual
+    secret material.
+
+     Args:
+        project_id (str): The project ID where the secret is to be created.
+        secret_id (str): The ID to assign to the new secret. This ID must be unique within the project.
+        ttl (Optional[str]): An optional string that specifies the secret's time-to-live in seconds with
+                             format (e.g., "900s" for 15 minutes). If specified, the secret
+                             versions will be automatically deleted upon reaching the end of the TTL period.
+
+    Returns:
+        secretmanager.Secret: An object representing the newly created secret, containing details like the
+                              secret's name, replication settings, and optionally its TTL.
+
+    Example:
+        # Create a secret with automatic replication and no TTL
+        new_secret = create_secret("my-project", "my-new-secret")
+
+        # Create a secret with a TTL of 30 days
+        new_secret_with_ttl = create_secret("my-project", "my-timed-secret", "7776000s")
+    """
+
+    # Create the Secret Manager client.
+    client = secretmanager.SecretManagerServiceClient()
+
+    # Build the resource name of the parent project.
+    parent = f"projects/{project_id}"
+
+    # Create the secret.
+    response = client.create_secret(
+        request={
+            "parent": parent,
+            "secret_id": secret_id,
+            "secret": {"replication": {"automatic": {}}, "ttl": ttl},
+        }
+    )
+
+    # Print the new secret name.
+    print(f"Created secret: {response.name}")
+```
 
 #### Set permissions
 
@@ -573,53 +587,57 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    def iam_grant_access(
-        project_id: str, secret_id: str, member: str
-    ) -> iam_policy_pb2.SetIamPolicyRequest:
-        """
-        Grant the given member access to a secret.
-        """
-    
-        # Import the Secret Manager client library.
-        from google.cloud import secretmanager
-    
-        # Create the Secret Manager client.
-        client = secretmanager.SecretManagerServiceClient()
-    
-        # Build the resource name of the secret.
-        name = client.secret_path(project_id, secret_id)
-    
-        # Get the current IAM policy.
-        policy = client.get_iam_policy(request={"resource": name})
-    
-        # Add the given member with access permissions.
-        policy.bindings.add(role="roles/secretmanager.secretAccessor", members=[member])
-    
-        # Update the IAM Policy.
-        new_policy = client.set_iam_policy(request={"resource": name, "policy": policy})
-    
-        # Print data about the secret.
-        print(f"Updated IAM policy on {secret_id}")
+```python
+def iam_grant_access(
+    project_id: str, secret_id: str, member: str
+) -> iam_policy_pb2.SetIamPolicyRequest:
+    """
+    Grant the given member access to a secret.
+    """
+
+    # Import the Secret Manager client library.
+    from google.cloud import secretmanager
+
+    # Create the Secret Manager client.
+    client = secretmanager.SecretManagerServiceClient()
+
+    # Build the resource name of the secret.
+    name = client.secret_path(project_id, secret_id)
+
+    # Get the current IAM policy.
+    policy = client.get_iam_policy(request={"resource": name})
+
+    # Add the given member with access permissions.
+    policy.bindings.add(role="roles/secretmanager.secretAccessor", members=[member])
+
+    # Update the IAM Policy.
+    new_policy = client.set_iam_policy(request={"resource": name, "policy": policy})
+
+    # Print data about the secret.
+    print(f"Updated IAM policy on {secret_id}")
+```
 
 #### Add Secret Version
 
 ### REST
 
-    # TODO(developer): Update the variables.
-    # Select a resource name for your Secret, which contains your API Key.
-    SECRET_NAME="MyWeaviateApiKeySecret"
-    
-    # Your Weaviate API Key.
-    WEAVIATE_API_KEY="example-api-key"
-    # Encode your WEAVIATE_API_KEY using base 64.
-    SECRET_DATA=$(echo ${WEAVIATE_API_KEY} | base64)
-    
-    # Create a new version of your secret which uses SECRET_DATA as payload
-    curl "https://secretmanager.googleapis.com/v1/projects/${PROJECT_ID}/secrets/${SECRET_NAME}:addVersion" \
-        --request "POST" \
-        --header "authorization: Bearer $(gcloud auth print-access-token)" \
-        --header "content-type: application/json" \
-        --data "{\"payload\": {\"data\": \"${SECRET_DATA}\"}}"
+```
+# TODO(developer): Update the variables.
+# Select a resource name for your Secret, which contains your API Key.
+SECRET_NAME="MyWeaviateApiKeySecret"
+
+# Your Weaviate API Key.
+WEAVIATE_API_KEY="example-api-key"
+# Encode your WEAVIATE_API_KEY using base 64.
+SECRET_DATA=$(echo ${WEAVIATE_API_KEY} | base64)
+
+# Create a new version of your secret which uses SECRET_DATA as payload
+curl "https://secretmanager.googleapis.com/v1/projects/${PROJECT_ID}/secrets/${SECRET_NAME}:addVersion" \
+    --request "POST" \
+    --header "authorization: Bearer $(gcloud auth print-access-token)" \
+    --header "content-type: application/json" \
+    --data "{\"payload\": {\"data\": \"${SECRET_DATA}\"}}"
+```
 
 ### Python
 
@@ -627,45 +645,47 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    from google.cloud import secretmanager
-    import google_crc32c  # type: ignore
-    
-    
-    def add_secret_version(
-        project_id: str, secret_id: str, payload: str
-    ) -> secretmanager.SecretVersion:
-        """
-        Add a new secret version to the given secret with the provided payload.
-        """
-    
-        # Create the Secret Manager client.
-        client = secretmanager.SecretManagerServiceClient()
-    
-        # Build the resource name of the parent secret.
-        parent = client.secret_path(project_id, secret_id)
-    
-        # Convert the string payload into a bytes. This step can be omitted if you
-        # pass in bytes instead of a str for the payload argument.
-        payload_bytes = payload.encode("UTF-8")
-    
-        # Calculate payload checksum. Passing a checksum in add-version request
-        # is optional.
-        crc32c = google_crc32c.Checksum()
-        crc32c.update(payload_bytes)
-    
-        # Add the secret version.
-        response = client.add_secret_version(
-            request={
-                "parent": parent,
-                "payload": {
-                    "data": payload_bytes,
-                    "data_crc32c": int(crc32c.hexdigest(), 16),
-                },
-            }
-        )
-    
-        # Print the new secret version name.
-        print(f"Added secret version: {response.name}")
+```python
+from google.cloud import secretmanager
+import google_crc32c  # type: ignore
+
+
+def add_secret_version(
+    project_id: str, secret_id: str, payload: str
+) -> secretmanager.SecretVersion:
+    """
+    Add a new secret version to the given secret with the provided payload.
+    """
+
+    # Create the Secret Manager client.
+    client = secretmanager.SecretManagerServiceClient()
+
+    # Build the resource name of the parent secret.
+    parent = client.secret_path(project_id, secret_id)
+
+    # Convert the string payload into a bytes. This step can be omitted if you
+    # pass in bytes instead of a str for the payload argument.
+    payload_bytes = payload.encode("UTF-8")
+
+    # Calculate payload checksum. Passing a checksum in add-version request
+    # is optional.
+    crc32c = google_crc32c.Checksum()
+    crc32c.update(payload_bytes)
+
+    # Add the secret version.
+    response = client.add_secret_version(
+        request={
+            "parent": parent,
+            "payload": {
+                "data": payload_bytes,
+                "data_crc32c": int(crc32c.hexdigest(), 16),
+            },
+        }
+    )
+
+    # Print the new secret version name.
+    print(f"Added secret version: {response.name}")
+```
 
 ### Use Weaviate with Llama 3
 
@@ -685,7 +705,7 @@ This code sample demonstrates how to create a RAG corpus, and sets the Weaviate 
 
 ### REST
 
-``` 
+```
   # TODO(developer): Update the variables.
   PROJECT_ID = "YOUR_PROJECT_ID"
   # The HTTPS/HTTP Weaviate endpoint you created during provisioning.
@@ -749,48 +769,50 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    import agentplatform
-    from agentplatform import types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # weaviate_http_endpoint = "weaviate-http-endpoint"
-    # weaviate_collection_name = "weaviate-collection-name"
-    # weaviate_api_key_secret_manager_version = "projects/{PROJECT_ID}/secrets/{SECRET_NAME}/versions/latest"
-    # display_name = "test_corpus"
-    # description = "Corpus Description"
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
-    
-    # Configure embedding model (Optional)
-    embedding_model_config = types.RagEmbeddingModelConfig(
-        vertex_prediction_endpoint=types.RagEmbeddingModelConfigVertexPredictionEndpoint(
-            endpoint="publishers/google/models/text-embedding-004"
-        )
+```python
+import agentplatform
+from agentplatform import types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# weaviate_http_endpoint = "weaviate-http-endpoint"
+# weaviate_collection_name = "weaviate-collection-name"
+# weaviate_api_key_secret_manager_version = "projects/{PROJECT_ID}/secrets/{SECRET_NAME}/versions/latest"
+# display_name = "test_corpus"
+# description = "Corpus Description"
+
+# Initialize Agent Platform client once per session
+client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+
+# Configure embedding model (Optional)
+embedding_model_config = types.RagEmbeddingModelConfig(
+    vertex_prediction_endpoint=types.RagEmbeddingModelConfigVertexPredictionEndpoint(
+        endpoint="publishers/google/models/text-embedding-004"
     )
-    
-    # Configure Vector DB
-    vector_db = types.RagVectorDbConfigWeaviate(
-        http_endpoint=weaviate_http_endpoint,
-        collection_name=weaviate_collection_name,
+)
+
+# Configure Vector DB
+vector_db = types.RagVectorDbConfigWeaviate(
+    http_endpoint=weaviate_http_endpoint,
+    collection_name=weaviate_collection_name,
+)
+
+corpus = client.rag.create_corpus(
+    rag_corpus=types.RagCorpus(
+        display_name=display_name,
+        description=description,
+        rag_embedding_model_config=embedding_model_config,
+        rag_vector_db_config=types.RagVectorDbConfig(
+            weaviate=vector_db
+        ),
     )
-    
-    corpus = client.rag.create_corpus(
-        rag_corpus=types.RagCorpus(
-            display_name=display_name,
-            description=description,
-            rag_embedding_model_config=embedding_model_config,
-            rag_vector_db_config=types.RagVectorDbConfig(
-                weaviate=vector_db
-            ),
-        )
-    )
-    print(corpus)
-    # Example response:
-    # RagCorpus(name='projects/1234567890/locations/us-central1/ragCorpora/1234567890',
-    # display_name='test_corpus', description='Corpus Description', embedding_model_config=...
-    # ...
+)
+print(corpus)
+# Example response:
+# RagCorpus(name='projects/1234567890/locations/us-central1/ragCorpora/1234567890',
+# display_name='test_corpus', description='Corpus Description', embedding_model_config=...
+# ...
+```
 
 ### Use the RAG file
 
@@ -800,49 +822,57 @@ The [RAG API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/ref
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : .
-  - LOCATION : The region to process the request.
-  - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
-  - INPUT\_FILE : The path of a local file.
-  - FILE\_DISPLAY\_NAME : The display name of the `RagFile` .
-  - RAG\_FILE\_DESCRIPTION : The description of the `RagFile` .
+- ` PROJECT_ID ` : .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
+- ` INPUT_FILE ` : The path of a local file.
+- ` FILE_DISPLAY_NAME ` : The display name of the `RagFile` .
+- ` RAG_FILE_DESCRIPTION ` : The description of the `RagFile` .
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/media:upload
+```
+POST https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/media:upload
+```
 
 Request JSON body:
 
-    {
-     "rag_file": {
-      "display_name": "FILE_DISPLAY_NAME",
-      "description": "RAG_FILE_DESCRIPTION"
-     }
-    }
+```
+{
+ "rag_file": {
+  "display_name": "FILE_DISPLAY_NAME",
+  "description": "RAG_FILE_DESCRIPTION"
+ }
+}
+```
 
 To send your request, choose one of these options:
 
 #### curl
 
-Save the request body in a file named `  INPUT_FILE  ` , and execute the following command:
+Save the request body in a file named `INPUT_FILE` , and execute the following command:
 
-    curl -X POST \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @INPUT_FILE \
-         "https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/media:upload"
+```
+curl -X POST \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @INPUT_FILE \
+     "https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/media:upload"
+```
 
 #### PowerShell
 
-Save the request body in a file named `  INPUT_FILE  ` , and execute the following command:
+Save the request body in a file named `INPUT_FILE` , and execute the following command:
 
-    $headers = @{  }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile INPUT_FILE `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/media:upload" | Select-Object -Expand Content
+```
+$headers = @{  }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile INPUT_FILE `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/media:upload" | Select-Object -Expand Content
+```
 
 A successful response returns the `RagFile` resource. The last component of the `RagFile.name` field is the server-generated `rag_file_id` .
 
@@ -850,25 +880,27 @@ A successful response returns the `RagFile` resource. The last component of the 
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import agentplatform
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
-    # path = "path/to/local/file.txt"
-    # display_name = "file_display_name"
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
-    
-    rag_file = client.rag.upload_file(
-        corpus_name=corpus_name,
-        path=path,
-        display_name=display_name,
-    )
-    print(rag_file)
-    # RagFile(name='projects/[PROJECT_ID]/locations/us-central1/ragCorpora/1234567890/ragFiles/09876543',
-    #  display_name='file_display_name')
+```
+import agentplatform
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+# path = "path/to/local/file.txt"
+# display_name = "file_display_name"
+
+# Initialize Agent Platform client once per session
+client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
+
+rag_file = client.rag.upload_file(
+    corpus_name=corpus_name,
+    path=path,
+    display_name=display_name,
+)
+print(rag_file)
+# RagFile(name='projects/[PROJECT_ID]/locations/us-central1/ragCorpora/1234567890/ragFiles/09876543',
+#  display_name='file_display_name')
+```
 
 #### Import RAG files
 
@@ -880,47 +912,42 @@ Use `response.metadata` to view partial failures, request time, and response tim
 
 Before using any of the request data, make the following replacements:
 
-PROJECT\_ID : .
-
-LOCATION : The region to process the request.
-
-RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
-
-GCS\_URIS : A list of Cloud Storage locations. Example: `gs://my-bucket1, gs://my-bucket2` .
-
-DRIVE\_RESOURCE\_ID : The ID of the Drive resource. Examples:
-
-  - ` https://drive.google.com/file/d/ ABCDE  `
-  - ` https://drive.google.com/corp/drive/u/0/folders/ ABCDEFG  `
-
-DRIVE\_RESOURCE\_TYPE : Type of the Drive resource. Options:
-
+- ` PROJECT_ID ` : .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
+- ` GCS_URIS ` : A list of Cloud Storage locations. Example: `gs://my-bucket1, gs://my-bucket2` .
+- ` DRIVE_RESOURCE_ID ` : The ID of the Drive resource. Examples:
+  - `https://drive.google.com/file/d/ `**`ABCDE`**
+  - `https://drive.google.com/corp/drive/u/0/folders/ `**`ABCDEFG`**
+- ` DRIVE_RESOURCE_TYPE ` : Type of the Drive resource. Options:
   - `RESOURCE_TYPE_FILE` - File
   - `RESOURCE_TYPE_FOLDER` - Folder
-
-CHUNK\_SIZE : Optional: Number of tokens each chunk should have.
-
-CHUNK\_OVERLAP : Optional: Number of tokens overlap between chunks.
+- ` CHUNK_SIZE ` : Optional: Number of tokens each chunk should have.
+- ` CHUNK_OVERLAP ` : Optional: Number of tokens overlap between chunks.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:import
+```
+POST https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:import
+```
 
 Request JSON body:
 
-    {
-      "import_rag_files_config": {
-        "gcs_source": {
-          "uris": GCS_URIS
-        },
-        "google_drive_source": {
-          "resource_ids": {
-            "resource_id": DRIVE_RESOURCE_ID,
-            "resource_type": DRIVE_RESOURCE_TYPE
-          },
-        }
-      }
+```
+{
+  "import_rag_files_config": {
+    "gcs_source": {
+      "uris": GCS_URIS
+    },
+    "google_drive_source": {
+      "resource_ids": {
+        "resource_id": DRIVE_RESOURCE_ID,
+        "resource_type": DRIVE_RESOURCE_TYPE
+      },
     }
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -928,141 +955,151 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:import"
+```
+curl -X POST \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:import"
+```
 
 #### PowerShell
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $headers = @{  }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:import" | Select-Object -Expand Content
+```
+$headers = @{  }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:import" | Select-Object -Expand Content
+```
 
 A successful response returns the `ImportRagFilesOperationMetadata` resource.
 
 The following sample demonstrates how to import a file from Cloud Storage. Use the `max_embedding_requests_per_min` control field to limit the rate at which RAG Engine calls the embedding model during the `ImportRagFiles` indexing process. The field has a default value of `1000` calls per minute.
 
-    // Cloud Storage bucket/file location.
-    // Such as "gs://rag-e2e-test/"
-    GCS_URIS=YOUR_GCS_LOCATION
-    
-    // Enter the QPM rate to limit RAG's access to your embedding model
-    // Example: 1000
-    EMBEDDING_MODEL_QPM_RATE=MAX_EMBEDDING_REQUESTS_PER_MIN_LIMIT
-    
-    // ImportRagFiles
-    // Import a single Cloud Storage file or all files in a Cloud Storage bucket.
-    // Input: ENDPOINT, PROJECT_ID, RAG_CORPUS_ID, GCS_URIS
-    // Output: ImportRagFilesOperationMetadataNumber
-    // Use ListRagFiles to find the server-generated rag_file_id.
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://${ENDPOINT}/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION}/ragCorpora/${RAG_CORPUS_ID}/ragFiles:import \
-    -d '{
-      "import_rag_files_config": {
-        "gcs_source": {
-          "uris": '\""${GCS_URIS}"\"'
-        },
-        "rag_file_chunking_config": {
-          "chunk_size": 512
-        },
-        "max_embedding_requests_per_min": '"${EMBEDDING_MODEL_QPM_RATE}"'
-      }
-    }'
-    
-    // Poll the operation status.
-    // The response contains the number of files imported.
-    OPERATION_ID=OPERATION_ID
-    poll_op_wait ${OPERATION_ID}
+```
+// Cloud Storage bucket/file location.
+// Such as "gs://rag-e2e-test/"
+GCS_URIS=YOUR_GCS_LOCATION
+
+// Enter the QPM rate to limit RAG's access to your embedding model
+// Example: 1000
+EMBEDDING_MODEL_QPM_RATE=MAX_EMBEDDING_REQUESTS_PER_MIN_LIMIT
+
+// ImportRagFiles
+// Import a single Cloud Storage file or all files in a Cloud Storage bucket.
+// Input: ENDPOINT, PROJECT_ID, RAG_CORPUS_ID, GCS_URIS
+// Output: ImportRagFilesOperationMetadataNumber
+// Use ListRagFiles to find the server-generated rag_file_id.
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://${ENDPOINT}/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION}/ragCorpora/${RAG_CORPUS_ID}/ragFiles:import \
+-d '{
+  "import_rag_files_config": {
+    "gcs_source": {
+      "uris": '\""${GCS_URIS}"\"'
+    },
+    "rag_file_chunking_config": {
+      "chunk_size": 512
+    },
+    "max_embedding_requests_per_min": '"${EMBEDDING_MODEL_QPM_RATE}"'
+  }
+}'
+
+// Poll the operation status.
+// The response contains the number of files imported.
+OPERATION_ID=OPERATION_ID
+poll_op_wait ${OPERATION_ID}
+```
 
 The following sample demonstrates how to import a file from Drive. Use the `max_embedding_requests_per_min` control field to limit the rate at which RAG Engine calls the embedding model during the `ImportRagFiles` indexing process. The field has a default value of `1000` calls per minute.
 
-    // Google Drive folder location.
-    FOLDER_RESOURCE_ID=YOUR_GOOGLE_DRIVE_FOLDER_RESOURCE_ID
-    
-    // Enter the QPM rate to limit RAG's access to your embedding model
-    // Example: 1000
-    EMBEDDING_MODEL_QPM_RATE=MAX_EMBEDDING_REQUESTS_PER_MIN_LIMIT
-    
-    // ImportRagFiles
-    // Import all files in a Google Drive folder.
-    // Input: ENDPOINT, PROJECT_ID, RAG_CORPUS_ID, FOLDER_RESOURCE_ID
-    // Output: ImportRagFilesOperationMetadataNumber
-    // Use ListRagFiles to find the server-generated rag_file_id.
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://${ENDPOINT}/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION}/ragCorpora/${RAG_CORPUS_ID}/ragFiles:import \
-    -d '{
-      "import_rag_files_config": {
-        "google_drive_source": {
-          "resource_ids": {
-            "resource_id": '\""${FOLDER_RESOURCE_ID}"\"',
-            "resource_type": "RESOURCE_TYPE_FOLDER"
-          }
-        },
-        "max_embedding_requests_per_min": '"${EMBEDDING_MODEL_QPM_RATE}"'
+```
+// Google Drive folder location.
+FOLDER_RESOURCE_ID=YOUR_GOOGLE_DRIVE_FOLDER_RESOURCE_ID
+
+// Enter the QPM rate to limit RAG's access to your embedding model
+// Example: 1000
+EMBEDDING_MODEL_QPM_RATE=MAX_EMBEDDING_REQUESTS_PER_MIN_LIMIT
+
+// ImportRagFiles
+// Import all files in a Google Drive folder.
+// Input: ENDPOINT, PROJECT_ID, RAG_CORPUS_ID, FOLDER_RESOURCE_ID
+// Output: ImportRagFilesOperationMetadataNumber
+// Use ListRagFiles to find the server-generated rag_file_id.
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://${ENDPOINT}/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION}/ragCorpora/${RAG_CORPUS_ID}/ragFiles:import \
+-d '{
+  "import_rag_files_config": {
+    "google_drive_source": {
+      "resource_ids": {
+        "resource_id": '\""${FOLDER_RESOURCE_ID}"\"',
+        "resource_type": "RESOURCE_TYPE_FOLDER"
       }
-    }'
-    
-    // Poll the operation status.
-    // The response contains the number of files imported.
-    OPERATION_ID=OPERATION_ID
-    poll_op_wait ${OPERATION_ID}
+    },
+    "max_embedding_requests_per_min": '"${EMBEDDING_MODEL_QPM_RATE}"'
+  }
+}'
+
+// Poll the operation status.
+// The response contains the number of files imported.
+OPERATION_ID=OPERATION_ID
+poll_op_wait ${OPERATION_ID}
+```
 
 ### Python
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import agentplatform
-    from agentplatform import types
-    
-    from google.genai import types as genai_types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
-    
-    # Supports Google Cloud Storage and Google Drive Links
-    # paths = ["https://drive.google.com/file/d/123", "gs://my_bucket/my_files_dir/*"]
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
-    
-    response = client.rag.import_files(
-        name=corpus_name,
-        import_config=types.ImportRagFilesConfig(
-            gcs_source=genai_types.GcsSource(uris=[paths[1]]),
-            google_drive_source=types.GoogleDriveSource(
-                resource_ids=[
-                    types.GoogleDriveSourceResourceId(
-                        resource_id=paths[0],
-                        resource_type=types.ResourceType.RESOURCE_TYPE_FILE
-                    )
-                ]
-            ), # optional
-            rag_file_transformation_config=types.RagFileTransformationConfig(
-                rag_file_chunking_config=types.RagFileChunkingConfig(
-                    chunk_size=512,
-                    chunk_overlap=100,
+```
+import agentplatform
+from agentplatform import types
+
+from google.genai import types as genai_types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+
+# Supports Google Cloud Storage and Google Drive Links
+# paths = ["https://drive.google.com/file/d/123", "gs://my_bucket/my_files_dir/*"]
+
+# Initialize Agent Platform client once per session
+client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+
+response = client.rag.import_files(
+    name=corpus_name,
+    import_config=types.ImportRagFilesConfig(
+        gcs_source=genai_types.GcsSource(uris=[paths[1]]),
+        google_drive_source=types.GoogleDriveSource(
+            resource_ids=[
+                types.GoogleDriveSourceResourceId(
+                    resource_id=paths[0],
+                    resource_type=types.ResourceType.RESOURCE_TYPE_FILE
                 )
-            ), # optional
-            max_embedding_requests_per_min=900, # optional
-        )
+            ]
+        ), # optional
+        rag_file_transformation_config=types.RagFileTransformationConfig(
+            rag_file_chunking_config=types.RagFileChunkingConfig(
+                chunk_size=512,
+                chunk_overlap=100,
+            )
+        ), # optional
+        max_embedding_requests_per_min=900, # optional
     )
-    
-    print(f"Imported {response.imported_rag_files_count} files.")
-    # Example response:
-    # Imported 2 files.
+)
+
+print(f"Imported {response.imported_rag_files_count} files.")
+# Example response:
+# Imported 2 files.
+```
 
 #### Get a RAG file
 
@@ -1070,14 +1107,16 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : .
-  - LOCATION : The region to process the request.
-  - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
-  - RAG\_FILE\_ID : The ID of the `RagFile` resource.
+- ` PROJECT_ID ` : .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
+- ` RAG_FILE_ID ` : The ID of the `RagFile` resource.
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID
+```
 
 To send your request, choose one of these options:
 
@@ -1085,19 +1124,23 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID"
+```
+curl -X GET \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID"
+```
 
 #### PowerShell
 
 Execute the following command:
 
-    $headers = @{  }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID" | Select-Object -Expand Content
+```
+$headers = @{  }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID" | Select-Object -Expand Content
+```
 
 A successful response returns the `RagFile` resource.
 
@@ -1105,20 +1148,22 @@ A successful response returns the `RagFile` resource.
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import agentplatform
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # file_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}/ragFiles/{rag_file_id}"
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
-    
-    rag_file = client.rag.get_file(name=file_name)
-    print(rag_file)
-    # Example response:
-    # RagFile(name='projects/1234567890/locations/us-central1/ragCorpora/11111111111/ragFiles/22222222222',
-    # display_name='file_display_name', description='file description')
+```
+import agentplatform
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# file_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}/ragFiles/{rag_file_id}"
+
+# Initialize Agent Platform client once per session
+client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+
+rag_file = client.rag.get_file(name=file_name)
+print(rag_file)
+# Example response:
+# RagFile(name='projects/1234567890/locations/us-central1/ragCorpora/11111111111/ragFiles/22222222222',
+# display_name='file_display_name', description='file description')
+```
 
 #### List RAG files
 
@@ -1126,15 +1171,17 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : .
-  - LOCATION : The region to process the request.
-  - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
-  - PAGE\_SIZE : The standard list page size. You may adjust the number of `RagFiles` to return per page by updating the `page_size` parameter.
-  - PAGE\_TOKEN : The standard list page token. Obtained typically using `ListRagFilesResponse.next_page_token` of the previous `VertexRagDataService.ListRagFiles` call.
+- ` PROJECT_ID ` : .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
+- ` PAGE_SIZE ` : The standard list page size. You may adjust the number of `RagFiles` to return per page by updating the `page_size` parameter.
+- ` PAGE_TOKEN ` : The standard list page token. Obtained typically using `ListRagFilesResponse.next_page_token` of the previous `VertexRagDataService.ListRagFiles` call.
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles?page_size=PAGE_SIZE&page_token=PAGE_TOKEN
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles?page_size=PAGE_SIZE&page_token=PAGE_TOKEN
+```
 
 To send your request, choose one of these options:
 
@@ -1142,19 +1189,23 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles?page_size=PAGE_SIZE&page_token=PAGE_TOKEN"
+```
+curl -X GET \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles?page_size=PAGE_SIZE&page_token=PAGE_TOKEN"
+```
 
 #### PowerShell
 
 Execute the following command:
 
-    $headers = @{  }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles?page_size=PAGE_SIZE&page_token=PAGE_TOKEN" | Select-Object -Expand Content
+```
+$headers = @{  }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles?page_size=PAGE_SIZE&page_token=PAGE_TOKEN" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx) along with a list of `RagFiles` under the given `RAG_CORPUS_ID` .
 
@@ -1162,24 +1213,26 @@ You should receive a successful status code (2xx) along with a list of `RagFiles
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import agentplatform
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
-    
-    files_response = client.rag.list_files(name=corpus_name)
-    for file in files_response.rag_files:
-        print(file.display_name)
-        print(file.name)
-    # Example response:
-    # g-drive_file.txt
-    # projects/1234567890/locations/us-central1/ragCorpora/111111111111/ragFiles/222222222222
-    # g_cloud_file.txt
-    # projects/1234567890/locations/us-central1/ragCorpora/111111111111/ragFiles/333333333333
+```
+import agentplatform
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+
+# Initialize Agent Platform client once per session
+client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+
+files_response = client.rag.list_files(name=corpus_name)
+for file in files_response.rag_files:
+    print(file.display_name)
+    print(file.name)
+# Example response:
+# g-drive_file.txt
+# projects/1234567890/locations/us-central1/ragCorpora/111111111111/ragFiles/222222222222
+# g_cloud_file.txt
+# projects/1234567890/locations/us-central1/ragCorpora/111111111111/ragFiles/333333333333
+```
 
 #### Delete a RAG file
 
@@ -1187,14 +1240,16 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : .
-  - LOCATION : The region to process the request.
-  - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
-  - RAG\_FILE\_ID : The ID of the `RagFile` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}/ragFiles/{rag_file_id}` .
+- ` PROJECT_ID ` : .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
+- ` RAG_FILE_ID ` : The ID of the `RagFile` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}/ragFiles/{rag_file_id}` .
 
 HTTP method and URL:
 
-    DELETE https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID
+```
+DELETE https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID
+```
 
 To send your request, choose one of these options:
 
@@ -1202,19 +1257,23 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X DELETE \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID"
+```
+curl -X DELETE \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID"
+```
 
 #### PowerShell
 
 Execute the following command:
 
-    $headers = @{  }
-    
-    Invoke-WebRequest `
-        -Method DELETE `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID" | Select-Object -Expand Content
+```
+$headers = @{  }
+
+Invoke-WebRequest `
+    -Method DELETE `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID" | Select-Object -Expand Content
+```
 
 A successful response returns the `DeleteOperationMetadata` resource.
 
@@ -1222,20 +1281,22 @@ A successful response returns the `DeleteOperationMetadata` resource.
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import agentplatform
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # file_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}/ragFiles/{rag_file_id}"
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
-    
-    client.rag.delete_file(name=file_name)
-    print(f"File {file_name} deleted.")
-    # Example response:
-    # Successfully deleted the RagFile.
-    # File projects/1234567890/locations/us-central1/ragCorpora/1111111111/ragFiles/2222222222 deleted.
+```
+import agentplatform
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# file_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}/ragFiles/{rag_file_id}"
+
+# Initialize Agent Platform client once per session
+client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+
+client.rag.delete_file(name=file_name)
+print(f"File {file_name} deleted.")
+# Example response:
+# Successfully deleted the RagFile.
+# File projects/1234567890/locations/us-central1/ragCorpora/1111111111/ragFiles/2222222222 deleted.
+```
 
 ### Retrieve context
 
@@ -1245,31 +1306,35 @@ When a user asks a question or provides a prompt, the retrieval component in RAG
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region to process the request.
-  - PROJECT\_ID : .
-  - RAG\_CORPUS\_RESOURCE : The name of the `RagCorpus` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .
-  - VECTOR\_DISTANCE\_THRESHOLD : Only contexts with a vector distance smaller than the threshold are returned.
-  - TEXT : The query text to get relevant contexts.
-  - SIMILARITY\_TOP\_K : The number of top contexts to retrieve.
+- ` LOCATION ` : The region to process the request.
+- ` PROJECT_ID ` : .
+- ` RAG_CORPUS_RESOURCE ` : The name of the `RagCorpus` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .
+- ` VECTOR_DISTANCE_THRESHOLD ` : Only contexts with a vector distance smaller than the threshold are returned.
+- ` TEXT ` : The query text to get relevant contexts.
+- ` SIMILARITY_TOP_K ` : The number of top contexts to retrieve.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION:retrieveContexts
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION:retrieveContexts
+```
 
 Request JSON body:
 
-    {
-     "vertex_rag_store": {
-        "rag_resources": {
-          "rag_corpus": "RAG_CORPUS_RESOURCE",
-        },
-        "vector_distance_threshold": 0.8
-      },
-      "query": {
-       "text": "TEXT",
-       "similarity_top_k": SIMILARITY_TOP_K
-      }
-     }
+```
+{
+ "vertex_rag_store": {
+    "rag_resources": {
+      "rag_corpus": "RAG_CORPUS_RESOURCE",
+    },
+    "vector_distance_threshold": 0.8
+  },
+  "query": {
+   "text": "TEXT",
+   "similarity_top_k": SIMILARITY_TOP_K
+  }
+ }
+```
 
 To send your request, choose one of these options:
 
@@ -1277,23 +1342,27 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION:retrieveContexts"
+```
+curl -X POST \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION:retrieveContexts"
+```
 
 #### PowerShell
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $headers = @{  }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION:retrieveContexts" | Select-Object -Expand Content
+```
+$headers = @{  }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION:retrieveContexts" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx) and a list of related `RagFiles` .
 
@@ -1301,45 +1370,47 @@ You should receive a successful status code (2xx) and a list of related `RagFile
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import agentplatform
-    
-    from agentplatform import types
-    from google.genai import types as genai_types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/[PROJECT_ID]/locations/us-central1/ragCorpora/[rag_corpus_id]"
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
-    
-    response = client.rag.retrieve_contexts(
-        vertex_rag_store=genai_types.VertexRagStore(
-            rag_resources=[
-                genai_types.VertexRagStoreRagResource(
-                    rag_corpus=corpus_name,
-                    # Optional: supply IDs from `rag.list_files()`.
-                    # rag_file_ids=["rag-file-1", "rag-file-2", ...],
-                )
-            ],
-        ),
-        query=types.RagQuery(
-            text="Hello World!",
-            rag_retrieval_config=genai_types.RagRetrievalConfig(
-                top_k=10,
-                filter=genai_types.RagRetrievalConfigFilter(
-                    vector_distance_threshold=0.5
-                ),
+```
+import agentplatform
+
+from agentplatform import types
+from google.genai import types as genai_types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# corpus_name = "projects/[PROJECT_ID]/locations/us-central1/ragCorpora/[rag_corpus_id]"
+
+# Initialize Agent Platform client once per session
+client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
+
+response = client.rag.retrieve_contexts(
+    vertex_rag_store=genai_types.VertexRagStore(
+        rag_resources=[
+            genai_types.VertexRagStoreRagResource(
+                rag_corpus=corpus_name,
+                # Optional: supply IDs from `rag.list_files()`.
+                # rag_file_ids=["rag-file-1", "rag-file-2", ...],
+            )
+        ],
+    ),
+    query=types.RagQuery(
+        text="Hello World!",
+        rag_retrieval_config=genai_types.RagRetrievalConfig(
+            top_k=10,
+            filter=genai_types.RagRetrievalConfigFilter(
+                vector_distance_threshold=0.5
             ),
-        )
+        ),
     )
-    print(response)
-    # Example response:
-    # contexts {
-    #   contexts {
-    #     source_uri: "gs://your-bucket-name/file.txt"
-    #     text: "....
-    #   ....
+)
+print(response)
+# Example response:
+# contexts {
+#   contexts {
+#     source_uri: "gs://your-bucket-name/file.txt"
+#     text: "....
+#   ....
+```
 
 ### Generates content
 
@@ -1349,41 +1420,45 @@ A prediction controls the LLM method that generates content.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : .
-  - LOCATION : The region to process the request.
-  - MODEL\_ID : LLM model for content generation. Example: `gemini-3.5-flash`
-  - GENERATION\_METHOD : LLM method for content generation. Options: `generateContent` , `streamGenerateContent`
-  - INPUT\_PROMPT : The text sent to the LLM for content generation. Try to use a prompt relevant to the uploaded rag Files.
-  - RAG\_CORPUS\_RESOURCE : The name of the `RagCorpus` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .
-  - SIMILARITY\_TOP\_K : Optional: The number of top contexts to retrieve.
-  - VECTOR\_DISTANCE\_THRESHOLD : Optional: Contexts with a vector distance smaller than the threshold are returned.
+- ` PROJECT_ID ` : .
+- ` LOCATION ` : The region to process the request.
+- ` MODEL_ID ` : LLM model for content generation. Example: `gemini-3.5-flash`
+- ` GENERATION_METHOD ` : LLM method for content generation. Options: `generateContent` , `streamGenerateContent`
+- ` INPUT_PROMPT ` : The text sent to the LLM for content generation. Try to use a prompt relevant to the uploaded rag Files.
+- ` RAG_CORPUS_RESOURCE ` : The name of the `RagCorpus` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .
+- ` SIMILARITY_TOP_K ` : Optional: The number of top contexts to retrieve.
+- ` VECTOR_DISTANCE_THRESHOLD ` : Optional: Contexts with a vector distance smaller than the threshold are returned.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATION_METHOD
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATION_METHOD
+```
 
 Request JSON body:
 
-    {
-     "contents": {
-      "role": "user",
-      "parts": {
-        "text": "INPUT_PROMPT"
-      }
-     },
-     "tools": {
-      "retrieval": {
-       "disable_attribution": false,
-       "vertex_rag_store": {
-        "rag_resources": {
-          "rag_corpus": "RAG_CORPUS_RESOURCE",
-        },
-        "similarity_top_k": SIMILARITY_TOP_K,
-        "vector_distance_threshold": VECTOR_DISTANCE_THRESHOLD
-       }
-      }
-     }
-    }
+```
+{
+ "contents": {
+  "role": "user",
+  "parts": {
+    "text": "INPUT_PROMPT"
+  }
+ },
+ "tools": {
+  "retrieval": {
+   "disable_attribution": false,
+   "vertex_rag_store": {
+    "rag_resources": {
+      "rag_corpus": "RAG_CORPUS_RESOURCE",
+    },
+    "similarity_top_k": SIMILARITY_TOP_K,
+    "vector_distance_threshold": VECTOR_DISTANCE_THRESHOLD
+   }
+  }
+ }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -1391,23 +1466,27 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATION_METHOD"
+```
+curl -X POST \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATION_METHOD"
+```
 
 #### PowerShell
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $headers = @{  }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATION_METHOD" | Select-Object -Expand Content
+```
+$headers = @{  }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATION_METHOD" | Select-Object -Expand Content
+```
 
 A successful response returns the generated content with citations.
 
@@ -1415,47 +1494,49 @@ A successful response returns the generated content with citations.
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from google import genai
-    from google.genai import types as genai_types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
-    
-    rag_retrieval_tool = genai_types.Tool(
-        retrieval=genai_types.Retrieval(
-            vertex_rag_store=genai_types.VertexRagStore(
-                rag_resources=[
-                    genai_types.VertexRagStoreRagResource(
-                        rag_corpus=corpus_name
-                    )
-                ],
-                rag_retrieval_config=genai_types.RagRetrievalConfig(
-                    top_k=10,
-                    filter=genai_types.RagRetrievalConfigFilter(
-                        vector_distance_threshold=0.5
-                    ),
+```
+from google import genai
+from google.genai import types as genai_types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+
+rag_retrieval_tool = genai_types.Tool(
+    retrieval=genai_types.Retrieval(
+        vertex_rag_store=genai_types.VertexRagStore(
+            rag_resources=[
+                genai_types.VertexRagStoreRagResource(
+                    rag_corpus=corpus_name
+                )
+            ],
+            rag_retrieval_config=genai_types.RagRetrievalConfig(
+                top_k=10,
+                filter=genai_types.RagRetrievalConfigFilter(
+                    vector_distance_threshold=0.5
                 ),
             ),
-        )
+        ),
     )
-    
-    # Create a GenAI SDK client to make a generate_content request
-    genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-central1")
-    
-    response = genai_client.models.generate_content(
-        model="gemini-2.5-pro",
-        contents="Why is the sky blue?",
-        config=genai_types.GenerateContentConfig(
-            tools=[rag_retrieval_tool]
-        )
+)
+
+# Create a GenAI SDK client to make a generate_content request
+genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-central1")
+
+response = genai_client.models.generate_content(
+    model="gemini-2.5-pro",
+    contents="Why is the sky blue?",
+    config=genai_types.GenerateContentConfig(
+        tools=[rag_retrieval_tool]
     )
-    print(response.text)
-    # Example response:
-    #   The sky appears blue due to a phenomenon called Rayleigh scattering.
-    #   Sunlight, which contains all colors of the rainbow, is scattered
-    #   by the tiny particles in the Earth's atmosphere....
-    #   ...
+)
+print(response.text)
+# Example response:
+#   The sky appears blue due to a phenomenon called Rayleigh scattering.
+#   Sunlight, which contains all colors of the rainbow, is scattered
+#   by the tiny particles in the Earth's atmosphere....
+#   ...
+```
 
 ## Hybrid search
 
@@ -1467,7 +1548,7 @@ This is an example of how to enable a hybrid search using the RAG Engine retriev
 
 ### REST
 
-``` 
+```
   # TODO(developer): Update the variables.
   PROJECT_ID = "YOUR_PROJECT_ID"
   # The HTTPS/HTTP Weaviate endpoint you created during provisioning.
@@ -1529,45 +1610,47 @@ This is an example of how to enable a hybrid search using the RAG Engine retriev
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import agentplatform
-    
-    from agentplatform import types
-    from google.genai import types as genai_types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/[PROJECT_ID]/locations/us-central1/ragCorpora/[rag_corpus_id]"
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
-    
-    response = client.rag.retrieve_contexts(
-        vertex_rag_store=genai_types.VertexRagStore(
-            rag_resources=[
-                genai_types.VertexRagStoreRagResource(
-                    rag_corpus=corpus_name,
-                    # Optional: supply IDs from `rag.list_files()`.
-                    # rag_file_ids=["rag-file-1", "rag-file-2", ...],
-                )
-            ],
-        ),
-        query=types.RagQuery(
-            text="Hello World!",
-            rag_retrieval_config=genai_types.RagRetrievalConfig(
-                top_k=10,
-                filter=genai_types.RagRetrievalConfigFilter(
-                    vector_distance_threshold=0.5
-                ),
+```
+import agentplatform
+
+from agentplatform import types
+from google.genai import types as genai_types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# corpus_name = "projects/[PROJECT_ID]/locations/us-central1/ragCorpora/[rag_corpus_id]"
+
+# Initialize Agent Platform client once per session
+client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
+
+response = client.rag.retrieve_contexts(
+    vertex_rag_store=genai_types.VertexRagStore(
+        rag_resources=[
+            genai_types.VertexRagStoreRagResource(
+                rag_corpus=corpus_name,
+                # Optional: supply IDs from `rag.list_files()`.
+                # rag_file_ids=["rag-file-1", "rag-file-2", ...],
+            )
+        ],
+    ),
+    query=types.RagQuery(
+        text="Hello World!",
+        rag_retrieval_config=genai_types.RagRetrievalConfig(
+            top_k=10,
+            filter=genai_types.RagRetrievalConfigFilter(
+                vector_distance_threshold=0.5
             ),
-        )
+        ),
     )
-    print(response)
-    # Example response:
-    # contexts {
-    #   contexts {
-    #     source_uri: "gs://your-bucket-name/file.txt"
-    #     text: "....
-    #   ....
+)
+print(response)
+# Example response:
+# contexts {
+#   contexts {
+#     source_uri: "gs://your-bucket-name/file.txt"
+#     text: "....
+#   ....
+```
 
 ### Use hybrid search and RAG Engine for grounded generation
 
@@ -1575,7 +1658,7 @@ This is an example of how to use hybrid search and RAG Engine for grounded gener
 
 ### REST
 
-``` 
+```
   # TODO(developer): Update the variables.
   PROJECT_ID = "YOUR_PROJECT_ID"
   # The HTTPS/HTTP Weaviate endpoint you created during provisioning.
@@ -1637,48 +1720,50 @@ This is an example of how to use hybrid search and RAG Engine for grounded gener
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from google import genai
-    from google.genai import types as genai_types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
-    
-    rag_retrieval_tool = genai_types.Tool(
-        retrieval=genai_types.Retrieval(
-            vertex_rag_store=genai_types.VertexRagStore(
-                rag_resources=[
-                    genai_types.VertexRagStoreRagResource(
-                        rag_corpus=corpus_name
-                    )
-                ],
-                rag_retrieval_config=genai_types.RagRetrievalConfig(
-                    top_k=10,
-                    filter=genai_types.RagRetrievalConfigFilter(
-                        vector_distance_threshold=0.5
-                    ),
+```
+from google import genai
+from google.genai import types as genai_types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+
+rag_retrieval_tool = genai_types.Tool(
+    retrieval=genai_types.Retrieval(
+        vertex_rag_store=genai_types.VertexRagStore(
+            rag_resources=[
+                genai_types.VertexRagStoreRagResource(
+                    rag_corpus=corpus_name
+                )
+            ],
+            rag_retrieval_config=genai_types.RagRetrievalConfig(
+                top_k=10,
+                filter=genai_types.RagRetrievalConfigFilter(
+                    vector_distance_threshold=0.5
                 ),
             ),
-        )
+        ),
     )
-    
-    # Create a GenAI SDK client to make a generate_content request
-    genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-central1")
-    
-    response = genai_client.models.generate_content(
-        model="gemini-2.5-pro",
-        contents="Why is the sky blue?",
-        config=genai_types.GenerateContentConfig(
-            tools=[rag_retrieval_tool]
-        )
+)
+
+# Create a GenAI SDK client to make a generate_content request
+genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-central1")
+
+response = genai_client.models.generate_content(
+    model="gemini-2.5-pro",
+    contents="Why is the sky blue?",
+    config=genai_types.GenerateContentConfig(
+        tools=[rag_retrieval_tool]
     )
-    print(response.text)
-    # Example response:
-    #   The sky appears blue due to a phenomenon called Rayleigh scattering.
-    #   Sunlight, which contains all colors of the rainbow, is scattered
-    #   by the tiny particles in the Earth's atmosphere....
-    #   ...
+)
+print(response.text)
+# Example response:
+#   The sky appears blue due to a phenomenon called Rayleigh scattering.
+#   Sunlight, which contains all colors of the rainbow, is scattered
+#   by the tiny particles in the Earth's atmosphere....
+#   ...
+```
 
 ## What's next
 
-  - [Use Pinecone with RAG Engine on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-pinecone)
+- [Use Pinecone with RAG Engine on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-pinecone)

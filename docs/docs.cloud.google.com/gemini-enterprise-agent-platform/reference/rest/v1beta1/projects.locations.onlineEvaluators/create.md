@@ -24,8 +24,8 @@ Required. The parent resource where the OnlineEvaluator will be created. Format:
 
 ### Request body
 
-The request body contains an instance of `  OnlineEvaluator  ` .
+The request body contains an instance of [`OnlineEvaluator`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators#OnlineEvaluator) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  Operation  ` .
+If successful, the response body contains a newly created instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

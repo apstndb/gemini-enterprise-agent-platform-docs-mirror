@@ -10,7 +10,7 @@ Annotation details specific to video action recognition.
 
 Fields
 
-`timeSegment` ` object ( TimeSegment  ` )
+`timeSegment` `object ( `[`TimeSegment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/TimeSegment)` )`
 
 This Annotation applies to the time period represented by the TimeSegment. If it's not set, the Annotation applies to the whole video.
 
@@ -22,18 +22,14 @@ The resource id of the AnnotationSpec that this Annotation pertains to.
 
 The display name of the AnnotationSpec that this Annotation pertains to.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;timeSegment&quot;: {object (TimeSegment)},&quot;annotationSpecId&quot;: string,&quot;displayName&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "timeSegment": {
+    object (TimeSegment)
+  },
+  "annotationSpecId": string,
+  "displayName": string
+}
+```

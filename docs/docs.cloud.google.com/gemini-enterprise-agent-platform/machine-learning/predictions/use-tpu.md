@@ -20,9 +20,9 @@ To learn which locations Cloud TPU version v5e, v6e, and TPU7x are available in,
 
 For deployment on Cloud TPUs, you must [import your model to Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/import-model) and configure it to use one of the following containers:
 
-  - [prebuilt optimized TensorFlow runtime container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/optimized-tensorflow-runtime) either the `nightly` version, or version `2.15` or later
-  - [prebuilt PyTorch TPU container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers#pytorch) version `2.1` or later
-  - your own custom container that supports TPUs
+- [prebuilt optimized TensorFlow runtime container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/optimized-tensorflow-runtime) either the `nightly` version, or version `2.15` or later
+- [prebuilt PyTorch TPU container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers#pytorch) version `2.1` or later
+- your own custom container that supports TPUs
 
 ### Prebuilt optimized TensorFlow runtime container
 
@@ -30,7 +30,7 @@ To import and run a [TensorFlow `SavedModel`](https://www.tensorflow.org/guide/s
 
 The following sample code demonstrates how to use automatic model optimization with automatic partitioning:
 
-``` 
+```
   model = aiplatform.Model.upload(
       display_name='TPU optimized model with automatic partitioning',
       artifact_uri="gs://model-artifact-uri",
@@ -39,8 +39,6 @@ The following sample code demonstrates how to use automatic model optimization w
       ]
   )
 ```
-
-<span id="security-best-practice1"></span>
 
 > **Note:** **Security Best Practice** : When you specify an `artifact_uri` that isn't set to a Cloud Storage ( `gs://` ) location, you must set the `staging_bucket` parameter to a Cloud Storage location to help ensure full asset isolation.
 
@@ -52,17 +50,17 @@ The instructions to import and run a PyTorch model on Cloud TPU are the same as 
 
 For example, [TorchServe for Cloud TPU v5e Inference](https://docs.cloud.google.com/tpu/docs/v5e-inference#torchserve) Then, upload the model artifacts to your Cloud Storage folder and upload your model as shown:
 
-    model = aiplatform.Model.upload(
-        display_name='DenseNet TPU model from SDK PyTorch 2.1',
-        artifact_uri="gs://model-artifact-uri",
-        serving_container_image_uri="us-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-1:latest",
-        serving_container_args=[],
-        serving_container_predict_route="/predictions/model",
-        serving_container_health_route="/ping",
-        serving_container_ports=[8080]
-    )
-
-<span id="security-best-practice2"></span>
+```
+model = aiplatform.Model.upload(
+    display_name='DenseNet TPU model from SDK PyTorch 2.1',
+    artifact_uri="gs://model-artifact-uri",
+    serving_container_image_uri="us-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-1:latest",
+    serving_container_args=[],
+    serving_container_predict_route="/predictions/model",
+    serving_container_health_route="/ping",
+    serving_container_ports=[8080]
+)
+```
 
 > **Note:** **Security Best Practice** : When you specify an `artifact_uri` that isn't set to a Cloud Storage ( `gs://` ) location, you must set the `staging_bucket` parameter to a Cloud Storage location to help ensure full asset isolation.
 
@@ -72,9 +70,9 @@ For more information, see [export model artifacts for PyTorch](https://docs.clou
 
 For custom containers, your model does not need to be a TensorFlow model, but it must be TPU optimized. For information on producing a TPU optimized model, see the following guides for common ML frameworks:
 
-  - [TensorFlow](https://www.tensorflow.org/guide/tpu)
-  - [PyTorch](https://github.com/pytorch/xla)
-  - [JAX/SAX](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/serve-gemma-with-saxml-tpu)
+- [TensorFlow](https://www.tensorflow.org/guide/tpu)
+- [PyTorch](https://github.com/pytorch/xla)
+- [JAX/SAX](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/serve-gemma-with-saxml-tpu)
 
 For information on serving models trained with JAX, TensorFlow, or PyTorch on Cloud TPU v5e, see [Cloud TPU v5e Inference](https://docs.cloud.google.com/tpu/docs/v5e-inference#inference-on-lite-pods) .
 
@@ -84,19 +82,23 @@ You must [raise the locked memory limit](https://docs.cloud.google.com/kubernete
 
 ### Command line
 
-    ulimit -l 68719476736
+```
+ulimit -l 68719476736
+```
 
 ### Python
 
-    import resource
-    
-    resource.setrlimit(
-        resource.RLIMIT_MEMLOCK,
-        (
-            68_719_476_736_000,  # soft limit
-            68_719_476_736_000,  # hard limit
-        ),
-      )
+```
+import resource
+
+resource.setrlimit(
+    resource.RLIMIT_MEMLOCK,
+    (
+        68_719_476_736_000,  # soft limit
+        68_719_476_736_000,  # hard limit
+    ),
+  )
+```
 
 Then, see [Use a custom container for inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) for information on importing a model with a custom container. If you have want to implement pre or post processing logic, consider using [Custom inference routines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-prediction-routines) .
 
@@ -106,7 +108,9 @@ The instructions for creating an endpoint for Cloud TPUs are the same as the ins
 
 For example, the following command creates an [`endpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints) resource:
 
-    endpoint = aiplatform.Endpoint.create(display_name='My endpoint')
+```
+endpoint = aiplatform.Endpoint.create(display_name='My endpoint')
+```
 
 The response contains the new endpoint's ID, which you use in subsequent steps.
 
@@ -117,7 +121,7 @@ For more information on creating an endpoint, see [deploy a model to an endpoint
 The instructions for deploying a model to Cloud TPUs are the same as the instructions for deploying any model, except you specify one of the following supported Cloud TPU machine types:
 
 | Machine Type        | Number of TPU chips |
-| ------------------- | ------------------- |
+|---------------------|---------------------|
 | `tpu7x-standard-4t` | 4                   |
 | `ct6e-standard-1t`  | 1                   |
 | `ct6e-standard-4t`  | 4                   |
@@ -130,16 +134,18 @@ TPU accelerators are built-in to the machine type. You don't have to specify acc
 
 For example, the following command deploys a model by calling [`deployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/deployModel) :
 
-    machine_type = 'ct5lp-hightpu-1t'
-    
-    deployed_model = model.deploy(
-        endpoint=endpoint,
-        deployed_model_display_name='My deployed model',
-        machine_type=machine_type,
-        traffic_percentage=100,
-        min_replica_count=1
-        sync=True,
-    )
+```
+machine_type = 'ct5lp-hightpu-1t'
+
+deployed_model = model.deploy(
+    endpoint=endpoint,
+    deployed_model_display_name='My deployed model',
+    machine_type=machine_type,
+    traffic_percentage=100,
+    min_replica_count=1
+    sync=True,
+)
+```
 
 > **Note:** [Autoscaling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment#scaling) for deployments using TPUs is not supported at this time. The system always uses `minReplicaCount` and ignores `maxReplicaCount` for the deployed model.
 
@@ -151,7 +157,9 @@ The instruction for getting online inferences from a Cloud TPU is the same as th
 
 For example, the following command sends an online inference request by calling [`predict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) :
 
-    deployed_model.predict(...)
+```
+deployed_model.predict(...)
+```
 
 For custom containers, see the [inference request and response requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#inference) for custom containers.
 
@@ -167,4 +175,4 @@ TPU machine types are billed per hour, just like all other machine type in Verte
 
 ## What's next
 
-  - Learn how to [get an online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions)
+- Learn how to [get an online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions)

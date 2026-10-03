@@ -10,10 +10,10 @@ Gemini Enterprise Agent Platform offers the following to help you seamlessly sca
 
 Bringing AI agents into production requires a high-performance runtime and a systematic approach to continuous improvement. As organizations build complex, dynamic applications, Agent Platform provides a fully managed environment for developers to handle testing, release management, and reliability at a global scale. This allows teams to focus entirely on application creation by providing essential services across four critical areas:
 
-  - **Serverless efficiency:** Utilizing a fully managed Agent Runtime to deploy and scale agents efficiently without the need to manage underlying infrastructure, ensuring reliable performance with built-in observability.
-  - **Context management:** Utilizing Agent Platform Sessions and an Agent Platform Memory Bank to maintain the state of continuous conversations and retrieve persistent, long-term memories, enabling highly personalized and natural user interactions.
-  - **Continuous quality improvement:** Leveraging the Example Store and Evaluation Service to test, monitor, and trace agent behavior, creating a continuous feedback loop and data flywheel to iteratively refine agent performance over time.
-  - **Secure sandbox execution:** Empowering agents to safely solve complex computational problems and automate workflows through dynamic Code Execution and Computer Use, allowing them to run scripts or mimic human-like interactions with graphical interfaces.
+- **Serverless efficiency:** Utilizing a fully managed Agent Runtime to deploy and scale agents efficiently without the need to manage underlying infrastructure, ensuring reliable performance with built-in observability.
+- **Context management:** Utilizing Agent Platform Sessions and an Agent Platform Memory Bank to maintain the state of continuous conversations and retrieve persistent, long-term memories, enabling highly personalized and natural user interactions.
+- **Continuous quality improvement:** Leveraging the Example Store and Evaluation Service to test, monitor, and trace agent behavior, creating a continuous feedback loop and data flywheel to iteratively refine agent performance over time.
+- **Secure sandbox execution:** Empowering agents to safely solve complex computational problems and automate workflows through dynamic Code Execution and Computer Use, allowing them to run scripts or mimic human-like interactions with graphical interfaces.
 
 ## Agent Runtime
 
@@ -278,7 +278,7 @@ Get started with Code Execution.
 The following table shows which enterprise security features are supported for each Agent Platform service:
 
 | Security feature                                                                                                                                     | Agent Runtime | Agent evaluation | Sessions | Memory Bank | Example Store | Code Execution |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------- | :------------ | :--------------- | :------- | :---------- | :------------ | :------------- |
+|------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|------------------|----------|-------------|---------------|----------------|
 | [VPC Service Controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls)                 | Yes           | Yes              | Yes      | Yes         | No            | Yes            |
 | [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/kms/docs/cmek)                                                               | Yes           | Yes              | Yes      | Yes         | No            | Yes            |
 | [Data residency (DRZ)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency) at rest                              | Yes           | Yes              | Yes      | Yes         | No            | Yes            |

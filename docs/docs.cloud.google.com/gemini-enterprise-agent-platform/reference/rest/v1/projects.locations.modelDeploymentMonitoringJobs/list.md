@@ -30,19 +30,19 @@ The standard list filter.
 
 Supported fields:
 
-  - `displayName` supports `=` , `!=` comparisons, and `:` wildcard.
-  - `state` supports `=` , `!=` comparisons.
-  - `createTime` supports `=` , `!=` , `<` , `<=` , `>` , `>=` comparisons. `createTime` must be in RFC 3339 format.
-  - `labels` supports general map functions that is: `labels.key=value` - key:value equality \`labels.key:\* - key existence
+- `displayName` supports `=` , `!=` comparisons, and `:` wildcard.
+- `state` supports `=` , `!=` comparisons.
+- `createTime` supports `=` , `!=` , `<` , `<=` , `>` , `>=` comparisons. `createTime` must be in RFC 3339 format.
+- `labels` supports general map functions that is: `labels.key=value` - key:value equality \`labels.key:\* - key existence
 
 Some examples of using the filter are:
 
-  - `state="JOB_STATE_SUCCEEDED" AND displayName:"my_job_*"`
-  - `state!="JOB_STATE_FAILED" OR displayName="my_job"`
-  - `NOT displayName="my_job"`
-  - `createTime>"2021-05-18T00:00:00Z"`
-  - `labels.keyA=valueA`
-  - `labels.keyB:*`
+- `state="JOB_STATE_SUCCEEDED" AND displayName:"my_job_*"`
+- `state!="JOB_STATE_FAILED" OR displayName="my_job"`
+- `NOT displayName="my_job"`
+- `createTime>"2021-05-18T00:00:00Z"`
+- `labels.keyA=valueA`
+- `labels.keyB:*`
 
 `pageSize` `integer`
 
@@ -52,7 +52,7 @@ The standard list page size.
 
 The standard list page token.
 
-`readMask` ` string ( FieldMask  ` format)
+`readMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Mask specifying which fields to read
 
@@ -64,13 +64,13 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  JobService.ListModelDeploymentMonitoringJobs  ` .
+Response message for [`JobService.ListModelDeploymentMonitoringJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs/list#google.cloud.aiplatform.v1.JobService.ListModelDeploymentMonitoringJobs) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`modelDeploymentMonitoringJobs[]` ` object ( ModelDeploymentMonitoringJob  ` )
+`modelDeploymentMonitoringJobs[]` `object ( `[`ModelDeploymentMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs#ModelDeploymentMonitoringJob)` )`
 
 A list of ModelDeploymentMonitoringJobs that matches the specified filter in the request.
 
@@ -78,18 +78,15 @@ A list of ModelDeploymentMonitoringJobs that matches the specified filter in the
 
 The standard List next-page token.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;modelDeploymentMonitoringJobs&quot;: [{object (ModelDeploymentMonitoringJob)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "modelDeploymentMonitoringJobs": [
+    {
+      object (ModelDeploymentMonitoringJob)
+    }
+  ],
+  "nextPageToken": string
+}
+```

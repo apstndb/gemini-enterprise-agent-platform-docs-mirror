@@ -35,11 +35,13 @@ To use the Python samples on this page in a local development environment, insta
 2.  If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 3.  If you're using a local shell, then create local authentication credentials for your user account:
-    
-        gcloud auth application-default login
-    
+
+    ```
+    gcloud auth application-default login
+    ```
+
     You don't need to do this if you're using Cloud Shell.
-    
+
     If an authentication error is returned, and you are using an external identity provider (IdP), confirm that you have [signed in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/authentication#local-development) .
@@ -47,6 +49,10 @@ For more information, see [Set up authentication for a local development environ
 ### REST
 
 To use the REST API samples on this page in a local development environment, you use the credentials you provide to the gcloud CLI.
+
+[Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI.
+
+If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 For more information, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) in the Google Cloud authentication documentation.
 
@@ -84,24 +90,26 @@ Use the following instructions to create an online store for Bigtable online ser
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from google.cloud import aiplatform
-    from vertexai.resources.preview import feature_store
-    
-    
-    def create_bigtable_feature_online_store_sample(
-        project: str,
-        location: str,
-        feature_online_store_id: str,
-    ):
-        aiplatform.init(project=project, location=location)
-        fos = feature_store.FeatureOnlineStore.create_bigtable_store(
-            feature_online_store_id
-        )
-        return fos
+```
+from google.cloud import aiplatform
+from vertexai.resources.preview import feature_store
 
-  - `project` : Your project ID.
-  - `location` : Region where the online store is located, such as `us-central1` .
-  - `feature_online_store_id` : The name of the new `FeatureOnlineStore` instance.
+
+def create_bigtable_feature_online_store_sample(
+    project: str,
+    location: str,
+    feature_online_store_id: str,
+):
+    aiplatform.init(project=project, location=location)
+    fos = feature_store.FeatureOnlineStore.create_bigtable_store(
+        feature_online_store_id
+    )
+    return fos
+```
+
+- `project` : Your project ID.
+- `location` : Region where the online store is located, such as `us-central1` .
+- `feature_online_store_id` : The name of the new `FeatureOnlineStore` instance.
 
 ### REST
 
@@ -109,26 +117,30 @@ To create a [`FeatureOnlineStore`](https://docs.cloud.google.com/gemini-enterpri
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region where you want to create the online store, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREONLINESTORE\_NAME : The name of the new online store instance.
-  - BOOLEAN : Optional: To create an online store that supports embedding management, enter `true` . The default value is `false` .
+- ` LOCATION_ID ` : Region where you want to create the online store, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREONLINESTORE_NAME ` : The name of the new online store instance.
+- ` BOOLEAN ` : Optional: To create an online store that supports embedding management, enter `true` . The default value is `false` .
 
 HTTP method and URL:
 
-    POST https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME
+```
+POST https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME
+```
 
 Request JSON body:
 
-    {
-      "bigtable": {
-        "auto_scaling": {
-          "min_node_count": 1,
-          "max_node_count": 3,
-          "cpu_utilization_target": 50
-        }
-      }
+```
+{
+  "bigtable": {
+    "auto_scaling": {
+      "min_node_count": 1,
+      "max_node_count": 3,
+      "cpu_utilization_target": 50
     }
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -138,11 +150,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME"
+```
 
 #### PowerShell
 
@@ -150,28 +164,32 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/operations/OPERATION_ID",
-      "metadata": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreateFeatureOnlineStoreOperationMetadata",
-        "genericMetadata": {
-          "createTime": "2023-09-18T17:49:23.847496Z",
-          "updateTime": "2023-09-18T17:49:23.847496Z"
-        }
-      }
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/operations/OPERATION_ID",
+  "metadata": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreateFeatureOnlineStoreOperationMetadata",
+    "genericMetadata": {
+      "createTime": "2023-09-18T17:49:23.847496Z",
+      "updateTime": "2023-09-18T17:49:23.847496Z"
     }
+  }
+}
+```
 
 ### Create an online store that uses a CMEK
 
@@ -184,81 +202,91 @@ Using a CMEK encryption can involve additional usage costs, depending on the typ
 1.  [Use Cloud Key Management Service to configure a customer-managed encryption key.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#configure-cmek)
 
 2.  To create a [`FeatureOnlineStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores#resource:-featureOnlineStore) resource, send the following `POST` request by using the [featureOnlineStores.create](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores/create) method and specifying the CMEK.
-    
+
     Before using any of the request data, make the following replacements:
-    
-      - LOCATION\_ID : Region where you want to create the online store, such as `us-central1` .
-      - PROJECT\_ID : Your project ID.
-      - FEATUREONLINESTORE\_NAME : The name of the new online store instance.
-      - BOOLEAN : Optional: To create an online store that supports embedding management, enter `true` . The default value is `false` .
-      - KEY\_NAME : The name of the encryption key that you want to use for this metadata store.
-    
+
+    - ` LOCATION_ID ` : Region where you want to create the online store, such as `us-central1` .
+    - ` PROJECT_ID ` : Your project ID.
+    - ` FEATUREONLINESTORE_NAME ` : The name of the new online store instance.
+    - ` BOOLEAN ` : Optional: To create an online store that supports embedding management, enter `true` . The default value is `false` .
+    - ` KEY_NAME ` : The name of the encryption key that you want to use for this metadata store.
+
     HTTP method and URL:
-    
-        POST https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME
-    
+
+    ```
+    POST https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME
+    ```
+
     Request JSON body:
-    
-        {
-          "bigtable": {
-            "auto_scaling": {
-              "min_node_count": 1,
-              "max_node_count": 3,
-              "cpu_utilization_target": 50
-            }
-          },
-          "encryption_spec": {
-            "kms_key_name": "KEY_NAME"
-          }
+
+    ```
+    {
+      "bigtable": {
+        "auto_scaling": {
+          "min_node_count": 1,
+          "max_node_count": 3,
+          "cpu_utilization_target": 50
         }
-    
+      },
+      "encryption_spec": {
+        "kms_key_name": "KEY_NAME"
+      }
+    }
+    ```
+
     To send your request, choose one of these options:
-    
+
     #### curl
-    
+
     > **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
-    
+
     Save the request body in a file named `request.json` , and execute the following command:
-    
-        curl -X POST \
-             -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-             -H "Content-Type: application/json; charset=utf-8" \
-             -d @request.json \
-             "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME"
-    
+
+    ```
+    curl -X POST \
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+         -H "Content-Type: application/json; charset=utf-8" \
+         -d @request.json \
+         "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME"
+    ```
+
     #### PowerShell
-    
+
     > **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
-    
+
     Save the request body in a file named `request.json` , and execute the following command:
-    
-        $cred = gcloud auth print-access-token
-        $headers = @{ "Authorization" = "Bearer $cred" }
-        
-        Invoke-WebRequest `
-            -Method POST `
-            -Headers $headers `
-            -ContentType: "application/json; charset=utf-8" `
-            -InFile request.json `
-            -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME" | Select-Object -Expand Content
-    
+
+    ```
+    $cred = gcloud auth print-access-token
+    $headers = @{ "Authorization" = "Bearer $cred" }
+
+    Invoke-WebRequest `
+        -Method POST `
+        -Headers $headers `
+        -ContentType: "application/json; charset=utf-8" `
+        -InFile request.json `
+        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME" | Select-Object -Expand Content
+    ```
+
     You should receive a JSON response similar to the following:
-    
-        {
-          "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/operations/OPERATION_ID",
-          "metadata": {
-            "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreateFeatureOnlineStoreOperationMetadata",
-            "genericMetadata": {
-              "createTime": "2023-09-18T17:49:23.847496Z",
-              "updateTime": "2023-09-18T17:49:23.847496Z"
-            }
-          }
+
+    ```
+    {
+      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/operations/OPERATION_ID",
+      "metadata": {
+        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreateFeatureOnlineStoreOperationMetadata",
+        "genericMetadata": {
+          "createTime": "2023-09-18T17:49:23.847496Z",
+          "updateTime": "2023-09-18T17:49:23.847496Z"
         }
+      }
+    }
+    ```
 
 ## Create an online store for Optimized online serving
 
 > Gemini Enterprise Agent Platform Feature Store Optimized online serving is deprecated. Beginning on May 17, 2026, no new features will be added and only critical patches will be provided. On February 17, 2027, the capability will be fully sunset and APIs will no longer be available.
-> 
+>
 > To improve latency and cost optimizations, migrate to [Bigtable online serving](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#bigtable_serving) . To efficiently store and serve embeddings, use the purpose-built [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) .
 
 When you use Optimized online serving, you can configure the online store to serve features from either a public endpoint or a dedicated Private Service Connect endpoint.
@@ -289,24 +317,26 @@ Use the following instructions to create an online store for Optimized online se
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from google.cloud import aiplatform
-    from vertexai.resources.preview import feature_store
-    
-    
-    def create_optimized_public_feature_online_store_sample(
-        project: str,
-        location: str,
-        feature_online_store_id: str,
-    ):
-        aiplatform.init(project=project, location=location)
-        fos = feature_store.FeatureOnlineStore.create_optimized_store(
-            feature_online_store_id
-        )
-        return fos
+```
+from google.cloud import aiplatform
+from vertexai.resources.preview import feature_store
 
-  - `project` : Your project ID.
-  - `location` : Region where you want to create the `FeatureOnlineStore` instance, such as `us-central1` .
-  - `feature_online_store_id` : The name of the new `FeatureOnlineStore` instance.
+
+def create_optimized_public_feature_online_store_sample(
+    project: str,
+    location: str,
+    feature_online_store_id: str,
+):
+    aiplatform.init(project=project, location=location)
+    fos = feature_store.FeatureOnlineStore.create_optimized_store(
+        feature_online_store_id
+    )
+    return fos
+```
+
+- `project` : Your project ID.
+- `location` : Region where you want to create the `FeatureOnlineStore` instance, such as `us-central1` .
+- `feature_online_store_id` : The name of the new `FeatureOnlineStore` instance.
 
 ### REST
 
@@ -314,19 +344,23 @@ To create an online store instance, send a `POST` request by using the [featureO
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region where you want to create the `FeatureOnlineStore` instance, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREONLINESTORE\_NAME : The name of the new `FeatureOnlineStore` instance.
+- ` LOCATION_ID ` : Region where you want to create the `FeatureOnlineStore` instance, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREONLINESTORE_NAME ` : The name of the new `FeatureOnlineStore` instance.
 
 HTTP method and URL:
 
-    POST https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME
+```
+POST https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME
+```
 
 Request JSON body:
 
-    {
-      "optimized": {}
-    }
+```
+{
+  "optimized": {}
+}
+```
 
 To send your request, choose one of these options:
 
@@ -336,11 +370,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME"
+```
 
 #### PowerShell
 
@@ -348,28 +384,32 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/operations/OPERATION_ID",
-      "metadata": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreateFeatureOnlineStoreOperationMetadata",
-        "genericMetadata": {
-          "createTime": "2023-09-18T17:49:23.847496Z",
-          "updateTime": "2023-09-18T17:49:23.847496Z"
-        }
-      }
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/operations/OPERATION_ID",
+  "metadata": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreateFeatureOnlineStoreOperationMetadata",
+    "genericMetadata": {
+      "createTime": "2023-09-18T17:49:23.847496Z",
+      "updateTime": "2023-09-18T17:49:23.847496Z"
     }
+  }
+}
+```
 
 ### Create an online store for Optimized online serving with a Private Service Connect endpoint
 
@@ -379,30 +419,32 @@ Use the following samples to create an online store for Optimized online serving
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from typing import List
-    
-    from google.cloud import aiplatform
-    from vertexai.resources.preview import feature_store
-    
-    
-    def create_optimized_private_feature_online_store_sample(
-        project: str,
-        location: str,
-        feature_online_store_id: str,
-        project_allowlist: List[str],
-    ):
-        aiplatform.init(project=project, location=location)
-        fos = feature_store.FeatureOnlineStore.create_optimized_store(
-            name=feature_online_store_id,
-            enable_private_service_connect=True,
-            project_allowlist=project_allowlist,
-        )
-        return fos
+```
+from typing import List
 
-  - `project` : Your project ID.
-  - `location` : Region where you want to create the `FeatureOnlineStore` instance, such as `us-central1` .
-  - `feature_online_store_id` : The name of the new `FeatureOnlineStore` instance.
-  - `project_allowlist` : The list of project names to be allowlisted for private service connect (PSC).
+from google.cloud import aiplatform
+from vertexai.resources.preview import feature_store
+
+
+def create_optimized_private_feature_online_store_sample(
+    project: str,
+    location: str,
+    feature_online_store_id: str,
+    project_allowlist: List[str],
+):
+    aiplatform.init(project=project, location=location)
+    fos = feature_store.FeatureOnlineStore.create_optimized_store(
+        name=feature_online_store_id,
+        enable_private_service_connect=True,
+        project_allowlist=project_allowlist,
+    )
+    return fos
+```
+
+- `project` : Your project ID.
+- `location` : Region where you want to create the `FeatureOnlineStore` instance, such as `us-central1` .
+- `feature_online_store_id` : The name of the new `FeatureOnlineStore` instance.
+- `project_allowlist` : The list of project names to be allowlisted for private service connect (PSC).
 
 ### REST
 
@@ -410,26 +452,30 @@ To create an online store instance, send a `POST` request by using the [featureO
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region where you want to create the `FeatureOnlineStore` instance, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREONLINESTORE\_NAME : The name of the new `FeatureOnlineStore` instance.
-  - PROJECT\_NAMES : The list of project names to be allowlisted for private service connect (PSC).
+- ` LOCATION_ID ` : Region where you want to create the `FeatureOnlineStore` instance, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREONLINESTORE_NAME ` : The name of the new `FeatureOnlineStore` instance.
+- ` PROJECT_NAMES ` : The list of project names to be allowlisted for private service connect (PSC).
 
 HTTP method and URL:
 
-    POST https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME
+```
+POST https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME
+```
 
 Request JSON body:
 
-    {
-      "optimized": {},
-      "dedicated_serving_endpoint": {
-        "private_service_connect_config": {
-          "enable_private_service_connect": true,
-          "project_allowlist": ["PROJECT_NAMES"]
-        }
-      }
+```
+{
+  "optimized": {},
+  "dedicated_serving_endpoint": {
+    "private_service_connect_config": {
+      "enable_private_service_connect": true,
+      "project_allowlist": ["PROJECT_NAMES"]
     }
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -439,11 +485,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME"
+```
 
 #### PowerShell
 
@@ -451,31 +499,35 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores?feature_online_store_id=FEATUREONLINESTORE_NAME" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/operations/OPERATION_ID",
-      "metadata": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreateFeatureOnlineStoreOperationMetadata",
-        "genericMetadata": {
-          "createTime": "2023-09-18T17:49:23.847496Z",
-          "updateTime": "2023-09-18T17:49:23.847496Z"
-        }
-      }
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/operations/OPERATION_ID",
+  "metadata": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreateFeatureOnlineStoreOperationMetadata",
+    "genericMetadata": {
+      "createTime": "2023-09-18T17:49:23.847496Z",
+      "updateTime": "2023-09-18T17:49:23.847496Z"
     }
+  }
+}
+```
 
 ## What's next
 
-  - Learn how to [create a feature view](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-featureview) .
+- Learn how to [create a feature view](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-featureview) .
 
-  - Learn how to [update an online store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-onlinestore) .
+- Learn how to [update an online store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-onlinestore) .

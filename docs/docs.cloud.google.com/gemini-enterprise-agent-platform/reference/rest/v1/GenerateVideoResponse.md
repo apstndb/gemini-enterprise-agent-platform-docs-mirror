@@ -10,9 +10,9 @@ Generate video response.
 
 Fields
 
-` generatedSamples[] (deprecated)  ` `string`
+`generatedSamples[] `**`(deprecated)`** `string`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 The cloud storage uris of the generated videos.
 
@@ -24,26 +24,16 @@ Returns rai failure reasons if any.
 
 Returns if any videos were filtered due to RAI policies.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;generatedSamples&quot;: [
+**JSON representation**
+
+```
+{
+  "generatedSamples": [
     string
   ],
-  &quot;raiMediaFilteredReasons&quot;: [
+  "raiMediaFilteredReasons": [
     string
   ],
-  &quot;raiMediaFilteredCount&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+  "raiMediaFilteredCount": integer
+}
+```

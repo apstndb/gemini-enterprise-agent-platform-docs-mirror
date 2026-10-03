@@ -50,32 +50,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  ExtensionRegistryService.ListExtensions  `
+Response message for [`ExtensionRegistryService.ListExtensions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/list#google.cloud.aiplatform.v1beta1.ExtensionRegistryService.ListExtensions)
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`extensions[]` ` object ( Extension  ` )
+`extensions[]` `object ( `[`Extension`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#Extension)` )`
 
 List of Extension in the requested page.
 
 `nextPageToken` `string`
 
-A token to retrieve the next page of results. Pass to `  ListExtensionsRequest.page_token  ` to obtain that page.
+A token to retrieve the next page of results. Pass to [`ListExtensionsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/list#body.QUERY_PARAMETERS.page_token) to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;extensions&quot;: [{object (Extension)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "extensions": [
+    {
+      object (Extension)
+    }
+  ],
+  "nextPageToken": string
+}
+```

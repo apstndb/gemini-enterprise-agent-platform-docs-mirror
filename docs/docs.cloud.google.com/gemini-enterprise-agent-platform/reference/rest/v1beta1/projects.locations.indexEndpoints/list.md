@@ -26,11 +26,11 @@ Required. The resource name of the Location from which to list the IndexEndpoint
 
 `filter` `string`
 
-Optional. An expression for filtering the results of the request. For field names both snake\_case and camelCase are supported.
+Optional. An expression for filtering the results of the request. For field names both snake_case and camelCase are supported.
 
-  - `indexEndpoint` supports = and \!=. `indexEndpoint` represents the IndexEndpoint id, ie. the last segment of the IndexEndpoint's `  resourcename  ` .
-  - `displayName` supports =, \!= and regex() (uses [re2](https://github.com/google/re2/wiki/Syntax) syntax)
-  - `labels` supports general map functions that is: `labels.key=value` - key:value equality `labels.key:* or labels:key - key existence A key including a space must be quoted.` labels."a key"\`.
+- `indexEndpoint` supports = and !=. `indexEndpoint` represents the IndexEndpoint id, ie. the last segment of the IndexEndpoint's [`resourcename`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints#IndexEndpoint.FIELDS.name) .
+- `displayName` supports =, != and regex() (uses [re2](https://github.com/google/re2/wiki/Syntax) syntax)
+- `labels` supports general map functions that is: `labels.key=value` - key:value equality `labels.key:* or labels:key - key existence A key including a space must be quoted.` labels."a key"\`.
 
 Some examples: \* `indexEndpoint="1"` \* `displayName="myDisplayName"` \* `regex(displayName, "^A") -> The display name starts with an A. *` labels.myKey="myValue"\`
 
@@ -40,9 +40,9 @@ Optional. The standard list page size.
 
 `pageToken` `string`
 
-Optional. The standard list page token. Typically obtained via `  ListIndexEndpointsResponse.next_page_token  ` of the previous `  IndexEndpointService.ListIndexEndpoints  ` call.
+Optional. The standard list page token. Typically obtained via [`ListIndexEndpointsResponse.next_page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/list#body.ListIndexEndpointsResponse.FIELDS.next_page_token) of the previous [`IndexEndpointService.ListIndexEndpoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/list#google.cloud.aiplatform.v1beta1.IndexEndpointService.ListIndexEndpoints) call.
 
-`readMask` ` string ( FieldMask  ` format)
+`readMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Optional. Mask specifying which fields to read.
 
@@ -54,32 +54,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  IndexEndpointService.ListIndexEndpoints  ` .
+Response message for [`IndexEndpointService.ListIndexEndpoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/list#google.cloud.aiplatform.v1beta1.IndexEndpointService.ListIndexEndpoints) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`indexEndpoints[]` ` object ( IndexEndpoint  ` )
+`indexEndpoints[]` `object ( `[`IndexEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints#IndexEndpoint)` )`
 
 List of IndexEndpoints in the requested page.
 
 `nextPageToken` `string`
 
-A token to retrieve next page of results. Pass to `  ListIndexEndpointsRequest.page_token  ` to obtain that page.
+A token to retrieve next page of results. Pass to [`ListIndexEndpointsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/list#body.QUERY_PARAMETERS.page_token) to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;indexEndpoints&quot;: [{object (IndexEndpoint)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "indexEndpoints": [
+    {
+      object (IndexEndpoint)
+    }
+  ],
+  "nextPageToken": string
+}
+```

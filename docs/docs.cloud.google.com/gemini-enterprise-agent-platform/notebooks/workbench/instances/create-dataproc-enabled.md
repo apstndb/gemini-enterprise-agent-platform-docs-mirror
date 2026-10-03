@@ -18,17 +18,17 @@ Agent Platform Workbench instances have the Managed Service for Apache Spark Jup
 
 The Managed Service for Apache Spark JupyterLab extension provides two ways to run Apache Spark notebook jobs: Managed Service for Apache Spark clusters and Managed Service for Apache Spark.
 
-  - **Managed Service for Apache Spark clusters** include a rich set of features with control over the infrastructure that Spark runs on. You choose the size and configuration of your Spark cluster, allowing for customization and control over your environment. This approach is ideal for complex workloads, long-running jobs, and fine-grained resource management.
-  - **Managed Service for Apache Spark** eliminates infrastructure concerns. You submit your Spark jobs, and Google handles the provisioning, scaling, and optimization of resources behind the scenes. This serverless approach offers a cost-efficient option for data science and ML workloads.
+- **Managed Service for Apache Spark clusters** include a rich set of features with control over the infrastructure that Spark runs on. You choose the size and configuration of your Spark cluster, allowing for customization and control over your environment. This approach is ideal for complex workloads, long-running jobs, and fine-grained resource management.
+- **Managed Service for Apache Spark** eliminates infrastructure concerns. You submit your Spark jobs, and Google handles the provisioning, scaling, and optimization of resources behind the scenes. This serverless approach offers a cost-efficient option for data science and ML workloads.
 
 With both options, you can use Spark for data processing and analysis. The choice between Managed Service for Apache Spark clusters and Managed Service for Apache Spark depends on your specific workload requirements, required level of control, and resource usage patterns.
 
 Benefits of using Managed Service for Apache Spark for data science and ML workloads include:
 
-  - **No cluster management** : You don't need to worry about provisioning, configuring, or managing Spark clusters. This saves you time and resources.
-  - **Autoscaling** : Managed Service for Apache Spark automatically scales up and down based on the workload, so you only pay for the resources you use.
-  - **High performance** : Managed Service for Apache Spark is optimized for performance and takes advantage of Google Cloud's infrastructure.
-  - **Integration with other Google Cloud technologies** : Managed Service for Apache Spark integrates with other Google Cloud products, such as BigQuery and Knowledge Catalog.
+- **No cluster management** : You don't need to worry about provisioning, configuring, or managing Spark clusters. This saves you time and resources.
+- **Autoscaling** : Managed Service for Apache Spark automatically scales up and down based on the workload, so you only pay for the resources you use.
+- **High performance** : Managed Service for Apache Spark is optimized for performance and takes advantage of Google Cloud's infrastructure.
+- **Integration with other Google Cloud technologies** : Managed Service for Apache Spark integrates with other Google Cloud products, such as BigQuery and Knowledge Catalog.
 
 For more information, see the [Managed Service for Apache Spark documentation](https://docs.cloud.google.com/dataproc-serverless/docs) .
 
@@ -40,8 +40,8 @@ To ensure that the service account has the necessary permissions to run a notebo
 
 > **Important:** You must grant these roles to the service account, *not* to your user account. Failure to grant the roles to the correct principal might result in permission errors.
 
-  - [Dataproc Worker](https://docs.cloud.google.com/iam/docs/roles-permissions/dataproc#dataproc.worker) ( `roles/dataproc.worker` ) on your project
-  - [Dataproc Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/dataproc#dataproc.editor) ( `roles/dataproc.editor` ) on the cluster for the `dataproc.clusters.use` permission
+- [Dataproc Worker](https://docs.cloud.google.com/iam/docs/roles-permissions/dataproc#dataproc.worker) ( `roles/dataproc.worker` ) on your project
+- [Dataproc Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/dataproc#dataproc.editor) ( `roles/dataproc.editor` ) on the cluster for the `dataproc.clusters.use` permission
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
@@ -51,14 +51,14 @@ These predefined roles contain the permissions required to run a notebook file o
 
 The following permissions are required to run a notebook file on a Managed Service for Apache Spark cluster or a Managed Service for Apache Spark cluster:
 
-  - `dataproc.agents.create`
-  - `dataproc.agents.delete`
-  - `dataproc.agents.get`
-  - `dataproc.agents.update`
-  - `dataproc.tasks.lease`
-  - `dataproc.tasks.listInvalidatedLeases`
-  - `dataproc.tasks.reportStatus`
-  - `dataproc.clusters.use`
+- `dataproc.agents.create`
+- `dataproc.agents.delete`
+- `dataproc.agents.get`
+- `dataproc.agents.update`
+- `dataproc.tasks.lease`
+- `dataproc.tasks.listInvalidatedLeases`
+- `dataproc.tasks.reportStatus`
+- `dataproc.clusters.use`
 
 Your administrator might also be able to give the service account these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
@@ -68,7 +68,7 @@ To create a Agent Platform Workbench instance with Managed Service for Apache Sp
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Click add\_box **Create new** .
+2.  Click add_box **Create new** .
 
 3.  In the **New instance** dialog, click **Advanced options** .
 
@@ -79,7 +79,7 @@ To create a Agent Platform Workbench instance with Managed Service for Apache Sp
 6.  In the **Environment** section, make sure you use the latest version or a version numbered `M113` or higher.
 
 7.  Click **Create** .
-    
+
     Agent Platform Workbench creates an instance and automatically starts it. When the instance is ready to use, Agent Platform Workbench activates an **Open JupyterLab** link.
 
 > **Note:** Specific network configurations could affect your ability to use the Managed Service for Apache Spark extension. For more information on how to ensure that your network configuration is compatible, see [Network configuration options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create#network-options) .
@@ -109,7 +109,7 @@ To change the region and project, do the following:
 1.  Select **Settings \> Cloud Managed Service for Apache Spark Settings** .
 
 2.  On the **Setup Config** tab, under **Project Info** , change the **Project ID** and **Region** , and then click **Save** .
-    
+
     These changes don't take effect until you restart JupyterLab.
 
 3.  To restart JupyterLab, select **File \> Shut Down** , and then click **Open JupyterLab** on the **Agent Platform Workbench instances** page.
@@ -146,13 +146,17 @@ If the curl command fails, check to make sure that:
 
 Agent Platform Workbench instances are created with Managed Service for Apache Spark enabled by default. You can create a Agent Platform Workbench instance with Managed Service for Apache Spark turned off by setting the `disable-mixer` `metadata` key to `true` .
 
-    gcloud workbench instances create INSTANCE_NAME --metadata=disable-mixer=true
+```
+gcloud workbench instances create INSTANCE_NAME --metadata=disable-mixer=true
+```
 
 ### Enable Managed Service for Apache Spark
 
 You can enable Managed Service for Apache Spark on a stopped Agent Platform Workbench instance by updating the metadata value.
 
-    gcloud workbench instances update INSTANCE_NAME --metadata=disable-mixer=false
+```
+gcloud workbench instances update INSTANCE_NAME --metadata=disable-mixer=false
+```
 
 ## Manage Managed Service for Apache Spark using Terraform
 
@@ -184,16 +188,16 @@ To diagnose and resolve issues related to creating a Managed Service for Apache 
 
 ## What's next
 
-  - For more information about the Managed Service for Apache Spark JupyterLab extension, see [Use the JupyterLab extension to develop serverless Spark workloads](https://docs.cloud.google.com/dataproc-serverless/docs/quickstarts/jupyterlab-sessions) .
+- For more information about the Managed Service for Apache Spark JupyterLab extension, see [Use the JupyterLab extension to develop serverless Spark workloads](https://docs.cloud.google.com/dataproc-serverless/docs/quickstarts/jupyterlab-sessions) .
 
-  - To learn more about Managed Service for Apache Spark, see the [Managed Service for Apache Spark documentation](https://docs.cloud.google.com/dataproc-serverless/docs)
+- To learn more about Managed Service for Apache Spark, see the [Managed Service for Apache Spark documentation](https://docs.cloud.google.com/dataproc-serverless/docs)
 
-  - [Learn how to run Managed Service for Apache Spark workloads without provisioning and managing clusters.](https://cloud.google.com/blog/products/data-analytics/serverless-spark-on-google-cloud-interactive-tutorial)
+- [Learn how to run Managed Service for Apache Spark workloads without provisioning and managing clusters.](https://cloud.google.com/blog/products/data-analytics/serverless-spark-on-google-cloud-interactive-tutorial)
 
-  - To learn more about using Spark with Google Cloud products and services, see [Spark on Google Cloud](https://docs.cloud.google.com/solutions/spark) .
+- To learn more about using Spark with Google Cloud products and services, see [Spark on Google Cloud](https://docs.cloud.google.com/solutions/spark) .
 
-  - Browse the available [Managed Service for Apache Spark templates on GitHub](https://github.com/GoogleCloudPlatform/dataproc-templates) .
+- Browse the available [Managed Service for Apache Spark templates on GitHub](https://github.com/GoogleCloudPlatform/dataproc-templates) .
 
-  - Learn about Serverless Spark through the [`serverless-spark-workshop` on GitHub](https://github.com/GoogleCloudPlatform/serverless-spark-workshop) .
+- Learn about Serverless Spark through the [`serverless-spark-workshop` on GitHub](https://github.com/GoogleCloudPlatform/serverless-spark-workshop) .
 
-  - Read the [Apache Spark documentation](https://spark.apache.org/docs/latest/) .
+- Read the [Apache Spark documentation](https://spark.apache.org/docs/latest/) .

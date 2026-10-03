@@ -28,7 +28,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`instances[]` ` value ( Value  ` format)
+`instances[]` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
 Optional. The instances that are the input to token computing API call. Schema is identical to the prediction schema of the text model, even for the non-text models, like chat models, or Codey models.
 
@@ -36,10 +36,10 @@ Optional. The instances that are the input to token computing API call. Schema i
 
 Optional. The name of the publisher model requested to serve the prediction. Format: projects/{project}/locations/{location}/publishers/\*/models/\*
 
-`contents[]` ` object ( Content  ` )
+`contents[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)` )`
 
 Optional. Input content.
 
 ### Response body
 
-If successful, the response body contains an instance of `  ComputeTokensResponse  ` .
+If successful, the response body contains an instance of [`ComputeTokensResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ComputeTokensResponse) .

@@ -28,10 +28,10 @@ The request body contains data with the following structure:
 
 Fields
 
-`modelEvaluation` ` object ( ModelEvaluation  ` )
+`modelEvaluation` `object ( `[`ModelEvaluation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models.evaluations#ModelEvaluation)` )`
 
 Required. Model evaluation resource to be imported.
 
 ### Response body
 
-If successful, the response body contains an instance of `  ModelEvaluation  ` .
+If successful, the response body contains an instance of [`ModelEvaluation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models.evaluations#ModelEvaluation) .

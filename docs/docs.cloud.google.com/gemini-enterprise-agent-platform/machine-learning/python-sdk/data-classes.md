@@ -10,7 +10,9 @@ The Agent Platform SDK includes classes that store and read data used to train a
 
 The following topics provide brief explanations of each data-related class in the Agent Platform SDK. The topic for each class includes a code example that shows how to create an instance of that class. After you create a dataset, you can use its ID to retrieve it:
 
-    dataset = aiplatform.ImageDataset('projects/my-project/location/my-region/datasets/{DATASET_ID}')
+```
+dataset = aiplatform.ImageDataset('projects/my-project/location/my-region/datasets/{DATASET_ID}')
+```
 
 ## Structured data classes
 
@@ -22,25 +24,31 @@ Use this class to work with tabular datasets. You can use a CSV file, BigQuery, 
 
 The following code shows you how to create a tabular dataset by importing a CSV file.
 
-    my_dataset = aiplatform.TabularDataset.create(
-        display_name="my-dataset", gcs_source=['gs://path/to/my/dataset.csv'])
+```
+my_dataset = aiplatform.TabularDataset.create(
+    display_name="my-dataset", gcs_source=['gs://path/to/my/dataset.csv'])
+```
 
 The following code shows you how to create a tabular dataset by importing a CSV file in two distinct steps.
 
-    my_dataset = aiplatform.TextDataset.create(
-        display_name="my-dataset")
-    
-    my_dataset.import(
-        gcs_source=['gs://path/to/my/dataset.csv'],
-        import_schema_uri=aiplatform.schema.dataset.ioformat.text.multi_label_classification
-    )
+```
+my_dataset = aiplatform.TextDataset.create(
+    display_name="my-dataset")
+
+my_dataset.import(
+    gcs_source=['gs://path/to/my/dataset.csv'],
+    import_schema_uri=aiplatform.schema.dataset.ioformat.text.multi_label_classification
+)
+```
 
 If you create a tabular dataset with a pandas [`DataFrame`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) , you need to use a BigQuery table to stage the data for Gemini Enterprise Agent Platform:
 
-    my_dataset = aiplatform.TabularDataset.create_from_dataframe(
-        df_source=my_pandas_dataframe,
-        staging_path=f"bq://{bq_dataset_id}.table-unique"
-    )
+```
+my_dataset = aiplatform.TabularDataset.create_from_dataframe(
+    df_source=my_pandas_dataframe,
+    staging_path=f"bq://{bq_dataset_id}.table-unique"
+)
+```
 
 ### [`TimeSeriesDataset`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.TimeSeriesDataset)
 
@@ -50,13 +58,17 @@ You can create a managed time series dataset from CSV files in a Cloud Storage b
 
 The following code shows you how to create a `TimeSeriesDataset` by importing a CSV data source file that has the time series dataset:
 
-    my_dataset = aiplatform.TimeSeriesDataset.create(
-        display_name="my-dataset", gcs_source=['gs://path/to/my/dataset.csv'])
+```
+my_dataset = aiplatform.TimeSeriesDataset.create(
+    display_name="my-dataset", gcs_source=['gs://path/to/my/dataset.csv'])
+```
 
 The following code shows you how to create a `TimeSeriesDataset` by importing a BigQuery table file that has the time series dataset:
 
-    my_dataset = aiplatform.TimeSeriesDataset.create(
-        display_name="my-dataset", bq_source=['bq://path/to/my/bigquerydataset.train'])
+```
+my_dataset = aiplatform.TimeSeriesDataset.create(
+    display_name="my-dataset", bq_source=['bq://path/to/my/bigquerydataset.train'])
+```
 
 ## Unstructured data classes
 
@@ -68,17 +80,19 @@ Use this class to work with a managed image dataset. To create a managed image d
 
 Use image data for the following objectives:
 
-  - Single-label classification. For more information, see [Prepare image training data for single-label classification](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/prepare-data#single-label-classification) .
-  - Multi-label classification. For more information, see [Prepare image training data for multi-label classification](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/prepare-data#multi-label-classification) .
-  - Object detection. For more information, see [Prepare image training data for object detection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/prepare-data) .
+- Single-label classification. For more information, see [Prepare image training data for single-label classification](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/prepare-data#single-label-classification) .
+- Multi-label classification. For more information, see [Prepare image training data for multi-label classification](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/prepare-data#multi-label-classification) .
+- Object detection. For more information, see [Prepare image training data for object detection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/prepare-data) .
 
 The following code shows you how to create image dataset by importing a CSV data source file and a YAML schema file. The schema file you use depends on whether your image dataset is used for single-label classification, multi-label classification, or object detection.
 
-    my_dataset = aiplatform.ImageDataset.create(
-        display_name="my-image-dataset",
-        gcs_source=['gs://path/to/my/image-dataset.csv'],
-        import_schema_uri=['gs://path/to/my/schema.yaml']
-        )
+```
+my_dataset = aiplatform.ImageDataset.create(
+    display_name="my-image-dataset",
+    gcs_source=['gs://path/to/my/image-dataset.csv'],
+    import_schema_uri=['gs://path/to/my/schema.yaml']
+    )
+```
 
 ## Gemini Enterprise Agent Platform Feature Store data classes
 
@@ -100,27 +114,31 @@ The featurestore resource, represented by the [`Featurestore`](https://docs.clou
 
 Use the [`Featurestore`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Featurestore) . [`create_entity_type`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatformFeaturestore#google_cloud_aiplatform_Featurestore_create_entity_type) method with an `entity_type_id` to create an entity type resource. An entity type resource is represented by the `EntityType` class. The `entity_type_id` is alphanumeric and must be unique in a featurestore. The following is an example of how you can create an entity type:
 
-    entity_type = aiplatform.featurestore.create_entity_type(
-            entity_type_id=my_entity_type_name, description=my_entity_type_description
-            )
+```
+entity_type = aiplatform.featurestore.create_entity_type(
+        entity_type_id=my_entity_type_name, description=my_entity_type_description
+        )
+```
 
 #### Serve entity types
 
 Use one of three [`Featurestore`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Featurestore) methods to serve entity data items:
 
-  - [`batch_serve_to_bq`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Featurestore#google_cloud_aiplatform_Featurestore_batch_serve_to_bq) serves data to a BigQuery table.
+- [`batch_serve_to_bq`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Featurestore#google_cloud_aiplatform_Featurestore_batch_serve_to_bq) serves data to a BigQuery table.
 
-  - [`batch_serve_to_df`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Featurestore#google_cloud_aiplatform_Featurestore_batch_serve_to_df) serves data to a pandas [`DataFrame`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) .
+- [`batch_serve_to_df`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Featurestore#google_cloud_aiplatform_Featurestore_batch_serve_to_df) serves data to a pandas [`DataFrame`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) .
 
-  - [`batch_serve_to_gcs`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Featurestore#google_cloud_aiplatform_Featurestore_batch_serve_to_gcs) serves data to a CSV file or a TensorFlow [`TFRecord`](https://www.tensorflow.org/tutorials/load_data/tfrecord#tfrecords_format_details) file.
+- [`batch_serve_to_gcs`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Featurestore#google_cloud_aiplatform_Featurestore_batch_serve_to_gcs) serves data to a CSV file or a TensorFlow [`TFRecord`](https://www.tensorflow.org/tutorials/load_data/tfrecord#tfrecords_format_details) file.
 
 ### [`EntityType`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.EntityType)
 
 The [`EntityType`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.EntityType) class represents an entity type resource, which is a collection of semantically related features that you define. For example, a music service might have the entity types `musical_artist` and `user` . You can use use the [`FeatureStore.create_entity_type`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/data-classes#feature-store-create-entity-type) method or the [`EntityType.create`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.EntityType#google_cloud_aiplatform_EntityType_create) method to create an entity type. The following code shows how to use [`EntityType.create`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.EntityType#google_cloud_aiplatform_EntityType_create) :
 
-    entity_type = aiplatform.EntityType.create(
-            entity_type_id=my_entity_type_name, featurestore_name=featurestore_name
-        )
+```
+entity_type = aiplatform.EntityType.create(
+        entity_type_id=my_entity_type_name, featurestore_name=featurestore_name
+    )
+```
 
 ### [`Feature`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Feature)
 
@@ -128,13 +146,15 @@ The [`Feature`](https://docs.cloud.google.com/python/docs/reference/aiplatform/l
 
 When you create a [`Feature`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Feature) , you must specify its value type (for example, `BOOL_ARRAY` , `DOUBLE` , `DOUBLE_ARRAY` , or `STRING` ). The following code shows an example of how to to create a feature:
 
-    my_feature = aiplatform.Feature.create(
-        feature_id='my_feature_id',
-        value_type='INT64',
-        entity_type_name='my_entity_type_id',
-        featurestore_id='my_featurestore_id',
-    )
+```
+my_feature = aiplatform.Feature.create(
+    feature_id='my_feature_id',
+    value_type='INT64',
+    entity_type_name='my_entity_type_id',
+    featurestore_id='my_featurestore_id',
+)
+```
 
 ## What's next
 
-  - Learn about the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .
+- Learn about the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .

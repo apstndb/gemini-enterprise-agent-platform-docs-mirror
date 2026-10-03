@@ -24,8 +24,8 @@ You define templates that Model Armor uses to evaluate both requests and respons
 
 Model Armor follows the templates when screening the following:
 
-  - Incoming requests from the *client* (end users or calling applications) to your AI agent
-  - Outgoing responses from the AI agent back to the client
+- Incoming requests from the *client* (end users or calling applications) to your AI agent
+- Outgoing responses from the AI agent back to the client
 
 When a client sends a prompt to the agent, Agent Gateway intercepts the traffic and sends the payload to Model Armor for sanitization. If Model Armor issues an `ALLOW` verdict, Agent Gateway sends the prompt to the AI agent. If Model Armor issues a `BLOCK` verdict, the client receives an error, and the flow ends before reaching the AI agent.
 
@@ -37,9 +37,9 @@ You define templates that Model Armor uses to evaluate requests and responses in
 
 Model Armor follows the templates when screening communications between your AI agent and external systems, including the following:
 
-  - External large language models (LLMs)
-  - Third-party AI agents
-  - Model Context Protocol (MCP) servers
+- External large language models (LLMs)
+- Third-party AI agents
+- Model Context Protocol (MCP) servers
 
 When an AI agent communicates with an external system, Agent Gateway intercepts the egress traffic and calls Model Armor. Model Armor evaluates the payload according to the egress templates that you set.
 
@@ -70,59 +70,59 @@ To configure Model Armor on a gateway, follow these steps:
 1.  [Enable the Model Armor API](https://docs.cloud.google.com/model-armor/manage-templates#enable-apis) in the project where you want to create the Model Armor templates.
 
 2.  [Create one or more Model Armor templates](https://docs.cloud.google.com/model-armor/manage-templates#create-ma-template) in the same region where you plan to add the gateway. You can use the same template for both ingress and egress traffic.
-    
-    Take note of the template names. To copy the name of a template in the Google Cloud console, [view the template's details](https://docs.cloud.google.com/model-armor/manage-templates#view-ma-template) and click content\_copy **Copy to clipboard** next to the template name.
+
+    Take note of the template names. To copy the name of a template in the Google Cloud console, [view the template's details](https://docs.cloud.google.com/model-armor/manage-templates#view-ma-template) and click content_copy **Copy to clipboard** next to the template name.
 
 3.  Set up Agent Gateway in the same region where the Model Armor templates are stored. For the [Client-to-Agent (ingress) gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#config-client-to-agent) , specify the Model Armor templates that you created for ingress traffic. For the [Agent-to-Anywhere (egress) gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#config-agent-to-anywhere) , specify the Model Armor templates that you created for egress traffic. You can use the same template for both traffic flows.
 
 4.  Grant the required IAM roles to the appropriate service agents:
-    
-      - **Client-to-Agent (ingress)** : Grant the [AI Platform Reasoning Engine Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-agent-access#service-agent) service agent the following roles:
-        
-          - The Model Armor Callout User ( `roles/modelarmor.calloutUser` ) role in the project that contains the AI agent.
-        
-          - The Model Armor User ( `roles/modelarmor.user` ) role in the project that contains the Model Armor template.
-        
-        <!-- end list -->
-        
-            gcloud projects add-iam-policy-binding AGENT_RUNTIME_PROJECT_ID \
-                --member=serviceAccount:service-AGENT_RUNTIME_PROJECT_NUMBER@gcp-sa-aiplatform-re.iam.gserviceaccount.com \
-                --role=roles/modelarmor.calloutUser
-            gcloud projects add-iam-policy-binding MODEL_ARMOR_PROJECT_ID \
-                --member=serviceAccount:service-AGENT_RUNTIME_PROJECT_NUMBER@gcp-sa-aiplatform-re.iam.gserviceaccount.com \
-                --role=roles/modelarmor.user
-        
-        Replace the following:
-        
-          - `  AGENT_RUNTIME_PROJECT_ID  ` : The project ID of the project where you created the agent.
-          - `  AGENT_RUNTIME_PROJECT_NUMBER  ` : The project number of the project where you created the agent.
-          - `  MODEL_ARMOR_PROJECT_ID  ` : The project ID of the project that contains the Model Armor template.
-    
-      - **Agent-to-Anywhere (egress)** : Grant the Service Extensions service agent the following roles:
-        
-          - The Model Armor Callout User ( `roles/modelarmor.calloutUser` ) and Service Usage Consumer ( `roles/serviceusage.serviceUsageConsumer` ) roles in the project that contains the gateway.
-          - The Model Armor User ( `roles/modelarmor.user` ) role in the project that contains the Model Armor template.
-        
-        <!-- end list -->
-        
-            gcloud projects add-iam-policy-binding GATEWAY_PROJECT_ID \
-                --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
-                --role=roles/modelarmor.calloutUser
-            gcloud projects add-iam-policy-binding GATEWAY_PROJECT_ID \
-                --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
-                --role=roles/serviceusage.serviceUsageConsumer
-            gcloud projects add-iam-policy-binding MODEL_ARMOR_PROJECT_ID \
-                --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
-                --role=roles/modelarmor.user
-        
-        Replace the following:
-        
-          - `  GATEWAY_PROJECT_ID  ` : The project ID of the project where you created the gateway.
-          - `  GATEWAY_PROJECT_NUMBER  ` : The project number of the project where you created the gateway.
-          - `  MODEL_ARMOR_PROJECT_ID  ` : The project ID of the project that contains the Model Armor template.
-        
-        For instructions, see [Delegate authorization to Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#configure-authz-ma) .
-    
+
+    - **Client-to-Agent (ingress)** : Grant the [AI Platform Reasoning Engine Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-agent-access#service-agent) service agent the following roles:
+
+      - The Model Armor Callout User ( `roles/modelarmor.calloutUser` ) role in the project that contains the AI agent.
+
+      - The Model Armor User ( `roles/modelarmor.user` ) role in the project that contains the Model Armor template.
+
+      ```
+      gcloud projects add-iam-policy-binding AGENT_RUNTIME_PROJECT_ID \
+          --member=serviceAccount:service-AGENT_RUNTIME_PROJECT_NUMBER@gcp-sa-aiplatform-re.iam.gserviceaccount.com \
+          --role=roles/modelarmor.calloutUser
+      gcloud projects add-iam-policy-binding MODEL_ARMOR_PROJECT_ID \
+          --member=serviceAccount:service-AGENT_RUNTIME_PROJECT_NUMBER@gcp-sa-aiplatform-re.iam.gserviceaccount.com \
+          --role=roles/modelarmor.user
+      ```
+
+      Replace the following:
+
+      - `AGENT_RUNTIME_PROJECT_ID` : The project ID of the project where you created the agent.
+      - `AGENT_RUNTIME_PROJECT_NUMBER` : The project number of the project where you created the agent.
+      - `MODEL_ARMOR_PROJECT_ID` : The project ID of the project that contains the Model Armor template.
+
+    - **Agent-to-Anywhere (egress)** : Grant the Service Extensions service agent the following roles:
+
+      - The Model Armor Callout User ( `roles/modelarmor.calloutUser` ) and Service Usage Consumer ( `roles/serviceusage.serviceUsageConsumer` ) roles in the project that contains the gateway.
+      - The Model Armor User ( `roles/modelarmor.user` ) role in the project that contains the Model Armor template.
+
+      ```
+      gcloud projects add-iam-policy-binding GATEWAY_PROJECT_ID \
+          --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
+          --role=roles/modelarmor.calloutUser
+      gcloud projects add-iam-policy-binding GATEWAY_PROJECT_ID \
+          --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
+          --role=roles/serviceusage.serviceUsageConsumer
+      gcloud projects add-iam-policy-binding MODEL_ARMOR_PROJECT_ID \
+          --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
+          --role=roles/modelarmor.user
+      ```
+
+      Replace the following:
+
+      - `GATEWAY_PROJECT_ID` : The project ID of the project where you created the gateway.
+      - `GATEWAY_PROJECT_NUMBER` : The project number of the project where you created the gateway.
+      - `MODEL_ARMOR_PROJECT_ID` : The project ID of the project that contains the Model Armor template.
+
+      For instructions, see [Delegate authorization to Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#configure-authz-ma) .
+
     For general information about how to grant a role, see [Grant a single IAM role](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access#grant-single-role) .
 
 ### Optional: Pre-deployment template validation check
@@ -135,15 +135,15 @@ You can validate your template by querying the `sanitizeUserPrompt` method direc
 
 You can instruct Model Armor to redact sensitive data—such as national ID numbers and phone numbers—from payloads. To use this feature, follow these steps:
 
-  - Set [advanced Sensitive Data Protection settings](https://docs.cloud.google.com/model-armor/manage-templates#set-sdp-settings) in your Model Armor template, and include a [de-identify template](https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid) .
+- Set [advanced Sensitive Data Protection settings](https://docs.cloud.google.com/model-armor/manage-templates#set-sdp-settings) in your Model Armor template, and include a [de-identify template](https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid) .
 
-  - Set the [enforcement type](https://docs.cloud.google.com/model-armor/manage-templates#define-template-enforcement-type) on the Model Armor template to `INSPECT_AND_BLOCK` .
+- Set the [enforcement type](https://docs.cloud.google.com/model-armor/manage-templates#define-template-enforcement-type) on the Model Armor template to `INSPECT_AND_BLOCK` .
 
 If you use the `INSPECT_AND_BLOCK` enforcement type, one of the following occurs:
 
-  - If a payload violates only the Sensitive Data Protection detector, Model Armor redacts the payload according to your advanced Sensitive Data Protection settings and de-identify template.
+- If a payload violates only the Sensitive Data Protection detector, Model Armor redacts the payload according to your advanced Sensitive Data Protection settings and de-identify template.
 
-  - If a payload violates multiple detectors, Model Armor doesn't perform redaction; it blocks the entire payload.
+- If a payload violates multiple detectors, Model Armor doesn't perform redaction; it blocks the entire payload.
 
 If you use the `INSPECT_ONLY` enforcement type instead of `INSPECT_AND_BLOCK` , Model Armor doesn't redact the payload.
 
@@ -169,53 +169,53 @@ For Agent-to-Anywhere (egress) traffic, the following payloads are supported.
 
 Model Armor sanitizes only the following payloads of the [A2A v1 protocol](https://a2a-protocol.org/latest/) :
 
-  - [Send Message](https://a2a-protocol.org/latest/specification/#311-send-message) operations
-  - [Agent Card](https://a2a-protocol.org/latest/specification/#441-agentcard)
-  - [Get Extended Agent Card](https://a2a-protocol.org/latest/specification/#3111-get-extended-agent-card) operations
-  - [JSON-RPC](https://a2a-protocol.org/latest/specification/#9-json-rpc-protocol-binding) protocol bindings
-  - [HTTP+JSON/REST](https://a2a-protocol.org/latest/specification/#11-httpjsonrest-protocol-binding) protocol bindings
+- [Send Message](https://a2a-protocol.org/latest/specification/#311-send-message) operations
+- [Agent Card](https://a2a-protocol.org/latest/specification/#441-agentcard)
+- [Get Extended Agent Card](https://a2a-protocol.org/latest/specification/#3111-get-extended-agent-card) operations
+- [JSON-RPC](https://a2a-protocol.org/latest/specification/#9-json-rpc-protocol-binding) protocol bindings
+- [HTTP+JSON/REST](https://a2a-protocol.org/latest/specification/#11-httpjsonrest-protocol-binding) protocol bindings
 
 Model Armor allows the following A2A payloads without sanitization:
 
-  - Payloads from A2A versions earlier than v1
-  - [`SendStreamingMessage`](https://a2a-protocol.org/latest/specification/#942-sendstreamingmessage)
-  - [`GetTask`](https://a2a-protocol.org/latest/specification/#943-gettask)
-  - [`ListTasks`](https://a2a-protocol.org/latest/specification/#944-listtasks)
-  - [`CancelTask`](https://a2a-protocol.org/latest/specification/#945-canceltask)
-  - [`SubscribeToTask`](https://a2a-protocol.org/latest/specification/#946-subscribetotask)
-  - [CRUD methods](https://a2a-protocol.org/latest/specification/#1047-createtaskpushnotificationconfig) on `TaskPushNotificationConfig`
-  - Payloads using A2A [gRPC](https://a2a-protocol.org/latest/specification/#10-grpc-protocol-binding) protocol binding (protobuf on the wire)
-  - A2A error payloads
+- Payloads from A2A versions earlier than v1
+- [`SendStreamingMessage`](https://a2a-protocol.org/latest/specification/#942-sendstreamingmessage)
+- [`GetTask`](https://a2a-protocol.org/latest/specification/#943-gettask)
+- [`ListTasks`](https://a2a-protocol.org/latest/specification/#944-listtasks)
+- [`CancelTask`](https://a2a-protocol.org/latest/specification/#945-canceltask)
+- [`SubscribeToTask`](https://a2a-protocol.org/latest/specification/#946-subscribetotask)
+- [CRUD methods](https://a2a-protocol.org/latest/specification/#1047-createtaskpushnotificationconfig) on `TaskPushNotificationConfig`
+- Payloads using A2A [gRPC](https://a2a-protocol.org/latest/specification/#10-grpc-protocol-binding) protocol binding (protobuf on the wire)
+- A2A error payloads
 
 #### MCP payloads
 
 Model Armor sanitizes only the following MCP payloads:
 
-  - `tools/call` request and response
-  - `prompts/get` request and response
-  - [MCP tool execution errors](https://modelcontextprotocol.io/specification/2025-11-25/server/tools#error-handling) (target for prompt injection by malicious MCP tools authors)
+- `tools/call` request and response
+- `prompts/get` request and response
+- [MCP tool execution errors](https://modelcontextprotocol.io/specification/2025-11-25/server/tools#error-handling) (target for prompt injection by malicious MCP tools authors)
 
 Model Armor allows the following payloads without sanitization:
 
-  - `tools/list`
-  - `resources/*`
-  - `notifications/*`
-  - Streamable HTTP/SSE for MCP
-  - MCP protocol errors (for example, all errors other than tool execution errors)
+- `tools/list`
+- `resources/*`
+- `notifications/*`
+- Streamable HTTP/SSE for MCP
+- MCP protocol errors (for example, all errors other than tool execution errors)
 
 #### External LLM payloads
 
 Model Armor sanitizes only the following payloads of the OpenAI API protocol (egress), which includes GPT models on `openai.com` as well as any other models through OpenAI API-compatible LLM servers (such as [vLLM](https://docs.vllm.ai/en/latest/serving/openai_compatible_server/#supported-apis) ). Payloads that aren't listed here are allowed without sanitization.
 
-  - [Chat completions](https://developers.openai.com/api/reference/resources/chat/subresources/completions) : Create, Delete, Get, List, and Update (non-streaming variants only)
-  - [Get chat messages](https://developers.openai.com/api/reference/resources/chat/subresources/completions/subresources/messages)
-  - [Responses](https://developers.openai.com/api/reference/resources/responses) : Create, Get, and Delete (non-streaming variants only)
-  - [OpenAI API errors](https://community.openai.com/t/error-code-for-openai-chat-completion/1102402) (including [vLLM's variant](https://github.com/vllm-project/vllm/issues/12886) )
-  - [Legacy Completions](https://developers.openai.com/api/reference/resources/beta/subresources/assistants)
-  - [Legacy Assistants](https://developers.openai.com/api/reference/resources/beta/subresources/assistants/methods/create) : Create, Delete, List, Modify, and Retrieve
-  - [Legacy Messages](https://developers.openai.com/api/reference/resources/beta/subresources/threads/subresources/messages) : Create, Delete, List, Modify, and Retrieve
-  - [Legacy Threads](https://developers.openai.com/api/reference/resources/beta/subresources/threads/methods/create) : Create, Delete, Modify, and Retrieve
-  - [Embeddings](https://developers.openai.com/api/reference/resources/embeddings/methods/create) : Create
+- [Chat completions](https://developers.openai.com/api/reference/resources/chat/subresources/completions) : Create, Delete, Get, List, and Update (non-streaming variants only)
+- [Get chat messages](https://developers.openai.com/api/reference/resources/chat/subresources/completions/subresources/messages)
+- [Responses](https://developers.openai.com/api/reference/resources/responses) : Create, Get, and Delete (non-streaming variants only)
+- [OpenAI API errors](https://community.openai.com/t/error-code-for-openai-chat-completion/1102402) (including [vLLM's variant](https://github.com/vllm-project/vllm/issues/12886) )
+- [Legacy Completions](https://developers.openai.com/api/reference/resources/beta/subresources/assistants)
+- [Legacy Assistants](https://developers.openai.com/api/reference/resources/beta/subresources/assistants/methods/create) : Create, Delete, List, Modify, and Retrieve
+- [Legacy Messages](https://developers.openai.com/api/reference/resources/beta/subresources/threads/subresources/messages) : Create, Delete, List, Modify, and Retrieve
+- [Legacy Threads](https://developers.openai.com/api/reference/resources/beta/subresources/threads/methods/create) : Create, Delete, Modify, and Retrieve
+- [Embeddings](https://developers.openai.com/api/reference/resources/embeddings/methods/create) : Create
 
 ## Document screening
 
@@ -231,6 +231,6 @@ For general information about Model Armor quotas and system limits—including i
 
 ## What's next
 
-  - [Set up Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway)
+- [Set up Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway)
 
-  - [Monitor content security](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/monitor-content-security)
+- [Monitor content security](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/monitor-content-security)

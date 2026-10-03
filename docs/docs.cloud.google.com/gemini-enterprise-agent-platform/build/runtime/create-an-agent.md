@@ -17,7 +17,7 @@ The Agents API enables developers to build and deploy agents from configuration.
 The easiest way to develop an agent is to use one of the framework-specific templates that we provide. These templates handle common aspects of agent development, such as serializing objects and separating initialization code from execution code. We provide templates for the following frameworks:
 
 | Framework                                                                                                                      | Description                                                                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|--------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Agent Development Kit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent)      | Designed based on Google's internal best practices for developers building AI applications or teams needing to rapidly prototype and deploy robust agent-based solutions. |
 | [Agent2Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-a2a-agent) (preview)      | The [Agent2Agent (A2A) protocol](https://a2a-protocol.org/) is an open standard designed to enable seamless communication and collaboration between AI agents.            |
 | [LangChain](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-langchain-agent)             | Easier to implement for basic use cases because of its predefined configurations and abstractions.                                                                        |
@@ -35,8 +35,8 @@ If you are building a multi-agent system, we highly recommend reviewing the [A2A
 
 When creating an agent to run on the Agent Platform, keep in mind that your agent is executed in a managed environment. To ensure compatibility, follow these patterns:
 
-  - **Object serialization** : The platform serializes your agent object to deploy it. Ensure that your agent state and tools are serializable (for example, avoid keeping open file handles or network sockets in the agent state).
-  - **Lifecycle separation** : Separate your agent's initialization logic (loading models, setting up tools) from its execution logic (handling queries). The provided templates handle this automatically.
+- **Object serialization** : The platform serializes your agent object to deploy it. Ensure that your agent state and tools are serializable (for example, avoid keeping open file handles or network sockets in the agent state).
+- **Lifecycle separation** : Separate your agent's initialization logic (loading models, setting up tools) from its execution logic (handling queries). The provided templates handle this automatically.
 
 ## What's next
 

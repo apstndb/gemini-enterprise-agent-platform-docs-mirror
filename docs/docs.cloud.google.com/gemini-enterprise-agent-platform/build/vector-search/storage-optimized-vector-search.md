@@ -14,17 +14,17 @@ The storage-optimized performance tier for Vector Search is designed for indexin
 
 Consider storage-optimized indexes if you have any of the following:
 
-  - **A very large dataset** : You must index very large numbers of vectors, and the cost of hosting a large number of performance-optimized shards is prohibitive.
+- **A very large dataset** : You must index very large numbers of vectors, and the cost of hosting a large number of performance-optimized shards is prohibitive.
 
-  - **A low-QPS workload** : In low-query-volume applications, the cost savings from using fewer shards can be significant.
+- **A low-QPS workload** : In low-query-volume applications, the cost savings from using fewer shards can be significant.
 
-  - **Flexible latency requirements** : Your application can tolerate a minor increase in query latency, which is the time it takes to get a search result.
+- **Flexible latency requirements** : Your application can tolerate a minor increase in query latency, which is the time it takes to get a search result.
 
 ## Performance trade-offs
 
 Compared to the default performance-optimized index, a storage-optimized index has the following characteristics:
 
-  - **Increased query latency** : Queries have a slightly higher latency at a given recall level.
+- **Increased query latency** : Queries have a slightly higher latency at a given recall level.
 
 ## How to configure a storage-optimized index
 
@@ -36,20 +36,22 @@ Compared to the default performance-optimized index, a storage-optimized index h
 
 The following example demonstrates the JSON that's required to create a new storage-optimized streaming index.
 
-    {
-      "displayName": "my-storage-optimized-index",
-      "description": "An index configured to prioritize storage over performance.",
-      "metadata": {
-        "contentsDeltaUri": "gs://your-bucket/source-data/",
-        "config": {
-          "dimensions": 100,
-          "approximateNeighborsCount": 150,
-          "distanceMeasureType": "DOT_PRODUCT_DISTANCE",
-          "shardSize": "SHARD_SIZE_SO_DYNAMIC"
-        }
-      },
-      "indexUpdateMethod": "STREAM_UPDATE"
+```
+{
+  "displayName": "my-storage-optimized-index",
+  "description": "An index configured to prioritize storage over performance.",
+  "metadata": {
+    "contentsDeltaUri": "gs://your-bucket/source-data/",
+    "config": {
+      "dimensions": 100,
+      "approximateNeighborsCount": 150,
+      "distanceMeasureType": "DOT_PRODUCT_DISTANCE",
+      "shardSize": "SHARD_SIZE_SO_DYNAMIC"
     }
+  },
+  "indexUpdateMethod": "STREAM_UPDATE"
+}
+```
 
 In the example, `shardSize` is set to `SHARD_SIZE_SO_DYNAMIC` , which instructs Vector Search to build a denser index. This allows each shard to hold significantly more data points, thereby reducing the total number of shards needed for your dataset. Other fields, such as `dimensions` and `distanceMeasureType` , are configured according to your needs.
 
@@ -61,14 +63,16 @@ Storage-optimized deployments can be used with any existing endpoint.
 
 The following example demonstrates the JSON required to deploy a storage-optimized index to an endpoint you've created.
 
-    {
-      "deployedIndex": {
-        "id": "PROJECT_UNIQUE_ID_NAME",
-        "index": "projects/PROJECT_ID/locations/LOCATION/indexes/INDEX_ID",
-        "displayName": "INDEX_DISPLAY_NAME",
-        "deploymentTier": "STORAGE"
-      }
-    }
+```
+{
+  "deployedIndex": {
+    "id": "PROJECT_UNIQUE_ID_NAME",
+    "index": "projects/PROJECT_ID/locations/LOCATION/indexes/INDEX_ID",
+    "displayName": "INDEX_DISPLAY_NAME",
+    "deploymentTier": "STORAGE"
+  }
+}
+```
 
 Setting `deploymentTier` to `STORAGE` deploys the storage-optimized index with the specified `displayName` to an endpoint.
 
@@ -76,5 +80,5 @@ You can also specify the minimum replicant count ( `minReplicaCount` ) and maxim
 
 ## What's next?
 
-  - [Create and manage your index](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/create-manage-index)
-  - [Index configuration parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/configuring-indexes)
+- [Create and manage your index](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/create-manage-index)
+- [Index configuration parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/configuring-indexes)

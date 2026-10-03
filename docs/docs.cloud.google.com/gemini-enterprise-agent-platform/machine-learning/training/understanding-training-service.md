@@ -26,12 +26,12 @@ In most cases, your machine learning framework automatically handles the workers
 
 During a training job, Agent Platform can restart your workers from any worker pool with the same hostname. This can occur for the following reasons:
 
-  - *VM maintenance* : When the VM running a worker is subjected to VM maintenance, Agent Platform restarts the worker on another VM. Learn more about [live migration](https://docs.cloud.google.com/compute/docs/instances/live-migration) for VM maintenance.
+- *VM maintenance* : When the VM running a worker is subjected to VM maintenance, Agent Platform restarts the worker on another VM. Learn more about [live migration](https://docs.cloud.google.com/compute/docs/instances/live-migration) for VM maintenance.
 
-  - *Non-zero exits* : If any worker exits with a non-zero exit code, Agent Platform restarts that worker immediately in the same VM.
-    
-      - If a worker fails due to [a common error](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/understanding-training-service#common-errors) , it is treated as a *permanent error* , and Agent Platform shuts down the entire job. If any containers restart before Agent Platform shuts down the entire job, these containers may produce logs in Cloud Logging.
-      - If a worker fails due to a *non-permanent error* (any error not listed in the [common errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/understanding-training-service#common-errors) ), Agent Platform allows the restarted worker to continue running, with up to five restarts per worker. After five restarts, if a worker fails again, Agent Platform retries the entire job up to three times before failing the entire job.
+- *Non-zero exits* : If any worker exits with a non-zero exit code, Agent Platform restarts that worker immediately in the same VM.
+
+  - If a worker fails due to [a common error](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/understanding-training-service#common-errors) , it is treated as a *permanent error* , and Agent Platform shuts down the entire job. If any containers restart before Agent Platform shuts down the entire job, these containers may produce logs in Cloud Logging.
+  - If a worker fails due to a *non-permanent error* (any error not listed in the [common errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/understanding-training-service#common-errors) ), Agent Platform allows the restarted worker to continue running, with up to five restarts per worker. After five restarts, if a worker fails again, Agent Platform retries the entire job up to three times before failing the entire job.
 
 To handle worker restarts in your training code, save checkpoints regularly during training so that you can restore from checkpoints when a worker restarts. If you expect training to take more than four hours, we recommend that you save a checkpoint at least once every four hours. Learn how to use training checkpoints in [TensorFlow](https://www.tensorflow.org/guide/checkpoint) and in [PyTorch](https://pytorch.org/tutorials/recipes/recipes/saving_and_loading_a_general_checkpoint.html) .
 
@@ -63,29 +63,29 @@ Agent Platform shuts down all workers if it encounters any of the following issu
 </tr>
 <tr class="even">
 <td>User code exception</td>
-<td>The replica REPLICA_NAME exited with a non-zero status of EXIT_CODE . Termination reason: REASON .</td>
+<td>The replica <var translate="no"> REPLICA_NAME </var> exited with a non-zero status of <var translate="no"> EXIT_CODE </var> . Termination reason: <var translate="no"> REASON </var> .</td>
 <td>If the job encountered exit codes that could be transient, Agent Platform tries to restart the job up to three times. The potentially transient error codes that prompt Agent Platform to retry the job include the following:
 <ul>
-<li><code dir="ltr" translate="no">SIGABRT</code>
+<li><code>SIGABRT</code>
 <ul>
-<li><code dir="ltr" translate="no">ExitCode 6</code></li>
-<li><code dir="ltr" translate="no">ExitCode 134</code> (custom containers)</li>
+<li><code>ExitCode 6</code></li>
+<li><code>ExitCode 134</code> (custom containers)</li>
 </ul></li>
-<li><code dir="ltr" translate="no">SIGSEGV</code>
+<li><code>SIGSEGV</code>
 <ul>
-<li><code dir="ltr" translate="no">ExitCode 11</code></li>
-<li><code dir="ltr" translate="no">ExitCode 139</code> (custom containers)</li>
+<li><code>ExitCode 11</code></li>
+<li><code>ExitCode 139</code> (custom containers)</li>
 </ul></li>
 </ul></td>
 </tr>
 <tr class="odd">
 <td>Out-of-memory</td>
-<td>The replica REPLICA_NAME ran out of memory and exited with a non-zero status of EXIT_CODE .</td>
-<td>GKE reserves memory on Agent Platform nodes. On the smallest machine types (such as <code dir="ltr" translate="no">n1-standard-4</code> ), Agent Platform system agents can take up to 40% of total memory. For larger VMs, the overhead is relatively small. Compare <a href="https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#memory_cpu">allocatable memory for <code dir="ltr" translate="no">n1-standard</code> machine types</a> .</td>
+<td>The replica <var translate="no"> REPLICA_NAME </var> ran out of memory and exited with a non-zero status of <var translate="no"> EXIT_CODE </var> .</td>
+<td>GKE reserves memory on Agent Platform nodes. On the smallest machine types (such as <code>n1-standard-4</code> ), Agent Platform system agents can take up to 40% of total memory. For larger VMs, the overhead is relatively small. Compare <a href="https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#memory_cpu">allocatable memory for <code>n1-standard</code> machine types</a> .</td>
 </tr>
 <tr class="even">
 <td>Insufficient capacity in your region (Compute Engine stockout)</td>
-<td>Resources are insufficient in region: REGION_NAME . Try a different region or use a different accelerator.</td>
+<td>Resources are insufficient in region: <var translate="no"> REGION_NAME </var> . Try a different region or use a different accelerator.</td>
 <td>A <em>stockout</em> happens when Compute Engine is at capacity for your selected CPU or GPU in your region. It is unrelated to your project quota. When this happens, Agent Platform attempts to restart the job up to three times.<br />
 <br />
 For jobs running on A2 and A3 VMs, Dynamic Workload Scheduler lets you schedule jobs that run when the requested GPU resources become available, rather than failing with a stockout error. For more information, see <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/schedule-jobs-dws">Schedule training jobs based on resource availability</a> .</td>

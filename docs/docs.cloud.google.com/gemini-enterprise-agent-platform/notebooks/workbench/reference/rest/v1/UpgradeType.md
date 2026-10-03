@@ -8,24 +8,10 @@ data_source: docs.cloud.google.com
 
 Definition of the types of upgrade that can be used on this instance.
 
-Enums
-
-`UPGRADE_TYPE_UNSPECIFIED`
-
-Upgrade type is not specified.
-
-`UPGRADE_FRAMEWORK`
-
-Upgrade ML framework.
-
-`UPGRADE_OS`
-
-Upgrade Operating System.
-
-`UPGRADE_CUDA`
-
-Upgrade CUDA.
-
-`UPGRADE_ALL`
-
-Upgrade All (OS, Framework and CUDA).
+| Enums                      |                                       |
+|----------------------------|---------------------------------------|
+| `UPGRADE_TYPE_UNSPECIFIED` | Upgrade type is not specified.        |
+| `UPGRADE_FRAMEWORK`        | Upgrade ML framework.                 |
+| `UPGRADE_OS`               | Upgrade Operating System.             |
+| `UPGRADE_CUDA`             | Upgrade CUDA.                         |
+| `UPGRADE_ALL`              | Upgrade All (OS, Framework and CUDA). |

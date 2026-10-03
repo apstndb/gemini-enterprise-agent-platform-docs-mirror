@@ -32,10 +32,10 @@ Your training application, implemented in the ML framework of your choice, is th
 
 Custom containers let you specify and pre-install all the dependencies needed for your application.
 
-  - **Faster start-up time.** If you use a custom container with your dependencies pre-installed, you can save the time that your training application would otherwise take to install dependencies when starting up.
-  - **Use the ML framework of your choice.** If you can't find an Agent Platform prebuilt container with the ML framework you want to use, you can build a custom container with your chosen framework and use it to run jobs on Agent Platform. For example, you can use a customer container to train with PyTorch.
-  - **Extended support for distributed training.** With custom containers, you can do distributed training using any ML framework.
-  - **Use the newest version.** You can also use the latest build or minor version of an ML framework. For example, you can build a custom container to train with `tf-nightly` .
+- **Faster start-up time.** If you use a custom container with your dependencies pre-installed, you can save the time that your training application would otherwise take to install dependencies when starting up.
+- **Use the ML framework of your choice.** If you can't find an Agent Platform prebuilt container with the ML framework you want to use, you can build a custom container with your chosen framework and use it to run jobs on Agent Platform. For example, you can use a customer container to train with PyTorch.
+- **Extended support for distributed training.** With custom containers, you can do distributed training using any ML framework.
+- **Use the newest version.** You can also use the latest build or minor version of an ML framework. For example, you can build a custom container to train with `tf-nightly` .
 
 ## Hyperparameter tuning with custom containers
 
@@ -43,10 +43,10 @@ To do [hyperparameter tuning](https://docs.cloud.google.com/gemini-enterprise-ag
 
 To do hyperparameter tuning with custom containers, you need to make the following adjustments:
 
-  - In your Dockerfile: install [`cloudml-hypertune`](https://github.com/GoogleCloudPlatform/cloudml-hypertune) .
-  - In your training code:
-      - Use `cloudml-hypertune` to report the results of each trial by calling its helper function, [`report_hyperparameter_tuning_metric`](https://github.com/GoogleCloudPlatform/cloudml-hypertune/blob/master/hypertune/hypertune.py#L49) .
-      - Add command-line arguments for each hyperparameter, and handle the argument parsing with an argument parser such as [`argparse`](https://docs.python.org/3/library/argparse.html) .
+- In your Dockerfile: install [`cloudml-hypertune`](https://github.com/GoogleCloudPlatform/cloudml-hypertune) .
+- In your training code:
+  - Use `cloudml-hypertune` to report the results of each trial by calling its helper function, [`report_hyperparameter_tuning_metric`](https://github.com/GoogleCloudPlatform/cloudml-hypertune/blob/master/hypertune/hypertune.py#L49) .
+  - Add command-line arguments for each hyperparameter, and handle the argument parsing with an argument parser such as [`argparse`](https://docs.python.org/3/library/argparse.html) .
 
 See how to [configure a hyperparameter tuning job that uses custom containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-hyperparameter-tuning) or learn more about [how hyperparameter tuning works on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/hyperparameter-tuning-overview) .
 
@@ -54,11 +54,11 @@ See how to [configure a hyperparameter tuning job that uses custom containers](h
 
 For training with GPUs, your custom container needs to meet a few special requirements. You must build a different Docker image than what you'd use for training with CPUs.
 
-  - Pre-install the CUDA toolkit and cuDNN in your Docker image. The recommended way to build a custom container with support for GPUs is to use the [`nvidia/cuda`](https://hub.docker.com/r/nvidia/cuda/) image as your base image for your custom container. The `nvidia/cuda` container image has matching versions of CUDA toolkit and cuDNN pre-installed, and it helps you set up the related environment variables correctly.
-  - Install your training application, along with your required ML framework and other dependencies in your Docker image.
+- Pre-install the CUDA toolkit and cuDNN in your Docker image. The recommended way to build a custom container with support for GPUs is to use the [`nvidia/cuda`](https://hub.docker.com/r/nvidia/cuda/) image as your base image for your custom container. The `nvidia/cuda` container image has matching versions of CUDA toolkit and cuDNN pre-installed, and it helps you set up the related environment variables correctly.
+- Install your training application, along with your required ML framework and other dependencies in your Docker image.
 
 See an [example Dockerfile for training with GPUs](https://github.com/GoogleCloudPlatform/cloudml-samples/blob/master/pytorch/containers/quickstart/mnist/Dockerfile-gpu) .
 
 ## What's next
 
-  - Learn more about how to [create a custom container for your training job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
+- Learn more about how to [create a custom container for your training job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .

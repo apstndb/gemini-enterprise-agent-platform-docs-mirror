@@ -40,28 +40,22 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  TensorboardService.ReadTensorboardTimeSeriesData  ` .
+Response message for [`TensorboardService.ReadTensorboardTimeSeriesData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs.timeSeries/read#google.cloud.aiplatform.v1.TensorboardService.ReadTensorboardTimeSeriesData) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`timeSeriesData` ` object ( TimeSeriesData  ` )
+`timeSeriesData` `object ( `[`TimeSeriesData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/TimeSeriesData)` )`
 
 The returned time series data.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;timeSeriesData&quot;: {object (TimeSeriesData)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "timeSeriesData": {
+    object (TimeSeriesData)
+  }
+}
+```

@@ -13,7 +13,7 @@ In this section, you test the app that you've deployed to Cloud Run by viewing i
 1.  Go to the **Classic Certificates** tab in the Google Cloud console.
 
 2.  In the **Status** column, check the status of the `my-genai-app-certificate` certificate.
-    
+
     You can proceed with the rest of the tutorial after the status changes to **Active** . Note that certificate provisioning might take up to 60 minutes.
 
 ## View the deployed app
@@ -21,7 +21,9 @@ In this section, you test the app that you've deployed to Cloud Run by viewing i
 1.  Sign in with a principal's account that you configured in IAP.
 
 2.  In your browser, open the following URL:
-    
-        https://DOMAIN_NAME/app
-    
-    Replace DOMAIN\_NAME with domain name provided during certificate creation.
+
+    ```
+    https://DOMAIN_NAME/app
+    ```
+
+    Replace ` DOMAIN_NAME ` with domain name provided during certificate creation.

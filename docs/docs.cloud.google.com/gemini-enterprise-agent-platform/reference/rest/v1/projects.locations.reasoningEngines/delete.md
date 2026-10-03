@@ -26,7 +26,7 @@ Required. The name of the ReasoningEngine resource to be deleted. Format: `proje
 
 `force` `boolean`
 
-Optional. If set to true, child resources of this reasoning engine will also be deleted. Otherwise, the request will fail with FAILED\_PRECONDITION error when the reasoning engine has undeleted child resources.
+Optional. If set to true, child resources of this reasoning engine will also be deleted. Otherwise, the request will fail with FAILED_PRECONDITION error when the reasoning engine has undeleted child resources.
 
 ### Request body
 
@@ -34,4 +34,4 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

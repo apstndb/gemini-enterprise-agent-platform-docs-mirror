@@ -14,27 +14,35 @@ Deletes a single Runtime.
 
 ### Path parameters
 
-Parameters
-
-`name`
-
-`string`
-
-Required. Format: `projects/{projectId}/locations/{location}/runtimes/{runtimeId}`
-
-Authorization requires the following [IAM](https://cloud.google.com/iam/docs/) permission on the specified resource `name` :
-
-  - `notebooks.runtimes.delete`
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>name</code></td>
+<td><p><code>string</code></p>
+<p>Required. Format: <code>projects/{projectId}/locations/{location}/runtimes/{runtimeId}</code></p>
+<p>Authorization requires the following <a href="https://cloud.google.com/iam/docs/">IAM</a> permission on the specified resource <code>name</code> :</p>
+<ul>
+<li><code>notebooks.runtimes.delete</code></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
 
 ### Query parameters
 
-Parameters
-
-`requestId`
-
-`string`
-
-Idempotent request UUID.
+| Parameters  |                                   |
+|-------------|-----------------------------------|
+| `requestId` | `string` Idempotent request UUID. |
 
 ### Request body
 
@@ -42,12 +50,12 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ### Authorization scopes
 
 Requires the following OAuth scope:
 
-  - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/cloud-platform`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .

@@ -28,15 +28,15 @@ The request body contains data with the following structure:
 
 Fields
 
-`destination` ` object ( FeatureValueDestination  ` )
+`destination` `object ( `[`FeatureValueDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/FeatureValueDestination)` )`
 
 Required. Specifies destination location and format.
 
-`featureSelector` ` object ( FeatureSelector  ` )
+`featureSelector` `object ( `[`FeatureSelector`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/FeatureSelector)` )`
 
 Required. Selects Features to export values of.
 
-`settings[]` ` object ( DestinationFeatureSetting  ` )
+`settings[]` `object ( `[`DestinationFeatureSetting`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/DestinationFeatureSetting)` )`
 
 Per-feature export settings.
 
@@ -44,11 +44,11 @@ Per-feature export settings.
 
 Required. The mode in which Feature values are exported. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`snapshotExport` ` object ( SnapshotExport  ` )
+`snapshotExport` `object ( `[`SnapshotExport`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/exportFeatureValues#SnapshotExport)` )`
 
 Exports the latest feature values of all entities of the EntityType within a time range.
 
-`fullExport` ` object ( FullExport  ` )
+`fullExport` `object ( `[`FullExport`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/exportFeatureValues#FullExport)` )`
 
 Exports all historical values of all entities of the EntityType within a time range
 
@@ -56,7 +56,7 @@ End of mutually exclusive fields.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ## SnapshotExport
 
@@ -64,36 +64,26 @@ Describes exporting the latest feature values of all entities of the EntityType 
 
 Fields
 
-`snapshotTime` ` string ( Timestamp  ` format)
+`snapshotTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Exports feature values as of this timestamp. If not set, retrieve values as of now. timestamp, if present, must not have higher than millisecond precision.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`startTime` ` string ( Timestamp  ` format)
+`startTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Excludes feature values with feature generation timestamp before this timestamp. If not set, retrieve oldest values kept in feature Store. timestamp, if present, must not have higher than millisecond precision.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;snapshotTime&quot;: string,
-  &quot;startTime&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "snapshotTime": string,
+  "startTime": string
+}
+```
 
 ## FullExport
 
@@ -101,33 +91,23 @@ Describes exporting all historical feature values of all entities of the EntityT
 
 Fields
 
-`startTime` ` string ( Timestamp  ` format)
+`startTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Excludes feature values with feature generation timestamp before this timestamp. If not set, retrieve oldest values kept in feature Store. timestamp, if present, must not have higher than millisecond precision.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`endTime` ` string ( Timestamp  ` format)
+`endTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Exports feature values as of this timestamp. If not set, retrieve values as of now. timestamp, if present, must not have higher than millisecond precision.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;startTime&quot;: string,
-  &quot;endTime&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "startTime": string,
+  "endTime": string
+}
+```

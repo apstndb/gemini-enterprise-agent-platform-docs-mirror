@@ -28,13 +28,13 @@ The request body contains data with the following structure:
 
 Fields
 
-`importRagFilesConfig` ` object ( ImportRagFilesConfig  ` )
+`importRagFilesConfig` `object ( `[`ImportRagFilesConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles/import#ImportRagFilesConfig)` )`
 
-Required. The config for the RagFiles to be synced and imported into the RagCorpus. `  VertexRagDataService.ImportRagFiles  ` .
+Required. The config for the RagFiles to be synced and imported into the RagCorpus. [`VertexRagDataService.ImportRagFiles`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles/import#google.cloud.aiplatform.v1.VertexRagDataService.ImportRagFiles) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ## ImportRagFilesConfig
 
@@ -42,11 +42,11 @@ Config for importing RagFiles.
 
 Fields
 
-`ragFileTransformationConfig` ` object ( RagFileTransformationConfig  ` )
+`ragFileTransformationConfig` `object ( `[`RagFileTransformationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagFileTransformationConfig)` )`
 
 Specifies the transformation config for RagFiles.
 
-`ragFileParsingConfig` ` object ( RagFileParsingConfig  ` )
+`ragFileParsingConfig` `object ( `[`RagFileParsingConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles/import#RagFileParsingConfig)` )`
 
 Optional. Specifies the parsing config for RagFiles. RAG will use the default parser if this field is not set.
 
@@ -64,23 +64,23 @@ Default is false, i.e., index is not rebuilt.
 
 The source of the import. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`gcsSource` ` object ( GcsSource  ` )
+`gcsSource` `object ( `[`GcsSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GcsSource)` )`
 
 Google Cloud Storage location. Supports importing individual files as well as entire Google Cloud Storage directories. Sample formats: - `gs://bucketName/my_directory/objectName/my_file.txt` - `gs://bucketName/my_directory`
 
-`googleDriveSource` ` object ( GoogleDriveSource  ` )
+`googleDriveSource` `object ( `[`GoogleDriveSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#GoogleDriveSource)` )`
 
 Google Drive location. Supports importing individual files as well as Google Drive folders.
 
-`slackSource` ` object ( SlackSource  ` )
+`slackSource` `object ( `[`SlackSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#SlackSource)` )`
 
 Slack channels with their corresponding access tokens.
 
-`jiraSource` ` object ( JiraSource  ` )
+`jiraSource` `object ( `[`JiraSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#JiraSource)` )`
 
 Jira queries with their corresponding authentication.
 
-`sharePointSources` ` object ( SharePointSources  ` )
+`sharePointSources` `object ( `[`SharePointSources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#SharePointSources)` )`
 
 SharePoint sources.
 
@@ -90,15 +90,15 @@ End of mutually exclusive fields.
 
 Optional. If provided, all partial failures are written to the sink. Deprecated. Prefer to use the `import_result_sink` . The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-` partialFailureGcsSink (deprecated)  ` ` object ( GcsDestination  ` )
+`partialFailureGcsSink `**`(deprecated)`** `object ( `[`GcsDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#GcsDestination)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 The Cloud Storage path to write partial failures to. Deprecated. Prefer to use `importResultGcsSink` .
 
-` partialFailureBigquerySink (deprecated)  ` ` object ( BigQueryDestination  ` )
+`partialFailureBigquerySink `**`(deprecated)`** `object ( `[`BigQueryDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/BigQueryDestination)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 The BigQuery destination to write partial failures to. It should be a bigquery table resource name (e.g. "bq://projectId.bqDatasetId.bqTableId"). The dataset must exist. If the table does not exist, it will be created with the expected schema. If the table exists, the schema will be validated and data will be added to this existing table. Deprecated. Prefer to use `import_result_bq_sink` .
 
@@ -108,31 +108,66 @@ End of mutually exclusive fields.
 
 Optional. If provided, all successfully imported files and all partial failures are written to the sink. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`importResultGcsSink` ` object ( GcsDestination  ` )
+`importResultGcsSink` `object ( `[`GcsDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#GcsDestination)` )`
 
 The Cloud Storage path to write import result to.
 
-`importResultBigquerySink` ` object ( BigQueryDestination  ` )
+`importResultBigquerySink` `object ( `[`BigQueryDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/BigQueryDestination)` )`
 
 The BigQuery destination to write import result to. It should be a bigquery table resource name (e.g. "bq://projectId.bqDatasetId.bqTableId"). The dataset must exist. If the table does not exist, it will be created with the expected schema. If the table exists, the schema will be validated and data will be added to this existing table.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;ragFileTransformationConfig&quot;: {object (RagFileTransformationConfig)},&quot;ragFileParsingConfig&quot;: {object (RagFileParsingConfig)},&quot;maxEmbeddingRequestsPerMin&quot;: integer,&quot;rebuildAnnIndex&quot;: boolean,// import_source&quot;gcsSource&quot;: {object (GcsSource)},&quot;googleDriveSource&quot;: {object (GoogleDriveSource)},&quot;slackSource&quot;: {object (SlackSource)},&quot;jiraSource&quot;: {object (JiraSource)},&quot;sharePointSources&quot;: {object (SharePointSources)}// Union type// partial_failure_sink&quot;partialFailureGcsSink&quot;: {object (GcsDestination)},&quot;partialFailureBigquerySink&quot;: {object (BigQueryDestination)}// Union type// import_result_sink&quot;importResultGcsSink&quot;: {object (GcsDestination)},&quot;importResultBigquerySink&quot;: {object (BigQueryDestination)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "ragFileTransformationConfig": {
+    object (RagFileTransformationConfig)
+  },
+  "ragFileParsingConfig": {
+    object (RagFileParsingConfig)
+  },
+  "maxEmbeddingRequestsPerMin": integer,
+  "rebuildAnnIndex": boolean,
+
+  // import_source
+  "gcsSource": {
+    object (GcsSource)
+  },
+  "googleDriveSource": {
+    object (GoogleDriveSource)
+  },
+  "slackSource": {
+    object (SlackSource)
+  },
+  "jiraSource": {
+    object (JiraSource)
+  },
+  "sharePointSources": {
+    object (SharePointSources)
+  }
+  // Union type
+
+  // partial_failure_sink
+  "partialFailureGcsSink": {
+    object (GcsDestination)
+  },
+  "partialFailureBigquerySink": {
+    object (BigQueryDestination)
+  }
+  // Union type
+
+  // import_result_sink
+  "importResultGcsSink": {
+    object (GcsDestination)
+  },
+  "importResultBigquerySink": {
+    object (BigQueryDestination)
+  }
+  // Union type
+}
+```
 
 ## RagFileParsingConfig
 
@@ -144,31 +179,31 @@ Fields
 
 The parser to use for RagFiles. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`layoutParser` ` object ( LayoutParser  ` )
+`layoutParser` `object ( `[`LayoutParser`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles/import#LayoutParser)` )`
 
 The Layout Parser to use for RagFiles.
 
-`llmParser` ` object ( LlmParser  ` )
+`llmParser` `object ( `[`LlmParser`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles/import#LlmParser)` )`
 
 The LLM Parser to use for RagFiles.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// parser&quot;layoutParser&quot;: {object (LayoutParser)},&quot;llmParser&quot;: {object (LlmParser)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // parser
+  "layoutParser": {
+    object (LayoutParser)
+  },
+  "llmParser": {
+    object (LlmParser)
+  }
+  // Union type
+}
+```
 
 ## LayoutParser
 
@@ -184,24 +219,14 @@ The full resource name of a Document AI processor or processor version. The proc
 
 The maximum number of requests the job is allowed to make to the Document AI processor per minute. Consult <https://cloud.google.com/document-ai/quotas> and the Quota page for your project to set an appropriate value here. If unspecified, a default value of 120 QPM would be used.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;processorName&quot;: string,
-  &quot;maxParsingRequestsPerMin&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "processorName": string,
+  "maxParsingRequestsPerMin": integer
+}
+```
 
 ## LlmParser
 
@@ -221,22 +246,12 @@ The maximum number of requests the job is allowed to make to the LLM model per m
 
 The prompt to use for parsing. If not specified, a default prompt will be used.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;modelName&quot;: string,
-  &quot;maxParsingRequestsPerMin&quot;: integer,
-  &quot;customParsingPrompt&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "modelName": string,
+  "maxParsingRequestsPerMin": integer,
+  "customParsingPrompt": string
+}
+```

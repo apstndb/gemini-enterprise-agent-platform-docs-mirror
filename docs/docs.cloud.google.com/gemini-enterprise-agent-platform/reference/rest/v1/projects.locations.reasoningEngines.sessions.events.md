@@ -10,8 +10,6 @@ data_source: docs.cloud.google.com
 
 There is no persistent data associated with this resource.
 
-## Methods
-
-### `            list           `
-
-Lists `  Events  ` in a given session.
+| Methods                                                                                                                                             |                                                                                                                              |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions.events/list) | Lists [`Events`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Event) in a given session. |

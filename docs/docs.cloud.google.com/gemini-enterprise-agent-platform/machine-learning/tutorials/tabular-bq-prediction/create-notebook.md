@@ -24,7 +24,7 @@ To create a Agent Platform Workbench instance, do the following:
 
 3.  If the option to enable the **Notebooks API** appears, click **Enable** . It might take a few moments for the enabling process to complete.
 
-4.  Click add\_box **Create new** .
+4.  Click add_box **Create new** .
 
 5.  In the **New instance** dialog, for **Name** , enter a name for your instance.
 
@@ -47,11 +47,11 @@ Your notebook is where you run the code in this tutorial. It's a file with the e
 1.  In the Google Cloud console, go to the **Instances** page.
 
 2.  Next to your instance's name, click **Open JupyterLab** .
-    
+
     Your Agent Platform Workbench instance opens the JupyterLab environment.
 
 3.  In JupyterLab, select **File \> New \> Notebook** .
-    
+
     Your new notebook file opens and the **Select kernel** dialog appears.
 
 4.  In the **Select kernel** dialog, select the **Python 3** kernel.
@@ -64,18 +64,20 @@ After you open your notebook, you must install the Agent Platform SDK for Python
 
 When you install Agent Platform SDK for Python, other Google Cloud SDKs on which it's dependent are also installed. Two of those SDKs are used in this tutorial:
 
-  - Cloud Storage - When you use the Agent Platform SDK for Python to make Agent Platform API calls, Gemini Enterprise Agent Platform stores artifacts in a Cloud Storage bucket. The bucket is referred to as a *staging bucket* . You specify the staging bucket when you [initialize the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/create-notebook#initialize-vertex_sdk_python) . For more information, see [Python client for Google Cloud storage API](https://docs.cloud.google.com/python/docs/reference/storage/latest) .
+- Cloud Storage - When you use the Agent Platform SDK for Python to make Agent Platform API calls, Gemini Enterprise Agent Platform stores artifacts in a Cloud Storage bucket. The bucket is referred to as a *staging bucket* . You specify the staging bucket when you [initialize the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/create-notebook#initialize-vertex_sdk_python) . For more information, see [Python client for Google Cloud storage API](https://docs.cloud.google.com/python/docs/reference/storage/latest) .
 
-  - BigQuery - Gemini Enterprise Agent Platform trains your model using a BigQuery public dataset. The BigQuery SDK must be installed to access and download the dataset used in this tutorial. For more information, see [BigQuery API client libraries](https://docs.cloud.google.com/bigquery/docs/reference/libraries) .
+- BigQuery - Gemini Enterprise Agent Platform trains your model using a BigQuery public dataset. The BigQuery SDK must be installed to access and download the dataset used in this tutorial. For more information, see [BigQuery API client libraries](https://docs.cloud.google.com/bigquery/docs/reference/libraries) .
 
 To install the Agent Platform SDK for Python and its dependent SDKs, run the following code.
 
-    # Install the Agent Platform SDK
-    ! pip3 install --upgrade --quiet google-cloud-aiplatform
+```
+# Install the Agent Platform SDK
+! pip3 install --upgrade --quiet google-cloud-aiplatform
+```
 
 The `--quiet` flag suppresses output so that only errors display, if there are any. The exclamation mark ( `!` ) indicates that this is a shell command.
 
-Because this is the first code you're running in your new notebook, you enter it into the blank code cell at the top of your notebook. After you enter code in a code cell, click play\_arrow **Run the selected cells and advance** or use the keyboard shortcut `Shift + Enter` to run the code.
+Because this is the first code you're running in your new notebook, you enter it into the blank code cell at the top of your notebook. After you enter code in a code cell, click play_arrow **Run the selected cells and advance** or use the keyboard shortcut `Shift + Enter` to run the code.
 
 ![Run code to install the SDK.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/images/run-code-to-install-sdks.png)
 
@@ -93,17 +95,21 @@ To set your project ID, do the following:
 
 1.  Locate your Google Cloud project ID. For more information, see [Find your project ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/prerequisites#find-project-id) .
 
-2.  Run the following in a code cell in your notebook. In the code, replace PROJECT\_ID with the project ID you just located. The output this command generates is `Updated property [core/project].`
-    
-        project_id = "PROJECT_ID"  # @param {type:"string"}
+2.  Run the following in a code cell in your notebook. In the code, replace ` PROJECT_ID ` with the project ID you just located. The output this command generates is `Updated property [core/project].`
+
+    ```
+    project_id = "PROJECT_ID"  # @param {type:"string"}
+    ```
 
 #### Set your region
 
 This tutorial uses the `us-central1` region. To set your region, do the following:
 
 1.  Run the following code to set the `region` variable that's used by Gemini Enterprise Agent Platform to `us-central1` . This command doesn't generate output. For more information, see [Choose your location](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#choosing_your_location) .
-    
-        region = "us-central1"  # @param {type: "string"}
+
+    ```
+    region = "us-central1"  # @param {type: "string"}
+    ```
 
 ### Create a Cloud Storage bucket
 
@@ -112,46 +118,54 @@ This tutorial requires a Cloud Storage bucket that's used by Gemini Enterprise A
 Every Cloud Storage bucket name must be globally unique. If you choose a name that's been used, the command to create your bucket fails. The following code uses a datetime stamp and your project name to create a unique bucket name. You append the bucket name to `gs://` to create the URI for your Cloud Storage bucket. The `echo` shell command shows you the URI so you can verify it created correctly.
 
 1.  To set your bucket's name and URI, run the following code. The last line displays the URI of your Cloud Storage bucket.
-    
-        bucket_name = "bucket-name-placeholder"  # @param {type:"string"}
-        bucket_uri = f"gs://{bucket_name}"
-        
-        from datetime import datetime
-        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-        
-        if bucket_name == "" or bucket_name is None or bucket_name == "bucket-name-placeholder":
-            bucket_name = project_id + "aip-" + timestamp
-            bucket_uri = "gs://" + bucket_name
-        ! echo $bucket_uri
+
+    ```
+    bucket_name = "bucket-name-placeholder"  # @param {type:"string"}
+    bucket_uri = f"gs://{bucket_name}"
+
+    from datetime import datetime
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+
+    if bucket_name == "" or bucket_name is None or bucket_name == "bucket-name-placeholder":
+        bucket_name = project_id + "aip-" + timestamp
+        bucket_uri = "gs://" + bucket_name
+    ! echo $bucket_uri
+    ```
 
 2.  To create a bucket using the Cloud Storage client library and the bucket URI, run the following code. This code doesn't generate output.
-    
-        from google.cloud import storage
-        client = storage.Client(project=project_id)
-        
-        # Create a bucket
-        bucket = client.create_bucket(bucket_name, location=region)
+
+    ```
+    from google.cloud import storage
+    client = storage.Client(project=project_id)
+
+    # Create a bucket
+    bucket = client.create_bucket(bucket_name, location=region)
+    ```
 
 3.  To verify your bucket created successfully, run the following:
-    
-        print("Bucket {} created.".format(bucket.name))
+
+    ```
+    print("Bucket {} created.".format(bucket.name))
+    ```
 
 ### Initialize the Agent Platform SDK for Python
 
 To initialize the Agent Platform SDK for Python, you first import its library, `aiplatform` . Next, you call `aiplatform.init` and pass in values for the following parameters:
 
-  - `project` - The `project` specifies which Google Cloud project to use when you use the Agent Platform SDK for Python to make calls to the Agent Platform API. In this tutorial you specify your Google Cloud project with its name. You can also specify your project with its project number.
+- `project` - The `project` specifies which Google Cloud project to use when you use the Agent Platform SDK for Python to make calls to the Agent Platform API. In this tutorial you specify your Google Cloud project with its name. You can also specify your project with its project number.
 
-  - `location` - The `location` specifies which Google Cloud region to use when you make API calls. If you don't specify a location, the Agent Platform SDK for Python uses `us-central1` .
+- `location` - The `location` specifies which Google Cloud region to use when you make API calls. If you don't specify a location, the Agent Platform SDK for Python uses `us-central1` .
 
-  - `staging_bucket` - The `staging_bucket` specifies which Cloud Storage bucket is used to stage artifacts when you use the Agent Platform SDK for Python. You specify the bucket with a URI that starts with `gs://` . In this tutorial, you use the URI created earlier in [Create a Cloud Storage bucket](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/create-notebook#create-storage-bucket) .
+- `staging_bucket` - The `staging_bucket` specifies which Cloud Storage bucket is used to stage artifacts when you use the Agent Platform SDK for Python. You specify the bucket with a URI that starts with `gs://` . In this tutorial, you use the URI created earlier in [Create a Cloud Storage bucket](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/create-notebook#create-storage-bucket) .
 
 To set your Google Cloud project, region, and staging bucket, run the following command. This command doesn't generate output.
 
-    from google.cloud import aiplatform
-    
-    # Initialize the Agent Platform SDK
-    aiplatform.init(project=project_id, location=region, staging_bucket=bucket_uri)
+```
+from google.cloud import aiplatform
+
+# Initialize the Agent Platform SDK
+aiplatform.init(project=project_id, location=region, staging_bucket=bucket_uri)
+```
 
 ### Initialize BigQuery
 
@@ -159,7 +173,9 @@ This tutorial uses a BigQuery public dataset of penguins to train a model. After
 
 Before you use the BigQuery dataset, you must initialize BigQuery with your project ID. To do this, run the following command. This command doesn't generate output.
 
-    from google.cloud import bigquery
-    
-    # Set up BigQuery client
-    bq_client = bigquery.Client(project=project_id)
+```
+from google.cloud import bigquery
+
+# Set up BigQuery client
+bq_client = bigquery.Client(project=project_id)
+```

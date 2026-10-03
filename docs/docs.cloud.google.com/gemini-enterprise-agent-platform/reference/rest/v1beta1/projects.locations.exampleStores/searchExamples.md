@@ -28,7 +28,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`topK` `string ( int64 format)`
+`topK` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Optional. The number of similar examples to return.
 
@@ -36,7 +36,7 @@ Optional. The number of similar examples to return.
 
 The parameters to search for similar examples. This includes which value to use for similarity search and the filters that should be applied to the search. Filters limit which examples are considered as candidates for similarity search. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`storedContentsExampleParameters` ` object ( StoredContentsExampleParameters  ` )
+`storedContentsExampleParameters` `object ( `[`StoredContentsExampleParameters`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/searchExamples#StoredContentsExampleParameters)` )`
 
 The parameters of StoredContentsExamples to be searched.
 
@@ -44,31 +44,27 @@ End of mutually exclusive fields.
 
 ### Response body
 
-Response message for `  ExampleStoreService.SearchExamples  ` .
+Response message for [`ExampleStoreService.SearchExamples`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/searchExamples#google.cloud.aiplatform.v1beta1.ExampleStoreService.SearchExamples) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`results[]` ` object ( SimilarExample  ` )
+`results[]` `object ( `[`SimilarExample`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/searchExamples#SimilarExample)` )`
 
 The results of searching for similar examples.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;results&quot;: [{object (SimilarExample)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "results": [
+    {
+      object (SimilarExample)
+    }
+  ]
+}
+```
 
 ## StoredContentsExampleParameters
 
@@ -76,7 +72,7 @@ The metadata filters that will be used to search StoredContentsExamples. If a fi
 
 Fields
 
-`functionNames` ` object ( ExamplesArrayFilter  ` )
+`functionNames` `object ( `[`ExamplesArrayFilter`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ExamplesArrayFilter)` )`
 
 Optional. The function names for filtering.
 
@@ -88,27 +84,28 @@ The query to use to retrieve similar StoredContentsExamples. The following is a 
 
 The exact search key to use for retrieval.
 
-`contentSearchKey` ` object ( ContentSearchKey  ` )
+`contentSearchKey` `object ( `[`ContentSearchKey`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/searchExamples#ContentSearchKey)` )`
 
 The chat history to use to generate the search key for retrieval.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;functionNames&quot;: {object (ExamplesArrayFilter)},// query&quot;searchKey&quot;: string,&quot;contentSearchKey&quot;: {object (ContentSearchKey)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "functionNames": {
+    object (ExamplesArrayFilter)
+  },
+
+  // query
+  "searchKey": string,
+  "contentSearchKey": {
+    object (ContentSearchKey)
+  }
+  // Union type
+}
+```
 
 ## ContentSearchKey
 
@@ -116,29 +113,28 @@ The chat history to use to generate the search key for retrieval.
 
 Fields
 
-`contents[]` ` object ( Content  ` )
+`contents[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Required. The conversation for generating a search key.
 
-`searchKeyGenerationMethod` ` object ( SearchKeyGenerationMethod  ` )
+`searchKeyGenerationMethod` `object ( `[`SearchKeyGenerationMethod`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/SearchKeyGenerationMethod)` )`
 
 Required. The method of generating a search key.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;contents&quot;: [{object (Content)}],&quot;searchKeyGenerationMethod&quot;: {object (SearchKeyGenerationMethod)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "contents": [
+    {
+      object (Content)
+    }
+  ],
+  "searchKeyGenerationMethod": {
+    object (SearchKeyGenerationMethod)
+  }
+}
+```
 
 ## SimilarExample
 
@@ -146,7 +142,7 @@ The result of the similar example.
 
 Fields
 
-`example` ` object ( Example  ` )
+`example` `object ( `[`Example`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Example)` )`
 
 The example that is similar to the searched query.
 
@@ -154,18 +150,13 @@ The example that is similar to the searched query.
 
 The similarity score of this example.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;example&quot;: {object (Example)},&quot;similarityScore&quot;: number}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "example": {
+    object (Example)
+  },
+  "similarityScore": number
+}
+```

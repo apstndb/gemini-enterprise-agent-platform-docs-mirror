@@ -32,7 +32,7 @@ Fields
 
 Optional. The id of the stream to ingest events into. If not provided, a new one will be created.
 
-`generationTriggerConfig` ` object ( MemoryGenerationTriggerConfig  ` )
+`generationTriggerConfig` `object ( `[`MemoryGenerationTriggerConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines#MemoryGenerationTriggerConfig)` )`
 
 Optional. Configuration for triggering memory generation from this ingestion. If not set, then the stream will be force flushed immediately.
 
@@ -48,7 +48,7 @@ Optional. Forces a flush of all pending events in the stream and triggers memory
 
 Source of the events to ingest. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`directContentsSource` ` object ( IngestionDirectContentsSource  ` )
+`directContentsSource` `object ( `[`IngestionDirectContentsSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/IngestionDirectContentsSource)` )`
 
 Ingest events directly from the request.
 
@@ -56,4 +56,4 @@ End of mutually exclusive fields.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

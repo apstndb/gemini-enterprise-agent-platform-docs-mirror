@@ -7,8 +7,8 @@ data_source: docs.cloud.google.com
 ---
 
 > To see an example of using a custom container, run the "Vertex AI Inference: Deploying Iris-detection model using FastAPI and custom container serving" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/custom/SDK_Custom_Container_Prediction.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fcustom%2FSDK_Custom_Container_Prediction.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fcustom%2FSDK_Custom_Container_Prediction.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/custom/SDK_Custom_Container_Prediction.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/custom/SDK_Custom_Container_Prediction.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fcustom%2FSDK_Custom_Container_Prediction.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fcustom%2FSDK_Custom_Container_Prediction.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/custom/SDK_Custom_Container_Prediction.ipynb)
 
 > **Note:** This is version 1.0.0 of this document. The document is updated according to [semantic versioning](https://semver.org/) .
 
@@ -58,13 +58,13 @@ By default, Agent Platform intermittently performs health checks on your HTTP se
 
 Configure the HTTP server to respond to each health check request as follows:
 
-  - **If the server is ready to handle inference requests,** respond to the health check request within 10 seconds with status code `200 OK` . The contents of the response body don't matter; Agent Platform ignores them.
-    
-    This response signifies that the server is healthy.
+- **If the server is ready to handle inference requests,** respond to the health check request within 10 seconds with status code `200 OK` . The contents of the response body don't matter; Agent Platform ignores them.
 
-  - **If the server isn't ready to handle inference requests,** don't respond to the health check request within 10 seconds, or respond with any status code except for `200 OK` . For example, respond with status code `503 Service Unavailable` .
-    
-    This response (or lack of a response) signifies that the server is unhealthy.
+  This response signifies that the server is healthy.
+
+- **If the server isn't ready to handle inference requests,** don't respond to the health check request within 10 seconds, or respond with any status code except for `200 OK` . For example, respond with status code `503 Service Unavailable` .
+
+  This response (or lack of a response) signifies that the server is unhealthy.
 
 If the health probe receives an unhealthy response from your server (including no response within 10 seconds), it sends up to 3 additional health checks at 10 second intervals. During this period, Agent Platform still considers your server healthy. If the probe receives a healthy response to any of these checks, the probe immediately returns to its intermittent schedule of health checks. However, if the probe receives 4 consecutive unhealthy responses, Agent Platform stops routing inference traffic to the container. (If the `DeployedModel` resource is scaled to use multiple inference nodes, Agent Platform routes inference requests to other, healthy containers.)
 
@@ -88,16 +88,18 @@ When a client sends a [`projects.locations.endpoints.predict` request](https://d
 
 If the model is deployed to a shared public endpoint, each inference request must be 1.5 MB or smaller. The HTTP server must accept inference requests that have the `Content-Type: application/json` HTTP header and JSON bodies with the following format:
 
-    {
-      "instances": INSTANCES,
-      "parameters": PARAMETERS
-    }
+```
+{
+  "instances": INSTANCES,
+  "parameters": PARAMETERS
+}
+```
 
 In these requests:
 
-  - INSTANCES is an array of one or more JSON values of any type. Each values represents an instance that you are providing an inference for.
+- ` INSTANCES ` is an array of one or more JSON values of any type. Each values represents an instance that you are providing an inference for.
 
-  - PARAMETERS is a JSON object containing any parameters that your container requires to help serve inferences on the instances. Agent Platform considers the `parameters` field optional, so you can design your container to require it, only use it when provided, or ignore it.
+- ` PARAMETERS ` is a JSON object containing any parameters that your container requires to help serve inferences on the instances. Agent Platform considers the `parameters` field optional, so you can design your container to require it, only use it when provided, or ignore it.
 
 Learn more about the [request body requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict#request-body) .
 
@@ -105,11 +107,13 @@ Learn more about the [request body requirements](https://docs.cloud.google.com/g
 
 If the model is deployed to a shared public endpoint, each inference response must be 1.5 MB or smaller. The HTTP server must send responses with JSON bodies that meet the following format:
 
-    {
-      "predictions": INFERENCES
-    }
+```
+{
+  "predictions": INFERENCES
+}
+```
 
-In these responses, replace INFERENCES with an array of JSON values representing the inferences that your container has generated for each of the INSTANCES in the corresponding request.
+In these responses, replace ` INFERENCES ` with an array of JSON values representing the inferences that your container has generated for each of the ` INSTANCES ` in the corresponding request.
 
 After your HTTP server sends this response, Agent Platform adds a [`deployedModelId` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict#body.PredictResponse.FIELDS.deployed_model_id) to the response before returning it to the client. This field specifies which [`DeployedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#deployedmodel) on an `Endpoint` is sending the response. Learn more about the [response body format](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict#response-body) .
 
@@ -133,7 +137,7 @@ When you use Artifact Registry, the repository must use [a region](https://docs.
 
 Agent Platform must have permission to pull the container image when you create a `Model` . Specifically, the Agent Platform Service Agent for your project must have the permissions of the [Artifact Registry Reader role ( `roles/artifactregistry.reader` )](https://docs.cloud.google.com/artifact-registry/docs/access-control#roles) for the container image's repository.
 
-Agent Platform uses the Agent Platform Service Agent for your project to interact with other Google Cloud services. This service account has the email address `service- PROJECT_NUMBER @gcp-sa-aiplatform.iam.gserviceaccount.com` , where PROJECT\_NUMBER is replaced with the [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) of your Agent Platform project.
+Agent Platform uses the Agent Platform Service Agent for your project to interact with other Google Cloud services. This service account has the email address `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform.iam.gserviceaccount.com` , where ` PROJECT_NUMBER ` is replaced with the [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) of your Agent Platform project.
 
 If you have pushed your container image to the same Google Cloud project where you are using Agent Platform, you don't have to configure any permissions. The default permissions granted to the Agent Platform Service Agent are sufficient.
 
@@ -194,71 +198,71 @@ The container's `ENTRYPOINT` instruction can access these variables. To learn wh
 <tr class="odd">
 <td>AIP_ACCELERATOR_TYPE</td>
 <td>Unset</td>
-<td>When you deploy a <code dir="ltr" translate="no">Model</code> as a <code dir="ltr" translate="no">DeployedModel</code> to an <code dir="ltr" translate="no">Endpoint</code> resource, set the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/MachineSpec#FIELDS.accelerator_type"><code dir="ltr" translate="no">dedicatedResources.machineSpec.acceleratorType</code> field</a> .</td>
+<td>When you deploy a <code>Model</code> as a <code>DeployedModel</code> to an <code>Endpoint</code> resource, set the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/MachineSpec#FIELDS.accelerator_type"><code>dedicatedResources.machineSpec.acceleratorType</code> field</a> .</td>
 <td>If applicable, this variable specifies the type of accelerator used by the virtual machine (VM) instance that the container is running on.</td>
 </tr>
 <tr class="even">
 <td>AIP_DEPLOYED_MODEL_ID</td>
-<td>A string of digits identifying the <code dir="ltr" translate="no">DeployedModel</code> to which this container's <code dir="ltr" translate="no">Model</code> has been deployed.</td>
+<td>A string of digits identifying the <code>DeployedModel</code> to which this container's <code>Model</code> has been deployed.</td>
 <td>Not configurable</td>
-<td>This value is the <code dir="ltr" translate="no">DeployedModel</code> 's <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#DeployedModel.FIELDS.id"><code dir="ltr" translate="no">id</code> field</a> .</td>
+<td>This value is the <code>DeployedModel</code> 's <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#DeployedModel.FIELDS.id"><code>id</code> field</a> .</td>
 </tr>
 <tr class="odd">
 <td>AIP_ENDPOINT_ID</td>
-<td>A string of digits identifying the <code dir="ltr" translate="no">Endpoint</code> on which the container's <code dir="ltr" translate="no">Model</code> has been deployed.</td>
+<td>A string of digits identifying the <code>Endpoint</code> on which the container's <code>Model</code> has been deployed.</td>
 <td>Not configurable</td>
-<td>This value is the last segment of the <code dir="ltr" translate="no">Endpoint</code> 's <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#Endpoint.FIELDS.name"><code dir="ltr" translate="no">name</code> field</a> (following <code dir="ltr" translate="no">endpoints/</code> ).</td>
+<td>This value is the last segment of the <code>Endpoint</code> 's <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#Endpoint.FIELDS.name"><code>name</code> field</a> (following <code>endpoints/</code> ).</td>
 </tr>
 <tr class="even">
 <td>AIP_FRAMEWORK</td>
-<td><code dir="ltr" translate="no">CUSTOM_CONTAINER</code></td>
+<td><code>CUSTOM_CONTAINER</code></td>
 <td>Not configurable</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>AIP_HEALTH_ROUTE</td>
-<td><code dir="ltr" translate="no">/v1/endpoints/         ENDPOINT        /deployedModels/         DEPLOYED_MODEL       </code><br />
+<td><code>/v1/endpoints/ </code><var translate="no"> ENDPOINT </var><code> /deployedModels/ </code><var translate="no"> DEPLOYED_MODEL</var><br />
 <br />
-In this string, replace ENDPOINT with the value of the <code dir="ltr" translate="no">AIP_ENDPOINT_ID</code> variable and replace DEPLOYED_MODEL with the value of the <code dir="ltr" translate="no">AIP_DEPLOYED_MODEL_ID</code> variable.</td>
-<td>When you create a <code dir="ltr" translate="no">Model</code> , set the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models#Model.ModelContainerSpec.FIELDS.health_route"><code dir="ltr" translate="no">containerSpec.healthRoute</code> field</a> .</td>
+In this string, replace <var translate="no"> ENDPOINT </var> with the value of the <code>AIP_ENDPOINT_ID</code> variable and replace <var translate="no"> DEPLOYED_MODEL </var> with the value of the <code>AIP_DEPLOYED_MODEL_ID</code> variable.</td>
+<td>When you create a <code>Model</code> , set the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models#Model.ModelContainerSpec.FIELDS.health_route"><code>containerSpec.healthRoute</code> field</a> .</td>
 <td>This variables specifies the HTTP path on the container that Agent Platform sends <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#health">health checks</a> to.</td>
 </tr>
 <tr class="even">
 <td>AIP_HTTP_PORT</td>
-<td><code dir="ltr" translate="no">8080</code></td>
-<td>When you create a <code dir="ltr" translate="no">Model</code> , set the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models#Model.ModelContainerSpec.FIELDS.ports"><code dir="ltr" translate="no">containerSpec.ports</code> field</a> . The first entry in this field becomes the value of <code dir="ltr" translate="no">AIP_HTTP_PORT</code> .</td>
+<td><code>8080</code></td>
+<td>When you create a <code>Model</code> , set the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models#Model.ModelContainerSpec.FIELDS.ports"><code>containerSpec.ports</code> field</a> . The first entry in this field becomes the value of <code>AIP_HTTP_PORT</code> .</td>
 <td>Agent Platform sends liveness checks, health checks, and inference requests to this port on the container. Your container's HTTP server must listen for requests on this port.</td>
 </tr>
 <tr class="odd">
 <td>AIP_MACHINE_TYPE</td>
 <td>No default, must be configured</td>
-<td>When you deploy a <code dir="ltr" translate="no">Model</code> as a <code dir="ltr" translate="no">DeployedModel</code> to an <code dir="ltr" translate="no">Endpoint</code> resource, set the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/MachineSpec#FIELDS.machine_type"><code dir="ltr" translate="no">dedicatedResources.machineSpec.machineType</code> field</a> .</td>
+<td>When you deploy a <code>Model</code> as a <code>DeployedModel</code> to an <code>Endpoint</code> resource, set the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/MachineSpec#FIELDS.machine_type"><code>dedicatedResources.machineSpec.machineType</code> field</a> .</td>
 <td>This variable specifies the type of VM that the container is running on.</td>
 </tr>
 <tr class="even">
 <td>AIP_MODE</td>
-<td><code dir="ltr" translate="no">PREDICTION</code></td>
+<td><code>PREDICTION</code></td>
 <td>Not configurable</td>
 <td>This variable signifies that the container is running on Agent Platform to serve online inferences. You can use this environment variable to add custom logic to your container, so that it can run in multiple computing environments but only use certain code paths on when run on Agent Platform.</td>
 </tr>
 <tr class="odd">
 <td>AIP_MODE_VERSION</td>
-<td><code dir="ltr" translate="no">1.0.0</code></td>
+<td><code>1.0.0</code></td>
 <td>Not configurable</td>
 <td>This variable signifies the version of the custom container requirements (this document) that Agent Platform expects the container to meet. This document updates according to <a href="https://semver.org">semantic versioning</a> .</td>
 </tr>
 <tr class="even">
 <td>AIP_MODEL_NAME</td>
-<td>The value of the <code dir="ltr" translate="no">AIP_ENDPOINT_ID</code> variable</td>
+<td>The value of the <code>AIP_ENDPOINT_ID</code> variable</td>
 <td>Not configurable</td>
-<td>See the <code dir="ltr" translate="no">AIP_ENDPOINT_ID</code> row. This variable exists for compatibility reasons.</td>
+<td>See the <code>AIP_ENDPOINT_ID</code> row. This variable exists for compatibility reasons.</td>
 </tr>
 <tr class="odd">
 <td>AIP_PREDICT_ROUTE</td>
-<td><code dir="ltr" translate="no">/v1/endpoints/         ENDPOINT        /deployedModels/         DEPLOYED_MODEL        :predict</code><br />
+<td><code>/v1/endpoints/ </code><var translate="no"> ENDPOINT </var><code> /deployedModels/ </code><var translate="no"> DEPLOYED_MODEL </var><code> :predict</code><br />
 <br />
-In this string, replace ENDPOINT with the value of the <code dir="ltr" translate="no">AIP_ENDPOINT_ID</code> variable and replace DEPLOYED_MODEL with the value of the <code dir="ltr" translate="no">AIP_DEPLOYED_MODEL_ID</code> variable.</td>
-<td>When you create a <code dir="ltr" translate="no">Model</code> , set the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models#Model.ModelContainerSpec.FIELDS.predict_route"><code dir="ltr" translate="no">containerSpec.predictRoute</code> field</a> .</td>
+In this string, replace <var translate="no"> ENDPOINT </var> with the value of the <code>AIP_ENDPOINT_ID</code> variable and replace <var translate="no"> DEPLOYED_MODEL </var> with the value of the <code>AIP_DEPLOYED_MODEL_ID</code> variable.</td>
+<td>When you create a <code>Model</code> , set the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models#Model.ModelContainerSpec.FIELDS.predict_route"><code>containerSpec.predictRoute</code> field</a> .</td>
 <td>This variable specifies the HTTP path on the container that Agent Platform <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#inference">forwards inference requests</a> to.</td>
 </tr>
 <tr class="even">
@@ -270,17 +274,17 @@ In this string, replace ENDPOINT with the value of the <code dir="ltr" translate
 <tr class="odd">
 <td>AIP_STORAGE_URI</td>
 <td><ul>
-<li><strong>If you don't set the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models#Model.FIELDS.artifact_uri"><code dir="ltr" translate="no">artifactUri</code> field</a> when you create a <code dir="ltr" translate="no">Model</code> :</strong> an empty string</li>
-<li><strong>If you do set the <code dir="ltr" translate="no">artifactUri</code> field when you create a <code dir="ltr" translate="no">Model</code> :</strong> a Cloud Storage URI (starting with <code dir="ltr" translate="no">gs://</code> ) specifying a directory in a bucket managed by Agent Platform</li>
+<li><strong>If you don't set the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models#Model.FIELDS.artifact_uri"><code>artifactUri</code> field</a> when you create a <code>Model</code> :</strong> an empty string</li>
+<li><strong>If you do set the <code>artifactUri</code> field when you create a <code>Model</code> :</strong> a Cloud Storage URI (starting with <code>gs://</code> ) specifying a directory in a bucket managed by Agent Platform</li>
 </ul></td>
 <td>Not configurable</td>
 <td>This variable specifies the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#artifacts">directory that contains a copy of your model artifacts</a> , if applicable.</td>
 </tr>
 <tr class="even">
 <td>AIP_VERSION_NAME</td>
-<td>The value of the <code dir="ltr" translate="no">AIP_DEPLOYED_MODEL_ID</code> variable</td>
+<td>The value of the <code>AIP_DEPLOYED_MODEL_ID</code> variable</td>
 <td>Not configurable</td>
-<td>See the <code dir="ltr" translate="no">AIP_DEPLOYED_MODEL_ID</code> row. This variable exists for compatibility reasons.</td>
+<td>See the <code>AIP_DEPLOYED_MODEL_ID</code> row. This variable exists for compatibility reasons.</td>
 </tr>
 </tbody>
 </table>
@@ -295,4 +299,4 @@ The container's `ENTRYPOINT` instruction can access these variables. To learn wh
 
 ## What's next
 
-  - [Learn more about serving inferences using a custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) , including how to specify container-related API fields when you import a model.
+- [Learn more about serving inferences using a custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) , including how to specify container-related API fields when you import a model.

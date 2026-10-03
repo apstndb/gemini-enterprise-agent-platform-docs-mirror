@@ -8,4 +8,4 @@ data_source: docs.cloud.google.com
 
 This type has no fields.
 
-Response message of `  ModelService.UpdateExplanationDataset  ` operation.
+Response message of [`ModelService.UpdateExplanationDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/updateExplanationDataset#google.cloud.aiplatform.v1.ModelService.UpdateExplanationDataset) operation.

@@ -12,11 +12,11 @@ Upload a file into a RagCorpus.
 
 ### Endpoint
 
-  - Upload URI, for media upload requests:  
+- Upload URI, for media upload requests:  
 
 post `https: / /{service-endpoint} /upload /v1beta1 /{parent} /ragFiles:upload`
 
-  - Metadata URI, for metadata-only requests:  
+- Metadata URI, for metadata-only requests:  
 
 post `https: / /{service-endpoint} /v1beta1 /{parent} /ragFiles:upload`
 
@@ -34,17 +34,17 @@ The request body contains data with the following structure:
 
 Fields
 
-`ragFile` ` object ( RagFile  ` )
+`ragFile` `object ( `[`RagFile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles#RagFile)` )`
 
 Required. The RagFile to upload.
 
-`uploadRagFileConfig` ` object ( UploadRagFileConfig  ` )
+`uploadRagFileConfig` `object ( `[`UploadRagFileConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/media/upload#UploadRagFileConfig)` )`
 
-Required. The config for the RagFiles to be uploaded into the RagCorpus. `  VertexRagDataService.UploadRagFile  ` .
+Required. The config for the RagFiles to be uploaded into the RagCorpus. [`VertexRagDataService.UploadRagFile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/media/upload#google.cloud.aiplatform.v1beta1.VertexRagDataService.UploadRagFile) .
 
 ### Response body
 
-Response message for `  VertexRagDataService.UploadRagFile  ` .
+Response message for [`VertexRagDataService.UploadRagFile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/media/upload#google.cloud.aiplatform.v1beta1.VertexRagDataService.UploadRagFile) .
 
 If successful, the response body contains data with the following structure:
 
@@ -54,31 +54,31 @@ Fields
 
 The result of the upload. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`ragFile` ` object ( RagFile  ` )
+`ragFile` `object ( `[`RagFile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles#RagFile)` )`
 
 The RagFile that had been uploaded into the RagCorpus.
 
-`error` ` object ( Status  ` )
+`error` `object ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Status)` )`
 
 The error that occurred while processing the RagFile.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// result&quot;ragFile&quot;: {object (RagFile)},&quot;error&quot;: {object (Status)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // result
+  "ragFile": {
+    object (RagFile)
+  },
+  "error": {
+    object (Status)
+  }
+  // Union type
+}
+```
 
 ## UploadRagFileConfig
 
@@ -86,38 +86,41 @@ Config for uploading RagFile.
 
 Fields
 
-` ragFileChunkingConfig (deprecated)  ` ` object ( RagFileChunkingConfig  ` )
+`ragFileChunkingConfig `**`(deprecated)`** `object ( `[`RagFileChunkingConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagFileChunkingConfig)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Specifies the size and overlap of chunks after uploading RagFile.
 
-`ragFileTransformationConfig` ` object ( RagFileTransformationConfig  ` )
+`ragFileTransformationConfig` `object ( `[`RagFileTransformationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagFileTransformationConfig)` )`
 
 Specifies the transformation config for RagFiles.
 
-` ragFileMetadataConfig (deprecated)  ` ` object ( RagFileMetadataConfig  ` )
+`ragFileMetadataConfig `**`(deprecated)`** `object ( `[`RagFileMetadataConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagFileMetadataConfig)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. Specifies the metadata config for RagFiles. Including paths for metadata schema and metadata. Alteratively, inline metadata schema and metadata can be provided. Deprecated: Not in use.
 
-`ragFileParsingConfig` ` object ( RagFileParsingConfig  ` )
+`ragFileParsingConfig` `object ( `[`RagFileParsingConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagFileParsingConfig)` )`
 
 Optional. Specifies the parsing config for RagFiles. RAG will use the default parser if this field is not set.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;ragFileChunkingConfig&quot;: {object (RagFileChunkingConfig)},&quot;ragFileTransformationConfig&quot;: {object (RagFileTransformationConfig)},&quot;ragFileMetadataConfig&quot;: {object (RagFileMetadataConfig)},&quot;ragFileParsingConfig&quot;: {object (RagFileParsingConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "ragFileChunkingConfig": {
+    object (RagFileChunkingConfig)
+  },
+  "ragFileTransformationConfig": {
+    object (RagFileTransformationConfig)
+  },
+  "ragFileMetadataConfig": {
+    object (RagFileMetadataConfig)
+  },
+  "ragFileParsingConfig": {
+    object (RagFileParsingConfig)
+  }
+}
+```

@@ -34,4 +34,4 @@ Required. The scope of the profiles to retrieve.
 
 ### Response body
 
-If successful, the response body contains an instance of `  RetrieveProfilesResponse  ` .
+If successful, the response body contains an instance of [`RetrieveProfilesResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RetrieveProfilesResponse) .

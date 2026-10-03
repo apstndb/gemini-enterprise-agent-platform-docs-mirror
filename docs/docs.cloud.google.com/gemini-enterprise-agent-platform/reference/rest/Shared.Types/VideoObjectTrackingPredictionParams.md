@@ -22,22 +22,12 @@ The model only returns up to that many top, by confidence score, predictions per
 
 Only bounding boxes with shortest edge at least that long as a relative value of video frame size are returned. Default value is 0.0.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;confidenceThreshold&quot;: number,
-  &quot;maxPredictions&quot;: integer,
-  &quot;minBoundingBoxSize&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "confidenceThreshold": number,
+  "maxPredictions": integer,
+  "minBoundingBoxSize": number
+}
+```

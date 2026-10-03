@@ -8,383 +8,239 @@ data_source: docs.cloud.google.com
 
 ## Index
 
-  - `  InteractionsService  ` (interface)
-  - `  VoicesHttpService  ` (interface)
-  - `  VoicesService  ` (interface)
+- [`InteractionsService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.InteractionsService) (interface)
+- [`VoicesHttpService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.VoicesHttpService) (interface)
+- [`VoicesService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.VoicesService) (interface)
 
 ## InteractionsService
 
 API that allows users to interact with models and agents.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>CancelInteraction</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rpc CancelInteraction(              CancelInteractionRequest            </code> ) returns ( <code dir="ltr" translate="no">             Interaction            </code> )</p>
-<p>Cancels an interaction.</p>
-<dl>
-<dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
-<ul>
-<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
-</ul>
-<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
-</dd>
-</dl>
-<dl>
-<dt>IAM Permissions</dt>
-<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.interactions.cancel</code></li>
-</ul>
-<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
-</dd>
-</dl></td>
-</tr>
-</tbody>
-</table>
+**CancelInteraction**
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>CancelInteractionHttp</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rpc CancelInteractionHttp(              CancelInteractionRequest            </code> ) returns ( <code dir="ltr" translate="no">             HttpBody            </code> )</p>
-<p>Cancels an interaction by id. This only applies to background interactions that are still running.</p>
-<dl>
-<dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
-<ul>
-<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
-</ul>
-<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
-</dd>
-</dl></td>
-</tr>
-</tbody>
-</table>
+`rpc CancelInteraction( `[`CancelInteractionRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.CancelInteractionRequest)` ) returns ( `[`Interaction`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.Interaction)` )`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>CreateInteraction</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rpc CreateInteraction(              CreateInteractionRequest            </code> ) returns ( <code dir="ltr" translate="no">             Interaction            </code> )</p>
-<p>Creates an interaction.</p>
-<dl>
-<dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
-<ul>
-<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
-</ul>
-<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
-</dd>
-</dl>
-<dl>
-<dt>IAM Permissions</dt>
-<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.interactions.create</code></li>
-</ul>
-<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
-</dd>
-</dl></td>
-</tr>
-</tbody>
-</table>
+Cancels an interaction.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>CreateInteractionHttp</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rpc CreateInteractionHttp(              CreateInteractionHttpRequest            </code> ) returns ( <code dir="ltr" translate="no">             HttpBody            </code> )</p>
-<p>Creates a new interaction.</p>
-<dl>
-<dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
-<ul>
-<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
-</ul>
-<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
-</dd>
-</dl>
-<dl>
-<dt>IAM Permissions</dt>
-<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.interactions.create</code></li>
-</ul>
-<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
-</dd>
-</dl></td>
-</tr>
-</tbody>
-</table>
+Authorization scopes  
+Requires the following OAuth scope:
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>CreateInteractionStream</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rpc CreateInteractionStream(              CreateInteractionRequest            </code> ) returns ( <code dir="ltr" translate="no">             InteractionStreamingEvent            </code> )</p>
-<p>Creates an interaction and streams the response.</p>
-<dl>
-<dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
-<ul>
-<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
-</ul>
-<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
-</dd>
-</dl>
-<dl>
-<dt>IAM Permissions</dt>
-<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.interactions.create</code></li>
-</ul>
-<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
-</dd>
-</dl></td>
-</tr>
-</tbody>
-</table>
+- `https://www.googleapis.com/auth/cloud-platform`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>DeleteInteraction</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><blockquote>
-<p>This item is deprecated!</p>
-</blockquote>
-<p><code dir="ltr" translate="no">rpc DeleteInteraction(              DeleteInteractionRequest            </code> ) returns ( <code dir="ltr" translate="no">             DeleteInteractionResponse            </code> )</p>
-<p>Deletes an interaction.</p>
-<dl>
-<dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
-<ul>
-<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
-</ul>
-<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
-</dd>
-</dl>
-<dl>
-<dt>IAM Permissions</dt>
-<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.interactions.delete</code></li>
-</ul>
-<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
-</dd>
-</dl></td>
-</tr>
-</tbody>
-</table>
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>GetInteraction</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rpc GetInteraction(              GetInteractionRequest            </code> ) returns ( <code dir="ltr" translate="no">             Interaction            </code> )</p>
-<p>Fully typed proto, unary version of GetInteraction that returns Interaction proto.</p>
-<dl>
-<dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
-<ul>
-<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
-</ul>
-<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
-</dd>
-</dl>
-<dl>
-<dt>IAM Permissions</dt>
-<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.interactions.get</code></li>
-</ul>
-<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
-</dd>
-</dl></td>
-</tr>
-</tbody>
-</table>
+<!-- -->
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>GetInteractionHttp</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rpc GetInteractionHttp(              GetInteractionRequest            </code> ) returns ( <code dir="ltr" translate="no">             HttpBody            </code> )</p>
-<p>Retrieves the full details of a single interaction based on its <code dir="ltr" translate="no">Interaction.id</code> .</p>
-<dl>
-<dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
-<ul>
-<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
-</ul>
-<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
-</dd>
-</dl></td>
-</tr>
-</tbody>
-</table>
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>GetInteractionStream</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rpc GetInteractionStream(              GetInteractionRequest            </code> ) returns ( <code dir="ltr" translate="no">             InteractionStreamingEvent            </code> )</p>
-<p>Fully typed proto, streaming version of GetInteraction that returns Interaction proto.</p>
-<dl>
-<dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
-<ul>
-<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
-</ul>
-<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
-</dd>
-</dl>
-<dl>
-<dt>IAM Permissions</dt>
-<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.interactions.get</code></li>
-</ul>
-<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
-</dd>
-</dl></td>
-</tr>
-</tbody>
-</table>
+- `aiplatform.interactions.cancel`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>ListInteractions</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rpc ListInteractions(              ListInteractionsRequest            </code> ) returns ( <code dir="ltr" translate="no">             ListInteractionsResponse            </code> )</p>
-<p>List interactions.</p>
-<dl>
-<dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
-<ul>
-<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
-</ul>
-<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
-</dd>
-</dl>
-<dl>
-<dt>IAM Permissions</dt>
-<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.interactions.list</code></li>
-</ul>
-<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
-</dd>
-</dl></td>
-</tr>
-</tbody>
-</table>
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>ListInteractionsHttp</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rpc ListInteractionsHttp(              ListInteractionsRequest            </code> ) returns ( <code dir="ltr" translate="no">             HttpBody            </code> )</p>
-<p>List interactions.</p>
-<dl>
-<dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
-<ul>
-<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
-</ul>
-<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
-</dd>
-</dl>
-<dl>
-<dt>IAM Permissions</dt>
-<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.interactions.list</code></li>
-</ul>
-<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
-</dd>
-</dl></td>
-</tr>
-</tbody>
-</table>
+**CancelInteractionHttp**
+
+`rpc CancelInteractionHttp( `[`CancelInteractionRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.CancelInteractionRequest)` ) returns ( `[`HttpBody`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.api#google.api.HttpBody)` )`
+
+Cancels an interaction by id. This only applies to background interactions that are still running.
+
+Authorization scopes  
+Requires the following OAuth scope:
+
+- `https://www.googleapis.com/auth/cloud-platform`
+
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
+
+**CreateInteraction**
+
+`rpc CreateInteraction( `[`CreateInteractionRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.CreateInteractionRequest)` ) returns ( `[`Interaction`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.Interaction)` )`
+
+Creates an interaction.
+
+Authorization scopes  
+Requires the following OAuth scope:
+
+- `https://www.googleapis.com/auth/cloud-platform`
+
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
+
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.interactions.create`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
+**CreateInteractionHttp**
+
+`rpc CreateInteractionHttp( `[`CreateInteractionHttpRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.CreateInteractionHttpRequest)` ) returns ( `[`HttpBody`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.api#google.api.HttpBody)` )`
+
+Creates a new interaction.
+
+Authorization scopes  
+Requires the following OAuth scope:
+
+- `https://www.googleapis.com/auth/cloud-platform`
+
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
+
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.interactions.create`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
+**CreateInteractionStream**
+
+`rpc CreateInteractionStream( `[`CreateInteractionRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.CreateInteractionRequest)` ) returns ( `[`InteractionStreamingEvent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.InteractionStreamingEvent)` )`
+
+Creates an interaction and streams the response.
+
+Authorization scopes  
+Requires the following OAuth scope:
+
+- `https://www.googleapis.com/auth/cloud-platform`
+
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
+
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.interactions.create`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
+**DeleteInteraction**
+
+> This item is deprecated!
+
+`rpc DeleteInteraction( `[`DeleteInteractionRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.DeleteInteractionRequest)` ) returns ( `[`DeleteInteractionResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.DeleteInteractionResponse)` )`
+
+Deletes an interaction.
+
+Authorization scopes  
+Requires the following OAuth scope:
+
+- `https://www.googleapis.com/auth/cloud-platform`
+
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
+
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+- `aiplatform.interactions.delete`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
+**GetInteraction**
+
+`rpc GetInteraction( `[`GetInteractionRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.GetInteractionRequest)` ) returns ( `[`Interaction`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.Interaction)` )`
+
+Fully typed proto, unary version of GetInteraction that returns Interaction proto.
+
+Authorization scopes  
+Requires the following OAuth scope:
+
+- `https://www.googleapis.com/auth/cloud-platform`
+
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
+
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+- `aiplatform.interactions.get`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
+**GetInteractionHttp**
+
+`rpc GetInteractionHttp( `[`GetInteractionRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.GetInteractionRequest)` ) returns ( `[`HttpBody`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.api#google.api.HttpBody)` )`
+
+Retrieves the full details of a single interaction based on its `Interaction.id` .
+
+Authorization scopes  
+Requires the following OAuth scope:
+
+- `https://www.googleapis.com/auth/cloud-platform`
+
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
+
+**GetInteractionStream**
+
+`rpc GetInteractionStream( `[`GetInteractionRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.GetInteractionRequest)` ) returns ( `[`InteractionStreamingEvent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.InteractionStreamingEvent)` )`
+
+Fully typed proto, streaming version of GetInteraction that returns Interaction proto.
+
+Authorization scopes  
+Requires the following OAuth scope:
+
+- `https://www.googleapis.com/auth/cloud-platform`
+
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
+
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+- `aiplatform.interactions.get`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
+**ListInteractions**
+
+`rpc ListInteractions( `[`ListInteractionsRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.ListInteractionsRequest)` ) returns ( `[`ListInteractionsResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.ListInteractionsResponse)` )`
+
+List interactions.
+
+Authorization scopes  
+Requires the following OAuth scope:
+
+- `https://www.googleapis.com/auth/cloud-platform`
+
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
+
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.interactions.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
+**ListInteractionsHttp**
+
+`rpc ListInteractionsHttp( `[`ListInteractionsRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.ListInteractionsRequest)` ) returns ( `[`HttpBody`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.api#google.api.HttpBody)` )`
+
+List interactions.
+
+Authorization scopes  
+Requires the following OAuth scope:
+
+- `https://www.googleapis.com/auth/cloud-platform`
+
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
+
+<!-- -->
+
+IAM Permissions  
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.interactions.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
 
 ## VoicesHttpService
 

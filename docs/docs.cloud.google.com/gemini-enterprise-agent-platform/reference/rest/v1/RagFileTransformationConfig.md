@@ -10,25 +10,19 @@ Specifies the transformation config for RagFiles.
 
 Fields
 
-`ragFileChunkingConfig` ` object ( RagFileChunkingConfig  ` )
+`ragFileChunkingConfig` `object ( `[`RagFileChunkingConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagFileTransformationConfig#RagFileChunkingConfig)` )`
 
 Specifies the chunking config for RagFiles.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;ragFileChunkingConfig&quot;: {object (RagFileChunkingConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "ragFileChunkingConfig": {
+    object (RagFileChunkingConfig)
+  }
+}
+```
 
 ## RagFileChunkingConfig
 
@@ -40,27 +34,24 @@ Fields
 
 Specifies the chunking config for RagFiles. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`fixedLengthChunking` ` object ( FixedLengthChunking  ` )
+`fixedLengthChunking` `object ( `[`FixedLengthChunking`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagFileTransformationConfig#FixedLengthChunking)` )`
 
 Specifies the fixed length chunking config.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// chunking_config&quot;fixedLengthChunking&quot;: {object (FixedLengthChunking)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // chunking_config
+  "fixedLengthChunking": {
+    object (FixedLengthChunking)
+  }
+  // Union type
+}
+```
 
 ## FixedLengthChunking
 
@@ -76,21 +67,11 @@ The size of the chunks.
 
 The overlap between chunks.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;chunkSize&quot;: integer,
-  &quot;chunkOverlap&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "chunkSize": integer,
+  "chunkOverlap": integer
+}
+```

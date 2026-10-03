@@ -9,7 +9,7 @@ data_source: docs.cloud.google.com
 # Use the OpenCode CLI
 
 > **Preview**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 This page describes how to use the OpenCode command line interface (CLI) with a Gemini Enterprise Agent Platform Workbench instance.
@@ -26,13 +26,13 @@ When an administrator enables it, the OpenCode CLI is available in a terminal in
 
 Consider the following limitations when you use the OpenCode CLI with Agent Platform Workbench:
 
-  - OpenCode is a CLI only. A graphical chat interface and advanced in-editor tools aren't included.
+- OpenCode is a CLI only. A graphical chat interface and advanced in-editor tools aren't included.
 
-  - When you ask OpenCode to modify a notebook, OpenCode changes the notebook file directly on the instance's disk. Because of this, you can't undo edits made by OpenCode by using the notebook editor's **Undo** button or Control+Z ( Command+Z on macOS). However, you can ask OpenCode to undo a change by using a natural language command, such as `Undo your last change` .
+- When you ask OpenCode to modify a notebook, OpenCode changes the notebook file directly on the instance's disk. Because of this, you can't undo edits made by OpenCode by using the notebook editor's **Undo** button or <span class="kbd"> Control+Z </span> ( <span class="kbd"> Command+Z </span> on macOS). However, you can ask OpenCode to undo a change by using a natural language command, such as `Undo your last change` .
 
-  - Because OpenCode writes directly to disk, it can change a file that you also have open in JupyterLab. **If you have unsaved changes in a notebook, save them before you ask OpenCode to modify that same notebook.**
+- Because OpenCode writes directly to disk, it can change a file that you also have open in JupyterLab. **If you have unsaved changes in a notebook, save them before you ask OpenCode to modify that same notebook.**
 
-  - OpenCode runs with the credentials that are active on your instance. By default, these are your Agent Platform Workbench instance's service account credentials, so OpenCode can access the same resources the instance can. If you authenticate a different identity on the instance (for example, by running `gcloud auth login` or `gcloud auth application-default login` ), OpenCode uses that identity's permissions instead.
+- OpenCode runs with the credentials that are active on your instance. By default, these are your Agent Platform Workbench instance's service account credentials, so OpenCode can access the same resources the instance can. If you authenticate a different identity on the instance (for example, by running `gcloud auth login` or `gcloud auth application-default login` ), OpenCode uses that identity's permissions instead.
 
 ## Before you begin
 
@@ -46,13 +46,13 @@ To use the OpenCode CLI in Agent Platform Workbench, you must grant permissions 
 
 #### Grant permissions to the user of the instance
 
-To get the permissions that you need to use the OpenCode CLI in a Agent Platform Workbench instance, ask your administrator to grant you the [](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user` ) IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+To get the permissions that you need to use the OpenCode CLI in a Agent Platform Workbench instance, ask your administrator to grant you the [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user` ) IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
 #### Grant a permission to your instance's service account
 
-To ensure that your Agent Platform Workbench instance's service account has the necessary permission to enable the OpenCode CLI to run in a Agent Platform Workbench instance, ask your administrator to grant the [](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user` ) IAM role to your Agent Platform Workbench instance's service account on the project.
+To ensure that your Agent Platform Workbench instance's service account has the necessary permission to enable the OpenCode CLI to run in a Agent Platform Workbench instance, ask your administrator to grant the [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user` ) IAM role to your Agent Platform Workbench instance's service account on the project.
 
 > **Important:** You must grant this role to your Agent Platform Workbench instance's service account, *not* to your user account. Failure to grant the role to the correct principal might result in permission errors.
 
@@ -77,7 +77,7 @@ The OpenCode CLI is turned on by default on supported instances. To turn it off,
 3.  In JupyterLab, click **File** \> **New launcher** .
 
 4.  In the **Launcher** tab, in the **Other** section, click the **OpenCode** tile.
-    
+
     A terminal opens and starts the OpenCode CLI.
 
 5.  Enter a prompt, such as "Create a new notebook named 'test-notebook'".
@@ -116,14 +116,14 @@ OpenCode calls models through Gemini Enterprise Agent Platform using your instan
 
 To manage model access, use the same controls that apply to any Gemini Enterprise Agent Platform client:
 
-  - To allow or restrict specific models at an organization, folder, or project level, set up an organization policy. See [Control access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access) .
+- To allow or restrict specific models at an organization, folder, or project level, set up an organization policy. See [Control access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access) .
 
-  - To block an identity from using model endpoints for inference, don't grant it the `aiplatform.endpoints.predict` permission.
+- To block an identity from using model endpoints for inference, don't grant it the `aiplatform.endpoints.predict` permission.
 
-  - Models from providers outside your project (for example, Anthropic's direct API) require the user to supply that provider's API key in their own OpenCode configuration, and are turned off by default. For more information, see [Use third-party models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/opencode-cli#third-party-models) .
+- Models from providers outside your project (for example, Anthropic's direct API) require the user to supply that provider's API key in their own OpenCode configuration, and are turned off by default. For more information, see [Use third-party models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/opencode-cli#third-party-models) .
 
 ## What's next
 
-  - Learn more about [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/docs/overview) .
+- Learn more about [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/docs/overview) .
 
-  - To learn how to set instance metadata, see [Manage features through metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-metadata) .
+- To learn how to set instance metadata, see [Manage features through metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-metadata) .

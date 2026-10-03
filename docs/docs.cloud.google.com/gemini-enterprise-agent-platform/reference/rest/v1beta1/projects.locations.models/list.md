@@ -26,22 +26,22 @@ Required. The resource name of the Location to list the Models from. Format: `pr
 
 `filter` `string`
 
-An expression for filtering the results of the request. For field names both snake\_case and camelCase are supported.
+An expression for filtering the results of the request. For field names both snake_case and camelCase are supported.
 
-  - `model` supports = and \!=. `model` represents the Model id, i.e. the last segment of the Model's `  resource name  ` .
-  - `displayName` supports = and \!=
-  - `labels` supports general map functions that is:
-      - `labels.key=value` - key:value equality
-      - \`labels.key:\* or labels:key - key existence
-      - A key including a space must be quoted. `labels."a key"` .
-  - `base_model_name` only supports =
+- `model` supports = and !=. `model` represents the Model id, i.e. the last segment of the Model's [`resource name`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models#Model.FIELDS.name) .
+- `displayName` supports = and !=
+- `labels` supports general map functions that is:
+  - `labels.key=value` - key:value equality
+  - \`labels.key:\* or labels:key - key existence
+  - A key including a space must be quoted. `labels."a key"` .
+- `base_model_name` only supports =
 
 Some examples:
 
-  - `model=1234`
-  - `displayName="myDisplayName"`
-  - `labels.myKey="myValue"`
-  - `baseModelName="text-bison"`
+- `model=1234`
+- `displayName="myDisplayName"`
+- `labels.myKey="myValue"`
+- `baseModelName="text-bison"`
 
 `pageSize` `integer`
 
@@ -49,9 +49,9 @@ The standard list page size.
 
 `pageToken` `string`
 
-The standard list page token. Typically obtained via `  ListModelsResponse.next_page_token  ` of the previous `  ModelService.ListModels  ` call.
+The standard list page token. Typically obtained via [`ListModelsResponse.next_page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/list#body.ListModelsResponse.FIELDS.next_page_token) of the previous [`ModelService.ListModels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/list#google.cloud.aiplatform.v1beta1.ModelService.ListModels) call.
 
-`readMask` ` string ( FieldMask  ` format)
+`readMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Mask specifying which fields to read.
 
@@ -63,32 +63,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  ModelService.ListModels  `
+Response message for [`ModelService.ListModels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/list#google.cloud.aiplatform.v1beta1.ModelService.ListModels)
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`models[]` ` object ( Model  ` )
+`models[]` `object ( `[`Model`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models#Model)` )`
 
 List of Models in the requested page.
 
 `nextPageToken` `string`
 
-A token to retrieve next page of results. Pass to `  ListModelsRequest.page_token  ` to obtain that page.
+A token to retrieve next page of results. Pass to [`ListModelsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/list#body.QUERY_PARAMETERS.page_token) to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;models&quot;: [{object (Model)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "models": [
+    {
+      object (Model)
+    }
+  ],
+  "nextPageToken": string
+}
+```

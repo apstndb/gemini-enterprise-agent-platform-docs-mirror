@@ -30,35 +30,42 @@ Represents a string value.
 
 Represents a boolean value.
 
-`structValue` ` object ( Struct  ` )
+`structValue` `object ( `[`Struct`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Struct)` )`
 
 Represents a structured value.
 
-`listValue` ` object ( ListValue  ` )
+`listValue` `object ( `[`ListValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Value#ListValue)` )`
 
 Represents a repeated `value` .
 
-`contentValue` ` object ( Content  ` )
+`contentValue` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Content)` )`
 
 Represents rich content (text, image, etc.).
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// kind&quot;nullValue&quot;: null,&quot;numberValue&quot;: number,&quot;stringValue&quot;: string,&quot;boolValue&quot;: boolean,&quot;structValue&quot;: {object (Struct)},&quot;listValue&quot;: {object (ListValue)},&quot;contentValue&quot;: {object (Content)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // kind
+  "nullValue": null,
+  "numberValue": number,
+  "stringValue": string,
+  "boolValue": boolean,
+  "structValue": {
+    object (Struct)
+  },
+  "listValue": {
+    object (ListValue)
+  },
+  "contentValue": {
+    object (Content)
+  }
+  // Union type
+}
+```
 
 ## ListValue
 
@@ -66,22 +73,18 @@ End of mutually exclusive fields.
 
 Fields
 
-`values[]` ` object ( Value  ` )
+`values[]` `object ( `[`Value`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Value)` )`
 
 Repeated field of dynamically typed values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;values&quot;: [{object (Value)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "values": [
+    {
+      object (Value)
+    }
+  ]
+}
+```

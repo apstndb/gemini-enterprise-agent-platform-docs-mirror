@@ -12,23 +12,23 @@ Batch predictions lets you send multiple prompts that aren't latency sensitive t
 
 Gemini Enterprise Agent Platform supports batch predictions for the following Anthropic Claude models:
 
-  - [Claude Sonnet 5.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5-5)
-  - [Claude Fable 5.1 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5-1)
-  - [Claude Sonnet 5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5)
-  - [Claude Opus 5.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-5-5)
-  - [Claude Opus 5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-5)
-  - [Claude Fable 5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5)
-  - [Claude Opus 4.8 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-8)
-  - [Claude Opus 4.7 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-7)
-  - [Claude Opus 4.6 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-6)
-  - [Claude Sonnet 4.6 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-6)
-  - [Claude Opus 4.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-5)
-  - [Claude Opus 4.1 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-1)
-  - [Claude Opus 4 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4)
-  - [Claude Sonnet 4.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-5)
-  - [Claude Sonnet 4 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4)
-  - [Claude Haiku 4.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-haiku-4-5)
-  - [Claude 3.5 Haiku on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-3-5-haiku)
+- [Claude Sonnet 5.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5-5)
+- [Claude Fable 5.1 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5-1)
+- [Claude Sonnet 5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5)
+- [Claude Opus 5.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-5-5)
+- [Claude Opus 5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-5)
+- [Claude Fable 5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5)
+- [Claude Opus 4.8 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-8)
+- [Claude Opus 4.7 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-7)
+- [Claude Opus 4.6 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-6)
+- [Claude Sonnet 4.6 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-6)
+- [Claude Opus 4.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-5)
+- [Claude Opus 4.1 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-1)
+- [Claude Opus 4 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4)
+- [Claude Sonnet 4.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-5)
+- [Claude Sonnet 4 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4)
+- [Claude Haiku 4.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-haiku-4-5)
+- [Claude 3.5 Haiku on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-3-5-haiku)
 
 ### Quotas
 
@@ -38,26 +38,28 @@ By default, the number of concurrent batch requests that you can make in a singl
 
 Before you begin, prepare your input dataset in a BigQuery table or as a JSONL file in Cloud Storage. The input for both sources must follow the [Anthropic Claude API Schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude) JSON format, as shown in the following example:
 
-    {
-      "custom_id": "request-1",
-      "request":  {
-        "messages": [{"role": "user", "content": "Hello!"}],
-        "anthropic_version": "vertex-2023-10-16",
-        "max_tokens": 50
-      }
-    }
+```
+{
+  "custom_id": "request-1",
+  "request":  {
+    "messages": [{"role": "user", "content": "Hello!"}],
+    "anthropic_version": "vertex-2023-10-16",
+    "max_tokens": 50
+  }
+}
+```
 
 ### BigQuery
 
 Your BigQuery input table must adhere to the following schema:
 
 | Column name | Description                                                                                                                                                                                            |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| custom\_id  | An ID for each request to match the input with the output.                                                                                                                                             |
+|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| custom_id   | An ID for each request to match the input with the output.                                                                                                                                             |
 | request     | The request body, which is your input prompt and must follow the [Anthropic Claude API Schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude) |
 
-  - Your input table can have other columns, which are ignored by the batch job.
-  - Batch prediction jobs reserve two column names for the batch prediction output: `response(JSON)` and `status` . Don't use these columns in the input table.
+- Your input table can have other columns, which are ignored by the batch job.
+- Batch prediction jobs reserve two column names for the batch prediction output: `response(JSON)` and `status` . Don't use these columns in the input table.
 
 ### Cloud Storage
 
@@ -77,84 +79,90 @@ Specify your BigQuery input table, model, and output location. The batch predict
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import time
-    
-    from google import genai
-    from google.genai.types import CreateBatchJobConfig, JobState, HttpOptions
-    
-    client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    
-    # TODO(developer): Update and un-comment below line
-    # output_uri = f"bq://your-project.your_dataset.your_table"
-    
-    job = client.batches.create(
-        # Check Anthropic Claude region availability in https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude#regions
-        # More about Anthropic model: https://console.cloud.google.com/vertex-ai/publishers/anthropic/model-garden/claude-3-5-haiku
-        model="publishers/anthropic/models/claude-3-5-haiku",
-        # The source dataset needs to be created specifically in us-east5
-        src="bq://python-docs-samples-tests.anthropic_bq_sample.test_data",
-        config=CreateBatchJobConfig(dest=output_uri),
-    )
-    print(f"Job name: {job.name}")
+```
+import time
+
+from google import genai
+from google.genai.types import CreateBatchJobConfig, JobState, HttpOptions
+
+client = genai.Client(http_options=HttpOptions(api_version="v1"))
+
+# TODO(developer): Update and un-comment below line
+# output_uri = f"bq://your-project.your_dataset.your_table"
+
+job = client.batches.create(
+    # Check Anthropic Claude region availability in https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude#regions
+    # More about Anthropic model: https://console.cloud.google.com/vertex-ai/publishers/anthropic/model-garden/claude-3-5-haiku
+    model="publishers/anthropic/models/claude-3-5-haiku",
+    # The source dataset needs to be created specifically in us-east5
+    src="bq://python-docs-samples-tests.anthropic_bq_sample.test_data",
+    config=CreateBatchJobConfig(dest=output_uri),
+)
+print(f"Job name: {job.name}")
+print(f"Job state: {job.state}")
+# Example response:
+# Job name: projects/%PROJECT_ID%/locations/us-central1/batchPredictionJobs/9876453210000000000
+# Job state: JOB_STATE_PENDING
+
+# See the documentation: https://googleapis.github.io/python-genai/genai.html#genai.types.BatchJob
+completed_states = {
+    JobState.JOB_STATE_SUCCEEDED,
+    JobState.JOB_STATE_FAILED,
+    JobState.JOB_STATE_CANCELLED,
+    JobState.JOB_STATE_PAUSED,
+}
+
+while job.state not in completed_states:
+    time.sleep(30)
+    job = client.batches.get(name=job.name)
     print(f"Job state: {job.state}")
-    # Example response:
-    # Job name: projects/%PROJECT_ID%/locations/us-central1/batchPredictionJobs/9876453210000000000
-    # Job state: JOB_STATE_PENDING
-    
-    # See the documentation: https://googleapis.github.io/python-genai/genai.html#genai.types.BatchJob
-    completed_states = {
-        JobState.JOB_STATE_SUCCEEDED,
-        JobState.JOB_STATE_FAILED,
-        JobState.JOB_STATE_CANCELLED,
-        JobState.JOB_STATE_PAUSED,
-    }
-    
-    while job.state not in completed_states:
-        time.sleep(30)
-        job = client.batches.get(name=job.name)
-        print(f"Job state: {job.state}")
-    # Example response:
-    # Job state: JOB_STATE_PENDING
-    # Job state: JOB_STATE_RUNNING
-    # Job state: JOB_STATE_RUNNING
-    # ...
-    # Job state: JOB_STATE_SUCCEEDED
+# Example response:
+# Job state: JOB_STATE_PENDING
+# Job state: JOB_STATE_RUNNING
+# Job state: JOB_STATE_RUNNING
+# ...
+# Job state: JOB_STATE_SUCCEEDED
+```
 
 ### REST
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : A region that supports the selected Anthropic Claude model (see [Claude Regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions) ).
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - MODEL : The name of the [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch#models) .
-  - INPUT\_URI : The BigQuery table where your batch prediction input is located such as `bq://myproject.mydataset.input_table` .
-  - OUTPUT\_FORMAT : To output to a BigQuery table, specify `bigquery` . To output to a Cloud Storage bucket, specify `jsonl` .
-  - DESTINATION : For BigQuery, specify `bigqueryDestination` . For Cloud Storage, specify `gcsDestination` .
-  - OUTPUT\_URI\_FIELD\_NAME : For BigQuery, specify `outputUri` . For Cloud Storage, specify `outputUriPrefix` .
-  - OUTPUT\_URI : For BigQuery, specify the table location such as `bq://myproject.mydataset.output_result` . For Cloud Storage, specify the bucket and folder location such as `gs://mybucket/path/to/outputfile` .
+- ` LOCATION ` : A region that supports the selected Anthropic Claude model (see [Claude Regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions) ).
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` MODEL ` : The name of the [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch#models) .
+- ` INPUT_URI ` : The BigQuery table where your batch prediction input is located such as `bq://myproject.mydataset.input_table` .
+- ` OUTPUT_FORMAT ` : To output to a BigQuery table, specify `bigquery` . To output to a Cloud Storage bucket, specify `jsonl` .
+- ` DESTINATION ` : For BigQuery, specify `bigqueryDestination` . For Cloud Storage, specify `gcsDestination` .
+- ` OUTPUT_URI_FIELD_NAME ` : For BigQuery, specify `outputUri` . For Cloud Storage, specify `outputUriPrefix` .
+- ` OUTPUT_URI ` : For BigQuery, specify the table location such as `bq://myproject.mydataset.output_result` . For Cloud Storage, specify the bucket and folder location such as `gs://mybucket/path/to/outputfile` .
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs
+```
 
 Request JSON body:
 
-    '{
-      "displayName": "JOB_NAME",
-      "model": "publishers/anthropic/models/MODEL",
-      "inputConfig": {
-        "instancesFormat":"bigquery",
-        "bigquerySource":{
-          "inputUri" : "INPUT_URI"
-        }
-      },
-      "outputConfig": {
-        "predictionsFormat":"OUTPUT_FORMAT",
-        "DESTINATION":{
-          "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
-        }
-      }
-    }'
+```
+'{
+  "displayName": "JOB_NAME",
+  "model": "publishers/anthropic/models/MODEL",
+  "inputConfig": {
+    "instancesFormat":"bigquery",
+    "bigquerySource":{
+      "inputUri" : "INPUT_URI"
+    }
+  },
+  "outputConfig": {
+    "predictionsFormat":"OUTPUT_FORMAT",
+    "DESTINATION":{
+      "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
+    }
+  }
+}'
+```
 
 To send your request, choose one of these options:
 
@@ -164,11 +172,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs"
+```
 
 #### PowerShell
 
@@ -176,42 +186,46 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following.
 
 #### Response
 
-    {
-    "name":
-      "projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/BATCH_JOB_ID",
-      "displayName": "JOB_NAME",
-      "model": "publishers/anthropic/models/MODEL",
-      "inputConfig": {
-        "instancesFormat":"bigquery",
-        "bigquerySource":{
-          "inputUri" : "INPUT_URI"
-        }
-      },
-      "outputConfig": {
-        "predictionsFormat":"OUTPUT_FORMAT",
-        "DESTINATION":{
-          "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
-        }
-      },
-      "state": "JOB_STATE_PENDING",
-      "createTime": "2024-10-16T19:33:59.153782Z",
-      "updateTime": "2024-10-16T19:33:59.153782Z",
-      "modelVersionId": "1"
+```
+{
+"name":
+  "projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/BATCH_JOB_ID",
+  "displayName": "JOB_NAME",
+  "model": "publishers/anthropic/models/MODEL",
+  "inputConfig": {
+    "instancesFormat":"bigquery",
+    "bigquerySource":{
+      "inputUri" : "INPUT_URI"
     }
+  },
+  "outputConfig": {
+    "predictionsFormat":"OUTPUT_FORMAT",
+    "DESTINATION":{
+      "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
+    }
+  },
+  "state": "JOB_STATE_PENDING",
+  "createTime": "2024-10-16T19:33:59.153782Z",
+  "updateTime": "2024-10-16T19:33:59.153782Z",
+  "modelVersionId": "1"
+}
+```
 
 ### Cloud Storage
 
@@ -221,83 +235,89 @@ Specify your JSONL file's Cloud Storage location, model, and output location.
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import time
-    
-    from google import genai
-    from google.genai.types import CreateBatchJobConfig, JobState, HttpOptions
-    
-    client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    # TODO(developer): Update and un-comment below line
-    # output_uri = "gs://your-bucket/your-prefix"
-    
-    # See the documentation: https://googleapis.github.io/python-genai/genai.html#genai.batches.Batches.create
-    job = client.batches.create(
-        # More about Anthropic model: https://console.cloud.google.com/vertex-ai/publishers/anthropic/model-garden/claude-3-5-haiku
-        model="publishers/anthropic/models/claude-3-5-haiku",
-        # Source link: https://storage.cloud.google.com/cloud-samples-data/batch/anthropic-test-data-gcs.jsonl
-        src="gs://cloud-samples-data/anthropic-test-data-gcs.jsonl",
-        config=CreateBatchJobConfig(dest=output_uri),
-    )
-    print(f"Job name: {job.name}")
+```
+import time
+
+from google import genai
+from google.genai.types import CreateBatchJobConfig, JobState, HttpOptions
+
+client = genai.Client(http_options=HttpOptions(api_version="v1"))
+# TODO(developer): Update and un-comment below line
+# output_uri = "gs://your-bucket/your-prefix"
+
+# See the documentation: https://googleapis.github.io/python-genai/genai.html#genai.batches.Batches.create
+job = client.batches.create(
+    # More about Anthropic model: https://console.cloud.google.com/vertex-ai/publishers/anthropic/model-garden/claude-3-5-haiku
+    model="publishers/anthropic/models/claude-3-5-haiku",
+    # Source link: https://storage.cloud.google.com/cloud-samples-data/batch/anthropic-test-data-gcs.jsonl
+    src="gs://cloud-samples-data/anthropic-test-data-gcs.jsonl",
+    config=CreateBatchJobConfig(dest=output_uri),
+)
+print(f"Job name: {job.name}")
+print(f"Job state: {job.state}")
+# Example response:
+# Job name: projects/%PROJECT_ID%/locations/us-central1/batchPredictionJobs/9876453210000000000
+# Job state: JOB_STATE_PENDING
+
+# See the documentation: https://googleapis.github.io/python-genai/genai.html#genai.types.BatchJob
+completed_states = {
+    JobState.JOB_STATE_SUCCEEDED,
+    JobState.JOB_STATE_FAILED,
+    JobState.JOB_STATE_CANCELLED,
+    JobState.JOB_STATE_PAUSED,
+}
+
+while job.state not in completed_states:
+    time.sleep(30)
+    job = client.batches.get(name=job.name)
     print(f"Job state: {job.state}")
-    # Example response:
-    # Job name: projects/%PROJECT_ID%/locations/us-central1/batchPredictionJobs/9876453210000000000
-    # Job state: JOB_STATE_PENDING
-    
-    # See the documentation: https://googleapis.github.io/python-genai/genai.html#genai.types.BatchJob
-    completed_states = {
-        JobState.JOB_STATE_SUCCEEDED,
-        JobState.JOB_STATE_FAILED,
-        JobState.JOB_STATE_CANCELLED,
-        JobState.JOB_STATE_PAUSED,
-    }
-    
-    while job.state not in completed_states:
-        time.sleep(30)
-        job = client.batches.get(name=job.name)
-        print(f"Job state: {job.state}")
-    # Example response:
-    # Job state: JOB_STATE_PENDING
-    # Job state: JOB_STATE_RUNNING
-    # Job state: JOB_STATE_RUNNING
-    # ...
-    # Job state: JOB_STATE_SUCCEEDED
+# Example response:
+# Job state: JOB_STATE_PENDING
+# Job state: JOB_STATE_RUNNING
+# Job state: JOB_STATE_RUNNING
+# ...
+# Job state: JOB_STATE_SUCCEEDED
+```
 
 ### REST
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : A region that supports the selected Anthropic Claude model (see [Claude Regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions) ).
-  - PROJECT\_ID : .
-  - MODEL : The name of the [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch#models) .
-  - INPUT\_URIS : A comma-separated list of the Cloud Storage locations of your JSONL batch prediction input such as `gs://bucketname/path/to/jsonl` .
-  - OUTPUT\_FORMAT : To output to a BigQuery table, specify `bigquery` . To output to a Cloud Storage bucket, specify `jsonl` .
-  - DESTINATION : For BigQuery, specify `bigqueryDestination` . For Cloud Storage, specify `gcsDestination` .
-  - OUTPUT\_URI\_FIELD\_NAME : For BigQuery, specify `outputUri` . For Cloud Storage, specify `outputUriPrefix` .
-  - OUTPUT\_URI : For BigQuery, specify the table location such as `bq://myproject.mydataset.output_result` . For Cloud Storage, specify the bucket and folder location such as `gs://mybucket/path/to/outputfile` .
+- ` LOCATION ` : A region that supports the selected Anthropic Claude model (see [Claude Regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions) ).
+- ` PROJECT_ID ` : .
+- ` MODEL ` : The name of the [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch#models) .
+- ` INPUT_URIS ` : A comma-separated list of the Cloud Storage locations of your JSONL batch prediction input such as `gs://bucketname/path/to/jsonl` .
+- ` OUTPUT_FORMAT ` : To output to a BigQuery table, specify `bigquery` . To output to a Cloud Storage bucket, specify `jsonl` .
+- ` DESTINATION ` : For BigQuery, specify `bigqueryDestination` . For Cloud Storage, specify `gcsDestination` .
+- ` OUTPUT_URI_FIELD_NAME ` : For BigQuery, specify `outputUri` . For Cloud Storage, specify `outputUriPrefix` .
+- ` OUTPUT_URI ` : For BigQuery, specify the table location such as `bq://myproject.mydataset.output_result` . For Cloud Storage, specify the bucket and folder location such as `gs://mybucket/path/to/outputfile` .
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs
+```
 
 Request JSON body:
 
-    '{
-      "displayName": "JOB_NAME",
-      "model": "publishers/anthropic/models/MODEL",
-      "inputConfig": {
-        "instancesFormat":"jsonl",
-        "gcsSource":{
-          "uris" : "INPUT_URIS"
-        }
-      },
-      "outputConfig": {
-        "predictionsFormat":"OUTPUT_FORMAT",
-        "DESTINATION":{
-          "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
-        }
-      }
-    }'
+```
+'{
+  "displayName": "JOB_NAME",
+  "model": "publishers/anthropic/models/MODEL",
+  "inputConfig": {
+    "instancesFormat":"jsonl",
+    "gcsSource":{
+      "uris" : "INPUT_URIS"
+    }
+  },
+  "outputConfig": {
+    "predictionsFormat":"OUTPUT_FORMAT",
+    "DESTINATION":{
+      "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
+    }
+  }
+}'
+```
 
 To send your request, choose one of these options:
 
@@ -307,11 +327,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs"
+```
 
 #### PowerShell
 
@@ -319,44 +341,48 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following.
 
 #### Response
 
-    {
-    "name":
-      "projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/BATCH_JOB_ID",
-      "displayName": "JOB_NAME",
-      "model": "publishers/anthropic/models/MODEL",
-      "inputConfig": {
-        "instancesFormat": "jsonl",
-        "gcsSource": {
-          "uris": [
-            "INPUT_URIS"
-          ]
-        }
-      },
-      "outputConfig": {
-        "predictionsFormat":"OUTPUT_FORMAT",
-        "DESTINATION":{
-          "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
-        }
-      },
-      "state": "JOB_STATE_PENDING",
-      "createTime": "2024-10-16T19:33:59.153782Z", 
-      "updateTime": "2024-10-16T19:33:59.153782Z", 
-      "modelVersionId": "1"
+```
+{
+"name":
+  "projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/BATCH_JOB_ID",
+  "displayName": "JOB_NAME",
+  "model": "publishers/anthropic/models/MODEL",
+  "inputConfig": {
+    "instancesFormat": "jsonl",
+    "gcsSource": {
+      "uris": [
+        "INPUT_URIS"
+      ]
     }
+  },
+  "outputConfig": {
+    "predictionsFormat":"OUTPUT_FORMAT",
+    "DESTINATION":{
+      "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
+    }
+  },
+  "state": "JOB_STATE_PENDING",
+  "createTime": "2024-10-16T19:33:59.153782Z", 
+  "updateTime": "2024-10-16T19:33:59.153782Z", 
+  "modelVersionId": "1"
+}
+```
 
 ## Get the status of a batch prediction job
 
@@ -366,13 +392,15 @@ Get the status of your batch prediction job to check whether it has completed su
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : .
-  - LOCATION : The region where your batch job is located.
-  - JOB\_ID : The batch job ID that was returned when you created the job.
+- ` PROJECT_ID ` : .
+- ` LOCATION ` : The region where your batch job is located.
+- ` JOB_ID ` : The batch job ID that was returned when you created the job.
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/JOB_ID
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/JOB_ID
+```
 
 To send your request, choose one of these options:
 
@@ -382,9 +410,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/JOB_ID"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/JOB_ID"
+```
 
 #### PowerShell
 
@@ -392,40 +422,44 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/JOB_ID" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/JOB_ID" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following.
 
 #### Response
 
-    {
-    "name":
-      "projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/BATCH_JOB_ID",
-      "displayName": "JOB_NAME",
-      "model": "publishers/anthropic/models/MODEL",
-      "inputConfig": {
-        "instancesFormat":"bigquery",
-        "bigquerySource":{
-          "inputUri" : "INPUT_URI"
-        }
-      },
-      "outputConfig": {
-        "predictionsFormat":"OUTPUT_FORMAT",
-        "DESTINATION":{
-          "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
-        }
-      },
-      "state": "JOB_STATE_SUCCEEDED",
-      "createTime": "2024-10-16T19:33:59.153782Z", 
-      "updateTime": "2024-10-16T19:33:59.153782Z", 
-      "modelVersionId": "1"
+```
+{
+"name":
+  "projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/BATCH_JOB_ID",
+  "displayName": "JOB_NAME",
+  "model": "publishers/anthropic/models/MODEL",
+  "inputConfig": {
+    "instancesFormat":"bigquery",
+    "bigquerySource":{
+      "inputUri" : "INPUT_URI"
     }
+  },
+  "outputConfig": {
+    "predictionsFormat":"OUTPUT_FORMAT",
+    "DESTINATION":{
+      "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
+    }
+  },
+  "state": "JOB_STATE_SUCCEEDED",
+  "createTime": "2024-10-16T19:33:59.153782Z", 
+  "updateTime": "2024-10-16T19:33:59.153782Z", 
+  "modelVersionId": "1"
+}
+```
 
 ## Retrieve batch prediction output
 

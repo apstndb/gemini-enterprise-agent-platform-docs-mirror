@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 CodeMender is an autonomous AI code security agent that scans, verifies, and patches deep cybersecurity vulnerabilities in your codebase. Before running CodeMender, download the CLI and initialize workspace options.
@@ -16,8 +16,8 @@ CodeMender is an autonomous AI code security agent that scans, verifies, and pat
 
 CodeMender uses a **local-first execution model** :
 
-  - **Hosted reasoning engine** : Agentic reasoning, threat modeling, and orchestration logic run securely in Google Cloud on Gemini Enterprise Agent Platform.
-  - **Local execution CLI** : Source code never leaves your workstation or CI/CD container in bulk. Local `cm` CLI tool executes file reads, local build checks, and proof-of-concept (PoC) exploit verifications in your local sandbox, sending only surgical code snippets and tool execution results to the cloud backend over the Interactions API on Gemini Enterprise Agent Platform.
+- **Hosted reasoning engine** : Agentic reasoning, threat modeling, and orchestration logic run securely in Google Cloud on Gemini Enterprise Agent Platform.
+- **Local execution CLI** : Source code never leaves your workstation or CI/CD container in bulk. Local `cm` CLI tool executes file reads, local build checks, and proof-of-concept (PoC) exploit verifications in your local sandbox, sending only surgical code snippets and tool execution results to the cloud backend over the Interactions API on Gemini Enterprise Agent Platform.
 
 ## Environment setup
 
@@ -38,7 +38,7 @@ Ensure the following Google Cloud APIs are enabled in your project:
 
 To run the CLI commands, users should be assigned the following IAM role:
 
-  - **Vertex AI User** ( `roles/aiplatform.user` ) — Allows users to create, stream, and manage active sessions.
+- **Vertex AI User** ( `roles/aiplatform.user` ) — Allows users to create, stream, and manage active sessions.
 
 ### Download and install CodeMender CLI
 
@@ -46,165 +46,195 @@ The CodeMender CLI binaries are hosted in Artifact Registry. Choose the tab for 
 
 > **Note:** CodeMender is currently available to a limited set of customers in Public Preview. Contact your sales team to get access.
 
-### Linux x86\_64
+### Linux x86_64
 
-To download and install CodeMender CLI for Linux (x86\_64):
+To download and install CodeMender CLI for Linux (x86_64):
 
 1.  Download the package using one of the following methods:
-    
-      - **gcloud CLI:** Run the following command:
-        
-            gcloud artifacts generic download \
-              --project=cmoc-prod \
-              --location=us \
-              --repository=codemender-cli-production \
-              --package=cm \
-              --version=stable \
-              --name=cm-linux-amd64.zip \
-              --destination=./
-    
-      - **curl:** Run the following command:
-        
-            curl -L -o cm-linux-amd64.zip "https://artifactregistry.googleapis.com/download/v1/projects/cmoc-prod/locations/us/repositories/codemender-cli-production/files/cm%3Astable%3Acm-linux-amd64.zip:download?alt=media"
+    - **gcloud CLI:** Run the following command:
+
+      ```
+      gcloud artifacts generic download \
+        --project=cmoc-prod \
+        --location=us \
+        --repository=codemender-cli-production \
+        --package=cm \
+        --version=stable \
+        --name=cm-linux-amd64.zip \
+        --destination=./
+      ```
+
+    - **curl:** Run the following command:
+
+      ```
+      curl -L -o cm-linux-amd64.zip "https://artifactregistry.googleapis.com/download/v1/projects/cmoc-prod/locations/us/repositories/codemender-cli-production/files/cm%3Astable%3Acm-linux-amd64.zip:download?alt=media"
+      ```
 
 2.  Install the CLI:
-    
-        unzip cm-linux-amd64.zip
-        chmod +x cm
-        sudo mv cm /usr/local/bin/cm
+
+    ```
+    unzip cm-linux-amd64.zip
+    chmod +x cm
+    sudo mv cm /usr/local/bin/cm
+    ```
 
 ### Linux ARM64
 
 To download and install CodeMender CLI for Linux (ARM64):
 
 1.  Download the package using one of the following methods:
-    
-      - **gcloud CLI:** Run the following command:
-        
-            gcloud artifacts generic download \
-              --project=cmoc-prod \
-              --location=us \
-              --repository=codemender-cli-production \
-              --package=cm \
-              --version=stable \
-              --name=cm-linux-arm64.zip \
-              --destination=./
-    
-      - **curl:** Run the following command:
-        
-            curl -L -o cm-linux-arm64.zip "https://artifactregistry.googleapis.com/download/v1/projects/cmoc-prod/locations/us/repositories/codemender-cli-production/files/cm%3Astable%3Acm-linux-arm64.zip:download?alt=media"
+    - **gcloud CLI:** Run the following command:
+
+      ```
+      gcloud artifacts generic download \
+        --project=cmoc-prod \
+        --location=us \
+        --repository=codemender-cli-production \
+        --package=cm \
+        --version=stable \
+        --name=cm-linux-arm64.zip \
+        --destination=./
+      ```
+
+    - **curl:** Run the following command:
+
+      ```
+      curl -L -o cm-linux-arm64.zip "https://artifactregistry.googleapis.com/download/v1/projects/cmoc-prod/locations/us/repositories/codemender-cli-production/files/cm%3Astable%3Acm-linux-arm64.zip:download?alt=media"
+      ```
 
 2.  Install the CLI:
-    
-        unzip cm-linux-arm64.zip
-        chmod +x cm
-        sudo mv cm /usr/local/bin/cm
+
+    ```
+    unzip cm-linux-arm64.zip
+    chmod +x cm
+    sudo mv cm /usr/local/bin/cm
+    ```
 
 ### macOS Intel
 
 To download and install CodeMender CLI for macOS (Intel):
 
 1.  Download the package using one of the following methods:
-    
-      - **gcloud CLI:** Run the following command:
-        
-            gcloud artifacts generic download \
-              --project=cmoc-prod \
-              --location=us \
-              --repository=codemender-cli-production \
-              --package=cm \
-              --version=stable \
-              --name=cm-darwin-amd64.zip \
-              --destination=./
-    
-      - **curl:** Run the following command:
-        
-            curl -L -o cm-darwin-amd64.zip "https://artifactregistry.googleapis.com/download/v1/projects/cmoc-prod/locations/us/repositories/codemender-cli-production/files/cm%3Astable%3Acm-darwin-amd64.zip:download?alt=media"
+    - **gcloud CLI:** Run the following command:
+
+      ```
+      gcloud artifacts generic download \
+        --project=cmoc-prod \
+        --location=us \
+        --repository=codemender-cli-production \
+        --package=cm \
+        --version=stable \
+        --name=cm-darwin-amd64.zip \
+        --destination=./
+      ```
+
+    - **curl:** Run the following command:
+
+      ```
+      curl -L -o cm-darwin-amd64.zip "https://artifactregistry.googleapis.com/download/v1/projects/cmoc-prod/locations/us/repositories/codemender-cli-production/files/cm%3Astable%3Acm-darwin-amd64.zip:download?alt=media"
+      ```
 
 2.  Install the CLI:
-    
-        unzip cm-darwin-amd64.zip
-        chmod +x cm
-        mv cm /usr/local/bin/cm
+
+    ```
+    unzip cm-darwin-amd64.zip
+    chmod +x cm
+    mv cm /usr/local/bin/cm
+    ```
 
 ### macOS Apple silicon
 
 To download and install CodeMender CLI for macOS (Apple silicon):
 
 1.  Download the package using one of the following methods:
-    
-      - **gcloud CLI:** Run the following command:
-        
-            gcloud artifacts generic download \
-              --project=cmoc-prod \
-              --location=us \
-              --repository=codemender-cli-production \
-              --package=cm \
-              --version=stable \
-              --name=cm-darwin-arm64.zip \
-              --destination=./
-    
-      - **curl:** Run the following command:
-        
-            curl -L -o cm-darwin-arm64.zip "https://artifactregistry.googleapis.com/download/v1/projects/cmoc-prod/locations/us/repositories/codemender-cli-production/files/cm%3Astable%3Acm-darwin-arm64.zip:download?alt=media"
+    - **gcloud CLI:** Run the following command:
+
+      ```
+      gcloud artifacts generic download \
+        --project=cmoc-prod \
+        --location=us \
+        --repository=codemender-cli-production \
+        --package=cm \
+        --version=stable \
+        --name=cm-darwin-arm64.zip \
+        --destination=./
+      ```
+
+    - **curl:** Run the following command:
+
+      ```
+      curl -L -o cm-darwin-arm64.zip "https://artifactregistry.googleapis.com/download/v1/projects/cmoc-prod/locations/us/repositories/codemender-cli-production/files/cm%3Astable%3Acm-darwin-arm64.zip:download?alt=media"
+      ```
 
 2.  Install the CLI:
-    
-        unzip cm-darwin-arm64.zip
-        chmod +x cm
-        mv cm /usr/local/bin/cm
 
-### Windows x86\_64
+    ```
+    unzip cm-darwin-arm64.zip
+    chmod +x cm
+    mv cm /usr/local/bin/cm
+    ```
 
-To download and install CodeMender CLI for Windows (x86\_64):
+### Windows x86_64
+
+To download and install CodeMender CLI for Windows (x86_64):
 
 1.  Download the package using one of the following methods:
-    
-      - **gcloud CLI:** Run the following command in PowerShell:
-        
-            gcloud artifacts generic download `
-              --project=cmoc-prod `
-              --location=us `
-              --repository=codemender-cli-production `
-              --package=cm `
-              --version=stable `
-              --name=cm-windows-amd64.zip `
-              --destination=./
-    
-      - **PowerShell:** Run the following command:
-        
-            Invoke-WebRequest -Uri "https://artifactregistry.googleapis.com/download/v1/projects/cmoc-prod/locations/us/repositories/codemender-cli-production/files/cm%3Astable%3Acm-windows-amd64.zip:download?alt=media" -OutFile cm-windows-amd64.zip
+    - **gcloud CLI:** Run the following command in PowerShell:
+
+      ```
+      gcloud artifacts generic download `
+        --project=cmoc-prod `
+        --location=us `
+        --repository=codemender-cli-production `
+        --package=cm `
+        --version=stable `
+        --name=cm-windows-amd64.zip `
+        --destination=./
+      ```
+
+    - **PowerShell:** Run the following command:
+
+      ```
+      Invoke-WebRequest -Uri "https://artifactregistry.googleapis.com/download/v1/projects/cmoc-prod/locations/us/repositories/codemender-cli-production/files/cm%3Astable%3Acm-windows-amd64.zip:download?alt=media" -OutFile cm-windows-amd64.zip
+      ```
 
 2.  Install the CLI:
-    
-        Expand-Archive -Path cm-windows-amd64.zip -DestinationPath ./
-        # Move cm.exe to a permanent folder and add it to your system PATH (e.g. Environmental Variables)
+
+    ```
+    Expand-Archive -Path cm-windows-amd64.zip -DestinationPath ./
+    # Move cm.exe to a permanent folder and add it to your system PATH (e.g. Environmental Variables)
+    ```
 
 ### Windows ARM64
 
 To download and install CodeMender CLI for Windows (ARM64):
 
 1.  Download the package using one of the following methods:
-    
-      - **gcloud CLI:** Run the following command in PowerShell:
-        
-            gcloud artifacts generic download `
-              --project=cmoc-prod `
-              --location=us `
-              --repository=codemender-cli-production `
-              --package=cm `
-              --version=stable `
-              --name=cm-windows-arm64.zip `
-              --destination=./
-    
-      - **PowerShell:** Run the following command:
-        
-            Invoke-WebRequest -Uri "https://artifactregistry.googleapis.com/download/v1/projects/cmoc-prod/locations/us/repositories/codemender-cli-production/files/cm%3Astable%3Acm-windows-arm64.zip:download?alt=media" -OutFile cm-windows-arm64.zip
+    - **gcloud CLI:** Run the following command in PowerShell:
+
+      ```
+      gcloud artifacts generic download `
+        --project=cmoc-prod `
+        --location=us `
+        --repository=codemender-cli-production `
+        --package=cm `
+        --version=stable `
+        --name=cm-windows-arm64.zip `
+        --destination=./
+      ```
+
+    - **PowerShell:** Run the following command:
+
+      ```
+      Invoke-WebRequest -Uri "https://artifactregistry.googleapis.com/download/v1/projects/cmoc-prod/locations/us/repositories/codemender-cli-production/files/cm%3Astable%3Acm-windows-arm64.zip:download?alt=media" -OutFile cm-windows-arm64.zip
+      ```
 
 2.  Install the CLI:
-    
-        Expand-Archive -Path cm-windows-arm64.zip -DestinationPath ./
-        # Move cm.exe to a permanent folder and add it to your system PATH (e.g. Environmental Variables)
+
+    ```
+    Expand-Archive -Path cm-windows-arm64.zip -DestinationPath ./
+    # Move cm.exe to a permanent folder and add it to your system PATH (e.g. Environmental Variables)
+    ```
 
 ### Configure Google Cloud credentials
 
@@ -212,7 +242,9 @@ Because the CodeMender CLI interacts with the cloud-hosted reasoning engine over
 
 To authenticate, run the following command and follow the login prompts:
 
-    gcloud auth application-default login
+```
+gcloud auth application-default login
+```
 
 ## Initialize the workspace
 
@@ -220,11 +252,15 @@ Once you have authenticated, your next step is to initialize CodeMender in your 
 
 Run `cm init` from the root directory of your codebase to create local state tracking files and establish baseline configurations:
 
-    cm init
+```
+cm init
+```
 
 Use the `--verify` flag to test connectivity to the cloud-hosted reasoning engine and verify workspace settings:
 
-    cm init --verify
+```
+cm init --verify
+```
 
 > **Note:** If you encounter the message `Resource setup has just started. Please try again shortly.` , initial resource provisioning is underway and typically completes within a few minutes.
 
@@ -236,73 +272,73 @@ Since the hosted AI agent executes local commands (like building code, running t
 
 ### Usage
 
-  - **Location:** By default, the CLI reads this file from `~/.codemender/config.yaml` . You can override the workspace and configuration directory by setting the `CM_HOME` environment variable (for example, `CM_HOME=/path/to/custom/dir` , which reads `/path/to/custom/dir/config.yaml` ).
-  - **Execution:** When you run commands such as `cm find` , `cm verify` , or `cm fix` , the local client reads this file to set up safety parameters, apply system bypasses, and specify which files or directories to ignore.
+- **Location:** By default, the CLI reads this file from `~/.codemender/config.yaml` . You can override the workspace and configuration directory by setting the `CM_HOME` environment variable (for example, `CM_HOME=/path/to/custom/dir` , which reads `/path/to/custom/dir/config.yaml` ).
+- **Execution:** When you run commands such as `cm find` , `cm verify` , or `cm fix` , the local client reads this file to set up safety parameters, apply system bypasses, and specify which files or directories to ignore.
 
 ### Core default settings
 
 Here is what the core default parameters mean:
 
-  - **`human_confirmation: true` (or `require_confirmation: true` )**
-    
-      - **What it means:** By default, CodeMender **cannot** modify any file on your disk or execute shell commands without explicitly prompting you for a `[Y/n]` confirmation in the terminal.
-      - **Why this is the default:** CodeMender may generate speculative patches or attempt to run exploit scripts to verify a vulnerability. Forcing human confirmation helps prevent accidental system changes or unauthorized code execution in your local environment.
-      - **Bypass:** For non-interactive CI/CD pipelines, this can be set to `false` .
+- **`human_confirmation: true` (or `require_confirmation: true` )**
 
-  - **`confirm_writes: false`**
-    
-      - **What it means:** Disables interactive prompts for file modifications, allowing the CodeMender agent to write security patches and modify source files directly to your local disk without waiting for human approval.
-      - **Why this is the default:** By default, CodeMender sets this safety guardrail to `true` to enforce a "Human-in-the-Loop" workflow. Because CodeMender acts on your local codebase, requiring manual confirmation (for example, `Write? [Y/n]` ) prevents the agent from making speculative, incorrect, or destructive modifications to your source files. You should only switch this to `false` when running in isolated, disposable sandboxes or automated, headless CI/CD pipelines.
+  - **What it means:** By default, CodeMender **cannot** modify any file on your disk or execute shell commands without explicitly prompting you for a `[Y/n]` confirmation in the terminal.
+  - **Why this is the default:** CodeMender may generate speculative patches or attempt to run exploit scripts to verify a vulnerability. Forcing human confirmation helps prevent accidental system changes or unauthorized code execution in your local environment.
+  - **Bypass:** For non-interactive CI/CD pipelines, this can be set to `false` .
 
-  - **`include: [".py", ".java", ".go", ".js", ".jsx", ".mjs", ".cjs", ".ts", ".tsx", ".c", ".cc", ".cpp", ".cxx", ".h", ".hpp", ".cs", ".rs", ".kt", ".kts", ".rb", ".php"]`**
-    
-      - **What it means:** Defines the explicit list of file extensions that you authorize CodeMender to ingest and analyze when scanning your workspace. CodeMender automatically skips any file in your repository with an extension not specified in this list.
-      - **Why this is the default:** This list defaults to major programming languages to maximize scanning efficiency and prevent the agent from wasting time and tokens on irrelevant text files, build artifacts, or binary files. However, because modern applications often embed vulnerabilities in deployment configs or automation tools, you can manually expand this default list in `config.yaml` to include configuration files, script formats, and IaC files (for example, shell scripts, XML, YAML, properties, and JSON files) so CodeMender doesn't silently ignore them.
+- **`confirm_writes: false`**
 
-  - **`exclude_dirs: ["node_modules", "vendor", "dist", "bin", "target", "obj", "build", ".gradle"]`**
-    
-      - **What it means:** CodeMender will completely skip these directories during workspace scanning and code analysis.
-      - **Why this is the default:** Large dependency or build folders trigger a massive latency and token penalty. Keeping these excluded by default ensures high performance and rapid response times. You can customize this list in `config.yaml` to include or exclude specific directories according to your project structure.
+  - **What it means:** Disables interactive prompts for file modifications, allowing the CodeMender agent to write security patches and modify source files directly to your local disk without waiting for human approval.
+  - **Why this is the default:** By default, CodeMender sets this safety guardrail to `true` to enforce a "Human-in-the-Loop" workflow. Because CodeMender acts on your local codebase, requiring manual confirmation (for example, `Write? [Y/n]` ) prevents the agent from making speculative, incorrect, or destructive modifications to your source files. You should only switch this to `false` when running in isolated, disposable sandboxes or automated, headless CI/CD pipelines.
 
-  - **`project_paths: []`**
-    
-      - **What it means:** A list of directory paths that CodeMender can access (read/write) during tool execution.
-      - **Why this is the default:** By default, it is empty, which restricts the agent to the scan target directory. If your build or test process requires accessing files outside the scan target directory, you must add those paths here.
-      - **Artifacts directory:** The agent can also write to a per-session artifacts directory ( `~/.codemender/artifacts/<session_id>/` , or the equivalent under `$CM_HOME` ).
-      - **Temporary files:** When the sandbox is enabled, the host `/tmp` directory is always blocked, even if you add `/tmp` to `project_paths` . Tools that respect `TMPDIR` use a temporary directory inside the artifacts directory instead.
+- **`include: [".py", ".java", ".go", ".js", ".jsx", ".mjs", ".cjs", ".ts", ".tsx", ".c", ".cc", ".cpp", ".cxx", ".h", ".hpp", ".cs", ".rs", ".kt", ".kts", ".rb", ".php"]`**
 
-  - **`sandbox`** :
-    
-      - **What it means:** Configuration block for the process-level sandbox environment.
-      - **Sub-parameters:**
-          - **`enabled: true`** : (Boolean) Enables or disables the sandbox. If you set this to `true` (default), the agent runs tools inside the local sandbox. If you set it to `false` , the agent runs tools directly on the host system without isolation.
-          - **`mounts`** : (Object)
-              - **`target_dir: "."`** : (String) The directory to mount as the active workspace inside the sandbox. The CLI resolves relative paths against the workspace root.
-          - **`network`** : (Object)
-              - **`profile: "permissive-closed"`** : (String) Outbound network access profile inside the sandbox. Granular allow-listing of specific domains or URL patterns is not yet supported. Supported profiles:
-                  - `permissive-closed` (Default): Complete network isolation; the sandbox blocks all outbound connections.
-                  - `permissive-open` : Allows full outbound network access.
+  - **What it means:** Defines the explicit list of file extensions that you authorize CodeMender to ingest and analyze when scanning your workspace. CodeMender automatically skips any file in your repository with an extension not specified in this list.
+  - **Why this is the default:** This list defaults to major programming languages to maximize scanning efficiency and prevent the agent from wasting time and tokens on irrelevant text files, build artifacts, or binary files. However, because modern applications often embed vulnerabilities in deployment configs or automation tools, you can manually expand this default list in `config.yaml` to include configuration files, script formats, and IaC files (for example, shell scripts, XML, YAML, properties, and JSON files) so CodeMender doesn't silently ignore them.
 
-  - **`security`** :
-    
-      - **What it means:** Configuration block for security policies.
-      - **Sub-parameters:**
-          - **`protected_files: []`** : (List of Strings) Files or directories on the host system that you want to mount **read-only** inside the sandbox to protect them from modification (for example, `["~/.ssh/*"]` ). Supports path expansion ( `~` ) and wildcards ( `*` ).
+- **`exclude_dirs: ["node_modules", "vendor", "dist", "bin", "target", "obj", "build", ".gradle"]`**
 
-  - **`model: "gemini-3.8-flash"`**
-    
-      - **What it means:** The default intelligence engine powering the backend reasoning loops.
-      - **Why this is the default:** `gemini-3.8-flash` offers the optimal balance of speed, cost, and analytical reasoning required to suggest patches. (Users can override this to `gemini-3.1-pro` for deeper, more complex reasoning when needed).
+  - **What it means:** CodeMender will completely skip these directories during workspace scanning and code analysis.
+  - **Why this is the default:** Large dependency or build folders trigger a massive latency and token penalty. Keeping these excluded by default ensures high performance and rapid response times. You can customize this list in `config.yaml` to include or exclude specific directories according to your project structure.
 
-  - **`vcs: { type: "git" }`**
-    
-      - **What it means:** Defines the type of version control system your project uses through the `vcs` key. If you leave this unconfigured, the tool attempts to automatically identify Git or Mercurial repositories. If you set `vcs` to `none` , the CLI outputs a warning but continues execution without VCS functionality. CodeMender relies on this setting to manage speculative security fixes, track codebase modifications, and integrate with your local repository.
-      - **Why this is the default:** CodeMender supports Git, Mercurial, or custom VCS configurations. Git is the default as it is the industry standard for version control tracking, ensuring seamless diff integration and rollback safety.
+- **`project_paths: []`**
 
-  - **`build: { command: "make build && make test" }`**
-    
-      - **What it means:** Defines the exact shell command that CodeMender executes to compile and build your project, as well as run your unit and regression tests.
-      - **Why this is the default:** Setting a build and test command is critical for the verification workflow. It allows CodeMender to compile your project and run your existing test suite in the isolated sandbox environment to prove that the generated security patch successfully mitigates the vulnerability without breaking existing application logic.
+  - **What it means:** A list of directory paths that CodeMender can access (read/write) during tool execution.
+  - **Why this is the default:** By default, it is empty, which restricts the agent to the scan target directory. If your build or test process requires accessing files outside the scan target directory, you must add those paths here.
+  - **Artifacts directory:** The agent can also write to a per-session artifacts directory ( `~/.codemender/artifacts/<session_id>/` , or the equivalent under `$CM_HOME` ).
+  - **Temporary files:** When the sandbox is enabled, the host `/tmp` directory is always blocked, even if you add `/tmp` to `project_paths` . Tools that respect `TMPDIR` use a temporary directory inside the artifacts directory instead.
+
+- **`sandbox`** :
+
+  - **What it means:** Configuration block for the process-level sandbox environment.
+  - **Sub-parameters:**
+    - **`enabled: true`** : (Boolean) Enables or disables the sandbox. If you set this to `true` (default), the agent runs tools inside the local sandbox. If you set it to `false` , the agent runs tools directly on the host system without isolation.
+    - **`mounts`** : (Object)
+      - **`target_dir: "."`** : (String) The directory to mount as the active workspace inside the sandbox. The CLI resolves relative paths against the workspace root.
+    - **`network`** : (Object)
+      - **`profile: "permissive-closed"`** : (String) Outbound network access profile inside the sandbox. Granular allow-listing of specific domains or URL patterns is not yet supported. Supported profiles:
+        - `permissive-closed` (Default): Complete network isolation; the sandbox blocks all outbound connections.
+        - `permissive-open` : Allows full outbound network access.
+
+- **`security`** :
+
+  - **What it means:** Configuration block for security policies.
+  - **Sub-parameters:**
+    - **`protected_files: []`** : (List of Strings) Files or directories on the host system that you want to mount **read-only** inside the sandbox to protect them from modification (for example, `["~/.ssh/*"]` ). Supports path expansion ( `~` ) and wildcards ( `*` ).
+
+- **`model: "gemini-3.8-flash"`**
+
+  - **What it means:** The default intelligence engine powering the backend reasoning loops.
+  - **Why this is the default:** `gemini-3.8-flash` offers the optimal balance of speed, cost, and analytical reasoning required to suggest patches. (Users can override this to `gemini-3.1-pro` for deeper, more complex reasoning when needed).
+
+- **`vcs: { type: "git" }`**
+
+  - **What it means:** Defines the type of version control system your project uses through the `vcs` key. If you leave this unconfigured, the tool attempts to automatically identify Git or Mercurial repositories. If you set `vcs` to `none` , the CLI outputs a warning but continues execution without VCS functionality. CodeMender relies on this setting to manage speculative security fixes, track codebase modifications, and integrate with your local repository.
+  - **Why this is the default:** CodeMender supports Git, Mercurial, or custom VCS configurations. Git is the default as it is the industry standard for version control tracking, ensuring seamless diff integration and rollback safety.
+
+- **`build: { command: "make build && make test" }`**
+
+  - **What it means:** Defines the exact shell command that CodeMender executes to compile and build your project, as well as run your unit and regression tests.
+  - **Why this is the default:** Setting a build and test command is critical for the verification workflow. It allows CodeMender to compile your project and run your existing test suite in the isolated sandbox environment to prove that the generated security patch successfully mitigates the vulnerability without breaking existing application logic.
 
 > **Summary:** Treat `config.yaml` as your agent policy document. In local development, keep the built-in sandbox enabled ( `sandbox.enabled: true` or the `--sandbox` flag) and keep `human_confirmation: true` to safeguard your environment. Only disable these protections when running inside isolated, disposable sandbox virtual machines or CI/CD pipelines.
 
@@ -312,9 +348,9 @@ To safeguard your workstation against unintended file modifications or unexpecte
 
 Although this sandboxing offers an initial layer of defense on your workstation, it offers weaker security protection than running the agent in a fully isolated virtual machine (VM):
 
-  - **Linux** : Uses kernel namespaces ( `CLONE_NEWNS` , `CLONE_NEWUSER` , etc.) and `seccomp` filters to isolate mount points and restrict system calls.
-  - **macOS** : Uses the built-in `sandbox-exec` (Seatbelt) mechanism.
-  - **Windows (Experimental)** : Uses `AppContainer` isolation and Access Control Lists (ACLs). Sandboxing on Windows is experimental and may require administrative privileges or be incompatible with some system configurations.
+- **Linux** : Uses kernel namespaces ( `CLONE_NEWNS` , `CLONE_NEWUSER` , etc.) and `seccomp` filters to isolate mount points and restrict system calls.
+- **macOS** : Uses the built-in `sandbox-exec` (Seatbelt) mechanism.
+- **Windows (Experimental)** : Uses `AppContainer` isolation and Access Control Lists (ACLs). Sandboxing on Windows is experimental and may require administrative privileges or be incompatible with some system configurations.
 
 ### Sandbox behavior
 
@@ -333,32 +369,34 @@ This introduces limitations for projects that require fetching external dependen
 
 If your project requires network access for builds or tests, you have the following options:
 
-  - **Pre-fetch dependencies** : Install all required dependencies on the host system before running `cm` commands, so the build command does not need network access.
+- **Pre-fetch dependencies** : Install all required dependencies on the host system before running `cm` commands, so the build command does not need network access.
 
-  - **Enable network access in the sandbox** : Change the network profile in your `config.yaml` to allow outbound connections:
-    
-        sandbox:
-          network:
-            profile: "permissive-open"
-    
-    > **Note:** Granular allow-listing of specific domains or URL patterns (such as only allow-listing `npmjs.org` ) is not yet supported; `permissive-open` grants full outbound access to the sandbox.
+- **Enable network access in the sandbox** : Change the network profile in your `config.yaml` to allow outbound connections:
 
-  - **Bypass the sandbox** : Run the command with the `--unrestricted` flag to disable the sandbox and file system boundaries entirely for that execution.
+  ```
+  sandbox:
+    network:
+      profile: "permissive-open"
+  ```
+
+  > **Note:** Granular allow-listing of specific domains or URL patterns (such as only allow-listing `npmjs.org` ) is not yet supported; `permissive-open` grants full outbound access to the sandbox.
+
+- **Bypass the sandbox** : Run the command with the `--unrestricted` flag to disable the sandbox and file system boundaries entirely for that execution.
 
 ### Sandbox configuration
 
 You can configure and control the sandbox using the following options:
 
-  - **Persistent Configuration ( `config.yaml` )** : You can customize sandbox behavior, file system mounts, network access, and security policies by adding `sandbox` , `execution` , and `security` blocks to your `config.yaml` file. See [Configuration parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#configuration-file) for details.
-  - **Control the sandbox using the CLI ( `--sandbox` )** : You can explicitly enable or disable the sandbox for a single run by passing `--sandbox=true` or `--sandbox=false` to `cm find` , `cm verify` , or `cm fix` .
-  - **Bypass isolation using the CLI ( `--unrestricted` )** : You can temporarily bypass all sandbox protections for a single run by passing the `--unrestricted` flag. This disables the file system path boundaries (allowing the agent to access any path on your host) and disables the OS-level container isolation entirely (including network isolation).
+- **Persistent Configuration ( `config.yaml` )** : You can customize sandbox behavior, file system mounts, network access, and security policies by adding `sandbox` , `execution` , and `security` blocks to your `config.yaml` file. See [Configuration parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#configuration-file) for details.
+- **Control the sandbox using the CLI ( `--sandbox` )** : You can explicitly enable or disable the sandbox for a single run by passing `--sandbox=true` or `--sandbox=false` to `cm find` , `cm verify` , or `cm fix` .
+- **Bypass isolation using the CLI ( `--unrestricted` )** : You can temporarily bypass all sandbox protections for a single run by passing the `--unrestricted` flag. This disables the file system path boundaries (allowing the agent to access any path on your host) and disables the OS-level container isolation entirely (including network isolation).
 
 ### Choosing an isolation level
 
 Depending on your security requirements and development environment, you can choose the appropriate isolation level for running the CodeMender CLI.
 
 | Method                          | Description                                                                                                                                                                                                         | Advantages                                                                                                                                             | Disadvantages                                                                                                                                                                               |
-| :------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Built-in sandbox** (OS-level) | Enabled by default; you can disable it in the `config.yaml` file or bypass it using CLI flags. Uses built-in OS features (namespaces/seccomp, `sandbox-exec` , `AppContainer` (Experimental)) to isolate execution. | **Lightweight** ; zero startup overhead; direct access to local workspace tools with fine-grained control. Recommended for everyday local development. | Security relies on OS kernel features; less isolated than a full VM; Windows support is experimental and may require administrative privileges or be incompatible with some configurations. |
 | **Containers**                  | Running the agent in a container (for example, Docker).                                                                                                                                                             | Good isolation; standardized environment.                                                                                                              | Requires container runtime; can be heavy; disallows direct interaction with tools on the local machine.                                                                                     |
 | **Full VMs**                    | Running the agent in a dedicated VM.                                                                                                                                                                                | Maximum security; complete isolation.                                                                                                                  | High resource overhead; slow startup; disallows direct interaction with tools on the local machine.                                                                                         |
@@ -377,24 +415,28 @@ CodeMender has a built-in update mechanism to ensure you are running the latest 
 
 By default, the CodeMender CLI automatically checks for updates in the background when you run commands:
 
-  - **Throttling** : To minimize overhead, the automatic check runs at most once every 24 hours.
-  - **Interactive Terminal (TTY) Required** : The CLI only checks for updates and prompts you when running in an interactive terminal. In non-interactive environments (such as CI/CD pipelines or scripts), the check is skipped and a warning is logged to `stderr` at most once a day.
-  - **Prompting** : If a new version is available, you'll be prompted on `stderr` : `none 🆕 A new CodeMender release is available: 1.1.0 Update now? (y/N):` If you choose yes ( `y` or `yes` ), CodeMender downloads the update, replaces the binary, and exits. You must run your command again to execute it with the new version. If you choose no, the update is skipped and your original command executes.
-  - **Offline Tolerance** : If you are offline or the release repository is unreachable, the check fails silently and CodeMender continues to execute your command.
-  - **Bypassing** : You can bypass the automatic update check by passing the `--yes` or `-y` flag to any command.
+- **Throttling** : To minimize overhead, the automatic check runs at most once every 24 hours.
+- **Interactive Terminal (TTY) Required** : The CLI only checks for updates and prompts you when running in an interactive terminal. In non-interactive environments (such as CI/CD pipelines or scripts), the check is skipped and a warning is logged to `stderr` at most once a day.
+- **Prompting** : If a new version is available, you'll be prompted on `stderr` : `none 🆕 A new CodeMender release is available: 1.1.0 Update now? (y/N):` If you choose yes ( `y` or `yes` ), CodeMender downloads the update, replaces the binary, and exits. You must run your command again to execute it with the new version. If you choose no, the update is skipped and your original command executes.
+- **Offline Tolerance** : If you are offline or the release repository is unreachable, the check fails silently and CodeMender continues to execute your command.
+- **Bypassing** : You can bypass the automatic update check by passing the `--yes` or `-y` flag to any command.
 
 ### Manual updates ( `cm update` )
 
 You can force CodeMender to check for and apply updates immediately by running the `update` command:
 
-    cm update
+```
+cm update
+```
 
 The `cm update` command:
 
-  - Ignores the 24-hour throttle.
-  - Downloads and applies the update immediately without prompting (non-interactive).
-  - Doesn't require an interactive terminal (safe for scripts and configuration management).
+- Ignores the 24-hour throttle.
+- Downloads and applies the update immediately without prompting (non-interactive).
+- Doesn't require an interactive terminal (safe for scripts and configuration management).
 
 If the CLI is installed in a system directory that requires elevated permissions, run the update with `sudo` :
 
-    sudo cm update
+```
+sudo cm update
+```

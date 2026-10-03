@@ -8,24 +8,10 @@ data_source: docs.cloud.google.com
 
 The modalities of the response.
 
-Enums
-
-`MODALITY_UNSPECIFIED`
-
-Unspecified modality. Will be processed as text.
-
-`TEXT`
-
-Text modality.
-
-`IMAGE`
-
-Image modality.
-
-`AUDIO`
-
-Audio modality.
-
-`VIDEO`
-
-Video modality.
+| Enums                  |                                                  |
+|------------------------|--------------------------------------------------|
+| `MODALITY_UNSPECIFIED` | Unspecified modality. Will be processed as text. |
+| `TEXT`                 | Text modality.                                   |
+| `IMAGE`                | Image modality.                                  |
+| `AUDIO`                | Audio modality.                                  |
+| `VIDEO`                | Video modality.                                  |

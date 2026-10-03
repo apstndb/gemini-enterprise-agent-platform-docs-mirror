@@ -43,7 +43,7 @@ To change the machine type or configure the GPUs on an Agent Platform Workbench 
 1.  In the Google Cloud console, go to the **Instances** page.
 
 2.  In the **Notebook name** column, click the name of the instance that you want to modify.
-    
+
     The **Notebook details** page opens.
 
 3.  Click the **Hardware** tab.
@@ -58,4 +58,4 @@ To change the machine type or configure the GPUs on an Agent Platform Workbench 
 
 ## What's next
 
-  - Learn more about the available [GPU platforms](https://docs.cloud.google.com/compute/docs/gpus) .
+- Learn more about the available [GPU platforms](https://docs.cloud.google.com/compute/docs/gpus) .

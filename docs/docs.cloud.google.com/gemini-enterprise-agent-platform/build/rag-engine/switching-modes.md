@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > Some of the RAG features are Preview offerings, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . Pre-GA products and features are available "as-is" and may have limited support, and changes to Pre-GA products and features may not be compatible with other Pre-GA versions. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages) . By using the Gemini API on Gemini Enterprise Agent Platform, you agree to the Generative AI Preview [terms and conditions](https://cloud.google.com/trustedtester/aitos) (Preview Terms).
 
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
@@ -26,37 +26,43 @@ The following code samples demonstrate how to switch your `RagEngineConfig` to S
 
 ### REST
 
-    PROJECT_ID: Your project ID.
-    LOCATION: The region to process the request.
+```
+PROJECT_ID: Your project ID.
+LOCATION: The region to process the request.
+```
 
-    curl -X PATCH \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'serverless': {}}}"
+```
+curl -X PATCH \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'serverless': {}}}"
+```
 
 ### Python
 
-    from vertexai.preview import rag
-    import vertexai
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    
-    # Initialize Agent Platform API once per session
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
-    
-    new_rag_engine_config = rag.RagEngineConfig(
-        name=rag_engine_config_name,
-        rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Serverless()),
-    )
-    
-    updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
-        rag_engine_config=new_rag_engine_config
-    )
-    
-    print(updated_rag_engine_config)
+```
+from vertexai.preview import rag
+import vertexai
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+
+# Initialize Agent Platform API once per session
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
+
+new_rag_engine_config = rag.RagEngineConfig(
+    name=rag_engine_config_name,
+    rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Serverless()),
+)
+
+updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
+    rag_engine_config=new_rag_engine_config
+)
+
+print(updated_rag_engine_config)
+```
 
 ## Switching to Spanner mode
 
@@ -70,37 +76,43 @@ The following code samples demonstrate how to switch your `RagEngineConfig` to S
 
 ### REST
 
-    PROJECT_ID: Your project ID.
-    LOCATION: The region to process the request.
+```
+PROJECT_ID: Your project ID.
+LOCATION: The region to process the request.
+```
 
-    curl -X PATCH \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'spanner': {}}}"
+```
+curl -X PATCH \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'spanner': {}}}"
+```
 
 ### Python
 
-    from vertexai.preview import rag
-    import vertexai
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    
-    # Initialize Agent Platform API once per session
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
-    
-    new_rag_engine_config = rag.RagEngineConfig(
-        name=rag_engine_config_name,
-        rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Spanner()),
-    )
-    
-    updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
-        rag_engine_config=new_rag_engine_config
-    )
-    
-    print(updated_rag_engine_config)
+```
+from vertexai.preview import rag
+import vertexai
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+
+# Initialize Agent Platform API once per session
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
+
+new_rag_engine_config = rag.RagEngineConfig(
+    name=rag_engine_config_name,
+    rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Spanner()),
+)
+
+updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
+    rag_engine_config=new_rag_engine_config
+)
+
+print(updated_rag_engine_config)
+```
 
 ## Read your current RagEngineConfig
 
@@ -108,30 +120,36 @@ The following code samples demonstrate how to read your `RagEngineConfig` to see
 
 ### REST
 
-    PROJECT_ID: Your project ID.
-    LOCATION: The region to process the request.
+```
+PROJECT_ID: Your project ID.
+LOCATION: The region to process the request.
+```
 
-    curl -X GET \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig
+```
+curl -X GET \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig
+```
 
 ### Python
 
-    from vertexai.preview import rag
-    import vertexai
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    
-    # Initialize Agent Platform API once per session
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    rag_engine_config = rag.rag_data.get_rag_engine_config(
-        name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
-    )
-    
-    print(rag_engine_config)
+```
+from vertexai.preview import rag
+import vertexai
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+
+# Initialize Agent Platform API once per session
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+rag_engine_config = rag.rag_data.get_rag_engine_config(
+    name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
+)
+
+print(rag_engine_config)
+```
 
 ## Update the tier on Spanner mode
 
@@ -152,37 +170,43 @@ The following code samples demonstrate how to set the `RagEngineConfig` to the S
 
 ### REST
 
-    PROJECT_ID: Your project ID.
-    LOCATION: The region to process the request.
+```
+PROJECT_ID: Your project ID.
+LOCATION: The region to process the request.
+```
 
-    curl -X PATCH \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'spanner': {'scaled': {}}}}"
+```
+curl -X PATCH \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'spanner': {'scaled': {}}}}"
+```
 
 ### Python
 
-    from vertexai.preview import rag
-    import vertexai
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    
-    # Initialize Agent Platform API once per session
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
-    
-    new_rag_engine_config = rag.RagEngineConfig(
-        name=rag_engine_config_name,
-        rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Spanner(tier=rag.Scaled())),
-    )
-    
-    updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
-        rag_engine_config=new_rag_engine_config
-    )
-    
-    print(updated_rag_engine_config)
+```
+from vertexai.preview import rag
+import vertexai
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+
+# Initialize Agent Platform API once per session
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
+
+new_rag_engine_config = rag.RagEngineConfig(
+    name=rag_engine_config_name,
+    rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Spanner(tier=rag.Scaled())),
+)
+
+updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
+    rag_engine_config=new_rag_engine_config
+)
+
+print(updated_rag_engine_config)
+```
 
 ### Update your RagEngineConfig to Spanner mode with Basic tier
 
@@ -199,37 +223,43 @@ The following code samples demonstrate how to set the `RagEngineConfig` to the S
 
 ### REST
 
-    PROJECT_ID: Your project ID.
-    LOCATION: The region to process the request.
+```
+PROJECT_ID: Your project ID.
+LOCATION: The region to process the request.
+```
 
-    curl -X PATCH \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'spanner': {'basic': {}}}}"
+```
+curl -X PATCH \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'spanner': {'basic': {}}}}"
+```
 
 ### Python
 
-    from vertexai.preview import rag
-    import vertexai
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    
-    # Initialize Agent Platform API once per session
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
-    
-    new_rag_engine_config = rag.RagEngineConfig(
-        name=rag_engine_config_name,
-        rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Spanner(tier=rag.Basic())),
-    )
-    
-    updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
-        rag_engine_config=new_rag_engine_config
-    )
-    
-    print(updated_rag_engine_config)
+```
+from vertexai.preview import rag
+import vertexai
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+
+# Initialize Agent Platform API once per session
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
+
+new_rag_engine_config = rag.RagEngineConfig(
+    name=rag_engine_config_name,
+    rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Spanner(tier=rag.Basic())),
+)
+
+updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
+    rag_engine_config=new_rag_engine_config
+)
+
+print(updated_rag_engine_config)
+```
 
 ### Update your RagEngineConfig to Unprovisioned tier
 
@@ -247,34 +277,40 @@ The following code samples demonstrate how to set the `RagEngineConfig` to the S
 
 ### REST
 
-    PROJECT_ID: Your project ID.
-    LOCATION: The region to process the request.
+```
+PROJECT_ID: Your project ID.
+LOCATION: The region to process the request.
+```
 
-    curl -X PATCH \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'spanner': {'unprovisioned': {}}}}"
+```
+curl -X PATCH \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'spanner': {'unprovisioned': {}}}}"
+```
 
 ### Python
 
-    from vertexai.preview import rag
-    import vertexai
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    
-    # Initialize Agent Platform API once per session
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
-    
-    new_rag_engine_config = rag.RagEngineConfig(
-        name=rag_engine_config_name,
-        rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Spanner(tier=rag.Unprovisioned())),
-    )
-    
-    updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
-        rag_engine_config=new_rag_engine_config
-    )
-    
-    print(updated_rag_engine_config)
+```
+from vertexai.preview import rag
+import vertexai
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+
+# Initialize Agent Platform API once per session
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
+
+new_rag_engine_config = rag.RagEngineConfig(
+    name=rag_engine_config_name,
+    rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Spanner(tier=rag.Unprovisioned())),
+)
+
+updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
+    rag_engine_config=new_rag_engine_config
+)
+
+print(updated_rag_engine_config)
+```

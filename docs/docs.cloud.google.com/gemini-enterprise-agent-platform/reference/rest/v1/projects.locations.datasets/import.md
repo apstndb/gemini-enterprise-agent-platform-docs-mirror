@@ -28,13 +28,13 @@ The request body contains data with the following structure:
 
 Fields
 
-`importConfigs[]` ` object ( ImportDataConfig  ` )
+`importConfigs[]` `object ( `[`ImportDataConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/import#ImportDataConfig)` )`
 
 Required. The desired input locations. The contents of all input locations will be imported in one batch.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ## ImportDataConfig
 
@@ -44,11 +44,11 @@ Fields
 
 `dataItemLabels` `map (key: string, value: string)`
 
-Labels that will be applied to newly imported DataItems. If an identical DataItem as one being imported already exists in the Dataset, then these labels will be appended to these of the already existing one, and if labels with identical key is imported before, the old label value will be overwritten. If two DataItems are identical in the same import data operation, the labels will be combined and if key collision happens in this case, one of the values will be picked randomly. Two DataItems are considered identical if their content bytes are identical (e.g. image bytes or pdf bytes). These labels will be overridden by Annotation labels specified inside index file referenced by `  importSchemaUri  ` , e.g. jsonl file.
+Labels that will be applied to newly imported DataItems. If an identical DataItem as one being imported already exists in the Dataset, then these labels will be appended to these of the already existing one, and if labels with identical key is imported before, the old label value will be overwritten. If two DataItems are identical in the same import data operation, the labels will be combined and if key collision happens in this case, one of the values will be picked randomly. Two DataItems are considered identical if their content bytes are identical (e.g. image bytes or pdf bytes). These labels will be overridden by Annotation labels specified inside index file referenced by [`importSchemaUri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/import#ImportDataConfig.FIELDS.import_schema_uri) , e.g. jsonl file.
 
 `annotationLabels` `map (key: string, value: string)`
 
-Labels that will be applied to newly imported Annotations. If two Annotations are identical, one of them will be deduped. Two Annotations are considered identical if their `  payload  ` , `  payloadSchemaUri  ` and all of their `  labels  ` are the same. These labels will be overridden by Annotation labels specified inside index file referenced by `  importSchemaUri  ` , e.g. jsonl file.
+Labels that will be applied to newly imported Annotations. If two Annotations are identical, one of them will be deduped. Two Annotations are considered identical if their [`payload`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Annotation#FIELDS.payload) , [`payloadSchemaUri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Annotation#FIELDS.payload_schema_uri) and all of their [`labels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Annotation#FIELDS.labels) are the same. These labels will be overridden by Annotation labels specified inside index file referenced by [`importSchemaUri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/import#ImportDataConfig.FIELDS.import_schema_uri) , e.g. jsonl file.
 
 `importSchemaUri` `string`
 
@@ -58,24 +58,30 @@ Required. Points to a YAML file stored on Google Cloud Storage describing the im
 
 The source of the input. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`gcsSource` ` object ( GcsSource  ` )
+`gcsSource` `object ( `[`GcsSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GcsSource)` )`
 
 The Google Cloud Storage location for the input content.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;dataItemLabels&quot;: {string: string,...},&quot;annotationLabels&quot;: {string: string,...},&quot;importSchemaUri&quot;: string,// source&quot;gcsSource&quot;: {object (GcsSource)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "dataItemLabels": {
+    string: string,
+    ...
+  },
+  "annotationLabels": {
+    string: string,
+    ...
+  },
+  "importSchemaUri": string,
+
+  // source
+  "gcsSource": {
+    object (GcsSource)
+  }
+  // Union type
+}
+```

@@ -24,7 +24,7 @@ Required. The resource name of the Dataset from which to search DataItems. Forma
 
 ### Query parameters
 
-` savedQuery (deprecated)  ` `string`
+`savedQuery `**`(deprecated)`** `string`
 
 The resource name of a SavedQuery(annotation set in UI). Format: `projects/{project}/locations/{location}/datasets/{dataset}/savedQueries/{savedQuery}` All of the search will be done in the context of this SavedQuery.
 
@@ -36,26 +36,26 @@ The resource name of a DataLabelingJob. Format: `projects/{project}/locations/{l
 
 An expression for filtering the DataItem that will be returned.
 
-  - `data_item_id` - for = or \!=.
-  - `labeled` - for = or \!=.
-  - `has_annotation(ANNOTATION_SPEC_ID)` - true only for DataItem that have at least one annotation with annotationSpecId = `ANNOTATION_SPEC_ID` in the context of SavedQuery or DataLabelingJob.
+- `data_item_id` - for = or !=.
+- `labeled` - for = or !=.
+- `has_annotation(ANNOTATION_SPEC_ID)` - true only for DataItem that have at least one annotation with annotationSpecId = `ANNOTATION_SPEC_ID` in the context of SavedQuery or DataLabelingJob.
 
 For example:
 
-  - `dataItem=1`
-  - `has_annotation(5)`
+- `dataItem=1`
+- `has_annotation(5)`
 
-` annotationsFilter (deprecated)  ` `string`
+`annotationsFilter `**`(deprecated)`** `string`
 
-An expression for filtering the Annotations that will be returned per DataItem. \* `annotationSpecId` - for = or \!=.
+An expression for filtering the Annotations that will be returned per DataItem. \* `annotationSpecId` - for = or !=.
 
 `annotationFilters[]` `string`
 
-An expression that specifies what Annotations will be returned per DataItem. Annotations satisfied either of the conditions will be returned. \* `annotationSpecId` - for = or \!=. Must specify `savedQueryId=` - saved query id that annotations should belong to.
+An expression that specifies what Annotations will be returned per DataItem. Annotations satisfied either of the conditions will be returned. \* `annotationSpecId` - for = or !=. Must specify `savedQueryId=` - saved query id that annotations should belong to.
 
-`fieldMask` ` string ( FieldMask  ` format)
+`fieldMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
-Mask specifying which fields of `  DataItemView  ` to read.
+Mask specifying which fields of [`DataItemView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/searchDataItems#DataItemView) to read.
 
 This is a comma-separated list of fully qualified names of fields. Example: `"user.displayName,photo"` .
 
@@ -67,13 +67,13 @@ If set, only up to this many of Annotations will be returned per DataItemView. T
 
 Requested page size. Server may return fewer results than requested. Default and maximum page size is 100.
 
-` orderBy (deprecated)  ` `string`
+`orderBy `**`(deprecated)`** `string`
 
 A comma-separated list of fields to order by, sorted in ascending order. Use "desc" after a field name for descending.
 
 `pageToken` `string`
 
-A token identifying a page of results for the server to return Typically obtained via `  SearchDataItemsResponse.next_page_token  ` of the previous `  DatasetService.SearchDataItems  ` call.
+A token identifying a page of results for the server to return Typically obtained via [`SearchDataItemsResponse.next_page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/searchDataItems#body.SearchDataItemsResponse.FIELDS.next_page_token) of the previous [`DatasetService.SearchDataItems`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/searchDataItems#google.cloud.aiplatform.v1.DatasetService.SearchDataItems) call.
 
 `order` `Union type`
 
@@ -83,7 +83,7 @@ The following is a list of mutually exclusive fields. At most one of the fields 
 
 A comma-separated list of data item fields to order by, sorted in ascending order. Use "desc" after a field name for descending.
 
-`orderByAnnotation` ` object ( OrderByAnnotation  ` )
+`orderByAnnotation` `object ( `[`OrderByAnnotation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/searchDataItems#OrderByAnnotation)` )`
 
 Expression that allows ranking results based on annotation's property.
 
@@ -95,35 +95,32 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  DatasetService.SearchDataItems  ` .
+Response message for [`DatasetService.SearchDataItems`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/searchDataItems#google.cloud.aiplatform.v1.DatasetService.SearchDataItems) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`dataItemViews[]` ` object ( DataItemView  ` )
+`dataItemViews[]` `object ( `[`DataItemView`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/searchDataItems#DataItemView)` )`
 
 The DataItemViews read.
 
 `nextPageToken` `string`
 
-A token to retrieve next page of results. Pass to `  SearchDataItemsRequest.page_token  ` to obtain that page.
+A token to retrieve next page of results. Pass to [`SearchDataItemsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/searchDataItems#body.QUERY_PARAMETERS.page_token) to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;dataItemViews&quot;: [{object (DataItemView)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "dataItemViews": [
+    {
+      object (DataItemView)
+    }
+  ],
+  "nextPageToken": string
+}
+```
 
 ## OrderByAnnotation
 
@@ -139,24 +136,14 @@ Required. Saved query of the Annotation. Only Annotations belong to this saved q
 
 A comma-separated list of annotation fields to order by, sorted in ascending order. Use "desc" after a field name for descending. Must also specify savedQuery.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;savedQuery&quot;: string,
-  &quot;orderBy&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "savedQuery": string,
+  "orderBy": string
+}
+```
 
 ## DataItemView
 
@@ -164,11 +151,11 @@ A container for a single DataItem and Annotations on it.
 
 Fields
 
-`dataItem` ` object ( DataItem  ` )
+`dataItem` `object ( `[`DataItem`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/DataItem)` )`
 
 The DataItem.
 
-`annotations[]` ` object ( Annotation  ` )
+`annotations[]` `object ( `[`Annotation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Annotation)` )`
 
 The Annotations on the DataItem. If too many Annotations should be returned for the DataItem, this field will be truncated per annotationsLimit in request. If it was, then the hasTruncatedAnnotations will be set to true.
 
@@ -176,18 +163,18 @@ The Annotations on the DataItem. If too many Annotations should be returned for 
 
 True if and only if the Annotations field has been truncated. It happens if more Annotations for this DataItem met the request's annotationFilter than are allowed to be returned by annotationsLimit. Note that if Annotations field is not being returned due to field mask, then this field will not be set to true no matter how many Annotations are there.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;dataItem&quot;: {object (DataItem)},&quot;annotations&quot;: [{object (Annotation)}],&quot;hasTruncatedAnnotations&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "dataItem": {
+    object (DataItem)
+  },
+  "annotations": [
+    {
+      object (Annotation)
+    }
+  ],
+  "hasTruncatedAnnotations": boolean
+}
+```

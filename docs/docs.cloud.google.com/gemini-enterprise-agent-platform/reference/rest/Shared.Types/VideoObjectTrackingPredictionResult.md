@@ -18,13 +18,13 @@ The resource id of the AnnotationSpec that had been identified.
 
 The display name of the AnnotationSpec that had been identified.
 
-`timeSegmentStart` ` string ( Duration  ` format)
+`timeSegmentStart` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 The beginning, inclusive, of the video's time segment in which the object instance has been detected. Expressed as a number of seconds as measured from the start of the video, with fractions up to a microsecond precision, and with "s" appended at the end.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
-`timeSegmentEnd` ` string ( Duration  ` format)
+`timeSegmentEnd` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 The end, inclusive, of the video's time segment in which the object instance has been detected. Expressed as a number of seconds as measured from the start of the video, with fractions up to a microsecond precision, and with "s" appended at the end.
 
@@ -34,25 +34,26 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
 
 The Model's confidence in correction of this prediction, higher value means higher confidence.
 
-`frames[]` ` object ( Frame  ` )
+`frames[]` `object ( `[`Frame`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VideoObjectTrackingPredictionResult#Frame)` )`
 
 All of the frames of the video in which a single object instance has been detected. The bounding boxes in the frames identify the same object.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;id&quot;: string,&quot;displayName&quot;: string,&quot;timeSegmentStart&quot;: string,&quot;timeSegmentEnd&quot;: string,&quot;confidence&quot;: number,&quot;frames&quot;: [{object (Frame)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "id": string,
+  "displayName": string,
+  "timeSegmentStart": string,
+  "timeSegmentEnd": string,
+  "confidence": number,
+  "frames": [
+    {
+      object (Frame)
+    }
+  ]
+}
+```
 
 ## Frame
 
@@ -60,7 +61,7 @@ The fields `xMin` , `xMax` , `yMin` , and `yMax` refer to a bounding box, i.e. t
 
 Fields
 
-`timeOffset` ` string ( Duration  ` format)
+`timeOffset` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 A time (frame) of a video in which the object has been detected. Expressed as a number of seconds as measured from the start of the video, with fractions up to a microsecond precision, and with "s" appended at the end.
 
@@ -82,24 +83,14 @@ The topmost coordinate of the bounding box.
 
 The bottommost coordinate of the bounding box.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;timeOffset&quot;: string,
-  &quot;xMin&quot;: number,
-  &quot;xMax&quot;: number,
-  &quot;yMin&quot;: number,
-  &quot;yMax&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "timeOffset": string,
+  "xMin": number,
+  "xMax": number,
+  "yMin": number,
+  "yMax": number
+}
+```

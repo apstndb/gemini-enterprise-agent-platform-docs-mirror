@@ -28,32 +28,24 @@ The request body contains data with the following structure:
 
 Fields
 
-`dataKey` ` object ( FeatureViewDataKey  ` )
+`dataKey` `object ( `[`FeatureViewDataKey`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/FeatureViewDataKey)` )`
 
 Optional. The request key to fetch feature values for.
 
-`dataFormat` ` enum ( FeatureViewDataFormat  ` )
+`dataFormat` `enum ( `[`FeatureViewDataFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/fetchFeatureValues#FeatureViewDataFormat)` )`
 
-Optional. Response data format. If not set, `  FeatureViewDataFormat.KEY_VALUE  ` will be used.
+Optional. Response data format. If not set, [`FeatureViewDataFormat.KEY_VALUE`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews/fetchFeatureValues#FeatureViewDataFormat.ENUM_VALUES.KEY_VALUE) will be used.
 
 ### Response body
 
-If successful, the response body contains an instance of `  FetchFeatureValuesResponse  ` .
+If successful, the response body contains an instance of [`FetchFeatureValuesResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/FetchFeatureValuesResponse) .
 
 ## FeatureViewDataFormat
 
 Format of the data in the feature View.
 
-Enums
-
-`FEATURE_VIEW_DATA_FORMAT_UNSPECIFIED`
-
-Not set. Will be treated as the keyvalue format.
-
-`KEY_VALUE`
-
-Return response data in key-value format.
-
-`PROTO_STRUCT`
-
-Return response data in proto Struct format.
+| Enums                                  |                                                  |
+|----------------------------------------|--------------------------------------------------|
+| `FEATURE_VIEW_DATA_FORMAT_UNSPECIFIED` | Not set. Will be treated as the keyvalue format. |
+| `KEY_VALUE`                            | Return response data in key-value format.        |
+| `PROTO_STRUCT`                         | Return response data in proto Struct format.     |

@@ -25,49 +25,57 @@ Each page assumes that you have already performed the instructions from the prev
 Throughout this tutorial, use Google Cloud console and [Cloud Shell](https://docs.cloud.google.com/shell/docs) to interact with Google Cloud. Alternatively, instead of Cloud Shell, you can use another Bash shell with the [Google Cloud CLI](https://docs.cloud.google.com/sdk/docs) installed.
 
 1.  In the Google Cloud console, activate Cloud Shell.
-    
+
     At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) session starts and displays a command-line prompt. Cloud Shell is a shell environment with the Google Cloud CLI already installed and with values already set for your current project. It can take a few seconds for the session to initialize.
 
-2.  If Cloud Shell does not display `( PROJECT_ID )$` in its prompt (where PROJECT\_ID is replaced by your Google Cloud project ID), then run the following command to configure Cloud Shell to use your project:
-    
-        gcloud config set project PROJECT_ID
+2.  If Cloud Shell does not display `( `` PROJECT_ID `` )$` in its prompt (where ` PROJECT_ID ` is replaced by your Google Cloud project ID), then run the following command to configure Cloud Shell to use your project:
+
+    ```
+    gcloud config set project PROJECT_ID
+    ```
 
 ## Create a Cloud Storage bucket
 
 Create a regional [Cloud Storage](https://docs.cloud.google.com/storage/docs) bucket in the `us-central1` region to use for the rest of this tutorial. As you follow the tutorial, use the bucket for several purposes:
 
-  - Store training code for Agent Platform to use in a custom training job.
-  - Store the model artifacts that your custom training job outputs.
-  - Host the web app that gets predictions from your Agent Platform endpoint.
+- Store training code for Agent Platform to use in a custom training job.
+- Store the model artifacts that your custom training job outputs.
+- Host the web app that gets predictions from your Agent Platform endpoint.
 
 To create the Cloud Storage bucket, run the following command in your Cloud Shell session:
 
-    gcloud storage buckets create gs://BUCKET_NAME --project=PROJECT_ID --location=us-central1
+```
+gcloud storage buckets create gs://BUCKET_NAME --project=PROJECT_ID --location=us-central1
+```
 
 Replace the following:
 
-  - PROJECT\_ID : The ID of your Google Cloud project.
-  - BUCKET\_NAME : A name that you choose for your bucket. For example, ` hello_custom_ PROJECT_ID  ` . Learn about [requirements for bucket names](https://docs.cloud.google.com/storage/docs/buckets#naming) .
+- ` PROJECT_ID ` : The ID of your Google Cloud project.
+- ` BUCKET_NAME ` : A name that you choose for your bucket. For example, `hello_custom_ `` PROJECT_ID` . Learn about [requirements for bucket names](https://docs.cloud.google.com/storage/docs/buckets#naming) .
 
 ## Download sample code
 
 Download sample code to use for the rest of the tutorial.
 
-    gcloud storage cp gs://cloud-samples-data/ai-platform/hello-custom/hello-custom-sample-v1.tar.gz - | tar -xzv
+```
+gcloud storage cp gs://cloud-samples-data/ai-platform/hello-custom/hello-custom-sample-v1.tar.gz - | tar -xzv
+```
 
 To optionally view the sample code files, run the following command:
 
-    ls -lpR hello-custom-sample
+```
+ls -lpR hello-custom-sample
+```
 
 The `hello-custom-sample` directory has four items:
 
-  - `trainer/` : A directory of TensorFlow Keras code for training the flower classification model.
+- `trainer/` : A directory of TensorFlow Keras code for training the flower classification model.
 
-  - `setup.py` : A configuration file for packaging the `trainer/` directory into a Python source distribution that Agent Platform can use.
+- `setup.py` : A configuration file for packaging the `trainer/` directory into a Python source distribution that Agent Platform can use.
 
-  - `function/` : A directory of Python code for a [Cloud Run function](https://docs.cloud.google.com/functions/docs) that can receive and preprocess prediction requests from a web browser, send them to Agent Platform, process the prediction responses, and send them back to the browser.
+- `function/` : A directory of Python code for a [Cloud Run function](https://docs.cloud.google.com/functions/docs) that can receive and preprocess prediction requests from a web browser, send them to Agent Platform, process the prediction responses, and send them back to the browser.
 
-  - `webapp/` : A directory with code and markup for a web app that gets flower classification predictions from Agent Platform.
+- `webapp/` : A directory with code and markup for a web app that gets flower classification predictions from Agent Platform.
 
 ## What's next
 

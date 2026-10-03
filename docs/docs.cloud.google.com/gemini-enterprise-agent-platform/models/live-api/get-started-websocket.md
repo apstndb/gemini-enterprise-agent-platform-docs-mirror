@@ -19,22 +19,26 @@ Complete the following steps to set up your environment.
 
 Clone the demo app repository and navigate to that directory:
 
-    git clone https://github.com/GoogleCloudPlatform/generative-ai.git &&
-    cd generative-ai/gemini/multimodal-live-api/native-audio-websocket-demo-apps/plain-js-demo-app
+```
+git clone https://github.com/GoogleCloudPlatform/generative-ai.git &&
+cd generative-ai/gemini/multimodal-live-api/native-audio-websocket-demo-apps/plain-js-demo-app
+```
 
 ### Project structure
 
 The application includes the following files:
 
-    /
-    ├── server.py            # WebSocket proxy + HTTP server
-    ├── requirements.txt     # Python dependencies
-    └── frontend/
-        ├── index.html       # UI
-        ├── geminilive.js    # Gemini API client
-        ├── mediaUtils.js    # Audio/video streaming
-        ├── tools.js         # Custom tool definitions
-        └── script.js        # App logic
+```
+/
+├── server.py            # WebSocket proxy + HTTP server
+├── requirements.txt     # Python dependencies
+└── frontend/
+    ├── index.html       # UI
+    ├── geminilive.js    # Gemini API client
+    ├── mediaUtils.js    # Audio/video streaming
+    ├── tools.js         # Custom tool definitions
+    └── script.js        # App logic
+```
 
 ## Run the backend server
 
@@ -43,24 +47,32 @@ The backend ( `server.py` ) handles the authentication and acts as a WebSocket p
 To run the backend server, run the following commands:
 
 1.  Install dependencies:
-    
-        pip3 install -r requirements.txt
+
+    ```
+    pip3 install -r requirements.txt
+    ```
 
 2.  Authenticate with Google Cloud:
-    
-        gcloud auth application-default login
+
+    ```
+    gcloud auth application-default login
+    ```
 
 3.  Start the server:
-    
-        python3 server.py
+
+    ```
+    python3 server.py
+    ```
 
 ## Open the frontend UI and connect with Gemini
 
 The frontend manages audio and video capture and playback. The `geminilive.js` file handles the WebSocket connection to the backend.
 
-    const client = new GeminiLiveAPI(proxyUrl, projectId, model);
-    client.addFunction(toolInstance); // Add custom tools
-    client.connect(accessToken); // Connect (token optional with proxy)
+```
+const client = new GeminiLiveAPI(proxyUrl, projectId, model);
+client.addFunction(toolInstance); // Add custom tools
+client.connect(accessToken); // Connect (token optional with proxy)
+```
 
 To open the frontend UI and connect with Gemini, do the following:
 
@@ -72,12 +84,12 @@ To open the frontend UI and connect with Gemini, do the following:
 
 Try to do the following:
 
-  - **Text input** : You can write a text message to Gemini by entering your message in the message field and clicking **Send** . Gemini responds to the message using audio.
-  - **Voice input** : To speak to Gemini, click **Start mic** . Gemini responds to the prompt using audio.
-  - **Video input** : To let Gemini see through your camera, click **Start camera** . You can talk to Gemini about what it sees through your camera.
+- **Text input** : You can write a text message to Gemini by entering your message in the message field and clicking **Send** . Gemini responds to the message using audio.
+- **Voice input** : To speak to Gemini, click **Start mic** . Gemini responds to the prompt using audio.
+- **Video input** : To let Gemini see through your camera, click **Start camera** . You can talk to Gemini about what it sees through your camera.
 
 ## What's next
 
-  - Learn how to [configure language and voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice) .
-  - Learn how to [configure Gemini capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities) .
-  - Learn about [Gemini Live API best practices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices) .
+- Learn how to [configure language and voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice) .
+- Learn how to [configure Gemini capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities) .
+- Learn about [Gemini Live API best practices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices) .

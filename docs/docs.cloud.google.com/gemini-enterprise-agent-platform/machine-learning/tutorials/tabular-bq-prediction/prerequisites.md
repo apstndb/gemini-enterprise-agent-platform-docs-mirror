@@ -25,7 +25,7 @@ To locate your Google Cloud project ID:
 1.  In the Google Cloud console, click the list of projects in the top menu.
 
 2.  In the dialog that appears, locate your project. If you don't see your project, you might need to choose a different [organization](https://docs.cloud.google.com/resource-manager/docs/creating-managing-organization) . Select **No organization** to view projects that aren't associated with an organization or that are associated with an organization that you don't have access to view.
-    
+
     To find a Google Cloud project that you haven't accessed recently, you might need to click **All** instead of **Recent** or **Starred** .
 
 3.  After you locate your project, make a note of its Google Cloud project ID in the **ID** column.

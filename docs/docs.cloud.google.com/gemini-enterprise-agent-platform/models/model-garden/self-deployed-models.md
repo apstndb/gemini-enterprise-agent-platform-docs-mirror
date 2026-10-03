@@ -38,16 +38,16 @@ For more information about deploying and using partner models, see [Deploy a par
 
 When using self-deployed partner models, keep the following in mind:
 
-  - **Weight Export:** Unlike with some open models, you cannot export the weights of self-deployed partner models.
-  - **Endpoint Type:** Only the [shared public endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/choose-endpoint-type) type is supported for these deployments.
+- **Weight Export:** Unlike with some open models, you cannot export the weights of self-deployed partner models.
+- **Endpoint Type:** Only the [shared public endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/choose-endpoint-type) type is supported for these deployments.
 
 > **Note:** Support for model-specific issues is provided directly by the partner. To contact a partner for model performance or other related issues, use the contact details found in the "Support" section of their Model Garden model card.
 
 ## Learn more about self-deployed models in Gemini Enterprise Agent Platform
 
-  - To learn more about custom weights, see [Deploy models with custom weights](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/deploy-models-with-custom-weights) .
-  - For more information about Model Garden, see [Overview of Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) .
-  - For more information about deploying models, see [Use models in Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/use-models) .
-  - [Use Gemma open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-gemma)
-  - [Use Llama open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-llama)
-  - [Use Hugging Face open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-hugging-face-models)
+- To learn more about custom weights, see [Deploy models with custom weights](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/deploy-models-with-custom-weights) .
+- For more information about Model Garden, see [Overview of Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) .
+- For more information about deploying models, see [Use models in Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/use-models) .
+- [Use Gemma open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-gemma)
+- [Use Llama open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-llama)
+- [Use Hugging Face open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-hugging-face-models)

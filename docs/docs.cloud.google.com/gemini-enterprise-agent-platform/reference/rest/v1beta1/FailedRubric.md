@@ -18,21 +18,11 @@ The unique id of the rubric (if available from the metric source). Clients use t
 
 The rationale provided by the Loss Analysis Classifier for why this failure maps to this specific Loss Cluster. e.g., "The agent claimed an action without a tool call, matching 'Hallucination of Action'."
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;rubricId&quot;: string,
-  &quot;classificationRationale&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "rubricId": string,
+  "classificationRationale": string
+}
+```

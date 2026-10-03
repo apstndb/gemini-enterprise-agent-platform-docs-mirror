@@ -36,7 +36,7 @@ The standard list page size.
 
 The standard list page token.
 
-`readMask` ` string ( FieldMask  ` format)
+`readMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Mask specifying which fields to read.
 
@@ -52,13 +52,13 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  DatasetService.ListDataItems  ` .
+Response message for [`DatasetService.ListDataItems`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.dataItems/list#google.cloud.aiplatform.v1.DatasetService.ListDataItems) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`dataItems[]` ` object ( DataItem  ` )
+`dataItems[]` `object ( `[`DataItem`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/DataItem)` )`
 
 A list of DataItems that matches the specified filter in the request.
 
@@ -66,18 +66,15 @@ A list of DataItems that matches the specified filter in the request.
 
 The standard List next-page token.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;dataItems&quot;: [{object (DataItem)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "dataItems": [
+    {
+      object (DataItem)
+    }
+  ],
+  "nextPageToken": string
+}
+```

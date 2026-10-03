@@ -6,29 +6,26 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Response message for `  MemoryBankService.RetrieveProfiles  ` .
+Response message for [`MemoryBankService.RetrieveProfiles`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories/retrieveProfiles#google.cloud.aiplatform.v1beta1.MemoryBankService.RetrieveProfiles) .
 
 Fields
 
-`profiles` ` map (key: string, value: object ( MemoryProfile  ` ))
+`profiles` `map (key: string, value: object ( `[`MemoryProfile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RetrieveProfilesResponse#MemoryProfile)` ))`
 
 The retrieved structured profiles, which match the schemas under the requested scope. The key is the id of the schema that the profile is linked with, which corresponds to the `schemaId` defined inside the `SchemaConfig` , under `StructuredMemoryCustomizationConfig` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;profiles&quot;: {string: {object (MemoryProfile)},...}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "profiles": {
+    string: {
+      object (MemoryProfile)
+    },
+    ...
+  }
+}
+```
 
 ## MemoryProfile
 
@@ -40,27 +37,17 @@ Fields
 
 Represents the id of the schema. This id corresponds to the `schemaId` defined inside the SchemaConfig, under StructuredMemoryCustomizationConfig.
 
-`profile` ` object ( Struct  ` format)
+`profile` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Represents the profile data.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;schemaId&quot;: string,
-  &quot;profile&quot;: {
+**JSON representation**
+
+```
+{
+  "schemaId": string,
+  "profile": {
     object
   }
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

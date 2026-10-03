@@ -10,7 +10,7 @@ Defines the schema of input and output data. This is a subset of the [OpenAPI 3.
 
 Fields
 
-`type` ` enum ( Type  ` )
+`type` `enum ( `[`Type`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Schema#Type)` )`
 
 Optional. data type of the schema field.
 
@@ -30,19 +30,19 @@ Optional. Describes the data. The model uses this field to understand the purpos
 
 Optional. Indicates if the value of this field can be null.
 
-`default` ` value ( Value  ` format)
+`default` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
 Optional. Default value to use if the field is not specified.
 
-`items` ` object ( Schema  ` )
+`items` `object ( `[`Schema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Schema)` )`
 
 Optional. If type is `ARRAY` , `items` specifies the schema of elements in the array.
 
-`minItems` `string ( int64 format)`
+`minItems` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Optional. If type is `ARRAY` , `minItems` specifies the minimum number of items in an array.
 
-`maxItems` `string ( int64 format)`
+`maxItems` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Optional. If type is `ARRAY` , `maxItems` specifies the maximum number of items in an array.
 
@@ -50,7 +50,7 @@ Optional. If type is `ARRAY` , `maxItems` specifies the maximum number of items 
 
 Optional. Possible values of the field. This field can be used to restrict a value to a fixed set of values. To mark a field as an enum, set `format` to `enum` and provide the list of possible values in `enum` . For example: 1. To define directions: `{type:STRING, format:enum, enum:["EAST", "NORTH", "SOUTH", "WEST"]}` 2. To define apartment numbers: `{type:INTEGER, format:enum, enum:["101", "201", "301"]}`
 
-`properties` ` map (key: string, value: object ( Schema  ` ))
+`properties` `map (key: string, value: object ( `[`Schema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Schema)` ))`
 
 Optional. If type is `OBJECT` , `properties` is a map of property names to schema definitions for each property of the object.
 
@@ -62,11 +62,11 @@ Optional. Order of properties displayed or used where order matters. This is not
 
 Optional. If type is `OBJECT` , `required` lists the names of properties that must be present.
 
-`minProperties` `string ( int64 format)`
+`minProperties` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Optional. If type is `OBJECT` , `minProperties` specifies the minimum number of properties that can be provided.
 
-`maxProperties` `string ( int64 format)`
+`maxProperties` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Optional. If type is `OBJECT` , `maxProperties` specifies the maximum number of properties that can be provided.
 
@@ -78,11 +78,11 @@ Optional. If type is `INTEGER` or `NUMBER` , `minimum` specifies the minimum all
 
 Optional. If type is `INTEGER` or `NUMBER` , `maximum` specifies the maximum allowed value.
 
-`minLength` `string ( int64 format)`
+`minLength` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Optional. If type is `STRING` , `minLength` specifies the minimum length of the string.
 
-`maxLength` `string ( int64 format)`
+`maxLength` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Optional. If type is `STRING` , `maxLength` specifies the maximum length of the string.
 
@@ -90,15 +90,15 @@ Optional. If type is `STRING` , `maxLength` specifies the maximum length of the 
 
 Optional. If type is `STRING` , `pattern` specifies a regular expression that the string must match.
 
-`example` ` value ( Value  ` format)
+`example` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
 Optional. Example of an instance of this schema.
 
-`anyOf[]` ` object ( Schema  ` )
+`anyOf[]` `object ( `[`Schema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Schema)` )`
 
 Optional. The instance must be valid against any (one or more) of the subschemas listed in `anyOf` .
 
-`additionalProperties` ` value ( Value  ` format)
+`additionalProperties` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
 Optional. If `type` is `OBJECT` , specifies how to handle properties not defined in `properties` . If it is a boolean `false` , no additional properties are allowed. If it is a schema, additional properties are allowed if they conform to the schema.
 
@@ -112,60 +112,75 @@ type: object properties: pet: ref: \#/defs/Pet defs: Pet: type: object propertie
 
 The value of the "pet" property is a reference to the schema node named "Pet". See details in <https://json-schema.org/understanding-json-schema/structuring>
 
-`defs` ` map (key: string, value: object ( Schema  ` ))
+`defs` `map (key: string, value: object ( `[`Schema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Schema)` ))`
 
 Optional. `defs` provides a map of schema definitions that can be reused by `ref` elsewhere in the schema. Only allowed at root level of the schema.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;type&quot;: enum (Type),&quot;format&quot;: string,&quot;title&quot;: string,&quot;description&quot;: string,&quot;nullable&quot;: boolean,&quot;default&quot;: value,&quot;items&quot;: {object (Schema)},&quot;minItems&quot;: string,&quot;maxItems&quot;: string,&quot;enum&quot;: [string],&quot;properties&quot;: {string: {object (Schema)},...},&quot;propertyOrdering&quot;: [string],&quot;required&quot;: [string],&quot;minProperties&quot;: string,&quot;maxProperties&quot;: string,&quot;minimum&quot;: number,&quot;maximum&quot;: number,&quot;minLength&quot;: string,&quot;maxLength&quot;: string,&quot;pattern&quot;: string,&quot;example&quot;: value,&quot;anyOf&quot;: [{object (Schema)}],&quot;additionalProperties&quot;: value,&quot;ref&quot;: string,&quot;defs&quot;: {string: {object (Schema)},...}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "type": enum (Type),
+  "format": string,
+  "title": string,
+  "description": string,
+  "nullable": boolean,
+  "default": value,
+  "items": {
+    object (Schema)
+  },
+  "minItems": string,
+  "maxItems": string,
+  "enum": [
+    string
+  ],
+  "properties": {
+    string: {
+      object (Schema)
+    },
+    ...
+  },
+  "propertyOrdering": [
+    string
+  ],
+  "required": [
+    string
+  ],
+  "minProperties": string,
+  "maxProperties": string,
+  "minimum": number,
+  "maximum": number,
+  "minLength": string,
+  "maxLength": string,
+  "pattern": string,
+  "example": value,
+  "anyOf": [
+    {
+      object (Schema)
+    }
+  ],
+  "additionalProperties": value,
+  "ref": string,
+  "defs": {
+    string: {
+      object (Schema)
+    },
+    ...
+  }
+}
+```
 
 ## Type
 
 type contains the list of OpenAPI data types as defined by <https://swagger.io/docs/specification/data-models/data-types/>
 
-Enums
-
-`TYPE_UNSPECIFIED`
-
-Not specified, should not be used.
-
-`STRING`
-
-OpenAPI string type
-
-`NUMBER`
-
-OpenAPI number type
-
-`INTEGER`
-
-OpenAPI integer type
-
-`BOOLEAN`
-
-OpenAPI boolean type
-
-`ARRAY`
-
-OpenAPI array type
-
-`OBJECT`
-
-OpenAPI object type
-
-`NULL`
-
-Null type
+| Enums              |                                    |
+|--------------------|------------------------------------|
+| `TYPE_UNSPECIFIED` | Not specified, should not be used. |
+| `STRING`           | OpenAPI string type                |
+| `NUMBER`           | OpenAPI number type                |
+| `INTEGER`          | OpenAPI integer type               |
+| `BOOLEAN`          | OpenAPI boolean type               |
+| `ARRAY`            | OpenAPI array type                 |
+| `OBJECT`           | OpenAPI object type                |
+| `NULL`             | Null type                          |

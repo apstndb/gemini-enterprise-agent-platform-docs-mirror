@@ -6,29 +6,25 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Response message for `  MigrationService.BatchMigrateResources  ` .
+Response message for [`MigrationService.BatchMigrateResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.migratableResources/batchMigrate#google.cloud.aiplatform.v1beta1.MigrationService.BatchMigrateResources) .
 
 Fields
 
-`migrateResourceResponses[]` ` object ( MigrateResourceResponse  ` )
+`migrateResourceResponses[]` `object ( `[`MigrateResourceResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/BatchMigrateResourcesResponse#MigrateResourceResponse)` )`
 
 Successfully migrated resources.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;migrateResourceResponses&quot;: [{object (MigrateResourceResponse)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "migrateResourceResponses": [
+    {
+      object (MigrateResourceResponse)
+    }
+  ]
+}
+```
 
 ## MigrateResourceResponse
 
@@ -36,7 +32,7 @@ Describes a successfully migrated resource.
 
 Fields
 
-`migratableResource` ` object ( MigratableResource  ` )
+`migratableResource` `object ( `[`MigratableResource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.migratableResources/search#MigratableResource)` )`
 
 Before migration, the identifier in ml.googleapis.com, automl.googleapis.com or datalabeling.googleapis.com.
 
@@ -54,18 +50,17 @@ Migrated Model's resource name.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;migratableResource&quot;: {object (MigratableResource)},// migrated_resource&quot;dataset&quot;: string,&quot;model&quot;: string// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "migratableResource": {
+    object (MigratableResource)
+  },
+
+  // migrated_resource
+  "dataset": string,
+  "model": string
+  // Union type
+}
+```

@@ -20,15 +20,15 @@ Output only. Identifier. The resource name of the PublisherModel.
 
 Output only. Immutable. The version id of the PublisherModel. A new version is committed when a new model version is uploaded under an existing model id. It is an auto-incrementing decimal number in string representation.
 
-`openSourceCategory` ` enum ( OpenSourceCategory  ` )
+`openSourceCategory` `enum ( `[`OpenSourceCategory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#OpenSourceCategory)` )`
 
 Required. Indicates the open source category of the publisher model.
 
-`parent` ` object ( Parent  ` )
+`parent` `object ( `[`Parent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#Parent)` )`
 
 Optional. The parent that this model was customized from. E.g., Vision API, Natural Language API, LaMDA, T5, etc. Foundation models don't have parents.
 
-`supportedActions` ` object ( CallToAction  ` )
+`supportedActions` `object ( `[`CallToAction`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#CallToAction)` )`
 
 Optional. Supported call-to-action options.
 
@@ -36,11 +36,11 @@ Optional. Supported call-to-action options.
 
 Optional. Additional information about the model's Frameworks.
 
-`launchStage` ` enum ( LaunchStage  ` )
+`launchStage` `enum ( `[`LaunchStage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#LaunchStage)` )`
 
 Optional. Indicates the launch stage of the model.
 
-`versionState` ` enum ( VersionState  ` )
+`versionState` `enum ( `[`VersionState`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#VersionState)` )`
 
 Optional. Indicates the state of the model version.
 
@@ -48,55 +48,47 @@ Optional. Indicates the state of the model version.
 
 Optional. Output only. Immutable. Used to indicate this model has a publisher model and provide the template of the publisher model resource name.
 
-`predictSchemata` ` object ( PredictSchemata  ` )
+`predictSchemata` `object ( `[`PredictSchemata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/PredictSchemata)` )`
 
-Optional. The schemata that describes formats of the PublisherModel's predictions and explanations as given and returned via `  PredictionService.Predict  ` .
+Optional. The schemata that describes formats of the PublisherModel's predictions and explanations as given and returned via [`PredictionService.Predict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/predict#google.cloud.aiplatform.v1beta1.PredictionService.Predict) .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;versionId&quot;: string,&quot;openSourceCategory&quot;: enum (OpenSourceCategory),&quot;parent&quot;: {object (Parent)},&quot;supportedActions&quot;: {object (CallToAction)},&quot;frameworks&quot;: [string],&quot;launchStage&quot;: enum (LaunchStage),&quot;versionState&quot;: enum (VersionState),&quot;publisherModelTemplate&quot;: string,&quot;predictSchemata&quot;: {object (PredictSchemata)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "versionId": string,
+  "openSourceCategory": enum (OpenSourceCategory),
+  "parent": {
+    object (Parent)
+  },
+  "supportedActions": {
+    object (CallToAction)
+  },
+  "frameworks": [
+    string
+  ],
+  "launchStage": enum (LaunchStage),
+  "versionState": enum (VersionState),
+  "publisherModelTemplate": string,
+  "predictSchemata": {
+    object (PredictSchemata)
+  }
+}
+```
 
 ## OpenSourceCategory
 
 An enum representing the open source category of a PublisherModel.
 
-Enums
-
-`OPEN_SOURCE_CATEGORY_UNSPECIFIED`
-
-The open source category is unspecified, which should not be used.
-
-`PROPRIETARY`
-
-Used to indicate the PublisherModel is not open sourced.
-
-`GOOGLE_OWNED_OSS_WITH_GOOGLE_CHECKPOINT`
-
-Used to indicate the PublisherModel is a Google-owned open source model w/ Google checkpoint.
-
-`THIRD_PARTY_OWNED_OSS_WITH_GOOGLE_CHECKPOINT`
-
-Used to indicate the PublisherModel is a 3p-owned open source model w/ Google checkpoint.
-
-`GOOGLE_OWNED_OSS`
-
-Used to indicate the PublisherModel is a Google-owned pure open source model.
-
-`THIRD_PARTY_OWNED_OSS`
-
-Used to indicate the PublisherModel is a 3p-owned pure open source model.
+| Enums                                          |                                                                                               |
+|------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| `OPEN_SOURCE_CATEGORY_UNSPECIFIED`             | The open source category is unspecified, which should not be used.                            |
+| `PROPRIETARY`                                  | Used to indicate the PublisherModel is not open sourced.                                      |
+| `GOOGLE_OWNED_OSS_WITH_GOOGLE_CHECKPOINT`      | Used to indicate the PublisherModel is a Google-owned open source model w/ Google checkpoint. |
+| `THIRD_PARTY_OWNED_OSS_WITH_GOOGLE_CHECKPOINT` | Used to indicate the PublisherModel is a 3p-owned open source model w/ Google checkpoint.     |
+| `GOOGLE_OWNED_OSS`                             | Used to indicate the PublisherModel is a Google-owned pure open source model.                 |
+| `THIRD_PARTY_OWNED_OSS`                        | Used to indicate the PublisherModel is a 3p-owned pure open source model.                     |
 
 ## Parent
 
@@ -108,25 +100,20 @@ Fields
 
 Required. The display name of the parent. E.g., LaMDA, T5, Vision API, Natural Language API.
 
-`reference` ` object ( ResourceReference  ` )
+`reference` `object ( `[`ResourceReference`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#ResourceReference)` )`
 
 Optional. The Google Cloud resource name or the URI reference.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;displayName&quot;: string,&quot;reference&quot;: {object (ResourceReference)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "displayName": string,
+  "reference": {
+    object (ResourceReference)
+  }
+}
+```
 
 ## ResourceReference
 
@@ -146,43 +133,33 @@ The URI of the resource.
 
 The resource name of the Google Cloud resource.
 
-` useCase (deprecated)  ` `string`
+`useCase `**`(deprecated)`** `string`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Use case (CUJ) of the resource.
 
-` description (deprecated)  ` `string`
+`description `**`(deprecated)`** `string`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 description of the resource.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+**JSON representation**
+
+```
+{
 
   // reference
-  &quot;uri&quot;: string,
-  &quot;resourceName&quot;: string,
-  &quot;useCase&quot;: string,
-  &quot;description&quot;: string
+  "uri": string,
+  "resourceName": string,
+  "useCase": string,
+  "description": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## CallToAction
 
@@ -190,77 +167,110 @@ Actions could take on this Publisher Model.
 
 Fields
 
-`viewRestApi` ` object ( ViewRestApi  ` )
+`viewRestApi` `object ( `[`ViewRestApi`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#ViewRestApi)` )`
 
 Optional. To view Rest API docs.
 
-`openNotebook` ` object ( RegionalResourceReferences  ` )
+`openNotebook` `object ( `[`RegionalResourceReferences`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#RegionalResourceReferences)` )`
 
 Optional. Open notebook of the PublisherModel.
 
-`createApplication` ` object ( RegionalResourceReferences  ` )
+`createApplication` `object ( `[`RegionalResourceReferences`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#RegionalResourceReferences)` )`
 
 Optional. Create application using the PublisherModel.
 
-`openFineTuningPipeline` ` object ( RegionalResourceReferences  ` )
+`openFineTuningPipeline` `object ( `[`RegionalResourceReferences`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#RegionalResourceReferences)` )`
 
 Optional. Open fine-tuning pipeline of the PublisherModel.
 
-`openPromptTuningPipeline` ` object ( RegionalResourceReferences  ` )
+`openPromptTuningPipeline` `object ( `[`RegionalResourceReferences`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#RegionalResourceReferences)` )`
 
 Optional. Open prompt-tuning pipeline of the PublisherModel.
 
-`openGenie` ` object ( RegionalResourceReferences  ` )
+`openGenie` `object ( `[`RegionalResourceReferences`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#RegionalResourceReferences)` )`
 
 Optional. Open Genie / Playground.
 
-`deploy` ` object ( Deploy  ` )
+`deploy` `object ( `[`Deploy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#Deploy)` )`
 
 Optional. Deploy the PublisherModel to Vertex Endpoint.
 
-`multiDeployVertex` ` object ( DeployVertex  ` )
+`multiDeployVertex` `object ( `[`DeployVertex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#DeployVertex)` )`
 
 Optional. Multiple setups to deploy the PublisherModel to Vertex Endpoint.
 
-`deployGke` ` object ( DeployGke  ` )
+`deployGke` `object ( `[`DeployGke`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#DeployGke)` )`
 
 Optional. Deploy PublisherModel to Google Kubernetes Engine.
 
-`openGenerationAiStudio` ` object ( RegionalResourceReferences  ` )
+`openGenerationAiStudio` `object ( `[`RegionalResourceReferences`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#RegionalResourceReferences)` )`
 
 Optional. Open in Generation AI Studio.
 
-`requestAccess` ` object ( RegionalResourceReferences  ` )
+`requestAccess` `object ( `[`RegionalResourceReferences`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#RegionalResourceReferences)` )`
 
 Optional. Request for access.
 
-`openEvaluationPipeline` ` object ( RegionalResourceReferences  ` )
+`openEvaluationPipeline` `object ( `[`RegionalResourceReferences`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#RegionalResourceReferences)` )`
 
 Optional. Open evaluation pipeline of the PublisherModel.
 
-`openNotebooks` ` object ( OpenNotebooks  ` )
+`openNotebooks` `object ( `[`OpenNotebooks`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#OpenNotebooks)` )`
 
 Optional. Open notebooks of the PublisherModel.
 
-`openFineTuningPipelines` ` object ( OpenFineTuningPipelines  ` )
+`openFineTuningPipelines` `object ( `[`OpenFineTuningPipelines`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#OpenFineTuningPipelines)` )`
 
 Optional. Open fine-tuning pipelines of the PublisherModel.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;viewRestApi&quot;: {object (ViewRestApi)},&quot;openNotebook&quot;: {object (RegionalResourceReferences)},&quot;createApplication&quot;: {object (RegionalResourceReferences)},&quot;openFineTuningPipeline&quot;: {object (RegionalResourceReferences)},&quot;openPromptTuningPipeline&quot;: {object (RegionalResourceReferences)},&quot;openGenie&quot;: {object (RegionalResourceReferences)},&quot;deploy&quot;: {object (Deploy)},&quot;multiDeployVertex&quot;: {object (DeployVertex)},&quot;deployGke&quot;: {object (DeployGke)},&quot;openGenerationAiStudio&quot;: {object (RegionalResourceReferences)},&quot;requestAccess&quot;: {object (RegionalResourceReferences)},&quot;openEvaluationPipeline&quot;: {object (RegionalResourceReferences)},&quot;openNotebooks&quot;: {object (OpenNotebooks)},&quot;openFineTuningPipelines&quot;: {object (OpenFineTuningPipelines)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "viewRestApi": {
+    object (ViewRestApi)
+  },
+  "openNotebook": {
+    object (RegionalResourceReferences)
+  },
+  "createApplication": {
+    object (RegionalResourceReferences)
+  },
+  "openFineTuningPipeline": {
+    object (RegionalResourceReferences)
+  },
+  "openPromptTuningPipeline": {
+    object (RegionalResourceReferences)
+  },
+  "openGenie": {
+    object (RegionalResourceReferences)
+  },
+  "deploy": {
+    object (Deploy)
+  },
+  "multiDeployVertex": {
+    object (DeployVertex)
+  },
+  "deployGke": {
+    object (DeployGke)
+  },
+  "openGenerationAiStudio": {
+    object (RegionalResourceReferences)
+  },
+  "requestAccess": {
+    object (RegionalResourceReferences)
+  },
+  "openEvaluationPipeline": {
+    object (RegionalResourceReferences)
+  },
+  "openNotebooks": {
+    object (OpenNotebooks)
+  },
+  "openFineTuningPipelines": {
+    object (OpenFineTuningPipelines)
+  }
+}
+```
 
 ## ViewRestApi
 
@@ -268,7 +278,7 @@ Rest API docs.
 
 Fields
 
-`documentations[]` ` object ( Documentation  ` )
+`documentations[]` `object ( `[`Documentation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#Documentation)` )`
 
 Required.
 
@@ -276,21 +286,18 @@ Required.
 
 Required. The title of the view rest API.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;documentations&quot;: [{object (Documentation)}],&quot;title&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "documentations": [
+    {
+      object (Documentation)
+    }
+  ],
+  "title": string
+}
+```
 
 ## Documentation
 
@@ -306,24 +313,14 @@ Required. E.g., OVERVIEW, USE CASES, DOCUMENTATION, SDK & SAMPLES, JAVA, NODE.JS
 
 Required. Content of this piece of document (in Markdown format).
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;title&quot;: string,
-  &quot;content&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "title": string,
+  "content": string
+}
+```
 
 ## RegionalResourceReferences
 
@@ -331,7 +328,7 @@ The regional resource name or the URI. Key is region, e.g., us-central1, europe-
 
 Fields
 
-`references` ` map (key: string, value: object ( ResourceReference  ` ))
+`references` `map (key: string, value: object ( `[`ResourceReference`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#ResourceReference)` ))`
 
 Required.
 
@@ -351,21 +348,22 @@ Optional. Use case (CUJ) of the resource.
 
 Optional. description of the resource.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;references&quot;: {string: {object (ResourceReference)},...},&quot;title&quot;: string,&quot;resourceTitle&quot;: string,&quot;resourceUseCase&quot;: string,&quot;resourceDescription&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "references": {
+    string: {
+      object (ResourceReference)
+    },
+    ...
+  },
+  "title": string,
+  "resourceTitle": string,
+  "resourceUseCase": string,
+  "resourceDescription": string
+}
+```
 
 ## OpenNotebooks
 
@@ -373,25 +371,21 @@ Open notebooks.
 
 Fields
 
-`notebooks[]` ` object ( RegionalResourceReferences  ` )
+`notebooks[]` `object ( `[`RegionalResourceReferences`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#RegionalResourceReferences)` )`
 
 Required. Regional resource references to notebooks.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;notebooks&quot;: [{object (RegionalResourceReferences)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "notebooks": [
+    {
+      object (RegionalResourceReferences)
+    }
+  ]
+}
+```
 
 ## OpenFineTuningPipelines
 
@@ -399,25 +393,21 @@ Open fine tuning pipelines.
 
 Fields
 
-`fineTuningPipelines[]` ` object ( RegionalResourceReferences  ` )
+`fineTuningPipelines[]` `object ( `[`RegionalResourceReferences`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#RegionalResourceReferences)` )`
 
 Required. Regional resource references to fine tuning pipelines.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;fineTuningPipelines&quot;: [{object (RegionalResourceReferences)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "fineTuningPipelines": [
+    {
+      object (RegionalResourceReferences)
+    }
+  ]
+}
+```
 
 ## Deploy
 
@@ -429,11 +419,11 @@ Fields
 
 Optional. Default model display name.
 
-`largeModelReference` ` object ( LargeModelReference  ` )
+`largeModelReference` `object ( `[`LargeModelReference`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#LargeModelReference)` )`
 
 Optional. Large model reference. When this is set, modelArtifactSpec is not needed.
 
-`containerSpec` ` object ( ModelContainerSpec  ` )
+`containerSpec` `object ( `[`ModelContainerSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelContainerSpec)` )`
 
 Optional. The specification of the container that is to be used when deploying this Model in Agent Platform. Not present for Large Models.
 
@@ -453,11 +443,11 @@ Optional. The signed URI for ephemeral Cloud Storage access to model artifact.
 
 The prediction (for example, the machine) resources that the DeployedModel uses. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`dedicatedResources` ` object ( DedicatedResources  ` )
+`dedicatedResources` `object ( `[`DedicatedResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources)` )`
 
 A description of resources that are dedicated to the DeployedModel, and that need a higher degree of manual configuration.
 
-`automaticResources` ` object ( AutomaticResources  ` )
+`automaticResources` `object ( `[`AutomaticResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/AutomaticResources)` )`
 
 A description of resources that to large degree are decided by Agent Platform, and require only a modest additional configuration.
 
@@ -471,25 +461,40 @@ End of mutually exclusive fields.
 
 Optional. The name of the deploy task (e.g., "text to image generation").
 
-`deployMetadata` ` object ( DeployMetadata  ` )
+`deployMetadata` `object ( `[`DeployMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#DeployMetadata)` )`
 
 Optional. metadata information about this deployment config.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;modelDisplayName&quot;: string,&quot;largeModelReference&quot;: {object (LargeModelReference)},&quot;containerSpec&quot;: {object (ModelContainerSpec)},&quot;artifactUri&quot;: string,&quot;title&quot;: string,&quot;publicArtifactUri&quot;: string,// prediction_resources&quot;dedicatedResources&quot;: {object (DedicatedResources)},&quot;automaticResources&quot;: {object (AutomaticResources)},&quot;sharedResources&quot;: string// Union type&quot;deployTaskName&quot;: string,&quot;deployMetadata&quot;: {object (DeployMetadata)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "modelDisplayName": string,
+  "largeModelReference": {
+    object (LargeModelReference)
+  },
+  "containerSpec": {
+    object (ModelContainerSpec)
+  },
+  "artifactUri": string,
+  "title": string,
+  "publicArtifactUri": string,
+
+  // prediction_resources
+  "dedicatedResources": {
+    object (DedicatedResources)
+  },
+  "automaticResources": {
+    object (AutomaticResources)
+  },
+  "sharedResources": string
+  // Union type
+  "deployTaskName": string,
+  "deployMetadata": {
+    object (DeployMetadata)
+  }
+}
+```
 
 ## LargeModelReference
 
@@ -501,23 +506,13 @@ Fields
 
 Required. The unique name of the large Foundation or pre-built model. Like "chat-bison", "text-bison". Or model name with version id, like "chat-bison@001", "text-bison@005", etc.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;name&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string
+}
+```
 
 ## DeployMetadata
 
@@ -533,27 +528,17 @@ Optional. Labels for the deployment config. For managing deployment config like 
 
 Optional. Sample request for deployed endpoint.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;labels&quot;: {
+**JSON representation**
+
+```
+{
+  "labels": {
     string: string,
     ...
   },
-  &quot;sampleRequest&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+  "sampleRequest": string
+}
+```
 
 ## DeployVertex
 
@@ -561,25 +546,21 @@ Multiple setups to deploy the PublisherModel.
 
 Fields
 
-`multiDeployVertex[]` ` object ( Deploy  ` )
+`multiDeployVertex[]` `object ( `[`Deploy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models#Deploy)` )`
 
 Optional. One click deployment configurations.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;multiDeployVertex&quot;: [{object (Deploy)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "multiDeployVertex": [
+    {
+      object (Deploy)
+    }
+  ]
+}
+```
 
 ## DeployGke
 
@@ -591,76 +572,39 @@ Fields
 
 Optional. GKE deployment configuration in yaml format.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;gkeYamlConfigs&quot;: [
+**JSON representation**
+
+```
+{
+  "gkeYamlConfigs": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## LaunchStage
 
 An enum representing the launch stage of a PublisherModel.
 
-Enums
-
-`LAUNCH_STAGE_UNSPECIFIED`
-
-The model launch stage is unspecified.
-
-`EXPERIMENTAL`
-
-Used to indicate the PublisherModel is at Experimental launch stage, available to a small set of customers.
-
-`PRIVATE_PREVIEW`
-
-Used to indicate the PublisherModel is at Private Preview launch stage, only available to a small set of customers, although a larger set of customers than an Experimental launch. Previews are the first launch stage used to get feedback from customers.
-
-`PUBLIC_PREVIEW`
-
-Used to indicate the PublisherModel is at Public Preview launch stage, available to all customers, although not supported for production workloads.
-
-`GA`
-
-Used to indicate the PublisherModel is at GA launch stage, available to all customers and ready for production workload.
+| Enums                      |                                                                                                                                                                                                                                                              |
+|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `LAUNCH_STAGE_UNSPECIFIED` | The model launch stage is unspecified.                                                                                                                                                                                                                       |
+| `EXPERIMENTAL`             | Used to indicate the PublisherModel is at Experimental launch stage, available to a small set of customers.                                                                                                                                                  |
+| `PRIVATE_PREVIEW`          | Used to indicate the PublisherModel is at Private Preview launch stage, only available to a small set of customers, although a larger set of customers than an Experimental launch. Previews are the first launch stage used to get feedback from customers. |
+| `PUBLIC_PREVIEW`           | Used to indicate the PublisherModel is at Public Preview launch stage, available to all customers, although not supported for production workloads.                                                                                                          |
+| `GA`                       | Used to indicate the PublisherModel is at GA launch stage, available to all customers and ready for production workload.                                                                                                                                     |
 
 ## VersionState
 
 An enum representing the state of the PublicModelVersion.
 
-Enums
+| Enums                       |                                           |
+|-----------------------------|-------------------------------------------|
+| `VERSION_STATE_UNSPECIFIED` | The version state is unspecified.         |
+| `VERSION_STATE_STABLE`      | Used to indicate the version is stable.   |
+| `VERSION_STATE_UNSTABLE`    | Used to indicate the version is unstable. |
 
-`VERSION_STATE_UNSPECIFIED`
-
-The version state is unspecified.
-
-`VERSION_STATE_STABLE`
-
-Used to indicate the version is stable.
-
-`VERSION_STATE_UNSTABLE`
-
-Used to indicate the version is unstable.
-
-## Methods
-
-### `            get           `
-
-Gets a Model Garden publisher model.
-
-### `            list           `
-
-Lists publisher models in Model Garden.
+| Methods                                                                                                                |                                         |
+|------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models/get)   | Gets a Model Garden publisher model.    |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models/list) | Lists publisher models in Model Garden. |

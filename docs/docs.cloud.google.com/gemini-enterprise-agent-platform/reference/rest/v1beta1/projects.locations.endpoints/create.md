@@ -36,8 +36,8 @@ When using HTTP/JSON, this field is populated based on a query string argument, 
 
 ### Request body
 
-The request body contains an instance of `  Endpoint  ` .
+The request body contains an instance of [`Endpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  Operation  ` .
+If successful, the response body contains a newly created instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

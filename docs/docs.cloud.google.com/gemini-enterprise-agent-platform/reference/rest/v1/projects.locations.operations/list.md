@@ -38,7 +38,7 @@ The standard list page token.
 
 `returnPartialSuccess` `boolean`
 
-When set to `true` , operations that are reachable are returned as normal, and those that are unreachable are returned in the `  ListOperationsResponse.unreachable  ` field.
+When set to `true` , operations that are reachable are returned as normal, and those that are unreachable are returned in the [`ListOperationsResponse.unreachable`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#FIELDS.unreachable) field.
 
 This can only be `true` when reading across collections. For example, when `parent` is set to `"projects/example/locations/-"` .
 
@@ -50,4 +50,4 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  ListOperationsResponse  ` .
+If successful, the response body contains an instance of [`ListOperationsResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse) .

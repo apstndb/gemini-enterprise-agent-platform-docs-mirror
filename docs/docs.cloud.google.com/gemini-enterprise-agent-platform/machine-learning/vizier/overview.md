@@ -10,9 +10,9 @@ Agent Platform Vizier is a tool for optimizing any system with configurable para
 
 *Black-box optimization* is the optimization of a system that meets either of the following criteria:
 
-  - Doesn't have a known [objective function](https://developers.google.com/machine-learning/glossary#objective-function) to evaluate.
+- Doesn't have a known [objective function](https://developers.google.com/machine-learning/glossary#objective-function) to evaluate.
 
-  - Is too costly to evaluate by using the objective function, usually due to the complexity of the system.
+- Is too costly to evaluate by using the objective function, usually due to the complexity of the system.
 
 ## Additional Agent Platform Vizier functionality
 
@@ -54,11 +54,11 @@ If you don't specify an algorithm, Agent Platform Vizier uses the default algori
 
 The following values are available:
 
-  - `ALGORITHM_UNSPECIFIED` : Same as not specifying an algorithm. Agent Platform chooses the best search algorithm between Gaussian process bandits, linear combination search, or their variants.
+- `ALGORITHM_UNSPECIFIED` : Same as not specifying an algorithm. Agent Platform chooses the best search algorithm between Gaussian process bandits, linear combination search, or their variants.
 
-  - `GRID_SEARCH` : A grid search within the feasible space. This option is useful if you want to specify a quantity of trials that is greater than the number of points in the feasible space. In such cases, if you don't specify a grid search, the default algorithm can generate duplicate suggestions. To use grid search, all parameters must be of type `INTEGER` , `CATEGORICAL` , or `DISCRETE` .
+- `GRID_SEARCH` : A grid search within the feasible space. This option is useful if you want to specify a quantity of trials that is greater than the number of points in the feasible space. In such cases, if you don't specify a grid search, the default algorithm can generate duplicate suggestions. To use grid search, all parameters must be of type `INTEGER` , `CATEGORICAL` , or `DISCRETE` .
 
-  - `RANDOM_SEARCH` : A random search within the feasible space.
+- `RANDOM_SEARCH` : A random search within the feasible space.
 
 ## How Agent Platform Vizier differs from custom training
 
@@ -68,14 +68,14 @@ Agent Platform Vizier is an independent service for optimizing complex models wi
 
 In the following scenarios, Agent Platform Vizier helps tune hyperparameters to optimize a model or tune parameters to optimize an outcome:
 
-  - Optimize the learning rate, batch size, and other hyperparameters of a neural network recommendation engine.
+- Optimize the learning rate, batch size, and other hyperparameters of a neural network recommendation engine.
 
-  - Optimize usability of an application by testing different arrangements of user interface elements.
+- Optimize usability of an application by testing different arrangements of user interface elements.
 
-  - Minimize computing resources for a job by identifying an ideal buffer size and thread count.
+- Minimize computing resources for a job by identifying an ideal buffer size and thread count.
 
-  - Optimize the amounts of ingredients in a recipe to produce the most delicious version.
+- Optimize the amounts of ingredients in a recipe to produce the most delicious version.
 
 ## What's next
 
-  - To learn more about how Agent Platform Vizier tunes multi-objective functions, see [Random Hypervolume Scalarizations for Provable Multi-Objective Black Box Optimization](https://arxiv.org/abs/2006.04655) .
+- To learn more about how Agent Platform Vizier tunes multi-objective functions, see [Random Hypervolume Scalarizations for Provable Multi-Objective Black Box Optimization](https://arxiv.org/abs/2006.04655) .

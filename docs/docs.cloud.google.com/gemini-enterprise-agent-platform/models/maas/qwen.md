@@ -48,4 +48,4 @@ For more information about deploying and using partner models, see [Deploy a par
 
 ## What's next
 
-  - Learn how to [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .
+- Learn how to [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .

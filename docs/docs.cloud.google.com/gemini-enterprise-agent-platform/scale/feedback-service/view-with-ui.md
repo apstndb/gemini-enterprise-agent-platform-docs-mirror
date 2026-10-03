@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 This page describes how to view received end-user feedback in the Google Cloud console.
@@ -16,8 +16,8 @@ This page describes how to view received end-user feedback in the Google Cloud c
 
 To view feedback entries in the Google Cloud console, make sure of the following:
 
-  - Your Agent Runtime instance has [tracing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/tracing) enabled.
-  - Your agent is configured to use OpenTelemetry (OTel) to generate trace spans and handle trace context propagation. The console UI maps feedback entries to traces using the OpenTelemetry-generated span attribute `gcp.vertex.agent.event_id` .
+- Your Agent Runtime instance has [tracing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/tracing) enabled.
+- Your agent is configured to use OpenTelemetry (OTel) to generate trace spans and handle trace context propagation. The console UI maps feedback entries to traces using the OpenTelemetry-generated span attribute `gcp.vertex.agent.event_id` .
 
 ## View feedback
 
@@ -30,28 +30,28 @@ To view feedback entries for your agent:
 2.  In the left navigation menu, select **Deployments** .
 
 3.  Select your agent.
-    
+
     Agent Engine instances that are part of the selected project appear in the list. You can use the **Filter** field to filter the list by your specified column.
 
 4.  Click the name of your Agent Engine instance.
 
 5.  Click the **Traces** tab. Use the **Sessions view** or **Traces view** to find traces with feedback:
-    
-      - **Sessions view** :
-        1.  Filter the sessions list by the **Feedback** column.
-        2.  Click the session you want to view to display its list of traces.
-        3.  Select a trace ID that displays a feedback icon badge.
-      - **Traces view** :
-        1.  Click the **Traces view** tab.
-        2.  Filter the traces list by the **Feedback** column.
-        3.  Select a trace ID that displays a feedback icon badge.
+
+    - **Sessions view** :
+      1.  Filter the sessions list by the **Feedback** column.
+      2.  Click the session you want to view to display its list of traces.
+      3.  Select a trace ID that displays a feedback icon badge.
+    - **Traces view** :
+      1.  Click the **Traces view** tab.
+      2.  Filter the traces list by the **Feedback** column.
+      3.  Select a trace ID that displays a feedback icon badge.
 
 6.  In the trace details pane, click the **Feedback** tab to view the feedback details, such as the feedback type, comments, labels, ID, and creation time.
 
 ### UI limitations
 
-  - **Event ID requirements** : The UI only supports tracking and mapping feedback entries that use the OpenTelemetry-generated UUID ( `gcp.vertex.agent.event_id` ) fetched from the trace spans.
-  - **Duplicate submissions** : If multiple feedback entries are submitted with the same `session_id` and `event_id` combination, the console UI only displays the last received feedback entry.
+- **Event ID requirements** : The UI only supports tracking and mapping feedback entries that use the OpenTelemetry-generated UUID ( `gcp.vertex.agent.event_id` ) fetched from the trace spans.
+- **Duplicate submissions** : If multiple feedback entries are submitted with the same `session_id` and `event_id` combination, the console UI only displays the last received feedback entry.
 
 ## Cloud Trace integration
 
@@ -62,7 +62,7 @@ Because traces are immutable, deleting or updating a feedback entry does not aff
 Each feedback telemetry trace contains a span named `gcp.vertex.agent.feedback` with the following resource and span attributes:
 
 | Attribute                              | Attribute type | Description                                                                     |
-| -------------------------------------- | -------------- | ------------------------------------------------------------------------------- |
+|----------------------------------------|----------------|---------------------------------------------------------------------------------|
 | `gcp.project_id`                       | Resource       | Project ID of a Google Cloud console project.                                   |
 | `cloud.resource.id`                    | Resource       | ID of the reasoning engine instance.                                            |
 | `gcp.vertex.agent.feedback.type`       | Span           | Feedback type ( `THUMBS_UP` , `THUMBS_DOWN` , or `FEEDBACK_TYPE_UNSPECIFIED` ). |
@@ -73,5 +73,5 @@ Each feedback telemetry trace contains a span named `gcp.vertex.agent.feedback` 
 
 ## What's next
 
-  - [Manage feedback with Python SDK or REST API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/feedback-service/manage-with-sdk-or-api)
-  - [Set up tracing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/tracing)
+- [Manage feedback with Python SDK or REST API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/feedback-service/manage-with-sdk-or-api)
+- [Set up tracing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/tracing)

@@ -26,11 +26,11 @@ Required. The raw YAML string representation of the MetadataSchema. The combinat
 
 The schema is defined as an OpenAPI 3.0.2 [MetadataSchema Object](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#schemaObject)
 
-`schemaType` ` enum ( MetadataSchemaType  ` )
+`schemaType` `enum ( `[`MetadataSchemaType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.metadataSchemas#MetadataSchemaType)` )`
 
 The type of the MetadataSchema. This is a property that identifies which metadata types will use the MetadataSchema.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this MetadataSchema was created.
 
@@ -40,54 +40,32 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 description of the metadata Schema
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;schemaVersion&quot;: string,&quot;schema&quot;: string,&quot;schemaType&quot;: enum (MetadataSchemaType),&quot;createTime&quot;: string,&quot;description&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "schemaVersion": string,
+  "schema": string,
+  "schemaType": enum (MetadataSchemaType),
+  "createTime": string,
+  "description": string
+}
+```
 
 ## MetadataSchemaType
 
 Describes the type of the MetadataSchema.
 
-Enums
+| Enums                              |                                                                        |
+|------------------------------------|------------------------------------------------------------------------|
+| `METADATA_SCHEMA_TYPE_UNSPECIFIED` | Unspecified type for the MetadataSchema.                               |
+| `ARTIFACT_TYPE`                    | A type indicating that the MetadataSchema will be used by Artifacts.   |
+| `EXECUTION_TYPE`                   | A typee indicating that the MetadataSchema will be used by Executions. |
+| `CONTEXT_TYPE`                     | A state indicating that the MetadataSchema will be used by Contexts.   |
 
-`METADATA_SCHEMA_TYPE_UNSPECIFIED`
-
-Unspecified type for the MetadataSchema.
-
-`ARTIFACT_TYPE`
-
-A type indicating that the MetadataSchema will be used by Artifacts.
-
-`EXECUTION_TYPE`
-
-A typee indicating that the MetadataSchema will be used by Executions.
-
-`CONTEXT_TYPE`
-
-A state indicating that the MetadataSchema will be used by Contexts.
-
-## Methods
-
-### `            create           `
-
-Creates a MetadataSchema.
-
-### `            get           `
-
-Retrieves a specific MetadataSchema.
-
-### `            list           `
-
-Lists MetadataSchemas.
+| Methods                                                                                                                                               |                                      |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.metadataSchemas/create) | Creates a MetadataSchema.            |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.metadataSchemas/get)       | Retrieves a specific MetadataSchema. |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.metadataSchemas/list)     | Lists MetadataSchemas.               |

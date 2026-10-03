@@ -12,12 +12,12 @@ This page shows you how to start a conversation session with Gemini models using
 
 This page also shows you how to do the following:
 
-  - Extend a session beyond the default time limit
-  - Resume a previous session
-  - Update system instructions during a session
-  - Configure the context window of a session
-  - Enable transcription for a session
-  - Encrypt session data with a customer-managed encryption key (CMEK)
+- Extend a session beyond the default time limit
+- Resume a previous session
+- Update system instructions during a session
+- Configure the context window of a session
+- Enable transcription for a session
+- Encrypt session data with a customer-managed encryption key (CMEK)
 
 ## Session lifetime
 
@@ -38,20 +38,19 @@ The following tabs show how to start a live conversation session using Vertex AI
 1.  Open [**Vertex AI Studio \> Stream realtime**](https://console.cloud.google.com/agent-platform/studio/multimodal-live) .
 2.  Click **mic Start session** to initiate the conversation.
 
-To end the session, click **stop\_circle Stop session** .
+To end the session, click **stop_circle Stop session** .
 
 ### Python
 
 Before you begin, you must authenticate to Gemini Enterprise Agent Platform using an API key or application default credentials (ADC):
 
-``` 
+```
 gcloud auth application-default login
-      
 ```
 
 For more information on setting up authentication, see our [quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start?usertype=adc) .
 
-``` 
+```
 import asyncio
 from google import genai
 
@@ -71,14 +70,13 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-      
 ```
 
 ### Python
 
 When using WebSockets, the connection is established with a standard WebSocket handshake. The endpoint is regional and uses OAuth 2.0 bearer tokens for authentication. In this scenario, the authentication token is typically passed in the WebSocket headers (such as `Authorization: Bearer [TOKEN]` ).
 
-``` 
+```
 import asyncio
 import websockets
 
@@ -118,7 +116,6 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-      
 ```
 
 > **Note:** While some parameters including system instructions can be adjusted mid-session, the model and other parameters are typically immutable once the setup message is processed.
@@ -135,12 +132,11 @@ The following example shows how to detect an impending session termination by li
 
 ### Python
 
-``` 
+```
 async for response in session.receive():
     if response.go_away is not None:
         # The connection will soon be terminated
         print(response.go_away.time_left)
-      
 ```
 
 ## Resume a previous session
@@ -157,7 +153,7 @@ The following example connects to the service, obtains a session resumption hand
 
 ### Python
 
-``` 
+```
 import asyncio
 from google import genai
 from google.genai import types
@@ -234,7 +230,6 @@ async def resumable_session_example():
 
 if __name__ == "__main__":
     asyncio.run(resumable_session_example())
-      
 ```
 
 ### Enable seamless session resumption with transparent mode
@@ -245,14 +240,13 @@ To enable transparent mode:
 
 ### Python
 
-``` 
+```
 config = {
    "response_modalities": ["audio"],
    "session_resumption_config": {
     "transparent": True,
    }
 }
-      
 ```
 
 ## Encrypt session data with CMEK
@@ -278,14 +272,13 @@ To update the system instructions mid-session, you can send text content with th
 
 ### Python
 
-``` 
+```
 session.send_client_content(
       content=types.Content(
           role="system", parts=[types.Part(text="new system instruction")]
       ),
       turn_complete=False
   )
-      
 ```
 
 ## Configure the context window of the session
@@ -294,14 +287,14 @@ The Gemini Live API context window is used to store real-time streamed data (25 
 
 In long-running sessions, as the conversation progresses, the history of audio and text tokens accumulates. If this history exceeds the model's limit, the model may hallucinate, slow down, or the session may be forcibly terminated. To enable longer sessions, you can enable *context window compression* by setting the `contextWindowCompression` field as part of the session configuration.
 
-Context window compression uses a a server-side sliding window to truncate the oldest turns when enabled. When the accumulated tokens exceed a defined maximum length (set using the **Max content size** slider in Vertex AI Studio, or trigger\_tokens in the API), the server automatically prunes the oldest turns or summarizes them to maintain context within the limit. In the `ContextWindowCompressionConfig` , you can configure a sliding-window mechanism and the number of tokens defined in the `target_tokens` parameter that triggers compression.
+Context window compression uses a a server-side sliding window to truncate the oldest turns when enabled. When the accumulated tokens exceed a defined maximum length (set using the **Max content size** slider in Vertex AI Studio, or trigger_tokens in the API), the server automatically prunes the oldest turns or summarizes them to maintain context within the limit. In the `ContextWindowCompressionConfig` , you can configure a sliding-window mechanism and the number of tokens defined in the `target_tokens` parameter that triggers compression.
 
 This allows for theoretically infinite session durations from the user's perspective, as the "memory" is constantly managed. Without compression, audio-only sessions might be limited to approximately 15 minutes before hitting hard limits.
 
 The minimum and maximum lengths for the context length and target size are:
 
 | Setting (API flag)                          | Minimum value | Maximum value |
-| ------------------------------------------- | ------------- | ------------- |
+|---------------------------------------------|---------------|---------------|
 | Maximum context length ( `trigger_tokens` ) | 5,000         | 128,000       |
 | Target context size ( `target_tokens` )     | 0             | 128,000       |
 
@@ -318,7 +311,7 @@ To set the context window:
 
 Set the `context_window_compression.trigger_tokens` and `context_window_compression.sliding_window.target_tokens` fields in the setup message:
 
-``` 
+```
 config = {
    "response_modalities": ["audio"],
    # Configures compression
@@ -327,7 +320,6 @@ config = {
     "sliding_window": {"target_tokens" : 512}
    }
 }
-      
 ```
 
 ## Enable audio transcription for the session
@@ -338,42 +330,46 @@ To receive transcriptions, you must update your session configuration. You need 
 
 To improve transcription quality for multilingual automatic speech recognition (ASR), you can provide language hints using the `language_codes` field within `input_audio_transcription` or `output_audio_transcription` . Providing hints is recommended to improve transcription quality, as it reduces the risk of incorrect language detection, especially for short prompts. The `language_codes` field accepts a list of [BCP-47 language codes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#languages-supported) (for example, "en-US", "es-US").
 
-    config = {
-        "response_modalities": ["audio", "text"],
-        "input_audio_transcription": {
-            "language_codes": ["en-US"]
-        },
-        "output_audio_transcription": {},
-    }
+```
+config = {
+    "response_modalities": ["audio", "text"],
+    "input_audio_transcription": {
+        "language_codes": ["en-US"]
+    },
+    "output_audio_transcription": {},
+}
+```
 
 ### Processing the response
 
 The following code sample demonstrates how to connect using the configured session and extract the text parts (transcriptions) alongside the audio data.
 
-    # Receive Output Loop
-    async for message in session.receive():
-        server_content = message.server_content
-        if server_content:
-            # Handle Model Turns (Audio + Text)
-            model_turn = server_content.model_turn
-            if model_turn and model_turn.parts:
-                for part in model_turn.parts:
-                    # Handle Text (Transcriptions)
-                    if part.text:
-                        print(f"Transcription: {part.text}")
-                    # Handle Audio
-                    if part.inline_data:
-                        audio_data = part.inline_data.data
-                        # Process audio bytes...
-                        pass
-    
-            # Check for turn completion
-            if server_content.turn_complete:
-                print("Turn complete.")
+```
+# Receive Output Loop
+async for message in session.receive():
+    server_content = message.server_content
+    if server_content:
+        # Handle Model Turns (Audio + Text)
+        model_turn = server_content.model_turn
+        if model_turn and model_turn.parts:
+            for part in model_turn.parts:
+                # Handle Text (Transcriptions)
+                if part.text:
+                    print(f"Transcription: {part.text}")
+                # Handle Audio
+                if part.inline_data:
+                    audio_data = part.inline_data.data
+                    # Process audio bytes...
+                    pass
+
+        # Check for turn completion
+        if server_content.turn_complete:
+            print("Turn complete.")
+```
 
 ## What's next
 
-  - [Send audio and video streams](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/send-audio-video-streams)
-  - [Best practices with the Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices)
-  - [Design multimodal prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/design-multimodal-prompts)
-  - [Introduction to function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)
+- [Send audio and video streams](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/send-audio-video-streams)
+- [Best practices with the Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices)
+- [Design multimodal prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/design-multimodal-prompts)
+- [Introduction to function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)

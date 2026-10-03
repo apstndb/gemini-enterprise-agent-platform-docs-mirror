@@ -16,12 +16,12 @@ To learn about image contents and versioning, see [Image versioning and lifecycl
 
 Each image family is supported for 2 years from the date it becomes active. During the support window:
 
-  - The image family is actively scanned for security vulnerabilities, and security fixes are applied on a regular basis.
-  - Critical bugs are patched.
-  - High-priority security and bug fixes are released on demand; lower-priority fixes are released on a regular cadence.
-  - Fixes are delivered in minor releases (image names) within the image family. Upgrade to the latest minor version to receive them. See [Manage image versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-image-versions) .
-  - No new breaking features are introduced.
-  - All changes are recorded in the [Image release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/release-notes-image) .
+- The image family is actively scanned for security vulnerabilities, and security fixes are applied on a regular basis.
+- Critical bugs are patched.
+- High-priority security and bug fixes are released on demand; lower-priority fixes are released on a regular cadence.
+- Fixes are delivered in minor releases (image names) within the image family. Upgrade to the latest minor version to receive them. See [Manage image versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-image-versions) .
+- No new breaking features are introduced.
+- All changes are recorded in the [Image release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/release-notes-image) .
 
 ## Deprecation
 
@@ -32,7 +32,7 @@ A deprecated image family no longer receives new versions or fixes, and it stops
 What happens to an image after deprecation depends on its type:
 
 | Image type              | After deprecation                                                                           |
-| ----------------------- | ------------------------------------------------------------------------------------------- |
+|-------------------------|---------------------------------------------------------------------------------------------|
 | VM images               | Remain available in [Compute Engine](https://docs.cloud.google.com/compute/docs/overview) . |
 | Custom container images | Persist indefinitely in the registry.                                                       |
 

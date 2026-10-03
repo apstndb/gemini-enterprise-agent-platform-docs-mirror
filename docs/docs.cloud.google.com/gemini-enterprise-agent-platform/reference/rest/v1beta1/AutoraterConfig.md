@@ -18,7 +18,7 @@ Publisher model format: `projects/{project}/locations/{location}/publishers/*/mo
 
 Tuned model endpoint format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
 
-`generationConfig` ` object ( GenerationConfig  ` )
+`generationConfig` `object ( `[`GenerationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#GenerationConfig)` )`
 
 Optional. Configuration options for model generation and outputs.
 
@@ -28,20 +28,17 @@ Optional. Number of samples for each instance in the dataset. If not specified, 
 
 `flipEnabled` `boolean`
 
-Optional. Default is true. Whether to flip the candidate and baseline responses. This is only applicable to the pairwise metric. If enabled, also provide PairwiseMetricSpec.candidate\_response\_field\_name and PairwiseMetricSpec.baseline\_response\_field\_name. When rendering PairwiseMetricSpec.metric\_prompt\_template, the candidate and baseline fields will be flipped for half of the samples to reduce bias.
+Optional. Default is true. Whether to flip the candidate and baseline responses. This is only applicable to the pairwise metric. If enabled, also provide PairwiseMetricSpec.candidate_response_field_name and PairwiseMetricSpec.baseline_response_field_name. When rendering PairwiseMetricSpec.metric_prompt_template, the candidate and baseline fields will be flipped for half of the samples to reduce bias.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;autoraterModel&quot;: string,&quot;generationConfig&quot;: {object (GenerationConfig)},&quot;samplingCount&quot;: integer,&quot;flipEnabled&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "autoraterModel": string,
+  "generationConfig": {
+    object (GenerationConfig)
+  },
+  "samplingCount": integer,
+  "flipEnabled": boolean
+}
+```

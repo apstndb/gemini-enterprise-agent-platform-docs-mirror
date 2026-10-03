@@ -18,7 +18,7 @@ Publisher model format: `projects/{project}/locations/{location}/publishers/*/mo
 
 Tuned model endpoint format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
 
-`contents[]` ` object ( Content  ` )
+`contents[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Required. The content of the current conversation with the model.
 
@@ -28,13 +28,13 @@ For single-turn queries, this is a single instance. For multi-turn queries, this
 
 Optional. The name of the cached content used as context to serve the prediction. Note: only used in explicit caching, where users can have control over caching (e.g. what content to cache) and enjoy guaranteed cost savings. Format: `projects/{project}/locations/{location}/cachedContents/{cachedContent}`
 
-`tools[]` ` object ( Tool  ` )
+`tools[]` `object ( `[`Tool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#Tool)` )`
 
 Optional. A list of `Tools` the model may use to generate the next response.
 
 A `Tool` is a piece of code that enables the system to interact with external systems to perform an action, or set of actions, outside of knowledge and scope of the model.
 
-`toolConfig` ` object ( ToolConfig  ` )
+`toolConfig` `object ( `[`ToolConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#ToolConfig)` )`
 
 Optional. Tool config. This config is shared for all tools provided in the request.
 
@@ -44,37 +44,61 @@ Optional. The labels with user-defined metadata for the request. It is used for 
 
 label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. label values are optional. label keys must start with a letter.
 
-`safetySettings[]` ` object ( SafetySetting  ` )
+`safetySettings[]` `object ( `[`SafetySetting`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#SafetySetting)` )`
 
 Optional. Per request settings for blocking unsafe content. Enforced on GenerateContentResponse.candidates.
 
-`modelArmorConfig` ` object ( ModelArmorConfig  ` )
+`modelArmorConfig` `object ( `[`ModelArmorConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#ModelArmorConfig)` )`
 
 Optional. Settings for prompt and response sanitization using the Model Armor service. If supplied, safetySettings must not be supplied.
 
-`generationConfig` ` object ( GenerationConfig  ` )
+`generationConfig` `object ( `[`GenerationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#GenerationConfig)` )`
 
 Optional. Generation config.
 
-`systemInstruction` ` object ( Content  ` )
+`systemInstruction` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Optional. The user provided system instructions for the model. Note: only text should be used in parts and content in each part will be in a separate paragraph.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;model&quot;: string,&quot;contents&quot;: [{object (Content)}],&quot;cachedContent&quot;: string,&quot;tools&quot;: [{object (Tool)}],&quot;toolConfig&quot;: {object (ToolConfig)},&quot;labels&quot;: {string: string,...},&quot;safetySettings&quot;: [{object (SafetySetting)}],&quot;modelArmorConfig&quot;: {object (ModelArmorConfig)},&quot;generationConfig&quot;: {object (GenerationConfig)},&quot;systemInstruction&quot;: {object (Content)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "model": string,
+  "contents": [
+    {
+      object (Content)
+    }
+  ],
+  "cachedContent": string,
+  "tools": [
+    {
+      object (Tool)
+    }
+  ],
+  "toolConfig": {
+    object (ToolConfig)
+  },
+  "labels": {
+    string: string,
+    ...
+  },
+  "safetySettings": [
+    {
+      object (SafetySetting)
+    }
+  ],
+  "modelArmorConfig": {
+    object (ModelArmorConfig)
+  },
+  "generationConfig": {
+    object (GenerationConfig)
+  },
+  "systemInstruction": {
+    object (Content)
+  }
+}
+```
 
 ## Tool
 
@@ -84,67 +108,93 @@ A `Tool` is a piece of code that enables the system to interact with external sy
 
 Fields
 
-`functionDeclarations[]` ` object ( FunctionDeclaration  ` )
+`functionDeclarations[]` `object ( `[`FunctionDeclaration`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/FunctionDeclaration)` )`
 
-Optional. Function tool type. One or more function declarations to be passed to the model along with the current user query. Model may decide to call a subset of these functions by populating `  FunctionCall  ` in the response. user should provide a `  FunctionResponse  ` for each function call in the next turn. Based on the function responses, Model will generate the final response back to the user. Maximum 512 function declarations can be provided.
+Optional. Function tool type. One or more function declarations to be passed to the model along with the current user query. Model may decide to call a subset of these functions by populating [`FunctionCall`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content#Part.FIELDS.function_call) in the response. user should provide a [`FunctionResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content#Part.FIELDS.function_response) for each function call in the next turn. Based on the function responses, Model will generate the final response back to the user. Maximum 512 function declarations can be provided.
 
-`retrieval` ` object ( Retrieval  ` )
+`retrieval` `object ( `[`Retrieval`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#Retrieval)` )`
 
 Optional. Retrieval tool type. System will always execute the provided retrieval tool(s) to get external knowledge to answer the prompt. Retrieval results are presented to the model for generation.
 
-`googleSearch` ` object ( GoogleSearch  ` )
+`googleSearch` `object ( `[`GoogleSearch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#GoogleSearch)` )`
 
 Optional. GoogleSearch tool type. Tool to support Google Search in Model. Powered by Google.
 
-` googleSearchRetrieval (deprecated)  ` ` object ( GoogleSearchRetrieval  ` )
+`googleSearchRetrieval `**`(deprecated)`** `object ( `[`GoogleSearchRetrieval`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#GoogleSearchRetrieval)` )`
 
 > Optional. The `google_search_retrieval` field is deprecated. Use `google_search` instead. This field is for use with Gemini 1.5 models; `google_search` is used for Gemini 2.0 and newer models.
 
 Optional. Specialized retrieval tool that is powered by Google Search.
 
-`googleMaps` ` object ( GoogleMaps  ` )
+`googleMaps` `object ( `[`GoogleMaps`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#GoogleMaps)` )`
 
 Optional. GoogleMaps tool type. Tool to support Google Maps in Model.
 
-`enterpriseWebSearch` ` object ( EnterpriseWebSearch  ` )
+`enterpriseWebSearch` `object ( `[`EnterpriseWebSearch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/EnterpriseWebSearch)` )`
 
 Optional. Tool to support searching public web data, powered by Agent Platform Search and Sec4 compliance.
 
-`parallelAiSearch` ` object ( ParallelAiSearch  ` )
+`parallelAiSearch` `object ( `[`ParallelAiSearch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#ParallelAiSearch)` )`
 
 Optional. If specified, Agent Platform will use Parallel.ai to search for information to answer user queries. The search results will be grounded on Parallel.ai and presented to the model for response generation
 
-`exaAiSearch` ` object ( ExaAiSearch  ` )
+`exaAiSearch` `object ( `[`ExaAiSearch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#ExaAiSearch)` )`
 
 Optional. uses Exa.ai to search for information to answer user queries. The search results will be grounded on Exa.ai and presented to the model for response generation
 
-`codeExecution` ` object ( CodeExecution  ` )
+`codeExecution` `object ( `[`CodeExecution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#CodeExecution)` )`
 
 Optional. CodeExecution tool type. Enables the model to execute code as part of generation.
 
-`urlContext` ` object ( UrlContext  ` )
+`urlContext` `object ( `[`UrlContext`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#UrlContext)` )`
 
 Optional. Tool to support URL context retrieval.
 
-`computerUse` ` object ( ComputerUse  ` )
+`computerUse` `object ( `[`ComputerUse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#ComputerUse)` )`
 
 Optional. Tool to support the model interacting directly with the computer. If enabled, it automatically populates computer-use specific Function Declarations.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;functionDeclarations&quot;: [{object (FunctionDeclaration)}],&quot;retrieval&quot;: {object (Retrieval)},&quot;googleSearch&quot;: {object (GoogleSearch)},&quot;googleSearchRetrieval&quot;: {object (GoogleSearchRetrieval)},&quot;googleMaps&quot;: {object (GoogleMaps)},&quot;enterpriseWebSearch&quot;: {object (EnterpriseWebSearch)},&quot;parallelAiSearch&quot;: {object (ParallelAiSearch)},&quot;exaAiSearch&quot;: {object (ExaAiSearch)},&quot;codeExecution&quot;: {object (CodeExecution)},&quot;urlContext&quot;: {object (UrlContext)},&quot;computerUse&quot;: {object (ComputerUse)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "functionDeclarations": [
+    {
+      object (FunctionDeclaration)
+    }
+  ],
+  "retrieval": {
+    object (Retrieval)
+  },
+  "googleSearch": {
+    object (GoogleSearch)
+  },
+  "googleSearchRetrieval": {
+    object (GoogleSearchRetrieval)
+  },
+  "googleMaps": {
+    object (GoogleMaps)
+  },
+  "enterpriseWebSearch": {
+    object (EnterpriseWebSearch)
+  },
+  "parallelAiSearch": {
+    object (ParallelAiSearch)
+  },
+  "exaAiSearch": {
+    object (ExaAiSearch)
+  },
+  "codeExecution": {
+    object (CodeExecution)
+  },
+  "urlContext": {
+    object (UrlContext)
+  },
+  "computerUse": {
+    object (ComputerUse)
+  }
+}
+```
 
 ## Retrieval
 
@@ -152,9 +202,9 @@ Defines a retrieval tool that model can call to access external knowledge.
 
 Fields
 
-` disableAttribution (deprecated)  ` `boolean`
+`disableAttribution `**`(deprecated)`** `boolean`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. Deprecated. This option is no longer supported.
 
@@ -162,31 +212,32 @@ Optional. Deprecated. This option is no longer supported.
 
 The source of the retrieval. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`vertexAiSearch` ` object ( VertexAISearch  ` )
+`vertexAiSearch` `object ( `[`VertexAISearch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#VertexAISearch)` )`
 
 Set to use data source powered by Agent Platform Search.
 
-`vertexRagStore` ` object ( VertexRagStore  ` )
+`vertexRagStore` `object ( `[`VertexRagStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#VertexRagStore)` )`
 
 Set to use data source powered by Vertex RAG store. user data is uploaded via the VertexRagDataService.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;disableAttribution&quot;: boolean,// source&quot;vertexAiSearch&quot;: {object (VertexAISearch)},&quot;vertexRagStore&quot;: {object (VertexRagStore)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "disableAttribution": boolean,
+
+  // source
+  "vertexAiSearch": {
+    object (VertexAISearch)
+  },
+  "vertexRagStore": {
+    object (VertexRagStore)
+  }
+  // Union type
+}
+```
 
 ## VertexAISearch
 
@@ -210,25 +261,25 @@ Optional. Number of search results to return per query. The default value is 10.
 
 Optional. Filter strings to be passed to the search API.
 
-`dataStoreSpecs[]` ` object ( DataStoreSpec  ` )
+`dataStoreSpecs[]` `object ( `[`DataStoreSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#DataStoreSpec)` )`
 
 Specifications that define the specific DataStores to be searched, along with configurations for those data stores. This is only considered for Engines with multiple data stores. It should only be set if engine is used.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;datastore&quot;: string,&quot;engine&quot;: string,&quot;maxResults&quot;: integer,&quot;filter&quot;: string,&quot;dataStoreSpecs&quot;: [{object (DataStoreSpec)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "datastore": string,
+  "engine": string,
+  "maxResults": integer,
+  "filter": string,
+  "dataStoreSpecs": [
+    {
+      object (DataStoreSpec)
+    }
+  ]
+}
+```
 
 ## DataStoreSpec
 
@@ -244,24 +295,14 @@ Full resource name of DataStore, such as Format: `projects/{project}/locations/{
 
 Optional. Filter specification to filter documents in the data store specified by dataStore field. For more information on filtering, see [Filtering](https://cloud.google.com/generative-ai-app-builder/docs/filter-search-metadata)
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;dataStore&quot;: string,
-  &quot;filter&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "dataStore": string,
+  "filter": string
+}
+```
 
 ## VertexRagStore
 
@@ -269,17 +310,17 @@ Retrieve from Vertex RAG Store for grounding.
 
 Fields
 
-` ragCorpora[] (deprecated)  ` `string`
+`ragCorpora[] `**`(deprecated)`** `string`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. Deprecated. Please use ragResources instead.
 
-`ragResources[]` ` object ( RagResource  ` )
+`ragResources[]` `object ( `[`RagResource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#RagResource)` )`
 
 Optional. The representation of the rag source. It can be used to specify corpus only or ragfiles. Currently only support one corpus or multiple files from one corpus. In the future we may open up multiple corpora support.
 
-`ragRetrievalConfig` ` object ( RagRetrievalConfig  ` )
+`ragRetrievalConfig` `object ( `[`RagRetrievalConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#RagRetrievalConfig)` )`
 
 Optional. The retrieval config for the Rag query.
 
@@ -289,33 +330,38 @@ Optional. Currently only supported for Gemini Multimodal Live API.
 
 In Gemini Multimodal Live API, if `storeContext` bool is specified, Gemini will leverage it to automatically memorize the interactions between the client and Gemini, and retrieve context when needed to augment the response generation for users' ongoing and future interactions.
 
-` similarityTopK (deprecated)  ` `integer`
+`similarityTopK `**`(deprecated)`** `integer`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. Number of top k results to return from the selected corpora.
 
-` vectorDistanceThreshold (deprecated)  ` `number`
+`vectorDistanceThreshold `**`(deprecated)`** `number`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. Only return results with vector distance smaller than the threshold.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;ragCorpora&quot;: [string],&quot;ragResources&quot;: [{object (RagResource)}],&quot;ragRetrievalConfig&quot;: {object (RagRetrievalConfig)},&quot;storeContext&quot;: boolean,&quot;similarityTopK&quot;: integer,&quot;vectorDistanceThreshold&quot;: number}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "ragCorpora": [
+    string
+  ],
+  "ragResources": [
+    {
+      object (RagResource)
+    }
+  ],
+  "ragRetrievalConfig": {
+    object (RagRetrievalConfig)
+  },
+  "storeContext": boolean,
+  "similarityTopK": integer,
+  "vectorDistanceThreshold": number
+}
+```
 
 ## RagResource
 
@@ -331,26 +377,16 @@ Optional. RagCorpora resource name. Format: `projects/{project}/locations/{locat
 
 Optional. ragFileId. The files should be in the same ragCorpus set in ragCorpus field.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;ragCorpus&quot;: string,
-  &quot;ragFileIds&quot;: [
+**JSON representation**
+
+```
+{
+  "ragCorpus": string,
+  "ragFileIds": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## RagRetrievalConfig
 
@@ -362,33 +398,34 @@ Fields
 
 Optional. The number of contexts to retrieve.
 
-`hybridSearch` ` object ( HybridSearch  ` )
+`hybridSearch` `object ( `[`HybridSearch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#HybridSearch)` )`
 
 Optional. Config for Hybrid Search.
 
-`filter` ` object ( Filter  ` )
+`filter` `object ( `[`Filter`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#Filter)` )`
 
 Optional. Config for filters.
 
-`ranking` ` object ( Ranking  ` )
+`ranking` `object ( `[`Ranking`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#Ranking)` )`
 
 Optional. Config for ranking and reranking.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;topK&quot;: integer,&quot;hybridSearch&quot;: {object (HybridSearch)},&quot;filter&quot;: {object (Filter)},&quot;ranking&quot;: {object (Ranking)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "topK": integer,
+  "hybridSearch": {
+    object (HybridSearch)
+  },
+  "filter": {
+    object (Filter)
+  },
+  "ranking": {
+    object (Ranking)
+  }
+}
+```
 
 ## HybridSearch
 
@@ -400,23 +437,13 @@ Fields
 
 Optional. Alpha value controls the weight between dense and sparse vector search results. The range is \[0, 1\], while 0 means sparse vector search only and 1 means dense vector search only. The default value is 0.5 which balances sparse and dense vector search equally.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;alpha&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "alpha": number
+}
+```
 
 ## Filter
 
@@ -442,28 +469,18 @@ Optional. Only returns contexts with vector similarity larger than the threshold
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;metadataFilter&quot;: string,
+**JSON representation**
+
+```
+{
+  "metadataFilter": string,
 
   // vector_db_threshold
-  &quot;vectorDistanceThreshold&quot;: number,
-  &quot;vectorSimilarityThreshold&quot;: number
+  "vectorDistanceThreshold": number,
+  "vectorSimilarityThreshold": number
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## Ranking
 
@@ -475,31 +492,31 @@ Fields
 
 Config options for ranking. Currently only Rank Service is supported. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`rankService` ` object ( RankService  ` )
+`rankService` `object ( `[`RankService`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#RankService)` )`
 
 Optional. Config for Rank service.
 
-`llmRanker` ` object ( LlmRanker  ` )
+`llmRanker` `object ( `[`LlmRanker`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#LlmRanker)` )`
 
 Optional. Config for LlmRanker.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// ranking_config&quot;rankService&quot;: {object (RankService)},&quot;llmRanker&quot;: {object (LlmRanker)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // ranking_config
+  "rankService": {
+    object (RankService)
+  },
+  "llmRanker": {
+    object (LlmRanker)
+  }
+  // Union type
+}
+```
 
 ## RankService
 
@@ -511,23 +528,13 @@ Fields
 
 Optional. The model name of the rank service. Format: `semantic-ranker-512@latest`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;modelName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "modelName": string
+}
+```
 
 ## LlmRanker
 
@@ -539,23 +546,13 @@ Fields
 
 Optional. The model name used for ranking. See [Supported models](https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference#supported-models) .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;modelName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "modelName": string
+}
+```
 
 ## GoogleSearch
 
@@ -567,25 +564,20 @@ Fields
 
 Optional. List of domains to be excluded from the search results. The default limit is 2000 domains. Example: \["amazon.com", "facebook.com"\].
 
-`blockingConfidence` ` enum ( PhishBlockThreshold  ` )
+`blockingConfidence` `enum ( `[`PhishBlockThreshold`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/PhishBlockThreshold)` )`
 
 Optional. Sites with confidence level chosen & above this value will be blocked from the search results.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;excludeDomains&quot;: [string],&quot;blockingConfidence&quot;: enum (PhishBlockThreshold)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "excludeDomains": [
+    string
+  ],
+  "blockingConfidence": enum (PhishBlockThreshold)
+}
+```
 
 ## GoogleSearchRetrieval
 
@@ -593,25 +585,19 @@ Tool to retrieve public web data for grounding, powered by Google.
 
 Fields
 
-`dynamicRetrievalConfig` ` object ( DynamicRetrievalConfig  ` )
+`dynamicRetrievalConfig` `object ( `[`DynamicRetrievalConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/DynamicRetrievalConfig)` )`
 
 Specifies the dynamic retrieval configuration for the given source.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;dynamicRetrievalConfig&quot;: {object (DynamicRetrievalConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "dynamicRetrievalConfig": {
+    object (DynamicRetrievalConfig)
+  }
+}
+```
 
 ## GoogleMaps
 
@@ -619,31 +605,21 @@ Tool to retrieve public maps data for grounding, powered by Google.
 
 Fields
 
-` enableWidget (deprecated)  ` `boolean`
+`enableWidget `**`(deprecated)`** `boolean`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. Deprecated: The Google Maps contextual widget behavior in Grounding with Google Maps is being deprecated; this field is planned for removal and no longer has any effect once removed.
 
 If true, include the widget context token in the response.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;enableWidget&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "enableWidget": boolean
+}
+```
 
 ## ParallelAiSearch
 
@@ -655,30 +631,20 @@ Fields
 
 Optional. The API key for ParallelAiSearch. If an API key is not provided, the system will attempt to verify access by checking for an active Parallel.ai subscription through the Google Cloud Marketplace. See <https://docs.parallel.ai/search/search-quickstart> for more details.
 
-`customConfigs` ` object ( Struct  ` format)
+`customConfigs` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
-Optional. Custom configs for ParallelAiSearch. This field can be used to pass any parameter from the Parallel.ai Search API. See the Parallel.ai documentation for the full list of available parameters and their usage: <https://docs.parallel.ai/api-reference/search-beta/search> Currently only `source_policy` , `excerpts` , `maxResults` , `mode` , `fetch_policy` can be set via this field. For example: { "source\_policy": { "include\_domains": \["google.com", "wikipedia.org"\], "excludeDomains": \["example.com"\] }, "fetch\_policy": { "max\_age\_seconds": 3600 } }
+Optional. Custom configs for ParallelAiSearch. This field can be used to pass any parameter from the Parallel.ai Search API. See the Parallel.ai documentation for the full list of available parameters and their usage: <https://docs.parallel.ai/api-reference/search-beta/search> Currently only `source_policy` , `excerpts` , `maxResults` , `mode` , `fetch_policy` can be set via this field. For example: { "source_policy": { "include_domains": \["google.com", "wikipedia.org"\], "excludeDomains": \["example.com"\] }, "fetch_policy": { "max_age_seconds": 3600 } }
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;apiKey&quot;: string,
-  &quot;customConfigs&quot;: {
+**JSON representation**
+
+```
+{
+  "apiKey": string,
+  "customConfigs": {
     object
   }
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## ExaAiSearch
 
@@ -690,30 +656,20 @@ Fields
 
 Required. The API key for ExaAiSearch.
 
-`customConfigs` ` object ( Struct  ` format)
+`customConfigs` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Optional. This field can be used to pass any parameter from the Exa.ai Search API.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;apiKey&quot;: string,
-  &quot;customConfigs&quot;: {
+**JSON representation**
+
+```
+{
+  "apiKey": string,
+  "customConfigs": {
     object
   }
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## CodeExecution
 
@@ -721,7 +677,7 @@ This type has no fields.
 
 Tool that executes code generated by the model, and automatically returns the result to the model.
 
-See also `  ExecutableCode  ` and `  CodeExecutionResult  ` , which are input and output to this tool.
+See also [`ExecutableCode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content#ExecutableCode) and [`CodeExecutionResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CodeExecutionResult) , which are input and output to this tool.
 
 ## UrlContext
 
@@ -735,7 +691,7 @@ A tool that enables the model to interact directly with a computer environment.
 
 Fields
 
-`environment` ` enum ( Environment  ` )
+`environment` `enum ( `[`Environment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Environment)` )`
 
 Required. The target environment where the computer use tool operates.
 
@@ -747,21 +703,17 @@ Optional. A list of predefined functions to explicitly exclude from the model ca
 
 Optional. Whether to enable the prompt injection detection check on the computer use request.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;environment&quot;: enum (Environment),&quot;excludedPredefinedFunctions&quot;: [string],&quot;enablePromptInjectionDetection&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "environment": enum (Environment),
+  "excludedPredefinedFunctions": [
+    string
+  ],
+  "enablePromptInjectionDetection": boolean
+}
+```
 
 ## ToolConfig
 
@@ -769,29 +721,26 @@ Tool config. This config is shared for all tools provided in the request.
 
 Fields
 
-`functionCallingConfig` ` object ( FunctionCallingConfig  ` )
+`functionCallingConfig` `object ( `[`FunctionCallingConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/FunctionCallingConfig)` )`
 
 Optional. Function calling config.
 
-`retrievalConfig` ` object ( RetrievalConfig  ` )
+`retrievalConfig` `object ( `[`RetrievalConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#RetrievalConfig)` )`
 
 Optional. Retrieval config.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;functionCallingConfig&quot;: {object (FunctionCallingConfig)},&quot;retrievalConfig&quot;: {object (RetrievalConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "functionCallingConfig": {
+    object (FunctionCallingConfig)
+  },
+  "retrievalConfig": {
+    object (RetrievalConfig)
+  }
+}
+```
 
 ## RetrievalConfig
 
@@ -799,7 +748,7 @@ Retrieval config.
 
 Fields
 
-`latLng` ` object ( LatLng  ` )
+`latLng` `object ( `[`LatLng`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#LatLng)` )`
 
 The location of the user.
 
@@ -807,21 +756,16 @@ The location of the user.
 
 The language code of the user.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;latLng&quot;: {object (LatLng)},&quot;languageCode&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "latLng": {
+    object (LatLng)
+  },
+  "languageCode": string
+}
+```
 
 ## LatLng
 
@@ -837,24 +781,14 @@ The latitude in degrees. It must be in the range \[-90.0, +90.0\].
 
 The longitude in degrees. It must be in the range \[-180.0, +180.0\].
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;latitude&quot;: number,
-  &quot;longitude&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "latitude": number,
+  "longitude": number
+}
+```
 
 ## SafetySetting
 
@@ -864,33 +798,27 @@ A `SafetySetting` consists of a harm `category` and a `threshold` for that categ
 
 Fields
 
-`category` ` enum ( HarmCategory  ` )
+`category` `enum ( `[`HarmCategory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/HarmCategory)` )`
 
 Required. The harm category to be blocked.
 
-`threshold` ` enum ( HarmBlockThreshold  ` )
+`threshold` `enum ( `[`HarmBlockThreshold`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/HarmBlockThreshold)` )`
 
 Required. The threshold for blocking content. If the harm probability exceeds this threshold, the content will be blocked.
 
-`method` ` enum ( HarmBlockMethod  ` )
+`method` `enum ( `[`HarmBlockMethod`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/HarmBlockMethod)` )`
 
 Optional. The method for blocking content. If not specified, the default behavior is to use the probability score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;category&quot;: enum (HarmCategory),&quot;threshold&quot;: enum (HarmBlockThreshold),&quot;method&quot;: enum (HarmBlockMethod)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "category": enum (HarmCategory),
+  "threshold": enum (HarmBlockThreshold),
+  "method": enum (HarmBlockMethod)
+}
+```
 
 ## ModelArmorConfig
 
@@ -916,24 +844,14 @@ A Model Armor template is a set of customized filters and thresholds that define
 
 The name must be in the format `projects/{project}/locations/{location}/templates/{template}` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;promptTemplateName&quot;: string,
-  &quot;responseTemplateName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "promptTemplateName": string,
+  "responseTemplateName": string
+}
+```
 
 ## GenerationConfig
 
@@ -945,29 +863,29 @@ Fields
 
 `stopSequences[]` `string`
 
-Optional. A list of character sequences that will stop the model from generating further tokens. If a stop sequence is generated, the output will end at that point. This is useful for controlling the length and structure of the output. For example, you can use \["\\n", "\#\#\#"\] to stop generation at a new line or a specific marker.
+Optional. A list of character sequences that will stop the model from generating further tokens. If a stop sequence is generated, the output will end at that point. This is useful for controlling the length and structure of the output. For example, you can use \["\n", "###"\] to stop generation at a new line or a specific marker.
 
-` responseMimeType (deprecated)  ` `string`
+`responseMimeType `**`(deprecated)`** `string`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. The IANA standard MIME type of the response. The model will generate output that conforms to this MIME type. Supported values include 'text/plain' (default) and 'application/json'. The model needs to be prompted to output the appropriate response type, otherwise the behavior is undefined. Deprecated: Use `responseFormat` instead.
 
-`responseModalities[]` ` enum ( Modality  ` )
+`responseModalities[]` `enum ( `[`Modality`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Modality)` )`
 
 Optional. The modalities of the response. The model will generate a response that includes all the specified modalities. For example, if this is set to `[TEXT, IMAGE]` , the response will include both text and an image.
 
-`thinkingConfig` ` object ( ThinkingConfig  ` )
+`thinkingConfig` `object ( `[`ThinkingConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#ThinkingConfig)` )`
 
 Optional. Configuration for thinking features. An error will be returned if this field is set for models that don't support thinking.
 
-` modelConfig (deprecated)  ` ` object ( ModelConfig  ` )
+`modelConfig `**`(deprecated)`** `object ( `[`ModelConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#ModelConfig)` )`
 
 > Optional. The `model_config` field is deprecated and is not supported anymore. Use `routing_config` instead.
 
 Optional. Config for model selection.
 
-`responseFormat[]` ` object ( ResponseFormat  ` )
+`responseFormat[]` `object ( `[`ResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#ResponseFormat)` )`
 
 Optional. New response format field for the model to configure output formatting and delivery.
 
@@ -1021,21 +939,21 @@ Optional. A seed for the random number generator.
 
 By setting a seed, you can make the model's output mostly deterministic. For a given prompt and parameters (like temperature, topP, etc.), the model will produce the same response every time. However, it's not a guaranteed absolute deterministic behavior. This is different from parameters like `temperature` , which control the *level* of randomness. `seed` ensures that the "random" choices the model makes are the same on every run, making it essential for testing and ensuring reproducible results.
 
-` responseSchema (deprecated)  ` ` object ( Schema  ` )
+`responseSchema `**`(deprecated)`** `object ( `[`Schema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Schema)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. Lets you to specify a schema for the model's response, ensuring that the output conforms to a particular structure. This is useful for generating structured data such as JSON. The schema is a subset of the [OpenAPI 3.0 schema object](https://spec.openapis.org/oas/v3.0.3#schema) object.
 
 When this field is set, you must also set the `responseMimeType` to `application/json` . Deprecated: Use `responseFormat` instead.
 
-` responseJsonSchema (deprecated)  ` ` value ( Value  ` format)
+`responseJsonSchema `**`(deprecated)`** `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. When this field is set, `responseSchema` must be omitted and `responseMimeType` must be set to `application/json` . Deprecated: Use `responseFormat` instead.
 
-`routingConfig` ` object ( RoutingConfig  ` )
+`routingConfig` `object ( `[`RoutingConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#RoutingConfig)` )`
 
 Optional. Routing configuration.
 
@@ -1043,11 +961,11 @@ Optional. Routing configuration.
 
 Optional. If enabled, audio timestamps will be included in the request to the model. This can be useful for synchronizing audio with other modalities in the response.
 
-`mediaResolution` ` enum ( MediaResolution  ` )
+`mediaResolution` `enum ( `[`MediaResolution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/MediaResolution)` )`
 
 Optional. The token resolution at which input media content is sampled. This is used to control the trade-off between the quality of the response and the number of tokens used to represent the media. A higher resolution allows the model to perceive more detail, which can lead to a more nuanced response, but it will also use more tokens. This does not affect the image dimensions sent to the model.
 
-`speechConfig` ` object ( SpeechConfig  ` )
+`speechConfig` `object ( `[`SpeechConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#SpeechConfig)` )`
 
 Optional. The speech generation config.
 
@@ -1055,27 +973,62 @@ Optional. The speech generation config.
 
 Optional. If enabled, the model will detect emotions and adapt its responses accordingly. For example, if the model detects that the user is frustrated, it may provide a more empathetic response.
 
-` imageConfig (deprecated)  ` ` object ( ImageConfig  ` )
+`imageConfig `**`(deprecated)`** `object ( `[`ImageConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#ImageConfig)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. Config for image generation features. Deprecated: Use `responseFormat.image` instead.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;stopSequences&quot;: [string],&quot;responseMimeType&quot;: string,&quot;responseModalities&quot;: [enum (Modality)],&quot;thinkingConfig&quot;: {object (ThinkingConfig)},&quot;modelConfig&quot;: {object (ModelConfig)},&quot;responseFormat&quot;: [{object (ResponseFormat)}],&quot;temperature&quot;: number,&quot;topP&quot;: number,&quot;topK&quot;: number,&quot;candidateCount&quot;: integer,&quot;maxOutputTokens&quot;: integer,&quot;responseLogprobs&quot;: boolean,&quot;logprobs&quot;: integer,&quot;presencePenalty&quot;: number,&quot;frequencyPenalty&quot;: number,&quot;seed&quot;: integer,&quot;responseSchema&quot;: {object (Schema)},&quot;responseJsonSchema&quot;: value,&quot;routingConfig&quot;: {object (RoutingConfig)},&quot;audioTimestamp&quot;: boolean,&quot;mediaResolution&quot;: enum (MediaResolution),&quot;speechConfig&quot;: {object (SpeechConfig)},&quot;enableAffectiveDialog&quot;: boolean,&quot;imageConfig&quot;: {object (ImageConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "stopSequences": [
+    string
+  ],
+  "responseMimeType": string,
+  "responseModalities": [
+    enum (Modality)
+  ],
+  "thinkingConfig": {
+    object (ThinkingConfig)
+  },
+  "modelConfig": {
+    object (ModelConfig)
+  },
+  "responseFormat": [
+    {
+      object (ResponseFormat)
+    }
+  ],
+  "temperature": number,
+  "topP": number,
+  "topK": number,
+  "candidateCount": integer,
+  "maxOutputTokens": integer,
+  "responseLogprobs": boolean,
+  "logprobs": integer,
+  "presencePenalty": number,
+  "frequencyPenalty": number,
+  "seed": integer,
+  "responseSchema": {
+    object (Schema)
+  },
+  "responseJsonSchema": value,
+  "routingConfig": {
+    object (RoutingConfig)
+  },
+  "audioTimestamp": boolean,
+  "mediaResolution": enum (MediaResolution),
+  "speechConfig": {
+    object (SpeechConfig)
+  },
+  "enableAffectiveDialog": boolean,
+  "imageConfig": {
+    object (ImageConfig)
+  }
+}
+```
 
 ## RoutingConfig
 
@@ -1087,31 +1040,31 @@ Fields
 
 The routing mode for the request. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`autoMode` ` object ( AutoRoutingMode  ` )
+`autoMode` `object ( `[`AutoRoutingMode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#AutoRoutingMode)` )`
 
 In this mode, the model is selected automatically based on the content of the request.
 
-`manualMode` ` object ( ManualRoutingMode  ` )
+`manualMode` `object ( `[`ManualRoutingMode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#ManualRoutingMode)` )`
 
 In this mode, the model is specified manually.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// routing_config&quot;autoMode&quot;: {object (AutoRoutingMode)},&quot;manualMode&quot;: {object (ManualRoutingMode)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // routing_config
+  "autoMode": {
+    object (AutoRoutingMode)
+  },
+  "manualMode": {
+    object (ManualRoutingMode)
+  }
+  // Union type
+}
+```
 
 ## AutoRoutingMode
 
@@ -1121,25 +1074,17 @@ When automated routing is specified, the routing will be determined by the pretr
 
 Fields
 
-`modelRoutingPreference` ` enum ( ModelRoutingPreference  ` )
+`modelRoutingPreference` `enum ( `[`ModelRoutingPreference`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ModelRoutingPreference)` )`
 
 The model routing preference.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;modelRoutingPreference&quot;: enum (ModelRoutingPreference)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "modelRoutingPreference": enum (ModelRoutingPreference)
+}
+```
 
 ## ManualRoutingMode
 
@@ -1153,23 +1098,13 @@ Fields
 
 The name of the model to use. Only public LLM models are accepted.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;modelName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "modelName": string
+}
+```
 
 ## SpeechConfig
 
@@ -1177,7 +1112,7 @@ Configuration for speech generation.
 
 Fields
 
-`voiceConfig` ` object ( VoiceConfig  ` )
+`voiceConfig` `object ( `[`VoiceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#VoiceConfig)` )`
 
 The configuration for the voice to use.
 
@@ -1185,25 +1120,23 @@ The configuration for the voice to use.
 
 Optional. The language code (ISO 639-1) for the speech synthesis.
 
-`multiSpeakerVoiceConfig` ` object ( MultiSpeakerVoiceConfig  ` )
+`multiSpeakerVoiceConfig` `object ( `[`MultiSpeakerVoiceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#MultiSpeakerVoiceConfig)` )`
 
 The configuration for a multi-speaker text-to-speech request. This field is mutually exclusive with `voiceConfig` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;voiceConfig&quot;: {object (VoiceConfig)},&quot;languageCode&quot;: string,&quot;multiSpeakerVoiceConfig&quot;: {object (MultiSpeakerVoiceConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "voiceConfig": {
+    object (VoiceConfig)
+  },
+  "languageCode": string,
+  "multiSpeakerVoiceConfig": {
+    object (MultiSpeakerVoiceConfig)
+  }
+}
+```
 
 ## VoiceConfig
 
@@ -1215,31 +1148,31 @@ Fields
 
 The configuration for the speaker to use. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`prebuiltVoiceConfig` ` object ( PrebuiltVoiceConfig  ` )
+`prebuiltVoiceConfig` `object ( `[`PrebuiltVoiceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#PrebuiltVoiceConfig)` )`
 
 The configuration for a prebuilt voice.
 
-`replicatedVoiceConfig` ` object ( ReplicatedVoiceConfig  ` )
+`replicatedVoiceConfig` `object ( `[`ReplicatedVoiceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#ReplicatedVoiceConfig)` )`
 
 Optional. The configuration for a replicated voice. This enables users to replicate a voice from an audio sample.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// voice_config&quot;prebuiltVoiceConfig&quot;: {object (PrebuiltVoiceConfig)},&quot;replicatedVoiceConfig&quot;: {object (ReplicatedVoiceConfig)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // voice_config
+  "prebuiltVoiceConfig": {
+    object (PrebuiltVoiceConfig)
+  },
+  "replicatedVoiceConfig": {
+    object (ReplicatedVoiceConfig)
+  }
+  // Union type
+}
+```
 
 ## PrebuiltVoiceConfig
 
@@ -1251,23 +1184,13 @@ Fields
 
 The name of the prebuilt voice to use.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;voiceName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "voiceName": string
+}
+```
 
 ## ReplicatedVoiceConfig
 
@@ -1279,30 +1202,20 @@ Fields
 
 Optional. The mimetype of the voice sample. The only currently supported value is `audio/wav` . This represents 16-bit signed little-endian wav data, with a 24kHz sampling rate. `mimeType` will default to `audio/wav` if not set.
 
-`voiceSampleAudio` `string ( bytes format)`
+`voiceSampleAudio` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Optional. The sample of the custom voice.
 
 A base64-encoded string.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;mimeType&quot;: string,
-  &quot;voiceSampleAudio&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "mimeType": string,
+  "voiceSampleAudio": string
+}
+```
 
 ## MultiSpeakerVoiceConfig
 
@@ -1310,25 +1223,21 @@ Configuration for a multi-speaker text-to-speech request.
 
 Fields
 
-`speakerVoiceConfigs[]` ` object ( SpeakerVoiceConfig  ` )
+`speakerVoiceConfigs[]` `object ( `[`SpeakerVoiceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#SpeakerVoiceConfig)` )`
 
 Required. A list of configurations for the voices of the speakers. Exactly two speaker voice configurations must be provided.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;speakerVoiceConfigs&quot;: [{object (SpeakerVoiceConfig)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "speakerVoiceConfigs": [
+    {
+      object (SpeakerVoiceConfig)
+    }
+  ]
+}
+```
 
 ## SpeakerVoiceConfig
 
@@ -1340,25 +1249,20 @@ Fields
 
 Required. The name of the speaker. This should be the same as the speaker name used in the prompt.
 
-`voiceConfig` ` object ( VoiceConfig  ` )
+`voiceConfig` `object ( `[`VoiceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#VoiceConfig)` )`
 
 Required. The configuration for the voice of this speaker.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;speaker&quot;: string,&quot;voiceConfig&quot;: {object (VoiceConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "speaker": string,
+  "voiceConfig": {
+    object (VoiceConfig)
+  }
+}
+```
 
 ## ThinkingConfig
 
@@ -1376,25 +1280,19 @@ Optional. If true, the model will include its thoughts in the response. "Thought
 
 Optional. The token budget for the model's thinking process. The model will make a best effort to stay within this budget. This can be used to control the trade-off between response quality and latency.
 
-`thinkingLevel` ` enum ( ThinkingLevel  ` )
+`thinkingLevel` `enum ( `[`ThinkingLevel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ThinkingLevel)` )`
 
 Optional. The number of thoughts tokens that the model should generate.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;includeThoughts&quot;: boolean,&quot;thinkingBudget&quot;: integer,&quot;thinkingLevel&quot;: enum (ThinkingLevel)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "includeThoughts": boolean,
+  "thinkingBudget": integer,
+  "thinkingLevel": enum (ThinkingLevel)
+}
+```
 
 ## ModelConfig
 
@@ -1402,25 +1300,17 @@ Config for model selection.
 
 Fields
 
-`featureSelectionPreference` ` enum ( FeatureSelectionPreference  ` )
+`featureSelectionPreference` `enum ( `[`FeatureSelectionPreference`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/FeatureSelectionPreference)` )`
 
 Required. feature selection preference.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;featureSelectionPreference&quot;: enum (FeatureSelectionPreference)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "featureSelectionPreference": enum (FeatureSelectionPreference)
+}
+```
 
 ## ImageConfig
 
@@ -1430,11 +1320,11 @@ This message allows you to control various aspects of image generation, such as 
 
 Fields
 
-`prominentPeople` ` enum ( ProminentPeople  ` )
+`prominentPeople` `enum ( `[`ProminentPeople`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ProminentPeople)` )`
 
-Optional. Controls whether prominent people (celebrities) generation is allowed. If used with personGeneration, personGeneration enum would take precedence. For instance, if ALLOW\_NONE is set, all person generation would be blocked. If this field is unspecified, the default behavior is to allow prominent people.
+Optional. Controls whether prominent people (celebrities) generation is allowed. If used with personGeneration, personGeneration enum would take precedence. For instance, if ALLOW_NONE is set, all person generation would be blocked. If this field is unspecified, the default behavior is to allow prominent people.
 
-`imageOutputOptions` ` object ( ImageOutputOptions  ` )
+`imageOutputOptions` `object ( `[`ImageOutputOptions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#ImageOutputOptions)` )`
 
 Optional. The image output format for generated images.
 
@@ -1444,7 +1334,7 @@ Optional. The desired aspect ratio for the generated images. The following aspec
 
 "1:1" "2:3", "3:2" "3:4", "4:3" "4:5", "5:4" "9:16", "16:9" "21:9"
 
-`personGeneration` ` enum ( PersonGeneration  ` )
+`personGeneration` `enum ( `[`PersonGeneration`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/PersonGeneration)` )`
 
 Optional. Controls whether the model can generate people.
 
@@ -1452,21 +1342,19 @@ Optional. Controls whether the model can generate people.
 
 Optional. Specifies the size of generated images. Supported values are `1K` , `2K` , `4K` . If not specified, the model will use default value `1K` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;prominentPeople&quot;: enum (ProminentPeople),&quot;imageOutputOptions&quot;: {object (ImageOutputOptions)},&quot;aspectRatio&quot;: string,&quot;personGeneration&quot;: enum (PersonGeneration),&quot;imageSize&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "prominentPeople": enum (ProminentPeople),
+  "imageOutputOptions": {
+    object (ImageOutputOptions)
+  },
+  "aspectRatio": string,
+  "personGeneration": enum (PersonGeneration),
+  "imageSize": string
+}
+```
 
 ## ImageOutputOptions
 
@@ -1482,24 +1370,14 @@ Optional. The image format that the output should be saved as.
 
 Optional. The compression quality of the output image.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;mimeType&quot;: string,
-  &quot;compressionQuality&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "mimeType": string,
+  "compressionQuality": integer
+}
+```
 
 ## ResponseFormat
 
@@ -1511,39 +1389,45 @@ Fields
 
 The format of the output content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`text` ` object ( TextResponseFormat  ` )
+`text` `object ( `[`TextResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#TextResponseFormat)` )`
 
 Text output format.
 
-`audio` ` object ( AudioResponseFormat  ` )
+`audio` `object ( `[`AudioResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AudioResponseFormat)` )`
 
 Audio output format.
 
-`image` ` object ( ImageResponseFormat  ` )
+`image` `object ( `[`ImageResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#ImageResponseFormat)` )`
 
 Image output format.
 
-`video` ` object ( VideoResponseFormat  ` )
+`video` `object ( `[`VideoResponseFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#VideoResponseFormat)` )`
 
 Video output format.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// format&quot;text&quot;: {object (TextResponseFormat)},&quot;audio&quot;: {object (AudioResponseFormat)},&quot;image&quot;: {object (ImageResponseFormat)},&quot;video&quot;: {object (VideoResponseFormat)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // format
+  "text": {
+    object (TextResponseFormat)
+  },
+  "audio": {
+    object (AudioResponseFormat)
+  },
+  "image": {
+    object (ImageResponseFormat)
+  },
+  "video": {
+    object (VideoResponseFormat)
+  }
+  // Union type
+}
+```
 
 ## TextResponseFormat
 
@@ -1551,29 +1435,22 @@ Configuration for text-specific output formatting.
 
 Fields
 
-`mimeType` `enum ( MimeType` )
+`mimeType` `enum ( ``MimeType`` )`
 
 Optional. The IANA standard MIME type of the response.
 
-`schema` ` value ( Value  ` format)
+`schema` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
-Optional. The JSON schema that the output should conform to. Only applicable when mimeType is APPLICATION\_JSON.
+Optional. The JSON schema that the output should conform to. Only applicable when mimeType is APPLICATION_JSON.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;mimeType&quot;: enum (MimeType),&quot;schema&quot;: value}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "mimeType": enum (MimeType),
+  "schema": value
+}
+```
 
 ## ImageResponseFormat
 
@@ -1581,37 +1458,32 @@ Configuration for image-specific output formatting.
 
 Fields
 
-`delivery` ` enum ( DeliveryMode  ` )
+`delivery` `enum ( `[`DeliveryMode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/DeliveryMode)` )`
 
 Optional. Delivery mode for the generated content.
 
-`mimeType` `enum ( MimeType` )
+`mimeType` `enum ( ``MimeType`` )`
 
 Optional. The MIME type of the image output.
 
-`aspectRatio` ` enum ( AspectRatio  ` )
+`aspectRatio` `enum ( `[`AspectRatio`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AspectRatio)` )`
 
 Optional. The aspect ratio for the image output.
 
-`imageSize` ` enum ( ImageSize  ` )
+`imageSize` `enum ( `[`ImageSize`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ImageSize)` )`
 
 Optional. The size of the image output.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;delivery&quot;: enum (DeliveryMode),&quot;mimeType&quot;: enum (MimeType),&quot;aspectRatio&quot;: enum (AspectRatio),&quot;imageSize&quot;: enum (ImageSize)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "delivery": enum (DeliveryMode),
+  "mimeType": enum (MimeType),
+  "aspectRatio": enum (AspectRatio),
+  "imageSize": enum (ImageSize)
+}
+```
 
 ## VideoResponseFormat
 
@@ -1619,7 +1491,7 @@ Configuration for video-specific output formatting.
 
 Fields
 
-`delivery` ` enum ( DeliveryMode  ` )
+`delivery` `enum ( `[`DeliveryMode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/DeliveryMode)` )`
 
 Optional. Delivery mode for the generated content.
 
@@ -1627,7 +1499,7 @@ Optional. Delivery mode for the generated content.
 
 Optional. The Google Cloud Storage URI to store the video output. Required for Vertex if delivery is URI.
 
-`aspectRatio` `enum ( AspectRatio` )
+`aspectRatio` `enum ( ``AspectRatio`` )`
 
 The aspect ratio for the video output.
 
@@ -1635,24 +1507,20 @@ The aspect ratio for the video output.
 
 Optional. The video output resolution. Supported values: "360p", "720p", "1080p", "4k".
 
-`duration` ` string ( Duration  ` format)
+`duration` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 Optional. The duration for the video output.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;delivery&quot;: enum (DeliveryMode),&quot;gcsUri&quot;: string,&quot;aspectRatio&quot;: enum (AspectRatio),&quot;resolution&quot;: string,&quot;duration&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "delivery": enum (DeliveryMode),
+  "gcsUri": string,
+  "aspectRatio": enum (AspectRatio),
+  "resolution": string,
+  "duration": string
+}
+```

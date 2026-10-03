@@ -40,24 +40,24 @@ The standard page token.
 
 A filter for your search. You can use the following types of filters:
 
-  - Resource type filters. The following strings filter for a specific type of `  MigratableResource  ` :
-      - `mlEngineModelVersion:*`
-      - `automlModel:*`
-      - `automlDataset:*`
-      - `dataLabelingDataset:*`
-  - "Migrated or not" filters. The following strings filter for resources that either have or have not already been migrated:
-      - `lastMigrateTime:*` filters for migrated resources.
-      - `NOT lastMigrateTime:*` filters for not yet migrated resources.
+- Resource type filters. The following strings filter for a specific type of [`MigratableResource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.migratableResources/search#MigratableResource) :
+  - `mlEngineModelVersion:*`
+  - `automlModel:*`
+  - `automlDataset:*`
+  - `dataLabelingDataset:*`
+- "Migrated or not" filters. The following strings filter for resources that either have or have not already been migrated:
+  - `lastMigrateTime:*` filters for migrated resources.
+  - `NOT lastMigrateTime:*` filters for not yet migrated resources.
 
 ### Response body
 
-Response message for `  MigrationService.SearchMigratableResources  ` .
+Response message for [`MigrationService.SearchMigratableResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.migratableResources/search#google.cloud.aiplatform.v1.MigrationService.SearchMigratableResources) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`migratableResources[]` ` object ( MigratableResource  ` )
+`migratableResources[]` `object ( `[`MigratableResource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.migratableResources/search#MigratableResource)` )`
 
 All migratable resources that can be migrated to the location specified in the request.
 
@@ -65,21 +65,18 @@ All migratable resources that can be migrated to the location specified in the r
 
 The standard next-page token. The migratableResources may not fill pageSize in SearchMigratableResourcesRequest even when there are subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;migratableResources&quot;: [{object (MigratableResource)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "migratableResources": [
+    {
+      object (MigratableResource)
+    }
+  ],
+  "nextPageToken": string
+}
+```
 
 ## MigratableResource
 
@@ -87,13 +84,13 @@ Represents one resource that exists in automl.googleapis.com, datalabeling.googl
 
 Fields
 
-`lastMigrateTime` ` string ( Timestamp  ` format)
+`lastMigrateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when the last migration attempt on this MigratableResource started. Will not be set if there's no migration attempt on this MigratableResource.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`lastUpdateTime` ` string ( Timestamp  ` format)
+`lastUpdateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this MigratableResource was last updated.
 
@@ -103,41 +100,49 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`mlEngineModelVersion` ` object ( MlEngineModelVersion  ` )
+`mlEngineModelVersion` `object ( `[`MlEngineModelVersion`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.migratableResources/search#MlEngineModelVersion)` )`
 
 Output only. Represents one version in ml.googleapis.com.
 
-`automlModel` ` object ( AutomlModel  ` )
+`automlModel` `object ( `[`AutomlModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.migratableResources/search#AutomlModel)` )`
 
 Output only. Represents one Model in automl.googleapis.com.
 
-`automlDataset` ` object ( AutomlDataset  ` )
+`automlDataset` `object ( `[`AutomlDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.migratableResources/search#AutomlDataset)` )`
 
 Output only. Represents one Dataset in automl.googleapis.com.
 
-` dataLabelingDataset (deprecated)  ` ` object ( DataLabelingDataset  ` )
+`dataLabelingDataset `**`(deprecated)`** `object ( `[`DataLabelingDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.migratableResources/search#DataLabelingDataset)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Output only. Deprecated: data Labeling Dataset migration is no longer supported. Represents one Dataset in datalabeling.googleapis.com.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;lastMigrateTime&quot;: string,&quot;lastUpdateTime&quot;: string,// resource&quot;mlEngineModelVersion&quot;: {object (MlEngineModelVersion)},&quot;automlModel&quot;: {object (AutomlModel)},&quot;automlDataset&quot;: {object (AutomlDataset)},&quot;dataLabelingDataset&quot;: {object (DataLabelingDataset)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "lastMigrateTime": string,
+  "lastUpdateTime": string,
+
+  // resource
+  "mlEngineModelVersion": {
+    object (MlEngineModelVersion)
+  },
+  "automlModel": {
+    object (AutomlModel)
+  },
+  "automlDataset": {
+    object (AutomlDataset)
+  },
+  "dataLabelingDataset": {
+    object (DataLabelingDataset)
+  }
+  // Union type
+}
+```
 
 ## MlEngineModelVersion
 
@@ -149,33 +154,23 @@ Fields
 
 The ml.googleapis.com endpoint that this model version currently lives in. Example values:
 
-  - ml.googleapis.com
-  - us-centrall-ml.googleapis.com
-  - europe-west4-ml.googleapis.com
-  - asia-east1-ml.googleapis.com
+- ml.googleapis.com
+- us-centrall-ml.googleapis.com
+- europe-west4-ml.googleapis.com
+- asia-east1-ml.googleapis.com
 
 `version` `string`
 
 Full resource name of ml engine model version. Format: `projects/{project}/models/{model}/versions/{version}` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;endpoint&quot;: string,
-  &quot;version&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "endpoint": string,
+  "version": string
+}
+```
 
 ## AutomlModel
 
@@ -191,24 +186,14 @@ Full resource name of automl Model. Format: `projects/{project}/locations/{locat
 
 The Model's display name in automl.googleapis.com.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;model&quot;: string,
-  &quot;modelDisplayName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "model": string,
+  "modelDisplayName": string
+}
+```
 
 ## AutomlDataset
 
@@ -224,24 +209,14 @@ Full resource name of automl Dataset. Format: `projects/{project}/locations/{loc
 
 The Dataset's display name in automl.googleapis.com.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;dataset&quot;: string,
-  &quot;datasetDisplayName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "dataset": string,
+  "datasetDisplayName": string
+}
+```
 
 ## DataLabelingDataset
 
@@ -257,25 +232,23 @@ Full resource name of data labeling Dataset. Format: `projects/{project}/dataset
 
 The Dataset's display name in datalabeling.googleapis.com.
 
-`dataLabelingAnnotatedDatasets[]` ` object ( DataLabelingAnnotatedDataset  ` )
+`dataLabelingAnnotatedDatasets[]` `object ( `[`DataLabelingAnnotatedDataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.migratableResources/search#DataLabelingAnnotatedDataset)` )`
 
 The migratable AnnotatedDataset in datalabeling.googleapis.com belongs to the data labeling Dataset.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;dataset&quot;: string,&quot;datasetDisplayName&quot;: string,&quot;dataLabelingAnnotatedDatasets&quot;: [{object (DataLabelingAnnotatedDataset)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "dataset": string,
+  "datasetDisplayName": string,
+  "dataLabelingAnnotatedDatasets": [
+    {
+      object (DataLabelingAnnotatedDataset)
+    }
+  ]
+}
+```
 
 ## DataLabelingAnnotatedDataset
 
@@ -291,21 +264,11 @@ Full resource name of data labeling AnnotatedDataset. Format: `projects/{project
 
 The AnnotatedDataset's display name in datalabeling.googleapis.com.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;annotatedDataset&quot;: string,
-  &quot;annotatedDatasetDisplayName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "annotatedDataset": string,
+  "annotatedDatasetDisplayName": string
+}
+```

@@ -40,10 +40,10 @@ To force outbound connections from the producer network to be routed through you
 
 Enabling VPC Service Controls for peerings causes the following changes in the Agent Platform network:
 
-  - Deletes the default internet route.
-  - Creates a route for destination `199.36.153.4/30` with default internet gateway next hop.
-  - Creates a Cloud DNS managed private zone for `*.googleapis.com` with appropriate records to map host names to one of those four addresses.
-  - Authorizes that zone for the `servicenetworking` VPC network to use.
+- Deletes the default internet route.
+- Creates a route for destination `199.36.153.4/30` with default internet gateway next hop.
+- Creates a Cloud DNS managed private zone for `*.googleapis.com` with appropriate records to map host names to one of those four addresses.
+- Authorizes that zone for the `servicenetworking` VPC network to use.
 
 With this change in place, you can export the default route from your network to ensure that outbound connections to the internet are routed through your VPC network. This change also lets you apply any needed policies to the outbound traffic from Agent Platform.
 
@@ -51,8 +51,10 @@ With this change in place, you can export the default route from your network to
 
 You can query the state of VPC Service Controls for Peerings by running the following command;
 
-    gcloud services vpc-peerings get-vpc-service-controls \
-      --network YOUR_NETWORK
+```
+gcloud services vpc-peerings get-vpc-service-controls \
+  --network YOUR_NETWORK
+```
 
 This will return `enabled: true` if the configuration is enabled and empty list ( `{}` ) if it is disabled.
 
@@ -76,7 +78,9 @@ If the KFP library isn't already installed in the component image, the pipeline 
 
 If the pipeline depends on the proxy to install packages from the internet, this attempt will fail and you might see an error like the following:
 
-    Could not find a version that satisfies the requirement kfp==2.7.0
+```
+Could not find a version that satisfies the requirement kfp==2.7.0
+```
 
 In cases such as this, when you're unable to install KFP before running your code, you must use an image with KFP already installed.
 
@@ -84,17 +88,23 @@ You may add KFP to any base image and push it to your repository.
 
 The following Dockerfile example adds KFP to the `python:3.8` base image.
 
-    FROM python:3.8
-    RUN pip install kfp==2.7.0
+```
+FROM python:3.8
+RUN pip install kfp==2.7.0
+```
 
 You can then configure the pipeline `@component` to use this image:
 
-    @component(base_image="$PATH_TO_YOUR_REPOSITORY:YOUR_IMAGE")
+```
+@component(base_image="$PATH_TO_YOUR_REPOSITORY:YOUR_IMAGE")
+```
 
 Once the pipeline component is running, your code can freely install other packages by going through the proxy. The following example installs `numpy` using a proxy at `https://10.10.10.10:443` .
 
-    import subprocess
-    subprocess.call(['pip', 'install', '--proxy', 'https://10.10.10.10:443', 'numpy'])`
+```
+import subprocess
+subprocess.call(['pip', 'install', '--proxy', 'https://10.10.10.10:443', 'numpy'])`
+```
 
 ## Set up allowlists for API access
 
@@ -104,13 +114,13 @@ For transactions between Gemini Enterprise Agent Platform workloads and Google A
 
 Deploying Agent Platform services with [private services access](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/private-services-access) has several limitations.
 
-  - You might need to [reserve large pools of private IP addresses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip#reserving-ip-ranges) per workload while also avoiding conflicts with your VPC addressing.
-      - Running multiple workloads in parallel might still cause a [RANGES\_EXHAUSTED](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting?component=any#ranges_exhausted_ranges_not_reserved) even after correct initial configuration.
-  - Networking deployment and troubleshooting complexity:
-      - Because transitive peering is not supported, you need to deploy complex workarounds to grant connectivity between different networks peered to your VPC network.
-      - The state of the routing table in the producer environment is not immediately obvious. Because you don't have access to the tenant project, it is often difficult to determine what targets an Agent Platform workload can actually reach without extensive testing.
+- You might need to [reserve large pools of private IP addresses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip#reserving-ip-ranges) per workload while also avoiding conflicts with your VPC addressing.
+  - Running multiple workloads in parallel might still cause a [RANGES_EXHAUSTED](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting?component=any#ranges_exhausted_ranges_not_reserved) even after correct initial configuration.
+- Networking deployment and troubleshooting complexity:
+  - Because transitive peering is not supported, you need to deploy complex workarounds to grant connectivity between different networks peered to your VPC network.
+  - The state of the routing table in the producer environment is not immediately obvious. Because you don't have access to the tenant project, it is often difficult to determine what targets an Agent Platform workload can actually reach without extensive testing.
 
 An alternative pattern is to deploy these services to a [Private Service Connect endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/psc-endpoints) .
 
-  - The service consumes a single IP address within your VPC network, allowing you to preserve private address space for your own use.
-  - Because the Agent Platform service IP is in your own network, it is simpler to [create and run connectivity Tests](https://docs.cloud.google.com/network-intelligence-center/docs/connectivity-tests/how-to/running-connectivity-tests) to assess it's reachability to and from elsewhere in your environment.
+- The service consumes a single IP address within your VPC network, allowing you to preserve private address space for your own use.
+- Because the Agent Platform service IP is in your own network, it is simpler to [create and run connectivity Tests](https://docs.cloud.google.com/network-intelligence-center/docs/connectivity-tests/how-to/running-connectivity-tests) to assess it's reachability to and from elsewhere in your environment.

@@ -18,10 +18,10 @@ Ensure your agent and MCP server environments are properly configured to emit th
 
 For agent telemetry setup instructions and requirements, see the following resources:
 
-  - To instrument agents built with the ADK, see [Instrument ADK applications with OpenTelemetry](https://docs.cloud.google.com/stackdriver/docs/instrumentation/ai-agent-adk) .
-  - To instrument agents on Agent Runtime that were not built with ADK, see [Instrument generative AI applications](https://docs.cloud.google.com/stackdriver/docs/instrumentation/ai-agent-overview) .
-  - For MCP server telemetry, see [Use Cloud Trace to monitor MCP tool use](https://docs.cloud.google.com/mcp/monitor-mcp-tool-use-with-cloud-trace) .
-  - For Model Armor telemetry, see [Configure Model Armor logging](https://docs.cloud.google.com/model-armor/configure-logging) .
+- To instrument agents built with the ADK, see [Instrument ADK applications with OpenTelemetry](https://docs.cloud.google.com/stackdriver/docs/instrumentation/ai-agent-adk) .
+- To instrument agents on Agent Runtime that were not built with ADK, see [Instrument generative AI applications](https://docs.cloud.google.com/stackdriver/docs/instrumentation/ai-agent-overview) .
+- For MCP server telemetry, see [Use Cloud Trace to monitor MCP tool use](https://docs.cloud.google.com/mcp/monitor-mcp-tool-use-with-cloud-trace) .
+- For Model Armor telemetry, see [Configure Model Armor logging](https://docs.cloud.google.com/model-armor/configure-logging) .
 
 ## Observability signals
 
@@ -29,12 +29,12 @@ Gemini Enterprise Agent Platform provides observability through metrics, traces,
 
 When you select a specific agent from the Registry, the **Observability** tab provides a suite of targeted dashboards to monitor its operational health, performance, and infrastructure utilization. Use the left-hand navigation within the **Observability** tab to switch between the following views:
 
-  - **Overview:** Tracks high-level usage over your selected timeframe, including total sessions, average turns per session, and total agent invocations. Time-series charts display token usage (input versus output), overall agent traffic volume, latency percentiles (p50, p95, p99), and error rates.
-  - **Evaluation:** Displays online monitors for continuous quality assessment. This includes time-series widgets tracking average response quality, safety metrics, hallucination rates, and tool use quality.
-  - **Models:** Breaks down performance by the underlying foundation model. You can monitor p95 latency, total call counts, error rates, quota failures, and token usage isolated by specific models.
-  - **Tools:** Monitors the external tools and services connected to the agent. This view details p95 latency, call counts, and error rates per tool, as well as the frequency of interactions where no tool was called.
-  - **Usage:** Provides infrastructure-level metrics for the agent's runtime environment, including container CPU allocation, container memory allocation, and token usage.
-  - **Logs:** Displays a filterable stream of raw agent logs, including severity, timestamps, and execution summaries for deep-dive troubleshooting. For more information, see [View agent logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/logging#view-logs) .
+- **Overview:** Tracks high-level usage over your selected timeframe, including total sessions, average turns per session, and total agent invocations. Time-series charts display token usage (input versus output), overall agent traffic volume, latency percentiles (p50, p95, p99), and error rates.
+- **Evaluation:** Displays online monitors for continuous quality assessment. This includes time-series widgets tracking average response quality, safety metrics, hallucination rates, and tool use quality.
+- **Models:** Breaks down performance by the underlying foundation model. You can monitor p95 latency, total call counts, error rates, quota failures, and token usage isolated by specific models.
+- **Tools:** Monitors the external tools and services connected to the agent. This view details p95 latency, call counts, and error rates per tool, as well as the frequency of interactions where no tool was called.
+- **Usage:** Provides infrastructure-level metrics for the agent's runtime environment, including container CPU allocation, container memory allocation, and token usage.
+- **Logs:** Displays a filterable stream of raw agent logs, including severity, timestamps, and execution summaries for deep-dive troubleshooting. For more information, see [View agent logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/logging#view-logs) .
 
 In addition to the dashboards on the **Observability** tab, you can use the agent's **Traces** tab to inspect the step-by-step execution of specific sessions, including directed acyclic graphs of spans and inputs/outputs. For more information, see [View Agent Traces](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/traces) . You can also use the **Topology** tab to view the specific inbound and outbound dependencies for that single agent.
 
@@ -48,6 +48,6 @@ Adhering to these conventions is critical for agent tracing because it establish
 
 ## What's next
 
-  - [View agent relationships](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology) as a topology graph.
-  - [View agent traces](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/traces) to debug agent behavior.
-  - [Evaluate your agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-agents) .
+- [View agent relationships](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology) as a topology graph.
+- [View agent traces](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/traces) to debug agent behavior.
+- [Evaluate your agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-agents) .

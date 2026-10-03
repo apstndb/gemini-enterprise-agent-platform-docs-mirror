@@ -12,9 +12,9 @@ Gemini Enterprise Agent Platform embeddings models can generate optimized embedd
 
 Task types are supported by the following models:
 
-  - `text-embedding-005`
-  - `text-multilingual-embedding-002`
-  - `gemini-embedding-001`
+- `text-embedding-005`
+- `text-multilingual-embedding-002`
+- `gemini-embedding-001`
 
 ## Benefits of task types
 
@@ -35,7 +35,7 @@ In addition to the query and answer use case, task types also provide optimized 
 Embeddings models that use task types support the following task types:
 
 | Task type                                                                                                                                                                                                                | Description                                                                                                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [`CLASSIFICATION`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/task-types#classify-texts)                                                                                           | Used to generate embeddings that are optimized to classify texts according to preset labels                                                                                                   |
 | [`CLUSTERING`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/task-types#cluster-texts)                                                                                                | Used to generate embeddings that are optimized to cluster texts based on their similarities                                                                                                   |
 | [`RETRIEVAL_DOCUMENT` , `RETRIEVAL_QUERY` , `QUESTION_ANSWERING` , and `FACT_VERIFICATION`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/task-types#retrieve-information-from-texts) | Used to generate embeddings that are optimized for document search or information retrieval                                                                                                   |
@@ -52,63 +52,21 @@ Embeddings use cases typically fall within one of four categories: assessing tex
 
 There are two types of task instruction formatting, asymmetric and symmetric. You'll need to use the correct one based on your use case.
 
-Retrieval Use cases  
-(Asymmetric Format)
-
-Query task type
-
-Document task type
-
-Search Query
-
-RETRIEVAL\_QUERY
-
-RETRIEVAL\_DOCUMENT
-
-Question Answering
-
-QUESTION\_ANSWERING
-
-Fact Checking
-
-FACT\_VERIFICATION
-
-Code Retrieval
-
-CODE\_RETRIEVAL\_QUERY
+| Retrieval Use cases (Asymmetric Format) | Query task type      | Document task type |
+|-----------------------------------------|----------------------|--------------------|
+| Search Query                            | RETRIEVAL_QUERY      | RETRIEVAL_DOCUMENT |
+| Question Answering                      | QUESTION_ANSWERING   |                    |
+| Fact Checking                           | FACT_VERIFICATION    |                    |
+| Code Retrieval                          | CODE_RETRIEVAL_QUERY |                    |
 
   
   
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Single-input Use Cases<br />
-(Symmetric Format)</th>
-<th>Input task type</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Classification</td>
-<td>CLASSIFICATION</td>
-</tr>
-<tr class="even">
-<td>Clustering</td>
-<td>CLUSTERING</td>
-</tr>
-<tr class="odd">
-<td>Semantic Similarity<br />
-(Do not use for retrieval use cases;<br />
-intended for STS)</td>
-<td>SEMANTIC_SIMILARITY</td>
-</tr>
-</tbody>
-</table>
+| Single-input Use Cases (Symmetric Format)                                  | Input task type     |
+|----------------------------------------------------------------------------|---------------------|
+| Classification                                                             | CLASSIFICATION      |
+| Clustering                                                                 | CLUSTERING          |
+| Semantic Similarity (Do not use for retrieval use cases; intended for STS) | SEMANTIC_SIMILARITY |
 
 ### Classify texts
 
@@ -126,11 +84,11 @@ For example, suppose you want to generate embeddings for news articles so that y
 
 Additional use cases for clustering include the following:
 
-  - **Customer segmentation:** group customers with similar embeddings generated from their profiles or activities for targeted marketing and personalized experiences.
-  - **Product segmentation:** clustering product embeddings based on their product title and description, product images, or customer reviews can help businesses do segment analysis on their products.
-  - **Market research:** clustering consumer survey responses or social media data embeddings can reveal hidden patterns and trends in consumer opinions, preferences, and behaviors, aiding market research efforts and informing product development strategies.
-  - **Healthcare:** clustering patient embeddings derived from medical data can help identify groups with similar conditions or treatment responses, leading to more personalized healthcare plans and targeted therapies.
-  - **Customer feedback trends:** clustering customer feedback from various channels (surveys, social media, support tickets) into groups can help identify common pain points, feature requests, and areas for product improvement.
+- **Customer segmentation:** group customers with similar embeddings generated from their profiles or activities for targeted marketing and personalized experiences.
+- **Product segmentation:** clustering product embeddings based on their product title and description, product images, or customer reviews can help businesses do segment analysis on their products.
+- **Market research:** clustering consumer survey responses or social media data embeddings can reveal hidden patterns and trends in consumer opinions, preferences, and behaviors, aiding market research efforts and informing product development strategies.
+- **Healthcare:** clustering patient embeddings derived from medical data can help identify groups with similar conditions or treatment responses, leading to more personalized healthcare plans and targeted therapies.
+- **Customer feedback trends:** clustering customer feedback from various channels (surveys, social media, support tickets) into groups can help identify common pain points, feature requests, and areas for product improvement.
 
 > **Key Point:** To get embeddings that are optimized for clustering based on similarities, use the `CLUSTERING` task type.
 
@@ -140,8 +98,8 @@ Additional use cases for clustering include the following:
 
 When you build a search or retrieval system, you work with two types of text:
 
-  - **Corpus** : The collection of documents that you want to search over.
-  - **Query** : The text that a user provides to search for information within the corpus.
+- **Corpus** : The collection of documents that you want to search over.
+- **Query** : The text that a user provides to search for information within the corpus.
 
 To get the best performance, you must use different task types to generate embeddings for your corpus and your queries.
 
@@ -151,14 +109,14 @@ Next, when a user submits a search, you generate an embedding for their query te
 
 The following task types are used for queries:
 
-  - `RETRIEVAL_QUERY` : Use this for a standard search query where you want to find relevant documents. The model looks for document embeddings that are semantically close to the query embedding.
-  - `QUESTION_ANSWERING` : Use this when all queries are expected to be proper questions, such as "Why is the sky blue?" or "How do I tie my shoelaces?".
-  - `FACT_VERIFICATION` : Use this when you want to retrieve a document from your corpus that proves or disproves a statement. For example, the query "apples grow underground" might retrieve an article about apples that would ultimately disprove the statement.
+- `RETRIEVAL_QUERY` : Use this for a standard search query where you want to find relevant documents. The model looks for document embeddings that are semantically close to the query embedding.
+- `QUESTION_ANSWERING` : Use this when all queries are expected to be proper questions, such as "Why is the sky blue?" or "How do I tie my shoelaces?".
+- `FACT_VERIFICATION` : Use this when you want to retrieve a document from your corpus that proves or disproves a statement. For example, the query "apples grow underground" might retrieve an article about apples that would ultimately disprove the statement.
 
 Consider the following real-world scenario where retrieval queries would be useful:
 
-  - For an ecommerce platform, you want to use embeddings to enable users to search for products using both text queries and images, providing a more intuitive and engaging shopping experience.
-  - For an educational platform, you want to build a question-answering system that can answer students' questions based on textbook content or educational resources, providing personalized learning experiences and helping students understand complex concepts.
+- For an ecommerce platform, you want to use embeddings to enable users to search for products using both text queries and images, providing a more intuitive and engaging shopping experience.
+- For an educational platform, you want to build a question-answering system that can answer students' questions based on textbook content or educational resources, providing personalized learning experiences and helping students understand complex concepts.
 
 ### Code retrieval
 
@@ -170,21 +128,23 @@ Here is an example:
 
 ### REST
 
-    PROJECT_ID=PROJECT_ID
-    
-    curl \
-    -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/publishers/google/models/text-embedding-005:predict -d \
-    $'{
-      "instances": [
-        {
-          "task_type": "CODE_RETRIEVAL_QUERY",
-          "content": "Function to add two numbers"
-        }
-      ],
-    }'
+```
+PROJECT_ID=PROJECT_ID
+
+curl \
+-X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/publishers/google/models/text-embedding-005:predict -d \
+$'{
+  "instances": [
+    {
+      "task_type": "CODE_RETRIEVAL_QUERY",
+      "content": "Function to add two numbers"
+    }
+  ],
+}'
+```
 
 ### Python
 
@@ -192,65 +152,67 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    import os
-    
-    from google import genai
-    
-    # TODO (Developer) set the following environment variables.
-    PROJECT_ID = os.getenv("PROJECT_ID")
-    LOCATION_ID = os.getenv("LOCATION_ID", "us-central1")
-    MODEL_NAME = os.getenv("MODEL_NAME", "gemini-embedding-001")
-    
-    QUERY_LINES = ["Retrieve a function that adds two numbers"]
-    CODE_RETRIEVAL_QUERY = "CODE_RETRIEVAL_QUERY"
-    RETRIEVAL_DOCUMENT = "RETRIEVAL_DOCUMENT"
-    SOURCE_CODE = [
-        "def func(a, b): return a + b",
-        "def func(a, b): return a - b",
-        "def func(a, b): return (a ** 2 + b ** 2) ** 0.5",
-    ]
-    
-    
-    def embed_test() -> (
-        tuple[genai.types.EmbedContentResponse, genai.types.EmbedContentResponse]
-    ):
-        """Generates embeddings for source code indexing and code search queries using the Gemini API.
-    
-        Returns:
-            tuple[genai.types.EmbedContentResponse, genai.types.EmbedContentResponse]: A tuple containing
-            the final source code indexing response and search query embedding response.
-        """
-        client = genai.Client(enterprise=True, project=PROJECT_ID, location=LOCATION_ID)
-    
-        # Index Source Code
-        for line in SOURCE_CODE:
-            config = genai.types.EmbedContentConfig(task_type=RETRIEVAL_DOCUMENT)
-    
-            index_response = client.models.embed_content(
-                model=MODEL_NAME, contents=line, config=config
-            )
-    
-            print(
-                f"Task: {RETRIEVAL_DOCUMENT} | "
-                f"Vector length: {len(index_response.embeddings)} | "
-                f"Preview: {index_response.embeddings[:3]}..."
-            )
-    
-        # Embed Search Prompts
-        for line in QUERY_LINES:
-            config = genai.types.EmbedContentConfig(task_type=CODE_RETRIEVAL_QUERY)
-    
-            query_response = client.models.embed_content(
-                model=MODEL_NAME, contents=line, config=config
-            )
-    
-            print(
-                f"Task: {CODE_RETRIEVAL_QUERY} | "
-                f"Vector length: {len(query_response.embeddings)} | "
-                f"Preview: {query_response.embeddings[:3]}..."
-            )
-    
-        return index_response, query_response
+```python
+import os
+
+from google import genai
+
+# TODO (Developer) set the following environment variables.
+PROJECT_ID = os.getenv("PROJECT_ID")
+LOCATION_ID = os.getenv("LOCATION_ID", "us-central1")
+MODEL_NAME = os.getenv("MODEL_NAME", "gemini-embedding-001")
+
+QUERY_LINES = ["Retrieve a function that adds two numbers"]
+CODE_RETRIEVAL_QUERY = "CODE_RETRIEVAL_QUERY"
+RETRIEVAL_DOCUMENT = "RETRIEVAL_DOCUMENT"
+SOURCE_CODE = [
+    "def func(a, b): return a + b",
+    "def func(a, b): return a - b",
+    "def func(a, b): return (a ** 2 + b ** 2) ** 0.5",
+]
+
+
+def embed_test() -> (
+    tuple[genai.types.EmbedContentResponse, genai.types.EmbedContentResponse]
+):
+    """Generates embeddings for source code indexing and code search queries using the Gemini API.
+
+    Returns:
+        tuple[genai.types.EmbedContentResponse, genai.types.EmbedContentResponse]: A tuple containing
+        the final source code indexing response and search query embedding response.
+    """
+    client = genai.Client(enterprise=True, project=PROJECT_ID, location=LOCATION_ID)
+
+    # Index Source Code
+    for line in SOURCE_CODE:
+        config = genai.types.EmbedContentConfig(task_type=RETRIEVAL_DOCUMENT)
+
+        index_response = client.models.embed_content(
+            model=MODEL_NAME, contents=line, config=config
+        )
+
+        print(
+            f"Task: {RETRIEVAL_DOCUMENT} | "
+            f"Vector length: {len(index_response.embeddings)} | "
+            f"Preview: {index_response.embeddings[:3]}..."
+        )
+
+    # Embed Search Prompts
+    for line in QUERY_LINES:
+        config = genai.types.EmbedContentConfig(task_type=CODE_RETRIEVAL_QUERY)
+
+        query_response = client.models.embed_content(
+            model=MODEL_NAME, contents=line, config=config
+        )
+
+        print(
+            f"Task: {CODE_RETRIEVAL_QUERY} | "
+            f"Vector length: {len(query_response.embeddings)} | "
+            f"Preview: {query_response.embeddings[:3]}..."
+        )
+
+    return index_response, query_response
+```
 
 ### Assess text similarity
 
@@ -258,14 +220,14 @@ If you want to use embeddings to assess text similarity, use the `SEMANTIC_SIMIL
 
 For example, suppose you want to generate embeddings to use to compare the similarity of the following texts:
 
-  - The cat is sleeping
-  - The feline is napping
+- The cat is sleeping
+- The feline is napping
 
 When the embeddings are used to create a similarity score, the similarity score is high, because both texts have nearly the same meaning.
 
 Consider the following real-world scenarios where assessing input similarity would be useful:
 
-  - For a recommendation system, you want to identify items (e.g., products, articles, movies) that are semantically similar to a user's preferred items, providing personalized recommendations and enhancing user satisfaction.
+- For a recommendation system, you want to identify items (e.g., products, articles, movies) that are semantically similar to a user's preferred items, providing personalized recommendations and enhancing user satisfaction.
 
 > **Key Point:** To get embeddings that are optimized to assess text similarity, use the `SEMANTIC_SIMILARITY` task type.
 
@@ -273,11 +235,11 @@ Consider the following real-world scenarios where assessing input similarity wou
 
 The following limitations apply when using these models:
 
-  - Don't use these preview models on mission critical or production systems.
-  - These models are available in `us-central1` only.
-  - Batch predictions are not supported.
-  - Customization is not supported.
+- Don't use these preview models on mission critical or production systems.
+- These models are available in `us-central1` only.
+- Batch predictions are not supported.
+- Customization is not supported.
 
 ## What's next
 
-  - Learn how to [get text embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings) .
+- Learn how to [get text embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings) .

@@ -16,55 +16,22 @@ When Agent Identity is used with Agent Gateway and Gemini Enterprise, end-user c
 
 The following services support Agent Identity:
 
-  - [Gemini Enterprise Agent Platform Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) ( *Agent Runtime* )
-  - [Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs)
-  - [Cloud Run](https://docs.cloud.google.com/run/docs/ai/agent-platform-features)
+- [Gemini Enterprise Agent Platform Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) ( *Agent Runtime* )
+- [Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs)
+- [Cloud Run](https://docs.cloud.google.com/run/docs/ai/agent-platform-features)
 
 ## Authentication models
 
 To authenticate with various tools and services, Agent Identity supports several authentication models. The model that an agent uses depends on the authentication method offered by the target resource and whether the agent acts on its own authority or on behalf of an end user.
 
-Authority
-
-Authentication method
-
-Target resource
-
-Use case and solution
-
-**User-delegated authority**
-
-OAuth 2.0 (3-legged)
-
-External tools and services
-
-When an agent acts on behalf of a specific user (for example, to access a user's Jira tasks or GitHub repositories). You configure a 3-legged OAuth auth provider in Agent Identity auth manager to manage user consent and tokens. For more information, see [Authenticate using 3-legged OAuth with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-3lo-v2) .
-
-**Agent's own authority**
-
-Cloud-based identity (Agent Identity)
-
-Google Cloud services
-
-When an agent hosted on Google Cloud needs to access other Google Cloud services using its own identity. For more information, see [Authenticate using an agent's own identity](https://docs.cloud.google.com/iam/docs/auth-agent-own-identity) .
-
-OAuth 2.0 (2-legged)
-
-External tools and services
-
-Recommended for machine-to-machine authentication with external services that support OAuth. You configure a 2-legged OAuth auth provider in Agent Identity auth manager to handle client credentials and access tokens. For more information, see [Authenticate using 2-legged OAuth with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-2lo-v2) .
-
-API key
-
-External tools and services
-
-For external services that require a cryptographic key or password for authentication. You configure an API key auth provider in Agent Identity auth manager to help securely store and manage the keys. For more information, see [Authenticate using API key with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-api-key-v2) .
-
-HTTP basic auth
-
-External tools and services
-
-Uses plaintext passwords. This method is **not recommended** . You can store passwords similar to API key. For more information, see [Authenticate using API key with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-api-key-v2) .
+| Authority                             | Authentication method                 | Target resource                                                                                                                                                                                                                                                                                                                                                           | Use case and solution                                                                                                                                                                                                                                                                                                                                                          |
+|---------------------------------------|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **User-delegated authority**          | OAuth 2.0 (3-legged)                  | External tools and services                                                                                                                                                                                                                                                                                                                                               | When an agent acts on behalf of a specific user (for example, to access a user's Jira tasks or GitHub repositories). You configure a 3-legged OAuth auth provider in Agent Identity auth manager to manage user consent and tokens. For more information, see [Authenticate using 3-legged OAuth with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-3lo-v2) . |
+| **Agent's own authority**             | Cloud-based identity (Agent Identity) | Google Cloud services                                                                                                                                                                                                                                                                                                                                                     | When an agent hosted on Google Cloud needs to access other Google Cloud services using its own identity. For more information, see [Authenticate to Google Cloud using an agent's own identity](https://docs.cloud.google.com/iam/docs/auth-agent-own-identity) .                                                                                                              |
+| Cloud-based identity (OIDC ID tokens) | External tools and services           | When an agent hosted on Google Cloud needs to authenticate to external backends, custom APIs, or third-party cloud platforms using its own identity and OpenID Connect (OIDC) identity federation. For more information, see [Authenticate to external services using an agent's own identity](https://docs.cloud.google.com/iam/docs/auth-agent-own-identity-external) . |                                                                                                                                                                                                                                                                                                                                                                                |
+| OAuth 2.0 (2-legged)                  | External tools and services           | Recommended for machine-to-machine authentication with external services that support OAuth. You configure a 2-legged OAuth auth provider in Agent Identity auth manager to handle client credentials and access tokens. For more information, see [Authenticate using 2-legged OAuth with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-2lo-v2) .       |                                                                                                                                                                                                                                                                                                                                                                                |
+| API key                               | External tools and services           | For external services that require a cryptographic key or password for authentication. You configure an API key auth provider in Agent Identity auth manager to help securely store and manage the keys. For more information, see [Authenticate using API key with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-api-key-v2) .                          |                                                                                                                                                                                                                                                                                                                                                                                |
+| HTTP basic auth                       | External tools and services           | Uses plaintext passwords. This method is **not recommended** . You can store passwords similar to an API key. For more information, see [Authenticate using API key with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-api-key-v2) .                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                |
 
 ## Core components
 
@@ -76,29 +43,29 @@ Each agent is assigned a unique identity string, or SPIFFE ID, based on the [SPI
 
 The identity follows this format:
 
-> ` spiffe:// TRUST_DOMAIN /resources/ SERVICE / RESOURCE_PATH  `
+> `spiffe:// `` TRUST_DOMAIN `` /resources/ `` SERVICE `` / `` RESOURCE_PATH`
 
 For example:
 
-  - `spiffe://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
+- `spiffe://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
 
 When an agent identity is used in an IAM allow policy, the principal identifier follows this format:
 
-> ` principal:// TRUST_DOMAIN /resources/ SERVICE / RESOURCE_PATH  `
+> `principal:// `` TRUST_DOMAIN `` /resources/ `` SERVICE `` / `` RESOURCE_PATH`
 
 Examples:
 
-  - **Vertex AI Agent Engine (organization):** `principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
-  - **Vertex AI Agent Engine (project without an organization):** `principal://agents.global.proj-9876543210.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
-  - **Gemini Enterprise:** `principal://agents.global.org-123456789012.system.id.goog/resources/discoveryengine/projects/9876543210/locations/global/collections/default_collection/engines/my-test-agent`
+- **Vertex AI Agent Engine (organization):** `principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
+- **Vertex AI Agent Engine (project without an organization):** `principal://agents.global.proj-9876543210.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
+- **Gemini Enterprise:** `principal://agents.global.org-123456789012.system.id.goog/resources/discoveryengine/projects/9876543210/locations/global/collections/default_collection/engines/my-test-agent`
 
 The identifiers use the following:
 
-  - `  TRUST_DOMAIN  ` : The trust domain for your resource hierarchy:
-      - For projects in an organization: `agents.global.org- ORGANIZATION_ID .system.id.goog`
-      - For projects without an organization: `agents.global.proj- PROJECT_NUMBER .system.id.goog`
-  - `  SERVICE  ` : The short name of the Google Cloud service (for example, `aiplatform` or `discoveryengine` ).
-  - `  RESOURCE_PATH  ` : The full path to the resource that hosts the agent.
+- `TRUST_DOMAIN` : The trust domain for your resource hierarchy:
+  - For projects in an organization: `agents.global.org- `` ORGANIZATION_ID `` .system.id.goog`
+  - For projects without an organization: `agents.global.proj- `` PROJECT_NUMBER `` .system.id.goog`
+- `SERVICE` : The short name of the Google Cloud service (for example, `aiplatform` or `discoveryengine` ).
+- `RESOURCE_PATH` : The full path to the resource that hosts the agent.
 
 Because the agent itself is the principal, you grant permissions directly to this identifier to control which resources the agent can access.
 
@@ -110,7 +77,7 @@ An agent's identity is derived from the ID of the resource that hosts it, such a
 
 ### Agent credentials
 
-Agent credentials provide cryptographic proof of an agent's identity. The system supports X.509 certificates and Google Cloud access tokens. An X.509 certificate is auto-provisioned and managed on the agent to help support stronger authentication.
+Agent credentials provide cryptographic proof of an agent's identity. The system supports X.509 certificates, Google Cloud access tokens, and OIDC ID tokens. An X.509 certificate is auto-provisioned and managed on the agent to help support stronger authentication.
 
 By default, agent identities use mutual TLS (mTLS) with X.509 certificates when communicating directly with Google Cloud APIs. When agents interact across the Agent Gateway, they also use Demonstrating Proof of Possession (DPoP), creating double-bound credentials for end-to-end security. This double binding means that agents authenticate using mTLS for first-party access to the gateway and use DPoP for interactions beyond the gateway.
 
@@ -128,12 +95,12 @@ For more information, see the [Agent Identity auth manager overview](https://doc
 
 Agent Identity is fully integrated with Google's policy systems like IAM, Principal Access Boundary (PAB), and VPC Service Controls, which allow for enhanced security and governance. It also integrates with audit logging to ensure accountability and provide clear audit logs both when the agent is acting as itself and when it is acting on behalf of an end user.
 
-  - **Context-Aware Access:** By default, a Google-managed Context-Aware Access policy helps secure [agent credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview#agent-credentials) by enforcing mTLS and DPoP token binding. This approach ensures that certificate-bound tokens cannot be replayed outside their trusted runtime environment.
-  - **IAM integration:** Support for standard IAM allow policies and deny policies.
-  - **Principal Access Boundary (PAB):** A PAB limits the resources an agent can access, regardless of other permissions.
-  - **VPC Service Controls:** Support for perimeter protection and principal usage:
-      - **Perimeter protection:** You can add the Agent Identity API ( `agentidentity.googleapis.com` ) and the Agent Identity Credentials API ( `agentidentitycredentials.googleapis.com` ) to a service perimeter to help control access to these APIs. To use these APIs within a service perimeter, clients must route requests through the Restricted VIP ( `restricted.googleapis.com` ).
-      - **Ingress and egress rules:** Support for using agent identities as principals in [ingress and egress rules](https://docs.cloud.google.com/vpc-service-controls/docs/ingress-egress-rules) to allow access to resources protected by a service perimeter.
+- **Context-Aware Access:** By default, a Google-managed Context-Aware Access policy helps secure [agent credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview#agent-credentials) by enforcing mTLS and DPoP token binding. This approach ensures that certificate-bound tokens cannot be replayed outside their trusted runtime environment.
+- **IAM integration:** Support for standard IAM allow policies and deny policies.
+- **Principal Access Boundary (PAB):** A PAB limits the resources an agent can access, regardless of other permissions.
+- **VPC Service Controls:** Support for perimeter protection and principal usage:
+  - **Perimeter protection:** You can add the Agent Identity API ( `agentidentity.googleapis.com` ) and the Agent Identity Credentials API ( `agentidentitycredentials.googleapis.com` ) to a service perimeter to help control access to these APIs. To use these APIs within a service perimeter, clients must route requests through the Restricted VIP ( `restricted.googleapis.com` ).
+  - **Ingress and egress rules:** Support for using agent identities as principals in [ingress and egress rules](https://docs.cloud.google.com/vpc-service-controls/docs/ingress-egress-rules) to allow access to resources protected by a service perimeter.
 
 ## How Agent Identity works
 
@@ -141,24 +108,24 @@ Agent Identity authenticates and authorizes agent actions through a workflow des
 
 1.  **Identity assignment** : When you deploy an agent, Google Cloud assigns it a unique SPIFFE identity and an X.509 certificate. Each X.509 certificate is valid for 24 hours, and Google Cloud automatically keeps it current to maintain security.
 2.  **Credential acquisition** : The method that agents use to acquire credentials depends on what they are trying to access. The following are some examples:
-      - **Access Google Cloud services** : The agent requests a bound access token. This token is cryptographically bound to the agent's unique X.509 certificate to help prevent token theft. For more information, see [Security and governance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview#security-governance) .
-      - **Access external tools** : The agent uses Agent Identity auth manager to retrieve the required credentials (such as API keys or OAuth tokens) from an auth provider. Auth manager supports both **user-delegated authority** and the **agent's own authority** .
+    - **Access Google Cloud services** : The agent requests a bound access token. This token is cryptographically bound to the agent's unique X.509 certificate to help prevent token theft. For more information, see [Security and governance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview#security-governance) .
+    - **Access external tools** : To authenticate directly to an external service using its own identity, the agent requests an OIDC ID token. To retrieve stored credentials (such as API keys or OAuth tokens) from an auth provider, the agent uses Agent Identity auth manager, which supports both **user-delegated authority** and the **agent's own authority** .
 
 ## Benefits of Agent Identity
 
 Agent Identity improves security over standard service accounts.
 
-  - **Strong isolation:** Unlike service accounts, agent identities are not shared by multiple workloads by default, can't be impersonated, and don't allow developers to generate long-lived service account keys.
-  - **Credential security:** Default [Context-Aware Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview#security-governance) make bound tokens unreplayable, helping to protect against token theft and account takeover. When Agent Identity is used with Agent Gateway and Gemini Enterprise, end-user credentials, such as those provisioned by Gemini Enterprise connectors, are encrypted by the auth manager and decrypted at the gateway, ensuring that the agent can never access the raw credential.
-  - **Least-privilege approach:** Provides per-agent identities instead of shared service accounts to eliminate over-permissioned agents.
-  - **Reduced friction:** Automates complex OAuth flows and manages API keys for simpler tool integration.
-  - **Improved observability:** Provides clear audit logs. When an agent acts on a user's behalf, logs show both the agent's and user's identities.
+- **Strong isolation:** Unlike service accounts, agent identities are not shared by multiple workloads by default, can't be impersonated, and don't allow developers to generate long-lived service account keys.
+- **Credential security:** Default [Context-Aware Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview#security-governance) make bound tokens unreplayable, helping to protect against token theft and account takeover. When Agent Identity is used with Agent Gateway and Gemini Enterprise, end-user credentials, such as those provisioned by Gemini Enterprise connectors, are encrypted by the auth manager and decrypted at the gateway, ensuring that the agent can never access the raw credential.
+- **Least-privilege approach:** Provides per-agent identities instead of shared service accounts to eliminate over-permissioned agents.
+- **Reduced friction:** Automates complex OAuth flows and manages API keys for simpler tool integration.
+- **Improved observability:** Provides clear audit logs. When an agent acts on a user's behalf, logs show both the agent's and user's identities.
 
 ## Limitations
 
-  - **Cloud Storage legacy bucket roles:** You cannot grant agent identities legacy bucket roles (for example, `storage.legacyBucketReader` ).
+- **Cloud Storage legacy bucket roles:** You cannot grant agent identities legacy bucket roles (for example, `storage.legacyBucketReader` ).
 
 ## What's next
 
-  - Learn more about [using agent identity with Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) .
-  - Learn more about [managing agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents) .
+- Learn more about [using agent identity with Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) .
+- Learn more about [managing agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents) .

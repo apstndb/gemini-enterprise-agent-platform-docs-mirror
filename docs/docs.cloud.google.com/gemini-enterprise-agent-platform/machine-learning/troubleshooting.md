@@ -14,10 +14,10 @@ To filter this page's content, click a topic:
 
 When connecting Agent Platform with other Google Cloud products, you may find [Cloud Assist Investigations](https://docs.cloud.google.com/cloud-assist/investigations) to be helpful in troubleshooting complex integration issues.
 
-  - Enable and configure the Cloud Assist Investigations API.
-  - Determine which of the products that your workload name depends on appears on the list of [supported products](https://docs.cloud.google.com/cloud-assist/investigations#products)
-  - Create an investigation and describe the symptoms in detail. Be sure to mention any resources that the pipeline relies on.
-  - As you type, you will notice the dialog suggesting resources to add to the investigation. Review this list and add any relevant resources before running the investigation.
+- Enable and configure the Cloud Assist Investigations API.
+- Determine which of the products that your workload name depends on appears on the list of [supported products](https://docs.cloud.google.com/cloud-assist/investigations#products)
+- Create an investigation and describe the symptoms in detail. Be sure to mention any resources that the pipeline relies on.
+- As you type, you will notice the dialog suggesting resources to add to the investigation. Review this list and add any relevant resources before running the investigation.
 
 ## AutoML models
 
@@ -47,18 +47,20 @@ You encounter an `Internal error encountered` error when trying to tune a model.
 
 Run the following curl command to create an empty Gemini Enterprise Agent Platform dataset. Ensure that you configure your project ID in the command.
 
-    PROJECT_ID=PROJECT_ID
-    
-    curl \
-    -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://europe-west4-aiplatform.googleapis.com/ui/projects/$PROJECT_ID/locations/europe-west4/datasets \
-    -d '{
-        "display_name": "test-name1",
-        "metadata_schema_uri": "gs://google-cloud-aiplatform/schema/dataset/metadata/image_1.0.0.yaml",
-        "saved_queries": [{"display_name": "saved_query_name", "problem_type": "IMAGE_CLASSIFICATION_MULTI_LABEL"}]
-    }'
+```
+PROJECT_ID=PROJECT_ID
+
+curl \
+-X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://europe-west4-aiplatform.googleapis.com/ui/projects/$PROJECT_ID/locations/europe-west4/datasets \
+-d '{
+    "display_name": "test-name1",
+    "metadata_schema_uri": "gs://google-cloud-aiplatform/schema/dataset/metadata/image_1.0.0.yaml",
+    "saved_queries": [{"display_name": "saved_query_name", "problem_type": "IMAGE_CLASSIFICATION_MULTI_LABEL"}]
+}'
+```
 
 After the command completes, wait five minutes and try model tuning again.
 
@@ -68,8 +70,10 @@ After the command completes, wait five minutes and try model tuning again.
 
 You encounter the following error:
 
-    429: The online prediction request quota is exceeded for
-    PUBLIC_BASE_MODEL_NAME.
+```
+429: The online prediction request quota is exceeded for
+PUBLIC_BASE_MODEL_NAME.
+```
 
 **Solution**
 
@@ -81,8 +85,10 @@ Try again later with backoff. If you still experience errors, contact Gemini Ent
 
 You encounter the following error:
 
-    410: The request is missing the required authentication credential. Expected
-    OAuth 2.0 access token, login cookie, or other valid authentication credential.
+```
+410: The request is missing the required authentication credential. Expected
+OAuth 2.0 access token, login cookie, or other valid authentication credential.
+```
 
 **Solution**
 
@@ -94,7 +100,9 @@ See the [Authentication overview](https://developers.google.com/identity/gsi/web
 
 You encounter the following error:
 
-    403: Permission denied.
+```
+403: Permission denied.
+```
 
 **Solution**
 
@@ -110,7 +118,9 @@ This section describes troubleshooting steps that you might find helpful if you 
 
 When you run your Gemini Enterprise Agent Platform Pipelines workflow, you might encounter the following error message:
 
-    You do not have permission to act as service account: SERVICE_ACCOUNT. (or it may not exist).
+```
+You do not have permission to act as service account: SERVICE_ACCOUNT. (or it may not exist).
+```
 
 **Solution**
 
@@ -161,9 +171,11 @@ To resolve this issue, update VPC peering using the [update command](https://doc
 
 When you run your Gemini Enterprise Agent Platform Pipelines workflow, you encounter the following error message:
 
-    google.auth.exceptions.RefreshError: ('invalid_scope: Invalid OAuth scope
-    or ID token audience provided.', {'error': 'invalid_scope',
-    'error_description': 'Invalid OAuth scope or ID token audience provided.'})
+```
+google.auth.exceptions.RefreshError: ('invalid_scope: Invalid OAuth scope
+or ID token audience provided.', {'error': 'invalid_scope',
+'error_description': 'Invalid OAuth scope or ID token audience provided.'})
+```
 
 **Solution**
 
@@ -171,7 +183,9 @@ This means that you haven't provided credentials in one of the pipeline's compon
 
 To resolve this issue, set the credentials for the relevant pipeline component or set the environment credentials and use `ai_platform.init()` at the beginning of your code.
 
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = PATH_TO_JSON_KEY
+```
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = PATH_TO_JSON_KEY
+```
 
 ### Agent Platform Pipelines components require more disk space than 100 GB
 
@@ -191,8 +205,10 @@ This section describes troubleshooting steps that you might find helpful if you 
 
 > **Note:** Enabling VPC Service Controls for Peerings will change the forwarding behavior in the Agent Platform producer project that peered to your VPC. Be sure to read the discussion on [Service perimeter creation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls#service-perimeter-creation) for Agent Platform and confirm the configuration by running following command;
 
-    gcloud services vpc-peerings get-vpc-service-controls \
-      --network YOUR_NETWORK
+```
+gcloud services vpc-peerings get-vpc-service-controls \
+  --network YOUR_NETWORK
+```
 
 ### Workloads can't access endpoints in your VPC network when using privately-used public IP ranges for Gemini Enterprise Agent Platform
 
@@ -226,15 +242,15 @@ Your Gemini Enterprise Agent Platform pipeline times out when it attempts to con
 
 Try the following to resolve the problem:
 
-  - Ensure that you have completed all of the steps in [Set up VPC Network Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) .
+- Ensure that you have completed all of the steps in [Set up VPC Network Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) .
 
-  - Review the configuration of your peered VPC network. Ensure that your network imports routes from the correct service networking range while your job is running.
+- Review the configuration of your peered VPC network. Ensure that your network imports routes from the correct service networking range while your job is running.
 
-  - Ensure that you have a firewall rule that allows connections from this range to the target in your network.
+- Ensure that you have a firewall rule that allows connections from this range to the target in your network.
 
-  - If the peering connection does not import any routes while your job is running, this means the service networking configuration is not being used. This is likely because you completed the peering configuration with a network other than the default network. If this is the case, ensure that you specify your network when you launch a job. Use the fully qualified network name in the following format: `projects/$PROJECT_ID/global/networks/$NETWORK_NAME` .
-    
-    For more information, see the [Routes overview](https://docs.cloud.google.com/vpc/docs/routes) .
+- If the peering connection does not import any routes while your job is running, this means the service networking configuration is not being used. This is likely because you completed the peering configuration with a network other than the default network. If this is the case, ensure that you specify your network when you launch a job. Use the fully qualified network name in the following format: `projects/$PROJECT_ID/global/networks/$NETWORK_NAME` .
+
+  For more information, see the [Routes overview](https://docs.cloud.google.com/vpc/docs/routes) .
 
 ### Pipeline or job can't access to reach endpoints in other networks beyond your network
 
@@ -248,7 +264,7 @@ By default, your peering configuration only exports routes to the local subnets 
 
 Additionally, [transitive peering](https://docs.cloud.google.com/vpc/docs/vpc-peering#specifications) is not supported and only directly peered networks can communicate.
 
-  - To allow Gemini Enterprise Agent Platform to connect through your network and reach endpoints in other networks, you must export your network routes to your peering connection. Edit the configuration of your peered VPC network and enable [`Export custom routes`](https://docs.cloud.google.com/vpc/docs/using-vpc-peering#creating_a_peering_configuration) .
+- To allow Gemini Enterprise Agent Platform to connect through your network and reach endpoints in other networks, you must export your network routes to your peering connection. Edit the configuration of your peered VPC network and enable [`Export custom routes`](https://docs.cloud.google.com/vpc/docs/using-vpc-peering#creating_a_peering_configuration) .
 
 Because transitive peering is not supported, the Gemini Enterprise Agent Platform does not learn routes to other peered networks and services, even with `Export Custom Routes` enabled. For information about workarounds, see [Extending network reachability of Agent Platform Pipelines](https://cloud.google.com/blog/products/ai-machine-learning/extending-network-reachability-of-vertex-pipelines) .
 
@@ -282,14 +298,14 @@ Errors of the form `RANGES_EXHAUSTED` and `RANGES_NOT_RESERVED` and `RANGES_DELE
 
 When faced with a `RANGES_EXHAUSTED` error, you should first consider whether this complaint is valid.
 
-  - Refer to the [Subnet recommendations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/private-services-access#subnet-recommendations) table to ensure that the IP reservation for Private Services Access is wide enough accommodate your workload.
+- Refer to the [Subnet recommendations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/private-services-access#subnet-recommendations) table to ensure that the IP reservation for Private Services Access is wide enough accommodate your workload.
 
-  - Visit [Network Analyzer](https://docs.cloud.google.com/network-intelligence-center/docs/network-analyzer/insight-groups-types) in cloud console and look for insights of the form "Summary of IP address allocation" in the VPC network. If these indicate that the allocation is at or near 100%, you can can take one of the following steps:
-    
-      - [Add a new range](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#modify-ip-range) to the reservation or extend the existing one. Recall that all ranges must be contiguous.
-      - If you have non-contiguous IP ranges that are allocated but *not* being consumed, launch new Gemini Enterprise Agent Platform workloads in a different region.
+- Visit [Network Analyzer](https://docs.cloud.google.com/network-intelligence-center/docs/network-analyzer/insight-groups-types) in cloud console and look for insights of the form "Summary of IP address allocation" in the VPC network. If these indicate that the allocation is at or near 100%, you can can take one of the following steps:
 
-  - Also consider the [maximum number of parallel jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip#reserving-ip-ranges) that can be run with an reservation of a given size.
+  - [Add a new range](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#modify-ip-range) to the reservation or extend the existing one. Recall that all ranges must be contiguous.
+  - If you have non-contiguous IP ranges that are allocated but *not* being consumed, launch new Gemini Enterprise Agent Platform workloads in a different region.
+
+- Also consider the [maximum number of parallel jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip#reserving-ip-ranges) that can be run with an reservation of a given size.
 
 For more information, see [Service Infrastructure Validation Errors](https://docs.cloud.google.com/service-infrastructure/docs/service-networking/reference/rest/v1/services/validate#validationerror)
 
@@ -301,7 +317,9 @@ If the error persists, [contact support](https://docs.cloud.google.com/gemini-en
 
 When you launch Agent Platform Pipelines, you receive an error message similar to the following:
 
-    Router status is temporarily unavailable. Please try again later
+```
+Router status is temporarily unavailable. Please try again later
+```
 
 **Solution**
 
@@ -319,36 +337,38 @@ This is because the workloads run in a Google-managed project. The VPC in this m
 
 **Solution**
 
-  - Ensure that you have [set up VPC Network Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) for Gemini Enterprise Agent Platform in your VPC network.
+- Ensure that you have [set up VPC Network Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) for Gemini Enterprise Agent Platform in your VPC network.
 
-  - Complete the steps to share your private DNS zone with the Gemini Enterprise Agent Platform producer network. Note that the procedure for this depends on your use case:
-    
-      - [Peer DNS with Private Google Access](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#dns-peering)
-      - [Peer DNS with Private Service Connect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect#create-pipeline-run-2)
+- Complete the steps to share your private DNS zone with the Gemini Enterprise Agent Platform producer network. Note that the procedure for this depends on your use case:
 
-  - Ensure that your Gemini Enterprise Agent Platform workloads are launched with the `--network` flag specifying your VPC network. This allows them to run in the Google-managed network and access the DNS zones that you have shared.
+  - [Peer DNS with Private Google Access](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#dns-peering)
+  - [Peer DNS with Private Service Connect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect#create-pipeline-run-2)
 
-  - Enable [DNS logging](https://docs.cloud.google.com/dns/docs/monitoring) in your DNS server policy, reproduce the issue, and then run another test. If the workload's DNS response is successful, a Cloud Logging filter for `resource.type="dns_query"` will show entries of this form;
-    
-        "resource": {
-          "type": "dns_query",
-          "labels": {
-            "location": REGION,
-            "project_id": PROJECT_ID,
-            "source_type": "peering-zone",
-            "target_name": "QUERY_TARGET,
-            "target_type": "forwarding-zone"
-          }
-        }
+- Ensure that your Gemini Enterprise Agent Platform workloads are launched with the `--network` flag specifying your VPC network. This allows them to run in the Google-managed network and access the DNS zones that you have shared.
 
-  - Confirm that a DNS query from an instance in the *same* subnet can resolve hostnames by using your DNS server.
+- Enable [DNS logging](https://docs.cloud.google.com/dns/docs/monitoring) in your DNS server policy, reproduce the issue, and then run another test. If the workload's DNS response is successful, a Cloud Logging filter for `resource.type="dns_query"` will show entries of this form;
 
-  - If the DNS server is not in Google Cloud, ensure that remote firewall rules allow connections from [`35.199.192.0/19`](https://docs.cloud.google.com/dns/docs/zones/forwarding-zones#firewall-rules) .
+  ```
+  "resource": {
+    "type": "dns_query",
+    "labels": {
+      "location": REGION,
+      "project_id": PROJECT_ID,
+      "source_type": "peering-zone",
+      "target_name": "QUERY_TARGET,
+      "target_type": "forwarding-zone"
+    }
+  }
+  ```
 
-  - Run a [connectivity test](https://docs.cloud.google.com/network-intelligence-center/docs/connectivity-tests/how-to/running-connectivity-tests) from the test instance to and port `53/UDP` on the DNS server's IP address. If, for example, the path leads to a [forwarding rule](https://docs.cloud.google.com/load-balancing/docs/forwarding-rule-concepts) , ensure the following:
-    
-      - If it is a regional forwarding rule, it must be in the same region as the client.
-      - It accepts connections on `53/UDP` and forwards those to the correct DNS server.
+- Confirm that a DNS query from an instance in the *same* subnet can resolve hostnames by using your DNS server.
+
+- If the DNS server is not in Google Cloud, ensure that remote firewall rules allow connections from [`35.199.192.0/19`](https://docs.cloud.google.com/dns/docs/zones/forwarding-zones#firewall-rules) .
+
+- Run a [connectivity test](https://docs.cloud.google.com/network-intelligence-center/docs/connectivity-tests/how-to/running-connectivity-tests) from the test instance to and port `53/UDP` on the DNS server's IP address. If, for example, the path leads to a [forwarding rule](https://docs.cloud.google.com/load-balancing/docs/forwarding-rule-concepts) , ensure the following:
+
+  - If it is a regional forwarding rule, it must be in the same region as the client.
+  - It accepts connections on `53/UDP` and forwards those to the correct DNS server.
 
 ### Connectivity issues caused by client side behaviors
 
@@ -364,8 +384,8 @@ When you attempt to use Google Cloud APIs, you experience connection resets and 
 
 To help resolve this issue, consider the following:
 
-  - For high volume traffic of transactions that have low-latency requirements, consider whether any known issues with the line cards of on-premises clients might cause reset TCP connections or dropped packets.
-  - Consider whether any client-side services in the request path use [iptables](https://en.wikipedia.org/wiki/Iptable) . These can include kubernetes clusters or some stateful firewalls and NAT devices. By default, the Linux connection tracking (conntrack) subsystem will strictly follow the TCP protocol specifications and, for example, drop out-of-sequence TCP packets. To turn off this behavior, turn on the Linux kernel parameter [`net.netfilter.nf_conntrack_tcp_be_liberal`](https://docs.kernel.org/networking/nf_conntrack-sysctl.html) or its equivalent.
+- For high volume traffic of transactions that have low-latency requirements, consider whether any known issues with the line cards of on-premises clients might cause reset TCP connections or dropped packets.
+- Consider whether any client-side services in the request path use [iptables](https://en.wikipedia.org/wiki/Iptable) . These can include kubernetes clusters or some stateful firewalls and NAT devices. By default, the Linux connection tracking (conntrack) subsystem will strictly follow the TCP protocol specifications and, for example, drop out-of-sequence TCP packets. To turn off this behavior, turn on the Linux kernel parameter [`net.netfilter.nf_conntrack_tcp_be_liberal`](https://docs.kernel.org/networking/nf_conntrack-sysctl.html) or its equivalent.
 
 #### Incomplete connections
 
@@ -377,15 +397,15 @@ When you attempt to use Google Cloud APIs, you experience incomplete connections
 
 To help resolve this issue, consider the following:
 
-  - When the forwarding path has multiple routes back to the client, ensure that you understand the concept of [Reverse Path Forwarding](https://en.wikipedia.org/wiki/Reverse-path_forwarding) . Turn off this behavior if you suspect it is blocking connections.
-  - For load-balanced connections, consider whether your inbound firewall rules allow response packets to both load-balancers.
+- When the forwarding path has multiple routes back to the client, ensure that you understand the concept of [Reverse Path Forwarding](https://en.wikipedia.org/wiki/Reverse-path_forwarding) . Turn off this behavior if you suspect it is blocking connections.
+- For load-balanced connections, consider whether your inbound firewall rules allow response packets to both load-balancers.
 
 #### Other non-API connection issues
 
 To help resolve non-API connection issues, consider the following:
 
-  - If any proxies are in the request path, consider whether they can introduce any of the issues you are experiencing. Review the documentation and be sure to troubleshoot the proxy when faced with issues like unexplained latency, dropped connections, DNS overrides, cross-origin blocks, and other similar issues.
-  - Especially when handling [`429` responses](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#429) from Google Cloud APIs, client-side logic that immediately retries the connection can make the issue worse. Ensure that you understand and implement [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff) when implementing retries.
+- If any proxies are in the request path, consider whether they can introduce any of the issues you are experiencing. Review the documentation and be sure to troubleshoot the proxy when faced with issues like unexplained latency, dropped connections, DNS overrides, cross-origin blocks, and other similar issues.
+- Especially when handling [`429` responses](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#429) from Google Cloud APIs, client-side logic that immediately retries the connection can make the issue worse. Ensure that you understand and implement [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff) when implementing retries.
 
 ## Agent Platform inference
 
@@ -397,8 +417,10 @@ This section describes troubleshooting steps that you might find helpful if you 
 
 You get an error such as the following when running batch inference jobs.
 
-    Quota exhausted. Please reach out to ai-platform-unified-feedback@google.com for
-    batch prediction quota increase.
+```
+Quota exhausted. Please reach out to ai-platform-unified-feedback@google.com for
+batch prediction quota increase.
+```
 
 A Gemini Enterprise Agent Platform batch prediction job consumes the quota from the batch prediction tenant project. For further information about requesting a quota increase, see [Gemini Enterprise Agent Platform quotas and limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/quotas#quota_increases) .
 
@@ -408,8 +430,10 @@ A Gemini Enterprise Agent Platform batch prediction job consumes the quota from 
 
 You get an error such as the following when running batch inference jobs, indicating that the machine running the custom model might not be able to complete the inferences within the time limit.
 
-    ('Post request fails. Cannot get predictions. Error: Exceeded retries: Non-OK
-    result 504 (upstream request timeout) from server, retry=3, elapsed=600.04s.', 16)
+```
+('Post request fails. Cannot get predictions. Error: Exceeded retries: Non-OK
+result 504 (upstream request timeout) from server, retry=3, elapsed=600.04s.', 16)
+```
 
 This can happen when the Agent Platform inference service registers itself with the [Google Front End service](https://docs.cloud.google.com/docs/security/infrastructure/design#google-frontend-service) , which proxies connections from the client to the Agent Platform Inference API.
 
@@ -419,8 +443,8 @@ The Google Front End service times out the connection and returns a 500 HTTP res
 
 To resolve this issue, you try either of the following;
 
-  - Increase the compute nodes, or change the machine type.
-  - Craft your inference container to send periodic 102 HTTP response codes. This resets the 10 minute timer on the Google Front End service.
+- Increase the compute nodes, or change the machine type.
+- Craft your inference container to send periodic 102 HTTP response codes. This resets the 10 minute timer on the Google Front End service.
 
 ### Project already linked to VPC
 
@@ -428,21 +452,25 @@ To resolve this issue, you try either of the following;
 
 When deploying an endpoint, you might see an error message such as the following, which indicates that your Agent Platform endpoints have previously used a Virtual Private Cloud network and the resources were not appropriately cleaned.
 
-    Currently only one VPC network per user project is supported. Your project is
-    already linked to
-    "projects/YOUR_SHARED_VPC_HOST_PROJECT/global/networks/YOUR_SHARED_VPC_NETWORK".
-    To change the VPC network, please undeploy all Agent Platform deployment
-    resources, delete all endpoint resources, and then retry creating resources in
-    30 mins.
+```
+Currently only one VPC network per user project is supported. Your project is
+already linked to
+"projects/YOUR_SHARED_VPC_HOST_PROJECT/global/networks/YOUR_SHARED_VPC_NETWORK".
+To change the VPC network, please undeploy all Agent Platform deployment
+resources, delete all endpoint resources, and then retry creating resources in
+30 mins.
+```
 
 **Solution**
 
 To resolve this issue, try running this command in Cloud Shell.
 
-    gcloud services vpc-peerings delete \
-        --service=servicenetworking.googleapis.com \
-        --network=YOUR_SHARED_VPC_NETWORK \
-        --project=YOUR_SHARED_VPC_HOST_PROJECT
+```
+gcloud services vpc-peerings delete \
+    --service=servicenetworking.googleapis.com \
+    --network=YOUR_SHARED_VPC_NETWORK \
+    --project=YOUR_SHARED_VPC_HOST_PROJECT
+```
 
 This manually disconnects your old VPC network from the Service Networking VPC.
 
@@ -458,8 +486,8 @@ Your billing account may be invalid. If it remains invalid for a long time, some
 
 To resolve this issue, you can try the following:
 
-  - [Verify the billing status of your projects](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled) .
-  - [Contact Cloud Billing Support](https://docs.cloud.google.com/support/billing) to request help with billing questions.
+- [Verify the billing status of your projects](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled) .
+- [Contact Cloud Billing Support](https://docs.cloud.google.com/support/billing) to request help with billing questions.
 
 For more information, see [Billing questions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/support/billing-questions) .
 
@@ -473,7 +501,7 @@ This section describes troubleshooting steps that you might find helpful if you 
 
 Your model deployment fails with an error such as the following:
 
-`Failed to deploy model MODEL_NAME to endpoint ENDPOINT_NAME due to the error: Failed to add IAM policy binding. Please grant SERVICE_ACC_NAME @gcp-sa-aiplatform.iam.gserviceaccount.com the iam.serviceAccountAdmin role on service account vertex-prediction-role@ PROJECT_INFO .iam.gserviceaccount.com`
+`Failed to deploy model `` MODEL_NAME `` to endpoint `` ENDPOINT_NAME `` due to the error: Failed to add IAM policy binding. Please grant `` SERVICE_ACC_NAME `` @gcp-sa-aiplatform.iam.gserviceaccount.com the iam.serviceAccountAdmin role on service account vertex-prediction-role@ `` PROJECT_INFO `` .iam.gserviceaccount.com`
 
 **Solution**
 
@@ -487,10 +515,12 @@ When using a custom service account, training jobs that run on a single replica 
 
 You will see an error similar to:
 
-    Failed to refresh jwt, retry number 0: ("Failed to retrieve http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity?audience=...&format=full
-    from the Google Compute Engine Metadata service. Status: 404 Response:
-    \nb'Not Found\n'", <google.auth.transport.requests._Response object at
-    0x7fb19f058c50>)
+```
+Failed to refresh jwt, retry number 0: ("Failed to retrieve http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity?audience=...&format=full
+from the Google Compute Engine Metadata service. Status: 404 Response:
+\nb'Not Found\n'", <google.auth.transport.requests._Response object at
+0x7fb19f058c50>)
+```
 
 **Solution**
 
@@ -510,7 +540,9 @@ The following issues can occur during custom training. The issues apply to [`Cus
 
 You encounter the following error:
 
-    400 Machine type MACHINE_TYPE is not supported.
+```
+400 Machine type MACHINE_TYPE is not supported.
+```
 
 You may see this error message if the selected machine type isn't supported for Gemini Enterprise Agent Platform training, or if a specific resource isn't available in the selected region.
 
@@ -562,33 +594,33 @@ A stockout usually occurs when you are using GPUs. If you encounter this error w
 
 If you encounter a permission error when accessing another Google Cloud service from your training code (for example: `google.api_core.exceptions.PermissionDenied: 403` ), then you might have one of the following issues:
 
-  - **Issue**
-    
-    The service agent or service account running your code (either the Gemini Enterprise Agent Platform Custom Code Service Agent for your project or a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) ) doesn't have the required permission.
-    
-    **Solution**
-    
-    Learn how to [give the Gemini Enterprise Agent Platform Custom Code Service Agent permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#grant_service_agents_access_to_other_resources) or [configure a custom service account with the necessary permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account#configure) .
+- **Issue**
 
-  - **Issue**
-    
-    The service agent or service account running your code does have the required permission, but your code is trying to access a resource in the wrong project. This is especially likely to be the problem if the error message references a project ID ending with `-tp` .
-    
-    **Solution**
-    
-    Due to the way Agent Platform runs your training code, this problem can occur inadvertently if you don't explicitly specify a project ID or project number in your code.
-    
-    Learn how to fix this problem by [specifying a project ID or project number](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#other-services) .
+  The service agent or service account running your code (either the Gemini Enterprise Agent Platform Custom Code Service Agent for your project or a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) ) doesn't have the required permission.
 
-  - **Issue**
-    
-    Your Vertex AI Training job runs successfully with local data, but not with data from Cloud Storage.
-    
-    **Solution**
-    
-    Add `storage.buckets.create` permission to your Gemini Enterprise Agent Platform Custom Code Service Agent role for the project.
-    
-    Learn how to fix this problem by [adding specific roles to Agent Platform's service agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#grant_service_agents_access_to_other_resources) .
+  **Solution**
+
+  Learn how to [give the Gemini Enterprise Agent Platform Custom Code Service Agent permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#grant_service_agents_access_to_other_resources) or [configure a custom service account with the necessary permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account#configure) .
+
+- **Issue**
+
+  The service agent or service account running your code does have the required permission, but your code is trying to access a resource in the wrong project. This is especially likely to be the problem if the error message references a project ID ending with `-tp` .
+
+  **Solution**
+
+  Due to the way Agent Platform runs your training code, this problem can occur inadvertently if you don't explicitly specify a project ID or project number in your code.
+
+  Learn how to fix this problem by [specifying a project ID or project number](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#other-services) .
+
+- **Issue**
+
+  Your Vertex AI Training job runs successfully with local data, but not with data from Cloud Storage.
+
+  **Solution**
+
+  Add `storage.buckets.create` permission to your Gemini Enterprise Agent Platform Custom Code Service Agent role for the project.
+
+  Learn how to fix this problem by [adding specific roles to Agent Platform's service agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#grant_service_agents_access_to_other_resources) .
 
 #### Performance issues when using Cloud Storage FUSE
 
@@ -606,7 +638,9 @@ See "Performance optimization guidelines" in [Use Cloud Storage as a mounted fil
 
 You see the following error:
 
-    ModuleNotFoundError: No module named MODULE_NAME. WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(&lt;pip._vendor.urllib3.connection.HTTPSConnection object at 0x7f70250bac10&gt;, 'Connection to pypi.org timed out. (connect timeout=15)')': /simple/nltk/
+```
+ModuleNotFoundError: No module named MODULE_NAME. WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(&lt;pip._vendor.urllib3.connection.HTTPSConnection object at 0x7f70250bac10&gt;, 'Connection to pypi.org timed out. (connect timeout=15)')': /simple/nltk/
+```
 
 **Solution**
 
@@ -638,8 +672,10 @@ This type of error is likely to be a problem with your custom container image an
 
 When you try to deploy a model to an endpoint and your service account doesn't have [`storage.objects.list`](https://docs.cloud.google.com/storage/docs/access-control/iam-permissions#object_permissions) access to the related Cloud Storage bucket, you might see the following error:
 
-    custom-online-prediction@TENANT_PROJECT_ID.iam.gserviceaccount.com
-    does not have storage.objects.list access to the Cloud Storage bucket.
+```
+custom-online-prediction@TENANT_PROJECT_ID.iam.gserviceaccount.com
+does not have storage.objects.list access to the Cloud Storage bucket.
+```
 
 By default, the custom container that deploys your model uses a service account that doesn't have access to your Cloud Storage bucket.
 
@@ -647,43 +683,45 @@ By default, the custom container that deploys your model uses a service account 
 
 To resolve this, try one of the following:
 
-  - Copy the file that you are trying to access from the container into [model artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#artifacts) when uploading the model. Gemini Enterprise Agent Platform will copy it to a location the default service account has access to, similar to all the other model artifacts.
+- Copy the file that you are trying to access from the container into [model artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#artifacts) when uploading the model. Gemini Enterprise Agent Platform will copy it to a location the default service account has access to, similar to all the other model artifacts.
 
-  - Copy the file into the container as part of the container build process.
+- Copy the file into the container as part of the container build process.
 
-  - Specify a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .
+- Specify a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .
 
 ## Agent Platform Neural Architecture Search
 
 ### Known issues
 
-  - After cancelling the NAS job, the main job (the parent) stops, but some of the child trials keep showing a **Running** state. Ignore the child trial state that shows **Running** in this case. The trials have stopped, but the UI continues to show the **Running** state. As long as the main job has stopped, you won't be charged extra.
+- After cancelling the NAS job, the main job (the parent) stops, but some of the child trials keep showing a **Running** state. Ignore the child trial state that shows **Running** in this case. The trials have stopped, but the UI continues to show the **Running** state. As long as the main job has stopped, you won't be charged extra.
 
-  - After reporting rewards in the trainer, wait (sleep) for 10 minutes before the trial jobs exit.
+- After reporting rewards in the trainer, wait (sleep) for 10 minutes before the trial jobs exit.
 
-  - When using Cloud Shell to run `TensorBoard` , the generated output link might not work. In this case, write down the port number, use the **Web Preview** tool, and select the correct port number to display the plots.
-    
-    Accessing the `Web Preview` tool:
-    
-    ![A feature attribution chart for one predicted bike ride duration.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/web_preview.png)
+- When using Cloud Shell to run `TensorBoard` , the generated output link might not work. In this case, write down the port number, use the **Web Preview** tool, and select the correct port number to display the plots.
 
-  - If you see error messages like the following in the trainer logs:
-    
-        gcsfuse errors: fuse: writeMessage: no such file or directory [16 0 0 0 218 255 255 255 242 25 111 1 0 0 0 0]
-    
-    use a machine with more RAM, because an OOM condition is causing this error.
+  Accessing the `Web Preview` tool:
 
-  - If your custom trainer isn't able to find the job directory `job-dir` FLAG, import `job_dir` with an underscore rather than a hyphen. A note in tutorial-1 explains this.
+  ![A feature attribution chart for one predicted bike ride duration.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/web_preview.png)
 
-  - *NaN error during training* There might be NaN errors in the training job like `NaN : Tensor had NaN values` . The learning rate might be too big for the suggested architecture. For more information, see [Out-of-memory (OOM) and learning rate related errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design#oom_error) .
+- If you see error messages like the following in the trainer logs:
 
-  - *OOM error during training* There might be OOM (out-of-memory) errors in the training job. The batch size might be too large for the accelerator memory. For more information, see [Out-of-memory (OOM) and learning rate related errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design#oom_error) .
+  ```
+  gcsfuse errors: fuse: writeMessage: no such file or directory [16 0 0 0 218 255 255 255 242 25 111 1 0 0 0 0]
+  ```
 
-  - *Proxy-task model selection controller job dies* In the rare case that the proxy-task model selection controller job dies, you can resume the job by following [these steps](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design#resume_model_selection) .
+  use a machine with more RAM, because an OOM condition is causing this error.
 
-  - *Proxy-task search controller job dies* In the rare case that the proxy-task search controller job dies, you can resume the job by following [these steps](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design#resume_proxy_task_search) .
+- If your custom trainer isn't able to find the job directory `job-dir` FLAG, import `job_dir` with an underscore rather than a hyphen. A note in tutorial-1 explains this.
 
-  - *Service account does not have permission to access Artifact Registry or bucket.* If you get an error such as `Agent Platform Service Agent service-123456789@gcp-sa-aiplatform-cc.iam.gserviceaccount.com does not have permission to access Artifact Registry repository projects/my-project/locations/my-region/repositories/nas` or a similar error for bucket access, give this service account a storage editor role in your project.
+- *NaN error during training* There might be NaN errors in the training job like `NaN : Tensor had NaN values` . The learning rate might be too big for the suggested architecture. For more information, see [Out-of-memory (OOM) and learning rate related errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design#oom_error) .
+
+- *OOM error during training* There might be OOM (out-of-memory) errors in the training job. The batch size might be too large for the accelerator memory. For more information, see [Out-of-memory (OOM) and learning rate related errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design#oom_error) .
+
+- *Proxy-task model selection controller job dies* In the rare case that the proxy-task model selection controller job dies, you can resume the job by following [these steps](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design#resume_model_selection) .
+
+- *Proxy-task search controller job dies* In the rare case that the proxy-task search controller job dies, you can resume the job by following [these steps](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design#resume_proxy_task_search) .
+
+- *Service account does not have permission to access Artifact Registry or bucket.* If you get an error such as `Agent Platform Service Agent service-123456789@gcp-sa-aiplatform-cc.iam.gserviceaccount.com does not have permission to access Artifact Registry repository projects/my-project/locations/my-region/repositories/nas` or a similar error for bucket access, give this service account a storage editor role in your project.
 
 ## Agent Platform Feature Store
 
@@ -783,18 +821,20 @@ These errors can appear in Cloud Logging in either the product component logs or
 
 These issues can be caused by one or both of the following:
 
-  - Use of the `Service Account Token Creator` role when the `Service Account User` role should have been used, or the other way around. These roles grant different permissions on a service account and aren't interchangeable. To learn about the differences between the `Service Account Token Creator` and `Service Account User` roles, see [Service account roles](https://docs.cloud.google.com/iam/docs/service-account-permissions#roles) .
+- Use of the `Service Account Token Creator` role when the `Service Account User` role should have been used, or the other way around. These roles grant different permissions on a service account and aren't interchangeable. To learn about the differences between the `Service Account Token Creator` and `Service Account User` roles, see [Service account roles](https://docs.cloud.google.com/iam/docs/service-account-permissions#roles) .
 
-  - You've granted a service account permissions across multiple projects, which isn't permitted by default.
+- You've granted a service account permissions across multiple projects, which isn't permitted by default.
 
 **Solution**
 
 To resolve the issue, try one or more of the following:
 
-  - Determine whether the `Service Account Token Creator` or `Service Account User` role is needed. To learn more, read the IAM documentation for the Agent Platform services you are using, as well as any other product integrations that you are using.
+- Determine whether the `Service Account Token Creator` or `Service Account User` role is needed. To learn more, read the IAM documentation for the Agent Platform services you are using, as well as any other product integrations that you are using.
 
-  - If you have granted a service account permissions across multiple projects, enable service accounts to be attached across projects by ensuring that [`iam.disableCrossProjectServiceAccountUsage`](https://docs.cloud.google.com/iam/docs/attach-service-accounts#enabling-cross-project) . isn't enforced. To ensure that `iam.disableCrossProjectServiceAccountUsage` isn't enforced, run the following command:
-    
-        gcloud resource-manager org-policies disable-enforce \
-          iam.disableCrossProjectServiceAccountUsage \
-          --project=PROJECT_ID
+- If you have granted a service account permissions across multiple projects, enable service accounts to be attached across projects by ensuring that [`iam.disableCrossProjectServiceAccountUsage`](https://docs.cloud.google.com/iam/docs/attach-service-accounts#enabling-cross-project) . isn't enforced. To ensure that `iam.disableCrossProjectServiceAccountUsage` isn't enforced, run the following command:
+
+  ```
+  gcloud resource-manager org-policies disable-enforce \
+    iam.disableCrossProjectServiceAccountUsage \
+    --project=PROJECT_ID
+  ```

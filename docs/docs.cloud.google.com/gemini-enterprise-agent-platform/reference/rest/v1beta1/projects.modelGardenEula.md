@@ -10,12 +10,7 @@ data_source: docs.cloud.google.com
 
 There is no persistent data associated with this resource.
 
-## Methods
-
-### `            accept           `
-
-Accepts the EULA acceptance status of a publisher model.
-
-### `            check           `
-
-Checks the EULA acceptance status of a publisher model.
+| Methods                                                                                                                           |                                                          |
+|-----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
+| [`accept`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.modelGardenEula/accept) | Accepts the EULA acceptance status of a publisher model. |
+| [`check`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.modelGardenEula/check)   | Checks the EULA acceptance status of a publisher model.  |

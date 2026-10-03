@@ -10,9 +10,9 @@ Some generative AI models, such as [Gemini](https://docs.cloud.google.com/gemini
 
 Other generative AI models must be deployed to an endpoint before they're ready to accept prompts. There are two types of generative models that must be deployed:
 
-  - [Tuned models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy-a-tuned-model) , which you create by tuning a supported foundation model with your own data.
+- [Tuned models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy-a-tuned-model) , which you create by tuning a supported foundation model with your own data.
 
-  - [Generative models that don't have managed APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#not-managed) . In the Model Garden, these are models that aren't labeled as **API available** or **Agent Platform Studio** —for example, Llama 2.
+- [Generative models that don't have managed APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#not-managed) . In the Model Garden, these are models that aren't labeled as **API available** or **Agent Platform Studio** —for example, Llama 2.
 
 When you deploy a model to an endpoint, Gemini Enterprise Agent Platform associates compute resources and a URI with the model so that it can serve prompt requests.
 
@@ -24,7 +24,9 @@ Once the endpoint is *active* , it is ready to accept prompt requests at its URI
 
 Make sure you send prompt requests to your tuned model's endpoint instead of the managed API. The tuned model's endpoint is in the format:
 
-    https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/ENDPOINT_ID
+```
+https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/ENDPOINT_ID
+```
 
 To get the endpoint ID, see [View or manage an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#view-or-manage-an-endpoint) .
 
@@ -36,18 +38,18 @@ To deploy one of these models, go to the Model Garden and select the model you'd
 
 Each model card displays one or more of the following deployment options:
 
-  - **Deploy** button: Most of the generative models in the Model Garden have a **Deploy** button that walks you through deploying to Agent Platform. If you don't see a **Deploy** button, go to the next bullet.
-    
-    For deployment on Agent Platform, you can use the suggested settings or modify them. You can also set **Advanced** deployment settings to, for example, select a Compute Engine [reservation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#reservation) .
-    
-    > **Note:** Some models also support deployment to Google Kubernetes Engine which is an unmanaged solution that provides you even more control. For more information, see [Serve a model with a single GPU in GKE](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/online-ml-inference) .
+- **Deploy** button: Most of the generative models in the Model Garden have a **Deploy** button that walks you through deploying to Agent Platform. If you don't see a **Deploy** button, go to the next bullet.
 
-  - **Open Notebook** button: This option opens a Jupyter notebook. Every model card displays this option. The Jupyter notebook includes instructions and sample code for uploading the model to Model Registry, deploying the model to an endpoint, and sending a prompt request.
+  For deployment on Agent Platform, you can use the suggested settings or modify them. You can also set **Advanced** deployment settings to, for example, select a Compute Engine [reservation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#reservation) .
+
+  > **Note:** Some models also support deployment to Google Kubernetes Engine which is an unmanaged solution that provides you even more control. For more information, see [Serve a model with a single GPU in GKE](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/online-ml-inference) .
+
+- **Open Notebook** button: This option opens a Jupyter notebook. Every model card displays this option. The Jupyter notebook includes instructions and sample code for uploading the model to Model Registry, deploying the model to an endpoint, and sending a prompt request.
 
 Once deployment is complete and the endpoint is *active* , it is ready to accept prompt requests at its URI. The format of the API is [`predict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) and the format of each [`instance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict#body.request_body.FIELDS.instances) in the request body depends on the model. For more information, see the following resources:
 
-  - [Request body for online prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions#request-body-details)
-  - [Format your input for online prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions#formatting-prediction-input)
+- [Request body for online prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions#request-body-details)
+- [Format your input for online prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions#formatting-prediction-input)
 
 Make sure you have enough machine quota to deploy your model. To view your current quota or request more quota, in the Google Cloud console, go to the **Quotas** page.
 
@@ -81,7 +83,7 @@ To learn how to monitor model endpoint traffic, see [Monitor models](https://doc
 
 ## Limitations
 
-  - A tuned Gemini model can only be deployed to a shared public endpoint. Deployment to dedicated public endpoints, Private Service Connect endpoints, and private endpoints isn't supported.
+- A tuned Gemini model can only be deployed to a shared public endpoint. Deployment to dedicated public endpoints, Private Service Connect endpoints, and private endpoints isn't supported.
 
 ## Pricing
 
@@ -91,5 +93,5 @@ For models without managed APIs, you are billed for the machine hours that are u
 
 ## What's next
 
-  - [Overview of model tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models)
-  - [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment)
+- [Overview of model tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models)
+- [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment)

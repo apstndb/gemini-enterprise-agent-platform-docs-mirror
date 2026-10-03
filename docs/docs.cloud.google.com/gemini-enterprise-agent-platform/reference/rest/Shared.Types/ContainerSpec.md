@@ -22,22 +22,25 @@ The command to be invoked when the container is started. It overrides the entryp
 
 The arguments to be passed when starting the container.
 
-`env[]` ` object ( EnvVar  ` )
+`env[]` `object ( `[`EnvVar`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/EnvVar)` )`
 
 Environment variables to be passed to the container. Maximum limit is 100.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;imageUri&quot;: string,&quot;command&quot;: [string],&quot;args&quot;: [string],&quot;env&quot;: [{object (EnvVar)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "imageUri": string,
+  "command": [
+    string
+  ],
+  "args": [
+    string
+  ],
+  "env": [
+    {
+      object (EnvVar)
+    }
+  ]
+}
+```

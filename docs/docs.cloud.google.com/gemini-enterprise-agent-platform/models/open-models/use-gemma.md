@@ -13,7 +13,7 @@ Fine-tuning can help improve a model's performance in specific tasks. Because mo
 The following Gemma models are available to use with Gemini Enterprise Agent Platform. To learn more about and test the Gemma models, see their Model Garden model cards.
 
 | **Model name** | **Use cases**                                                                                                                                                                  | **Model Garden model card** |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------- |
+|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
 | Gemma 4        | Capable of multimodal input, handling text, image, and audio input, and generating text outputs.                                                                               |                             |
 | TranslateGemma | A family of lightweight, open translation models designed to handle translation tasks across 55 languages.                                                                     |                             |
 | FunctionGemma  | A lightweight, open model, built as a foundation for creating your own specialized function calling models, and is designed to be highly performant after further fine-tuning. |                             |
@@ -39,33 +39,33 @@ Gemini Enterprise Agent Platform offers a managed platform for rapidly building 
 
 To get started with Gemma, see the following notebooks:
 
-  - [Serve Gemma 3n in Gemini Enterprise Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma3n_deployment_on_vertex.ipynb)
+- [Serve Gemma 3n in Gemini Enterprise Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma3n_deployment_on_vertex.ipynb)
 
-  - [Serve Gemma 3 in Gemini Enterprise Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma3_deployment_on_vertex.ipynb)
+- [Serve Gemma 3 in Gemini Enterprise Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma3_deployment_on_vertex.ipynb)
 
-  - [Serve Gemma 2 in Gemini Enterprise Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma2_deployment_on_vertex.ipynb)
+- [Serve Gemma 2 in Gemini Enterprise Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma2_deployment_on_vertex.ipynb)
 
-  - [Serve Gemma in Gemini Enterprise Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_deployment_on_vertex.ipynb)
+- [Serve Gemma in Gemini Enterprise Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_deployment_on_vertex.ipynb)
 
-  - [Fine-tune Gemma 3 using Axolotl and then deploy to Gemini Enterprise Agent Platform from Vertex](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_axolotl_gemma3_finetuning.ipynb)
+- [Fine-tune Gemma 3 using Axolotl and then deploy to Gemini Enterprise Agent Platform from Vertex](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_axolotl_gemma3_finetuning.ipynb)
 
-  - [Fine-tune Gemma 2 using PEFT and then deploy to Gemini Enterprise Agent Platform from Vertex](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma2_finetuning_on_vertex.ipynb)
+- [Fine-tune Gemma 2 using PEFT and then deploy to Gemini Enterprise Agent Platform from Vertex](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma2_finetuning_on_vertex.ipynb)
 
-  - [Fine-tune Gemma using PEFT and then deploy to Gemini Enterprise Agent Platform from Vertex](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_finetuning_on_vertex.ipynb)
+- [Fine-tune Gemma using PEFT and then deploy to Gemini Enterprise Agent Platform from Vertex](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_finetuning_on_vertex.ipynb)
 
-  - [Fine-tune Gemma using PEFT and then deploy to Gemini Enterprise Agent Platform from Huggingface](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_gemma_peft_finetuning_hf.ipynb)
+- [Fine-tune Gemma using PEFT and then deploy to Gemini Enterprise Agent Platform from Huggingface](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_pytorch_gemma_peft_finetuning_hf.ipynb)
 
-  - [Fine-tune Gemma using KerasNLP and then deploy to Gemini Enterprise Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_kerasnlp_to_vertexai.ipynb)
+- [Fine-tune Gemma using KerasNLP and then deploy to Gemini Enterprise Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_kerasnlp_to_vertexai.ipynb)
 
-  - [Fine-tune Gemma with Ray on Agent Platform and then deploy to Gemini Enterprise Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb)
+- [Fine-tune Gemma with Ray on Agent Platform and then deploy to Gemini Enterprise Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb)
 
-  - [Run local inference with ShieldGemma 2 with Hugging Face transformers](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_shieldgemma2_local_inference.ipynb)
+- [Run local inference with ShieldGemma 2 with Hugging Face transformers](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_shieldgemma2_local_inference.ipynb)
 
-  - [Serve MedGemma in Gemini Enterprise Agent Platform](https://github.com/Google-Health/medgemma/blob/main/notebooks/quick_start_with_model_garden.ipynb)
+- [Serve MedGemma in Gemini Enterprise Agent Platform](https://github.com/Google-Health/medgemma/blob/main/notebooks/quick_start_with_model_garden.ipynb)
 
-  - [Serve MedSigLIP in Gemini Enterprise Agent Platform](https://github.com/Google-Health/medsiglip/blob/main/notebooks/quick_start_with_model_garden.ipynb)
+- [Serve MedSigLIP in Gemini Enterprise Agent Platform](https://github.com/Google-Health/medsiglip/blob/main/notebooks/quick_start_with_model_garden.ipynb)
 
-  - [Run local inference with T5Gemma with Hugging Face transformers](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_t5gemma_local_inference.ipynb)
+- [Run local inference with T5Gemma with Hugging Face transformers](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_t5gemma_local_inference.ipynb)
 
 ## Use Gemma in other Google Cloud products
 
@@ -75,10 +75,10 @@ You can use Gemma with other Google Cloud products, such as Google Kubernetes En
 
 Google Kubernetes Engine (GKE) is the Google Cloud solution for managed Kubernetes that provides scalability, security, resilience, and cost effectiveness. We recommend this option if you have existing Kubernetes investments, your organization has in-house MLOps expertise, or if you need granular control over complex AI/ML workloads with unique security, data pipeline, and resource management requirements. To learn more, see the following tutorials in the GKE documentation:
 
-  - [Serve Gemma with vLLM](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-vllm)
-  - [Serve Gemma with TGI](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-tgi)
-  - [Serve Gemma with Triton and TensorRT-LLM](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-tensortllm)
-  - [Serve Gemma with JetStream](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-tpu-jetstream)
+- [Serve Gemma with vLLM](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-vllm)
+- [Serve Gemma with TGI](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-tgi)
+- [Serve Gemma with Triton and TensorRT-LLM](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-tensortllm)
+- [Serve Gemma with JetStream](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-tpu-jetstream)
 
 ### Use Gemma with Dataflow
 
@@ -88,543 +88,560 @@ You can use Gemma models with Dataflow for [sentiment analysis](https://en.wikip
 
 You can use Gemma with Colaboratory to create your Gemma solution. In Colab, you can use Gemma with framework options such as PyTorch and JAX. To learn more, see:
 
-  - [Get started with Gemma using Keras](https://ai.google.dev/gemma/docs/get_started) .
-  - [Get started with Gemma using PyTorch](https://ai.google.dev/gemma/docs/pytorch_gemma) .
-  - [Basic tuning with Gemma using Keras](https://ai.google.dev/gemma/docs/lora_tuning) .
-  - [Distributed tuning with Gemma using Keras](https://ai.google.dev/gemma/docs/distributed_tuning) .
+- [Get started with Gemma using Keras](https://ai.google.dev/gemma/docs/get_started) .
+- [Get started with Gemma using PyTorch](https://ai.google.dev/gemma/docs/pytorch_gemma) .
+- [Basic tuning with Gemma using Keras](https://ai.google.dev/gemma/docs/lora_tuning) .
+- [Distributed tuning with Gemma using Keras](https://ai.google.dev/gemma/docs/distributed_tuning) .
 
 ## Gemma model sizes and capabilities
 
 Gemma models are available in several sizes so you can build generative AI solutions based on your available computing resources, the capabilities you need, and where you want to run them. Each model is available in a tuned and an untuned version:
 
-  - **Pretrained** - This version of the model wasn't trained on any specific tasks or instructions beyond the Gemma core data training set. We don't recommend using this model without performing some tuning.
+- **Pretrained** - This version of the model wasn't trained on any specific tasks or instructions beyond the Gemma core data training set. We don't recommend using this model without performing some tuning.
 
-  - **Instruction-tuned** - This version of the model was trained with human language interactions so that it can participate in a conversation, similar to a basic chat bot.
+- **Instruction-tuned** - This version of the model was trained with human language interactions so that it can participate in a conversation, similar to a basic chat bot.
 
-  - **Mix fine-tuned** - This version of the model is fine-tuned on a mixture of academic datasets and accepts natural language prompts.
+- **Mix fine-tuned** - This version of the model is fine-tuned on a mixture of academic datasets and accepts natural language prompts.
 
 Lower parameter sizes means lower resource requirements and more deployment flexibility.
 
-**Model name**
-
-**Parameters size**
-
-**Input**
-
-**Output**
-
-**Tuned versions**
-
-**Intended platforms**
-
-**Gemma 4**
-
-Gemma 4 31B
-
-31 billion parameters
-
-Text and image
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Large servers or server clusters
-
-Gemma 4 26B A4B
-
-26 billion parameters, 4 billion active parameters
-
-Text and image
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Higher-end desktop computers and servers
-
-Gemma 4 E4B
-
-4 billion effective parameters
-
-Text, image and audio
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Mobile devices and laptops
-
-Gemma 4 E2B
-
-2 billion effective parameters
-
-Text, image and audio
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Mobile devices and laptops
-
-**Gemma 3n**
-
-Gemma 3n E4B
-
-4 billion effective parameters
-
-Text, image and audio
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Mobile devices and laptops
-
-Gemma 3n E2B
-
-2 billion effective parameters
-
-Text, image and audio
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Mobile devices and laptops
-
-**Gemma 3**
-
-Gemma 3 27B
-
-27 billion
-
-Text and image
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Large servers or server clusters
-
-Gemma 3 12B
-
-12 billion
-
-Text and image
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Higher-end desktop computers and servers
-
-Gemma 3 4B
-
-4 billion
-
-Text and image
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Desktop computers and small servers
-
-Gemma 3 1B
-
-1 billion
-
-Text
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Mobile devices and laptops
-
-**Gemma 2**
-
-Gemma 2 27B
-
-27 billion
-
-Text
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Large servers or server clusters
-
-Gemma 2 9B
-
-9 billion
-
-Text
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Higher-end desktop computers and servers
-
-Gemma 2 2B
-
-2 billion
-
-Text
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Mobile devices and laptops
-
-**Gemma**
-
-Gemma 7B
-
-7 billion
-
-Text
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Desktop computers and small servers
-
-Gemma 2B
-
-2.2 billion
-
-Text
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Mobile devices and laptops
-
-**CodeGemma**
-
-CodeGemma 7B
-
-7 billion
-
-Text
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Desktop computers and small servers
-
-CodeGemma 2B
-
-2 billion
-
-Text
-
-Text
-
-  - Pretrained
-
-Desktop computers and small servers
-
-**PaliGemma 2**
-
-PaliGemma 28B
-
-28 billion
-
-Text and image
-
-Text
-
-  - Pretrained
-  - Mix fine-tuned
-
-Large servers or server clusters
-
-PaliGemma 10B
-
-10 billion
-
-Text and image
-
-Text
-
-  - Pretrained
-  - Mix fine-tuned
-
-Higher-end desktop computers and servers
-
-PaliGemma 3B
-
-3 billion
-
-Text and image
-
-Text
-
-  - Pretrained
-  - Mix fine-tuned
-
-Desktop computers and small servers
-
-**PaliGemma**
-
-PaliGemma 3B
-
-3 billion
-
-Text and image
-
-Text
-
-  - Pretrained
-  - Mix fine-tuned
-
-Desktop computers and small servers
-
-**ShieldGemma 2**
-
-ShieldGemma 2
-
-4 billion
-
-Text and image
-
-Text
-
-  - Fine-tuned
-
-Desktop computers and small servers
-
-**TxGemma**
-
-TxGemma 27B
-
-27 billion
-
-Text
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Large servers or server clusters
-
-TxGemma 9B
-
-9 billion
-
-Text
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Higher-end desktop computers and servers
-
-TxGemma 2B
-
-2 billion
-
-Text
-
-Text
-
-  - Pretrained
-
-Mobile devices and laptops
-
-**MedGemma**
-
-MedGemma 27B
-
-27 billion
-
-Text and image
-
-Text
-
-  - Text-only instruction-tuned
-  - Instruction-tuned
-
-Large servers or server clusters
-
-MedGemma 4B
-
-4 billion
-
-Text and image
-
-Text
-
-  - Pretrained
-  - Instruction-tuned
-
-Desktop computers and small servers
-
-**MedSigLIP**
-
-MedSigLIP
-
-800 million
-
-Text and image
-
-Embedding
-
-  - Fine-tuned
-
-Mobile devices and laptops
-
-**T5Gemma**
-
-T5Gemma 9B-9B
-
-18 billion
-
-Text
-
-Text
-
-  - PrefixLM, pretrained
-  - PrefixLM, instruction-tuned
-  - UL2, pretrained
-  - UL2, instruction-tuned
-
-Mobile devices and laptops
-
-T5Gemma 9B-2B
-
-11 billion
-
-Text
-
-Text
-
-  - PrefixLM, pretrained
-  - PrefixLM, instruction-tuned
-  - UL2, pretrained
-  - UL2, instruction-tuned
-
-Mobile devices and laptops
-
-T5Gemma 2B-2B
-
-4 billion
-
-Text
-
-Text
-
-  - PrefixLM, pretrained
-  - PrefixLM, instruction-tuned
-  - UL2, pretrained
-  - UL2, instruction-tuned
-
-Mobile devices and laptops
-
-T5Gemma XL-XL
-
-4 billion
-
-Text
-
-Text
-
-  - PrefixLM, pretrained
-  - PrefixLM, instruction-tuned
-  - UL2, pretrained
-  - UL2, instruction-tuned
-
-Mobile devices and laptops
-
-T5Gemma M-L
-
-2 billion
-
-Text
-
-Text
-
-  - PrefixLM, pretrained
-  - PrefixLM, instruction-tuned
-  - UL2, pretrained
-  - UL2, instruction-tuned
-
-Mobile devices and laptops
-
-T5Gemma L-L
-
-1 billion
-
-Text
-
-Text
-
-  - PrefixLM, pretrained
-  - PrefixLM, instruction-tuned
-  - UL2, pretrained
-  - UL2, instruction-tuned
-
-Mobile devices and laptops
-
-T5Gemma B-B
-
-0.6 billion
-
-Text
-
-Text
-
-  - PrefixLM, pretrained
-  - PrefixLM, instruction-tuned
-  - UL2, pretrained
-  - UL2, instruction-tuned
-
-Mobile devices and laptops
-
-T5Gemma S-S
-
-0.3 billion
-
-Text
-
-Text
-
-  - PrefixLM, pretrained
-  - PrefixLM, instruction-tuned
-  - UL2, pretrained
-  - UL2, instruction-tuned
-
-Mobile devices and laptops
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Model name</strong></th>
+<th><strong>Parameters size</strong></th>
+<th><strong>Input</strong></th>
+<th><strong>Output</strong></th>
+<th><strong>Tuned versions</strong></th>
+<th><strong>Intended platforms</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Gemma 4</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Gemma 4 31B</td>
+<td>31 billion parameters</td>
+<td>Text and image</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Large servers or server clusters</td>
+</tr>
+<tr class="odd">
+<td>Gemma 4 26B A4B</td>
+<td>26 billion parameters, 4 billion active parameters</td>
+<td>Text and image</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Higher-end desktop computers and servers</td>
+</tr>
+<tr class="even">
+<td>Gemma 4 E4B</td>
+<td>4 billion effective parameters</td>
+<td>Text, image and audio</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Mobile devices and laptops</td>
+</tr>
+<tr class="odd">
+<td>Gemma 4 E2B</td>
+<td>2 billion effective parameters</td>
+<td>Text, image and audio</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Mobile devices and laptops</td>
+</tr>
+<tr class="even">
+<td><strong>Gemma 3n</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Gemma 3n E4B</td>
+<td>4 billion effective parameters</td>
+<td>Text, image and audio</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Mobile devices and laptops</td>
+</tr>
+<tr class="even">
+<td>Gemma 3n E2B</td>
+<td>2 billion effective parameters</td>
+<td>Text, image and audio</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Mobile devices and laptops</td>
+</tr>
+<tr class="odd">
+<td><strong>Gemma 3</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Gemma 3 27B</td>
+<td>27 billion</td>
+<td>Text and image</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Large servers or server clusters</td>
+</tr>
+<tr class="odd">
+<td>Gemma 3 12B</td>
+<td>12 billion</td>
+<td>Text and image</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Higher-end desktop computers and servers</td>
+</tr>
+<tr class="even">
+<td>Gemma 3 4B</td>
+<td>4 billion</td>
+<td>Text and image</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Desktop computers and small servers</td>
+</tr>
+<tr class="odd">
+<td>Gemma 3 1B</td>
+<td>1 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Mobile devices and laptops</td>
+</tr>
+<tr class="even">
+<td><strong>Gemma 2</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Gemma 2 27B</td>
+<td>27 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Large servers or server clusters</td>
+</tr>
+<tr class="even">
+<td>Gemma 2 9B</td>
+<td>9 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Higher-end desktop computers and servers</td>
+</tr>
+<tr class="odd">
+<td>Gemma 2 2B</td>
+<td>2 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Mobile devices and laptops</td>
+</tr>
+<tr class="even">
+<td><strong>Gemma</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Gemma 7B</td>
+<td>7 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Desktop computers and small servers</td>
+</tr>
+<tr class="even">
+<td>Gemma 2B</td>
+<td>2.2 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Mobile devices and laptops</td>
+</tr>
+<tr class="odd">
+<td><strong>CodeGemma</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>CodeGemma 7B</td>
+<td>7 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Desktop computers and small servers</td>
+</tr>
+<tr class="odd">
+<td>CodeGemma 2B</td>
+<td>2 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+</ul></td>
+<td>Desktop computers and small servers</td>
+</tr>
+<tr class="even">
+<td><strong>PaliGemma 2</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>PaliGemma 28B</td>
+<td>28 billion</td>
+<td>Text and image</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Mix fine-tuned</li>
+</ul></td>
+<td>Large servers or server clusters</td>
+</tr>
+<tr class="even">
+<td>PaliGemma 10B</td>
+<td>10 billion</td>
+<td>Text and image</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Mix fine-tuned</li>
+</ul></td>
+<td>Higher-end desktop computers and servers</td>
+</tr>
+<tr class="odd">
+<td>PaliGemma 3B</td>
+<td>3 billion</td>
+<td>Text and image</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Mix fine-tuned</li>
+</ul></td>
+<td>Desktop computers and small servers</td>
+</tr>
+<tr class="even">
+<td><strong>PaliGemma</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>PaliGemma 3B</td>
+<td>3 billion</td>
+<td>Text and image</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Mix fine-tuned</li>
+</ul></td>
+<td>Desktop computers and small servers</td>
+</tr>
+<tr class="even">
+<td><strong>ShieldGemma 2</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ShieldGemma 2</td>
+<td>4 billion</td>
+<td>Text and image</td>
+<td>Text</td>
+<td><ul>
+<li>Fine-tuned</li>
+</ul></td>
+<td>Desktop computers and small servers</td>
+</tr>
+<tr class="even">
+<td><strong>TxGemma</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>TxGemma 27B</td>
+<td>27 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Large servers or server clusters</td>
+</tr>
+<tr class="even">
+<td>TxGemma 9B</td>
+<td>9 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Higher-end desktop computers and servers</td>
+</tr>
+<tr class="odd">
+<td>TxGemma 2B</td>
+<td>2 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+</ul></td>
+<td>Mobile devices and laptops</td>
+</tr>
+<tr class="even">
+<td><strong>MedGemma</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>MedGemma 27B</td>
+<td>27 billion</td>
+<td>Text and image</td>
+<td>Text</td>
+<td><ul>
+<li>Text-only instruction-tuned</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Large servers or server clusters</td>
+</tr>
+<tr class="even">
+<td>MedGemma 4B</td>
+<td>4 billion</td>
+<td>Text and image</td>
+<td>Text</td>
+<td><ul>
+<li>Pretrained</li>
+<li>Instruction-tuned</li>
+</ul></td>
+<td>Desktop computers and small servers</td>
+</tr>
+<tr class="odd">
+<td><strong>MedSigLIP</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>MedSigLIP</td>
+<td>800 million</td>
+<td>Text and image</td>
+<td>Embedding</td>
+<td><ul>
+<li>Fine-tuned</li>
+</ul></td>
+<td>Mobile devices and laptops</td>
+</tr>
+<tr class="odd">
+<td><strong>T5Gemma</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>T5Gemma 9B-9B</td>
+<td>18 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>PrefixLM, pretrained</li>
+<li>PrefixLM, instruction-tuned</li>
+<li>UL2, pretrained</li>
+<li>UL2, instruction-tuned</li>
+</ul></td>
+<td>Mobile devices and laptops</td>
+</tr>
+<tr class="odd">
+<td>T5Gemma 9B-2B</td>
+<td>11 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>PrefixLM, pretrained</li>
+<li>PrefixLM, instruction-tuned</li>
+<li>UL2, pretrained</li>
+<li>UL2, instruction-tuned</li>
+</ul></td>
+<td>Mobile devices and laptops</td>
+</tr>
+<tr class="even">
+<td>T5Gemma 2B-2B</td>
+<td>4 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>PrefixLM, pretrained</li>
+<li>PrefixLM, instruction-tuned</li>
+<li>UL2, pretrained</li>
+<li>UL2, instruction-tuned</li>
+</ul></td>
+<td>Mobile devices and laptops</td>
+</tr>
+<tr class="odd">
+<td>T5Gemma XL-XL</td>
+<td>4 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>PrefixLM, pretrained</li>
+<li>PrefixLM, instruction-tuned</li>
+<li>UL2, pretrained</li>
+<li>UL2, instruction-tuned</li>
+</ul></td>
+<td>Mobile devices and laptops</td>
+</tr>
+<tr class="even">
+<td>T5Gemma M-L</td>
+<td>2 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>PrefixLM, pretrained</li>
+<li>PrefixLM, instruction-tuned</li>
+<li>UL2, pretrained</li>
+<li>UL2, instruction-tuned</li>
+</ul></td>
+<td>Mobile devices and laptops</td>
+</tr>
+<tr class="odd">
+<td>T5Gemma L-L</td>
+<td>1 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>PrefixLM, pretrained</li>
+<li>PrefixLM, instruction-tuned</li>
+<li>UL2, pretrained</li>
+<li>UL2, instruction-tuned</li>
+</ul></td>
+<td>Mobile devices and laptops</td>
+</tr>
+<tr class="even">
+<td>T5Gemma B-B</td>
+<td>0.6 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>PrefixLM, pretrained</li>
+<li>PrefixLM, instruction-tuned</li>
+<li>UL2, pretrained</li>
+<li>UL2, instruction-tuned</li>
+</ul></td>
+<td>Mobile devices and laptops</td>
+</tr>
+<tr class="odd">
+<td>T5Gemma S-S</td>
+<td>0.3 billion</td>
+<td>Text</td>
+<td>Text</td>
+<td><ul>
+<li>PrefixLM, pretrained</li>
+<li>PrefixLM, instruction-tuned</li>
+<li>UL2, pretrained</li>
+<li>UL2, instruction-tuned</li>
+</ul></td>
+<td>Mobile devices and laptops</td>
+</tr>
+</tbody>
+</table>
 
 Gemma has been tested using Google's purpose built v5e TPU hardware and NVIDIA's L4(G2 Standard), A100(A2 Standard), H100(A3 High) GPU hardware.
 
 ## What's next
 
-  - See [Gemma documentation](https://ai.google.dev/gemma/docs) .
+- See [Gemma documentation](https://ai.google.dev/gemma/docs) .

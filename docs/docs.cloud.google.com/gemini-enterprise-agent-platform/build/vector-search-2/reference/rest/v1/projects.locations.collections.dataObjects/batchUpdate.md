@@ -14,41 +14,29 @@ Updates dataObjects in a batch.
 
 ### Path parameters
 
-Parameters
-
-`parent`
-
-`string`
-
-Required. The resource name of the Collection to update the DataObjects in. Format: `projects/{project}/locations/{location}/collections/{collection}` . The parent field in the UpdateDataObjectRequest messages must match this field.
+| Parameters |                                                                                                                                                                                                                                                   |
+|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `parent`   | `string` Required. The resource name of the Collection to update the DataObjects in. Format: `projects/{project}/locations/{location}/collections/{collection}` . The parent field in the UpdateDataObjectRequest messages must match this field. |
 
 ### Request body
 
 The request body contains data with the following structure:
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;requests&quot;: [{object (UpdateDataObjectRequest)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "requests": [
+    {
+      object (UpdateDataObjectRequest)
+    }
+  ]
+}
+```
 
-`requests[]`
-
-` object ( UpdateDataObjectRequest  ` )
-
-Required. The request message specifying the resources to update. A maximum of 1000 DataObjects can be updated in a batch.
+| Fields       |                                                                                                                                                                                                                                                                                                                                                              |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `requests[]` | `object ( `[`UpdateDataObjectRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1/projects.locations.collections.dataObjects/batchUpdate#UpdateDataObjectRequest)` )` Required. The request message specifying the resources to update. A maximum of 1000 DataObjects can be updated in a batch. |
 
 ### Response body
 
@@ -58,7 +46,7 @@ If successful, the response body is empty.
 
 Requires the following OAuth scope:
 
-  - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/cloud-platform`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -66,42 +54,26 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 
 Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
 
-  - `vectorsearch.dataObjects.update`
+- `vectorsearch.dataObjects.update`
 
 For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
 
 ## UpdateDataObjectRequest
 
-Request message for `  DataObjectService.UpdateDataObject  ` .
+Request message for [`DataObjectService.UpdateDataObject`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1/projects.locations.collections.dataObjects/patch#google.cloud.vectorsearch.v1.DataObjectService.UpdateDataObject) .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;dataObject&quot;: {object (DataObject)},&quot;updateMask&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "dataObject": {
+    object (DataObject)
+  },
+  "updateMask": string
+}
+```
 
-`dataObject`
-
-` object ( DataObject  ` )
-
-Required. The DataObject which replaces the resource on the server.
-
-`updateMask`
-
-` string ( FieldMask  ` format)
-
-Optional. The update mask applies to the resource. See `  google.protobuf.FieldMask  ` .
-
-This is a comma-separated list of fully qualified names of fields. Example: `"user.displayName,photo"` .
+| Fields       |                                                                                                                                                                                                                                                                                                                                                                              |
+|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `dataObject` | `object ( `[`DataObject`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1/projects.locations.collections.dataObjects#DataObject)` )` Required. The DataObject which replaces the resource on the server.                                                                                                              |
+| `updateMask` | `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)` Optional. The update mask applies to the resource. See [`google.protobuf.FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask) . This is a comma-separated list of fully qualified names of fields. Example: `"user.displayName,photo"` . |

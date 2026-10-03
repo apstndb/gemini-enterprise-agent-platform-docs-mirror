@@ -46,9 +46,9 @@ If successful, the response body contains data with the following structure:
 
 Fields
 
-` deployedModels[] (deprecated)  ` ` object ( DeployedModel  ` )
+`deployedModels[] `**`(deprecated)`** `object ( `[`DeployedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#DeployedModel)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 DEPRECATED Use deployedModelRefs instead.
 
@@ -56,7 +56,7 @@ DEPRECATED Use deployedModelRefs instead.
 
 A token, which can be sent as `pageToken` to retrieve the next page. If this field is omitted, there are no subsequent pages.
 
-`deployedModelRefs[]` ` object ( DeployedModelRef  ` )
+`deployedModelRefs[]` `object ( `[`DeployedModelRef`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models#Model.DeployedModelRef)` )`
 
 References to the DeployedModels that share the specified deploymentResourcePool.
 
@@ -68,18 +68,22 @@ The total number of DeployedModels on this DeploymentResourcePool.
 
 The total number of endpoints that have DeployedModels on this DeploymentResourcePool.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;deployedModels&quot;: [{object (DeployedModel)}],&quot;nextPageToken&quot;: string,&quot;deployedModelRefs&quot;: [{object (DeployedModelRef)}],&quot;totalDeployedModelCount&quot;: integer,&quot;totalEndpointCount&quot;: integer}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "deployedModels": [
+    {
+      object (DeployedModel)
+    }
+  ],
+  "nextPageToken": string,
+  "deployedModelRefs": [
+    {
+      object (DeployedModelRef)
+    }
+  ],
+  "totalDeployedModelCount": integer,
+  "totalEndpointCount": integer
+}
+```

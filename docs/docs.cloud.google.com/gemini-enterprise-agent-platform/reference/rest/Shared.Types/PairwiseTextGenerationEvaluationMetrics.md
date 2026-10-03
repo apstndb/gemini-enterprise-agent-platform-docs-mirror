@@ -26,19 +26,19 @@ Percentage of time humans decided the model had the better response.
 
 Percentage of time humans decided the baseline model had the better response.
 
-`truePositiveCount` `string ( int64 format)`
+`truePositiveCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Number of examples where both the autorater and humans decided that the model had the better response.
 
-`falsePositiveCount` `string ( int64 format)`
+`falsePositiveCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Number of examples where the autorater chose the model, but humans preferred the baseline model.
 
-`falseNegativeCount` `string ( int64 format)`
+`falseNegativeCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Number of examples where the autorater chose the baseline model, but humans preferred the model.
 
-`trueNegativeCount` `string ( int64 format)`
+`trueNegativeCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Number of examples where both the autorater and humans decided that the model had the worse response.
 
@@ -62,32 +62,22 @@ Harmonic mean of precision and recall.
 
 A measurement of agreement between the autorater and human raters that takes the likelihood of random agreement into account.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;modelWinRate&quot;: number,
-  &quot;baselineModelWinRate&quot;: number,
-  &quot;humanPreferenceModelWinRate&quot;: number,
-  &quot;humanPreferenceBaselineModelWinRate&quot;: number,
-  &quot;truePositiveCount&quot;: string,
-  &quot;falsePositiveCount&quot;: string,
-  &quot;falseNegativeCount&quot;: string,
-  &quot;trueNegativeCount&quot;: string,
-  &quot;accuracy&quot;: number,
-  &quot;precision&quot;: number,
-  &quot;recall&quot;: number,
-  &quot;f1Score&quot;: number,
-  &quot;cohensKappa&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "modelWinRate": number,
+  "baselineModelWinRate": number,
+  "humanPreferenceModelWinRate": number,
+  "humanPreferenceBaselineModelWinRate": number,
+  "truePositiveCount": string,
+  "falsePositiveCount": string,
+  "falseNegativeCount": string,
+  "trueNegativeCount": string,
+  "accuracy": number,
+  "precision": number,
+  "recall": number,
+  "f1Score": number,
+  "cohensKappa": number
+}
+```

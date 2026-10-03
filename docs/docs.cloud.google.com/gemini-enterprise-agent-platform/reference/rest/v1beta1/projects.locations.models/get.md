@@ -30,4 +30,4 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Model  ` .
+If successful, the response body contains an instance of [`Model`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models#Model) .

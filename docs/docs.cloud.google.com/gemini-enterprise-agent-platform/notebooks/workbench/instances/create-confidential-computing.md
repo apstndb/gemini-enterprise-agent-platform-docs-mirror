@@ -32,7 +32,7 @@ To create a Agent Platform Workbench instance with Confidential Computing enable
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Click add\_box **Create new** .
+2.  Click add_box **Create new** .
 
 3.  In the **New instance** dialog, click **Advanced options** .
 
@@ -43,7 +43,7 @@ To create a Agent Platform Workbench instance with Confidential Computing enable
 6.  In the **Enable Confidential Computing** dialog, click **Enable** .
 
 7.  Click **Create** .
-    
+
     Agent Platform Workbench creates an instance and automatically starts it. When the instance is ready to use, Agent Platform Workbench activates an **Open JupyterLab** link.
 
 ### gcloud
@@ -52,10 +52,10 @@ To create a Agent Platform Workbench instance with Confidential Computing enable
 
 Before using any of the command data below, make the following replacements:
 
-  - `  INSTANCE_NAME  ` : the name of your Agent Platform Workbench instance; must start with a letter followed by up to 62 lowercase letters, numbers, or hyphens (-), and cannot end with a hyphen
-  - `  PROJECT_ID  ` : your project ID
-  - `  LOCATION  ` : the zone where you want your instance to be located
-  - `  MACHINE_TYPE  ` : the [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) of your instance's VM, for example: `n2d-standard-2`
+- `INSTANCE_NAME` : the name of your Agent Platform Workbench instance; must start with a letter followed by up to 62 lowercase letters, numbers, or hyphens (-), and cannot end with a hyphen
+- `PROJECT_ID` : your project ID
+- `LOCATION` : the zone where you want your instance to be located
+- `MACHINE_TYPE` : the [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) of your instance's VM, for example: `n2d-standard-2`
 
 Execute the following command:
 
@@ -63,31 +63,37 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud workbench instances create INSTANCE_NAME \
-        --project=PROJECT_ID \
-        --location=LOCATION \
-        --machine-type=MACHINE_TYPE \
-        --confidential-compute-type=SEV
+```
+gcloud workbench instances create INSTANCE_NAME \
+    --project=PROJECT_ID \
+    --location=LOCATION \
+    --machine-type=MACHINE_TYPE \
+    --confidential-compute-type=SEV
+```
 
 #### Windows (PowerShell)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud workbench instances create INSTANCE_NAME `
-        --project=PROJECT_ID `
-        --location=LOCATION `
-        --machine-type=MACHINE_TYPE `
-        --confidential-compute-type=SEV
+```
+gcloud workbench instances create INSTANCE_NAME `
+    --project=PROJECT_ID `
+    --location=LOCATION `
+    --machine-type=MACHINE_TYPE `
+    --confidential-compute-type=SEV
+```
 
 #### Windows (cmd.exe)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud workbench instances create INSTANCE_NAME ^
-        --project=PROJECT_ID ^
-        --location=LOCATION ^
-        --machine-type=MACHINE_TYPE ^
-        --confidential-compute-type=SEV
+```
+gcloud workbench instances create INSTANCE_NAME ^
+    --project=PROJECT_ID ^
+    --location=LOCATION ^
+    --machine-type=MACHINE_TYPE ^
+    --confidential-compute-type=SEV
+```
 
 Agent Platform Workbench creates an instance and automatically starts it. When the instance is ready to use, Agent Platform Workbench activates an **Open JupyterLab** link in the Google Cloud console.
 
@@ -97,24 +103,28 @@ To create a Agent Platform Workbench instance with Confidential Computing enable
 
 Before using any of the request data, make the following replacements:
 
-  - `  PROJECT_ID  ` : your project ID
-  - `  LOCATION  ` : the zone where you want your instance to be located
-  - `  MACHINE_TYPE  ` : the [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) of your instance's VM, for example: `n2d-standard-2`
+- `PROJECT_ID` : your project ID
+- `LOCATION` : the zone where you want your instance to be located
+- `MACHINE_TYPE` : the [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) of your instance's VM, for example: `n2d-standard-2`
 
 HTTP method and URL:
 
-    POST https://notebooks.googleapis.com/v2/projects/PROJECT_ID/locations/LOCATION/instances
+```
+POST https://notebooks.googleapis.com/v2/projects/PROJECT_ID/locations/LOCATION/instances
+```
 
 Request JSON body:
 
-    {
-      "gce_setup": {
-        "machine_type": "MACHINE_TYPE",
-        "confidentialInstanceConfig": {
-          "confidentialInstanceType": SEV
-        }
-      }
+```
+{
+  "gce_setup": {
+    "machine_type": "MACHINE_TYPE",
+    "confidentialInstanceConfig": {
+      "confidentialInstanceType": SEV
     }
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -124,11 +134,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://notebooks.googleapis.com/v2/projects/PROJECT_ID/locations/LOCATION/instances"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://notebooks.googleapis.com/v2/projects/PROJECT_ID/locations/LOCATION/instances"
+```
 
 #### PowerShell
 
@@ -136,15 +148,17 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://notebooks.googleapis.com/v2/projects/PROJECT_ID/locations/LOCATION/instances" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://notebooks.googleapis.com/v2/projects/PROJECT_ID/locations/LOCATION/instances" | Select-Object -Expand Content
+```
 
 Agent Platform Workbench creates an instance and automatically starts it. When the instance is ready to use, Agent Platform Workbench activates an **Open JupyterLab** link in the Google Cloud console.
 
@@ -155,7 +169,7 @@ To confirm whether a Agent Platform Workbench instance has Confidential Computin
 1.  In the Google Cloud console, go to the **Instances** page.
 
 2.  In the **Instance name** column, click the name of the instance that you want to check.
-    
+
     The **Instance details** page opens.
 
 3.  Next to **VM details** , click **View in Compute Engine** .
@@ -166,21 +180,21 @@ To confirm whether a Agent Platform Workbench instance has Confidential Computin
 
 When you create or use a Agent Platform Workbench instance with Confidential Computing enabled, the following limitations apply:
 
-  - Only N2D machine types are supported. See [N2D machine types](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n2d_machine_types) .
+- Only N2D machine types are supported. See [N2D machine types](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n2d_machine_types) .
 
-  - Only AMD SEV confidential computing technology is supported. For more information, see [AMD SEV](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/confidential-vm-overview#amd_sev) .
+- Only AMD SEV confidential computing technology is supported. For more information, see [AMD SEV](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/confidential-vm-overview#amd_sev) .
 
-  - Confidential Computing can't be enabled or turned off after you create the Agent Platform Workbench instance.
+- Confidential Computing can't be enabled or turned off after you create the Agent Platform Workbench instance.
 
 ## Billing
 
 When using Agent Platform Workbench instances with Confidential Computing you are charged for the following:
 
-  - Agent Platform Workbench instances usage. See [Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#notebooks) .
+- Agent Platform Workbench instances usage. See [Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#notebooks) .
 
-  - Confidential Computing usage. See [Confidential VM pricing](https://cloud.google.com/confidential-computing/confidential-vm/pricing) .
+- Confidential Computing usage. See [Confidential VM pricing](https://cloud.google.com/confidential-computing/confidential-vm/pricing) .
 
 ## What's next
 
-  - To use a notebook to help you get started using Gemini Enterprise Agent Platform and other Google Cloud services, see [Agent Platform notebook tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/jupyter-notebooks) .
-  - To check on the health status of your Agent Platform Workbench instance, see [Monitor health status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health) .
+- To use a notebook to help you get started using Gemini Enterprise Agent Platform and other Google Cloud services, see [Agent Platform notebook tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/jupyter-notebooks) .
+- To check on the health status of your Agent Platform Workbench instance, see [Monitor health status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health) .

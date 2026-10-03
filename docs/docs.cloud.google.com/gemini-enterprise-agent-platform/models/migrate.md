@@ -25,7 +25,7 @@ You only need to make major code changes for certain [breaking changes](https://
 The Gemini model you use depends on your application's needs:
 
 | Feature                                                                                                                                      | [2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro) | [2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash) | [2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite) | [3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) | [3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite) | [3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash) | [3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash) | [3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) |
-| -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+|----------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
 | Launch stage                                                                                                                                 | GA                                                                                              | GA                                                                                                  | GA                                                                                                            | Preview                                                                                         | GA                                                                                                            | GA                                                                                                  | GA                                                                                                  | GA                                                                                                  |
 | Input modalities                                                                                                                             | Text , Image , Audio , Video                                                                    | Text , Image , Audio , Video                                                                        | Text , Image , Audio , Video                                                                                  | Text , Image , Audio , Video                                                                    | Text , Image , Audio , Video                                                                                  | Text , Image , Audio , Video                                                                        | Text , Image , Audio , Video                                                                        | Text , Image , Audio , Video                                                                        |
 | Output modalities                                                                                                                            | Text                                                                                            | Text                                                                                                | Text                                                                                                          | Text                                                                                            | Text                                                                                                          | Text                                                                                                | Text                                                                                                | Text                                                                                                |
@@ -46,12 +46,12 @@ The Gemini model you use depends on your application's needs:
 
 Before you start the migration process, you should consider the following:
 
-  - [Information security (InfoSec), governance, and regulatory approvals](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#infosec-and-governance)
-  - [Location availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#location-availability)
-  - [Modality and tokenization-based pricing differences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#pricing-differences)
-  - [Purchase or change Provisioned Throughput orders](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#provisioned-throughput)
-  - [Supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#supervised-fine-tuning)
-  - [Regression testing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#regression-testing)
+- [Information security (InfoSec), governance, and regulatory approvals](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#infosec-and-governance)
+- [Location availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#location-availability)
+- [Modality and tokenization-based pricing differences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#pricing-differences)
+- [Purchase or change Provisioned Throughput orders](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#provisioned-throughput)
+- [Supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#supervised-fine-tuning)
+- [Regression testing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#regression-testing)
 
 ### InfoSec, governance, and regulatory approvals
 
@@ -90,11 +90,11 @@ When upgrading to the latest Gemini version, you'll need three main types of reg
 1.  **Code regression tests:** Regression testing from a software engineering and developer operations (DevOps) perspective. This type of regression testing is **always required** .
 
 2.  **Model performance regression tests:** Regression testing from a data science or machine learning perspective. This means ensuring that the new Gemini model version provides outputs that at least maintain the same level of quality as the previous version.
-    
+
     Model performance regression tests are model evaluations done when a system or its underlying model changes. They include:
-    
-      - **Offline performance testing:** Tests that assert the quality of model outputs in a dedicated experimentation environment based on various model output quality metrics.
-      - **Online model performance testing:** Tests that assert the quality of model outputs in a live, online deployment based on implicit or explicit user feedback.
+
+    - **Offline performance testing:** Tests that assert the quality of model outputs in a dedicated experimentation environment based on various model output quality metrics.
+    - **Online model performance testing:** Tests that assert the quality of model outputs in a live, online deployment based on implicit or explicit user feedback.
 
 3.  **Load testing:** These tests check how well the application handles many requests at once. Load testing is **required for applications that use [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)** .
 
@@ -102,20 +102,20 @@ When upgrading to the latest Gemini version, you'll need three main types of reg
 
 The following sections outline the steps to migrate to the latest Gemini version. For optimal results, complete these steps in order.
 
-### 1\. Document model evaluation and testing requirements
+### 1. Document model evaluation and testing requirements
 
 1.  Prepare to repeat any relevant evaluations you performed when you first built your application, plus any evaluations performed since then.
 2.  If your current evaluations don't fully cover or measure all tasks your application performs, design and prepare more evaluations. You can use our [evaluation playbook](https://github.com/GoogleCloudPlatform/applied-ai-engineering-samples/tree/main/genai-on-vertex-ai/gemini/evals_playbook) and our [evaluation recipes](https://github.com/GoogleCloudPlatform/applied-ai-engineering-samples/tree/main/genai-on-vertex-ai/gemini/model_upgrades) to help you get started.
 3.  If your application involves RAG, tool use, complex agentic workflows, or prompt chains, make sure that your existing evaluation data allows for assessing each component independently. If not, gather input-output examples for each component.
 4.  If your application is critical or part of a larger user-facing real-time system, include online evaluation.
 
-### 2\. Make code upgrades and run tests
+### 2. Make code upgrades and run tests
 
 Upgrading your code requires three main changes:
 
-  - [Upgrade to the Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#upgrade-sdk)
-  - [Change your Gemini calls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#change-calls)
-  - [Fix breaking code changes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#breaking-changes)
+- [Upgrade to the Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#upgrade-sdk)
+- [Change your Gemini calls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#change-calls)
+- [Fix breaking code changes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#breaking-changes)
 
 The following sections goes over these changes in further detail.
 
@@ -137,23 +137,23 @@ After making code changes, run code regression tests and other software tests to
 
 #### Fix breaking code changes
 
-  - **Dynamic retrieval** : Switch to using [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search#dynamic-retrieval) . This feature requires the [Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/sdks/overview) and isn't supported by the Vertex AI SDK.
-  - Content filters: Note the [default content filter settings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/configure-safety-filters#how_to_configure_content_filters) . Change your code if it relies on a default that has changed.
-  - [**`Top-K` token sampling parameter**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/content-generation-parameters#top-k) : Models after `gemini-1.0-pro-vision` don't support changing the `Top-K` parameter.
-  - **Thinking** : Gemini 3 Pro and later models use the `thinking_level` parameter instead of `thinking_budget` . For more information, see [Control model thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking#budget) .
-  - **Thought signatures** : For Gemini 3 Pro and later models, if a thought signature is expected in a turn but not provided, the model returns an error instead of a warning. See [Thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures) .
-  - **Media resolution and tokenization** : Gemini 3 Pro and later models use a variable sequence length for media tokenization instead of Pan and Scan, and have new default resolutions and token costs for images, PDFs, and video. See [Image understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding#image-tokenization) and [Video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#video-tokenization) .
-  - **Usage metadata** : For Gemini 3 Pro and later models, PDF token counts in `usage_metadata` are reported under the `IMAGE` modality instead of `DOCUMENT` .
-  - **Image segmentation** : Image segmentation is not supported by Gemini 3 Pro and later models.
-  - **Multimodal function responses** : For Gemini 3 Pro and later models, you can include image and PDF data in function responses. See [Multimodal function responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling#mm-fr) .
-  - **PDF processing** : For Gemini 3 Pro and later models, OCR is not used by default when processing scanned PDFs.
+- **Dynamic retrieval** : Switch to using [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search#dynamic-retrieval) . This feature requires the [Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/sdks/overview) and isn't supported by the Vertex AI SDK.
+- Content filters: Note the [default content filter settings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/configure-safety-filters#how_to_configure_content_filters) . Change your code if it relies on a default that has changed.
+- [**`Top-K` token sampling parameter**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/content-generation-parameters#top-k) : Models after `gemini-1.0-pro-vision` don't support changing the `Top-K` parameter.
+- **Thinking** : Gemini 3 Pro and later models use the `thinking_level` parameter instead of `thinking_budget` . For more information, see [Control model thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking#budget) .
+- **Thought signatures** : For Gemini 3 Pro and later models, if a thought signature is expected in a turn but not provided, the model returns an error instead of a warning. See [Thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures) .
+- **Media resolution and tokenization** : Gemini 3 Pro and later models use a variable sequence length for media tokenization instead of Pan and Scan, and have new default resolutions and token costs for images, PDFs, and video. See [Image understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding#image-tokenization) and [Video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#video-tokenization) .
+- **Usage metadata** : For Gemini 3 Pro and later models, PDF token counts in `usage_metadata` are reported under the `IMAGE` modality instead of `DOCUMENT` .
+- **Image segmentation** : Image segmentation is not supported by Gemini 3 Pro and later models.
+- **Multimodal function responses** : For Gemini 3 Pro and later models, you can include image and PDF data in function responses. See [Multimodal function responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling#mm-fr) .
+- **PDF processing** : For Gemini 3 Pro and later models, OCR is not used by default when processing scanned PDFs.
 
 For this step, focus only on code changes. You may need to make other changes later, but wait until you start your evaluation. After your evaluations, consider these adjustments based on the evaluation results:
 
-  - If you're switching from dynamic retrieval, you may need to adjust your system instructions to control when Google Search is used (for example, `"Only generate queries for the Google Search tool if the user asks about sports. Don't generate queries for any other topic."` ). However, wait until you evaluate before changing prompts.
-  - If you used the `Top-K` parameter, adjust other token sampling parameters, like [`Top-P`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/content-generation-parameters#top-p) , to get similar results.
+- If you're switching from dynamic retrieval, you may need to adjust your system instructions to control when Google Search is used (for example, `"Only generate queries for the Google Search tool if the user asks about sports. Don't generate queries for any other topic."` ). However, wait until you evaluate before changing prompts.
+- If you used the `Top-K` parameter, adjust other token sampling parameters, like [`Top-P`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/content-generation-parameters#top-p) , to get similar results.
 
-### 3\. Run offline evaluations
+### 3. Run offline evaluations
 
 Repeat the evaluations you performed when you first developed and launched your application, any offline evaluations done since then, and any additional evaluations you identified in [step 1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#document-requirements) . If you still feel your evaluation doesn't fully cover your application's scope, conduct further evaluations.
 
@@ -161,14 +161,14 @@ If you don't have an automated way to run offline evaluations, consider using th
 
 If your application uses fine-tuning, perform offline evaluation before re-tuning your model with the latest version of Gemini. The latest models offer improved output quality, which can mean your application no longer needs a fine-tuned model.
 
-### 4\. Assess evaluation results and tune your prompts and hyperparameters
+### 4. Assess evaluation results and tune your prompts and hyperparameters
 
 If your offline evaluation shows your application performing less effectively, improve your application until its performance matches the older model. Do this by:
 
-  - Iteratively refining your prompts to boost performance ("Hill Climbing"). If you're new to hill climbing, see the [Vertex Gemini hill climbing online training](https://cloudonair.withgoogle.com/events/vertex-gemini-hill-climbing-your-way-to-optimal-prompts) . The [Gemini Enterprise Agent Platform prompt optimizer](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-optimizer) ( [example notebook](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/prompts/prompt_optimizer/get_started_with_vertex_ai_prompt_optimizer_custom_metric.ipynb) ) can also help.
-  - If your application is affected by Dynamic Retrieval and Top-K [breaking changes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#breaking-changes) , experiment with adjusting your prompt and token sampling parameters.
+- Iteratively refining your prompts to boost performance ("Hill Climbing"). If you're new to hill climbing, see the [Vertex Gemini hill climbing online training](https://cloudonair.withgoogle.com/events/vertex-gemini-hill-climbing-your-way-to-optimal-prompts) . The [Gemini Enterprise Agent Platform prompt optimizer](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-optimizer) ( [example notebook](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/prompts/prompt_optimizer/get_started_with_vertex_ai_prompt_optimizer_custom_metric.ipynb) ) can also help.
+- If your application is affected by Dynamic Retrieval and Top-K [breaking changes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#breaking-changes) , experiment with adjusting your prompt and token sampling parameters.
 
-### 5\. Run load tests
+### 5. Run load tests
 
 If your application needs a certain minimum throughput, perform load testing to ensure the latest version of your application meets your throughput requirements.
 
@@ -176,20 +176,20 @@ Load testing must occur before online evaluation, because online evaluation invo
 
 If your application already meets throughput needs, consider using [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) . You'll need extra short-term Provisioned Throughput to cover load testing while your current Provisioned Throughput order handles production traffic.
 
-### 6\. (Optional) Run online evaluations
+### 6. (Optional) Run online evaluations
 
 Move to online evaluation only if your offline evaluation shows high Gemini output quality *and* your application requires online evaluation.
 
 Online evaluation is a specific type of online testing. Try to use your organization's existing tools and methods for online evaluation. For example:
 
-  - If your organization regularly performs [A/B tests](https://en.wikipedia.org/wiki/A%2FB_testing) , perform one to compare your application's current version with the latest Gemini version.
-  - If your organization regularly uses [canary deployments](https://en.wikipedia.org/wiki/Feature_toggle#Canary_release) , use them with the latest models and measure changes in user behavior.
+- If your organization regularly performs [A/B tests](https://en.wikipedia.org/wiki/A%2FB_testing) , perform one to compare your application's current version with the latest Gemini version.
+- If your organization regularly uses [canary deployments](https://en.wikipedia.org/wiki/Feature_toggle#Canary_release) , use them with the latest models and measure changes in user behavior.
 
 You can also do online evaluation by adding new feedback and measurement features to your application. Different applications need different feedback methods. For example:
 
-  - Adding thumbs-up and thumbs-down buttons next to model outputs and comparing the rates between an older model and the latest Gemini models.
-  - Showing users outputs from both the older model and the latest models side-by-side and asking them to pick their favorite.
-  - Tracking how often users override or manually adjust outputs from the older model versus the latest models.
+- Adding thumbs-up and thumbs-down buttons next to model outputs and comparing the rates between an older model and the latest Gemini models.
+- Showing users outputs from both the older model and the latest models side-by-side and asking them to pick their favorite.
+- Tracking how often users override or manually adjust outputs from the older model versus the latest models.
 
 These feedback methods often require running the latest Gemini version alongside your existing version. This parallel deployment is sometimes called "shadow mode" or "blue-green deployment."
 
@@ -197,7 +197,7 @@ If online evaluation results differ greatly from offline evaluation results, you
 
 If you use Provisioned Throughput, you may need to [purchase additional short-term Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#pt-weekly-term) to continue to meet your throughput requirements for users in online evaluation.
 
-### 7\. Deploy to production
+### 7. Deploy to production
 
 Once your evaluation shows that the latest Gemini model performs as well as or better than an older model, replace the existing application version with the new version. Follow your organization's standard procedures for production rollout.
 
@@ -221,9 +221,9 @@ The raw numeric `thinking_budget` parameter is no longer recommended across all 
 
 The API does not yet error, but mismatched responses cause the model to return empty responses with `finish_reason: STOP` in most cases. Always follow these conventions:
 
-  - **Include `id`** : Every `FunctionResponse` must include the `id` from the corresponding `FunctionCall` .
-  - **Match `name`** : The `name` in the response must match the `name` in the call.
-  - **Match counts** : Return exactly one `FunctionResponse` for each `FunctionCall` received.
+- **Include `id`** : Every `FunctionResponse` must include the `id` from the corresponding `FunctionCall` .
+- **Match `name`** : The `name` in the response must match the `name` in the call.
+- **Match counts** : Return exactly one `FunctionResponse` for each `FunctionCall` received.
 
 ### Multimodal function responses
 
@@ -243,37 +243,37 @@ Use the following checklists as a quick reference when migrating from previous m
 
 ### From Gemini 3 Flash Preview
 
-  - Update model name: `gemini-3-flash-preview` → `gemini-3.5-flash` .
-  - Review pricing. Gemini 3.5 Flash is more expensive than Gemini 3 Flash Preview.
-  - Remove `temperature` , `top_p` , `top_k` from your config.
-  - Replace `thinking_budget` with `thinking_level` .
-  - Test your prompts. Default effort changed from `high` → `medium` .
-  - Thought preservation is now on by default. Reasoning context carries forward across turns.
-  - Reduce unnecessary tool calls by adjusting thinking level or adding system instructions.
-  - Computer Use is not supported in Gemini 3.5 Flash at this moment.
-  - **Mitigate sycophancy** : If `gemini-3.5-flash` starts exhibiting signs of sycophancy, you can experiment with mitigating this behaviour via its system instructions by adding the following: `- Keep your responses concise. - Provide a summary of your work when you end your turn. Ground your response in the work you did. Keep your tone professional and avoid overconfident language, bragging, or overclaiming success. - AVOID using superlatives such as "perfectly", "flawlessly", "100% correct", "Summary of Accomplishments" etc. to summarize your work for the user. Be humble. - AVOID over-the-top politeness or complimenting the user excessively. - Format your responses in github-style markdown.`
+- Update model name: `gemini-3-flash-preview` → `gemini-3.5-flash` .
+- Review pricing. Gemini 3.5 Flash is more expensive than Gemini 3 Flash Preview.
+- Remove `temperature` , `top_p` , `top_k` from your config.
+- Replace `thinking_budget` with `thinking_level` .
+- Test your prompts. Default effort changed from `high` → `medium` .
+- Thought preservation is now on by default. Reasoning context carries forward across turns.
+- Reduce unnecessary tool calls by adjusting thinking level or adding system instructions.
+- Computer Use is not supported in Gemini 3.5 Flash at this moment.
+- **Mitigate sycophancy** : If `gemini-3.5-flash` starts exhibiting signs of sycophancy, you can experiment with mitigating this behaviour via its system instructions by adding the following: `- Keep your responses concise. - Provide a summary of your work when you end your turn. Ground your response in the work you did. Keep your tone professional and avoid overconfident language, bragging, or overclaiming success. - AVOID using superlatives such as "perfectly", "flawlessly", "100% correct", "Summary of Accomplishments" etc. to summarize your work for the user. Be humble. - AVOID over-the-top politeness or complimenting the user excessively. - Format your responses in github-style markdown.`
 
 ### From Gemini 2.5
 
-  - Test PDF and document workloads. Token consumption for PDFs may increase.
-  - Simplify prompts. Try `thinking_level: "medium"` or `"high"` with simpler prompts instead of complex chain-of-thought prompts.
-  - Leverage combined tool use (Search, URL context, code execution, functions).
-  - Move multimodal content inside function response parts.
-  - Append inline instructions to the function response text.
+- Test PDF and document workloads. Token consumption for PDFs may increase.
+- Simplify prompts. Try `thinking_level: "medium"` or `"high"` with simpler prompts instead of complex chain-of-thought prompts.
+- Leverage combined tool use (Search, URL context, code execution, functions).
+- Move multimodal content inside function response parts.
+- Append inline instructions to the function response text.
 
 ## Improving model performance
 
 As you migrate, apply these tips to achieve optimal performance from your chosen Gemini model:
 
-  - For all Gemini 3 models, sampling parameters ( `temperature` , `top_p` , and `top_k` ) are deprecated. The model manages its own sampling for optimal results. Google recommends removing these parameters from all requests.
-  - Check your [system instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instructions) , [prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-design-strategies) , and [few-shot learning examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/few-shot-examples) for any inconsistencies, contradictions, or irrelevant instructions and examples.
-  - Test a more powerful model. For example, if you evaluated a Flash-Lite model, try a Flash or Pro model instead.
-  - Review automated evaluation results to ensure they match human judgment, especially results using a [judge model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluate-judge-model) . Ensure your judge model instructions are clear, consistent, and unambiguous.
-  - To improve judge model instructions, test the instructions with multiple humans working in isolation. If humans interpret the instructions differently and provide different judgments, your judge model instructions are unclear.
-  - [Fine-tune the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
-  - Examine evaluation outputs for patterns that show specific types of failures. Grouping failures by model, type, or category provides more targeted evaluation data, making it easier to adjust prompts to fix these errors.
-  - Ensure you are evaluating different generative AI components independently.
-  - Experiment with adjusting [token sampling parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/content-generation-parameters#token-sampling-parameters) .
+- For all Gemini 3 models, sampling parameters ( `temperature` , `top_p` , and `top_k` ) are deprecated. The model manages its own sampling for optimal results. Google recommends removing these parameters from all requests.
+- Check your [system instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instructions) , [prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-design-strategies) , and [few-shot learning examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/few-shot-examples) for any inconsistencies, contradictions, or irrelevant instructions and examples.
+- Test a more powerful model. For example, if you evaluated a Flash-Lite model, try a Flash or Pro model instead.
+- Review automated evaluation results to ensure they match human judgment, especially results using a [judge model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluate-judge-model) . Ensure your judge model instructions are clear, consistent, and unambiguous.
+- To improve judge model instructions, test the instructions with multiple humans working in isolation. If humans interpret the instructions differently and provide different judgments, your judge model instructions are unclear.
+- [Fine-tune the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
+- Examine evaluation outputs for patterns that show specific types of failures. Grouping failures by model, type, or category provides more targeted evaluation data, making it easier to adjust prompts to fix these errors.
+- Ensure you are evaluating different generative AI components independently.
+- Experiment with adjusting [token sampling parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/content-generation-parameters#token-sampling-parameters) .
 
 ## Getting help
 

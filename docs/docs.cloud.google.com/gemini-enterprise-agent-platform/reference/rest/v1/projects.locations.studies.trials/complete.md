@@ -28,7 +28,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`finalMeasurement` ` object ( Measurement  ` )
+`finalMeasurement` `object ( `[`Measurement`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Measurement)` )`
 
 Optional. If provided, it will be used as the completed Trial's finalMeasurement; Otherwise, the service will auto-select a previously reported measurement as the final-measurement
 
@@ -42,4 +42,4 @@ Optional. A human readable reason why the trial was infeasible. This should only
 
 ### Response body
 
-If successful, the response body contains an instance of `  Trial  ` .
+If successful, the response body contains an instance of [`Trial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies.trials#Trial) .

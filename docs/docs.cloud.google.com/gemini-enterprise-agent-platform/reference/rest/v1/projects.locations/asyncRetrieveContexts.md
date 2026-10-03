@@ -28,14 +28,14 @@ The request body contains data with the following structure:
 
 Fields
 
-`query` ` object ( RagQuery  ` )
+`query` `object ( `[`RagQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagQuery)` )`
 
 Required. Single RAG retrieve query.
 
-`tools[]` ` object ( Tool  ` )
+`tools[]` `object ( `[`Tool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents#Tool)` )`
 
 Optional. The tools to use for locations.askContexts.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

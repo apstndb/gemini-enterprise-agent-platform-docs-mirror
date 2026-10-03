@@ -9,8 +9,8 @@ data_source: docs.cloud.google.com
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 
 > To see an example of using RAG Engine with Vector Search, run the "RAG Engine with Vector Search" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vector_search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vector_search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vector_search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vector_search.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vector_search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vector_search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vector_search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vector_search.ipynb)
 
 This page shows you how to connect your RAG Engine to [Gemini Enterprise Agent Platform Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) .
 
@@ -33,9 +33,9 @@ To create a Vector Search index that's compatible with your RAG Corpus, the inde
 1.  `IndexUpdateMethod` must be `STREAM_UPDATE` , see [Create stream index](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/create-manage-index#create-stream-index) .
 
 2.  Distance measure type must be explicitly set to one of the following:
-    
-      - `DOT_PRODUCT_DISTANCE`
-      - `COSINE_DISTANCE`
+
+    - `DOT_PRODUCT_DISTANCE`
+    - `COSINE_DISTANCE`
 
 3.  Dimension of the vector must be consistent with the embedding model you plan to use in the RAG corpus. Other parameters can be tuned based on your choices, which determine whether the additional parameters can be tuned.
 
@@ -43,37 +43,39 @@ To create a Vector Search index that's compatible with your RAG Corpus, the inde
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    def vector_search_create_streaming_index(
-        project: str, location: str, display_name: str, gcs_uri: Optional[str] = None
-    ) -> aiplatform.MatchingEngineIndex:
-        """Create a vector search index.
-    
-        Args:
-            project (str): Required. Project ID
-            location (str): Required. The region name
-            display_name (str): Required. The index display name
-            gcs_uri (str): Optional. The Google Cloud Storage uri for index content
-    
-        Returns:
-            The created MatchingEngineIndex.
-        """
-        # Initialize the Vertex AI client
-        aiplatform.init(project=project, location=location)
-    
-        # Create Index
-        index = aiplatform.MatchingEngineIndex.create_tree_ah_index(
-            display_name=display_name,
-            contents_delta_uri=gcs_uri,
-            description="Matching Engine Index",
-            dimensions=100,
-            approximate_neighbors_count=150,
-            leaf_node_embedding_count=500,
-            leaf_nodes_to_search_percent=7,
-            index_update_method="STREAM_UPDATE",  # Options: STREAM_UPDATE, BATCH_UPDATE
-            distance_measure_type=aiplatform.matching_engine.matching_engine_index_config.DistanceMeasureType.DOT_PRODUCT_DISTANCE,
-        )
-    
-        return index
+```
+def vector_search_create_streaming_index(
+    project: str, location: str, display_name: str, gcs_uri: Optional[str] = None
+) -> aiplatform.MatchingEngineIndex:
+    """Create a vector search index.
+
+    Args:
+        project (str): Required. Project ID
+        location (str): Required. The region name
+        display_name (str): Required. The index display name
+        gcs_uri (str): Optional. The Google Cloud Storage uri for index content
+
+    Returns:
+        The created MatchingEngineIndex.
+    """
+    # Initialize the Vertex AI client
+    aiplatform.init(project=project, location=location)
+
+    # Create Index
+    index = aiplatform.MatchingEngineIndex.create_tree_ah_index(
+        display_name=display_name,
+        contents_delta_uri=gcs_uri,
+        description="Matching Engine Index",
+        dimensions=100,
+        approximate_neighbors_count=150,
+        leaf_node_embedding_count=500,
+        leaf_nodes_to_search_percent=7,
+        index_update_method="STREAM_UPDATE",  # Options: STREAM_UPDATE, BATCH_UPDATE
+        distance_measure_type=aiplatform.matching_engine.matching_engine_index_config.DistanceMeasureType.DOT_PRODUCT_DISTANCE,
+    )
+
+    return index
+```
 
 ### Create Vector Search index endpoint
 
@@ -83,27 +85,29 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    def vector_search_create_index_endpoint(
-        project: str, location: str, display_name: str
-    ) -> None:
-        """Create a vector search index endpoint.
-    
-        Args:
-            project (str): Required. Project ID
-            location (str): Required. The region name
-            display_name (str): Required. The index endpoint display name
-        """
-        # Initialize the Vertex AI client
-        aiplatform.init(project=project, location=location)
-    
-        # Create Index Endpoint
-        index_endpoint = aiplatform.MatchingEngineIndexEndpoint.create(
-            display_name=display_name,
-            public_endpoint_enabled=True,
-            description="Matching Engine Index Endpoint",
-        )
-    
-        print(index_endpoint.name)
+```
+def vector_search_create_index_endpoint(
+    project: str, location: str, display_name: str
+) -> None:
+    """Create a vector search index endpoint.
+
+    Args:
+        project (str): Required. Project ID
+        location (str): Required. The region name
+        display_name (str): Required. The index endpoint display name
+    """
+    # Initialize the Vertex AI client
+    aiplatform.init(project=project, location=location)
+
+    # Create Index Endpoint
+    index_endpoint = aiplatform.MatchingEngineIndexEndpoint.create(
+        display_name=display_name,
+        public_endpoint_enabled=True,
+        description="Matching Engine Index Endpoint",
+    )
+
+    print(index_endpoint.name)
+```
 
 ### Deploy an index to an index endpoint
 
@@ -113,51 +117,53 @@ Before we do the nearest neighbor search, the index has to be deployed to an ind
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    def vector_search_deploy_index(
-        project: str,
-        location: str,
-        index_name: str,
-        index_endpoint_name: str,
-        deployed_index_id: str,
-    ) -> None:
-        """Deploy a vector search index to a vector search index endpoint.
-    
-        Args:
-            project (str): Required. Project ID
-            location (str): Required. The region name
-            index_name (str): Required. The index to update. A fully-qualified index
-              resource name or a index ID.  Example:
-              "projects/123/locations/us-central1/indexes/my_index_id" or
-              "my_index_id".
-            index_endpoint_name (str): Required. Index endpoint to deploy the index
-              to.
-            deployed_index_id (str): Required. The user specified ID of the
-              DeployedIndex.
-        """
-        # Initialize the Vertex AI client
-        aiplatform.init(project=project, location=location)
-    
-        # Create the index instance from an existing index
-        index = aiplatform.MatchingEngineIndex(index_name=index_name)
-    
-        # Create the index endpoint instance from an existing endpoint.
-        index_endpoint = aiplatform.MatchingEngineIndexEndpoint(
-            index_endpoint_name=index_endpoint_name
-        )
-    
-        # Deploy Index to Endpoint
-        index_endpoint = index_endpoint.deploy_index(
-            index=index, deployed_index_id=deployed_index_id
-        )
-    
-        print(index_endpoint.deployed_indexes)
+```
+def vector_search_deploy_index(
+    project: str,
+    location: str,
+    index_name: str,
+    index_endpoint_name: str,
+    deployed_index_id: str,
+) -> None:
+    """Deploy a vector search index to a vector search index endpoint.
+
+    Args:
+        project (str): Required. Project ID
+        location (str): Required. The region name
+        index_name (str): Required. The index to update. A fully-qualified index
+          resource name or a index ID.  Example:
+          "projects/123/locations/us-central1/indexes/my_index_id" or
+          "my_index_id".
+        index_endpoint_name (str): Required. Index endpoint to deploy the index
+          to.
+        deployed_index_id (str): Required. The user specified ID of the
+          DeployedIndex.
+    """
+    # Initialize the Vertex AI client
+    aiplatform.init(project=project, location=location)
+
+    # Create the index instance from an existing index
+    index = aiplatform.MatchingEngineIndex(index_name=index_name)
+
+    # Create the index endpoint instance from an existing endpoint.
+    index_endpoint = aiplatform.MatchingEngineIndexEndpoint(
+        index_endpoint_name=index_endpoint_name
+    )
+
+    # Deploy Index to Endpoint
+    index_endpoint = index_endpoint.deploy_index(
+        index=index, deployed_index_id=deployed_index_id
+    )
+
+    print(index_endpoint.deployed_indexes)
+```
 
 If it's the first time that you're deploying an index to an index endpoint, it takes approximately 30 minutes to automatically build and initiate the backend before the index can be stored. After the first deployment, the index is ready in seconds. To see the status of the index deployment, open the [**Vector Search Console**](https://console.cloud.google.com/agent-platform/matching-engine/index-endpoints) , select the **Index endpoints** tab, and choose your index endpoint.
 
 Identify the resource name of your index and index endpoint, which have the following formats:
 
-  - `projects/${PROJECT_NUMBER}/locations/${LOCATION_ID}/indexes/${INDEX_ID}`
-  - `projects/${PROJECT_NUMBER}/locations/${LOCATION_ID}/indexEndpoints/${INDEX_ENDPOINT_ID}` .
+- `projects/${PROJECT_NUMBER}/locations/${LOCATION_ID}/indexes/${INDEX_ID}`
+- `projects/${PROJECT_NUMBER}/locations/${LOCATION_ID}/indexEndpoints/${INDEX_ENDPOINT_ID}` .
 
 ## Use Agent Platform Vector Search in RAG Engine
 
@@ -173,51 +179,53 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    import agentplatform
-    from agentplatform import types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # vector_search_index_name = "projects/{PROJECT_ID}/locations/{LOCATION}/indexes/{INDEX_ID}"
-    # vector_search_index_endpoint_name = "projects/{PROJECT_ID}/locations/{LOCATION}/indexEndpoints/{INDEX_ENDPOINT_ID}"
-    # display_name = "test_corpus"
-    # description = "Corpus Description"
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
-    
-    # Configure embedding model (Optional)
-    embedding_model_config = types.RagEmbeddingModelConfig(
-        vertex_prediction_endpoint=types.RagEmbeddingModelConfigVertexPredictionEndpoint(
-            endpoint="publishers/google/models/text-embedding-005"
-        )
+```python
+import agentplatform
+from agentplatform import types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# vector_search_index_name = "projects/{PROJECT_ID}/locations/{LOCATION}/indexes/{INDEX_ID}"
+# vector_search_index_endpoint_name = "projects/{PROJECT_ID}/locations/{LOCATION}/indexEndpoints/{INDEX_ENDPOINT_ID}"
+# display_name = "test_corpus"
+# description = "Corpus Description"
+
+# Initialize Agent Platform client once per session
+client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+
+# Configure embedding model (Optional)
+embedding_model_config = types.RagEmbeddingModelConfig(
+    vertex_prediction_endpoint=types.RagEmbeddingModelConfigVertexPredictionEndpoint(
+        endpoint="publishers/google/models/text-embedding-005"
     )
-    
-    # Configure Vector DB
-    vector_db = types.RagVectorDbConfigVertexVectorSearch(
-        index=vector_search_index_name,
-        index_endpoint=vector_search_index_endpoint_name
+)
+
+# Configure Vector DB
+vector_db = types.RagVectorDbConfigVertexVectorSearch(
+    index=vector_search_index_name,
+    index_endpoint=vector_search_index_endpoint_name
+)
+
+corpus = client.rag.create_corpus(
+    rag_corpus=types.RagCorpus(
+        display_name=display_name,
+        description=description,
+        rag_vector_db_config=types.RagVectorDbConfig(
+            rag_embedding_model_config=embedding_model_config,
+            vertex_vector_search=vector_db,
+        ),
     )
-    
-    corpus = client.rag.create_corpus(
-        rag_corpus=types.RagCorpus(
-            display_name=display_name,
-            description=description,
-            rag_vector_db_config=types.RagVectorDbConfig(
-                rag_embedding_model_config=embedding_model_config,
-                vertex_vector_search=vector_db,
-            ),
-        )
-    )
-    print(corpus)
-    # Example response:
-    # RagCorpus(name='projects/1234567890/locations/us-central1/ragCorpora/1234567890',
-    # display_name='test_corpus', description='Corpus Description', embedding_model_config=...
-    # ...
+)
+print(corpus)
+# Example response:
+# RagCorpus(name='projects/1234567890/locations/us-central1/ragCorpora/1234567890',
+# display_name='test_corpus', description='Corpus Description', embedding_model_config=...
+# ...
+```
 
 ### REST
 
-``` 
+```
   # TODO(developer): Update and un-comment the following lines:
   # CORPUS_DISPLAY_NAME = "YOUR_CORPUS_DISPLAY_NAME"
   # Full index/indexEndpoint resource name
@@ -249,79 +257,83 @@ Use the [`ragFiles.import` API method](https://docs.cloud.google.com/gemini-ente
 
 ### REST
 
-    # TODO(developer): Update and uncomment the following lines:
-    # RAG_CORPUS_ID = "your-rag-corpus-id"
-    #
-    # Google Cloud Storage bucket/file location.
-    # For example, "gs://rag-fos-test/"
-    # GCS_URIS= "your-gcs-uris"
-    
-    # Call ImportRagFiles API to embed files and store in the BigQuery table
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_NUMBER}/locations/us-central1/ragCorpora/${RAG_CORPUS_ID}/ragFiles:import \
-    -d '{
-      "import_rag_files_config": {
-        "gcs_source": {
-          "uris": '\""${GCS_URIS}"\"'
-        },
-        "rag_file_chunking_config": {
-          "chunk_size": 512
-        }
-      }
-    }'
-    
-    # Call ListRagFiles API to verify the files are imported successfully
-    curl -X GET \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_NUMBER}/locations/us-central1/ragCorpora/${RAG_CORPUS_ID}/ragFiles
+```
+# TODO(developer): Update and uncomment the following lines:
+# RAG_CORPUS_ID = "your-rag-corpus-id"
+#
+# Google Cloud Storage bucket/file location.
+# For example, "gs://rag-fos-test/"
+# GCS_URIS= "your-gcs-uris"
+
+# Call ImportRagFiles API to embed files and store in the BigQuery table
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_NUMBER}/locations/us-central1/ragCorpora/${RAG_CORPUS_ID}/ragFiles:import \
+-d '{
+  "import_rag_files_config": {
+    "gcs_source": {
+      "uris": '\""${GCS_URIS}"\"'
+    },
+    "rag_file_chunking_config": {
+      "chunk_size": 512
+    }
+  }
+}'
+
+# Call ListRagFiles API to verify the files are imported successfully
+curl -X GET \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_NUMBER}/locations/us-central1/ragCorpora/${RAG_CORPUS_ID}/ragFiles
+```
 
 ### Python
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import agentplatform
-    from agentplatform import types
-    
-    from google.genai import types as genai_types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
-    
-    # Supports Google Cloud Storage and Google Drive Links
-    # paths = ["https://drive.google.com/file/d/123", "gs://my_bucket/my_files_dir/*"]
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
-    
-    response = client.rag.import_files(
-        name=corpus_name,
-        import_config=types.ImportRagFilesConfig(
-            gcs_source=genai_types.GcsSource(uris=[paths[1]]),
-            google_drive_source=types.GoogleDriveSource(
-                resource_ids=[
-                    types.GoogleDriveSourceResourceId(
-                        resource_id=paths[0],
-                        resource_type=types.ResourceType.RESOURCE_TYPE_FILE
-                    )
-                ]
-            ), # optional
-            rag_file_transformation_config=types.RagFileTransformationConfig(
-                rag_file_chunking_config=types.RagFileChunkingConfig(
-                    chunk_size=512,
-                    chunk_overlap=100,
+```
+import agentplatform
+from agentplatform import types
+
+from google.genai import types as genai_types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+
+# Supports Google Cloud Storage and Google Drive Links
+# paths = ["https://drive.google.com/file/d/123", "gs://my_bucket/my_files_dir/*"]
+
+# Initialize Agent Platform client once per session
+client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+
+response = client.rag.import_files(
+    name=corpus_name,
+    import_config=types.ImportRagFilesConfig(
+        gcs_source=genai_types.GcsSource(uris=[paths[1]]),
+        google_drive_source=types.GoogleDriveSource(
+            resource_ids=[
+                types.GoogleDriveSourceResourceId(
+                    resource_id=paths[0],
+                    resource_type=types.ResourceType.RESOURCE_TYPE_FILE
                 )
-            ), # optional
-            max_embedding_requests_per_min=900, # optional
-        )
+            ]
+        ), # optional
+        rag_file_transformation_config=types.RagFileTransformationConfig(
+            rag_file_chunking_config=types.RagFileChunkingConfig(
+                chunk_size=512,
+                chunk_overlap=100,
+            )
+        ), # optional
+        max_embedding_requests_per_min=900, # optional
     )
-    
-    print(f"Imported {response.imported_rag_files_count} files.")
-    # Example response:
-    # Imported 2 files.
+)
+
+print(f"Imported {response.imported_rag_files_count} files.")
+# Example response:
+# Imported 2 files.
+```
 
 ### Retrieve relevant contexts using the RAG API
 
@@ -329,74 +341,78 @@ After completion of the file imports, the relevant context can be retrieved from
 
 ### REST
 
-    # TODO(developer): Update and uncomment the following lines:
-    # RETRIEVAL_QUERY="your-retrieval-query"
-    #
-    # Full RAG corpus resource name
-    # Format:
-    # &quot;projects/${PROJECT_NUMBER}/locations/us-central1/ragCorpora/${RAG_CORPUS_ID}&quot;
-    # RAG_CORPUS_RESOURCE=&quot;your-rag-corpus-resource&quot;
-    
-    # Call RetrieveContexts API to retrieve relevant contexts
-    curl -X POST \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_NUMBER}/locations/us-central1:retrieveContexts \
-      -d '{
-        "vertex_rag_store": {
-          "rag_resources": {
-              "rag_corpus": '\""${RAG_CORPUS_RESOURCE}"\"',
-            },
+```
+# TODO(developer): Update and uncomment the following lines:
+# RETRIEVAL_QUERY="your-retrieval-query"
+#
+# Full RAG corpus resource name
+# Format:
+# &quot;projects/${PROJECT_NUMBER}/locations/us-central1/ragCorpora/${RAG_CORPUS_ID}&quot;
+# RAG_CORPUS_RESOURCE=&quot;your-rag-corpus-resource&quot;
+
+# Call RetrieveContexts API to retrieve relevant contexts
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_NUMBER}/locations/us-central1:retrieveContexts \
+  -d '{
+    "vertex_rag_store": {
+      "rag_resources": {
+          "rag_corpus": '\""${RAG_CORPUS_RESOURCE}"\"',
         },
-        "query": {
-          "text": '\""${RETRIEVAL_QUERY}"\"',
-          "similarity_top_k": 10
-        }
-      }'
+    },
+    "query": {
+      "text": '\""${RETRIEVAL_QUERY}"\"',
+      "similarity_top_k": 10
+    }
+  }'
+```
 
 ### Python
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import agentplatform
-    
-    from agentplatform import types
-    from google.genai import types as genai_types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/[PROJECT_ID]/locations/us-central1/ragCorpora/[rag_corpus_id]"
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
-    
-    response = client.rag.retrieve_contexts(
-        vertex_rag_store=genai_types.VertexRagStore(
-            rag_resources=[
-                genai_types.VertexRagStoreRagResource(
-                    rag_corpus=corpus_name,
-                    # Optional: supply IDs from `rag.list_files()`.
-                    # rag_file_ids=["rag-file-1", "rag-file-2", ...],
-                )
-            ],
-        ),
-        query=types.RagQuery(
-            text="Hello World!",
-            rag_retrieval_config=genai_types.RagRetrievalConfig(
-                top_k=10,
-                filter=genai_types.RagRetrievalConfigFilter(
-                    vector_distance_threshold=0.5
-                ),
+```
+import agentplatform
+
+from agentplatform import types
+from google.genai import types as genai_types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# corpus_name = "projects/[PROJECT_ID]/locations/us-central1/ragCorpora/[rag_corpus_id]"
+
+# Initialize Agent Platform client once per session
+client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
+
+response = client.rag.retrieve_contexts(
+    vertex_rag_store=genai_types.VertexRagStore(
+        rag_resources=[
+            genai_types.VertexRagStoreRagResource(
+                rag_corpus=corpus_name,
+                # Optional: supply IDs from `rag.list_files()`.
+                # rag_file_ids=["rag-file-1", "rag-file-2", ...],
+            )
+        ],
+    ),
+    query=types.RagQuery(
+        text="Hello World!",
+        rag_retrieval_config=genai_types.RagRetrievalConfig(
+            top_k=10,
+            filter=genai_types.RagRetrievalConfigFilter(
+                vector_distance_threshold=0.5
             ),
-        )
+        ),
     )
-    print(response)
-    # Example response:
-    # contexts {
-    #   contexts {
-    #     source_uri: "gs://your-bucket-name/file.txt"
-    #     text: "....
-    #   ....
+)
+print(response)
+# Example response:
+# contexts {
+#   contexts {
+#     source_uri: "gs://your-bucket-name/file.txt"
+#     text: "....
+#   ....
+```
 
 ### Generate content using Agent Platform Gemini API
 
@@ -404,80 +420,84 @@ To generate content using Gemini models, make a call to the Agent Platform `Gene
 
 ### REST
 
-    # TODO(developer): Update and uncomment the following lines:
-    # MODEL_ID=gemini-2.5-flash
-    # GENERATE_CONTENT_PROMPT="your-generate-content-prompt"
-    
-    # GenerateContent with contexts retrieved from the FeatureStoreOnline index
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json"  https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_NUMBER}/locations/us-central1/publishers/google/models/${MODEL_ID}:generateContent \
-    -d '{
-      "contents": {
-        "role": "user",
-        "parts": {
-          "text": '\""${GENERATE_CONTENT_PROMPT}"\"'
-        }
-      },
-      "tools": {
-        "retrieval": {
-          "vertex_rag_store": {
-            "rag_resources": {
-                "rag_corpus": '\""${RAG_CORPUS_RESOURCE}"\"',
-              },
-            "similarity_top_k": 8,
-            "vector_distance_threshold": 0.32
-          }
-        }
+```
+# TODO(developer): Update and uncomment the following lines:
+# MODEL_ID=gemini-2.5-flash
+# GENERATE_CONTENT_PROMPT="your-generate-content-prompt"
+
+# GenerateContent with contexts retrieved from the FeatureStoreOnline index
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json"  https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_NUMBER}/locations/us-central1/publishers/google/models/${MODEL_ID}:generateContent \
+-d '{
+  "contents": {
+    "role": "user",
+    "parts": {
+      "text": '\""${GENERATE_CONTENT_PROMPT}"\"'
+    }
+  },
+  "tools": {
+    "retrieval": {
+      "vertex_rag_store": {
+        "rag_resources": {
+            "rag_corpus": '\""${RAG_CORPUS_RESOURCE}"\"',
+          },
+        "similarity_top_k": 8,
+        "vector_distance_threshold": 0.32
       }
-    }'
+    }
+  }
+}'
+```
 
 ### Python
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from google import genai
-    from google.genai import types as genai_types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
-    
-    rag_retrieval_tool = genai_types.Tool(
-        retrieval=genai_types.Retrieval(
-            vertex_rag_store=genai_types.VertexRagStore(
-                rag_resources=[
-                    genai_types.VertexRagStoreRagResource(
-                        rag_corpus=corpus_name
-                    )
-                ],
-                rag_retrieval_config=genai_types.RagRetrievalConfig(
-                    top_k=10,
-                    filter=genai_types.RagRetrievalConfigFilter(
-                        vector_distance_threshold=0.5
-                    ),
+```
+from google import genai
+from google.genai import types as genai_types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+
+rag_retrieval_tool = genai_types.Tool(
+    retrieval=genai_types.Retrieval(
+        vertex_rag_store=genai_types.VertexRagStore(
+            rag_resources=[
+                genai_types.VertexRagStoreRagResource(
+                    rag_corpus=corpus_name
+                )
+            ],
+            rag_retrieval_config=genai_types.RagRetrievalConfig(
+                top_k=10,
+                filter=genai_types.RagRetrievalConfigFilter(
+                    vector_distance_threshold=0.5
                 ),
             ),
-        )
+        ),
     )
-    
-    # Create a GenAI SDK client to make a generate_content request
-    genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-central1")
-    
-    response = genai_client.models.generate_content(
-        model="gemini-2.5-pro",
-        contents="Why is the sky blue?",
-        config=genai_types.GenerateContentConfig(
-            tools=[rag_retrieval_tool]
-        )
+)
+
+# Create a GenAI SDK client to make a generate_content request
+genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-central1")
+
+response = genai_client.models.generate_content(
+    model="gemini-2.5-pro",
+    contents="Why is the sky blue?",
+    config=genai_types.GenerateContentConfig(
+        tools=[rag_retrieval_tool]
     )
-    print(response.text)
-    # Example response:
-    #   The sky appears blue due to a phenomenon called Rayleigh scattering.
-    #   Sunlight, which contains all colors of the rainbow, is scattered
-    #   by the tiny particles in the Earth's atmosphere....
-    #   ...
+)
+print(response.text)
+# Example response:
+#   The sky appears blue due to a phenomenon called Rayleigh scattering.
+#   Sunlight, which contains all colors of the rainbow, is scattered
+#   by the tiny particles in the Earth's atmosphere....
+#   ...
+```
 
 ## What's next
 
-  - [Use Agent Search as a retrieval backend using RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-vertexai-search)
+- [Use Agent Search as a retrieval backend using RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-vertexai-search)

@@ -8,16 +8,8 @@ data_source: docs.cloud.google.com
 
 The type of Memory.
 
-Enums
-
-`MEMORY_TYPE_UNSPECIFIED`
-
-Represents an unspecified memory type. This value should not be used.
-
-`NATURAL_LANGUAGE_COLLECTION`
-
-Indicates belonging to a collection of natural language memories.
-
-`STRUCTURED_PROFILE`
-
-Indicates belonging to a structured profile.
+| Enums                         |                                                                       |
+|-------------------------------|-----------------------------------------------------------------------|
+| `MEMORY_TYPE_UNSPECIFIED`     | Represents an unspecified memory type. This value should not be used. |
+| `NATURAL_LANGUAGE_COLLECTION` | Indicates belonging to a collection of natural language memories.     |
+| `STRUCTURED_PROFILE`          | Indicates belonging to a structured profile.                          |

@@ -22,12 +22,14 @@ When you finish [developing an application](https://docs.cloud.google.com/gemini
 
 From the same Python environment where you connected to your Ray cluster on Gemini Enterprise Agent Platform, run the following:
 
-    # Shut down the Ray on Agent Platform if currently connected
-    ray.shutdown()
-    
-    # Delete cluster
-    vertex_ray.delete_ray_cluster(CLUSTER_RESOURCE_NAME)
+```
+# Shut down the Ray on Agent Platform if currently connected
+ray.shutdown()
+
+# Delete cluster
+vertex_ray.delete_ray_cluster(CLUSTER_RESOURCE_NAME)
+```
 
 Where:
 
-  - CLUSTER\_RESOURCE\_NAME : CLUSTER\_RESOURCE\_NAME='projects/{}/locations/{}/persistentResources/{}'.format( PROJECT\_ID , LOCATION , CLUSTER\_NAME ).
+- ` CLUSTER_RESOURCE_NAME ` : CLUSTER_RESOURCE_NAME='projects/{}/locations/{}/persistentResources/{}'.format( ` PROJECT_ID ` , ` LOCATION ` , ` CLUSTER_NAME ` ).

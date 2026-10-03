@@ -28,7 +28,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`writeRunDataRequests[]` ` object ( WriteTensorboardRunDataRequest  ` )
+`writeRunDataRequests[]` `object ( `[`WriteTensorboardRunDataRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments/write#WriteTensorboardRunDataRequest)` )`
 
 Required. Requests containing per-run TensorboardTimeSeries data to write.
 
@@ -38,7 +38,7 @@ If successful, the response body is empty.
 
 ## WriteTensorboardRunDataRequest
 
-Request message for `  TensorboardService.WriteTensorboardRunData  ` .
+Request message for [`TensorboardService.WriteTensorboardRunData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs/write#google.cloud.aiplatform.v1beta1.TensorboardService.WriteTensorboardRunData) .
 
 Fields
 
@@ -46,22 +46,19 @@ Fields
 
 Required. The resource name of the TensorboardRun to write data to. Format: `projects/{project}/locations/{location}/tensorboards/{tensorboard}/experiments/{experiment}/runs/{run}`
 
-`timeSeriesData[]` ` object ( TimeSeriesData  ` )
+`timeSeriesData[]` `object ( `[`TimeSeriesData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/TimeSeriesData)` )`
 
 Required. The TensorboardTimeSeries data to write. Values with in a time series are indexed by their step value. Repeated writes to the same step will overwrite the existing value for that step. The upper limit of data points per write request is 5000.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;tensorboardRun&quot;: string,&quot;timeSeriesData&quot;: [{object (TimeSeriesData)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "tensorboardRun": string,
+  "timeSeriesData": [
+    {
+      object (TimeSeriesData)
+    }
+  ]
+}
+```

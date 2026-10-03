@@ -22,9 +22,9 @@ Feature
 
 When you schedule a notebook run from an Agent Platform Workbench instance, you can now configure the following:
 
-  - **Execution identity.** You can choose your own user account instead of a service account. The notebook runs as you, so Application Default Credentials inside the notebook resolve to your identity and the run accesses only the resources you can access. If you have not yet granted consent, the scheduler provides a link for authorizing access.
-  - **Shielded VM options.** To meet workload requirements that mandate verified boot integrity, you can enable Shielded VM options, including Secure Boot, on the compute that runs the notebook. For more information, see [Modifying Shielded VM options](https://cloud.google.com/compute/docs/instances/modifying-shielded-vm) .
-  - **Runtime environment.** In addition to the default environment, you can specify a VM image or a custom container, so that scheduled runs use the same dependencies as your interactive environment.
+- **Execution identity.** You can choose your own user account instead of a service account. The notebook runs as you, so Application Default Credentials inside the notebook resolve to your identity and the run accesses only the resources you can access. If you have not yet granted consent, the scheduler provides a link for authorizing access.
+- **Shielded VM options.** To meet workload requirements that mandate verified boot integrity, you can enable Shielded VM options, including Secure Boot, on the compute that runs the notebook. For more information, see [Modifying Shielded VM options](https://cloud.google.com/compute/docs/instances/modifying-shielded-vm) .
+- **Runtime environment.** In addition to the default environment, you can specify a VM image or a custom container, so that scheduled runs use the same dependencies as your interactive environment.
 
 Ensure that `scheduler-jupyter-plugin` is at version 0.1.8 or later for these features to be accessible. For more information, see [Schedule a notebook run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/schedule-notebook-run-quickstart) .
 
@@ -48,12 +48,12 @@ Feature
 
 The following Agent Platform Workbench instances image releases are available:
 
-  - **20260712-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
-      - Installed latest packages from upstream dependencies.
-      - Fixed broken cupy installation.
-  - **M144 ( `workbench-instances` - Debian 11)**
-      - Installed latest packages from upstream dependencies.
-      - Fixed a race condition that could cause JupyterLab to be unreachable (HTTP 524) on GPU instances.
+- **20260712-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+  - Installed latest packages from upstream dependencies.
+  - Fixed broken cupy installation.
+- **M144 ( `workbench-instances` - Debian 11)**
+  - Installed latest packages from upstream dependencies.
+  - Fixed a race condition that could cause JupyterLab to be unreachable (HTTP 524) on GPU instances.
 
 v2
 
@@ -73,10 +73,10 @@ Feature
 
 The following Agent Platform Workbench instances image release is available:
 
-  - **20260701-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
-      - Installed latest packages from upstream dependencies.
-      - Fixed a race condition that could cause JupyterLab to be unreachable (HTTP 524) on GPU instances.
-      - Fixed an issue where long-running requests (for example, streaming or long-poll connections) could be terminated after about 60 seconds.
+- **20260701-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+  - Installed latest packages from upstream dependencies.
+  - Fixed a race condition that could cause JupyterLab to be unreachable (HTTP 524) on GPU instances.
+  - Fixed an issue where long-running requests (for example, streaming or long-poll connections) could be terminated after about 60 seconds.
 
 ## June 30, 2026
 
@@ -88,8 +88,8 @@ Feature
 
 You can build [custom containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container) for Agent Platform Workbench instances using Python 3.12 base containers, in addition to the default Python 3.10 base containers. The Python 3.12 standard and slim base containers are available at the following URIs:
 
-  - `us-docker.pkg.dev/workbench-images/gcr.io/workbench-container-2606:latest`
-  - `us-docker.pkg.dev/workbench-images/gcr.io/workbench-container-slim-2606:latest`
+- `us-docker.pkg.dev/workbench-images/gcr.io/workbench-container-2606:latest`
+- `us-docker.pkg.dev/workbench-images/gcr.io/workbench-container-slim-2606:latest`
 
 ## June 29, 2026
 
@@ -101,9 +101,9 @@ Feature
 
 The following Agent Platform Workbench instances image release is available:
 
-  - **20260628-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
-      - Installed latest packages from upstream dependencies.
-      - Installed TensorFlow and PyTorch packages to the default kernel.
+- **20260628-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+  - Installed latest packages from upstream dependencies.
+  - Installed TensorFlow and PyTorch packages to the default kernel.
 
 ## June 24, 2026
 
@@ -115,9 +115,9 @@ Feature
 
 The following Agent Platform Workbench instances image release is available:
 
-  - **20260624-1604-rc0 ( `workbench-instances-2603` - Debian 12)**
-      - Installed latest packages from upstream dependencies.
-      - Fixed an issue where notebook kernels could become unavailable if the Dataproc plugin failed to load.
+- **20260624-1604-rc0 ( `workbench-instances-2603` - Debian 12)**
+  - Installed latest packages from upstream dependencies.
+  - Fixed an issue where notebook kernels could become unavailable if the Dataproc plugin failed to load.
 
 ## June 23, 2026
 
@@ -129,11 +129,11 @@ Feature
 
 The following Agent Platform Workbench instances image releases are available:
 
-  - **20260622-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
-      - Installed latest packages from upstream dependencies.
-      - Fixed a duplicate "Python 3 (ipykernel)" kernel appearing in the launcher.
-  - **M143 ( `workbench-instances` - Debian 11)**
-      - Installed latest packages from upstream dependencies.
+- **20260622-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+  - Installed latest packages from upstream dependencies.
+  - Fixed a duplicate "Python 3 (ipykernel)" kernel appearing in the launcher.
+- **M143 ( `workbench-instances` - Debian 11)**
+  - Installed latest packages from upstream dependencies.
 
 ## June 01, 2026
 
@@ -145,8 +145,8 @@ Feature
 
 The following Agent Platform Workbench instances image release is available:
 
-  - **20260531-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
-      - Installed latest packages from upstream dependencies.
+- **20260531-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+  - Installed latest packages from upstream dependencies.
 
 ## May 28, 2026
 
@@ -158,10 +158,10 @@ Feature
 
 The following Agent Platform Workbench instances image release is available:
 
-  - **M142 ( `workbench-instances` - Debian 11)**
-      - Installed latest packages from upstream dependencies.
-      - Fixed pip availability in the base environment.
-      - Hardened JupyterLab authentication configuration.
+- **M142 ( `workbench-instances` - Debian 11)**
+  - Installed latest packages from upstream dependencies.
+  - Fixed pip availability in the base environment.
+  - Hardened JupyterLab authentication configuration.
 
 ## May 25, 2026
 
@@ -173,10 +173,10 @@ Feature
 
 The following Agent Platform Workbench instances image release is available:
 
-  - **20260524-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
-      - Installed latest packages from upstream dependencies.
-      - Fixed a Python 3.12 compatibility issue in the JupyterLab server configuration.
-      - Hardened JupyterLab authentication configuration.
+- **20260524-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+  - Installed latest packages from upstream dependencies.
+  - Fixed a Python 3.12 compatibility issue in the JupyterLab server configuration.
+  - Hardened JupyterLab authentication configuration.
 
 ## May 11, 2026
 
@@ -188,8 +188,8 @@ Feature
 
 The following Agent Platform Workbench instances image release is available:
 
-  - **20260510-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
-      - Installed latest packages from upstream dependencies.
+- **20260510-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+  - Installed latest packages from upstream dependencies.
 
 ## May 04, 2026
 
@@ -201,9 +201,9 @@ Feature
 
 The following Agent Platform Workbench instances image release is available:
 
-  - **20260503-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
-      - Installed latest packages from upstream dependencies.
-      - Improved metadata server resolution reliability on Debian 12 by using the recommended metadata.google.internal name.
+- **20260503-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+  - Installed latest packages from upstream dependencies.
+  - Improved metadata server resolution reliability on Debian 12 by using the recommended metadata.google.internal name.
 
 ## April 27, 2026
 
@@ -215,8 +215,8 @@ Feature
 
 The following Agent Platform Workbench instances image release is available:
 
-  - **20260426-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
-      - Installed latest packages from upstream dependencies.
+- **20260426-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+  - Installed latest packages from upstream dependencies.
 
 ## April 20, 2026
 
@@ -228,14 +228,14 @@ Feature
 
 The following Agent Platform Workbench instances image releases are available:
 
-  - **20260419-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
-      - Installed latest packages from upstream dependencies.
-      - Fixed intermittent connectivity failures caused by proxy TLS certificate rotation.
-      - The post-startup script now re-runs after an instance auto-upgrade.
-  - **M141 ( `workbench-instances` - Debian 11)**
-      - Installed latest packages from upstream dependencies.
-      - Fixed intermittent connectivity failures caused by proxy TLS certificate rotation.
-      - The post-startup script now re-runs after an instance auto-upgrade.
+- **20260419-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+  - Installed latest packages from upstream dependencies.
+  - Fixed intermittent connectivity failures caused by proxy TLS certificate rotation.
+  - The post-startup script now re-runs after an instance auto-upgrade.
+- **M141 ( `workbench-instances` - Debian 11)**
+  - Installed latest packages from upstream dependencies.
+  - Fixed intermittent connectivity failures caused by proxy TLS certificate rotation.
+  - The post-startup script now re-runs after an instance auto-upgrade.
 
 ## March 30, 2026
 
@@ -247,7 +247,7 @@ Feature
 
 The M140 release of Vertex AI Workbench instances includes the following:
 
-  - **Gemini CLI Update** : Minor updates to Gemini CLI's dependencies.
+- **Gemini CLI Update** : Minor updates to Gemini CLI's dependencies.
 
 v2
 
@@ -257,11 +257,11 @@ Feature
 
 Released the new 26.03 image version under the following image family `workbench-instances-2603` . This major update introduces:
 
-  - **OS Upgrade** : Migration to Debian 12 (Bookworm) for improved security and performance.
-  - **Python Upgrade** : Python 3.12 as the default version.
-  - **New Versioning Scheme** : Transitioned to a date-based versioning format (e.g., v26.03) to provide better historical context for image updates. For more information on new versioning schema see the [latest documentation](https://cloud.google.com/vertex-ai/docs/workbench/instances/manage-image-versions)
-  - **Micromamba CLI** : Installed by default
-  - **JupyterLab Environments** : Supports only JupyterLab 4.
+- **OS Upgrade** : Migration to Debian 12 (Bookworm) for improved security and performance.
+- **Python Upgrade** : Python 3.12 as the default version.
+- **New Versioning Scheme** : Transitioned to a date-based versioning format (e.g., v26.03) to provide better historical context for image updates. For more information on new versioning schema see the [latest documentation](https://cloud.google.com/vertex-ai/docs/workbench/instances/manage-image-versions)
+- **Micromamba CLI** : Installed by default
+- **JupyterLab Environments** : Supports only JupyterLab 4.
 
 ## February 20, 2026
 
@@ -281,7 +281,7 @@ Feature
 
 The M139 release of Vertex AI Workbench instances includes the following:
 
-  - Removed a startup script dependency on `gs://dl-platform-public-configs` .
+- Removed a startup script dependency on `gs://dl-platform-public-configs` .
 
 ## January 16, 2026
 
@@ -291,13 +291,13 @@ Feature
 
 [Preview](https://cloud.google.com/products#product-launch-stages) : The Gemini CLI is available in Vertex AI Workbench instances. The Gemini CLI is an open source AI agent that provides access to Gemini directly in a terminal. You can use the Gemini CLI to do tasks like the following:
 
-  - Create a new notebook.
-  - Run notebook cells.
-  - Write and edit a notebook's code and text cells.
-  - Explain code and technical concepts.
-  - Interact with a Vertex AI Workbench instance's local file system, including performing complex file operations that span multiple files based on a single, high-level instruction.
-  - Run basic shell commands.
-  - Run commands to interact with other Google Cloud services, such as Vertex AI and BigQuery.
+- Create a new notebook.
+- Run notebook cells.
+- Write and edit a notebook's code and text cells.
+- Explain code and technical concepts.
+- Interact with a Vertex AI Workbench instance's local file system, including performing complex file operations that span multiple files based on a single, high-level instruction.
+- Run basic shell commands.
+- Run commands to interact with other Google Cloud services, such as Vertex AI and BigQuery.
 
 To get started, see [Use the Gemini CLI](https://docs.cloud.google.com/vertex-ai/docs/workbench/instances/gemini-cli) .
 
@@ -311,7 +311,7 @@ Feature
 
 The M138 release of Vertex AI Workbench instances includes the following:
 
-  - Fixed an issue where daemon processes launched by post-startup scripts, such as gcsfuse mounts, did not persist after the script finished executing.
+- Fixed an issue where daemon processes launched by post-startup scripts, such as gcsfuse mounts, did not persist after the script finished executing.
 
 ## December 12, 2025
 
@@ -319,13 +319,13 @@ v2
 
 Feature
 
-  - The following features are now [generally available (GA)](https://cloud.google.com/products#product-launch-stages) :
-    
-      - [Create new Vertex AI Workbench instances](https://docs.cloud.google.com/vertex-ai/docs/workbench/instances/create#create) with JupyterLab 4+.
-    
-      - [Create an instance with managed user credential access.](https://docs.cloud.google.com/vertex-ai/docs/workbench/instances/create-euc-instance)
+- The following features are now [generally available (GA)](https://cloud.google.com/products#product-launch-stages) :
 
-  - Using post-startup scripts for new instances with user credential access is now available in private GA. For information about access to this release, see the [access request page](https://docs.google.com/forms/d/e/1FAIpQLSdzNZUFsRRbB0KaMCObGUYzIo6lK3X2tO7JZOm_DZrUhBYw5Q/viewform) . For more information, see [Create instances with post-startup scripts](https://docs.cloud.google.com/vertex-ai/docs/workbench/instances/create-euc-instance#post-startup-scripts) .
+  - [Create new Vertex AI Workbench instances](https://docs.cloud.google.com/vertex-ai/docs/workbench/instances/create#create) with JupyterLab 4+.
+
+  - [Create an instance with managed user credential access.](https://docs.cloud.google.com/vertex-ai/docs/workbench/instances/create-euc-instance)
+
+- Using post-startup scripts for new instances with user credential access is now available in private GA. For information about access to this release, see the [access request page](https://docs.google.com/forms/d/e/1FAIpQLSdzNZUFsRRbB0KaMCObGUYzIo6lK3X2tO7JZOm_DZrUhBYw5Q/viewform) . For more information, see [Create instances with post-startup scripts](https://docs.cloud.google.com/vertex-ai/docs/workbench/instances/create-euc-instance#post-startup-scripts) .
 
 ## December 10, 2025
 
@@ -337,7 +337,7 @@ Feature
 
 The M137 release of Vertex AI Workbench instances includes the following:
 
-  - Patched an issue where `sudo` prompts for a password when a custom Jupyter user name is specified.
+- Patched an issue where `sudo` prompts for a password when a custom Jupyter user name is specified.
 
 ## December 09, 2025
 
@@ -357,7 +357,7 @@ Feature
 
 The M136 release of Vertex AI Workbench instances includes the following:
 
-  - Patched an issue where image outputs aren't displayed properly.
+- Patched an issue where image outputs aren't displayed properly.
 
 ## November 17, 2025
 
@@ -369,7 +369,7 @@ Feature
 
 The M135 release of Vertex AI Workbench instances includes the following:
 
-  - Patched an issue where user-triggered OS shutdowns aren't reported to the Notebooks API.
+- Patched an issue where user-triggered OS shutdowns aren't reported to the Notebooks API.
 
 ## October 09, 2025
 
@@ -381,9 +381,9 @@ Feature
 
 The M134 release of Vertex AI Workbench instances includes the following:
 
-  - Patched a regression with custom notebook metrics reporting (for example, `jupyterlab_kernels` and `docker_status metrics` ).
-  - Updated the Dataproc JupyterLab plugin ( `dataproc-jupyter-plugin` ) to version 0.1.92.
-  - When using Google Cloud CLI commands, the `project` and `region` properties are preset.
+- Patched a regression with custom notebook metrics reporting (for example, `jupyterlab_kernels` and `docker_status metrics` ).
+- Updated the Dataproc JupyterLab plugin ( `dataproc-jupyter-plugin` ) to version 0.1.92.
+- When using Google Cloud CLI commands, the `project` and `region` properties are preset.
 
 ## October 01, 2025
 
@@ -403,7 +403,7 @@ Feature
 
 The M133 release of Vertex AI Workbench instances includes the following:
 
-  - Patched an incompatibility with the Dataproc JupyterLab plugin ( `dataproc-jupyter-plugin` ) and instances with end-user credentials enabled.
+- Patched an incompatibility with the Dataproc JupyterLab plugin ( `dataproc-jupyter-plugin` ) and instances with end-user credentials enabled.
 
 ## August 29, 2025
 
@@ -415,15 +415,15 @@ Feature
 
 The M132 release of Vertex AI Workbench instances includes the following:
 
-  - The new scheduler Jupyter plugin ( `scheduler-jupyter-plugin` ) is now preinstalled in the Jupyterlab 4 environment, with support for both the Cloud Composer and Vertex AI notebook schedulers.
+- The new scheduler Jupyter plugin ( `scheduler-jupyter-plugin` ) is now preinstalled in the Jupyterlab 4 environment, with support for both the Cloud Composer and Vertex AI notebook schedulers.
 
-  - Updated the Dataproc JupyterLab plugin ( `dataproc-jupyter-plugin` ) to version 0.1.90.
+- Updated the Dataproc JupyterLab plugin ( `dataproc-jupyter-plugin` ) to version 0.1.90.
 
-  - Patched bugs related to the managed end user credentials feature (Preview), resolving an incompatibility with listing Dataproc remote kernels.
+- Patched bugs related to the managed end user credentials feature (Preview), resolving an incompatibility with listing Dataproc remote kernels.
 
-  - Patched a bug that caused instances with disabled proxy access to get stuck in provisioning.
+- Patched a bug that caused instances with disabled proxy access to get stuck in provisioning.
 
-  - Removed the archived Debian 11 backports repository, resolving an issue with running `apt update` within the instance.
+- Removed the archived Debian 11 backports repository, resolving an issue with running `apt update` within the instance.
 
 ## August 05, 2025
 
@@ -443,7 +443,7 @@ Feature
 
 The M131 release of Vertex AI Workbench instances includes the following:
 
-  - Updated the Dataproc JupyterLab plugin to version 0.1.89.
+- Updated the Dataproc JupyterLab plugin to version 0.1.89.
 
 ## June 26, 2025
 
@@ -455,9 +455,9 @@ Feature
 
 The M130 release of Vertex AI Workbench instances includes the following:
 
-  - Updated the Dataproc JupyterLab plugin to version 0.1.87.
-  - Added the BigQuery JupyterLab plugin, version 0.0.1.
-  - The `GOOGLE_CLOUD_REGION` environment variable is now set by default.
+- Updated the Dataproc JupyterLab plugin to version 0.1.87.
+- Added the BigQuery JupyterLab plugin, version 0.0.1.
+- The `GOOGLE_CLOUD_REGION` environment variable is now set by default.
 
 ## June 10, 2025
 
@@ -477,7 +477,7 @@ Feature
 
 The M129 release of Vertex AI Workbench instances includes the following:
 
-  - Updated the Dataproc JupyterLab plugin to version 0.1.85.
+- Updated the Dataproc JupyterLab plugin to version 0.1.85.
 
 ## March 26, 2025
 
@@ -505,7 +505,7 @@ Feature
 
 The M128 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Miscellaneous package updates.
+- Miscellaneous package updates.
 
 v1
 
@@ -513,7 +513,7 @@ Feature
 
 The M128 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Miscellaneous package updates.
+- Miscellaneous package updates.
 
 v2
 
@@ -523,7 +523,7 @@ Feature
 
 The M128 release of Vertex AI Workbench instances includes the following:
 
-  - Miscellaneous package updates.
+- Miscellaneous package updates.
 
 ## January 16, 2025
 
@@ -535,7 +535,7 @@ Feature
 
 The M127 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Fixed an issue related to ownership of the home directory when using authorized ssh keys.
+- Fixed an issue related to ownership of the home directory when using authorized ssh keys.
 
 v2
 
@@ -545,7 +545,7 @@ Feature
 
 The M127 release of Vertex AI Workbench instances includes the following:
 
-  - Fixed an issue related to ownership of the home directory when using authorized ssh keys.
+- Fixed an issue related to ownership of the home directory when using authorized ssh keys.
 
 v1
 
@@ -553,7 +553,7 @@ Feature
 
 The M127 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Fixed an issue related to ownership of the home directory when using authorized ssh keys.
+- Fixed an issue related to ownership of the home directory when using authorized ssh keys.
 
 ## November 20, 2024
 
@@ -565,8 +565,8 @@ Feature
 
 The M126 release of Vertex AI Workbench instances includes the following:
 
-  - [Preview](https://cloud.google.com/products#product-launch-stages) : JupyterLab 4+ is available on new Vertex AI Workbench instances. To try it, select JupyterLab 4 when you [create your instance](https://docs.cloud.google.com/vertex-ai/docs/workbench/instances/create#create) .
-  - Upgraded JupyterLab to 3.6.8.
+- [Preview](https://cloud.google.com/products#product-launch-stages) : JupyterLab 4+ is available on new Vertex AI Workbench instances. To try it, select JupyterLab 4 when you [create your instance](https://docs.cloud.google.com/vertex-ai/docs/workbench/instances/create#create) .
+- Upgraded JupyterLab to 3.6.8.
 
 v1
 
@@ -574,7 +574,7 @@ Feature
 
 The M126 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Upgraded JupyterLab to 3.6.8.
+- Upgraded JupyterLab to 3.6.8.
 
 v1
 
@@ -584,8 +584,8 @@ Feature
 
 The M126 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Upgraded JupyterLab to 3.6.8.
-  - One or more framework versions have reached their end of patch and support dates. To view end of patch and support dates, see [Supported framework versions](https://docs.cloud.google.com/vertex-ai/docs/workbench/user-managed/images#supported-frameworks) .
+- Upgraded JupyterLab to 3.6.8.
+- One or more framework versions have reached their end of patch and support dates. To view end of patch and support dates, see [Supported framework versions](https://docs.cloud.google.com/vertex-ai/docs/workbench/user-managed/images#supported-frameworks) .
 
 ## September 26, 2024
 
@@ -597,9 +597,9 @@ Feature
 
 The M125 release of Vertex AI Workbench instances includes the following:
 
-  - `bigframes` 1.9.0 is now available in all environments except TensorFlow.
-  - Fixed a regression introduced in M124 where Conda was getting downgraded to an older version.
-  - Patched a vulnerability with `adm` and `docker` permissions when the instance's root access isn't enabled.
+- `bigframes` 1.9.0 is now available in all environments except TensorFlow.
+- Fixed a regression introduced in M124 where Conda was getting downgraded to an older version.
+- Patched a vulnerability with `adm` and `docker` permissions when the instance's root access isn't enabled.
 
 v1
 
@@ -609,7 +609,7 @@ Feature
 
 The M125 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Patched a vulnerability with `adm` and `docker` permissions when the instance's root access isn't enabled.
+- Patched a vulnerability with `adm` and `docker` permissions when the instance's root access isn't enabled.
 
 v1
 
@@ -617,7 +617,7 @@ Feature
 
 The M125 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Patched a vulnerability with `adm` and `docker` permissions when the instance's root access isn't enabled.
+- Patched a vulnerability with `adm` and `docker` permissions when the instance's root access isn't enabled.
 
 ## September 10, 2024
 
@@ -637,8 +637,8 @@ Feature
 
 The M124 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Pytorch 2.3.0 with CUDA 12.1 and Python 3.10 user-managed notebooks instances are now available.
-  - Fixed a bug that prevented kernels from appearing when the Cloud Resource Manager API is turned off and Dataproc is enabled.
+- Pytorch 2.3.0 with CUDA 12.1 and Python 3.10 user-managed notebooks instances are now available.
+- Fixed a bug that prevented kernels from appearing when the Cloud Resource Manager API is turned off and Dataproc is enabled.
 
 ## August 19, 2024
 
@@ -658,8 +658,8 @@ Feature
 
 The M124 release of Vertex AI Workbench instances includes the following:
 
-  - Fixed a bug that prevented kernels from appearing when the Cloud Resource Manager API is turned off and Dataproc is enabled.
-  - Spark notebooks on Dataproc: The Serverless Spark runtime template creation screen now has an easy-to-use UI for configuring resource allocation, autoscaling, and GPU settings.
+- Fixed a bug that prevented kernels from appearing when the Cloud Resource Manager API is turned off and Dataproc is enabled.
+- Spark notebooks on Dataproc: The Serverless Spark runtime template creation screen now has an easy-to-use UI for configuring resource allocation, autoscaling, and GPU settings.
 
 v1
 
@@ -669,7 +669,7 @@ Feature
 
 The M124 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Fixed a bug that prevented kernels from appearing when the Cloud Resource Manager API is turned off and Dataproc is enabled.
+- Fixed a bug that prevented kernels from appearing when the Cloud Resource Manager API is turned off and Dataproc is enabled.
 
 ## July 24, 2024
 
@@ -681,8 +681,8 @@ Feature
 
 The M123 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Fixed a bug that caused conflicting permissions with the Jupyter user and google-sudoers.
-  - Updated Nvidia drivers to version 550.90.07 to fix vulnerabilities.
+- Fixed a bug that caused conflicting permissions with the Jupyter user and google-sudoers.
+- Updated Nvidia drivers to version 550.90.07 to fix vulnerabilities.
 
 ## July 16, 2024
 
@@ -694,8 +694,8 @@ Feature
 
 The M123 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Fixed a bug that caused conflicting permissions with the Jupyter user and google-sudoers.
-  - Fixed a bug for custom container instances using a disabled root.
+- Fixed a bug that caused conflicting permissions with the Jupyter user and google-sudoers.
+- Fixed a bug for custom container instances using a disabled root.
 
 v2
 
@@ -705,7 +705,7 @@ Feature
 
 The M123 release of Vertex AI Workbench instances includes the following:
 
-  - Fixed a bug that caused conflicting permissions with the Jupyter user and google-sudoers.
+- Fixed a bug that caused conflicting permissions with the Jupyter user and google-sudoers.
 
 ## June 21, 2024
 
@@ -717,7 +717,7 @@ Feature
 
 The M122 release of Vertex AI Workbench instances includes the following:
 
-  - Updated Nvidia drivers to version 550.90.07 to fix vulnerabilities.
+- Updated Nvidia drivers to version 550.90.07 to fix vulnerabilities.
 
 v1
 
@@ -727,7 +727,7 @@ Feature
 
 The M122 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Updated Nvidia drivers to version 550.90.07 to fix vulnerabilities.
+- Updated Nvidia drivers to version 550.90.07 to fix vulnerabilities.
 
 ## June 07, 2024
 
@@ -755,9 +755,9 @@ Feature
 
 The M121 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Updated Nvidia drivers to 550.54.15 to fix an issue where Nvidia drivers failed to install on startup after Debian 11 images upgraded kernel to `linux-image-5.10.0-29-cloud-amd64` .
-  - The `linux-headers-cloud-amd64` metapackage is now installed for faster driver recompiling on kernel upgrades.
-  - TensorFlow 2.6 CPU and GPU images are deprecated. There will be no further updates to these images in future releases.
+- Updated Nvidia drivers to 550.54.15 to fix an issue where Nvidia drivers failed to install on startup after Debian 11 images upgraded kernel to `linux-image-5.10.0-29-cloud-amd64` .
+- The `linux-headers-cloud-amd64` metapackage is now installed for faster driver recompiling on kernel upgrades.
+- TensorFlow 2.6 CPU and GPU images are deprecated. There will be no further updates to these images in future releases.
 
 v2
 
@@ -767,8 +767,8 @@ Feature
 
 The M121 release of Vertex AI Workbench instances includes the following:
 
-  - Updated Nvidia drivers to 550.54.15 to fix an issue where Nvidia drivers failed to install on startup after Debian 11 images upgraded kernel to `linux-image-5.10.0-29-cloud-amd64` .
-  - The `linux-headers-cloud-amd64` metapackage is now installed for faster driver recompiling on kernel upgrades.
+- Updated Nvidia drivers to 550.54.15 to fix an issue where Nvidia drivers failed to install on startup after Debian 11 images upgraded kernel to `linux-image-5.10.0-29-cloud-amd64` .
+- The `linux-headers-cloud-amd64` metapackage is now installed for faster driver recompiling on kernel upgrades.
 
 v1
 
@@ -776,7 +776,7 @@ Feature
 
 The M121 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Updated the R CPU kernel from R 4.3 to R 4.4.
+- Updated the R CPU kernel from R 4.3 to R 4.4.
 
 ## April 29, 2024
 
@@ -788,7 +788,7 @@ Feature
 
 The M120 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Minor bug fixes for the `libcurl` package.
+- Minor bug fixes for the `libcurl` package.
 
 ## April 25, 2024
 
@@ -800,7 +800,7 @@ Feature
 
 The M120 release of Vertex AI Workbench instances includes the following:
 
-  - Minor bug fixes for the `libcurl` package.
+- Minor bug fixes for the `libcurl` package.
 
 v1
 
@@ -810,8 +810,8 @@ Feature
 
 The M120 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Upgraded TensorFlow 2.15 user-managed notebooks to TensorFlow 2.15.1.
-  - Minor bug fixes for the `libcurl` package.
+- Upgraded TensorFlow 2.15 user-managed notebooks to TensorFlow 2.15.1.
+- Minor bug fixes for the `libcurl` package.
 
 ## March 29, 2024
 
@@ -823,7 +823,7 @@ Fixed
 
 The M119 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Fixed an issue wherein Dataproc extensions caused JupyterLab to crash when remote kernels weren't available.
+- Fixed an issue wherein Dataproc extensions caused JupyterLab to crash when remote kernels weren't available.
 
 ## March 18, 2024
 
@@ -835,7 +835,7 @@ Feature
 
 The M118 release of Vertex AI Workbench instances includes the following:
 
-  - Updated Nvidia drivers to R535.
+- Updated Nvidia drivers to R535.
 
 v1
 
@@ -845,9 +845,9 @@ Feature
 
 The M118 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - PyTorch 2.1.0 with CUDA 12.1 and Python 3.10 user-managed notebooks instances are now available.
-  - PyTorch 2.2.0 with CUDA 12.1 and Python 3.10 user-managed notebooks instances are now available.
-  - Updated Nvidia drivers of older user-managed notebooks images to R535.
+- PyTorch 2.1.0 with CUDA 12.1 and Python 3.10 user-managed notebooks instances are now available.
+- PyTorch 2.2.0 with CUDA 12.1 and Python 3.10 user-managed notebooks instances are now available.
+- Updated Nvidia drivers of older user-managed notebooks images to R535.
 
 v1
 
@@ -855,7 +855,7 @@ Feature
 
 The M118 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Updated Nvidia drivers to R535, which fixed a bug where the latest PyTorch 2.0 kernel didn't work due to outdated drivers.
+- Updated Nvidia drivers to R535, which fixed a bug where the latest PyTorch 2.0 kernel didn't work due to outdated drivers.
 
 ## February 28, 2024
 
@@ -867,7 +867,7 @@ Feature
 
 The M117 release of Vertex AI Workbench instances includes the following:
 
-  - Removed the Cloud Storage browser in the left side pane in favor of the existing **Mount shared storage** button.
+- Removed the Cloud Storage browser in the left side pane in favor of the existing **Mount shared storage** button.
 
 ## February 08, 2024
 
@@ -879,8 +879,8 @@ Feature
 
 The M116 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Updated custom container user-managed notebooks to use NVIDIA driver version 535.104.05.
-  - Fixed bugs in custom container user-managed notebooks where GPUs either wouldn't attach to the container properly, or detached after some time.
+- Updated custom container user-managed notebooks to use NVIDIA driver version 535.104.05.
+- Fixed bugs in custom container user-managed notebooks where GPUs either wouldn't attach to the container properly, or detached after some time.
 
 v1
 
@@ -888,7 +888,7 @@ Feature
 
 The M116 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Fixed a bug (present in versions M113 through M115) that prevented new local kernels from being usable.
+- Fixed a bug (present in versions M113 through M115) that prevented new local kernels from being usable.
 
 ## January 19, 2024
 
@@ -900,7 +900,7 @@ Feature
 
 The M115 release of Vertex AI Workbench instances includes the following:
 
-  - Added support for `venv` kernels.
+- Added support for `venv` kernels.
 
 v1
 
@@ -908,7 +908,7 @@ Feature
 
 The M115 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Fixed the BigQuery connector within PySpark containers.
+- Fixed the BigQuery connector within PySpark containers.
 
 v1
 
@@ -918,8 +918,8 @@ Feature
 
 The M115 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Added support for TensorFlow 2.15 with Python 3.10 on Debian 11.
-  - Added support for TensorFlow 2.14 with Python 3.10 on Debian 11.
+- Added support for TensorFlow 2.15 with Python 3.10 on Debian 11.
+- Added support for TensorFlow 2.14 with Python 3.10 on Debian 11.
 
 ## January 16, 2024
 
@@ -945,9 +945,9 @@ Feature
 
 The M114 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Starting with this release, Python 3.7 is no longer available.
-  - Upgraded R to 4.3 on Debian 11 Python 3.10 instances.
-  - Upgraded JupyterLab to 3.6.6.
+- Starting with this release, Python 3.7 is no longer available.
+- Upgraded R to 4.3 on Debian 11 Python 3.10 instances.
+- Upgraded JupyterLab to 3.6.6.
 
 v1
 
@@ -955,10 +955,10 @@ Feature
 
 The M114 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Starting with this release, Python 3.7 is no longer available.
-  - Added new Dataproc extension for remote kernels.
-  - Upgraded JupyterLab to 3.6.6.
-  - Fixed an issue that sometimes prevented users from running or scheduling notebooks using a default kernel.
+- Starting with this release, Python 3.7 is no longer available.
+- Added new Dataproc extension for remote kernels.
+- Upgraded JupyterLab to 3.6.6.
+- Fixed an issue that sometimes prevented users from running or scheduling notebooks using a default kernel.
 
 ## November 16, 2023
 
@@ -970,13 +970,13 @@ Feature
 
 The M113 release of Vertex AI Workbench instances includes the following:
 
-  - Added the Dataproc JupyterLab plugin to Vertex AI Workbench instances. To get started, see [Create a Dataproc-enabled instance](https://docs.cloud.google.com/vertex-ai/docs/workbench/instances/create-dataproc-enabled) .
-  - When using an instance's Google Cloud CLI, `gcloud config` is preset with the following defaults:
-      - `project` is set to your instance's project.
-      - Your compute region is set to your instance's region.
-      - Your Dataproc region is set to your instance's region.
-  - Fixed an issue that prevented Dataproc kernels from working.
-  - Fixed a CORS (cross-origin resource sharing) error.
+- Added the Dataproc JupyterLab plugin to Vertex AI Workbench instances. To get started, see [Create a Dataproc-enabled instance](https://docs.cloud.google.com/vertex-ai/docs/workbench/instances/create-dataproc-enabled) .
+- When using an instance's Google Cloud CLI, `gcloud config` is preset with the following defaults:
+  - `project` is set to your instance's project.
+  - Your compute region is set to your instance's region.
+  - Your Dataproc region is set to your instance's region.
+- Fixed an issue that prevented Dataproc kernels from working.
+- Fixed a CORS (cross-origin resource sharing) error.
 
 v1
 
@@ -986,7 +986,7 @@ Feature
 
 The M113 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Miscellaneous bug fixes and improvements in Python 3.10 notebooks.
+- Miscellaneous bug fixes and improvements in Python 3.10 notebooks.
 
 ## October 10, 2023
 
@@ -998,7 +998,7 @@ Feature
 
 The M112 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Miscellaneous bug fixes and improvements.
+- Miscellaneous bug fixes and improvements.
 
 ## September 25, 2023
 
@@ -1008,14 +1008,14 @@ Feature
 
 Vertex AI Workbench instances are now generally available ( [GA](https://cloud.google.com/products/#product-launch-stages) ). Vertex AI Workbench instances combine features from managed notebooks and user-managed notebooks to provide a robust data science solution. Supported features include:
 
-  - Idle timeout
-  - BigQuery and Cloud Storage integrations
-  - End-user and service account authentication
-  - VPC Service Controls
-  - Customer managed encryption keys (CMEK) and Cloud External Key Manager (Cloud EKM)
-  - Health status monitoring
-  - Scheduled notebook runs
-  - Dataproc integration
+- Idle timeout
+- BigQuery and Cloud Storage integrations
+- End-user and service account authentication
+- VPC Service Controls
+- Customer managed encryption keys (CMEK) and Cloud External Key Manager (Cloud EKM)
+- Health status monitoring
+- Scheduled notebook runs
+- Dataproc integration
 
 To get started, see [Introduction to Vertex AI Workbench instances](https://docs.cloud.google.com/vertex-ai/docs/workbench/instances/introduction) .
 
@@ -1037,7 +1037,7 @@ Feature
 
 The M111 release of Vertex AI Workbench instances includes the following:
 
-  - Miscellaneous software updates.
+- Miscellaneous software updates.
 
 v1 & v2
 
@@ -1045,8 +1045,8 @@ Feature
 
 The M111 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - PyTorch 2.0 user-managed notebooks instances now include PyTorch XLA 2.0.
-  - Miscellaneous software updates.
+- PyTorch 2.0 user-managed notebooks instances now include PyTorch XLA 2.0.
+- Miscellaneous software updates.
 
 v1 & v2
 
@@ -1054,7 +1054,7 @@ Feature
 
 The M111 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Miscellaneous software updates.
+- Miscellaneous software updates.
 
 ## August 10, 2023
 
@@ -1066,9 +1066,9 @@ Feature
 
 The M110 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Added support for TensorFlow 2.13 with Python 3.10 on Debian 11.
-  - Added support for TensorFlow 2.8 with Python 3.10 on Debian 11.
-  - Miscellaneous software updates.
+- Added support for TensorFlow 2.13 with Python 3.10 on Debian 11.
+- Added support for TensorFlow 2.8 with Python 3.10 on Debian 11.
+- Miscellaneous software updates.
 
 v1 & v2
 
@@ -1082,9 +1082,9 @@ Feature
 
 The M110 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Increased shared memory size to available memory capacity.
-  - Added support for Python 3.10 on Debian 11.
-      - Added support for PyTorch 2.0 with Python 3.10.
+- Increased shared memory size to available memory capacity.
+- Added support for Python 3.10 on Debian 11.
+  - Added support for PyTorch 2.0 with Python 3.10.
 
 > **Note:** Python 3.7 on Debian 10 images are still available.
 
@@ -1096,14 +1096,14 @@ Feature
 
 Vertex AI Workbench instances are now available in [Preview](https://cloud.google.com/products/#product-launch-stages) . Vertex AI Workbench instances combine features from managed notebooks and user-managed notebooks to provide a robust data science solution. Supported features include:
 
-  - Idle timeout
-  - BigQuery and Cloud Storage integrations
-  - End-user and service account authentication
-  - VPC Service Controls
-  - Customer managed encryption keys (CMEK)
-  - Health status monitoring
-  - Run notebooks on a schedule
-  - Dataproc integration
+- Idle timeout
+- BigQuery and Cloud Storage integrations
+- End-user and service account authentication
+- VPC Service Controls
+- Customer managed encryption keys (CMEK)
+- Health status monitoring
+- Run notebooks on a schedule
+- Dataproc integration
 
 To get started, see [Introduction to Vertex AI Workbench instances](https://docs.cloud.google.com/vertex-ai/docs/workbench/instances/introduction) .
 
@@ -1117,8 +1117,8 @@ Feature
 
 The M109 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - PyTorch 2.0 with Python 3.10 and CUDA 11.8 user-managed notebooks instances are now available.
-  - Miscellaneous software updates.
+- PyTorch 2.0 with Python 3.10 and CUDA 11.8 user-managed notebooks instances are now available.
+- Miscellaneous software updates.
 
 v1
 
@@ -1126,8 +1126,8 @@ Feature
 
 The M109 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Fixed a bug that caused high cpu utilization due to excessive internal diagnostic tool processes.
-  - Fixed a bug that was showing incorrect kernel image icons in the Jupyterlab launcher.
+- Fixed a bug that caused high cpu utilization due to excessive internal diagnostic tool processes.
+- Fixed a bug that was showing incorrect kernel image icons in the Jupyterlab launcher.
 
 ## May 04, 2023
 
@@ -1139,7 +1139,7 @@ Feature
 
 The M108 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Miscellaneous software updates.
+- Miscellaneous software updates.
 
 ## April 13, 2023
 
@@ -1151,9 +1151,9 @@ Feature
 
 The M107 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Fixed a bug that displayed the wrong version of the JupyterLab user interface.
-  - Fixed a bug where a cron job for the diagnostic tool was added at every restart.
-  - Miscellaneous software updates.
+- Fixed a bug that displayed the wrong version of the JupyterLab user interface.
+- Fixed a bug where a cron job for the diagnostic tool was added at every restart.
+- Miscellaneous software updates.
 
 ## April 06, 2023
 
@@ -1165,9 +1165,9 @@ Feature
 
 The M106 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Rolled back a previous change in which Jupyter dependencies were located in a separate Conda environment.
-  - Fixed a bug in which kernels used by notebooks did not contain the specified machine learning frameworks.
-  - Miscellaneous software updates.
+- Rolled back a previous change in which Jupyter dependencies were located in a separate Conda environment.
+- Fixed a bug in which kernels used by notebooks did not contain the specified machine learning frameworks.
+- Miscellaneous software updates.
 
 ## March 31, 2023
 
@@ -1179,20 +1179,20 @@ Feature
 
 The M105 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - The following user-managed notebooks images are now available with Python 3.10 on Debian 11:
-    
-      - TensorFlow 2.11 CPU ( `tf-2-11-cpu-debian-11-py310` )
-      - TensorFlow 2.11 GPU with Cuda 11.3 ( `tf-2-11-cu113-notebooks-debian-11-py310` )
-      - PyTorch 1.13 with Cuda 11.3 ( `pytorch-1-13-cu113-notebooks-debian-11-py310` )
-      - Base CPU ( `common-cpu-notebooks-debian-11-py310` )
-      - Base GPU with Cuda 11.3 ( `common-cu113-notebooks-debian11-py310` )
+- The following user-managed notebooks images are now available with Python 3.10 on Debian 11:
 
-  - The following user-managed notebooks images are now available with Python 3.9 on Debian 11:
-    
-      - TensorFlow 2.6 CPU ( `tf-2-6-cpu-notebooks-debian-11-py39` )
-      - TensorFlow 2.6 GPU with Cuda 11.3 ( `tf-2-6-cu113-notebooks-debian-11-py39` )
+  - TensorFlow 2.11 CPU ( `tf-2-11-cpu-debian-11-py310` )
+  - TensorFlow 2.11 GPU with Cuda 11.3 ( `tf-2-11-cu113-notebooks-debian-11-py310` )
+  - PyTorch 1.13 with Cuda 11.3 ( `pytorch-1-13-cu113-notebooks-debian-11-py310` )
+  - Base CPU ( `common-cpu-notebooks-debian-11-py310` )
+  - Base GPU with Cuda 11.3 ( `common-cu113-notebooks-debian11-py310` )
 
-  - Jupyter-related libraries have been moved to a different Conda environment, separate from the one containing machine learning frameworks and base software libraries.
+- The following user-managed notebooks images are now available with Python 3.9 on Debian 11:
+
+  - TensorFlow 2.6 CPU ( `tf-2-6-cpu-notebooks-debian-11-py39` )
+  - TensorFlow 2.6 GPU with Cuda 11.3 ( `tf-2-6-cu113-notebooks-debian-11-py39` )
+
+- Jupyter-related libraries have been moved to a different Conda environment, separate from the one containing machine learning frameworks and base software libraries.
 
 ## March 27, 2023
 
@@ -1204,10 +1204,10 @@ Feature
 
 The M105 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Fixed an issue wherein a runtime with idle shutdown enabled doesn't detect activity and shuts down.
-  - Fixed an issue wherein the runtime data disk runs out of space and prevents access.
-  - Fixed an issue wherein end user credentials are not preserved after shutdown.
-  - Changed Health Agent logging levels from `DEBUG` to `INFO` .
+- Fixed an issue wherein a runtime with idle shutdown enabled doesn't detect activity and shuts down.
+- Fixed an issue wherein the runtime data disk runs out of space and prevents access.
+- Fixed an issue wherein end user credentials are not preserved after shutdown.
+- Changed Health Agent logging levels from `DEBUG` to `INFO` .
 
 ## March 16, 2023
 
@@ -1219,15 +1219,15 @@ Feature
 
 The M104 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Fixed a regression in which `jupyter-user` metadata was ignored.
-  - Enabled access to the Jupyter Gateway Client configuration by using the `notebook-enable-gateway-client` and `gateway-client-url` metadata tags.
-  - Added the following packages:
-      - google-cloud-artifact-registry
-      - google-cloud-bigquery-storage
-      - google-cloud-language
-      - keyring
-      - keyrings.google-artifactregistry-auth
-  - Fixed a bug in which curl could not find the right SSL certificate path by default.
+- Fixed a regression in which `jupyter-user` metadata was ignored.
+- Enabled access to the Jupyter Gateway Client configuration by using the `notebook-enable-gateway-client` and `gateway-client-url` metadata tags.
+- Added the following packages:
+  - google-cloud-artifact-registry
+  - google-cloud-bigquery-storage
+  - google-cloud-language
+  - keyring
+  - keyrings.google-artifactregistry-auth
+- Fixed a bug in which curl could not find the right SSL certificate path by default.
 
 v1
 
@@ -1245,8 +1245,8 @@ Feature
 
 This update of the M104 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Fixed a bug where local and remote kernels are not displayed. This happens when remote kernels are not accessible.
-  - Minor bug fixes and improvements.
+- Fixed a bug where local and remote kernels are not displayed. This happens when remote kernels are not accessible.
+- Minor bug fixes and improvements.
 
 ## February 09, 2023
 
@@ -1258,9 +1258,9 @@ Feature
 
 The M104 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Added a fix for a security vulnerability in single-user managed notebooks instances.
-  - Made enhancements to the network selection user experience in the managed notebooks executor.
-  - Minor bug fixes and improvements.
+- Added a fix for a security vulnerability in single-user managed notebooks instances.
+- Made enhancements to the network selection user experience in the managed notebooks executor.
+- Minor bug fixes and improvements.
 
 ## January 30, 2023
 
@@ -1272,9 +1272,9 @@ Feature
 
 The M103 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Fixed a bug in which a warning tells the user to run `jupyter lab build` when creating a new instance.
-  - Upgraded PyTorch to 1.13.1.
-  - Minor bug fixes and improvements.
+- Fixed a bug in which a warning tells the user to run `jupyter lab build` when creating a new instance.
+- Upgraded PyTorch to 1.13.1.
+- Minor bug fixes and improvements.
 
 ## December 15, 2022
 
@@ -1286,9 +1286,9 @@ Feature
 
 The M102 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - TensorFlow 2.11 is now available.
-  - PyTorch 1.13 is now available.
-  - Regular security patches and package upgrades.
+- TensorFlow 2.11 is now available.
+- PyTorch 1.13 is now available.
+- Regular security patches and package upgrades.
 
 ## December 09, 2022
 
@@ -1300,13 +1300,13 @@ Feature
 
 The M101 release of Vertex AI Workbench includes the following:
 
-  - TensorFlow patch version upgrades:
-      - From 2.8.3 to 2.8.4.
-      - From 2.9.2 to 2.9.3.
-      - From 2.10.0 to 2.10.1.
-  - TensorFlow 1.15 on Vertex AI Workbench is now deprecated.
-  - Added `*.notebooks.cloud.google.com` as part of the domains required for users to access Notebooks API. Removed `*.datalab.cloud.google.com` .
-  - Regular security patches and package upgrades.
+- TensorFlow patch version upgrades:
+  - From 2.8.3 to 2.8.4.
+  - From 2.9.2 to 2.9.3.
+  - From 2.10.0 to 2.10.1.
+- TensorFlow 1.15 on Vertex AI Workbench is now deprecated.
+- Added `*.notebooks.cloud.google.com` as part of the domains required for users to access Notebooks API. Removed `*.datalab.cloud.google.com` .
+- Regular security patches and package upgrades.
 
 ## November 08, 2022
 
@@ -1318,9 +1318,9 @@ Feature
 
 The M100 release of Vertex AI Workbench includes the following:
 
-  - Fixed a bug that prevented an instance with a GPU from starting.
-  - Regular package updates.
-  - Miscellaneous bug and display fixes.
+- Fixed a bug that prevented an instance with a GPU from starting.
+- Regular package updates.
+- Miscellaneous bug and display fixes.
 
 v1
 
@@ -1346,12 +1346,12 @@ Feature
 
 The M98 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Upgraded Go from 1.16.5 to 1.19.2.
-  - Upgraded R from 4.1 to 4.2.
-  - Upgraded JupyterLab from 3.2 to 3.4.
-  - Miscellaneous bug and display fixes.
-  - Added a fix for the BigQuery SQL editor to run queries correctly in non-US locations.
-  - Regular package updates.
+- Upgraded Go from 1.16.5 to 1.19.2.
+- Upgraded R from 4.1 to 4.2.
+- Upgraded JupyterLab from 3.2 to 3.4.
+- Miscellaneous bug and display fixes.
+- Added a fix for the BigQuery SQL editor to run queries correctly in non-US locations.
+- Regular package updates.
 
 [Learn more about managed notebooks versions](https://docs.cloud.google.com/vertex-ai/docs/workbench/managed/versions) .
 
@@ -1365,12 +1365,12 @@ Feature
 
 The M96 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Fixed a problem where users were not able to save large Notebooks.
-  - Fixed a display issue when using JupyterLab's simple interface.
-  - Improved timeout behavior switch hardware operations.
-  - Improved error messaging when a service account cannot access the Runtime.
-  - Security fixes.
-  - Regular package refreshment and bug fixes.
+- Fixed a problem where users were not able to save large Notebooks.
+- Fixed a display issue when using JupyterLab's simple interface.
+- Improved timeout behavior switch hardware operations.
+- Improved error messaging when a service account cannot access the Runtime.
+- Security fixes.
+- Regular package refreshment and bug fixes.
 
 [Learn more about managed notebooks versions](https://docs.cloud.google.com/vertex-ai/docs/workbench/managed/versions) .
 
@@ -1390,15 +1390,15 @@ Feature
 
 The M95 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Fixed a bug where users were regularly getting a 502 error when trying to access JupyterLab.
-  - Fixed a bug where opening an instance in Single User mode slowed the start of an instance.
-  - Fixed a bug where a managed notebooks instance was not starting after adding a GPU.
-  - Fixed bugs on the Serverless Spark form input.
-  - Improved the ActivityLog refresh after Serverless Spark creation.
-  - Fixed a bug related to the display of materialized views in BigQuery.
-  - Refreshed the JupyterLab interface with an improved Google-specific theme.
-  - Fixed a bug related to viewing Cloud Storage buckets and folders with large numbers of objects.
-  - Regular package refreshment and bug fixes.
+- Fixed a bug where users were regularly getting a 502 error when trying to access JupyterLab.
+- Fixed a bug where opening an instance in Single User mode slowed the start of an instance.
+- Fixed a bug where a managed notebooks instance was not starting after adding a GPU.
+- Fixed bugs on the Serverless Spark form input.
+- Improved the ActivityLog refresh after Serverless Spark creation.
+- Fixed a bug related to the display of materialized views in BigQuery.
+- Refreshed the JupyterLab interface with an improved Google-specific theme.
+- Fixed a bug related to viewing Cloud Storage buckets and folders with large numbers of objects.
+- Regular package refreshment and bug fixes.
 
 [Learn more about managed notebooks versions](https://docs.cloud.google.com/vertex-ai/docs/workbench/managed/versions) .
 
@@ -1416,7 +1416,7 @@ v1 & v1beta1
 
 Fixed
 
-  - Fixed a bug that prevented kernels from shutting down properly in Vertex AI Workbench managed notebooks.
+- Fixed a bug that prevented kernels from shutting down properly in Vertex AI Workbench managed notebooks.
 
 [Learn more about managed notebooks versions](https://docs.cloud.google.com/vertex-ai/docs/workbench/managed/versions) .
 
@@ -1430,15 +1430,15 @@ Feature
 
 The M91 release of Vertex AI Workbench managed notebooks includes the following:
 
-  - Log streaming to the consumer project via Logs Viewer is now supported.
-  - Added the `net-tools` package.
-  - Regular package refreshments and bug fixes.
+- Log streaming to the consumer project via Logs Viewer is now supported.
+- Added the `net-tools` package.
+- Regular package refreshments and bug fixes.
 
 v1 & v1beta1
 
 Fixed
 
-  - Fixed an issue that caused Spark server networking errors when using Dataproc Serverless Spark and VPC Peering.
+- Fixed an issue that caused Spark server networking errors when using Dataproc Serverless Spark and VPC Peering.
 
 [Learn more about managed notebooks versions](https://docs.cloud.google.com/vertex-ai/docs/workbench/managed/versions) .
 
@@ -1452,16 +1452,16 @@ Feature
 
 Features supported include:
 
-  - Google-managed instances and the latest GPU support
-  - [Idle shutdown](https://docs.cloud.google.com/vertex-ai/docs/workbench/managed/idle-shutdown) for managed notebooks instances
-  - [Custom containers](https://docs.cloud.google.com/vertex-ai/docs/workbench/managed/custom-container)
-  - End-user and service account authentication
-  - Native plug-ins for [BigQuery](https://docs.cloud.google.com/vertex-ai/docs/workbench/managed/bigquery) and [Cloud Storage](https://docs.cloud.google.com/vertex-ai/docs/workbench/managed/cloud-storage)
-  - In-notebook Spark connect to Dataproc clusters
-  - Jobs support via the [managed notebooks executor](https://docs.cloud.google.com/vertex-ai/docs/workbench/managed/executor) on Vertex AI custom training and Spark
-  - One-click deploy for NGC containers
-  - VPC Service Controls
-  - [Customer managed encryption keys (CMEK)](https://docs.cloud.google.com/vertex-ai/docs/workbench/managed/cmek)
+- Google-managed instances and the latest GPU support
+- [Idle shutdown](https://docs.cloud.google.com/vertex-ai/docs/workbench/managed/idle-shutdown) for managed notebooks instances
+- [Custom containers](https://docs.cloud.google.com/vertex-ai/docs/workbench/managed/custom-container)
+- End-user and service account authentication
+- Native plug-ins for [BigQuery](https://docs.cloud.google.com/vertex-ai/docs/workbench/managed/bigquery) and [Cloud Storage](https://docs.cloud.google.com/vertex-ai/docs/workbench/managed/cloud-storage)
+- In-notebook Spark connect to Dataproc clusters
+- Jobs support via the [managed notebooks executor](https://docs.cloud.google.com/vertex-ai/docs/workbench/managed/executor) on Vertex AI custom training and Spark
+- One-click deploy for NGC containers
+- VPC Service Controls
+- [Customer managed encryption keys (CMEK)](https://docs.cloud.google.com/vertex-ai/docs/workbench/managed/cmek)
 
 v1 & v1beta1
 
@@ -1565,9 +1565,9 @@ AI Platform Notebooks now supports [E2 machine types](https://docs.cloud.google.
 
 The following new regions have been added:
 
-  - `europe-west2` (London, UK)
-  - `europe-west3` (Frankfurt, Germany)
-  - `europe-west6` (Zürich, Switzerland)
+- `europe-west2` (London, UK)
+- `europe-west3` (Frankfurt, Germany)
+- `europe-west6` (Zürich, Switzerland)
 
 ## March 31, 2020
 

@@ -14,26 +14,24 @@ Fields
 
 Required. The id of the TensorboardTimeSeries, which will become the final component of the TensorboardTimeSeries' resource name
 
-`valueType` ` enum ( ValueType  ` )
+`valueType` `enum ( `[`ValueType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs.timeSeries#ValueType)` )`
 
 Required. Immutable. The value type of this time series. All the values in this time series data must match this value type.
 
-`values[]` ` object ( TimeSeriesDataPoint  ` )
+`values[]` `object ( `[`TimeSeriesDataPoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/TimeSeriesDataPoint)` )`
 
 Required. data points in this time series.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;tensorboardTimeSeriesId&quot;: string,&quot;valueType&quot;: enum (ValueType),&quot;values&quot;: [{object (TimeSeriesDataPoint)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "tensorboardTimeSeriesId": string,
+  "valueType": enum (ValueType),
+  "values": [
+    {
+      object (TimeSeriesDataPoint)
+    }
+  ]
+}
+```

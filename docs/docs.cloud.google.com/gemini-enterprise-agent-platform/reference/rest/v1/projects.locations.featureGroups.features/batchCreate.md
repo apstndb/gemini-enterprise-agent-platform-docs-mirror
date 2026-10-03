@@ -28,17 +28,17 @@ The request body contains data with the following structure:
 
 Fields
 
-`requests[]` ` object ( CreateFeatureRequest  ` )
+`requests[]` `object ( `[`CreateFeatureRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features/batchCreate#CreateFeatureRequest)` )`
 
 Required. The request message specifying the Features to create. All Features must be created under the same parent EntityType / FeatureGroup. The `parent` field in each child request message can be omitted. If `parent` is set in a child request, then the value must match the `parent` value in this request message.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ## CreateFeatureRequest
 
-Request message for `  FeaturestoreService.CreateFeature  ` . Request message for `  FeatureRegistryService.CreateFeature  ` .
+Request message for [`FeaturestoreService.CreateFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes.features/create#google.cloud.aiplatform.v1.FeaturestoreService.CreateFeature) . Request message for [`FeatureRegistryService.CreateFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features/create#google.cloud.aiplatform.v1.FeatureRegistryService.CreateFeature) .
 
 Fields
 
@@ -46,7 +46,7 @@ Fields
 
 Required. The resource name of the EntityType or FeatureGroup to create a feature. Format for entityType as parent: `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entityType}` Format for featureGroup as parent: `projects/{project}/locations/{location}/featureGroups/{featureGroup}`
 
-`feature` ` object ( Feature  ` )
+`feature` `object ( `[`Feature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features#Feature)` )`
 
 Required. The feature to create.
 
@@ -58,18 +58,14 @@ This value may be up to 128 characters, and valid characters are `[a-z0-9_]` . T
 
 The value must be unique within an EntityType/FeatureGroup.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;parent&quot;: string,&quot;feature&quot;: {object (Feature)},&quot;featureId&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "parent": string,
+  "feature": {
+    object (Feature)
+  },
+  "featureId": string
+}
+```

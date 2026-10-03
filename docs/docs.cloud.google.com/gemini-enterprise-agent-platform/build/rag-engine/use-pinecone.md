@@ -9,8 +9,8 @@ data_source: docs.cloud.google.com
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 
 > To see an example of using RAG Engine with Pinecone, run the "RAG Engine with Pinecone" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_pinecone.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_pinecone.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_pinecone.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_pinecone.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_pinecone.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_pinecone.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_pinecone.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_pinecone.ipynb)
 
 This page shows you how to connect your RAG corpus to your [Pinecone](https://www.pinecone.io/) database.
 
@@ -24,21 +24,21 @@ With RAG Engine, you can continue to use your fully-managed vector database inst
 
 Consider whether using the Pinecone database is the best choice for your RAG application by reviewing the following:
 
-  - You must create, configure, and manage the scaling of your Pinecone database instance.
+- You must create, configure, and manage the scaling of your Pinecone database instance.
 
-  - RAG Engine uses the default namespace on your index. Ensure that this namespace isn't modifiable by anything else.
+- RAG Engine uses the default namespace on your index. Ensure that this namespace isn't modifiable by anything else.
 
-  - You must provide a Pinecone API key, which allows RAG Engine to interact with the Pinecone database. RAG Engine doesn't store and manage your Pinecone API key. Instead, you must do the following:
-    
-      - Store your key in the Google Cloud Secret Manager.
-    
-      - Grant your project's service account permissions to access your secret.
-    
-      - Provide RAG Engine access to your secret's resource name.
-    
-      - When you interact with your RAG corpus, RAG Engine accesses your secret resource using your service account.
-    
-      - RAG corpus and the Pinecone index have a one-to-one mapping. This association is made as part of the [`ragCorpora.create` method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora/create) or the [`ragCorpora.patch` method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora/patch) .
+- You must provide a Pinecone API key, which allows RAG Engine to interact with the Pinecone database. RAG Engine doesn't store and manage your Pinecone API key. Instead, you must do the following:
+
+  - Store your key in the Google Cloud Secret Manager.
+
+  - Grant your project's service account permissions to access your secret.
+
+  - Provide RAG Engine access to your secret's resource name.
+
+  - When you interact with your RAG corpus, RAG Engine accesses your secret resource using your service account.
+
+  - RAG corpus and the Pinecone index have a one-to-one mapping. This association is made as part of the [`ragCorpora.create` method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora/create) or the [`ragCorpora.patch` method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora/patch) .
 
 ## Create your Pinecone index
 
@@ -47,24 +47,23 @@ To create your Pinecone index, you must follow these steps:
 1.  See the [Pinecone quickstart guide](https://docs.pinecone.io/guides/get-started/quickstart) to get the index configurations that must be specified on your index to make the index compatible with RAG corpus.
 
 2.  You want to ensure that the location of the [Pinecone index](https://docs.pinecone.io/guides/indexes/understanding-indexes) is the same as or close to where you use RAG Engine for the following reasons:
-    
-      - You want to maintain reduced latencies.
-      - You want to meet your data residency requirements that are set by applicable laws.
+
+    - You want to maintain reduced latencies.
+    - You want to meet your data residency requirements that are set by applicable laws.
 
 3.  During Pinecone index creation, specify the embedding dimension to use with RAG Engine. This table provides the dimension sizes or location of the dimension sizes:
-    
+
     | Model                        | Dimension size                                                                                                                                                  |
-    | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | First-party Gecko            | 768                                                                                                                                                             |
     | Fine-tuned first-party Gecko | 768                                                                                                                                                             |
     | E5                           | See [Use OSS embedding models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models#use-oss-embedding-models) . |
-    
 
 4.  Choose one of the following supported distance metrics:
-    
-      - `cosine`
-      - `dotproduct`
-      - `euclidean`
+
+    - `cosine`
+    - `dotproduct`
+    - `euclidean`
 
 5.  Optional: When you create a pod-based index, you must specify the `file_id` on the `pod.metadata_config.indexed` field. For more information, see [Selective metadata indexing](https://docs.pinecone.io/guides/indexes/configure-pod-based-indexes#selective-metadata-indexing) .
 
@@ -81,17 +80,17 @@ To protect SPII, you must do the following:
 1.  Store your API key in [Secret Manager](https://cloud.google.com/security/products/secret-manager) .
 
 2.  Grant your RAG Engine service account the permissions to your secret(s), and manage the access control at the secret resource level.
-    
+
     1.  Navigate to your [project's permissions](https://console.cloud.google.com/iam-admin/iam?_ga=2.174137698.1529967577.1726609616-1380734187.1726608127) .
-    
+
     2.  Enable the option **Include Google-provided role grants** .
-    
+
     3.  Find the service account, which has the format:
-        
+
         `service-{project number}@gcp-sa-vertex-rag.iam.gserviceaccount.com`
-    
+
     4.  Edit the service account's principals.
-    
+
     5.  Add the `Secret Manager Secret Accessor` role to the service account.
 
 3.  During the creation or update of the RAG corpus, pass the secret resource name to RAG Engine, and store the secret resource name.
@@ -116,15 +115,15 @@ To use your Pinecone index with RAG Engine, you must associate the index with a 
 
 For the association to be considered complete, you must set three key fields on the RAG corpus:
 
-  - **`rag_vector_db_config.pinecone`** : This field helps you to set the choice of a vector database that you would like to associate with your RAG corpus, and it must be set during the `CreateRagCorpus` API call. If it isn't set, then the default vector database choice `RagManagedDb` is assigned to your RAG corpus.
+- **`rag_vector_db_config.pinecone`** : This field helps you to set the choice of a vector database that you would like to associate with your RAG corpus, and it must be set during the `CreateRagCorpus` API call. If it isn't set, then the default vector database choice `RagManagedDb` is assigned to your RAG corpus.
 
-  - **`rag_vector_db_config.pinecone.index_name`** : This is the name used to create the Pinecone index that's used with the RAG corpus. You can set the name during the `CreateRagCorpus` call, or you can specify the name when you call the `UpdateRagCorpus` API.
+- **`rag_vector_db_config.pinecone.index_name`** : This is the name used to create the Pinecone index that's used with the RAG corpus. You can set the name during the `CreateRagCorpus` call, or you can specify the name when you call the `UpdateRagCorpus` API.
 
-  - **`rag_vector_db_config.api_auth.api_key_config.api_key_secret_version`** : This the full resource name of the secret that is stored in Secret Manager, which contains your Pinecone API key. You can set the name during the `CreateRagCorpus` call, or you can specify the name when you call the `UpdateRagCorpus` API. Until you specify this field, you can't import data into the RAG corpus.
-    
-    This field should have the following format:
-    
-    `projects/{PROJECT_NUMBER}/secrets/{SECRET_ID}/versions/{VERSION_ID}`
+- **`rag_vector_db_config.api_auth.api_key_config.api_key_secret_version`** : This the full resource name of the secret that is stored in Secret Manager, which contains your Pinecone API key. You can set the name during the `CreateRagCorpus` call, or you can specify the name when you call the `UpdateRagCorpus` API. Until you specify this field, you can't import data into the RAG corpus.
+
+  This field should have the following format:
+
+  `projects/{PROJECT_NUMBER}/secrets/{SECRET_ID}/versions/{VERSION_ID}`
 
 ## Create your RAG corpus
 
@@ -140,49 +139,51 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    import agentplatform
-    from agentplatform import types
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # pinecone_index_name = "pinecone-index-name"
-    # display_name = "test_corpus"
-    # description = "Corpus Description"
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
-    
-    # Configure embedding model (Optional)
-    embedding_model_config = types.RagEmbeddingModelConfig(
-        vertex_prediction_endpoint=types.RagEmbeddingModelConfigVertexPredictionEndpoint(
-            endpoint="publishers/google/models/text-embedding-005"
-        )
+```python
+import agentplatform
+from agentplatform import types
+
+# TODO(developer): Update and un-comment below lines
+# PROJECT_ID = "your-project-id"
+# pinecone_index_name = "pinecone-index-name"
+# display_name = "test_corpus"
+# description = "Corpus Description"
+
+# Initialize Agent Platform client once per session
+client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+
+# Configure embedding model (Optional)
+embedding_model_config = types.RagEmbeddingModelConfig(
+    vertex_prediction_endpoint=types.RagEmbeddingModelConfigVertexPredictionEndpoint(
+        endpoint="publishers/google/models/text-embedding-005"
     )
-    
-    # Configure Vector DB
-    vector_db = types.RagVectorDbConfig(
-        pinecone=types.RagVectorDbConfigPinecone(
-         index_name=pinecone_index_name,
-        ),
-        rag_embedding_model_config=embedding_model_config,
+)
+
+# Configure Vector DB
+vector_db = types.RagVectorDbConfig(
+    pinecone=types.RagVectorDbConfigPinecone(
+     index_name=pinecone_index_name,
+    ),
+    rag_embedding_model_config=embedding_model_config,
+)
+
+corpus = client.rag.create_corpus(
+    rag_corpus=types.RagCorpus(
+        display_name=display_name,
+        description=description,
+        rag_vector_db_config=vector_db,
     )
-    
-    corpus = client.rag.create_corpus(
-        rag_corpus=types.RagCorpus(
-            display_name=display_name,
-            description=description,
-            rag_vector_db_config=vector_db,
-        )
-    )
-    print(corpus)
-    # Example response:
-    # RagCorpus(name='projects/1234567890/locations/us-central1/ragCorpora/1234567890',
-    # display_name='test_corpus', description='Corpus Description', embedding_model_config=...
-    # ...
+)
+print(corpus)
+# Example response:
+# RagCorpus(name='projects/1234567890/locations/us-central1/ragCorpora/1234567890',
+# display_name='test_corpus', description='Corpus Description', embedding_model_config=...
+# ...
+```
 
 ### REST
 
-``` 
+```
    # Set your project ID under which you want to create the corpus
    PROJECT_ID = "YOUR_PROJECT_ID"
 
@@ -230,124 +231,132 @@ If this is your first RAG corpus and you don't have access to your service accou
 
 The following must be taken into consideration:
 
-  - When you don't provide the index name and API key secret name, files can't be imported into the RAG corpus.
+- When you don't provide the index name and API key secret name, files can't be imported into the RAG corpus.
 
-  - If you choose Pinecone as your vector database for your RAG corpus, it can't be switched later to a different database.
+- If you choose Pinecone as your vector database for your RAG corpus, it can't be switched later to a different database.
 
 This code example demonstrates how to create a RAG corpus with Pinecone without providing a Pinecone index name or API secret name. Use the `UpdateRagCorpus` API to specify later the missing information.
 
 ### Python
 
-    import vertexai
-    from vertexai.preview import rag
-    
-    # Set Project
-    PROJECT_ID = "YOUR_PROJECT_ID"
-    vertexai.init(project=PROJECT_ID, location="us-central1")
-    
-    # Configure the Pinecone vector DB information
-    vector_db = rag.Pinecone()
-    
-    # Name your corpus
-    DISPLAY_NAME = "YOUR_CORPUS_NAME"
-    
-    rag_corpus = rag.create_corpus(display_name=DISPLAY_NAME, vector_db=vector_db)
+```
+import vertexai
+from vertexai.preview import rag
+
+# Set Project
+PROJECT_ID = "YOUR_PROJECT_ID"
+vertexai.init(project=PROJECT_ID, location="us-central1")
+
+# Configure the Pinecone vector DB information
+vector_db = rag.Pinecone()
+
+# Name your corpus
+DISPLAY_NAME = "YOUR_CORPUS_NAME"
+
+rag_corpus = rag.create_corpus(display_name=DISPLAY_NAME, vector_db=vector_db)
+```
 
 ### REST
 
-    # Set your project ID under which you want to create the corpus
-    PROJECT_ID = "YOUR_PROJECT_ID"
-    
-    # Choose a display name for your corpus
-    CORPUS_DISPLAY_NAME=YOUR_CORPUS_DISPLAY_NAME
-    
-    # Call CreateRagCorpus API with all the Vector DB information.
-    # You can also add the embedding model choice or set other RAG corpus parameters on
-    # this call per your choice.
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://us-central1-aiplatform.googleapis.com}/v1beta1/projects/${PROJECT_ID}/locations/us-central1/ragCorpora -d '{
-          "display_name" : '\""${CORPUS_DISPLAY_NAME}"\"',
-          "rag_vector_db_config" : {
-             "pinecone": {}
-          }
-       }'
-    
-    # To poll the status of your RAG corpus creation, get the operation_id returned in
-    # response of your CreateRagCorpus call.
-    OPERATION_ID="YOUR_OPERATION_ID"
-    
-    # Poll Operation status until done = true in the response.
-    # The response to this call will contain the ID for your created RAG corpus
-    curl -X GET \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/us-central1/operations/${OPERATION_ID}
+```
+# Set your project ID under which you want to create the corpus
+PROJECT_ID = "YOUR_PROJECT_ID"
+
+# Choose a display name for your corpus
+CORPUS_DISPLAY_NAME=YOUR_CORPUS_DISPLAY_NAME
+
+# Call CreateRagCorpus API with all the Vector DB information.
+# You can also add the embedding model choice or set other RAG corpus parameters on
+# this call per your choice.
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://us-central1-aiplatform.googleapis.com}/v1beta1/projects/${PROJECT_ID}/locations/us-central1/ragCorpora -d '{
+      "display_name" : '\""${CORPUS_DISPLAY_NAME}"\"',
+      "rag_vector_db_config" : {
+         "pinecone": {}
+      }
+   }'
+
+# To poll the status of your RAG corpus creation, get the operation_id returned in
+# response of your CreateRagCorpus call.
+OPERATION_ID="YOUR_OPERATION_ID"
+
+# Poll Operation status until done = true in the response.
+# The response to this call will contain the ID for your created RAG corpus
+curl -X GET \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/us-central1/operations/${OPERATION_ID}
+```
 
 ## Update your RAG corpus
 
 The `UpdateRagCorpus` API lets you update the vector database configuration. If the Pinecone index name and the API key secret version aren't previously set, you can use the Pinecone API to update the fields. The choice of a vector database can't be updated. It's optional to provide the API key secret. However, if you don't specify the API key secret, you can import data into the RAG corpus.
 
 | Field                                                                 | Mutability                                                  | Required or Optional |
-| --------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- |
+|-----------------------------------------------------------------------|-------------------------------------------------------------|----------------------|
 | `rag_vector_db_config.vector_db`                                      | Immutable after you make a choice.                          | Required             |
 | `rag_vector_db_config.pinecone.index_name`                            | Immutable after you set the field on the RAG corpus.        | Required             |
 | `rag_vector_db_config.api_auth.api_key_config.api_key_secret_version` | Mutable. After you set the API key, you can't drop the key. | Optional             |
 
 ### Python
 
-    import vertexai
-    from vertexai.preview import rag
-    
-    # Set Project
-    PROJECT_ID = "YOUR_PROJECT_ID"
-    vertexai.init(project=PROJECT_ID, location="us-central1")
-    
-    # Configure the Pinecone vector DB information
-    vector_db = rag.Pinecone(index_name=)
-    
-    # Name your corpus
-    DISPLAY_NAME = "YOUR_CORPUS_NAME"
-    
-    rag_corpus = rag.create_corpus(display_name=DISPLAY_NAME, vector_db=vector_db)
+```
+import vertexai
+from vertexai.preview import rag
+
+# Set Project
+PROJECT_ID = "YOUR_PROJECT_ID"
+vertexai.init(project=PROJECT_ID, location="us-central1")
+
+# Configure the Pinecone vector DB information
+vector_db = rag.Pinecone(index_name=)
+
+# Name your corpus
+DISPLAY_NAME = "YOUR_CORPUS_NAME"
+
+rag_corpus = rag.create_corpus(display_name=DISPLAY_NAME, vector_db=vector_db)
+```
 
 ### REST
 
-    # Set your project ID for the corpus that you want to create.
-    PROJECT_ID = "YOUR_PROJECT_ID"
-    
-    # Set your Pinecone index name
-    PINECONE_INDEX_NAME=YOUR_INDEX_NAME
-    
-    # Set the full resource name of your secret. Follows the format
-    # projects/{PROJECT_NUMER}/secrets/{SECRET_ID}/versions/{VERSION_ID}
-    SECRET_RESOURCE_NAME=YOUR_SECRET_RESOURCE_NAME
-    
-    # Call UpdateRagCorpus API with the Vector DB information.
-    curl -X PATCH \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://us-central1-aiplatform.googleapis.com}/v1beta1/projects/${PROJECT_ID}/locations/us-central1/ragCorpora -d '{
-          "rag_vector_db_config" : {
-             "pinecone": {"index_name": '\""${PINECONE_INDEX_NAME}"\"'},
-             "api_auth": {"api_key_config":
-                   {"api_key_secret_version": '\""${SECRET_RESOURCE_NAME}"\"'}
-             }
-          }
-       }'
-    
-    # To poll the status of your RAG corpus creation, get the operation_id returned in
-    # response of your CreateRagCorpus call.
-    OPERATION_ID="YOUR_OPERATION_ID"
-    
-    # Poll Operation status until done = true in the response.
-    # The response to this call will contain the ID for your created RAG corpus
-    curl -X GET \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/us-central1/operations/${OPERATION_ID}
+```
+# Set your project ID for the corpus that you want to create.
+PROJECT_ID = "YOUR_PROJECT_ID"
+
+# Set your Pinecone index name
+PINECONE_INDEX_NAME=YOUR_INDEX_NAME
+
+# Set the full resource name of your secret. Follows the format
+# projects/{PROJECT_NUMER}/secrets/{SECRET_ID}/versions/{VERSION_ID}
+SECRET_RESOURCE_NAME=YOUR_SECRET_RESOURCE_NAME
+
+# Call UpdateRagCorpus API with the Vector DB information.
+curl -X PATCH \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://us-central1-aiplatform.googleapis.com}/v1beta1/projects/${PROJECT_ID}/locations/us-central1/ragCorpora -d '{
+      "rag_vector_db_config" : {
+         "pinecone": {"index_name": '\""${PINECONE_INDEX_NAME}"\"'},
+         "api_auth": {"api_key_config":
+               {"api_key_secret_version": '\""${SECRET_RESOURCE_NAME}"\"'}
+         }
+      }
+   }'
+
+# To poll the status of your RAG corpus creation, get the operation_id returned in
+# response of your CreateRagCorpus call.
+OPERATION_ID="YOUR_OPERATION_ID"
+
+# Poll Operation status until done = true in the response.
+# The response to this call will contain the ID for your created RAG corpus
+curl -X GET \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/us-central1/operations/${OPERATION_ID}
+```
 
 ## What's next
 
-  - [Use Gemini Enterprise Agent Platform Vector Search with RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-vertexai-vector-search)
+- [Use Gemini Enterprise Agent Platform Vector Search with RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-vertexai-vector-search)

@@ -24,8 +24,8 @@ Required. The parent resource where the cached content will be created
 
 ### Request body
 
-The request body contains an instance of `  CachedContent  ` .
+The request body contains an instance of [`CachedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.cachedContents#CachedContent) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  CachedContent  ` .
+If successful, the response body contains a newly created instance of [`CachedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.cachedContents#CachedContent) .

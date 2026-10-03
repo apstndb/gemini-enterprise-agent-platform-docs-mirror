@@ -8,8 +8,8 @@ data_source: docs.cloud.google.com
 
 After you build and deploy your agents, Gemini Enterprise Agent Platform provides a comprehensive suite of tools to monitor, evaluate, and optimize agent performance. This ensures that your agents are not only meeting end-user expectations but also continuously improving in quality and efficiency. With robust observability and evaluation capabilities, you can gain deep insights into agent behavior, identify areas for enhancement, and automate quality control, creating a powerful flywheel for continuous improvement.
 
-  - **Observability:** Gain deep insights into agent behavior and performance by viewing traces and understanding agent relationships.
-  - **Evaluation:** Continuously measure and improve agent quality through offline, online, and simulated evaluations, metric management, results analysis, and prompt optimization.
+- **Observability:** Gain deep insights into agent behavior and performance by viewing traces and understanding agent relationships.
+- **Evaluation:** Continuously measure and improve agent quality through offline, online, and simulated evaluations, metric management, results analysis, and prompt optimization.
 
 ## Observability
 

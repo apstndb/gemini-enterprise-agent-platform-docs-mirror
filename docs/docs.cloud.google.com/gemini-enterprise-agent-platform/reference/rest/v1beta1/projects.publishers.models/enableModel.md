@@ -32,13 +32,13 @@ The request body contains data with the following structure:
 
 Fields
 
-` service (deprecated)  ` `string`
+`service `**`(deprecated)`** `string`
 
 Optional. The id links the Marketplace listing to the underlying Agent Platform model endpoint. Format: `services/{serviceId}` Format: `services/{serviceId}`
 
 ### Response body
 
-Response message for `  ModelGardenService.EnableModel  ` .
+Response message for [`ModelGardenService.EnableModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.publishers.models/enableModel#google.cloud.aiplatform.v1beta1.ModelGardenService.EnableModel) .
 
 If successful, the response body contains data with the following structure:
 
@@ -48,40 +48,25 @@ Fields
 
 Output only. The publisher endpoint that the project is enabled for. Format: `projects/{project}/locations/{location}/publishers/{publisher}/models/{publisherModel}`
 
-`enablementState` ` enum ( EnablementState  ` )
+`enablementState` `enum ( `[`EnablementState`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.publishers.models/enableModel#EnablementState)` )`
 
 Output only. The result of the model enablement.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;publisherEndpoint&quot;: string,&quot;enablementState&quot;: enum (EnablementState)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "publisherEndpoint": string,
+  "enablementState": enum (EnablementState)
+}
+```
 
 ## EnablementState
 
 state of the models.enable response.
 
-Enums
-
-`ENABLEMENT_STATE_UNSPECIFIED`
-
-The PublisherModel enable status is unclear. The API will default to this value.
-
-`ENABLEMENT_STATE_SUCCEEDED`
-
-The PublisherModel is enabled successfully.
-
-`ENABLEMENT_STATE_FAILED`
-
-The PublisherModel is failed to enable
+| Enums                          |                                                                                  |
+|--------------------------------|----------------------------------------------------------------------------------|
+| `ENABLEMENT_STATE_UNSPECIFIED` | The PublisherModel enable status is unclear. The API will default to this value. |
+| `ENABLEMENT_STATE_SUCCEEDED`   | The PublisherModel is enabled successfully.                                      |
+| `ENABLEMENT_STATE_FAILED`      | The PublisherModel is failed to enable                                           |

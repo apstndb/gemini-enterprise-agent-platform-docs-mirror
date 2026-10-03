@@ -23,18 +23,18 @@ This section describes issues with enforcement.
 **Solution** :
 
 1.  **Switch dry-run mode to enforce mode** : First, check your authorization extension configuration file ( `iap-request-authz-extension.yaml` ). If `iamEnforcementMode` is set to `"DRY_RUN"` , update it to `"ENFORCE"` (or remove the `DRY_RUN` setting) and re-import the extension using the gcloud CLI:
-    
+
     ```sh
     gcloud service-extensions authz-extensions import EXTENSION_NAME \
         --source=EXTENSION_FILE.yaml \
         --location=LOCATION
     ```
-    
+
     Replace the following:
-    
-      - `  EXTENSION_NAME  ` : the name of your authorization extension
-      - `  EXTENSION_FILE  ` : the filename of your YAML extension configuration
-      - `  LOCATION  ` : the Google Cloud region where your gateway is deployed
+
+    - `EXTENSION_NAME` : the name of your authorization extension
+    - `EXTENSION_FILE` : the filename of your YAML extension configuration
+    - `LOCATION` : the Google Cloud region where your gateway is deployed
 
 2.  **Verify gateway authorization policy delegation** : Verify that your gateway authorization policy ( `policyProfile: REQUEST_AUTHZ` ) is bound to the correct Agent Gateway instance ( `target.resources` ).
 
@@ -48,63 +48,63 @@ This section describes issues with enforcement.
 
 **Causes** :
 
-  - The agent's identity is not specified in the Access policy.
+- The agent's identity is not specified in the Access policy.
 
-  - The agent's identity wasn't granted the `iap.resources.egressViaIAP` permission on the destination resource.
+- The agent's identity wasn't granted the `iap.resources.egressViaIAP` permission on the destination resource.
 
-  - The exact destination hostname is not registered in Agent Registry
+- The exact destination hostname is not registered in Agent Registry
 
-  - The request attributes don't satisfy the Common Expression Language (CEL) conditions in the Access policy.
+- The request attributes don't satisfy the Common Expression Language (CEL) conditions in the Access policy.
 
 **Solution** :
 
 1.  **Switch to dry-run mode for non-disruptive debugging** : While diagnosing the failure, temporarily switch the authorization extension to **dry-run mode** ( `iamEnforcementMode: "DRY_RUN"` ) so active agent traffic is not blocked while you inspect audit logs.
 
 2.  **Query Cloud Audit Logs** : Query Cloud Audit Logs to inspect the exact authorization check and CEL attribute evaluation:
-    
+
     ### gcloud
-    
+
     Run the following `gcloud logging read` command:
-    
+
     ```sh
     gcloud logging read \
         'protoPayload.serviceName="iap.googleapis.com" AND protoPayload.authorizationInfo.permission="iap.resources.egressViaIAP" AND protoPayload.status.code!=0' \
         --project=PROJECT_ID \
         --limit=20
     ```
-    
-    Replace `  PROJECT_ID  ` with your project ID.
-    
+
+    Replace `PROJECT_ID` with your project ID.
+
     ### Console
-    
+
     1.  In the Google Cloud console, go to the **Logs Explorer** page.
-    
+
     2.  Select your project.
-    
+
     3.  In the query editor, enter the following query:
-        
+
         ```text
             protoPayload.serviceName="iap.googleapis.com"
             protoPayload.authorizationInfo.permission="iap.resources.egressViaIAP"
             protoPayload.status.code!=0
             
         ```
-    
+
     4.  Click **Run query** .
-    
+
     5.  Expand the log entry and inspect `protoPayload.authorizationInfo` to see which target resource URI and permission failed evaluation.
 
 3.  **Verify exact hostname matching** : Agent Gateway matches destination hostnames **exactly** . A Google API or third-party service might resolve through multiple hostname variations depending on the SDK version, regional client configuration, or mTLS usage—for example, `us-central1-aiplatform.googleapis.com` versus `us-central1-aiplatform.mtls.googleapis.com` versus `aiplatform.googleapis.com` .
-    
-      - If you rely on registered targets, make sure that every exact hostname variation is registered in Agent Registry.
-      - If the agent accesses unregistered endpoints, verify that an [unregistered endpoint policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap) grants `iap.resources.egressViaIAP` for that host and path.
+
+    - If you rely on registered targets, make sure that every exact hostname variation is registered in Agent Registry.
+    - If the agent accesses unregistered endpoints, verify that an [unregistered endpoint policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap) grants `iap.resources.egressViaIAP` for that host and path.
 
 4.  **Verify policy binding coverage across scopes** : Check whether a policy binding exists at one of the three supported scopes:
-    
-      - **Registry-wide** : Grants access across all agents, MCP servers, and endpoints in the registry.
-      - **Per-resource** : Grants access to a specific registered MCP server, endpoint, or agent.
-      - **Unregistered endpoints** : Grants access to destinations outside Agent Registry.
-      - *Note* : When describing policy bindings for a target resource, if the returned output contains an `"etag"` field but no bindings, no IAM policy exists for that target.
+
+    - **Registry-wide** : Grants access across all agents, MCP servers, and endpoints in the registry.
+    - **Per-resource** : Grants access to a specific registered MCP server, endpoint, or agent.
+    - **Unregistered endpoints** : Grants access to destinations outside Agent Registry.
+    - *Note* : When describing policy bindings for a target resource, if the returned output contains an `"etag"` field but no bindings, no IAM policy exists for that target.
 
 ## Common UI, gcloud, and REST API error messages
 
@@ -114,8 +114,8 @@ This section describes error messages and how to resolve them.
 
 **Error message** :
 
-  - **Console UI** : *"The requested policy doesn't exist. Verify that the policy exists for the selected resource."*
-  - **API / gcloud** : `POLICY_NOT_FOUND` / `HTTP 404 Not Found`
+- **Console UI** : *"The requested policy doesn't exist. Verify that the policy exists for the selected resource."*
+- **API / gcloud** : `POLICY_NOT_FOUND` / `HTTP 404 Not Found`
 
 **Cause** : The Access policy ID specified in your update request or policy binding does not exist in the project or location, or was deleted.
 
@@ -125,8 +125,8 @@ This section describes error messages and how to resolve them.
 
 **Error message** :
 
-  - **Console UI** : *"The selected target has reached its limit for access policy bindings. Delete an existing binding before adding a new one."*
-  - **API / gcloud** : `TOO_MANY_ACCESS_POLICY_BINDINGS_PER_TARGET`
+- **Console UI** : *"The selected target has reached its limit for access policy bindings. Delete an existing binding before adding a new one."*
+- **API / gcloud** : `TOO_MANY_ACCESS_POLICY_BINDINGS_PER_TARGET`
 
 **Cause** : You attempted to attach more policy bindings to a target resource (such as an MCP server or registry) than the maximum allowed limit per target.
 
@@ -136,8 +136,8 @@ This section describes error messages and how to resolve them.
 
 **Error message** :
 
-  - **Console UI** : *"The selected policy has reached its limit for bindings. Delete an existing binding before adding a new one."*
-  - **API / gcloud** : `TOO_MANY_ACCESS_POLICY_BINDINGS_TO_POLICY`
+- **Console UI** : *"The selected policy has reached its limit for bindings. Delete an existing binding before adding a new one."*
+- **API / gcloud** : `TOO_MANY_ACCESS_POLICY_BINDINGS_TO_POLICY`
 
 **Cause** : A single Access policy is attached to too many distinct target resources across your project.
 
@@ -147,8 +147,8 @@ This section describes error messages and how to resolve them.
 
 **Error message** :
 
-  - **Console UI** : *"This policy has reached the maximum number of attribute conditions. Remove some conditions to save your changes."*
-  - **API / gcloud** : `TOO_MANY_CONDITIONS` / Condition limit exceeded for rule in policy.
+- **Console UI** : *"This policy has reached the maximum number of attribute conditions. Remove some conditions to save your changes."*
+- **API / gcloud** : `TOO_MANY_CONDITIONS` / Condition limit exceeded for rule in policy.
 
 **Cause** : A single allow or deny rule contains more Fine-Grained Access Control (FGAC) attribute conditions or complex sub-expressions than supported in a single rule.
 
@@ -158,8 +158,8 @@ This section describes error messages and how to resolve them.
 
 **Error message** :
 
-  - **Console UI** : *"Rule details are outdated. This rule was modified by another user after this page was loaded. Refresh the page to fetch the current details before editing or deleting."*
-  - **API / gcloud** : `HTTP 412 Precondition Failed` / `ABORTED` due to `etag` mismatch.
+- **Console UI** : *"Rule details are outdated. This rule was modified by another user after this page was loaded. Refresh the page to fetch the current details before editing or deleting."*
+- **API / gcloud** : `HTTP 412 Precondition Failed` / `ABORTED` due to `etag` mismatch.
 
 **Cause** : Another administrator or automated process modified the Access policy after you retrieved it, causing your request's `etag` to differ from the active server state.
 
@@ -169,7 +169,7 @@ This section describes error messages and how to resolve them.
 
 **Error message** :
 
-  - **Console UI** : *"Cannot delete this rule. The 'Default policy' must contain at least one rule. To remove this rule, delete the policy instead."* or *"This is the last rule in \<policy name\>. Deleting it will also delete the policy and permanently remove all associated bindings, which can affect agent access to resources."*
+- **Console UI** : *"Cannot delete this rule. The 'Default policy' must contain at least one rule. To remove this rule, delete the policy instead."* or *"This is the last rule in \<policy name\>. Deleting it will also delete the policy and permanently remove all associated bindings, which can affect agent access to resources."*
 
 **Cause** : An IAM Access policy cannot be saved with zero rules.
 
@@ -179,7 +179,7 @@ This section describes error messages and how to resolve them.
 
 **Error message** :
 
-  - **Console UI** : *"The custom CEL expression could not be converted into standard UI selections. Your expression is preserved in the Advanced tab."*
+- **Console UI** : *"The custom CEL expression could not be converted into standard UI selections. Your expression is preserved in the Advanced tab."*
 
 **Cause** : You entered a complex CEL condition or function in the **Condition editor** (Advanced tab) that cannot be mapped into the simplified drop-down selectors of the standard condition builder.
 
@@ -187,6 +187,6 @@ This section describes error messages and how to resolve them.
 
 ## What's next
 
-  - [CEL attributes for Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
-  - [Create IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap)
-  - [Manage IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap)
+- [CEL attributes for Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
+- [Create IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap)
+- [Manage IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap)

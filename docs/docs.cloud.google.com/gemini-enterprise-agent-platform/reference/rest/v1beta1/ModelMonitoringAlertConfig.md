@@ -12,7 +12,7 @@ Fields
 
 `enableLogging` `boolean`
 
-Dump the anomalies to Cloud Logging. The anomalies will be put to json payload encoded from proto `  ModelMonitoringStatsAnomalies  ` . This can be further synced to Pub/Sub or any other services supported by Cloud Logging.
+Dump the anomalies to Cloud Logging. The anomalies will be put to json payload encoded from proto [`ModelMonitoringStatsAnomalies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs#ModelMonitoringStatsAnomalies) . This can be further synced to Pub/Sub or any other services supported by Cloud Logging.
 
 `notificationChannels[]` `string`
 
@@ -22,27 +22,28 @@ Resource names of the NotificationChannels to send alert. Must be of the format 
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`emailAlertConfig` ` object ( EmailAlertConfig  ` )
+`emailAlertConfig` `object ( `[`EmailAlertConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ModelMonitoringAlertConfig#EmailAlertConfig)` )`
 
 email alert config.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;enableLogging&quot;: boolean,&quot;notificationChannels&quot;: [string],// alert&quot;emailAlertConfig&quot;: {object (EmailAlertConfig)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "enableLogging": boolean,
+  "notificationChannels": [
+    string
+  ],
+
+  // alert
+  "emailAlertConfig": {
+    object (EmailAlertConfig)
+  }
+  // Union type
+}
+```
 
 ## EmailAlertConfig
 
@@ -54,22 +55,12 @@ Fields
 
 The email addresses to send the alert.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;userEmails&quot;: [
+**JSON representation**
+
+```
+{
+  "userEmails": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

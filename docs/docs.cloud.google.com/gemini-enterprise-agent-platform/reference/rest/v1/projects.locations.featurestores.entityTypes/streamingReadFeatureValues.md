@@ -32,10 +32,10 @@ Fields
 
 Required. IDs of entities to read feature values of. The maximum number of IDs is 100. For example, for a machine learning model predicting user clicks on a website, an entity id could be `user_123` .
 
-`featureSelector` ` object ( FeatureSelector  ` )
+`featureSelector` `object ( `[`FeatureSelector`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/FeatureSelector)` )`
 
 Required. Selector choosing Features of the target EntityType. feature IDs will be deduplicated.
 
 ### Response body
 
-If successful, the response body contains a stream of `  ReadFeatureValuesResponse  ` instances.
+If successful, the response body contains a stream of [`ReadFeatureValuesResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ReadFeatureValuesResponse) instances.

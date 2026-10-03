@@ -30,7 +30,7 @@ Optional. The standard list page size. The maximum value is 100. If not specifie
 
 `pageToken` `string`
 
-Optional. The standard list page token. Typically obtained via `  ListRagMetadataResponse.next_page_token  ` of the previous `  VertexRagDataService.ListRagMetadata  ` call.
+Optional. The standard list page token. Typically obtained via [`ListRagMetadataResponse.next_page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/list#body.ListRagMetadataResponse.FIELDS.next_page_token) of the previous [`VertexRagDataService.ListRagMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/list#google.cloud.aiplatform.v1beta1.VertexRagDataService.ListRagMetadata) call.
 
 ### Request body
 
@@ -38,32 +38,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  VertexRagDataService.ListRagMetadata  ` .
+Response message for [`VertexRagDataService.ListRagMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/list#google.cloud.aiplatform.v1beta1.VertexRagDataService.ListRagMetadata) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`ragMetadata[]` ` object ( RagMetadata  ` )
+`ragMetadata[]` `object ( `[`RagMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata#RagMetadata)` )`
 
 List of RagMetadata in the requested page.
 
 `nextPageToken` `string`
 
-A token to retrieve the next page of results. Pass to `  ListRagMetadataRequest.page_token  ` to obtain that page.
+A token to retrieve the next page of results. Pass to [`ListRagMetadataRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/list#body.QUERY_PARAMETERS.page_token) to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;ragMetadata&quot;: [{object (RagMetadata)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "ragMetadata": [
+    {
+      object (RagMetadata)
+    }
+  ],
+  "nextPageToken": string
+}
+```

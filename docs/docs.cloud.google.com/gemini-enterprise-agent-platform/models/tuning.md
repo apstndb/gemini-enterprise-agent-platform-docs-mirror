@@ -16,28 +16,28 @@ This page provides an overview of model tuning for Gemini, describes the tuning 
 
 Model tuning is an effective way to customize large models to your tasks. It's a key step to improve the model's quality and efficiency. Model tuning provides the following benefits:
 
-  - Higher quality for your specific tasks
-  - Increased model robustness
-  - Lower inference latency and cost due to shorter prompts
+- Higher quality for your specific tasks
+- Increased model robustness
+- Lower inference latency and cost due to shorter prompts
 
 ## Tuning compared to prompt design
 
-  - **Prompting with pre-trained Gemini models** : Prompting is the art of crafting effective instructions to guide AI models like Gemini in generating the outputs you want. It involves designing prompts that clearly convey the task, format you want, and any relevant context. You can use Gemini's capabilities with minimal setup. It's best suited for:
-      - Limited labeled data: If you have a small amount of labeled data or can't afford a lengthy fine-tuning process.
-      - Rapid prototyping: When you need to quickly test a concept or get a baseline performance without heavy investment in fine-tuning.
-  - **Customized fine-tuning of Gemini models** : For more tailored results, Gemini lets you fine-tune its models on your specific datasets. To create an AI model that excels in your specific domain, consider fine-tuning. This involves retraining the base model on your own labeled dataset, adapting its weights to your task and data. You can adapt Gemini to your use cases. Fine-tuning is most effective when:
-      - You have labeled data: A sizable dataset to train on (think 100 examples or more), which allows the model to deeply learn your task's specifics.
-      - Complex or unique tasks: For scenarios where advanced prompting strategies are not sufficient, and a model tailored to your data is essential.
+- **Prompting with pre-trained Gemini models** : Prompting is the art of crafting effective instructions to guide AI models like Gemini in generating the outputs you want. It involves designing prompts that clearly convey the task, format you want, and any relevant context. You can use Gemini's capabilities with minimal setup. It's best suited for:
+  - Limited labeled data: If you have a small amount of labeled data or can't afford a lengthy fine-tuning process.
+  - Rapid prototyping: When you need to quickly test a concept or get a baseline performance without heavy investment in fine-tuning.
+- **Customized fine-tuning of Gemini models** : For more tailored results, Gemini lets you fine-tune its models on your specific datasets. To create an AI model that excels in your specific domain, consider fine-tuning. This involves retraining the base model on your own labeled dataset, adapting its weights to your task and data. You can adapt Gemini to your use cases. Fine-tuning is most effective when:
+  - You have labeled data: A sizable dataset to train on (think 100 examples or more), which allows the model to deeply learn your task's specifics.
+  - Complex or unique tasks: For scenarios where advanced prompting strategies are not sufficient, and a model tailored to your data is essential.
 
 We recommend starting with prompting to find the optimal prompt. Then, move on to fine-tuning (if required) to further boost performances or fix recurrent errors. While adding more examples might be beneficial, it is important to evaluate where the model makes mistakes before adding more data. High-quality, well-labeled data is crucial for good performance and better than quantity. Also, the data you use for fine-tuning should reflect the prompt distribution, format and context the model will encounter in production.
 
 Tuning provides the following benefits over prompt design:
 
-  - Allows deep customization on the model and results in better performance on specific tasks.
-  - Align the model with custom syntax, instructions, domain specific semantic rules.
-  - Offers more consistent and reliable results.
-  - Capable of handling more examples at once.
-  - Save cost at inference by removing few-shot examples, long instructions in the prompts
+- Allows deep customization on the model and results in better performance on specific tasks.
+- Align the model with custom syntax, instructions, domain specific semantic rules.
+- Offers more consistent and reliable results.
+- Capable of handling more examples at once.
+- Save cost at inference by removing few-shot examples, long instructions in the prompts
 
 ## Tuning approaches
 
@@ -75,11 +75,11 @@ The following Gemini models support supervised tuning:
 
 #### Click to expand supported models
 
-  - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
-  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
-  - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
-  - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
+- [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+- [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
+- [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
+- [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+- [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 For more information on using supervised fine-tuning with each respective model, see the following pages: Tune [text](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/text_tune) , [image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/image_tune) , [audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/audio_tune) , and [document](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/doc_tune) data types.
 
@@ -95,8 +95,8 @@ The following Gemini models support preference tuning:
 
 #### Click to expand supported models
 
-  - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
+- [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+- [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 For more information on preference tuning, see [About preference tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-preference-tuning) .
 
@@ -110,11 +110,11 @@ The following Gemini models support tuning checkpoints:
 
 #### Click to expand supported models
 
-  - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
-  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
-  - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
-  - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
+- [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+- [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
+- [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
+- [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+- [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 For more information on tuning checkpoints, see [Use checkpoints in Gemini tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning-checkpoints) .
 
@@ -128,18 +128,18 @@ The following Gemini models support continuous tuning:
 
 #### Click to expand supported models
 
-  - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
-  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
-  - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
-  - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
+- [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+- [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
+- [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
+- [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+- [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 For more information on continuous tuning, see [About continuous tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-continuous-tuning) .
 
 ## What's next
 
-  - Learn about [supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning) .
-  - Learn about [preference tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-preference-tuning) .
-  - To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning)
-  - To learn how supervised fine-tuning can be used in a solution that builds a generative AI knowledge base, see [Jump Start Solution: Generative AI knowledge base](https://docs.cloud.google.com/architecture/ai-ml/generative-ai-knowledge-base) .
-  - To learn about tuning costs, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#model-tuning) .
+- Learn about [supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning) .
+- Learn about [preference tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-preference-tuning) .
+- To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning)
+- To learn how supervised fine-tuning can be used in a solution that builds a generative AI knowledge base, see [Jump Start Solution: Generative AI knowledge base](https://docs.cloud.google.com/architecture/ai-ml/generative-ai-knowledge-base) .
+- To learn about tuning costs, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#model-tuning) .

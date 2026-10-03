@@ -18,41 +18,51 @@ Most development environments contain a native `base64` utility to encode a bina
 
 Encode the file using the `base64` command line tool, making sure to prevent line-wrapping by using the `-w 0` flag:
 
-    base64 INPUT_FILE -w 0 > OUTPUT_FILE
+```
+base64 INPUT_FILE -w 0 > OUTPUT_FILE
+```
 
 ### macOS
 
 Encode the file using the `base64` command line tool:
 
-    base64 -i INPUT_FILE -o OUTPUT_FILE
+```
+base64 -i INPUT_FILE -o OUTPUT_FILE
+```
 
 ### Windows
 
 Encode the file using the `Base64.exe` tool:
 
-    Base64.exe -e INPUT_FILE > OUTPUT_FILE
+```
+Base64.exe -e INPUT_FILE > OUTPUT_FILE
+```
 
 ### PowerShell
 
 Encode the file using the `Convert.ToBase64String` method:
 
-    [Convert]::ToBase64String([IO.File]::ReadAllBytes("./INPUT_FILE")) > OUTPUT_FILE
+```
+[Convert]::ToBase64String([IO.File]::ReadAllBytes("./INPUT_FILE")) > OUTPUT_FILE
+```
 
 Create a JSON request file, inlining the base64-encoded data:
 
 ### JSON
 
+```
+{
+  "instances": [
     {
-      "instances": [
-        {
-          "content": "BASE64_ENCODED_DATA"
-        }
-      ],
-      "parameters": {
-        "confidenceThreshold": DECIMAL,
-        "maxPredictions": INTEGER
-      }
+      "content": "BASE64_ENCODED_DATA"
     }
+  ],
+  "parameters": {
+    "confidenceThreshold": DECIMAL,
+    "maxPredictions": INTEGER
+  }
+}
+```
 
 ## Using client libraries
 
@@ -60,47 +70,55 @@ Embedding binary data into requests through text editors is neither desirable or
 
 ### Python
 
-    # Import the base64 encoding library.
-    import base64
-    
-    # Pass the image data to an encoding function.
-    def encode_image(image):
-        with open(image, "rb") as image_file:
-            encoded_string = base64.b64encode(image_file.read())
-        return encoded_string
+```
+# Import the base64 encoding library.
+import base64
+
+# Pass the image data to an encoding function.
+def encode_image(image):
+    with open(image, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read())
+    return encoded_string
+```
 
 ### Node.js
 
-    // Read the file into memory.
-    var fs = require('fs');
-    var imageFile = fs.readFileSync('/path/to/file');
-    
-    // Convert the image data to a Buffer and base64 encode it.
-    var encoded = Buffer.from(imageFile).toString('base64');
+```
+// Read the file into memory.
+var fs = require('fs');
+var imageFile = fs.readFileSync('/path/to/file');
+
+// Convert the image data to a Buffer and base64 encode it.
+var encoded = Buffer.from(imageFile).toString('base64');
+```
 
 ### Java
 
-    // Import the Base64 encoding library.
-    import org.apache.commons.codec.binary.Base64;
-    
-    // Encode the image.
-    String encodedString = Base64.getEncoder().encodeToString(imageFile.getBytes());
+```
+// Import the Base64 encoding library.
+import org.apache.commons.codec.binary.Base64;
+
+// Encode the image.
+String encodedString = Base64.getEncoder().encodeToString(imageFile.getBytes());
+```
 
 ### Go
 
-    import (
-        "bufio"
-        "encoding/base64"
-        "io"
-        "os"
-    )
-    
-    // Open image file.
-    f, _ := os.Open("image.jpg")
-    
-    // Read entire image into byte slice.
-    reader := bufio.NewReader(f)
-    content, _ := io.ReadAll(reader)
-    
-    // Encode image as base64.
-    base64.StdEncoding.EncodeToString(content)
+```
+import (
+    "bufio"
+    "encoding/base64"
+    "io"
+    "os"
+)
+
+// Open image file.
+f, _ := os.Open("image.jpg")
+
+// Read entire image into byte slice.
+reader := bufio.NewReader(f)
+content, _ := io.ReadAll(reader)
+
+// Encode image as base64.
+base64.StdEncoding.EncodeToString(content)
+```

@@ -22,14 +22,16 @@ If you're using ADK's `VertexAiMemoryBankService` , memory generation is not aut
 
 The `add_session_to_memory` method takes a [`Session`](https://google.github.io/adk-docs/runtime/#session) object as input and uses the session's events as the data source for memory generation. The method only calls your Memory Bank instance if there are events populated in the session object. If your ADK application or agent is invoking `add_session_to_memory` but memory generation was not triggered, the `Session` object's events may not be populated. This is possible even if you have interacted with the session, especially if you're using `adk.Runner` . To address this issue, fetch the session and its events to the environment where you're invoking `add_session_to_memory` :
 
-    session = await session_service.get_session(
-        app_name=app_name,
-        user_id=user_id,
-        session_id=session.id
-    )
-    # Confirm that events are populated.
-    print(session.events)
-    memory_service.add_session_to_memory(session)
+```
+session = await session_service.get_session(
+    app_name=app_name,
+    user_id=user_id,
+    session_id=session.id
+)
+# Confirm that events are populated.
+print(session.events)
+memory_service.add_session_to_memory(session)
+```
 
 ### Verify that the memory generation LRO is complete
 
@@ -43,13 +45,15 @@ When using ADK's `VertexAiMemoryBankService` , `add_session_to_memory` is a non-
 
 The LRO response may an error message similar that indicates that memory generation was unsuccessful. For example:
 
-    RuntimeError: Failed to generate memory: {'code': 3, 'message': 'Failed to extract memories: Please use a valid role: user, model.'}
+```
+RuntimeError: Failed to generate memory: {'code': 3, 'message': 'Failed to extract memories: Please use a valid role: user, model.'}
+```
 
 Common errors include:
 
-  - Resource exhausted errors for Gemini when you use pay-as-you-go. With [dynamic shared quota (DSQ)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) , there are no predefined quota limits on your usage. To help ensure high availability for Memory Bank and to get predictable service levels for your production workloads, see [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/throughput-quota) .
+- Resource exhausted errors for Gemini when you use pay-as-you-go. With [dynamic shared quota (DSQ)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) , there are no predefined quota limits on your usage. To help ensure high availability for Memory Bank and to get predictable service levels for your production workloads, see [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/throughput-quota) .
 
-  - Invalid source data, like using roles other than `model` and `user` in your `Content` .
+- Invalid source data, like using roles other than `model` and `user` in your `Content` .
 
 ### Determine if the conversation was meaningful
 

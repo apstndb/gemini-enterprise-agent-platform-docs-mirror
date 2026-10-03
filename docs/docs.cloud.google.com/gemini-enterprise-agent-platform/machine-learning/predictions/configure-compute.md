@@ -10,9 +10,9 @@ Agent Platform allocates *nodes* to handle online and batch inferences. When you
 
 *Machine types* differ in a few ways:
 
-  - Number of virtual CPUs (vCPUs) per node
-  - Amount of memory per node
-  - [Pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing)
+- Number of virtual CPUs (vCPUs) per node
+- Amount of memory per node
+- [Pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing)
 
 By selecting a machine type with more computing resources, you can serve inferences with lower latency or handle more inference requests at the same time.
 
@@ -20,11 +20,11 @@ By selecting a machine type with more computing resources, you can serve inferen
 
 To help manage costs or ensure availability of VM resources, Agent Platform provides the following:
 
-  - To help ensure that you pay only for the computing resources that you need, you can use Vertex AI Inference autoscaling. For more information, see [Scale inference nodes for Vertex AI Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/autoscaling) .
+- To help ensure that you pay only for the computing resources that you need, you can use Vertex AI Inference autoscaling. For more information, see [Scale inference nodes for Vertex AI Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/autoscaling) .
 
-  - To make sure that VM resources are available when your inference jobs need them, you can use Compute Engine reservations. Reservations provide a high level of assurance in obtaining capacity for Compute Engine resources. For more information, see [Use reservations with inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-reservations) .
+- To make sure that VM resources are available when your inference jobs need them, you can use Compute Engine reservations. Reservations provide a high level of assurance in obtaining capacity for Compute Engine resources. For more information, see [Use reservations with inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-reservations) .
 
-  - To reduce the cost of running your inference jobs, you can use Spot VMs. Spot VMs are virtual machine (VM) instances that are excess Compute Engine capacity. Spot VMs have significant discounts, but Compute Engine might preemptively stop or delete Spot VMs to reclaim the capacity at any time. For more information, see [Use Spot VMs with inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-spot-vms) .
+- To reduce the cost of running your inference jobs, you can use Spot VMs. Spot VMs are virtual machine (VM) instances that are excess Compute Engine capacity. Spot VMs have significant discounts, but Compute Engine might preemptively stop or delete Spot VMs to reclaim the capacity at any time. For more information, see [Use Spot VMs with inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-spot-vms) .
 
 ## Where to specify compute resources
 
@@ -38,15 +38,13 @@ Specify the machine type (and, optionally, GPU configuration) in the [`dedicated
 
 Learn how to deploy each model type:
 
-  - [Deploy an AutoML tabular model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console)
-  - [Deploy a custom-trained model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/serving#create-endpoint)
-  - [Deploy a custom-trained model using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api)
+- [Deploy an AutoML tabular model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console)
+- [Deploy a custom-trained model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/serving#create-endpoint)
+- [Deploy a custom-trained model using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api)
 
 ### Batch inference
 
 If you want to get batch inferences from a custom-trained model or an AutoML tabular model, you must specify a machine type when you [create a `BatchPredictionJob` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions) . Specify the machine type (and, optionally, GPU configuration) in the [`dedicatedResources.machineSpec` field of your `BatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs) .
-
-<span id="machine_type_comparison"></span>
 
 ## Machine types
 
@@ -59,7 +57,7 @@ For information about TPU accelerator types, see [Deploy a model to Cloud TPU VM
 ### E2 Series
 
 | Name             | vCPUs | Memory (GB) |
-| ---------------- | ----- | ----------- |
+|------------------|-------|-------------|
 | `e2-standard-2`  | 2     | 8           |
 | `e2-standard-4`  | 4     | 16          |
 | `e2-standard-8`  | 8     | 32          |
@@ -80,7 +78,7 @@ For information about TPU accelerator types, see [Deploy a model to Cloud TPU VM
 > **Note:** In the `me-west1` region, N1 series machine types are supported for online and custom prediction only when combined with an NVIDIA Tesla T4 GPU accelerator. Using a CPU-only N1 machine type in `me-west1` isn't supported.
 
 | Name             | vCPUs | Memory (GB) |
-| ---------------- | ----- | ----------- |
+|------------------|-------|-------------|
 | `n1-standard-2`  | 2     | 7.5         |
 | `n1-standard-4`  | 4     | 15          |
 | `n1-standard-8`  | 8     | 30          |
@@ -99,7 +97,7 @@ For information about TPU accelerator types, see [Deploy a model to Cloud TPU VM
 ### N2 Series
 
 | Name              | vCPUs | Memory (GB) |
-| ----------------- | ----- | ----------- |
+|-------------------|-------|-------------|
 | `n2-standard-2`   | 2     | 8           |
 | `n2-standard-4`   | 4     | 16          |
 | `n2-standard-8`   | 8     | 32          |
@@ -133,7 +131,7 @@ For information about TPU accelerator types, see [Deploy a model to Cloud TPU VM
 ### N2D Series
 
 | Name               | vCPUs | Memory (GB) |
-| ------------------ | ----- | ----------- |
+|--------------------|-------|-------------|
 | `n2d-standard-2`   | 2     | 8           |
 | `n2d-standard-4`   | 4     | 16          |
 | `n2d-standard-8`   | 8     | 32          |
@@ -169,7 +167,7 @@ For information about TPU accelerator types, see [Deploy a model to Cloud TPU VM
 ### C2 Series
 
 | Name             | vCPUs | Memory (GB) |
-| ---------------- | ----- | ----------- |
+|------------------|-------|-------------|
 | `c2-standard-4`  | 4     | 16          |
 | `c2-standard-8`  | 8     | 32          |
 | `c2-standard-16` | 16    | 64          |
@@ -179,7 +177,7 @@ For information about TPU accelerator types, see [Deploy a model to Cloud TPU VM
 ### C2D Series
 
 | Name               | vCPUs | Memory (GB) |
-| ------------------ | ----- | ----------- |
+|--------------------|-------|-------------|
 | `c2d-standard-2`   | 2     | 8           |
 | `c2d-standard-4`   | 4     | 16          |
 | `c2d-standard-8`   | 8     | 32          |
@@ -205,7 +203,7 @@ For information about TPU accelerator types, see [Deploy a model to Cloud TPU VM
 ### C3 Series
 
 | Name             | vCPUs | Memory (GB) |
-| ---------------- | ----- | ----------- |
+|------------------|-------|-------------|
 | `c3-highcpu-4`   | 4     | 8           |
 | `c3-highcpu-8`   | 8     | 16          |
 | `c3-highcpu-22`  | 22    | 44          |
@@ -218,7 +216,7 @@ For information about TPU accelerator types, see [Deploy a model to Cloud TPU VM
 ### A2 Series
 
 | Name             | vCPUs | Memory (GB) | GPUs ( [NVIDIA A100](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) ) |
-| ---------------- | ----- | ----------- | --------------------------------------------------------------------------------- |
+|------------------|-------|-------------|-----------------------------------------------------------------------------------|
 | `a2-highgpu-1g`  | 12    | 85          | 1 (A100 40GB)                                                                     |
 | `a2-highgpu-2g`  | 24    | 170         | 2 (A100 40GB)                                                                     |
 | `a2-highgpu-4g`  | 48    | 340         | 4 (A100 40GB)                                                                     |
@@ -232,7 +230,7 @@ For information about TPU accelerator types, see [Deploy a model to Cloud TPU VM
 ### A3 Series
 
 | Name             | vCPUs | Memory (GB) | GPUs ( [NVIDIA H100 or H200](https://docs.cloud.google.com/compute/docs/gpus#a3-series) ) |
-| ---------------- | ----- | ----------- | ----------------------------------------------------------------------------------------- |
+|------------------|-------|-------------|-------------------------------------------------------------------------------------------|
 | `a3-highgpu-1g`  | 26    | 234         | 1 (H100 80GB)                                                                             |
 | `a3-highgpu-2g`  | 52    | 468         | 2 (H100 80GB)                                                                             |
 | `a3-highgpu-4g`  | 104   | 936         | 4 (H100 80GB)                                                                             |
@@ -243,19 +241,19 @@ For information about TPU accelerator types, see [Deploy a model to Cloud TPU VM
 ### A4 Series
 
 | Name            | vCPUs | Memory (GB) | GPUs ( [NVIDIA B200](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) ) |
-| --------------- | ----- | ----------- | --------------------------------------------------------------------------------- |
+|-----------------|-------|-------------|-----------------------------------------------------------------------------------|
 | `a4-highgpu-8g` | 224   | 3,968       | 8                                                                                 |
 
 ### A4X Series
 
 | Name             | vCPUs | Memory (GB) | GPUs ( [NVIDIA GB200](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) ) |
-| ---------------- | ----- | ----------- | ----------------------------------------------------------------------------------- |
+|------------------|-------|-------------|-------------------------------------------------------------------------------------|
 | `a4x-highgpu-4g` | 140   | 884         | 4                                                                                   |
 
 ### G2 Series
 
 | Name             | vCPUs | Memory (GB) | GPUs ( [NVIDIA L4](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) ) |
-| ---------------- | ----- | ----------- | ----------------------------------------------------------------------------- |
+|------------------|-------|-------------|-------------------------------------------------------------------------------|
 | `g2-standard-4`  | 4     | 16          | 1                                                                             |
 | `g2-standard-8`  | 8     | 32          | 1                                                                             |
 | `g2-standard-12` | 12    | 48          | 1                                                                             |
@@ -268,7 +266,7 @@ For information about TPU accelerator types, see [Deploy a model to Cloud TPU VM
 ### G4 Series
 
 | Name              | vCPUs | Memory (GB) | GPUs ( [NVIDIA RTX PRO 6000](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) ) |
-| ----------------- | ----- | ----------- | --------------------------------------------------------------------------------------------- |
+|-------------------|-------|-------------|-----------------------------------------------------------------------------------------------|
 | `g4-standard-48`  | 48    | 180         | 1                                                                                             |
 | `g4-standard-96`  | 96    | 360         | 2                                                                                             |
 | `g4-standard-192` | 192   | 720         | 4                                                                                             |
@@ -308,173 +306,30 @@ Other configurations, such as the N1 series, let you optionally add GPUs to acce
 
 To add optional GPU accelerators, you must account for several requirements:
 
-  - You can only use GPUs when your `Model` resource is based on a [TensorFlow SavedModel](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts) , or when you [use a custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) that has been designed to take advantage of GPUs. You can't use GPUs for scikit-learn or XGBoost models.
-  - The availability of each type of GPU varies depending on which region you use for your model. Learn [which types of GPUs are available in which regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#accelerators) .
-  - You can only use one type of GPU for your `DeployedModel` resource or `BatchPredictionJob` , and there are limitations on the number of GPUs you can add depending on which machine type you are using. The following table describes these limitations.
+- You can only use GPUs when your `Model` resource is based on a [TensorFlow SavedModel](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts) , or when you [use a custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) that has been designed to take advantage of GPUs. You can't use GPUs for scikit-learn or XGBoost models.
+- The availability of each type of GPU varies depending on which region you use for your model. Learn [which types of GPUs are available in which regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#accelerators) .
+- You can only use one type of GPU for your `DeployedModel` resource or `BatchPredictionJob` , and there are limitations on the number of GPUs you can add depending on which machine type you are using. The following table describes these limitations.
 
 The following table shows the optional GPUs that are available for online inference and how many of each type of GPU you can use with each Compute Engine machine type:
 
-Valid numbers of GPUs for each machine type
-
-Machine type
-
-[NVIDIA Tesla P100](https://docs.cloud.google.com/compute/docs/gpus#p100-gpus)
-
-[NVIDIA Tesla V100](https://docs.cloud.google.com/compute/docs/gpus#v100-gpus)
-
-[NVIDIA Tesla P4](https://docs.cloud.google.com/compute/docs/gpus#p4-gpus)
-
-[NVIDIA Tesla T4](https://docs.cloud.google.com/compute/docs/gpus#t4-gpus)
-
-`n1-standard-2`
-
-1, 2, 4
-
-1, 2, 4, 8
-
-1, 2, 4
-
-1, 2, 4
-
-`n1-standard-4`
-
-1, 2, 4
-
-1, 2, 4, 8
-
-1, 2, 4
-
-1, 2, 4
-
-`n1-standard-8`
-
-1, 2, 4
-
-1, 2, 4, 8
-
-1, 2, 4
-
-1, 2, 4
-
-`n1-standard-16`
-
-1, 2, 4
-
-2, 4, 8
-
-1, 2, 4
-
-1, 2, 4
-
-`n1-standard-32`
-
-2, 4
-
-4, 8
-
-2, 4
-
-2, 4
-
-`n1-highmem-2`
-
-1, 2, 4
-
-1, 2, 4, 8
-
-1, 2, 4
-
-1, 2, 4
-
-`n1-highmem-4`
-
-1, 2, 4
-
-1, 2, 4, 8
-
-1, 2, 4
-
-1, 2, 4
-
-`n1-highmem-8`
-
-1, 2, 4
-
-1, 2, 4, 8
-
-1, 2, 4
-
-1, 2, 4
-
-`n1-highmem-16`
-
-1, 2, 4
-
-2, 4, 8
-
-1, 2, 4
-
-1, 2, 4
-
-`n1-highmem-32`
-
-2, 4
-
-4, 8
-
-2, 4
-
-2, 4
-
-`n1-highcpu-2`
-
-1, 2, 4
-
-1, 2, 4, 8
-
-1, 2, 4
-
-1, 2, 4
-
-`n1-highcpu-4`
-
-1, 2, 4
-
-1, 2, 4, 8
-
-1, 2, 4
-
-1, 2, 4
-
-`n1-highcpu-8`
-
-1, 2, 4
-
-1, 2, 4, 8
-
-1, 2, 4
-
-1, 2, 4
-
-`n1-highcpu-16`
-
-1, 2, 4
-
-2, 4, 8
-
-1, 2, 4
-
-1, 2, 4
-
-`n1-highcpu-32`
-
-2, 4
-
-4, 8
-
-2, 4
-
-2, 4
+| Valid numbers of GPUs for each machine type |                                                                                |                                                                                |                                                                            |                                                                            |
+|---------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------------------|----------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| Machine type                                | [NVIDIA Tesla P100](https://docs.cloud.google.com/compute/docs/gpus#p100-gpus) | [NVIDIA Tesla V100](https://docs.cloud.google.com/compute/docs/gpus#v100-gpus) | [NVIDIA Tesla P4](https://docs.cloud.google.com/compute/docs/gpus#p4-gpus) | [NVIDIA Tesla T4](https://docs.cloud.google.com/compute/docs/gpus#t4-gpus) |
+| `n1-standard-2`                             | 1, 2, 4                                                                        | 1, 2, 4, 8                                                                     | 1, 2, 4                                                                    | 1, 2, 4                                                                    |
+| `n1-standard-4`                             | 1, 2, 4                                                                        | 1, 2, 4, 8                                                                     | 1, 2, 4                                                                    | 1, 2, 4                                                                    |
+| `n1-standard-8`                             | 1, 2, 4                                                                        | 1, 2, 4, 8                                                                     | 1, 2, 4                                                                    | 1, 2, 4                                                                    |
+| `n1-standard-16`                            | 1, 2, 4                                                                        | 2, 4, 8                                                                        | 1, 2, 4                                                                    | 1, 2, 4                                                                    |
+| `n1-standard-32`                            | 2, 4                                                                           | 4, 8                                                                           | 2, 4                                                                       | 2, 4                                                                       |
+| `n1-highmem-2`                              | 1, 2, 4                                                                        | 1, 2, 4, 8                                                                     | 1, 2, 4                                                                    | 1, 2, 4                                                                    |
+| `n1-highmem-4`                              | 1, 2, 4                                                                        | 1, 2, 4, 8                                                                     | 1, 2, 4                                                                    | 1, 2, 4                                                                    |
+| `n1-highmem-8`                              | 1, 2, 4                                                                        | 1, 2, 4, 8                                                                     | 1, 2, 4                                                                    | 1, 2, 4                                                                    |
+| `n1-highmem-16`                             | 1, 2, 4                                                                        | 2, 4, 8                                                                        | 1, 2, 4                                                                    | 1, 2, 4                                                                    |
+| `n1-highmem-32`                             | 2, 4                                                                           | 4, 8                                                                           | 2, 4                                                                       | 2, 4                                                                       |
+| `n1-highcpu-2`                              | 1, 2, 4                                                                        | 1, 2, 4, 8                                                                     | 1, 2, 4                                                                    | 1, 2, 4                                                                    |
+| `n1-highcpu-4`                              | 1, 2, 4                                                                        | 1, 2, 4, 8                                                                     | 1, 2, 4                                                                    | 1, 2, 4                                                                    |
+| `n1-highcpu-8`                              | 1, 2, 4                                                                        | 1, 2, 4, 8                                                                     | 1, 2, 4                                                                    | 1, 2, 4                                                                    |
+| `n1-highcpu-16`                             | 1, 2, 4                                                                        | 2, 4, 8                                                                        | 1, 2, 4                                                                    | 1, 2, 4                                                                    |
+| `n1-highcpu-32`                             | 2, 4                                                                           | 4, 8                                                                           | 2, 4                                                                       | 2, 4                                                                       |
 
 Optional GPUs incur [additional costs](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
 
@@ -490,15 +345,15 @@ Both of these capabilities are designed to provide more efficient resource utili
 
 This feature is subject to the following limitations:
 
-  - All of the coscheduled model replicas must be the same model version.
-  - Using [deployment resource pools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/model-co-hosting) to share resources across deployments isn't supported.
+- All of the coscheduled model replicas must be the same model version.
+- Using [deployment resource pools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/model-co-hosting) to share resources across deployments isn't supported.
 
 ### Supported machine types
 
 The following machine types are supported. Note that, for machine types that only have one GPU, no coscheduling is needed.
 
 | Machine type    | Coschedule | Coschedule + MIG |
-| --------------- | ---------- | ---------------- |
+|-----------------|------------|------------------|
 | a2-highgpu-1g   | N/A        | Yes              |
 | a2-highgpu-2g   | Yes        | Yes              |
 | a2-highgpu-4g   | Yes        | Yes              |
@@ -538,71 +393,77 @@ The following samples demonstrate how to deploy coscheduled model replicas.
 
 Use the following `gcloud` command to deploy coscheduled model replicas on a VM:
 
-    gcloud ai endpoints deploy-model ENDPOINT_ID \
-      --region=LOCATION_ID \
-      --model=MODEL_ID \
-      --display-name=DEPLOYED_MODEL_NAME \
-      --min-replica-count=MIN_REPLICA_COUNT \
-      --max-replica-count=MAX_REPLICA_COUNT \
-      --machine-type=MACHINE_TYPE \
-      --accelerator=type=ACC_TYPE,count=ACC_COUNT \
-      --traffic-split=0=100
+```
+gcloud ai endpoints deploy-model ENDPOINT_ID \
+  --region=LOCATION_ID \
+  --model=MODEL_ID \
+  --display-name=DEPLOYED_MODEL_NAME \
+  --min-replica-count=MIN_REPLICA_COUNT \
+  --max-replica-count=MAX_REPLICA_COUNT \
+  --machine-type=MACHINE_TYPE \
+  --accelerator=type=ACC_TYPE,count=ACC_COUNT \
+  --traffic-split=0=100
+```
 
 Replace the following:
 
-  - ENDPOINT\_ID : The ID for the endpoint.
-  - LOCATION\_ID : The region where you are using Agent Platform.
-  - MODEL\_ID : The model ID for the model to be deployed.
-  - DEPLOYED\_MODEL\_NAME : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
-  - MIN\_REPLICA\_COUNT : The minimum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to the maximum number of nodes and never fewer than this number of nodes.
-  - MAX\_REPLICA\_COUNT : The maximum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to this number of nodes and never fewer than the minimum number of nodes. . One VM is required for every 2 replicas to be deployed.
-  - MACHINE\_TYPE : The type of VM to use for this deployment. Must be from the accelerator-optimized family.
-  - ACC\_TYPE : The GPU accelerator type. Should correspond to the MACHINE\_TYPE . For `a3-highgpu-8g` , use `nvidia-h100-80gb` .
-  - ACC\_COUNT : The number of GPUs that each replica can use. Must be at least 1 and no more than the total number of GPUs in the machine.
+- ` ENDPOINT_ID ` : The ID for the endpoint.
+- ` LOCATION_ID ` : The region where you are using Agent Platform.
+- ` MODEL_ID ` : The model ID for the model to be deployed.
+- ` DEPLOYED_MODEL_NAME ` : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
+- ` MIN_REPLICA_COUNT ` : The minimum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to the maximum number of nodes and never fewer than this number of nodes.
+- ` MAX_REPLICA_COUNT ` : The maximum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to this number of nodes and never fewer than the minimum number of nodes. . One VM is required for every 2 replicas to be deployed.
+- ` MACHINE_TYPE ` : The type of VM to use for this deployment. Must be from the accelerator-optimized family.
+- ` ACC_TYPE ` : The GPU accelerator type. Should correspond to the ` MACHINE_TYPE ` . For `a3-highgpu-8g` , use `nvidia-h100-80gb` .
+- ` ACC_COUNT ` : The number of GPUs that each replica can use. Must be at least 1 and no more than the total number of GPUs in the machine.
 
 ### REST
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_NUMBER : The project number.
-  - LOCATION\_ID : The region where you are using Agent Platform.
-  - MODEL\_ID : The ID for the model to be deployed.
-  - DEPLOYED\_MODEL\_NAME : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
-  - MACHINE\_TYPE : Optional. The machine resources used for each node of this deployment. Its default setting is `n1-standard-2` . [Learn more about machine types.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute)
-  - ACC\_TYPE : The GPU accelerator type. Should correspond to the \`GPU\_PARTITION\_SIZE\`.
-  - GPU\_PARTITION\_SIZE : The GPU partition size. For example, "1g.10gb".
-  - ACC\_COUNT : The number of GPUs that each replica can use. Must be at least 1 and no more than the total number of GPUs in the machine.
-  - MIN\_REPLICA\_COUNT : The minimum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to the maximum number of nodes and never fewer than this number of nodes.
-  - MAX\_REPLICA\_COUNT : The maximum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to this number of nodes and never fewer than the minimum number of nodes.
+- ` PROJECT_NUMBER ` : The project number.
+- ` LOCATION_ID ` : The region where you are using Agent Platform.
+- ` MODEL_ID ` : The ID for the model to be deployed.
+- ` DEPLOYED_MODEL_NAME ` : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
+- ` MACHINE_TYPE ` : Optional. The machine resources used for each node of this deployment. Its default setting is `n1-standard-2` . [Learn more about machine types.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute)
+- ` ACC_TYPE ` : The GPU accelerator type. Should correspond to the \`GPU_PARTITION_SIZE\`.
+- ` GPU_PARTITION_SIZE ` : The GPU partition size. For example, "1g.10gb".
+- ` ACC_COUNT ` : The number of GPUs that each replica can use. Must be at least 1 and no more than the total number of GPUs in the machine.
+- ` MIN_REPLICA_COUNT ` : The minimum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to the maximum number of nodes and never fewer than this number of nodes.
+- ` MAX_REPLICA_COUNT ` : The maximum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to this number of nodes and never fewer than the minimum number of nodes.
 
 HTTP method and URL:
 
-    POST https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:deployModel
+```
+POST https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:deployModel
+```
 
 Request JSON body:
 
-    {
-      "deployedModel": {
-        "model": "projects/PROJECT_NUMBER/locations/LOCATION_ID/models/MODEL_ID",
-        "displayName": "DEPLOYED_MODEL_NAME",
-        "dedicatedResources": {
-          "machineSpec": {
-            "machineType": "MACHINE_TYPE",
-            "acceleratorType": "ACC_TYPE",
-            "gpuPartitionSize": "GPU_PARTITION_SIZE",
-            "acceleratorCount": "ACC_COUNT""
-          },
-          "minReplicaCount": MIN_REPLICA_COUNT,
-          "maxReplicaCount": MAX_REPLICA_COUNT,
-          "autoscalingMetricSpecs": [
-            {
-              "metricName": "aiplatform.googleapis.com/prediction/online/accelerator/duty_cycle",
-              "target": 70
-            }
-          ]
+```
+{
+  "deployedModel": {
+    "model": "projects/PROJECT_NUMBER/locations/LOCATION_ID/models/MODEL_ID",
+    "displayName": "DEPLOYED_MODEL_NAME",
+    "dedicatedResources": {
+      "machineSpec": {
+        "machineType": "MACHINE_TYPE",
+        "acceleratorType": "ACC_TYPE",
+        "gpuPartitionSize": "GPU_PARTITION_SIZE",
+        "acceleratorCount": "ACC_COUNT""
+      },
+      "minReplicaCount": MIN_REPLICA_COUNT,
+      "maxReplicaCount": MAX_REPLICA_COUNT,
+      "autoscalingMetricSpecs": [
+        {
+          "metricName": "aiplatform.googleapis.com/prediction/online/accelerator/duty_cycle",
+          "target": 70
         }
-      }
+      ]
     }
+  }
+}
+```
 
 To send your request, expand one of these options:
 
@@ -610,23 +471,27 @@ To send your request, expand one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:deployModel"
+```
+curl -X POST \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:deployModel"
+```
 
 #### PowerShell (Windows)
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $headers = @{  }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:deployModel" | Select-Object -Expand Content
+```
+$headers = @{  }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION_ID/endpoints/ENDPOINT_ID:deployModel" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx) and an empty response.
 
@@ -636,33 +501,37 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 Use the following Python command to deploy coscheduled model replicas on a VM.
 
-    endpoint.deploy(
-        model=<var>MODEL</var>,
-        machine_type=MACHINE_TYPE,
-        min_replica_count=MIN_REPLICA_COUNT,
-        max_replica_count=MAX_REPLICA_COUNT,
-        accelerator_type=ACC_TYPE,
-        gpu_partition_size=GPU_PARTITION_SIZE,
-        accelerator_count=ACC_COUNT
-    )
+```
+endpoint.deploy(
+    model=<var>MODEL</var>,
+    machine_type=MACHINE_TYPE,
+    min_replica_count=MIN_REPLICA_COUNT,
+    max_replica_count=MAX_REPLICA_COUNT,
+    accelerator_type=ACC_TYPE,
+    gpu_partition_size=GPU_PARTITION_SIZE,
+    accelerator_count=ACC_COUNT
+)
+```
 
 Replace the following:
 
-  - MODEL : The model object returned by the [following API call](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api#aiplatform_deploy_model_custom_trained_model_sample-python_vertex_ai_sdk) :
-    
-        model = aiplatform.Model(model_name=model_name)
+- ` MODEL ` : The model object returned by the [following API call](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api#aiplatform_deploy_model_custom_trained_model_sample-python_vertex_ai_sdk) :
 
-  - MACHINE\_TYPE : The type of VM to use for this deployment. Must be from the accelerator-optimized family. In the preview, only `a3-highgpu-8g` is supported.
+  ```
+  model = aiplatform.Model(model_name=model_name)
+  ```
 
-  - MIN\_REPLICA\_COUNT : The minimum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to the maximum number of nodes and never fewer than this number of nodes.
+- ` MACHINE_TYPE ` : The type of VM to use for this deployment. Must be from the accelerator-optimized family. In the preview, only `a3-highgpu-8g` is supported.
 
-  - MAX\_REPLICA\_COUNT : The maximum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to this number of nodes and never fewer than the minimum number of nodes.
+- ` MIN_REPLICA_COUNT ` : The minimum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to the maximum number of nodes and never fewer than this number of nodes.
 
-  - ACC\_TYPE : The GPU accelerator type. Should correspond to the GPU\_PARTITION\_SIZE .
+- ` MAX_REPLICA_COUNT ` : The maximum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to this number of nodes and never fewer than the minimum number of nodes.
 
-  - GPU\_PARTITION\_SIZE : The GPU partition size. For example, `"1g.10gb"` . For a comprehensive list of supported partition sizes for each GPU type, see [Multi-instance GPU partitions](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gpus-multi#multi-instance_gpu_partitions) .
+- ` ACC_TYPE ` : The GPU accelerator type. Should correspond to the ` GPU_PARTITION_SIZE ` .
 
-  - ACC\_COUNT : The number of GPUs that each replica can use. Must be at least 1 and no more than the total number of GPUs in the machine. For `a3-highgpu-8g` , specify between 1 and 8.
+- ` GPU_PARTITION_SIZE ` : The GPU partition size. For example, `"1g.10gb"` . For a comprehensive list of supported partition sizes for each GPU type, see [Multi-instance GPU partitions](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gpus-multi#multi-instance_gpu_partitions) .
+
+- ` ACC_COUNT ` : The number of GPUs that each replica can use. Must be at least 1 and no more than the total number of GPUs in the machine. For `a3-highgpu-8g` , specify between 1 and 8.
 
 ### Monitor VM usage
 
@@ -690,7 +559,7 @@ Because more than one replica is being coscheduled on the same VM, Vertex AI Inf
 
 ## What's next
 
-  - [Deploy an AutoML tabular model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console)
-  - [Deploy a custom-trained model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/serving#create-endpoint)
-  - [Deploy a custom-trained model using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api)
-  - [Get batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions)
+- [Deploy an AutoML tabular model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console)
+- [Deploy a custom-trained model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/serving#create-endpoint)
+- [Deploy a custom-trained model using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api)
+- [Get batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions)

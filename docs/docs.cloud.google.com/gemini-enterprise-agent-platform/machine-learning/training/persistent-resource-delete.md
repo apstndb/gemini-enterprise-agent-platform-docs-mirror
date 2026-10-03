@@ -36,9 +36,9 @@ To delete a persistent resource in the Google Cloud console, do the following:
 
 Before using any of the command data below, make the following replacements:
 
-  - PROJECT\_ID : The Project ID of the persistent resource that you want to delete.
-  - LOCATION : The region of the persistent resource that you want to delete.
-  - PERSISTENT\_RESOURCE\_ID : The ID of the persistent resource that you want to delete.
+- ` PROJECT_ID ` : The Project ID of the persistent resource that you want to delete.
+- ` LOCATION ` : The region of the persistent resource that you want to delete.
+- ` PERSISTENT_RESOURCE_ID ` : The ID of the persistent resource that you want to delete.
 
 Execute the following command:
 
@@ -46,34 +46,42 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai persistent-resources delete PERSISTENT_RESOURCE_ID \
-        --project=PROJECT_ID \
-        --region=LOCATION
+```
+gcloud ai persistent-resources delete PERSISTENT_RESOURCE_ID \
+    --project=PROJECT_ID \
+    --region=LOCATION
+```
 
 #### Windows (PowerShell)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai persistent-resources delete PERSISTENT_RESOURCE_ID `
-        --project=PROJECT_ID `
-        --region=LOCATION
+```
+gcloud ai persistent-resources delete PERSISTENT_RESOURCE_ID `
+    --project=PROJECT_ID `
+    --region=LOCATION
+```
 
 #### Windows (cmd.exe)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai persistent-resources delete PERSISTENT_RESOURCE_ID ^
-        --project=PROJECT_ID ^
-        --region=LOCATION
+```
+gcloud ai persistent-resources delete PERSISTENT_RESOURCE_ID ^
+    --project=PROJECT_ID ^
+    --region=LOCATION
+```
 
 You should receive a response similar to the following:
 
-    Using endpoint [https://us-central1-aiplatform.googleapis.com/]
-    Request to delete the PersistentResource [projects/sample-project/locations/us-central1/persistentResources/test-persistent-resource] has been sent.
-    
-    You may view the status of your persistent resource with the command
-    
-      $ gcloud ai persistent-resources describe projects/sample-project/locations/us-central1/persistentResources/test-persistent-resource
+```
+Using endpoint [https://us-central1-aiplatform.googleapis.com/]
+Request to delete the PersistentResource [projects/sample-project/locations/us-central1/persistentResources/test-persistent-resource] has been sent.
+
+You may view the status of your persistent resource with the command
+
+  $ gcloud ai persistent-resources describe projects/sample-project/locations/us-central1/persistentResources/test-persistent-resource
+```
 
 ### Python
 
@@ -81,26 +89,30 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    from google.cloud.aiplatform.preview import persistent_resource
-    
-    resource_to_delete = persistent_resource.PersistentResource(
-        PERSISTENT_RESOURCE_ID
-    )
-    
-    # Delete the persistent resource.
-    resource_to_delete.delete(sync=True)
+```
+from google.cloud.aiplatform.preview import persistent_resource
+
+resource_to_delete = persistent_resource.PersistentResource(
+    PERSISTENT_RESOURCE_ID
+)
+
+# Delete the persistent resource.
+resource_to_delete.delete(sync=True)
+```
 
 ### REST
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : The Project ID of the persistent resource that you want to delete.
-  - LOCATION : The region of the persistent resource that you want to delete.
-  - PERSISTENT\_RESOURCE\_ID : The ID of the persistent resource that you want to delete.
+- ` PROJECT_ID ` : The Project ID of the persistent resource that you want to delete.
+- ` LOCATION ` : The region of the persistent resource that you want to delete.
+- ` PERSISTENT_RESOURCE_ID ` : The ID of the persistent resource that you want to delete.
 
 HTTP method and URL:
 
-    DELETE https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/persistentResources/PERSISTENT_RESOURCE_ID
+```
+DELETE https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/persistentResources/PERSISTENT_RESOURCE_ID
+```
 
 To send your request, expand one of these options:
 
@@ -110,9 +122,11 @@ To send your request, expand one of these options:
 
 Execute the following command:
 
-    curl -X DELETE \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/persistentResources/PERSISTENT_RESOURCE_ID"
+```
+curl -X DELETE \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/persistentResources/PERSISTENT_RESOURCE_ID"
+```
 
 #### PowerShell (Windows)
 
@@ -120,35 +134,39 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method DELETE `
-        -Headers $headers `
-        -Uri "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/persistentResources/PERSISTENT_RESOURCE_ID" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method DELETE `
+    -Headers $headers `
+    -Uri "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/persistentResources/PERSISTENT_RESOURCE_ID" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/123456789012/locations/us-central1/operations/1234567890123456789",
-      "metadata": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.DeleteOperationMetadata",
-        "genericMetadata": {
-          "createTime": "2023-07-28T17:22:08.316883Z",
-          "updateTime": "2023-07-28T17:22:08.316883Z"
-        }
-      },
-      "done": true,
-      "response": {
-        "@type": "type.googleapis.com/google.protobuf.Empty"
-      }
+```
+{
+  "name": "projects/123456789012/locations/us-central1/operations/1234567890123456789",
+  "metadata": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1.DeleteOperationMetadata",
+    "genericMetadata": {
+      "createTime": "2023-07-28T17:22:08.316883Z",
+      "updateTime": "2023-07-28T17:22:08.316883Z"
     }
+  },
+  "done": true,
+  "response": {
+    "@type": "type.googleapis.com/google.protobuf.Empty"
+  }
+}
+```
 
 ## What's next
 
-  - [Learn about persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-overview) .
-  - [Run training jobs on a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-train) .
-  - [Create and use a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-create) .
-  - [Get information about a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-get) .
-  - [Reboot a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-reboot) .
+- [Learn about persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-overview) .
+- [Run training jobs on a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-train) .
+- [Create and use a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-create) .
+- [Get information about a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-get) .
+- [Reboot a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-reboot) .

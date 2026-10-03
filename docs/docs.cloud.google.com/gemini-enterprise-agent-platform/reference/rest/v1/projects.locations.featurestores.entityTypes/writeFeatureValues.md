@@ -30,7 +30,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`payloads[]` ` object ( WriteFeatureValuesPayload  ` )
+`payloads[]` `object ( `[`WriteFeatureValuesPayload`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/writeFeatureValues#WriteFeatureValuesPayload)` )`
 
 Required. The entities to be written. Up to 100,000 feature values can be written across all `payloads` .
 
@@ -48,22 +48,20 @@ Fields
 
 Required. The id of the entity.
 
-`featureValues` ` map (key: string, value: object ( FeatureValue  ` ))
+`featureValues` `map (key: string, value: object ( `[`FeatureValue`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/FeatureValue)` ))`
 
 Required. feature values to be written, mapping from feature id to value. Up to 100,000 `featureValues` entries may be written across all payloads. The feature generation time, aligned by days, must be no older than five years (1825 days) and no later than one year (366 days) in the future.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;entityId&quot;: string,&quot;featureValues&quot;: {string: {object (FeatureValue)},...}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "entityId": string,
+  "featureValues": {
+    string: {
+      object (FeatureValue)
+    },
+    ...
+  }
+}
+```

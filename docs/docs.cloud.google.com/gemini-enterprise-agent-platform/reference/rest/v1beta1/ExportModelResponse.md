@@ -8,4 +8,4 @@ data_source: docs.cloud.google.com
 
 This type has no fields.
 
-Response message of `  ModelService.ExportModel  ` operation.
+Response message of [`ModelService.ExportModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/export#google.cloud.aiplatform.v1beta1.ModelService.ExportModel) operation.

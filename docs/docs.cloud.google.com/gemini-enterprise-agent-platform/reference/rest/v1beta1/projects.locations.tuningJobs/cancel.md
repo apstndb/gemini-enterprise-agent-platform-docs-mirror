@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 Cancels a tuning job.
 
-Starts an asynchronous cancellation request. The server makes a best effort to cancel the job, but success is not guaranteed. Clients can use `  GenAiTuningService.GetTuningJob  ` or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On successful cancellation, the tuning job is not deleted. Instead, its state is set to `CANCELLED` , and `error` is set to a status with a `google.rpc.Status.code` of 1, corresponding to `code.CANCELLED` .
+Starts an asynchronous cancellation request. The server makes a best effort to cancel the job, but success is not guaranteed. Clients can use [`GenAiTuningService.GetTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/get#google.cloud.aiplatform.v1beta1.GenAiTuningService.GetTuningJob) or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On successful cancellation, the tuning job is not deleted. Instead, its state is set to `CANCELLED` , and `error` is set to a status with a `google.rpc.Status.code` of 1, corresponding to `code.CANCELLED` .
 
 ### Endpoint
 

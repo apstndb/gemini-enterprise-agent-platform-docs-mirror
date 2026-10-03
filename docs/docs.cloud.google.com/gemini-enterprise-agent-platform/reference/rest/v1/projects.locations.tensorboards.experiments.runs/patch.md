@@ -26,7 +26,7 @@ Output only. name of the TensorboardRun. Format: `projects/{project}/locations/{
 
 ### Query parameters
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Required. Field mask is used to specify the fields to be overwritten in the TensorboardRun resource by the update. The fields specified in the updateMask are relative to the resource, not the full request. A field is overwritten if it's in the mask. If the user does not provide a mask then all fields are overwritten if new values are specified.
 
@@ -34,8 +34,8 @@ This is a comma-separated list of fully qualified names of fields. Example: `"us
 
 ### Request body
 
-The request body contains an instance of `  TensorboardRun  ` .
+The request body contains an instance of [`TensorboardRun`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs#TensorboardRun) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  TensorboardRun  ` .
+If successful, the response body contains an instance of [`TensorboardRun`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs#TensorboardRun) .

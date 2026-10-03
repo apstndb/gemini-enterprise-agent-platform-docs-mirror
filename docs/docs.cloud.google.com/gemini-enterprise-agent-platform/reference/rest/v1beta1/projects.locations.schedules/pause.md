@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.schedules.pause
 
-Pauses a Schedule. Will mark `  Schedule.state  ` to 'PAUSED'. If the schedule is paused, no new runs will be created. Already created runs will NOT be paused or canceled.
+Pauses a Schedule. Will mark [`Schedule.state`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.schedules#Schedule.FIELDS.state) to 'PAUSED'. If the schedule is paused, no new runs will be created. Already created runs will NOT be paused or canceled.
 
 ### Endpoint
 

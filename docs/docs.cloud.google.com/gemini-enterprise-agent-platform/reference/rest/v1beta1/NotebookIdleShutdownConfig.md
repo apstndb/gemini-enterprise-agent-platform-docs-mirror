@@ -10,7 +10,7 @@ The idle shutdown configuration of NotebookRuntimeTemplate, which contains the i
 
 Fields
 
-`idleTimeout` ` string ( Duration  ` format)
+`idleTimeout` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 Required. Duration is accurate to the second. In Notebook, Idle Timeout is accurate to minute so the range of idleTimeout (second) is: 10 \* 60 \~ 1440 \* 60.
 
@@ -20,21 +20,11 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
 
 Whether Idle Shutdown is disabled in this NotebookRuntimeTemplate.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;idleTimeout&quot;: string,
-  &quot;idleShutdownDisabled&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "idleTimeout": string,
+  "idleShutdownDisabled": boolean
+}
+```

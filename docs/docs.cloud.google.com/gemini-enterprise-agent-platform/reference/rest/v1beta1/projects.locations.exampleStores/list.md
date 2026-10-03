@@ -42,32 +42,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  ExampleStoreService.ListExampleStores  ` .
+Response message for [`ExampleStoreService.ListExampleStores`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/list#google.cloud.aiplatform.v1beta1.ExampleStoreService.ListExampleStores) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`exampleStores[]` ` object ( ExampleStore  ` )
+`exampleStores[]` `object ( `[`ExampleStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores#ExampleStore)` )`
 
 List of ExampleStore in the requested page.
 
 `nextPageToken` `string`
 
-A token to retrieve the next page of results. Pass to `  ListExampleStoresRequest.page_token  ` to obtain that page.
+A token to retrieve the next page of results. Pass to [`ListExampleStoresRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/list#body.QUERY_PARAMETERS.page_token) to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;exampleStores&quot;: [{object (ExampleStore)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "exampleStores": [
+    {
+      object (ExampleStore)
+    }
+  ],
+  "nextPageToken": string
+}
+```

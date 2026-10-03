@@ -20,15 +20,15 @@ You can create managed datasets for training AutoML models by using the Google C
 
 Learn how to create a managed dataset for the following types of image AutoML models:
 
-  - [Image classification models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/prepare-data)
-  - [Image object detection models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/prepare-data)
+- [Image classification models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/prepare-data)
+- [Image object detection models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/prepare-data)
 
 ### Tabular
 
 Learn how to create a managed dataset for the following types of tabular AutoML models:
 
-  - [Tabular classification and regression models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data)
-  - [Tabular forecasting models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data)
+- [Tabular classification and regression models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data)
+- [Tabular forecasting models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data)
 
 ## Create a managed dataset for custom trained models
 

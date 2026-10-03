@@ -12,9 +12,9 @@ In Shared VPC architectures, the host project's network is shared with the servi
 
 The following attributes are used in the service policy:
 
-  - VPC Service Controls perimeters
-  - Access Context Manager private IP addresses
-  - Ingress and egress rules
+- VPC Service Controls perimeters
+- Access Context Manager private IP addresses
+- Ingress and egress rules
 
 In the networking component, this architecture uses a [Private Service Connect endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/googleapi-access-methods#psc) to access Google APIs.
 
@@ -23,7 +23,7 @@ In the networking component, this architecture uses a [Private Service Connect e
 In this reference architecture, ingress and egress rules and private IP addresses are used to control access between Compute Engine instances and the Agent Platform API for the following service perimeters and projects:
 
 | Perimeter                  | Projects inside perimeter                     |
-| -------------------------- | --------------------------------------------- |
+|----------------------------|-----------------------------------------------|
 | `aiml-host-perimeter`      | `aiml-host-project`                           |
 | `high-trust-svc-perimeter` | `ph-fm-svc-project-1`                         |
 | `low-trust-svc-perimeter`  | `ph-fm-svc-project-2` , `ph-fm-svc-project-3` |
@@ -40,10 +40,10 @@ Access Context Manager allows Google Cloud organization administrators to define
 
 Access levels describe the requirements for requests to be honored. Examples include:
 
-  - Device type and operating system (requires a Chrome Enterprise Premium license)
-  - IP address
-  - Geolocations
-  - User identity
+- Device type and operating system (requires a Chrome Enterprise Premium license)
+- IP address
+- Geolocations
+- User identity
 
 If this is the organization's first time using Access Context Manager, its administrators must define an [access policy](https://docs.cloud.google.com/access-context-manager/docs/overview#access-policies) , which is a container for [access levels](https://docs.cloud.google.com/access-context-manager/docs/overview#access-levels) and service perimeters. This is done as follows:
 
@@ -59,8 +59,8 @@ If this is the organization's first time using Access Context Manager, its admin
 
 When you [create a service perimeter](https://docs.cloud.google.com/vpc-service-controls/docs/create-service-perimeters) , one way that you can allow access to protected services from outside the perimeter is by creating access levels (using IP addresses, in our example). In this reference architecture, multiple services perimeters are created that use ingress and egress rules to control access to Agent Platform API and Compute Engine API communication as follows:
 
-  - The subnet for compute resources belonging to service project `ph-fm-svc-project-1` is allowed access to the Agent Platform API and Compute Engine API in `ph-fm-svc-project-1` from the `aiml-host-project` .
-  - The subnet for compute resources belonging to service projects `ph-fm-svc-project-2` and `ph-fm-svc-project-3` are allowed access to the Agent Platform API and Compute Engine API in project `ph-fm-svc-project-2` and project `ph-fm-svc-project-3` from the `aiml-host-project` .
+- The subnet for compute resources belonging to service project `ph-fm-svc-project-1` is allowed access to the Agent Platform API and Compute Engine API in `ph-fm-svc-project-1` from the `aiml-host-project` .
+- The subnet for compute resources belonging to service projects `ph-fm-svc-project-2` and `ph-fm-svc-project-3` are allowed access to the Agent Platform API and Compute Engine API in project `ph-fm-svc-project-2` and project `ph-fm-svc-project-3` from the `aiml-host-project` .
 
 Each service project is allowed access to the Compute Engine API in the host project (because bidirectional flows occur between the host project and service projects when compute resources are created in a given service project).
 
@@ -114,7 +114,7 @@ In this section, you create a VPC Service Controls ( `aiml-host-perimeter` ) ser
 4.  Click **New perimeter** .
 
 5.  On the **New VPC Service Perimeter** tab, in the **Perimeter Name** box, type a name for the perimeter, for example, `aiml-host-perimeter` .
-    
+
     A perimeter name can have a maximum length of 50 characters, must start with a letter, and can contain only ASCII Latin letters ( `a-z` , `A-Z` ), numbers ( `0-9` ), and underscores ( `_` ). The perimeter name is case-sensitive and must be unique within an access policy.
 
 6.  Accept the default settings for the perimeter.
@@ -152,7 +152,7 @@ If you created a corporate CIDR access level in an earlier section, do the follo
 1.  Click **Access Levels** .
 
 2.  Click the **Choose Access Level** box.
-    
+
     You can also [add access levels](https://docs.cloud.google.com/vpc-service-controls/docs/manage-service-perimeters#add-access-level) after a perimeter has been created.
 
 3.  Select the checkbox corresponding to the access level. (In this reference architecture, this is `corp-public-block` .)
@@ -226,7 +226,7 @@ Once you have completed the preceding configuration steps, create the perimeter 
 4.  Click **New perimeter** .
 
 5.  On the **New VPC Service Perimeter** tab, in the **Perimeter Name** box, type a name for the perimeter, for example, `high-trust-svc-perimeter` .
-    
+
     A perimeter name can have a maximum length of 50 characters, must start with a letter, and can contain only ASCII Latin letters ( `a-z` , `A-Z` ), numbers ( `0-9` ), and underscores ( `_` ). The perimeter name is case-sensitive and must be unique within an access policy.
 
 6.  Accept the default settings for the perimeter.
@@ -267,7 +267,7 @@ If you created a corporate CIDR access level in an earlier section, do the follo
 1.  Click **Access Levels** .
 
 2.  Click the **Choose Access Level** box.
-    
+
     You can also [add access levels](https://docs.cloud.google.com/vpc-service-controls/docs/manage-service-perimeters#add-access-level) after a perimeter has been created.
 
 3.  Select the checkbox corresponding to the access level. (In this reference architecture, this is `corp-public-block` .)
@@ -320,7 +320,7 @@ Once you have completed the preceding configuration steps, create the perimeter 
 4.  Click **New perimeter** .
 
 5.  On the **New VPC Service Perimeter** tab, in the **Perimeter Name** box, type a name for the perimeter, for example, `low-trust-svc-perimeter` .
-    
+
     A perimeter name can have a maximum length of 50 characters, must start with a letter, and can contain only ASCII Latin letters ( `a-z` , `A-Z` ), numbers ( `0-9` ), and underscores ( `_` ). The perimeter name is case-sensitive and must be unique within an access policy.
 
 6.  Accept the default settings for the perimeter.
@@ -332,8 +332,8 @@ Once you have completed the preceding configuration steps, create the perimeter 
     1.  Click **Add Resources** .
     2.  To add projects to the perimeter, in the **Add resources** pane, click **Add project** .
         1.  Select the project you want to add. For this reference architecture, choose the following:
-              - `ph-fm-svc-project-2`
-              - `ph-fm-svc-project-3`
+            - `ph-fm-svc-project-2`
+            - `ph-fm-svc-project-3`
         2.  Click **Add selected resources** . The added projects appear in the **Projects** section.
 
 ### Select the restricted services
@@ -363,7 +363,7 @@ If you created a corporate CIDR access level in an earlier section, do the follo
 1.  Click **Access Levels** .
 
 2.  Click the **Choose Access Level** box.
-    
+
     You can also [add access levels](https://docs.cloud.google.com/vpc-service-controls/docs/manage-service-perimeters#add-access-level) after a perimeter has been created.
 
 3.  Select the checkbox corresponding to the access level. (In this reference architecture, this is `corp-public-block` .)
@@ -411,74 +411,80 @@ Private Service Connect to access Google APIs is an alternative to using Private
 
 Using Private Service Connect lets you do the following:
 
-  - Create one or more internal IP addresses to access Google APIs for different use cases.
-  - Direct your on-premises traffic to specific IP addresses and regions when accessing Google APIs.
-  - Create a custom endpoint DNS name to be used to resolve Google APIs.
+- Create one or more internal IP addresses to access Google APIs for different use cases.
+- Direct your on-premises traffic to specific IP addresses and regions when accessing Google APIs.
+- Create a custom endpoint DNS name to be used to resolve Google APIs.
 
 In the reference architecture, a Private Service Connect Google API endpoint named `restricted` with IP address `192.168.10.2` is deployed with the target VPC Service Controls, used as a Virtual IP (VIP) to access restricted services configured in the VPC Service Controls perimeter. The Private Service Connect endpoint is deployed in the host project, `aiml-host-project` .
 
 ### Access Gemini Pro from Compute Engine instances
 
-When you create a Private Service Connect endpoint, Service Directory creates DNS records in a [`p.googleapis.com` private zone](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis#configure-p-dns) . The records point to the endpoint IP address, and use the format `  SERVICE-ENDPOINT .p.googleapis.com ` that equates to the fully qualified domain name that's used to access the Agent Platform API: `  LOCATION -aiplatform-restricted.p.googleapis.com ` .
+When you create a Private Service Connect endpoint, Service Directory creates DNS records in a [`p.googleapis.com` private zone](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis#configure-p-dns) . The records point to the endpoint IP address, and use the format `SERVICE-ENDPOINT `` .p.googleapis.com` that equates to the fully qualified domain name that's used to access the Agent Platform API: `LOCATION `` -aiplatform-restricted.p.googleapis.com` .
 
 ### Validate the network configuration
 
 From the Compute Engine instances deployed in the service projects, the following procedure is used to update the Agent Platform API to use the custom fully qualified domain name and perform validation.
 
 1.  Initialize your Python environment variables as follows:
-    
-        PROJECT_ID="ph-fm-svc-project-1"
-        LOCATION_ID="us-central1"
-        API_ENDPOINT="us-central1-aiplatform-restricted.p.googleapis.com"
-        MODEL_ID="gemini-2.0-flash-exp"
-        GENERATE_CONTENT_API="streamGenerateContent"
+
+    ```
+    PROJECT_ID="ph-fm-svc-project-1"
+    LOCATION_ID="us-central1"
+    API_ENDPOINT="us-central1-aiplatform-restricted.p.googleapis.com"
+    MODEL_ID="gemini-2.0-flash-exp"
+    GENERATE_CONTENT_API="streamGenerateContent"
+    ```
 
 2.  Using a text editor, create a `request.json` file containing the following JSON:
-    
+
+    ```
+    {
+      "contents": [
         {
-          "contents": [
+          "role": "user",
+          "parts": [
             {
-              "role": "user",
-              "parts": [
-                {
-                  "text": "what weight more 1kg feathers vs 1kg stones"
-                }
-              ]
-            }
-          ],
-          "generationConfig": {
-            "temperature": 1,
-            "maxOutputTokens": 8192,
-            "topP": 0.95,
-            "seed": 0
-          },
-          "safetySettings": [
-            {
-              "category": "HARM_CATEGORY_HATE_SPEECH",
-              "threshold": "OFF"
-            },
-            {
-              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-              "threshold": "OFF"
-            },
-            {
-              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-              "threshold": "OFF"
-            },
-            {
-              "category": "HARM_CATEGORY_HARASSMENT",
-              "threshold": "OFF"
+              "text": "what weight more 1kg feathers vs 1kg stones"
             }
           ]
         }
+      ],
+      "generationConfig": {
+        "temperature": 1,
+        "maxOutputTokens": 8192,
+        "topP": 0.95,
+        "seed": 0
+      },
+      "safetySettings": [
+        {
+          "category": "HARM_CATEGORY_HATE_SPEECH",
+          "threshold": "OFF"
+        },
+        {
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "threshold": "OFF"
+        },
+        {
+          "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+          "threshold": "OFF"
+        },
+        {
+          "category": "HARM_CATEGORY_HARASSMENT",
+          "threshold": "OFF"
+        }
+      ]
+    }
+    ```
 
 3.  Make the following cURL request to the Gemini Enterprise Agent Platform Gemini API:
-    
-        curl \
-        -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        "https://${API_ENDPOINT}/v1/projects/${PROJECT_ID}/locations/${LOCATION_ID}/publishers/google/models/${MODEL_ID}:${GENERATE_CONTENT_API}" -d '@request.json'
+
+    ```
+    curl \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+    "https://${API_ENDPOINT}/v1/projects/${PROJECT_ID}/locations/${LOCATION_ID}/publishers/google/models/${MODEL_ID}:${GENERATE_CONTENT_API}" -d '@request.json'
+    ```
 
 ### Validate your perimeter in dry run mode
 

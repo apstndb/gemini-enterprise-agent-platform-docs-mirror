@@ -14,9 +14,9 @@ These examples are intended to be used generally. Consider the team's specific n
 
 Agent Platform uses IAM to manage access to resources. When you plan access control for your resources, consider the following:
 
-  - You can manage access at the project level or resource level. Project-level access applies to all of the resources in that project. Access to a specific resource only applies to that resource.
+- You can manage access at the project level or resource level. Project-level access applies to all of the resources in that project. Access to a specific resource only applies to that resource.
 
-  - You grant access by assigning IAM roles to principals. Predefined roles are available to make it easier to set up access, but custom roles are recommended because you create them, so you can limit their access to only the permissions that are required.
+- You grant access by assigning IAM roles to principals. Predefined roles are available to make it easier to set up access, but custom roles are recommended because you create them, so you can limit their access to only the permissions that are required.
 
 To learn more about access control, see [Agent Platform access control with IAM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) .
 
@@ -69,9 +69,9 @@ In this example, the team's data is located in a project separate from Agent Pla
 
 You might set up a project this way if:
 
-  - The team's data is too difficult to move to the same project as your Agent Platform resources.
+- The team's data is too difficult to move to the same project as your Agent Platform resources.
 
-  - The team's data requires specific control over who can access it.
+- The team's data requires specific control over who can access it.
 
 In these situations, we recommend creating a project for the data and a project for Agent Platform resources. The team's developers share the project that contains the Agent Platform resources. They use the Agent Platform resources to access and process the data stored in the other project. Data administrators grant the Agent Platform resources access through service agents or custom service accounts.
 
@@ -122,6 +122,6 @@ Models, prediction containers, and training containers are code. It's important 
 
 ## What's next
 
-  - To learn more about endpoint access control, see [Control access to Agent Platform endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/endpoint-access-control) .
+- To learn more about endpoint access control, see [Control access to Agent Platform endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/endpoint-access-control) .
 
-  - To learn more about using a custom service account to control access to specific resources, see [Use a custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .
+- To learn more about using a custom service account to control access to specific resources, see [Use a custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .

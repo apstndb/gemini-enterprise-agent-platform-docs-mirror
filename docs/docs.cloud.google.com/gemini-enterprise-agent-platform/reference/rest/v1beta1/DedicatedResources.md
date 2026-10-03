@@ -10,7 +10,7 @@ A description of resources that are dedicated to a DeployedModel or DeployedInde
 
 Fields
 
-`machineSpec` `object ( MachineSpec` )
+`machineSpec` `object ( ``MachineSpec`` )`
 
 Required. Immutable. The specification of a single machine being used.
 
@@ -22,7 +22,7 @@ If traffic increases, it may dynamically be deployed onto more replicas, and as 
 
 `maxReplicaCount` `integer`
 
-Immutable. The maximum number of replicas that may be deployed on when the traffic against it increases. If the requested value is too large, the deployment will error, but if deployment succeeds then the ability to scale to that many replicas is guaranteed (barring service outages). If traffic increases beyond what its replicas at maximum may handle, a portion of the traffic will be dropped. If this value is not provided, will use `  minReplicaCount  ` as the default value.
+Immutable. The maximum number of replicas that may be deployed on when the traffic against it increases. If the requested value is too large, the deployment will error, but if deployment succeeds then the ability to scale to that many replicas is guaranteed (barring service outages). If traffic increases beyond what its replicas at maximum may handle, a portion of the traffic will be dropped. If this value is not provided, will use [`minReplicaCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources#FIELDS.min_replica_count) as the default value.
 
 The value of this field impacts the charge against Agent Platform CPU and GPU quotas. Specifically, you will be charged for (maxReplicaCount \* number of cores in the selected machine type) and (maxReplicaCount \* number of GPUs per replica in the selected machine type).
 
@@ -32,9 +32,9 @@ Optional. Number of required available replicas for the deployment to succeed. T
 
 `initialReplicaCount` `integer`
 
-Immutable. Number of initial replicas being deployed on when scaling the workload up from zero or when creating the workload in case `  minReplicaCount  ` = 0. When `  minReplicaCount  ` \> 0 (meaning that the scale-to-zero feature is not enabled), `  initialReplicaCount  ` should not be set. When `  minReplicaCount  ` = 0 (meaning that the scale-to-zero feature is enabled), `  initialReplicaCount  ` should be larger than zero, but no greater than `  maxReplicaCount  ` .
+Immutable. Number of initial replicas being deployed on when scaling the workload up from zero or when creating the workload in case [`minReplicaCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources#FIELDS.min_replica_count) = 0. When [`minReplicaCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources#FIELDS.min_replica_count) \> 0 (meaning that the scale-to-zero feature is not enabled), [`initialReplicaCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources#FIELDS.initial_replica_count) should not be set. When [`minReplicaCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources#FIELDS.min_replica_count) = 0 (meaning that the scale-to-zero feature is enabled), [`initialReplicaCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources#FIELDS.initial_replica_count) should be larger than zero, but no greater than [`maxReplicaCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources#FIELDS.max_replica_count) .
 
-`autoscalingMetricSpecs[]` ` object ( AutoscalingMetricSpec  ` )
+`autoscalingMetricSpecs[]` `object ( `[`AutoscalingMetricSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources#AutoscalingMetricSpec)` )`
 
 Immutable. The metric specifications that overrides a resource utilization metric (CPU utilization, accelerator's duty cycle, and so on) target value (default to 60 if not set). At most one entry is allowed per metric.
 
@@ -42,35 +42,45 @@ If `machineSpec.accelerator_count` is above 0, the autoscaling will be based on 
 
 If `machineSpec.accelerator_count` is 0, the autoscaling will be based on CPU utilization metric only with default target value 60 if not explicitly set.
 
-For example, in the case of Online Prediction, if you want to override target CPU utilization to 80, you should set `  autoscalingMetricSpecs.metric_name  ` to `aiplatform.googleapis.com/prediction/online/cpu/utilization` and `  autoscalingMetricSpecs.target  ` to `80` .
+For example, in the case of Online Prediction, if you want to override target CPU utilization to 80, you should set [`autoscalingMetricSpecs.metric_name`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources#AutoscalingMetricSpec.FIELDS.metric_name) to `aiplatform.googleapis.com/prediction/online/cpu/utilization` and [`autoscalingMetricSpecs.target`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources#AutoscalingMetricSpec.FIELDS.target) to `80` .
 
 `spot` `boolean`
 
 Optional. If true, schedule the deployment workload on [spot VMs](https://cloud.google.com/kubernetes-engine/docs/concepts/spot-vms) .
 
-`flexStart` ` object ( FlexStart  ` )
+`flexStart` `object ( `[`FlexStart`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FlexStart)` )`
 
 Optional. Immutable. If set, use DWS resource to schedule the deployment workload. reference: ( <https://cloud.google.com/blog/products/compute/introducing-dynamic-workload-scheduler> )
 
-`scaleToZeroSpec` ` object ( ScaleToZeroSpec  ` )
+`scaleToZeroSpec` `object ( `[`ScaleToZeroSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources#ScaleToZeroSpec)` )`
 
 Optional. Specification for scale-to-zero feature.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;machineSpec&quot;: {object (MachineSpec)},&quot;minReplicaCount&quot;: integer,&quot;maxReplicaCount&quot;: integer,&quot;requiredReplicaCount&quot;: integer,&quot;initialReplicaCount&quot;: integer,&quot;autoscalingMetricSpecs&quot;: [{object (AutoscalingMetricSpec)}],&quot;spot&quot;: boolean,&quot;flexStart&quot;: {object (FlexStart)},&quot;scaleToZeroSpec&quot;: {object (ScaleToZeroSpec)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "machineSpec": {
+    object (MachineSpec)
+  },
+  "minReplicaCount": integer,
+  "maxReplicaCount": integer,
+  "requiredReplicaCount": integer,
+  "initialReplicaCount": integer,
+  "autoscalingMetricSpecs": [
+    {
+      object (AutoscalingMetricSpec)
+    }
+  ],
+  "spot": boolean,
+  "flexStart": {
+    object (FlexStart)
+  },
+  "scaleToZeroSpec": {
+    object (ScaleToZeroSpec)
+  }
+}
+```
 
 ## AutoscalingMetricSpec
 
@@ -82,14 +92,14 @@ Fields
 
 Required. The resource metric name. Supported metrics:
 
-  - For Online Prediction:
-  - `aiplatform.googleapis.com/prediction/online/accelerator/duty_cycle`
-  - `aiplatform.googleapis.com/prediction/online/cpu/utilization`
-  - `aiplatform.googleapis.com/prediction/online/request_count`
-  - `pubsub.googleapis.com/subscription/num_undelivered_messages`
-  - `prometheus.googleapis.com/vertex_dcgm_fi_dev_gpu_util`
-  - `prometheus.googleapis.com/vertex_vllm_gpu_cache_usage_perc`
-  - `prometheus.googleapis.com/vertex_vllm_num_requests_waiting`
+- For Online Prediction:
+- `aiplatform.googleapis.com/prediction/online/accelerator/duty_cycle`
+- `aiplatform.googleapis.com/prediction/online/cpu/utilization`
+- `aiplatform.googleapis.com/prediction/online/request_count`
+- `pubsub.googleapis.com/subscription/num_undelivered_messages`
+- `prometheus.googleapis.com/vertex_dcgm_fi_dev_gpu_util`
+- `prometheus.googleapis.com/vertex_vllm_gpu_cache_usage_perc`
+- `prometheus.googleapis.com/vertex_vllm_num_requests_waiting`
 
 `target` `integer`
 
@@ -99,28 +109,18 @@ The target resource utilization in percentage (1% - 100%) for the given metric; 
 
 Optional. The Cloud Monitoring monitored resource labels as key value pairs used for metrics filtering. See Cloud Monitoring Labels <https://cloud.google.com/monitoring/api/v3/metric-model#generic-label-info>
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;metricName&quot;: string,
-  &quot;target&quot;: integer,
-  &quot;monitoredResourceLabels&quot;: {
+**JSON representation**
+
+```
+{
+  "metricName": string,
+  "target": integer,
+  "monitoredResourceLabels": {
     string: string,
     ...
   }
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## ScaleToZeroSpec
 
@@ -128,33 +128,23 @@ Specification for scale-to-zero feature.
 
 Fields
 
-`minScaleupPeriod` ` string ( Duration  ` format)
+`minScaleupPeriod` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 Optional. Minimum duration that a deployment will be scaled up before traffic is evaluated for potential scale-down. \[MinValue=300\] (5 minutes) \[MaxValue=28800\] (8 hours)
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
-`idleScaledownPeriod` ` string ( Duration  ` format)
+`idleScaledownPeriod` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 Optional. Duration of no traffic before scaling to zero. \[MinValue=300\] (5 minutes) \[MaxValue=28800\] (8 hours)
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;minScaleupPeriod&quot;: string,
-  &quot;idleScaledownPeriod&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "minScaleupPeriod": string,
+  "idleScaledownPeriod": string
+}
+```

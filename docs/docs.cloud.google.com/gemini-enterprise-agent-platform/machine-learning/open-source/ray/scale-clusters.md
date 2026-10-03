@@ -18,8 +18,8 @@ Enable a Ray cluster's autoscaling feature by specifying the minimum replica cou
 
 Note the following:
 
-  - Configure the autoscaling specification of all worker pools.
-  - Custom upscaling and downscaling speed is not supported. For default values, see [Upscaling and downscaling speed](https://docs.ray.io/en/latest/cluster/vms/user-guides/configuring-autoscaling.html#upscaling-and-downscaling-speed) in the Ray documentation.
+- Configure the autoscaling specification of all worker pools.
+- Custom upscaling and downscaling speed is not supported. For default values, see [Upscaling and downscaling speed](https://docs.ray.io/en/latest/cluster/vms/user-guides/configuring-autoscaling.html#upscaling-and-downscaling-speed) in the Ray documentation.
 
 ### Set worker pool autoscaling specification
 
@@ -27,33 +27,35 @@ Use the Google Cloud console or Agent Platform SDK for Python to enable a Ray cl
 
 ### Ray on Agent Platform SDK
 
-    from google.cloud import aiplatform
-    import vertex_ray
-    from vertex_ray import AutoscalingSpec
-    
-    autoscaling_spec = AutoscalingSpec(
-     min_replica_count=1,
-     max_replica_count=3,
-    )
-    
-    head_node_type = Resources(
-     machine_type="n1-standard-16",
-     node_count=1,
-    )
-    
-    worker_node_types = [Resources(
-     machine_type="n1-standard-16",
-     accelerator_type="NVIDIA_TESLA_T4",
-     accelerator_count=1,
-     autoscaling_spec=autoscaling_spec,
-    )]
-    
-    # Create the Ray cluster on Gemini Enterprise Agent Platform
-    CLUSTER_RESOURCE_NAME = vertex_ray.create_ray_cluster(
-    head_node_type=head_node_type,
-    worker_node_types=worker_node_types,
-    ...
-    )
+```
+from google.cloud import aiplatform
+import vertex_ray
+from vertex_ray import AutoscalingSpec
+
+autoscaling_spec = AutoscalingSpec(
+ min_replica_count=1,
+ max_replica_count=3,
+)
+
+head_node_type = Resources(
+ machine_type="n1-standard-16",
+ node_count=1,
+)
+
+worker_node_types = [Resources(
+ machine_type="n1-standard-16",
+ accelerator_type="NVIDIA_TESLA_T4",
+ accelerator_count=1,
+ autoscaling_spec=autoscaling_spec,
+)]
+
+# Create the Ray cluster on Gemini Enterprise Agent Platform
+CLUSTER_RESOURCE_NAME = vertex_ray.create_ray_cluster(
+head_node_type=head_node_type,
+worker_node_types=worker_node_types,
+...
+)
+```
 
 ### Console
 
@@ -64,17 +66,17 @@ In accordance with the [OSS Ray best practice](https://docs.ray.io/en/latest/clu
 2.  Click **Create cluster** to open the **Create cluster** panel.
 
 3.  For each step in the **Create cluster** panel, review or replace the default cluster information. Click **Continue** to complete each step:
-    
+
     1.  For **Name and region** , specify a **Name** and choose a location for your cluster.
-    
+
     2.  For **Compute settings** , specify the configuration of the Ray cluster on the head node, including its machine type, accelerator type and count, disk type and size, and replica count. Optionally, add a custom image URI to specify a custom container image to add Python dependencies not provided by the default container image. See [Custom image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#custom-image) .
-        
+
         Under **Advanced options** , you can:
-        
-          - Specify your own encryption key.
-          - Specify a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .
-          - If you don't need to monitor the resource statistics of your workload during training, disable the metrics collection.
-    
+
+        - Specify your own encryption key.
+        - Specify a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .
+        - If you don't need to monitor the resource statistics of your workload during training, disable the metrics collection.
+
     3.  To create a cluster with an autoscaling worker pool, provide a value for the worker pool's maximum replica count. ![Compute settings for autoscaling](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/open-source/images/rov-compute-settings.png)
 
 4.  Click **Create** .
@@ -103,9 +105,9 @@ Network Analyzer has the ability to monitor subnets used for Private Service Acc
 
 The primary way Network Analyzer monitors PSA subnets is by providing IP address utilization insights for the allocated ranges.
 
-  - PSA Range Utilization: Network Analyzer actively tracks the allocation percentage of IP addresses within the dedicated CIDR blocks that you've allocated for PSA. This is important because when you create a managed service (such as Agent Platform), Google creates a service producer VPC and a subnet within it, drawing an IP range from your allocated block.
+- PSA Range Utilization: Network Analyzer actively tracks the allocation percentage of IP addresses within the dedicated CIDR blocks that you've allocated for PSA. This is important because when you create a managed service (such as Agent Platform), Google creates a service producer VPC and a subnet within it, drawing an IP range from your allocated block.
 
-  - Proactive Alerts: If the IP address utilization for a PSA allocated range exceeds a certain threshold (for example, 75%), Network Analyzer generates a warning insight. This proactively alerts you to potential capacity issues, giving you time to expand the allocated IP range before you run out of available addresses for new service resources.
+- Proactive Alerts: If the IP address utilization for a PSA allocated range exceeds a certain threshold (for example, 75%), Network Analyzer generates a warning insight. This proactively alerts you to potential capacity issues, giving you time to expand the allocated IP range before you run out of available addresses for new service resources.
 
 #### Private Service Access subnet updates
 
@@ -121,9 +123,9 @@ It's recommended that you [expand the current subnet range or allocate a range t
 
 If you use private services access (VPC peering) to connect to your nodes, use the following formulas to check that you don't exceed the maximum number of nodes ( `M` ), assuming `f(x) = min(29, (32 - ceiling(log2(x)))` :
 
-  - `f(2 * M) = f(2 * N)`
-  - `f(64 * M) = f(64 * N)`
-  - `f(max(32, 16 + M)) = f(max(32, 16 + N))`
+- `f(2 * M) = f(2 * N)`
+- `f(64 * M) = f(64 * N)`
+- `f(max(32, 16 + M)) = f(max(32, 16 + N))`
 
 The maximum total number of nodes in the Ray on Agent Platform cluster you can scale up to ( `M` ) depends on the initial total number of nodes you set up ( `N` ). After you create the Ray on Agent Platform cluster, you can scale the total number of nodes to any amount between `P` and `M` inclusive, where `P` is the number of pools in your cluster.
 
@@ -137,26 +139,28 @@ Use the Google Cloud console or Agent Platform SDK for Python to update your wor
 
 ### Ray on Agent Platform SDK
 
-    import vertexai
-    import vertex_ray
-    
-    vertexai.init()
-    cluster = vertex_ray.get_ray_cluster("CLUSTER_NAME")
-    
-    # Get the resource name.
-    cluster_resource_name = cluster.cluster_resource_name
-    
-    # Create the new worker pools
-    new_worker_node_types = []
-    for worker_node_type in cluster.worker_node_types:
-     worker_node_type.node_count = REPLICA_COUNT # new worker pool size
-     new_worker_node_types.append(worker_node_type)
-    
-    # Make update call
-    updated_cluster_resource_name = vertex_ray.update_ray_cluster(
-     cluster_resource_name=cluster_resource_name,
-     worker_node_types=new_worker_node_types,
-    )
+```
+import vertexai
+import vertex_ray
+
+vertexai.init()
+cluster = vertex_ray.get_ray_cluster("CLUSTER_NAME")
+
+# Get the resource name.
+cluster_resource_name = cluster.cluster_resource_name
+
+# Create the new worker pools
+new_worker_node_types = []
+for worker_node_type in cluster.worker_node_types:
+ worker_node_type.node_count = REPLICA_COUNT # new worker pool size
+ new_worker_node_types.append(worker_node_type)
+
+# Make update call
+updated_cluster_resource_name = vertex_ray.update_ray_cluster(
+ cluster_resource_name=cluster_resource_name,
+ worker_node_types=new_worker_node_types,
+)
+```
 
 ### Console
 
@@ -169,7 +173,7 @@ Use the Google Cloud console or Agent Platform SDK for Python to update your wor
 4.  In the **Edit cluster** pane, select the worker pool to update and then modify the replica count.
 
 5.  Click **Update** .
-    
+
     Wait a few minutes for your cluster to update. When the update is complete, you can see the updated replica count on the **Cluster details** page.
 
 6.  Click **Create** .

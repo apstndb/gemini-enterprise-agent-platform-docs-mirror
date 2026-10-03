@@ -15,7 +15,7 @@ For an explanation of the Gemini Enterprise Agent Platform metrics, see `aiplatf
 To view the predefined dashboard for Vertex AI Inference endpoints, do the following:
 
 1.  Go to the **Dashboards** page in the Google Cloud console.
-    
+
     If you use the search bar to find this page, then select the result whose subheading is **Monitoring** .
 
 2.  In the toolbar of the Google Cloud console, select your Google Cloud project.
@@ -38,7 +38,7 @@ To view metrics for your endpoint in Metrics Explorer, do the following:
 
 ## What's next
 
-  - Learn how to [View and customize Google Cloud dashboards](https://docs.cloud.google.com/monitoring/charts/predefined-dashboards) .
-  - Learn how to [Create and manage custom dashboards](https://docs.cloud.google.com/monitoring/charts/dashboards) .
-  - Learn more about the [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-selector#basic-advanced-mode) .
-  - Learn more about [logs-based metrics](https://docs.cloud.google.com/stackdriver/docs/solutions/slo-monitoring/sli-metrics/logs-based-metrics) .
+- Learn how to [View and customize Google Cloud dashboards](https://docs.cloud.google.com/monitoring/charts/predefined-dashboards) .
+- Learn how to [Create and manage custom dashboards](https://docs.cloud.google.com/monitoring/charts/dashboards) .
+- Learn more about the [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-selector#basic-advanced-mode) .
+- Learn more about [logs-based metrics](https://docs.cloud.google.com/stackdriver/docs/solutions/slo-monitoring/sli-metrics/logs-based-metrics) .

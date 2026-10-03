@@ -8,28 +8,28 @@ data_source: docs.cloud.google.com
 
 You can use Anthropic's SDK or curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names:
 
-  - For Claude Sonnet 5.5 on Google Cloud, use `claude-sonnet-5-5`
-  - For Claude Fable 5.1 on Google Cloud, use `claude-fable-5-1`
-  - For Claude Sonnet 5 on Google Cloud, use `claude-sonnet-5`
-  - For Claude Opus 5.5 on Google Cloud, use `claude-opus-5-5`
-  - For Claude Opus 5 on Google Cloud, use `claude-opus-5`
-  - For Claude Fable 5 on Google Cloud, use `claude-fable-5`
-  - For Claude Opus 4.8 on Google Cloud, use `claude-opus-4-8`
-  - For Claude Opus 4.7 on Google Cloud, use `claude-opus-4-7`
-  - For Claude Opus 4.6 on Google Cloud, use `claude-opus-4-6`
-  - For Claude Sonnet 4.6 on Google Cloud, use `claude-sonnet-4-6`
-  - For Claude Opus 4.5 on Google Cloud, use `claude-opus-4-5`
-  - For Claude Opus 4.1 on Google Cloud, use `claude-opus-4-1`
-  - For Claude Opus 4 on Google Cloud, use `claude-opus-4`
-  - For Claude Sonnet 4.5 on Google Cloud, use `claude-sonnet-4-5`
-  - For Claude Sonnet 4 on Google Cloud, use `claude-sonnet-4`
-  - For Claude 3.7 Sonnet on Google Cloud, use `claude-3-7-sonnet`
-  - For Claude 3.5 Sonnet v2 on Google Cloud, use `claude-3-5-sonnet-v2`
-  - For Claude Haiku 4.5 on Google Cloud, use `claude-haiku-4-5`
-  - For Claude 3.5 Haiku on Google Cloud, use `claude-3-5-haiku`
-  - For Claude 3.5 Sonnet on Google Cloud, use `claude-3-5-sonnet`
-  - For Claude 3 Opus on Google Cloud, use `claude-3-opus`
-  - For Claude 3 Haiku on Google Cloud, use `claude-3-haiku`
+- For Claude Sonnet 5.5 on Google Cloud, use `claude-sonnet-5-5`
+- For Claude Fable 5.1 on Google Cloud, use `claude-fable-5-1`
+- For Claude Sonnet 5 on Google Cloud, use `claude-sonnet-5`
+- For Claude Opus 5.5 on Google Cloud, use `claude-opus-5-5`
+- For Claude Opus 5 on Google Cloud, use `claude-opus-5`
+- For Claude Fable 5 on Google Cloud, use `claude-fable-5`
+- For Claude Opus 4.8 on Google Cloud, use `claude-opus-4-8`
+- For Claude Opus 4.7 on Google Cloud, use `claude-opus-4-7`
+- For Claude Opus 4.6 on Google Cloud, use `claude-opus-4-6`
+- For Claude Sonnet 4.6 on Google Cloud, use `claude-sonnet-4-6`
+- For Claude Opus 4.5 on Google Cloud, use `claude-opus-4-5`
+- For Claude Opus 4.1 on Google Cloud, use `claude-opus-4-1`
+- For Claude Opus 4 on Google Cloud, use `claude-opus-4`
+- For Claude Sonnet 4.5 on Google Cloud, use `claude-sonnet-4-5`
+- For Claude Sonnet 4 on Google Cloud, use `claude-sonnet-4`
+- For Claude 3.7 Sonnet on Google Cloud, use `claude-3-7-sonnet`
+- For Claude 3.5 Sonnet v2 on Google Cloud, use `claude-3-5-sonnet-v2`
+- For Claude Haiku 4.5 on Google Cloud, use `claude-haiku-4-5`
+- For Claude 3.5 Haiku on Google Cloud, use `claude-3-5-haiku`
+- For Claude 3.5 Sonnet on Google Cloud, use `claude-3-5-sonnet`
+- For Claude 3 Opus on Google Cloud, use `claude-3-opus`
+- For Claude 3 Haiku on Google Cloud, use `claude-3-haiku`
 
 > **Note:** The maximum allowed image file size is 5 MB and you can include up to 100 images in one request.
 
@@ -44,32 +44,33 @@ To use the Anthropic Claude models with Gemini Enterprise Agent Platform, you mu
 Make sure you have the required permissions to enable and use partner models. For more information, see [Grant the required permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#grant-permissions) .
 
 1.  Go to one of the following Model Garden model cards, then click **Enable** :
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+
 Anthropic recommends that you enable 30-day logging of your prompt and completion activity to record any model misuse. To enable logging, see [Log requests and responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging) .
 
 ### Use the Anthropic SDK
 
 You can make API requests to the Anthropic Claude models using the [Anthropic Claude SDK](https://pypi.org/project/anthropic/) . To learn more, see the following:
 
-  - [Claude messages API reference](https://docs.anthropic.com/claude/reference/messages_post)
-  - [Anthropic Python API library](https://github.com/anthropics/anthropic-sdk-python)
-  - [Anthropic Gemini Enterprise Agent Platform TypeScript API Library](https://github.com/anthropics/anthropic-sdk-typescript/tree/main/packages/vertex-sdk)
+- [Claude messages API reference](https://docs.anthropic.com/claude/reference/messages_post)
+- [Anthropic Python API library](https://github.com/anthropics/anthropic-sdk-python)
+- [Anthropic Gemini Enterprise Agent Platform TypeScript API Library](https://github.com/anthropics/anthropic-sdk-typescript/tree/main/packages/vertex-sdk)
 
 #### Make a streaming call to a Claude model using the Anthropic Vertex SDK
 
@@ -81,42 +82,44 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 The following sample uses regional endpoints. To use the multi-region or global endpoint, see [Specify the multi-region endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#multi-region) or [Specify the global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#global) .
 
-    # TODO(developer): Vertex AI SDK - uncomment below & run
-    # pip3 install --upgrade --user google-cloud-aiplatform
-    # gcloud auth application-default login
-    # pip3 install -U 'anthropic[vertex]'
-    
-    # TODO(developer): Update and un-comment below line
-    # PROJECT_ID = "your-project-id"
-    
-    from anthropic import AnthropicVertex
-    
-    client = AnthropicVertex(project_id=PROJECT_ID, region="us-east5")
-    result = []
-    
-    with client.messages.stream(
-        model="claude-3-5-sonnet-v2@20241022",
-        max_tokens=1024,
-        messages=[
-            {
-                "role": "user",
-                "content": "Send me a recipe for banana bread.",
-            }
-        ],
-    ) as stream:
-        for text in stream.text_stream:
-            print(text, end="", flush=True)
-            result.append(text)
-    
-    # Example response:
-    # Here's a simple recipe for delicious banana bread:
-    # Ingredients:
-    # - 2-3 ripe bananas, mashed
-    # - 1/3 cup melted butter
-    # ...
-    # ...
-    # 8. Bake for 50-60 minutes, or until a toothpick inserted into the center comes out clean.
-    # 9. Let cool in the pan for a few minutes, then remove and cool completely on a wire rack.
+```
+# TODO(developer): Vertex AI SDK - uncomment below & run
+# pip3 install --upgrade --user google-cloud-aiplatform
+# gcloud auth application-default login
+# pip3 install -U 'anthropic[vertex]'
+
+# TODO(developer): Update and un-comment below line
+# PROJECT_ID = "your-project-id"
+
+from anthropic import AnthropicVertex
+
+client = AnthropicVertex(project_id=PROJECT_ID, region="us-east5")
+result = []
+
+with client.messages.stream(
+    model="claude-3-5-sonnet-v2@20241022",
+    max_tokens=1024,
+    messages=[
+        {
+            "role": "user",
+            "content": "Send me a recipe for banana bread.",
+        }
+    ],
+) as stream:
+    for text in stream.text_stream:
+        print(text, end="", flush=True)
+        result.append(text)
+
+# Example response:
+# Here's a simple recipe for delicious banana bread:
+# Ingredients:
+# - 2-3 ripe bananas, mashed
+# - 1/3 cup melted butter
+# ...
+# ...
+# 8. Bake for 50-60 minutes, or until a toothpick inserted into the center comes out clean.
+# 9. Let cool in the pan for a few minutes, then remove and cool completely on a wire rack.
+```
 
 #### Make a unary call to a Claude model using the Anthropic Vertex SDK
 
@@ -128,35 +131,37 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 The following sample uses regional endpoints. To use the multi-region or global endpoint, see [Specify the multi-region endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#multi-region) or [Specify the global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#global) .
 
-    # TODO(developer): Vertex AI SDK - uncomment below & run
-    # pip3 install --upgrade --user google-cloud-aiplatform
-    # gcloud auth application-default login
-    # pip3 install -U 'anthropic[vertex]'
-    
-    # TODO(developer): Update and un-comment below line
-    # PROJECT_ID = "your-project-id"
-    
-    from anthropic import AnthropicVertex
-    
-    client = AnthropicVertex(project_id=PROJECT_ID, region="us-east5")
-    message = client.messages.create(
-        model="claude-3-5-sonnet-v2@20241022",
-        max_tokens=1024,
-        messages=[
-            {
-                "role": "user",
-                "content": "Send me a recipe for banana bread.",
-            }
-        ],
-    )
-    print(message.model_dump_json(indent=2))
-    # Example response:
-    # {
-    #   "id": "msg_vrtx_0162rhgehxa9rvJM5BSVLZ9j",
-    #   "content": [
-    #     {
-    #       "text": "Here's a simple recipe for delicious banana bread:\n\nIngredients:\n- 2-3 ripe bananas...
-    #   ...
+```
+# TODO(developer): Vertex AI SDK - uncomment below & run
+# pip3 install --upgrade --user google-cloud-aiplatform
+# gcloud auth application-default login
+# pip3 install -U 'anthropic[vertex]'
+
+# TODO(developer): Update and un-comment below line
+# PROJECT_ID = "your-project-id"
+
+from anthropic import AnthropicVertex
+
+client = AnthropicVertex(project_id=PROJECT_ID, region="us-east5")
+message = client.messages.create(
+    model="claude-3-5-sonnet-v2@20241022",
+    max_tokens=1024,
+    messages=[
+        {
+            "role": "user",
+            "content": "Send me a recipe for banana bread.",
+        }
+    ],
+)
+print(message.model_dump_json(indent=2))
+# Example response:
+# {
+#   "id": "msg_vrtx_0162rhgehxa9rvJM5BSVLZ9j",
+#   "content": [
+#     {
+#       "text": "Here's a simple recipe for delicious banana bread:\n\nIngredients:\n- 2-3 ripe bananas...
+#   ...
+```
 
 ### Use a curl command
 
@@ -172,54 +177,58 @@ The following sample uses regional endpoints. To use the multi-region or global 
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : A [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions) that supports Anthropic Claude models. To use the global endpoint, see [Specify the global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#global) .
+- ` LOCATION ` : A [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions) that supports Anthropic Claude models. To use the global endpoint, see [Specify the global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#global) .
 
-  - MODEL : The [model name](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#model-list) you want to use.
+- ` MODEL ` : The [model name](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#model-list) you want to use.
 
-  - ROLE : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. Claude models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
+- ` ROLE ` : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. Claude models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
 
-  - STREAM : A boolean that specifies whether the response is streamed or not. Stream your response to reduce the end-use latency perception. Set to `true` to stream the response and `false` to return the response all at once.
+- ` STREAM ` : A boolean that specifies whether the response is streamed or not. Stream your response to reduce the end-use latency perception. Set to `true` to stream the response and `false` to return the response all at once.
 
-  - CONTENT : The content, such as text, of the `user` or `assistant` message.
+- ` CONTENT ` : The content, such as text, of the `user` or `assistant` message.
 
-  - MAX\_TOKENS : Maximum number of tokens that can be generated in the response. A token is approximately 3.5 characters. 100 tokens correspond to roughly 60-80 words.
-    
-    Specify a lower value for shorter responses and a higher value for potentially longer responses.
+- ` MAX_TOKENS ` : Maximum number of tokens that can be generated in the response. A token is approximately 3.5 characters. 100 tokens correspond to roughly 60-80 words.
 
-  - TOP\_P (Optional): Top-P changes how the model selects tokens for output. Tokens are selected from the most probable to least probable until the sum of their probabilities equals the top-P value. For example, if tokens A, B, and C have a probability of 0.3, 0.2, and 0.1 and the top-P value is `0.5` , then the model will select either A or B as the next token by using temperature and excludes C as a candidate.
-    
-    Specify a lower value for less random responses and a higher value for more random responses.
+  Specify a lower value for shorter responses and a higher value for potentially longer responses.
 
-  - TOP\_K (Optional): Top-K changes how the model selects tokens for output. A top-K of `1` means the next selected token is the most probable among all tokens in the model's vocabulary (also called greedy decoding), while a top-K of `3` means that the next token is selected from among the three most probable tokens by using temperature.
-    
-    For each token selection step, the top-K tokens with the highest probabilities are sampled. Then tokens are further filtered based on top-P with the final token selected using temperature sampling.
-    
-    Specify a lower value for less random responses and a higher value for more random responses.
+- ` TOP_P ` (Optional): Top-P changes how the model selects tokens for output. Tokens are selected from the most probable to least probable until the sum of their probabilities equals the top-P value. For example, if tokens A, B, and C have a probability of 0.3, 0.2, and 0.1 and the top-P value is `0.5` , then the model will select either A or B as the next token by using temperature and excludes C as a candidate.
 
-  - TYPE : For Claude 3.7 Sonnet on Google Cloud and later Claude models, to enable extended thinking mode, specify `enabled` .
+  Specify a lower value for less random responses and a higher value for more random responses.
 
-  - BUDGET\_TOKENS : If you enable extended thinking, you must specify the number of tokens that the model can use for its internal reasoning as part of the output. Larger budgets can enable more thorough analysis for complex problems and improve response quality. You must specify a value greater than or equal to `1024` but less than `MAX_TOKENS` .
+- ` TOP_K ` (Optional): Top-K changes how the model selects tokens for output. A top-K of `1` means the next selected token is the most probable among all tokens in the model's vocabulary (also called greedy decoding), while a top-K of `3` means that the next token is selected from among the three most probable tokens by using temperature.
+
+  For each token selection step, the top-K tokens with the highest probabilities are sampled. Then tokens are further filtered based on top-P with the final token selected using temperature sampling.
+
+  Specify a lower value for less random responses and a higher value for more random responses.
+
+- ` TYPE ` : For Claude 3.7 Sonnet on Google Cloud and later Claude models, to enable extended thinking mode, specify `enabled` .
+
+- ` BUDGET_TOKENS ` : If you enable extended thinking, you must specify the number of tokens that the model can use for its internal reasoning as part of the output. Larger budgets can enable more thorough analysis for complex problems and improve response quality. You must specify a value greater than or equal to `1024` but less than `MAX_TOKENS` .
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/MODEL:streamRawPredict
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/MODEL:streamRawPredict
+```
 
 Request JSON body:
 
-    {
-      "anthropic_version": "vertex-2023-10-16",
-      "messages": [
-       {
-        "role": "ROLE",
-        "content": "CONTENT"
-       }],
-      "max_tokens": MAX_TOKENS,
-      "stream": STREAM,
-      "thinking": {
-        "type": "TYPE",
-        "budget_tokens": BUDGET_TOKENS
-      }
-    }
+```
+{
+  "anthropic_version": "vertex-2023-10-16",
+  "messages": [
+   {
+    "role": "ROLE",
+    "content": "CONTENT"
+   }],
+  "max_tokens": MAX_TOKENS,
+  "stream": STREAM,
+  "thinking": {
+    "type": "TYPE",
+    "budget_tokens": BUDGET_TOKENS
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -229,11 +238,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/MODEL:streamRawPredict"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/MODEL:streamRawPredict"
+```
 
 #### PowerShell
 
@@ -241,56 +252,62 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/MODEL:streamRawPredict" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/MODEL:streamRawPredict" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following.
 
 #### Response
 
-    {
-      "id":"msg_012NDLxqh6LsztWCU7zTb14C",
-      "type":"message",
-      "role":"assistant",
-      "content":[{
-        "type":"text",
-        "text":"Hello! Nice to meet you."
-      }],
-      "model":"claude-2.1",
-      "stop_reason":"end_turn",
-      "stop_sequence":null,
-      "usage":{
-        "input_tokens":11,
-        "output_tokens":11
-      }
-    }
+```
+{
+  "id":"msg_012NDLxqh6LsztWCU7zTb14C",
+  "type":"message",
+  "role":"assistant",
+  "content":[{
+    "type":"text",
+    "text":"Hello! Nice to meet you."
+  }],
+  "model":"claude-2.1",
+  "stop_reason":"end_turn",
+  "stop_sequence":null,
+  "usage":{
+    "input_tokens":11,
+    "output_tokens":11
+  }
+}
+```
 
 #### Example curl command
 
-    MODEL_ID="MODEL"
-    LOCATION="us-central1"
-    PROJECT_ID="PROJECT_ID"
-    
-    curl \
-    -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/anthropic/models/${MODEL_ID}:streamRawPredict -d \
-    '{
-      "anthropic_version": "vertex-2023-10-16",
-      "messages": [{
-        "role": "user",
-        "content": "Hello!"
-      }],
-      "max_tokens": 50,
-      "stream": true}'
+```
+MODEL_ID="MODEL"
+LOCATION="us-central1"
+PROJECT_ID="PROJECT_ID"
+
+curl \
+-X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/anthropic/models/${MODEL_ID}:streamRawPredict -d \
+'{
+  "anthropic_version": "vertex-2023-10-16",
+  "messages": [{
+    "role": "user",
+    "content": "Hello!"
+  }],
+  "max_tokens": 50,
+  "stream": true}'
+```
 
 ### Tool use (function calling)
 
@@ -304,59 +321,61 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 The following sample uses regional endpoints. To use the multi-region or global endpoint, see [Specify the multi-region endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#multi-region) or [Specify the global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#global) .
 
-    # TODO(developer): Vertex AI SDK - uncomment below & run
-    # pip3 install --upgrade --user google-cloud-aiplatform
-    # gcloud auth application-default login
-    # pip3 install -U 'anthropic[vertex]'
-    from anthropic import AnthropicVertex
-    
-    # TODO(developer): Update and un-comment below line
-    # PROJECT_ID = "your-project-id"
-    
-    client = AnthropicVertex(project_id=PROJECT_ID, region="us-east5")
-    message = client.messages.create(
-        model="claude-3-5-sonnet-v2@20241022",
-        max_tokens=1024,
-        tools=[
-            {
-                "name": "text_search_places_api",
-                "description": "returns information about a set of places based on a string",
-                "input_schema": {
-                    "type": "object",
-                    "properties": {
-                        "textQuery": {
-                            "type": "string",
-                            "description": "The text string on which to search",
-                        },
-                        "priceLevels": {
-                            "type": "array",
-                            "description": "Price levels to query places, value can be one of [PRICE_LEVEL_INEXPENSIVE, PRICE_LEVEL_MODERATE, PRICE_LEVEL_EXPENSIVE, PRICE_LEVEL_VERY_EXPENSIVE]",
-                        },
-                        "openNow": {
-                            "type": "boolean",
-                            "description": "whether those places are open for business.",
-                        },
+```
+# TODO(developer): Vertex AI SDK - uncomment below & run
+# pip3 install --upgrade --user google-cloud-aiplatform
+# gcloud auth application-default login
+# pip3 install -U 'anthropic[vertex]'
+from anthropic import AnthropicVertex
+
+# TODO(developer): Update and un-comment below line
+# PROJECT_ID = "your-project-id"
+
+client = AnthropicVertex(project_id=PROJECT_ID, region="us-east5")
+message = client.messages.create(
+    model="claude-3-5-sonnet-v2@20241022",
+    max_tokens=1024,
+    tools=[
+        {
+            "name": "text_search_places_api",
+            "description": "returns information about a set of places based on a string",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "textQuery": {
+                        "type": "string",
+                        "description": "The text string on which to search",
                     },
-                    "required": ["textQuery"],
+                    "priceLevels": {
+                        "type": "array",
+                        "description": "Price levels to query places, value can be one of [PRICE_LEVEL_INEXPENSIVE, PRICE_LEVEL_MODERATE, PRICE_LEVEL_EXPENSIVE, PRICE_LEVEL_VERY_EXPENSIVE]",
+                    },
+                    "openNow": {
+                        "type": "boolean",
+                        "description": "whether those places are open for business.",
+                    },
                 },
-            }
-        ],
-        messages=[
-            {
-                "role": "user",
-                "content": "What are some affordable and good Italian restaurants open now in San Francisco??",
-            }
-        ],
-    )
-    print(message.model_dump_json(indent=2))
-    # Example response:
-    # {
-    #   "id": "msg_vrtx_018pk1ykbbxAYhyWUdP1bJoQ",
-    #   "content": [
-    #     {
-    #       "text": "To answer your question about affordable and good Italian restaurants
-    #       that are currently open in San Francisco....
-    # ...
+                "required": ["textQuery"],
+            },
+        }
+    ],
+    messages=[
+        {
+            "role": "user",
+            "content": "What are some affordable and good Italian restaurants open now in San Francisco??",
+        }
+    ],
+)
+print(message.model_dump_json(indent=2))
+# Example response:
+# {
+#   "id": "msg_vrtx_018pk1ykbbxAYhyWUdP1bJoQ",
+#   "content": [
+#     {
+#       "text": "To answer your question about affordable and good Italian restaurants
+#       that are currently open in San Francisco....
+# ...
+```
 
 ### REST
 
@@ -364,62 +383,66 @@ The following sample uses regional endpoints. To use the multi-region or global 
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : A [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions) that supports Anthropic Claude models. To use the global endpoint, see [Specify the global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#global) .
+- ` LOCATION ` : A [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions) that supports Anthropic Claude models. To use the global endpoint, see [Specify the global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#global) .
 
-  - MODEL : The [model name](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#model-list) to use.
+- ` MODEL ` : The [model name](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#model-list) to use.
 
-  - ROLE : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. Claude models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
+- ` ROLE ` : The role associated with a message. You can specify a `user` or an `assistant` . The first message must use the `user` role. Claude models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
 
-  - STREAM : A boolean that specifies whether the response is streamed or not. Stream your response to reduce the end-use latency perception. Set to `true` to stream the response and `false` to return the response all at once.
+- ` STREAM ` : A boolean that specifies whether the response is streamed or not. Stream your response to reduce the end-use latency perception. Set to `true` to stream the response and `false` to return the response all at once.
 
-  - CONTENT : The content, such as text, of the `user` or `assistant` message.
+- ` CONTENT ` : The content, such as text, of the `user` or `assistant` message.
 
-  - MAX\_TOKENS : Maximum number of tokens that can be generated in the response. A token is approximately 3.5 characters. 100 tokens correspond to roughly 60-80 words.
-    
-    Specify a lower value for shorter responses and a higher value for potentially longer responses.
+- ` MAX_TOKENS ` : Maximum number of tokens that can be generated in the response. A token is approximately 3.5 characters. 100 tokens correspond to roughly 60-80 words.
+
+  Specify a lower value for shorter responses and a higher value for potentially longer responses.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/MODEL:rawPredict
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/MODEL:rawPredict
+```
 
 Request JSON body:
 
+```
+{
+  "anthropic_version": "vertex-2023-10-16",
+  "max_tokens": MAX_TOKENS,
+  "stream": STREAM,
+  "tools": [
     {
-      "anthropic_version": "vertex-2023-10-16",
-      "max_tokens": MAX_TOKENS,
-      "stream": STREAM,
-      "tools": [
-        {
-          "name": "text_search_places_api",
-          "description": "Returns information about a set of places based on a string",
-          "input_schema": {
-            "type": "object",
-            "properties": {
-              "textQuery": {
-                "type": "string",
-                "description": "The text string on which to search"
-              },
-              "priceLevels": {
-                "type": "array",
-                "description": "Price levels to query places, value can be one of [PRICE_LEVEL_INEXPENSIVE, PRICE_LEVEL_MODERATE, PRICE_LEVEL_EXPENSIVE, PRICE_LEVEL_VERY_EXPENSIVE]",
-              },
-              "openNow": {
-                "type": "boolean",
-                "description": "Describes whether a place is open for business at
-                the time of the query."
-              },
-            },
-            "required": ["textQuery"]
-          }
-        }
-      ],
-      "messages": [
-        {
-          "role": "user",
-          "content": "What are some affordable and good Italian restaurants that are open now in San Francisco??"
-        }
-      ]
+      "name": "text_search_places_api",
+      "description": "Returns information about a set of places based on a string",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "textQuery": {
+            "type": "string",
+            "description": "The text string on which to search"
+          },
+          "priceLevels": {
+            "type": "array",
+            "description": "Price levels to query places, value can be one of [PRICE_LEVEL_INEXPENSIVE, PRICE_LEVEL_MODERATE, PRICE_LEVEL_EXPENSIVE, PRICE_LEVEL_VERY_EXPENSIVE]",
+          },
+          "openNow": {
+            "type": "boolean",
+            "description": "Describes whether a place is open for business at
+            the time of the query."
+          },
+        },
+        "required": ["textQuery"]
+      }
     }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "What are some affordable and good Italian restaurants that are open now in San Francisco??"
+    }
+  ]
+}
+```
 
 To send your request, choose one of these options:
 
@@ -429,11 +452,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/MODEL:rawPredict"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/MODEL:rawPredict"
+```
 
 #### PowerShell
 
@@ -441,51 +466,55 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/MODEL:rawPredict" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/anthropic/models/MODEL:rawPredict" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following.
 
 #### Response
 
+```
+{
+  "id": "msg_vrtx_01ErR7VMNQdnvDt3n7Nmc4ER",
+  "type": "message",
+  "role": "assistant",
+  "model": "claude-3-opus-20240229",
+  "content": [
     {
-      "id": "msg_vrtx_01ErR7VMNQdnvDt3n7Nmc4ER",
-      "type": "message",
-      "role": "assistant",
-      "model": "claude-3-opus-20240229",
-      "content": [
-        {
-          "type": "text",
-          "text": "\nTo find affordable and good Italian restaurants that are currently open in San Francisco, the text_search_places_api tool seems most relevant. \n\nThe required textQuery parameter can be inferred as \"Italian restaurants in San Francisco\", since the user specified Italian restaurants and the location of San Francisco.\n\nTwo optional parameters are also relevant:\nopenNow - this should be set to true, since the user specified they want restaurants open now\npriceLevels - to find affordable restaurants, this can be set to [PRICE_LEVEL_INEXPENSIVE, PRICE_LEVEL_MODERATE]\n\nWith the textQuery provided and the two optional parameters that can help narrow the results to match the user's criteria, we have enough information to make a good call to the text_search_places_api tool to try to answer the user's request.\n"
-        },
-        {
-          "type": "tool_use",
-          "id": "toolu_vrtx_01TAJCTkxe8HhRoaQ69N4ouP",
-          "name": "text_search_places_api",
-          "input": {
-            "textQuery": "Italian restaurants in San Francisco",
-            "openNow": true,
-            "priceLevels": [
-              "PRICE_LEVEL_INEXPENSIVE",
-              "PRICE_LEVEL_MODERATE"
-            ]
-          }
-        }
-      ],
-      "stop_reason": "tool_use",
-      "stop_sequence": null,
-      "usage": {
-        "input_tokens": 727,
-        "output_tokens": 308
+      "type": "text",
+      "text": "\nTo find affordable and good Italian restaurants that are currently open in San Francisco, the text_search_places_api tool seems most relevant. \n\nThe required textQuery parameter can be inferred as \"Italian restaurants in San Francisco\", since the user specified Italian restaurants and the location of San Francisco.\n\nTwo optional parameters are also relevant:\nopenNow - this should be set to true, since the user specified they want restaurants open now\npriceLevels - to find affordable restaurants, this can be set to [PRICE_LEVEL_INEXPENSIVE, PRICE_LEVEL_MODERATE]\n\nWith the textQuery provided and the two optional parameters that can help narrow the results to match the user's criteria, we have enough information to make a good call to the text_search_places_api tool to try to answer the user's request.\n"
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_vrtx_01TAJCTkxe8HhRoaQ69N4ouP",
+      "name": "text_search_places_api",
+      "input": {
+        "textQuery": "Italian restaurants in San Francisco",
+        "openNow": true,
+        "priceLevels": [
+          "PRICE_LEVEL_INEXPENSIVE",
+          "PRICE_LEVEL_MODERATE"
+        ]
       }
     }
+  ],
+  "stop_reason": "tool_use",
+  "stop_sequence": null,
+  "usage": {
+    "input_tokens": 727,
+    "output_tokens": 308
+  }
+}
+```
 
 Use Agent Studio on Gemini Enterprise Agent Platform
 

@@ -32,10 +32,10 @@ Fields
 
 Required. id for a specific entity. For example, for a machine learning model predicting user clicks on a website, an entity id could be `user_123` .
 
-`featureSelector` ` object ( FeatureSelector  ` )
+`featureSelector` `object ( `[`FeatureSelector`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureSelector)` )`
 
 Required. Selector choosing Features of the target EntityType.
 
 ### Response body
 
-If successful, the response body contains an instance of `  ReadFeatureValuesResponse  ` .
+If successful, the response body contains an instance of [`ReadFeatureValuesResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ReadFeatureValuesResponse) .

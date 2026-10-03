@@ -36,11 +36,11 @@ Google does not support using [Private Service Connect backends](https://docs.cl
 
 ### IP advertisement
 
-  - When you use Private Service Connect to connect to services in another VPC network, you choose an IP address from a [regular subnet](https://docs.cloud.google.com/vpc/docs/subnets#purpose) in your VPC network.
+- When you use Private Service Connect to connect to services in another VPC network, you choose an IP address from a [regular subnet](https://docs.cloud.google.com/vpc/docs/subnets#purpose) in your VPC network.
 
-  - By default, the Cloud Router will advertise regular VPC subnets unless custom advertisement mode is configured. For more information, see [Custom advertisement mode](https://docs.cloud.google.com/network-connectivity/docs/router/concepts/advertised-routes#overview-am-custom) .
+- By default, the Cloud Router will advertise regular VPC subnets unless custom advertisement mode is configured. For more information, see [Custom advertisement mode](https://docs.cloud.google.com/network-connectivity/docs/router/concepts/advertised-routes#overview-am-custom) .
 
-  - The IP address for the consumer endpoint must be in the same region as the service producer's service attachment. For more information, see [Service attachments](https://docs.cloud.google.com/vpc/docs/private-service-connect#service-attachments) and [Access published services through endpoints](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-services) .
+- The IP address for the consumer endpoint must be in the same region as the service producer's service attachment. For more information, see [Service attachments](https://docs.cloud.google.com/vpc/docs/private-service-connect#service-attachments) and [Access published services through endpoints](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-services) .
 
 ### Firewall rules
 

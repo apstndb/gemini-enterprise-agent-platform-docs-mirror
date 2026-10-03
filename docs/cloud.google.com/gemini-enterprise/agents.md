@@ -34,11 +34,11 @@ Gemini Enterprise app gives you centralized visibility and control over all of y
 
 \*Available in the Standard and Plus editions of Gemini Enterprise app.
 
-![Agent Designer UI ](https://www.gstatic.com/bricks/image/442f960e-0383-4b11-a472-ac1a6fa2960b.png)
+![Agent Designer UI](https://www.gstatic.com/bricks/image/442f960e-0383-4b11-a472-ac1a6fa2960b.png)
 
 ## Access agents made by Google Cloud partners
 
-![Agent Marketplace UI ](https://www.gstatic.com/bricks/image/ff6562c9-1939-4661-83db-89e12e424497.png)
+![Agent Marketplace UI](https://www.gstatic.com/bricks/image/ff6562c9-1939-4661-83db-89e12e424497.png)
 
 **Quickly find and access partner-built agents for your specialized needs inside of** [**Agent Marketplace**](https://console.cloud.google.com/marketplace/browse?filter=category:ai-agent&filter=validations:gemini-enterprise-compatible). Use natural language to search for agents, and filter by industry, use case, and validations like Gemini Enterprise compatibility. To balance workforce productivity with strict organizational oversight, admins have control of what partner-built agents are available to your employees through the Agent Gallery in Gemini Enterprise app.\* This curated discovery experience is powered by our enhanced AI agent ecosystem program and a rigorous framework for partner validation.
 
@@ -46,23 +46,9 @@ Gemini Enterprise app gives you centralized visibility and control over all of y
 
 ### Discover additional agent-related tools from Google Cloud
 
-  - [](https://cloud.google.com/products/gemini-enterprise-for-customer-experience/agent-studio)
-    
-    CX Agent Studio
-    
-    Build next-gen conversational AI agents that provide proactive, personalized self service and natural, human-like voices for highly engaging customer experiences.
-
-  - [](https://cloud.google.com/products/gemini-enterprise-agent-platform)
-    
-    Gemini Enterprise Agent Platform
-    
-    Our new developer platform and evolution of Vertex AI. It brings together our full suite of models, development, and tuning services, with new features for businesses to build, scale, govern, and optimize agents that can work autonomously to execute complex business workflows.
-
-  - [](https://developers.google.com/program/gear/)
-    
-    AI Agent Training with GEAR
-    
-    Join GEAR and receive 35 learning credits every month on Google Skills. Whether you're new to AI or an experienced developer, build your knowledge and skills with hands-on AI-agentic training from the experts at Google.
+- [CX Agent Studio Build next-gen conversational AI agents that provide proactive, personalized self service and natural, human-like voices for highly engaging customer experiences.](https://cloud.google.com/products/gemini-enterprise-for-customer-experience/agent-studio)
+- [Gemini Enterprise Agent Platform Our new developer platform and evolution of Vertex AI. It brings together our full suite of models, development, and tuning services, with new features for businesses to build, scale, govern, and optimize agents that can work autonomously to execute complex business workflows.](https://cloud.google.com/products/gemini-enterprise-agent-platform)
+- [AI Agent Training with GEAR Join GEAR and receive 35 learning credits every month on Google Skills. Whether you're new to AI or an experienced developer, build your knowledge and skills with hands-on AI-agentic training from the experts at Google.](https://developers.google.com/program/gear/)
 
 ## Make work less work with Gemini Enterprise
 
@@ -70,6 +56,4 @@ Gemini Enterprise app gives you centralized visibility and control over all of y
 
 [Contact sales](https://cloud.google.com/contact/gemini-enterprise)
 
-[Video](https://www.gstatic.com/cgc/renaissance/video/MultiPath_2X_V2.webm)
-
-![Cloud logo](https://www.gstatic.com/cgc/renaissance/image/MultiPath_Bottom_2X_Centered_static.png)
+[Video](https://www.gstatic.com/cgc/renaissance/video/MultiPath_2X_V2.webm)![Cloud logo](https://www.gstatic.com/cgc/renaissance/image/MultiPath_Bottom_2X_Centered_static.png)

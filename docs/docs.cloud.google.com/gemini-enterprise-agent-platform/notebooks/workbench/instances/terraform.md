@@ -23,16 +23,16 @@ The following steps explain how Terraform works:
 2.  You run the `terraform plan` command, which evaluates your configuration and generates an execution plan. You can review the plan and make changes as needed.
 
 3.  You run the `terraform apply` command, which performs the following actions:
-    
+
     1.  It provisions your infrastructure based on your execution plan by invoking the corresponding Agent Platform Workbench APIs in the background.
-    
+
     2.  It creates a *Terraform state file* , which is a JSON file that maps the resources in your configuration file to the resources in the real-world infrastructure. Terraform uses this file to keep a record of the most recent state of your infrastructure, and to determine when to create, update, and destroy resources.
-    
+
     3.  When you run `terraform apply` , Terraform uses the mapping in the state file to compare the existing infrastructure to the code, and make updates as necessary:
-        
-          - If a resource object is defined in the configuration file, but doesn't exist in the state file, Terraform creates it.
-          - If a resource object exists in the state file, but has a different configuration from your configuration file, Terraform updates the resource to match your configuration file.
-          - If a resource object in the state file matches your configuration file, Terraform leaves the resource unchanged.
+
+        - If a resource object is defined in the configuration file, but doesn't exist in the state file, Terraform creates it.
+        - If a resource object exists in the state file, but has a different configuration from your configuration file, Terraform updates the resource to match your configuration file.
+        - If a resource object in the state file matches your configuration file, Terraform leaves the resource unchanged.
 
 ## Terraform resources for Agent Platform Workbench
 
@@ -57,10 +57,10 @@ The following table lists the Terraform resources available for Agent Platform W
 <tr class="odd">
 <td>Agent Platform Workbench</td>
 <td><ul>
-<li><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/workbench_instance"><code dir="ltr" translate="no">google_workbench_instance</code></a></li>
-<li><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/workbench_instance_iam"><code dir="ltr" translate="no">google_workbench_instance_iam</code></a></li>
+<li><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/workbench_instance"><code>google_workbench_instance</code></a></li>
+<li><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/workbench_instance_iam"><code>google_workbench_instance_iam</code></a></li>
 </ul></td>
-<td><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/workbench_instance_iam_policy"><code dir="ltr" translate="no">google_workbench_instance_iam_policy</code></a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/workbench_instance_iam_policy"><code>google_workbench_instance_iam_policy</code></a></td>
 </tr>
 </tbody>
 </table>
@@ -70,7 +70,7 @@ The following table lists the Terraform resources available for Agent Platform W
 The following table lists Terraform-based how-to guides and tutorials for Agent Platform Workbench:
 
 | **Guide**                                                                                                                                                            | **Details**                                                                                        |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | [Create a Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create#terraform)          | Create a Agent Platform Workbench instance with a basic configuration.                             |
 | [Manage idle shutdown on Terraform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/idle-shutdown#terraform)            | Configure the idle shutdown settings on a Agent Platform Workbench instance.                       |
 | [Upgrade a custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container#upgrade-container) | Change the `container_image` field in the Terraform configuration to update the container payload. |
@@ -83,12 +83,12 @@ Modules and blueprints help you automate provisioning and managing of Google Clo
 The following table lists modules and blueprints related to Agent Platform Workbench:
 
 | Module or blueprint                                                                  | Details                                                                                           |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+|--------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
 | [`ai-notebook`](https://github.com/GoogleCloudPlatform/notebooks-blueprint-security) | This module demonstrates how to protect confidential data in a Agent Platform Workbench instance. |
 
 ## What's next
 
-  - [Terraform code samples for Agent Platform Workbench](https://docs.cloud.google.com/docs/samples?language=terraform)
-  - [Terraform on Google Cloud documentation](https://docs.cloud.google.com/docs/terraform)
-  - [Google Cloud provider documentation in HashiCorp](https://registry.terraform.io/providers/hashicorp/google/latest/docs)
-  - [Infrastructure as code for Google Cloud](https://docs.cloud.google.com/docs/terraform/iac-overview)
+- [Terraform code samples for Agent Platform Workbench](https://docs.cloud.google.com/docs/samples?language=terraform)
+- [Terraform on Google Cloud documentation](https://docs.cloud.google.com/docs/terraform)
+- [Google Cloud provider documentation in HashiCorp](https://registry.terraform.io/providers/hashicorp/google/latest/docs)
+- [Infrastructure as code for Google Cloud](https://docs.cloud.google.com/docs/terraform/iac-overview)

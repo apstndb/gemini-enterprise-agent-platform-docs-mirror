@@ -32,8 +32,8 @@ This value should be up to 63 characters, and valid characters are /\[a-z\]\[0-9
 
 ### Request body
 
-The request body contains an instance of `  RagMetadata  ` .
+The request body contains an instance of [`RagMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata#RagMetadata) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  RagMetadata  ` .
+If successful, the response body contains a newly created instance of [`RagMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata#RagMetadata) .

@@ -18,7 +18,7 @@ Identifier. The resource name of the event. Format: `projects/{project}/location
 
 Required. The name of the agent that sent the event, or user.
 
-`content` ` object ( Content  ` )
+`content` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Optional. Content of the event provided by the author.
 
@@ -26,11 +26,11 @@ Optional. Content of the event provided by the author.
 
 Required. The invocation id of the event, multiple events can have the same invocation id.
 
-`actions` ` object ( EventActions  ` )
+`actions` `object ( `[`EventActions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/SessionEvent#EventActions)` )`
 
 Optional. Actions executed by the agent.
 
-`timestamp` ` string ( Timestamp  ` format)
+`timestamp` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Required. timestamp when the event was created on client side.
 
@@ -44,29 +44,38 @@ Optional. Error code if the response is an error. code varies by model.
 
 Optional. Error message if the response is an error.
 
-`eventMetadata` ` object ( EventMetadata  ` )
+`eventMetadata` `object ( `[`EventMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/SessionEvent#EventMetadata)` )`
 
 Optional. metadata relating to this event.
 
-`rawEvent` ` object ( Struct  ` format)
+`rawEvent` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Optional. Weakly typed raw event data in proto struct format.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;author&quot;: string,&quot;content&quot;: {object (Content)},&quot;invocationId&quot;: string,&quot;actions&quot;: {object (EventActions)},&quot;timestamp&quot;: string,&quot;errorCode&quot;: string,&quot;errorMessage&quot;: string,&quot;eventMetadata&quot;: {object (EventMetadata)},&quot;rawEvent&quot;: {object}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "author": string,
+  "content": {
+    object (Content)
+  },
+  "invocationId": string,
+  "actions": {
+    object (EventActions)
+  },
+  "timestamp": string,
+  "errorCode": string,
+  "errorMessage": string,
+  "eventMetadata": {
+    object (EventMetadata)
+  },
+  "rawEvent": {
+    object
+  }
+}
+```
 
 ## EventActions
 
@@ -78,7 +87,7 @@ Fields
 
 Optional. If true, it won't call model to summarize function response. Only used for functionResponse event.
 
-`stateDelta` ` object ( Struct  ` format)
+`stateDelta` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Optional. Indicates that the event is updating the state with the given delta.
 
@@ -90,7 +99,7 @@ Optional. Indicates that the event is updating an artifact. key is the filename,
 
 Optional. The agent is escalating to a higher level agent.
 
-`requestedAuthConfigs` ` object ( Struct  ` format)
+`requestedAuthConfigs` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Optional. Will only be set by a tool response indicating tool request euc. Struct key is the function call id since one function call response (from model) could correspond to multiple function calls. Struct value is the required auth config, which can be another struct.
 
@@ -98,35 +107,25 @@ Optional. Will only be set by a tool response indicating tool request euc. Struc
 
 Optional. If set, the event transfers to the specified agent.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;skipSummarization&quot;: boolean,
-  &quot;stateDelta&quot;: {
+**JSON representation**
+
+```
+{
+  "skipSummarization": boolean,
+  "stateDelta": {
     object
   },
-  &quot;artifactDelta&quot;: {
+  "artifactDelta": {
     string: integer,
     ...
   },
-  &quot;escalate&quot;: boolean,
-  &quot;requestedAuthConfigs&quot;: {
+  "escalate": boolean,
+  "requestedAuthConfigs": {
     object
   },
-  &quot;transferAgent&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+  "transferAgent": string
+}
+```
 
 ## EventMetadata
 
@@ -134,7 +133,7 @@ metadata relating to a LLM response event.
 
 Fields
 
-`groundingMetadata` ` object ( GroundingMetadata  ` )
+`groundingMetadata` `object ( `[`GroundingMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GroundingMetadata)` )`
 
 Optional. metadata returned to client when grounding is enabled.
 
@@ -156,35 +155,45 @@ Optional. Set of ids of the long running function calls. Agent client will know 
 
 `branch` `string`
 
-Optional. The branch of the event. The format is like agent\_1.agent\_2.agent\_3, where agent\_1 is the parent of agent\_2, and agent\_2 is the parent of agent\_3. Branch is used when multiple child agents shouldn't see their siblings' conversation history.
+Optional. The branch of the event. The format is like agent_1.agent_2.agent_3, where agent_1 is the parent of agent_2, and agent_2 is the parent of agent_3. Branch is used when multiple child agents shouldn't see their siblings' conversation history.
 
-`customMetadata` ` object ( Struct  ` format)
+`customMetadata` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 The custom metadata of the LlmResponse.
 
-`inputTranscription` ` object ( Transcription  ` )
+`inputTranscription` `object ( `[`Transcription`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/SessionEvent#Transcription)` )`
 
 Optional. Audio transcription of user input.
 
-`outputTranscription` ` object ( Transcription  ` )
+`outputTranscription` `object ( `[`Transcription`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/SessionEvent#Transcription)` )`
 
 Optional. Audio transcription of model output.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;groundingMetadata&quot;: {object (GroundingMetadata)},&quot;partial&quot;: boolean,&quot;turnComplete&quot;: boolean,&quot;interrupted&quot;: boolean,&quot;longRunningToolIds&quot;: [string],&quot;branch&quot;: string,&quot;customMetadata&quot;: {object},&quot;inputTranscription&quot;: {object (Transcription)},&quot;outputTranscription&quot;: {object (Transcription)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "groundingMetadata": {
+    object (GroundingMetadata)
+  },
+  "partial": boolean,
+  "turnComplete": boolean,
+  "interrupted": boolean,
+  "longRunningToolIds": [
+    string
+  ],
+  "branch": string,
+  "customMetadata": {
+    object
+  },
+  "inputTranscription": {
+    object (Transcription)
+  },
+  "outputTranscription": {
+    object (Transcription)
+  }
+}
+```
 
 ## Transcription
 
@@ -200,21 +209,11 @@ Optional. Transcription text.
 
 Optional. The bool indicates the end of the transcription.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;text&quot;: string,
-  &quot;finished&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "text": string,
+  "finished": boolean
+}
+```

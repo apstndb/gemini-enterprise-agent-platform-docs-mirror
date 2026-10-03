@@ -26,7 +26,7 @@ Output only. The resource name of the Execution.
 
 ### Query parameters
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Optional. A FieldMask indicating which fields should be updated.
 
@@ -34,12 +34,12 @@ This is a comma-separated list of fully qualified names of fields. Example: `"us
 
 `allowMissing` `boolean`
 
-If set to true, and the `  Execution  ` is not found, a new `  Execution  ` is created.
+If set to true, and the [`Execution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions#Execution) is not found, a new [`Execution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions#Execution) is created.
 
 ### Request body
 
-The request body contains an instance of `  Execution  ` .
+The request body contains an instance of [`Execution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions#Execution) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Execution  ` .
+If successful, the response body contains an instance of [`Execution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores.executions#Execution) .

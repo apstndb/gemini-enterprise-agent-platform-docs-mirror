@@ -29,17 +29,23 @@ When you use the Google Cloud console to access Google Cloud services and APIs, 
 2.  If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 3.  To [initialize](https://docs.cloud.google.com/sdk/docs/initializing) the gcloud CLI, run the following command:
-    
-        gcloud init
+
+    ```
+    gcloud init
+    ```
 
 4.  After initializing the gcloud CLI, update it and install the required components:
-    
-        gcloud components update
-        gcloud components install beta
+
+    ```
+    gcloud components update
+    gcloud components install beta
+    ```
 
 To set up the gcloud CLI to use service account impersonation to authenticate to Google APIs, rather than your user credentials, run the following command:
 
-    gcloud config set auth/impersonate_service_account SERVICE_ACCT_EMAIL
+```
+gcloud config set auth/impersonate_service_account SERVICE_ACCT_EMAIL
+```
 
 For more information, see [Service account impersonation](https://docs.cloud.google.com/docs/authentication/use-service-account-impersonation) .
 
@@ -52,23 +58,29 @@ To use client libraries in a local development environment, install and initiali
 2.  If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 3.  After initializing the gcloud CLI, update it and install the required components:
-    
-        gcloud components update
-        gcloud components install beta
+
+    ```
+    gcloud components update
+    gcloud components install beta
+    ```
 
 4.  If you're using a local shell, then create local authentication credentials for your user account:
-    
-        gcloud auth application-default login
-    
+
+    ```
+    gcloud auth application-default login
+    ```
+
     You don't need to do this if you're using Cloud Shell.
-    
+
     If an authentication error is returned, and you are using an external identity provider (IdP), confirm that you have [signed in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 For more information, see [Set up ADC for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) in the Google Cloud authentication documentation.
 
 To set up your local ADC file to use service account impersonation to authenticate to Google APIs, rather than your user credentials, run the following command:
 
-    gcloud auth application-default login --impersonate-service-account=SERVICE_ACCT_EMAIL
+```
+gcloud auth application-default login --impersonate-service-account=SERVICE_ACCT_EMAIL
+```
 
 For more information, see [Service account impersonation](https://docs.cloud.google.com/docs/authentication/use-service-account-impersonation) .
 
@@ -81,9 +93,11 @@ To use the REST API in a local development environment, you use the credentials 
 2.  If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 3.  After initializing the gcloud CLI, update it and install the required components:
-    
-        gcloud components update
-        gcloud components install beta
+
+    ```
+    gcloud components update
+    gcloud components install beta
+    ```
 
 For more information, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) in the Google Cloud authentication documentation.
 
@@ -106,8 +120,8 @@ This section describes how an administrator grants the roles needed to use Gemin
 
 ## What's next
 
-  - Read an [overview of Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning) .
+- Read an [overview of Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning) .
 
-  - Walk through one of the [tutorials for using Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials) .
+- Walk through one of the [tutorials for using Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials) .
 
-  - Learn how to [use the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) , which provides another way to interact with Agent Platform.
+- Learn how to [use the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) , which provides another way to interact with Agent Platform.

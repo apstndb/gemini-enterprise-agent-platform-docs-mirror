@@ -30,7 +30,7 @@ Optional. The standard list page size.
 
 `pageToken` `string`
 
-Optional. The standard list page token. Typically obtained via `  nextPageToken  ` of the previous `  models.listCheckpoints  ` call.
+Optional. The standard list page token. Typically obtained via [`nextPageToken`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/listCheckpoints#body.ListModelVersionCheckpointsResponse.FIELDS.next_page_token) of the previous [`models.listCheckpoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/listCheckpoints#google.cloud.aiplatform.v1.ModelService.ListModelVersionCheckpoints) call.
 
 ### Request body
 
@@ -38,39 +38,36 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  ModelService.ListModelVersionCheckpoints  `
+Response message for [`ModelService.ListModelVersionCheckpoints`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/listCheckpoints#google.cloud.aiplatform.v1.ModelService.ListModelVersionCheckpoints)
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`checkpoints[]` ` object ( ModelVersionCheckpoint  ` )
+`checkpoints[]` `object ( `[`ModelVersionCheckpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/listCheckpoints#ModelVersionCheckpoint)` )`
 
 List of Model version checkpoints.
 
 `nextPageToken` `string`
 
-A token to retrieve the next page of results. Pass to `  ListModelVersionCheckpointsRequest.page_token  ` to obtain that page.
+A token to retrieve the next page of results. Pass to [`ListModelVersionCheckpointsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/listCheckpoints#body.QUERY_PARAMETERS.page_token) to obtain that page.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;checkpoints&quot;: [{object (ModelVersionCheckpoint)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "checkpoints": [
+    {
+      object (ModelVersionCheckpoint)
+    }
+  ],
+  "nextPageToken": string
+}
+```
 
 ## ModelVersionCheckpoint
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Describes the machine learning model version checkpoint.
 
@@ -80,30 +77,20 @@ Fields
 
 The id of the checkpoint.
 
-`epoch` `string ( int64 format)`
+`epoch` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The epoch of the checkpoint.
 
-`step` `string ( int64 format)`
+`step` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The step of the checkpoint.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;checkpointId&quot;: string,
-  &quot;epoch&quot;: string,
-  &quot;step&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "checkpointId": string,
+  "epoch": string,
+  "step": string
+}
+```

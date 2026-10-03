@@ -14,13 +14,13 @@ Fields
 
 Output only. The resource name of the DataItem.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this DataItem was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this DataItem was last updated.
 
@@ -34,9 +34,9 @@ label keys and values can be no longer than 64 characters (Unicode codepoints), 
 
 See <https://goo.gl/xmQnxf> for more information and examples of labels. System reserved label keys are prefixed with "aiplatform.googleapis.com/" and are immutable.
 
-`payload` ` value ( Value  ` format)
+`payload` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
-Required. The data that the DataItem represents (for example, an image or a text snippet). The schema of the payload is stored in the parent Dataset's `  metadata schema's  ` dataItemSchemaUri field.
+Required. The data that the DataItem represents (for example, an image or a text snippet). The schema of the payload is stored in the parent Dataset's [`metadata schema's`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets#Dataset.FIELDS.metadata_schema_uri) dataItemSchemaUri field.
 
 `etag` `string`
 
@@ -50,30 +50,20 @@ Output only. reserved for future use.
 
 Output only. reserved for future use.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;name&quot;: string,
-  &quot;createTime&quot;: string,
-  &quot;updateTime&quot;: string,
-  &quot;labels&quot;: {
+**JSON representation**
+
+```
+{
+  "name": string,
+  "createTime": string,
+  "updateTime": string,
+  "labels": {
     string: string,
     ...
   },
-  &quot;payload&quot;: value,
-  &quot;etag&quot;: string,
-  &quot;satisfiesPzs&quot;: boolean,
-  &quot;satisfiesPzi&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+  "payload": value,
+  "etag": string,
+  "satisfiesPzs": boolean,
+  "satisfiesPzi": boolean
+}
+```

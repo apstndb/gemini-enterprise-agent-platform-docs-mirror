@@ -8,16 +8,8 @@ data_source: docs.cloud.google.com
 
 Enum for controlling whether the model can generate images of prominent people (celebrities).
 
-Enums
-
-`PROMINENT_PEOPLE_UNSPECIFIED`
-
-Unspecified value. The model will proceed with the default behavior, which is to allow generation of prominent people.
-
-`ALLOW_PROMINENT_PEOPLE`
-
-Allows the model to generate images of prominent people.
-
-`BLOCK_PROMINENT_PEOPLE`
-
-Prevents the model from generating images of prominent people.
+| Enums                          |                                                                                                                        |
+|--------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| `PROMINENT_PEOPLE_UNSPECIFIED` | Unspecified value. The model will proceed with the default behavior, which is to allow generation of prominent people. |
+| `ALLOW_PROMINENT_PEOPLE`       | Allows the model to generate images of prominent people.                                                               |
+| `BLOCK_PROMINENT_PEOPLE`       | Prevents the model from generating images of prominent people.                                                         |

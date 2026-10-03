@@ -8,4 +8,4 @@ data_source: docs.cloud.google.com
 
 This type has no fields.
 
-Response message for `  IndexEndpointService.UndeployIndex  ` .
+Response message for [`IndexEndpointService.UndeployIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexEndpoints/undeployIndex#google.cloud.aiplatform.v1beta1.IndexEndpointService.UndeployIndex) .

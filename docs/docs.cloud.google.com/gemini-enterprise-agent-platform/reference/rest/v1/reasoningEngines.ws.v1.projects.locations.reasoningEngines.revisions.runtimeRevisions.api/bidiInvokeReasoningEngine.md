@@ -24,7 +24,7 @@ Optional. The name of the ReasoningEngine. Format: `projects/{project}/locations
 
 ### Request body
 
-The request body contains an instance of `  HttpBody  ` .
+The request body contains an instance of [`HttpBody`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/HttpBody) .
 
 ### Response body
 

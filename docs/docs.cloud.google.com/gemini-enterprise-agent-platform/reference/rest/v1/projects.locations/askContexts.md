@@ -28,17 +28,17 @@ The request body contains data with the following structure:
 
 Fields
 
-`query` ` object ( RagQuery  ` )
+`query` `object ( `[`RagQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagQuery)` )`
 
 Required. Single RAG retrieve query.
 
-`tools[]` ` object ( Tool  ` )
+`tools[]` `object ( `[`Tool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents#Tool)` )`
 
 Optional. The tools to use for locations.askContexts.
 
 ### Response body
 
-Response message for `  VertexRagService.AskContexts  ` .
+Response message for [`VertexRagService.AskContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/askContexts#google.cloud.aiplatform.v1.VertexRagService.AskContexts) .
 
 If successful, the response body contains data with the following structure:
 
@@ -48,22 +48,17 @@ Fields
 
 The Retrieval Response.
 
-`contexts` ` object ( RagContexts  ` )
+`contexts` `object ( `[`RagContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagContexts)` )`
 
 The contexts of the query.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;response&quot;: string,&quot;contexts&quot;: {object (RagContexts)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "response": string,
+  "contexts": {
+    object (RagContexts)
+  }
+}
+```

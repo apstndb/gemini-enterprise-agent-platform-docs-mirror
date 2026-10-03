@@ -17,7 +17,7 @@ A designated Google Cloud project administrator or network administrator can com
 1.  To set up your Google Cloud projects, enable billing, and enable APIs, complete the following [Before you begin](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering#before_you_begin) steps.
 
 2.  To avoid IP address collisions between your VPC network and our service producer's network, you must allocate an IP address range for the Vector Search service in which the Vector Search indexes are deployed. For more information, see [Allocating IP address ranges](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#allocating-range) .
-    
+
     ```sh
     # Note: `prefix-length=16` means a CIDR block with mask /16 is reserved for
     # use by Google services. Make sure to enable the Service Networking API.
@@ -29,7 +29,7 @@ A designated Google Cloud project administrator or network administrator can com
         --purpose=VPC_PEERING \
         --project=$PROJECT_ID
     ```
-    
+
     ```sh
     # Create the VPC connection.
     gcloud services vpc-peerings connect \

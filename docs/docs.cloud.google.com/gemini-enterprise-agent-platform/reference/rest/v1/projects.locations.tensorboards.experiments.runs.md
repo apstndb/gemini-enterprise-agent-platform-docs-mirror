@@ -24,13 +24,13 @@ Required. user provided name of this TensorboardRun. This value must be unique a
 
 description of this TensorboardRun.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this TensorboardRun was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this TensorboardRun was last updated.
 
@@ -50,59 +50,29 @@ See <https://goo.gl/xmQnxf> for more information and examples of labels. System 
 
 Used to perform a consistent read-modify-write updates. If not set, a blind "overwrite" update happens.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;name&quot;: string,
-  &quot;displayName&quot;: string,
-  &quot;description&quot;: string,
-  &quot;createTime&quot;: string,
-  &quot;updateTime&quot;: string,
-  &quot;labels&quot;: {
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "description": string,
+  "createTime": string,
+  "updateTime": string,
+  "labels": {
     string: string,
     ...
   },
-  &quot;etag&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+  "etag": string
+}
+```
 
-## Methods
-
-### `            batchCreate           `
-
-Batch create TensorboardRuns.
-
-### `            create           `
-
-Creates a TensorboardRun.
-
-### `            delete           `
-
-Deletes a TensorboardRun.
-
-### `            get           `
-
-Gets a TensorboardRun.
-
-### `            list           `
-
-Lists TensorboardRuns in a Location.
-
-### `            patch           `
-
-Updates a TensorboardRun.
-
-### `            write           `
-
-Write time series data points into multiple TensorboardTimeSeries under a TensorboardRun.
+| Methods                                                                                                                                                        |                                                                                           |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| [`batchCreate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/batchCreate) | Batch create TensorboardRuns.                                                             |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/create)           | Creates a TensorboardRun.                                                                 |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/delete)           | Deletes a TensorboardRun.                                                                 |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/get)                 | Gets a TensorboardRun.                                                                    |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/list)               | Lists TensorboardRuns in a Location.                                                      |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/patch)             | Updates a TensorboardRun.                                                                 |
+| [`write`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/write)             | Write time series data points into multiple TensorboardTimeSeries under a TensorboardRun. |

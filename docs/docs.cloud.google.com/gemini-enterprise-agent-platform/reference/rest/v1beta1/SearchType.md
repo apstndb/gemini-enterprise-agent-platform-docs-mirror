@@ -8,20 +8,9 @@ data_source: docs.cloud.google.com
 
 The types of search grounding to enable.
 
-Enums
-
-`SEARCH_TYPE_UNSPECIFIED`
-
-Unspecified search type. This value should not be used.
-
-`SEARCH_TYPE_WEB_SEARCH`
-
-Setting this field enables web search. Only text results are returned.
-
-`SEARCH_TYPE_IMAGE_SEARCH`
-
-Setting this field enables image search. Image bytes are returned.
-
-`SEARCH_TYPE_ENTERPRISE_WEB_SEARCH`
-
-Setting this field enables enterprise web search.
+| Enums                               |                                                                        |
+|-------------------------------------|------------------------------------------------------------------------|
+| `SEARCH_TYPE_UNSPECIFIED`           | Unspecified search type. This value should not be used.                |
+| `SEARCH_TYPE_WEB_SEARCH`            | Setting this field enables web search. Only text results are returned. |
+| `SEARCH_TYPE_IMAGE_SEARCH`          | Setting this field enables image search. Image bytes are returned.     |
+| `SEARCH_TYPE_ENTERPRISE_WEB_SEARCH` | Setting this field enables enterprise web search.                      |

@@ -26,7 +26,7 @@ Immutable. Identifier. The server-generated resource name of the cached content 
 
 ### Query parameters
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Required. The list of fields to update.
 
@@ -34,8 +34,8 @@ This is a comma-separated list of fully qualified names of fields. Example: `"us
 
 ### Request body
 
-The request body contains an instance of `  CachedContent  ` .
+The request body contains an instance of [`CachedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.cachedContents#CachedContent) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  CachedContent  ` .
+If successful, the response body contains an instance of [`CachedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.cachedContents#CachedContent) .

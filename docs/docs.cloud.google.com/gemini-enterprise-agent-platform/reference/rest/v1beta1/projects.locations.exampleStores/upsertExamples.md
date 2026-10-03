@@ -28,7 +28,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`examples[]` ` object ( Example  ` )
+`examples[]` `object ( `[`Example`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Example)` )`
 
 Required. A list of examples to be created/updated.
 
@@ -38,31 +38,27 @@ Optional. A flag indicating whether an example can be overwritten if it already 
 
 ### Response body
 
-Response message for `  ExampleStoreService.UpsertExamples  ` .
+Response message for [`ExampleStoreService.UpsertExamples`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/upsertExamples#google.cloud.aiplatform.v1beta1.ExampleStoreService.UpsertExamples) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`results[]` ` object ( UpsertResult  ` )
+`results[]` `object ( `[`UpsertResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/upsertExamples#UpsertResult)` )`
 
 A list of results for creating/updating. It's either a successfully created/updated example or a status with an error message.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;results&quot;: [{object (UpsertResult)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "results": [
+    {
+      object (UpsertResult)
+    }
+  ]
+}
+```
 
 ## UpsertResult
 
@@ -74,28 +70,28 @@ Fields
 
 The outcome of creating/updating a single example. It's either the example that was successfully created/updated or a status with an error message. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`example` ` object ( Example  ` )
+`example` `object ( `[`Example`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Example)` )`
 
 The example created/updated successfully.
 
-`status` ` object ( Status  ` )
+`status` `object ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Status)` )`
 
 The error message of the example that was not created/updated successfully.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// result&quot;example&quot;: {object (Example)},&quot;status&quot;: {object (Status)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // result
+  "example": {
+    object (Example)
+  },
+  "status": {
+    object (Status)
+  }
+  // Union type
+}
+```

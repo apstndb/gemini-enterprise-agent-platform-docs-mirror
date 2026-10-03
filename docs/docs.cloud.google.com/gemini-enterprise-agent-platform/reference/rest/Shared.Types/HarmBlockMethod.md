@@ -8,16 +8,8 @@ data_source: docs.cloud.google.com
 
 The method for blocking content.
 
-Enums
-
-`HARM_BLOCK_METHOD_UNSPECIFIED`
-
-The harm block method is unspecified.
-
-`SEVERITY`
-
-The harm block method uses both probability and severity scores.
-
-`PROBABILITY`
-
-The harm block method uses the probability score.
+| Enums                           |                                                                  |
+|---------------------------------|------------------------------------------------------------------|
+| `HARM_BLOCK_METHOD_UNSPECIFIED` | The harm block method is unspecified.                            |
+| `SEVERITY`                      | The harm block method uses both probability and severity scores. |
+| `PROBABILITY`                   | The harm block method uses the probability score.                |

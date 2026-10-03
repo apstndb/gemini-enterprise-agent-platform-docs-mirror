@@ -11,9 +11,9 @@ This page describes how to evaluate models using Gemini Enterprise Agent Platfor
 ## Prerequisites
 
 1.  Follow the steps at [Set up a project and a development environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/cloud-environment) . In addition, enable the following services:
-    
-      - [Compute Engine API](https://console.cloud.google.com/apis/enableflow?apiid=compute.googleapis.com)
-      - [Dataflow API](https://console.cloud.google.com/apis/enableflow?apiid=dataflow.googleapis.com)
+
+    - [Compute Engine API](https://console.cloud.google.com/apis/enableflow?apiid=compute.googleapis.com)
+    - [Dataflow API](https://console.cloud.google.com/apis/enableflow?apiid=dataflow.googleapis.com)
 
 2.  Agent Platform can evaluate models that are trained either through AutoML or custom training. For the Google Cloud console guide, you should have a trained model [imported to Gemini Enterprise Agent Platform Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/import-model) .
 
@@ -22,12 +22,12 @@ This page describes how to evaluate models using Gemini Enterprise Agent Platfor
 4.  Have a [batch inference output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions) in the form of a BigQuery table or Cloud Storage URI.
 
 5.  Make sure your [default Compute Engine service account](https://docs.cloud.google.com/iam/docs/service-account-types#default) has the following [IAM permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/iam-permissions) :
-    
-      - Agent Platform Administrator ( `aiplatform.admin` )
-      - Agent Platform Service Agent ( `aiplatform.serviceAgent` )
-      - Storage Object Admin ( `storage.objectAdmin` )
-      - Dataflow Worker ( `dataflow.worker` )
-      - BigQuery Data Editor ( `bigquery.dataEditor` ) (only required if you are providing data in the form of BigQuery tables)
+
+    - Agent Platform Administrator ( `aiplatform.admin` )
+    - Agent Platform Service Agent ( `aiplatform.serviceAgent` )
+    - Storage Object Admin ( `storage.objectAdmin` )
+    - Dataflow Worker ( `dataflow.worker` )
+    - BigQuery Data Editor ( `bigquery.dataEditor` ) (only required if you are providing data in the form of BigQuery tables)
 
 ## Create an evaluation
 
@@ -48,13 +48,13 @@ This page describes how to evaluate models using Gemini Enterprise Agent Platfor
 7.  Enter the **Evaluation target column name** , which is the column from the training data that the model is trained to predict.
 
 8.  For **Select source** , select the source for your test dataset.
-    
+
     1.  For **BigQuery table** , enter the **BigQuery path** .
-    
+
     2.  For **File on Cloud Storage** , enter the **Cloud Storage path** .
 
 9.  For **Batch prediction output** , select an output format.
-    
+
     1.  Enter the BigQuery path or Cloud Storage URI.
 
 10. Click **Start Evaluation** .
@@ -63,13 +63,13 @@ This page describes how to evaluate models using Gemini Enterprise Agent Platfor
 
 To view the Agent Platform API model evaluation workflow in Gemini Enterprise Agent Platform Pipelines, see the example notebooks for the following model types:
 
-  - [AutoML tabular classification](https://colab.sandbox.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_evaluation/automl_tabular_classification_model_evaluation.ipynb)
+- [AutoML tabular classification](https://colab.sandbox.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_evaluation/automl_tabular_classification_model_evaluation.ipynb)
 
-  - [AutoML tabular regression](https://colab.sandbox.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_evaluation/automl_tabular_regression_model_evaluation.ipynb)
+- [AutoML tabular regression](https://colab.sandbox.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_evaluation/automl_tabular_regression_model_evaluation.ipynb)
 
-  - [Custom tabular classification](https://colab.sandbox.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_evaluation/custom_tabular_classification_model_evaluation.ipynb)
+- [Custom tabular classification](https://colab.sandbox.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_evaluation/custom_tabular_classification_model_evaluation.ipynb)
 
-  - [Custom tabular regression](https://colab.sandbox.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_evaluation/custom_tabular_regression_model_evaluation.ipynb)
+- [Custom tabular regression](https://colab.sandbox.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_evaluation/custom_tabular_regression_model_evaluation.ipynb)
 
 ### Python SDK
 
@@ -93,13 +93,13 @@ Agent Platform automatically sends an email notification when a model evaluation
 
 To view the Agent Platform API model evaluation workflow in Gemini Enterprise Agent Platform Pipelines, see the example notebooks for the following model types:
 
-  - [AutoML tabular classification](https://colab.sandbox.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_evaluation/automl_tabular_classification_model_evaluation.ipynb)
+- [AutoML tabular classification](https://colab.sandbox.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_evaluation/automl_tabular_classification_model_evaluation.ipynb)
 
-  - [AutoML tabular regression](https://colab.sandbox.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_evaluation/automl_tabular_regression_model_evaluation.ipynb)
+- [AutoML tabular regression](https://colab.sandbox.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_evaluation/automl_tabular_regression_model_evaluation.ipynb)
 
-  - [Custom tabular classification](https://colab.sandbox.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_evaluation/custom_tabular_classification_model_evaluation.ipynb)
+- [Custom tabular classification](https://colab.sandbox.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_evaluation/custom_tabular_classification_model_evaluation.ipynb)
 
-  - [Custom tabular regression](https://colab.sandbox.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_evaluation/custom_tabular_regression_model_evaluation.ipynb)
+- [Custom tabular regression](https://colab.sandbox.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_evaluation/custom_tabular_regression_model_evaluation.ipynb)
 
 ### Python SDK
 
@@ -116,25 +116,25 @@ You can only compare 5 or fewer evaluations at a time.
 1.  Go to the Gemini Enterprise Agent Platform Model Registry in the Google Cloud console:
 
 2.  Navigate to your model or model version:
-    
-      - To compare across different models on the **Models** page, select the checkboxes next to the names of the models you want to compare.
-    
-      - To compare across different model versions:
-        
-        1.  Click the name of your model on the **Models** page to open the list of model versions.
-        
-        2.  Select the checkboxes next to the versions you want to compare.
-    
-      - To compare across evaluation jobs for the same model version:
-        
-        1.  Click the name of your model on the **Models** page to open the list of model versions.
-        
-        2.  Click the version number.
-        
-        3.  Select the checkboxes next to the evaluation jobs you want to compare.
+
+    - To compare across different models on the **Models** page, select the checkboxes next to the names of the models you want to compare.
+
+    - To compare across different model versions:
+
+      1.  Click the name of your model on the **Models** page to open the list of model versions.
+
+      2.  Select the checkboxes next to the versions you want to compare.
+
+    - To compare across evaluation jobs for the same model version:
+
+      1.  Click the name of your model on the **Models** page to open the list of model versions.
+
+      2.  Click the version number.
+
+      3.  Select the checkboxes next to the evaluation jobs you want to compare.
 
 3.  Click **Compare** .
 
 ## What's next
 
-  - Learn how to [evaluate your model for fairness](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/intro-evaluation-fairness) .
+- Learn how to [evaluate your model for fairness](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/intro-evaluation-fairness) .

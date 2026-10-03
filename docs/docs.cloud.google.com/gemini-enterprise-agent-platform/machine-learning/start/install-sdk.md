@@ -8,9 +8,9 @@ data_source: docs.cloud.google.com
 
 Use the Agent Platform SDK for Python to automate your machine learning (ML) workflows. This page shows you how to install the Agent Platform SDK for Python. For more information about the Agent Platform SDK, see the following resources:
 
-  - To learn about the Agent Platform SDK for Python, see [Introduction to the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .
-  - To learn how to train a model using the Agent Platform SDK for Python, see the [Train a model using Gemini Enterprise Agent Platform and the Python SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction) .
-  - To learn about the classes and methods in the Agent Platform SDK for Python, see the [Agent Platform SDK reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform) .
+- To learn about the Agent Platform SDK for Python, see [Introduction to the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .
+- To learn how to train a model using the Agent Platform SDK for Python, see the [Train a model using Gemini Enterprise Agent Platform and the Python SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction) .
+- To learn about the classes and methods in the Agent Platform SDK for Python, see the [Agent Platform SDK reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform) .
 
 Installation of the Agent Platform SDK for Python includes the following steps:
 
@@ -30,34 +30,38 @@ To use a notebook in an isolated environment, you can create a Gemini Enterprise
 
 To install or update the Agent Platform SDK, run the following command in your virtual environment:
 
-    pip install --upgrade google-cloud-aiplatform
+```
+pip install --upgrade google-cloud-aiplatform
+```
 
 ## Initialize the Agent Platform SDK
 
 After you install the Agent Platform SDK for Python, you must initialize the SDK with your Gemini Enterprise Agent Platform and Google Cloud details. For example, when you initialize the SDK, you specify information such as your project name, region, and your staging Cloud Storage bucket. The following method is an example of a method that initializes the Agent Platform SDK.
 
-    def init_sample(
-        project: Optional[str] = None,
-        location: Optional[str] = None,
-        experiment: Optional[str] = None,
-        staging_bucket: Optional[str] = None,
-        credentials: Optional[google.auth.credentials.Credentials] = None,
-        encryption_spec_key_name: Optional[str] = None,
-        service_account: Optional[str] = None,
-    ):
-    
-        import vertexai
-    
-        vertexai.init(
-            project=project,
-            location=location,
-            experiment=experiment,
-            staging_bucket=staging_bucket,
-            credentials=credentials,
-            encryption_spec_key_name=encryption_spec_key_name,
-            service_account=service_account,
-        )
+```
+def init_sample(
+    project: Optional[str] = None,
+    location: Optional[str] = None,
+    experiment: Optional[str] = None,
+    staging_bucket: Optional[str] = None,
+    credentials: Optional[google.auth.credentials.Credentials] = None,
+    encryption_spec_key_name: Optional[str] = None,
+    service_account: Optional[str] = None,
+):
+
+    import vertexai
+
+    vertexai.init(
+        project=project,
+        location=location,
+        experiment=experiment,
+        staging_bucket=staging_bucket,
+        credentials=credentials,
+        encryption_spec_key_name=encryption_spec_key_name,
+        service_account=service_account,
+    )
+```
 
 ## What's next
 
-  - Learn more about the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .
+- Learn more about the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .

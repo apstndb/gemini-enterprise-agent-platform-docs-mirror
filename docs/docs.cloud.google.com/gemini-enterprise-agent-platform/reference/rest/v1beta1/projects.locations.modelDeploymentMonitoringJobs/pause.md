@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.modelDeploymentMonitoringJobs.pause
 
-Pauses a ModelDeploymentMonitoringJob. If the job is running, the server makes a best effort to cancel the job. Will mark `  ModelDeploymentMonitoringJob.state  ` to 'PAUSED'.
+Pauses a ModelDeploymentMonitoringJob. If the job is running, the server makes a best effort to cancel the job. Will mark [`ModelDeploymentMonitoringJob.state`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelDeploymentMonitoringJobs#ModelDeploymentMonitoringJob.FIELDS.state) to 'PAUSED'.
 
 ### Endpoint
 

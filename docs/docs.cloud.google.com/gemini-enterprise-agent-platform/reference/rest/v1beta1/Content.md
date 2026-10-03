@@ -14,45 +14,63 @@ Fields
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`text` ` object ( TextContent  ` )
+`text` `object ( `[`TextContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Content#TextContent)` )`
 
-`image` ` object ( ImageContent  ` )
+`image` `object ( `[`ImageContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Content#ImageContent)` )`
 
-`audio` ` object ( AudioContent  ` )
+`audio` `object ( `[`AudioContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Content#AudioContent)` )`
 
-`document` ` object ( DocumentContent  ` )
+`document` `object ( `[`DocumentContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Content#DocumentContent)` )`
 
-`video` ` object ( VideoContent  ` )
+`video` `object ( `[`VideoContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Content#VideoContent)` )`
 
-` thought (deprecated)  ` `object ( ThoughtContent` )
+`thought `**`(deprecated)`** `object ( ``ThoughtContent`` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
-` toolCall (deprecated)  ` `object ( ToolCallContent` )
+`toolCall `**`(deprecated)`** `object ( ``ToolCallContent`` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
-` toolResult (deprecated)  ` `object ( ToolResultContent` )
+`toolResult `**`(deprecated)`** `object ( ``ToolResultContent`` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// type&quot;text&quot;: {object (TextContent)},&quot;image&quot;: {object (ImageContent)},&quot;audio&quot;: {object (AudioContent)},&quot;document&quot;: {object (DocumentContent)},&quot;video&quot;: {object (VideoContent)},&quot;thought&quot;: {object (ThoughtContent)},&quot;toolCall&quot;: {object (ToolCallContent)},&quot;toolResult&quot;: {object (ToolResultContent)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // type
+  "text": {
+    object (TextContent)
+  },
+  "image": {
+    object (ImageContent)
+  },
+  "audio": {
+    object (AudioContent)
+  },
+  "document": {
+    object (DocumentContent)
+  },
+  "video": {
+    object (VideoContent)
+  },
+  "thought": {
+    object (ThoughtContent)
+  },
+  "toolCall": {
+    object (ToolCallContent)
+  },
+  "toolResult": {
+    object (ToolResultContent)
+  }
+  // Union type
+}
+```
 
 ## TextContent
 
@@ -64,25 +82,22 @@ Fields
 
 Required. The text content.
 
-`annotations[]` ` object ( Annotation  ` )
+`annotations[]` `object ( `[`Annotation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Annotation)` )`
 
 Citation information for model-generated content.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;text&quot;: string,&quot;annotations&quot;: [{object (Annotation)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "text": string,
+  "annotations": [
+    {
+      object (Annotation)
+    }
+  ]
+}
+```
 
 ## ImageContent
 
@@ -94,7 +109,7 @@ Fields
 
 Flexible MIME type string of the image, superseding mimeType = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mimeType" JSON key.
 
-`resolution` ` enum ( MediaResolution  ` )
+`resolution` `enum ( `[`MediaResolution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/MediaResolution)` )`
 
 The resolution of the media.
 
@@ -102,7 +117,7 @@ The resolution of the media.
 
 The image content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`data` `string ( bytes format)`
+`data` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The image content.
 
@@ -114,21 +129,19 @@ The URI of the image.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;mimeTypeString&quot;: string,&quot;resolution&quot;: enum (MediaResolution),// data_or_uri&quot;data&quot;: string,&quot;uri&quot;: string// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "mimeTypeString": string,
+  "resolution": enum (MediaResolution),
+
+  // data_or_uri
+  "data": string,
+  "uri": string
+  // Union type
+}
+```
 
 ## AudioContent
 
@@ -152,7 +165,7 @@ The sample rate of the audio.
 
 The audio content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`data` `string ( bytes format)`
+`data` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The audio content.
 
@@ -164,30 +177,20 @@ The URI of the audio.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;mimeTypeString&quot;: string,
-  &quot;channels&quot;: integer,
-  &quot;sampleRate&quot;: integer,
+**JSON representation**
+
+```
+{
+  "mimeTypeString": string,
+  "channels": integer,
+  "sampleRate": integer,
 
   // data_or_uri
-  &quot;data&quot;: string,
-  &quot;uri&quot;: string
+  "data": string,
+  "uri": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## DocumentContent
 
@@ -203,7 +206,7 @@ Flexible MIME type string of the document, superseding mimeType = 1. Note: Bespo
 
 The document content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`data` `string ( bytes format)`
+`data` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The document content.
 
@@ -215,28 +218,18 @@ The URI of the document.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;mimeTypeString&quot;: string,
+**JSON representation**
+
+```
+{
+  "mimeTypeString": string,
 
   // data_or_uri
-  &quot;data&quot;: string,
-  &quot;uri&quot;: string
+  "data": string,
+  "uri": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## VideoContent
 
@@ -248,7 +241,7 @@ Fields
 
 Flexible MIME type string of the video, superseding mimeType = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mimeType" JSON key.
 
-`resolution` ` enum ( MediaResolution  ` )
+`resolution` `enum ( `[`MediaResolution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/MediaResolution)` )`
 
 The resolution of the media.
 
@@ -260,7 +253,7 @@ A user-defined name for this content block. Can be referenced by the model in th
 
 The video content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`data` `string ( bytes format)`
+`data` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The video content.
 
@@ -276,31 +269,37 @@ End of mutually exclusive fields.
 
 How the model processes this video for understanding. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`processingType` ` enum ( Processing  ` )
+`processingType` `enum ( `[`Processing`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Processing)` )`
 
-`processingConfig` ` object ( MediaProcessing  ` )
+`processingConfig` `object ( `[`MediaProcessing`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/MediaProcessing)` )`
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;mimeTypeString&quot;: string,&quot;resolution&quot;: enum (MediaResolution),&quot;name&quot;: string,// data_or_uri&quot;data&quot;: string,&quot;uri&quot;: string// Union type// processing&quot;processingType&quot;: enum (Processing),&quot;processingConfig&quot;: {object (MediaProcessing)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "mimeTypeString": string,
+  "resolution": enum (MediaResolution),
+  "name": string,
+
+  // data_or_uri
+  "data": string,
+  "uri": string
+  // Union type
+
+  // processing
+  "processingType": enum (Processing),
+  "processingConfig": {
+    object (MediaProcessing)
+  }
+  // Union type
+}
+```
 
 ## FunctionCallContent
 
-> This item is deprecated\!
+> This item is deprecated!
 
 A function tool call content block.
 
@@ -310,81 +309,64 @@ Fields
 
 Required. The name of the tool to call.
 
-`arguments` ` object ( Struct  ` )
+`arguments` `object ( `[`Struct`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Struct)` )`
 
 Required. The arguments to pass to the function.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;arguments&quot;: {object (Struct)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "arguments": {
+    object (Struct)
+  }
+}
+```
 
 ## CodeExecutionCallContent
 
-> This item is deprecated\!
+> This item is deprecated!
 
 code execution content.
 
 Fields
 
-`arguments` ` object ( CodeExecutionCallArguments  ` )
+`arguments` `object ( `[`CodeExecutionCallArguments`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/CodeExecutionCallArguments)` )`
 
 Required. The arguments to pass to the code execution.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;arguments&quot;: {object (CodeExecutionCallArguments)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "arguments": {
+    object (CodeExecutionCallArguments)
+  }
+}
+```
 
 ## UrlContextCallContent
 
-> This item is deprecated\!
+> This item is deprecated!
 
 URL context content.
 
 Fields
 
-`arguments` ` object ( UrlContextCallArguments  ` )
+`arguments` `object ( `[`UrlContextCallArguments`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/UrlContextCallArguments)` )`
 
 Required. The arguments to pass to the URL context.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;arguments&quot;: {object (UrlContextCallArguments)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "arguments": {
+    object (UrlContextCallArguments)
+  }
+}
+```
 
 ## McpServerToolCallContent
 
@@ -400,97 +382,82 @@ Required. The name of the tool which was called.
 
 Required. The name of the used MCP server.
 
-`arguments` ` object ( Struct  ` )
+`arguments` `object ( `[`Struct`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Struct)` )`
 
 Required. The JSON object of arguments for the function.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;serverName&quot;: string,&quot;arguments&quot;: {object (Struct)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "serverName": string,
+  "arguments": {
+    object (Struct)
+  }
+}
+```
 
 ## GoogleSearchCallContent
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Google Search content.
 
 Fields
 
-`arguments` ` object ( GoogleSearchCallArguments  ` )
+`arguments` `object ( `[`GoogleSearchCallArguments`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GoogleSearchCallArguments)` )`
 
 Required. The arguments to pass to Google Search.
 
-`searchType` ` enum ( SearchType  ` )
+`searchType` `enum ( `[`SearchType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/SearchType)` )`
 
 The type of search grounding enabled.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;arguments&quot;: {object (GoogleSearchCallArguments)},&quot;searchType&quot;: enum (SearchType)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "arguments": {
+    object (GoogleSearchCallArguments)
+  },
+  "searchType": enum (SearchType)
+}
+```
 
 ## FileSearchCallContent
 
 This type has no fields.
 
-> This item is deprecated\!
+> This item is deprecated!
 
 File Search content.
 
 ## GoogleMapsCallContent
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Google Maps content.
 
 Fields
 
-`arguments` ` object ( GoogleMapsCallArguments  ` )
+`arguments` `object ( `[`GoogleMapsCallArguments`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GoogleMapsCallArguments)` )`
 
 The arguments to pass to the Google Maps tool.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;arguments&quot;: {object (GoogleMapsCallArguments)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "arguments": {
+    object (GoogleMapsCallArguments)
+  }
+}
+```
 
 ## FunctionResultContent
 
-> This item is deprecated\!
+> This item is deprecated!
 
 A function tool result content block.
 
@@ -508,51 +475,50 @@ Whether the tool call resulted in an error.
 
 The result of the tool call. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`structResult` ` object ( Struct  ` )
+`structResult` `object ( `[`Struct`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Struct)` )`
 
-`contentList` ` object ( FunctionResultSubcontentList  ` )
+`contentList` `object ( `[`FunctionResultSubcontentList`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Content#FunctionResultSubcontentList)` )`
 
 `stringResult` `string`
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;isError&quot;: boolean,// result&quot;structResult&quot;: {object (Struct)},&quot;contentList&quot;: {object (FunctionResultSubcontentList)},&quot;stringResult&quot;: string// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "isError": boolean,
+
+  // result
+  "structResult": {
+    object (Struct)
+  },
+  "contentList": {
+    object (FunctionResultSubcontentList)
+  },
+  "stringResult": string
+  // Union type
+}
+```
 
 ## FunctionResultSubcontentList
 
 Fields
 
-`contents[]` ` object ( FunctionResultSubcontent  ` )
+`contents[]` `object ( `[`FunctionResultSubcontent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Content#FunctionResultSubcontent)` )`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;contents&quot;: [{object (FunctionResultSubcontent)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "contents": [
+    {
+      object (FunctionResultSubcontent)
+    }
+  ]
+}
+```
 
 ## FunctionResultSubcontent
 
@@ -562,31 +528,31 @@ Fields
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`text` ` object ( TextContent  ` )
+`text` `object ( `[`TextContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Content#TextContent)` )`
 
-`image` ` object ( ImageContent  ` )
+`image` `object ( `[`ImageContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Content#ImageContent)` )`
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// type&quot;text&quot;: {object (TextContent)},&quot;image&quot;: {object (ImageContent)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // type
+  "text": {
+    object (TextContent)
+  },
+  "image": {
+    object (ImageContent)
+  }
+  // Union type
+}
+```
 
 ## CodeExecutionResultContent
 
-> This item is deprecated\!
+> This item is deprecated!
 
 code execution result content.
 
@@ -600,34 +566,24 @@ Required. The output of the code execution.
 
 Whether the code execution resulted in an error.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;result&quot;: string,
-  &quot;isError&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "result": string,
+  "isError": boolean
+}
+```
 
 ## UrlContextResultContent
 
-> This item is deprecated\!
+> This item is deprecated!
 
 URL context result content.
 
 Fields
 
-`result[]` ` object ( UrlContextResult  ` )
+`result[]` `object ( `[`UrlContextResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/UrlContextResult)` )`
 
 Required. The results of the URL context.
 
@@ -635,31 +591,28 @@ Required. The results of the URL context.
 
 Whether the URL context resulted in an error.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;result&quot;: [{object (UrlContextResult)}],&quot;isError&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "result": [
+    {
+      object (UrlContextResult)
+    }
+  ],
+  "isError": boolean
+}
+```
 
 ## GoogleSearchResultContent
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Google Search result content.
 
 Fields
 
-`result[]` ` object ( GoogleSearchResult  ` )
+`result[]` `object ( `[`GoogleSearchResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GoogleSearchResult)` )`
 
 Required. The results of the Google Search.
 
@@ -667,21 +620,18 @@ Required. The results of the Google Search.
 
 Whether the Google Search resulted in an error.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;result&quot;: [{object (GoogleSearchResult)}],&quot;isError&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "result": [
+    {
+      object (GoogleSearchResult)
+    }
+  ],
+  "isError": boolean
+}
+```
 
 ## McpServerToolResultContent
 
@@ -701,82 +651,77 @@ The name of the used MCP server.
 
 The output from the MCP server call. Can be simple text or rich content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`structResult` ` object ( Struct  ` )
+`structResult` `object ( `[`Struct`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Struct)` )`
 
-`contentList` ` object ( FunctionResultSubcontentList  ` )
+`contentList` `object ( `[`FunctionResultSubcontentList`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Content#FunctionResultSubcontentList)` )`
 
 `stringResult` `string`
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;serverName&quot;: string,// result&quot;structResult&quot;: {object (Struct)},&quot;contentList&quot;: {object (FunctionResultSubcontentList)},&quot;stringResult&quot;: string// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "serverName": string,
+
+  // result
+  "structResult": {
+    object (Struct)
+  },
+  "contentList": {
+    object (FunctionResultSubcontentList)
+  },
+  "stringResult": string
+  // Union type
+}
+```
 
 ## FileSearchResultContent
 
-> This item is deprecated\!
+> This item is deprecated!
 
 File Search result content.
 
 Fields
 
-`result[]` ` object ( FileSearchResult  ` )
+`result[]` `object ( `[`FileSearchResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FileSearchResult)` )`
 
 The results of the File Search.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;result&quot;: [{object (FileSearchResult)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "result": [
+    {
+      object (FileSearchResult)
+    }
+  ]
+}
+```
 
 ## GoogleMapsResultContent
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Google Maps result content.
 
 Fields
 
-`result[]` ` object ( GoogleMapsResult  ` )
+`result[]` `object ( `[`GoogleMapsResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GoogleMapsResult)` )`
 
 Required. The results of the Google Maps.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;result&quot;: [{object (GoogleMapsResult)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "result": [
+    {
+      object (GoogleMapsResult)
+    }
+  ]
+}
+```

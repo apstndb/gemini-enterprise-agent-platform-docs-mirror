@@ -10,437 +10,396 @@ This page describes how to route Agent Runtime traffic through Agent Gateway. Ag
 
 ## Before you begin
 
-  - Make sure you are familiar with [deploying agents on Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) .
+- Make sure you are familiar with [deploying agents on Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) .
 
-  - Learn about [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) . You can use Agent Gateway in Agent-to-Anywhere (egress) mode to secure and govern all outbound communications with outbound traffic to tools, models, APIs, and other agents. You use the gateway in Client-to-Agent (ingress) mode to control which clients can access your agents. The gateway lets you choose which IAP policies and Model Armor templates must be applied to these interactions.
-    
-    A single Runtime instance can bind to both an Agent-to-Anywhere (egress) gateway and a Client-to-Agent (ingress) gateway simultaneously.
+- Learn about [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) . You can use Agent Gateway in Agent-to-Anywhere (egress) mode to secure and govern all outbound communications with outbound traffic to tools, models, APIs, and other agents. You use the gateway in Client-to-Agent (ingress) mode to control which clients can access your agents. The gateway lets you choose which IAP policies and Model Armor templates must be applied to these interactions.
 
-  - Review the [Limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#limitations) associated with Runtime deployments that are associated with Agent Gateway.
+  A single Runtime instance can bind to both an Agent-to-Anywhere (egress) gateway and a Client-to-Agent (ingress) gateway simultaneously.
+
+- Review the [Limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#limitations) associated with Runtime deployments that are associated with Agent Gateway.
 
 ## Route Agent Runtime traffic through Agent Gateway
 
 To route Agent Runtime traffic through Agent Gateway, perform the following steps:
 
 1.  **Create the Agent Gateway**
-    
+
     Create an Agent Gateway resource and attach any authorization policies as needed. You can create a gateway either in Agent-to-Anywhere (egress) mode or Client-to-Agent (ingress) mode.
-    
-      - For Client-to-Agent (ingress) mode, the agent and the gateway must be created in the same project and region.
-      - For Agent-to-Anywhere (egress) mode, the gateway can be created in a different project than the agent, but must be created in the same region. Note that any associated Agent Registry registrations and IAM policy bindings must be created in the same project as the Agent Gateway.
-    
+
+    - For Client-to-Agent (ingress) mode, the agent and the gateway must be created in the same project and region.
+    - For Agent-to-Anywhere (egress) mode, the gateway can be created in a different project than the agent, but must be created in the same region. Note that any associated Agent Registry registrations and IAM policy bindings must be created in the same project as the Agent Gateway.
+
     For instructions, see [Set up Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) .
-    
+
     Ensure that the gateway is configured to meet your deployment's needs. For example, if your agent requires LLM access, configure the gateway to allow this access to prevent potential Agent Runtime deployment failures.
 
 2.  **Optional: Configure cross-project egress gateway access**
-    
+
     If your Agent-to-Anywhere (egress) gateway is in a different project than your Runtime agent, perform the following steps to grant the Runtime service agent access to the egress gateway project:
-    
+
     1.  Create a custom IAM role in the Agent Gateway project:
-        
-            gcloud iam roles create ar_agw_cross_project_sa \
-              --project=AGENT_GATEWAY_PROJECT_ID \
-              --title="Runtime Agent Gateway Cross-Project SA" \
-              --description="Custom role for the cross-project service agent to access Agent Gateway" \
-              --permissions="networkservices.agentGateways.get,networkservices.operations.get"
-        
-        Replace `  AGENT_GATEWAY_PROJECT_ID  ` with the project ID where the Agent Gateway is deployed.
-    
+
+        ```
+        gcloud iam roles create ar_agw_cross_project_sa \
+          --project=AGENT_GATEWAY_PROJECT_ID \
+          --title="Runtime Agent Gateway Cross-Project SA" \
+          --description="Custom role for the cross-project service agent to access Agent Gateway" \
+          --permissions="networkservices.agentGateways.get,networkservices.operations.get"
+        ```
+
+        Replace `AGENT_GATEWAY_PROJECT_ID` with the project ID where the Agent Gateway is deployed.
+
     2.  Assign the custom role in the gateway project to the Agent Runtime service agent of the agent project:
-        
-            gcloud projects add-iam-policy-binding AGENT_GATEWAY_PROJECT_ID \
-              --member="serviceAccount:service-AGENT_RUNTIME_PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com" \
-              --role="projects/AGENT_GATEWAY_PROJECT_ID/roles/ar_agw_cross_project_sa"
-        
-        Replace `  AGENT_RUNTIME_PROJECT_NUMBER  ` with the project number of the project where the Runtime agent is deployed.
+
+        ```
+        gcloud projects add-iam-policy-binding AGENT_GATEWAY_PROJECT_ID \
+          --member="serviceAccount:service-AGENT_RUNTIME_PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com" \
+          --role="projects/AGENT_GATEWAY_PROJECT_ID/roles/ar_agw_cross_project_sa"
+        ```
+
+        Replace `AGENT_RUNTIME_PROJECT_NUMBER` with the project number of the project where the Runtime agent is deployed.
 
 3.  **Configure your agent to route traffic through Agent Gateway**
-    
+
     > **Caution:** Binding your agent to an enforcing gateway immediately routes its outbound traffic, including platform calls (such as the Sessions API), through the gateway. If you have not yet allowlisted the required endpoints (see [Allowlist essential APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#allowlist-essential-apis) ), all agent invocations will fail with a `498` error. To avoid this, either allowlist the essential APIs *before* performing this binding step, or ensure that the associated IAP policies are in `DRY_RUN` mode until allowlisting is complete.
-    
+
     Depending on whether you are deploying a new agent or configuring an existing agent, choose one of the following options:
-    
-      - **For new agents using the Python SDK**
-        
-        Specify the gateway resource while deploying your agent. For example, to deploy the agent on Agent Runtime, use `client.runtimes.create` to pass in the `local_agent` object along with any [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) .
-        
-        If you want to use gateway-mediated platform features such as [Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor) or [Semantic Governance Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) with this agent, set both `agent_gateway_config` and [`identity_type=AGENT_IDENTITY`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) in the create call, as shown in this example. The backend enforces `identity_type = "AGENT_IDENTITY"` at the API level whenever `agent_gateway_config` is specified, causing deployment validation to fail if the identity of the Runtime instance is omitted or misconfigured.
-        
-        ### Agent-to-Anywhere
-        
-            remote_agent = client.runtimes.create(
-              agent=local_agent,
-              config={
-                  "agent_gateway_config": {
-                    "agent_to_anywhere_config": {"agent_gateway": projects/AGENT_GATEWAY_PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_TO_ANYWHERE_NAME}
-                  },
-                  "identity_type": types.IdentityType.AGENT_IDENTITY,
-                  # Other optional configuration ...
-                  # "requirements": requirements,
-                  # "gcs_dir_name": gcs_dir_name,
-                  # https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity#opt-out-caa
-                  "env_vars": {
-                    "GOOGLE_API_PREVENT_AGENT_TOKEN_SHARING_FOR_GCP_SERVICES": False,
-                  }
-              },
-            )
-        
-        Replace the following:
-        
-          - `  AGENT_GATEWAY_PROJECT_ID  ` : the project ID where the Agent Gateway is deployed
-          - `  REGION  ` : the region where the agent and gateway are deployed
-          - `  AGENT_GATEWAY_TO_ANYWHERE_NAME  ` : the name of the Agent Gateway you created in Agent-to-Anywhere (egress) mode
-        
-        ### Client-to-Agent
-        
-            remote_agent = client.runtimes.create(
-              agent=local_agent,
-              config={
-                  "agent_gateway_config": {
-                    "client_to_agent_config": {"agent_gateway": projects/PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_CLIENT_TO_AGENT_NAME}
-                  },
-                  "identity_type": types.IdentityType.AGENT_IDENTITY,
-                  # Other optional configuration ...
-                  # "requirements": requirements,
-                  # "gcs_dir_name": gcs_dir_name,
-                  # https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity#opt-out-caa
-                  "env_vars": {
-                    "GOOGLE_API_PREVENT_AGENT_TOKEN_SHARING_FOR_GCP_SERVICES": False,
-                  }
-              },
-            )
-        
-        Replace the following:
-        
-          - `  PROJECT_ID  ` : the project ID where the agent and gateway are deployed
-          - `  REGION  ` : the region where the agent and gateway are deployed
-          - `  AGENT_GATEWAY_CLIENT_TO_AGENT_NAME  ` : the name of the Agent Gateway you created in Client-to-Agent (ingress) mode
-    
-      - **For new agents using Terraform**
-        
-        When you provision your agent with Terraform, use the `google-beta` provider and configure the `agent_gateway_config` block inside the `google_vertex_ai_reasoning_engine` resource. For details on Terraform setup, see [Provision agents with Terraform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-terraform) .
-        
-        > **Note:** Deployments that specify `agent_gateway_config` must set `identity_type = "AGENT_IDENTITY"` . Without `identity_type = "AGENT_IDENTITY"` , resource validation fails.
-        
-        ### Agent-to-Anywhere
-        
-        Use the following Terraform configuration to associate an agent with an Agent-to-Anywhere gateway for egress.
-        
-            resource "google_vertex_ai_reasoning_engine" "agent" {
-            provider = google-beta
-            
-            project      = "AGENT_RUNTIME_PROJECT_ID"
-            region       = "REGION"
-            display_name = "AGENT_DISPLAY_NAME"
-            description  = "AGENT_DESCRIPTION"
-            
-            spec {
-              identity_type = "AGENT_IDENTITY"
-            
-              container_spec {
-                image_uri = "REGION-docker.pkg.dev/AGENT_RUNTIME_PROJECT_ID/REPOSITORY/IMAGE:TAG"
-              }
-            
-              deployment_spec {
-                agent_gateway_config {
-                  agent_to_anywhere_config {
-                    agent_gateway = "projects/AGENT_GATEWAY_PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_TO_ANYWHERE_NAME"
-                  }
-                }
+
+    - **For new agents using the Python SDK**
+
+      Specify the gateway resource while deploying your agent. For example, to deploy the agent on Agent Runtime, use `client.runtimes.create` to pass in the `local_agent` object along with any [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) .
+
+      If you want to use gateway-mediated platform features such as [Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor) or [Semantic Governance Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) with this agent, set both `agent_gateway_config` and [`identity_type=AGENT_IDENTITY`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) in the create call, as shown in this example. The backend enforces `identity_type = "AGENT_IDENTITY"` at the API level whenever `agent_gateway_config` is specified, causing deployment validation to fail if the identity of the Runtime instance is omitted or misconfigured.
+
+      ### Agent-to-Anywhere
+
+      ```
+      remote_agent = client.runtimes.create(
+        agent=local_agent,
+        config={
+            "agent_gateway_config": {
+              "agent_to_anywhere_config": {"agent_gateway": projects/AGENT_GATEWAY_PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_TO_ANYWHERE_NAME}
+            },
+            "identity_type": types.IdentityType.AGENT_IDENTITY,
+            # Other optional configuration ...
+            # "requirements": requirements,
+            # "gcs_dir_name": gcs_dir_name,
+            # https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity#opt-out-caa
+            "env_vars": {
+              "GOOGLE_API_PREVENT_AGENT_TOKEN_SHARING_FOR_GCP_SERVICES": False,
+            }
+        },
+      )
+      ```
+
+      Replace the following:
+
+      - `AGENT_GATEWAY_PROJECT_ID` : the project ID where the Agent Gateway is deployed
+      - `REGION` : the region where the agent and gateway are deployed
+      - `AGENT_GATEWAY_TO_ANYWHERE_NAME` : the name of the Agent Gateway you created in Agent-to-Anywhere (egress) mode
+
+      ### Client-to-Agent
+
+      ```
+      remote_agent = client.runtimes.create(
+        agent=local_agent,
+        config={
+            "agent_gateway_config": {
+              "client_to_agent_config": {"agent_gateway": projects/PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_CLIENT_TO_AGENT_NAME}
+            },
+            "identity_type": types.IdentityType.AGENT_IDENTITY,
+            # Other optional configuration ...
+            # "requirements": requirements,
+            # "gcs_dir_name": gcs_dir_name,
+            # https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity#opt-out-caa
+            "env_vars": {
+              "GOOGLE_API_PREVENT_AGENT_TOKEN_SHARING_FOR_GCP_SERVICES": False,
+            }
+        },
+      )
+      ```
+
+      Replace the following:
+
+      - `PROJECT_ID` : the project ID where the agent and gateway are deployed
+      - `REGION` : the region where the agent and gateway are deployed
+      - `AGENT_GATEWAY_CLIENT_TO_AGENT_NAME` : the name of the Agent Gateway you created in Client-to-Agent (ingress) mode
+
+    - **For new agents using Terraform**
+
+      When you provision your agent with Terraform, use the `google-beta` provider and configure the `agent_gateway_config` block inside the `google_vertex_ai_reasoning_engine` resource. For details on Terraform setup, see [Provision agents with Terraform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-terraform) .
+
+      > **Note:** Deployments that specify `agent_gateway_config` must set `identity_type = "AGENT_IDENTITY"` . Without `identity_type = "AGENT_IDENTITY"` , resource validation fails.
+
+      ### Agent-to-Anywhere
+
+      Use the following Terraform configuration to associate an agent with an Agent-to-Anywhere gateway for egress.
+
+      ```
+      resource "google_vertex_ai_reasoning_engine" "agent" {
+      provider = google-beta
+
+      project      = "AGENT_RUNTIME_PROJECT_ID"
+      region       = "REGION"
+      display_name = "AGENT_DISPLAY_NAME"
+      description  = "AGENT_DESCRIPTION"
+
+      spec {
+        identity_type = "AGENT_IDENTITY"
+
+        container_spec {
+          image_uri = "REGION-docker.pkg.dev/AGENT_RUNTIME_PROJECT_ID/REPOSITORY/IMAGE:TAG"
+        }
+
+        deployment_spec {
+          agent_gateway_config {
+            agent_to_anywhere_config {
+              agent_gateway = "projects/AGENT_GATEWAY_PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_TO_ANYWHERE_NAME"
+            }
+          }
+        }
+      }
+      }
+      ```
+
+      Replace the following:
+
+      - `AGENT_RUNTIME_PROJECT_ID` : the project ID where the agent is deployed
+      - `REGION` : the region where the agent and gateway are deployed
+      - `AGENT_DISPLAY_NAME` : the display name for your agent
+      - `AGENT_DESCRIPTION` : a description of your agent
+      - `REPOSITORY` : the Artifact Registry repository containing your container image
+      - `IMAGE` : the container image name
+      - `TAG` : the container image tag
+      - `AGENT_GATEWAY_PROJECT_ID` : the project ID where the Agent Gateway is deployed
+      - `AGENT_GATEWAY_TO_ANYWHERE_NAME` : the name of the Agent Gateway you created in Agent-to-Anywhere (egress) mode
+
+      ### Client-to-Agent
+
+      Use the following Terraform configuration to associate an agent with a Client-to-Agent gateway for ingress.
+
+      ```
+      resource "google_vertex_ai_reasoning_engine" "agent" {
+      provider = google-beta
+
+      project      = "PROJECT_ID"
+      region       = "REGION"
+      display_name = "AGENT_DISPLAY_NAME"
+      description  = "AGENT_DESCRIPTION"
+
+      spec {
+        identity_type = "AGENT_IDENTITY"
+
+        container_spec {
+          image_uri = "REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG"
+        }
+
+        deployment_spec {
+          agent_gateway_config {
+            client_to_agent_config {
+              agent_gateway = "projects/PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_CLIENT_TO_AGENT_NAME"
+            }
+          }
+        }
+      }
+      }
+      ```
+
+      Replace the following:
+
+      - `PROJECT_ID` : the project ID where the agent and gateway are deployed
+      - `REGION` : the region where the agent and gateway are deployed
+      - `AGENT_DISPLAY_NAME` : the display name for your agent
+      - `AGENT_DESCRIPTION` : a description of your agent
+      - `REPOSITORY` : the Artifact Registry repository containing your container image
+      - `IMAGE` : the container image name
+      - `TAG` : the container image tag
+      - `AGENT_GATEWAY_CLIENT_TO_AGENT_NAME` : the name of the Agent Gateway you created in Client-to-Agent (ingress) mode
+
+    - **For existing agents using the REST API**
+
+      > **Note:** Updating an existing reasoning engine to set `agentGatewayConfig` does *not* change its `identity_type` . If the engine was originally created without `identity_type=AGENT_IDENTITY` , you cannot retroactively make it eligible for [Semantic Governance Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) by patching it. You must redeploy a new reasoning engine with both `agent_gateway_config` and `identity_type=AGENT_IDENTITY` set at agent creation time.
+
+      ### Agent-to-Anywhere
+
+      Use the following REST API request to associate an existing agent with an **Agent-to-Anywhere gateway** for egress.
+
+      ```
+      curl -X PATCH \
+      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+      -H "Content-Type: application/json; charset=utf-8" \
+      -d '{
+        "spec": {
+          "deploymentSpec": {
+            "agentGatewayConfig": {
+              "agentToAnywhereConfig": {
+                "agentGateway": "projects/AGENT_GATEWAY_PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_TO_ANYWHERE_NAME"
               }
             }
-            }
-        
-        Replace the following:
-        
-          - `  AGENT_RUNTIME_PROJECT_ID  ` : the project ID where the agent is deployed
-          - `  REGION  ` : the region where the agent and gateway are deployed
-          - `  AGENT_DISPLAY_NAME  ` : the display name for your agent
-          - `  AGENT_DESCRIPTION  ` : a description of your agent
-          - `  REPOSITORY  ` : the Artifact Registry repository containing your container image
-          - `  IMAGE  ` : the container image name
-          - `  TAG  ` : the container image tag
-          - `  AGENT_GATEWAY_PROJECT_ID  ` : the project ID where the Agent Gateway is deployed
-          - `  AGENT_GATEWAY_TO_ANYWHERE_NAME  ` : the name of the Agent Gateway you created in Agent-to-Anywhere (egress) mode
-        
-        ### Client-to-Agent
-        
-        Use the following Terraform configuration to associate an agent with a Client-to-Agent gateway for ingress.
-        
-            resource "google_vertex_ai_reasoning_engine" "agent" {
-            provider = google-beta
-            
-            project      = "PROJECT_ID"
-            region       = "REGION"
-            display_name = "AGENT_DISPLAY_NAME"
-            description  = "AGENT_DESCRIPTION"
-            
-            spec {
-              identity_type = "AGENT_IDENTITY"
-            
-              container_spec {
-                image_uri = "REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG"
-              }
-            
-              deployment_spec {
-                agent_gateway_config {
-                  client_to_agent_config {
-                    agent_gateway = "projects/PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_CLIENT_TO_AGENT_NAME"
-                  }
-                }
+          }
+        }
+      }' \
+      "https://REGION-aiplatform.googleapis.com/v1/projects/AGENT_RUNTIME_PROJECT_ID/locations/REGION/reasoningEngines/RESOURCE_ID?updateMask=spec.deploymentSpec.agentGatewayConfig"
+      ```
+
+      Replace the following:
+
+      - `AGENT_GATEWAY_PROJECT_ID` : the project ID where the gateway is deployed
+      - `AGENT_RUNTIME_PROJECT_ID` : the project ID where the agent is deployed
+      - `REGION` : the region where the agent and gateway are deployed
+      - `AGENT_GATEWAY_TO_ANYWHERE_NAME` : the name of the Agent Gateway you created in Agent-to-Anywhere (egress) mode
+      - `RESOURCE_ID` : the [resource ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#resource-identifier) of the agent
+
+      ### Client-to-Agent
+
+      Use the following REST API request to associate an existing agent with an **Client-to-Agent gateway** for ingress.
+
+      ```
+      curl -X PATCH \
+      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+      -H "Content-Type: application/json; charset=utf-8" \
+      -d '{
+        "spec": {
+          "deploymentSpec": {
+            "agentGatewayConfig": {
+              "clientToAgentConfig": {
+                "agentGateway": "projects/PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_CLIENT_TO_AGENT_NAME"
               }
             }
-            }
-        
-        Replace the following:
-        
-          - `  PROJECT_ID  ` : the project ID where the agent and gateway are deployed
-          - `  REGION  ` : the region where the agent and gateway are deployed
-          - `  AGENT_DISPLAY_NAME  ` : the display name for your agent
-          - `  AGENT_DESCRIPTION  ` : a description of your agent
-          - `  REPOSITORY  ` : the Artifact Registry repository containing your container image
-          - `  IMAGE  ` : the container image name
-          - `  TAG  ` : the container image tag
-          - `  AGENT_GATEWAY_CLIENT_TO_AGENT_NAME  ` : the name of the Agent Gateway you created in Client-to-Agent (ingress) mode
-    
-      - **For existing agents using the REST API**
-        
-        > **Note:** Updating an existing reasoning engine to set `agentGatewayConfig` does *not* change its `identity_type` . If the engine was originally created without `identity_type=AGENT_IDENTITY` , you cannot retroactively make it eligible for [Semantic Governance Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) by patching it. You must redeploy a new reasoning engine with both `agent_gateway_config` and `identity_type=AGENT_IDENTITY` set at agent creation time.
-        
-        ### Agent-to-Anywhere
-        
-        Use the following REST API request to associate an existing agent with an **Agent-to-Anywhere gateway** for egress.
-        
-            curl -X PATCH \
-            -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-            -H "Content-Type: application/json; charset=utf-8" \
-            -d '{
-              "spec": {
-                "deploymentSpec": {
-                  "agentGatewayConfig": {
-                    "agentToAnywhereConfig": {
-                      "agentGateway": "projects/AGENT_GATEWAY_PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_TO_ANYWHERE_NAME"
-                    }
-                  }
-                }
-              }
-            }' \
-            "https://REGION-aiplatform.googleapis.com/v1/projects/AGENT_RUNTIME_PROJECT_ID/locations/REGION/reasoningEngines/RESOURCE_ID?updateMask=spec.deploymentSpec.agentGatewayConfig"
-        
-        Replace the following:
-        
-          - `  AGENT_GATEWAY_PROJECT_ID  ` : the project ID where the gateway is deployed
-          - `  AGENT_RUNTIME_PROJECT_ID  ` : the project ID where the agent is deployed
-          - `  REGION  ` : the region where the agent and gateway are deployed
-          - `  AGENT_GATEWAY_TO_ANYWHERE_NAME  ` : the name of the Agent Gateway you created in Agent-to-Anywhere (egress) mode
-          - `  RESOURCE_ID  ` : the [resource ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#resource-identifier) of the agent
-        
-        ### Client-to-Agent
-        
-        Use the following REST API request to associate an existing agent with an **Client-to-Agent gateway** for ingress.
-        
-            curl -X PATCH \
-            -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-            -H "Content-Type: application/json; charset=utf-8" \
-            -d '{
-              "spec": {
-                "deploymentSpec": {
-                  "agentGatewayConfig": {
-                    "clientToAgentConfig": {
-                      "agentGateway": "projects/PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_CLIENT_TO_AGENT_NAME"
-                    }
-                  }
-                }
-              }
-            }' \
-            "https://REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/reasoningEngines/RESOURCE_ID?updateMask=spec.deploymentSpec.agentGatewayConfig"
-        
-        Replace the following:
-        
-          - `  PROJECT_ID  ` : the project ID where the agent and gateway are deployed
-          - `  REGION  ` : the region where the agent and gateway are deployed
-          - `  AGENT_GATEWAY_CLIENT_TO_AGENT_NAME  ` : the name of the Agent Gateway you created in Client-to-Agent (ingress)
-          - `  RESOURCE_ID  ` : the [resource ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#resource-identifier) of the agent
+          }
+        }
+      }' \
+      "https://REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/reasoningEngines/RESOURCE_ID?updateMask=spec.deploymentSpec.agentGatewayConfig"
+      ```
+
+      Replace the following:
+
+      - `PROJECT_ID` : the project ID where the agent and gateway are deployed
+      - `REGION` : the region where the agent and gateway are deployed
+      - `AGENT_GATEWAY_CLIENT_TO_AGENT_NAME` : the name of the Agent Gateway you created in Client-to-Agent (ingress)
+      - `RESOURCE_ID` : the [resource ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#resource-identifier) of the agent
 
 4.  **Register the agent with Agent Registry**
-    
+
     Ensure that the agent is registered with the Agent Registry instance in the same project and region as the Agent Gateway.
-    
-        gcloud agent-registry services create RUNTIME_AGENT_SERVICE_NAME \
-          --project=AGENT_GATEWAY_PROJECT_ID \
-          --location=REGION \
-          --display-name="RUNTIME_AGENT_DISPLAY_NAME" \
-          --endpoint-spec-type=no-spec \
-          --interfaces=url="https://REGION-aiplatform.mtls.googleapis.com/v1/projects/RUNTIME_AGENT_PROJECT_NUMBER/locations/REGION/reasoningEngines/ENGINE_ID",protocolBinding="jsonrpc" \
-          --format="value(registryResource)"
-    
+
+    ```
+    gcloud agent-registry services create RUNTIME_AGENT_SERVICE_NAME \
+      --project=AGENT_GATEWAY_PROJECT_ID \
+      --location=REGION \
+      --display-name="RUNTIME_AGENT_DISPLAY_NAME" \
+      --endpoint-spec-type=no-spec \
+      --interfaces=url="https://REGION-aiplatform.mtls.googleapis.com/v1/projects/RUNTIME_AGENT_PROJECT_NUMBER/locations/REGION/reasoningEngines/ENGINE_ID",protocolBinding="jsonrpc" \
+      --format="value(registryResource)"
+    ```
+
     Replace the following:
-    
-      - `  RUNTIME_AGENT_SERVICE_NAME  ` : the name you want to give to your agent entry in the registry
-      - `  AGENT_GATEWAY_PROJECT_ID  ` : the project ID where the gateway is deployed
-      - `  REGION  ` : the region where the agent and gateway are deployed
-      - `  RUNTIME_AGENT_DISPLAY_NAME  ` : the human-readable display name of the agent entry in the registry
-      - `  RUNTIME_AGENT_PROJECT_NUMBER  ` : the project number of the project where the Runtime agent is deployed
-      - `  ENGINE_ID  ` : the [resource ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#resource-identifier) of the agent
-    
+
+    - `RUNTIME_AGENT_SERVICE_NAME` : the name you want to give to your agent entry in the registry
+    - `AGENT_GATEWAY_PROJECT_ID` : the project ID where the gateway is deployed
+    - `REGION` : the region where the agent and gateway are deployed
+    - `RUNTIME_AGENT_DISPLAY_NAME` : the human-readable display name of the agent entry in the registry
+    - `RUNTIME_AGENT_PROJECT_NUMBER` : the project number of the project where the Runtime agent is deployed
+    - `ENGINE_ID` : the [resource ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#resource-identifier) of the agent
+
     For more information, see [Register agents](https://docs.cloud.google.com/agent-registry/register-agents) . To learn about manual registration of agents in multi-project setups, see [Register an agent from another project](https://docs.cloud.google.com/agent-registry/manual-registration#cross-project) .
 
 5.  **Create an agent-to-registry IAM policy binding**
-    
-    Perform this step in the same project and region as the Agent Gateway.
-    
-        gcloud iap web add-iam-policy-binding \
-          --resource-type=agent-registry \
-          --endpoint=AGENT_ENDPOINT_ID \
-          --region=REGION \
-          --project=AGENT_GATEWAY_PROJECT_ID \
-          --member=MEMBER \
-          --role=roles/iap.egressor
-    
-    Replace the following:
-    
-      - `  AGENT_ENDPOINT_ID  ` : The service endpoint ID of the registered agent. You get this from the output of the previous step.
-    
-      - `  MEMBER  ` : The agent identity principal to grant the role to. The format for an individual reasoning engine is: ` principal:// TRUST_DOMAIN /resources/aiplatform/projects/ AGENT_RUNTIME_PROJECT_NUMBER /locations/ REGION /reasoningEngines/ ENGINE_ID  ` .
-        
-        If you want to grant egress access to all agents in a project or across the organization rather than binding individual instances, you can bind the IAM policy to a principal set:
-        
-          - To grant access to all agents in a project: ` principalSet:// TRUST_DOMAIN /attribute.platformContainer/aiplatform/projects/ AGENT_RUNTIME_PROJECT_NUMBER  `
-          - To grant access to all agents across the organization: `principalSet:// TRUST_DOMAIN /*`
-        
-        In these principal strings, `  TRUST_DOMAIN  ` is typically `agents.global.org- ORGANIZATION_ID .system.id.goog` .
 
-6.  <span id="allowlist-essential-apis"></span> **Allowlist essential APIs for Runtime operations**
-    
+    Perform this step in the same project and region as the Agent Gateway.
+
+    ```
+    gcloud iap web add-iam-policy-binding \
+      --resource-type=agent-registry \
+      --endpoint=AGENT_ENDPOINT_ID \
+      --region=REGION \
+      --project=AGENT_GATEWAY_PROJECT_ID \
+      --member=MEMBER \
+      --role=roles/iap.egressor
+    ```
+
+    Replace the following:
+
+    - `AGENT_ENDPOINT_ID` : The service endpoint ID of the registered agent. You get this from the output of the previous step.
+
+    - `MEMBER` : The agent identity principal to grant the role to. The format for an individual reasoning engine is: `principal:// `` TRUST_DOMAIN `` /resources/aiplatform/projects/ `` AGENT_RUNTIME_PROJECT_NUMBER `` /locations/ `` REGION `` /reasoningEngines/ `` ENGINE_ID` .
+
+      If you want to grant egress access to all agents in a project or across the organization rather than binding individual instances, you can bind the IAM policy to a principal set:
+
+      - To grant access to all agents in a project: `principalSet:// `` TRUST_DOMAIN `` /attribute.platformContainer/aiplatform/projects/ `` AGENT_RUNTIME_PROJECT_NUMBER`
+      - To grant access to all agents across the organization: `principalSet:// `` TRUST_DOMAIN `` /*`
+
+      In these principal strings, `TRUST_DOMAIN` is typically `agents.global.org- `` ORGANIZATION_ID `` .system.id.goog` .
+
+6.  **Allowlist essential APIs for Runtime operations**
+
     At this point your agent traffic is now directed through the Agent Gateway. However, Agent Gateway adopts a *default deny* policy. To enable certain Agent Platform functions, you must ensure that the agent can communicate with the following endpoints:
-    
+
     Hostname matching in Agent Gateway is exact. Wildcards, such as `*.googleapis.com` , or prefix forms aren't supported. You must register each standard, regional, and secure (mTLS) hostname variant that your agent SDK or client application resolves to.
-    
+
     To enable certain Agent Platform functions and ensure successful initialization and telemetry, you must allow traffic to the following endpoints in the Agent Registry:
-    
+
     ### Essential platform endpoints
-    
+
     The following table lists the essential platform endpoints that your agents require for standard operations, tracing, logging, and metadata resolution:
-    
-    <table>
-    <colgroup>
-    <col style="width: 25%" />
-    <col style="width: 25%" />
-    <col style="width: 25%" />
-    <col style="width: 25%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th>Service name</th>
-    <th>Standard hostname</th>
-    <th>mTLS hostname</th>
-    <th>Regional and other variants</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><strong>Agent Registry</strong></td>
-    <td><code dir="ltr" translate="no">agentregistry.googleapis.com</code></td>
-    <td>—</td>
-    <td>—</td>
-    </tr>
-    <tr class="even">
-    <td><strong>Cloud Logging</strong></td>
-    <td><code dir="ltr" translate="no">logging.googleapis.com</code></td>
-    <td><code dir="ltr" translate="no">logging.mtls.googleapis.com</code></td>
-    <td>—</td>
-    </tr>
-    <tr class="odd">
-    <td><strong>Cloud Trace / Telemetry</strong></td>
-    <td><code dir="ltr" translate="no">telemetry.googleapis.com</code></td>
-    <td><code dir="ltr" translate="no">telemetry.mtls.googleapis.com</code></td>
-    <td>—</td>
-    </tr>
-    <tr class="even">
-    <td><strong>Trace API</strong></td>
-    <td><code dir="ltr" translate="no">cloudtrace.googleapis.com</code></td>
-    <td><code dir="ltr" translate="no">cloudtrace.mtls.googleapis.com</code></td>
-    <td>—</td>
-    </tr>
-    <tr class="odd">
-    <td><strong>Cloud Monitoring</strong></td>
-    <td><code dir="ltr" translate="no">monitoring.googleapis.com</code></td>
-    <td><code dir="ltr" translate="no">monitoring.mtls.googleapis.com</code></td>
-    <td>—</td>
-    </tr>
-    <tr class="even">
-    <td><strong>Secret Manager</strong></td>
-    <td><code dir="ltr" translate="no">secretmanager.googleapis.com</code></td>
-    <td><code dir="ltr" translate="no">secretmanager.mtls.googleapis.com</code></td>
-    <td>—</td>
-    </tr>
-    <tr class="odd">
-    <td><strong>Resource Manager</strong></td>
-    <td><code dir="ltr" translate="no">cloudresourcemanager.googleapis.com</code></td>
-    <td><code dir="ltr" translate="no">cloudresourcemanager.mtls.googleapis.com</code></td>
-    <td>—</td>
-    </tr>
-    <tr class="even">
-    <td><strong>IAM credentials</strong></td>
-    <td><code dir="ltr" translate="no">iamcredentials.googleapis.com</code></td>
-    <td><code dir="ltr" translate="no">iamcredentials.mtls.googleapis.com</code></td>
-    <td>—</td>
-    </tr>
-    <tr class="odd">
-    <td><strong>Agent Platform (aiplatform)</strong></td>
-    <td><code dir="ltr" translate="no">aiplatform.googleapis.com</code></td>
-    <td><code dir="ltr" translate="no">aiplatform.mtls.googleapis.com</code></td>
-    <td><code dir="ltr" translate="no">          REGION          -aiplatform.googleapis.com</code><br />
-    <code dir="ltr" translate="no">          REGION          -aiplatform.mtls.googleapis.com</code><br />
-    <code dir="ltr" translate="no">aiplatform.           REGION          .rep.googleapis.com</code></td>
-    </tr>
-    </tbody>
-    </table>
-    
+
+    | Service name                    | Standard hostname                     | mTLS hostname                              | Regional and other variants                                                                                                       |
+    |---------------------------------|---------------------------------------|--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+    | **Agent Registry**              | `agentregistry.googleapis.com`        | —                                          | —                                                                                                                                 |
+    | **Cloud Logging**               | `logging.googleapis.com`              | `logging.mtls.googleapis.com`              | —                                                                                                                                 |
+    | **Cloud Trace / Telemetry**     | `telemetry.googleapis.com`            | `telemetry.mtls.googleapis.com`            | —                                                                                                                                 |
+    | **Trace API**                   | `cloudtrace.googleapis.com`           | `cloudtrace.mtls.googleapis.com`           | —                                                                                                                                 |
+    | **Cloud Monitoring**            | `monitoring.googleapis.com`           | `monitoring.mtls.googleapis.com`           | —                                                                                                                                 |
+    | **Secret Manager**              | `secretmanager.googleapis.com`        | `secretmanager.mtls.googleapis.com`        | —                                                                                                                                 |
+    | **Resource Manager**            | `cloudresourcemanager.googleapis.com` | `cloudresourcemanager.mtls.googleapis.com` | —                                                                                                                                 |
+    | **IAM credentials**             | `iamcredentials.googleapis.com`       | `iamcredentials.mtls.googleapis.com`       | —                                                                                                                                 |
+    | **Agent Platform (aiplatform)** | `aiplatform.googleapis.com`           | `aiplatform.mtls.googleapis.com`           | `REGION `` -aiplatform.googleapis.com` `REGION `` -aiplatform.mtls.googleapis.com` `aiplatform. `` REGION `` .rep.googleapis.com` |
+
     ### Feature-specific endpoints
-    
+
     Additionally, if your agents use features such as [Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) or [Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) , you must ensure that the agents can communicate with the specific endpoints used by these services:
-    
-      - **For Sessions** : `https:// REGION -aiplatform.googleapis.com/ API_VERSION /projects/ PROJECT_ID /locations/ REGION /reasoningEngines/ RESOURCE_ID /sessions`
-      - **For Memory Bank** : `https:// REGION -aiplatform.googleapis.com/ API_VERSION /projects/ PROJECT_ID /locations/ REGION /reasoningEngines/ RESOURCE_ID /memories`
-    
+
+    - **For Sessions** : `https:// `` REGION `` -aiplatform.googleapis.com/ `` API_VERSION `` /projects/ `` PROJECT_ID `` /locations/ `` REGION `` /reasoningEngines/ `` RESOURCE_ID `` /sessions`
+    - **For Memory Bank** : `https:// `` REGION `` -aiplatform.googleapis.com/ `` API_VERSION `` /projects/ `` PROJECT_ID `` /locations/ `` REGION `` /reasoningEngines/ `` RESOURCE_ID `` /memories`
+
     For security reasons, we recommend that you register and allowlist only the specific URIs that the agent accesses. Because the gateway matches hostnames directly, you must ensure that you register all the variants that the agent SDK uses. For example, depending on the SDK version, regional client configuration, or mTLS usage, a Google API can resolve through the following endpoint hostnames:
-    
-      - `https:// REGION -aiplatform.googleapis.com`
-      - `https:// REGION -aiplatform.mtls.googleapis.com`
-      - `https://aiplatform. REGION .rep.googleapis.com`
-    
-    > **Caution:** While you can register a base URI (such as `https:// REGION -aiplatform.googleapis.com/` ) for convenience, doing so provides a broad access policy that lets the agent access any service under that domain. Note that even if you register a base URI, you are still required to register all its regional and mTLS variants.
-    
+
+    - `https:// `` REGION `` -aiplatform.googleapis.com`
+    - `https:// `` REGION `` -aiplatform.mtls.googleapis.com`
+    - `https://aiplatform. `` REGION `` .rep.googleapis.com`
+
+    > **Caution:** While you can register a base URI (such as `https:// `` REGION `` -aiplatform.googleapis.com/` ) for convenience, doing so provides a broad access policy that lets the agent access any service under that domain. Note that even if you register a base URI, you are still required to register all its regional and mTLS variants.
+
     To learn how to register endpoints, see [Register endpoints](https://docs.cloud.google.com/agent-registry/register-endpoints) . If you have a multi-project setup, you can register multiple core Google API endpoints in a single Agent Registry service. For more information, see [Register a composite Google APIs endpoint](https://docs.cloud.google.com/agent-registry/register-endpoints#google-apis-endpoint) . You must also ensure that the agent has the `iap.resources.egressViaIAP` permission for these endpoints. For instructions, see [Create an agent-to-endpoint egress policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-endpoint) .
 
 7.  **Verify agent configuration**
-    
+
     ### Console
-    
+
     1.  In the Google Cloud console, go to the Agent Platform **Deployments** page.  
-    
+
     2.  Click the name of the agent you deployed.
-    
+
     3.  Click **Service configuration** . The **Observability** pane for the agent opens.
-    
+
     4.  Click **Deployment details** . The Agent Gateway ingress and egress configurations are available under the **Deployment spec** field.
-    
+
     ### gcloud
-    
+
     Use the following REST API request to validate that the agent is now associated with the gateway. If the output returned is `null` , that means Runtime has failed to bind to the gateway.
-    
-        curl -s -X GET \
-          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-          "https://REGION-aiplatform.googleapis.com/v1/projects/AGENT_RUNTIME_PROJECT_ID/locations/REGION/reasoningEngines/RESOURCE_ID" \
-          | jq '.spec.deploymentSpec.agentGatewayConfig'
-    
+
+    ```
+    curl -s -X GET \
+      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+      "https://REGION-aiplatform.googleapis.com/v1/projects/AGENT_RUNTIME_PROJECT_ID/locations/REGION/reasoningEngines/RESOURCE_ID" \
+      | jq '.spec.deploymentSpec.agentGatewayConfig'
+    ```
+
     Replace the following:
-    
-      - `  AGENT_RUNTIME_PROJECT_ID  ` : the project ID
-      - `  REGION  ` : the region where the agent is deployed
-      - `  RESOURCE_ID  ` : the [resource ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#resource-identifier) of the agent
+
+    - `AGENT_RUNTIME_PROJECT_ID` : the project ID
+    - `REGION` : the region where the agent is deployed
+    - `RESOURCE_ID` : the [resource ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#resource-identifier) of the agent
 
 ## Configure custom container (BYOC) agents for Agent Gateway
 
@@ -451,84 +410,94 @@ Because Agent Gateway performs TLS decryption and inspection on outbound agent c
 To configure a BYOC container image for Agent Gateway egress, perform the following steps:
 
 1.  Retrieve the root certificates from the Agent Gateway resource.
-    
+
     Export the CA root certificate PEM string directly from the `agentGatewayCard.rootCertificates` field of your Agent Gateway resource:
-    
-        export AGW_CERT=$(gcloud network-services agent-gateways describe AGENT_GATEWAY_NAME \
-           --location=REGION \
-           --project=PROJECT_ID \
-           --format="value[delimiter=\\n](agentGatewayCard.rootCertificates)")
-    
+
+    ```
+    export AGW_CERT=$(gcloud network-services agent-gateways describe AGENT_GATEWAY_NAME \
+       --location=REGION \
+       --project=PROJECT_ID \
+       --format="value[delimiter=\\n](agentGatewayCard.rootCertificates)")
+    ```
+
     Alternatively, you can use the REST API to retrieve the gateway resource:
-    
-        curl -s -X GET \
-           -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-           "https://networkservices.googleapis.com/v1/projects/AGENT_GATEWAY_PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_NAME" \
-           | jq -r '.agentGatewayCard.rootCertificates[]'
-    
+
+    ```
+    curl -s -X GET \
+       -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+       "https://networkservices.googleapis.com/v1/projects/AGENT_GATEWAY_PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_NAME" \
+       | jq -r '.agentGatewayCard.rootCertificates[]'
+    ```
+
     Replace the following:
-    
-      - `  AGENT_GATEWAY_NAME  ` : the name of your egress Agent Gateway
-      - `  REGION  ` : the region where the gateway is deployed
-      - `  AGENT_GATEWAY_PROJECT_ID  ` : the project ID where the gateway is deployed
+
+    - `AGENT_GATEWAY_NAME` : the name of your egress Agent Gateway
+    - `REGION` : the region where the gateway is deployed
+    - `AGENT_GATEWAY_PROJECT_ID` : the project ID where the gateway is deployed
 
 2.  Update your `Dockerfile` to trust the CA certificate.
-    
+
     Add the `AGENT_GATEWAY_ROOT_CERTIFICATES` build argument to your `Dockerfile` . The build commands split the certificates into separate files, install them using `update-ca-certificates` , and set environment variables so OpenSSL, Python HTTP client libraries ( `requests` , `httpx` ), and gRPC recognize the custom CA:
-    
+
     > **Note:** The following example assumes a Debian or Ubuntu-based container image. If you are using a different Linux distribution (such as RHEL, CentOS, or Alpine), the commands to update the CA store (such as `update-ca-certificates` versus `update-ca-trust` ), the directories for certificate files, and the system certificate bundle paths may differ. Adjust these commands and paths according to your distribution's documentation.
-    
-        # Install root certificates under root user
-        USER root
-        
-        ARG AGENT_GATEWAY_ROOT_CERTIFICATES
-        RUN if [ -n "$AGENT_GATEWAY_ROOT_CERTIFICATES" ]; then \
-             echo "Installing Agent Gateway root certificates..."; \
-             printf "%b" "$AGENT_GATEWAY_ROOT_CERTIFICATES" | awk 'BEGIN {c=0} /BEGIN CERTIFICATE/ {c++} c > 0 { print > "/usr/local/share/ca-certificates/agw-" c ".crt" }'; \
-             update-ca-certificates; \
-           fi
-        
-        # Configure SSL/TLS trust paths for Python HTTP libraries, OpenSSL, and gRPC
-        ENV GRPC_DEFAULT_SSL_ROOTS_FILE_PATH=${AGENT_GATEWAY_ROOT_CERTIFICATES:+/etc/ssl/certs/ca-certificates.crt}
-        ENV REQUESTS_CA_BUNDLE=${AGENT_GATEWAY_ROOT_CERTIFICATES:+/etc/ssl/certs/ca-certificates.crt}
-        ENV SSL_CERT_FILE=${AGENT_GATEWAY_ROOT_CERTIFICATES:+/etc/ssl/certs/ca-certificates.crt}
-        ENV AGENT_GATEWAY_ROOT_CERT_302034098528=${AGENT_GATEWAY_ROOT_CERTIFICATES:+/etc/ssl/certs/ca-certificates.crt}
-        
-        # Switch back to application execution user
-        USER 1000
+
+    ```
+    # Install root certificates under root user
+    USER root
+
+    ARG AGENT_GATEWAY_ROOT_CERTIFICATES
+    RUN if [ -n "$AGENT_GATEWAY_ROOT_CERTIFICATES" ]; then \
+         echo "Installing Agent Gateway root certificates..."; \
+         printf "%b" "$AGENT_GATEWAY_ROOT_CERTIFICATES" | awk 'BEGIN {c=0} /BEGIN CERTIFICATE/ {c++} c > 0 { print > "/usr/local/share/ca-certificates/agw-" c ".crt" }'; \
+         update-ca-certificates; \
+       fi
+
+    # Configure SSL/TLS trust paths for Python HTTP libraries, OpenSSL, and gRPC
+    ENV GRPC_DEFAULT_SSL_ROOTS_FILE_PATH=${AGENT_GATEWAY_ROOT_CERTIFICATES:+/etc/ssl/certs/ca-certificates.crt}
+    ENV REQUESTS_CA_BUNDLE=${AGENT_GATEWAY_ROOT_CERTIFICATES:+/etc/ssl/certs/ca-certificates.crt}
+    ENV SSL_CERT_FILE=${AGENT_GATEWAY_ROOT_CERTIFICATES:+/etc/ssl/certs/ca-certificates.crt}
+    ENV AGENT_GATEWAY_ROOT_CERT_302034098528=${AGENT_GATEWAY_ROOT_CERTIFICATES:+/etc/ssl/certs/ca-certificates.crt}
+
+    # Switch back to application execution user
+    USER 1000
+    ```
 
 3.  Build the container image using Cloud Build.
-    
+
     Create a `cloudbuild.yaml` file to pass the root certificate string to Cloud Build using substitutions:
-    
-        steps:
-        - name: 'gcr.io/cloud-builders/docker'
-          args:
-          - 'build'
-          - '--build-arg'
-          - 'AGENT_GATEWAY_ROOT_CERTIFICATES=${_AGW_CERT}'
-          - '-t'
-          - '$_IMAGE_URI'
-          - '.'
-        
-        images:
-        - '$_IMAGE_URI'
-    
+
+    ```
+    steps:
+    - name: 'gcr.io/cloud-builders/docker'
+      args:
+      - 'build'
+      - '--build-arg'
+      - 'AGENT_GATEWAY_ROOT_CERTIFICATES=${_AGW_CERT}'
+      - '-t'
+      - '$_IMAGE_URI'
+      - '.'
+
+    images:
+    - '$_IMAGE_URI'
+    ```
+
     Submit the container image build to Cloud Build:
-    
-        export IMAGE_URI="REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY_NAME/IMAGE_NAME:latest"
-        
-        gcloud builds submit \
-           --project=PROJECT_ID \
-           --region=REGION \
-           --config=cloudbuild.yaml \
-           --substitutions=_IMAGE_URI="$IMAGE_URI",_AGW_CERT="$AGW_CERT" \
-           .
-    
-    Replace `  REPOSITORY_NAME  ` and `  IMAGE_NAME  ` with your Artifact Registry repository and image names.
+
+    ```
+    export IMAGE_URI="REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY_NAME/IMAGE_NAME:latest"
+
+    gcloud builds submit \
+       --project=PROJECT_ID \
+       --region=REGION \
+       --config=cloudbuild.yaml \
+       --substitutions=_IMAGE_URI="$IMAGE_URI",_AGW_CERT="$AGW_CERT" \
+       .
+    ```
+
+    Replace `REPOSITORY_NAME` and `IMAGE_NAME` with your Artifact Registry repository and image names.
 
 4.  Deploy your containerized agent.
-    
+
     Specify the built container image URI along with your Agent Gateway configuration in your deployment request (using `agent_gateway_config` under `spec.deploymentSpec` or using SDK deployment calls).
 
 ## Restrict Agent Runtime to approved Agent Gateways
@@ -542,131 +511,149 @@ This example creates custom constraints that only allow traffic to and from a pr
 ### Agent-to-Anywhere
 
 1.  To define a custom constraint for Agent-to-Anywhere mode (egress), create a file named `constraint-agent-gateway-egress.yaml` .
-    
+
     In the following example, the `condition` field specifies that the operation is allowed only if an Agent Gateway resource is specified (field is present and not empty) and if the specified gateway is in the pre-approved list.
-    
-        name: organizations/ORGANIZATION_ID/customConstraints/custom.allowlistedEgressAgentGatewaysForAgentEngine
-        resource_types:
-        - aiplatform.googleapis.com/ReasoningEngine
-        condition: >-
-        has(resource.spec.deploymentSpec.agentGatewayConfig.agentToAnywhereConfig.agentGateway) &&
-        resource.spec.deploymentSpec.agentGatewayConfig.agentToAnywhereConfig.agentGateway != '' &&
-        (resource.spec.deploymentSpec.agentGatewayConfig.agentToAnywhereConfig.agentGateway in [
-          'projects/AGENT_PROJECT_ID_1/locations/REGION_1/agentGateways/AGENT_GATEWAY_ID_1',
-          'projects/AGENT_PROJECT_ID_2/locations/REGION_2/agentGateways/AGENT_GATEWAY_ID_2',
-        ])
-        method_types:
-        - CREATE
-        - UPDATE
-        action_type: ALLOW
-        display_name: Restrict Reasoning Engine Egress to Approved Agent Gateways
-        description: Reasoning Engines can only be bound to a pre-approved list of
-        Agent Gateway instances. Binding to any other gateway is denied.
-    
+
+    ```
+    name: organizations/ORGANIZATION_ID/customConstraints/custom.allowlistedEgressAgentGatewaysForAgentEngine
+    resource_types:
+    - aiplatform.googleapis.com/ReasoningEngine
+    condition: >-
+    has(resource.spec.deploymentSpec.agentGatewayConfig.agentToAnywhereConfig.agentGateway) &&
+    resource.spec.deploymentSpec.agentGatewayConfig.agentToAnywhereConfig.agentGateway != '' &&
+    (resource.spec.deploymentSpec.agentGatewayConfig.agentToAnywhereConfig.agentGateway in [
+      'projects/AGENT_PROJECT_ID_1/locations/REGION_1/agentGateways/AGENT_GATEWAY_ID_1',
+      'projects/AGENT_PROJECT_ID_2/locations/REGION_2/agentGateways/AGENT_GATEWAY_ID_2',
+    ])
+    method_types:
+    - CREATE
+    - UPDATE
+    action_type: ALLOW
+    display_name: Restrict Reasoning Engine Egress to Approved Agent Gateways
+    description: Reasoning Engines can only be bound to a pre-approved list of
+    Agent Gateway instances. Binding to any other gateway is denied.
+    ```
+
     Replace the following:
-    
-      - ORGANIZATION\_ID : your organization ID.
-      - AGENT\_PROJECT\_ID : your project ID.
-      - REGION : the region where the gateway was created.
-      - AGENT\_GATEWAY\_ID : your gateway ID.
+
+    - ` ORGANIZATION_ID ` : your organization ID.
+    - ` AGENT_PROJECT_ID ` : your project ID.
+    - ` REGION ` : the region where the gateway was created.
+    - ` AGENT_GATEWAY_ID ` : your gateway ID.
 
 2.  Apply the custom constraint.
-    
-        gcloud org-policies set-custom-constraint EGRESS_CONSTRAINT_PATH
-    
-    Replace EGRESS\_CONSTRAINT\_PATH with the full path to the custom constraint file created in the previous step.
+
+    ```
+    gcloud org-policies set-custom-constraint EGRESS_CONSTRAINT_PATH
+    ```
+
+    Replace ` EGRESS_CONSTRAINT_PATH ` with the full path to the custom constraint file created in the previous step.
 
 3.  Create the organization policy to enforce the constraint. To define the organization policy, create a policy YAML file named `policy-agent-gateway-egress.yaml` . In this example we enforce this constraint at the project level but you might also set this at the organization or folder level.
-    
-        name: projects/AGENT_PROJECT_ID/policies/custom.allowlistedEgressAgentGatewaysForAgentEngine
-        spec:
-          rules:
-          - enforce: true
-    
-    Replace `  AGENT_PROJECT_ID  ` with your project ID.
+
+    ```
+    name: projects/AGENT_PROJECT_ID/policies/custom.allowlistedEgressAgentGatewaysForAgentEngine
+    spec:
+      rules:
+      - enforce: true
+    ```
+
+    Replace `AGENT_PROJECT_ID` with your project ID.
 
 4.  Enforce the organization policy.
-    
-        gcloud org-policies set-policy EGRESS_POLICY_PATH
-    
-    Replace EGRESS\_POLICY\_PATH with the full path to the organization policy YAML file created in the previous step. The policy requires up to 15 minutes to take effect.
+
+    ```
+    gcloud org-policies set-policy EGRESS_POLICY_PATH
+    ```
+
+    Replace ` EGRESS_POLICY_PATH ` with the full path to the organization policy YAML file created in the previous step. The policy requires up to 15 minutes to take effect.
 
 ### Client-to-Agent
 
 1.  To define a custom constraint for Client-to-Agent mode (ingress), create a file named `constraint-agent-gateway-ingress.yaml` .
-    
+
     In the following example, the `condition` field specifies that the operation is allowed only if an Agent Gateway resource is specified (field is present and not empty) and if the specified gateway is in the pre-approved list.
-    
-        name: organizations/ORGANIZATION_ID/customConstraints/custom.allowlistedIngressAgentGatewaysForAgentEngine
-        resource_types:
-        - aiplatform.googleapis.com/ReasoningEngine
-        condition: >-
-        has(resource.spec.deploymentSpec.agentGatewayConfig.clientToAgentConfig.agentGateway) &&
-        resource.spec.deploymentSpec.agentGatewayConfig.clientToAgentConfig.agentGateway != '' &&
-        (resource.spec.deploymentSpec.agentGatewayConfig.clientToAgentConfig.agentGateway in [
-          'projects/AGENT_PROJECT_ID_1/locations/REGION_1/agentGateways/AGENT_GATEWAY_ID_1',
-          'projects/AGENT_PROJECT_ID_2/locations/REGION_2/agentGateways/AGENT_GATEWAY_ID_2',
-        ])
-        method_types:
-        - CREATE
-        - UPDATE
-        action_type: ALLOW
-        display_name: Restrict Reasoning Engine Ingress to Approved Agent Gateways
-        description: Reasoning Engines can only be bound to a pre-approved list of
-        Agent Gateway instances. Binding to any other gateway is denied.
-    
+
+    ```
+    name: organizations/ORGANIZATION_ID/customConstraints/custom.allowlistedIngressAgentGatewaysForAgentEngine
+    resource_types:
+    - aiplatform.googleapis.com/ReasoningEngine
+    condition: >-
+    has(resource.spec.deploymentSpec.agentGatewayConfig.clientToAgentConfig.agentGateway) &&
+    resource.spec.deploymentSpec.agentGatewayConfig.clientToAgentConfig.agentGateway != '' &&
+    (resource.spec.deploymentSpec.agentGatewayConfig.clientToAgentConfig.agentGateway in [
+      'projects/AGENT_PROJECT_ID_1/locations/REGION_1/agentGateways/AGENT_GATEWAY_ID_1',
+      'projects/AGENT_PROJECT_ID_2/locations/REGION_2/agentGateways/AGENT_GATEWAY_ID_2',
+    ])
+    method_types:
+    - CREATE
+    - UPDATE
+    action_type: ALLOW
+    display_name: Restrict Reasoning Engine Ingress to Approved Agent Gateways
+    description: Reasoning Engines can only be bound to a pre-approved list of
+    Agent Gateway instances. Binding to any other gateway is denied.
+    ```
+
     Replace the following:
-    
-      - ORGANIZATION\_ID : your organization ID.
-      - AGENT\_PROJECT\_ID : your project ID.
-      - REGION : the region where the gateway was created.
-      - AGENT\_GATEWAY\_ID : your gateway ID.
+
+    - ` ORGANIZATION_ID ` : your organization ID.
+    - ` AGENT_PROJECT_ID ` : your project ID.
+    - ` REGION ` : the region where the gateway was created.
+    - ` AGENT_GATEWAY_ID ` : your gateway ID.
 
 2.  Apply the custom constraint.
-    
-        gcloud org-policies set-custom-constraint INGRESS_CONSTRAINT_PATH
-    
-    Replace INGRESS\_CONSTRAINT\_PATH with the full path to the custom constraint file created in the previous step.
+
+    ```
+    gcloud org-policies set-custom-constraint INGRESS_CONSTRAINT_PATH
+    ```
+
+    Replace ` INGRESS_CONSTRAINT_PATH ` with the full path to the custom constraint file created in the previous step.
 
 3.  Create the organization policy to enforce the constraint. To define the organization policy, create a policy YAML file named `policy-agent-gateway-ingress.yaml` . In this example we enforce this constraint at the project level but you might also set this at the organization or folder level.
-    
-        name: projects/AGENT_PROJECT_ID/policies/custom.allowlistedIngressAgentGatewaysForAgentEngine
-        spec:
-          rules:
-          - enforce: true
-    
-    Replace `  AGENT_PROJECT_ID  ` with your project ID.
+
+    ```
+    name: projects/AGENT_PROJECT_ID/policies/custom.allowlistedIngressAgentGatewaysForAgentEngine
+    spec:
+      rules:
+      - enforce: true
+    ```
+
+    Replace `AGENT_PROJECT_ID` with your project ID.
 
 4.  Enforce the organization policy.
-    
-        gcloud org-policies set-policy INGRESS_POLICY_PATH
-    
-    Replace INGRESS\_POLICY\_PATH with the full path to the organization policy YAML file created in the previous step. The policy requires up to 15 minutes to take effect.
+
+    ```
+    gcloud org-policies set-policy INGRESS_POLICY_PATH
+    ```
+
+    Replace ` INGRESS_POLICY_PATH ` with the full path to the organization policy YAML file created in the previous step. The policy requires up to 15 minutes to take effect.
 
 For more information about how to use custom organization policy constraints, see [Create custom constraints](https://docs.cloud.google.com/organization-policy/create-custom-constraints) .
 
 ### Limitations
 
-  - Cross-project governance has the following limitations:
-    
-      - Cross-project bindings between agents and gateways are supported only in Agent-to-Anywhere (egress) mode. In Client-to-Agent (ingress) mode, the agent and the Agent Gateway must be in the same project.
-      - You must use the REST API or gcloud to configure end-to-end cross-project governance. The Google Cloud Google Cloud console doesn't support creating cross-project IAM policy bindings or Agent Registry entries.
+- Cross-project governance has the following limitations:
 
-  - An Agent Gateway can't be bound to Runtime Reasoning Engines created before April 29, 2026.
+  - Cross-project bindings between agents and gateways are supported only in Agent-to-Anywhere (egress) mode. In Client-to-Agent (ingress) mode, the agent and the Agent Gateway must be in the same project.
+  - You must use the REST API or gcloud to configure end-to-end cross-project governance. The Google Cloud Google Cloud console doesn't support creating cross-project IAM policy bindings or Agent Registry entries.
 
-  - While a single project and region can host multiple Agent-to-Anywhere (egress) and Client-to-Agent (ingress) Agent Gateway instances, all Agent Runtime agents deployed within that same project and region must bind to the same specific egress and ingress Agent Gateway instances.
-    
-    For example, if a project and region contains `egress-gateway-X` and `egress-gateway-Y` , all agents in that project and region must be configured to use the same gateway for egress. That is, either all agents use `egress-gateway-X` or all agents use `egress-gateway-Y` . You can't configure `agent-A` to use `egress-gateway-X` and `agent-B` to use `egress-gateway-Y` .
-    
-    This same binding rule applies to ingress gateways within a project and region as well.
+- An Agent Gateway can't be bound to Runtime Reasoning Engines created before April 29, 2026.
 
-  - The [Security Command Center Agent Engine Threat Detection service](https://docs.cloud.google.com/security-command-center/docs/agent-platform-threat-detection-overview) isn't available when Agent Gateway is enabled for an agent.
+- While a single project and region can host multiple Agent-to-Anywhere (egress) and Client-to-Agent (ingress) Agent Gateway instances, all Agent Runtime agents deployed within that same project and region must bind to the same specific egress and ingress Agent Gateway instances.
 
-  - In Client-to-Agent (ingress) mode, Agent Gateway can only govern Agent Runtime's `query` and `streamQuery` methods. To protect other unsupported methods (such as `asyncQuery` ), you can apply Model Armor templates directly from your application or agent. See [Sanitize prompts and responses](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses) or this codelab on [Building a secure agent system with Model Armor](https://codelabs.developers.google.com/secure-agent-modelarmor) .
+  For example, if a project and region contains `egress-gateway-X` and `egress-gateway-Y` , all agents in that project and region must be configured to use the same gateway for egress. That is, either all agents use `egress-gateway-X` or all agents use `egress-gateway-Y` . You can't configure `agent-A` to use `egress-gateway-X` and `agent-B` to use `egress-gateway-Y` .
 
-  - Agent Gateway isn't supported for Agent Runtime agents that are using [revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic) . You won't be able to use versioning-related features such as traffic split configuration and per-revision querying if an Agent Gateway is attached to an agent's configuration.
-    
-    To update an agent without changing its reasoning engine ID or breaking policy bindings, update your agent instance in-place as described in [Updating an Agent Runtime instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/sdk-migration#updating-runtime-instance) .
+  This same binding rule applies to ingress gateways within a project and region as well.
+
+- The [Security Command Center Agent Engine Threat Detection service](https://docs.cloud.google.com/security-command-center/docs/agent-platform-threat-detection-overview) isn't available when Agent Gateway is enabled for an agent.
+
+- In Client-to-Agent (ingress) mode, Agent Gateway can only govern Agent Runtime's `query` and `streamQuery` methods. To protect other unsupported methods (such as `asyncQuery` ), you can apply Model Armor templates directly from your application or agent. See [Sanitize prompts and responses](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses) or this codelab on [Building a secure agent system with Model Armor](https://codelabs.developers.google.com/secure-agent-modelarmor) .
+
+- Changing an Agent Gateway binding on a Runtime agent archives every pre-existing [revision](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic) of the agent. Archiving is irreversible. See [Agent Gateway and revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic#agent-gateway) .
+
+  > **Note:** Binding changes are only allowed while all traffic is on the latest revision — either `traffic_config.traffic_split_always_latest` is set, or `traffic_config` is unset.
+
+  To update an agent without changing its reasoning engine ID or breaking policy bindings, update your agent instance in-place as described in [Updating an Agent Runtime instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/sdk-migration#updating-runtime-instance) .
 
 ## What's next
 

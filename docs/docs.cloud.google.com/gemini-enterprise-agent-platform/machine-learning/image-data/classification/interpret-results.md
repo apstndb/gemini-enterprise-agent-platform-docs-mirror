@@ -20,11 +20,13 @@ Batch AutoML image classification prediction output are stored as [JSON Lines](h
 
 > **Note** : The following JSON Lines example includes line breaks for readability. In your JSON Lines files, line breaks are included only after each each JSON object.
 
-    {
-      "instance": {"content": "gs://bucket/image.jpg", "mimeType": "image/jpeg"},
-      "prediction": {
-        "ids": [1, 2],
-        "displayNames": ["cat", "dog"],
-        "confidences": [0.7, 0.5]
-      }
-    }
+```
+{
+  "instance": {"content": "gs://bucket/image.jpg", "mimeType": "image/jpeg"},
+  "prediction": {
+    "ids": [1, 2],
+    "displayNames": ["cat", "dog"],
+    "confidences": [0.7, 0.5]
+  }
+}
+```

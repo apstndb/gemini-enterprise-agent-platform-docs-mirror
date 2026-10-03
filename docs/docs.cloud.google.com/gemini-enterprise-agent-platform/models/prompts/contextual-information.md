@@ -10,18 +10,18 @@ In your prompt, you can include instructions and information that the model need
 
 Effective contextual information includes the following:
 
-  - Background information (context) for the model to refer to when generating responses.
-  - Rules or pre-programmed responses to steer the model behavior.
+- Background information (context) for the model to refer to when generating responses.
+- Rules or pre-programmed responses to steer the model behavior.
 
 ## Examples
 
 The following example asks the model to give troubleshooting guidance for a router:
 
-No contextual information
+**No contextual information**
 
 **Prompt:**
 
-``` 
+```
 What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and
 blinking slowly.
   
@@ -29,7 +29,7 @@ blinking slowly.
 
 **Response:**
 
-``` 
+```
 1. **Check the Cables:**
 - Make sure that all cables are securely connected to your Google Wifi router and modem.
 - Try replacing the cables with new ones to ensure they are not faulty.
@@ -80,11 +80,11 @@ The response looks like generic troubleshooting information that's not specific 
 
 To customize the response for the specific router, you can add to the prompt the router's troubleshooting guide as context for it to refer to when providing a response.
 
-Includes contextual information
+**Includes contextual information**
 
 **Prompt:**
 
-``` 
+```
 Answer the question using the text below. Respond with only the text provided.
 Question: What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and blinking slowly.
 
@@ -113,7 +113,7 @@ Critical failure. Factory reset the router. If the light stays red, contact Wifi
 
 **Response:**
 
-``` 
+```
 Check that the Ethernet cable is connected to both your router and your modem and both devices are turned on. You might need to unplug and plug in each device again.
   
 ```

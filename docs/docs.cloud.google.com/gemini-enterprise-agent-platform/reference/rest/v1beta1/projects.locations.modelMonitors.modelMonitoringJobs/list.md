@@ -36,7 +36,7 @@ The standard list page size.
 
 The standard list page token.
 
-`readMask` ` string ( FieldMask  ` format)
+`readMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Mask specifying which fields to read
 
@@ -48,13 +48,13 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  ModelMonitoringService.ListModelMonitoringJobs  ` .
+Response message for [`ModelMonitoringService.ListModelMonitoringJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs/list#google.cloud.aiplatform.v1beta1.ModelMonitoringService.ListModelMonitoringJobs) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`modelMonitoringJobs[]` ` object ( ModelMonitoringJob  ` )
+`modelMonitoringJobs[]` `object ( `[`ModelMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs#ModelMonitoringJob)` )`
 
 A list of ModelMonitoringJobs that matches the specified filter in the request.
 
@@ -62,18 +62,15 @@ A list of ModelMonitoringJobs that matches the specified filter in the request.
 
 The standard List next-page token.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;modelMonitoringJobs&quot;: [{object (ModelMonitoringJob)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "modelMonitoringJobs": [
+    {
+      object (ModelMonitoringJob)
+    }
+  ],
+  "nextPageToken": string
+}
+```

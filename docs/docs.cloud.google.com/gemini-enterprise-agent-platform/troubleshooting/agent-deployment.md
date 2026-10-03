@@ -20,19 +20,21 @@ If you run into issues with the [LangchainAgent template](https://docs.cloud.goo
 
 You receive an error message similar to the following:
 
-    InternalServerError: 500 Revision YYY is not ready and cannot serve traffic.
+```
+InternalServerError: 500 Revision YYY is not ready and cannot serve traffic.
+```
 
 Unfortunately, this is a catch-all error for any issues with the container at runtime, and the possible cause is one of many errors that might be happening.
 
 **Possible cause(s)** :
 
-  - **Dirty state on `LangchainAgent`** . This might happen if [`.set_up()`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.LangchainAgent#vertexai_preview_reasoning_engines_LangchainAgent_set_up) was called on a `LangchainAgent` before [deploying the agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) .
-  - **Inconsistent package versions** . This might happen if the packages installed in the development environment are different from the packages installed in the remote environment in Agent Runtime.
+- **Dirty state on `LangchainAgent`** . This might happen if [`.set_up()`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.LangchainAgent#vertexai_preview_reasoning_engines_LangchainAgent_set_up) was called on a `LangchainAgent` before [deploying the agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) .
+- **Inconsistent package versions** . This might happen if the packages installed in the development environment are different from the packages installed in the remote environment in Agent Runtime.
 
 **Recommended solution(s)** :
 
-  - **Dirty state on `LangchainAgent`** . Instantiate a fresh instance of the `LangchainAgent` or remove `agent.set_up()` from the code before [deploying the agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) .
-  - **Inconsistent package specs** . See the section on troubleshooting [serialization errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#serialization-internal-server-errors) .
+- **Dirty state on `LangchainAgent`** . Instantiate a fresh instance of the `LangchainAgent` or remove `agent.set_up()` from the code before [deploying the agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) .
+- **Inconsistent package specs** . See the section on troubleshooting [serialization errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#serialization-internal-server-errors) .
 
 ## Serialization errors
 
@@ -46,24 +48,32 @@ If you run into issues with serialization (errors related to "pickle" or "pickli
 
 You receive an error message similar to the following:
 
-    PicklingError: Can't pickle <cyfunction str_validator at 0x7ca030133d30>: it's
-    not the same object as pydantic.validators.str_validator
+```
+PicklingError: Can't pickle <cyfunction str_validator at 0x7ca030133d30>: it's
+not the same object as pydantic.validators.str_validator
+```
 
 **Possible cause** :
 
 This might happen if your `pydantic` package is earlier than version `2.6.4` . To check which version you're using, run the following command in your terminal:
 
-    pip show pydantic
+```
+pip show pydantic
+```
 
 **Recommended solution** :
 
 Update your package by running the following command in the terminal:
 
-    pip install pydantic --upgrade
+```
+pip install pydantic --upgrade
+```
 
 Run the following command in your terminal to verify you're using version `2.6.4` or later:
 
-    pip show pydantic
+```
+pip show pydantic
+```
 
 If you're in a notebook instance (for example, a Jupyter, Colab, or Workbench), you might need to restart your runtime to use the updated packages.
 
@@ -73,14 +83,18 @@ If you're in a notebook instance (for example, a Jupyter, Colab, or Workbench), 
 
 You receive an error message similar to the following:
 
-    AttributeError: Can't get attribute '_class_setstate' on <module 'cloudpickle.cloudpickle'
-    from '/usr/local/lib/python3.10/site-packages/cloudpickle/cloudpickle.py'>
+```
+AttributeError: Can't get attribute '_class_setstate' on <module 'cloudpickle.cloudpickle'
+from '/usr/local/lib/python3.10/site-packages/cloudpickle/cloudpickle.py'>
+```
 
 **Possible cause** :
 
 This might happen if the version of your `cloudpickle` package is different in your development environment and your deployment environment. To check which version you're using in development, run the following command in your terminal:
 
-    pip show cloudpickle
+```
+pip show cloudpickle
+```
 
 **Recommended solution** :
 
@@ -92,7 +106,9 @@ Deploy the same version of cloudpickle in both environments, such as your local 
 
 You receive an error message similar to the following:
 
-    InternalServerError: 500 Revision YYY is not ready and cannot serve traffic.
+```
+InternalServerError: 500 Revision YYY is not ready and cannot serve traffic.
+```
 
 **Possible cause** :
 
@@ -122,7 +138,9 @@ If you still run into issues, [file a bug report](https://github.com/googleapis/
 
 You receive an error message similar to the following:
 
-    NotFound: 404 Can not copy from \"gs://[LOCATION]-*/agent_engine/agent_engine.pkl\" to \"gs://*/code.pkl\", check if the source object and target bucket exist.
+```
+NotFound: 404 Can not copy from \"gs://[LOCATION]-*/agent_engine/agent_engine.pkl\" to \"gs://*/code.pkl\", check if the source object and target bucket exist.
+```
 
 (The 404 occurs when the system tries to copy into a folder that doesn't exist.)
 
@@ -130,17 +148,23 @@ You receive an error message similar to the following:
 
 This is likely due to an issue with string interpolation in versions of `google-cloud-aiplatform` earlier than version `1.49.0` . This is [fixed](https://github.com/googleapis/python-aiplatform/commit/3d22a18abdacc7cb53d4b5fef941fa1a34caec08) in later versions. To check which version of `google-cloud-aiplatform` you're using, run the following command in your terminal:
 
-    pip show google-cloud-aiplatform
+```
+pip show google-cloud-aiplatform
+```
 
 **Recommended solution** :
 
 Update your package by running the following command in the terminal:
 
-    pip install google-cloud-aiplatform --upgrade
+```
+pip install google-cloud-aiplatform --upgrade
+```
 
 Verify that you're using version `1.49.0` or later of `google-cloud-aiplatform` by running the following command in your terminal:
 
-    pip show google-cloud-aiplatform
+```
+pip show google-cloud-aiplatform
+```
 
 If you're using a notebook instance (for example, Jupyter or Colab or Workbench), you might need to restart your runtime before you can use the updated packages.
 
@@ -154,11 +178,15 @@ If you're experiencing problems with VPC-SC, one of the following issues might b
 
 You receive an error message similar to the following:
 
-    Reasoning Engine instance REASONING_ENGINE_ID failed to start and cannot serve traffic.
+```
+Reasoning Engine instance REASONING_ENGINE_ID failed to start and cannot serve traffic.
+```
 
 or:
 
-    Request is prohibited by organization's policy.
+```
+Request is prohibited by organization's policy.
+```
 
 **Possible cause** :
 
@@ -166,7 +194,7 @@ This is likely caused by missing required ingress rules in the VPC-SC perimeter.
 
 **Recommended solution** :
 
-If you use Agent Platform in a VPC-SC environment, you must create an ingress rule in your perimeter to allow ingress from the Reasoning Engine Service Agent ( `service- PROJECT_NUMBER @gcp-sa-aiplatform-re.iam.gserviceaccount.com` ) into the `storage.googleapis.com` service and `artifactregistry.googleapis.com` service.
+If you use Agent Platform in a VPC-SC environment, you must create an ingress rule in your perimeter to allow ingress from the Reasoning Engine Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` ) into the `storage.googleapis.com` service and `artifactregistry.googleapis.com` service.
 
 ## Custom service account errors
 
@@ -178,7 +206,9 @@ If you're experiencing problems with service accounts, one of the following issu
 
 You receive an error message similar to the following:
 
-    You do not have permission to act as service_account.
+```
+You do not have permission to act as service_account.
+```
 
 **Possible cause** :
 
@@ -200,11 +230,15 @@ If you are in the cross-project scenario, check if your service account project 
 
 You receive an error message similar to the following:
 
-    ServiceUnavailable: 503 Getting metadata from plugin failed with error
+```
+ServiceUnavailable: 503 Getting metadata from plugin failed with error
+```
 
 or
 
-    Compute Engine Metadata server unavailable due to : Could not fetch URI /computeMetadata/v1/instance/service-accounts/default/token
+```
+Compute Engine Metadata server unavailable due to : Could not fetch URI /computeMetadata/v1/instance/service-accounts/default/token
+```
 
 **Possible cause** :
 
@@ -230,9 +264,9 @@ The project has exceeded its API rate limits or concurrent request quotas.
 
 **Recommended solutions** :
 
-  - Implement an exponential backoff and retry strategy in deployment scripts.
-  - Verify current usage against limits in the Google Cloud Quotas page for the "Agent Platform API".
-  - Reduce the frequency of concurrent deployments.
+- Implement an exponential backoff and retry strategy in deployment scripts.
+- Verify current usage against limits in the Google Cloud Quotas page for the "Agent Platform API".
+- Reduce the frequency of concurrent deployments.
 
 > **Note:** These solutions apply to your project's own API rate limits. A region that is temporarily at capacity returns the same `429` , `RESOURCE_EXHAUSTED` status but has a different cause and different solutions. See [Region temporarily at capacity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#region-capacity) .
 
@@ -250,15 +284,15 @@ This limit is not one of your project's quotas. It does not appear on the Google
 
 **Recommended solutions** :
 
-  - Deploy to a different supported region. This is the fastest way to unblock a deployment.
-  - Retry later. A region at capacity is a temporary issue that usually resolves on its own.
-  - Request a smaller amount of memory or CPU for your agent. A smaller deployment may fit within the remaining capacity.
-  - [Contact support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-support) if deployments in a region keep failing this way. Although we can't raise the limit, your reports help us direct capacity to where it's needed.
+- Deploy to a different supported region. This is the fastest way to unblock a deployment.
+- Retry later. A region at capacity is a temporary issue that usually resolves on its own.
+- Request a smaller amount of memory or CPU for your agent. A smaller deployment may fit within the remaining capacity.
+- [Contact support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-support) if deployments in a region keep failing this way. Although we can't raise the limit, your reports help us direct capacity to where it's needed.
 
 **Solutions that don't apply** :
 
-  - Deleting your existing agents doesn't free capacity for this limit, because the capacity isn't consumed by your project alone.
-  - Requesting a quota increase has no effect, because the limit isn't a project quota.
+- Deleting your existing agents doesn't free capacity for this limit, because the capacity isn't consumed by your project alone.
+- Requesting a quota increase has no effect, because the limit isn't a project quota.
 
 ## Support resources
 

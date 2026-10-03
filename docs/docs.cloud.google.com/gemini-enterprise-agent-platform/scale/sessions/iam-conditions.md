@@ -20,36 +20,35 @@ IAM Conditions are useful for granting Identity and Access Management (IAM) perm
 
 To set up conditional Identity and Access Management policies for sessions and session events, do the following:
 
-  - **Review IAM Conditions** : Familiarize yourself with the [IAM Conditions overview](https://docs.cloud.google.com/iam/docs/conditions-overview) .
+- **Review IAM Conditions** : Familiarize yourself with the [IAM Conditions overview](https://docs.cloud.google.com/iam/docs/conditions-overview) .
 
-  - **Determine necessary roles** : Identify which [specialized Session IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions#session-roles) are appropriate for your use case to ensure the principle of least privilege.
+- **Determine necessary roles** : Identify which [specialized Session IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions#session-roles) are appropriate for your use case to ensure the principle of least privilege.
 
-  - **Identify affected principals** : Identify who in your organization should receive which permissions. For example, consider the following:
-    
-      - Should users be able to see another user's sessions?
-      - Should developers be able to see all sessions?
-      - Should project administrators be able to see all sessions?
-      - Should certain agent identities be able to access certain sessions?
+- **Identify affected principals** : Identify who in your organization should receive which permissions. For example, consider the following:
+  - Should users be able to see another user's sessions?
+  - Should developers be able to see all sessions?
+  - Should project administrators be able to see all sessions?
+  - Should certain agent identities be able to access certain sessions?
 
-  - **Grant IAM roles** : Ensure you have the required roles that contain the necessary permissions you need to perform the tasks in this document.
-    
-    To get the permissions that you need to apply IAM Conditions to Vertex AI Agent Engine Session resources , ask your administrator to grant you the following IAM roles:
-    
-      - For projects: Project IAM Admin (\`roles/resourcemanager.projectIamAdmin\`)
-    
-    For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
-    
-    These predefined roles contain the permissions required to apply IAM Conditions to Vertex AI Agent Engine Session resources . To see the exact permissions that are required, expand the **Required permissions** section:
-    
-    #### Required permissions
-    
-    The following permissions are required to apply IAM Conditions to Vertex AI Agent Engine Session resources :
-    
-      - Set conditional IAM access at the project level: \`resourcemanager.projects.setIamPolicy\`
-    
-    You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
-    
-    If you plan to use IAM Conditions across your organization, you also need [permissions to manage organization policies](https://docs.cloud.google.com/resource-manager/docs/organization-policy/using-constraints#required-roles) .
+- **Grant IAM roles** : Ensure you have the required roles that contain the necessary permissions you need to perform the tasks in this document.
+
+  To get the permissions that you need to apply IAM Conditions to Vertex AI Agent Engine Session resources , ask your administrator to grant you the following IAM roles:
+
+  - For projects: Project IAM Admin (\`roles/resourcemanager.projectIamAdmin\`)
+
+  For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+
+  These predefined roles contain the permissions required to apply IAM Conditions to Vertex AI Agent Engine Session resources . To see the exact permissions that are required, expand the **Required permissions** section:
+
+  #### Required permissions
+
+  The following permissions are required to apply IAM Conditions to Vertex AI Agent Engine Session resources :
+
+  - Set conditional IAM access at the project level: \`resourcemanager.projects.setIamPolicy\`
+
+  You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
+
+  If you plan to use IAM Conditions across your organization, you also need [permissions to manage organization policies](https://docs.cloud.google.com/resource-manager/docs/organization-policy/using-constraints#required-roles) .
 
 ## Creating conditional access for sessions
 
@@ -66,14 +65,14 @@ To grant a single role to a principal, do the following:
 2.  Select your project.
 
 3.  Select a principal to grant a role to:
-    
-      - To grant a role to a principal who already has other roles on the resource, find a row containing the principal, click edit **Edit principal** in that row, and click add **Add another role** .
-        
-        To grant a role to a [service agent](https://docs.cloud.google.com/iam/docs/service-account-types#service-agents) , select the **Include Google-provided role grants** checkbox to see its email address.
-        
-        > **Note:** You cannot edit inherited roles when managing access to a resource. To edit inherited roles, go to the resource where the role was granted.
-    
-      - To grant a role to a principal who doesn't have any existing roles on the resource, click person\_add **Grant Access** , then enter a [principal identifier](https://docs.cloud.google.com/iam/docs/principal-identifiers) . For example, `my-user@example.com` or `//iam.googleapis.com/locations/global/workforcePools/example-pool/group/example-group@example.com` .
+
+    - To grant a role to a principal who already has other roles on the resource, find a row containing the principal, click edit **Edit principal** in that row, and click add **Add another role** .
+
+      To grant a role to a [service agent](https://docs.cloud.google.com/iam/docs/service-account-types#service-agents) , select the **Include Google-provided role grants** checkbox to see its email address.
+
+      > **Note:** You cannot edit inherited roles when managing access to a resource. To edit inherited roles, go to the resource where the role was granted.
+
+    - To grant a role to a principal who doesn't have any existing roles on the resource, click person_add **Grant Access** , then enter a [principal identifier](https://docs.cloud.google.com/iam/docs/principal-identifiers) . For example, `my-user@example.com` or `//iam.googleapis.com/locations/global/workforcePools/example-pool/group/example-group@example.com` .
 
 4.  Select a role to grant from the drop-down list. For best security practices, choose a role that includes only the permissions that your principal needs. You can choose one of the [specialized Session IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions#session-roles) .
 
@@ -84,73 +83,81 @@ To grant a single role to a principal, do the following:
 ### gcloud
 
 1.  In the Google Cloud console, activate Cloud Shell.
-    
+
     At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) session starts and displays a command-line prompt. Cloud Shell is a shell environment with the Google Cloud CLI already installed and with values already set for your current project. It can take a few seconds for the session to initialize.
 
-2.  The `  add-iam-policy-binding  ` command lets you quickly grant a role to a principal.
-    
+2.  The [`add-iam-policy-binding`](https://docs.cloud.google.com/sdk/gcloud/reference/projects/add-iam-policy-binding) command lets you quickly grant a role to a principal.
+
     Before using any of the command data below, make the following replacements:
-    
-      - `  PROJECT_ID  ` : Your Google Cloud project ID. Project IDs are alphanumeric, like `my-project` .
-    
-      - `  PRINCIPAL  ` : An identifier for the principal, or member, which usually has the following form: `  PRINCIPAL_TYPE : ID  ` . For example, `user:my-user@example.com` or `principalSet://iam.googleapis.com/locations/global/workforcePools/example-pool/group/example-group@example.com` . For a full list of the values that `  PRINCIPAL  ` can have, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers) .
-        
-        For the principal type `user` , the domain name in the identifier must be a Google Workspace domain or a Cloud Identity domain. To learn how to set up a Cloud Identity domain, see the [overview of Cloud Identity](https://docs.cloud.google.com/identity/docs/overview) .
-    
-      - `  ROLE_NAME  ` : The name of the role that you want to revoke. Use one of the following formats:
-        
-          - Predefined roles: ` roles/aiplatform. IDENTIFIER  `
-          - Project-level custom roles: ` projects/ PROJECT_ID /roles/ IDENTIFIER  `
-        
-        Select a role to grant from the drop-down list. For best security practices, choose a role that includes only the permissions that your principal needs. You can choose one of the [specialized Session IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions#session-roles) .
-    
-      - `  CONDITION  ` : Add a condition to the role, using `aiplatform.googleapis.com/sessionUserId` as the API attribute. See the below [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions#examples) for some possible condition statements.
-    
+
+    - `PROJECT_ID` : Your Google Cloud project ID. Project IDs are alphanumeric, like `my-project` .
+
+    - `PRINCIPAL` : An identifier for the principal, or member, which usually has the following form: `PRINCIPAL_TYPE `` : `` ID` . For example, `user:my-user@example.com` or `principalSet://iam.googleapis.com/locations/global/workforcePools/example-pool/group/example-group@example.com` . For a full list of the values that `PRINCIPAL` can have, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers) .
+
+      For the principal type `user` , the domain name in the identifier must be a Google Workspace domain or a Cloud Identity domain. To learn how to set up a Cloud Identity domain, see the [overview of Cloud Identity](https://docs.cloud.google.com/identity/docs/overview) .
+
+    - `ROLE_NAME` : The name of the role that you want to revoke. Use one of the following formats:
+
+      - Predefined roles: `roles/aiplatform. `` IDENTIFIER`
+      - Project-level custom roles: `projects/ `` PROJECT_ID `` /roles/ `` IDENTIFIER`
+
+      Select a role to grant from the drop-down list. For best security practices, choose a role that includes only the permissions that your principal needs. You can choose one of the [specialized Session IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions#session-roles) .
+
+    - `CONDITION` : Add a condition to the role, using `aiplatform.googleapis.com/sessionUserId` as the API attribute. See the below [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions#examples) for some possible condition statements.
+
     Execute the following command:
-    
+
     #### Linux, macOS, or Cloud Shell
-    
-        gcloud projects add-iam-policy-binding PROJECT_ID \
-            --member=PRINCIPAL --role=ROLE_NAME \
-            --condition=CONDITION
-    
+
+    ```
+    gcloud projects add-iam-policy-binding PROJECT_ID \
+        --member=PRINCIPAL --role=ROLE_NAME \
+        --condition=CONDITION
+    ```
+
     #### Windows (PowerShell)
-    
-        gcloud projects add-iam-policy-binding PROJECT_ID `
-            --member=PRINCIPAL --role=ROLE_NAME `
-            --condition=CONDITION
-    
+
+    ```
+    gcloud projects add-iam-policy-binding PROJECT_ID `
+        --member=PRINCIPAL --role=ROLE_NAME `
+        --condition=CONDITION
+    ```
+
     #### Windows (cmd.exe)
-    
-        gcloud projects add-iam-policy-binding PROJECT_ID ^
-            --member=PRINCIPAL --role=ROLE_NAME ^
-            --condition=CONDITION
-    
+
+    ```
+    gcloud projects add-iam-policy-binding PROJECT_ID ^
+        --member=PRINCIPAL --role=ROLE_NAME ^
+        --condition=CONDITION
+    ```
+
     The response contains the updated IAM policy.
 
 ### Terraform
 
 To learn how to apply or remove a Terraform configuration, see [Basic Terraform commands](https://docs.cloud.google.com/docs/terraform/basic-commands) . For more information, see the [Terraform provider reference documentation](https://registry.terraform.io/providers/hashicorp/google/latest/docs) .
 
-If you are using Terraform to set your IAM policies, you can include a condition in the [google\_project\_iam\_member](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam#google_project_iam_member) resource to restrict a member's access to sessions.
+If you are using Terraform to set your IAM policies, you can include a condition in the [google_project_iam_member](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam#google_project_iam_member) resource to restrict a member's access to sessions.
 
-    resource "google_project_iam_member" "example" {
-      project    = "PROJECT_ID"
-      role       = "ROLE"
-      member     = "MEMBER"
-      condition {
-        title       = "Session Access Condition"
-        description = "IAM condition for Session"
-        expression  = "CONDITION"
-      }
-    }
+```
+resource "google_project_iam_member" "example" {
+  project    = "PROJECT_ID"
+  role       = "ROLE"
+  member     = "MEMBER"
+  condition {
+    title       = "Session Access Condition"
+    description = "IAM condition for Session"
+    expression  = "CONDITION"
+  }
+}
+```
 
 Replace the following variables:
 
-  - `  PROJECT_ID  ` : Your Google Cloud project ID. Project IDs are alphanumeric, like `my-project` .
-  - `  ROLE  ` : The IAM role to grant, for example, `roles/aiplatform.sessionEditor` .
-  - `  MEMBER  ` : The principal to grant the role to, for example, `user:developerA@corp.com` . For a full list of the values that `  MEMBER  ` can have, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers) .
-  - `  CONDITION  ` : Your IAM condition statement using `aiplatform.googleapis.com/sessionUserId` as the API attribute. See the below [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions#examples) for some possible condition statements.
+- `PROJECT_ID` : Your Google Cloud project ID. Project IDs are alphanumeric, like `my-project` .
+- `ROLE` : The IAM role to grant, for example, `roles/aiplatform.sessionEditor` .
+- `MEMBER` : The principal to grant the role to, for example, `user:developerA@corp.com` . For a full list of the values that `MEMBER` can have, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers) .
+- `CONDITION` : Your IAM condition statement using `aiplatform.googleapis.com/sessionUserId` as the API attribute. See the below [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions#examples) for some possible condition statements.
 
 ## Best practices for User Id-level permissions
 
@@ -181,28 +188,28 @@ It is critical to prevent overly permissive IAM policies when using IAM Conditio
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr" translate="no">roles/aiplatform.sessionViewer</code></td>
+<td><code>roles/aiplatform.sessionViewer</code></td>
 <td>Grants read-only access to sessions and listing events.</td>
 <td><ul>
-<li><code dir="ltr" translate="no">aiplatform.googleapis.com/sessions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.googleapis.com/sessions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.googleapis.com/sessionEvents.list</code></li>
+<li><code>aiplatform.googleapis.com/sessions.get</code></li>
+<li><code>aiplatform.googleapis.com/sessions.list</code></li>
+<li><code>aiplatform.googleapis.com/sessionEvents.list</code></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><code dir="ltr" translate="no">roles/aiplatform.sessionEditor</code></td>
+<td><code>roles/aiplatform.sessionEditor</code></td>
 <td>Grants write access to sessions and appending events.</td>
 <td><ul>
-<li><code dir="ltr" translate="no">aiplatform.googleapis.com/sessions.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.googleapis.com/sessions.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.googleapis.com/sessions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.googleapis.com/sessionEvents.append</code></li>
+<li><code>aiplatform.googleapis.com/sessions.create</code></li>
+<li><code>aiplatform.googleapis.com/sessions.update</code></li>
+<li><code>aiplatform.googleapis.com/sessions.delete</code></li>
+<li><code>aiplatform.googleapis.com/sessionEvents.append</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><code dir="ltr" translate="no">roles/aiplatform.sessionUser</code></td>
+<td><code>roles/aiplatform.sessionUser</code></td>
 <td>Grants full access to sessions and events, including all viewer and editor permissions.</td>
-<td>Includes all permissions of both <code dir="ltr" translate="no">sessionEditor</code> and <code dir="ltr" translate="no">sessionViewer</code> .</td>
+<td>Includes all permissions of both <code>sessionEditor</code> and <code>sessionViewer</code> .</td>
 </tr>
 </tbody>
 </table>
@@ -223,14 +230,16 @@ The following condition grants the individual `userA@gmail.com` view access only
 
 This means that the individual has the ability to get sessions and list the session events, as long as the user ID is exactly `userA` . The user doesn't have access to sessions with user ID such as `userB` .
 
-    {
-      "members": ["user:userA@gmail.com"],
-      "role": "roles/aiplatform.sessionViewer",
-      "condition": {
-        "title": "Session Access Condition",
-        "expression": "api.getAttribute('aiplatform.googleapis.com/sessionUserId', '') == 'userA'"
-      }
-    }
+```
+{
+  "members": ["user:userA@gmail.com"],
+  "role": "roles/aiplatform.sessionViewer",
+  "condition": {
+    "title": "Session Access Condition",
+    "expression": "api.getAttribute('aiplatform.googleapis.com/sessionUserId', '') == 'userA'"
+  }
+}
+```
 
 ### Grant write access to sessions containing a specific prefix in the user ID
 
@@ -238,27 +247,31 @@ The following condition grants the individual `developerA@corp.com` edit access 
 
 This means that the developer has the ability to create, update, and delete sessions, along with appending events, with user IDs such as `userA` or `user1234` .
 
-    {
-      "members": ["user:developerA@corp.com"],
-      "role": "roles/aiplatform.sessionEditor",
-      "condition": {
-        "title": "Session Access Condition",
-        "expression": "api.getAttribute('aiplatform.googleapis.com/sessionUserId', '').startsWith('user')"
-      }
-    }
+```
+{
+  "members": ["user:developerA@corp.com"],
+  "role": "roles/aiplatform.sessionEditor",
+  "condition": {
+    "title": "Session Access Condition",
+    "expression": "api.getAttribute('aiplatform.googleapis.com/sessionUserId', '').startsWith('user')"
+  }
+}
+```
 
 ### Grant full access to sessions containing one of two user IDs
 
 The following condition grants the group `group:engineering@corp.com` user (viewer and editor) access to sessions that have only user IDs `userA` or `user123` .
 
-    {
-      "members": ["group:engineering@corp.com"],
-      "role": "roles/aiplatform.sessionUser",
-      "condition": {
-        "title": "Session Access Condition",
-        "expression": "api.getAttribute('aiplatform.googleapis.com/sessionUserId', '') in ['userA', 'user123']"
-      }
-    }
+```
+{
+  "members": ["group:engineering@corp.com"],
+  "role": "roles/aiplatform.sessionUser",
+  "condition": {
+    "title": "Session Access Condition",
+    "expression": "api.getAttribute('aiplatform.googleapis.com/sessionUserId', '') in ['userA', 'user123']"
+  }
+}
+```
 
 ## Limitations
 

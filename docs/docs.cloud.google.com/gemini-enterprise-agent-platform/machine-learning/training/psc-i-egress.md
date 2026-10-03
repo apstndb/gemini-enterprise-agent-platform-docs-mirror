@@ -24,9 +24,9 @@ When Gemini Enterprise Agent Platform sends traffic to Google APIs, it's resolve
 
 *Note:*
 
-  - VPC identity requirement: Because local resolution bypasses the consumer VPC network path, the traffic doesn't carry your VPC network's identity. This will cause requests to internal-only Google services, such as Cloud Run services configured with internal ingress, to fail with a 404 or 403 error.
-  - Private Service Connect endpoint solution: To reach these internal services privately, you must configure a Private Service Connect endpoint for Google APIs in your VPC network.
-  - DNS configuration: You must ensure that the service domain (e.g., \*.run.app) resolves to the internal IP address of your Private Service Connect endpoint to ensure traffic stays on a purely private path.
+- VPC identity requirement: Because local resolution bypasses the consumer VPC network path, the traffic doesn't carry your VPC network's identity. This will cause requests to internal-only Google services, such as Cloud Run services configured with internal ingress, to fail with a 404 or 403 error.
+- Private Service Connect endpoint solution: To reach these internal services privately, you must configure a Private Service Connect endpoint for Google APIs in your VPC network.
+- DNS configuration: You must ensure that the service domain (e.g., \*.run.app) resolves to the internal IP address of your Private Service Connect endpoint to ensure traffic stays on a purely private path.
 
 ### Internet egress and Cloud NAT
 
@@ -56,65 +56,67 @@ To create a serverless training job with PSC-I using the Agent Platform SDK for 
 
 ### Python
 
-    from google.cloud import aiplatform
-    
-    
-    def create_custom_job_psci_sample(
-        project: str,
-        location: str,
-        bucket: str,
-        display_name: str,
-        machine_type: str,
-        replica_count: int,
-        image_uri: str,
-        network_attachment: str,
-        domain: str,
-        target_project: str,
-        target_network: str,
-    ):
-        """Custom training job sample with PSC Interface Config."""
-        aiplatform.init(project=project, location=location, staging_bucket=bucket)
-    
-        worker_pool_specs = [{
-            "machine_spec": {
-                "machine_type": machine_type,
-            },
-            "replica_count": replica_count,
-            "container_spec": {
-                "image_uri": image_uri,
-                "command": [],
-                "args": [],
-            },
-        }]
-        psc_interface_config = {
-            "network_attachment": network_attachment,
-            "dns_peering_configs": [
-                {
-                    "domain": domain,
-                    "target_project": target_project,
-                    "target_network": target_network,
-                },
-            ],
-        }
-        job = aiplatform.CustomJob(
-            display_name=display_name,
-            worker_pool_specs=worker_pool_specs,
-        )
-    
-        job.run(psc_interface_config=psc_interface_config)
+```
+from google.cloud import aiplatform
 
-  - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [list of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
-  - `bucket` : Replace `bucket` with the name of a bucket you have access to.
-  - `display_name` : The display name of the persistent resource.
-  - `machine_type` : [Specify the compute resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#specify) .
-  - `replica_count` : The number of worker replicas to use for each trial.
-  - `service_attachment` : The name of the service attachment resource. Populated if Private Service Connect is enabled.
-  - `image_uri` : The URI of a Docker container image with your training code. Learn how to [create a custom container image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
-  - `network_attachment` : The name or full path of the network attachment you created when setting up your resources for [Private Service Connect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/psc-i-egress) .
-  - `domain` : The DNS name of the private Cloud DNS zone you created when setting up the Private DNS Peering.
-  - `target_project` : The project that hosts the VPC network.
-  - `target_network` : The VPC network name.
+
+def create_custom_job_psci_sample(
+    project: str,
+    location: str,
+    bucket: str,
+    display_name: str,
+    machine_type: str,
+    replica_count: int,
+    image_uri: str,
+    network_attachment: str,
+    domain: str,
+    target_project: str,
+    target_network: str,
+):
+    """Custom training job sample with PSC Interface Config."""
+    aiplatform.init(project=project, location=location, staging_bucket=bucket)
+
+    worker_pool_specs = [{
+        "machine_spec": {
+            "machine_type": machine_type,
+        },
+        "replica_count": replica_count,
+        "container_spec": {
+            "image_uri": image_uri,
+            "command": [],
+            "args": [],
+        },
+    }]
+    psc_interface_config = {
+        "network_attachment": network_attachment,
+        "dns_peering_configs": [
+            {
+                "domain": domain,
+                "target_project": target_project,
+                "target_network": target_network,
+            },
+        ],
+    }
+    job = aiplatform.CustomJob(
+        display_name=display_name,
+        worker_pool_specs=worker_pool_specs,
+    )
+
+    job.run(psc_interface_config=psc_interface_config)
+```
+
+- `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : See [list of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
+- `bucket` : Replace `bucket` with the name of a bucket you have access to.
+- `display_name` : The display name of the persistent resource.
+- `machine_type` : [Specify the compute resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#specify) .
+- `replica_count` : The number of worker replicas to use for each trial.
+- `service_attachment` : The name of the service attachment resource. Populated if Private Service Connect is enabled.
+- `image_uri` : The URI of a Docker container image with your training code. Learn how to [create a custom container image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
+- `network_attachment` : The name or full path of the network attachment you created when setting up your resources for [Private Service Connect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/psc-i-egress) .
+- `domain` : The DNS name of the private Cloud DNS zone you created when setting up the Private DNS Peering.
+- `target_project` : The project that hosts the VPC network.
+- `target_network` : The VPC network name.
 
 ### REST
 
@@ -122,49 +124,53 @@ To create a serverless training job, send a POST request by using the [customJob
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where the container or Python package will be run.
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - JOB\_NAME : A display name for the `CustomJob` .
-  - REPLICA\_COUNT : The number of worker replicas to use. In most cases, set this to `1` for your [first worker pool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job#configure_distributed_training) .
-  - If your training application runs in a custom container, specify the following:
-      - IMAGE\_URI : the URI of a Docker container image with your training code. Learn how to [create a custom container image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
-      - NETWORK\_ATTACHMENT : The name or full path of the network attachment you created when you [set up the Private Service Connect interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup) .
-      - If you need private DNS peering, the `dns_peering_configs` field is required. For this list, each item contains:
-          - DOMAIN\_SUFFIX : The dns name of the private Cloud DNS zone that you created when setting up the Private DNS Peering.
-          - TARGET\_PROJECT : The project that hosts the VPC network.
-          - TARGET\_NETWORK : The VPC network name.
+- ` LOCATION ` : The region where the container or Python package will be run.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` JOB_NAME ` : A display name for the `CustomJob` .
+- ` REPLICA_COUNT ` : The number of worker replicas to use. In most cases, set this to `1` for your [first worker pool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job#configure_distributed_training) .
+- If your training application runs in a custom container, specify the following:
+  - ` IMAGE_URI ` : the URI of a Docker container image with your training code. Learn how to [create a custom container image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
+  - ` NETWORK_ATTACHMENT ` : The name or full path of the network attachment you created when you [set up the Private Service Connect interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup) .
+  - If you need private DNS peering, the `dns_peering_configs` field is required. For this list, each item contains:
+    - ` DOMAIN_SUFFIX ` : The dns name of the private Cloud DNS zone that you created when setting up the Private DNS Peering.
+    - ` TARGET_PROJECT ` : The project that hosts the VPC network.
+    - ` TARGET_NETWORK ` : The VPC network name.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/customJobs
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/customJobs
+```
 
 Request JSON body:
 
-    "display_name": JOB_NAME,
-    "job_spec": {
-        "worker_pool_specs": [
-          {
-            "machine_spec": {
-              "machine_type": "n2-standard-4",
-            },
-            "replica_count": REPLICA_COUNT,
-            "container_spec": {
-              "image_uri": IMAGE_URI,
-            },
-          },
-        ],
-        "psc_interface_config": {
-          "network_attachment": NETWORK_ATTACHMENT,
-          "dns_peering_configs": [
-             {
-              "domain": DOMAIN_SUFFIX,
-              "target_project": TARGET_PROJECT,
-              "target_network": TARGET_NETWORK
-             }
-          ],
+```
+"display_name": JOB_NAME,
+"job_spec": {
+    "worker_pool_specs": [
+      {
+        "machine_spec": {
+          "machine_type": "n2-standard-4",
         },
-        "enable_web_access": 1
-    }
+        "replica_count": REPLICA_COUNT,
+        "container_spec": {
+          "image_uri": IMAGE_URI,
+        },
+      },
+    ],
+    "psc_interface_config": {
+      "network_attachment": NETWORK_ATTACHMENT,
+      "dns_peering_configs": [
+         {
+          "domain": DOMAIN_SUFFIX,
+          "target_project": TARGET_PROJECT,
+          "target_network": TARGET_NETWORK
+         }
+      ],
+    },
+    "enable_web_access": 1
+}
+```
 
 To send your request, choose one of these options:
 
@@ -174,11 +180,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/customJobs"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/customJobs"
+```
 
 #### PowerShell
 
@@ -186,49 +194,53 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/customJobs" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/customJobs" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
 #### Response
 
-    {
-      "name": "projects/PROJECT_ID/locations/LOCATION/customJobs/JOB_ID",
-      "displayName": "JOB_NAME",
-      "jobSpec": {
-        "workerPoolSpecs": [
-          {
-            "machineSpec": {
-              "machineType": "MACHINE_TYPE"
-            },
-            "replicaCount": "REPLICA_COUNT",
-            "diskSpec": DISK_SPEC,
-            "containerSpec": {
-              "imageUri": "IMAGE_URI"
-            }
-          }
-        ],
-        "enableWebAccess": True,
-        "pscInterfaceConfig": {
-          "networkAttachment": "NETWORK_ATTACHMENT"
-          "dns_peering_configs": [
-            {
-              "domain": "DOMAIN_SUFFIX",
-              "targetProject": "TARGET_PROJECT",
-              "targetNetwork": "TARGET_NETWORK"
-            }
-    ]
+```
+{
+  "name": "projects/PROJECT_ID/locations/LOCATION/customJobs/JOB_ID",
+  "displayName": "JOB_NAME",
+  "jobSpec": {
+    "workerPoolSpecs": [
+      {
+        "machineSpec": {
+          "machineType": "MACHINE_TYPE"
+        },
+        "replicaCount": "REPLICA_COUNT",
+        "diskSpec": DISK_SPEC,
+        "containerSpec": {
+          "imageUri": "IMAGE_URI"
         }
-      },
-      "state": "JOB_STATE_PENDING",
-      "createTime": "CREATE_TIME",
-      "updateTime": "UPDATE_TIME"
+      }
+    ],
+    "enableWebAccess": True,
+    "pscInterfaceConfig": {
+      "networkAttachment": "NETWORK_ATTACHMENT"
+      "dns_peering_configs": [
+        {
+          "domain": "DOMAIN_SUFFIX",
+          "targetProject": "TARGET_PROJECT",
+          "targetNetwork": "TARGET_NETWORK"
+        }
+]
     }
+  },
+  "state": "JOB_STATE_PENDING",
+  "createTime": "CREATE_TIME",
+  "updateTime": "UPDATE_TIME"
+}
+```

@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.reasoningEngines.sessions.events.list
 
-Lists `  events  ` in a given session.
+Lists [`events`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Event) in a given session.
 
 ### Endpoint
 
@@ -30,7 +30,7 @@ Optional. The maximum number of events to return. The service may return fewer t
 
 `pageToken` `string`
 
-Optional. The `  nextPageToken  ` value returned from a previous list `  SessionService.ListEvents  ` call.
+Optional. The [`nextPageToken`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions.events/list#body.ListEventsResponse.FIELDS.next_page_token) value returned from a previous list [`SessionService.ListEvents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions.events/list#google.cloud.aiplatform.v1.SessionService.ListEvents) call.
 
 `filter` `string`
 
@@ -50,32 +50,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  SessionService.ListEvents  ` .
+Response message for [`SessionService.ListEvents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions.events/list#google.cloud.aiplatform.v1.SessionService.ListEvents) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`sessionEvents[]` ` object ( SessionEvent  ` )
+`sessionEvents[]` `object ( `[`SessionEvent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/SessionEvent)` )`
 
 A list of events matching the request. Ordered by timestamp in ascending order.
 
 `nextPageToken` `string`
 
-A token, which can be sent as `  ListEventsRequest.page_token  ` to retrieve the next page. Absence of this field indicates there are no subsequent pages.
+A token, which can be sent as [`ListEventsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions.events/list#body.QUERY_PARAMETERS.page_token) to retrieve the next page. Absence of this field indicates there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;sessionEvents&quot;: [{object (SessionEvent)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "sessionEvents": [
+    {
+      object (SessionEvent)
+    }
+  ],
+  "nextPageToken": string
+}
+```

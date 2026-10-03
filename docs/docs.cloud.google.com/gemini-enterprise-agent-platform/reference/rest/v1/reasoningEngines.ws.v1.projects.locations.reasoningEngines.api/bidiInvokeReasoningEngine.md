@@ -24,7 +24,7 @@ Optional. The name of the ReasoningEngine. Format: `projects/{project}/locations
 
 ### Query parameters
 
-`httpBody` ` object ( HttpBody  ` )
+`httpBody` `object ( `[`HttpBody`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/HttpBody)` )`
 
 Optional. The invoke method input. Supports arbitrary data payload.
 

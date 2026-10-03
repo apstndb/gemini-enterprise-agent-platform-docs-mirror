@@ -8,40 +8,28 @@ data_source: docs.cloud.google.com
 
 ## Tool: `colab_enterprise_list_notebook_runtimes`
 
-Lists your project's Colab Enterprise runtimes. Use this tool to see existing active or stopped runtimes. Format: 'projects/{project\_id}/locations/{region}'. CRITICAL: For {region}, use the region specified in the current context. If no region is specified, prompt the user for one. Do not use 'global'. IMPORTANT: If the returned list is empty, it means no runtimes currently exist in this location; this is NOT a system failure. In this case, you should inform the user and ask if they would like to create a new runtime using the colab\_enterprise\_create\_notebook\_runtime tool.
+Lists your project's Colab Enterprise runtimes. Use this tool to see existing active or stopped runtimes. Format: 'projects/{project_id}/locations/{region}'. CRITICAL: For {region}, use the region specified in the current context. If no region is specified, prompt the user for one. Do not use 'global'. IMPORTANT: If the returned list is empty, it means no runtimes currently exist in this location; this is NOT a system failure. In this case, you should inform the user and ask if they would like to create a new runtime using the colab_enterprise_create_notebook_runtime tool.
 
 The following sample demonstrate how to use `curl` to invoke the `colab_enterprise_list_notebook_runtimes` MCP tool.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Curl Request</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" data-syntax="Bash" translate="no"><code>                  
-curl --location &#39;https://aiplatform.googleapis.com/mcp/generate&#39; \
---header &#39;content-type: application/json&#39; \
---header &#39;accept: application/json, text/event-stream&#39; \
---data &#39;{
-  &quot;method&quot;: &quot;tools/call&quot;,
-  &quot;params&quot;: {
-    &quot;name&quot;: &quot;colab_enterprise_list_notebook_runtimes&quot;,
-    &quot;arguments&quot;: {
-      // provide these details according to the tool&#39;s MCP specification
+**Curl Request**
+
+```
+curl --location 'https://aiplatform.googleapis.com/mcp/generate' \
+--header 'content-type: application/json' \
+--header 'accept: application/json, text/event-stream' \
+--data '{
+  "method": "tools/call",
+  "params": {
+    "name": "colab_enterprise_list_notebook_runtimes",
+    "arguments": {
+      // provide these details according to the tool's MCP specification
     }
   },
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;id&quot;: 1
-}&#39;
-                </code></pre></td>
-</tr>
-</tbody>
-</table>
+  "jsonrpc": "2.0",
+  "id": 1
+}'
+```
 
 ## Input Schema
 
@@ -49,128 +37,111 @@ Request message for `NotebookService.ListNotebookRuntimes` .
 
 ### ListNotebookRuntimesRequest
 
+**JSON representation**
+
+```
+{
+  "parent": string,
+  "filter": string,
+  "pageSize": integer,
+  "pageToken": string,
+  "readMask": string,
+  "orderBy": string
+}
+```
+
 <table>
 <colgroup>
-<col style="width: 100%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>JSON representation</th>
+<th>Fields</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;parent&quot;: string,
-  &quot;filter&quot;: string,
-  &quot;pageSize&quot;: integer,
-  &quot;pageToken&quot;: string,
-  &quot;readMask&quot;: string,
-  &quot;orderBy&quot;: string
-}</code></pre></td>
+<td><code>parent</code></td>
+<td><p><code>string</code></p>
+<p>Required. The resource name of the Location from which to list the NotebookRuntimes. Format: <code>projects/{project}/locations/{location}</code></p></td>
+</tr>
+<tr class="even">
+<td><code>filter</code></td>
+<td><p><code>string</code></p>
+<p>Optional. An expression for filtering the results of the request. For field names both snake_case and camelCase are supported.</p>
+<ul>
+<li><code>notebookRuntime</code> supports = and !=. <code>notebookRuntime</code> represents the NotebookRuntime ID, i.e. the last segment of the NotebookRuntime's <code>resource name</code> .</li>
+<li><code>displayName</code> supports = and != and regex.</li>
+<li><code>notebookRuntimeTemplate</code> supports = and !=. <code>notebookRuntimeTemplate</code> represents the NotebookRuntimeTemplate ID, i.e. the last segment of the NotebookRuntimeTemplate's <code>resource name</code> .</li>
+<li><code>healthState</code> supports = and !=. healthState enum: [HEALTHY, UNHEALTHY, HEALTH_STATE_UNSPECIFIED].</li>
+<li><code>runtimeState</code> supports = and !=. runtimeState enum: [RUNTIME_STATE_UNSPECIFIED, RUNNING, BEING_STARTED, BEING_STOPPED, STOPPED, BEING_UPGRADED, ERROR, INVALID].</li>
+<li><code>runtimeUser</code> supports = and !=.</li>
+<li>API version is UI only: <code>uiState</code> supports = and !=. uiState enum: [UI_RESOURCE_STATE_UNSPECIFIED, UI_RESOURCE_STATE_BEING_CREATED, UI_RESOURCE_STATE_ACTIVE, UI_RESOURCE_STATE_BEING_DELETED, UI_RESOURCE_STATE_CREATION_FAILED].</li>
+<li><code>notebookRuntimeType</code> supports = and !=. notebookRuntimeType enum: [USER_DEFINED, ONE_CLICK].</li>
+<li><code>machineType</code> supports = and !=.</li>
+<li><code>acceleratorType</code> supports = and !=.</li>
+</ul>
+<p>Some examples:</p>
+<ul>
+<li><code>notebookRuntime="notebookRuntime123"</code></li>
+<li><code>displayName="myDisplayName"</code> and <code>displayName=~"myDisplayNameRegex"</code></li>
+<li><code>notebookRuntimeTemplate="notebookRuntimeTemplate321"</code></li>
+<li><code>healthState=HEALTHY</code></li>
+<li><code>runtimeState=RUNNING</code></li>
+<li><code>runtimeUser="test@google.com"</code></li>
+<li><code>uiState=UI_RESOURCE_STATE_BEING_DELETED</code></li>
+<li><code>notebookRuntimeType=USER_DEFINED</code></li>
+<li><code>machineType=e2-standard-4</code></li>
+<li><code>acceleratorType=NVIDIA_TESLA_T4</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><code>pageSize</code></td>
+<td><p><code>integer</code></p>
+<p>Optional. The standard list page size.</p></td>
+</tr>
+<tr class="even">
+<td><code>pageToken</code></td>
+<td><p><code>string</code></p>
+<p>Optional. The standard list page token. Typically obtained via <code>ListNotebookRuntimesResponse.next_page_token</code> of the previous <code>NotebookService.ListNotebookRuntimes</code> call.</p></td>
+</tr>
+<tr class="odd">
+<td><code>readMask</code></td>
+<td><p><code>string ( </code><a href="https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask"><code>FieldMask</code></a><code> format)</code></p>
+<p>Optional. Mask specifying which fields to read.</p>
+<p>This is a comma-separated list of fully qualified names of fields. Example: <code>"user.displayName,photo"</code> .</p></td>
+</tr>
+<tr class="even">
+<td><code>orderBy</code></td>
+<td><p><code>string</code></p>
+<p>Optional. A comma-separated list of fields to order by, sorted in ascending order. Use "desc" after a field name for descending. Supported fields:</p>
+<ul>
+<li><code>display_name</code></li>
+<li><code>create_time</code></li>
+<li><code>update_time</code></li>
+</ul>
+<p>Example: <code>display_name, create_time desc</code> .</p></td>
 </tr>
 </tbody>
 </table>
-
-Fields
-
-`parent`
-
-`string`
-
-Required. The resource name of the Location from which to list the NotebookRuntimes. Format: `projects/{project}/locations/{location}`
-
-`filter`
-
-`string`
-
-Optional. An expression for filtering the results of the request. For field names both snake\_case and camelCase are supported.
-
-  - `notebookRuntime` supports = and \!=. `notebookRuntime` represents the NotebookRuntime ID, i.e. the last segment of the NotebookRuntime's `resource name` .
-  - `displayName` supports = and \!= and regex.
-  - `notebookRuntimeTemplate` supports = and \!=. `notebookRuntimeTemplate` represents the NotebookRuntimeTemplate ID, i.e. the last segment of the NotebookRuntimeTemplate's `resource name` .
-  - `healthState` supports = and \!=. healthState enum: \[HEALTHY, UNHEALTHY, HEALTH\_STATE\_UNSPECIFIED\].
-  - `runtimeState` supports = and \!=. runtimeState enum: \[RUNTIME\_STATE\_UNSPECIFIED, RUNNING, BEING\_STARTED, BEING\_STOPPED, STOPPED, BEING\_UPGRADED, ERROR, INVALID\].
-  - `runtimeUser` supports = and \!=.
-  - API version is UI only: `uiState` supports = and \!=. uiState enum: \[UI\_RESOURCE\_STATE\_UNSPECIFIED, UI\_RESOURCE\_STATE\_BEING\_CREATED, UI\_RESOURCE\_STATE\_ACTIVE, UI\_RESOURCE\_STATE\_BEING\_DELETED, UI\_RESOURCE\_STATE\_CREATION\_FAILED\].
-  - `notebookRuntimeType` supports = and \!=. notebookRuntimeType enum: \[USER\_DEFINED, ONE\_CLICK\].
-  - `machineType` supports = and \!=.
-  - `acceleratorType` supports = and \!=.
-
-Some examples:
-
-  - `notebookRuntime="notebookRuntime123"`
-  - `displayName="myDisplayName"` and `displayName=~"myDisplayNameRegex"`
-  - `notebookRuntimeTemplate="notebookRuntimeTemplate321"`
-  - `healthState=HEALTHY`
-  - `runtimeState=RUNNING`
-  - `runtimeUser="test@google.com"`
-  - `uiState=UI_RESOURCE_STATE_BEING_DELETED`
-  - `notebookRuntimeType=USER_DEFINED`
-  - `machineType=e2-standard-4`
-  - `acceleratorType=NVIDIA_TESLA_T4`
-
-`pageSize`
-
-`integer`
-
-Optional. The standard list page size.
-
-`pageToken`
-
-`string`
-
-Optional. The standard list page token. Typically obtained via `ListNotebookRuntimesResponse.next_page_token` of the previous `NotebookService.ListNotebookRuntimes` call.
-
-`readMask`
-
-` string ( FieldMask  ` format)
-
-Optional. Mask specifying which fields to read.
-
-This is a comma-separated list of fully qualified names of fields. Example: `"user.displayName,photo"` .
-
-`orderBy`
-
-`string`
-
-Optional. A comma-separated list of fields to order by, sorted in ascending order. Use "desc" after a field name for descending. Supported fields:
-
-  - `display_name`
-  - `create_time`
-  - `update_time`
-
-Example: `display_name, create_time desc` .
 
 ### FieldMask
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;paths&quot;: [
+**JSON representation**
+
+```
+{
+  "paths": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
-Fields
-
-`paths[]`
-
-`string`
-
-The set of field mask paths.
+| Fields    |                                       |
+|-----------|---------------------------------------|
+| `paths[]` | `string` The set of field mask paths. |
 
 ## Output Schema
 
@@ -178,1037 +149,609 @@ Response message for `NotebookService.ListNotebookRuntimes` .
 
 ### ListNotebookRuntimesResponse
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;notebookRuntimes&quot;: [{object (NotebookRuntime)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "notebookRuntimes": [
+    {
+      object (NotebookRuntime)
+    }
+  ],
+  "nextPageToken": string
+}
+```
 
-`notebookRuntimes[]`
-
-` object ( NotebookRuntime  ` )
-
-List of NotebookRuntimes in the requested page.
-
-`nextPageToken`
-
-`string`
-
-A token to retrieve next page of results. Pass to `ListNotebookRuntimesRequest.page_token` to obtain that page.
+| Fields               |                                                                                                                                                                                                                                                   |
+|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `notebookRuntimes[]` | `object ( `[`NotebookRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime#Input.Schema.NotebookRuntime)` )` List of NotebookRuntimes in the requested page. |
+| `nextPageToken`      | `string` A token to retrieve next page of results. Pass to `ListNotebookRuntimesRequest.page_token` to obtain that page.                                                                                                                          |
 
 ### NotebookRuntime
 
+**JSON representation**
+
+```
+{
+  "name": string,
+  "runtimeUser": string,
+  "notebookRuntimeTemplateRef": {
+    object (NotebookRuntimeTemplateRef)
+  },
+  "proxyUri": string,
+  "createTime": string,
+  "updateTime": string,
+  "healthState": enum (HealthState),
+  "displayName": string,
+  "description": string,
+  "serviceAccount": string,
+  "runtimeState": enum (RuntimeState),
+  "isUpgradable": boolean,
+  "labels": {
+    string: string,
+    ...
+  },
+  "expirationTime": string,
+  "version": string,
+  "notebookRuntimeType": enum (NotebookRuntimeType),
+  "machineSpec": {
+    object (MachineSpec)
+  },
+  "dataPersistentDiskSpec": {
+    object (PersistentDiskSpec)
+  },
+  "networkSpec": {
+    object (NetworkSpec)
+  },
+  "idleShutdownConfig": {
+    object (NotebookIdleShutdownConfig)
+  },
+  "eucConfig": {
+    object (NotebookEucConfig)
+  },
+  "shieldedVmConfig": {
+    object (ShieldedVmConfig)
+  },
+  "networkTags": [
+    string
+  ],
+  "softwareConfig": {
+    object (NotebookSoftwareConfig)
+  },
+  "encryptionSpec": {
+    object (EncryptionSpec)
+  },
+  "satisfiesPzs": boolean,
+  "satisfiesPzi": boolean
+}
+```
+
 <table>
 <colgroup>
-<col style="width: 100%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>JSON representation</th>
+<th>Fields</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;runtimeUser&quot;: string,&quot;notebookRuntimeTemplateRef&quot;: {object (NotebookRuntimeTemplateRef)},&quot;proxyUri&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;healthState&quot;: enum (HealthState),&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;serviceAccount&quot;: string,&quot;runtimeState&quot;: enum (RuntimeState),&quot;isUpgradable&quot;: boolean,&quot;labels&quot;: {string: string,...},&quot;expirationTime&quot;: string,&quot;version&quot;: string,&quot;notebookRuntimeType&quot;: enum (NotebookRuntimeType),&quot;machineSpec&quot;: {object (MachineSpec)},&quot;dataPersistentDiskSpec&quot;: {object (PersistentDiskSpec)},&quot;networkSpec&quot;: {object (NetworkSpec)},&quot;idleShutdownConfig&quot;: {object (NotebookIdleShutdownConfig)},&quot;eucConfig&quot;: {object (NotebookEucConfig)},&quot;shieldedVmConfig&quot;: {object (ShieldedVmConfig)},&quot;networkTags&quot;: [string],&quot;softwareConfig&quot;: {object (NotebookSoftwareConfig)},&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean}</code></pre></td>
+<td><code>name</code></td>
+<td><p><code>string</code></p>
+<p>Output only. The resource name of the NotebookRuntime.</p></td>
+</tr>
+<tr class="even">
+<td><code>runtimeUser</code></td>
+<td><p><code>string</code></p>
+<p>Required. The user email of the NotebookRuntime.</p></td>
+</tr>
+<tr class="odd">
+<td><code>notebookRuntimeTemplateRef</code></td>
+<td><p><code>object ( </code><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime#Input.Schema.NotebookRuntimeTemplateRef"><code>NotebookRuntimeTemplateRef</code></a><code> )</code></p>
+<p>Output only. The pointer to NotebookRuntimeTemplate this NotebookRuntime is created from.</p></td>
+</tr>
+<tr class="even">
+<td><code>proxyUri</code></td>
+<td><p><code>string</code></p>
+<p>Output only. The proxy endpoint used to access the NotebookRuntime.</p></td>
+</tr>
+<tr class="odd">
+<td><code>createTime</code></td>
+<td><p><code>string ( </code><a href="https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp"><code>Timestamp</code></a><code> format)</code></p>
+<p>Output only. Timestamp when this NotebookRuntime was created.</p>
+<p>Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: <code>"2014-10-02T15:01:23Z"</code> , <code>"2014-10-02T15:01:23.045123456Z"</code> or <code>"2014-10-02T15:01:23+05:30"</code> .</p></td>
+</tr>
+<tr class="even">
+<td><code>updateTime</code></td>
+<td><p><code>string ( </code><a href="https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp"><code>Timestamp</code></a><code> format)</code></p>
+<p>Output only. Timestamp when this NotebookRuntime was most recently updated.</p>
+<p>Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: <code>"2014-10-02T15:01:23Z"</code> , <code>"2014-10-02T15:01:23.045123456Z"</code> or <code>"2014-10-02T15:01:23+05:30"</code> .</p></td>
+</tr>
+<tr class="odd">
+<td><code>healthState</code></td>
+<td><p><code>enum ( </code><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime#Input.Schema.HealthState"><code>HealthState</code></a><code> )</code></p>
+<p>Output only. The health state of the NotebookRuntime.</p></td>
+</tr>
+<tr class="even">
+<td><code>displayName</code></td>
+<td><p><code>string</code></p>
+<p>Required. The display name of the NotebookRuntime. The name can be up to 128 characters long and can consist of any UTF-8 characters.</p></td>
+</tr>
+<tr class="odd">
+<td><code>description</code></td>
+<td><p><code>string</code></p>
+<p>The description of the NotebookRuntime.</p></td>
+</tr>
+<tr class="even">
+<td><code>serviceAccount</code></td>
+<td><p><code>string</code></p>
+<p>Output only. Deprecated: This field is no longer used and the "Agent Platform Notebook Service Account" ( <a href="mailto:service-PROJECT_NUMBER@gcp-sa-aiplatform-vm.iam.gserviceaccount.com">service-PROJECT_NUMBER@gcp-sa-aiplatform-vm.iam.gserviceaccount.com</a> ) is used for the runtime workload identity. See <a href="https://cloud.google.com/iam/docs/service-agents#vertex-ai-notebook-service-account">https://cloud.google.com/iam/docs/service-agents#vertex-ai-notebook-service-account</a> for more details.</p>
+<p>The service account that the NotebookRuntime workload runs as.</p></td>
+</tr>
+<tr class="odd">
+<td><code>runtimeState</code></td>
+<td><p><code>enum ( </code><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime#Input.Schema.RuntimeState"><code>RuntimeState</code></a><code> )</code></p>
+<p>Output only. The runtime (instance) state of the NotebookRuntime.</p></td>
+</tr>
+<tr class="even">
+<td><code>isUpgradable</code></td>
+<td><p><code>boolean</code></p>
+<p>Output only. Whether NotebookRuntime is upgradable.</p></td>
+</tr>
+<tr class="odd">
+<td><code>labels</code></td>
+<td><p><code>map (key: string, value: string)</code></p>
+<p>The labels with user-defined metadata to organize your NotebookRuntime.</p>
+<p>Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. No more than 64 user labels can be associated with one NotebookRuntime (System labels are excluded).</p>
+<p>See <a href="https://goo.gl/xmQnxf">https://goo.gl/xmQnxf</a> for more information and examples of labels. System reserved label keys are prefixed with "aiplatform.googleapis.com/" and are immutable. Following system labels exist for NotebookRuntime:</p>
+<ul>
+<li>"aiplatform.googleapis.com/notebook_runtime_gce_instance_id": output only, its value is the Compute Engine instance id.</li>
+<li>"aiplatform.googleapis.com/colab_enterprise_entry_service": its value is either "bigquery" or "vertex"; if absent, it should be "vertex". This is to describe the entry service, either BigQuery or Vertex.</li>
+</ul>
+<p>An object containing a list of <code>"key": value</code> pairs. Example: <code>{ "name": "wrench", "mass": "1.3kg", "count": "3" }</code> .</p></td>
+</tr>
+<tr class="even">
+<td><code>expirationTime</code></td>
+<td><p><code>string ( </code><a href="https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp"><code>Timestamp</code></a><code> format)</code></p>
+<p>Output only. Timestamp when this NotebookRuntime will be expired: 1. System Predefined NotebookRuntime: 24 hours after creation. After expiration, system predifined runtime will be deleted. 2. User created NotebookRuntime: 6 months after last upgrade. After expiration, user created runtime will be stopped and allowed for upgrade.</p>
+<p>Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: <code>"2014-10-02T15:01:23Z"</code> , <code>"2014-10-02T15:01:23.045123456Z"</code> or <code>"2014-10-02T15:01:23+05:30"</code> .</p></td>
+</tr>
+<tr class="odd">
+<td><code>version</code></td>
+<td><p><code>string</code></p>
+<p>Output only. The VM os image version of NotebookRuntime.</p></td>
+</tr>
+<tr class="even">
+<td><code>notebookRuntimeType</code></td>
+<td><p><code>enum ( </code><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime_template#Input.Schema.NotebookRuntimeType"><code>NotebookRuntimeType</code></a><code> )</code></p>
+<p>Output only. The type of the notebook runtime.</p></td>
+</tr>
+<tr class="odd">
+<td><code>machineSpec</code></td>
+<td><p><code>object ( </code><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime_template#Input.Schema.MachineSpec"><code>MachineSpec</code></a><code> )</code></p>
+<p>Output only. The specification of a single machine used by the notebook runtime.</p></td>
+</tr>
+<tr class="even">
+<td><code>dataPersistentDiskSpec</code></td>
+<td><p><code>object ( </code><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime_template#Input.Schema.PersistentDiskSpec"><code>PersistentDiskSpec</code></a><code> )</code></p>
+<p>Output only. The specification of [persistent disk][https://cloud.google.com/compute/docs/disks/persistent-disks] attached to the notebook runtime as data disk storage.</p></td>
+</tr>
+<tr class="odd">
+<td><code>networkSpec</code></td>
+<td><p><code>object ( </code><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime_template#Input.Schema.NetworkSpec"><code>NetworkSpec</code></a><code> )</code></p>
+<p>Output only. Network spec of the notebook runtime.</p></td>
+</tr>
+<tr class="even">
+<td><code>idleShutdownConfig</code></td>
+<td><p><code>object ( </code><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime_template#Input.Schema.NotebookIdleShutdownConfig"><code>NotebookIdleShutdownConfig</code></a><code> )</code></p>
+<p>Output only. The idle shutdown configuration of the notebook runtime.</p></td>
+</tr>
+<tr class="odd">
+<td><code>eucConfig</code></td>
+<td><p><code>object ( </code><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime_template#Input.Schema.NotebookEucConfig"><code>NotebookEucConfig</code></a><code> )</code></p>
+<p>Output only. EUC configuration of the notebook runtime.</p></td>
+</tr>
+<tr class="even">
+<td><code>shieldedVmConfig</code></td>
+<td><p><code>object ( </code><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime_template#Input.Schema.ShieldedVmConfig"><code>ShieldedVmConfig</code></a><code> )</code></p>
+<p>Output only. Runtime Shielded VM spec.</p></td>
+</tr>
+<tr class="odd">
+<td><code>networkTags[]</code></td>
+<td><p><code>string</code></p>
+<p>Optional. The Compute Engine tags to add to runtime (see <a href="https://cloud.google.com/vpc/docs/add-remove-network-tags">Tagging instances</a> ).</p></td>
+</tr>
+<tr class="even">
+<td><code>softwareConfig</code></td>
+<td><p><code>object ( </code><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime_template#Input.Schema.NotebookSoftwareConfig"><code>NotebookSoftwareConfig</code></a><code> )</code></p>
+<p>Output only. Software config of the notebook runtime.</p></td>
+</tr>
+<tr class="odd">
+<td><code>encryptionSpec</code></td>
+<td><p><code>object ( </code><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/upload_model#Input.Schema.EncryptionSpec"><code>EncryptionSpec</code></a><code> )</code></p>
+<p>Output only. Customer-managed encryption key spec for the notebook runtime.</p></td>
+</tr>
+<tr class="even">
+<td><code>satisfiesPzs</code></td>
+<td><p><code>boolean</code></p>
+<p>Output only. Reserved for future use.</p></td>
+</tr>
+<tr class="odd">
+<td><code>satisfiesPzi</code></td>
+<td><p><code>boolean</code></p>
+<p>Output only. Reserved for future use.</p></td>
 </tr>
 </tbody>
 </table>
-
-Fields
-
-`name`
-
-`string`
-
-Output only. The resource name of the NotebookRuntime.
-
-`runtimeUser`
-
-`string`
-
-Required. The user email of the NotebookRuntime.
-
-`notebookRuntimeTemplateRef`
-
-` object ( NotebookRuntimeTemplateRef  ` )
-
-Output only. The pointer to NotebookRuntimeTemplate this NotebookRuntime is created from.
-
-`proxyUri`
-
-`string`
-
-Output only. The proxy endpoint used to access the NotebookRuntime.
-
-`createTime`
-
-` string ( Timestamp  ` format)
-
-Output only. Timestamp when this NotebookRuntime was created.
-
-Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
-
-`updateTime`
-
-` string ( Timestamp  ` format)
-
-Output only. Timestamp when this NotebookRuntime was most recently updated.
-
-Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
-
-`healthState`
-
-` enum ( HealthState  ` )
-
-Output only. The health state of the NotebookRuntime.
-
-`displayName`
-
-`string`
-
-Required. The display name of the NotebookRuntime. The name can be up to 128 characters long and can consist of any UTF-8 characters.
-
-`description`
-
-`string`
-
-The description of the NotebookRuntime.
-
-`serviceAccount`
-
-`string`
-
-Output only. Deprecated: This field is no longer used and the "Agent Platform Notebook Service Account" ( <service-PROJECT_NUMBER@gcp-sa-aiplatform-vm.iam.gserviceaccount.com> ) is used for the runtime workload identity. See <https://cloud.google.com/iam/docs/service-agents#vertex-ai-notebook-service-account> for more details.
-
-The service account that the NotebookRuntime workload runs as.
-
-`runtimeState`
-
-` enum ( RuntimeState  ` )
-
-Output only. The runtime (instance) state of the NotebookRuntime.
-
-`isUpgradable`
-
-`boolean`
-
-Output only. Whether NotebookRuntime is upgradable.
-
-`labels`
-
-`map (key: string, value: string)`
-
-The labels with user-defined metadata to organize your NotebookRuntime.
-
-Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. No more than 64 user labels can be associated with one NotebookRuntime (System labels are excluded).
-
-See <https://goo.gl/xmQnxf> for more information and examples of labels. System reserved label keys are prefixed with "aiplatform.googleapis.com/" and are immutable. Following system labels exist for NotebookRuntime:
-
-  - "aiplatform.googleapis.com/notebook\_runtime\_gce\_instance\_id": output only, its value is the Compute Engine instance id.
-  - "aiplatform.googleapis.com/colab\_enterprise\_entry\_service": its value is either "bigquery" or "vertex"; if absent, it should be "vertex". This is to describe the entry service, either BigQuery or Vertex.
-
-An object containing a list of `"key": value` pairs. Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }` .
-
-`expirationTime`
-
-` string ( Timestamp  ` format)
-
-Output only. Timestamp when this NotebookRuntime will be expired: 1. System Predefined NotebookRuntime: 24 hours after creation. After expiration, system predifined runtime will be deleted. 2. User created NotebookRuntime: 6 months after last upgrade. After expiration, user created runtime will be stopped and allowed for upgrade.
-
-Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
-
-`version`
-
-`string`
-
-Output only. The VM os image version of NotebookRuntime.
-
-`notebookRuntimeType`
-
-` enum ( NotebookRuntimeType  ` )
-
-Output only. The type of the notebook runtime.
-
-`machineSpec`
-
-` object ( MachineSpec  ` )
-
-Output only. The specification of a single machine used by the notebook runtime.
-
-`dataPersistentDiskSpec`
-
-` object ( PersistentDiskSpec  ` )
-
-Output only. The specification of \[persistent disk\]\[https://cloud.google.com/compute/docs/disks/persistent-disks\] attached to the notebook runtime as data disk storage.
-
-`networkSpec`
-
-` object ( NetworkSpec  ` )
-
-Output only. Network spec of the notebook runtime.
-
-`idleShutdownConfig`
-
-` object ( NotebookIdleShutdownConfig  ` )
-
-Output only. The idle shutdown configuration of the notebook runtime.
-
-`eucConfig`
-
-` object ( NotebookEucConfig  ` )
-
-Output only. EUC configuration of the notebook runtime.
-
-`shieldedVmConfig`
-
-` object ( ShieldedVmConfig  ` )
-
-Output only. Runtime Shielded VM spec.
-
-`networkTags[]`
-
-`string`
-
-Optional. The Compute Engine tags to add to runtime (see [Tagging instances](https://cloud.google.com/vpc/docs/add-remove-network-tags) ).
-
-`softwareConfig`
-
-` object ( NotebookSoftwareConfig  ` )
-
-Output only. Software config of the notebook runtime.
-
-`encryptionSpec`
-
-` object ( EncryptionSpec  ` )
-
-Output only. Customer-managed encryption key spec for the notebook runtime.
-
-`satisfiesPzs`
-
-`boolean`
-
-Output only. Reserved for future use.
-
-`satisfiesPzi`
-
-`boolean`
-
-Output only. Reserved for future use.
 
 ### NotebookRuntimeTemplateRef
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;notebookRuntimeTemplate&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "notebookRuntimeTemplate": string
+}
+```
 
-`notebookRuntimeTemplate`
-
-`string`
-
-Immutable. A resource name of the NotebookRuntimeTemplate.
+| Fields                    |                                                                     |
+|---------------------------|---------------------------------------------------------------------|
+| `notebookRuntimeTemplate` | `string` Immutable. A resource name of the NotebookRuntimeTemplate. |
 
 ### Timestamp
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;seconds&quot;: string,
-  &quot;nanos&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "seconds": string,
+  "nanos": integer
+}
+```
 
-`seconds`
-
-`string ( int64 format)`
-
-Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must be between -62135596800 and 253402300799 inclusive (which corresponds to 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z).
-
-`nanos`
-
-`integer`
-
-Non-negative fractions of a second at nanosecond resolution. This field is the nanosecond portion of the duration, not an alternative to seconds. Negative second values with fractions must still have non-negative nanos values that count forward in time. Must be between 0 and 999,999,999 inclusive.
+| Fields    |                                                                                                                                                                                                                                                                                                                      |
+|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `seconds` | `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)` Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must be between -62135596800 and 253402300799 inclusive (which corresponds to 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z).                            |
+| `nanos`   | `integer` Non-negative fractions of a second at nanosecond resolution. This field is the nanosecond portion of the duration, not an alternative to seconds. Negative second values with fractions must still have non-negative nanos values that count forward in time. Must be between 0 and 999,999,999 inclusive. |
 
 ### LabelsEntry
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;key&quot;: string,
-  &quot;value&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "key": string,
+  "value": string
+}
+```
 
-`key`
-
-`string`
-
-`value`
-
-`string`
+| Fields  |          |
+|---------|----------|
+| `key`   | `string` |
+| `value` | `string` |
 
 ### MachineSpec
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;machineType&quot;: string,&quot;acceleratorType&quot;: enum (AcceleratorType),&quot;acceleratorCount&quot;: integer,&quot;gpuPartitionSize&quot;: string,&quot;tpuTopology&quot;: string,&quot;reservationAffinity&quot;: {object (ReservationAffinity)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "machineType": string,
+  "acceleratorType": enum (AcceleratorType),
+  "acceleratorCount": integer,
+  "gpuPartitionSize": string,
+  "tpuTopology": string,
+  "reservationAffinity": {
+    object (ReservationAffinity)
+  }
+}
+```
 
-`machineType`
-
-`string`
-
-Immutable. The type of the machine.
-
-See the [list of machine types supported for prediction](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#machine-types)
-
-See the [list of machine types supported for custom training](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) .
-
-For `DeployedModel` this field is optional, and the default value is `n1-standard-2` . For `BatchPredictionJob` or as part of `WorkerPoolSpec` this field is required.
-
-`acceleratorType`
-
-` enum ( AcceleratorType  ` )
-
-Immutable. The type of accelerator(s) that may be attached to the machine as per `accelerator_count` .
-
-`acceleratorCount`
-
-`integer`
-
-The number of accelerators to attach to the machine.
-
-For [accelerator optimized machine types](https://cloud.google.com/compute/docs/accelerator-optimized-machines) , One may set the accelerator\_count from 1 to N for machine with N GPUs. If accelerator\_count is less than or equal to N / 2, Agent Platform co-schedules the replicas of the model into the same VM to save cost.
-
-For example, if the machine type is a3-highgpu-8g, which has 8 H100 GPUs, one can set accelerator\_count to 1 to 8. If accelerator\_count is 1, 2, 3, or 4, Agent Platform co-schedules 8, 4, 2, or 2 replicas of the model into the same VM to save cost.
-
-When co-scheduling, CPU, memory and storage on the VM will be distributed to replicas on the VM. For example, one can expect a co-scheduled replica requesting 2 GPUs out of a 8-GPU VM will receive 25% of the CPU, memory and storage of the VM.
-
-Note that the feature is not compatible with \[multihost\_gpu\_node\_count\]\[\]. When multihost\_gpu\_node\_count is set, the co-scheduling will not be enabled.
-
-`gpuPartitionSize`
-
-`string`
-
-Optional. Immutable. The Nvidia GPU partition size.
-
-When specified, the requested accelerators will be partitioned into smaller GPU partitions. For example, if the request is for 8 units of NVIDIA A100 GPUs, and gpu\_partition\_size="1g.10gb", the service will create 8 \* 7 = 56 partitioned MIG instances.
-
-The partition size must be a value supported by the requested accelerator. Refer to [Nvidia GPU Partitioning](https://cloud.google.com/kubernetes-engine/docs/how-to/gpus-multi#multi-instance_gpu_partitions) for the available partition sizes.
-
-If set, the accelerator\_count should be set to 1.
-
-`tpuTopology`
-
-`string`
-
-Immutable. The topology of the TPUs. Corresponds to the TPU topologies available from GKE. (Example: tpu\_topology: "2x2x1").
-
-`reservationAffinity`
-
-` object ( ReservationAffinity  ` )
-
-Optional. Immutable. Configuration controlling how this resource pool consumes reservation.
+| Fields                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `machineType`         | `string` Immutable. The type of the machine. See the [list of machine types supported for prediction](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#machine-types) See the [list of machine types supported for custom training](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) . For `DeployedModel` this field is optional, and the default value is `n1-standard-2` . For `BatchPredictionJob` or as part of `WorkerPoolSpec` this field is required.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `acceleratorType`     | `enum ( `[`AcceleratorType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime_template#Input.Schema.AcceleratorType)` )` Immutable. The type of accelerator(s) that may be attached to the machine as per `accelerator_count` .                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `acceleratorCount`    | `integer` The number of accelerators to attach to the machine. For [accelerator optimized machine types](https://cloud.google.com/compute/docs/accelerator-optimized-machines) , One may set the accelerator_count from 1 to N for machine with N GPUs. If accelerator_count is less than or equal to N / 2, Agent Platform co-schedules the replicas of the model into the same VM to save cost. For example, if the machine type is a3-highgpu-8g, which has 8 H100 GPUs, one can set accelerator_count to 1 to 8. If accelerator_count is 1, 2, 3, or 4, Agent Platform co-schedules 8, 4, 2, or 2 replicas of the model into the same VM to save cost. When co-scheduling, CPU, memory and storage on the VM will be distributed to replicas on the VM. For example, one can expect a co-scheduled replica requesting 2 GPUs out of a 8-GPU VM will receive 25% of the CPU, memory and storage of the VM. Note that the feature is not compatible with \[multihost_gpu_node_count\]\[\]. When multihost_gpu_node_count is set, the co-scheduling will not be enabled. |
+| `gpuPartitionSize`    | `string` Optional. Immutable. The Nvidia GPU partition size. When specified, the requested accelerators will be partitioned into smaller GPU partitions. For example, if the request is for 8 units of NVIDIA A100 GPUs, and gpu_partition_size="1g.10gb", the service will create 8 \* 7 = 56 partitioned MIG instances. The partition size must be a value supported by the requested accelerator. Refer to [Nvidia GPU Partitioning](https://cloud.google.com/kubernetes-engine/docs/how-to/gpus-multi#multi-instance_gpu_partitions) for the available partition sizes. If set, the accelerator_count should be set to 1.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `tpuTopology`         | `string` Immutable. The topology of the TPUs. Corresponds to the TPU topologies available from GKE. (Example: tpu_topology: "2x2x1").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `reservationAffinity` | `object ( `[`ReservationAffinity`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime_template#Input.Schema.ReservationAffinity)` )` Optional. Immutable. Configuration controlling how this resource pool consumes reservation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ### ReservationAffinity
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;reservationAffinityType&quot;: enum (Type),&quot;key&quot;: string,&quot;values&quot;: [string]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "reservationAffinityType": enum (Type),
+  "key": string,
+  "values": [
+    string
+  ]
+}
+```
 
-`reservationAffinityType`
-
-` enum ( Type  ` )
-
-Required. Specifies the reservation affinity type.
-
-`key`
-
-`string`
-
-Optional. Corresponds to the label key of a reservation resource. To target a SPECIFIC\_RESERVATION by name, use `compute.googleapis.com/reservation-name` as the key and specify the name of your reservation as its value.
-
-`values[]`
-
-`string`
-
-Optional. Corresponds to the label values of a reservation resource. This must be the full resource name of the reservation or reservation block.
+| Fields                    |                                                                                                                                                                                                                                       |
+|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `reservationAffinityType` | `enum ( `[`Type`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime_template#Input.Schema.Type)` )` Required. Specifies the reservation affinity type. |
+| `key`                     | `string` Optional. Corresponds to the label key of a reservation resource. To target a SPECIFIC_RESERVATION by name, use `compute.googleapis.com/reservation-name` as the key and specify the name of your reservation as its value.  |
+| `values[]`                | `string` Optional. Corresponds to the label values of a reservation resource. This must be the full resource name of the reservation or reservation block.                                                                            |
 
 ### PersistentDiskSpec
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;diskType&quot;: string,
-  &quot;diskSizeGb&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "diskType": string,
+  "diskSizeGb": string
+}
+```
 
-`diskType`
-
-`string`
-
-Type of the disk (default is "pd-standard"). Valid values: "pd-ssd" (Persistent Disk Solid State Drive) "pd-standard" (Persistent Disk Hard Disk Drive) "pd-balanced" (Balanced Persistent Disk) "pd-extreme" (Extreme Persistent Disk) "hyperdisk-balanced" (Hyperdisk Balanced) "hyperdisk-extreme" (Hyperdisk Extreme) "hyperdisk-balanced-high-availability" (Hyperdisk Balanced High Availability) "hyperdisk-ml" (Hyperdisk ML) "hyperdisk-throughput" (Hyperdisk Throughput)
-
-`diskSizeGb`
-
-`string ( int64 format)`
-
-Size in GB of the disk (default is 100GB).
+| Fields       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `diskType`   | `string` Type of the disk (default is "pd-standard"). Valid values: "pd-ssd" (Persistent Disk Solid State Drive) "pd-standard" (Persistent Disk Hard Disk Drive) "pd-balanced" (Balanced Persistent Disk) "pd-extreme" (Extreme Persistent Disk) "hyperdisk-balanced" (Hyperdisk Balanced) "hyperdisk-extreme" (Hyperdisk Extreme) "hyperdisk-balanced-high-availability" (Hyperdisk Balanced High Availability) "hyperdisk-ml" (Hyperdisk ML) "hyperdisk-throughput" (Hyperdisk Throughput) |
+| `diskSizeGb` | `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)` Size in GB of the disk (default is 100GB).                                                                                                                                                                                                                                                                                                                                                            |
 
 ### NetworkSpec
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;enableInternetAccess&quot;: boolean,
-  &quot;network&quot;: string,
-  &quot;subnetwork&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "enableInternetAccess": boolean,
+  "network": string,
+  "subnetwork": string
+}
+```
 
-`enableInternetAccess`
-
-`boolean`
-
-Whether to enable public internet access. Default false.
-
-`network`
-
-`string`
-
-The full name of the Google Compute Engine [network](https://cloud.google.com//compute/docs/networks-and-firewalls#networks)
-
-`subnetwork`
-
-`string`
-
-The name of the subnet that this instance is in. Format: `projects/{project_id_or_number}/regions/{region}/subnetworks/{subnetwork_id}`
+| Fields                 |                                                                                                                                                  |
+|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| `enableInternetAccess` | `boolean` Whether to enable public internet access. Default false.                                                                               |
+| `network`              | `string` The full name of the Google Compute Engine [network](https://cloud.google.com//compute/docs/networks-and-firewalls#networks)            |
+| `subnetwork`           | `string` The name of the subnet that this instance is in. Format: `projects/{project_id_or_number}/regions/{region}/subnetworks/{subnetwork_id}` |
 
 ### NotebookIdleShutdownConfig
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;idleTimeout&quot;: string,
-  &quot;idleShutdownDisabled&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "idleTimeout": string,
+  "idleShutdownDisabled": boolean
+}
+```
 
-`idleTimeout`
-
-` string ( Duration  ` format)
-
-Required. Duration is accurate to the second. In Notebook, Idle Timeout is accurate to minute so the range of idle\_timeout (second) is: 10 \* 60 \~ 1440 \* 60.
-
-A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
-
-`idleShutdownDisabled`
-
-`boolean`
-
-Whether Idle Shutdown is disabled in this NotebookRuntimeTemplate.
+| Fields                 |                                                                                                                                                                                                                                                                                                                                                                        |
+|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `idleTimeout`          | `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)` Required. Duration is accurate to the second. In Notebook, Idle Timeout is accurate to minute so the range of idle_timeout (second) is: 10 \* 60 \~ 1440 \* 60. A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` . |
+| `idleShutdownDisabled` | `boolean` Whether Idle Shutdown is disabled in this NotebookRuntimeTemplate.                                                                                                                                                                                                                                                                                           |
 
 ### Duration
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;seconds&quot;: string,
-  &quot;nanos&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "seconds": string,
+  "nanos": integer
+}
+```
 
-`seconds`
-
-`string ( int64 format)`
-
-Signed seconds of the span of time. Must be from -315,576,000,000 to +315,576,000,000 inclusive. Note: these bounds are computed from: 60 sec/min \* 60 min/hr \* 24 hr/day \* 365.25 days/year \* 10000 years
-
-`nanos`
-
-`integer`
-
-Signed fractions of a second at nanosecond resolution of the span of time. Durations less than one second are represented with a 0 `seconds` field and a positive or negative `nanos` field. For durations of one second or more, a non-zero value for the `nanos` field must be of the same sign as the `seconds` field. Must be from -999,999,999 to +999,999,999 inclusive.
+| Fields    |                                                                                                                                                                                                                                                                                                                                                                                          |
+|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `seconds` | `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)` Signed seconds of the span of time. Must be from -315,576,000,000 to +315,576,000,000 inclusive. Note: these bounds are computed from: 60 sec/min \* 60 min/hr \* 24 hr/day \* 365.25 days/year \* 10000 years                                                                                    |
+| `nanos`   | `integer` Signed fractions of a second at nanosecond resolution of the span of time. Durations less than one second are represented with a 0 `seconds` field and a positive or negative `nanos` field. For durations of one second or more, a non-zero value for the `nanos` field must be of the same sign as the `seconds` field. Must be from -999,999,999 to +999,999,999 inclusive. |
 
 ### NotebookEucConfig
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;eucDisabled&quot;: boolean,
-  &quot;bypassActasCheck&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "eucDisabled": boolean,
+  "bypassActasCheck": boolean
+}
+```
 
-`eucDisabled`
-
-`boolean`
-
-Input only. Whether EUC is disabled in this NotebookRuntimeTemplate. In proto3, the default value of a boolean is false. In this way, by default EUC will be enabled for NotebookRuntimeTemplate.
-
-`bypassActasCheck`
-
-`boolean`
-
-Output only. Whether ActAs check is bypassed for service account attached to the VM. If false, we need ActAs check for the default Compute Engine Service account. When a Runtime is created, a VM is allocated using Default Compute Engine Service Account. Any user requesting to use this Runtime requires Service Account User (ActAs) permission over this SA. If true, Runtime owner is using EUC and does not require the above permission as VM no longer use default Compute Engine SA, but a P4SA.
+| Fields             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `eucDisabled`      | `boolean` Input only. Whether EUC is disabled in this NotebookRuntimeTemplate. In proto3, the default value of a boolean is false. In this way, by default EUC will be enabled for NotebookRuntimeTemplate.                                                                                                                                                                                                                                                                                                             |
+| `bypassActasCheck` | `boolean` Output only. Whether ActAs check is bypassed for service account attached to the VM. If false, we need ActAs check for the default Compute Engine Service account. When a Runtime is created, a VM is allocated using Default Compute Engine Service Account. Any user requesting to use this Runtime requires Service Account User (ActAs) permission over this SA. If true, Runtime owner is using EUC and does not require the above permission as VM no longer use default Compute Engine SA, but a P4SA. |
 
 ### ShieldedVmConfig
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;enableSecureBoot&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "enableSecureBoot": boolean
+}
+```
 
-`enableSecureBoot`
-
-`boolean`
-
-Defines whether the instance has [Secure Boot](https://cloud.google.com/compute/shielded-vm/docs/shielded-vm#secure-boot) enabled.
-
-Secure Boot helps ensure that the system only runs authentic software by verifying the digital signature of all boot components, and halting the boot process if signature verification fails.
+| Fields             |                                                                                                                                                                                                                                                                                                                                             |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `enableSecureBoot` | `boolean` Defines whether the instance has [Secure Boot](https://cloud.google.com/compute/shielded-vm/docs/shielded-vm#secure-boot) enabled. Secure Boot helps ensure that the system only runs authentic software by verifying the digital signature of all boot components, and halting the boot process if signature verification fails. |
 
 ### NotebookSoftwareConfig
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;env&quot;: [{object (EnvVar)}],&quot;postStartupScriptConfig&quot;: {object (PostStartupScriptConfig)},// Union field runtime_image can be only one of the following:&quot;colabImage&quot;: {object (ColabImage)}// End of list of possible types for union field runtime_image.}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "env": [
+    {
+      object (EnvVar)
+    }
+  ],
+  "postStartupScriptConfig": {
+    object (PostStartupScriptConfig)
+  },
 
-`env[]`
+  // Union field runtime_image can be only one of the following:
+  "colabImage": {
+    object (ColabImage)
+  }
+  // End of list of possible types for union field runtime_image.
+}
+```
 
-` object ( EnvVar  ` )
-
-Optional. Environment variables to be passed to the container. Maximum limit is 100.
-
-`postStartupScriptConfig`
-
-` object ( PostStartupScriptConfig  ` )
-
-Optional. Post startup script config.
-
-Union field `runtime_image` .
-
-`runtime_image` can be only one of the following:
-
-`colabImage`
-
-` object ( ColabImage  ` )
-
-Optional. Google-managed NotebookRuntime colab image.
+| Fields                                                                          |                                                                                                                                                                                                                                                                  |
+|---------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `env[]`                                                                         | `object ( `[`EnvVar`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/upload_model#Input.Schema.EnvVar)` )` Optional. Environment variables to be passed to the container. Maximum limit is 100.                         |
+| `postStartupScriptConfig`                                                       | `object ( `[`PostStartupScriptConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime_template#Input.Schema.PostStartupScriptConfig)` )` Optional. Post startup script config. |
+| Union field `runtime_image` . `runtime_image` can be only one of the following: |                                                                                                                                                                                                                                                                  |
+| `colabImage`                                                                    | `object ( `[`ColabImage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime_template#Input.Schema.ColabImage)` )` Optional. Google-managed NotebookRuntime colab image.           |
 
 ### ColabImage
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;releaseName&quot;: string,
-  &quot;description&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "releaseName": string,
+  "description": string
+}
+```
 
-`releaseName`
-
-`string`
-
-Optional. The release name of the NotebookRuntime Colab image, e.g. "py310". If not specified, detault to the latest release.
-
-`description`
-
-`string`
-
-Output only. A human-readable description of the specified colab image release, populated by the system. Example: "Python 3.10", "Latest - current Python 3.11"
+| Fields        |                                                                                                                                                                          |
+|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `releaseName` | `string` Optional. The release name of the NotebookRuntime Colab image, e.g. "py310". If not specified, detault to the latest release.                                   |
+| `description` | `string` Output only. A human-readable description of the specified colab image release, populated by the system. Example: "Python 3.10", "Latest - current Python 3.11" |
 
 ### EnvVar
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;name&quot;: string,
-  &quot;value&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "name": string,
+  "value": string
+}
+```
 
-`name`
-
-`string`
-
-Required. Name of the environment variable. Must be a valid C identifier.
-
-`value`
-
-`string`
-
-Required. Variables that reference a $(VAR\_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR\_NAME) syntax can be escaped with a double $$, ie: $$(VAR\_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not.
+| Fields  |                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`  | `string` Required. Name of the environment variable. Must be a valid C identifier.                                                                                                                                                                                                                                                                                                                                                                  |
+| `value` | `string` Required. Variables that reference a \$(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The \$(VAR_NAME) syntax can be escaped with a double \$\$, ie: \$\$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. |
 
 ### PostStartupScriptConfig
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;postStartupScript&quot;: string,&quot;postStartupScriptUrl&quot;: string,&quot;postStartupScriptBehavior&quot;: enum (PostStartupScriptBehavior)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "postStartupScript": string,
+  "postStartupScriptUrl": string,
+  "postStartupScriptBehavior": enum (PostStartupScriptBehavior)
+}
+```
 
-`postStartupScript`
-
-`string`
-
-Optional. Post startup script to run after runtime is started.
-
-`postStartupScriptUrl`
-
-`string`
-
-Optional. Post startup script url to download. Example: `gs://bucket/script.sh`
-
-`postStartupScriptBehavior`
-
-` enum ( PostStartupScriptBehavior  ` )
-
-Optional. Post startup script behavior that defines download and execution behavior.
+| Fields                      |                                                                                                                                                                                                                                                                                                                   |
+|-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `postStartupScript`         | `string` Optional. Post startup script to run after runtime is started.                                                                                                                                                                                                                                           |
+| `postStartupScriptUrl`      | `string` Optional. Post startup script url to download. Example: `gs://bucket/script.sh`                                                                                                                                                                                                                          |
+| `postStartupScriptBehavior` | `enum ( `[`PostStartupScriptBehavior`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/colab_enterprise_create_notebook_runtime_template#Input.Schema.PostStartupScriptBehavior)` )` Optional. Post startup script behavior that defines download and execution behavior. |
 
 ### EncryptionSpec
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;kmsKeyName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "kmsKeyName": string
+}
+```
 
-`kmsKeyName`
-
-`string`
-
-Required. Resource name of the Cloud KMS key used to protect the resource.
-
-The Cloud KMS key must be in the same region as the resource. It must have the format `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}` .
+| Fields       |                                                                                                                                                                                                                                                                   |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `kmsKeyName` | `string` Required. Resource name of the Cloud KMS key used to protect the resource. The Cloud KMS key must be in the same region as the resource. It must have the format `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}` . |
 
 ### HealthState
 
 The substate of the NotebookRuntime to display health information.
 
-Enums
-
-`HEALTH_STATE_UNSPECIFIED`
-
-Unspecified health state.
-
-`HEALTHY`
-
-NotebookRuntime is in healthy state. Applies to ACTIVE state.
-
-`UNHEALTHY`
-
-NotebookRuntime is in unhealthy state. Applies to ACTIVE state.
+| Enums                      |                                                                 |
+|----------------------------|-----------------------------------------------------------------|
+| `HEALTH_STATE_UNSPECIFIED` | Unspecified health state.                                       |
+| `HEALTHY`                  | NotebookRuntime is in healthy state. Applies to ACTIVE state.   |
+| `UNHEALTHY`                | NotebookRuntime is in unhealthy state. Applies to ACTIVE state. |
 
 ### RuntimeState
 
 The substate of the NotebookRuntime to display state of runtime. The resource of NotebookRuntime is in ACTIVE state for these sub state.
 
-Enums
-
-`RUNTIME_STATE_UNSPECIFIED`
-
-Unspecified runtime state.
-
-`RUNNING`
-
-NotebookRuntime is in running state.
-
-`BEING_STARTED`
-
-NotebookRuntime is in starting state. This is when the runtime is being started from a stopped state.
-
-`BEING_STOPPED`
-
-NotebookRuntime is in stopping state.
-
-`STOPPED`
-
-NotebookRuntime is in stopped state.
-
-`BEING_UPGRADED`
-
-NotebookRuntime is in upgrading state. It is in the middle of upgrading process.
-
-`ERROR`
-
-NotebookRuntime was unable to start/stop properly.
-
-`INVALID`
-
-NotebookRuntime is in invalid state. Cannot be recovered.
+| Enums                       |                                                                                                       |
+|-----------------------------|-------------------------------------------------------------------------------------------------------|
+| `RUNTIME_STATE_UNSPECIFIED` | Unspecified runtime state.                                                                            |
+| `RUNNING`                   | NotebookRuntime is in running state.                                                                  |
+| `BEING_STARTED`             | NotebookRuntime is in starting state. This is when the runtime is being started from a stopped state. |
+| `BEING_STOPPED`             | NotebookRuntime is in stopping state.                                                                 |
+| `STOPPED`                   | NotebookRuntime is in stopped state.                                                                  |
+| `BEING_UPGRADED`            | NotebookRuntime is in upgrading state. It is in the middle of upgrading process.                      |
+| `ERROR`                     | NotebookRuntime was unable to start/stop properly.                                                    |
+| `INVALID`                   | NotebookRuntime is in invalid state. Cannot be recovered.                                             |
 
 ### NotebookRuntimeType
 
 Represents a notebook runtime type.
 
-Enums
-
-`NOTEBOOK_RUNTIME_TYPE_UNSPECIFIED`
-
-Unspecified notebook runtime type, NotebookRuntimeType will default to USER\_DEFINED.
-
-`USER_DEFINED`
-
-runtime or template with coustomized configurations from user.
-
-`ONE_CLICK`
-
-runtime or template with system defined configurations.
+| Enums                               |                                                                                      |
+|-------------------------------------|--------------------------------------------------------------------------------------|
+| `NOTEBOOK_RUNTIME_TYPE_UNSPECIFIED` | Unspecified notebook runtime type, NotebookRuntimeType will default to USER_DEFINED. |
+| `USER_DEFINED`                      | runtime or template with coustomized configurations from user.                       |
+| `ONE_CLICK`                         | runtime or template with system defined configurations.                              |
 
 ### AcceleratorType
 
 Represents a hardware accelerator type.
 
-Enums
-
-`ACCELERATOR_TYPE_UNSPECIFIED`
-
-Unspecified accelerator type, which means no accelerator.
-
-`NVIDIA_TESLA_K80`
-
-Deprecated: Nvidia Tesla K80 GPU has reached end of support, see <https://cloud.google.com/compute/docs/eol/k80-eol> .
-
-`NVIDIA_TESLA_P100`
-
-Nvidia Tesla P100 GPU.
-
-`NVIDIA_TESLA_V100`
-
-Nvidia Tesla V100 GPU.
-
-`NVIDIA_TESLA_P4`
-
-Nvidia Tesla P4 GPU.
-
-`NVIDIA_TESLA_T4`
-
-Nvidia Tesla T4 GPU.
-
-`NVIDIA_TESLA_A100`
-
-Nvidia Tesla A100 GPU.
-
-`NVIDIA_A100_80GB`
-
-Nvidia A100 80GB GPU.
-
-`NVIDIA_L4`
-
-Nvidia L4 GPU.
-
-`NVIDIA_H100_80GB`
-
-Nvidia H100 80Gb GPU.
-
-`NVIDIA_H100_MEGA_80GB`
-
-Nvidia H100 Mega 80Gb GPU.
-
-`NVIDIA_H200_141GB`
-
-Nvidia H200 141Gb GPU.
-
-`NVIDIA_B200`
-
-Nvidia B200 GPU.
-
-`NVIDIA_GB200`
-
-Nvidia GB200 GPU.
-
-`NVIDIA_RTX_PRO_6000`
-
-Nvidia RTX Pro 6000 GPU.
-
-`TPU_V2`
-
-TPU v2.
-
-`TPU_V3`
-
-TPU v3.
-
-`TPU_V4_POD`
-
-TPU v4.
-
-`TPU_V5_LITEPOD`
-
-TPU v5.
+| Enums                          |                                                                                                                        |
+|--------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| `ACCELERATOR_TYPE_UNSPECIFIED` | Unspecified accelerator type, which means no accelerator.                                                              |
+| `NVIDIA_TESLA_K80`             | Deprecated: Nvidia Tesla K80 GPU has reached end of support, see <https://cloud.google.com/compute/docs/eol/k80-eol> . |
+| `NVIDIA_TESLA_P100`            | Nvidia Tesla P100 GPU.                                                                                                 |
+| `NVIDIA_TESLA_V100`            | Nvidia Tesla V100 GPU.                                                                                                 |
+| `NVIDIA_TESLA_P4`              | Nvidia Tesla P4 GPU.                                                                                                   |
+| `NVIDIA_TESLA_T4`              | Nvidia Tesla T4 GPU.                                                                                                   |
+| `NVIDIA_TESLA_A100`            | Nvidia Tesla A100 GPU.                                                                                                 |
+| `NVIDIA_A100_80GB`             | Nvidia A100 80GB GPU.                                                                                                  |
+| `NVIDIA_L4`                    | Nvidia L4 GPU.                                                                                                         |
+| `NVIDIA_H100_80GB`             | Nvidia H100 80Gb GPU.                                                                                                  |
+| `NVIDIA_H100_MEGA_80GB`        | Nvidia H100 Mega 80Gb GPU.                                                                                             |
+| `NVIDIA_H200_141GB`            | Nvidia H200 141Gb GPU.                                                                                                 |
+| `NVIDIA_B200`                  | Nvidia B200 GPU.                                                                                                       |
+| `NVIDIA_GB200`                 | Nvidia GB200 GPU.                                                                                                      |
+| `NVIDIA_RTX_PRO_6000`          | Nvidia RTX Pro 6000 GPU.                                                                                               |
+| `TPU_V2`                       | TPU v2.                                                                                                                |
+| `TPU_V3`                       | TPU v3.                                                                                                                |
+| `TPU_V4_POD`                   | TPU v4.                                                                                                                |
+| `TPU_V5_LITEPOD`               | TPU v5.                                                                                                                |
 
 ### Type
 
 Identifies a type of reservation affinity.
 
-Enums
-
-`TYPE_UNSPECIFIED`
-
-Default value. This should not be used.
-
-`NO_RESERVATION`
-
-Do not consume from any reserved capacity, only use on-demand.
-
-`ANY_RESERVATION`
-
-Consume any reservation available, falling back to on-demand.
-
-`SPECIFIC_RESERVATION`
-
-Consume from a specific reservation. When chosen, the reservation must be identified via the `key` and `values` fields.
+| Enums                  |                                                                                                                         |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| `TYPE_UNSPECIFIED`     | Default value. This should not be used.                                                                                 |
+| `NO_RESERVATION`       | Do not consume from any reserved capacity, only use on-demand.                                                          |
+| `ANY_RESERVATION`      | Consume any reservation available, falling back to on-demand.                                                           |
+| `SPECIFIC_RESERVATION` | Consume from a specific reservation. When chosen, the reservation must be identified via the `key` and `values` fields. |
 
 ### PostStartupScriptBehavior
 
 Represents a notebook runtime post startup script behavior.
 
-Enums
-
-`POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED`
-
-Unspecified post startup script behavior.
-
-`RUN_ONCE`
-
-Run post startup script after runtime is started.
-
-`RUN_EVERY_START`
-
-Run post startup script after runtime is stopped.
-
-`DOWNLOAD_AND_RUN_EVERY_START`
-
-Download and run post startup script every time runtime is started.
+| Enums                                      |                                                                     |
+|--------------------------------------------|---------------------------------------------------------------------|
+| `POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED` | Unspecified post startup script behavior.                           |
+| `RUN_ONCE`                                 | Run post startup script after runtime is started.                   |
+| `RUN_EVERY_START`                          | Run post startup script after runtime is stopped.                   |
+| `DOWNLOAD_AND_RUN_EVERY_START`             | Download and run post startup script every time runtime is started. |
 
 ### Tool Annotations
 
-Destructive Hint: ❌ | Idempotent Hint: ✅ | Read Only Hint: ✅ | Open World Hint: ❌
+Destructive Hint: ❌ \| Idempotent Hint: ✅ \| Read Only Hint: ✅ \| Open World Hint: ❌

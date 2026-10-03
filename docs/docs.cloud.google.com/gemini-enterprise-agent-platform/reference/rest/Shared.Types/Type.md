@@ -8,20 +8,9 @@ data_source: docs.cloud.google.com
 
 Identifies a type of reservation affinity.
 
-Enums
-
-`TYPE_UNSPECIFIED`
-
-Default value. This should not be used.
-
-`NO_RESERVATION`
-
-Do not consume from any reserved capacity, only use on-demand.
-
-`ANY_RESERVATION`
-
-Consume any reservation available, falling back to on-demand.
-
-`SPECIFIC_RESERVATION`
-
-Consume from a specific reservation. When chosen, the reservation must be identified via the `key` and `values` fields.
+| Enums                  |                                                                                                                         |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| `TYPE_UNSPECIFIED`     | Default value. This should not be used.                                                                                 |
+| `NO_RESERVATION`       | Do not consume from any reserved capacity, only use on-demand.                                                          |
+| `ANY_RESERVATION`      | Consume any reservation available, falling back to on-demand.                                                           |
+| `SPECIFIC_RESERVATION` | Consume from a specific reservation. When chosen, the reservation must be identified via the `key` and `values` fields. |

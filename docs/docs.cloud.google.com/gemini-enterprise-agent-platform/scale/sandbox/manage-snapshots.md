@@ -10,18 +10,18 @@ Sandbox snapshots in Gemini Enterprise Agent Platform let you save the current s
 
 Snapshots provide several benefits for managing your agent workflows:
 
-  - **State persistence** : Save the exact state of the sandbox, including installed libraries, file system changes, and memory state.
-  - **Efficiency** : Instead of recreating a complex environment from scratch, you can restore it from a snapshot in seconds.
-  - **Checkpointing** : Create checkpoints during a long-running agent task to allow recovery if something goes wrong.
-  - **Branching** : Create multiple sandboxes from the same snapshot to explore different paths or test variations.
+- **State persistence** : Save the exact state of the sandbox, including installed libraries, file system changes, and memory state.
+- **Efficiency** : Instead of recreating a complex environment from scratch, you can restore it from a snapshot in seconds.
+- **Checkpointing** : Create checkpoints during a long-running agent task to allow recovery if something goes wrong.
+- **Branching** : Create multiple sandboxes from the same snapshot to explore different paths or test variations.
 
 ### Limitations
 
 You cannot restore a sandbox snapshot to a new sandbox environment if any of the following conditions are true:
 
-  - The new sandbox uses a different server architecture (for example, `amd64` versus `arm64` ).
-  - The new sandbox uses a different sandbox runtime version (for example, after a GKE cluster upgrade).
-  - The new sandbox uses a different container image URI.
+- The new sandbox uses a different server architecture (for example, `amd64` versus `arm64` ).
+- The new sandbox uses a different sandbox runtime version (for example, after a GKE cluster upgrade).
+- The new sandbox uses a different container image URI.
 
 ### Retention
 
@@ -31,63 +31,73 @@ When you create a snapshot, it's retained for the duration specified in the `ttl
 
 To create a snapshot of a sandbox, use the Python SDK:
 
-    import agentplatform
-    
-    client = agentplatform.Client(project='PROJECT_ID', location='LOCATION')
-    sandbox_name = 'projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID/sandboxEnvironments/SANDBOX_ID'
-    
-    snapshot_operation = client.sandboxes.snapshots.create(
-        source_sandbox_environment_name=sandbox_name,
-        config={
-            "display_name": "DISPLAY_NAME",
-            "ttl": "3600s",
-        }
-    )
-    print(f"Snapshot creation initiated: {snapshot_operation.name}")
+```
+import agentplatform
+
+client = agentplatform.Client(project='PROJECT_ID', location='LOCATION')
+sandbox_name = 'projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID/sandboxEnvironments/SANDBOX_ID'
+
+snapshot_operation = client.sandboxes.snapshots.create(
+    source_sandbox_environment_name=sandbox_name,
+    config={
+        "display_name": "DISPLAY_NAME",
+        "ttl": "3600s",
+    }
+)
+print(f"Snapshot creation initiated: {snapshot_operation.name}")
+```
 
 Replace the following:
 
-  - `PROJECT_ID` : Your Google Cloud project ID.
-  - `LOCATION` : The Google Cloud region of your resource. See [Supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) .
-  - `INSTANCE_ID` : The Agent Platform instance ID.
-  - `SANDBOX_ID` : The existing sandbox ID to create a snapshot for.
-  - `DISPLAY_NAME` : A descriptive display name for your snapshot.
+- `PROJECT_ID` : Your Google Cloud project ID.
+- `LOCATION` : The Google Cloud region of your resource. See [Supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) .
+- `INSTANCE_ID` : The Agent Platform instance ID.
+- `SANDBOX_ID` : The existing sandbox ID to create a snapshot for.
+- `DISPLAY_NAME` : A descriptive display name for your snapshot.
 
 ## Restore from a snapshot
 
 You can restore a sandbox state by referencing a saved snapshot when creating a new sandbox environment:
 
-    agent_instance_name = 'projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID
-    snapshot_name = 'projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID/sandboxEnvironments/SANDBOX_ID'
-    
-    # Restore from a snapshot
-    new_sandbox_operation = client.sandboxes.create(
-        name=agent_instance_name,
-        config={
-            "display_name": "restored-sandbox",
-            "sandbox_environment_snapshot": snapshot_name,
-        }
-    )
+```
+agent_instance_name = 'projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID
+snapshot_name = 'projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID/sandboxEnvironments/SANDBOX_ID'
+
+# Restore from a snapshot
+new_sandbox_operation = client.sandboxes.create(
+    name=agent_instance_name,
+    config={
+        "display_name": "restored-sandbox",
+        "sandbox_environment_snapshot": snapshot_name,
+    }
+)
+```
 
 ## List snapshots
 
 To list all sandbox snapshots associated with an Agent Platform instance:
 
-    snapshots_response = client.sandboxes.snapshots.list(name=agent_instance_name)
-    
-    for snapshot in snapshots_response.sandbox_environment_snapshots:
-        print(snapshot.name)
+```
+snapshots_response = client.sandboxes.snapshots.list(name=agent_instance_name)
+
+for snapshot in snapshots_response.sandbox_environment_snapshots:
+    print(snapshot.name)
+```
 
 ## View snapshot details
 
 To view the configuration of a specific sandbox snapshot:
 
-    snapshot = client.sandboxes.snapshots.get(name=snapshot_name)
-    print(snapshot)
+```
+snapshot = client.sandboxes.snapshots.get(name=snapshot_name)
+print(snapshot)
+```
 
 ## Delete a snapshot
 
 To explicitly delete a sandbox snapshot when they are no longer needed:
 
-    client.sandboxes.snapshots.delete(name=snapshot_name)
-    print("Snapshot deleted.")
+```
+client.sandboxes.snapshots.delete(name=snapshot_name)
+print("Snapshot deleted.")
+```

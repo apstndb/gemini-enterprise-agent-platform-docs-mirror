@@ -34,8 +34,8 @@ This value must be 1-63 characters. Valid characters are lowercase letters, numb
 
 ### Request body
 
-The request body contains an instance of `  Skill  ` .
+The request body contains an instance of [`Skill`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills#Skill) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  Operation  ` .
+If successful, the response body contains a newly created instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

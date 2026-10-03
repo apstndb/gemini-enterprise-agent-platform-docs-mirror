@@ -10,33 +10,33 @@ Tabular monitoring objective.
 
 Fields
 
-`featureDriftSpec` ` object ( DataDriftSpec  ` )
+`featureDriftSpec` `object ( `[`DataDriftSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/TabularObjective#DataDriftSpec)` )`
 
 Input feature distribution drift monitoring spec.
 
-`predictionOutputDriftSpec` ` object ( DataDriftSpec  ` )
+`predictionOutputDriftSpec` `object ( `[`DataDriftSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/TabularObjective#DataDriftSpec)` )`
 
 Prediction output distribution drift monitoring spec.
 
-`featureAttributionSpec` ` object ( FeatureAttributionSpec  ` )
+`featureAttributionSpec` `object ( `[`FeatureAttributionSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/TabularObjective#FeatureAttributionSpec)` )`
 
 feature attribution monitoring spec.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;featureDriftSpec&quot;: {object (DataDriftSpec)},&quot;predictionOutputDriftSpec&quot;: {object (DataDriftSpec)},&quot;featureAttributionSpec&quot;: {object (FeatureAttributionSpec)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "featureDriftSpec": {
+    object (DataDriftSpec)
+  },
+  "predictionOutputDriftSpec": {
+    object (DataDriftSpec)
+  },
+  "featureAttributionSpec": {
+    object (FeatureAttributionSpec)
+  }
+}
+```
 
 ## DataDriftSpec
 
@@ -50,39 +50,47 @@ feature names / Prediction output names interested in monitoring. These should b
 
 `categoricalMetricType` `string`
 
-Supported metrics type: \* l\_infinity \* jensen\_shannon\_divergence
+Supported metrics type: \* l_infinity \* jensen_shannon_divergence
 
 `numericMetricType` `string`
 
-Supported metrics type: \* jensen\_shannon\_divergence
+Supported metrics type: \* jensen_shannon_divergence
 
-`defaultCategoricalAlertCondition` ` object ( ModelMonitoringAlertCondition  ` )
+`defaultCategoricalAlertCondition` `object ( `[`ModelMonitoringAlertCondition`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/TabularObjective#ModelMonitoringAlertCondition)` )`
 
 Default alert condition for all the categorical features.
 
-`defaultNumericAlertCondition` ` object ( ModelMonitoringAlertCondition  ` )
+`defaultNumericAlertCondition` `object ( `[`ModelMonitoringAlertCondition`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/TabularObjective#ModelMonitoringAlertCondition)` )`
 
 Default alert condition for all the numeric features.
 
-`featureAlertConditions` ` map (key: string, value: object ( ModelMonitoringAlertCondition  ` ))
+`featureAlertConditions` `map (key: string, value: object ( `[`ModelMonitoringAlertCondition`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/TabularObjective#ModelMonitoringAlertCondition)` ))`
 
 Per feature alert condition will override default alert condition.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;features&quot;: [string],&quot;categoricalMetricType&quot;: string,&quot;numericMetricType&quot;: string,&quot;defaultCategoricalAlertCondition&quot;: {object (ModelMonitoringAlertCondition)},&quot;defaultNumericAlertCondition&quot;: {object (ModelMonitoringAlertCondition)},&quot;featureAlertConditions&quot;: {string: {object (ModelMonitoringAlertCondition)},...}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "features": [
+    string
+  ],
+  "categoricalMetricType": string,
+  "numericMetricType": string,
+  "defaultCategoricalAlertCondition": {
+    object (ModelMonitoringAlertCondition)
+  },
+  "defaultNumericAlertCondition": {
+    object (ModelMonitoringAlertCondition)
+  },
+  "featureAlertConditions": {
+    string: {
+      object (ModelMonitoringAlertCondition)
+    },
+    ...
+  }
+}
+```
 
 ## ModelMonitoringAlertCondition
 
@@ -100,26 +108,16 @@ A condition that compares a stats value against a threshold. Alert will be trigg
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+**JSON representation**
+
+```
+{
 
   // condition
-  &quot;threshold&quot;: number
+  "threshold": number
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## FeatureAttributionSpec
 
@@ -131,30 +129,36 @@ Fields
 
 feature names interested in monitoring. These should be a subset of the input feature names specified in the monitoring schema. If the field is not specified all features outlied in the monitoring schema will be used.
 
-`defaultAlertCondition` ` object ( ModelMonitoringAlertCondition  ` )
+`defaultAlertCondition` `object ( `[`ModelMonitoringAlertCondition`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/TabularObjective#ModelMonitoringAlertCondition)` )`
 
 Default alert condition for all the features.
 
-`featureAlertConditions` ` map (key: string, value: object ( ModelMonitoringAlertCondition  ` ))
+`featureAlertConditions` `map (key: string, value: object ( `[`ModelMonitoringAlertCondition`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/TabularObjective#ModelMonitoringAlertCondition)` ))`
 
 Per feature alert condition will override default alert condition.
 
-`batchExplanationDedicatedResources` ` object ( BatchDedicatedResources  ` )
+`batchExplanationDedicatedResources` `object ( `[`BatchDedicatedResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/BatchDedicatedResources)` )`
 
 The config of resources used by the Model Monitoring during the batch explanation for non-AutoML models. If not set, `n1-standard-2` machine type will be used by default.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;features&quot;: [string],&quot;defaultAlertCondition&quot;: {object (ModelMonitoringAlertCondition)},&quot;featureAlertConditions&quot;: {string: {object (ModelMonitoringAlertCondition)},...},&quot;batchExplanationDedicatedResources&quot;: {object (BatchDedicatedResources)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "features": [
+    string
+  ],
+  "defaultAlertCondition": {
+    object (ModelMonitoringAlertCondition)
+  },
+  "featureAlertConditions": {
+    string: {
+      object (ModelMonitoringAlertCondition)
+    },
+    ...
+  },
+  "batchExplanationDedicatedResources": {
+    object (BatchDedicatedResources)
+  }
+}
+```

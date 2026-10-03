@@ -36,36 +36,35 @@ After the dataset import, you are taken to the **Browse** tab. You can also acce
 
 Choose one of the following options to begin training:
 
-  - Choose **Train new model** .
+- Choose **Train new model** .
 
-  - Select **Models** from the menu, and select **Create** .
-
-<!-- end list -->
+- Select **Models** from the menu, and select **Create** .
 
 1.  
+
 2.  Select **Create** to open the **Train new model** window.
 
-3.  Select **Select Training method** , and select the **target Dataset** if they are not automatically selected. Make sure the radio\_button\_checked **AutoML** radio button is selected, and then choose **CONTINUE** .
-    
+3.  Select **Select Training method** , and select the **target Dataset** if they are not automatically selected. Make sure the radio_button_checked **AutoML** radio button is selected, and then choose **CONTINUE** .
+
     ![Train new model window step 1](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/images/train-training-method.png)
 
 4.  (Optional) Select **Define your model** , and enter the **Model name** . Click **CONTINUE** .
-    
+
     ![Train new model window step 4](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/images/training-model-details.png)
 
 5.  Select **Train options** . Select a model option according to your accuracy and latency needs. Optionally, enable incremental training and click **CONTINUE** .
-    
+
     Incremental training considerations follow:
-    
-      - Incremental training can be enabled when there is at least one base model that has been trained in this project with the same objective.
-      - Incremental training lets you use an existing base model as a starting point to train a new model rather than training a new model from scratch.
-      - Incremental training generally helps training to occur faster and saves training time.
-      - The base model can be trained from a different dataset.
-    
+
+    - Incremental training can be enabled when there is at least one base model that has been trained in this project with the same objective.
+    - Incremental training lets you use an existing base model as a starting point to train a new model rather than training a new model from scratch.
+    - Incremental training generally helps training to occur faster and saves training time.
+    - The base model can be trained from a different dataset.
+
     ![Train new model window step 5](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/images/training-option-uptrain.png)
 
 6.  Select **Compute and pricing** . Specify a node-hour budget of **8 node hours** . Select **Start training** .
-    
+
     Node-hour budget is the maximum time (may vary slightly) that the model spends training. This value is multiplied by the [price per node hour](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#automl_models) to calculate to total training cost. More training hours results in a more accurate (up to a point) model but results in a higher cost. For development purposes, a low budget is fine but for production it's important to strike a balance between cost and accuracy.
 
 Training takes several hours. An email notification is sent when the model training completes.

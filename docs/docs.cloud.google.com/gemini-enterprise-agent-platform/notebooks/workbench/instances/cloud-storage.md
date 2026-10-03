@@ -22,8 +22,8 @@ You can access any of the Cloud Storage buckets and files that your instance has
 
 To get the permissions that you need to mount a Cloud Storage bucket to a Agent Platform Workbench instance, ask your administrator to grant you the following IAM roles:
 
-  - [Notebooks Runner](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.runner) ( `roles/notebooks.runner` ) on the project
-  - [Storage Object User](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectUser) ( `roles/storage.objectUser` ) on the Agent Platform Workbench instance's service account
+- [Notebooks Runner](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.runner) ( `roles/notebooks.runner` ) on the project
+- [Storage Object User](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectUser) ( `roles/storage.objectUser` ) on the Agent Platform Workbench instance's service account
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
@@ -47,7 +47,7 @@ You must have access to at least one Cloud Storage bucket in the same project as
 1.  In the Google Cloud console, go to the **Instances** page.
 
 2.  Next to your Agent Platform Workbench instance's name, click **Open JupyterLab** .
-    
+
     Your Agent Platform Workbench instance opens JupyterLab.
 
 ## Mount the Cloud Storage bucket
@@ -57,7 +57,7 @@ To mount and then access a Cloud Storage bucket, do the following:
 1.  In JupyterLab, make sure the folder **File Browser** tab is selected.
 
 2.  In the left sidebar, click the ![Mount shared storage button](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/icon-mount-shared-storage.png) **Mount shared storage** button. If you don't see the button, drag the right side of the sidebar to expand the sidebar until you see the button.
-    
+
     ![The Mount shared storage button in the top right corner of the left sidebar](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/instances/images/mount-shared-storage-button.png)
 
 3.  In the **Bucket name** field, enter the Cloud Storage bucket name that you want to mount.
@@ -72,6 +72,6 @@ To find methods for diagnosing and resolving issues with mounting a Cloud Storag
 
 ## What's next
 
-  - Learn more about [Cloud Storage](https://docs.cloud.google.com/storage/docs/introduction) .
+- Learn more about [Cloud Storage](https://docs.cloud.google.com/storage/docs/introduction) .
 
-  - Learn how to [query data in BigQuery from within JupyterLab](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/bigquery) .
+- Learn how to [query data in BigQuery from within JupyterLab](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/bigquery) .

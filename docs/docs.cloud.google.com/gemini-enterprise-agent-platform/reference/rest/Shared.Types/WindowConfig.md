@@ -18,35 +18,25 @@ The following is a list of mutually exclusive fields. At most one of the fields 
 
 name of the column that should be used to generate sliding windows. The column should contain either booleans or string booleans; if the value of the row is True, generate a sliding window with the horizon starting at that row. The column will not be used as a feature in training.
 
-`strideLength` `string ( int64 format)`
+`strideLength` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
-Stride length used to generate input examples. Within one time series, every {$STRIDE\_LENGTH} rows will be used to generate a sliding window.
+Stride length used to generate input examples. Within one time series, every {\$STRIDE_LENGTH} rows will be used to generate a sliding window.
 
-`maxCount` `string ( int64 format)`
+`maxCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Maximum number of windows that should be generated across all time series.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+**JSON representation**
+
+```
+{
 
   // strategy
-  &quot;column&quot;: string,
-  &quot;strideLength&quot;: string,
-  &quot;maxCount&quot;: string
+  "column": string,
+  "strideLength": string,
+  "maxCount": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

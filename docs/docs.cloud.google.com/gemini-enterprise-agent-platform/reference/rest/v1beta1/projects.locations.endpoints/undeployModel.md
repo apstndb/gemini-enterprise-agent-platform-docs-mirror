@@ -34,8 +34,8 @@ Required. The id of the DeployedModel to be undeployed from the Endpoint.
 
 `trafficSplit` `map (key: string, value: integer)`
 
-If this field is provided, then the Endpoint's `  trafficSplit  ` will be overwritten with it. If last DeployedModel is being undeployed from the Endpoint, the \[Endpoint.traffic\_split\] will always end up empty when this call returns. A DeployedModel will be successfully undeployed only if it doesn't have any traffic assigned to it when this method executes, or if this field unassigns any traffic to it.
+If this field is provided, then the Endpoint's [`trafficSplit`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#Endpoint.FIELDS.traffic_split) will be overwritten with it. If last DeployedModel is being undeployed from the Endpoint, the \[Endpoint.traffic_split\] will always end up empty when this call returns. A DeployedModel will be successfully undeployed only if it doesn't have any traffic assigned to it when this method executes, or if this field unassigns any traffic to it.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

@@ -14,78 +14,98 @@ Llama 3.3 70B is a text-only 70B instruction-tuned model that provides enhanced 
 
 [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-3.3-70b-instruct-maas)
 
-Model ID
-
-`llama-3.3-70b-instruct-maas`
-
-Launch stage
-
-GA
-
-Supported inputs & outputs
-
-  - Inputs:
-    Text , Code
-  - Outputs:
-    Text
-
-Capabilities
-
-Supported
-
-  - [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction)
-  - [Llama Guard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama)
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/function-calling)
-  - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/structured-output)
-
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>llama-3.3-70b-instruct-maas</code></td>
+</tr>
+<tr class="even">
+<th>Launch stage</th>
+<td>GA</td>
+</tr>
+<tr class="odd">
+<th>Supported inputs &amp; outputs</th>
+<td><ul>
+<li>Inputs:
+Text , Code</li>
+<li>Outputs:
+Text</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Capabilities</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction">Batch predictions</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama">Llama Guard</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/function-calling">Function calling</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/structured-output">Structured output</a></li>
+</ul>
+Not supported</td>
+</tr>
+<tr class="odd">
+<th>Usage types</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo">Standard pay-as-you-go</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a></li>
+</ul>
 Not supported
-
-Usage types
-
-Supported
-
-  - [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-
-Not supported
-
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
-
-Knowledge cutoff date
-
-December 2023
-
-Versions
-
-`llama-3.3-70b-instruct-maas`
-
-  - **Launch stage:** GA
-  - **Release date:** April 29, 2025
-
-Supported regions
-
-Model availability
-
-United States
-
-  - `us-central1`
-
-ML processing
-
-United States
-
-  - `Multi-region`
-
-Quota limits
-
-us-central1:
-
-  - Max output: 8,192
-  - Context length: 128,000
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Knowledge cutoff date</th>
+<td>December 2023</td>
+</tr>
+<tr class="odd">
+<th>Versions</th>
+<td><ul>
+<li><code>llama-3.3-70b-instruct-maas</code>
+<ul>
+<li><strong>Launch stage:</strong> GA</li>
+<li><strong>Release date:</strong> April 29, 2025</li>
+</ul></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Supported regions</th>
+<td></td>
+</tr>
+<tr class="odd">
+<th><p>Model availability</p></th>
+<td>United States
+<ul>
+<li><code>us-central1</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th><p>ML processing</p></th>
+<td>United States
+<ul>
+<li><code>Multi-region</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Quota limits</th>
+<td><p>us-central1:</p>
+<ul>
+<li>Max output: 8,192</li>
+<li>Context length: 128,000</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Pricing</th>
+<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+</tr>
+</tbody>
+</table>
 
 ## Deploy as a self-deployed model
 

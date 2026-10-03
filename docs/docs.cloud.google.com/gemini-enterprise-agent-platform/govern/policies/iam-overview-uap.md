@@ -36,8 +36,8 @@ Rules also contain *conditions* that are expressed in Common Expression Language
 
 A typical policy contains at least two distinct rules:
 
-  - **Allow rule:** Allow rules have an [allow effect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#rule-effect) that lets agent principals access specific, safe operations, such as performing a read operation on a tool to fetch tracking data or view registry entries.
-  - **Deny rule:** Deny rules have a [deny effect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#rule-effect) that disallows the agent from executing unwanted actions, such as performing an uncommanded delete or update operation on a critical resource.
+- **Allow rule:** Allow rules have an [allow effect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#rule-effect) that lets agent principals access specific, safe operations, such as performing a read operation on a tool to fetch tracking data or view registry entries.
+- **Deny rule:** Deny rules have a [deny effect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#rule-effect) that disallows the agent from executing unwanted actions, such as performing an uncommanded delete or update operation on a critical resource.
 
 For example, consider an automated customer support agent that needs to interact with internal tools that have privileged access to a customer database. The administrator configures an Agent Gateway with IAP to enforce IAM Access policies. The administrator can configure an Access policy with an allow rule that authorizes the agent principal to read support tickets, and a deny rule that disallows the agent principal from deleting or updating database records.
 
@@ -47,10 +47,10 @@ By using Access policies that contain both allow and deny rules, organizations c
 
 Follow these best practices when you configure agent egress policies:
 
-  - **Use dry-run mode:** Deploy new or modified policies in dry-run mode first to make sure that your policy works as expected, without blocking active agent traffic.
-  - **Apply the principle of least privilege:** Grant only necessary permissions. Use specific tool names or paths in CEL conditions rather than wildcards.
-  - **Use deny rules for guardrails:** Use explicit deny rules to implement critical guardrails, such as blocking destructive tools on production endpoints. Using deny rules for guardrails is effective because deny rules override allow rules.
-  - **Perform regular audits:** Periodically review Cloud Audit Logs logs and policy configurations to verify that they comply with your organization's security policies.
+- **Use dry-run mode:** Deploy new or modified policies in dry-run mode first to make sure that your policy works as expected, without blocking active agent traffic.
+- **Apply the principle of least privilege:** Grant only necessary permissions. Use specific tool names or paths in CEL conditions rather than wildcards.
+- **Use deny rules for guardrails:** Use explicit deny rules to implement critical guardrails, such as blocking destructive tools on production endpoints. Using deny rules for guardrails is effective because deny rules override allow rules.
+- **Perform regular audits:** Periodically review Cloud Audit Logs logs and policy configurations to verify that they comply with your organization's security policies.
 
 ## Access policy components
 
@@ -64,7 +64,7 @@ In your IAM Access policies, you define one or more agent principals. Agent prin
 
 You can specify an array of individual agent identities or an array of principal sets.
 
-Built-in agent identities are provisioned across Google Cloud services such as Agent Runtime (Reasoning Engine), Gemini Enterprise (Discovery Engine), and Cloud Run services configured with agent identity. These agent principals take the form ` principal:// TRUST_DOMAIN / AGENT_UNIQUE_IDENTIFIER  ` , where the identifier represents the resource path of the agent on its hosting service. You can also specify agents using Workload Identity Federation principal identifiers.
+Built-in agent identities are provisioned across Google Cloud services such as Agent Runtime (Reasoning Engine), Gemini Enterprise (Discovery Engine), and Cloud Run services configured with agent identity. These agent principals take the form `principal:// `` TRUST_DOMAIN `` / `` AGENT_UNIQUE_IDENTIFIER` , where the identifier represents the resource path of the agent on its hosting service. You can also specify agents using Workload Identity Federation principal identifiers.
 
 ### Rule effect
 
@@ -80,10 +80,10 @@ Registered resources are resources that are registered in an Agent Registry regi
 
 Registered resources include the following:
 
-  - Registries: Entire agent registries within a project.
-  - MCP servers: MCP servers that are registered in an agent registry.
-  - Agents: Agents that are registered in an agent registry. Individual agents can be specified individually by their agent identity. A group of agents can be specified by a principal set identifier.
-  - Endpoints: Endpoints that are registered in an agent registry.
+- Registries: Entire agent registries within a project.
+- MCP servers: MCP servers that are registered in an agent registry.
+- Agents: Agents that are registered in an agent registry. Individual agents can be specified individually by their agent identity. A group of agents can be specified by a principal set identifier.
+- Endpoints: Endpoints that are registered in an agent registry.
 
 Individual services can be registered in Agent Registry. If you regionalize your agent registries and your rule manages access to registered resources, then your Access policies applies only to the resources that are in the registry's region.
 
@@ -95,9 +95,9 @@ Unregistered resources are resources that are not registered in an agent registr
 
 In Access policies rules, you use Common Expression Language (CEL) expressions in the `conditions` block to define both **target resource scope** and **fine-grained access criteria** :
 
-  - **Target resource scope** : Identifies *which* destination resources the rule governs. In JSON-formatted policy files, you specify destination attributes, such as `destination.agent_registry.mcp_server.name` or `destination.unregistered.host` . In the Google Cloud console, selecting destinations under **Target resources** automatically adds these resource criteria to the rule's condition expression.
+- **Target resource scope** : Identifies *which* destination resources the rule governs. In JSON-formatted policy files, you specify destination attributes, such as `destination.agent_registry.mcp_server.name` or `destination.unregistered.host` . In the Google Cloud console, selecting destinations under **Target resources** automatically adds these resource criteria to the rule's condition expression.
 
-  - **Access criteria** : Use a Boolean expression to determine *when* and *under what constraints* the rule effect applies. For example, you can restrict access based on tool names, read-only status, HTTP methods, or path prefixes using [Access policy CEL attributes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#cel-attributes) . The rule effect (allow or deny) takes effect only when the entire CEL expression evaluates to `true` .
+- **Access criteria** : Use a Boolean expression to determine *when* and *under what constraints* the rule effect applies. For example, you can restrict access based on tool names, read-only status, HTTP methods, or path prefixes using [Access policy CEL attributes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#cel-attributes) . The rule effect (allow or deny) takes effect only when the entire CEL expression evaluates to `true` .
 
 In the gcloud CLI and REST API, you specify these CEL expressions in the `conditions` field of the rule definition.
 
@@ -117,8 +117,8 @@ In both the gcloud CLI and the REST API, you can configure IAM Access policies b
 
 IAP and Context-Aware Access provide default end-to-end agent identity authentication and authorization by using the following protocols:
 
-  - Mutual TLS (mTLS)
-  - Demonstrating Proof of Possession (DPoP)
+- Mutual TLS (mTLS)
+- Demonstrating Proof of Possession (DPoP)
 
 Agent identities are provisioned with an X.509 certificate and a certificate-bound token. IAP enforces that agent identities use mutual TLS (mTLS) to authenticate to Agent Gateway. When the gateway allows the agent to egress and access Google Cloud APIs, MCP servers, other agents, and endpoints, the agent attempts access outside of the mTLS boundary. To help protect communication, Context-Aware Access enforces a Google-managed Context-Aware Access policy. The policy requires DPoP to validate the certificate-bound token that is bound to the agent identity. For more information about how Context-Aware Access uses mTLS and DPoP, see [Context-Aware Access agent security](https://docs.cloud.google.com/access-context-manager/docs/caa-agent-security) .
 
@@ -135,174 +135,391 @@ destination.unregistered.path.startsWith('/v1/statements')
 
 The attributes described in the following table are available for each resource type:
 
-Destination resource type
-
-Attribute
-
-Details
-
-### Agent Registry
-
-`destination.is_registered`
-
-|                      |                  |
-| -------------------- | ---------------- |
-| Value type           | Boolean          |
-| Supported values     | `true` , `false` |
-| Supported operations | `==` , `!=`      |
-
-`destination.agent_registry.resource_type`
-
-|                      |                                                       |
-| -------------------- | ----------------------------------------------------- |
-| Value type           | String                                                |
-| Supported values     | `'AGENT'` , `'ENDPOINT'` , `'MCP_SERVER'` , `'SKILL'` |
-| Supported operations | `==` , `!=` , `in`                                    |
-
-`destination.agent_registry.location`
-
-|                      |                                                                       |
-| -------------------- | --------------------------------------------------------------------- |
-| Value type           | String                                                                |
-| Supported values     | Google Cloud location ID (for example, `'global'` , `'us-central1'` ) |
-| Supported operations | `==` , `!=` , `in`                                                    |
-
-`destination.agent_registry.project_id`
-
-|                      |                         |
-| -------------------- | ----------------------- |
-| Value type           | String                  |
-| Supported values     | Google Cloud project ID |
-| Supported operations | `==` , `!=` , `in`      |
-
-### Agent
-
-`destination.agent_registry.agent.name`
-
-|                      |                                                                                                                                                                |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Value type           | String                                                                                                                                                         |
-| Supported values     | Agent resource name ( ` projects/             PROJECT_ID            /locations/             LOCATION            /agents/             AGENT_NAME            ` ) |
-| Supported operations | `==` , `!=` , `in`                                                                                                                                             |
-
-### MCP Server
-
-`destination.agent_registry.mcp_server.name`
-
-|                      |                                                                                                                                                                              |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Value type           | String                                                                                                                                                                       |
-| Supported values     | MCP server resource name ( ` projects/             PROJECT_ID            /locations/             LOCATION            /mcpServers/             MCP_SERVER_NAME            ` ) |
-| Supported operations | `==` , `!=` , `in`                                                                                                                                                           |
-
-`destination.agent_registry.mcp_server.method`
-
-|                      |                                                                         |
-| -------------------- | ----------------------------------------------------------------------- |
-| Value type           | String                                                                  |
-| Supported values     | MCP method name (for example, `'tools'` , `'prompts'` , `'resources'` ) |
-| Supported operations | `==` , `!=` , `in`                                                      |
-
-`destination.agent_registry.mcp_server.tool.name`
-
-|                      |                                                         |
-| -------------------- | ------------------------------------------------------- |
-| Value type           | String                                                  |
-| Supported values     | Tool name (for example, `'search_code'` , `'execute'` ) |
-| Supported operations | `==` , `!=` , `in`                                      |
-
-`destination.agent_registry.mcp_server.tool.annotations.read_only_hint`
-
-|                      |                  |
-| -------------------- | ---------------- |
-| Value type           | Boolean          |
-| Supported values     | `true` , `false` |
-| Supported operations | `==` , `!=`      |
-
-`destination.agent_registry.mcp_server.tool.annotations.destructive_hint`
-
-|                      |                  |
-| -------------------- | ---------------- |
-| Value type           | Boolean          |
-| Supported values     | `true` , `false` |
-| Supported operations | `==` , `!=`      |
-
-`destination.agent_registry.mcp_server.tool.annotations.idempotent_hint`
-
-|                      |                  |
-| -------------------- | ---------------- |
-| Value type           | Boolean          |
-| Supported values     | `true` , `false` |
-| Supported operations | `==` , `!=`      |
-
-`destination.agent_registry.mcp_server.tool.annotations.open_world_hint`
-
-|                      |                  |
-| -------------------- | ---------------- |
-| Value type           | Boolean          |
-| Supported values     | `true` , `false` |
-| Supported operations | `==` , `!=`      |
-
-`destination.agent_registry.mcp_server.prompt.name`
-
-|                      |                    |
-| -------------------- | ------------------ |
-| Value type           | String             |
-| Supported values     | Prompt name        |
-| Supported operations | `==` , `!=` , `in` |
-
-`destination.agent_registry.mcp_server.resource.name`
-
-|                      |                    |
-| -------------------- | ------------------ |
-| Value type           | String             |
-| Supported values     | Resource name      |
-| Supported operations | `==` , `!=` , `in` |
-
-### Endpoint
-
-`destination.agent_registry.endpoint.name`
-
-|                      |                                                                                                                                                                         |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Value type           | String                                                                                                                                                                  |
-| Supported values     | Endpoint resource name ( ` projects/             PROJECT_ID            /locations/             LOCATION            /endpoints/             ENDPOINT_NAME            ` ) |
-| Supported operations | `==` , `!=` , `in`                                                                                                                                                      |
-
-### Unregistered Destination
-
-`destination.unregistered.host`
-
-|                      |                                                                      |
-| -------------------- | -------------------------------------------------------------------- |
-| Value type           | String                                                               |
-| Supported values     | Hostname (for example, `'google.com'` , `'example.com'` )            |
-| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.contains()` |
-
-`destination.unregistered.path`
-
-|                      |                                                                      |
-| -------------------- | -------------------------------------------------------------------- |
-| Value type           | String                                                               |
-| Supported values     | Request path (for example, `'/admin'` , `'/api/v1'` )                |
-| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.contains()` |
-
-`destination.unregistered.method`
-
-|                      |                                                                       |
-| -------------------- | --------------------------------------------------------------------- |
-| Value type           | String                                                                |
-| Supported values     | HTTP method (for example, `'get'` , `'post'` , `'put'` , `'delete'` ) |
-| Supported operations | `==` , `!=` , `in`                                                    |
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Destination resource type</th>
+<th>Attribute</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Agent Registry</td>
+<td><code>destination.is_registered</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>Boolean</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td><code>true</code> , <code>false</code></td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="even">
+<td><code>destination.agent_registry.resource_type</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td><code>'AGENT'</code> , <code>'ENDPOINT'</code> , <code>'MCP_SERVER'</code> , <code>'SKILL'</code></td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>destination.agent_registry.location</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Google Cloud location ID (for example, <code>'global'</code> , <code>'us-central1'</code> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>destination.agent_registry.project_id</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Google Cloud project ID</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Agent</td>
+<td><code>destination.agent_registry.agent.name</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Agent resource name ( <code>projects/ </code><var translate="no"> PROJECT_ID </var><code> /locations/ </code><var translate="no"> LOCATION </var><code> /agents/ </code><var translate="no"> AGENT_NAME</var> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="even">
+<td>MCP Server</td>
+<td><code>destination.agent_registry.mcp_server.name</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>MCP server resource name ( <code>projects/ </code><var translate="no"> PROJECT_ID </var><code> /locations/ </code><var translate="no"> LOCATION </var><code> /mcpServers/ </code><var translate="no"> MCP_SERVER_NAME</var> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="odd">
+<td><code>destination.agent_registry.mcp_server.method</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>MCP method name (for example, <code>'tools'</code> , <code>'prompts'</code> , <code>'resources'</code> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>destination.agent_registry.mcp_server.tool.name</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Tool name (for example, <code>'search_code'</code> , <code>'execute'</code> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>destination.agent_registry.mcp_server.tool.annotations.read_only_hint</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>Boolean</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td><code>true</code> , <code>false</code></td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>destination.agent_registry.mcp_server.tool.annotations.destructive_hint</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>Boolean</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td><code>true</code> , <code>false</code></td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>destination.agent_registry.mcp_server.tool.annotations.idempotent_hint</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>Boolean</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td><code>true</code> , <code>false</code></td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>destination.agent_registry.mcp_server.tool.annotations.open_world_hint</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>Boolean</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td><code>true</code> , <code>false</code></td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>destination.agent_registry.mcp_server.prompt.name</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Prompt name</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>destination.agent_registry.mcp_server.resource.name</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Resource name</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Endpoint</td>
+<td><code>destination.agent_registry.endpoint.name</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Endpoint resource name ( <code>projects/ </code><var translate="no"> PROJECT_ID </var><code> /locations/ </code><var translate="no"> LOCATION </var><code> /endpoints/ </code><var translate="no"> ENDPOINT_NAME</var> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="even">
+<td>Unregistered Destination</td>
+<td><code>destination.unregistered.host</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Hostname (for example, <code>'google.com'</code> , <code>'example.com'</code> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code> , <code>.startsWith()</code> , <code>.endsWith()</code> , <code>.contains()</code></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="odd">
+<td><code>destination.unregistered.path</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>Request path (for example, <code>'/admin'</code> , <code>'/api/v1'</code> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code> , <code>.startsWith()</code> , <code>.endsWith()</code> , <code>.contains()</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>destination.unregistered.method</code></td>
+<td><table>
+<tbody>
+<tr class="odd">
+<td>Value type</td>
+<td>String</td>
+</tr>
+<tr class="even">
+<td>Supported values</td>
+<td>HTTP method (for example, <code>'get'</code> , <code>'post'</code> , <code>'put'</code> , <code>'delete'</code> )</td>
+</tr>
+<tr class="odd">
+<td>Supported operations</td>
+<td><code>==</code> , <code>!=</code> , <code>in</code></td>
+</tr>
+</tbody>
+</table></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 > **Note:** The `startsWith()` , `endsWith()` , and `contains()` functions (or `STARTS_WITH` , `ENDS_WITH` , and `CONTAINS` ) are supported only for the `destination.unregistered.host` and `destination.unregistered.path` attributes. Other attributes don't support these string functions.
 
 ## What's next
 
-  - [CEL attributes for Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
-  - [Create IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap)
-  - [Manage IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap)
-  - [Troubleshoot IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap)
+- [CEL attributes for Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
+- [Create IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap)
+- [Manage IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap)
+- [Troubleshoot IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap)
 
 Codelab
 

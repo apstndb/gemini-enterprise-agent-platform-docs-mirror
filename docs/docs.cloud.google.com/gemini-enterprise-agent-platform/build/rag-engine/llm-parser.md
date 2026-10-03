@@ -14,16 +14,16 @@ This page explains how to use the RAG Engine on Gemini Enterprise Agent Platform
 
 RAG Engine uses LLMs for document parsing. LLMs have the ability to effectively process documents in the following ways:
 
-  - Understand and interpret semantic content across various formats.
-  - Retrieve relevant document chunks.
-  - Extract meaningful information from documents.
-  - Identify relevant sections in documents.
-  - Accurately summarize complex documents.
-  - Understand and interact with visuals.
-  - Extract data from charts and diagrams.
-  - Describe images.
-  - Understand relationships between charts and text.
-  - Provide more contextually rich and accurate responses.
+- Understand and interpret semantic content across various formats.
+- Retrieve relevant document chunks.
+- Extract meaningful information from documents.
+- Identify relevant sections in documents.
+- Accurately summarize complex documents.
+- Understand and interact with visuals.
+- Extract data from charts and diagrams.
+- Describe images.
+- Understand relationships between charts and text.
+- Provide more contextually rich and accurate responses.
 
 The capabilities of the RAG Engine significantly improves the quality of generated responses.
 
@@ -33,20 +33,20 @@ The capabilities of the RAG Engine significantly improves the quality of generat
 
 The following models support the RAG Engine LLM parser:
 
-  - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
-  - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+- [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
+- [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
+- [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
 
 ## Supported file types
 
 The following file types are supported by the LLM parser:
 
-  - `application/pdf`
-  - `image/png`
-  - `image/jpeg`
-  - `image/webp`
-  - `image/heic`
-  - `image/heif`
+- `application/pdf`
+- `image/png`
+- `image/jpeg`
+- `image/webp`
+- `image/heic`
+- `image/heif`
 
 ## Pricing and quotas
 
@@ -56,43 +56,47 @@ For quotas that apply, see [Rate quotas](https://docs.cloud.google.com/gemini-en
 
 The LLM parser calls Gemini models to parse your documents. This creates additional costs, which are charged to your project. The cost can be roughly estimated using this formula:
 
-    cost = number_of_document_files * average_pages_per_document *
-    (average_input_tokens * input_token_pricing_of_selected_model +
-    average_output_tokens * output_token_pricing_of_selected_model)
+```
+cost = number_of_document_files * average_pages_per_document *
+(average_input_tokens * input_token_pricing_of_selected_model +
+average_output_tokens * output_token_pricing_of_selected_model)
+```
 
 For example, you have 1,000 PDF files, and each PDF file has 50 pages. The average PDF page has 500 tokens, and we need an additional 100 tokens for prompting. The average output is 100 tokens.
 
 > **Note:** This example is for an educational purpose on how to estimate your cost. It doesn't reflect the real cost you pay for every indexing request using the LLM parser.
 
-    cost = 1,000 * 50 * (600 * 0.075 / 1M + 100 * 0.3 / 1M) = 3.75
+```
+cost = 1,000 * 50 * (600 * 0.075 / 1M + 100 * 0.3 / 1M) = 3.75
+```
 
-The cost is $3.75.
+The cost is \$3.75.
 
 ## Import files with `LlmParser` enabled
 
 Replace the values in the following variables used in the code samples:
 
-  - **PROJECT\_ID** : The ID for your Google Cloud project.
+- **` PROJECT_ID `** : The ID for your Google Cloud project.
 
-  - **LOCATION** : The region where your request is processed.
+- **` LOCATION `** : The region where your request is processed.
 
-  - **RAG\_CORPUS\_RESOURCE** : The ID of your corpus.
+- **` RAG_CORPUS_RESOURCE `** : The ID of your corpus.
 
-  - **GCS\_URI** : The Cloud Storage URI of the files you want to import.
+- **` GCS_URI `** : The Cloud Storage URI of the files you want to import.
 
-  - **GOOGLE\_DRIVE\_URI** : The Google Drive URI of the files you want to import.
+- **` GOOGLE_DRIVE_URI `** : The Google Drive URI of the files you want to import.
 
-  - **MODEL\_NAME** : The resource name of the model used for parsing.
-    
-    Format: `projects/{project_id}/locations/{location}/publishers/google/models/{model_id}`
+- **` MODEL_NAME `** : The resource name of the model used for parsing.
 
-  - **CUSTOM\_PARSING\_PROMPT** : Optional: Custom prompt that is configured by the customer for LLM parser to use for parsing documents.
+  Format: `projects/{project_id}/locations/{location}/publishers/google/models/{model_id}`
 
-  - **MAX\_PARSING\_REQUESTS\_PER\_MIN** : Optional: The maximum number of requests the job can make to the Agent Platform model per minute. For more information, see [Generative AI on Agent Platform rate limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas) and the [Quotas & System Limits](https://console.cloud.google.com/iam-admin/quotas) page for your project to set an appropriate value.
+- **` CUSTOM_PARSING_PROMPT `** : Optional: Custom prompt that is configured by the customer for LLM parser to use for parsing documents.
+
+- **` MAX_PARSING_REQUESTS_PER_MIN `** : Optional: The maximum number of requests the job can make to the Agent Platform model per minute. For more information, see [Generative AI on Agent Platform rate limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas) and the [Quotas & System Limits](https://console.cloud.google.com/iam-admin/quotas) page for your project to set an appropriate value.
 
 ### REST
 
-``` 
+```
   curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
@@ -120,7 +124,7 @@ Replace the values in the following variables used in the code samples:
 
 To learn how to install or update the Agent Platform SDK for Python, see [Install the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-``` 
+```
   from vertexai import rag
   import vertexai
 
@@ -167,7 +171,7 @@ The RAG Engine on Gemini Enterprise Agent Platform LLM parser uses a predefined 
 To help with document parsing, the following table provides a prompt template example to guide you in creating prompts that RAG Engine can use to parse your documents:
 
 | **Instruction**                                                                  | **Template statement**                                                                                                                                                                            | **Example**                                                          |
-| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+|----------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Specify role.                                                                    | You are a/an \[Specify the role, such as a factual data extractor or an information retriever\].                                                                                                  | You are an information retriever.                                    |
 | Specify task.                                                                    | Extract \[Specify the type of information, such as factual statements, key data, or specific details\] from the \[Specify the document source, such as a document, text, article, image, table\]. | Extract key data from the sample.txt file.                           |
 | Explain how you want the LLM to generate the output according to your documents. | Present each fact in a \[Specify the output format, such as a structured list or text format\], and link to its \[Specify the source location, such as a page, paragraph, table, or row\].        | Present each fact in a structured list, and link to its sample page. |
@@ -178,24 +182,24 @@ To help with document parsing, the following table provides a prompt template ex
 
 Follow these guidelines to write your prompt to send to the LLM parser.
 
-  - **Specific** : Clearly define the task and the type of information to be extracted.
-  - **Detailed** : Provide detailed instructions on output format, source attribution, and handling of different data structures.
-  - **Constraining** : Explicitly state what the AI shouldn't do such as analysis or interpretation.
-  - **Clear** : Use clear and directive language.
-  - **Structured** : Organize instructions logically using numbered lists or bullet points for readability.
+- **Specific** : Clearly define the task and the type of information to be extracted.
+- **Detailed** : Provide detailed instructions on output format, source attribution, and handling of different data structures.
+- **Constraining** : Explicitly state what the AI shouldn't do such as analysis or interpretation.
+- **Clear** : Use clear and directive language.
+- **Structured** : Organize instructions logically using numbered lists or bullet points for readability.
 
 ## Parsing quality analysis
 
 This table lists results from scenarios that customers ran using RAG Engine on Gemini Enterprise Agent Platform. The feedback shows that the LLM parser improves the quality of parsing documents.
 
-| **Scenario**                                                        | **Result**                                                                                                                                                                                                                                                                                                       |
-| ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Parsing information across slides and linking sections              | The LLM parser successfully linked section titles on one slide to the detailed information presented on subsequent slides.                                                                                                                                                                                       |
-| Understanding and extracting information from tables                | The LLM parser correctly related columns and headers within a large table to answer specific questions.                                                                                                                                                                                                          |
-| Interpreting flowcharts                                             | The LLM parser was able to follow the logic of a flowchart and extract the correct sequence of actions and corresponding information.                                                                                                                                                                            |
-| Extracting data from graphs                                         | The LLM parser could interpret different types of graphs, such as line graphs, and extract specific data points based on the query.                                                                                                                                                                              |
-| Capturing relationships between headings and text                   | The LLM parser, guided by the prompt, paid attention to heading structures and could retrieve all relevant information associated with a particular topic or section.                                                                                                                                            |
-| Potential to overcome embedding limitations with prompt engineering | While initially hampered by embedding model limitations in some use cases, additional experiments demonstrated that a well-crafted LLM parser prompt could potentially mitigate these issues and retrieve the correct information even when semantic understanding is challenging for the embedding model alone. |
+| **Scenario**                                                        | **Result**                                                                                                                                                                                                                                                                                                       |     |
+|---------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----|
+| Parsing information across slides and linking sections              | The LLM parser successfully linked section titles on one slide to the detailed information presented on subsequent slides.                                                                                                                                                                                       |     |
+| Understanding and extracting information from tables                | The LLM parser correctly related columns and headers within a large table to answer specific questions.                                                                                                                                                                                                          |     |
+| Interpreting flowcharts                                             | The LLM parser was able to follow the logic of a flowchart and extract the correct sequence of actions and corresponding information.                                                                                                                                                                            |     |
+| Extracting data from graphs                                         | The LLM parser could interpret different types of graphs, such as line graphs, and extract specific data points based on the query.                                                                                                                                                                              |     |
+| Capturing relationships between headings and text                   | The LLM parser, guided by the prompt, paid attention to heading structures and could retrieve all relevant information associated with a particular topic or section.                                                                                                                                            |     |
+| Potential to overcome embedding limitations with prompt engineering | While initially hampered by embedding model limitations in some use cases, additional experiments demonstrated that a well-crafted LLM parser prompt could potentially mitigate these issues and retrieve the correct information even when semantic understanding is challenging for the embedding model alone. |     |
 
 The LLM parser enhances the LLM's ability to understand and reason about the context within a document, which leads to more accurate and comprehensive responses.
 
@@ -205,18 +209,18 @@ After you enter a prompt that's sent to a generative AI model, the retrieval com
 
 ## What's next
 
-  - To learn more about RAG Engine on Gemini Enterprise Agent Platform, see [RAG Engine on Gemini Enterprise Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .
+- To learn more about RAG Engine on Gemini Enterprise Agent Platform, see [RAG Engine on Gemini Enterprise Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .
 
-  - To learn more about the RAG Engine on Gemini Enterprise Agent Platform, see the following:
-    
-      - [`GenerateContentResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse)
-    
-      - [`RagEngineConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagEngineConfig)
-    
-      - [`RagChunk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagChunk)
-    
-      - [`RagContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagContexts)
-    
-      - [`RagFileTransformationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagFileTransformationConfig)
-    
-      - [`RagQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagQuery)
+- To learn more about the RAG Engine on Gemini Enterprise Agent Platform, see the following:
+
+  - [`GenerateContentResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse)
+
+  - [`RagEngineConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagEngineConfig)
+
+  - [`RagChunk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagChunk)
+
+  - [`RagContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagContexts)
+
+  - [`RagFileTransformationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagFileTransformationConfig)
+
+  - [`RagQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagQuery)

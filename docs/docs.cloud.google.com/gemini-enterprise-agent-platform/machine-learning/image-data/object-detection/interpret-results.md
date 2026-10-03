@@ -27,15 +27,17 @@ Batch AutoML image object detection prediction responses are stored as JSON Line
 
 Where `xMin` and `xMax` are the minimum and maximum x values and `yMin` and `yMax` are the minimum and maximum y values respectively.
 
-    {
-      "instance": {"content": "gs://bucket/image.jpg", "mimeType": "image/jpeg"},
-      "prediction": {
-        "ids": [1, 2],
-        "displayNames": ["cat", "dog"],
-        "bboxes":  [
-          [0.1, 0.2, 0.3, 0.4],
-          [0.2, 0.3, 0.4, 0.5]
-        ],
-        "confidences": [0.7, 0.5]
-      }
-    }
+```
+{
+  "instance": {"content": "gs://bucket/image.jpg", "mimeType": "image/jpeg"},
+  "prediction": {
+    "ids": [1, 2],
+    "displayNames": ["cat", "dog"],
+    "bboxes":  [
+      [0.1, 0.2, 0.3, 0.4],
+      [0.2, 0.3, 0.4, 0.5]
+    ],
+    "confidences": [0.7, 0.5]
+  }
+}
+```

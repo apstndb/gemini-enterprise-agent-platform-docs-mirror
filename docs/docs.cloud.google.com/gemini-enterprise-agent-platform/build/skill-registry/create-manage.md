@@ -7,14 +7,14 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 > **Note:** You can centrally manage and govern standalone skills within [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) . For details, see [Register skills](https://docs.cloud.google.com/agent-registry/register-skills) .
 
 > To see an example of creating and managing skills in Skill Registry, run the "Intro to Skill Registry" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/agents/skill-registry/intro_skill_registry.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fskill-registry%2Fintro_skill_registry.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fskill-registry%2Fintro_skill_registry.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/skill-registry/intro_skill_registry.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/agents/skill-registry/intro_skill_registry.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fskill-registry%2Fintro_skill_registry.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fskill-registry%2Fintro_skill_registry.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/skill-registry/intro_skill_registry.ipynb)
 
 This guide explains how to create, update, and manage skills in the Skill Registry using the REST API.
 
@@ -29,7 +29,7 @@ Before using Skill Registry, set up your environment:
 The following table summarizes the compliance status:
 
 | Feature                                 | Status        |
-| --------------------------------------- | ------------- |
+|-----------------------------------------|---------------|
 | Access Transparency                     | Supported     |
 | Data Residency (DRZ) in US and EU       | Supported     |
 | Customer-Managed Encryption Keys (CMEK) | Not Supported |
@@ -41,7 +41,7 @@ The following table summarizes the compliance status:
 Skill Registry is available in the following regions:
 
 | Region         | Location       |
-| -------------- | -------------- |
+|----------------|----------------|
 | `us-central1`  | Iowa           |
 | `europe-west4` | Netherlands    |
 | `us-east5`     | Columbus, Ohio |
@@ -63,61 +63,71 @@ Before calling the API, package your skill files into a zipped archive and encod
 > **Note:** The zipped payload must meet specific size and content requirements for successful ingestion. For more information, see [Skill payload validation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry#skill-payload-validation) .
 
 1.  Navigate to your skill directory:
-    
-        cd <SKILL_DIRECTORY>
+
+    ```
+    cd <SKILL_DIRECTORY>
+    ```
 
 2.  Create the zip archive and encode it to base64.
-    
+
     For example:
-    
-        zip -r skill.zip scripts/ references/ SKILL.md assets/ && base64 -w 0 -i skill.zip
+
+    ```
+    zip -r skill.zip scripts/ references/ SKILL.md assets/ && base64 -w 0 -i skill.zip
+    ```
 
 #### Request variables
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your Google Cloud project ID.
+- ` PROJECT_ID ` : Your Google Cloud project ID.
 
-  - LOCATION : The region for your skill. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
+- ` LOCATION ` : The region for your skill. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
 
-  - SKILL\_ID : The `SKILL_ID` is immutable and remains permanently reserved once created, even if you delete the skill later. Skill IDs must adhere to the following constraints:
-    
-      - Must be 1 to 63 characters long.
-      - Must contain only lowercase letters, numbers, and hyphens.
-      - Must start with a letter and end with a letter or number.
-      - Must not start with `gcp-` (this prefix is reserved for built-in skills).
+- ` SKILL_ID ` : The `SKILL_ID` is immutable and remains permanently reserved once created, even if you delete the skill later. Skill IDs must adhere to the following constraints:
+
+  - Must be 1 to 63 characters long.
+  - Must contain only lowercase letters, numbers, and hyphens.
+  - Must start with a letter and end with a letter or number.
+  - Must not start with `gcp-` (this prefix is reserved for built-in skills).
 
 > **Note:** Use a descriptive `SKILL_ID` . Since the `SKILL_ID` becomes the folder name when the skill is attached to an agent, a meaningful name helps the model understand the skill's purpose.
 
-  - DISPLAY\_NAME : The name of the skill used with the agent. The `RetrieveSkills` method uses the display name and description to search for relevant skills.
+- ` DISPLAY_NAME ` : The name of the skill used with the agent. The `RetrieveSkills` method uses the display name and description to search for relevant skills.
 
-  - DESCRIPTION : A description of what the skill does.
+- ` DESCRIPTION ` : A description of what the skill does.
 
-  - BASE64\_ZIPPED\_BODY : The base64-encoded content of your zipped skill archive.
+- ` BASE64_ZIPPED_BODY ` : The base64-encoded content of your zipped skill archive.
 
 #### HTTP method and URL
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills?skillId=SKILL_ID
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills?skillId=SKILL_ID
+```
 
 #### Request JSON body
 
-    {
-    "displayName": "DISPLAY_NAME",
-    "description": "DESCRIPTION",
-    "zippedFilesystem": "BASE64_ZIPPED_BODY"
-    }
+```
+{
+"displayName": "DISPLAY_NAME",
+"description": "DESCRIPTION",
+"zippedFilesystem": "BASE64_ZIPPED_BODY"
+}
+```
 
 #### `curl` command
 
-    curl -X POST \
-        -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-        -H "Content-Type: application/json" \
-        -d '{
-          "displayName": "DISPLAY_NAME",
-          "description": "DESCRIPTION",
-          "zippedFilesystem": "BASE64_ZIPPED_BODY"
-        }' \
-        "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills?skillId=SKILL_ID"
+```
+curl -X POST \
+    -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "displayName": "DISPLAY_NAME",
+      "description": "DESCRIPTION",
+      "zippedFilesystem": "BASE64_ZIPPED_BODY"
+    }' \
+    "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills?skillId=SKILL_ID"
+```
 
 ### Python
 
@@ -125,59 +135,65 @@ Organize skill files (such as `SKILL.md` , instructions, and code files) in a lo
 
 For `google-cloud-aiplatform` (which provides `agentplatform` ) version `1.154.0` and later:
 
-    import agentplatform
-    
-    client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
-    
-    skill = client.skills.create(
-        skill_id="SKILL_ID",
-        display_name="DISPLAY_NAME",
-        description="DESCRIPTION",
-        config={
-            # Local directory path (automatically compressed) or pre-zipped path (.zip)
-            "local_path": "SKILL_PATH",
-        },
-    )
-    print(skill.name)
+```
+import agentplatform
+
+client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
+
+skill = client.skills.create(
+    skill_id="SKILL_ID",
+    display_name="DISPLAY_NAME",
+    description="DESCRIPTION",
+    config={
+        # Local directory path (automatically compressed) or pre-zipped path (.zip)
+        "local_path": "SKILL_PATH",
+    },
+)
+print(skill.name)
+```
 
 For `google-cloud-aiplatform` (which provides `agentplatform` ) versions older than `1.154.0` :
 
-    import agentplatform
-    
-    client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
-    
-    skill = client.skills.create(
-        display_name="DISPLAY_NAME",
-        description="DESCRIPTION",
-        config={
-            "skill_id": "SKILL_ID",
-            # Local directory path (automatically compressed) or pre-zipped path (.zip)
-            "local_path": "SKILL_PATH",
-        },
-    )
-    print(skill.name)
+```
+import agentplatform
+
+client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
+
+skill = client.skills.create(
+    display_name="DISPLAY_NAME",
+    description="DESCRIPTION",
+    config={
+        "skill_id": "SKILL_ID",
+        # Local directory path (automatically compressed) or pre-zipped path (.zip)
+        "local_path": "SKILL_PATH",
+    },
+)
+print(skill.name)
+```
 
 ### Node.js
 
 Organize skill files (such as `SKILL.md` , instructions, and code files) in a local directory. The SDK supports passing either a local directory path (which is automatically compressed) or a pre-zipped path.
 
-    import { Client } from '@google-cloud/agentplatform';
-    
-    const client = new Client({
-      project: 'PROJECT_ID',
-      location: 'LOCATION',
-    });
-    
-    const skill = await client.skills.create({
-      skillId: 'SKILL_ID',
-      displayName: 'DISPLAY_NAME',
-      description: 'DESCRIPTION',
-      config: {
-        // Local directory path (automatically compressed) or pre-zipped path (.zip)
-        localPath: 'SKILL_PATH',
-      },
-    });
-    console.log(skill.name);
+```
+import { Client } from '@google-cloud/agentplatform';
+
+const client = new Client({
+  project: 'PROJECT_ID',
+  location: 'LOCATION',
+});
+
+const skill = await client.skills.create({
+  skillId: 'SKILL_ID',
+  displayName: 'DISPLAY_NAME',
+  description: 'DESCRIPTION',
+  config: {
+    // Local directory path (automatically compressed) or pre-zipped path (.zip)
+    localPath: 'SKILL_PATH',
+  },
+});
+console.log(skill.name);
+```
 
 ## Update a skill
 
@@ -196,90 +212,104 @@ Optional. If you are updating the skill's files, package your updated skill file
 > **Note:** The zipped payload must meet specific size and content requirements for successful ingestion. For more information, see [Skill payload validation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry#skill-payload-validation) .
 
 1.  Navigate to your skill directory:
-    
-        cd <SKILL_DIRECTORY>
+
+    ```
+    cd <SKILL_DIRECTORY>
+    ```
 
 2.  Create the zip archive and encode it to base64:
-    
-        zip -r skill.zip scripts/ references/ SKILL.md assets/ && base64 -w 0 -i skill.zip
+
+    ```
+    zip -r skill.zip scripts/ references/ SKILL.md assets/ && base64 -w 0 -i skill.zip
+    ```
 
 #### Request variables
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - LOCATION : The region of the skill. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
-  - SKILL\_ID : The ID of the skill to update.
-  - DISPLAY\_NAME : Optional. A new name for the skill.
-  - DESCRIPTION : Optional. A new description of what the skill does.
-  - BASE64\_ZIPPED\_BODY : Optional. The base64-encoded content of your updated zipped skill archive.
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` LOCATION ` : The region of the skill. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
+- ` SKILL_ID ` : The ID of the skill to update.
+- ` DISPLAY_NAME ` : Optional. A new name for the skill.
+- ` DESCRIPTION ` : Optional. A new description of what the skill does.
+- ` BASE64_ZIPPED_BODY ` : Optional. The base64-encoded content of your updated zipped skill archive.
 
 #### HTTP method and URL
 
-    PATCH https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID
+```
+PATCH https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID
+```
 
 #### Request JSON body
 
-    {
-    "displayName": "DISPLAY_NAME",
-    "description": "DESCRIPTION",
-    "zippedFilesystem": "BASE64_ZIPPED_BODY"
-    }
+```
+{
+"displayName": "DISPLAY_NAME",
+"description": "DESCRIPTION",
+"zippedFilesystem": "BASE64_ZIPPED_BODY"
+}
+```
 
 #### `curl` command
 
 The following `curl` command updates the display name, description, and zipped skill file.
 
-    curl -X PATCH \
-        -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-        -H "Content-Type: application/json; charset=utf-8" \
-        -d '{
-          "displayName": "DISPLAY_NAME",
-          "description": "DESCRIPTION",
-          "zippedFilesystem": "BASE64_ZIPPED_BODY"
-        }' \
-        "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID?updateMask=displayName,description,zippedFilesystem"
+```
+curl -X PATCH \
+    -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+    -H "Content-Type: application/json; charset=utf-8" \
+    -d '{
+      "displayName": "DISPLAY_NAME",
+      "description": "DESCRIPTION",
+      "zippedFilesystem": "BASE64_ZIPPED_BODY"
+    }' \
+    "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID?updateMask=displayName,description,zippedFilesystem"
+```
 
 ### Python
 
 The SDK supports updating the skill files by passing either an unzipped local directory path or a pre-zipped path.
 
-    import agentplatform
-    
-    client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
-    
-    skill = client.skills.update(
-        name="projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID",
-        config={
-            "display_name": "DISPLAY_NAME",
-            "description": "DESCRIPTION",
-            # Optional. Local directory path (automatically compressed) or pre-zipped path (.zip)
-            "local_path": "SKILL_PATH",
-        },
-    )
-    print(skill.name)
+```
+import agentplatform
+
+client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
+
+skill = client.skills.update(
+    name="projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID",
+    config={
+        "display_name": "DISPLAY_NAME",
+        "description": "DESCRIPTION",
+        # Optional. Local directory path (automatically compressed) or pre-zipped path (.zip)
+        "local_path": "SKILL_PATH",
+    },
+)
+print(skill.name)
+```
 
 ### Node.js
 
 The SDK supports updating the skill files by passing either an unzipped local directory path or a pre-zipped path.
 
-    import { Client } from '@google-cloud/agentplatform';
-    
-    const client = new Client({
-      project: 'PROJECT_ID',
-      location: 'LOCATION',
-    });
-    
-    const skill = await client.skills.update({
-      name: 'projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID',
-      config: {
-        displayName: 'DISPLAY_NAME',
-        description: 'DESCRIPTION',
-        // Optional. Local directory path (automatically compressed) or pre-zipped path (.zip)
-        localPath: 'SKILL_PATH',
-      },
-    });
-    console.log(skill.name);
+```
+import { Client } from '@google-cloud/agentplatform';
+
+const client = new Client({
+  project: 'PROJECT_ID',
+  location: 'LOCATION',
+});
+
+const skill = await client.skills.update({
+  name: 'projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID',
+  config: {
+    displayName: 'DISPLAY_NAME',
+    description: 'DESCRIPTION',
+    // Optional. Local directory path (automatically compressed) or pre-zipped path (.zip)
+    localPath: 'SKILL_PATH',
+  },
+});
+console.log(skill.name);
+```
 
 ## List skills
 
@@ -293,53 +323,63 @@ The following sections describe how to use the REST API to list skills.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - LOCATION : The region of the skills you want to list. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` LOCATION ` : The region of the skills you want to list. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
 
 #### HTTP method and URL
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills
+```
 
 #### `curl` command
 
-    curl -X GET \
-          -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-          "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills"
+```
+curl -X GET \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+      "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills"
+```
 
 #### Example output
 
-    {
-    "name": "projects/1234567890/locations/us-central1/skills/3456789012",
-    "createTime": "2026-05-10T00:02:12.497720Z",
-    "updateTime": "2026-05-10T00:02:19.064874Z",
-    "displayName": "cymbal_skill",
-    "description": "A skill for managing Cymbal projects.",
-    "state": "ACTIVE"
-    }
+```
+{
+"name": "projects/1234567890/locations/us-central1/skills/3456789012",
+"createTime": "2026-05-10T00:02:12.497720Z",
+"updateTime": "2026-05-10T00:02:19.064874Z",
+"displayName": "cymbal_skill",
+"description": "A skill for managing Cymbal projects.",
+"state": "ACTIVE"
+}
+```
 
 ### Python
 
-    import agentplatform
-    
-    client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
-    
-    pager = client.skills.list()
-    for skill in pager:
-        print(skill.name, skill.display_name)
+```
+import agentplatform
+
+client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
+
+pager = client.skills.list()
+for skill in pager:
+    print(skill.name, skill.display_name)
+```
 
 ### Node.js
 
-    import { Client } from '@google-cloud/agentplatform';
-    
-    const client = new Client({
-      project: 'PROJECT_ID',
-      location: 'LOCATION',
-    });
-    
-    const pager = await client.skills.list();
-    for await (const skill of pager) {
-      console.log(skill.name, skill.displayName);
-    }
+```
+import { Client } from '@google-cloud/agentplatform';
+
+const client = new Client({
+  project: 'PROJECT_ID',
+  location: 'LOCATION',
+});
+
+const pager = await client.skills.list();
+for await (const skill of pager) {
+  console.log(skill.name, skill.displayName);
+}
+```
 
 ## Get a skill
 
@@ -353,44 +393,52 @@ The following sections describe how to use the REST API to get a skill.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - LOCATION : The region where the skills are located. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
-  - SKILL\_ID : The ID of the skill to retrieve.
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` LOCATION ` : The region where the skills are located. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
+- ` SKILL_ID ` : The ID of the skill to retrieve.
 
 #### HTTP method and URL
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID
+```
 
 #### `curl` command
 
-    curl -X GET \
-          -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-          "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID"
+```
+curl -X GET \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+      "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID"
+```
 
 ### Python
 
-    import agentplatform
-    
-    client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
-    
-    skill = client.skills.get(
-        name="projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID"
-    )
-    print(skill)
+```
+import agentplatform
+
+client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
+
+skill = client.skills.get(
+    name="projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID"
+)
+print(skill)
+```
 
 ### Node.js
 
-    import { Client } from '@google-cloud/agentplatform';
-    
-    const client = new Client({
-      project: 'PROJECT_ID',
-      location: 'LOCATION',
-    });
-    
-    const skill = await client.skills.get({
-      name: 'projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID',
-    });
-    console.log(skill);
+```
+import { Client } from '@google-cloud/agentplatform';
+
+const client = new Client({
+  project: 'PROJECT_ID',
+  location: 'LOCATION',
+});
+
+const skill = await client.skills.get({
+  name: 'projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID',
+});
+console.log(skill);
+```
 
 ## Delete a skill
 
@@ -408,42 +456,50 @@ The following sections describe how to use the REST API to delete a skill.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - LOCATION : The region where the skill you want to delete is located. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
-  - SKILL\_ID : The ID of the skill to delete.
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` LOCATION ` : The region where the skill you want to delete is located. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
+- ` SKILL_ID ` : The ID of the skill to delete.
 
 #### HTTP method and URL
 
-    DELETE https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID
+```
+DELETE https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID
+```
 
 #### `curl` command
 
-    curl -X DELETE \
-          -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-          "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID"
+```
+curl -X DELETE \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+      "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID"
+```
 
 ### Python
 
-    import agentplatform
-    
-    client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
-    
-    client.skills.delete(
-        name="projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID"
-    )
+```
+import agentplatform
+
+client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
+
+client.skills.delete(
+    name="projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID"
+)
+```
 
 ### Node.js
 
-    import { Client } from '@google-cloud/agentplatform';
-    
-    const client = new Client({
-      project: 'PROJECT_ID',
-      location: 'LOCATION',
-    });
-    
-    await client.skills.delete({
-      name: 'projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID',
-    });
+```
+import { Client } from '@google-cloud/agentplatform';
+
+const client = new Client({
+  project: 'PROJECT_ID',
+  location: 'LOCATION',
+});
+
+await client.skills.delete({
+  name: 'projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID',
+});
+```
 
 ## List skill revisions
 
@@ -457,59 +513,69 @@ The following sections describe how to use the REST API to list skill revisions.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - LOCATION : The region where the skills you want are located. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
-  - SKILL\_ID : The ID of the skill.
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` LOCATION ` : The region where the skills you want are located. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
+- ` SKILL_ID ` : The ID of the skill.
 
 #### HTTP method and URL
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions
+```
 
 #### `curl` command
 
-    curl -X GET \
-          -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-          "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions"
+```
+curl -X GET \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+      "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions"
+```
 
 #### Example output
 
+```
+{
+  "skillRevisions": [
     {
-      "skillRevisions": [
-        {
-          "name": "projects/1234567890/locations/us-central1/skills/cymbal_skill/revisions/4567890123",
-          "createTime": "2026-05-10T00:02:12.497720Z",
-          "updateTime": "2026-05-10T00:02:19.064874Z"
-        }
-      ]
+      "name": "projects/1234567890/locations/us-central1/skills/cymbal_skill/revisions/4567890123",
+      "createTime": "2026-05-10T00:02:12.497720Z",
+      "updateTime": "2026-05-10T00:02:19.064874Z"
     }
+  ]
+}
+```
 
 ### Python
 
-    import agentplatform
-    
-    client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
-    
-    response = client.skills.revisions.list(
-        name="projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID"
-    )
-    for skill_revision in response.skill_revisions:
-        print(skill_revision.name, skill_revision.create_time)
+```
+import agentplatform
+
+client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
+
+response = client.skills.revisions.list(
+    name="projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID"
+)
+for skill_revision in response.skill_revisions:
+    print(skill_revision.name, skill_revision.create_time)
+```
 
 ### Node.js
 
-    import { Client } from '@google-cloud/agentplatform';
-    
-    const client = new Client({
-      project: 'PROJECT_ID',
-      location: 'LOCATION',
-    });
-    
-    const response = await client.skills.revisions.list({
-      name: 'projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID',
-    });
-    for (const revision of response.skillRevisions || []) {
-      console.log(revision.name, revision.createTime);
-    }
+```
+import { Client } from '@google-cloud/agentplatform';
+
+const client = new Client({
+  project: 'PROJECT_ID',
+  location: 'LOCATION',
+});
+
+const response = await client.skills.revisions.list({
+  name: 'projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID',
+});
+for (const revision of response.skillRevisions || []) {
+  console.log(revision.name, revision.createTime);
+}
+```
 
 ## Get a skill revision
 
@@ -523,45 +589,53 @@ The following sections describe how to use the REST API to get a skill revision.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - LOCATION : The region of the skill. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
-  - SKILL\_ID : The ID of the skill.
-  - REVISION\_ID : The ID of the specific revision to retrieve. This can be found in the `name` field returned by the [`ListSkillRevisions` method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#list-skill-revisions) . For example, if the `name` is `projects/1234567890/locations/us-central1/skills/cymbal-skill/revisions/4567890123` , the revision ID is `4567890123` .
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` LOCATION ` : The region of the skill. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
+- ` SKILL_ID ` : The ID of the skill.
+- ` REVISION_ID ` : The ID of the specific revision to retrieve. This can be found in the `name` field returned by the [`ListSkillRevisions` method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#list-skill-revisions) . For example, if the `name` is `projects/1234567890/locations/us-central1/skills/cymbal-skill/revisions/4567890123` , the revision ID is `4567890123` .
 
 #### HTTP method and URL
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID
+```
 
 #### `curl` command
 
-    curl -X GET \
-          -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-          "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID"
+```
+curl -X GET \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+      "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID"
+```
 
 ### Python
 
-    import agentplatform
-    
-    client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
-    
-    revision = client.skills.revisions.get(
-        name="projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID"
-    )
-    print(revision)
+```
+import agentplatform
+
+client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
+
+revision = client.skills.revisions.get(
+    name="projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID"
+)
+print(revision)
+```
 
 ### Node.js
 
-    import { Client } from '@google-cloud/agentplatform';
-    
-    const client = new Client({
-      project: 'PROJECT_ID',
-      location: 'LOCATION',
-    });
-    
-    const revision = await client.skills.revisions.get({
-      name: 'projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID',
-    });
-    console.log(revision);
+```
+import { Client } from '@google-cloud/agentplatform';
+
+const client = new Client({
+  project: 'PROJECT_ID',
+  location: 'LOCATION',
+});
+
+const revision = await client.skills.revisions.get({
+  name: 'projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID',
+});
+console.log(revision);
+```
 
 ## Retrieve skills
 
@@ -575,59 +649,67 @@ The following sections describe how to use the REST API to retrieve skills.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - LOCATION : The region where the skills you want to search are located. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
-  - QUERY : The query string to find matching skills.
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` LOCATION ` : The region where the skills you want to search are located. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
+- ` QUERY ` : The query string to find matching skills.
 
 #### HTTP method and URL
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills:retrieve?query=QUERY
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills:retrieve?query=QUERY
+```
 
 #### `curl` command
 
-    curl -X GET \
-          -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-          "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills:retrieve?query=QUERY"
+```
+curl -X GET \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+      "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills:retrieve?query=QUERY"
+```
 
 ### Python
 
-    import agentplatform
-    
-    client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
-    
-    response = client.skills.retrieve(
-        query="QUERY",
-        config={"top_k": TOP_K},
-    )
-    for retrieved_skill in response.retrieved_skills:
-        print(retrieved_skill.skill_name, retrieved_skill.description)
+```
+import agentplatform
+
+client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
+
+response = client.skills.retrieve(
+    query="QUERY",
+    config={"top_k": TOP_K},
+)
+for retrieved_skill in response.retrieved_skills:
+    print(retrieved_skill.skill_name, retrieved_skill.description)
+```
 
 ### Node.js
 
-    import { Client } from '@google-cloud/agentplatform';
-    
-    const client = new Client({
-      project: 'PROJECT_ID',
-      location: 'LOCATION',
-    });
-    
-    const response = await client.skills.retrieve({
-      query: 'QUERY',
-      config: {
-        topK: TOP_K,
-      },
-    });
-    for (const retrievedSkill of response.retrievedSkills || []) {
-      console.log(retrievedSkill.skillName, retrievedSkill.description);
-    }
+```
+import { Client } from '@google-cloud/agentplatform';
+
+const client = new Client({
+  project: 'PROJECT_ID',
+  location: 'LOCATION',
+});
+
+const response = await client.skills.retrieve({
+  query: 'QUERY',
+  config: {
+    topK: TOP_K,
+  },
+});
+for (const retrievedSkill of response.retrievedSkills || []) {
+  console.log(retrievedSkill.skillName, retrievedSkill.description);
+}
+```
 
 ## Get details of a long-running operation
 
 Some methods in the Skill Registry API, such as `CreateSkill` , `UpdateSkill` , and `DeleteSkill` , are asynchronous and return a long-running operation. A long-running operation is an API pattern used for operations that can take a significant amount of time to complete. Instead of waiting for the operation to finish, the API returns an operation resource.
 
-The response from these methods includes a `name` field, which contains the operation ID. For example, a `name` might look like this: ` projects/ PROJECT_NUMBER /locations/ LOCATION /skills/ SKILL_ID /operations/ OPERATION_ID  ` .
+The response from these methods includes a `name` field, which contains the operation ID. For example, a `name` might look like this: `projects/ `` PROJECT_NUMBER `` /locations/ `` LOCATION `` /skills/ `` SKILL_ID `` /operations/ `` OPERATION_ID` .
 
-To check the status and get details of a long-running operation, use the `GetOperation` method with the extracted `  OPERATION_ID  ` .
+To check the status and get details of a long-running operation, use the `GetOperation` method with the extracted `OPERATION_ID` .
 
 ### REST
 
@@ -637,19 +719,23 @@ The following sections describe how to use the REST API to get an operation.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - LOCATION : The region where the operation is running. This must match the region used in your initial request. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
-  - OPERATION\_ID : The ID of the operation. Extract this from the `name` field returned by `CreateSkill` , `UpdateSkill` , or `DeleteSkill` .
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` LOCATION ` : The region where the operation is running. This must match the region used in your initial request. For more information, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage#available-regions) .
+- ` OPERATION_ID ` : The ID of the operation. Extract this from the `name` field returned by `CreateSkill` , `UpdateSkill` , or `DeleteSkill` .
 
 #### HTTP method and URL
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/operations/OPERATION_ID
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/operations/OPERATION_ID
+```
 
 #### `curl` command
 
-    curl -X GET \
-          -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-          "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/operations/OPERATION_ID"
+```
+curl -X GET \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+      "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/operations/OPERATION_ID"
+```
 
 ## What's next
 

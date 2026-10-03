@@ -17,7 +17,7 @@ To evaluate the performance of a model, you first create an evaluation dataset t
 The type of metrics used for evaluation depends on the task that you are evaluating. The following table shows the supported tasks and the metrics used to evaluate each task:
 
 | Task               | Metric                           |
-| ------------------ | -------------------------------- |
+|--------------------|----------------------------------|
 | Classification     | Micro-F1, Macro-F1, Per class F1 |
 | Summarization      | ROUGE-L                          |
 | Question answering | Exact Match                      |
@@ -27,9 +27,9 @@ The type of metrics used for evaluation depends on the task that you are evaluat
 
 Model evaluation is supported for the following models:
 
-  - **`text-bison`** : Base and tuned versions.
+- **`text-bison`** : Base and tuned versions.
 
-  - **Gemini** : All tasks except classification.
+- **Gemini** : All tasks except classification.
 
 ## Prepare evaluation dataset
 
@@ -73,17 +73,17 @@ To perform this task, you must grant [Identity and Access Management (IAM)](http
 <tbody>
 <tr class="odd">
 <td>Agent Platform Service Agent</td>
-<td><code dir="ltr" translate="no">service-          PROJECT_NUMBER         @gcp-sa-aiplatform.iam.gserviceaccount.com</code></td>
+<td><code>service- </code><var translate="no"> PROJECT_NUMBER </var><code> @gcp-sa-aiplatform.iam.gserviceaccount.com</code></td>
 <td>The Agent Platform Service Agent is automatically provisioned for your project and granted a predefined role. However, if an org policy modifies the default permissions of the Agent Platform Service Agent, you must manually grant the role to the service agent.</td>
-<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.serviceAgent">Agent Platform Service Agent ( <code dir="ltr" translate="no">roles/aiplatform.serviceAgent</code> )</a></td>
+<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.serviceAgent">Agent Platform Service Agent ( <code>roles/aiplatform.serviceAgent</code> )</a></td>
 </tr>
 <tr class="even">
 <td>Agent Platform Pipelines Service Account</td>
-<td><code dir="ltr" translate="no">         PROJECT_NUMBER         -compute@developer.gserviceaccount.com</code></td>
+<td><var translate="no">PROJECT_NUMBER </var><code> -compute@developer.gserviceaccount.com</code></td>
 <td>The service account that runs the pipeline. The default service account used is the <a href="https://docs.cloud.google.com/compute/docs/access/service-accounts#default_service_account">Compute Engine default service account</a> . Optionally, you can use a custom service account instead of the default service account.</td>
 <td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user">Agent Platform User ( <code dir="ltr" translate="no">roles/aiplatform.user</code> )</a></li>
-<li><a href="https://docs.cloud.google.com/storage/docs/access-control/iam-roles#standard-roles">Storage Object User ( <code dir="ltr" translate="no">roles/storage.objectUser</code> )</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user">Agent Platform User ( <code>roles/aiplatform.user</code> )</a></li>
+<li><a href="https://docs.cloud.google.com/storage/docs/access-control/iam-roles#standard-roles">Storage Object User ( <code>roles/storage.objectUser</code> )</a></li>
 </ul></td>
 </tr>
 </tbody>
@@ -91,73 +91,21 @@ To perform this task, you must grant [Identity and Access Management (IAM)](http
 
 Depending on your input and output data sources, you may also need to grant the Agent Platform Pipelines Service Account additional roles:
 
-Data source
-
-Role
-
-Where to grant the role
-
-[Standard BigQuery table](https://docs.cloud.google.com/bigquery/docs/tables-intro#standard_tables)
-
-[BigQuery Data Editor](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor)
-
-Project that runs the pipeline
-
-[BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer)
-
-Project that the table belongs to
-
-[BigQuery view](https://docs.cloud.google.com/bigquery/docs/tables-intro#views) of a [standard BigQuery table](https://docs.cloud.google.com/bigquery/docs/tables-intro#standard_tables)
-
-[BigQuery Data Editor](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor)
-
-Project that runs the pipeline
-
-[BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer)
-
-Project that the view belongs to
-
-[BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer)
-
-Project that the table belongs to
-
-[BigQuery external table](https://docs.cloud.google.com/bigquery/docs/tables-intro#external_tables) that has a source Cloud Storage file
-
-[BigQuery Data Editor](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor)
-
-Project that runs the pipeline
-
-[BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer)
-
-Project that the external table belongs to
-
-[Storage Object Viewer](https://docs.cloud.google.com/storage/docs/access-control/iam-roles)
-
-Project that the source file belongs to
-
-[BigQuery view](https://docs.cloud.google.com/bigquery/docs/tables-intro#views) of a [BigQuery external table](https://docs.cloud.google.com/bigquery/docs/tables-intro#external_tables) that has a source Cloud Storage file
-
-[BigQuery Data Editor](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor)
-
-Project that runs the pipeline
-
-[BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer)
-
-Project that the view belongs to
-
-[BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer)
-
-Project that the external table belongs to
-
-[Storage Object Viewer](https://docs.cloud.google.com/storage/docs/access-control/iam-roles)
-
-Project that the source file belongs to
-
-Cloud Storage file
-
-[BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer)
-
-Project that runs the pipeline
+| Data source                                                                                                                                                                                                                   | Role                                                                                                   | Where to grant the role        |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|--------------------------------|
+| [Standard BigQuery table](https://docs.cloud.google.com/bigquery/docs/tables-intro#standard_tables)                                                                                                                           | [BigQuery Data Editor](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor) | Project that runs the pipeline |
+| [BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer)                                                                                                                        | Project that the table belongs to                                                                      |                                |
+| [BigQuery view](https://docs.cloud.google.com/bigquery/docs/tables-intro#views) of a [standard BigQuery table](https://docs.cloud.google.com/bigquery/docs/tables-intro#standard_tables)                                      | [BigQuery Data Editor](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor) | Project that runs the pipeline |
+| [BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer)                                                                                                                        | Project that the view belongs to                                                                       |                                |
+| [BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer)                                                                                                                        | Project that the table belongs to                                                                      |                                |
+| [BigQuery external table](https://docs.cloud.google.com/bigquery/docs/tables-intro#external_tables) that has a source Cloud Storage file                                                                                      | [BigQuery Data Editor](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor) | Project that runs the pipeline |
+| [BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer)                                                                                                                        | Project that the external table belongs to                                                             |                                |
+| [Storage Object Viewer](https://docs.cloud.google.com/storage/docs/access-control/iam-roles)                                                                                                                                  | Project that the source file belongs to                                                                |                                |
+| [BigQuery view](https://docs.cloud.google.com/bigquery/docs/tables-intro#views) of a [BigQuery external table](https://docs.cloud.google.com/bigquery/docs/tables-intro#external_tables) that has a source Cloud Storage file | [BigQuery Data Editor](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor) | Project that runs the pipeline |
+| [BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer)                                                                                                                        | Project that the view belongs to                                                                       |                                |
+| [BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer)                                                                                                                        | Project that the external table belongs to                                                             |                                |
+| [Storage Object Viewer](https://docs.cloud.google.com/storage/docs/access-control/iam-roles)                                                                                                                                  | Project that the source file belongs to                                                                |                                |
+| Cloud Storage file                                                                                                                                                                                                            | [BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer) | Project that runs the pipeline |
 
 ### REST
 
@@ -165,74 +113,77 @@ To create a model evaluation job, send a `POST` request by using the [pipelineJo
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : The Google Cloud project that runs the pipeline components.
+- ` PROJECT_ID ` : The Google Cloud project that runs the pipeline components.
 
-  - PIPELINEJOB\_DISPLAYNAME : A display name for the pipelineJob.
+- ` PIPELINEJOB_DISPLAYNAME ` : A display name for the pipelineJob.
 
-  - LOCATION : The region to run the pipeline components. Currently, only `us-central1` is supported.
+- ` LOCATION ` : The region to run the pipeline components. Currently, only `us-central1` is supported.
 
-  - DATASET\_URI : The Cloud Storage URI of your reference dataset. You can specify one or multiple URIs. This parameter supports [wildcards](https://docs.cloud.google.com/storage/docs/wildcards) . To learn more about this parameter, see [InputConfig](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs#InputConfig) .
+- ` DATASET_URI ` : The Cloud Storage URI of your reference dataset. You can specify one or multiple URIs. This parameter supports [wildcards](https://docs.cloud.google.com/storage/docs/wildcards) . To learn more about this parameter, see [InputConfig](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs#InputConfig) .
 
-  - OUTPUT\_DIR : The Cloud Storage URI to store evaluation output.
+- ` OUTPUT_DIR ` : The Cloud Storage URI to store evaluation output.
 
-  - MODEL\_NAME : Specify a publisher model or a tuned model resource as follows:
-    
-      - **Publisher model:** ` publishers/google/models/ MODEL @ MODEL_VERSION  `
-        
-        Example: `publishers/google/models/text-bison@002`
-    
-      - **Tuned model:** ` projects/ PROJECT_NUMBER /locations/ LOCATION /models/ ENDPOINT_ID  `
-        
-        Example: `projects/123456789012/locations/us-central1/models/1234567890123456789`
-    
-    The evaluation job doesn't impact any existing deployments of the model or their resources.
+- ` MODEL_NAME ` : Specify a publisher model or a tuned model resource as follows:
 
-  - EVALUATION\_TASK : The task that you want to evaluate the model on. The evaluation job computes a set of metrics relevant to that specific task. Acceptable values include the following:
-    
-      - `summarization`
-      - `question-answering`
-      - `text-generation`
-      - `classification`
+  - **Publisher model:** `publishers/google/models/ `` MODEL `` @ `` MODEL_VERSION`
 
-  - INSTANCES\_FORMAT : The format of your dataset. Currently, only `jsonl` is supported. To learn more about this parameter, see [InputConfig](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs#InputConfig) .
+    Example: `publishers/google/models/text-bison@002`
 
-  - PREDICTIONS\_FORMAT : The format of the evaluation output. Currently, only `jsonl` is supported. To learn more about this parameter, see [InputConfig](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs#InputConfig) .
+  - **Tuned model:** `projects/ `` PROJECT_NUMBER `` /locations/ `` LOCATION `` /models/ `` ENDPOINT_ID`
 
-  - MACHINE\_TYPE : (Optional) The machine type for running the evaluation job. The default value is `e2-highmem-16` . For a list of supported machine types, see [Machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) .
+    Example: `projects/123456789012/locations/us-central1/models/1234567890123456789`
 
-  - SERVICE\_ACCOUNT : (Optional) The service account to use for running the evaluation job. To learn how to create a custom service account, see [Configure a service account with granular permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) . If unspecified, the [Gemini Enterprise Agent Platform Custom Code Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) is used.
+  The evaluation job doesn't impact any existing deployments of the model or their resources.
 
-  - NETWORK : (Optional) The fully qualified name of the Compute Engine network to peer the evaluatiuon job to. The format of the network name is ` projects/ PROJECT_NUMBER /global/networks/ NETWORK_NAME  ` . If you specify this field, you need to have a [VPC Network Peering for Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) . If left unspecified, the evaluation job is not peered with any network.
+- ` EVALUATION_TASK ` : The task that you want to evaluate the model on. The evaluation job computes a set of metrics relevant to that specific task. Acceptable values include the following:
+  - `summarization`
+  - `question-answering`
+  - `text-generation`
+  - `classification`
 
-  - KEY\_NAME : (Optional) The name of the customer-managed encryption key (CMEK). If configured, resources created by the evaluation job is encrypted using the provided encryption key. The format of the key name is ` projects/ PROJECT_ID /locations/ REGION /keyRings/ KEY_RING /cryptoKeys/ KEY  ` . The key needs to be in the same region as the evaluation job.
+- ` INSTANCES_FORMAT ` : The format of your dataset. Currently, only `jsonl` is supported. To learn more about this parameter, see [InputConfig](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs#InputConfig) .
+
+- ` PREDICTIONS_FORMAT ` : The format of the evaluation output. Currently, only `jsonl` is supported. To learn more about this parameter, see [InputConfig](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs#InputConfig) .
+
+- ` MACHINE_TYPE ` : (Optional) The machine type for running the evaluation job. The default value is `e2-highmem-16` . For a list of supported machine types, see [Machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) .
+
+- ` SERVICE_ACCOUNT ` : (Optional) The service account to use for running the evaluation job. To learn how to create a custom service account, see [Configure a service account with granular permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) . If unspecified, the [Gemini Enterprise Agent Platform Custom Code Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) is used.
+
+- ` NETWORK ` : (Optional) The fully qualified name of the Compute Engine network to peer the evaluatiuon job to. The format of the network name is `projects/ `` PROJECT_NUMBER `` /global/networks/ `` NETWORK_NAME` . If you specify this field, you need to have a [VPC Network Peering for Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) . If left unspecified, the evaluation job is not peered with any network.
+
+- ` KEY_NAME ` : (Optional) The name of the customer-managed encryption key (CMEK). If configured, resources created by the evaluation job is encrypted using the provided encryption key. The format of the key name is `projects/ `` PROJECT_ID `` /locations/ `` REGION `` /keyRings/ `` KEY_RING `` /cryptoKeys/ `` KEY` . The key needs to be in the same region as the evaluation job.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/pipelineJobs
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/pipelineJobs
+```
 
 Request JSON body:
 
-    {
-      "displayName": "PIPELINEJOB_DISPLAYNAME",
-      "runtimeConfig": {
-        "gcsOutputDirectory": "gs://OUTPUT_DIR",
-        "parameterValues": {
-          "project": "PROJECT_ID",
-          "location": "LOCATION",
-          "batch_predict_gcs_source_uris": ["gs://DATASET_URI"],
-          "batch_predict_gcs_destination_output_uri": "gs://OUTPUT_DIR",
-          "model_name": "MODEL_NAME",
-          "evaluation_task": "EVALUATION_TASK",
-          "batch_predict_instances_format": "INSTANCES_FORMAT",
-          "batch_predict_predictions_format: "PREDICTIONS_FORMAT",
-          "machine_type": "MACHINE_TYPE",
-          "service_account": "SERVICE_ACCOUNT",
-          "network": "NETWORK",
-          "encryption_spec_key_name": "KEY_NAME"
-        }
-      },
-      "templateUri": "https://us-kfp.pkg.dev/vertex-evaluation/pipeline-templates/evaluation-llm-text-generation-pipeline/1.0.1"
+```
+{
+  "displayName": "PIPELINEJOB_DISPLAYNAME",
+  "runtimeConfig": {
+    "gcsOutputDirectory": "gs://OUTPUT_DIR",
+    "parameterValues": {
+      "project": "PROJECT_ID",
+      "location": "LOCATION",
+      "batch_predict_gcs_source_uris": ["gs://DATASET_URI"],
+      "batch_predict_gcs_destination_output_uri": "gs://OUTPUT_DIR",
+      "model_name": "MODEL_NAME",
+      "evaluation_task": "EVALUATION_TASK",
+      "batch_predict_instances_format": "INSTANCES_FORMAT",
+      "batch_predict_predictions_format: "PREDICTIONS_FORMAT",
+      "machine_type": "MACHINE_TYPE",
+      "service_account": "SERVICE_ACCOUNT",
+      "network": "NETWORK",
+      "encryption_spec_key_name": "KEY_NAME"
     }
+  },
+  "templateUri": "https://us-kfp.pkg.dev/vertex-evaluation/pipeline-templates/evaluation-llm-text-generation-pipeline/1.0.1"
+}
+```
 
 To send your request, choose one of these options:
 
@@ -242,11 +193,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/pipelineJobs"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/pipelineJobs"
+```
 
 #### PowerShell
 
@@ -254,72 +207,78 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/pipelineJobs" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/pipelineJobs" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following. Note that `pipelineSpec` has been truncated to save space.
 
 #### Response
 
-    ......
-    .....
-     "state": "PIPELINE_STATE_PENDING",
-      "labels": {
-        "vertex-ai-pipelines-run-billing-id": "1234567890123456789"
-      },
-      "runtimeConfig": {
-        "gcsOutputDirectory": "gs://my-evaluation-bucket/output",
-        "parameterValues": {
-          "project": "my-project",
-          "location": "us-central1",
-          "batch_predict_gcs_source_uris": [
-            "gs://my-evaluation-bucket/reference-datasets/eval_data.jsonl"
-          ],
-          "batch_predict_gcs_destination_output_uri": "gs://my-evaluation-bucket/output",
-          "model_name": "publishers/google/models/text-bison@002"
-        }
-      },
-      "serviceAccount": "123456789012-compute@developer.gserviceaccount.com",
-      "templateUri": "https://us-kfp.pkg.dev/vertex-evaluation/pipeline-templates/evaluation-llm-text-generation-pipeline/1.0.1",
-      "templateMetadata": {
-        "version": "sha256:d4c0d665533f6b360eb474111aa5e00f000fb8eac298d367e831f3520b21cb1a"
-      }
+```
+......
+.....
+ "state": "PIPELINE_STATE_PENDING",
+  "labels": {
+    "vertex-ai-pipelines-run-billing-id": "1234567890123456789"
+  },
+  "runtimeConfig": {
+    "gcsOutputDirectory": "gs://my-evaluation-bucket/output",
+    "parameterValues": {
+      "project": "my-project",
+      "location": "us-central1",
+      "batch_predict_gcs_source_uris": [
+        "gs://my-evaluation-bucket/reference-datasets/eval_data.jsonl"
+      ],
+      "batch_predict_gcs_destination_output_uri": "gs://my-evaluation-bucket/output",
+      "model_name": "publishers/google/models/text-bison@002"
     }
+  },
+  "serviceAccount": "123456789012-compute@developer.gserviceaccount.com",
+  "templateUri": "https://us-kfp.pkg.dev/vertex-evaluation/pipeline-templates/evaluation-llm-text-generation-pipeline/1.0.1",
+  "templateMetadata": {
+    "version": "sha256:d4c0d665533f6b360eb474111aa5e00f000fb8eac298d367e831f3520b21cb1a"
+  }
+}
+```
 
 #### Example curl command
 
-    PROJECT_ID=myproject
-    REGION=us-central1
-    MODEL_NAME=publishers/google/models/text-bison@002
-    TEST_DATASET_URI=gs://my-gcs-bucket-uri/dataset.jsonl
-    OUTPUT_DIR=gs://my-gcs-bucket-uri/output
-    
-    curl \
-    -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json; charset=utf-8" \
-    "https://${REGION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${REGION}/pipelineJobs" -d \
-    $'{
-      "displayName": "evaluation-llm-text-generation-pipeline",
-      "runtimeConfig": {
-        "gcsOutputDirectory": "'${OUTPUT_DIR}'",
-        "parameterValues": {
-          "project": "'${PROJECT_ID}'",
-          "location": "'${REGION}'",
-          "batch_predict_gcs_source_uris": ["'${TEST_DATASET_URI}'"],
-          "batch_predict_gcs_destination_output_uri": "'${OUTPUT_DIR}'",
-          "model_name": "'${MODEL_NAME}'",
-        }
-      },
-      "templateUri": "https://us-kfp.pkg.dev/vertex-evaluation/pipeline-templates/evaluation-llm-text-generation-pipeline/1.0.1"
-    }'
+```
+PROJECT_ID=myproject
+REGION=us-central1
+MODEL_NAME=publishers/google/models/text-bison@002
+TEST_DATASET_URI=gs://my-gcs-bucket-uri/dataset.jsonl
+OUTPUT_DIR=gs://my-gcs-bucket-uri/output
+
+curl \
+-X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json; charset=utf-8" \
+"https://${REGION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${REGION}/pipelineJobs" -d \
+$'{
+  "displayName": "evaluation-llm-text-generation-pipeline",
+  "runtimeConfig": {
+    "gcsOutputDirectory": "'${OUTPUT_DIR}'",
+    "parameterValues": {
+      "project": "'${PROJECT_ID}'",
+      "location": "'${REGION}'",
+      "batch_predict_gcs_source_uris": ["'${TEST_DATASET_URI}'"],
+      "batch_predict_gcs_destination_output_uri": "'${OUTPUT_DIR}'",
+      "model_name": "'${MODEL_NAME}'",
+    }
+  },
+  "templateUri": "https://us-kfp.pkg.dev/vertex-evaluation/pipeline-templates/evaluation-llm-text-generation-pipeline/1.0.1"
+}'
+```
 
 ### Python
 
@@ -327,75 +286,73 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    import os
-    
-    import vertexai
-    from vertexai.evaluation import EvalResult, EvalTask
-    
-    # TODO (Developer) Set environment variables
-    PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT")
-    LOCATION_ID = os.getenv("LOCATION_ID", "us-central1")
-    MODEL_NAME = os.getenv("MODEL_NAME", "gemini-2.5-flash")
-    
-    
-    def evaluate_model() -> EvalResult:
-        """Evaluate the performance of a generative AI model."""
-    
-        vertexai.init(project=PROJECT_ID, location=LOCATION_ID)
-    
-        # Dataset URI containing input prompts and ground truth labels
-        dataset_uri = "gs://cloud-samples-data/ai-platform/generative_ai/llm_classification_bp_input_prompts_with_ground_truth.jsonl"
-    
-        metric_column_mapping = {"reference": "ground_truth"}
-    
-        # Define evaluation task
-        eval_task = EvalTask(
-            dataset=dataset_uri,
-            metrics=["exact_match"],
-            experiment="gemini-classification-eval",
-            metric_column_mapping=metric_column_mapping,
-        )
-    
-        # Define a prompt template so the generative Gemini model produces formatted labels
-        prompt_template = (
-            "Classify the following text into exactly one category from "
-            "[nature, news, sports, health, startups]. Return only the category name:\n\n{prompt}"
-        )
-    
-        # Evaluate using a modern Gemini model
-        eval_result = eval_task.evaluate(
-            model=MODEL_NAME,
-            prompt_template=prompt_template,
-        )
-    
-        print("=== SUMMARY METRICS ===")
-        print(eval_result.summary_metrics)
-    
-        print("\n=== METRICS TABLE SAMPLE ===")
-        print(eval_result.metrics_table.head())
-    
-        return eval_result
+```python
+import os
+
+import vertexai
+from vertexai.evaluation import EvalResult, EvalTask
+
+# TODO (Developer) Set environment variables
+PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT")
+LOCATION_ID = os.getenv("LOCATION_ID", "us-central1")
+MODEL_NAME = os.getenv("MODEL_NAME", "gemini-2.5-flash")
+
+
+def evaluate_model() -> EvalResult:
+    """Evaluate the performance of a generative AI model."""
+
+    vertexai.init(project=PROJECT_ID, location=LOCATION_ID)
+
+    # Dataset URI containing input prompts and ground truth labels
+    dataset_uri = "gs://cloud-samples-data/ai-platform/generative_ai/llm_classification_bp_input_prompts_with_ground_truth.jsonl"
+
+    metric_column_mapping = {"reference": "ground_truth"}
+
+    # Define evaluation task
+    eval_task = EvalTask(
+        dataset=dataset_uri,
+        metrics=["exact_match"],
+        experiment="gemini-classification-eval",
+        metric_column_mapping=metric_column_mapping,
+    )
+
+    # Define a prompt template so the generative Gemini model produces formatted labels
+    prompt_template = (
+        "Classify the following text into exactly one category from "
+        "[nature, news, sports, health, startups]. Return only the category name:\n\n{prompt}"
+    )
+
+    # Evaluate using a modern Gemini model
+    eval_result = eval_task.evaluate(
+        model=MODEL_NAME,
+        prompt_template=prompt_template,
+    )
+
+    print("=== SUMMARY METRICS ===")
+    print(eval_result.summary_metrics)
+
+    print("\n=== METRICS TABLE SAMPLE ===")
+    print(eval_result.metrics_table.head())
+
+    return eval_result
+```
 
 ### Console
 
 To create a model evaluation job by using the Google Cloud console, perform the following steps:
 
-In the Google Cloud console, go to the **Gemini Enterprise Agent Platform Model Registry** page.
-
-Click the name of the model that you want to evaluate.
-
-In the **Evaluate** tab, click **Create evaluation** and configure as follows:
-
-  - **Objective** : Select the task that you want to evaluate.
-  - **Target column or field** : (Classification only) Enter the target column for prediction. Example: `ground_truth` .
-  - **Source path** : Enter or select the URI of your evaluation dataset.
-  - **Output format** : Enter the format of the evaluation output. Currently, only `jsonl` is supported.
-  - **Cloud Storage path** : Enter or select the URI to store evaluation output.
-  - **Class names** : (Classification only) Enter the list of possible class names.
-  - **Number of compute nodes** : Enter the number of compute nodes to run the evaluation job.
-  - **Machine type** : Select a machine type to use for running the evaluation job.
-
-Click **Start evaluation**
+1.  In the Google Cloud console, go to the **Gemini Enterprise Agent Platform Model Registry** page.
+2.  Click the name of the model that you want to evaluate.
+3.  In the **Evaluate** tab, click **Create evaluation** and configure as follows:
+    - **Objective** : Select the task that you want to evaluate.
+    - **Target column or field** : (Classification only) Enter the target column for prediction. Example: `ground_truth` .
+    - **Source path** : Enter or select the URI of your evaluation dataset.
+    - **Output format** : Enter the format of the evaluation output. Currently, only `jsonl` is supported.
+    - **Cloud Storage path** : Enter or select the URI to store evaluation output.
+    - **Class names** : (Classification only) Enter the list of possible class names.
+    - **Number of compute nodes** : Enter the number of compute nodes to run the evaluation job.
+    - **Machine type** : Select a machine type to use for running the evaluation job.
+4.  Click **Start evaluation**
 
 ## View evaluation results
 
@@ -411,5 +368,5 @@ For tuned models, you can also view evaluation results in the Google Cloud conso
 
 ## What's next
 
-  - Learn about [generative AI evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview) .
-  - Learn how to [tune a foundation model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
+- Learn about [generative AI evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview) .
+- Learn how to [tune a foundation model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .

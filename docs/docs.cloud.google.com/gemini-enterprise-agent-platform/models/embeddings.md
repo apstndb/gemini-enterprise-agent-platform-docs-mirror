@@ -16,11 +16,11 @@ Gemini Enterprise Agent Platform supports text and multimodal embedding models.
 
 Some common use cases for text embeddings include:
 
-  - **Semantic search** : Search text ranked by semantic similarity.
-  - **Classification** : Return the class of items whose text attributes are similar to the given text.
-  - **Clustering** : Cluster items whose text attributes are similar to the given text.
-  - **Outlier Detection** : Return items where text attributes are least related to the given text.
-  - **Conversational interface** : Clusters groups of sentences which can lead to similar responses, like in a conversation-level embedding space.
+- **Semantic search** : Search text ranked by semantic similarity.
+- **Classification** : Return the class of items whose text attributes are similar to the given text.
+- **Clustering** : Cluster items whose text attributes are similar to the given text.
+- **Outlier Detection** : Return items where text attributes are least related to the given text.
+- **Conversational interface** : Clusters groups of sentences which can lead to similar responses, like in a conversation-level embedding space.
 
 ### Example use case: Develop a book recommendation chatbot
 
@@ -36,21 +36,21 @@ Working with generative AI, this book-suggestion chatbot could summarize, sugges
 
 Some common use cases for multimodal embeddings include:
 
-  - Image and text use cases:
-    
-      - **Image classification** : Takes an image as input and predicts one or more classes (labels).
-      - **Image search** : Search relevant or similar images.
-      - **Recommendations** : Generate product or ad recommendations based on images.
+- Image and text use cases:
 
-  - Image, text, and video use cases:
-    
-      - **Recommendations** : Generate product or advertisement recommendations based on videos (similarity search).
-      - **Video content search**
-      - **Using semantic search** : Take a text as an input, and return a set of ranked frames matching the query.
-      - **Using similarity search** :
-          - Take a video as an input, and return a set of videos matching the query.
-          - Take an image as an input, and return a set of videos matching the query.
-      - **Video classification** : Takes a video as input and predicts one or more classes.
+  - **Image classification** : Takes an image as input and predicts one or more classes (labels).
+  - **Image search** : Search relevant or similar images.
+  - **Recommendations** : Generate product or ad recommendations based on images.
+
+- Image, text, and video use cases:
+
+  - **Recommendations** : Generate product or advertisement recommendations based on videos (similarity search).
+  - **Video content search**
+  - **Using semantic search** : Take a text as an input, and return a set of ranked frames matching the query.
+  - **Using similarity search** :
+    - Take a video as an input, and return a set of videos matching the query.
+    - Take an image as an input, and return a set of videos matching the query.
+  - **Video classification** : Takes a video as input and predicts one or more classes.
 
 ### Example use case: Online retail experience
 
@@ -60,10 +60,10 @@ If you want to create a multimodal embedding for an online retail use case, star
 
 ## What's next
 
-  - To learn more about embeddings, see [Meet AI's multitool: Vector embeddings](https://cloud.google.com/blog/topics/developers-practitioners/meet-ais-multitool-vector-embeddings) .
-  - To take a foundational ML crash course on embeddings, see [Embeddings](https://developers.google.com/machine-learning/crash-course/embeddings/video-lecture) .
-  - To learn more about how to store vector embeddings in a database, see the [Overview of Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) .
-  - To learn about responsible AI best practices and Gemini Enterprise Agent Platform's safety filters, see [Responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .
-  - To learn how to get embeddings, see the following documents:
-      - [Get text embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings)
-      - [Get multimodal embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings)
+- To learn more about embeddings, see [Meet AI's multitool: Vector embeddings](https://cloud.google.com/blog/topics/developers-practitioners/meet-ais-multitool-vector-embeddings) .
+- To take a foundational ML crash course on embeddings, see [Embeddings](https://developers.google.com/machine-learning/crash-course/embeddings/video-lecture) .
+- To learn more about how to store vector embeddings in a database, see the [Overview of Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) .
+- To learn about responsible AI best practices and Gemini Enterprise Agent Platform's safety filters, see [Responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .
+- To learn how to get embeddings, see the following documents:
+  - [Get text embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings)
+  - [Get multimodal embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings)

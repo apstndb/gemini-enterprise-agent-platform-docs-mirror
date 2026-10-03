@@ -8,24 +8,10 @@ data_source: docs.cloud.google.com
 
 Supported image sizes for image output.
 
-Enums
-
-`IMAGE_SIZE_UNSPECIFIED`
-
-Default value. This value is unused.
-
-`IMAGE_SIZE_FIVE_TWELVE`
-
-512px image size.
-
-`IMAGE_SIZE_ONE_K`
-
-1K image size.
-
-`IMAGE_SIZE_TWO_K`
-
-2K image size.
-
-`IMAGE_SIZE_FOUR_K`
-
-4K image size.
+| Enums                    |                                      |
+|--------------------------|--------------------------------------|
+| `IMAGE_SIZE_UNSPECIFIED` | Default value. This value is unused. |
+| `IMAGE_SIZE_FIVE_TWELVE` | 512px image size.                    |
+| `IMAGE_SIZE_ONE_K`       | 1K image size.                       |
+| `IMAGE_SIZE_TWO_K`       | 2K image size.                       |
+| `IMAGE_SIZE_FOUR_K`      | 4K image size.                       |

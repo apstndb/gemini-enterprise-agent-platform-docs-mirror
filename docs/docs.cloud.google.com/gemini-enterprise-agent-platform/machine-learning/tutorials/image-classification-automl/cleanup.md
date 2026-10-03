@@ -38,7 +38,7 @@ Before you can delete your model and endpoint, you must undeploy the model.
 
 3.  Click the **Deploy & test** tab.
 
-4.  Find your model. On your model's row, click the three vertical dots more\_vert , then click **Undeploy model** .
+4.  Find your model. On your model's row, click the three vertical dots more_vert , then click **Undeploy model** .
 
 5.  In **Undeploy model** , click **Confirm** .
 
@@ -46,7 +46,7 @@ Before you can delete your model and endpoint, you must undeploy the model.
 
 1.  In the Google Cloud console, in the Gemini Enterprise Agent Platform section, go to the **Endpoints** page.
 
-2.  Find your endpoint, `hello_automl_image` . On that row, click the three vertical dots more\_vert , then click **Remove endpoint** .
+2.  Find your endpoint, `hello_automl_image` . On that row, click the three vertical dots more_vert , then click **Remove endpoint** .
 
 3.  In **Remove endpoint** , click **Confirm** .
 
@@ -54,7 +54,7 @@ Before you can delete your model and endpoint, you must undeploy the model.
 
 1.  In the Google Cloud console, in the Gemini Enterprise Agent Platform section, go to the **Models** page.
 
-2.  Find your model. On that row, click the three vertical dots more\_vert , then click **Delete model** .
+2.  Find your model. On that row, click the three vertical dots more_vert , then click **Delete model** .
 
 3.  In **Delete model and all of its associated versions** , click **Delete** .
 
@@ -62,7 +62,7 @@ Before you can delete your model and endpoint, you must undeploy the model.
 
 1.  In the Google Cloud console, in the Gemini Enterprise Agent Platform section, go to the **Datasets** page.
 
-2.  Find your dataset. On that row, click the three vertical dots more\_vert , then click **Delete dataset** .
+2.  Find your dataset. On that row, click the three vertical dots more_vert , then click **Delete dataset** .
 
 3.  In **Delete dataset** , click **Delete** .
 
@@ -78,6 +78,6 @@ Cloud Shell incurs no charges, and it [automatically deletes your home disk afte
 
 ## What's next
 
-  - To learn about additional ways to train ML models on Gemini Enterprise Agent Platform, try one of the other [Gemini Enterprise Agent Platform tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials) .
+- To learn about additional ways to train ML models on Gemini Enterprise Agent Platform, try one of the other [Gemini Enterprise Agent Platform tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials) .
 
-  - Read an [overview of how Gemini Enterprise Agent Platform works](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning) .
+- Read an [overview of how Gemini Enterprise Agent Platform works](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning) .

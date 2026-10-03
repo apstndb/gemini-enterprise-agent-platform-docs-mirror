@@ -19,32 +19,40 @@ The Agent Platform SDK for Python is recommended if you're an experienced machin
 To use the Agent Platform SDK for Python:
 
 1.  Install the `google-cloud-aiplatform` package, which includes both the Agent Platform SDK for Python and the Gemini Enterprise Agent Platform Python client library, by running the following command in your virtual environment:
-    
-        pip install --upgrade google-cloud-aiplatform
+
+    ```
+    pip install --upgrade google-cloud-aiplatform
+    ```
 
 2.  Use the following code to import the `google.cloud.aiplatform` namespace:
-    
-        from google.cloud import aiplatform
-    
+
+    ```
+    from google.cloud import aiplatform
+    ```
+
     > **Preview:** To use features for the Agent Platform SDK for Python that are still in [preview](https://cloud.google.com/products/#product-launch-stages) , import `vertexai.preview` :
-    > 
-    >     import vertexai.preview
+    >
+    > ```
+    > import vertexai.preview
+    > ```
 
 3.  If you're using a local shell, then create local authentication credentials for your user account:
-    
-        gcloud auth application-default login
-    
+
+    ```
+    gcloud auth application-default login
+    ```
+
     You don't need to do this if you're using Cloud Shell.
-    
+
     If an authentication error is returned, and you are using an external identity provider (IdP), confirm that you have [signed in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 ### Learn about the Agent Platform SDK for Python
 
 See the following documentation:
 
-  - [Agent Platform SDK class overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/python-sdk-class-overview) : introduces the key classes and functionality in the Agent Platform SDK.
+- [Agent Platform SDK class overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/python-sdk-class-overview) : introduces the key classes and functionality in the Agent Platform SDK.
 
-  - [Python reference for Gemini Enterprise Agent Platform](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) : contains reference documentation for all of the namespaces, classes, methods, and properties in the `google-cloud-aiplatform` package, which includes the Agent Platform SDK, the Agent Platform SDK preview, and the Gemini Enterprise Agent Platform Client libraries.
+- [Python reference for Gemini Enterprise Agent Platform](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) : contains reference documentation for all of the namespaces, classes, methods, and properties in the `google-cloud-aiplatform` package, which includes the Agent Platform SDK, the Agent Platform SDK preview, and the Gemini Enterprise Agent Platform Client libraries.
 
 ### Try code samples and tutorials
 
@@ -53,8 +61,8 @@ Notebook tutorials show how to use the Agent Platform SDK for Python as part of 
 Code samples in the Agent Platform SDK for Python GitHub repository show you how to complete individual tasks. For more information, see the [Agent Platform SDK for Python GitHub repository](https://github.com/googleapis/python-aiplatform/) .
 
 > To see an example of using the Agent Platform SDK as part of a more comprehensive workflow, run the "Custom training and online prediction" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/custom/sdk-custom-image-classification-online.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fcustom%2Fsdk-custom-image-classification-online.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fcustom%2Fsdk-custom-image-classification-online.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/custom/sdk-custom-image-classification-online.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/custom/sdk-custom-image-classification-online.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fcustom%2Fsdk-custom-image-classification-online.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fcustom%2Fsdk-custom-image-classification-online.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/custom/sdk-custom-image-classification-online.ipynb)
 
 ## Understand the Agent Platform SDK and client library differences
 
@@ -70,10 +78,14 @@ If you use the Agent Platform SDK for Python and discover you need greater flexi
 
 The Gemini Enterprise Agent Platform Python client library namespace is `google.cloud.aiplatform.gapic` . This namespace maps to the `google.cloud.aiplatform_v1` namespace. These two namespaces can be used interchangeably. To import the Python client library, include one of the following in your Python script:
 
-    from google.cloud import aiplatform_v1
+```
+from google.cloud import aiplatform_v1
+```
 
-    from google.cloud.aiplatform import gapic
+```
+from google.cloud.aiplatform import gapic
+```
 
 ## What's next
 
-  - Learn how to [choose a training method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-methods) .
+- Learn how to [choose a training method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-methods) .

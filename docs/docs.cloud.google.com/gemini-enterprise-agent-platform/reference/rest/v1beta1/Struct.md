@@ -10,25 +10,21 @@ data_source: docs.cloud.google.com
 
 Fields
 
-`fields[]` ` object ( Field  ` )
+`fields[]` `object ( `[`Field`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Struct#Field)` )`
 
 Dynamically typed fields. List instead of map because LLMs are sensitive to ordering, and we want to give users full control.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;fields&quot;: [{object (Field)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "fields": [
+    {
+      object (Field)
+    }
+  ]
+}
+```
 
 ## Field
 
@@ -38,20 +34,15 @@ Fields
 
 `name` `string`
 
-`value` ` object ( Value  ` )
+`value` `object ( `[`Value`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Value)` )`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;value&quot;: {object (Value)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "value": {
+    object (Value)
+  }
+}
+```

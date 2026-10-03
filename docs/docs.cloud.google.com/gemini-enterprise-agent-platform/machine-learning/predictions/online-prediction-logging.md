@@ -12,21 +12,21 @@ For AutoML tabular models, AutoML image models, and custom-trained models, you c
 
 There are several types of inference logs that you can use to get information from your inference nodes:
 
-  - **Container logging** , which logs the `stdout` and `stderr` streams from your inference nodes to [Cloud Logging](https://docs.cloud.google.com/logging/docs/overview) . These logs are required for debugging.
-    
-      - On the `v1` service endpoint, container logging is enabled by default. You can disable it when you deploy a model. You can also disable or enable logging when you [mutate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/mutateDeployedModel) the deployed model.
-    
-      - On the `v1beta1` service endpoint, container logging is disabled by default. You can enable it when you deploy a model. You can also disable or enable logging when you [mutate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/mutateDeployedModel) the deployed model.
-    
-    > **Note:** The default logging behavior in Python sends outputs to `stderr` , which will appear at the `ERROR` level in Cloud Logging. If you'd like for container logs to appear at the `INFO` level, configure your container logging to send outputs to `stdout` . For more information, see the Python [Logging handlers](https://docs.python.org/3/library/logging.handlers.html) tutorials and the Python [Logging Cookbook](https://docs.python.org/3/howto/logging-cookbook.html) .
+- **Container logging** , which logs the `stdout` and `stderr` streams from your inference nodes to [Cloud Logging](https://docs.cloud.google.com/logging/docs/overview) . These logs are required for debugging.
 
-  - **Access logging** , which logs information like timestamp and latency for each request to Cloud Logging.
-    
-    On both the `v1` and `v1beta1` service endpoints, access logging is disabled by default. You can enable access logging when you deploy a model to an endpoint.
+  - On the `v1` service endpoint, container logging is enabled by default. You can disable it when you deploy a model. You can also disable or enable logging when you [mutate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/mutateDeployedModel) the deployed model.
 
-  - **Request-response logging** , which logs a sample of online inference requests and responses to a BigQuery table.
-    
-    You can enable request-response logging by creating or patching the inference endpoint.
+  - On the `v1beta1` service endpoint, container logging is disabled by default. You can enable it when you deploy a model. You can also disable or enable logging when you [mutate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/mutateDeployedModel) the deployed model.
+
+  > **Note:** The default logging behavior in Python sends outputs to `stderr` , which will appear at the `ERROR` level in Cloud Logging. If you'd like for container logs to appear at the `INFO` level, configure your container logging to send outputs to `stdout` . For more information, see the Python [Logging handlers](https://docs.python.org/3/library/logging.handlers.html) tutorials and the Python [Logging Cookbook](https://docs.python.org/3/howto/logging-cookbook.html) .
+
+- **Access logging** , which logs information like timestamp and latency for each request to Cloud Logging.
+
+  On both the `v1` and `v1beta1` service endpoints, access logging is disabled by default. You can enable access logging when you deploy a model to an endpoint.
+
+- **Request-response logging** , which logs a sample of online inference requests and responses to a BigQuery table.
+
+  You can enable request-response logging by creating or patching the inference endpoint.
 
 You can enable or disable each type of log independently.
 
@@ -60,27 +60,31 @@ To change the default behavior for which logs are enabled in deployed models, ad
 
 Run [`gcloud ai endpoints deploy-model`](https://docs.cloud.google.com/sdk/gcloud/reference/ai/endpoints/deploy-model) :
 
-    gcloud ai endpoints deploy-model ENDPOINT_ID\
-      --region=LOCATION \
-      --model=MODEL_ID \
-      --display-name=DEPLOYED_MODEL_NAME \
-      --machine-type=MACHINE_TYPE \
-      --accelerator=count=2,type=nvidia-tesla-t4 \
-      --disable-container-logging \
-      --enable-access-logging
+```
+gcloud ai endpoints deploy-model ENDPOINT_ID\
+  --region=LOCATION \
+  --model=MODEL_ID \
+  --display-name=DEPLOYED_MODEL_NAME \
+  --machine-type=MACHINE_TYPE \
+  --accelerator=count=2,type=nvidia-tesla-t4 \
+  --disable-container-logging \
+  --enable-access-logging
+```
 
 ### `v1beta1` service endpoint
 
 Run [`gcloud beta ai endpoints deploy-model`](https://docs.cloud.google.com/sdk/gcloud/reference/beta/ai/endpoints/deploy-model) :
 
-    gcloud beta ai endpoints deploy-model ENDPOINT_ID\
-      --region=LOCATION \
-      --model=MODEL_ID \
-      --display-name=DEPLOYED_MODEL_NAME \
-      --machine-type=MACHINE_TYPE \
-      --accelerator=count=2,type=nvidia-tesla-t4 \
-      --enable-access-logging \
-      --enable-container-logging
+```
+gcloud beta ai endpoints deploy-model ENDPOINT_ID\
+  --region=LOCATION \
+  --model=MODEL_ID \
+  --display-name=DEPLOYED_MODEL_NAME \
+  --machine-type=MACHINE_TYPE \
+  --accelerator=count=2,type=nvidia-tesla-t4 \
+  --enable-access-logging \
+  --enable-container-logging
+```
 
 Use the REST API to update the settings for container logs.
 
@@ -114,35 +118,36 @@ Request-response logging is done at the endpoint level, so requests sent to any 
 
 When you create or patch an endpoint, populate the `predictRequestResponseLoggingConfig` field of the [Endpoint resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints) with the following entries:
 
-  - `enabled` : set to `True` to enable request-response logging.
+- `enabled` : set to `True` to enable request-response logging.
 
-  - `samplingPercentage` : a number between 0 or 1 defining the fraction of requests to log. For example, set this value to `1` in order to log all requests or to `0.1` to log 10% of requests.
+- `samplingPercentage` : a number between 0 or 1 defining the fraction of requests to log. For example, set this value to `1` in order to log all requests or to `0.1` to log 10% of requests.
 
-  - [`BigQueryDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/BigQueryDestination) : the BigQuery table to be used for logging. If you only specify a project name, a new dataset is created with the name ` logging_ ENDPOINT_DISPLAY_NAME _ ENDPOINT_ID  ` , where `  ENDPOINT_DISPLAY_NAME  ` follows the [BigQuery naming rules](https://docs.cloud.google.com/bigquery/docs/datasets#dataset-naming) . If you don't specify a table name, a new table is created with the name `request_response_logging` .
-    
-    The schema for the BigQuery table should look like the following:
-    
-    | Field name          | Type      | Mode     |
-    | ------------------- | --------- | -------- |
-    | `endpoint`          | STRING    | NULLABLE |
-    | `deployed_model_id` | STRING    | NULLABLE |
-    | `logging_time`      | TIMESTAMP | NULLABLE |
-    | `request_id`        | NUMERIC   | NULLABLE |
-    | `request_payload`   | STRING    | REPEATED |
-    | `response_payload`  | STRING    | REPEATED |
-    
+- [`BigQueryDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/BigQueryDestination) : the BigQuery table to be used for logging. If you only specify a project name, a new dataset is created with the name `logging_ `` ENDPOINT_DISPLAY_NAME `` _ `` ENDPOINT_ID` , where `ENDPOINT_DISPLAY_NAME` follows the [BigQuery naming rules](https://docs.cloud.google.com/bigquery/docs/datasets#dataset-naming) . If you don't specify a table name, a new table is created with the name `request_response_logging` .
+
+  The schema for the BigQuery table should look like the following:
+
+  | Field name          | Type      | Mode     |
+  |---------------------|-----------|----------|
+  | `endpoint`          | STRING    | NULLABLE |
+  | `deployed_model_id` | STRING    | NULLABLE |
+  | `logging_time`      | TIMESTAMP | NULLABLE |
+  | `request_id`        | NUMERIC   | NULLABLE |
+  | `request_payload`   | STRING    | REPEATED |
+  | `response_payload`  | STRING    | REPEATED |
 
 The following is an example configuration:
 
-    {
-       "predict_request_response_logging_config": {
-         "enabled": true,
-         "sampling_rate": 0.5,
-         "bigquery_destination": {
-           "output_uri": "bq://PROJECT_ID.DATASET_NAME.TABLE_NAME"
-         }
-       }
-    }
+```
+{
+   "predict_request_response_logging_config": {
+     "enabled": true,
+     "sampling_rate": 0.5,
+     "bigquery_destination": {
+       "output_uri": "bq://PROJECT_ID.DATASET_NAME.TABLE_NAME"
+     }
+   }
+}
+```
 
 ## Inference request-response logging for dedicated endpoints and Private Service Connect endpoints
 
@@ -152,68 +157,72 @@ Request-response logging is available only for the [`predict`](https://docs.clou
 
 To enable request-response logging, populate the [`predictRequestResponseLoggingConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#PredictRequestResponseLoggingConfig) field of the [Endpoint resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints) with the following entries:
 
-  - `enabled` : set to `True` to enable request-response logging.
+- `enabled` : set to `True` to enable request-response logging.
 
-  - `samplingRate` : the fraction of requests and responses to log. Set to a number that is greater than 0 and less than or equal to 1. For example, set this value to `1` in order to log all requests or to `0.1` to log 10% of requests.
+- `samplingRate` : the fraction of requests and responses to log. Set to a number that is greater than 0 and less than or equal to 1. For example, set this value to `1` in order to log all requests or to `0.1` to log 10% of requests.
 
-  - [`BigQueryDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/BigQueryDestination) : the BigQuery location for the output content, as a URI to a project or table.
+- [`BigQueryDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/BigQueryDestination) : the BigQuery location for the output content, as a URI to a project or table.
 
 The following is an example configuration for creating a dedicated endpoint with request-response logging enabled:
 
-    curl -X POST \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer `gcloud auth print-access-token`" https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION_ID/endpoints \
-    -d '{displayName: "ENDPOINT_NAME", \
-         dedicatedEndpointEnabled: true, \
-         predictRequestResponseLoggingConfig: { \
-           enabled: true, \
-           samplingRate: 1.0, \
-           bigqueryDestination: { \
-              outputUri:"bq://PROJECT_ID" \
-           } \
-         } \
-       }'
+```
+curl -X POST \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer `gcloud auth print-access-token`" https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION_ID/endpoints \
+-d '{displayName: "ENDPOINT_NAME", \
+     dedicatedEndpointEnabled: true, \
+     predictRequestResponseLoggingConfig: { \
+       enabled: true, \
+       samplingRate: 1.0, \
+       bigqueryDestination: { \
+          outputUri:"bq://PROJECT_ID" \
+       } \
+     } \
+   }'
+```
 
 Replace the following:
 
-  - LOCATION\_ID : The region where you are using Agent Platform.
-  - PROJECT\_NUMBER : The project number for your Google Cloud project.
-  - ENDPOINT\_NAME : The display name for the endpoint.
-  - PROJECT\_ID : The project ID for your Google Cloud project.
+- ` LOCATION_ID ` : The region where you are using Agent Platform.
+- ` PROJECT_NUMBER ` : The project number for your Google Cloud project.
+- ` ENDPOINT_NAME ` : The display name for the endpoint.
+- ` PROJECT_ID ` : The project ID for your Google Cloud project.
 
 The following is an example configuration for creating a Private Service Connect endpoint with request-response logging enabled:
 
-    curl -X POST \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer `gcloud auth print-access-token`" https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION_ID/endpoints \
-    -d '{displayName: "ENDPOINT_NAME", \
-         privateServiceConnectConfig: { \
-           enablePrivateServiceConnect: true, \
-           projectAllowlist: ["ALLOWED_PROJECTS"] \
-         }, \
-         predictRequestResponseLoggingConfig: { \
-           enabled: true, \
-           samplingRate: 1.0, \
-           bigqueryDestination: { \
-              outputUri:"bq://PROJECT_ID" \
-           } \
-         } \
-       }'
+```
+curl -X POST \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer `gcloud auth print-access-token`" https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION_ID/endpoints \
+-d '{displayName: "ENDPOINT_NAME", \
+     privateServiceConnectConfig: { \
+       enablePrivateServiceConnect: true, \
+       projectAllowlist: ["ALLOWED_PROJECTS"] \
+     }, \
+     predictRequestResponseLoggingConfig: { \
+       enabled: true, \
+       samplingRate: 1.0, \
+       bigqueryDestination: { \
+          outputUri:"bq://PROJECT_ID" \
+       } \
+     } \
+   }'
+```
 
 Replace the following:
 
-  - `ALLOWED_PROJECTS` : a comma-separated list of Google Cloud project IDs, each enclosed in quotation marks. For example, `["PROJECTID1", "PROJECTID2"]` . If a project isn't contained in this list, you won't be able to send inference requests to the Agent Platform endpoint from it. Make sure to include VERTEX\_AI\_PROJECT\_ID in this list so that you can call the endpoint from the same project it's in.
+- ` ``ALLOWED_PROJECTS`` ` : a comma-separated list of Google Cloud project IDs, each enclosed in quotation marks. For example, `["PROJECTID1", "PROJECTID2"]` . If a project isn't contained in this list, you won't be able to send inference requests to the Agent Platform endpoint from it. Make sure to include ` VERTEX_AI_PROJECT_ID ` in this list so that you can call the endpoint from the same project it's in.
 
 ## Request-response logging and Model Monitoring v1
 
 Request-response logging and [Model Monitoring v1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview) use the same BigQuery table on the backend to log incoming requests. To prevent unexpected changes to this BigQuery table, the following limitations are enforced when using both features at the same time:
 
-  - If an endpoint has Model Monitoring enabled, you can't enable request-response logging for the same endpoint.
+- If an endpoint has Model Monitoring enabled, you can't enable request-response logging for the same endpoint.
 
-  - If you enable request-response logging and then Model Monitoring on the same endpoint, you won't be able to change the request-response logging configuration.
+- If you enable request-response logging and then Model Monitoring on the same endpoint, you won't be able to change the request-response logging configuration.
 
 ## What's next
 
-  - [Estimate pricing](https://docs.cloud.google.com/stackdriver/estimating-bills) for online inference logging.
-  - Deploy a model [using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console) or [using the Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) .
-  - Learn [how to create a BigQuery table](https://docs.cloud.google.com/bigquery/docs/tables) .
+- [Estimate pricing](https://docs.cloud.google.com/stackdriver/estimating-bills) for online inference logging.
+- Deploy a model [using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console) or [using the Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) .
+- Learn [how to create a BigQuery table](https://docs.cloud.google.com/bigquery/docs/tables) .

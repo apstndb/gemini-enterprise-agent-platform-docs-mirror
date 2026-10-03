@@ -10,33 +10,31 @@ The prediction result for a large vision model embedding request. An embedding i
 
 Fields
 
-`imageEmbedding` ` array ( ListValue  ` format)
+`imageEmbedding` `array ( `[`ListValue`](https://protobuf.dev/reference/protobuf/google.protobuf/#list-value)` format)`
 
 The embedding generated from the input image. This field is populated if the prediction request contained an image.
 
-`textEmbedding` ` array ( ListValue  ` format)
+`textEmbedding` `array ( `[`ListValue`](https://protobuf.dev/reference/protobuf/google.protobuf/#list-value)` format)`
 
 The embedding generated from the input text. This field is populated if the prediction request contained text.
 
-`videoEmbeddings[]` ` object ( VideoEmbedding  ` )
+`videoEmbeddings[]` `object ( `[`VideoEmbedding`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VisionEmbeddingModelResult#VideoEmbedding)` )`
 
 The embeddings generated from the input video. This field is populated if the prediction request contained a video. The video is divided into 1-second segments, and an embedding is generated for each segment.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;imageEmbedding&quot;: array,&quot;textEmbedding&quot;: array,&quot;videoEmbeddings&quot;: [{object (VideoEmbedding)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "imageEmbedding": array,
+  "textEmbedding": array,
+  "videoEmbeddings": [
+    {
+      object (VideoEmbedding)
+    }
+  ]
+}
+```
 
 ## VideoEmbedding
 
@@ -52,26 +50,16 @@ The start time of the video segment that this embedding represents, measured in 
 
 The end time of the video segment that this embedding represents, measured in seconds from the beginning of the video.
 
-`embedding` ` array ( ListValue  ` format)
+`embedding` `array ( `[`ListValue`](https://protobuf.dev/reference/protobuf/google.protobuf/#list-value)` format)`
 
 The 1024-dimension embedding vector for this video segment.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;startOffsetSec&quot;: integer,
-  &quot;endOffsetSec&quot;: integer,
-  &quot;embedding&quot;: array
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "startOffsetSec": integer,
+  "endOffsetSec": integer,
+  "embedding": array
+}
+```

@@ -38,7 +38,7 @@ Optional. The standard list filter that will be applied to the retrieved memorie
 
 Supported fields: \* `fact` \* `createTime` \* `updateTime` \* `topics` (i.e. `topics.custom_memory_topic_label: "example topic" OR topics.managed_memory_topic: USER_PREFERENCES` )
 
-`memoryTypes[]` ` enum ( MemoryType  ` )
+`memoryTypes[]` `enum ( `[`MemoryType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/MemoryType)` )`
 
 Optional. Specifies the types of memories to retrieve. If this field is empty or not provided, the request will default to retrieving only memories of type `NATURAL_LANGUAGE_COLLECTION` . If populated, the request will retrieve memories matching any of the specified `MemoryType` values.
 
@@ -46,11 +46,11 @@ Optional. Specifies the types of memories to retrieve. If this field is empty or
 
 Parameters for retrieval. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`similaritySearchParams` ` object ( SimilaritySearchParams  ` )
+`similaritySearchParams` `object ( `[`SimilaritySearchParams`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/SimilaritySearchParams)` )`
 
 Parameters for semantic similarity search based retrieval.
 
-`simpleRetrievalParams` ` object ( SimpleRetrievalParams  ` )
+`simpleRetrievalParams` `object ( `[`SimpleRetrievalParams`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/SimpleRetrievalParams)` )`
 
 Parameters for simple (non-similarity search) retrieval.
 
@@ -58,4 +58,4 @@ End of mutually exclusive fields.
 
 ### Response body
 
-If successful, the response body contains an instance of `  RetrieveMemoriesResponse  ` .
+If successful, the response body contains an instance of [`RetrieveMemoriesResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RetrieveMemoriesResponse) .

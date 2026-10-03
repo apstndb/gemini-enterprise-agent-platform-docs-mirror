@@ -7,12 +7,12 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > Deploy models with custom weights is a Preview offering, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . Pre-GA products and features may have limited support, and changes to Pre-GA products and features may not be compatible with other Pre-GA versions. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages) . Further, by using the Gemini API on Gemini Enterprise Agent Platform, you agree to the Generative AI Preview [terms and conditions](https://cloud.google.com/trustedtester/aitos) (Preview Terms).
 
 > To see an example of deploying models with custom weights, run the "Import, deploy, and serve custom open models on using SDK." notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/open-models/get_started_with_model_garden_sdk_custom_import.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fopen-models%2Fget_started_with_model_garden_sdk_custom_import.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fopen-models%2Fget_started_with_model_garden_sdk_custom_import.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/open-models/get_started_with_model_garden_sdk_custom_import.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/open-models/get_started_with_model_garden_sdk_custom_import.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fopen-models%2Fget_started_with_model_garden_sdk_custom_import.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fopen-models%2Fget_started_with_model_garden_sdk_custom_import.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/open-models/get_started_with_model_garden_sdk_custom_import.ipynb)
 
 Deploy models with custom weights is a Preview offering. You can fine tune models based on a predefined set of base models, and deploy your customized models on Gemini Enterprise Agent Platform Model Garden. You can deploy your custom models using the custom weights import by uploading your model artifacts to a Cloud Storage bucket in your project, which is a one-click experience in Agent Platform.
 
@@ -121,28 +121,28 @@ This table lists the types of model files, which depend on the model's architect
 <tr class="odd">
 <td>Model configuration</td>
 <td><ul>
-<li><code dir="ltr" translate="no">config.json</code></li>
+<li><code>config.json</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td>Model weights</td>
 <td><ul>
-<li><code dir="ltr" translate="no">*.safetensors</code></li>
-<li><code dir="ltr" translate="no">*.bin</code></li>
+<li><code>*.safetensors</code></li>
+<li><code>*.bin</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
 <td>Weights index</td>
 <td><ul>
-<li><code dir="ltr" translate="no">*.index.json</code></li>
+<li><code>*.index.json</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td>Tokenizer file(s)</td>
 <td><ul>
-<li><code dir="ltr" translate="no">tokenizer.model</code></li>
-<li><code dir="ltr" translate="no">tokenizer.json</code></li>
-<li><code dir="ltr" translate="no">tokenizer_config.json</code></li>
+<li><code>tokenizer.model</code></li>
+<li><code>tokenizer.json</code></li>
+<li><code>tokenizer_config.json</code></li>
 </ul></td>
 </tr>
 </tbody>
@@ -159,7 +159,7 @@ This section demonstrates how to deploy your custom model.
 #### Before you begin
 
 1.  In the Google Cloud console, activate Cloud Shell.
-    
+
     At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) session starts and displays a command-line prompt. Cloud Shell is a shell environment with the Google Cloud CLI already installed and with values already set for your current project. It can take a few seconds for the session to initialize.
 
 This tutorial assumes that you are using [Cloud Shell](https://docs.cloud.google.com/shell/docs) to interact with Google Cloud. If you want to use a different shell instead of Cloud Shell, then perform the following additional configuration:
@@ -169,8 +169,10 @@ This tutorial assumes that you are using [Cloud Shell](https://docs.cloud.google
 2.  If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 3.  To [initialize](https://docs.cloud.google.com/sdk/docs/initializing) the gcloud CLI, run the following command:
-    
-        gcloud init
+
+    ```
+    gcloud init
+    ```
 
 ### Deploy the custom model
 
@@ -178,21 +180,21 @@ This section demonstrates how to deploy your custom model.
 
 If you're using the command-line interface (CLI), Python, or JavaScript, replace the following variables with a value for your code samples to work:
 
-  - **REGION** : Your region. For example, `uscentral1` .
+- **` REGION `** : Your region. For example, `uscentral1` .
 
-  - **MODEL\_GCS** : Your Google Cloud model. For example, `gs://custom-weights-fishfooding/meta-llama/Llama-3.2-1B-Instruct` .
+- **` MODEL_GCS `** : Your Google Cloud model. For example, `gs://custom-weights-fishfooding/meta-llama/Llama-3.2-1B-Instruct` .
 
-  - **PROJECT\_ID** : Your project ID.
+- **` PROJECT_ID `** : Your project ID.
 
-  - **MODEL\_ID** : Your model ID.
+- **` MODEL_ID `** : Your model ID.
 
-  - **MACHINE\_TYPE** : Your machine type. For example, `g2-standard-12` .
+- **` MACHINE_TYPE `** : Your machine type. For example, `g2-standard-12` .
 
-  - **ACCELERATOR\_TYPE** : Your accelerator type. For example, `NVIDIA_L4` .
+- **` ACCELERATOR_TYPE `** : Your accelerator type. For example, `NVIDIA_L4` .
 
-  - **ACCELERATOR\_COUNT** : Your accelerator count.
+- **` ACCELERATOR_COUNT `** : Your accelerator count.
 
-  - **PROMPT** : Your text prompt.
+- **` PROMPT `** : Your text prompt.
 
 ### Console
 
@@ -203,25 +205,25 @@ The following steps show you how to use the Google Cloud console to deploy your 
 2.  Click **Deploy model with custom weights** . The **Deploy a model with custom weights** pane appears.
 
 3.  In the **Model source** section, do the following:
-    
+
     1.  Click **Browse** , and choose your bucket where your model is stored, and click **Select** .
-    
+
     2.  Optional: Enter your model's name in the **Model name** field.
 
 4.  In the **Deployment settings** section, do the following:
-    
+
     1.  From the **Region** field, select your region, and click **OK** .
-    
+
     2.  In the **Machine Spec** field, select your machine specification, which is used to the deploy your model.
-    
+
     3.  Optional: In the **Endpoint name** field, your model's endpoint appears by default. However, you can enter a different endpoint name in the field.
-    
+
     4.  If your project enforces VPC-SC or if you'd prefer private access, select **Private (Private Service Connect)** from the **Endpoint access** field. Otherwise, select **Public** .
-    
+
     5.  If you use a Private Service Connect, enter your project IDs into the **Project IDs** field that are the projects where your query clients run, or click **Select project IDs** to display a dialog containing project IDs.
-        
+
         If you click **Select project IDs** , do the following:
-        
+
         1.  Find your project containing the code that's trying to access the model.
         2.  Click your project's checkbox.
         3.  Click **Select** .
@@ -232,86 +234,98 @@ The following steps show you how to use the Google Cloud console to deploy your 
 
 This command demonstrates how to deploy the model to a specific region.
 
-    gcloud ai model-garden models deploy --model=${MODEL_GCS} --region ${REGION}
+```
+gcloud ai model-garden models deploy --model=${MODEL_GCS} --region ${REGION}
+```
 
 This command demonstrates how to deploy the model to a specific region with its machine type, accelerator type, and accelerator count. If you want to select a specific machine configuration, then you must set all three fields.
 
-    gcloud ai model-garden models deploy --model=${MODEL_GCS} --machine-type=${MACHINE_TYE} --accelerator-type=${ACCELERATOR_TYPE} --accelerator-count=${ACCELERATOR_COUNT} --region ${REGION}
+```
+gcloud ai model-garden models deploy --model=${MODEL_GCS} --machine-type=${MACHINE_TYE} --accelerator-type=${ACCELERATOR_TYPE} --accelerator-count=${ACCELERATOR_COUNT} --region ${REGION}
+```
 
 ### Python
 
-    import vertexai
-    from google.cloud import aiplatform
-    from vertexai.preview import model_garden
-    
-    vertexai.init(project=${PROJECT_ID}, location=${REGION})
-    custom_model = model_garden.CustomModel(
-      gcs_uri=GCS_URI,
-    )
-    endpoint = custom_model.deploy(
-      machine_type="${MACHINE_TYPE}",
-      accelerator_type="${ACCELERATOR_TYPE}",
-      accelerator_count="${ACCELERATOR_COUNT}",
-      model_display_name="custom-model",
-      endpoint_display_name="custom-model-endpoint")
-    
-    endpoint.predict(instances=[{"prompt": "${PROMPT}"}], use_dedicated_endpoint=True)
+```
+import vertexai
+from google.cloud import aiplatform
+from vertexai.preview import model_garden
+
+vertexai.init(project=${PROJECT_ID}, location=${REGION})
+custom_model = model_garden.CustomModel(
+  gcs_uri=GCS_URI,
+)
+endpoint = custom_model.deploy(
+  machine_type="${MACHINE_TYPE}",
+  accelerator_type="${ACCELERATOR_TYPE}",
+  accelerator_count="${ACCELERATOR_COUNT}",
+  model_display_name="custom-model",
+  endpoint_display_name="custom-model-endpoint")
+
+endpoint.predict(instances=[{"prompt": "${PROMPT}"}], use_dedicated_endpoint=True)
+```
 
 Alternatively, you don't have to pass a parameter to the `custom_model.deploy()` method.
 
-    import vertexai
-    from google.cloud import aiplatform
-    from vertexai.preview import model_garden
-    
-    vertexai.init(project=${PROJECT_ID}, location=${REGION})
-    custom_model = model_garden.CustomModel(
-      gcs_uri=GCS_URI,
-    )
-    endpoint = custom_model.deploy()
-    
-    endpoint.predict(instances=[{"prompt": "${PROMPT}"}], use_dedicated_endpoint=True)
+```
+import vertexai
+from google.cloud import aiplatform
+from vertexai.preview import model_garden
+
+vertexai.init(project=${PROJECT_ID}, location=${REGION})
+custom_model = model_garden.CustomModel(
+  gcs_uri=GCS_URI,
+)
+endpoint = custom_model.deploy()
+
+endpoint.predict(instances=[{"prompt": "${PROMPT}"}], use_dedicated_endpoint=True)
+```
 
 ### curl
 
-    curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      "https://${REGION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/${REGION}:deploy" \
-      -d '{
-        "custom_model": {
-        "gcs_uri": "'"${MODEL_GCS}"'"
-      },
-      "destination": "projects/'"${PROJECT_ID}"'/locations/'"${REGION}"'",
-      "model_config": {
-         "model_user_id": "'"${MODEL_ID}"'",
-      },
-    }'
+```
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  "https://${REGION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/${REGION}:deploy" \
+  -d '{
+    "custom_model": {
+    "gcs_uri": "'"${MODEL_GCS}"'"
+  },
+  "destination": "projects/'"${PROJECT_ID}"'/locations/'"${REGION}"'",
+  "model_config": {
+     "model_user_id": "'"${MODEL_ID}"'",
+  },
+}'
+```
 
 Alternatively, you can use the API to explicitly set the machine type.
 
-    curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      "https://${REGION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/${REGION}:deploy" \
-      -d '{
-        "custom_model": {
-        "gcs_uri": "'"${MODEL_GCS}"'"
+```
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  "https://${REGION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/${REGION}:deploy" \
+  -d '{
+    "custom_model": {
+    "gcs_uri": "'"${MODEL_GCS}"'"
+  },
+  "destination": "projects/'"${PROJECT_ID}"'/locations/'"${REGION}"'",
+  "model_config": {
+     "model_user_id": "'"${MODEL_ID}"'",
+  },
+  "deploy_config": {
+    "dedicated_resources": {
+      "machine_spec": {
+        "machine_type": "'"${MACHINE_TYPE}"'",
+        "accelerator_type": "'"${ACCELERATOR_TYPE}"'",
+        "accelerator_count": '"${ACCELERATOR_COUNT}"'
       },
-      "destination": "projects/'"${PROJECT_ID}"'/locations/'"${REGION}"'",
-      "model_config": {
-         "model_user_id": "'"${MODEL_ID}"'",
-      },
-      "deploy_config": {
-        "dedicated_resources": {
-          "machine_spec": {
-            "machine_type": "'"${MACHINE_TYPE}"'",
-            "accelerator_type": "'"${ACCELERATOR_TYPE}"'",
-            "accelerator_count": '"${ACCELERATOR_COUNT}"'
-          },
-          "min_replica_count": 1
-        }
-      }
-    }'
+      "min_replica_count": 1
+    }
+  }
+}'
+```
 
 ## Deploy using the API
 
@@ -319,7 +333,7 @@ The VPC Service Controls only works with the private dedicated endpoint. Therefo
 
 ### curl
 
-``` 
+```
   curl -X POST \
     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
     -H "Content-Type: application/json" \
@@ -369,8 +383,8 @@ After the deployment has completed, follow these steps:
 
 You're adding a new endpoint to access Google APIs. This endpoint can be used in all regions of the VPC network that you select. Also, consider the following:
 
-  - Clients in networks connected to the endpoint's VPC network using hybrid connectivity can access the endpoint. For more information, see [Access Google APIs through endpoints](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis) .
-  - Clients in peered VPC networks can't access the endpoint.
+- Clients in networks connected to the endpoint's VPC network using hybrid connectivity can access the endpoint. For more information, see [Access Google APIs through endpoints](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis) .
+- Clients in peered VPC networks can't access the endpoint.
 
 ### List endpoint to get service attachment
 
@@ -378,14 +392,16 @@ This code sample demonstrates how to list an endpoint to get a service attachmen
 
 ### curl
 
-    $ curl \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      "https://us-central1-aiplatform.googleapis.com/v1beta1/projects/YOUR_PROJECT/locations/us-central1/endpoints/YOUR_ENDPOINT_ID"
+```
+$ curl \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  "https://us-central1-aiplatform.googleapis.com/v1beta1/projects/YOUR_PROJECT/locations/us-central1/endpoints/YOUR_ENDPOINT_ID"
+```
 
 This is the list endpoint response.
 
-``` 
+```
   {
   "name": "projects/440968033208/locations/us-central1/endpoints/mg-endpoint-2c6ae2be-1491-43fe-b179-cb5a63e2c955",
   "displayName": "psc-ep1",
@@ -443,7 +459,7 @@ To make a Private Service Connect (PSC), follow these steps:
 4.  From the **Target details** section, select a value from the **Scope** list, and select a value **Bundle type** list.
 
 5.  From the **Endpoint details** section, do the following:
-    
+
     1.  Enter a name in the **Endpoint name** field.
     2.  Select a value from the **Network** list. Select a VPC network located in your project. If you must create a PSC endpoint in a service project that uses a Shared VPC network in a host project, use the Google Cloud CLI, or send an api request.
     3.  Select a value from the **IP address** list.
@@ -475,13 +491,13 @@ Follow these steps to get the information:
 3.  Select your region from the **Region** list.
 
 4.  To get the endpoint ID and the endpoint URL, click your endpoint from the **My endpoints** section.
-    
+
     Your endpoint ID is displayed in the **Endpoint ID** field.
-    
+
     Your public endpoint URL is displayed in the **Dedicated endpoint** field.
 
 5.  To get the model ID, find your model listed in the **Deployed models** section, and follow these steps:
-    
+
     1.  Click your deployed model's name in the **Model** field.
     2.  Click **Version details** . Your model ID displays in the **Model ID** field.
 
@@ -495,7 +511,7 @@ The following code samples demonstrate different ways to use the API based on yo
 
 This sample request sends a complete chat message to the model and gets a response in a single chunk after the entire response is generated. This is similar to sending a text message and getting a single full reply.
 
-``` 
+```
   curl -X POST \
     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
     -H "Content-Type: application/json" \
@@ -519,7 +535,7 @@ This sample request sends a complete chat message to the model and gets a respon
 
 This request is the streaming version of the unary chat completion request. By adding `"stream": true` to the request, the model sends its response piece by piece as it's being generated. This is useful for creating a real-time, typewriter-like effect in a chat application.
 
-``` 
+```
   curl -X POST \
     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
     -H "Content-Type: application/json" \  "https://${ENDPOINT_URL}/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION}/endpoints/${ENDPOINT_ID}/chat/completions" \
@@ -543,7 +559,7 @@ This request is the streaming version of the unary chat completion request. By a
 
 This request sends a direct prompt to get an inference from a model. This is often used for tasks that aren't necessarily conversational, like text summarization or classification.
 
-``` 
+```
   curl -X POST \
     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
     -H "Content-Type: application/json" \
@@ -565,7 +581,7 @@ This request sends a direct prompt to get an inference from a model. This is oft
 
 This request is a streaming version of the *Predict* request. By using the `:streamRawPredict` endpoint and including `"stream": true` , this request sends a direct prompt and receives the model's output as a continuous stream of data as it's generated, which is similar to the streaming chat completion request.
 
-``` 
+```
   curl -X POST \
     -N \
     --output - \
@@ -590,7 +606,7 @@ This request is a streaming version of the *Predict* request. By using the `:str
 
 This code sample uses the SDK to send a query to a model and get a response back from that model.
 
-``` 
+```
   from google.cloud import aiplatform
 
   project_id = ""
@@ -617,30 +633,34 @@ This sample query lets you replace variables with your IP, project, endpoint ID,
 
 Chat completion
 
-    curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" 'https://YOUR_IP/v1beta1/projects/YOUR_PROJECT_ID/locations/YOUR_LOCATION/endpoints/YOUR_ENDPOINT_ID/chat/completions' -d '{ "model": "YOUR_MODEL_ID", "max_tokens": 300, "messages": [{ "role": "user", "content": "how to tell the time by looking at sky?" }]}'
+```
+curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" 'https://YOUR_IP/v1beta1/projects/YOUR_PROJECT_ID/locations/YOUR_LOCATION/endpoints/YOUR_ENDPOINT_ID/chat/completions' -d '{ "model": "YOUR_MODEL_ID", "max_tokens": 300, "messages": [{ "role": "user", "content": "how to tell the time by looking at sky?" }]}'
+```
 
 Predict
 
-    $ curl -k -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" 'https:/YOUR_IP/v1beta1/projects/YOUR_PROJECT_ID/locations/YOUR_LOCATION/endpoints/YOUR_ENDPOINT_ID:predict' -d '{
-      "instances": [
-        {
-          "prompt": "Summarize Goog stock performance",
-          "temperature": 0,
-          "top_p": 1,
-          "max_tokens": 154,
-          "ignore_eos": true
-        }
-      ]
-    }'
+```
+$ curl -k -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" 'https:/YOUR_IP/v1beta1/projects/YOUR_PROJECT_ID/locations/YOUR_LOCATION/endpoints/YOUR_ENDPOINT_ID:predict' -d '{
+  "instances": [
+    {
+      "prompt": "Summarize Goog stock performance",
+      "temperature": 0,
+      "top_p": 1,
+      "max_tokens": 154,
+      "ignore_eos": true
+    }
+  ]
+}'
+```
 
 For another example of how to use the API, see the [Import Custom Weights notebook](https://colab.sandbox.google.com/drive/1K58OnWTAeVEmDD_thffaAgm1u8eKY9-Q?usp=sharing) .
 
 ## Learn more about self-deployed models in Gemini Enterprise Agent Platform
 
-  - For more information on Gemini Enterprise Agent Platform online prediction private dedicated endpoints, see [Use dedicated private endpoints based on Private Service Connect for online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/private-service-connect) .
-  - For more information about self-deployed models, see [Overview of self-deployed models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/self-deployed-models) .
-  - For more information about Model Garden, see [Overview of Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) .
-  - For more information about deploying models, see [Use models in Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/use-models) .
-  - [Use Gemma open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-gemma)
-  - [Use Llama open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-llama)
-  - [Use Hugging Face open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-hugging-face-models)
+- For more information on Gemini Enterprise Agent Platform online prediction private dedicated endpoints, see [Use dedicated private endpoints based on Private Service Connect for online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/private-service-connect) .
+- For more information about self-deployed models, see [Overview of self-deployed models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/self-deployed-models) .
+- For more information about Model Garden, see [Overview of Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) .
+- For more information about deploying models, see [Use models in Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/use-models) .
+- [Use Gemma open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-gemma)
+- [Use Llama open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-llama)
+- [Use Hugging Face open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-hugging-face-models)

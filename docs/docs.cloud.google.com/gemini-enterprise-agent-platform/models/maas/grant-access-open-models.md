@@ -12,9 +12,9 @@ For you to enable open models and make a prompt request, a Google Cloud administ
 
 The following roles and permissions are required to use open models:
 
-  - You must have the Consumer Procurement Entitlement Manager Identity and Access Management (IAM) role. Anyone who's been granted this role can enable open models in Model Garden.
+- You must have the Consumer Procurement Entitlement Manager Identity and Access Management (IAM) role. Anyone who's been granted this role can enable open models in Model Garden.
 
-  - You must have the `aiplatform.endpoints.predict` permission. This permission is included in the Agent Platform User IAM role. For more information, see [Gemini Enterprise Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user) and [Access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/access-control#permissions) .
+- You must have the `aiplatform.endpoints.predict` permission. This permission is included in the Agent Platform User IAM role. For more information, see [Gemini Enterprise Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user) and [Access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/access-control#permissions) .
 
 ### Console
 
@@ -37,23 +37,29 @@ The following roles and permissions are required to use open models:
 1.  In the Google Cloud console, activate Cloud Shell.
 
 2.  Grant the Consumer Procurement Entitlement Manager role that's required to enable open models in Model Garden
-    
-        gcloud projects add-iam-policy-binding  PROJECT_ID \
-        --member=PRINCIPAL --role=roles/consumerprocurement.entitlementManager
+
+    ```
+    gcloud projects add-iam-policy-binding  PROJECT_ID \
+    --member=PRINCIPAL --role=roles/consumerprocurement.entitlementManager
+    ```
 
 3.  Grant the Agent Platform User role that includes the `aiplatform.endpoints.predict` permission which is required to make prompt requests:
-    
-        gcloud projects add-iam-policy-binding  PROJECT_ID \
-        --member=PRINCIPAL --role=roles/aiplatform.user
-    
-    Replace `  PRINCIPAL  ` with the identifier for the principal. The identifier takes the form `user|group|serviceAccount:email` or `domain:domain` —for example, `user:cloudysanfrancisco@gmail.com` , `group:admins@example.com` , `serviceAccount:test123@example.domain.com` , or `domain:example.domain.com` .
-    
+
+    ```
+    gcloud projects add-iam-policy-binding  PROJECT_ID \
+    --member=PRINCIPAL --role=roles/aiplatform.user
+    ```
+
+    Replace `PRINCIPAL` with the identifier for the principal. The identifier takes the form `user|group|serviceAccount:email` or `domain:domain` —for example, `user:cloudysanfrancisco@gmail.com` , `group:admins@example.com` , `serviceAccount:test123@example.domain.com` , or `domain:example.domain.com` .
+
     The output is a list of policy bindings that includes the following:
-    
-        -   members:
-          -   user:PRINCIPAL
-          role: roles/roles/consumerprocurement.entitlementManager
-    
+
+    ```
+    -   members:
+      -   user:PRINCIPAL
+      role: roles/roles/consumerprocurement.entitlementManager
+    ```
+
     For more information, see [Grant a single role](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access#grant-single-role) and [`gcloud projects add-iam-policy-binding`](https://docs.cloud.google.com/sdk/gcloud/reference/projects/add-iam-policy-binding) .
 
 ## Set the organization policy for open model access
@@ -66,4 +72,4 @@ Also, if you have an organization policy that restricts model usage in Model Gar
 
 ## What's next
 
-  - Learn how to make a [Call MaaS APIs for open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .
+- Learn how to make a [Call MaaS APIs for open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .

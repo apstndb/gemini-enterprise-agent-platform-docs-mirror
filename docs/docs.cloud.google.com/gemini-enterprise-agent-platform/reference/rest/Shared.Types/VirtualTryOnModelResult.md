@@ -10,25 +10,21 @@ Represents the output of a Virtual Try-On prediction.
 
 Fields
 
-`images[]` ` object ( Image  ` )
+`images[]` `object ( `[`Image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VirtualTryOnModelResult#Image)` )`
 
 A list of generated images. The number of images returned is equal to the `sampleCount` parameter provided in the request.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;images&quot;: [{object (Image)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "images": [
+    {
+      object (Image)
+    }
+  ]
+}
+```
 
 ## Image
 
@@ -60,26 +56,16 @@ The reason why the generated image was filtered out by Responsible AI checks. If
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;mimeType&quot;: string,
+**JSON representation**
+
+```
+{
+  "mimeType": string,
 
   // data
-  &quot;bytesBase64Encoded&quot;: string,
-  &quot;gcsUri&quot;: string,
-  &quot;raiFilteredReason&quot;: string
+  "bytesBase64Encoded": string,
+  "gcsUri": string,
+  "raiFilteredReason": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

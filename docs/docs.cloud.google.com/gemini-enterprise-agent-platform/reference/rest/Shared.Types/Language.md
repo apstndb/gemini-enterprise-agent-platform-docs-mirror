@@ -8,12 +8,7 @@ data_source: docs.cloud.google.com
 
 Supported programming languages for the generated code.
 
-Enums
-
-`LANGUAGE_UNSPECIFIED`
-
-Unspecified language. This value should not be used.
-
-`PYTHON`
-
-Python \>= 3.10, with numpy and simpy available.
+| Enums                  |                                                      |
+|------------------------|------------------------------------------------------|
+| `LANGUAGE_UNSPECIFIED` | Unspecified language. This value should not be used. |
+| `PYTHON`               | Python \>= 3.10, with numpy and simpy available.     |

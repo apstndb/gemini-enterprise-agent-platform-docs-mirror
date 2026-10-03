@@ -18,27 +18,25 @@ The following is a list of mutually exclusive fields. At most one of the fields 
 
 String key to use for lookup.
 
-`compositeKey` ` object ( CompositeKey  ` )
+`compositeKey` `object ( `[`CompositeKey`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/FeatureViewDataKey#CompositeKey)` )`
 
 The actual Entity id will be composed from this struct. This should match with the way id is defined in the FeatureView spec.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// key_oneof&quot;key&quot;: string,&quot;compositeKey&quot;: {object (CompositeKey)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // key_oneof
+  "key": string,
+  "compositeKey": {
+    object (CompositeKey)
+  }
+  // Union type
+}
+```
 
 ## CompositeKey
 
@@ -50,22 +48,12 @@ Fields
 
 Parts to construct Entity id. Should match with the same id columns as defined in FeatureView in the same order.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;parts&quot;: [
+**JSON representation**
+
+```
+{
+  "parts": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

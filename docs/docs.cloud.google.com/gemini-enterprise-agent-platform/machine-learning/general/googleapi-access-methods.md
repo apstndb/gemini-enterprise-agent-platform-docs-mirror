@@ -8,8 +8,8 @@ data_source: docs.cloud.google.com
 
 Your applications can connect to APIs in Google's production environment from within Google Cloud or from hybrid (on-premises and multicloud) networks. Google Cloud offers the following public and private access options, which offer global reachability and SSL/TLS security:
 
-1.  [Public internet access](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/googleapi-access-methods#internet) : Send traffic to `  REGION -aiplatform.googleapis.com ` .
-2.  [Private Service Connect endpoints for Google APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/googleapi-access-methods#psc) : Use a user-defined internal IP address such as `10.0.0.100` to access `  REGION -aiplatform.googleapis.com ` or an assigned DNS name such as `aiplatform-genai1.p.googleapis.com` .
+1.  [Public internet access](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/googleapi-access-methods#internet) : Send traffic to `REGION `` -aiplatform.googleapis.com` .
+2.  [Private Service Connect endpoints for Google APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/googleapi-access-methods#psc) : Use a user-defined internal IP address such as `10.0.0.100` to access `REGION `` -aiplatform.googleapis.com` or an assigned DNS name such as `aiplatform-genai1.p.googleapis.com` .
 
 The following diagram illustrates these access options.
 
@@ -19,11 +19,11 @@ Some Gemini Enterprise Agent Platform service producers require you to connect t
 
 ## Choosing between regional and global Gemini Enterprise Agent Platform endpoints
 
-The regional Gemini Enterprise Agent Platform endpoint ( `  REGION -aiplatform.googleapis.com ` ) is the standard way to access Google APIs. For applications deployed across multiple Google Cloud regions, you should strongly consider using the global endpoint ( `aiplatform.googleapis.com` ) for a consistent API call and more robust design, unless your desired model or feature is only available regionally. The benefits of using the global endpoint include the following:
+The regional Gemini Enterprise Agent Platform endpoint ( `REGION `` -aiplatform.googleapis.com` ) is the standard way to access Google APIs. For applications deployed across multiple Google Cloud regions, you should strongly consider using the global endpoint ( `aiplatform.googleapis.com` ) for a consistent API call and more robust design, unless your desired model or feature is only available regionally. The benefits of using the global endpoint include the following:
 
-  - **Model and Feature Availability** : Some of the latest, specialized, or region-specific models and features within Gemini Enterprise Agent Platform are initially, or permanently, offered only through a regional endpoint (for example, `us-central1-aiplatform.googleapis.com` ). If your application depends on one of these specific resources, you must use the regional endpoint corresponding to that resource's location. This is the primary constraint when determining your endpoint strategy.
-  - **Simplification of multiregion design** : If a model supports the global endpoint, using it eliminates the need for your application to dynamically switch the API endpoint based on its current deployment region. A single, static configuration works for all regions, greatly simplifying deployment, testing, and operations.
-  - Rate-limiting mitigation (avoiding `429` errors): For supported models, routing requests through the global endpoint distributes the traffic internally across Google's network to the nearest available regional service. This distribution can often help alleviate localized service congestion or regional rate limit ( `429` ) errors, leveraging Google's backbone for internal load balancing.
+- **Model and Feature Availability** : Some of the latest, specialized, or region-specific models and features within Gemini Enterprise Agent Platform are initially, or permanently, offered only through a regional endpoint (for example, `us-central1-aiplatform.googleapis.com` ). If your application depends on one of these specific resources, you must use the regional endpoint corresponding to that resource's location. This is the primary constraint when determining your endpoint strategy.
+- **Simplification of multiregion design** : If a model supports the global endpoint, using it eliminates the need for your application to dynamically switch the API endpoint based on its current deployment region. A single, static configuration works for all regions, greatly simplifying deployment, testing, and operations.
+- Rate-limiting mitigation (avoiding `429` errors): For supported models, routing requests through the global endpoint distributes the traffic internally across Google's network to the nearest available regional service. This distribution can often help alleviate localized service congestion or regional rate limit ( `429` ) errors, leveraging Google's backbone for internal load balancing.
 
 To check the global availability of partner models, refer to the [Global tab](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations#supported_models) in the Google Cloud model endpoint locations table, which also lists [regional locations](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations#google_model_endpoint_locations) .
 
@@ -35,32 +35,33 @@ This separation allows network administrators to centrally manage and enforce ne
 
 A Shared VPC unlocks a multilayered approach to segmentation by enabling the following:
 
-  - **Administrative and billing segmentation** : Each service project (for example, "Finance-AI-Project" or "Marketing-AI-Project") has its own billing, quotas, and resource ownership. This prevents a single team from consuming the entire organization's quota and provides clear cost attribution.
+- **Administrative and billing segmentation** : Each service project (for example, "Finance-AI-Project" or "Marketing-AI-Project") has its own billing, quotas, and resource ownership. This prevents a single team from consuming the entire organization's quota and provides clear cost attribution.
 
-  - **IAM and access segmentation** : You can apply granular Identity and Access Management (IAM) permissions at the project level, for example:
-    
-      - The "Finance Users" Google Group is granted the roles/aiplatform.user role only in the "Finance-AI-Project."
-      - The "Marketing Users" Google Group is granted the same role only in the "Marketing-AI-Project."
-      - This configuration ensures that users in the finance group can only access the Gemini Enterprise Agent Platform endpoints, models, and resources associated with their own project. They are completely isolated from the marketing team's AI workloads.
+- **IAM and access segmentation** : You can apply granular Identity and Access Management (IAM) permissions at the project level, for example:
+  - The "Finance Users" Google Group is granted the roles/aiplatform.user role only in the "Finance-AI-Project."
+  - The "Marketing Users" Google Group is granted the same role only in the "Marketing-AI-Project."
+  - This configuration ensures that users in the finance group can only access the Gemini Enterprise Agent Platform endpoints, models, and resources associated with their own project. They are completely isolated from the marketing team's AI workloads.
 
-  - **API-level enforcement** : The Gemini Enterprise API endpoint itself is designed to enforce this project-based segmentation. As shown in the API call structure, the project ID is a required part of the URI:
-    
-        https://aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/global/publishers/google/models/${MODEL_ID}:streamGenerateContent
+- **API-level enforcement** : The Gemini Enterprise API endpoint itself is designed to enforce this project-based segmentation. As shown in the API call structure, the project ID is a required part of the URI:
+
+  ```
+  https://aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/global/publishers/google/models/${MODEL_ID}:streamGenerateContent
+  ```
 
 When a user makes this call, the system validates that the authenticated identity has the necessary IAM permissions for the specific `${PROJECT_ID}` provided in the URL. If the user has permissions only for "Finance-AI-Project" but attempts to call the API using the "Marketing-AI-Project" ID, the request will be denied. This approach provides a robust and scalable framework, ensuring that as your organization adopts AI, you maintain clear separation of duties, costs, and security boundaries.
 
 ## Public internet access to the Agent Platform API
 
-If your application uses a Google service listed in the [table of supported access methods for Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/netsec-overview#access-methods) as public internet, your application can access the API by performing a DNS lookup against the [service endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest#service-endpoint) ( `  REGION -aiplatform.googleapis.com ` or `aiplatform.googleapis.com` ), which returns publicly routable virtual IP addresses. You can use the API from any location in the world as long as you have an internet connection. However, traffic that is sent from Google Cloud resources to those IP addresses remains within Google's network. To restrict public access to the Gemini Enterprise API, [VPC Service Controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls) are required.
+If your application uses a Google service listed in the [table of supported access methods for Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/netsec-overview#access-methods) as public internet, your application can access the API by performing a DNS lookup against the [service endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest#service-endpoint) ( `REGION `` -aiplatform.googleapis.com` or `aiplatform.googleapis.com` ), which returns publicly routable virtual IP addresses. You can use the API from any location in the world as long as you have an internet connection. However, traffic that is sent from Google Cloud resources to those IP addresses remains within Google's network. To restrict public access to the Gemini Enterprise API, [VPC Service Controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls) are required.
 
 ### Private Service Connect endpoints for the Agent Platform API
 
 With Private Service Connect, you can create private endpoints using global internal IP addresses within your VPC network. You can assign DNS names to these internal IP addresses with meaningful names like `aiplatform-genai1.p.googleapis.com` and `bigtable-adsteam.p.googleapis.com` . These names and IP addresses are internal to your VPC network and any on-premises networks that are connected to it through hybrid networking services. You can control which traffic goes to which endpoint, and can demonstrate that traffic stays within Google Cloud.
 
-  - You can create a user-defined global Private Service Connect endpoint IP address (/32). For more information, see [IP address requirements](https://docs.cloud.google.com/vpc/docs/about-accessing-google-apis-endpoints#ip-address-requirements) .
-  - You create the Private Service Connect endpoint in the same VPC network as the Cloud Router.
-  - You can assign DNS names to these internal IP addresses with meaningful names like `aiplatform-prodpsc.p.googleapis.com` . For more information, see [About accessing Google APIs through endpoints](https://docs.cloud.google.com/vpc/docs/about-accessing-google-apis-endpoints) .
-  - In a Shared VPC, deploy the Private Service Connect endpoint in the host project.
+- You can create a user-defined global Private Service Connect endpoint IP address (/32). For more information, see [IP address requirements](https://docs.cloud.google.com/vpc/docs/about-accessing-google-apis-endpoints#ip-address-requirements) .
+- You create the Private Service Connect endpoint in the same VPC network as the Cloud Router.
+- You can assign DNS names to these internal IP addresses with meaningful names like `aiplatform-prodpsc.p.googleapis.com` . For more information, see [About accessing Google APIs through endpoints](https://docs.cloud.google.com/vpc/docs/about-accessing-google-apis-endpoints) .
+- In a Shared VPC, deploy the Private Service Connect endpoint in the host project.
 
 ## Deployment considerations
 
@@ -80,6 +81,6 @@ You must ensure that the firewall configuration of on-premises and multicloud en
 
 ### DNS configuration
 
-  - Your on-premises network must have DNS zones and records configured so that a request to `  REGION -aiplatform.googleapis.com ` or `aiplatform.googleapis.com` resolves to the [Private Google Access subnet](https://docs.cloud.google.com/vpc/docs/configure-private-google-access-hybrid#config-domain) or the [Private Service Connect endpoint](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis#on-premises) IP address.
-  - You can create Cloud DNS managed private zones and use a Cloud DNS inbound server policy, or you can configure on-premises name servers. For example, you can use [BIND](https://wikipedia.org/wiki/BIND) or [Microsoft Active Directory DNS](https://learn.microsoft.com/windows-server/networking/dns/dns-top) .
-  - If your on-premises network is connected to a VPC network, you can use Private Service Connect to access Google APIs and services from on-premises hosts using the internal IP address of the endpoint. For more information, see [Access the endpoint from on-premises hosts](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis#on-premises) .
+- Your on-premises network must have DNS zones and records configured so that a request to `REGION `` -aiplatform.googleapis.com` or `aiplatform.googleapis.com` resolves to the [Private Google Access subnet](https://docs.cloud.google.com/vpc/docs/configure-private-google-access-hybrid#config-domain) or the [Private Service Connect endpoint](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis#on-premises) IP address.
+- You can create Cloud DNS managed private zones and use a Cloud DNS inbound server policy, or you can configure on-premises name servers. For example, you can use [BIND](https://wikipedia.org/wiki/BIND) or [Microsoft Active Directory DNS](https://learn.microsoft.com/windows-server/networking/dns/dns-top) .
+- If your on-premises network is connected to a VPC network, you can use Private Service Connect to access Google APIs and services from on-premises hosts using the internal IP address of the endpoint. For more information, see [Access the endpoint from on-premises hosts](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis#on-premises) .

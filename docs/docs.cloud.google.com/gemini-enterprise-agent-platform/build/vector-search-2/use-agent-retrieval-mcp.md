@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 This document shows you how to use the Gemini Enterprise Agent Platform remote Model Context Protocol (MCP) server to connect with AI applications including Gemini CLI, ChatGPT, Claude, and custom applications you are developing. The Agent Retrieval remote MCP server lets you access and run Agent Retrieval tools to inspect collections and indexes, and perform vector, semantic, hybrid, and text search over your data from your AI-enabled development environments and AI agent platforms. The Gemini Enterprise Agent Platform remote MCP server is enabled when you enable the Gemini Enterprise Agent Platform API.
@@ -16,10 +16,11 @@ This document shows you how to use the Gemini Enterprise Agent Platform remote M
 
 ## What's the difference between local and remote MCP servers?
 
-  - Local MCP servers  
-    Typically run on your local machine and use the standard input and output streams (stdio) for communication between services on the same device.
-  - Remote MCP servers  
-    Run on the service's infrastructure and offer an HTTP endpoint to AI applications for communication between the AI MCP client and the MCP server. For more information about MCP architecture, see [MCP architecture](https://modelcontextprotocol.io/docs/learn/architecture) .
+Local MCP servers  
+Typically run on your local machine and use the standard input and output streams (stdio) for communication between services on the same device.
+
+Remote MCP servers  
+Run on the service's infrastructure and offer an HTTP endpoint to AI applications for communication between the AI MCP client and the MCP server. For more information about MCP architecture, see [MCP architecture](https://modelcontextprotocol.io/docs/learn/architecture) .
 
 ## Stateless core
 
@@ -27,8 +28,8 @@ With [MCP version 2026-07-28](https://modelcontextprotocol.io/specification/2026
 
 To help route and process requests without parsing the request body, some MCP headers are required, including the following:
 
-  - Headers that are required by the MCP specification such as the [protocol version header](https://modelcontextprotocol.io/specification/latest/basic/transports/streamable-http#protocol-version-header) and [standard request headers](https://modelcontextprotocol.io/specification/latest/basic/transports/streamable-http#standard-request-headers) .
-  - [Custom headers](https://modelcontextprotocol.io/specification/latest/basic/transports/streamable-http#custom-headers-from-tool-parameters) that are defined by the MCP server. These headers are mirrored into HTTP headers from the tool's input schema using the `x-mcp-header` property. For example, an MCP server might define a custom header to specify the Google Cloud region or project ID.
+- Headers that are required by the MCP specification such as the [protocol version header](https://modelcontextprotocol.io/specification/latest/basic/transports/streamable-http#protocol-version-header) and [standard request headers](https://modelcontextprotocol.io/specification/latest/basic/transports/streamable-http#standard-request-headers) .
+- [Custom headers](https://modelcontextprotocol.io/specification/latest/basic/transports/streamable-http#custom-headers-from-tool-parameters) that are defined by the MCP server. These headers are mirrored into HTTP headers from the tool's input schema using the `x-mcp-header` property. For example, an MCP server might define a custom header to specify the Google Cloud region or project ID.
 
 For more information about MCP architecture, see the MCP version 2026-07-28 [specification](https://modelcontextprotocol.io/specification/2026-07-28) and [key changes](https://modelcontextprotocol.io/specification/2026-07-28/changelog) .
 
@@ -36,28 +37,28 @@ For more information about MCP architecture, see the MCP version 2026-07-28 [spe
 
 Google and Google Cloud remote MCP servers have the following features and benefits:
 
-  - Simplified, centralized discovery
-  - Managed global or regional HTTP endpoints
-  - Fine-grained authorization
-  - Optional prompt and response security with Model Armor protection
-  - Centralized audit logging
+- Simplified, centralized discovery
+- Managed global or regional HTTP endpoints
+- Fine-grained authorization
+- Optional prompt and response security with Model Armor protection
+- Centralized audit logging
 
 For information about other MCP servers and information about security and governance controls available for Google Cloud MCP servers, see [Google Cloud MCP servers overview](https://docs.cloud.google.com/mcp/overview) .
 
 ## Before you begin
 
 1.  Enable the Agent Retrieval API, if it is not already enabled.
-    
+
     **Roles required to enable APIs**
-    
+
     To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role ( `roles/owner` ). Otherwise, you can get this permission through the Service Usage Admin role ( `roles/serviceusage.serviceUsageAdmin` ). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
 ### Required roles
 
 To get the permissions that you need to use the Agent Retrieval MCP server, ask your administrator to grant you the following IAM roles on the project where you want to use the Agent Retrieval MCP server:
 
-  - Make MCP tool calls: [MCP Tool User](https://docs.cloud.google.com/iam/docs/roles-permissions/mcp#mcp.toolUser) ( `roles/mcp.toolUser` )
-  - Read Agent Retrieval resources: [Vector Search Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/vectorsearch#vectorsearch.viewer) ( `roles/vectorsearch.viewer` )
+- Make MCP tool calls: [MCP Tool User](https://docs.cloud.google.com/iam/docs/roles-permissions/mcp#mcp.toolUser) ( `roles/mcp.toolUser` )
+- Read Agent Retrieval resources: [Vector Search Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/vectorsearch#vectorsearch.viewer) ( `roles/vectorsearch.viewer` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
@@ -67,9 +68,9 @@ These predefined roles contain the permissions required to use the Agent Retriev
 
 The following permissions are required to use the Agent Retrieval MCP server:
 
-  - Make MCP tool calls: `mcp.tools.call`
-  - List and inspect collections and indexes: `vectorsearch.collections.list` , `vectorsearch.collections.get` , `vectorsearch.indexes.list` , `vectorsearch.indexes.get`
-  - Read and search data objects: `vectorsearch.dataObjects.get` , `vectorsearch.dataObjects.query` , `vectorsearch.dataObjects.search`
+- Make MCP tool calls: `mcp.tools.call`
+- List and inspect collections and indexes: `vectorsearch.collections.list` , `vectorsearch.collections.get` , `vectorsearch.indexes.list` , `vectorsearch.indexes.get`
+- Read and search data objects: `vectorsearch.dataObjects.get` , `vectorsearch.dataObjects.query` , `vectorsearch.dataObjects.search`
 
 You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
@@ -88,7 +89,7 @@ OAuth 2.0 uses scopes and credentials to determine if an authenticated principal
 The Agent Retrieval MCP server accepts the following OAuth scope:
 
 | Scope URI                                        | Description                                                                               |
-| ------------------------------------------------ | ----------------------------------------------------------------------------------------- |
+|--------------------------------------------------|-------------------------------------------------------------------------------------------|
 | `https://www.googleapis.com/auth/cloud-platform` | Grants broad access to all Google Cloud services, including all Agent Retrieval features. |
 
 ## Configure an MCP client to use the Agent Retrieval MCP server
@@ -97,22 +98,22 @@ AI applications and agents, such as Claude or Antigravity, can instantiate an MC
 
 In your AI application, look for a way to add or connect to a remote MCP server. For the Agent Retrieval MCP server, enter the following information as required:
 
-  - **Server name** : Agent Retrieval MCP server
+- **Server name** : Agent Retrieval MCP server
 
-  - **Server URL** or **Endpoint** : `https://vectorsearch.googleapis.com/mcp`
-    
-    This single endpoint exposes all nine Agent Retrieval MCP tools. Tool calls are dispatched to the correct backend by [header-based routing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/use-agent-retrieval-mcp#header-based-routing) .
+- **Server URL** or **Endpoint** : `https://vectorsearch.googleapis.com/mcp`
 
-  - **Transport** : HTTP
+  This single endpoint exposes all nine Agent Retrieval MCP tools. Tool calls are dispatched to the correct backend by [header-based routing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/use-agent-retrieval-mcp#header-based-routing) .
 
-  - **Authentication details** : your Google Cloud credentials, your OAuth Client ID and secret, or an agent identity and credentials. For more information about authentication, see [Authenticate to MCP servers](https://docs.cloud.google.com/mcp/authenticate-mcp) .
+- **Transport** : HTTP
+
+- **Authentication details** : your Google Cloud credentials, your OAuth Client ID and secret, or an agent identity and credentials. For more information about authentication, see [Authenticate to MCP servers](https://docs.cloud.google.com/mcp/authenticate-mcp) .
 
 ### Header-based routing and client protocol requirements
 
 The Agent Retrieval MCP server dispatches every `tools/call` at the network edge based on two HTTP headers:
 
-  - `Mcp-Name` — must equal the tool name in the request body ( `params.name` ).
-  - `Mcp-Param-Region` — must equal the `location` component of the resource path in the request body (for example, `us-central1` for a Collection at `projects/PROJECT_ID/locations/us-central1/collections/COLLECTION_ID` ).
+- `Mcp-Name` — must equal the tool name in the request body ( `params.name` ).
+- `Mcp-Param-Region` — must equal the `location` component of the resource path in the request body (for example, `us-central1` for a Collection at `projects/PROJECT_ID/locations/us-central1/collections/COLLECTION_ID` ).
 
 If either header is missing or does not match the body, the request is rejected with `HTTP 400 Bad Request` .
 
@@ -126,15 +127,15 @@ For application-specific guidance about setting up and connecting to MCP server,
 
 For more general guidance, see the following resources:
 
-  - [Connect to remote MCP servers](https://modelcontextprotocol.io/docs/develop/connect-remote-servers) .
-  - [Configure MCP in an AI application](https://docs.cloud.google.com/mcp/configure-mcp-ai-application) .
+- [Connect to remote MCP servers](https://modelcontextprotocol.io/docs/develop/connect-remote-servers) .
+- [Configure MCP in an AI application](https://docs.cloud.google.com/mcp/configure-mcp-ai-application) .
 
 ## Available tools
 
 The Agent Retrieval MCP server exposes nine read-only tools:
 
 | Tool                        | Description                                                                                                         |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+|-----------------------------|---------------------------------------------------------------------------------------------------------------------|
 | `list_collections`          | List Agent Retrieval collections in a project and location.                                                         |
 | `get_collection`            | Retrieve the schema and metadata of a specific collection.                                                          |
 | `list_indexes`              | List indexes defined on a collection.                                                                               |
@@ -153,46 +154,48 @@ Use the [MCP inspector](https://modelcontextprotocol.io/docs/tools/inspector) to
 
 The Agent Retrieval MCP server uses the [MCP 2026-07-28 stateless protocol](https://modelcontextprotocol.io/specification/2026-07-28) , so each request is self-describing and must declare the protocol version in both the `MCP-Protocol-Version` HTTP header and the `_meta.io.modelcontextprotocol/protocolVersion` body field. The `Mcp-Method` HTTP header must also match the `method` in the body.
 
-    curl -X POST 'https://vectorsearch.googleapis.com/mcp' \
-      -H 'Content-Type: application/json' \
-      -H 'Accept: application/json' \
-      -H 'MCP-Protocol-Version: 2026-07-28' \
-      -H 'Mcp-Method: tools/list' \
-      -d '{
-        "jsonrpc": "2.0",
-        "id": 1,
-        "method": "tools/list",
-        "params": {
-          "_meta": {
-            "io.modelcontextprotocol/protocolVersion": "2026-07-28"
-          }
-        }
-      }'
+```
+curl -X POST 'https://vectorsearch.googleapis.com/mcp' \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'MCP-Protocol-Version: 2026-07-28' \
+  -H 'Mcp-Method: tools/list' \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "tools/list",
+    "params": {
+      "_meta": {
+        "io.modelcontextprotocol/protocolVersion": "2026-07-28"
+      }
+    }
+  }'
+```
 
 ## Sample use cases
 
 The following are sample use cases for the Agent Retrieval MCP server:
 
-  - **Resource inspection** : list collections and indexes in a project, and inspect their schemas and metadata.
-  - **Vector and semantic search** : run vector or semantic search against a collection to find the most relevant data objects for a query.
-  - **Hybrid retrieval** : combine semantic, text, and vector searches in a single batch call and fuse the results with Reciprocal Rank Fusion (RRF) or the Vertex Ranking API.
-  - **Data object retrieval** : retrieve individual data objects by ID, or query a collection by filter to inspect ingested records.
+- **Resource inspection** : list collections and indexes in a project, and inspect their schemas and metadata.
+- **Vector and semantic search** : run vector or semantic search against a collection to find the most relevant data objects for a query.
+- **Hybrid retrieval** : combine semantic, text, and vector searches in a single batch call and fuse the results with Reciprocal Rank Fusion (RRF) or the Vertex Ranking API.
+- **Data object retrieval** : retrieve individual data objects by ID, or query a collection by filter to inspect ingested records.
 
 ### Sample prompts
 
-  - "List the Agent Retrieval collections in project `PROJECT_ID` in `REGION` ."
-  - "Show the schema of collection `COLLECTION_ID` in region `REGION` ."
-  - "Run a semantic search on collection `COLLECTION_ID` for `QUERY_TEXT` and return the top 5 nearest neighbors."
-  - "Do a hybrid search on collection `COLLECTION_ID` for `QUERY_TEXT` that combines semantic and text search, then rerank the top 50 with `semantic-ranker-fast@latest` ."
-  - "Get the data object with ID `DATA_OBJECT_ID` from collection `COLLECTION_ID` ."
+- "List the Agent Retrieval collections in project ` ``PROJECT_ID`` ` in ` ``REGION`` ` ."
+- "Show the schema of collection ` ``COLLECTION_ID`` ` in region ` ``REGION`` ` ."
+- "Run a semantic search on collection ` ``COLLECTION_ID`` ` for ` ``QUERY_TEXT`` ` and return the top 5 nearest neighbors."
+- "Do a hybrid search on collection ` ``COLLECTION_ID`` ` for ` ``QUERY_TEXT`` ` that combines semantic and text search, then rerank the top 50 with `semantic-ranker-fast@latest` ."
+- "Get the data object with ID ` ``DATA_OBJECT_ID`` ` from collection ` ``COLLECTION_ID`` ` ."
 
 In the prompts, replace the following:
 
-  - `PROJECT_ID` : the Google Cloud project ID
-  - `REGION` : the region of your collection (for example, `us-central1` )
-  - `COLLECTION_ID` : the ID of the Agent Retrieval collection
-  - `DATA_OBJECT_ID` : the ID of a data object in the collection
-  - `QUERY_TEXT` : the natural-language text of the query
+- ` ``PROJECT_ID`` ` : the Google Cloud project ID
+- ` ``REGION`` ` : the region of your collection (for example, `us-central1` )
+- ` ``COLLECTION_ID`` ` : the ID of the Agent Retrieval collection
+- ` ``DATA_OBJECT_ID`` ` : the ID of a data object in the collection
+- ` ``QUERY_TEXT`` ` : the natural-language text of the query
 
 ## Quotas and limits
 
@@ -200,7 +203,7 @@ The Agent Retrieval MCP server doesn't have its own quotas. There is no limit on
 
 ## What's next
 
-  - Learn how to [create a Collection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections#creating_a_collection) .
-  - Learn how to [search for data objects](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/query-search/search) .
-  - Learn how to [rerank search results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/query-search/reranking) .
-  - Learn more about [Google Cloud MCP servers](https://docs.cloud.google.com/mcp/overview) .
+- Learn how to [create a Collection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections#creating_a_collection) .
+- Learn how to [search for data objects](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/query-search/search) .
+- Learn how to [rerank search results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/query-search/reranking) .
+- Learn more about [Google Cloud MCP servers](https://docs.cloud.google.com/mcp/overview) .

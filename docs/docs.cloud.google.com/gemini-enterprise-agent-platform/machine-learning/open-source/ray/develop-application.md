@@ -8,13 +8,13 @@ data_source: docs.cloud.google.com
 
 Connect to a Ray cluster on Gemini Enterprise Agent Platform and develop an application using the following methods:
 
-  - Connect to the Ray cluster on Gemini Enterprise Agent Platform through Ray Client using the version of the Agent Platform SDK for Python that includes the functionality of the [Ray Client](https://docs.ray.io/en/latest/cluster/running-applications/job-submission/ray-client.html) . Use this option if you prefer an interactive Python development environment.
-    
-      - Use the Agent Platform SDK for Python within the Colab Enterprise notebook in the Google Cloud console.
-    
-      - Use the Agent Platform SDK for Python within a Python session, shell, or Jupyter notebook.
+- Connect to the Ray cluster on Gemini Enterprise Agent Platform through Ray Client using the version of the Agent Platform SDK for Python that includes the functionality of the [Ray Client](https://docs.ray.io/en/latest/cluster/running-applications/job-submission/ray-client.html) . Use this option if you prefer an interactive Python development environment.
 
-  - Write a Python script and submit the script to the Ray cluster on Gemini Enterprise Agent Platform using the [Ray Jobs API](https://docs.ray.io/en/latest/cluster/running-applications/job-submission/index.html) . If you prefer to submit jobs programmatically, use this option.
+  - Use the Agent Platform SDK for Python within the Colab Enterprise notebook in the Google Cloud console.
+
+  - Use the Agent Platform SDK for Python within a Python session, shell, or Jupyter notebook.
+
+- Write a Python script and submit the script to the Ray cluster on Gemini Enterprise Agent Platform using the [Ray Jobs API](https://docs.ray.io/en/latest/cluster/running-applications/job-submission/index.html) . If you prefer to submit jobs programmatically, use this option.
 
 Before you begin, make sure to read the [Ray on Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray) and [set up](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/set-up) all the prerequisite tools you need.
 
@@ -33,26 +33,26 @@ In accordance with the [OSS Ray best practice](https://docs.ray.io/en/latest/clu
 2.  In the row for the cluster you created, click **Open in Colab Enterprise** .
 
 3.  The Colab Enterprise notebook opens. Follow the instructions on how to use the Agent Platform SDK for Python to connect to the Ray cluster on Gemini Enterprise Agent Platform.
-    
-      - If a dialog screen asks you to enable APIs, click **Enable** .
-    
-      - If you're connecting to the cluster for the first time, then click **Connect** . If you're reconnecting to the cluster, then **Reconnect** . The notebook takes a few minutes to connect to the Runtime.
-    
-      - Click the **+CREATE** to create a new notebook.
-    
-      - Click ![Ray on Agent Platform panel](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/images/RoV-panel-icon.png) to open the Ray on Agent Platform panel.  
-        Existing clusters display.
-    
-      - Select a cluster and click **CONNECT** .  
-        Code appears in your open notebook that connects to your chosen cluster.
-    
-      - Other actions (Optional): To open the Ray on Agent Platform cluster list page, click **Manage clusters** in the Ray on Agent Platform panel.
-        
-          - Select a cluster and click more\_vert **more actions** menu.  
-            More options appear:  
-            ![more options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/images/ray-more-options.png)
-    
-      - Run the **Getting started** code cell to import the Agent Platform SDK for Python and connect to the Ray cluster on Gemini Enterprise Agent Platform.
+
+    - If a dialog screen asks you to enable APIs, click **Enable** .
+
+    - If you're connecting to the cluster for the first time, then click **Connect** . If you're reconnecting to the cluster, then **Reconnect** . The notebook takes a few minutes to connect to the Runtime.
+
+    - Click the **+CREATE** to create a new notebook.
+
+    - Click ![Ray on Agent Platform panel](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/images/RoV-panel-icon.png) to open the Ray on Agent Platform panel.  
+      Existing clusters display.
+
+    - Select a cluster and click **CONNECT** .  
+      Code appears in your open notebook that connects to your chosen cluster.
+
+    - Other actions (Optional): To open the Ray on Agent Platform cluster list page, click **Manage clusters** in the Ray on Agent Platform panel.
+
+      - Select a cluster and click more_vert **more actions** menu.  
+        More options appear:  
+        ![more options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/images/ray-more-options.png)
+
+    - Run the **Getting started** code cell to import the Agent Platform SDK for Python and connect to the Ray cluster on Gemini Enterprise Agent Platform.
 
 ### Python
 
@@ -60,48 +60,54 @@ In accordance with the [OSS Ray best practice](https://docs.ray.io/en/latest/clu
 
 From an interactive Python environment:
 
-    import ray
-    
-    # Necessary even if aiplatform.* symbol is not directly used in your program.
-    from google.cloud import aiplatform
-    import vertex_ray
-    
-    import vertexai
-    vertexai.init()
-    # The CLUSTER_RESOURCE_NAME is the one returned from vertex_ray.create_ray_cluster.
-    CLUSTER_RESOURCE_NAME='projects/{}/locations/{}/persistentResources/{}'.format(PROJECT_ID, LOCATION, CLUSTER_NAME)
-    
-    ray.init('vertex_ray://{}'.format(CLUSTER_RESOURCE_NAME))
+```
+import ray
+
+# Necessary even if aiplatform.* symbol is not directly used in your program.
+from google.cloud import aiplatform
+import vertex_ray
+
+import vertexai
+vertexai.init()
+# The CLUSTER_RESOURCE_NAME is the one returned from vertex_ray.create_ray_cluster.
+CLUSTER_RESOURCE_NAME='projects/{}/locations/{}/persistentResources/{}'.format(PROJECT_ID, LOCATION, CLUSTER_NAME)
+
+ray.init('vertex_ray://{}'.format(CLUSTER_RESOURCE_NAME))
+```
 
 Where:
 
-  - **LOCATION** : The location you specify for your Ray cluster on Gemini Enterprise Agent Platform.
+- **` LOCATION `** : The location you specify for your Ray cluster on Gemini Enterprise Agent Platform.
 
-  - PROJECT\_ID : Your Google Cloud project ID. Find the project ID in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- ` PROJECT_ID ` : Your Google Cloud project ID. Find the project ID in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
 
-  - CLUSTER\_NAME : The name of your Ray cluster on Gemini Enterprise Agent Platform, specified when you create the cluster. Go to the [Google Cloud console](https://console.cloud.google.com/agent-platform/ray) to view the list of cluster names for a project.
+- ` CLUSTER_NAME ` : The name of your Ray cluster on Gemini Enterprise Agent Platform, specified when you create the cluster. Go to the [Google Cloud console](https://console.cloud.google.com/agent-platform/ray) to view the list of cluster names for a project.
 
 You get output similar to the following:
 
-    Python version:  3.10.12
-    Ray version: 2.47
-    Vertex SDK version: 1.46.0
-    Dashboard: yyyy-dot-us-central1.aiplatform-training.googleusercontent.com
+```
+Python version:  3.10.12
+Ray version: 2.47
+Vertex SDK version: 1.46.0
+Dashboard: yyyy-dot-us-central1.aiplatform-training.googleusercontent.com
+```
 
 Use the `Dashboard` URL to access the Ray dashboard from a browser. The URI is in the format of `https://yyyy-dot-us-central1.aiplatform-training.googleusercontent.com/` . The dashboard shows submitted jobs, the number of GPU or CPUs, and disk space of each machine in the cluster.
 
 After you connect to the Ray cluster on Gemini Enterprise Agent Platform, develop a Ray program the same way you develop one for a normal OSS Ray backend.
 
-    @ray.remote
-    def square(x):
-      print(x)
-      return x * x
-    
-    # Launch four parallel square tasks.
-    futures = [square.remote(i) for i in range(4)]
-    
-    print(ray.get(futures))
-    # Returns [0, 1, 4, 9]
+```
+@ray.remote
+def square(x):
+  print(x)
+  return x * x
+
+# Launch four parallel square tasks.
+futures = [square.remote(i) for i in range(4)]
+
+print(ray.get(futures))
+# Returns [0, 1, 4, 9]
+```
 
 ## Develop an application using the Ray Jobs API
 
@@ -113,22 +119,24 @@ Develop your application as a Python script in any text editor. For example, pla
 
 > **Note:** Code in the entrypoint of the program executes on the head node. Wrap functions with `@ray.remote` for proper parallelization.
 
-    import ray
-    import time
-    
-    @ray.remote
-    def hello_world():
-        return "hello world"
-    
-    @ray.remote
-    def square(x):
-        print(x)
-        time.sleep(100)
-        return x * x
-    
-    ray.init()  # No need to specify address="vertex_ray://...."
-    print(ray.get(hello_world.remote()))
-    print(ray.get([square.remote(i) for i in range(4)]))
+```
+import ray
+import time
+
+@ray.remote
+def hello_world():
+    return "hello world"
+
+@ray.remote
+def square(x):
+    print(x)
+    time.sleep(100)
+    return x * x
+
+ray.init()  # No need to specify address="vertex_ray://...."
+print(ray.get(hello_world.remote()))
+print(ray.get([square.remote(i) for i in range(4)]))
+```
 
 ### Submit a Ray job using the Ray Jobs API
 
@@ -140,79 +148,85 @@ Submit a Ray job using Python, the Ray Jobs CLI, or the public [Ray dashboard](h
 
 Submit a Ray job using a Python environment:
 
-    import ray
-    import vertex_ray
-    from ray.job_submission import JobSubmissionClient
-    from google.cloud import aiplatform  # Necessary even if aiplatform.* symbol is not directly used in your program.
-    
-    CLUSTER_RESOURCE_NAME='projects/{}/locations/REGION/persistentResources/{}'.format(PROJECT_ID, CLUSTER_NAME)
-    
-    client = JobSubmissionClient("vertex_ray://{}".format(CLUSTER_RESOURCE_NAME))
-    
-    job_id = client.submit_job(
-      # Entrypoint shell command to execute
-      entrypoint="python my_script.py",
-      # Path to the local directory that contains the my_script.py file.
-      runtime_env={
-        "working_dir": "./directory-containing-my-script",
-        "pip": ["numpy",
-                "setuptools<70.0.0",
-                "xgboost",
-                "ray==CLUSTER_RAY_VERSION", # pin the Ray version to the same version as the cluster
-               ]
-      }
-    )
-    
-    # Ensure that the Ray job has been created.
-    print(job_id)
+```
+import ray
+import vertex_ray
+from ray.job_submission import JobSubmissionClient
+from google.cloud import aiplatform  # Necessary even if aiplatform.* symbol is not directly used in your program.
+
+CLUSTER_RESOURCE_NAME='projects/{}/locations/REGION/persistentResources/{}'.format(PROJECT_ID, CLUSTER_NAME)
+
+client = JobSubmissionClient("vertex_ray://{}".format(CLUSTER_RESOURCE_NAME))
+
+job_id = client.submit_job(
+  # Entrypoint shell command to execute
+  entrypoint="python my_script.py",
+  # Path to the local directory that contains the my_script.py file.
+  runtime_env={
+    "working_dir": "./directory-containing-my-script",
+    "pip": ["numpy",
+            "setuptools<70.0.0",
+            "xgboost",
+            "ray==CLUSTER_RAY_VERSION", # pin the Ray version to the same version as the cluster
+           ]
+  }
+)
+
+# Ensure that the Ray job has been created.
+print(job_id)
+```
 
 Where:
 
-  - REGION : The region you specify for your Ray cluster on Gemini Enterprise Agent Platform.
+- ` REGION ` : The region you specify for your Ray cluster on Gemini Enterprise Agent Platform.
 
-  - PROJECT\_ID : Your Google Cloud project number. Find the project ID in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- ` PROJECT_ID ` : Your Google Cloud project number. Find the project ID in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
 
-  - CLUSTER\_NAME : The name of your Ray cluster on Gemini Enterprise Agent Platform, specified when you created the cluster. Go to the [Google Cloud console](https://console.cloud.google.com/agent-platform/ray) to view the list of cluster names for a project.
+- ` CLUSTER_NAME ` : The name of your Ray cluster on Gemini Enterprise Agent Platform, specified when you created the cluster. Go to the [Google Cloud console](https://console.cloud.google.com/agent-platform/ray) to view the list of cluster names for a project.
 
-  - CLUSTER\_RAY\_VERSION : Pin the Ray version to the same version as the cluster. For example, 2.47.1.
+- ` CLUSTER_RAY_VERSION ` : Pin the Ray version to the same version as the cluster. For example, 2.47.1.
 
 ### Python - Ray dashboard
 
 The Ray dashboard address is accessible from outside the VPC, including the public internet. Note that `vertex_ray` is required to obtain authentication automatically.
 
-    from ray.job_submission import JobSubmissionClient
-    import vertex_ray
-    
-    DASHBOARD_ADDRESS=DASHBOARD_ADDRESS
-    
-    client = JobSubmissionClient(
-      "vertex_ray://{}".format(DASHBOARD_ADDRESS),
-    )
-    
-    job_id = client.submit_job(
-      # Entrypoint shell command to execute
-      entrypoint="python my_script.py",
-      # Path to the local directory that contains the my_script.py file
-      runtime_env={
-        "working_dir": "./directory-containing-my-script",
-        "pip": ["numpy",
-                "setuptools<70.0.0",
-                "xgboost",
-                "ray==CLUSTER_RAY_VERSION", # pin the Ray version to the same version as the cluster
-               ]
-      }
-    )
-    print(job_id)
+```
+from ray.job_submission import JobSubmissionClient
+import vertex_ray
+
+DASHBOARD_ADDRESS=DASHBOARD_ADDRESS
+
+client = JobSubmissionClient(
+  "vertex_ray://{}".format(DASHBOARD_ADDRESS),
+)
+
+job_id = client.submit_job(
+  # Entrypoint shell command to execute
+  entrypoint="python my_script.py",
+  # Path to the local directory that contains the my_script.py file
+  runtime_env={
+    "working_dir": "./directory-containing-my-script",
+    "pip": ["numpy",
+            "setuptools<70.0.0",
+            "xgboost",
+            "ray==CLUSTER_RAY_VERSION", # pin the Ray version to the same version as the cluster
+           ]
+  }
+)
+print(job_id)
+```
 
 Where:
 
-DASHBOARD\_ADDRESS : The Ray dashboard address for your cluster. Find the dashboard address [using the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/develop-application#sdk) .
+` DASHBOARD_ADDRESS ` : The Ray dashboard address for your cluster. Find the dashboard address [using the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/develop-application#sdk) .
 
 ### Ray Jobs CLI
 
 Use the Ray Jobs CLI commands only within the peered VPC network.
 
-    $ ray job submit --working-dir ./ --address vertex_ray://{CLUSTER_RESOURCE_NAME} -- python my_script.py
+```
+$ ray job submit --working-dir ./ --address vertex_ray://{CLUSTER_RESOURCE_NAME} -- python my_script.py
+```
 
 After submitting a long running Ray Job, if you want to monitor your job status using `client.get_job_status(job_id)` , re-instantiate `JobSubmissionClient(client = JobSubmissionClient("vertex_ray://{}".format(CLUSTER_RESOURCE_NAME)) )` to refresh the authentication token.
 
@@ -223,7 +237,7 @@ Ray on Agent Platform supports Ray Client and Ray Jobs API (JobSubmissionClient)
 The following table shows Ray on Agent Platform support for VPC peering when you create the Ray cluster with the VPC network:
 
 | VPC peering                   | Default service agent | Custom service account |
-| ----------------------------- | --------------------- | ---------------------- |
+|-------------------------------|-----------------------|------------------------|
 | Ray Client (interactive mode) | Yes                   | No                     |
 | Ray JobSubmissionClient       | Yes                   | Yes                    |
 
@@ -238,35 +252,39 @@ If you set an [NFS mount](https://docs.cloud.google.com/gemini-enterprise-agent-
 This section shows you how to use Network File System (NFS) in your Ray code.
 
 1.  Initialize the RayClient in a Python environment
-    
-        import ray
-        from google.cloud import aiplatform
-        import vertex_ray
-        aiplatform.init(project=PROJECT_ID, location=REGION)
-        ray.init(address='vertex_ray://projects/{}/locations/us-central1/persistentResources/{}'.format(PROJECT_NUMBER, PERSISTENT_RESOURCE_ID))
+
+    ```
+    import ray
+    from google.cloud import aiplatform
+    import vertex_ray
+    aiplatform.init(project=PROJECT_ID, location=REGION)
+    ray.init(address='vertex_ray://projects/{}/locations/us-central1/persistentResources/{}'.format(PROJECT_NUMBER, PERSISTENT_RESOURCE_ID))
+    ```
 
 2.  Run job script
-    
-        import ray
-        import logging
-        import os
-        import sys
-        
-        @ray.remote
-        def main():
-        logging.info("list all files in mounted folder")
-        return os.listdir("/mnt/nfs/test")
-        
-        print(''.join(ray.get(main.remote())))
+
+    ```
+    import ray
+    import logging
+    import os
+    import sys
+
+    @ray.remote
+    def main():
+    logging.info("list all files in mounted folder")
+    return os.listdir("/mnt/nfs/test")
+
+    print(''.join(ray.get(main.remote())))
+    ```
 
 Submit a Ray job using Python, the Ray Jobs CLI, or the public Ray dashboard address. For more information, see [Develop an application on the Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/develop-application#submit-ray-job-with-API) ).
 
 ## What's next
 
-  - [Use Ray on Agent Platform with BigQuery](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/bigquery-integration)
+- [Use Ray on Agent Platform with BigQuery](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/bigquery-integration)
 
-  - [Deploy a model on Gemini Enterprise Agent Platform and get inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/deploy-predict)
+- [Deploy a model on Gemini Enterprise Agent Platform and get inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/deploy-predict)
 
-  - [View logs for your Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/view-logs)
+- [View logs for your Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/view-logs)
 
-  - [Delete a Ray cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/delete-cluster)
+- [Delete a Ray cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/delete-cluster)

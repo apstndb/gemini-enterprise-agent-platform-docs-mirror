@@ -16,92 +16,35 @@ You can access the API via REST, gRPC, or one of the provided client libraries (
 
 Google provides [client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/libraries) for many popular languages to access this API. If your desired programming language is supported by the client libraries, you should use this option.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Maintained by Google.<br />
-Built-in <a href="https://docs.cloud.google.com/docs/authentication">authentication</a> .<br />
-Built-in retries.<br />
-Idiomatic for each language.<br />
-Efficient <a href="https://developers.google.com/protocol-buffers" class="external">protocol buffer</a> HTTP request body.</td>
-<td>Not available for all programming languages.</td>
-</tr>
-</tbody>
-</table>
+| Pros                                                                                                                                                                                                                                               | Cons                                         |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+| Maintained by Google. Built-in [authentication](https://docs.cloud.google.com/docs/authentication) . Built-in retries. Idiomatic for each language. Efficient [protocol buffer](https://developers.google.com/protocol-buffers) HTTP request body. | Not available for all programming languages. |
 
 ### REST
 
 This API supports [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) . See the [REST reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest) for this API. Also see [How to call Google APIs: REST edition](https://googleapis.github.io/HowToREST) .
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Simple JSON interface.<br />
-Well supported by many Google and third-party tools and libraries.</td>
-<td>You must build your own client.<br />
-You must <a href="https://developers.google.com/identity/protocols/OAuth2" class="external">implement authentication</a> .<br />
-You must implement retries.<br />
-Less efficient JSON HTTP request body.<br />
-REST streaming is not supported by this API.</td>
-</tr>
-</tbody>
-</table>
+| Pros                                                                                      | Cons                                                                                                                                                                                                                                           |
+|-------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Simple JSON interface. Well supported by many Google and third-party tools and libraries. | You must build your own client. You must [implement authentication](https://developers.google.com/identity/protocols/OAuth2) . You must implement retries. Less efficient JSON HTTP request body. REST streaming is not supported by this API. |
 
 ### gRPC
 
 This API supports [gRPC](https://grpc.io/) . See the [RPC reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc) for this API, which provides a generic description of the types, methods, and fields generated for a gRPC library. Also see [How to call Google APIs: RPC edition](https://googleapis.github.io/HowToRPC.html) .
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Supports <a href="https://grpc.io/docs/reference/" class="external">many programming languages</a> .<br />
-Efficient <a href="https://developers.google.com/protocol-buffers" class="external">protocol buffer</a> HTTP request body.</td>
-<td>You must generate your own client from Google-supplied protocol buffers.<br />
-You must <a href="https://grpc.io/docs/guides/auth.html" class="external">implement authentication</a> .<br />
-You must implement retries.</td>
-</tr>
-</tbody>
-</table>
+| Pros                                                                                                                                                                    | Cons                                                                                                                                                                              |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Supports [many programming languages](https://grpc.io/docs/reference/) . Efficient [protocol buffer](https://developers.google.com/protocol-buffers) HTTP request body. | You must generate your own client from Google-supplied protocol buffers. You must [implement authentication](https://grpc.io/docs/guides/auth.html) . You must implement retries. |
 
 ## Type, method, and field names
 
 Depending on whether you are using client libraries, REST, or gRPC, the type, method, and field names for the API vary somewhat:
 
-  - REST is arranged by resource hierarchies and their methods.
-  - Client libraries and gRPC are arranged by services and their methods.
-  - REST field names use camel case, though the API service will accept either camel case or snake case.
-  - gRPC field names use snake case.
-  - Client library field names use either title case, camel case or snake case, depending on which name is idiomatic for the language.
+- REST is arranged by resource hierarchies and their methods.
+- Client libraries and gRPC are arranged by services and their methods.
+- REST field names use camel case, though the API service will accept either camel case or snake case.
+- gRPC field names use snake case.
+- Client library field names use either title case, camel case or snake case, depending on which name is idiomatic for the language.
 
 ## Protocol buffers
 
@@ -115,4 +58,4 @@ In addition, when calling the REST API, the [default value](https://developers.g
 
 The following API versions are available:
 
-  - **v2** ( [generally available](https://cloud.google.com/products#product-launch-stages) ) is for managing Gemini Enterprise Agent Platform Workbench instances.
+- **v2** ( [generally available](https://cloud.google.com/products#product-launch-stages) ) is for managing Gemini Enterprise Agent Platform Workbench instances.

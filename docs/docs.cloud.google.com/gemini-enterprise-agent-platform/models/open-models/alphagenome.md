@@ -20,9 +20,9 @@ This document covers how to deploy and use AlphaGenome, as well as the hardware 
 
 Because of AlphaGenome's deep architecture and 1 MB context window, the model has strict hardware and memory requirements. This section covers:
 
-  - [Supported VM and GPU configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphagenome#supported-configurations)
-  - [Supported accelerator and machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphagenome#supported-accelerator-and-machine-types)
-  - [Quota requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphagenome#quota-requirements)
+- [Supported VM and GPU configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphagenome#supported-configurations)
+- [Supported accelerator and machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphagenome#supported-accelerator-and-machine-types)
+- [Quota requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphagenome#quota-requirements)
 
 ### Supported VM and GPU configurations
 
@@ -34,9 +34,9 @@ Agent Platform endpoints scale seamlessly. If additional capacity is required to
 
 Administrators must select from the following supported machine types that provide the required 80 GB GPU memory:
 
-  - **NVIDIA H100 (80 GB)** : `a3-highgpu-1g` , `a3-highgpu-2g` , `a3-highgpu-4g` , `a3-highgpu-8g`
-  - **NVIDIA A100 (80 GB)** : `a2-ultragpu-1g` , `a2-ultragpu-2g` , `a2-ultragpu-4g` , `a2-ultragpu-8g`
-  - **NVIDIA H100 Mega (80 GB)** : `a3-megagpu-8g`
+- **NVIDIA H100 (80 GB)** : `a3-highgpu-1g` , `a3-highgpu-2g` , `a3-highgpu-4g` , `a3-highgpu-8g`
+- **NVIDIA A100 (80 GB)** : `a2-ultragpu-1g` , `a2-ultragpu-2g` , `a2-ultragpu-4g` , `a2-ultragpu-8g`
+- **NVIDIA H100 Mega (80 GB)** : `a3-megagpu-8g`
 
 > **Note:** The 40 GB A100 `a2-highgpu` series isn't supported.
 
@@ -46,10 +46,10 @@ For detailed specifications, see [Configure compute resources for inference](htt
 
 Before deploying, administrators must ensure that the Google Cloud project has adequate GPU serving quota assigned in the target region:
 
-  - `aiplatform.googleapis.com/custom_model_serving_nvidia_h100_gpus`
-  - `aiplatform.googleapis.com/custom_model_serving_nvidia_a100_gpus`
-  - `aiplatform.googleapis.com/custom_model_serving_nvidia_h100_mega_gpus`
-  - `compute.googleapis.com/gpus_per_gpu_family`
+- `aiplatform.googleapis.com/custom_model_serving_nvidia_h100_gpus`
+- `aiplatform.googleapis.com/custom_model_serving_nvidia_a100_gpus`
+- `aiplatform.googleapis.com/custom_model_serving_nvidia_h100_mega_gpus`
+- `compute.googleapis.com/gpus_per_gpu_family`
 
 ## Deploy AlphaGenome
 
@@ -75,26 +75,30 @@ Access to the deployed endpoint is managed using Google Cloud Identity and Acces
 
 The Wheel file for the AlphaGenome Cloud SDK is available at the [GoogleCloudPlatform GitHub repository](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/alphagenome/whl/alphagenome_cloud_sdk-0.4.2.11-py3-none-any.whl) . You can download the Wheel file by running the following:
 
-    # Download the whl file using - 
-    wget -q https://github.com/GoogleCloudPlatform/vertex-ai-samples/raw/main/notebooks/community/alphagenome/whl/alphagenome_cloud_sdk-0.4.2.11-py3-none-any.whl
-    
-    # Install the whl file
-    pip install alphagenome_cloud_sdk-0.4.2.11-py3-none-any.whl
+```
+# Download the whl file using - 
+wget -q https://github.com/GoogleCloudPlatform/vertex-ai-samples/raw/main/notebooks/community/alphagenome/whl/alphagenome_cloud_sdk-0.4.2.11-py3-none-any.whl
+
+# Install the whl file
+pip install alphagenome_cloud_sdk-0.4.2.11-py3-none-any.whl
+```
 
 #### Initialize the client
 
 Before you can use the model, you must initialize the client:
 
-    from alphagenome.models import dna_client
-    from alphagenome_cloud_sdk.models import dna_client_http
-    
-    # Create the HTTP client pointing to the Agent Platform endpoint.
-    # The `service_account` parameter is optional and only required if you are 
-    # choosing to authenticate via service account impersonation.
-    dna_model = dna_client_http.create_http_client(
-        vertex_ai_url=vertex_ai_url,
-        # service_account=service_account  # Uncomment to use service account impersonation
-    )
+```
+from alphagenome.models import dna_client
+from alphagenome_cloud_sdk.models import dna_client_http
+
+# Create the HTTP client pointing to the Agent Platform endpoint.
+# The `service_account` parameter is optional and only required if you are 
+# choosing to authenticate via service account impersonation.
+dna_model = dna_client_http.create_http_client(
+    vertex_ai_url=vertex_ai_url,
+    # service_account=service_account  # Uncomment to use service account impersonation
+)
+```
 
 #### Predict tracks for a DNA sequence
 
@@ -102,110 +106,118 @@ Use `predict_sequence` to predict genomic modalities for a raw DNA string:
 
 > **Note:** The sequence must be padded to exactly 1 MB.
 
-    # Pad a synthetic sequence to 1 MB using 'N' for unknown/padding bases
-    padded_sequence = 'GATTACA'.center(dna_client.SEQUENCE_LENGTH_1MB, 'N')
-    
-    output = dna_model.predict_sequence(
-        sequence=padded_sequence,
-        requested_outputs=[
-            dna_client.OutputType.CAGE,   # Transcription Start Sites
-            dna_client.OutputType.DNASE,  # Chromatin Accessibility
-        ],
-        ontology_terms=[
-            'UBERON:0002048',             # Lung tissue ontology term
-        ]
-    )
-    
-    # Access prediction values (shape: sequence_length, num_tracks)
-    dnase_signals = output.dnase.values
-    dnase_metadata = output.dnase.metadata
+```
+# Pad a synthetic sequence to 1 MB using 'N' for unknown/padding bases
+padded_sequence = 'GATTACA'.center(dna_client.SEQUENCE_LENGTH_1MB, 'N')
+
+output = dna_model.predict_sequence(
+    sequence=padded_sequence,
+    requested_outputs=[
+        dna_client.OutputType.CAGE,   # Transcription Start Sites
+        dna_client.OutputType.DNASE,  # Chromatin Accessibility
+    ],
+    ontology_terms=[
+        'UBERON:0002048',             # Lung tissue ontology term
+    ]
+)
+
+# Access prediction values (shape: sequence_length, num_tracks)
+dnase_signals = output.dnase.values
+dnase_metadata = output.dnase.metadata
+```
 
 #### Predict tracks for a reference genome interval
 
 Use `predict_interval` to predict modalities direct from a specific chromosome region in the reference genome:
 
-    from alphagenome.data.genome import Interval
-    
-    # Define a genomic interval and resize it to the 1Mb context window
-    interval = Interval(
-        chromosome='chr19',
-        start=40991281,
-        end=41018398,
-        strand='.',
-        name='CYP2B6'
-    ).resize(dna_client.SEQUENCE_LENGTH_1MB)
-    
-    output = dna_model.predict_interval(
-        interval=interval,
-        requested_outputs=[dna_client.OutputType.RNA_SEQ],
-        ontology_terms=['UBERON:0001114']  # Right liver lobe
-    )
+```
+from alphagenome.data.genome import Interval
+
+# Define a genomic interval and resize it to the 1Mb context window
+interval = Interval(
+    chromosome='chr19',
+    start=40991281,
+    end=41018398,
+    strand='.',
+    name='CYP2B6'
+).resize(dna_client.SEQUENCE_LENGTH_1MB)
+
+output = dna_model.predict_interval(
+    interval=interval,
+    requested_outputs=[dna_client.OutputType.RNA_SEQ],
+    ontology_terms=['UBERON:0001114']  # Right liver lobe
+)
+```
 
 #### Score a variant effect (in silico mutagenesis)
 
 Use `score_variant` to compare the predicted expression of a reference (REF) sequence versus an alternative (ALT) mutated sequence:
 
-    from alphagenome.data import genome
-    from alphagenome.models import variant_scorers
-    
-    # Define the genetic variant
-    variant = genome.Variant(
-        chromosome='chr22',
-        position=36201698,
-        reference_bases='A',
-        alternate_bases='C',
-    )
-    
-    # Select the variant scoring method for RNA-Seq
-    variant_scorer = variant_scorers.RECOMMENDED_VARIANT_SCORERS['RNA_SEQ']
-    
-    # Execute the scoring
-    variant_scores = dna_model.score_variant(
-        interval=variant.reference_interval.resize(dna_client.SEQUENCE_LENGTH_1MB),
-        variant=variant,
-        variant_scorers=[variant_scorer],
-        fix_negative_strand=True
-    )
-    
-    # Output is returned as an AnnData object containing raw and quantile scores
-    print("Scores shape:", variant_scores[0].X.shape)
+```
+from alphagenome.data import genome
+from alphagenome.models import variant_scorers
+
+# Define the genetic variant
+variant = genome.Variant(
+    chromosome='chr22',
+    position=36201698,
+    reference_bases='A',
+    alternate_bases='C',
+)
+
+# Select the variant scoring method for RNA-Seq
+variant_scorer = variant_scorers.RECOMMENDED_VARIANT_SCORERS['RNA_SEQ']
+
+# Execute the scoring
+variant_scores = dna_model.score_variant(
+    interval=variant.reference_interval.resize(dna_client.SEQUENCE_LENGTH_1MB),
+    variant=variant,
+    variant_scorers=[variant_scorer],
+    fix_negative_strand=True
+)
+
+# Output is returned as an AnnData object containing raw and quantile scores
+print("Scores shape:", variant_scores[0].X.shape)
+```
 
 ### REST
 
 Clients can query the deployed endpoint using standard REST client tools like curl:
 
-    # Set your base endpoint URL
-    export ENDPOINT_URL="https://<your-endpoint-url>"
-    
-    # (Optional) If you choose to impersonate a service account, set this variable
-    # export SERVICE_ACCOUNT="your-service-account-email@your-project.iam.gserviceaccount.com"
-    
-    # Generate an OAuth2 access token using your current credentials
-    # If using service account impersonation, append: --impersonate-service-account=$SERVICE_ACCOUNT
-    export TOKEN=$(gcloud auth print-access-token)
-    
-    curl -X POST \
-      -H "Authorization: Bearer $TOKEN" \
-      -H "Content-Type: application/json" \
-      -d '{
-        "model": "google/alphagenome-003",
-        "instances": [
-          {
-            "request_type": "predict_interval",
-            "data": {
-              "interval": {
-                "chromosome": "chr19",
-                "start": "40480552",
-                "end": "41529128",
-                "strand": "STRAND_UNSTRANDED"
-              },
-              "organism": "ORGANISM_HOMO_SAPIENS",
-              "requestedOutputs": ["OUTPUT_TYPE_ATAC"]
-            }
-          }
-        ]
-      }' \
-      ${ENDPOINT_URL}:streamRawPredict
+```
+# Set your base endpoint URL
+export ENDPOINT_URL="https://<your-endpoint-url>"
+
+# (Optional) If you choose to impersonate a service account, set this variable
+# export SERVICE_ACCOUNT="your-service-account-email@your-project.iam.gserviceaccount.com"
+
+# Generate an OAuth2 access token using your current credentials
+# If using service account impersonation, append: --impersonate-service-account=$SERVICE_ACCOUNT
+export TOKEN=$(gcloud auth print-access-token)
+
+curl -X POST \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "google/alphagenome-003",
+    "instances": [
+      {
+        "request_type": "predict_interval",
+        "data": {
+          "interval": {
+            "chromosome": "chr19",
+            "start": "40480552",
+            "end": "41529128",
+            "strand": "STRAND_UNSTRANDED"
+          },
+          "organism": "ORGANISM_HOMO_SAPIENS",
+          "requestedOutputs": ["OUTPUT_TYPE_ATAC"]
+        }
+      }
+    ]
+  }' \
+  ${ENDPOINT_URL}:streamRawPredict
+```
 
 Note that AlphaGenome endpoints require the `streamRawPredict` action appended to the base endpoint URL.
 
@@ -219,16 +231,16 @@ You are responsible for the cost of infrastructure used to host the model, inclu
 
 AlphaGenome has the following limitations:
 
-  - **Research use only** : AlphaGenome is a research tool and is not intended or cleared for clinical diagnostic use.
-  - **1 MB context horizon** : Genomic interactions occurring over distances larger than 1 MB cannot be captured in a single prediction query.
-  - **No fine-tuning support** : Fine-tuning the foundation AlphaGenome model on private training datasets is not supported. The model is available for inference only.
+- **Research use only** : AlphaGenome is a research tool and is not intended or cleared for clinical diagnostic use.
+- **1 MB context horizon** : Genomic interactions occurring over distances larger than 1 MB cannot be captured in a single prediction query.
+- **No fine-tuning support** : Fine-tuning the foundation AlphaGenome model on private training datasets is not supported. The model is available for inference only.
 
 ## Scientific reference directory
 
 To support the scientific and developer communities, the following table lists primary reference materials, literature, and resources for AlphaGenome:
 
 | Resource type       | Title and link                                                                                                                                                                       | Description                                                                                                     |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
 | Peer-reviewed paper | [Advancing regulatory variant effect prediction with AlphaGenome, *Nature* (January 2026)](https://doi.org/10.1038/s41586-025-10014-0)                                               | The primary scientific publication detailing the model's architecture, evaluations, and performance benchmarks. |
 | Pre-print article   | [AlphaGenome: advancing regulatory variant effect prediction with a unified DNA sequence model, bioRxiv (July 2025)](https://www.biorxiv.org/content/10.1101/2025.06.25.661532v2)    | The initial pre-peer-review manuscript.                                                                         |
 | Announcement        | [AlphaGenome: AI for better understanding the genome, Google DeepMind blog (June 2025)](https://deepmind.google/blog/alphagenome-ai-for-better-understanding-the-genome/)            | The high-level release blog post outlining the model's impact on genomics.                                      |
@@ -240,5 +252,5 @@ To support the scientific and developer communities, the following table lists p
 
 You can get support for AlphaGenome in the following ways:
 
-  - **Genomic science and model output support** : For discussions about biology, model predictions, interpretability, or to engage with Google DeepMind, join the public AlphaGenome and EDM Community Forum at [alphagenomecommunity.com](https://alphagenomecommunity.com) .
-  - **Infrastructure and platform support** : For questions regarding Google Cloud quotas, accelerators, issue with client library, billing, etc., engage with your account team or open a ticket with the standard Google Cloud Support team.
+- **Genomic science and model output support** : For discussions about biology, model predictions, interpretability, or to engage with Google DeepMind, join the public AlphaGenome and EDM Community Forum at [alphagenomecommunity.com](https://alphagenomecommunity.com) .
+- **Infrastructure and platform support** : For questions regarding Google Cloud quotas, accelerators, issue with client library, billing, etc., engage with your account team or open a ticket with the standard Google Cloud Support team.

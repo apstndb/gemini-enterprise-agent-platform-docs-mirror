@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 > **Note:** This feature is for image datasets only and is accessible exclusively through the Gemini Enterprise Agent Platform REST API. It's intended for advanced users who require programmatic versioning for lineage and reproducibility.
@@ -32,15 +32,17 @@ To create a version, you must know the numerical ID of the dataset. If you know 
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The location where the `Dataset` is stored. For example, `us-central1` .
+- ` LOCATION ` : The location where the `Dataset` is stored. For example, `us-central1` .
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
 
-  - DATASET\_DISPLAY\_NAME : The display name of the `Dataset` .
+- ` DATASET_DISPLAY_NAME ` : The display name of the `Dataset` .
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets?filter=displayName=DATASET_DISPLAY_NAME
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets?filter=displayName=DATASET_DISPLAY_NAME
+```
 
 To send your request, choose one of these options:
 
@@ -50,9 +52,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets?filter=displayName=DATASET_DISPLAY_NAME"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets?filter=displayName=DATASET_DISPLAY_NAME"
+```
 
 #### PowerShell
 
@@ -60,39 +64,45 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth application-default print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets?filter=displayName=DATASET_DISPLAY_NAME" | Select-Object -Expand Content
+```
+$cred = gcloud auth application-default print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
 
-The following example response has been truncated with `...` to emphasize where you can find your `Dataset` 's ID: it is the number that takes the place of DATASET\_ID .
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets?filter=displayName=DATASET_DISPLAY_NAME" | Select-Object -Expand Content
+```
 
+The following example response has been truncated with `...` to emphasize where you can find your `Dataset` 's ID: it is the number that takes the place of ` DATASET_ID ` .
+
+```
+{
+  "datasets": [
     {
-      "datasets": [
-        {
-          "name": "projects/PROJECT_NUMBER/locations/LOCATION/datasets/DATASET_ID",
-          "displayName": "DATASET_DISPLAY_NAME",
-          ...
-        }
-      ]
+      "name": "projects/PROJECT_NUMBER/locations/LOCATION/datasets/DATASET_ID",
+      "displayName": "DATASET_DISPLAY_NAME",
+      ...
     }
+  ]
+}
+```
 
 Alternatively, you can get the dataset's ID from the Google Cloud console: Go to the Agent Platform **Datasets** page and find the number in the **ID** column.
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where the dataset version is stored. For example, `us-central` .
+- ` LOCATION ` : The region where the dataset version is stored. For example, `us-central` .
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
 
-  - DATASET\_ID : The numerical ID of the dataset.
+- ` DATASET_ID ` : The numerical ID of the dataset.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions
+```
 
 To send your request, choose one of these options:
 
@@ -102,11 +112,13 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d "" \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d "" \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions"
+```
 
 #### PowerShell
 
@@ -114,26 +126,30 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth application-default print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions" | Select-Object -Expand Content
+```
+$cred = gcloud auth application-default print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION/datasets/DATASET_ID/operations/OPERATION_ID",
-      "metadata": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreateDatasetVersionOperationMetadata",
-        "genericMetadata": {
-          "createTime": "2021-02-17T00:54:58.827429Z",
-          "updateTime": "2021-02-17T00:54:58.827429Z"
-        },
-      }
-    }
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION/datasets/DATASET_ID/operations/OPERATION_ID",
+  "metadata": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreateDatasetVersionOperationMetadata",
+    "genericMetadata": {
+      "createTime": "2021-02-17T00:54:58.827429Z",
+      "updateTime": "2021-02-17T00:54:58.827429Z"
+    },
+  }
+}
+```
 
 Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/long-running-operations) .
 
@@ -151,15 +167,17 @@ To restore a version, you must know the version's numerical ID. You can list all
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where the dataset version is stored. For example, `us-central` .
+- ` LOCATION ` : The region where the dataset version is stored. For example, `us-central` .
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
 
-  - DATASET\_ID : The numerical ID of the dataset.
+- ` DATASET_ID ` : The numerical ID of the dataset.
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions
+```
 
 To send your request, choose one of these options:
 
@@ -169,9 +187,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions"
+```
 
 #### PowerShell
 
@@ -179,38 +199,44 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth application-default print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions" | Select-Object -Expand Content
+```
+$cred = gcloud auth application-default print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
 
-The following example response has been truncated with `...` to emphasize where you can find your dataset version's ID: it is the number that takes the place of DATASET\_VERSION\_ID .
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions" | Select-Object -Expand Content
+```
 
+The following example response has been truncated with `...` to emphasize where you can find your dataset version's ID: it is the number that takes the place of ` DATASET_VERSION_ID ` .
+
+```
+{
+  "datasetVersions": [
     {
-      "datasetVersions": [
-        {
-          "name": "projects/PROJECT_NUMBER/locations/LOCATION/datasets/DATASET_ID/datasetVersions/DATASET_VERSION_ID",
-          ...
-        }
-      ]
+      "name": "projects/PROJECT_NUMBER/locations/LOCATION/datasets/DATASET_ID/datasetVersions/DATASET_VERSION_ID",
+      ...
     }
+  ]
+}
+```
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where the dataset version is stored. For example, `us-central` .
+- ` LOCATION ` : The region where the dataset version is stored. For example, `us-central` .
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
 
-  - DATASET\_ID : The numerical ID of the dataset.
+- ` DATASET_ID ` : The numerical ID of the dataset.
 
-  - DATASET\_VERSION\_ID : The numerical ID of the dataset version.
+- ` DATASET_VERSION_ID ` : The numerical ID of the dataset version.
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions/DATASET_VERSION_ID:restore
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions/DATASET_VERSION_ID:restore
+```
 
 To send your request, choose one of these options:
 
@@ -220,9 +246,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions/DATASET_VERSION_ID:restore"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions/DATASET_VERSION_ID:restore"
+```
 
 #### PowerShell
 
@@ -230,26 +258,30 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth application-default print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions/DATASET_VERSION_ID:restore" | Select-Object -Expand Content
+```
+$cred = gcloud auth application-default print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/datasetVersions/DATASET_VERSION_ID:restore" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/LOCATION/datasets/DATASET_ID/operations/OPERATION_ID",
-      "metadata": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.RestoreDatasetVersionOperationMetadata",
-        "genericMetadata": {
-          "createTime": "2021-02-17T00:54:58.827429Z",
-          "updateTime": "2021-02-17T00:54:58.827429Z"
-        },
-      }
-    }
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/LOCATION/datasets/DATASET_ID/operations/OPERATION_ID",
+  "metadata": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1.RestoreDatasetVersionOperationMetadata",
+    "genericMetadata": {
+      "createTime": "2021-02-17T00:54:58.827429Z",
+      "updateTime": "2021-02-17T00:54:58.827429Z"
+    },
+  }
+}
+```
 
 Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/long-running-operations) .
 

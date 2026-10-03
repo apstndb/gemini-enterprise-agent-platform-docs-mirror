@@ -25,8 +25,10 @@ The rest of this document assumes that you are using the same Cloud Shell enviro
 1.  In the Google Cloud console, activate Cloud Shell.
 
 2.  In the Cloud Shell session, run the following command:
-    
-        cd hello-custom-sample
+
+    ```
+    cd hello-custom-sample
+    ```
 
 ## Delete Agent Platform resources
 
@@ -54,7 +56,7 @@ After you've undeployed your model from the endpoint, do the following to delete
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Endpoints** page.
 
-2.  Find your the row of your endpoint, `hello_custom` , again. On that row, click **View more more\_vert** . Then click **Remove endpoint** .
+2.  Find your the row of your endpoint, `hello_custom` , again. On that row, click **View more more_vert** . Then click **Remove endpoint** .
 
 3.  In the **Remove endpoint** dialog, click **Confirm** .
 
@@ -64,7 +66,7 @@ Before you follow this section, you must [undeploy your model from your endpoint
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Models** page.
 
-2.  Find your the row of your model, `hello_custom` . On that row, click **View more more\_vert** . Then click **Delete model** .
+2.  Find your the row of your model, `hello_custom` . On that row, click **View more more_vert** . Then click **Delete model** .
 
 3.  In the **Delete model** dialog, click **Delete** .
 
@@ -74,13 +76,13 @@ Your training pipeline and custom job are just records of the training that happ
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Training pipelines** page.
 
-2.  Find your the row of your training pipeline, `hello_custom` . On that row, click **View more more\_vert** . Then click **Delete training pipeline** .
+2.  Find your the row of your training pipeline, `hello_custom` . On that row, click **View more more_vert** . Then click **Delete training pipeline** .
 
 3.  In the **Delete training job** dialog, click **Delete** .
 
 4.  To go to the **Custom jobs** page, click **Custom job** in the Google Cloud console, or click the following link:
 
-5.  Find your the row of your custom job, `hello_custom-custom-job` . On that row, click **View more more\_vert** . Then click **Delete custom job** .
+5.  Find your the row of your custom job, `hello_custom-custom-job` . On that row, click **View more more_vert** . Then click **Delete custom job** .
 
 6.  In the **Delete training job** dialog, click **Delete** .
 
@@ -90,25 +92,31 @@ Cloud Shell incurs no charges, and it [automatically deletes your home disk afte
 
 In your Cloud Shell session, run the following commands:
 
-    cd ..
-    rm -rf hello-custom-sample
+```
+cd ..
+rm -rf hello-custom-sample
+```
 
 ## Delete your Cloud Storage bucket
 
 In your Cloud Shell session, run the following command:
 
-    gcloud storage rm gs://BUCKET_NAME --recursive --continue-on-error
+```
+gcloud storage rm gs://BUCKET_NAME --recursive --continue-on-error
+```
 
-Replace BUCKET\_NAME with the name of the Cloud Storage bucket that you created when reading the [first page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom) .
+Replace ` BUCKET_NAME ` with the name of the Cloud Storage bucket that you created when reading the [first page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom) .
 
 ## Delete your Cloud Run function
 
 In your Cloud Shell session, run the following command:
 
-    gcloud functions delete classify_flower --region=us-central1 --quiet
+```
+gcloud functions delete classify_flower --region=us-central1 --quiet
+```
 
 ## What's next
 
-  - To learn about additional ways to train ML models on Agent Platform, try one of the other [Agent Platform tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials) .
+- To learn about additional ways to train ML models on Agent Platform, try one of the other [Agent Platform tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials) .
 
-  - Read an [overview of how Agent Platform works](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning) .
+- Read an [overview of how Agent Platform works](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning) .

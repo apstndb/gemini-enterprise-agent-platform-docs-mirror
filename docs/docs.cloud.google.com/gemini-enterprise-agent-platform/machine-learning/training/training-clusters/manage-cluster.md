@@ -10,8 +10,8 @@ If you're interested in Gemini Enterprise Agent Platform training clusters, cont
 
 Once a cluster is deployed, you can change or remove it using the following Agent Platform API endpoints:
 
-  - `Update` : Modifies an existing cluster configuration.
-  - `Delete` : Permanently removes a cluster and its resources.
+- `Update` : Modifies an existing cluster configuration.
+- `Delete` : Permanently removes a cluster and its resources.
 
 Updating a cluster is available only through the Agent Platform API. You can delete a cluster from either the Agent Platform API or the Google Cloud console.
 
@@ -19,7 +19,9 @@ For instructions on listing all clusters or viewing individual clusters, see [Vi
 
 ## Authentication
 
-    alias gcurl='curl -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json"'
+```
+alias gcurl='curl -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json"'
+```
 
 ## Update a cluster
 
@@ -27,94 +29,100 @@ For instructions on listing all clusters or viewing individual clusters, see [Vi
 
 For example, to update the node count of a pool of a [CPU-only cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster#cpu-only-cluster) , use the following JSON payload:
 
+```
+{
+  "display_name": "DISPLAY_NAME",
+  "network": {
+    "network": "projects/PROJECT_ID/global/networks/NETWORK",
+    "subnetwork": "projects/PROJECT_ID/regions/REGION/subnetworks/SUBNETWORK"
+  },
+  "node_pools": [
     {
-      "display_name": "DISPLAY_NAME",
-      "network": {
-        "network": "projects/PROJECT_ID/global/networks/NETWORK",
-        "subnetwork": "projects/PROJECT_ID/regions/REGION/subnetworks/SUBNETWORK"
+      "id": "cpu",
+      "machine_spec": {
+        "machine_type": "n2-standard-8"
       },
-      "node_pools": [
-        {
-          "id": "cpu",
-          "machine_spec": {
-            "machine_type": "n2-standard-8"
-          },
-          "scaling_spec": {
-            "min_node_count": UPDATED_MIN_NODE_COUNT,
-            "max_node_count": UPDATED_MAX_NODE_COUNT
-          },
-          "zone": "ZONE",
-          "enable_public_ips": true,
-          "boot_disk": {
-            "boot_disk_type": "pd-standard",
-            "boot_disk_size_gb": 120
-          }
-        },
-        {
-          "id": "login",
-          "machine_spec": {
-            "machine_type": "n2-standard-8",
-          },
-          "scaling_spec": {
-            "min_node_count": 1,
-            "max_node_count": 1
-          },
-             "zone": "ZONE",
-             "enable_public_ips": true,
-          "boot_disk": {
-            "boot_disk_type": "pd-standard",
-            "boot_disk_size_gb": 120
-          }
-        },
-      ],
-      "orchestrator_spec": {
-          "slurm_spec": {
-          "home_directory_storage": "projects/PROJECT_ID/locations/ZONE/instances/FILESTORE",
-          "partitions": [
-             {
-              "id": "cpu",
-              "node_pool_ids": [
-                "cpu"
-              ]
-            }
-          ],
-          "login_node_pool_id": "login"
-        }
+      "scaling_spec": {
+        "min_node_count": UPDATED_MIN_NODE_COUNT,
+        "max_node_count": UPDATED_MAX_NODE_COUNT
+      },
+      "zone": "ZONE",
+      "enable_public_ips": true,
+      "boot_disk": {
+        "boot_disk_type": "pd-standard",
+        "boot_disk_size_gb": 120
+      }
+    },
+    {
+      "id": "login",
+      "machine_spec": {
+        "machine_type": "n2-standard-8"
+      },
+      "scaling_spec": {
+        "min_node_count": 1,
+        "max_node_count": 1
+      },
+      "zone": "ZONE",
+      "enable_public_ips": true,
+      "boot_disk": {
+        "boot_disk_type": "pd-standard",
+        "boot_disk_size_gb": 120
       }
     }
+  ],
+  "orchestrator_spec": {
+    "slurm_spec": {
+      "home_directory_storage": "projects/PROJECT_ID/locations/ZONE/instances/FILESTORE",
+      "partitions": [
+        {
+          "id": "cpu",
+          "node_pool_ids": [
+            "cpu"
+          ]
+        }
+      ],
+      "login_node_pool_id": "login"
+    }
+  }
+}
+```
 
-    gcurl -X PATCH -d @UPDATE_PAYLOAD https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID
+```
+gcurl -X PATCH -d @UPDATE_PAYLOAD https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID
+```
 
 **Query Parameters**
 
-  - `updateMask` (string, optional): A [FieldMask](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask) that specifies which fields of the Model Development cluster resource to update. Only the fields listed in the `updateMask` are changed.
-    
-    The following fields within the `ModelDevelopmentCluster` resource can be specified in the `updateMask` :
-    
-      - `labels`
-      - `node_pools`
-      - `orchestrator_spec.slurm_spec.partitions`
-      - `orchestrator_spec.slurm_spec.default_partition_id`
-      - `orchestrator_spec.slurm_spec.login_node_pool_id`
-      - `orchestrator_spec.slurm_spec.prolog_bash_scripts`
-      - `orchestrator_spec.slurm_spec.epilog_bash_scripts`
-      - `orchestrator_spec.slurm_spec.scheduling`
-      - `orchestrator_spec.slurm_spec.accounting`
-      - `orchestrator_spec.slurm_spec.config`
-      - `orchestrator_spec.slurm_spec.node_sets`
+- `updateMask` (string, optional): A [FieldMask](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask) that specifies which fields of the Model Development cluster resource to update. Only the fields listed in the `updateMask` are changed.
 
-  - `updateMode` (enum, optional): Specifies the update mode. Possible values are:
-    
-      - `UPDATE_MODE_UNSPECIFIED` : The default value, treated as `USER_AND_SERVICE` .
-      - `USER_ONLY` : Apply only user-specified field changes from the request. The service won't refresh service-managed fields, like startup, prolog, or epilog scripts. Each node pool also stays on the image it is currently running unless you set `node_image` yourself, so a `USER_ONLY` update that omits `node_image` won't recreate your nodes.
-      - `USER_AND_SERVICE` : Apply user-specified field changes and let the service refresh service-managed fields.
-    
-    We recommend using `USER_AND_SERVICE` to ensure your cluster is up-to-date.
+  The following fields within the `ModelDevelopmentCluster` resource can be specified in the `updateMask` :
+
+  - `labels`
+  - `node_pools`
+  - `orchestrator_spec.slurm_spec.partitions`
+  - `orchestrator_spec.slurm_spec.default_partition_id`
+  - `orchestrator_spec.slurm_spec.login_node_pool_id`
+  - `orchestrator_spec.slurm_spec.prolog_bash_scripts`
+  - `orchestrator_spec.slurm_spec.epilog_bash_scripts`
+  - `orchestrator_spec.slurm_spec.scheduling`
+  - `orchestrator_spec.slurm_spec.accounting`
+  - `orchestrator_spec.slurm_spec.config`
+  - `orchestrator_spec.slurm_spec.node_sets`
+
+- `updateMode` (enum, optional): Specifies the update mode. Possible values are:
+
+  - `UPDATE_MODE_UNSPECIFIED` : The default value, treated as `USER_AND_SERVICE` .
+  - `USER_ONLY` : Apply only user-specified field changes from the request. The service won't refresh service-managed fields, like startup, prolog, or epilog scripts. Each node pool also stays on the image it is currently running unless you set `node_image` yourself, so a `USER_ONLY` update that omits `node_image` won't recreate your nodes.
+  - `USER_AND_SERVICE` : Apply user-specified field changes and let the service refresh service-managed fields.
+
+  We recommend using `USER_AND_SERVICE` to ensure your cluster is up-to-date.
 
 The command below updates both the node pool configuration and the Slurm partitions.
 
-    gcurl -X PATCH -d @update-payload.json \
-    'https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID?updateMask=orchestrator_spec.slurm_spec.partitions,node_pools&updateMode=USER_AND_SERVICE'
+```
+gcurl -X PATCH -d @update-payload.json \
+'https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID?updateMask=orchestrator_spec.slurm_spec.partitions,node_pools&updateMode=USER_AND_SERVICE'
+```
 
 **Important note on repeated fields**
 
@@ -138,27 +146,31 @@ Cluster-scoped settings are named by `orchestrator_spec.slurm_spec.config` , nod
 
 The command below turns on partition-priority preemption for an existing cluster.
 
-    gcurl -X PATCH -d @update-payload.json \
-    'https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID?updateMask=orchestrator_spec.slurm_spec.config,orchestrator_spec.slurm_spec.scheduling,orchestrator_spec.slurm_spec.accounting&updateMode=USER_ONLY'
+```
+gcurl -X PATCH -d @update-payload.json \
+'https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID?updateMask=orchestrator_spec.slurm_spec.config,orchestrator_spec.slurm_spec.scheduling,orchestrator_spec.slurm_spec.accounting&updateMode=USER_ONLY'
+```
 
 Where `update-payload.json` contains, in part:
 
-    {
+```
+{
+  ...,
+  "orchestrator_spec": {
+    "slurm_spec": {
       ...,
-      "orchestrator_spec": {
-        "slurm_spec": {
-          ...,
-          "config": {
-            "PriorityType": "priority/multifactor",
-            "PriorityWeightAge": "1000",
-            "PreemptType": "preempt/partition_prio",
-            "PreemptMode": "REQUEUE",
-            "PreemptExemptTime": "1:01",
-            "SchedulerParameters": "bf_continue,bf_window=1440"
-          }
-        }
+      "config": {
+        "PriorityType": "priority/multifactor",
+        "PriorityWeightAge": "1000",
+        "PreemptType": "preempt/partition_prio",
+        "PreemptMode": "REQUEUE",
+        "PreemptExemptTime": "1:01",
+        "SchedulerParameters": "bf_continue,bf_window=1440"
       }
     }
+  }
+}
+```
 
 Set cluster-wide parameters in `config` rather than in `scheduling` and `accounting` , which it supersedes. A cluster uses one or the other; a request that sets both is rejected.
 
@@ -176,29 +188,32 @@ To keep a node pool on a specific image across updates, set `node_image` to that
 
 A successful request returns a Long Running Operation (LRO). You can then monitor the status of this operation using the following command:
 
-    gcurl https://REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/operations/OPERATION_ID
+```
+gcurl https://REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/operations/OPERATION_ID
+```
 
 Once the update operation completes successfully, most modifications take effect immediately (or within the 15s Slurm sync time) and require no further action. Only changes to the underlying cluster compute infrastructure—including modifications to storage sources and startup scripts—require the resources to be recreated.
 
 ## Delete a cluster
 
-``` 
+```
   gcurl -X DELETE https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID
-  
 ```
 
 This command returns a Long-Running Operation on success, which you can then monitor using the `operations describe` command.
 
-    gcurl https://REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/operations/OPERATION_ID
+```
+gcurl https://REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/operations/OPERATION_ID
+```
 
 ## What's next
 
 Managing your Gemini Enterprise Agent Platform training cluster lets you optimize its usage, integrate it into automated workflows, and prepare your trained models for deployment.
 
-  - Orchestrate your training with Gemini Enterprise Agent Platform Pipelines: Automate the entire lifecycle of your training jobs, from data preparation to model registration, using pipelines that target your managed cluster.
-      - [Learn about orchestrating jobs on a training cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/orchestration)
-  - Monitor and debug your training jobs: Track progress and resource usage, and identify issues with your distributed training jobs running on the cluster.
-      - [Monitor training jobs on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics)
-  - Deploy your model for inference: After your models are trained and registered, deploy them to a Gemini Enterprise Agent Platform endpoint to serve online inference requests at scale.
-      - [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment)
-  - Optimize costs: Regularly review your cluster utilization and delete the cluster when it's not actively in use to minimize billing for reserved hardware.
+- Orchestrate your training with Gemini Enterprise Agent Platform Pipelines: Automate the entire lifecycle of your training jobs, from data preparation to model registration, using pipelines that target your managed cluster.
+  - [Learn about orchestrating jobs on a training cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/orchestration)
+- Monitor and debug your training jobs: Track progress and resource usage, and identify issues with your distributed training jobs running on the cluster.
+  - [Monitor training jobs on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics)
+- Deploy your model for inference: After your models are trained and registered, deploy them to a Gemini Enterprise Agent Platform endpoint to serve online inference requests at scale.
+  - [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment)
+- Optimize costs: Regularly review your cluster utilization and delete the cluster when it's not actively in use to minimize billing for reserved hardware.

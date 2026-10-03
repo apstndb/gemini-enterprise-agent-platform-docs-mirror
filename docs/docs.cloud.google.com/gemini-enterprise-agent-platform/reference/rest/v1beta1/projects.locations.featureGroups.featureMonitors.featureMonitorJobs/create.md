@@ -24,14 +24,14 @@ Required. The resource name of FeatureMonitor to create FeatureMonitorJob. Forma
 
 ### Query parameters
 
-`featureMonitorJobId` `string ( int64 format)`
+`featureMonitorJobId` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Optional. Output only. System-generated id for feature monitor job.
 
 ### Request body
 
-The request body contains an instance of `  FeatureMonitorJob  ` .
+The request body contains an instance of [`FeatureMonitorJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors.featureMonitorJobs#FeatureMonitorJob) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  FeatureMonitorJob  ` .
+If successful, the response body contains a newly created instance of [`FeatureMonitorJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureGroups.featureMonitors.featureMonitorJobs#FeatureMonitorJob) .

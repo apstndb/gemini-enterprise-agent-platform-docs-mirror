@@ -28,10 +28,10 @@ The request body contains data with the following structure:
 
 Fields
 
-`deployedIndex` ` object ( DeployedIndex  ` )
+`deployedIndex` `object ( `[`DeployedIndex`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexEndpoints#DeployedIndex)` )`
 
 Required. The DeployedIndex to be created within the IndexEndpoint.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

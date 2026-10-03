@@ -8,11 +8,11 @@ data_source: docs.cloud.google.com
 
 This guide describes how to configure Gemini Enterprise Agent Platform to use a custom service account in the following scenarios:
 
-  - When you perform [custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) , you can configure Agent Platform to use a custom service account in the training container, whether it is a [prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) or a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/containers-overview) .
+- When you perform [custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) , you can configure Agent Platform to use a custom service account in the training container, whether it is a [prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) or a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/containers-overview) .
 
-  - When you [deploy a custom-trained `Model` resource to an `Endpoint` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) to serve online predictions, you can configure Agent Platform to use a custom service account in the container that serves predictions, whether it is a [prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers) or a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements) .
+- When you [deploy a custom-trained `Model` resource to an `Endpoint` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) to serve online predictions, you can configure Agent Platform to use a custom service account in the container that serves predictions, whether it is a [prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers) or a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements) .
 
-  - When you [copy a `Model` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/copy) between projects, you can configure Agent Platform to use a custom service account to access the models in the source project.
+- When you [copy a `Model` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/copy) between projects, you can configure Agent Platform to use a custom service account to access the models in the source project.
 
 ## When to use a custom service account
 
@@ -20,8 +20,8 @@ When Agent Platform runs, it generally acts with the permissions of one of sever
 
 However, customizing the permissions of service agents might not provide the fine-grained access control that you want. Some common use cases include:
 
-  - Allowing fewer permissions to Agent Platform jobs and models. The default Agent Platform service agent has access to BigQuery and Cloud Storage.
-  - Allowing different jobs access to different resources. You might want to allow many users to launch jobs in a single project, but grant each user's jobs access only to a certain BigQuery table or Cloud Storage bucket.
+- Allowing fewer permissions to Agent Platform jobs and models. The default Agent Platform service agent has access to BigQuery and Cloud Storage.
+- Allowing different jobs access to different resources. You might want to allow many users to launch jobs in a single project, but grant each user's jobs access only to a certain BigQuery table or Cloud Storage bucket.
 
 For example, you might want to individually customize every [custom training job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job) that you run to have access to different Google Cloud resources outside of your project.
 
@@ -58,29 +58,33 @@ To set up a custom service account, do the following:
 2.  [Grant your new service account IAM roles](https://docs.cloud.google.com/iam/docs/granting-roles-to-service-accounts) that provide access to the Google Cloud services and resources that you want Agent Platform to be able to use during custom training or prediction.
 
 3.  **Optional** : If the user-managed service account is in a different project than your training jobs, you must grant the [Service Account Token Creator role](https://docs.cloud.google.com/iam/docs/service-account-permissions#token-creator-role) (roles/iam.serviceAccountTokenCreator) to the Agent Platform Service Agent of the project where you're using Agent Platform.
-    
-        gcloud iam service-accounts add-iam-policy-binding \
-            --role=roles/iam.serviceAccountTokenCreator \
-            --member=serviceAccount:AI_PLATFORM_SERVICE_AGENT \
-            CUSTOM_SERVICE_ACCOUNT
+
+    ```
+    gcloud iam service-accounts add-iam-policy-binding \
+        --role=roles/iam.serviceAccountTokenCreator \
+        --member=serviceAccount:AI_PLATFORM_SERVICE_AGENT \
+        CUSTOM_SERVICE_ACCOUNT
+    ```
 
 4.  **Optional** : If you also plan to use the user-managed service account for predictions, then you must grant the Service Account Admin role ( `roles/iam.serviceAccountAdmin` ) to the Agent Platform Service Agent of the project where you're using Agent Platform:
-    
-        gcloud iam service-accounts add-iam-policy-binding \
-          --role=roles/iam.serviceAccountAdmin \
-          --member=serviceAccount:AI_PLATFORM_SERVICE_AGENT \
-          CUSTOM_SERVICE_ACCOUNT
-    
+
+    ```
+    gcloud iam service-accounts add-iam-policy-binding \
+      --role=roles/iam.serviceAccountAdmin \
+      --member=serviceAccount:AI_PLATFORM_SERVICE_AGENT \
+      CUSTOM_SERVICE_ACCOUNT
+    ```
+
     Replace the following:
-    
-      - AI\_PLATFORM\_SERVICE\_AGENT : The email address of your project's Agent Platform Service Agent, which has the following format:
-        
-        `service- PROJECT_NUMBER @gcp-sa-aiplatform.iam.gserviceaccount.com`
-        
-        To find the Agent Platform Service Agent, go to the **IAM** page in the Google Cloud console.
-    
-      - CUSTOM\_SERVICE\_ACCOUNT : The email address of the new user-managed service account that you created in the first step of this section.
-    
+
+    - ` AI_PLATFORM_SERVICE_AGENT ` : The email address of your project's Agent Platform Service Agent, which has the following format:
+
+      `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform.iam.gserviceaccount.com`
+
+      To find the Agent Platform Service Agent, go to the **IAM** page in the Google Cloud console.
+
+    - ` CUSTOM_SERVICE_ACCOUNT ` : The email address of the new user-managed service account that you created in the first step of this section.
+
     > **Note:** This command grants your project's Agent Platform Service Agent the Service Account Admin role *only* for your custom service account resource, not for the whole project. Learn more about [granting permissions at the resource level versus the project level](https://docs.cloud.google.com/iam/docs/overview#resource) .
 
 ### Specify a custom service account for Agent Platform resources
@@ -93,17 +97,17 @@ The process of configuring Agent Platform to use a specific service account for 
 
 To configure Agent Platform to use your [new service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account#setup) during custom training, specify the service account's email address in the `serviceAccount` field of a [`CustomJobSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec) message when you start custom training. Depending on [which type of custom training resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/custom-training-methods) you are creating, the placement of this field in your API request differs:
 
-  - **If you are creating a `CustomJob`** , specify the service account's email address in `CustomJob.jobSpec.serviceAccount` .
-    
-    Learn more about [creating a `CustomJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job) .
+- **If you are creating a `CustomJob`** , specify the service account's email address in `CustomJob.jobSpec.serviceAccount` .
 
-  - **If you are creating a `HyperparameterTuningJob`** , specify the service account's email address in `HyperparameterTuningJob.trialJobSpec.serviceAccount` .
-    
-    Learn more about [creating a `HyperparameterTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-hyperparameter-tuning) .
+  Learn more about [creating a `CustomJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job) .
 
-  - **If you are creating a custom `TrainingPipeline` without hyperparameter tuning** , specify the service account's email address in `TrainingPipeline.trainingTaskInputs.serviceAccount` .
+- **If you are creating a `HyperparameterTuningJob`** , specify the service account's email address in `HyperparameterTuningJob.trialJobSpec.serviceAccount` .
 
-  - **If you are creating a custom `TrainingPipeline` with hyperparameter tuning** , specify the service account's email address in `TrainingPipeline.trainingTaskInputs.trialJobSpec.serviceAccount` .
+  Learn more about [creating a `HyperparameterTuningJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-hyperparameter-tuning) .
+
+- **If you are creating a custom `TrainingPipeline` without hyperparameter tuning** , specify the service account's email address in `TrainingPipeline.trainingTaskInputs.serviceAccount` .
+
+- **If you are creating a custom `TrainingPipeline` with hyperparameter tuning** , specify the service account's email address in `TrainingPipeline.trainingTaskInputs.trialJobSpec.serviceAccount` .
 
 #### Attach a service account to a container that serves online predictions
 
@@ -119,14 +123,14 @@ Follow [Deploying a model using the Agent Platform API](https://docs.cloud.googl
 
 Before using any of the command data below, make the following replacements:
 
-  - ENDPOINT\_ID : The ID for the endpoint.
-  - LOCATION\_ID : The region where you are using Agent Platform.
-  - MODEL\_ID : The ID for the model to be deployed.
-  - DEPLOYED\_MODEL\_NAME : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
-  - MACHINE\_TYPE : Optional. The machine resources used for each node of this deployment. Its default setting is `n1-standard-2` . [Learn more about machine types.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute)
-  - MIN\_REPLICA\_COUNT : The minimum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to the maximum number of nodes and never fewer than this number of nodes.
-  - MAX\_REPLICA\_COUNT : The maximum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to this number of nodes and never fewer than the minimum number of nodes.
-  - CUSTOM\_SERVICE\_ACCOUNT : The service account's email address. For example: `  SA_NAME @ PROJECT_ID .iam.gserviceaccount.com ` .
+- ` ENDPOINT_ID ` : The ID for the endpoint.
+- ` LOCATION_ID ` : The region where you are using Agent Platform.
+- ` MODEL_ID ` : The ID for the model to be deployed.
+- ` DEPLOYED_MODEL_NAME ` : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
+- ` MACHINE_TYPE ` : Optional. The machine resources used for each node of this deployment. Its default setting is `n1-standard-2` . [Learn more about machine types.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute)
+- ` MIN_REPLICA_COUNT ` : The minimum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to the maximum number of nodes and never fewer than this number of nodes.
+- ` MAX_REPLICA_COUNT ` : The maximum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to this number of nodes and never fewer than the minimum number of nodes.
+- ` CUSTOM_SERVICE_ACCOUNT ` : The service account's email address. For example: `SA_NAME `` @ `` PROJECT_ID `` .iam.gserviceaccount.com` .
 
 Execute the [gcloud ai endpoints deploy-model](https://docs.cloud.google.com/sdk/gcloud/reference/ai/endpoints/deploy-model) command:
 
@@ -134,43 +138,49 @@ Execute the [gcloud ai endpoints deploy-model](https://docs.cloud.google.com/sdk
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai endpoints deploy-model ENDPOINT_ID \
-      --region=LOCATION \
-      --model=MODEL_ID \
-      --display-name=DEPLOYED_MODEL_NAME \
-      --machine-type=MACHINE_TYPE \
-      --min-replica-count=MIN_REPLICA_COUNT \
-      --max-replica-count=MAX_REPLICA_COUNT \
-      --traffic-split=0=100 \
-      --service-account=CUSTOM_SERVICE_ACCOUNT
+```
+gcloud ai endpoints deploy-model ENDPOINT_ID \
+  --region=LOCATION \
+  --model=MODEL_ID \
+  --display-name=DEPLOYED_MODEL_NAME \
+  --machine-type=MACHINE_TYPE \
+  --min-replica-count=MIN_REPLICA_COUNT \
+  --max-replica-count=MAX_REPLICA_COUNT \
+  --traffic-split=0=100 \
+  --service-account=CUSTOM_SERVICE_ACCOUNT
+```
 
 #### Windows (PowerShell)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai endpoints deploy-model ENDPOINT_ID `
-      --region=LOCATION `
-      --model=MODEL_ID `
-      --display-name=DEPLOYED_MODEL_NAME `
-      --machine-type=MACHINE_TYPE `
-      --min-replica-count=MIN_REPLICA_COUNT `
-      --max-replica-count=MAX_REPLICA_COUNT `
-      --traffic-split=0=100 `
-      --service-account=CUSTOM_SERVICE_ACCOUNT
+```
+gcloud ai endpoints deploy-model ENDPOINT_ID `
+  --region=LOCATION `
+  --model=MODEL_ID `
+  --display-name=DEPLOYED_MODEL_NAME `
+  --machine-type=MACHINE_TYPE `
+  --min-replica-count=MIN_REPLICA_COUNT `
+  --max-replica-count=MAX_REPLICA_COUNT `
+  --traffic-split=0=100 `
+  --service-account=CUSTOM_SERVICE_ACCOUNT
+```
 
 #### Windows (cmd.exe)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai endpoints deploy-model ENDPOINT_ID ^
-      --region=LOCATION ^
-      --model=MODEL_ID ^
-      --display-name=DEPLOYED_MODEL_NAME ^
-      --machine-type=MACHINE_TYPE ^
-      --min-replica-count=MIN_REPLICA_COUNT ^
-      --max-replica-count=MAX_REPLICA_COUNT ^
-      --traffic-split=0=100 ^
-      --service-account=CUSTOM_SERVICE_ACCOUNT
+```
+gcloud ai endpoints deploy-model ENDPOINT_ID ^
+  --region=LOCATION ^
+  --model=MODEL_ID ^
+  --display-name=DEPLOYED_MODEL_NAME ^
+  --machine-type=MACHINE_TYPE ^
+  --min-replica-count=MIN_REPLICA_COUNT ^
+  --max-replica-count=MAX_REPLICA_COUNT ^
+  --traffic-split=0=100 ^
+  --service-account=CUSTOM_SERVICE_ACCOUNT
+```
 
 ### API
 
@@ -198,10 +208,10 @@ To access Google Cloud services, write your [training code](https://docs.cloud.g
 
 Custom service accounts in Gemini Enterprise Agent Platform have the following limitations:
 
-  - For batch inference, the Gemini Enterprise Agent Platform service agent will still be used to access BigQuery and Cloud Storage even when a custom service account is configured.
-  - There is a maximum of 20 custom service accounts per project per region per service (for example, Vertex AI Inference).
+- For batch inference, the Gemini Enterprise Agent Platform service agent will still be used to access BigQuery and Cloud Storage even when a custom service account is configured.
+- There is a maximum of 20 custom service accounts per project per region per service (for example, Vertex AI Inference).
 
 ## What's next
 
-  - Learn more about [Access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) for Agent Platform.
-  - Learn about specific [IAM permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/iam-permissions) and the operations they support.
+- Learn more about [Access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) for Agent Platform.
+- Learn about specific [IAM permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/iam-permissions) and the operations they support.

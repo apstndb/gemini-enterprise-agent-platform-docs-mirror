@@ -34,8 +34,8 @@ The value must be unique within the project and location.
 
 ### Request body
 
-The request body contains an instance of `  FeatureGroup  ` .
+The request body contains an instance of [`FeatureGroup`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups#FeatureGroup) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  Operation  ` .
+If successful, the response body contains a newly created instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

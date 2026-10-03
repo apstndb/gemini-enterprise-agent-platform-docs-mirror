@@ -14,124 +14,151 @@ Anthropic's Claude 3 Haiku on Google Cloud is **deprecated as of February 23, 20
 
 Anthropic's Claude 3 Haiku on Google Cloud is Anthropic's fastest vision and text model for near-instant responses to basic queries, meant for seamless AI experiences mimicking human interactions.
 
-Model ID
-
-`claude-3-haiku`
-
-Launch stage
-
-deprecated
-
-Supported inputs & outputs
-
-  - Inputs:
-    Text , Code , Images
-  - Outputs:
-    Text
-
-Token limits
-
-  - Maximum input tokens: 200,000
-  - Maximum output tokens: 8,000
-
-Capabilities
-
-Supported
-
-  - [Prompt caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/prompt-caching)
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#tool_use_function_calling)
-  - [Count tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens)
-
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>claude-3-haiku</code></td>
+</tr>
+<tr class="even">
+<th>Launch stage</th>
+<td>deprecated</td>
+</tr>
+<tr class="odd">
+<th>Supported inputs &amp; outputs</th>
+<td><ul>
+<li>Inputs:
+Text , Code , Images</li>
+<li>Outputs:
+Text</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Token limits</th>
+<td><ul>
+<li>Maximum input tokens: 200,000</li>
+<li>Maximum output tokens: 8,000</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Capabilities</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/prompt-caching">Prompt caching</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#tool_use_function_calling">Function calling</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens">Count tokens</a></li>
+</ul>
 Not supported
-
-  - [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch)
-  - [Extended thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#use_a_curl_command)
-
-Usage types
-
-Supported
-
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-
-Not supported
-
-Technical specifications
-
-Images
-
-  - **Limitation and specifications:** See [Vision](https://docs.anthropic.com/en/docs/build-with-claude/vision) in Anthropic's documentation
-
-Documents
-
-  - **Limitation and specifications:** See [PDF support](https://docs.anthropic.com/en/docs/build-with-claude/pdf-support) in Anthropic's documentation
-
-Knowledge cutoff date
-
-August 2023
-
-Versions
-
-`claude-3-haiku`
-
-  - **Launch stage:** Deprecated
-  - **Release date:** March 19, 2024
-
-Supported regions
-
-Model availability
-
-(Includes fixed quota & Provisioned Throughput)
-
-United States
-
-  - `us-east5`
-
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch">Batch predictions</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#use_a_curl_command">Extended thinking</a></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Usage types</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a></li>
+</ul>
+Not supported</td>
+</tr>
+<tr class="odd">
+<th>Technical specifications</th>
+<td></td>
+</tr>
+<tr class="even">
+<th>Images</th>
+<td><ul>
+<li><strong>Limitation and specifications:</strong> See <a href="https://docs.anthropic.com/en/docs/build-with-claude/vision">Vision</a> in Anthropic's documentation</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Documents</th>
+<td><ul>
+<li><strong>Limitation and specifications:</strong> See <a href="https://docs.anthropic.com/en/docs/build-with-claude/pdf-support">PDF support</a> in Anthropic's documentation</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Knowledge cutoff date</th>
+<td>August 2023</td>
+</tr>
+<tr class="odd">
+<th>Versions</th>
+<td><ul>
+<li><code>claude-3-haiku</code>
+<ul>
+<li><strong>Launch stage:</strong> Deprecated</li>
+<li><strong>Release date:</strong> March 19, 2024</li>
+</ul></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Supported regions</th>
+<td></td>
+</tr>
+<tr class="odd">
+<th><p>Model availability</p>
+<p>(Includes fixed quota &amp; Provisioned Throughput)</p></th>
+<td>United States
+<ul>
+<li><code>us-east5</code></li>
+</ul>
 Europe
-
-  - `europe-west1`
-
+<ul>
+<li><code>europe-west1</code></li>
+</ul>
 Asia Pacific
-
-  - `asia-southeast1`
-
-ML processing
-
-United States
-
-  - `Multi-region`
-
+<ul>
+<li><code>asia-southeast1</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th><p>ML processing</p></th>
+<td>United States
+<ul>
+<li><code>Multi-region</code></li>
+</ul>
 Europe
-
-  - `Multi-region`
-
+<ul>
+<li><code>Multi-region</code></li>
+</ul>
 Asia Pacific
-
-  - `asia-southeast1`
-
-Quota limits
-
-us-east5:
-
-  - QPM: 245
-  - TPM: 600,000 (input and output)
-  - Context length: 200,000
-
-europe-west1:
-
-  - QPM: 75
-  - TPM: 181,000 (input and output)
-  - Context length: 200,000
-
-asia-southeast1:
-
-  - QPM: 70
-  - TPM: 174,000 (input and output)
-  - Context length: 200,000
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+<ul>
+<li><code>asia-southeast1</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Quota limits</th>
+<td><p>us-east5:</p>
+<ul>
+<li>QPM: 245</li>
+<li>TPM: 600,000 (input and output)</li>
+<li>Context length: 200,000</li>
+</ul>
+<p>europe-west1:</p>
+<ul>
+<li>QPM: 75</li>
+<li>TPM: 181,000 (input and output)</li>
+<li>Context length: 200,000</li>
+</ul>
+<p>asia-southeast1:</p>
+<ul>
+<li>QPM: 70</li>
+<li>TPM: 174,000 (input and output)</li>
+<li>Context length: 200,000</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Pricing</th>
+<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+</tr>
+</tbody>
+</table>
 
 ## Claude 3.5 Haiku on Google Cloud
 
@@ -141,110 +168,137 @@ Claude 3.5 Haiku on Google Cloud, the next generation of Anthropic's fastest and
 
 [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-3-5-haiku)
 
-Model ID
-
-`claude-3-5-haiku`
-
-Launch stage
-
-deprecated
-
-Supported inputs & outputs
-
-  - Inputs:
-    Text , Code , Images
-  - Outputs:
-    Text
-
-Token limits
-
-  - Maximum input tokens: 200,000
-  - Maximum output tokens: 8,000
-
-Capabilities
-
-Supported
-
-  - [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch)
-  - [Prompt caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/prompt-caching)
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#tool_use_function_calling)
-  - [Count tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens)
-
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>claude-3-5-haiku</code></td>
+</tr>
+<tr class="even">
+<th>Launch stage</th>
+<td>deprecated</td>
+</tr>
+<tr class="odd">
+<th>Supported inputs &amp; outputs</th>
+<td><ul>
+<li>Inputs:
+Text , Code , Images</li>
+<li>Outputs:
+Text</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Token limits</th>
+<td><ul>
+<li>Maximum input tokens: 200,000</li>
+<li>Maximum output tokens: 8,000</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Capabilities</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch">Batch predictions</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/prompt-caching">Prompt caching</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#tool_use_function_calling">Function calling</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens">Count tokens</a></li>
+</ul>
 Not supported
-
-  - [Extended thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#use_a_curl_command)
-
-Usage types
-
-Supported
-
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-
-Not supported
-
-Technical specifications
-
-Images
-
-  - **Limitation and specifications:** See [Vision](https://docs.anthropic.com/en/docs/build-with-claude/vision) in Anthropic's documentation
-
-Documents
-
-  - **Limitation and specifications:** See [PDF support](https://docs.anthropic.com/en/docs/build-with-claude/pdf-support) in Anthropic's documentation
-
-Knowledge cutoff date
-
-July 2024
-
-Versions
-
-`claude-3-5-haiku`
-
-  - **Launch stage:** Deprecated
-  - **Release date:** October 22, 2024
-
-Supported regions
-
-Model availability
-
-(Includes fixed quota & Provisioned Throughput)
-
-United States
-
-  - `us-east5`
-
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#use_a_curl_command">Extended thinking</a></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Usage types</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a></li>
+</ul>
+Not supported</td>
+</tr>
+<tr class="odd">
+<th>Technical specifications</th>
+<td></td>
+</tr>
+<tr class="even">
+<th>Images</th>
+<td><ul>
+<li><strong>Limitation and specifications:</strong> See <a href="https://docs.anthropic.com/en/docs/build-with-claude/vision">Vision</a> in Anthropic's documentation</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Documents</th>
+<td><ul>
+<li><strong>Limitation and specifications:</strong> See <a href="https://docs.anthropic.com/en/docs/build-with-claude/pdf-support">PDF support</a> in Anthropic's documentation</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Knowledge cutoff date</th>
+<td>July 2024</td>
+</tr>
+<tr class="odd">
+<th>Versions</th>
+<td><ul>
+<li><code>claude-3-5-haiku</code>
+<ul>
+<li><strong>Launch stage:</strong> Deprecated</li>
+<li><strong>Release date:</strong> October 22, 2024</li>
+</ul></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Supported regions</th>
+<td></td>
+</tr>
+<tr class="odd">
+<th><p>Model availability</p>
+<p>(Includes fixed quota &amp; Provisioned Throughput)</p></th>
+<td>United States
+<ul>
+<li><code>us-east5</code></li>
+</ul>
 Europe
-
-  - `europe-west1`
-
-ML processing
-
-United States
-
-  - `Multi-region`
-
+<ul>
+<li><code>europe-west1</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th><p>ML processing</p></th>
+<td>United States
+<ul>
+<li><code>Multi-region</code></li>
+</ul>
 Europe
-
-  - `Multi-region`
-
-Quota limits
-
-us-east5:
-
-  - QPM: 80
-  - TPM: 350,000 (input and output)
-  - Context length: 200,000
-
-europe-west1:
-
-  - QPM: 90
-  - TPM: 400,000 (input and output)
-  - Context length: 200,000
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+<ul>
+<li><code>Multi-region</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Quota limits</th>
+<td><p>us-east5:</p>
+<ul>
+<li>QPM: 80</li>
+<li>TPM: 350,000 (input and output)</li>
+<li>Context length: 200,000</li>
+</ul>
+<p>europe-west1:</p>
+<ul>
+<li>QPM: 90</li>
+<li>TPM: 400,000 (input and output)</li>
+<li>Context length: 200,000</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Pricing</th>
+<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+</tr>
+</tbody>
+</table>
 
 ## Claude 3.7 Sonnet on Google Cloud
 
@@ -252,120 +306,147 @@ Claude 3.7 Sonnet on Google Cloud is **deprecated as of November 11, 2025** and 
 
 Claude 3.7 Sonnet on Google Cloud is a state-of-the-art model for real-world software engineering tasks and agentic capabilities.
 
-Model ID
-
-`claude-3-7-sonnet`
-
-Launch stage
-
-deprecated
-
-Supported inputs & outputs
-
-  - Inputs:
-    Text , Code , Images
-  - Outputs:
-    Text
-
-Token limits
-
-  - Maximum input tokens: 200,000
-  - Maximum output tokens: 128,000
-
-Capabilities
-
-Supported
-
-  - [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch)
-  - [Prompt caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/prompt-caching)
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#tool_use_function_calling)
-  - [Count tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens)
-
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>claude-3-7-sonnet</code></td>
+</tr>
+<tr class="even">
+<th>Launch stage</th>
+<td>deprecated</td>
+</tr>
+<tr class="odd">
+<th>Supported inputs &amp; outputs</th>
+<td><ul>
+<li>Inputs:
+Text , Code , Images</li>
+<li>Outputs:
+Text</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Token limits</th>
+<td><ul>
+<li>Maximum input tokens: 200,000</li>
+<li>Maximum output tokens: 128,000</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Capabilities</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch">Batch predictions</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/prompt-caching">Prompt caching</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#tool_use_function_calling">Function calling</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens">Count tokens</a></li>
+</ul>
 Not supported
-
-  - [Extended thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#use_a_curl_command)
-
-Usage types
-
-Supported
-
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-
-Not supported
-
-Technical specifications
-
-Images
-
-  - **Limitation and specifications:** See [Vision](https://docs.anthropic.com/en/docs/build-with-claude/vision) in Anthropic's documentation
-
-Documents
-
-  - **Limitation and specifications:** See [PDF support](https://docs.anthropic.com/en/docs/build-with-claude/pdf-support) in Anthropic's documentation
-
-Knowledge cutoff date
-
-November 2024
-
-Versions
-
-`claude-3-7-sonnet`
-
-  - **Launch stage:** Deprecated
-  - **Release date:** March 20, 2025
-
-Supported regions
-
-Model availability
-
-(Includes fixed quota & Provisioned Throughput)
-
-United States
-
-  - `us-east5`
-
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#use_a_curl_command">Extended thinking</a></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Usage types</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a></li>
+</ul>
+Not supported</td>
+</tr>
+<tr class="odd">
+<th>Technical specifications</th>
+<td></td>
+</tr>
+<tr class="even">
+<th>Images</th>
+<td><ul>
+<li><strong>Limitation and specifications:</strong> See <a href="https://docs.anthropic.com/en/docs/build-with-claude/vision">Vision</a> in Anthropic's documentation</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Documents</th>
+<td><ul>
+<li><strong>Limitation and specifications:</strong> See <a href="https://docs.anthropic.com/en/docs/build-with-claude/pdf-support">PDF support</a> in Anthropic's documentation</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Knowledge cutoff date</th>
+<td>November 2024</td>
+</tr>
+<tr class="odd">
+<th>Versions</th>
+<td><ul>
+<li><code>claude-3-7-sonnet</code>
+<ul>
+<li><strong>Launch stage:</strong> Deprecated</li>
+<li><strong>Release date:</strong> March 20, 2025</li>
+</ul></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Supported regions</th>
+<td></td>
+</tr>
+<tr class="odd">
+<th><p>Model availability</p>
+<p>(Includes fixed quota &amp; Provisioned Throughput)</p></th>
+<td>United States
+<ul>
+<li><code>us-east5</code></li>
+</ul>
 Europe
-
-  - `europe-west1`
-
+<ul>
+<li><code>europe-west1</code></li>
+</ul>
 Global
-
-  - `global endpoint`
-
-ML processing
-
-United States
-
-  - `Multi-region`
-
+<ul>
+<li><code>global endpoint</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th><p>ML processing</p></th>
+<td>United States
+<ul>
+<li><code>Multi-region</code></li>
+</ul>
 Europe
-
-  - `Multi-region`
-
-Quota limits
-
-us-east5:
-
-  - QPM: 55
-  - TPM: 500,000 ( [uncached](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input) input and output)
-  - Context length: 200,000
-
-europe-west1:
-
-  - QPM: 40
-  - TPM: 300,000 ( [uncached](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input) input and output)
-  - Context length: 200,000
-
-global endpoint:
-
-  - QPM: 35
-  - TPM: 300,000 ( [uncached](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input) input and output)
-  - Context length: 200,000
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+<ul>
+<li><code>Multi-region</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Quota limits</th>
+<td><p>us-east5:</p>
+<ul>
+<li>QPM: 55</li>
+<li>TPM: 500,000 ( <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached</a> input and output)</li>
+<li>Context length: 200,000</li>
+</ul>
+<p>europe-west1:</p>
+<ul>
+<li>QPM: 40</li>
+<li>TPM: 300,000 ( <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached</a> input and output)</li>
+<li>Context length: 200,000</li>
+</ul>
+<p>global endpoint:</p>
+<ul>
+<li>QPM: 35</li>
+<li>TPM: 300,000 ( <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached</a> input and output)</li>
+<li>Context length: 200,000</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Pricing</th>
+<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+</tr>
+</tbody>
+</table>
 
 ## Claude 3.5 Sonnet v2 on Google Cloud
 
@@ -375,120 +456,147 @@ Claude 3.5 Sonnet v2 on Google Cloud is a state-of-the-art model for real-world 
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/generative/multimodal/create/text?model=claude-3-5-sonnet-v2)
 
-Model ID
-
-`claude-3-5-sonnet-v2`
-
-Launch stage
-
-GA
-
-Supported inputs & outputs
-
-  - Inputs:
-    Text , Code , Images
-  - Outputs:
-    Text
-
-Token limits
-
-  - Maximum input tokens: 200,000
-  - Maximum output tokens: 8,000
-
-Capabilities
-
-Supported
-
-  - [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch)
-  - [Prompt caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/prompt-caching)
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#tool_use_function_calling)
-  - [Count tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens)
-
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>claude-3-5-sonnet-v2</code></td>
+</tr>
+<tr class="even">
+<th>Launch stage</th>
+<td>GA</td>
+</tr>
+<tr class="odd">
+<th>Supported inputs &amp; outputs</th>
+<td><ul>
+<li>Inputs:
+Text , Code , Images</li>
+<li>Outputs:
+Text</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Token limits</th>
+<td><ul>
+<li>Maximum input tokens: 200,000</li>
+<li>Maximum output tokens: 8,000</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Capabilities</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch">Batch predictions</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/prompt-caching">Prompt caching</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#tool_use_function_calling">Function calling</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens">Count tokens</a></li>
+</ul>
 Not supported
-
-  - [Extended thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#use_a_curl_command)
-
-Usage types
-
-Supported
-
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-
-Not supported
-
-Technical specifications
-
-Images
-
-  - **Limitation and specifications:** See [Vision](https://docs.anthropic.com/en/docs/build-with-claude/vision) in Anthropic's documentation
-
-Documents
-
-  - **Limitation and specifications:** See [PDF support](https://docs.anthropic.com/en/docs/build-with-claude/pdf-support) in Anthropic's documentation
-
-Knowledge cutoff date
-
-August 2024
-
-Versions
-
-`claude-3-5-sonnet-v2`
-
-  - **Launch stage:** Generally available
-  - **Release date:** October 22, 2024
-
-Supported regions
-
-Model availability
-
-(Includes fixed quota & Provisioned Throughput)
-
-United States
-
-  - `us-east5`
-
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#use_a_curl_command">Extended thinking</a></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Usage types</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a></li>
+</ul>
+Not supported</td>
+</tr>
+<tr class="odd">
+<th>Technical specifications</th>
+<td></td>
+</tr>
+<tr class="even">
+<th>Images</th>
+<td><ul>
+<li><strong>Limitation and specifications:</strong> See <a href="https://docs.anthropic.com/en/docs/build-with-claude/vision">Vision</a> in Anthropic's documentation</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Documents</th>
+<td><ul>
+<li><strong>Limitation and specifications:</strong> See <a href="https://docs.anthropic.com/en/docs/build-with-claude/pdf-support">PDF support</a> in Anthropic's documentation</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Knowledge cutoff date</th>
+<td>August 2024</td>
+</tr>
+<tr class="odd">
+<th>Versions</th>
+<td><ul>
+<li><code>claude-3-5-sonnet-v2</code>
+<ul>
+<li><strong>Launch stage:</strong> Generally available</li>
+<li><strong>Release date:</strong> October 22, 2024</li>
+</ul></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Supported regions</th>
+<td></td>
+</tr>
+<tr class="odd">
+<th><p>Model availability</p>
+<p>(Includes fixed quota &amp; Provisioned Throughput)</p></th>
+<td>United States
+<ul>
+<li><code>us-east5</code></li>
+</ul>
 Europe
-
-  - `europe-west1`
-
+<ul>
+<li><code>europe-west1</code></li>
+</ul>
 Global
-
-  - `global endpoint`
-
-ML processing
-
-United States
-
-  - `Multi-region`
-
+<ul>
+<li><code>global endpoint</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th><p>ML processing</p></th>
+<td>United States
+<ul>
+<li><code>Multi-region</code></li>
+</ul>
 Europe
-
-  - `Multi-region`
-
-Quota limits
-
-us-east5:
-
-  - QPM: 90
-  - TPM: 540,000 (input and output)
-  - Context length: 200,000
-
-europe-west1:
-
-  - QPM: 55
-  - TPM: 330,000 (input and output)
-  - Context length: 200,000
-
-global endpoint:
-
-  - QPM: 25
-  - TPM: 140,000 (input and output)
-  - Context length: 200,000
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+<ul>
+<li><code>Multi-region</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Quota limits</th>
+<td><p>us-east5:</p>
+<ul>
+<li>QPM: 90</li>
+<li>TPM: 540,000 (input and output)</li>
+<li>Context length: 200,000</li>
+</ul>
+<p>europe-west1:</p>
+<ul>
+<li>QPM: 55</li>
+<li>TPM: 330,000 (input and output)</li>
+<li>Context length: 200,000</li>
+</ul>
+<p>global endpoint:</p>
+<ul>
+<li>QPM: 25</li>
+<li>TPM: 140,000 (input and output)</li>
+<li>Context length: 200,000</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Pricing</th>
+<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+</tr>
+</tbody>
+</table>
 
 ## Claude 3.5 Sonnet on Google Cloud
 
@@ -496,124 +604,151 @@ Claude 3.5 Sonnet on Google Cloud is **deprecated as of August 20, 2025** and wi
 
 Claude 3.5 Sonnet on Google Cloud outperforms Anthropic's Claude 3 Opus on Google Cloud on a wide range of Anthropic's evaluations with the speed and cost of Anthropic's mid-tier model, Claude 3 Sonnet on Google Cloud.
 
-Model ID
-
-`claude-3-5-sonnet`
-
-Launch stage
-
-GA
-
-Supported inputs & outputs
-
-  - Inputs:
-    Text , Code , Images
-  - Outputs:
-    Text
-
-Token limits
-
-  - Maximum input tokens: 200,000
-  - Maximum output tokens: 8,000
-
-Capabilities
-
-Supported
-
-  - [Prompt caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/prompt-caching)
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#tool_use_function_calling)
-  - [Count tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens)
-
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>claude-3-5-sonnet</code></td>
+</tr>
+<tr class="even">
+<th>Launch stage</th>
+<td>GA</td>
+</tr>
+<tr class="odd">
+<th>Supported inputs &amp; outputs</th>
+<td><ul>
+<li>Inputs:
+Text , Code , Images</li>
+<li>Outputs:
+Text</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Token limits</th>
+<td><ul>
+<li>Maximum input tokens: 200,000</li>
+<li>Maximum output tokens: 8,000</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Capabilities</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/prompt-caching">Prompt caching</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#tool_use_function_calling">Function calling</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens">Count tokens</a></li>
+</ul>
 Not supported
-
-  - [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch)
-  - [Extended thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#use_a_curl_command)
-
-Usage types
-
-Supported
-
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-
-Not supported
-
-Technical specifications
-
-Images
-
-  - **Limitation and specifications:** See [Vision](https://docs.anthropic.com/en/docs/build-with-claude/vision) in Anthropic's documentation
-
-Documents
-
-  - **Limitation and specifications:** See [PDF support](https://docs.anthropic.com/en/docs/build-with-claude/pdf-support) in Anthropic's documentation
-
-Knowledge cutoff date
-
-April 2024
-
-Versions
-
-`claude-3-5-sonnet`
-
-  - **Launch stage:** Generally available
-  - **Release date:** June 20, 2024
-
-Supported regions
-
-Model availability
-
-(Includes fixed quota & Provisioned Throughput)
-
-United States
-
-  - `us-east5`
-
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch">Batch predictions</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#use_a_curl_command">Extended thinking</a></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Usage types</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a></li>
+</ul>
+Not supported</td>
+</tr>
+<tr class="odd">
+<th>Technical specifications</th>
+<td></td>
+</tr>
+<tr class="even">
+<th>Images</th>
+<td><ul>
+<li><strong>Limitation and specifications:</strong> See <a href="https://docs.anthropic.com/en/docs/build-with-claude/vision">Vision</a> in Anthropic's documentation</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Documents</th>
+<td><ul>
+<li><strong>Limitation and specifications:</strong> See <a href="https://docs.anthropic.com/en/docs/build-with-claude/pdf-support">PDF support</a> in Anthropic's documentation</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Knowledge cutoff date</th>
+<td>April 2024</td>
+</tr>
+<tr class="odd">
+<th>Versions</th>
+<td><ul>
+<li><code>claude-3-5-sonnet</code>
+<ul>
+<li><strong>Launch stage:</strong> Generally available</li>
+<li><strong>Release date:</strong> June 20, 2024</li>
+</ul></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Supported regions</th>
+<td></td>
+</tr>
+<tr class="odd">
+<th><p>Model availability</p>
+<p>(Includes fixed quota &amp; Provisioned Throughput)</p></th>
+<td>United States
+<ul>
+<li><code>us-east5</code></li>
+</ul>
 Europe
-
-  - `europe-west1`
-
+<ul>
+<li><code>europe-west1</code></li>
+</ul>
 Asia Pacific
-
-  - `asia-southeast1`
-
-ML processing
-
-United States
-
-  - `Multi-region`
-
+<ul>
+<li><code>asia-southeast1</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th><p>ML processing</p></th>
+<td>United States
+<ul>
+<li><code>Multi-region</code></li>
+</ul>
 Europe
-
-  - `Multi-region`
-
+<ul>
+<li><code>Multi-region</code></li>
+</ul>
 Asia Pacific
-
-  - `asia-southeast1`
-
-Quota limits
-
-us-east5:
-
-  - QPM: 80
-  - TPM: 350,000 (input and output)
-  - Context length: 200,000
-
-europe-west1:
-
-  - QPM: 130
-  - TPM: 600,000 (input and output)
-  - Context length: 200,000
-
-asia-southeast1:
-
-  - QPM: 35
-  - TPM: 150,000 (input and output)
-  - Context length: 200,000
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+<ul>
+<li><code>asia-southeast1</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Quota limits</th>
+<td><p>us-east5:</p>
+<ul>
+<li>QPM: 80</li>
+<li>TPM: 350,000 (input and output)</li>
+<li>Context length: 200,000</li>
+</ul>
+<p>europe-west1:</p>
+<ul>
+<li>QPM: 130</li>
+<li>TPM: 600,000 (input and output)</li>
+<li>Context length: 200,000</li>
+</ul>
+<p>asia-southeast1:</p>
+<ul>
+<li>QPM: 35</li>
+<li>TPM: 150,000 (input and output)</li>
+<li>Context length: 200,000</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Pricing</th>
+<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+</tr>
+</tbody>
+</table>
 
 ## Jamba 1.5 Large
 
@@ -623,77 +758,97 @@ AI21 Labs's Jamba 1.5 Large is well balanced across quality, throughput, and low
 
 [View model card in Model Garden](https://console.cloud.google.com/agent-platform/model-garden)
 
-Model ID
-
-`jamba-1.5-large`
-
-Launch stage
-
-Preview
-
-Supported inputs & outputs
-
-  - Inputs:
-    Text , Documents
-  - Outputs:
-    Text
-
-Usage types
-
-Supported
-
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
-
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>jamba-1.5-large</code></td>
+</tr>
+<tr class="even">
+<th>Launch stage</th>
+<td>Preview</td>
+</tr>
+<tr class="odd">
+<th>Supported inputs &amp; outputs</th>
+<td><ul>
+<li>Inputs:
+Text , Documents</li>
+<li>Outputs:
+Text</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Usage types</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a></li>
+</ul>
 Not supported
-
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-
-Knowledge cutoff date
-
-March 2024
-
-Versions
-
-`jamba-1.5-large`
-
-  - **Launch stage:** Preview
-  - **Release date:** August 22, 2024
-
-Supported regions
-
-Model availability
-
-United States
-
-  - `us-central1`
-
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Knowledge cutoff date</th>
+<td>March 2024</td>
+</tr>
+<tr class="even">
+<th>Versions</th>
+<td><ul>
+<li><code>jamba-1.5-large</code>
+<ul>
+<li><strong>Launch stage:</strong> Preview</li>
+<li><strong>Release date:</strong> August 22, 2024</li>
+</ul></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Supported regions</th>
+<td></td>
+</tr>
+<tr class="even">
+<th><p>Model availability</p></th>
+<td>United States
+<ul>
+<li><code>us-central1</code></li>
+</ul>
 Europe
-
-  - `europe-west4`
-
-ML processing
-
-United States
-
-  - `Multi-region`
-
-Quota limits
-
-us-central1:
-
-  - QPM: 20
-  - TPM: 20,000
-  - Context length: 256,000
-
-europe-west4:
-
-  - QPM: 20
-  - TPM: 20,000
-  - Context length: 256,000
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+<ul>
+<li><code>europe-west4</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th><p>ML processing</p></th>
+<td>United States
+<ul>
+<li><code>Multi-region</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Quota limits</th>
+<td><p>us-central1:</p>
+<ul>
+<li>QPM: 20</li>
+<li>TPM: 20,000</li>
+<li>Context length: 256,000</li>
+</ul>
+<p>europe-west4:</p>
+<ul>
+<li>QPM: 20</li>
+<li>TPM: 20,000</li>
+<li>Context length: 256,000</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Pricing</th>
+<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+</tr>
+</tbody>
+</table>
 
 ## Jamba 1.5 Mini
 
@@ -703,77 +858,97 @@ AI21 Labs's Jamba 1.5 Mini is well balanced across quality, throughput, and low 
 
 [View model card in Model Garden](https://console.cloud.google.com/agent-platform/model-garden)
 
-Model ID
-
-`jamba-1.5-mini`
-
-Launch stage
-
-Preview
-
-Supported inputs & outputs
-
-  - Inputs:
-    Text , Documents
-  - Outputs:
-    Text
-
-Usage types
-
-Supported
-
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
-
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>jamba-1.5-mini</code></td>
+</tr>
+<tr class="even">
+<th>Launch stage</th>
+<td>Preview</td>
+</tr>
+<tr class="odd">
+<th>Supported inputs &amp; outputs</th>
+<td><ul>
+<li>Inputs:
+Text , Documents</li>
+<li>Outputs:
+Text</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Usage types</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a></li>
+</ul>
 Not supported
-
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-
-Knowledge cutoff date
-
-March 2024
-
-Versions
-
-`jamba-1.5-mini`
-
-  - **Launch stage:** Preview
-  - **Release date:** August 22, 2024
-
-Supported regions
-
-Model availability
-
-United States
-
-  - `us-central1`
-
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Knowledge cutoff date</th>
+<td>March 2024</td>
+</tr>
+<tr class="even">
+<th>Versions</th>
+<td><ul>
+<li><code>jamba-1.5-mini</code>
+<ul>
+<li><strong>Launch stage:</strong> Preview</li>
+<li><strong>Release date:</strong> August 22, 2024</li>
+</ul></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Supported regions</th>
+<td></td>
+</tr>
+<tr class="even">
+<th><p>Model availability</p></th>
+<td>United States
+<ul>
+<li><code>us-central1</code></li>
+</ul>
 Europe
-
-  - `europe-west4`
-
-ML processing
-
-United States
-
-  - `Multi-region`
-
-Quota limits
-
-us-central1:
-
-  - QPM: 50
-  - TPM: 60,000
-  - Context length: 256,000
-
-europe-west4:
-
-  - QPM: 50
-  - TPM: 60,000
-  - Context length: 256,000
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+<ul>
+<li><code>europe-west4</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th><p>ML processing</p></th>
+<td>United States
+<ul>
+<li><code>Multi-region</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Quota limits</th>
+<td><p>us-central1:</p>
+<ul>
+<li>QPM: 50</li>
+<li>TPM: 60,000</li>
+<li>Context length: 256,000</li>
+</ul>
+<p>europe-west4:</p>
+<ul>
+<li>QPM: 50</li>
+<li>TPM: 60,000</li>
+<li>Context length: 256,000</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Pricing</th>
+<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+</tr>
+</tbody>
+</table>
 
 ## Claude 3 Opus on Google Cloud
 
@@ -781,101 +956,128 @@ Anthropic's Claude 3 Opus on Google Cloud is **deprecated as of June 30, 2025** 
 
 Anthropic's Claude 3 Opus on Google Cloud is a powerful AI model with top-level performance on highly complex tasks. It can navigate open-ended prompts and sight-unseen scenarios with remarkable fluency and human-like understanding. Claude 3 Opus on Google Cloud is optimized for the following use cases:
 
-  - Task automation, such as interactive coding and planning, or running complex actions across APIs and databases.
+- Task automation, such as interactive coding and planning, or running complex actions across APIs and databases.
 
-  - Research and development tasks, such as research review, brainstorming and hypothesis generation, and product testing.
+- Research and development tasks, such as research review, brainstorming and hypothesis generation, and product testing.
 
-  - Strategy tasks, such as advanced analysis of charts and graphs, financials and market trends, and forecasting.
+- Strategy tasks, such as advanced analysis of charts and graphs, financials and market trends, and forecasting.
 
-  - Vision tasks, such as processing images to return text output. Also, analysis of charts, graphs, technical diagrams, reports, and other visual content.
+- Vision tasks, such as processing images to return text output. Also, analysis of charts, graphs, technical diagrams, reports, and other visual content.
 
-Model ID
-
-`claude-3-opus`
-
-Launch stage
-
-deprecated
-
-Supported inputs & outputs
-
-  - Inputs:
-    Text , Code , Images
-  - Outputs:
-    Text
-
-Token limits
-
-  - Maximum input tokens: 200,000
-  - Maximum output tokens: 8,000
-
-Capabilities
-
-Supported
-
-  - [Prompt caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/prompt-caching)
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#tool_use_function_calling)
-  - [Count tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens)
-
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>claude-3-opus</code></td>
+</tr>
+<tr class="even">
+<th>Launch stage</th>
+<td>deprecated</td>
+</tr>
+<tr class="odd">
+<th>Supported inputs &amp; outputs</th>
+<td><ul>
+<li>Inputs:
+Text , Code , Images</li>
+<li>Outputs:
+Text</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Token limits</th>
+<td><ul>
+<li>Maximum input tokens: 200,000</li>
+<li>Maximum output tokens: 8,000</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Capabilities</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/prompt-caching">Prompt caching</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#tool_use_function_calling">Function calling</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens">Count tokens</a></li>
+</ul>
 Not supported
-
-  - [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch)
-  - [Extended thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#use_a_curl_command)
-
-Usage types
-
-Supported
-
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-
-Not supported
-
-Technical specifications
-
-Images
-
-  - **Limitation and specifications:** See [Vision](https://docs.anthropic.com/en/docs/build-with-claude/vision) in Anthropic's documentation
-
-Documents
-
-  - **Limitation and specifications:** See [PDF support](https://docs.anthropic.com/en/docs/build-with-claude/pdf-support) in Anthropic's documentation
-
-Knowledge cutoff date
-
-August 2023
-
-Versions
-
-`claude-3-opus`
-
-  - **Launch stage:** Deprecated
-  - **Release date:** May 31, 2024
-
-Supported regions
-
-Model availability
-
-(Includes fixed quota & Provisioned Throughput)
-
-United States
-
-  - `us-east5`
-
-ML processing
-
-United States
-
-  - `Multi-region`
-
-Quota limits
-
-us-east5:
-
-  - QPM: 20
-  - TPM: 105,000 (input and output)
-  - Context length: 200,000
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch">Batch predictions</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#use_a_curl_command">Extended thinking</a></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Usage types</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a></li>
+</ul>
+Not supported</td>
+</tr>
+<tr class="odd">
+<th>Technical specifications</th>
+<td></td>
+</tr>
+<tr class="even">
+<th>Images</th>
+<td><ul>
+<li><strong>Limitation and specifications:</strong> See <a href="https://docs.anthropic.com/en/docs/build-with-claude/vision">Vision</a> in Anthropic's documentation</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Documents</th>
+<td><ul>
+<li><strong>Limitation and specifications:</strong> See <a href="https://docs.anthropic.com/en/docs/build-with-claude/pdf-support">PDF support</a> in Anthropic's documentation</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Knowledge cutoff date</th>
+<td>August 2023</td>
+</tr>
+<tr class="odd">
+<th>Versions</th>
+<td><ul>
+<li><code>claude-3-opus</code>
+<ul>
+<li><strong>Launch stage:</strong> Deprecated</li>
+<li><strong>Release date:</strong> May 31, 2024</li>
+</ul></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Supported regions</th>
+<td></td>
+</tr>
+<tr class="odd">
+<th><p>Model availability</p>
+<p>(Includes fixed quota &amp; Provisioned Throughput)</p></th>
+<td>United States
+<ul>
+<li><code>us-east5</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th><p>ML processing</p></th>
+<td>United States
+<ul>
+<li><code>Multi-region</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Quota limits</th>
+<td><p>us-east5:</p>
+<ul>
+<li>QPM: 20</li>
+<li>TPM: 105,000 (input and output)</li>
+<li>Context length: 200,000</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Pricing</th>
+<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+</tr>
+</tbody>
+</table>

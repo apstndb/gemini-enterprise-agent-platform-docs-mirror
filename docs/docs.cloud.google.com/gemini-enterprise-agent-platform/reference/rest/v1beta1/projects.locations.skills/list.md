@@ -38,32 +38,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  SkillRegistryService.ListSkills  ` .
+Response message for [`SkillRegistryService.ListSkills`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills/list#google.cloud.aiplatform.v1beta1.SkillRegistryService.ListSkills) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`skills[]` ` object ( Skill  ` )
+`skills[]` `object ( `[`Skill`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills#Skill)` )`
 
 The Skills.
 
 `nextPageToken` `string`
 
-A token, which can be sent as `  ListSkillsRequest.page_token  ` to retrieve the next page. If this field is omitted, there are no subsequent pages.
+A token, which can be sent as [`ListSkillsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills/list#body.QUERY_PARAMETERS.page_token) to retrieve the next page. If this field is omitted, there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;skills&quot;: [{object (Skill)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "skills": [
+    {
+      object (Skill)
+    }
+  ],
+  "nextPageToken": string
+}
+```

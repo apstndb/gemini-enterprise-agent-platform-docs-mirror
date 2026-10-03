@@ -20,14 +20,14 @@ To refine prompts, do the following:
 
 3.  Click **Submit** .
 
-4.  Click auto\_fix **Refine prompt** .
+4.  Click auto_fix **Refine prompt** .
 
 5.  Enter feedback about what you'd like to change about the model's response to your prompt, or select one or more of the following prefilled feedback options:
-    
-      - Make shorter
-      - Maker longer
-      - More professional
-      - More casual
+
+    - Make shorter
+    - Maker longer
+    - More professional
+    - More casual
 
 6.  Click **Apply and run** .
 
@@ -55,5 +55,5 @@ To generate prompts, do the following:
 
 ## What's next
 
-  - Learn more about [prompting strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-design-strategies) .
-  - Learn about [responsible AI best practices and Agent Platform's safety filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .
+- Learn more about [prompting strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-design-strategies) .
+- Learn about [responsible AI best practices and Agent Platform's safety filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .

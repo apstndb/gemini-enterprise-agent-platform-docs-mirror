@@ -7,36 +7,36 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 This guide provides information about optional metadata for vector embeddings. Vector Search lets you define metadata for each embedding.
 
 Metadata is non-filterable, arbitrary information that Vector Search can store for each embedding. This can provide embeddings with useful context such as:
 
-  - Product details, such as name, price, and an image URL.
+- Product details, such as name, price, and an image URL.
 
-  - Descriptions, snippets, dates, and authorship for text embeddings.
+- Descriptions, snippets, dates, and authorship for text embeddings.
 
-  - User information for user embeddings.
+- User information for user embeddings.
 
-  - Coordinates for place embeddings.
+- Coordinates for place embeddings.
 
 ## Key features and benefits
 
 Features and benefits of using metadata include:
 
-  - **Context with results** : Information can be provided directly in your search results, which eliminates the need for separate lookups and reduces latency.
+- **Context with results** : Information can be provided directly in your search results, which eliminates the need for separate lookups and reduces latency.
 
-  - **Flexible structure** : Metadata is provided as a **JSON object** , which allows the metadata to be defined as complex, nested data.
+- **Flexible structure** : Metadata is provided as a **JSON object** , which allows the metadata to be defined as complex, nested data.
 
-  - **Non-Filterable** : Vector embedding metadata is for storing and retrieving non-filterable information that's distinct from `restricts` and `numeric_restricts` .
+- **Non-Filterable** : Vector embedding metadata is for storing and retrieving non-filterable information that's distinct from `restricts` and `numeric_restricts` .
 
-  - **Efficient updates** : The `update_mask` field lets you specify that APIs *only* update metadata to avoid resubmitting embedding vectors.
+- **Efficient updates** : The `update_mask` field lets you specify that APIs *only* update metadata to avoid resubmitting embedding vectors.
 
-  - **Decoupled Information** : Non-filterable information can be separated from filterable attributes like `restricts` .
+- **Decoupled Information** : Non-filterable information can be separated from filterable attributes like `restricts` .
 
-  - **Streamlined development** : Search responses include metadata associated with a vector embedding, while reducing the complexity needed for features such as displaying rich search results and performing context-based post-processing.
+- **Streamlined development** : Search responses include metadata associated with a vector embedding, while reducing the complexity needed for features such as displaying rich search results and performing context-based post-processing.
 
 ## Data format
 
@@ -46,7 +46,7 @@ An optional `embedding_metadata` field holds a JSON object that flexibly associa
 
 Example data point structure:
 
-``` 
+```
     {
         "id": "movie_001",
         "embedding": [0.1, 0.2, ..., 0.3],
@@ -78,10 +78,10 @@ Example data point structure:
 
 When adding data points, you can include `embedding_metadata` when one of the following actions occurs:
 
-  - Uploading a file (Cloud Storage):
-      - Use **JSON** or **AVRO** [formats](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/format-structure) . **CSV isn't supported** for `embedding_metadata` .
-  - Using the `upsertDatapoints` API:
-      - Pass data point objects (including `embedding_metadata` ) in the API request payload.
+- Uploading a file (Cloud Storage):
+  - Use **JSON** or **AVRO** [formats](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/format-structure) . **CSV isn't supported** for `embedding_metadata` .
+- Using the `upsertDatapoints` API:
+  - Pass data point objects (including `embedding_metadata` ) in the API request payload.
 
 > **Note:** `embedding_metadata` has a size limit of 2 KB for each datapoint.
 
@@ -91,9 +91,11 @@ When performing a standard nearest-neighbor search using the `findNeighbors` API
 
 ### curl
 
-    curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    "https://${PUBLIC_ENDPOINT_DOMAIN}/v1/projects/${PROJECT_ID}/locations/${LOCATION}/indexEndpoints/${INDEX_ENDPOINT_ID}:findNeighbors" \
-    -d '{deployedIndexId:"${DEPLOYED_INDEX_ID}", "queries":[{datapoint:{"featureVector":"<FEATURE_VECTOR>"}}], returnFullDatapoint:true}'
+```
+curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+"https://${PUBLIC_ENDPOINT_DOMAIN}/v1/projects/${PROJECT_ID}/locations/${LOCATION}/indexEndpoints/${INDEX_ENDPOINT_ID}:findNeighbors" \
+-d '{deployedIndexId:"${DEPLOYED_INDEX_ID}", "queries":[{datapoint:{"featureVector":"<FEATURE_VECTOR>"}}], returnFullDatapoint:true}'
+```
 
 ## Updating `embedding_metadata`
 
@@ -101,17 +103,19 @@ Update metadata using the `upsertDatapoints` API and an `update_mask` using the 
 
 The `update_mask` field helps to ensure that only `embedding_metadata` is updated, avoiding resubmission of restrict and embedding fields.
 
-> **Note:** This can also include existing `FieldMask` values, such as [all\_restricts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/update-rebuild-index#upsert-metadata) , along with `embedding_metadata` in the request.
+> **Note:** This can also include existing `FieldMask` values, such as [all_restricts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/update-rebuild-index#upsert-metadata) , along with `embedding_metadata` in the request.
 
 The following example demonstrates how to define and update metadata to create a targeted `IndexDatapoint` , specifying `update_mask` , and calling `upsertDatapoints` .
 
 ### curl
 
-    curl -H "Content-Type: application/json" -H "Authorization: Bearer `gcloud auth print-access-token`" https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/indexes/${INDEX_ID}:upsertDatapoints \
-    -d '{
-    datapoints:[
-        {
-            datapoint_id: "'${DATAPOINT_ID_1}'",
-            feature_vector: [...],
-            embedding_metadata:{"title": "updated title", "rating": 4.5, "tags": ["updated", "reviewed"]
-        }, update_mask: "embedding_metadata"}'
+```
+curl -H "Content-Type: application/json" -H "Authorization: Bearer `gcloud auth print-access-token`" https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/indexes/${INDEX_ID}:upsertDatapoints \
+-d '{
+datapoints:[
+    {
+        datapoint_id: "'${DATAPOINT_ID_1}'",
+        feature_vector: [...],
+        embedding_metadata:{"title": "updated title", "rating": 4.5, "tags": ["updated", "reviewed"]
+    }, update_mask: "embedding_metadata"}'
+```

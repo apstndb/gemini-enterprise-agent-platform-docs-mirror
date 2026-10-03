@@ -16,11 +16,11 @@ When performing a model copy, if you don't specify the model version you want to
 
 When you copy a model, not all model information is copied over. The copied model won't retain the following:
 
-  - Version aliases.
-  - The custom model ID. You can specify a new ID once the model is copied.
-  - Any existing model evaluation.
-  - Encryption specs. You're required to specify the encryption key when copying the model for your target region.
-  - Deployments and batch inferences.
+- Version aliases.
+- The custom model ID. You can specify a new ID once the model is copied.
+- Any existing model evaluation.
+- Encryption specs. You're required to specify the encryption key when copying the model for your target region.
+- Deployments and batch inferences.
 
 For cross-project copy, you can't copy custom models that have a third-party container image.
 
@@ -60,20 +60,22 @@ Copy models between projects:
 
 Before using any of the request data, make the following replacements:
 
-  - `  DESTINATION_LOCATION  ` : The region where you want to copy the model to. For example, `us-central1`
-  - `  DESTINATION_PROJECT_ID  ` : The project ID or project number where you want to copy the model to.
-  - `  SOURCE_PROJECT_ID  ` : Your project ID or project number.
-  - `  SOURCE_LOCATION  ` : The Agent Platform region from which you are copying a model.
-  - `  SOURCE_MODEL_ID  ` : The source of the model ID to copy.
-  - `  VERSION_ID  ` : (Optional) ID of the model version to copy (if not provided the default version is copied)
+- `DESTINATION_LOCATION` : The region where you want to copy the model to. For example, `us-central1`
+- `DESTINATION_PROJECT_ID` : The project ID or project number where you want to copy the model to.
+- `SOURCE_PROJECT_ID` : Your project ID or project number.
+- `SOURCE_LOCATION` : The Agent Platform region from which you are copying a model.
+- `SOURCE_MODEL_ID` : The source of the model ID to copy.
+- `VERSION_ID` : (Optional) ID of the model version to copy (if not provided the default version is copied)
 
 HTTP method and URL:
 
-    POST https://DESTINATION_LOCATION-aiplatform.googleapis.com/v1/projects/DESTINATION_PROJECT_ID/locations/DESTINATION_LOCATION/models:copy
+```
+POST https://DESTINATION_LOCATION-aiplatform.googleapis.com/v1/projects/DESTINATION_PROJECT_ID/locations/DESTINATION_LOCATION/models:copy
+```
 
 Request JSON body:
 
-``` 
+```
    {
     "sourceModel": "projects/SOURCE_PROJECT_ID/locations/SOURCE_LOCATION/models/SOURCE_MODEL_ID"
     }
@@ -87,11 +89,13 @@ To send your request, expand one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://DESTINATION_LOCATION-aiplatform.googleapis.com/v1/projects/DESTINATION_PROJECT_ID/locations/DESTINATION_LOCATION/models:copy"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://DESTINATION_LOCATION-aiplatform.googleapis.com/v1/projects/DESTINATION_PROJECT_ID/locations/DESTINATION_LOCATION/models:copy"
+```
 
 #### PowerShell (Windows)
 
@@ -99,19 +103,21 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://DESTINATION_LOCATION-aiplatform.googleapis.com/v1/projects/DESTINATION_PROJECT_ID/locations/DESTINATION_LOCATION/models:copy" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://DESTINATION_LOCATION-aiplatform.googleapis.com/v1/projects/DESTINATION_PROJECT_ID/locations/DESTINATION_LOCATION/models:copy" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-``` 
+```
   {
     "name": "projects/PROJECT_ID/locations/LOCATION/models/MODEL_ID/operations/OPERATION_ID",
     "metadata": {
@@ -131,7 +137,7 @@ You should receive a JSON response similar to the following:
 Use the following instructions to copy a models to a different project.
 
 1.  In the Google Cloud console, go to the **Gemini Enterprise Agent Platform Model Registry** page.
-2.  From the Model Registry, select the **More actions** menu more\_vert for the model you want to copy.  
+2.  From the Model Registry, select the **More actions** menu more_vert for the model you want to copy.  
 3.  Click **Copy model** .
 4.  Choose either **To another project** or **To another region** .
 
@@ -149,20 +155,24 @@ Use the following instructions to copy a models to a different project.
 
 Before using any of the request data, make the following replacements:
 
-  - `  DESTINATION_LOCATION  ` : The region where you are using Agent Platform. For example, `us-central1`
-  - `  SOURCE_LOCATION  ` : The Agent Platform region from which you will copy the model.
-  - `  PROJECT_ID  ` : Your project ID or project number.
-  - `  MODEL_ID  ` :ID of the model to copy.
-  - `  VERSION_ID  ` : (Optional) ID of the model version to copy (if not provided the default version is copied)
+- `DESTINATION_LOCATION` : The region where you are using Agent Platform. For example, `us-central1`
+- `SOURCE_LOCATION` : The Agent Platform region from which you will copy the model.
+- `PROJECT_ID` : Your project ID or project number.
+- `MODEL_ID` :ID of the model to copy.
+- `VERSION_ID` : (Optional) ID of the model version to copy (if not provided the default version is copied)
 
 HTTP method and URL:
 
-    POST https://DESTINATION_LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/models:copy
+```
+POST https://DESTINATION_LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/models:copy
+```
 
 Request JSON body:
 
-    {"sourceModel": "projects/PROJECT_ID/locations/SOURCE_LOCATION/models/MODEL_ID[@VERSION_ID]"
-    }
+```
+{"sourceModel": "projects/PROJECT_ID/locations/SOURCE_LOCATION/models/MODEL_ID[@VERSION_ID]"
+}
+```
 
 To send your request, expand one of these options:
 
@@ -172,11 +182,13 @@ To send your request, expand one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://DESTINATION_LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/models:copy"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://DESTINATION_LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/models:copy"
+```
 
 #### PowerShell (Windows)
 
@@ -184,19 +196,21 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://DESTINATION_LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/models:copy" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://DESTINATION_LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/models:copy" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-``` 
+```
   {
     "name": "projects/PROJECT_ID/locations/LOCATION/models/MODEL_ID/operations/OPERATION_ID",
     "metadata": {
@@ -217,7 +231,7 @@ With a cross-region copy, you can copy a model over as a new model within the ta
 Use the following instructions to copy models.
 
 1.  In the Google Cloud console, go to the **Gemini Enterprise Agent Platform Model Registry** page.
-2.  From the Model Registry, select the **More actions** menu more\_vert for the model you want to copy.  
+2.  From the Model Registry, select the **More actions** menu more_vert for the model you want to copy.  
 3.  Click **Copy model**
 4.  Choose either **To another project** or **To another region** .
 

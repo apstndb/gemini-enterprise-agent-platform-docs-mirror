@@ -24,49 +24,71 @@ Optional. The image search queries that were used to generate the content. This 
 
 Optional. The queries that were executed by the retrieval tools. This field is populated only when the grounding source is a retrieval tool, such as Agent Platform Search.
 
-`groundingChunks[]` ` object ( GroundingChunk  ` )
+`groundingChunks[]` `object ( `[`GroundingChunk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GroundingMetadata#GroundingChunk)` )`
 
 A list of supporting references retrieved from the grounding source. This field is populated when the grounding source is Google Search, Agent Platform Search, or Google Maps.
 
-`groundingSupports[]` ` object ( GroundingSupport  ` )
+`groundingSupports[]` `object ( `[`GroundingSupport`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GroundingMetadata#GroundingSupport)` )`
 
 Optional. A list of grounding supports that connect the generated content to the grounding chunks. This field is populated when the grounding source is Google Search or Agent Platform Search.
 
-`sourceFlaggingUris[]` ` object ( SourceFlaggingUri  ` )
+`sourceFlaggingUris[]` `object ( `[`SourceFlaggingUri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GroundingMetadata#SourceFlaggingUri)` )`
 
 Optional. Output only. A list of URIs that can be used to flag a place or review for inappropriate content. This field is populated only when the grounding source is Google Maps.
 
-`searchEntryPoint` ` object ( SearchEntryPoint  ` )
+`searchEntryPoint` `object ( `[`SearchEntryPoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GroundingMetadata#SearchEntryPoint)` )`
 
 Optional. A web search entry point that can be used to display search results. This field is populated only when the grounding source is Google Search.
 
-`retrievalMetadata` ` object ( RetrievalMetadata  ` )
+`retrievalMetadata` `object ( `[`RetrievalMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GroundingMetadata#RetrievalMetadata)` )`
 
 Optional. Output only. metadata related to the retrieval grounding source.
 
-` googleMapsWidgetContextToken (deprecated)  ` `string`
+`googleMapsWidgetContextToken `**`(deprecated)`** `string`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Optional. Output only. Deprecated: The Google Maps contextual widget behavior in Grounding with Google Maps is being deprecated; this field is planned for removal and will no longer be populated once removed.
 
 A token that can be used to render a Google Maps widget with the contextual data. This field is populated only when the grounding source is Google Maps.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;webSearchQueries&quot;: [string],&quot;imageSearchQueries&quot;: [string],&quot;retrievalQueries&quot;: [string],&quot;groundingChunks&quot;: [{object (GroundingChunk)}],&quot;groundingSupports&quot;: [{object (GroundingSupport)}],&quot;sourceFlaggingUris&quot;: [{object (SourceFlaggingUri)}],&quot;searchEntryPoint&quot;: {object (SearchEntryPoint)},&quot;retrievalMetadata&quot;: {object (RetrievalMetadata)},&quot;googleMapsWidgetContextToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "webSearchQueries": [
+    string
+  ],
+  "imageSearchQueries": [
+    string
+  ],
+  "retrievalQueries": [
+    string
+  ],
+  "groundingChunks": [
+    {
+      object (GroundingChunk)
+    }
+  ],
+  "groundingSupports": [
+    {
+      object (GroundingSupport)
+    }
+  ],
+  "sourceFlaggingUris": [
+    {
+      object (SourceFlaggingUri)
+    }
+  ],
+  "searchEntryPoint": {
+    object (SearchEntryPoint)
+  },
+  "retrievalMetadata": {
+    object (RetrievalMetadata)
+  },
+  "googleMapsWidgetContextToken": string
+}
+```
 
 ## SearchEntryPoint
 
@@ -80,30 +102,20 @@ Fields
 
 Optional. An HTML snippet that can be embedded in a web page or an application's webview. This snippet displays a search result, including the title, URL, and a brief description of the search result.
 
-`sdkBlob` `string ( bytes format)`
+`sdkBlob` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Optional. A base64-encoded JSON object that contains a list of search queries and their corresponding search URLs. This information can be used to build a custom search UI.
 
 A base64-encoded string.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;renderedContent&quot;: string,
-  &quot;sdkBlob&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "renderedContent": string,
+  "sdkBlob": string
+}
+```
 
 ## GroundingChunk
 
@@ -117,35 +129,38 @@ Fields
 
 The source of the grounding chunk, which can be from Google Search, Agent Platform Search, or Google Maps. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`web` ` object ( Web  ` )
+`web` `object ( `[`Web`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GroundingMetadata#Web)` )`
 
 A grounding chunk from a web page, typically from Google Search. See the `Web` message for details.
 
-`retrievedContext` ` object ( RetrievedContext  ` )
+`retrievedContext` `object ( `[`RetrievedContext`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GroundingMetadata#RetrievedContext)` )`
 
 A grounding chunk from a data source retrieved by a retrieval tool, such as Agent Platform Search. See the `RetrievedContext` message for details
 
-`maps` ` object ( Maps  ` )
+`maps` `object ( `[`Maps`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GroundingMetadata#Maps)` )`
 
 A grounding chunk from Google Maps. See the `Maps` message for details.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// chunk_type&quot;web&quot;: {object (Web)},&quot;retrievedContext&quot;: {object (RetrievedContext)},&quot;maps&quot;: {object (Maps)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // chunk_type
+  "web": {
+    object (Web)
+  },
+  "retrievedContext": {
+    object (RetrievedContext)
+  },
+  "maps": {
+    object (Maps)
+  }
+  // Union type
+}
+```
 
 ## Web
 
@@ -165,25 +180,15 @@ The title of the web page that contains the evidence.
 
 The domain of the web page that contains the evidence. This can be used to filter out low-quality sources.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;uri&quot;: string,
-  &quot;title&quot;: string,
-  &quot;domain&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "uri": string,
+  "title": string,
+  "domain": string
+}
+```
 
 ## RetrievedContext
 
@@ -195,7 +200,7 @@ Fields
 
 Provides tool-specific details about the retrieved context. This allows for different types of retrieval tools to return their own specific metadata. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`ragChunk` ` object ( RagChunk  ` )
+`ragChunk` `object ( `[`RagChunk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagChunk)` )`
 
 Additional context for a Retrieval-Augmented Generation (RAG) retrieval result. This is populated only when the RAG retrieval tool is used.
 
@@ -217,21 +222,22 @@ The content of the retrieved data source.
 
 Output only. The full resource name of the referenced Agent Platform Search document. This is used to identify the specific document that was retrieved. The format is `projects/{project}/locations/{location}/collections/{collection}/dataStores/{dataStore}/branches/{branch}/documents/{document}` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// context_details&quot;ragChunk&quot;: {object (RagChunk)}// Union type&quot;uri&quot;: string,&quot;title&quot;: string,&quot;text&quot;: string,&quot;documentName&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // context_details
+  "ragChunk": {
+    object (RagChunk)
+  }
+  // Union type
+  "uri": string,
+  "title": string,
+  "text": string,
+  "documentName": string
+}
+```
 
 ## Maps
 
@@ -239,7 +245,7 @@ A `Maps` chunk is a piece of evidence that comes from Google Maps, containing in
 
 Fields
 
-`placeAnswerSources` ` object ( PlaceAnswerSources  ` )
+`placeAnswerSources` `object ( `[`PlaceAnswerSources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GroundingMetadata#PlaceAnswerSources)` )`
 
 The sources that were used to generate the place answer. This includes review snippets and photos that were used to generate the answer, as well as URIs to flag content.
 
@@ -259,21 +265,19 @@ The text of the place answer.
 
 This Place's resource name, in `places/{placeId}` format. This can be used to look up the place in the Google Maps API.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;placeAnswerSources&quot;: {object (PlaceAnswerSources)},&quot;uri&quot;: string,&quot;title&quot;: string,&quot;text&quot;: string,&quot;placeId&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "placeAnswerSources": {
+    object (PlaceAnswerSources)
+  },
+  "uri": string,
+  "title": string,
+  "text": string,
+  "placeId": string
+}
+```
 
 ## PlaceAnswerSources
 
@@ -281,25 +285,21 @@ The sources that were used to generate the place answer. This includes review sn
 
 Fields
 
-`reviewSnippets[]` ` object ( ReviewSnippet  ` )
+`reviewSnippets[]` `object ( `[`ReviewSnippet`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GroundingMetadata#ReviewSnippet)` )`
 
 Snippets of reviews that were used to generate the answer.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;reviewSnippets&quot;: [{object (ReviewSnippet)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "reviewSnippets": [
+    {
+      object (ReviewSnippet)
+    }
+  ]
+}
+```
 
 ## ReviewSnippet
 
@@ -319,25 +319,15 @@ A link to show the review on Google Maps.
 
 The title of the review.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;reviewId&quot;: string,
-  &quot;googleMapsUri&quot;: string,
-  &quot;title&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "reviewId": string,
+  "googleMapsUri": string,
+  "title": string
+}
+```
 
 ## GroundingSupport
 
@@ -361,25 +351,28 @@ For Gemini 2.0 and before, this list has the same size as `groundingChunkIndices
 
 Indices into the `renderedParts` field of the `GroundingMetadata` message. These indices specify which rendered parts are associated with this support message.
 
-`segment` ` object ( Segment  ` )
+`segment` `object ( `[`Segment`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GroundingMetadata#Segment)` )`
 
 The content segment that this support message applies to.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;groundingChunkIndices&quot;: [integer],&quot;confidenceScores&quot;: [number],&quot;renderedParts&quot;: [integer],&quot;segment&quot;: {object (Segment)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "groundingChunkIndices": [
+    integer
+  ],
+  "confidenceScores": [
+    number
+  ],
+  "renderedParts": [
+    integer
+  ],
+  "segment": {
+    object (Segment)
+  }
+}
+```
 
 ## Segment
 
@@ -403,26 +396,16 @@ Output only. The end index of the segment in the `Part` , measured in bytes. Thi
 
 Output only. The text of the segment.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;partIndex&quot;: integer,
-  &quot;startIndex&quot;: integer,
-  &quot;endIndex&quot;: integer,
-  &quot;text&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "partIndex": integer,
+  "startIndex": integer,
+  "endIndex": integer,
+  "text": string
+}
+```
 
 ## RetrievalMetadata
 
@@ -434,23 +417,13 @@ Fields
 
 Optional. A score indicating how likely it is that a Google Search query could help answer the prompt. The score is in the range of `[0, 1]` . A score of 1 means the model is confident that a search will be helpful, and 0 means it is not. This score is populated only when Google Search grounding and dynamic retrieval are enabled. The score is used to determine whether to trigger a search.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;googleSearchDynamicRetrievalScore&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "googleSearchDynamicRetrievalScore": number
+}
+```
 
 ## SourceFlaggingUri
 
@@ -466,21 +439,11 @@ The id of the place or review.
 
 The URI that can be used to flag the content.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;sourceId&quot;: string,
-  &quot;flagContentUri&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "sourceId": string,
+  "flagContentUri": string
+}
+```

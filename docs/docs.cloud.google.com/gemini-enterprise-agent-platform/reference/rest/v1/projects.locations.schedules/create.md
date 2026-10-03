@@ -24,8 +24,8 @@ Required. The resource name of the Location to create the Schedule in. Format: `
 
 ### Request body
 
-The request body contains an instance of `  Schedule  ` .
+The request body contains an instance of [`Schedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.schedules#Schedule) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  Schedule  ` .
+If successful, the response body contains a newly created instance of [`Schedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.schedules#Schedule) .

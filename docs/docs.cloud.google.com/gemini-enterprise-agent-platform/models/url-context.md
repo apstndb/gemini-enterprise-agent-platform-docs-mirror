@@ -7,18 +7,18 @@ data_source: docs.cloud.google.com
 ---
 
 > To see an example of URL context, run the "Intro to URL Context" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/url-context/intro_url_context.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Furl-context%2Fintro_url_context.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Furl-context%2Fintro_url_context.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/url-context/intro_url_context.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/url-context/intro_url_context.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Furl-context%2Fintro_url_context.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Furl-context%2Fintro_url_context.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/url-context/intro_url_context.ipynb)
 
 You can use the URL context tool to provide Gemini with URLs as additional context for your prompt. The model can then retrieve content from the URLs and use that content to inform and shape its response.
 
 This tool is useful for tasks like the following:
 
-  - Extracting key data points or talking points from articles
-  - Comparing information across multiple links
-  - Synthesizing data from several sources
-  - Answering questions based on the content of a specific page or pages
-  - Analyzing content for specific purposes (like writing a job description or creating test questions)
+- Extracting key data points or talking points from articles
+- Comparing information across multiple links
+- Synthesizing data from several sources
+- Answering questions based on the content of a specific page or pages
+- Analyzing content for specific purposes (like writing a job description or creating test questions)
 
 Note that the index used to pull data may not necessarily be up to date, so some information may be stale.
 
@@ -30,17 +30,17 @@ The following models provide support for URL Context:
 
 #### Click to expand supported models
 
-  - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
-  - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
-  - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
-  - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
-  - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
-  - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
-  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
-  - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
-  - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
-  - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
+- [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
+- [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
+- [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
+- [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
+- [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+- [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
+- [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
+- [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
+- [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
+- [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+- [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 ## Use URL context
 
@@ -50,93 +50,103 @@ You can use the URL context tool in two main ways, by itself or in conjunction w
 
 You can provide specific URLs that you want the model to analyze directly in your prompt:
 
-    Summarize this document: YOUR_URLs
-    
-    Extract the key features from the product description on this page: YOUR_URLs
+```
+Summarize this document: YOUR_URLs
+
+Extract the key features from the product description on this page: YOUR_URLs
+```
 
 ### Python
 
-    from google import genai
-    from google.genai.types import Tool, GenerateContentConfig, HttpOptions, UrlContext
-    
-    client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    model_id = "gemini-3.5-flash"
-    
-    url_context_tool = Tool(
-        url_context = UrlContext
+```
+from google import genai
+from google.genai.types import Tool, GenerateContentConfig, HttpOptions, UrlContext
+
+client = genai.Client(http_options=HttpOptions(api_version="v1"))
+model_id = "gemini-3.5-flash"
+
+url_context_tool = Tool(
+    url_context = UrlContext
+)
+
+response = client.models.generate_content(
+    model=model_id,
+    contents="Compare recipes from YOUR_URL1 and YOUR_URL2",
+    config=GenerateContentConfig(
+        tools=[url_context_tool],
+        response_modalities=["TEXT"],
     )
-    
-    response = client.models.generate_content(
-        model=model_id,
-        contents="Compare recipes from YOUR_URL1 and YOUR_URL2",
-        config=GenerateContentConfig(
-            tools=[url_context_tool],
-            response_modalities=["TEXT"],
-        )
-    )
-    
-    for each in response.candidates[0].content.parts:
-        print(each.text)
-    # get URLs retrieved for context
-    print(response.candidates[0].url_context_metadata)
+)
+
+for each in response.candidates[0].content.parts:
+    print(each.text)
+# get URLs retrieved for context
+print(response.candidates[0].url_context_metadata)
+```
 
 ### Javascript
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    import { GoogleGenAI } from "@google/genai";
-    
-    const ai = new GoogleGenAI({
-      vertexai: true,
-      project: process.env.GOOGLE_CLOUD_PROJECT,
-      location: process.env.GOOGLE_CLOUD_LOCATION,
-      apiVersion: 'v1',
-    });
-    
-    async function main() {
-      const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
-        contents: [
-            "Compare recipes from YOUR_URL1 and YOUR_URL2",
-        ],
-        config: {
-          tools: [{urlContext: {}}],
-        },
-      });
-      console.log(response.text);
-      // To get URLs retrieved for context
-      console.log(response.candidates[0].urlContextMetadata)
-    }
-    
-    await main();
+```
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({
+  vertexai: true,
+  project: process.env.GOOGLE_CLOUD_PROJECT,
+  location: process.env.GOOGLE_CLOUD_LOCATION,
+  apiVersion: 'v1',
+});
+
+async function main() {
+  const response = await ai.models.generateContent({
+    model: "gemini-3.5-flash",
+    contents: [
+        "Compare recipes from YOUR_URL1 and YOUR_URL2",
+    ],
+    config: {
+      tools: [{urlContext: {}}],
+    },
+  });
+  console.log(response.text);
+  // To get URLs retrieved for context
+  console.log(response.candidates[0].urlContextMetadata)
+}
+
+await main();
+```
 
 ### REST
 
-    curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/publishers/google/models/gemini-3.5-flash:generateContent \
-      -d '{
-          "contents": [
-              {
-                  "role": "user",
-                  "parts": [
-                      {"text": "Compare recipes from YOUR_URL1 and YOUR_URL2"}
-                  ]
-              }
-          ],
-          "tools": [
-              {
-                  "url_context": {}
-              }
-          ]
-      }' > result.json
-    
-    cat result.json
+```
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/publishers/google/models/gemini-3.5-flash:generateContent \
+  -d '{
+      "contents": [
+          {
+              "role": "user",
+              "parts": [
+                  {"text": "Compare recipes from YOUR_URL1 and YOUR_URL2"}
+              ]
+          }
+      ],
+      "tools": [
+          {
+              "url_context": {}
+          }
+      ]
+  }' > result.json
+
+cat result.json
+```
 
 ### Grounding with Google Search with URL context
 
@@ -146,96 +156,106 @@ This feature is experimental and available in API version `v1beta1` .
 
 Example prompts:
 
-    Give me a three day event schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute.
-    
-    Recommend 3 books for beginners to read to learn more about the latest YOUR_SUBJECT.
+```
+Give me a three day event schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute.
+
+Recommend 3 books for beginners to read to learn more about the latest YOUR_SUBJECT.
+```
 
 ### Python
 
-    from google import genai
-    from google.genai.types import Tool, GenerateContentConfig, HttpOptions, UrlContext, GoogleSearch
-    
-    client = genai.Client(http_options=HttpOptions(api_version="v1beta1"))
-    model_id = "gemini-3.5-flash"
-    
-    tools = []
-    tools.append(Tool(url_context=UrlContext))
-    tools.append(Tool(google_search=GoogleSearch))
-    
-    response = client.models.generate_content(
-        model=model_id,
-        contents="Give me three day events schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute.",
-        config=GenerateContentConfig(
-            tools=tools,
-            response_modalities=["TEXT"],
-        )
+```
+from google import genai
+from google.genai.types import Tool, GenerateContentConfig, HttpOptions, UrlContext, GoogleSearch
+
+client = genai.Client(http_options=HttpOptions(api_version="v1beta1"))
+model_id = "gemini-3.5-flash"
+
+tools = []
+tools.append(Tool(url_context=UrlContext))
+tools.append(Tool(google_search=GoogleSearch))
+
+response = client.models.generate_content(
+    model=model_id,
+    contents="Give me three day events schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute.",
+    config=GenerateContentConfig(
+        tools=tools,
+        response_modalities=["TEXT"],
     )
-    
-    for each in response.candidates[0].content.parts:
-        print(each.text)
-    # get URLs retrieved for context
-    print(response.candidates[0].url_context_metadata)
+)
+
+for each in response.candidates[0].content.parts:
+    print(each.text)
+# get URLs retrieved for context
+print(response.candidates[0].url_context_metadata)
+```
 
 ### Javascript
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    import { GoogleGenAI } from "@google/genai";
-    
-    const ai = new GoogleGenAI({
-      vertexai: true,
-      project: process.env.GOOGLE_CLOUD_PROJECT,
-      location: process.env.GOOGLE_CLOUD_LOCATION,
-      apiVersion: 'v1beta1',
-    });
-    
-    async function main() {
-      const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
-        contents: [
-            "Give me a three day event schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute.",
-        ],
-        config: {
-          tools: [{urlContext: {}}, {googleSearch: {}}],
-        },
-      });
-      console.log(response.text);
-      // To get URLs retrieved for context
-      console.log(response.candidates[0].urlContextMetadata)
-    }
-    
-    await main();
+```
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({
+  vertexai: true,
+  project: process.env.GOOGLE_CLOUD_PROJECT,
+  location: process.env.GOOGLE_CLOUD_LOCATION,
+  apiVersion: 'v1beta1',
+});
+
+async function main() {
+  const response = await ai.models.generateContent({
+    model: "gemini-3.5-flash",
+    contents: [
+        "Give me a three day event schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute.",
+    ],
+    config: {
+      tools: [{urlContext: {}}, {googleSearch: {}}],
+    },
+  });
+  console.log(response.text);
+  // To get URLs retrieved for context
+  console.log(response.candidates[0].urlContextMetadata)
+}
+
+await main();
+```
 
 ### REST
 
-    curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/publishers/google/models/gemini-3.5-flash:generateContent \
-      -d '{
-          "contents": [
-              {
-                  "role": "user",
-                  "parts": [
-                      {"text": "Give me a three day event schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute."}
-                  ]
-              }
-          ],
-          "tools": [
-              {
-                  "url_context": {}
-              },
-              {
-                  "google_search": {}
-              }
-          ]
-      }' > result.json
-    
-    cat result.json
+```
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/publishers/google/models/gemini-3.5-flash:generateContent \
+  -d '{
+      "contents": [
+          {
+              "role": "user",
+              "parts": [
+                  {"text": "Give me a three day event schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute."}
+              ]
+          }
+      ],
+      "tools": [
+          {
+              "url_context": {}
+          },
+          {
+              "google_search": {}
+          }
+      ]
+  }' > result.json
+
+cat result.json
+```
 
 For more details about Grounding with Google Search, see the [overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) page.
 
@@ -249,35 +269,37 @@ For more details about Web Grounding for Enterprise, see the [Web Grounding for 
 
 The model's response is based on the content it retrieved from the URLs. If the model retrieved content from URLs, the response will include `url_context_metadata` . Such a response might look something like the following (parts of the response have been omitted for brevity):
 
+```
+{
+  "candidates": [
     {
-      "candidates": [
-        {
-          "content": {
-            "parts": [
-              {
-                "text": "... \n"
-              }
-            ],
-            "role": "model"
-          },
-          ...
-          "url_context_metadata":
+      "content": {
+        "parts": [
           {
-              "url_metadata":
-              [
-                {
-                  "retrieved_url": "https://cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/code-execution",
-                  "url_retrieval_status": <UrlRetrievalStatus.URL_RETRIEVAL_STATUS_SUCCESS: "URL_RETRIEVAL_STATUS_SUCCESS">
-                },
-                {
-                  "retrieved_url": "https://cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search",
-                  "url_retrieval_status": <UrlRetrievalStatus.URL_RETRIEVAL_STATUS_SUCCESS: "URL_RETRIEVAL_STATUS_SUCCESS">
-                },
-              ]
-            }
+            "text": "... \n"
+          }
+        ],
+        "role": "model"
+      },
+      ...
+      "url_context_metadata":
+      {
+          "url_metadata":
+          [
+            {
+              "retrieved_url": "https://cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/code-execution",
+              "url_retrieval_status": <UrlRetrievalStatus.URL_RETRIEVAL_STATUS_SUCCESS: "URL_RETRIEVAL_STATUS_SUCCESS">
+            },
+            {
+              "retrieved_url": "https://cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search",
+              "url_retrieval_status": <UrlRetrievalStatus.URL_RETRIEVAL_STATUS_SUCCESS: "URL_RETRIEVAL_STATUS_SUCCESS">
+            },
+          ]
         }
-      ]
     }
+  ]
+}
+```
 
 For more information about this object, see the [`UrlContextMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse#UrlContextMetadata) API reference.
 
@@ -301,17 +323,19 @@ The system performs a content moderation check on the URL to confirm that the UR
 
 The input token count includes content retrieved from the URLs that you specify in your prompt. From the model output, you can see the token count for your prompt and tools usage in the `usage_metadata` object. The following is an example output:
 
-    'usage_metadata': {
-      'candidates_token_count': 45,
-      'prompt_token_count': 27,
-      'prompt_tokens_details': [{'modality': <MediaModality.TEXT: 'TEXT'>,
-        'token_count': 27}],
-      'thoughts_token_count': 31,
-      'tool_use_prompt_token_count': 10309,
-      'tool_use_prompt_tokens_details': [{'modality': <MediaModality.TEXT: 'TEXT'>,
-        'token_count': 10309}],
-      'total_token_count': 10412
-      }
+```
+'usage_metadata': {
+  'candidates_token_count': 45,
+  'prompt_token_count': 27,
+  'prompt_tokens_details': [{'modality': <MediaModality.TEXT: 'TEXT'>,
+    'token_count': 27}],
+  'thoughts_token_count': 31,
+  'tool_use_prompt_token_count': 10309,
+  'tool_use_prompt_tokens_details': [{'modality': <MediaModality.TEXT: 'TEXT'>,
+    'token_count': 10309}],
+  'total_token_count': 10412
+  }
+```
 
 Price per token depends on the model that you use. For more information, see [Cost of building and deploying AI models in Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
@@ -319,51 +343,20 @@ Price per token depends on the model that you use. For more information, see [Co
 
 The URL context tool can extract content from URLs with the following content types:
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Content</strong></th>
-<th><strong>Type</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Text</td>
-<td><code dir="ltr" translate="no">text/html</code><br />
-<code dir="ltr" translate="no">application/json</code><br />
-<code dir="ltr" translate="no">text/plain</code><br />
-<code dir="ltr" translate="no">text/xml</code><br />
-<code dir="ltr" translate="no">text/css</code><br />
-<code dir="ltr" translate="no">text/javascript</code><br />
-<code dir="ltr" translate="no">text/csv</code><br />
-<code dir="ltr" translate="no">text/rtf</code></td>
-</tr>
-<tr class="even">
-<td>Image</td>
-<td><code dir="ltr" translate="no">image/png</code><br />
-<code dir="ltr" translate="no">image/jpeg</code><br />
-<code dir="ltr" translate="no">image/bmp</code><br />
-<code dir="ltr" translate="no">image/webp</code></td>
-</tr>
-<tr class="odd">
-<td>PDF</td>
-<td><code dir="ltr" translate="no">application/pdf</code></td>
-</tr>
-</tbody>
-</table>
+| **Content** | **Type**                                                                                                  |
+|-------------|-----------------------------------------------------------------------------------------------------------|
+| Text        | `text/html` `application/json` `text/plain` `text/xml` `text/css` `text/javascript` `text/csv` `text/rtf` |
+| Image       | `image/png` `image/jpeg` `image/bmp` `image/webp`                                                         |
+| PDF         | `application/pdf`                                                                                         |
 
 The URL context tool doesn't support the following content types:
 
-  - Paywalled content
-  - YouTube videos (For more information, see [Video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding) .)
-  - Google Workspace files like Google Docs or Google Sheets
-  - Video and audio files
+- Paywalled content
+- YouTube videos (For more information, see [Video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding) .)
+- Google Workspace files like Google Docs or Google Sheets
+- Video and audio files
 
 ## Limitations
 
-  - The URL context tool consumes up to 20 URLs per request for analysis.
-  - For best results during experimental phase, use the tool on standard web pages rather than multimedia content such as YouTube videos.
+- The URL context tool consumes up to 20 URLs per request for analysis.
+- For best results during experimental phase, use the tool on standard web pages rather than multimedia content such as YouTube videos.

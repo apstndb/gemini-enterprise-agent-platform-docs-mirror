@@ -32,7 +32,7 @@ Fields
 
 Required. The resource name of the NotebookRuntimeTemplate based on which a NotebookRuntime will be assigned (reuse or create a new one).
 
-`notebookRuntime` ` object ( NotebookRuntime  ` )
+`notebookRuntime` `object ( `[`NotebookRuntime`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.notebookRuntimes#NotebookRuntime)` )`
 
 Required. Provide runtime specific information (e.g. runtime owner, notebook id) used for NotebookRuntime assignment.
 
@@ -42,4 +42,4 @@ Optional. user specified id for the notebook runtime.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

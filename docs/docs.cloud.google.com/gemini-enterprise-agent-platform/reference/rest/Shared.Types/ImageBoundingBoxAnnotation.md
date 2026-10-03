@@ -34,25 +34,15 @@ The topmost coordinate of the bounding box.
 
 The bottommost coordinate of the bounding box.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;annotationSpecId&quot;: string,
-  &quot;displayName&quot;: string,
-  &quot;xMin&quot;: number,
-  &quot;xMax&quot;: number,
-  &quot;yMin&quot;: number,
-  &quot;yMax&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "annotationSpecId": string,
+  "displayName": string,
+  "xMin": number,
+  "xMax": number,
+  "yMin": number,
+  "yMax": number
+}
+```

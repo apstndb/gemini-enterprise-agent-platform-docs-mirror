@@ -24,7 +24,7 @@ Kimi K2 Thinking is a thinking model from Kimi that excels at complex problem-so
 
 For managed models, you can use curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names:
 
-  - For Kimi K2 Thinking, use `kimi-k2-thinking-maas`
+- For Kimi K2 Thinking, use `kimi-k2-thinking-maas`
 
 To learn how to make streaming and non-streaming calls to Kimi models, see [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .
 
@@ -55,7 +55,7 @@ Kimi models are available in the following regions:
 <tr class="odd">
 <td>Kimi K2 Thinking</td>
 <td><ul>
-<li><code dir="ltr" translate="no">global</code></li>
+<li><code>global</code></li>
 </ul></td>
 </tr>
 </tbody>

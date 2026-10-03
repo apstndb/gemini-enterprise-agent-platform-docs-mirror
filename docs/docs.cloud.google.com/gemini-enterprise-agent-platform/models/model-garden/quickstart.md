@@ -26,11 +26,11 @@ To test model capabilities in Model Garden, ensure that both you and the [Comput
 
 To get the permissions that you need to test model capabilities in Model Garden, ask your administrator to grant you the following IAM roles on your Google Cloud project:
 
-  - [Service Usage Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageAdmin) ( `roles/serviceusage.serviceUsageAdmin` )
-  - [Artifact Registry Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/artifactregistry#artifactregistry.admin) ( `roles/artifactregistry.admin` )
-  - [Cloud Run Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.admin) ( `roles/run.admin` )
-  - [Storage Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.admin) ( `roles/storage.admin` )
-  - [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user` )
+- [Service Usage Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageAdmin) ( `roles/serviceusage.serviceUsageAdmin` )
+- [Artifact Registry Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/artifactregistry#artifactregistry.admin) ( `roles/artifactregistry.admin` )
+- [Cloud Run Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.admin) ( `roles/run.admin` )
+- [Storage Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.admin) ( `roles/storage.admin` )
+- [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
@@ -44,8 +44,8 @@ To ensure that the Compute Engine default service account has the necessary perm
 
 > **Important:** You must grant these roles to the Compute Engine default service account, *not* to your user account. Failure to grant the roles to the correct principal might result in permission errors.
 
-  - [Agent Platform Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.serviceAgent) ( `roles/aiplatform.serviceAgent` )
-  - [Cloud Build Service Account](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudbuild#cloudbuild.builds.builder) ( `roles/cloudbuild.builds.builder` )
+- [Agent Platform Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.serviceAgent) ( `roles/aiplatform.serviceAgent` )
+- [Cloud Build Service Account](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudbuild#cloudbuild.builds.builder) ( `roles/cloudbuild.builds.builder` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
@@ -56,12 +56,12 @@ Your administrator might also be able to give the Compute Engine default service
 1.  In the Google Cloud console, go to a supported model's model card, such as the **Gemma 2** model card.
 
 2.  In the **Try out** panel:
-    
+
     1.  For **Region** , accept the default or choose your region.
     2.  For **Endpoint** , select **Demo playground** .
     3.  In the **Prompt** box, enter `Why is the sky blue?` .
     4.  Expand the **Advanced options** section and view the default parameters.
-    
+
     ![The try out panel for Gemma 2b-it](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/model-garden/images/try-out-gemma.png)
 
 3.  Click **Submit** . The output appears below the Submit button.
@@ -82,24 +82,24 @@ Launch Spaces to test and experiment with a model from a sample Gradio applicati
 
 2.  Select the model to use. Supported models have a **Try out Spaces** panel, such as the **Gemma 3** model card.
 
-3.  Click rocket\_launch **Run** to launch a Space.
-    
+3.  Click rocket_launch **Run** to launch a Space.
+
     1.  You can choose to **Require authentication** (via [Identity Aware Proxy](https://docs.cloud.google.com/iap/docs/enabling-cloud-run) ) or **Allow public access** . For more information, see [Enable APIs for the first deployment and grant permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/deploy-vais-prompt#enable_apis_for_the_first_deployment_and_grant_permissions) .
-    
+
     > **Important:** When using the app, don't include sensitive or personally identifiable information in your prompts.
-    
+
     1.  Click **Create new service** to start the deployment. You can monitor the deployment status from the model card.
 
 4.  After the Spaces status changes to **Ready** , click it to view details about the deployment.
-    
+
     For basic protection, the web application requires a secret key that must be appended to the URL when submitting prompts. This secret key is provided in the **Secret key** field.
-    
+
     1.  Click **Open** to start using the app. You can send prompts to the model and view its responses from within the app.
-    
+
     You can share the URL so that others can try the app too.
-    
+
     1.  To close access to the app, click edit **Edit** in the **Access control** field.
-    
+
     In the **Security** tab for your Cloud Run application, select **Require authentication** and then click **Save** . The application is no longer available through the URL. Visits to the URL result in a 403 error (forbidden).
 
 ## Clean up
@@ -133,17 +133,15 @@ The easiest way to eliminate billing is to delete the project that you created f
 To delete the project:
 
 > **Caution** : Deleting a project has the following effects:
-> 
->   - **Everything in the project is deleted.** If you used an existing project for the tasks in this document, when you delete it, you also delete any other work you've done in the project.
->   - **Custom project IDs are lost.** When you created this project, you might have created a custom project ID that you want to use in the future. To preserve the URLs that use the project ID, such as an `appspot.com` URL, delete selected resources inside the project instead of deleting the whole project.
-> 
+>
+> - **Everything in the project is deleted.** If you used an existing project for the tasks in this document, when you delete it, you also delete any other work you've done in the project.
+> - **Custom project IDs are lost.** When you created this project, you might have created a custom project ID that you want to use in the future. To preserve the URLs that use the project ID, such as an `appspot.com` URL, delete selected resources inside the project instead of deleting the whole project.
+>
 > If you plan to explore multiple architectures, tutorials, or quickstarts, reusing projects can help you avoid exceeding project quota limits.
 
-In the Google Cloud console, go to the **Manage resources** page.
-
-In the project list, select the project that you want to delete, and then click **Delete** .
-
-In the dialog, type the project ID, and then click **Shut down** to delete the project.
+1.  In the Google Cloud console, go to the **Manage resources** page.
+2.  In the project list, select the project that you want to delete, and then click **Delete** .
+3.  In the dialog, type the project ID, and then click **Shut down** to delete the project.
 
 ## What's next
 

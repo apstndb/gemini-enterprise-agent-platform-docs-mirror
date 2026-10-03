@@ -7,12 +7,11 @@ data_source: docs.cloud.google.com
 ---
 
 > **Caution:** The following table describes image generation endpoints that are deprecated and their replacements. We recommend updating your model endpoints before June 30, 2026, to avoid service disruption.
-> 
+>
 > | Discontinued endpoints      | Recommended endpoint migration |
-> | --------------------------- | ------------------------------ |
+> |-----------------------------|--------------------------------|
 > | `veo-3.0-generate-001`      | `veo-3.1-generate-001`         |
 > | `veo-3.0-fast-generate-001` | `veo-3.1-fast-generate-001`    |
-> 
 
 Veo 3 is our latest line of video generation models. This page documents the capabilities and features of Veo 3.
 
@@ -20,102 +19,129 @@ Veo 3 is our latest line of video generation models. This page documents the cap
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
-Model ID
-
-`veo-3.0-generate-001`
-
-Modalities
-
-description
-
-Text  
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>veo-3.0-generate-001</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Modalities</th>
+<td>description
+Text<br />
 Input only
-
-hide\_image
-
-Image  
+hide_image
+Image<br />
 Not supported
-
-mic\_off
-
-Audio  
+mic_off
+Audio<br />
 Not supported
-
 videocam
-
-Video  
-Output only
-
-Capabilities
-
-  - [Video generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)  
-    Text to video, image to video  
-    Supported
-  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos)  
-    Not supported
-  - [Use reference images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references)  
-    Not supported
-  - [Sound generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide#audio)  
-    Supported
-  - [Content Credentials (C2PA)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials)  
-    Supported
-
-Consumption options
-
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
-    Supported
-  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
-    Not supported
-  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
-    Not supported
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
-    Supported
-
-Technical specifications
-
-**Video** videocam
-
-  - Video lengths: 4, 6, or 8 seconds
-  - Maximum number of output videos per prompt: 4
-  - Image-to-video maximum input image size: 20 MB
-  - Supported aspect ratios: 9:16, 16:9
-  - Supported output resolutions: 720p, 1080p
-  - Supported framerates: 24 FPS
-  - Supported MIME types:
-    `video/mp4`
-
-Prompt languages
-
-  - English
-
-Supported regions
-
-**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
-
-  - United States: `us-central1`
-
-Quotas
-
-  - **Regional online prediction requests per base model per minute per base model** : 10 tokens per minute
-
-Versions
-
-`veo-3.0-generate-001`
-
-  - Launch stage: GA
-  - Release date: July 29, 2025
-  - Retirement date <sup>[†](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#retirement-date)</sup> : June 30, 2026
-
-Security controls
-
-**Online prediction**
-
-  - Data residency
-  - CMEK
-  - VPC-SC
-  - AXT
-
-See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.
+Video<br />
+Output only</td>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Capabilities</th>
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text">Video generation</a><br />
+Text to video, image to video<br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos">Extend videos</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references">Use reference images</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide#audio">Sound generation</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials">Content Credentials (C2PA)</a><br />
+Supported</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Consumption options</th>
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference">Batch inference</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
+Supported</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Technical specifications</th>
+<td><strong>Video</strong> videocam</td>
+<td><ul>
+<li>Video lengths: 4, 6, or 8 seconds</li>
+<li>Maximum number of output videos per prompt: 4</li>
+<li>Image-to-video maximum input image size: 20 MB</li>
+<li>Supported aspect ratios: 9:16, 16:9</li>
+<li>Supported output resolutions: 720p, 1080p</li>
+<li>Supported framerates: 24 FPS</li>
+<li>Supported MIME types:
+<code>video/mp4</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Prompt languages</th>
+<td><ul>
+<li>English</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Supported regions</th>
+<td><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations">Model availability</a></strong></p></td>
+<td><ul>
+<li>United States: <code>us-central1</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Quotas</th>
+<td><ul>
+<li><strong>Regional online prediction requests per base model per minute per base model</strong> : 10 tokens per minute</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Versions</th>
+<td><ul>
+<li><code>veo-3.0-generate-001</code>
+<ul>
+<li>Launch stage: GA</li>
+<li>Release date: July 29, 2025</li>
+<li>Retirement date <sup><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#retirement-date">†</a></sup> : June 30, 2026</li>
+</ul></li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Security controls</th>
+<td><strong>Online prediction</strong></td>
+<td><ul>
+<li>Data residency</li>
+<li>CMEK</li>
+<li>VPC-SC</li>
+<li>AXT</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls">Security controls</a> for more information.</th>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 <sup>†</sup> Listed retirement dates refer to retirement of support in Gemini Enterprise Agent Platform. Models may remain accessible through the Gemini API after these dates have passed. The Gemini API is not a Google Cloud offering and is subject to its own terms of service. For details, see the [Gemini API documentation](https://ai.google.dev/) .
 
@@ -123,102 +149,129 @@ See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-pl
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
-Model ID
-
-`veo-3.0-fast-generate-001`
-
-Modalities
-
-description
-
-Text  
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>veo-3.0-fast-generate-001</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Modalities</th>
+<td>description
+Text<br />
 Input only
-
-hide\_image
-
-Image  
+hide_image
+Image<br />
 Not supported
-
-mic\_off
-
-Audio  
+mic_off
+Audio<br />
 Not supported
-
 videocam
-
-Video  
-Output only
-
-Capabilities
-
-  - [Video generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)  
-    Text to video, image to video  
-    Supported
-  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos)  
-    Not supported
-  - [Use reference images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references)  
-    Not supported
-  - [Sound generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide#audio)  
-    Supported
-  - [Content Credentials (C2PA)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials)  
-    Supported
-
-Consumption options
-
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
-    Supported
-  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
-    Not supported
-  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
-    Not supported
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
-    Supported
-
-Technical specifications
-
-**Video** videocam
-
-  - Video lengths: 4, 6, or 8 seconds
-  - Maximum number of output videos per prompt: 4
-  - Image-to-video maximum input image size: 20 MB
-  - Supported aspect ratios: 9:16, 16:9
-  - Supported output resolutions: 720p, 1080p
-  - Supported framerates: 24 FPS
-  - Supported MIME types:
-    `video/mp4`
-
-Prompt languages
-
-  - English
-
-Supported regions
-
-**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
-
-  - United States: `us-central1`
-
-Quotas
-
-  - **Regional online prediction requests per base model per minute per base model** : 10 tokens per minute
-
-Versions
-
-`veo-3.0-fast-generate-001`
-
-  - Launch stage: GA
-  - Release date: July 29, 2025
-  - Retirement date <sup>[†](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#retirement-date)</sup> : June 30, 2026
-
-Security controls
-
-**Online prediction**
-
-  - Data residency
-  - CMEK
-  - VPC-SC
-  - AXT
-
-See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.
+Video<br />
+Output only</td>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Capabilities</th>
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text">Video generation</a><br />
+Text to video, image to video<br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos">Extend videos</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references">Use reference images</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide#audio">Sound generation</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials">Content Credentials (C2PA)</a><br />
+Supported</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Consumption options</th>
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference">Batch inference</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
+Supported</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Technical specifications</th>
+<td><strong>Video</strong> videocam</td>
+<td><ul>
+<li>Video lengths: 4, 6, or 8 seconds</li>
+<li>Maximum number of output videos per prompt: 4</li>
+<li>Image-to-video maximum input image size: 20 MB</li>
+<li>Supported aspect ratios: 9:16, 16:9</li>
+<li>Supported output resolutions: 720p, 1080p</li>
+<li>Supported framerates: 24 FPS</li>
+<li>Supported MIME types:
+<code>video/mp4</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Prompt languages</th>
+<td><ul>
+<li>English</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Supported regions</th>
+<td><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations">Model availability</a></strong></p></td>
+<td><ul>
+<li>United States: <code>us-central1</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Quotas</th>
+<td><ul>
+<li><strong>Regional online prediction requests per base model per minute per base model</strong> : 10 tokens per minute</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Versions</th>
+<td><ul>
+<li><code>veo-3.0-fast-generate-001</code>
+<ul>
+<li>Launch stage: GA</li>
+<li>Release date: July 29, 2025</li>
+<li>Retirement date <sup><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#retirement-date">†</a></sup> : June 30, 2026</li>
+</ul></li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Security controls</th>
+<td><strong>Online prediction</strong></td>
+<td><ul>
+<li>Data residency</li>
+<li>CMEK</li>
+<li>VPC-SC</li>
+<li>AXT</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls">Security controls</a> for more information.</th>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 <sup>†</sup> Listed retirement dates refer to retirement of support in Gemini Enterprise Agent Platform. Models may remain accessible through the Gemini API after these dates have passed. The Gemini API is not a Google Cloud offering and is subject to its own terms of service. For details, see the [Gemini API documentation](https://ai.google.dev/) .
 

@@ -12,17 +12,17 @@ Gemini Enterprise Agent Platform Workbench instances are [Deep Learning VM Image
 
 You might want to upgrade the environment of your Agent Platform Workbench instance for any of the following reasons:
 
-  - To use new capabilities that are only available in a newer version of your environment.
+- To use new capabilities that are only available in a newer version of your environment.
 
-  - To benefit from framework updates, package updates, and bug fixes that have been implemented in a newer version of your environment.
+- To benefit from framework updates, package updates, and bug fixes that have been implemented in a newer version of your environment.
 
 ## Upgrade methods
 
 There are two ways to upgrade a Agent Platform Workbench instance:
 
-  - **Automatic upgrade** : Enable auto upgrade when you create a Agent Platform Workbench instance. During a recurring time period that you specify, Agent Platform Workbench checks whether your instance can be upgraded, and if so, Agent Platform Workbench upgrades your instance.
+- **Automatic upgrade** : Enable auto upgrade when you create a Agent Platform Workbench instance. During a recurring time period that you specify, Agent Platform Workbench checks whether your instance can be upgraded, and if so, Agent Platform Workbench upgrades your instance.
 
-  - **Manual upgrade** : If an existing Agent Platform Workbench instance meets the [requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/upgrade#requirements) for upgrading, you can upgrade the instance manually.
+- **Manual upgrade** : If an existing Agent Platform Workbench instance meets the [requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/upgrade#requirements) for upgrading, you can upgrade the instance manually.
 
 ## Requirements and limitations
 
@@ -30,11 +30,11 @@ Backward compatibility with your Agent Platform Workbench isn't guaranteed. [Mak
 
 To determine whether you can upgrade a specific Agent Platform Workbench instance, see the following requirements and limitations:
 
-  - The Notebooks API must be [enabled in the instance's Google Cloud project](https://console.cloud.google.com/apis/library/notebooks.googleapis.com) . For more information, see [List enabled services](https://docs.cloud.google.com/service-usage/docs/list-services#enabled) and [Enable an API](https://docs.cloud.google.com/endpoints/docs/openapi/enable-api#enabling_an_api) .
+- The Notebooks API must be [enabled in the instance's Google Cloud project](https://console.cloud.google.com/apis/library/notebooks.googleapis.com) . For more information, see [List enabled services](https://docs.cloud.google.com/service-usage/docs/list-services#enabled) and [Enable an API](https://docs.cloud.google.com/endpoints/docs/openapi/enable-api#enabling_an_api) .
 
-  - If your Agent Platform Workbench instance is container-based, Agent Platform Workbench upgrades the OS. The image version depends on the specific image pulled by your Dockerfile.
-    
-    To help make sure the upgrade uses the most recent version of the image, consider using the `latest` tag in your Dockerfile.
+- If your Agent Platform Workbench instance is container-based, Agent Platform Workbench upgrades the OS. The image version depends on the specific image pulled by your Dockerfile.
+
+  To help make sure the upgrade uses the most recent version of the image, consider using the `latest` tag in your Dockerfile.
 
 If upgrading your instance is not an option for you, consider [migrating your data to a new Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/migrate) .
 
@@ -47,7 +47,7 @@ Agent Platform Workbench instances that can be upgraded are dual-disk, with one 
 The following table shows which components of your Agent Platform Workbench instance are upgraded and which are preserved.
 
 | Component                                    | Upgrade result                                                                                                                                                                                   |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Machine learning frameworks                  | Upgraded                                                                                                                                                                                         |
 | Machine learning data                        | Preserved                                                                                                                                                                                        |
 | Preinstalled dependencies                    | Upgraded                                                                                                                                                                                         |
@@ -106,14 +106,14 @@ You can specify auto-upgrade by using the Google Cloud console.
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Click add\_box **Create new** .
+2.  Click add_box **Create new** .
 
 3.  In the **New instance** dialog, click **Advanced options** .
 
 4.  In the **Create instance** dialog, in the **Details** section, provide the following information for your new instance:
-    
-      - **Name** : Provide a name for your new instance.
-      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances) .
+
+    - **Name** : Provide a name for your new instance.
+    - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances) .
 
 5.  In the **System health** section, select **Environment auto-upgrade** .
 
@@ -150,7 +150,7 @@ To check whether a newer version of your instance's environment is available, ac
 2.  Click the instance name that you want to check for availability of a newer environment version.
 
 3.  On the **Instance details** page, next to **VM details** , click **View in Compute Engine** .
-    
+
     If a newer version of the environment is available, a "This instance needs to be upgraded" message appears.
 
 ### Upgrade your instance's environment to a newer version

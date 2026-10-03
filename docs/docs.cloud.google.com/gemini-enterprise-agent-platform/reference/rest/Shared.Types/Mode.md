@@ -8,12 +8,7 @@ data_source: docs.cloud.google.com
 
 The mode of the predictor to be used in dynamic retrieval.
 
-Enums
-
-`MODE_UNSPECIFIED`
-
-Always trigger retrieval.
-
-`MODE_DYNAMIC`
-
-Run retrieval only when system decides it is necessary.
+| Enums              |                                                         |
+|--------------------|---------------------------------------------------------|
+| `MODE_UNSPECIFIED` | Always trigger retrieval.                               |
+| `MODE_DYNAMIC`     | Run retrieval only when system decides it is necessary. |

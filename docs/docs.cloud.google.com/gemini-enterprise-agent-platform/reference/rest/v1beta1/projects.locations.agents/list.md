@@ -32,7 +32,7 @@ Optional. The maximum number of agents to return. The service may return fewer t
 
 `pageToken` `string`
 
-Optional. A page token, received from a previous `  AgentService.ListAgents  ` call. Provide this to retrieve the subsequent page.
+Optional. A page token, received from a previous [`AgentService.ListAgents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents/list#google.cloud.aiplatform.v1beta1.AgentService.ListAgents) call. Provide this to retrieve the subsequent page.
 
 `filter` `string`
 
@@ -40,10 +40,10 @@ Optional. An [AIP-160](https://google.aip.dev/160) filter over the returned agen
 
 Supported fields, and the operators each accepts:
 
-  - `created`
-  - `updated`
-  - `baseAgent`
-  - `metadata.agent_type`
+- `created`
+- `updated`
+- `baseAgent`
+- `metadata.agent_type`
 
 `created` and `updated` are timestamps and take an RFC-3339 value, for example `2026-08-01T00:00:00Z` . Supported operators: `=` , `!=` , `<` , `>` , `<=` , `>=` , `:` , `AND` , `OR` , `NOT` (equivalently `-` ), and parentheses. Note that `OR` binds more tightly than `AND` , so `a AND b OR c` means `a AND (b OR c)` ; parentheses are recommended, not required.
 
@@ -61,8 +61,8 @@ Not supported: any field other than those listed above, wildcards other than `fi
 
 Optional. A comma-separated list of fields to order by. Supported fields:
 
-  - `created`
-  - `updated`
+- `created`
+- `updated`
 
 Use `desc` after a field name for descending order. Example: `created desc` .
 
@@ -72,32 +72,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  AgentService.ListAgents  ` .
+Response message for [`AgentService.ListAgents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents/list#google.cloud.aiplatform.v1beta1.AgentService.ListAgents) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`agents[]` ` object ( Agent  ` )
+`agents[]` `object ( `[`Agent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents#Agent)` )`
 
 The agents matching the request.
 
 `nextPageToken` `string`
 
-A token to retrieve the next page of results. Pass this value as `  ListAgentsRequest.page_token  ` in a subsequent call.
+A token to retrieve the next page of results. Pass this value as [`ListAgentsRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents/list#body.QUERY_PARAMETERS.page_token) in a subsequent call.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;agents&quot;: [{object (Agent)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "agents": [
+    {
+      object (Agent)
+    }
+  ],
+  "nextPageToken": string
+}
+```

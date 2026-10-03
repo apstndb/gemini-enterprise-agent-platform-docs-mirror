@@ -14,84 +14,104 @@ Mistral Medium 3 is optimized for single-node inference, particularly for long-c
 
 Mistral Medium 3 is well-suited for tasks such as:
 
-  - Programming
-  - Math reasoning
-  - Dialogue
-  - Long document understanding
-  - Visual understanding
-  - Summarization
-  - Function calling & agentic workflows
+- Programming
+- Math reasoning
+- Dialogue
+- Long document understanding
+- Visual understanding
+- Summarization
+- Function calling & agentic workflows
 
 [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/mistralai/model-garden/mistral-medium-3)
 
-Model ID
-
-`mistral-medium-3`
-
-Launch stage
-
-GA
-
-Supported inputs & outputs
-
-  - Inputs:
-    Text , Code
-  - Outputs:
-    Text
-
-Usage types
-
-Supported
-
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
-
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>mistral-medium-3</code></td>
+</tr>
+<tr class="even">
+<th>Launch stage</th>
+<td>GA</td>
+</tr>
+<tr class="odd">
+<th>Supported inputs &amp; outputs</th>
+<td><ul>
+<li>Inputs:
+Text , Code</li>
+<li>Outputs:
+Text</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Usage types</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a></li>
+</ul>
 Not supported
-
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-
-Versions
-
-`mistral-medium-3`
-
-  - **Launch stage:** GA
-  - **Release date:** October 7, 2025
-
-Supported regions
-
-Model availability
-
-United States
-
-  - `us-central1`
-
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Versions</th>
+<td><ul>
+<li><code>mistral-medium-3</code>
+<ul>
+<li><strong>Launch stage:</strong> GA</li>
+<li><strong>Release date:</strong> October 7, 2025</li>
+</ul></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Supported regions</th>
+<td></td>
+</tr>
+<tr class="odd">
+<th><p>Model availability</p></th>
+<td>United States
+<ul>
+<li><code>us-central1</code></li>
+</ul>
 Europe
-
-  - `europe-west4`
-
-ML processing
-
-United States
-
-  - `Multi-region`
-
+<ul>
+<li><code>europe-west4</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th><p>ML processing</p></th>
+<td>United States
+<ul>
+<li><code>Multi-region</code></li>
+</ul>
 Europe
-
-  - `Multi-region`
-
-Quota limits
-
-us-central1:
-
-  - QPM: 90
-  - TPM: 315,000
-  - Context length: 128,000
-
-europe-west4:
-
-  - QPM: 90
-  - TPM: 315,000
-  - Context length: 128,000
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+<ul>
+<li><code>Multi-region</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Quota limits</th>
+<td><p>us-central1:</p>
+<ul>
+<li>QPM: 90</li>
+<li>TPM: 315,000</li>
+<li>Context length: 128,000</li>
+</ul>
+<p>europe-west4:</p>
+<ul>
+<li>QPM: 90</li>
+<li>TPM: 315,000</li>
+<li>Context length: 128,000</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Pricing</th>
+<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+</tr>
+</tbody>
+</table>

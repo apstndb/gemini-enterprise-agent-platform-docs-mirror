@@ -29,67 +29,67 @@ To create a persistent resource by using the Google Cloud console, do the follow
 2.  Click **Create cluster** .
 
 3.  Configure the cluster as follows:
-    
-      - **Name:** Enter a name for the cluster.
-      - **Description:** (Optional) Enter a description of the cluster.
-      - **Region:** Select the region where you want to create the cluster.
+
+    - **Name:** Enter a name for the cluster.
+    - **Description:** (Optional) Enter a description of the cluster.
+    - **Region:** Select the region where you want to create the cluster.
 
 4.  Click **Continue** .
 
 5.  Configure the compute resources for the cluster as follows:
-    
+
     1.  Click **Worker pool 1** .
-    
+
     2.  Select the tab of the machine family that you want to use and configure the worker pool as follows:
-        
+
         ### General purpose
-        
+
         General purpose VMs offer the best price-performance ratio for a variety of workloads.
-        
-          - **Series:** Select a machine series.
-          - **Machine type:** Select a machine type.
-          - **Disk type:** Select **Standard disk** or **SSD disk** .
-          - **Disk size:** Enter the size of the disk you want.
-          - **Minimum replica count:** Enter the minimum number of replicas to have in the worker pool.
-          - **Maximum replica count:** (Optional) Enter the maximum number of replicas allowed in the worker pool. If specified, the worker pool automatically scales the number of replicas up to the configured maximum replica count as needed.
-        
+
+        - **Series:** Select a machine series.
+        - **Machine type:** Select a machine type.
+        - **Disk type:** Select **Standard disk** or **SSD disk** .
+        - **Disk size:** Enter the size of the disk you want.
+        - **Minimum replica count:** Enter the minimum number of replicas to have in the worker pool.
+        - **Maximum replica count:** (Optional) Enter the maximum number of replicas allowed in the worker pool. If specified, the worker pool automatically scales the number of replicas up to the configured maximum replica count as needed.
+
         ### Compute optimized
-        
+
         Compute-optimized VMs offer the highest performance per core and are optimized for compute-intensive workloads.
-        
-          - **Series:** Select a machine series.
-          - **Machine type:** Select a machine type.
-          - **Disk type:** Select **Standard disk** or **SSD disk** .
-          - **Disk size:** Enter the size of the disk you want.
-          - **Minimum replica count:** Enter the minimum number of replicas to have in the worker pool.
-          - **Maximum replica count:** (Optional) Enter the maximum number of replicas allowed in the worker pool. If specified, the worker pool automatically scales the number of replicas up to the configured maximum replica count as needed.
-        
+
+        - **Series:** Select a machine series.
+        - **Machine type:** Select a machine type.
+        - **Disk type:** Select **Standard disk** or **SSD disk** .
+        - **Disk size:** Enter the size of the disk you want.
+        - **Minimum replica count:** Enter the minimum number of replicas to have in the worker pool.
+        - **Maximum replica count:** (Optional) Enter the maximum number of replicas allowed in the worker pool. If specified, the worker pool automatically scales the number of replicas up to the configured maximum replica count as needed.
+
         ### Memory optimized
-        
+
         Memory-optimized VMs are ideal for memory-intensive workloads, offering more memory per core than other machine families, with up to 12 TB of memory.
-        
-          - **Series:** Select a machine series.
-          - **Machine type:** Select a machine type.
-          - **Disk type:** Select **Standard disk** or **SSD disk** .
-          - **Disk size:** Enter the size of the disk you want.
-          - **Minimum replica count:** Enter the minimum number of replicas to have in the worker pool.
-          - **Maximum replica count:** (Optional) Enter the maximum number of replicas allowed in the worker pool. If specified, the worker pool automatically scales the number of replicas up to the configured maximum replica count as needed.
-        
+
+        - **Series:** Select a machine series.
+        - **Machine type:** Select a machine type.
+        - **Disk type:** Select **Standard disk** or **SSD disk** .
+        - **Disk size:** Enter the size of the disk you want.
+        - **Minimum replica count:** Enter the minimum number of replicas to have in the worker pool.
+        - **Maximum replica count:** (Optional) Enter the maximum number of replicas allowed in the worker pool. If specified, the worker pool automatically scales the number of replicas up to the configured maximum replica count as needed.
+
         ### GPUs
-        
+
         These accelerator-optimized VMs are ideal for massively parallelized Compute Unified Device Architecture (CUDA) compute workloads, such as machine learning (ML) and high performance computing (HPC). This family is the best option for workloads that require GPUs.
-        
-          - **GPU type:** Select the type of GPU that you want to use.
-          - **Number of GPUs:** Enter the number of GPUs you want to use.
-          - **Series:** Select a machine series.
-          - **Machine type:** Select a machine type.
-          - **Disk type:** Select **Standard disk** or **SSD disk** .
-          - **Disk size:** Enter the size of the disk you want.
-          - **Minimum replica count:** Enter the minimum number of replicas to have in the worker pool.
-          - **Maximum replica count:** (Optional) Enter the maximum number of replicas allowed in the worker pool. If specified, the worker pool automatically scales the number of replicas up to the configured maximum replica count as needed.
-    
+
+        - **GPU type:** Select the type of GPU that you want to use.
+        - **Number of GPUs:** Enter the number of GPUs you want to use.
+        - **Series:** Select a machine series.
+        - **Machine type:** Select a machine type.
+        - **Disk type:** Select **Standard disk** or **SSD disk** .
+        - **Disk size:** Enter the size of the disk you want.
+        - **Minimum replica count:** Enter the minimum number of replicas to have in the worker pool.
+        - **Maximum replica count:** (Optional) Enter the maximum number of replicas allowed in the worker pool. If specified, the worker pool automatically scales the number of replicas up to the configured maximum replica count as needed.
+
     3.  Click **Done** .
-    
+
     4.  (Optional) To add additional worker pools, click **Add worker pool** .
 
 6.  Click **Create** .
@@ -104,44 +104,43 @@ You can specify all resource pool configurations as part of the command-line or 
 
 Before using any of the command data below, make the following replacements:
 
-  - PROJECT\_ID : The Project ID of the Google Cloud project where you want to create the persistent resource.
+- ` PROJECT_ID ` : The Project ID of the Google Cloud project where you want to create the persistent resource.
 
-  - LOCATION : The region where you want to create the persistent resource. For a list of supported regions, see [Feature availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
+- ` LOCATION ` : The region where you want to create the persistent resource. For a list of supported regions, see [Feature availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
 
-  - PERSISTENT\_RESOURCE\_ID : The ID of the persistent resource.
+- ` PERSISTENT_RESOURCE_ID ` : The ID of the persistent resource.
 
-  - DISPLAY\_NAME : (Optional) The display name of the persistent resource.
+- ` DISPLAY_NAME ` : (Optional) The display name of the persistent resource.
 
-  - MACHINE\_TYPE : The type of VM to use. For a list of supported VMs, see [Machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) . This field corresponds to the `machineSpec.machineType` field in the `ResourcePool` API message.
+- ` MACHINE_TYPE ` : The type of VM to use. For a list of supported VMs, see [Machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) . This field corresponds to the `machineSpec.machineType` field in the `ResourcePool` API message.
 
-  - ACCELERATOR\_TYPE : (Optional) The type of GPU to attach to each VM in the resource pool. For a list of supported GPUs, see [GPUs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#specifying_gpus) . This field corresponds to the `machineSpec.acceleratorType` field in the `ResourcePool` API message.
+- ` ACCELERATOR_TYPE ` : (Optional) The type of GPU to attach to each VM in the resource pool. For a list of supported GPUs, see [GPUs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#specifying_gpus) . This field corresponds to the `machineSpec.acceleratorType` field in the `ResourcePool` API message.
 
-  - ACCELERATOR\_COUNT : (Optional) The number of GPUs to attach to each VM in the resource pool. The default the value is `1` . This field corresponds to the `machineSpec.acceleratorCount` field in `ResourcePool` API message.
+- ` ACCELERATOR_COUNT ` : (Optional) The number of GPUs to attach to each VM in the resource pool. The default the value is `1` . This field corresponds to the `machineSpec.acceleratorCount` field in `ResourcePool` API message.
 
-  - REPLICA\_COUNT : The number of replicas to create when creating this resource pool. This field corresponds to the `replicaCount` field in the `ResourcePool` API message. This field is required if you're not specifying MIN\_REPLICA\_COUNT and MAX\_REPLICA\_COUNT .
+- ` REPLICA_COUNT ` : The number of replicas to create when creating this resource pool. This field corresponds to the `replicaCount` field in the `ResourcePool` API message. This field is required if you're not specifying ` MIN_REPLICA_COUNT ` and ` MAX_REPLICA_COUNT ` .
 
-  - MIN\_REPLICA\_COUNT : (Optional) The minimum number of replicas that autoscaling can scale down to for this resource pool. Both MIN\_REPLICA\_COUNT and MAX\_REPLICA\_COUNT are required to enable autoscaling on this resource pool.
+- ` MIN_REPLICA_COUNT ` : (Optional) The minimum number of replicas that autoscaling can scale down to for this resource pool. Both ` MIN_REPLICA_COUNT ` and ` MAX_REPLICA_COUNT ` are required to enable autoscaling on this resource pool.
 
-  - MAX\_REPLICA\_COUNT : (Optional) The maximum number of replicas that autoscaling can scale up to for this resource pool. Both MIN\_REPLICA\_COUNT and MAX\_REPLICA\_COUNT are required to enable autoscaling on this resource pool.
+- ` MAX_REPLICA_COUNT ` : (Optional) The maximum number of replicas that autoscaling can scale up to for this resource pool. Both ` MIN_REPLICA_COUNT ` and ` MAX_REPLICA_COUNT ` are required to enable autoscaling on this resource pool.
 
-  - BOOT\_DISK\_TYPE : (Optional) The type of disk to use for as the boot disk of each VM in the resource pool. This field corresponds to the `diskSpec.bootDiskType` field in the `ResourcePool` API message. Acceptable values include the following:
-    
-      - `pd-standard` (default)
-      - `pd-ssd`
+- ` BOOT_DISK_TYPE ` : (Optional) The type of disk to use for as the boot disk of each VM in the resource pool. This field corresponds to the `diskSpec.bootDiskType` field in the `ResourcePool` API message. Acceptable values include the following:
+  - `pd-standard` (default)
+  - `pd-ssd`
 
-  - BOOT\_DISK\_SIZE\_GB : (Optional) The disk size in GiB for the boot disk of each VM in the resource pool. Acceptable values are `100` (default) to `64000` . This field corresponds to the `diskSpec.bootDiskSizeGb` field in the `ResourcePool` API message.
+- ` BOOT_DISK_SIZE_GB ` : (Optional) The disk size in GiB for the boot disk of each VM in the resource pool. Acceptable values are `100` (default) to `64000` . This field corresponds to the `diskSpec.bootDiskSizeGb` field in the `ResourcePool` API message.
 
-  - CONFIG : Path to the persistent resource YAML configuration file. This file should contain a list of ResourcePool. If an option is specified in both the configuration file and the command-line arguments, the command-line arguments override the configuration file. Note that keys with underscores are invalid.
-    
-    Example YAML configuration file:
-    
-    ``` 
-    resourcePoolSpecs:
-      machineSpec:
-        machineType: n1-standard-4
-      replicaCount: 1
-        
-    ```
+- ` CONFIG ` : Path to the persistent resource YAML configuration file. This file should contain a list of ResourcePool. If an option is specified in both the configuration file and the command-line arguments, the command-line arguments override the configuration file. Note that keys with underscores are invalid.
+
+  Example YAML configuration file:
+
+  ```
+  resourcePoolSpecs:
+    machineSpec:
+      machineType: n1-standard-4
+    replicaCount: 1
+      
+  ```
 
 Execute the following command:
 
@@ -149,61 +148,73 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai persistent-resources create \
-        --persistent-resource-id=PERSISTENT_RESOURCE_ID \
-        --display-name=DISPLAY_NAME \
-        --project=PROJECT_ID \
-        --region=LOCATION \
-        --resource-pool-spec="replica-count=REPLICA_COUNT,min-replica-count=MIN_REPLICA_COUNT,max-replica-count=MAX_REPLICA_COUNT,machine-type=MACHINE_TYPE,accelerator-type=ACCELERATOR_TYPE,accelerator-count=ACCELERATOR_COUNT,disk-type=BOOT_DISK_TYPE,disk-size=BOOT_DISK_SIZE_GB"
+```
+gcloud ai persistent-resources create \
+    --persistent-resource-id=PERSISTENT_RESOURCE_ID \
+    --display-name=DISPLAY_NAME \
+    --project=PROJECT_ID \
+    --region=LOCATION \
+    --resource-pool-spec="replica-count=REPLICA_COUNT,min-replica-count=MIN_REPLICA_COUNT,max-replica-count=MAX_REPLICA_COUNT,machine-type=MACHINE_TYPE,accelerator-type=ACCELERATOR_TYPE,accelerator-count=ACCELERATOR_COUNT,disk-type=BOOT_DISK_TYPE,disk-size=BOOT_DISK_SIZE_GB"
+```
 
 #### Windows (PowerShell)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai persistent-resources create `
-        --persistent-resource-id=PERSISTENT_RESOURCE_ID `
-        --display-name=DISPLAY_NAME `
-        --project=PROJECT_ID `
-        --region=LOCATION `
-        --resource-pool-spec="replica-count=REPLICA_COUNT,min-replica-count=MIN_REPLICA_COUNT,max-replica-count=MAX_REPLICA_COUNT,machine-type=MACHINE_TYPE,accelerator-type=ACCELERATOR_TYPE,accelerator-count=ACCELERATOR_COUNT,disk-type=BOOT_DISK_TYPE,disk-size=BOOT_DISK_SIZE_GB"
+```
+gcloud ai persistent-resources create `
+    --persistent-resource-id=PERSISTENT_RESOURCE_ID `
+    --display-name=DISPLAY_NAME `
+    --project=PROJECT_ID `
+    --region=LOCATION `
+    --resource-pool-spec="replica-count=REPLICA_COUNT,min-replica-count=MIN_REPLICA_COUNT,max-replica-count=MAX_REPLICA_COUNT,machine-type=MACHINE_TYPE,accelerator-type=ACCELERATOR_TYPE,accelerator-count=ACCELERATOR_COUNT,disk-type=BOOT_DISK_TYPE,disk-size=BOOT_DISK_SIZE_GB"
+```
 
 #### Windows (cmd.exe)
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud ai persistent-resources create ^
-        --persistent-resource-id=PERSISTENT_RESOURCE_ID ^
-        --display-name=DISPLAY_NAME ^
-        --project=PROJECT_ID ^
-        --region=LOCATION ^
-        --resource-pool-spec="replica-count=REPLICA_COUNT,min-replica-count=MIN_REPLICA_COUNT,max-replica-count=MAX_REPLICA_COUNT,machine-type=MACHINE_TYPE,accelerator-type=ACCELERATOR_TYPE,accelerator-count=ACCELERATOR_COUNT,disk-type=BOOT_DISK_TYPE,disk-size=BOOT_DISK_SIZE_GB"
+```
+gcloud ai persistent-resources create ^
+    --persistent-resource-id=PERSISTENT_RESOURCE_ID ^
+    --display-name=DISPLAY_NAME ^
+    --project=PROJECT_ID ^
+    --region=LOCATION ^
+    --resource-pool-spec="replica-count=REPLICA_COUNT,min-replica-count=MIN_REPLICA_COUNT,max-replica-count=MAX_REPLICA_COUNT,machine-type=MACHINE_TYPE,accelerator-type=ACCELERATOR_TYPE,accelerator-count=ACCELERATOR_COUNT,disk-type=BOOT_DISK_TYPE,disk-size=BOOT_DISK_SIZE_GB"
+```
 
 You should receive a response similar to the following:
 
-    Using endpoint [https://us-central1-aiplatform.googleapis.com/]
-    Operation to create PersistentResource [projects/123456789012/locations/us-central1/persistentResources/mypersistentresource/operations/1234567890123456789] is submitted successfully.
-    
-    You may view the status of your PersistentResource create operation with the command
-    
-      $ gcloud ai operations describe projects/sample-project/locations/us-central1/operations/1234567890123456789
+```
+Using endpoint [https://us-central1-aiplatform.googleapis.com/]
+Operation to create PersistentResource [projects/123456789012/locations/us-central1/persistentResources/mypersistentresource/operations/1234567890123456789] is submitted successfully.
+
+You may view the status of your PersistentResource create operation with the command
+
+  $ gcloud ai operations describe projects/sample-project/locations/us-central1/operations/1234567890123456789
+```
 
 Example `gcloud` command:
 
-    gcloud ai persistent-resources create \
-        --persistent-resource-id=my-persistent-resource \
-        --region=us-central1 \
-        --resource-pool-spec="min-replica-count=4,max-replica-count=12,machine-type=n1-highmem-2,accelerator-type=NVIDIA_TESLA_T4,accelerator-count=1,disk-type=pd-standard,disk-size=200" \
-        --resource-pool-spec="replica-count=4,machine-type=n1-standard-4"
+```
+gcloud ai persistent-resources create \
+    --persistent-resource-id=my-persistent-resource \
+    --region=us-central1 \
+    --resource-pool-spec="min-replica-count=4,max-replica-count=12,machine-type=n1-highmem-2,accelerator-type=NVIDIA_TESLA_T4,accelerator-count=1,disk-type=pd-standard,disk-size=200" \
+    --resource-pool-spec="replica-count=4,machine-type=n1-standard-4"
+```
 
 #### Advanced `gcloud` configurations
 
 If you want to specify configuration options that are not available in the preceding examples, you can use the `--config` flag to specify the path to a `config.yaml` file in your local environment that contains the fields of [`persistentResources`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.persistentResources) . For example:
 
-    gcloud ai persistent-resources create \
-        --persistent-resource-id=PERSISTENT_RESOURCE_ID \
-        --project=PROJECT_ID \
-        --region=LOCATION \
-        --config=CONFIG
+```
+gcloud ai persistent-resources create \
+    --persistent-resource-id=PERSISTENT_RESOURCE_ID \
+    --project=PROJECT_ID \
+    --region=LOCATION \
+    --config=CONFIG
+```
 
 ### Python
 
@@ -213,40 +224,42 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 To create a [persistent resource](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.types.PersistentResource) that you can use with a pipeline run, set the `enable_custom_service_account` parameter to `True` in the `ResourceRuntimeSpec` object while creating the persistent resource.
 
-    from google.cloud.aiplatform.preview import persistent_resource
-    from google.cloud.aiplatform_v1beta1.types.persistent_resource import ResourcePool
-    from google.cloud.aiplatform_v1beta1.types.machine_resources import MachineSpec
-    
-    # Create the persistent resource. This method returns the created resource.
-    
-    my_example_resource = persistent_resource.PersistentResource.create(
-        persistent_resource_id='PERSISTENT_RESOURCE_ID',
-        display_name='DISPLAY_NAME',
-        resource_pools=[
-            ResourcePool(
-                machine_spec=MachineSpec(
-                    machine_type='MACHINE_TYPE'
-                ),
-                replica_count=REPLICA_COUNT
-            )
-        ],
-        enable_custom_service_account=True,
-    )
-    
-    # Setting `sync` to `False` makes the method is non-blocking and the resource
-    # object returned syncs when the method completes.
-    
-    SYNC=False
-    
-    if not SYNC:
-        my_example_resource.wait()
+```
+from google.cloud.aiplatform.preview import persistent_resource
+from google.cloud.aiplatform_v1beta1.types.persistent_resource import ResourcePool
+from google.cloud.aiplatform_v1beta1.types.machine_resources import MachineSpec
+
+# Create the persistent resource. This method returns the created resource.
+
+my_example_resource = persistent_resource.PersistentResource.create(
+    persistent_resource_id='PERSISTENT_RESOURCE_ID',
+    display_name='DISPLAY_NAME',
+    resource_pools=[
+        ResourcePool(
+            machine_spec=MachineSpec(
+                machine_type='MACHINE_TYPE'
+            ),
+            replica_count=REPLICA_COUNT
+        )
+    ],
+    enable_custom_service_account=True,
+)
+
+# Setting `sync` to `False` makes the method is non-blocking and the resource
+# object returned syncs when the method completes.
+
+SYNC=False
+
+if not SYNC:
+    my_example_resource.wait()
+```
 
 Replace the following:
 
-  - PERSISTENT\_RESOURCE\_ID : A unique, user-defined ID for the persistent resource. It must start with a letter, end with a letter or number, and contain only lowercase letters, numbers, and hyphens (-).
-  - DISPLAY\_NAME : Optional. The display name of the persistent resource.
-  - MACHINE\_TYPE : The type of virtual machine (VM) to use. For a list of supported VMs, see [Machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) . This field corresponds to the `machineSpec.machineType` field in the
-  - REPLICA\_COUNT : The number of replicas to create when creating this resource pool.
+- ` PERSISTENT_RESOURCE_ID ` : A unique, user-defined ID for the persistent resource. It must start with a letter, end with a letter or number, and contain only lowercase letters, numbers, and hyphens (-).
+- ` DISPLAY_NAME ` : Optional. The display name of the persistent resource.
+- ` MACHINE_TYPE ` : The type of virtual machine (VM) to use. For a list of supported VMs, see [Machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) . This field corresponds to the `machineSpec.machineType` field in the
+- ` REPLICA_COUNT ` : The number of replicas to create when creating this resource pool.
 
 ### REST
 
@@ -254,48 +267,52 @@ A persistent resource can have one or more resource pools ( `machine_spec` ), an
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : The Project ID of the Google Cloud project where you want to create the persistent resource.
-  - LOCATION : The region where you want to create the persistent resource. For a list of supported regions, see [Feature availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
-  - PERSISTENT\_RESOURCE\_ID : The ID of the persistent resource.
-  - DISPLAY\_NAME : (Optional) The display name of the persistent resource.
-  - MACHINE\_TYPE : The type of VM to use. For a list of supported VMs, see [Machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) . This field corresponds to the `machineSpec.machineType` field in the `ResourcePool` API message.
-  - ACCELERATOR\_TYPE : (Optional) The type of GPU to attach to each VM in the resource pool. For a list of supported GPUs, see [GPUs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#specifying_gpus) . This field corresponds to the `machineSpec.acceleratorType` field in the `ResourcePool` API message.
-  - ACCELERATOR\_COUNT : (Optional) The number of GPUs to attach to each VM in the resource pool. The default the value is `1` . This field corresponds to the `machineSpec.acceleratorCount` field in `ResourcePool` API message.
-  - REPLICA\_COUNT : The number of replicas to create when creating this resource pool. This field corresponds to the `replicaCount` field in the `ResourcePool` API message. This field is required if you're not specifying MIN\_REPLICA\_COUNT and MAX\_REPLICA\_COUNT .
-  - MIN\_REPLICA\_COUNT : (Optional) The minimum number of replicas that autoscaling can scale down to for this resource pool. Both MIN\_REPLICA\_COUNT and MAX\_REPLICA\_COUNT are required to enable autoscaling on this resource pool.
-  - MAX\_REPLICA\_COUNT : (Optional) The maximum number of replicas that autoscaling can scale up to for this resource pool. Both MIN\_REPLICA\_COUNT and MAX\_REPLICA\_COUNT are required to enable autoscaling on this resource pool.
-  - BOOT\_DISK\_TYPE : (Optional) The type of disk to use for as the boot disk of each VM in the resource pool. This field corresponds to the `diskSpec.bootDiskType` field in the `ResourcePool` API message. Acceptable values include the following:
-      - `pd-standard` (default)
-      - `pd-ssd`
-  - BOOT\_DISK\_SIZE\_GB : (Optional) The disk size in GiB for the boot disk of each VM in the resource pool. Acceptable values are `100` (default) to `64000` . This field corresponds to the `diskSpec.bootDiskSizeGb` field in the `ResourcePool` API message.
+- ` PROJECT_ID ` : The Project ID of the Google Cloud project where you want to create the persistent resource.
+- ` LOCATION ` : The region where you want to create the persistent resource. For a list of supported regions, see [Feature availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
+- ` PERSISTENT_RESOURCE_ID ` : The ID of the persistent resource.
+- ` DISPLAY_NAME ` : (Optional) The display name of the persistent resource.
+- ` MACHINE_TYPE ` : The type of VM to use. For a list of supported VMs, see [Machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) . This field corresponds to the `machineSpec.machineType` field in the `ResourcePool` API message.
+- ` ACCELERATOR_TYPE ` : (Optional) The type of GPU to attach to each VM in the resource pool. For a list of supported GPUs, see [GPUs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#specifying_gpus) . This field corresponds to the `machineSpec.acceleratorType` field in the `ResourcePool` API message.
+- ` ACCELERATOR_COUNT ` : (Optional) The number of GPUs to attach to each VM in the resource pool. The default the value is `1` . This field corresponds to the `machineSpec.acceleratorCount` field in `ResourcePool` API message.
+- ` REPLICA_COUNT ` : The number of replicas to create when creating this resource pool. This field corresponds to the `replicaCount` field in the `ResourcePool` API message. This field is required if you're not specifying ` MIN_REPLICA_COUNT ` and ` MAX_REPLICA_COUNT ` .
+- ` MIN_REPLICA_COUNT ` : (Optional) The minimum number of replicas that autoscaling can scale down to for this resource pool. Both ` MIN_REPLICA_COUNT ` and ` MAX_REPLICA_COUNT ` are required to enable autoscaling on this resource pool.
+- ` MAX_REPLICA_COUNT ` : (Optional) The maximum number of replicas that autoscaling can scale up to for this resource pool. Both ` MIN_REPLICA_COUNT ` and ` MAX_REPLICA_COUNT ` are required to enable autoscaling on this resource pool.
+- ` BOOT_DISK_TYPE ` : (Optional) The type of disk to use for as the boot disk of each VM in the resource pool. This field corresponds to the `diskSpec.bootDiskType` field in the `ResourcePool` API message. Acceptable values include the following:
+  - `pd-standard` (default)
+  - `pd-ssd`
+- ` BOOT_DISK_SIZE_GB ` : (Optional) The disk size in GiB for the boot disk of each VM in the resource pool. Acceptable values are `100` (default) to `64000` . This field corresponds to the `diskSpec.bootDiskSizeGb` field in the `ResourcePool` API message.
 
 HTTP method and URL:
 
-    POST https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/persistentResources?persistent_resource_id=PERSISTENT_RESOURCE_ID
+```
+POST https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/persistentResources?persistent_resource_id=PERSISTENT_RESOURCE_ID
+```
 
 Request JSON body:
 
+```
+{
+  "display_name": "DISPLAY_NAME",
+  "resource_pools": [
     {
-      "display_name": "DISPLAY_NAME",
-      "resource_pools": [
-        {
-          "machine_spec": {
-            "machine_type": "MACHINE_TYPE",
-            "accelerator_type": "ACCELERATOR_TYPE",
-            "accelerator_count": ACCELERATOR_COUNT
-          },
-          "replica_count": REPLICA_COUNT,
-          "autoscaling_spec": {
-            "min_replica_count": MIN_REPLICA_COUNT,
-            "max_replica_count": MAX_REPLICA_COUNT
-          },
-          "disk_spec": {
-            "boot_disk_type": "BOOT_DISK_TYPE",
-            "boot_disk_size_gb": BOOT_DISK_SIZE_GB
-          }
-        }
-      ]
+      "machine_spec": {
+        "machine_type": "MACHINE_TYPE",
+        "accelerator_type": "ACCELERATOR_TYPE",
+        "accelerator_count": ACCELERATOR_COUNT
+      },
+      "replica_count": REPLICA_COUNT,
+      "autoscaling_spec": {
+        "min_replica_count": MIN_REPLICA_COUNT,
+        "max_replica_count": MAX_REPLICA_COUNT
+      },
+      "disk_spec": {
+        "boot_disk_type": "BOOT_DISK_TYPE",
+        "boot_disk_size_gb": BOOT_DISK_SIZE_GB
+      }
     }
+  ]
+}
+```
 
 To send your request, expand one of these options:
 
@@ -305,37 +322,41 @@ To send your request, expand one of these options:
 
 Save the request body in a file named `request.json` . Run the following command in the terminal to create or overwrite this file in the current directory:
 
-    cat > request.json << 'EOF'
+```
+cat > request.json << 'EOF'
+{
+  "display_name": "DISPLAY_NAME",
+  "resource_pools": [
     {
-      "display_name": "DISPLAY_NAME",
-      "resource_pools": [
-        {
-          "machine_spec": {
-            "machine_type": "MACHINE_TYPE",
-            "accelerator_type": "ACCELERATOR_TYPE",
-            "accelerator_count": ACCELERATOR_COUNT
-          },
-          "replica_count": REPLICA_COUNT,
-          "autoscaling_spec": {
-            "min_replica_count": MIN_REPLICA_COUNT,
-            "max_replica_count": MAX_REPLICA_COUNT
-          },
-          "disk_spec": {
-            "boot_disk_type": "BOOT_DISK_TYPE",
-            "boot_disk_size_gb": BOOT_DISK_SIZE_GB
-          }
-        }
-      ]
+      "machine_spec": {
+        "machine_type": "MACHINE_TYPE",
+        "accelerator_type": "ACCELERATOR_TYPE",
+        "accelerator_count": ACCELERATOR_COUNT
+      },
+      "replica_count": REPLICA_COUNT,
+      "autoscaling_spec": {
+        "min_replica_count": MIN_REPLICA_COUNT,
+        "max_replica_count": MAX_REPLICA_COUNT
+      },
+      "disk_spec": {
+        "boot_disk_type": "BOOT_DISK_TYPE",
+        "boot_disk_size_gb": BOOT_DISK_SIZE_GB
+      }
     }
-    EOF
+  ]
+}
+EOF
+```
 
 Then execute the following command to send your REST request:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/persistentResources?persistent_resource_id=PERSISTENT_RESOURCE_ID"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/persistentResources?persistent_resource_id=PERSISTENT_RESOURCE_ID"
+```
 
 #### PowerShell (Windows)
 
@@ -343,54 +364,60 @@ Then execute the following command to send your REST request:
 
 Save the request body in a file named `request.json` . Run the following command in the terminal to create or overwrite this file in the current directory:
 
-    @'
+```
+@'
+{
+  "display_name": "DISPLAY_NAME",
+  "resource_pools": [
     {
-      "display_name": "DISPLAY_NAME",
-      "resource_pools": [
-        {
-          "machine_spec": {
-            "machine_type": "MACHINE_TYPE",
-            "accelerator_type": "ACCELERATOR_TYPE",
-            "accelerator_count": ACCELERATOR_COUNT
-          },
-          "replica_count": REPLICA_COUNT,
-          "autoscaling_spec": {
-            "min_replica_count": MIN_REPLICA_COUNT,
-            "max_replica_count": MAX_REPLICA_COUNT
-          },
-          "disk_spec": {
-            "boot_disk_type": "BOOT_DISK_TYPE",
-            "boot_disk_size_gb": BOOT_DISK_SIZE_GB
-          }
-        }
-      ]
+      "machine_spec": {
+        "machine_type": "MACHINE_TYPE",
+        "accelerator_type": "ACCELERATOR_TYPE",
+        "accelerator_count": ACCELERATOR_COUNT
+      },
+      "replica_count": REPLICA_COUNT,
+      "autoscaling_spec": {
+        "min_replica_count": MIN_REPLICA_COUNT,
+        "max_replica_count": MAX_REPLICA_COUNT
+      },
+      "disk_spec": {
+        "boot_disk_type": "BOOT_DISK_TYPE",
+        "boot_disk_size_gb": BOOT_DISK_SIZE_GB
+      }
     }
-    '@  | Out-File -FilePath request.json -Encoding utf8
+  ]
+}
+'@  | Out-File -FilePath request.json -Encoding utf8
+```
 
 Then execute the following command to send your REST request:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/persistentResources?persistent_resource_id=PERSISTENT_RESOURCE_ID" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/persistentResources?persistent_resource_id=PERSISTENT_RESOURCE_ID" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
-    {
-      "name": "projects/123456789012/locations/us-central1/persistentResources/mypersistentresource/operations/1234567890123456789",
-      "metadata": {
-        "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreatePersistentResourceOperationMetadata",
-        "genericMetadata": {
-          "createTime": "2023-02-08T21:17:15.009668Z",
-          "updateTime": "2023-02-08T21:17:15.009668Z"
-        }
-      }
+```
+{
+  "name": "projects/123456789012/locations/us-central1/persistentResources/mypersistentresource/operations/1234567890123456789",
+  "metadata": {
+    "@type": "type.googleapis.com/google.cloud.aiplatform.v1.CreatePersistentResourceOperationMetadata",
+    "genericMetadata": {
+      "createTime": "2023-02-08T21:17:15.009668Z",
+      "updateTime": "2023-02-08T21:17:15.009668Z"
     }
+  }
+}
+```
 
 ### Resource stockout
 
@@ -407,8 +434,8 @@ For more information, see [Shared responsibility](https://docs.cloud.google.com/
 
 ## What's next
 
-  - [Run training jobs on a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-train) .
-  - [Learn about persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-overview) .
-  - [Get information about a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-get) .
-  - [Reboot a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-reboot) .
-  - [Delete a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-delete) .
+- [Run training jobs on a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-train) .
+- [Learn about persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-overview) .
+- [Get information about a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-get) .
+- [Reboot a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-reboot) .
+- [Delete a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-delete) .

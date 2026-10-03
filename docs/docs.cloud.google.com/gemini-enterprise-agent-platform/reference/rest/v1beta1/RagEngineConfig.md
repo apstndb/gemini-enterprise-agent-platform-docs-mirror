@@ -14,25 +14,20 @@ Fields
 
 Identifier. The name of the RagEngineConfig. Format: `projects/{project}/locations/{location}/ragEngineConfig`
 
-`ragManagedDbConfig` ` object ( RagManagedDbConfig  ` )
+`ragManagedDbConfig` `object ( `[`RagManagedDbConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagEngineConfig#RagManagedDbConfig)` )`
 
 The config of the RagManagedDb used by RagEngine.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;ragManagedDbConfig&quot;: {object (RagManagedDbConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "ragManagedDbConfig": {
+    object (RagManagedDbConfig)
+  }
+}
+```
 
 ## RagManagedDbConfig
 
@@ -44,27 +39,27 @@ Fields
 
 The tier of the RagManagedDb. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-` enterprise (deprecated)  ` ` object ( Enterprise  ` )
+`enterprise `**`(deprecated)`** `object ( `[`Enterprise`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagEngineConfig#Enterprise)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Sets the RagManagedDb to the Enterprise tier.
 
-` scaled (deprecated)  ` ` object ( Scaled  ` )
+`scaled `**`(deprecated)`** `object ( `[`Scaled`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagEngineConfig#Scaled)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Deprecated: Use `mode` instead to set the tier under Spanner. Sets the RagManagedDb to the Scaled tier.
 
-` basic (deprecated)  ` ` object ( Basic  ` )
+`basic `**`(deprecated)`** `object ( `[`Basic`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagEngineConfig#Basic)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Deprecated: Use `mode` instead to set the tier under Spanner. Sets the RagManagedDb to the Basic tier.
 
-` unprovisioned (deprecated)  ` ` object ( Unprovisioned  ` )
+`unprovisioned `**`(deprecated)`** `object ( `[`Unprovisioned`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagEngineConfig#Unprovisioned)` )`
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Deprecated: Use `mode` instead to set the tier under Spanner. Sets the RagManagedDb to the Unprovisioned tier.
 
@@ -74,11 +69,11 @@ End of mutually exclusive fields.
 
 The choice of backend for your RagEngine. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`serverless` ` object ( Serverless  ` )
+`serverless` `object ( `[`Serverless`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagEngineConfig#Serverless)` )`
 
 Sets the backend to be the serverless mode offered by RAG Engine.
 
-`spanner` ` object ( Spanner  ` )
+`spanner` `object ( `[`Spanner`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagEngineConfig#Spanner)` )`
 
 Sets the RAG Engine backend to be RagManagedDb, built on top of Spanner.
 
@@ -86,27 +81,42 @@ NOTE: This is the default mode (w/ Basic Tier) if not explicitly chosen.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// tier&quot;enterprise&quot;: {object (Enterprise)},&quot;scaled&quot;: {object (Scaled)},&quot;basic&quot;: {object (Basic)},&quot;unprovisioned&quot;: {object (Unprovisioned)}// Union type// mode&quot;serverless&quot;: {object (Serverless)},&quot;spanner&quot;: {object (Spanner)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // tier
+  "enterprise": {
+    object (Enterprise)
+  },
+  "scaled": {
+    object (Scaled)
+  },
+  "basic": {
+    object (Basic)
+  },
+  "unprovisioned": {
+    object (Unprovisioned)
+  }
+  // Union type
+
+  // mode
+  "serverless": {
+    object (Serverless)
+  },
+  "spanner": {
+    object (Spanner)
+  }
+  // Union type
+}
+```
 
 ## Enterprise
 
 This type has no fields.
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Enterprise tier offers production grade performance along with autoscaling functionality. It is suitable for customers with large amounts of data or performance sensitive workloads.
 
@@ -148,32 +158,35 @@ Fields
 
 The tier of the RagManagedDb, built on top of Spanner. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`scaled` ` object ( Scaled  ` )
+`scaled` `object ( `[`Scaled`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagEngineConfig#Scaled)` )`
 
 Sets the RagManagedDb to the Scaled tier.
 
-`basic` ` object ( Basic  ` )
+`basic` `object ( `[`Basic`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagEngineConfig#Basic)` )`
 
 Sets the RagManagedDb to the Basic tier. This is the default tier for Spanner mode if not explicitly chosen.
 
-`unprovisioned` ` object ( Unprovisioned  ` )
+`unprovisioned` `object ( `[`Unprovisioned`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/RagEngineConfig#Unprovisioned)` )`
 
 Sets the RagManagedDb to the Unprovisioned tier.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// tier&quot;scaled&quot;: {object (Scaled)},&quot;basic&quot;: {object (Basic)},&quot;unprovisioned&quot;: {object (Unprovisioned)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // tier
+  "scaled": {
+    object (Scaled)
+  },
+  "basic": {
+    object (Basic)
+  },
+  "unprovisioned": {
+    object (Unprovisioned)
+  }
+  // Union type
+}
+```

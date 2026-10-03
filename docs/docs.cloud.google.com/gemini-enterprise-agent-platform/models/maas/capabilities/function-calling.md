@@ -22,73 +22,79 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 Before running this sample, make sure to set the `OPENAI_BASE_URL` environment variable. For more information, see [Authentication and credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/auth-and-credentials) .
 
-    from openai import OpenAI
-    client = OpenAI()
-    
-    response = client.chat.completions.create(
-      model="MODEL",
-      messages=[
-        {"role": "user", "content": "CONTENT"}
-      ],
-      tools=[
-        {
-          "type": "function",
-          "function": {
-            "name": "FUNCTION_NAME",
-            "description": "FUNCTION_DESCRIPTION",
-            "parameters": PARAMETERS_OBJECT,
-          }
-        }
-      ],
-      tool_choice="auto",
-    )
+```
+from openai import OpenAI
+client = OpenAI()
 
-  - MODEL : The model name you want to use, for example `qwen/qwen3-next-80b-a3b-instruct-maas` .
-  - CONTENT : The user prompt to send to the model.
-  - FUNCTION\_NAME : The name of the function to call.
-  - FUNCTION\_DESCRIPTION : A description of the function.
-  - PARAMETERS\_OBJECT : A dictionary that defines the function parameters, for example:  
-    `{"type": "object", "properties": {"location": {"type": "string", "description": "The city and state"}}, "required": ["location"]}`
+response = client.chat.completions.create(
+  model="MODEL",
+  messages=[
+    {"role": "user", "content": "CONTENT"}
+  ],
+  tools=[
+    {
+      "type": "function",
+      "function": {
+        "name": "FUNCTION_NAME",
+        "description": "FUNCTION_DESCRIPTION",
+        "parameters": PARAMETERS_OBJECT,
+      }
+    }
+  ],
+  tool_choice="auto",
+)
+```
+
+- ` MODEL ` : The model name you want to use, for example `qwen/qwen3-next-80b-a3b-instruct-maas` .
+- ` CONTENT ` : The user prompt to send to the model.
+- ` FUNCTION_NAME ` : The name of the function to call.
+- ` FUNCTION_DESCRIPTION ` : A description of the function.
+- ` PARAMETERS_OBJECT ` : A dictionary that defines the function parameters, for example:  
+  `{"type": "object", "properties": {"location": {"type": "string", "description": "The city and state"}}, "required": ["location"]}`
 
 ### REST
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - LOCATION : A region that supports open models.
-  - MODEL : The model name you want to use, for example `qwen/qwen3-next-80b-a3b-instruct-maas` .
-  - CONTENT : The user prompt to send to the model.
-  - FUNCTION\_NAME : The name of the function to call.
-  - FUNCTION\_DESCRIPTION : A description of the function.
-  - PARAMETERS\_OBJECT : A JSON schema object that defines the function parameters, for example:  
-    `{"type": "object", "properties": {"location": {"type": "string", "description": "The city and state"}}, "required": ["location"]}`
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` LOCATION ` : A region that supports open models.
+- ` MODEL ` : The model name you want to use, for example `qwen/qwen3-next-80b-a3b-instruct-maas` .
+- ` CONTENT ` : The user prompt to send to the model.
+- ` FUNCTION_NAME ` : The name of the function to call.
+- ` FUNCTION_DESCRIPTION ` : A description of the function.
+- ` PARAMETERS_OBJECT ` : A JSON schema object that defines the function parameters, for example:  
+  `{"type": "object", "properties": {"location": {"type": "string", "description": "The city and state"}}, "required": ["location"]}`
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions
+```
 
 Request JSON body:
 
+```
+{
+  "model": "MODEL",
+  "messages": [
     {
-      "model": "MODEL",
-      "messages": [
-        {
-          "role": "user",
-          "content": "CONTENT"
-        }
-      ],
-      "tools": [
-        {
-          "type": "function",
-          "function": {
-            "name": "FUNCTION_NAME",
-            "description": "FUNCTION_DESCRIPTION",
-            "parameters": PARAMETERS_OBJECT
-          }
-        }
-      ],
-      "tool_choice": "auto"
+      "role": "user",
+      "content": "CONTENT"
     }
+  ],
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "FUNCTION_NAME",
+        "description": "FUNCTION_DESCRIPTION",
+        "parameters": PARAMETERS_OBJECT
+      }
+    }
+  ],
+  "tool_choice": "auto"
+}
+```
 
 To send your request, choose one of these options:
 
@@ -98,11 +104,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions"
+```
 
 #### PowerShell
 
@@ -110,15 +118,17 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx) and an empty response.
 
@@ -128,141 +138,147 @@ The following is the complete output you could expect after using the `get_curre
 
 ### Python
 
-    from openai import OpenAI
-    client = OpenAI()
-    
-    response = client.chat.completions.create(
-      model="qwen/qwen3-next-80b-a3b-instruct-maas",
-      messages=[
-        {
-          "role": "user",
-          "content": "Which city has a higher temperature, Boston or new Delhi and by how much in F?"
-        },
-        {
-          "role": "assistant",
-          "content": "I'll check the current temperatures for Boston and New Delhi in Fahrenheit and compare them. I'll call the weather function for both cities.",
-          "tool_calls": [{"function":{"arguments":"{\"location\":\"Boston, MA\",\"unit\":\"fahrenheit\"}","name":"get_current_weather"},"id":"get_current_weather","type":"function"},{"function":{"arguments":"{\"location\":\"New Delhi, India\",\"unit\":\"fahrenheit\"}","name":"get_current_weather"},"id":"get_current_weather","type":"function"}]
-        },
-        {
-          "role": "tool",
-          "content": "The temperature in Boston is 75 degrees Fahrenheit.",
-          "tool_call_id": "get_current_weather"
-        },
-        {
-          "role": "tool",
-          "content": "The temperature in New Delhi is 50 degrees Fahrenheit.",
-          "tool_call_id": "get_current_weather"
-        }
-      ],
-      tools=[
-        {
-          "type": "function",
-          "function": {
-            "name": "get_current_weather",
-            "description": "Get the current weather in a given location",
-            "parameters": {
-              "type": "object",
-              "properties": {
-                "location": {
-                  "type": "string",
-                  "description": "The city and state, e.g. San Francisco, CA"
-                },
-                "unit": {
-                  "type": "string",
-                  "enum": ["celsius", "fahrenheit"]
-                }
-              },
-              "required": ["location"]
+```
+from openai import OpenAI
+client = OpenAI()
+
+response = client.chat.completions.create(
+  model="qwen/qwen3-next-80b-a3b-instruct-maas",
+  messages=[
+    {
+      "role": "user",
+      "content": "Which city has a higher temperature, Boston or new Delhi and by how much in F?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll check the current temperatures for Boston and New Delhi in Fahrenheit and compare them. I'll call the weather function for both cities.",
+      "tool_calls": [{"function":{"arguments":"{\"location\":\"Boston, MA\",\"unit\":\"fahrenheit\"}","name":"get_current_weather"},"id":"get_current_weather","type":"function"},{"function":{"arguments":"{\"location\":\"New Delhi, India\",\"unit\":\"fahrenheit\"}","name":"get_current_weather"},"id":"get_current_weather","type":"function"}]
+    },
+    {
+      "role": "tool",
+      "content": "The temperature in Boston is 75 degrees Fahrenheit.",
+      "tool_call_id": "get_current_weather"
+    },
+    {
+      "role": "tool",
+      "content": "The temperature in New Delhi is 50 degrees Fahrenheit.",
+      "tool_call_id": "get_current_weather"
+    }
+  ],
+  tools=[
+    {
+      "type": "function",
+      "function": {
+        "name": "get_current_weather",
+        "description": "Get the current weather in a given location",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "The city and state, e.g. San Francisco, CA"
+            },
+            "unit": {
+              "type": "string",
+              "enum": ["celsius", "fahrenheit"]
             }
-          }
+          },
+          "required": ["location"]
         }
-      ],
-      tool_choice="auto"
-    )
+      }
+    }
+  ],
+  tool_choice="auto"
+)
+```
 
 ### curl
 
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://us-central1-aiplatform.googleapis.com/v1/projects/sample-project/locations/us-central1/endpoints/openapi/chat/completions -d \
-    '{
-      "model": "qwen/qwen3-next-80b-a3b-instruct-maas",
-      "messages": [
-        {
-          "role": "user",
-          "content": "Which city has a higher temperature, Boston or new Delhi and by how much in F?"
-        },
-        {
-          "role": "assistant",
-          "content": "I'll check the current temperatures for Boston and New Delhi in Fahrenheit and compare them. I'll call the weather function for both cities.",
-          "tool_calls": [{"function":{"arguments":"{\"location\":\"Boston, MA\",\"unit\":\"fahrenheit\"}","name":"get_current_weather"},"id":"get_current_weather","type":"function"},{"function":{"arguments":"{\"location\":\"New Delhi, India\",\"unit\":\"fahrenheit\"}","name":"get_current_weather"},"id":"get_current_weather","type":"function"}]
-        },
-        {
-          "role": "tool",
-          "content": "The temperature in Boston is 75 degrees Fahrenheit.",
-          "tool_call_id": "get_current_weather"
-        },
-        {
-          "role": "tool",
-          "content": "The temperature in New Delhi is 50 degrees Fahrenheit.",
-          "tool_call_id": "get_current_weather"
-        }
-      ],
-      "tools": [
-        {
-          "type": "function",
-          "function": {
-            "name": "get_current_weather",
-            "description": "Get the current weather in a given location",
-            "parameters": {
-              "type": "object",
-              "properties": {
-                "location": {
-                  "type": "string",
-                  "description": "The city and state, e.g. San Francisco, CA"
-                },
-                "unit": {
-                  "type": "string",
-                  "enum": ["celsius", "fahrenheit"]
-                }
-              },
-              "required": ["location"]
-            }
-          }
-        }
-      ],
-      "tool_choice": "auto"
-    }'
-
-After receiving the information retrieved through the calling the external \`get\_current\_weather\` function, the model can synthesize the information from the two \`tool\` responses and answer the user's question. The following is an example of what that model output could look like:
-
+```
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://us-central1-aiplatform.googleapis.com/v1/projects/sample-project/locations/us-central1/endpoints/openapi/chat/completions -d \
+'{
+  "model": "qwen/qwen3-next-80b-a3b-instruct-maas",
+  "messages": [
     {
-     "choices": [
-      {
-       "finish_reason": "stop",
-       "index": 0,
-       "logprobs": null,
-       "message": {
-        "content": "Based on the current weather data:\n\n- **Boston, MA**: 75°F
-        \n- **New Delhi, India**: 50°F  \n\n**Comparison**:
-        \nBoston is **25°F warmer** than New Delhi.  \n\n**Answer**:
-        \nBoston has a higher temperature than New Delhi by 25 degrees Fahrenheit.",
-        "role": "assistant"
-       }
-      }
-     ],
-     "created": 1750450289,
-     "id": "2025-06-20|13:11:29.240295-07|6.230.75.101|-987540014",
-     "model": "qwen/qwen3-next-80b-a3b-instruct-maas",
-     "object": "chat.completion",
-     "system_fingerprint": "",
-     "usage": {
-      "completion_tokens": 66,
-      "prompt_tokens": 217,
-      "total_tokens": 283
-     }
+      "role": "user",
+      "content": "Which city has a higher temperature, Boston or new Delhi and by how much in F?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll check the current temperatures for Boston and New Delhi in Fahrenheit and compare them. I'll call the weather function for both cities.",
+      "tool_calls": [{"function":{"arguments":"{\"location\":\"Boston, MA\",\"unit\":\"fahrenheit\"}","name":"get_current_weather"},"id":"get_current_weather","type":"function"},{"function":{"arguments":"{\"location\":\"New Delhi, India\",\"unit\":\"fahrenheit\"}","name":"get_current_weather"},"id":"get_current_weather","type":"function"}]
+    },
+    {
+      "role": "tool",
+      "content": "The temperature in Boston is 75 degrees Fahrenheit.",
+      "tool_call_id": "get_current_weather"
+    },
+    {
+      "role": "tool",
+      "content": "The temperature in New Delhi is 50 degrees Fahrenheit.",
+      "tool_call_id": "get_current_weather"
     }
+  ],
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "get_current_weather",
+        "description": "Get the current weather in a given location",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "The city and state, e.g. San Francisco, CA"
+            },
+            "unit": {
+              "type": "string",
+              "enum": ["celsius", "fahrenheit"]
+            }
+          },
+          "required": ["location"]
+        }
+      }
+    }
+  ],
+  "tool_choice": "auto"
+}'
+```
+
+After receiving the information retrieved through the calling the external \`get_current_weather\` function, the model can synthesize the information from the two \`tool\` responses and answer the user's question. The following is an example of what that model output could look like:
+
+```
+{
+ "choices": [
+  {
+   "finish_reason": "stop",
+   "index": 0,
+   "logprobs": null,
+   "message": {
+    "content": "Based on the current weather data:\n\n- **Boston, MA**: 75°F
+    \n- **New Delhi, India**: 50°F  \n\n**Comparison**:
+    \nBoston is **25°F warmer** than New Delhi.  \n\n**Answer**:
+    \nBoston has a higher temperature than New Delhi by 25 degrees Fahrenheit.",
+    "role": "assistant"
+   }
+  }
+ ],
+ "created": 1750450289,
+ "id": "2025-06-20|13:11:29.240295-07|6.230.75.101|-987540014",
+ "model": "qwen/qwen3-next-80b-a3b-instruct-maas",
+ "object": "chat.completion",
+ "system_fingerprint": "",
+ "usage": {
+  "completion_tokens": 66,
+  "prompt_tokens": 217,
+  "total_tokens": 283
+ }
+}
+```
 
 ## Model-specific guidance
 
@@ -280,11 +296,13 @@ DeepSeek models don't perform as well on function calling if you use a system pr
 
 When using `openai/gpt-oss-120b-instruct-maas` and `openai/gpt-oss-20b-instruct-maas` , place your tool definitions in the system prompt for optimal performance. For example:
 
-    {"messages": [
-        {"role": "system", "content": "You are a helpful assistant with access to the following functions. Use them if required:\n..."},
-        {"role": "user", "content": "What's the weather like in Boston?"},
-        ...
-    ]}
+```
+{"messages": [
+    {"role": "system", "content": "You are a helpful assistant with access to the following functions. Use them if required:\n..."},
+    {"role": "user", "content": "What's the weather like in Boston?"},
+    ...
+]}
+```
 
 These models don't support `tool_choice = 'required'` or named tool calling.
 
@@ -294,6 +312,6 @@ Qwen models perform best when `tool_choice` is explicitly set to `auto` or `none
 
 ## What's next
 
-  - Learn about [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/structured-output) .
-  - Learn about [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/thinking) .
-  - Learn about [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction) .
+- Learn about [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/structured-output) .
+- Learn about [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/thinking) .
+- Learn about [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction) .

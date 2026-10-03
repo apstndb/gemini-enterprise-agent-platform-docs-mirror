@@ -10,43 +10,40 @@ A TrainingJob that trains and uploads an AutoML Image Classification Model.
 
 Fields
 
-`inputs` ` object ( AutoMlImageClassificationInputs  ` )
+`inputs` `object ( `[`AutoMlImageClassificationInputs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlImageClassification#AutoMlImageClassificationInputs)` )`
 
 The input parameters of this TrainingJob.
 
-`metadata` ` object ( AutoMlImageClassificationMetadata  ` )
+`metadata` `object ( `[`AutoMlImageClassificationMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AutoMlImageClassification#AutoMlImageClassificationMetadata)` )`
 
 The metadata information.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;inputs&quot;: {object (AutoMlImageClassificationInputs)},&quot;metadata&quot;: {object (AutoMlImageClassificationMetadata)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "inputs": {
+    object (AutoMlImageClassificationInputs)
+  },
+  "metadata": {
+    object (AutoMlImageClassificationMetadata)
+  }
+}
+```
 
 ## AutoMlImageClassificationInputs
 
 Fields
 
-`modelType` ` enum ( ModelType  ` )
+`modelType` `enum ( `[`ModelType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ModelType)` )`
 
 `baseModelId` `string`
 
 The id of the `base` model. If it is specified, the new model will be trained based on the `base` model. Otherwise, the new model will be trained from scratch. The `base` model must be in the same Project and Location as the new Model to train, and have the same modelType.
 
-`budgetMilliNodeHours` `string ( int64 format)`
+`budgetMilliNodeHours` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
-The training budget of creating this model, expressed in milli node hours i.e. 1,000 value in this field means 1 node hour. The actual metadata.costMilliNodeHours will be equal or less than this value. If further model training ceases to provide any improvements, it will stop without using the full budget and the metadata.successfulStopReason will be `model-converged` . Note, node\_hour = actual\_hour \* number\_of\_nodes\_involved. For modelType `cloud` (default), the budget must be between 8,000 and 800,000 milli node hours, inclusive. The default value is 192,000 which represents one day in wall time, considering 8 nodes are used. For model types `mobile-tf-low-latency-1` , `mobile-tf-versatile-1` , `mobile-tf-high-accuracy-1` , the training budget must be between 1,000 and 100,000 milli node hours, inclusive. The default value is 24,000 which represents one day in wall time on a single node that is used.
+The training budget of creating this model, expressed in milli node hours i.e. 1,000 value in this field means 1 node hour. The actual metadata.costMilliNodeHours will be equal or less than this value. If further model training ceases to provide any improvements, it will stop without using the full budget and the metadata.successfulStopReason will be `model-converged` . Note, node_hour = actual_hour \* number_of_nodes_involved. For modelType `cloud` (default), the budget must be between 8,000 and 800,000 milli node hours, inclusive. The default value is 192,000 which represents one day in wall time, considering 8 nodes are used. For model types `mobile-tf-low-latency-1` , `mobile-tf-versatile-1` , `mobile-tf-high-accuracy-1` , the training budget must be between 1,000 and 100,000 milli node hours, inclusive. The default value is 24,000 which represents one day in wall time on a single node that is used.
 
 `disableEarlyStopping` `boolean`
 
@@ -60,46 +57,36 @@ If false, a single-label (multi-class) Model will be trained (i.e. assuming that
 
 The id of `base` model for upTraining. If it is specified, the new model will be upTrained based on the `base` model for upTraining. Otherwise, the new model will be trained from scratch. The `base` model for upTraining must be in the same Project and Location as the new Model to train, and have the same modelType.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;modelType&quot;: enum (ModelType),&quot;baseModelId&quot;: string,&quot;budgetMilliNodeHours&quot;: string,&quot;disableEarlyStopping&quot;: boolean,&quot;multiLabel&quot;: boolean,&quot;uptrainBaseModelId&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "modelType": enum (ModelType),
+  "baseModelId": string,
+  "budgetMilliNodeHours": string,
+  "disableEarlyStopping": boolean,
+  "multiLabel": boolean,
+  "uptrainBaseModelId": string
+}
+```
 
 ## AutoMlImageClassificationMetadata
 
 Fields
 
-`costMilliNodeHours` `string ( int64 format)`
+`costMilliNodeHours` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The actual training cost of creating this model, expressed in milli node hours, i.e. 1,000 value in this field means 1 node hour. Guaranteed to not exceed inputs.budgetMilliNodeHours.
 
-`successfulStopReason` ` enum ( SuccessfulStopReason  ` )
+`successfulStopReason` `enum ( `[`SuccessfulStopReason`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/SuccessfulStopReason)` )`
 
 For successful job completions, this is the reason why the job has finished.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;costMilliNodeHours&quot;: string,&quot;successfulStopReason&quot;: enum (SuccessfulStopReason)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "costMilliNodeHours": string,
+  "successfulStopReason": enum (SuccessfulStopReason)
+}
+```

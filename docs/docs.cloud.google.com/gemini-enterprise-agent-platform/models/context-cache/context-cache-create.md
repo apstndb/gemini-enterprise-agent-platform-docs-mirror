@@ -10,9 +10,9 @@ You must create a context cache before you can use it. The context cache you cre
 
 Cached content can be any of the MIME types supported by Gemini multimodal models. For example, you can cache a large amount of text, audio, or video. You can specify more than one file to cache. For more information, see the following media requirements:
 
-  - [Image requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding#image-requirements)
-  - [Video requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#video-requirements)
-  - [Audio requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/audio-understanding#audio-requirements)
+- [Image requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding#image-requirements)
+- [Video requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#video-requirements)
+- [Audio requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/audio-understanding#audio-requirements)
 
 You specify the content to cache using a blob, text, or a path to a file that's stored in a Cloud Storage bucket. If the size of the content you're caching is greater than 10 MB, then you must specify it using the URI of a file that's stored in a Cloud Storage bucket. For instructions on how to create a Cloud Storage bucket to host your file, see [Create buckets](https://docs.cloud.google.com/storage/docs/creating-buckets) .
 
@@ -46,62 +46,68 @@ The following examples show how to create a context cache.
 
 #### Install
 
-    pip install --upgrade google-genai
+```
+pip install --upgrade google-genai
+```
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=us-central1
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=us-central1
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    from google import genai
-    from google.genai.types import Content, CreateCachedContentConfig, HttpOptions, Part
-    
-    client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    
-    system_instruction = """
-    You are an expert researcher. You always stick to the facts in the sources provided, and never make up new facts.
-    Now look at these research papers, and answer the following questions.
-    """
-    
-    contents = [
-        Content(
-            role="user",
-            parts=[
-                Part.from_uri(
-                    file_uri="gs://cloud-samples-data/generative-ai/pdf/2312.11805v3.pdf",
-                    mime_type="application/pdf",
-                ),
-                Part.from_uri(
-                    file_uri="gs://cloud-samples-data/generative-ai/pdf/2403.05530.pdf",
-                    mime_type="application/pdf",
-                ),
-            ],
-        )
-    ]
-    
-    content_cache = client.caches.create(
-        model="gemini-3.5-flash",
-        config=CreateCachedContentConfig(
-            contents=contents,
-            system_instruction=system_instruction,
-            # (Optional) For enhanced security, the content cache can be encrypted using a Cloud KMS key
-            # kms_key_name = "projects/.../locations/.../keyRings/.../cryptoKeys/..."
-            display_name="example-cache",
-            ttl="86400s",
-        ),
+```
+from google import genai
+from google.genai.types import Content, CreateCachedContentConfig, HttpOptions, Part
+
+client = genai.Client(http_options=HttpOptions(api_version="v1"))
+
+system_instruction = """
+You are an expert researcher. You always stick to the facts in the sources provided, and never make up new facts.
+Now look at these research papers, and answer the following questions.
+"""
+
+contents = [
+    Content(
+        role="user",
+        parts=[
+            Part.from_uri(
+                file_uri="gs://cloud-samples-data/generative-ai/pdf/2312.11805v3.pdf",
+                mime_type="application/pdf",
+            ),
+            Part.from_uri(
+                file_uri="gs://cloud-samples-data/generative-ai/pdf/2403.05530.pdf",
+                mime_type="application/pdf",
+            ),
+        ],
     )
-    
-    print(content_cache.name)
-    print(content_cache.usage_metadata)
-    # Example response:
-    #   projects/111111111111/locations/.../cachedContents/1111111111111111111
-    #   CachedContentUsageMetadata(audio_duration_seconds=None, image_count=167,
-    #       text_count=153, total_token_count=43130, video_duration_seconds=None)
+]
+
+content_cache = client.caches.create(
+    model="gemini-3.5-flash",
+    config=CreateCachedContentConfig(
+        contents=contents,
+        system_instruction=system_instruction,
+        # (Optional) For enhanced security, the content cache can be encrypted using a Cloud KMS key
+        # kms_key_name = "projects/.../locations/.../keyRings/.../cryptoKeys/..."
+        display_name="example-cache",
+        ttl="86400s",
+    ),
+)
+
+print(content_cache.name)
+print(content_cache.usage_metadata)
+# Example response:
+#   projects/111111111111/locations/.../cachedContents/1111111111111111111
+#   CachedContentUsageMetadata(audio_duration_seconds=None, image_count=167,
+#       text_count=153, total_token_count=43130, video_duration_seconds=None)
+```
 
 ### Go
 
@@ -111,95 +117,99 @@ To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.g
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=us-central1
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=us-central1
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    import (
-        "context"
-        "encoding/json"
-        "fmt"
-        "io"
-        "time"
-    
-        genai "google.golang.org/genai"
-    )
-    
-    // createContentCache shows how to create a content cache with an expiration parameter.
-    func createContentCache(w io.Writer) (string, error) {
-        ctx := context.Background()
-    
-        client, err := genai.NewClient(ctx, &genai.ClientConfig{
-            HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
-        })
-        if err != nil {
-            return "", fmt.Errorf("failed to create genai client: %w", err)
-        }
-    
-        modelName := "gemini-2.5-flash"
-    
-        systemInstruction := "You are an expert researcher. You always stick to the facts " +
-            "in the sources provided, and never make up new facts. " +
-            "Now look at these research papers, and answer the following questions."
-    
-        cacheContents := []*genai.Content{
-            {
-                Parts: []*genai.Part{
-                    {FileData: &genai.FileData{
-                        FileURI:  "gs://cloud-samples-data/generative-ai/pdf/2312.11805v3.pdf",
-                        MIMEType: "application/pdf",
-                    }},
-                    {FileData: &genai.FileData{
-                        FileURI:  "gs://cloud-samples-data/generative-ai/pdf/2403.05530.pdf",
-                        MIMEType: "application/pdf",
-                    }},
-                },
-                Role: genai.RoleUser,
-            },
-        }
-        config := &genai.CreateCachedContentConfig{
-            Contents: cacheContents,
-            SystemInstruction: &genai.Content{
-                Parts: []*genai.Part{
-                    {Text: systemInstruction},
-                },
-            },
-            DisplayName: "example-cache",
-            TTL:         time.Duration(time.Duration.Seconds(86400)),
-        }
-    
-        res, err := client.Caches.Create(ctx, modelName, config)
-        if err != nil {
-            return "", fmt.Errorf("failed to create content cache: %w", err)
-        }
-    
-        cachedContent, err := json.MarshalIndent(res, "", "  ")
-        if err != nil {
-            return "", fmt.Errorf("failed to marshal cache info: %w", err)
-        }
-    
-        // See the documentation: https://pkg.go.dev/google.golang.org/genai#CachedContent
-        fmt.Fprintln(w, string(cachedContent))
-    
-        // Example response:
-        // {
-        //   "name": "projects/111111111111/locations/us-central1/cachedContents/1111111111111111111",
-        //   "displayName": "example-cache",
-        //   "model": "projects/111111111111/locations/us-central1/publishers/google/models/gemini-2.5-flash",
-        //   "createTime": "2025-02-18T15:05:08.29468Z",
-        //   "updateTime": "2025-02-18T15:05:08.29468Z",
-        //   "expireTime": "2025-02-19T15:05:08.280828Z",
-        //   "usageMetadata": {
-        //     "imageCount": 167,
-        //     "textCount": 153,
-        //     "totalTokenCount": 43125
-        //   }
-        // }
-    
-        return res.Name, nil
+```
+import (
+    "context"
+    "encoding/json"
+    "fmt"
+    "io"
+    "time"
+
+    genai "google.golang.org/genai"
+)
+
+// createContentCache shows how to create a content cache with an expiration parameter.
+func createContentCache(w io.Writer) (string, error) {
+    ctx := context.Background()
+
+    client, err := genai.NewClient(ctx, &genai.ClientConfig{
+        HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
+    })
+    if err != nil {
+        return "", fmt.Errorf("failed to create genai client: %w", err)
     }
+
+    modelName := "gemini-2.5-flash"
+
+    systemInstruction := "You are an expert researcher. You always stick to the facts " +
+        "in the sources provided, and never make up new facts. " +
+        "Now look at these research papers, and answer the following questions."
+
+    cacheContents := []*genai.Content{
+        {
+            Parts: []*genai.Part{
+                {FileData: &genai.FileData{
+                    FileURI:  "gs://cloud-samples-data/generative-ai/pdf/2312.11805v3.pdf",
+                    MIMEType: "application/pdf",
+                }},
+                {FileData: &genai.FileData{
+                    FileURI:  "gs://cloud-samples-data/generative-ai/pdf/2403.05530.pdf",
+                    MIMEType: "application/pdf",
+                }},
+            },
+            Role: genai.RoleUser,
+        },
+    }
+    config := &genai.CreateCachedContentConfig{
+        Contents: cacheContents,
+        SystemInstruction: &genai.Content{
+            Parts: []*genai.Part{
+                {Text: systemInstruction},
+            },
+        },
+        DisplayName: "example-cache",
+        TTL:         time.Duration(time.Duration.Seconds(86400)),
+    }
+
+    res, err := client.Caches.Create(ctx, modelName, config)
+    if err != nil {
+        return "", fmt.Errorf("failed to create content cache: %w", err)
+    }
+
+    cachedContent, err := json.MarshalIndent(res, "", "  ")
+    if err != nil {
+        return "", fmt.Errorf("failed to marshal cache info: %w", err)
+    }
+
+    // See the documentation: https://pkg.go.dev/google.golang.org/genai#CachedContent
+    fmt.Fprintln(w, string(cachedContent))
+
+    // Example response:
+    // {
+    //   "name": "projects/111111111111/locations/us-central1/cachedContents/1111111111111111111",
+    //   "displayName": "example-cache",
+    //   "model": "projects/111111111111/locations/us-central1/publishers/google/models/gemini-2.5-flash",
+    //   "createTime": "2025-02-18T15:05:08.29468Z",
+    //   "updateTime": "2025-02-18T15:05:08.29468Z",
+    //   "expireTime": "2025-02-19T15:05:08.280828Z",
+    //   "usageMetadata": {
+    //     "imageCount": 167,
+    //     "textCount": 153,
+    //     "totalTokenCount": 43125
+    //   }
+    // }
+
+    return res.Name, nil
+}
+```
 
 ### Java
 
@@ -209,157 +219,167 @@ To learn more, see the [SDK reference documentation](https://central.sonatype.co
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=us-central1
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=us-central1
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    import com.google.genai.Client;
-    import com.google.genai.types.CachedContent;
-    import com.google.genai.types.Content;
-    import com.google.genai.types.CreateCachedContentConfig;
-    import com.google.genai.types.HttpOptions;
-    import com.google.genai.types.Part;
-    import java.time.Duration;
-    import java.util.Optional;
-    
-    public class ContentCacheCreateWithTextGcsPdf {
-    
-      public static void main(String[] args) {
-        // TODO(developer): Replace these variables before running the sample.
-        String modelId = "gemini-2.5-flash";
-        contentCacheCreateWithTextGcsPdf(modelId);
-      }
-    
-      // Creates a cached content using text and gcs pdfs files
-      public static Optional<String> contentCacheCreateWithTextGcsPdf(String modelId) {
-        // Initialize client that will be used to send requests. This client only needs to be created
-        // once, and can be reused for multiple requests.
-        try (Client client =
-            Client.builder()
-                .location("global")
-                .vertexAI(true)
-                .httpOptions(HttpOptions.builder().apiVersion("v1").build())
-                .build()) {
-    
-          // Set the system instruction
-          Content systemInstruction =
-              Content.fromParts(
-                  Part.fromText(
-                      "You are an expert researcher. You always stick to the facts"
-                          + " in the sources provided, and never make up new facts.\n"
-                          + "Now look at these research papers, and answer the following questions."));
-    
-          // Set pdf files
-          Content contents =
-              Content.fromParts(
-                  Part.fromUri(
-                      "gs://cloud-samples-data/generative-ai/pdf/2312.11805v3.pdf", "application/pdf"),
-                  Part.fromUri(
-                      "gs://cloud-samples-data/generative-ai/pdf/2403.05530.pdf", "application/pdf"));
-    
-          // Configuration for cached content using pdfs files and text
-          CreateCachedContentConfig config =
-              CreateCachedContentConfig.builder()
-                  .systemInstruction(systemInstruction)
-                  .contents(contents)
-                  .displayName("example-cache")
-                  .ttl(Duration.ofSeconds(86400))
-                  .build();
-    
-          CachedContent cachedContent = client.caches.create(modelId, config);
-          cachedContent.name().ifPresent(System.out::println);
-          cachedContent.usageMetadata().ifPresent(System.out::println);
-          // Example response:
-          // projects/111111111111/locations/global/cachedContents/1111111111111111111
-          // CachedContentUsageMetadata{audioDurationSeconds=Optional.empty, imageCount=Optional[167],
-          // textCount=Optional[153], totalTokenCount=Optional[43125],
-          // videoDurationSeconds=Optional.empty}
-          return cachedContent.name();
-        }
-      }
+```
+import com.google.genai.Client;
+import com.google.genai.types.CachedContent;
+import com.google.genai.types.Content;
+import com.google.genai.types.CreateCachedContentConfig;
+import com.google.genai.types.HttpOptions;
+import com.google.genai.types.Part;
+import java.time.Duration;
+import java.util.Optional;
+
+public class ContentCacheCreateWithTextGcsPdf {
+
+  public static void main(String[] args) {
+    // TODO(developer): Replace these variables before running the sample.
+    String modelId = "gemini-2.5-flash";
+    contentCacheCreateWithTextGcsPdf(modelId);
+  }
+
+  // Creates a cached content using text and gcs pdfs files
+  public static Optional<String> contentCacheCreateWithTextGcsPdf(String modelId) {
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests.
+    try (Client client =
+        Client.builder()
+            .location("global")
+            .vertexAI(true)
+            .httpOptions(HttpOptions.builder().apiVersion("v1").build())
+            .build()) {
+
+      // Set the system instruction
+      Content systemInstruction =
+          Content.fromParts(
+              Part.fromText(
+                  "You are an expert researcher. You always stick to the facts"
+                      + " in the sources provided, and never make up new facts.\n"
+                      + "Now look at these research papers, and answer the following questions."));
+
+      // Set pdf files
+      Content contents =
+          Content.fromParts(
+              Part.fromUri(
+                  "gs://cloud-samples-data/generative-ai/pdf/2312.11805v3.pdf", "application/pdf"),
+              Part.fromUri(
+                  "gs://cloud-samples-data/generative-ai/pdf/2403.05530.pdf", "application/pdf"));
+
+      // Configuration for cached content using pdfs files and text
+      CreateCachedContentConfig config =
+          CreateCachedContentConfig.builder()
+              .systemInstruction(systemInstruction)
+              .contents(contents)
+              .displayName("example-cache")
+              .ttl(Duration.ofSeconds(86400))
+              .build();
+
+      CachedContent cachedContent = client.caches.create(modelId, config);
+      cachedContent.name().ifPresent(System.out::println);
+      cachedContent.usageMetadata().ifPresent(System.out::println);
+      // Example response:
+      // projects/111111111111/locations/global/cachedContents/1111111111111111111
+      // CachedContentUsageMetadata{audioDurationSeconds=Optional.empty, imageCount=Optional[167],
+      // textCount=Optional[153], totalTokenCount=Optional[43125],
+      // videoDurationSeconds=Optional.empty}
+      return cachedContent.name();
     }
+  }
+}
+```
 
 ### Node.js
 
 #### Install
 
-    npm install @google/genai
+```
+npm install @google/genai
+```
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=us-central1
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=us-central1
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    const {GoogleGenAI} = require('@google/genai');
-    
-    const GOOGLE_CLOUD_PROJECT = process.env.GOOGLE_CLOUD_PROJECT;
-    const GOOGLE_CLOUD_LOCATION = process.env.GOOGLE_CLOUD_LOCATION || 'global';
-    async function generateContentCache(
-      projectId = GOOGLE_CLOUD_PROJECT,
-      location = GOOGLE_CLOUD_LOCATION
-    ) {
-      const client = new GoogleGenAI({
-        vertexai: true,
-        project: projectId,
-        location: location,
-        httpOptions: {
-          apiVersion: 'v1',
-        },
-      });
-    
-      const systemInstruction = `
-      You are an expert researcher. You always stick to the facts in the sources provided, and never make up new facts.
-      Now look at these research papers, and answer the following questions.
-      `;
-    
-      const contents = [
+```
+const {GoogleGenAI} = require('@google/genai');
+
+const GOOGLE_CLOUD_PROJECT = process.env.GOOGLE_CLOUD_PROJECT;
+const GOOGLE_CLOUD_LOCATION = process.env.GOOGLE_CLOUD_LOCATION || 'global';
+async function generateContentCache(
+  projectId = GOOGLE_CLOUD_PROJECT,
+  location = GOOGLE_CLOUD_LOCATION
+) {
+  const client = new GoogleGenAI({
+    vertexai: true,
+    project: projectId,
+    location: location,
+    httpOptions: {
+      apiVersion: 'v1',
+    },
+  });
+
+  const systemInstruction = `
+  You are an expert researcher. You always stick to the facts in the sources provided, and never make up new facts.
+  Now look at these research papers, and answer the following questions.
+  `;
+
+  const contents = [
+    {
+      role: 'user',
+      parts: [
         {
-          role: 'user',
-          parts: [
-            {
-              fileData: {
-                fileUri:
-                  'gs://cloud-samples-data/generative-ai/pdf/2312.11805v3.pdf',
-                mimeType: 'application/pdf',
-              },
-            },
-            {
-              fileData: {
-                fileUri: 'gs://cloud-samples-data/generative-ai/pdf/2403.05530.pdf',
-                mimeType: 'application/pdf',
-              },
-            },
-          ],
+          fileData: {
+            fileUri:
+              'gs://cloud-samples-data/generative-ai/pdf/2312.11805v3.pdf',
+            mimeType: 'application/pdf',
+          },
         },
-      ];
-    
-      const contentCache = await client.caches.create({
-        model: 'gemini-2.5-flash',
-        config: {
-          contents: contents,
-          systemInstruction: systemInstruction,
-          displayName: 'example-cache',
-          ttl: '86400s',
+        {
+          fileData: {
+            fileUri: 'gs://cloud-samples-data/generative-ai/pdf/2403.05530.pdf',
+            mimeType: 'application/pdf',
+          },
         },
-      });
-    
-      console.log(contentCache);
-      console.log(contentCache.name);
-    
-      // Example response:
-      //  projects/111111111111/locations/us-central1/cachedContents/1111111111111111111
-      //  CachedContentUsageMetadata(audio_duration_seconds=None, image_count=167,
-      //  text_count=153, total_token_count=43130, video_duration_seconds=None)
-    
-      return contentCache.name;
-    }
+      ],
+    },
+  ];
+
+  const contentCache = await client.caches.create({
+    model: 'gemini-2.5-flash',
+    config: {
+      contents: contents,
+      systemInstruction: systemInstruction,
+      displayName: 'example-cache',
+      ttl: '86400s',
+    },
+  });
+
+  console.log(contentCache);
+  console.log(contentCache.name);
+
+  // Example response:
+  //  projects/111111111111/locations/us-central1/cachedContents/1111111111111111111
+  //  CachedContentUsageMetadata(audio_duration_seconds=None, image_count=167,
+  //  text_count=153, total_token_count=43130, video_duration_seconds=None)
+
+  return contentCache.name;
+}
+```
 
 ### REST
 
@@ -367,38 +387,42 @@ You can use REST to create a context cache by using the Agent Platform API to se
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
-  - LOCATION : The region to process the request and where the cached content is stored. For a list of supported regions, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
-  - CACHE\_DISPLAY\_NAME : A meaningful display name to describe and to help you identify each context cache.
-  - MIME\_TYPE : The MIME type of the content to cache.
-  - CONTENT\_TO\_CACHE\_URI : The Cloud Storage URI of the content to cache.
-  - MODEL\_ID : The model to use for caching.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+- ` LOCATION ` : The region to process the request and where the cached content is stored. For a list of supported regions, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
+- ` CACHE_DISPLAY_NAME ` : A meaningful display name to describe and to help you identify each context cache.
+- ` MIME_TYPE ` : The MIME type of the content to cache.
+- ` CONTENT_TO_CACHE_URI ` : The Cloud Storage URI of the content to cache.
+- ` MODEL_ID ` : The model to use for caching.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents
+```
 
 Request JSON body:
 
-    {
-      "model": "projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID",
-      "displayName": "CACHE_DISPLAY_NAME",
-      "contents": [{
-        "role": "user",
-          "parts": [{
-            "fileData": {
-              "mimeType": "MIME_TYPE",
-              "fileUri": "CONTENT_TO_CACHE_URI"
-            }
-          }]
-      },
-      {
-        "role": "model",
-          "parts": [{
-            "text": "This is sample text to demonstrate explicit caching."
-          }]
+```
+{
+  "model": "projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID",
+  "displayName": "CACHE_DISPLAY_NAME",
+  "contents": [{
+    "role": "user",
+      "parts": [{
+        "fileData": {
+          "mimeType": "MIME_TYPE",
+          "fileUri": "CONTENT_TO_CACHE_URI"
+        }
       }]
-    }
+  },
+  {
+    "role": "model",
+      "parts": [{
+        "text": "This is sample text to demonstrate explicit caching."
+      }]
+  }]
+}
+```
 
 To send your request, choose one of these options:
 
@@ -408,11 +432,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents"
+```
 
 #### PowerShell
 
@@ -420,56 +446,62 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
 #### Response
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/us-central1/cachedContents/CACHE_ID",
-      "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-3.5-flash",
-      "createTime": "2024-06-04T01:11:50.808236Z",
-      "updateTime": "2024-06-04T01:11:50.808236Z",
-      "expireTime": "2024-06-04T02:11:50.794542Z"
-    }
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/us-central1/cachedContents/CACHE_ID",
+  "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-3.5-flash",
+  "createTime": "2024-06-04T01:11:50.808236Z",
+  "updateTime": "2024-06-04T01:11:50.808236Z",
+  "expireTime": "2024-06-04T02:11:50.794542Z"
+}
+```
 
 ### Example curl command
 
-    LOCATION="us-central1"
-    MODEL_ID="gemini-3.5-flash"
-    PROJECT_ID="test-project"
-    MIME_TYPE="video/mp4"
-    CACHED_CONTENT_URI="gs://path-to-bucket/video-file-name.mp4"
-    
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/cachedContents -d \
-    '{
-      "model":"projects/${PROJECT_ID}/locations/${LOCATION}/publishers/google/models/${MODEL_ID}",
-      "contents": [
+```
+LOCATION="us-central1"
+MODEL_ID="gemini-3.5-flash"
+PROJECT_ID="test-project"
+MIME_TYPE="video/mp4"
+CACHED_CONTENT_URI="gs://path-to-bucket/video-file-name.mp4"
+
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/cachedContents -d \
+'{
+  "model":"projects/${PROJECT_ID}/locations/${LOCATION}/publishers/google/models/${MODEL_ID}",
+  "contents": [
+    {
+      "role": "user",
+      "parts": [
         {
-          "role": "user",
-          "parts": [
-            {
-              "fileData": {
-                "mimeType": "${MIME_TYPE}",
-                "fileUri": "${CACHED_CONTENT_URI}"
-              }
-            }
-          ]
+          "fileData": {
+            "mimeType": "${MIME_TYPE}",
+            "fileUri": "${CACHED_CONTENT_URI}"
+          }
         }
       ]
-    }'
+    }
+  ]
+}'
+```
 
 ## Create a context cache with CMEK
 
@@ -481,35 +513,39 @@ You can use REST to create a context cache by using the Agent Platform API to se
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : .
-  - LOCATION : The region to process the request and where the cached content is stored. For a list of supported regions, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
-  - MODEL\_ID : gemini-3.5-flash.
-  - CACHE\_DISPLAY\_NAME : A meaningful display name to describe and to help you identify each context cache.
-  - MIME\_TYPE : The MIME type of the content to cache.
-  - CACHED\_CONTENT\_URI : The Cloud Storage URI of the content to cache.
-  - KMS\_KEY\_NAME : The Cloud KMS key name.
+- ` PROJECT_ID ` : .
+- ` LOCATION ` : The region to process the request and where the cached content is stored. For a list of supported regions, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
+- ` MODEL_ID ` : gemini-3.5-flash.
+- ` CACHE_DISPLAY_NAME ` : A meaningful display name to describe and to help you identify each context cache.
+- ` MIME_TYPE ` : The MIME type of the content to cache.
+- ` CACHED_CONTENT_URI ` : The Cloud Storage URI of the content to cache.
+- ` KMS_KEY_NAME ` : The Cloud KMS key name.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents
+```
 
 Request JSON body:
 
-    {
-      "model": "projects/PROJECT_ID/locations/LOCATION/publishers/google/models/gemini-3.5-flash",
-      "displayName": "CACHE_DISPLAY_NAME",
-      "contents": [{
-        "role": "user",
-          "parts": [{
-            "fileData": {
-              "mimeType": "MIME_TYPE",
-              "fileUri": "CONTENT_TO_CACHE_URI"
-            }
-          }]}],
-        "encryptionSpec": {
-          "kmsKeyName": "KMS_KEY_NAME"
+```
+{
+  "model": "projects/PROJECT_ID/locations/LOCATION/publishers/google/models/gemini-3.5-flash",
+  "displayName": "CACHE_DISPLAY_NAME",
+  "contents": [{
+    "role": "user",
+      "parts": [{
+        "fileData": {
+          "mimeType": "MIME_TYPE",
+          "fileUri": "CONTENT_TO_CACHE_URI"
         }
+      }]}],
+    "encryptionSpec": {
+      "kmsKeyName": "KMS_KEY_NAME"
     }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -519,11 +555,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents"
+```
 
 #### PowerShell
 
@@ -531,123 +569,135 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/cachedContents" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
 #### Response
 
-    {
-      "name": "projects/PROJECT_NUMBER/locations/us-central1/cachedContents/CACHE_ID",
-      "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-3.5-flash",
-      "createTime": "2024-06-04T01:11:50.808236Z",
-      "updateTime": "2024-06-04T01:11:50.808236Z",
-      "expireTime": "2024-06-04T02:11:50.794542Z"
-    }
+```
+{
+  "name": "projects/PROJECT_NUMBER/locations/us-central1/cachedContents/CACHE_ID",
+  "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-3.5-flash",
+  "createTime": "2024-06-04T01:11:50.808236Z",
+  "updateTime": "2024-06-04T01:11:50.808236Z",
+  "expireTime": "2024-06-04T02:11:50.794542Z"
+}
+```
 
 ### Example curl command
 
-    LOCATION="us-central1"
-    MODEL_ID="gemini-3.5-flash"
-    PROJECT_ID="test-project"
-    MIME_TYPE="video/mp4"
-    CACHED_CONTENT_URI="gs://path-to-bucket/video-file-name.mp4"
-    KMS_KEY_NAME="projects/${PROJECT_ID}/locations/{LOCATION}/keyRings/your-key-ring/cryptoKeys/your-key"
-    
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/cachedContents -d \
-    '{
-    
-    "model": "projects/{PROJECT_ID}}/locations/{LOCATION}/publishers/google/models/{MODEL_ID}",
-      "contents" : [
+```
+LOCATION="us-central1"
+MODEL_ID="gemini-3.5-flash"
+PROJECT_ID="test-project"
+MIME_TYPE="video/mp4"
+CACHED_CONTENT_URI="gs://path-to-bucket/video-file-name.mp4"
+KMS_KEY_NAME="projects/${PROJECT_ID}/locations/{LOCATION}/keyRings/your-key-ring/cryptoKeys/your-key"
+
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/cachedContents -d \
+'{
+
+"model": "projects/{PROJECT_ID}}/locations/{LOCATION}/publishers/google/models/{MODEL_ID}",
+  "contents" : [
+    {
+      "role": "user",
+      "parts": [
         {
-          "role": "user",
-          "parts": [
-            {
-              "file_data": {
-                "mime_type":"{MIME_TYPE}",
-                "file_uri":"{CACHED_CONTENT_URI}"
-              }
-            }
-          ]
+          "file_data": {
+            "mime_type":"{MIME_TYPE}",
+            "file_uri":"{CACHED_CONTENT_URI}"
+          }
         }
-      ],
-      "encryption_spec" :
-      {
-        "kms_key_name":"{KMS_KEY_NAME}"
-      }
-    }'
+      ]
+    }
+  ],
+  "encryption_spec" :
+  {
+    "kms_key_name":"{KMS_KEY_NAME}"
+  }
+}'
+```
 
 ### GenAI SDK for Python
 
 **Install**
 
-    pip install --upgrade google-genai
+```
+pip install --upgrade google-genai
+```
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
 Set environment variables to use the Google Gen AI SDK with Gemini Enterprise Agent Platform:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=us-central1
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=us-central1
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    import os
-    from google import genai
-    from google.genai.types import Content, CreateCachedContentConfig, HttpOptions, Part
-    
-    os.environ['GOOGLE_CLOUD_PROJECT'] = 'vertexsdk'
-    os.environ['GOOGLE_CLOUD_LOCATION'] = 'us-central1'
-    os.environ['GOOGLE_GENAI_USE_ENTERPRISE'] = 'True'
-    
-    client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    
-    system_instruction = """
-    You are an expert researcher. You always stick to the facts in the sources provided, and never make up new facts.
-    Now look at these research papers, and answer the following questions.
-    """
-    
-    contents = [
-        Content(
-            role="user",
-            parts=[
-                Part.from_uri(
-                    file_uri="gs://cloud-samples-data/generative-ai/pdf/2312.11805v3.pdf",
-                    mime_type="application/pdf",
-                ),
-                Part.from_uri(
-                    file_uri="gs://cloud-samples-data/generative-ai/pdf/2403.05530.pdf",
-                    mime_type="application/pdf",
-                ),
-            ],
-        )
-    ]
-    
-    content_cache = client.caches.create(
-        model="gemini-3.5-flash",
-        config=CreateCachedContentConfig(
-            contents=contents,
-            system_instruction=system_instruction,
-            display_name="example-cache",
-            kms_key_name="projects/vertexsdk/locations/us-central1/keyRings/your-project/cryptoKeys/your-key",
-            ttl="86400s",
-        ),
+```
+import os
+from google import genai
+from google.genai.types import Content, CreateCachedContentConfig, HttpOptions, Part
+
+os.environ['GOOGLE_CLOUD_PROJECT'] = 'vertexsdk'
+os.environ['GOOGLE_CLOUD_LOCATION'] = 'us-central1'
+os.environ['GOOGLE_GENAI_USE_ENTERPRISE'] = 'True'
+
+client = genai.Client(http_options=HttpOptions(api_version="v1"))
+
+system_instruction = """
+You are an expert researcher. You always stick to the facts in the sources provided, and never make up new facts.
+Now look at these research papers, and answer the following questions.
+"""
+
+contents = [
+    Content(
+        role="user",
+        parts=[
+            Part.from_uri(
+                file_uri="gs://cloud-samples-data/generative-ai/pdf/2312.11805v3.pdf",
+                mime_type="application/pdf",
+            ),
+            Part.from_uri(
+                file_uri="gs://cloud-samples-data/generative-ai/pdf/2403.05530.pdf",
+                mime_type="application/pdf",
+            ),
+        ],
     )
-    
-    print(content_cache.name)
-    print(content_cache.usage_metadata)
+]
+
+content_cache = client.caches.create(
+    model="gemini-3.5-flash",
+    config=CreateCachedContentConfig(
+        contents=contents,
+        system_instruction=system_instruction,
+        display_name="example-cache",
+        kms_key_name="projects/vertexsdk/locations/us-central1/keyRings/your-project/cryptoKeys/your-key",
+        ttl="86400s",
+    ),
+)
+
+print(content_cache.name)
+print(content_cache.usage_metadata)
+```
 
 ### GenAI SDK for Go
 
@@ -657,76 +707,78 @@ To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.g
 
 Set environment variables to use the Google Gen AI SDK with Gemini Enterprise Agent Platform:
 
-    import (
-        "context"
-        "encoding/json"
-        "fmt"
-        "io"
-    
-        genai "google.golang.org/genai"
-    )
-    
-    // createContentCache shows how to create a content cache with an expiration parameter.
-    func createContentCache(w io.Writer) (string, error) {
-        ctx := context.Background()
-    
-        client, err := genai.NewClient(ctx, &genai.ClientConfig{
-            HTTPOptions: genai.HTTPOptions{APIVersion: "v1beta1"},
-        })
-        if err != nil {
-            return "", fmt.Errorf("failed to create genai client: %w", err)
-        }
-    
-        modelName := "gemini-3.5-flash"
-    
-        systemInstruction := "You are an expert researcher. You always stick to the facts " +
-            "in the sources provided, and never make up new facts. " +
-            "Now look at these research papers, and answer the following questions."
-    
-        cacheContents := []*genai.Content{
-            {
-                Parts: []*genai.Part{
-                    {FileData: &genai.FileData{
-                        FileURI:  "gs://cloud-samples-data/generative-ai/pdf/2312.11805v3.pdf",
-                        MIMEType: "application/pdf",
-                    }},
-                    {FileData: &genai.FileData{
-                        FileURI:  "gs://cloud-samples-data/generative-ai/pdf/2403.05530.pdf",
-                        MIMEType: "application/pdf",
-                    }},
-                },
-                Role: "user",
-            },
-        }
-        config := &genai.CreateCachedContentConfig{
-            Contents: cacheContents,
-            SystemInstruction: &genai.Content{
-                Parts: []*genai.Part{
-                    {Text: systemInstruction},
-                },
-            },
-            DisplayName: "example-cache",
-            KmsKeyName:  "projects/vertexsdk/locations/us-central1/keyRings/your-project/cryptoKeys/your-key",
-            TTL:         "86400s",
-        }
-    
-        res, err := client.Caches.Create(ctx, modelName, config)
-        if err != nil {
-            return "", fmt.Errorf("failed to create content cache: %w", err)
-        }
-    
-        cachedContent, err := json.MarshalIndent(res, "", "  ")
-        if err != nil {
-            return "", fmt.Errorf("failed to marshal cache info: %w", err)
-        }
-    
-        // See the documentation: https://pkg.go.dev/google.golang.org/genai#CachedContent
-        fmt.Fprintln(w, string(cachedContent))
-    
-        return res.Name, nil
+```
+import (
+    "context"
+    "encoding/json"
+    "fmt"
+    "io"
+
+    genai "google.golang.org/genai"
+)
+
+// createContentCache shows how to create a content cache with an expiration parameter.
+func createContentCache(w io.Writer) (string, error) {
+    ctx := context.Background()
+
+    client, err := genai.NewClient(ctx, &genai.ClientConfig{
+        HTTPOptions: genai.HTTPOptions{APIVersion: "v1beta1"},
+    })
+    if err != nil {
+        return "", fmt.Errorf("failed to create genai client: %w", err)
     }
+
+    modelName := "gemini-3.5-flash"
+
+    systemInstruction := "You are an expert researcher. You always stick to the facts " +
+        "in the sources provided, and never make up new facts. " +
+        "Now look at these research papers, and answer the following questions."
+
+    cacheContents := []*genai.Content{
+        {
+            Parts: []*genai.Part{
+                {FileData: &genai.FileData{
+                    FileURI:  "gs://cloud-samples-data/generative-ai/pdf/2312.11805v3.pdf",
+                    MIMEType: "application/pdf",
+                }},
+                {FileData: &genai.FileData{
+                    FileURI:  "gs://cloud-samples-data/generative-ai/pdf/2403.05530.pdf",
+                    MIMEType: "application/pdf",
+                }},
+            },
+            Role: "user",
+        },
+    }
+    config := &genai.CreateCachedContentConfig{
+        Contents: cacheContents,
+        SystemInstruction: &genai.Content{
+            Parts: []*genai.Part{
+                {Text: systemInstruction},
+            },
+        },
+        DisplayName: "example-cache",
+        KmsKeyName:  "projects/vertexsdk/locations/us-central1/keyRings/your-project/cryptoKeys/your-key",
+        TTL:         "86400s",
+    }
+
+    res, err := client.Caches.Create(ctx, modelName, config)
+    if err != nil {
+        return "", fmt.Errorf("failed to create content cache: %w", err)
+    }
+
+    cachedContent, err := json.MarshalIndent(res, "", "  ")
+    if err != nil {
+        return "", fmt.Errorf("failed to marshal cache info: %w", err)
+    }
+
+    // See the documentation: https://pkg.go.dev/google.golang.org/genai#CachedContent
+    fmt.Fprintln(w, string(cachedContent))
+
+    return res.Name, nil
+}
+```
 
 ## What's next
 
-  - Learn how to [use a context cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-use) .
-  - Learn how to [update the expiration time of a context cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-update) .
+- Learn how to [use a context cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-use) .
+- Learn how to [update the expiration time of a context cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-update) .

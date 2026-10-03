@@ -12,27 +12,17 @@ Fields
 
 `autoTruncate` `boolean`
 
-Optional. Whether to silently truncate inputs longer than the maximum input token limit. This behavior is enabled by default. If this option is set to false, inputs longer than the limit will cause an INVALID\_ARGUMENT error.
+Optional. Whether to silently truncate inputs longer than the maximum input token limit. This behavior is enabled by default. If this option is set to false, inputs longer than the limit will cause an INVALID_ARGUMENT error.
 
 `outputDimensionality` `integer`
 
 Parameter to reduce the dimensionality of the output embedding. Some models support this feature, which can reduce storage and computation costs. If you specify this parameter, you must use a value supported by the model. If the model does not support it, or if you specify an unsupported dimension, the request will fail with an `INVALID_ARGUMENT` error.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;autoTruncate&quot;: boolean,
-  &quot;outputDimensionality&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "autoTruncate": boolean,
+  "outputDimensionality": integer
+}
+```

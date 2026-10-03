@@ -14,17 +14,17 @@ This page provides prerequisites and detailed instructions for fine-tuning Gemin
 
 Fine-tuning lets you adapt base Gemini models for specialized tasks. Here are some image use cases:
 
-  - **Product catalog enhancement** : Extract key attributes from images (e.g., brand, color, size) to automatically build and enrich your product catalog.
-  - **Image moderation** : Fine-tune a model to detect and flag inappropriate or harmful content in images, ensuring a safer online experience.
-  - **Visual inspection** : Train a model to identify specific objects or defects within images, automating quality control or inspection processes.
-  - **Image classification** : Improve the accuracy of image classification for specific domains, such as medical imaging or satellite imagery analysis.
-  - **Image-based recommendations** : Analyze images to provide personalized recommendations, such as suggesting similar products or complementary items.
-  - **Table content extraction** : Extract data from tables within images and convert it into structured formats like spreadsheets or databases.
+- **Product catalog enhancement** : Extract key attributes from images (e.g., brand, color, size) to automatically build and enrich your product catalog.
+- **Image moderation** : Fine-tune a model to detect and flag inappropriate or harmful content in images, ensuring a safer online experience.
+- **Visual inspection** : Train a model to identify specific objects or defects within images, automating quality control or inspection processes.
+- **Image classification** : Improve the accuracy of image classification for specific domains, such as medical imaging or satellite imagery analysis.
+- **Image-based recommendations** : Analyze images to provide personalized recommendations, such as suggesting similar products or complementary items.
+- **Table content extraction** : Extract data from tables within images and convert it into structured formats like spreadsheets or databases.
 
 ## Limitations
 
-  - Maximum images per example: 30
-  - Maximum image file size: 20MB
+- Maximum images per example: 30
+- Maximum image file size: 20MB
 
 To learn more about image sample requirements, see the [Image understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding#image-requirements) page.
 
@@ -38,43 +38,45 @@ The [`mediaResolution` field of the `GenerationConfig` object](https://docs.clou
 
 The following are the supported `mediaResolution` values for fine-tuning image data for Gemini versions 3 and earlier:
 
-  - `MEDIA_RESOLUTION_LOW` : 64 tokens
-  - `MEDIA_RESOLUTION_MEDIUM` : 256 tokens
-  - `MEDIA_RESOLUTION_HIGH` : 256 tokens + (256 tokens \* number of pan and scan images)
+- `MEDIA_RESOLUTION_LOW` : 64 tokens
+- `MEDIA_RESOLUTION_MEDIUM` : 256 tokens
+- `MEDIA_RESOLUTION_HIGH` : 256 tokens + (256 tokens \* number of pan and scan images)
 
 To see the generic format example, see [Dataset example for Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-prepare#dataset-example) .
 
 The following is an example of an image dataset:
 
+```
+{
+  "contents": [
     {
-      "contents": [
+      "role": "user",
+      "parts": [
         {
-          "role": "user",
-          "parts": [
-            {
-              "fileData": {
-                "mimeType": "image/jpeg",
-                "fileUri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini-2_0/image/longcap100/100.jpeg"
-                }
-            },
-            {
-              "text": "Describe this image in detail that captures the essence of it."
+          "fileData": {
+            "mimeType": "image/jpeg",
+            "fileUri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini-2_0/image/longcap100/100.jpeg"
             }
-          ]
         },
         {
-          "role": "model",
-          "parts": [
-            {
-              "text": "A man stands on a road, wearing a blue denim jacket, tan pants, and white sneakers. He has his hands in his pockets and is wearing a white t-shirt under his jacket. The man's pants are cuffed, and his shoes are white. The road is dark grey, and the leaves are green. The man is standing in the shade, and the light is shining on the ground."
-            }
-          ]
+          "text": "Describe this image in detail that captures the essence of it."
         }
-      ],
-      "generationConfig": {
-        "mediaResolution": "MEDIA_RESOLUTION_LOW"
-      }
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "text": "A man stands on a road, wearing a blue denim jacket, tan pants, and white sneakers. He has his hands in his pockets and is wearing a white t-shirt under his jacket. The man's pants are cuffed, and his shoes are white. The road is dark grey, and the leaves are green. The man is standing in the shade, and the light is shining on the ground."
+        }
+      ]
     }
+  ],
+  "generationConfig": {
+    "mediaResolution": "MEDIA_RESOLUTION_LOW"
+  }
+}
+```
 
 ### `mediaResolution` for Gemini versions 3 and higher
 
@@ -84,44 +86,46 @@ For Gemini 3 models and higher, you can also [set the media resolution per indiv
 
 The following is an example dataset that sets the media resolution at both the `Part` and global levels:
 
+```
+{
+  "contents": [
     {
-      "contents": [
+      "role": "user",
+      "parts": [
         {
-          "role": "user",
-          "parts": [
-            {
-              "fileData": {
-                "mimeType": "image/jpeg",
-                "fileUri": "gs://image.jpeg"
-              }
-            },
-            {
-              "fileData": {
-                "mimeType": "image/jpeg",
-                "fileUri": "gs://ultra_high_res_image.jpeg"
-              },
-              "mediaResolution": {
-                "level": "MEDIA_RESOLUTION_HIGH"
-              }
-            },
-            {
-              "text": "Describe these images in detail."
-            }
-          ]
+          "fileData": {
+            "mimeType": "image/jpeg",
+            "fileUri": "gs://image.jpeg"
+          }
         },
         {
-          "role": "model",
-          "parts": [
-            {
-              "text": "Image 1 is low resolution while image 2 is sharp and clear"
-            }
-          ]
+          "fileData": {
+            "mimeType": "image/jpeg",
+            "fileUri": "gs://ultra_high_res_image.jpeg"
+          },
+          "mediaResolution": {
+            "level": "MEDIA_RESOLUTION_HIGH"
+          }
+        },
+        {
+          "text": "Describe these images in detail."
         }
-      ],
-      "generationConfig": {
-        "mediaResolution": "MEDIA_RESOLUTION_LOW"
-      }
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "text": "Image 1 is low resolution while image 2 is sharp and clear"
+        }
+      ]
     }
+  ],
+  "generationConfig": {
+    "mediaResolution": "MEDIA_RESOLUTION_LOW"
+  }
+}
+```
 
 ### Sample datasets
 
@@ -129,15 +133,19 @@ You can use the following sample datasets to learn how to tune a Gemini model. T
 
 To use the sample tuning dataset, specify its location as follows:
 
-    "training_dataset_uri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini-2_0/image/sft_train_data.jsonl",
+```
+"training_dataset_uri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini-2_0/image/sft_train_data.jsonl",
+```
 
 To use the sample validation dataset, specify its location as follows:
 
-    "validation_dataset_uri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini-2_0/image/sft_validation_data.jsonl",
+```
+"validation_dataset_uri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini-2_0/image/sft_validation_data.jsonl",
+```
 
 ## What's next
 
-  - To learn more about the image understanding capability of Gemini, see our [Image understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding) documentation.
-  - To learn about generating and editing images, see [Generate images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation) and [Edit images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-edit-images) .
-  - To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning)
-  - To learn how supervised fine-tuning can be used in a solution that builds a generative AI knowledge base, see [Jump Start Solution: Generative AI knowledge base](https://docs.cloud.google.com/architecture/ai-ml/generative-ai-knowledge-base) .
+- To learn more about the image understanding capability of Gemini, see our [Image understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding) documentation.
+- To learn about generating and editing images, see [Generate images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation) and [Edit images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-edit-images) .
+- To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning)
+- To learn how supervised fine-tuning can be used in a solution that builds a generative AI knowledge base, see [Jump Start Solution: Generative AI knowledge base](https://docs.cloud.google.com/architecture/ai-ml/generative-ai-knowledge-base) .

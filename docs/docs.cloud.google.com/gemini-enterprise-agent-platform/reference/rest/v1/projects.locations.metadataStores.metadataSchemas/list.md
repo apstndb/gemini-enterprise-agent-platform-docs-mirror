@@ -30,9 +30,9 @@ The maximum number of MetadataSchemas to return. The service may return fewer. M
 
 `pageToken` `string`
 
-A page token, received from a previous `  MetadataService.ListMetadataSchemas  ` call. Provide this to retrieve the next page.
+A page token, received from a previous [`MetadataService.ListMetadataSchemas`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.metadataSchemas/list#google.cloud.aiplatform.v1.MetadataService.ListMetadataSchemas) call. Provide this to retrieve the next page.
 
-When paginating, all other provided parameters must match the call that provided the page token. (Otherwise the request will fail with INVALID\_ARGUMENT error.)
+When paginating, all other provided parameters must match the call that provided the page token. (Otherwise the request will fail with INVALID_ARGUMENT error.)
 
 `filter` `string`
 
@@ -44,32 +44,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  MetadataService.ListMetadataSchemas  ` .
+Response message for [`MetadataService.ListMetadataSchemas`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.metadataSchemas/list#google.cloud.aiplatform.v1.MetadataService.ListMetadataSchemas) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`metadataSchemas[]` ` object ( MetadataSchema  ` )
+`metadataSchemas[]` `object ( `[`MetadataSchema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.metadataSchemas#MetadataSchema)` )`
 
 The MetadataSchemas found for the MetadataStore.
 
 `nextPageToken` `string`
 
-A token, which can be sent as `  ListMetadataSchemasRequest.page_token  ` to retrieve the next page. If this field is not populated, there are no subsequent pages.
+A token, which can be sent as [`ListMetadataSchemasRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.metadataSchemas/list#body.QUERY_PARAMETERS.page_token) to retrieve the next page. If this field is not populated, there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metadataSchemas&quot;: [{object (MetadataSchema)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metadataSchemas": [
+    {
+      object (MetadataSchema)
+    }
+  ],
+  "nextPageToken": string
+}
+```

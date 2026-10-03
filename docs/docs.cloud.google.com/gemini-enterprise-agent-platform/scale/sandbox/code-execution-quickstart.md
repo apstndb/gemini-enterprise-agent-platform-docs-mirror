@@ -10,12 +10,12 @@ This page demonstrates how to make direct API calls to Code Execution to run unt
 
 In this quickstart, you perform the follow tasks:
 
-  - Create an Agent Platform instance to access Code Execution
-  - Create a Code Execution sandbox
-  - (Optional) List and get sandboxes
-  - Execute code in a sandbox
-  - Execute more code using the same sandbox. Notice that the sandbox automatically maintains its state.
-  - Clean up
+- Create an Agent Platform instance to access Code Execution
+- Create a Code Execution sandbox
+- (Optional) List and get sandboxes
+- Execute code in a sandbox
+- Execute more code using the same sandbox. Notice that the sandbox automatically maintains its state.
+- Clean up
 
 For more information about using Code Execution with Agent Development Kit (ADK), see [Code Execution tool](https://google.github.io/adk-docs/tools/google-cloud/code-exec-agent-engine/) .
 
@@ -41,7 +41,7 @@ This section assumes that you have [set up a Python development environment](htt
 
 Install the Agent Platform SDK:
 
-``` 
+```
   pip install google-cloud-agentplatform>=2.0.1
 ```
 
@@ -51,70 +51,80 @@ To authenticate:
 
 ### Local shell
 
-    gcloud init
-    gcloud auth application-default login
+```
+gcloud init
+gcloud auth application-default login
+```
 
 ### Colab
 
-    from google.colab import auth
-    
-    auth.authenticate_user()
+```
+from google.colab import auth
+
+auth.authenticate_user()
+```
 
 ## Create an Agent Platform instance
 
 To use Code Execution, first create an Agent Platform instance. You don't need to deploy an agent to use Code Execution. Without deployment, creating an Agent Platform instance should take a few seconds.
 
-    import agentplatform
-    from agentplatform import types
-    
-    client = agentplatform.Client(project=PROJECT_ID, location=LOCATION)
-    
-    remote_agent = client.runtimes.create()
-    remote_agent_name = remote_agent.api_resource.name
+```
+import agentplatform
+from agentplatform import types
+
+client = agentplatform.Client(project=PROJECT_ID, location=LOCATION)
+
+remote_agent = client.runtimes.create()
+remote_agent_name = remote_agent.api_resource.name
+```
 
 Replace the following:
 
-  - PROJECT\_ID : Your Google Cloud project ID.
+- ` PROJECT_ID ` : Your Google Cloud project ID.
 
-  - LOCATION : The Google Cloud region for your Agent Platform instance. See [Supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) .
+- ` LOCATION ` : The Google Cloud region for your Agent Platform instance. See [Supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) .
 
 ## Create a sandbox
 
 Create a sandbox for code execution.
 
-    operation = client.sandboxes.create(
-        spec={"code_execution_environment": {}},
-        name=remote_agent_name,
-        config=types.CreateRuntimeSandboxConfig(display_name=SANDBOX_DISPLAY_NAME)
-    )
-    
-    sandbox_name = operation.response.name
+```
+operation = client.sandboxes.create(
+    spec={"code_execution_environment": {}},
+    name=remote_agent_name,
+    config=types.CreateRuntimeSandboxConfig(display_name=SANDBOX_DISPLAY_NAME)
+)
+
+sandbox_name = operation.response.name
+```
 
 Replace the following:
 
-  - `SANDBOX_DISPLAY_NAME` : the human readable name of the code execution sandbox environment.
+- `SANDBOX_DISPLAY_NAME` : the human readable name of the code execution sandbox environment.
 
 You can also configure the sandbox settings like coding language and machine config:
 
-    operation = client.sandboxes.create(
-       spec={
-           "code_execution_environment": {
-                "code_language": "LANGUAGE_JAVASCRIPT",
-                "machine_config": "MACHINE_CONFIG_VCPU4_RAM4GIB"
-            }
-       },
-       name='projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID',
-       config=types.CreateRuntimeSandboxConfig(
-           display_name=sandbox_display_name, ttl="3600s"),
-    )
+```
+operation = client.sandboxes.create(
+   spec={
+       "code_execution_environment": {
+            "code_language": "LANGUAGE_JAVASCRIPT",
+            "machine_config": "MACHINE_CONFIG_VCPU4_RAM4GIB"
+        }
+   },
+   name='projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID',
+   config=types.CreateRuntimeSandboxConfig(
+       display_name=sandbox_display_name, ttl="3600s"),
+)
+```
 
 Replace the following:
 
-  - PROJECT\_ID : Your Google Cloud project ID.
+- ` PROJECT_ID ` : Your Google Cloud project ID.
 
-  - LOCATION : The Google Cloud region for your Agent Platform instance. See [Supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) .
+- ` LOCATION ` : The Google Cloud region for your Agent Platform instance. See [Supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) .
 
-  - INSTANCE\_ID : The ID for your Agent Platform instance.
+- ` INSTANCE_ID ` : The ID for your Agent Platform instance.
 
 Only `LANGUAGE_PYTHON` and `LANGUAGE_JAVASCRIPT` are supported. If `machine_config` is not specified, the default configuration is 2 vCPU and 1.5 GB of RAM. If you specify `MACHINE_CONFIG_VCPU4_RAM4GIB` , the sandbox has 4 vCPU and 4GB of RAM.
 
@@ -122,156 +132,178 @@ Only `LANGUAGE_PYTHON` and `LANGUAGE_JAVASCRIPT` are supported. If `machine_conf
 
 List all the sandboxes associated with the specified Agent Engine instance:
 
-    sandboxes = client.sandboxes.list(name=remote_agent_name)
-    
-    for sandbox in sandboxes:
-        pprint.pprint(sandbox)
+```
+sandboxes = client.sandboxes.list(name=remote_agent_name)
+
+for sandbox in sandboxes:
+    pprint.pprint(sandbox)
+```
 
 Here's the sample output:
 
-    SandboxEnvironment(
-      create_time=datetime.datetime(2025, 9, 7, 3, 42, 17, 93656, tzinfo=TzInfo(UTC)),
-      display_name='test_sandbox',
-      name=SANDBOX_NAME,
-      spec=SandboxEnvironmentSpec(
-        code_execution_environment=SandboxEnvironmentSpecCodeExecutionEnvironment()
-      ),
-      state=<State.STATE_RUNNING: 'STATE_RUNNING'>,
-      update_time=datetime.datetime(2025, 9, 7, 3, 42, 17, 93656, tzinfo=TzInfo(UTC))
-    )
+```
+SandboxEnvironment(
+  create_time=datetime.datetime(2025, 9, 7, 3, 42, 17, 93656, tzinfo=TzInfo(UTC)),
+  display_name='test_sandbox',
+  name=SANDBOX_NAME,
+  spec=SandboxEnvironmentSpec(
+    code_execution_environment=SandboxEnvironmentSpecCodeExecutionEnvironment()
+  ),
+  state=<State.STATE_RUNNING: 'STATE_RUNNING'>,
+  update_time=datetime.datetime(2025, 9, 7, 3, 42, 17, 93656, tzinfo=TzInfo(UTC))
+)
+```
 
 To get an existing sandbox:
 
-    sandbox = client.sandboxes.get(name=sandbox_name)
-    
-    pprint.pprint(sandbox)
+```
+sandbox = client.sandboxes.get(name=sandbox_name)
+
+pprint.pprint(sandbox)
+```
 
 Here's the sample output:
 
-    SandboxEnvironment(
-      create_time=datetime.datetime(2025, 9, 7, 3, 42, 17, 93656, tzinfo=TzInfo(UTC)),
-      display_name='test_sandbox',
-      name=SANDBOX_NAME,
-      spec=SandboxEnvironmentSpec(
-        code_execution_environment=SandboxEnvironmentSpecCodeExecutionEnvironment()
-      ),
-      state=<State.STATE_RUNNING: 'STATE_RUNNING'>,
-      update_time=datetime.datetime(2025, 9, 7, 3, 42, 17, 93656, tzinfo=TzInfo(UTC))
-    )
+```
+SandboxEnvironment(
+  create_time=datetime.datetime(2025, 9, 7, 3, 42, 17, 93656, tzinfo=TzInfo(UTC)),
+  display_name='test_sandbox',
+  name=SANDBOX_NAME,
+  spec=SandboxEnvironmentSpec(
+    code_execution_environment=SandboxEnvironmentSpecCodeExecutionEnvironment()
+  ),
+  state=<State.STATE_RUNNING: 'STATE_RUNNING'>,
+  update_time=datetime.datetime(2025, 9, 7, 3, 42, 17, 93656, tzinfo=TzInfo(UTC))
+)
+```
 
 ## Execute code in a sandbox
 
 To execute code, call `execute_code` :
 
-    my_code = """
-    with open("input.txt", "r") as input:
-       with open("output.txt", "w") as output:
-           for line in input:
-               print(line)
-               output.write(line)
-    """
-    input_data = {
-       "code": my_code,
-       "files": [{
-           "name": "input.txt",
-           "content": b"Hello, world!"
-       }]
-    }
-    
-    
-    response = client.sandboxes.execute_code(
-       name = sandbox_name,
-       input_data = input_data
-    )
+```
+my_code = """
+with open("input.txt", "r") as input:
+   with open("output.txt", "w") as output:
+       for line in input:
+           print(line)
+           output.write(line)
+"""
+input_data = {
+   "code": my_code,
+   "files": [{
+       "name": "input.txt",
+       "content": b"Hello, world!"
+   }]
+}
+
+
+response = client.sandboxes.execute_code(
+   name = sandbox_name,
+   input_data = input_data
+)
+```
 
 Here's the sample output:
 
-    ExecuteSandboxEnvironmentResponse(
-      outputs=[
-        Chunk(
-          data=b'{
-            "msg_err":"",
-            "msg_out":"",
-          }',
-          mime_type='application/json',
-        ),
-        chunk(
-    data=b"hello world!",
-            mime_type="text/plain"
-            attributes={
-              "file_name":"output.txt"
-            }
-        )
-      ]
+```
+ExecuteSandboxEnvironmentResponse(
+  outputs=[
+    Chunk(
+      data=b'{
+        "msg_err":"",
+        "msg_out":"",
+      }',
+      mime_type='application/json',
+    ),
+    chunk(
+data=b"hello world!",
+        mime_type="text/plain"
+        attributes={
+          "file_name":"output.txt"
+        }
     )
+  ]
+)
+```
 
 Note the following:
 
-  - `execute_code` resets the sandbox's time to live (TTL).
-  - The output is in raw bytes.
-  - Each request or response can contain up to 100MB of files.
+- `execute_code` resets the sandbox's time to live (TTL).
+- The output is in raw bytes.
+- Each request or response can contain up to 100MB of files.
 
 ## Execute more code in a sandbox
 
 To demonstrate that the sandbox maintains its state, execute more code in the same sandbox:
 
-    python_code = """
-    with open("output2.txt", "w") as output:
-        for line in lines:
-            output.write(line + "World\n")
-    """
-    input_data = {"code": python_code}
-    
-    response = client.sandboxes.execute_code(
-        name = sandbox_name,
-        input_data = input_data
-    )
-    
-    pprint.pprint(response)
+```
+python_code = """
+with open("output2.txt", "w") as output:
+    for line in lines:
+        output.write(line + "World\n")
+"""
+input_data = {"code": python_code}
+
+response = client.sandboxes.execute_code(
+    name = sandbox_name,
+    input_data = input_data
+)
+
+pprint.pprint(response)
+```
 
 Here's the sample output:
 
-    ExecuteSandboxEnvironmentResponse(
-      outputs=[
-        Chunk(
-          data=b'{
-            "msg_err":"",
-            "msg_out":"",
-          }',
-          mime_type='application/json',
-        ),
-        chunk(
-          data=b"hello world!",
-            mime_type="text/plain"
-            attributes={
-              "file_name":"output2.txt"
-            }
-        )
-    
-      ]
+```
+ExecuteSandboxEnvironmentResponse(
+  outputs=[
+    Chunk(
+      data=b'{
+        "msg_err":"",
+        "msg_out":"",
+      }',
+      mime_type='application/json',
+    ),
+    chunk(
+      data=b"hello world!",
+        mime_type="text/plain"
+        attributes={
+          "file_name":"output2.txt"
+        }
     )
+
+  ]
+)
+```
 
 The response includes a file that needs to be decoded. Here's an example of how to decode the output:
 
-    import base64
-    import json
-    
-    if response.outputs[0].mime_type=="application/json":
-        json_output = json.loads(response.outputs[0].data.decode("utf-8"))
-        output_file_content = json_output.get("output_files")[0].get("content")
-        print(output_file_content.b64decode(output_file_content))
+```
+import base64
+import json
+
+if response.outputs[0].mime_type=="application/json":
+    json_output = json.loads(response.outputs[0].data.decode("utf-8"))
+    output_file_content = json_output.get("output_files")[0].get("content")
+    print(output_file_content.b64decode(output_file_content))
+```
 
 Here's the sample output:
 
-    b'HelloWorld\n'
+```
+b'HelloWorld\n'
+```
 
 ## Clean up
 
 To clean up resources created by this quickstart, delete your sandbox and Agent Platform instance.
 
-    client.sandboxes.delete(name=sandbox_name)
-    remote_agent.delete()
+```
+client.sandboxes.delete(name=sandbox_name)
+remote_agent.delete()
+```
 
 ## What's next
 
-  - [Code Execution troubleshooting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/code-execution)
+- [Code Execution troubleshooting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/code-execution)

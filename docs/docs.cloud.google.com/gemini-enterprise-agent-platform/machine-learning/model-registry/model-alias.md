@@ -22,11 +22,11 @@ If you decide you want to reassign the alias to a different model version, you c
 
 Some considerations for using aliases:
 
-  - Your version aliases should be unique; and an alias can only be assigned to a single version, by model, at a time.
-  - Version aliases must be non-numerical.
-  - If you don't specify a model version for production, the default model is used.
-  - An alias is different from a label. [Learn more about model labels here](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/model-labels) .
-  - If you apply an existing alias that is used in another model version, the alias is removed from that version.
+- Your version aliases should be unique; and an alias can only be assigned to a single version, by model, at a time.
+- Version aliases must be non-numerical.
+- If you don't specify a model version for production, the default model is used.
+- An alias is different from a label. [Learn more about model labels here](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/model-labels) .
+- If you apply an existing alias that is used in another model version, the alias is removed from that version.
 
 ## Set a model version as default
 
@@ -58,50 +58,52 @@ Some considerations for using aliases:
 
 ### Python
 
-    from typing import List
-    
-    from google.cloud import aiplatform
-    
-    
-    def upload_new_aliased_model_version_sample(
-        parent_name: str,
-        artifact_uri: str,
-        serving_container_image: str,
-        is_default_version: bool,
-        version_aliases: List[str],
-        version_description: str,
-        project: str,
-        location: str,
-    ):
-        """
-        Uploads a new aliased version of a model with ID 'model_id'.
-        Args:
-            parent_name: The parent resource name of an existing model.
-            artifact_uri: The URI of the model artifact to upload.
-            serving_container_image: The name of the serving container image to use.
-            is_default_version: Whether this version is the default version of the model.
-            version_aliases: The aliases of the model version.
-            version_description: The description of the model version.
-            project: The project ID.
-            location: The region name.
-        Returns:
-            The new version of the model.
-        """
-        # Initialize the client.
-        aiplatform.init(project=project, location=location)
-    
-        # Upload a new aliased version of the Model resource with the ID 'model_id'. The parent_name of Model resource can be also
-        # 'projects/<your-project-id>/locations/<your-region>/models/<your-model-id>'
-        model = aiplatform.Model.upload(
-            artifact_uri=artifact_uri,
-            serving_container_image=serving_container_image,
-            parent_name=parent_name,
-            is_default_version=is_default_version,
-            version_aliases=version_aliases,
-            version_description=version_description,
-        )
-    
-        return model
+```
+from typing import List
+
+from google.cloud import aiplatform
+
+
+def upload_new_aliased_model_version_sample(
+    parent_name: str,
+    artifact_uri: str,
+    serving_container_image: str,
+    is_default_version: bool,
+    version_aliases: List[str],
+    version_description: str,
+    project: str,
+    location: str,
+):
+    """
+    Uploads a new aliased version of a model with ID 'model_id'.
+    Args:
+        parent_name: The parent resource name of an existing model.
+        artifact_uri: The URI of the model artifact to upload.
+        serving_container_image: The name of the serving container image to use.
+        is_default_version: Whether this version is the default version of the model.
+        version_aliases: The aliases of the model version.
+        version_description: The description of the model version.
+        project: The project ID.
+        location: The region name.
+    Returns:
+        The new version of the model.
+    """
+    # Initialize the client.
+    aiplatform.init(project=project, location=location)
+
+    # Upload a new aliased version of the Model resource with the ID 'model_id'. The parent_name of Model resource can be also
+    # 'projects/<your-project-id>/locations/<your-region>/models/<your-model-id>'
+    model = aiplatform.Model.upload(
+        artifact_uri=artifact_uri,
+        serving_container_image=serving_container_image,
+        parent_name=parent_name,
+        is_default_version=is_default_version,
+        version_aliases=version_aliases,
+        version_description=version_description,
+    )
+
+    return model
+```
 
 > **Note:** If you don't see the Alias column, you might need to click the **Column display options** button to make sure the Alias column item is selected for display.
 
@@ -129,37 +131,39 @@ When you delete a model version assigned the default alias, the alias is automat
 
 ### Python
 
-    from typing import List
-    
-    from google.cloud import aiplatform
-    
-    
-    def delete_aliases_model_version_sample(
-        model_id: str,
-        version_aliases: List[str],
-        version_id: str,
-        project: str,
-        location: str,
-    ):
-        """
-        Delete aliases to a model version.
-        Args:
-            model_id: The ID of the model.
-            version_aliases: The version aliases to assign.
-            version_id: The version ID of the model to assign the aliases to.
-            project: The project ID.
-            location: The region name.
-        Returns
-            None.
-        """
-        # Initialize the client.
-        aiplatform.init(project=project, location=location)
-    
-        # Initialize the Model Registry resource with the ID 'model_id'.The parent_name of Model resource can be also
-        # 'projects/<your-project-id>/locations/<your-region>/models/<your-model-id>'
-        model_registry = aiplatform.models.ModelRegistry(model=model_id)
-    
-        # Remove the version aliases to the model version with the version 'version'.
-        model_registry.remove_version_aliases(
-            target_aliases=version_aliases, version=version_id
-        )
+```
+from typing import List
+
+from google.cloud import aiplatform
+
+
+def delete_aliases_model_version_sample(
+    model_id: str,
+    version_aliases: List[str],
+    version_id: str,
+    project: str,
+    location: str,
+):
+    """
+    Delete aliases to a model version.
+    Args:
+        model_id: The ID of the model.
+        version_aliases: The version aliases to assign.
+        version_id: The version ID of the model to assign the aliases to.
+        project: The project ID.
+        location: The region name.
+    Returns
+        None.
+    """
+    # Initialize the client.
+    aiplatform.init(project=project, location=location)
+
+    # Initialize the Model Registry resource with the ID 'model_id'.The parent_name of Model resource can be also
+    # 'projects/<your-project-id>/locations/<your-region>/models/<your-model-id>'
+    model_registry = aiplatform.models.ModelRegistry(model=model_id)
+
+    # Remove the version aliases to the model version with the version 'version'.
+    model_registry.remove_version_aliases(
+        target_aliases=version_aliases, version=version_id
+    )
+```

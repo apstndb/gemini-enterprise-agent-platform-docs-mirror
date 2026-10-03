@@ -21,7 +21,7 @@ By default, Agent Platform uses a [chronological split](https://docs.cloud.googl
 For forecasting models, your training data must conform to the following basic requirements:
 
 | Requirement Type              | Requirement                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Size                          | The dataset must be 100 GB or smaller.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | \# of columns                 | The dataset must have at least 3 and no more than 100 columns. Each of the observations in the dataset must have a target and a time, both of which act as features. Furthermore, each observation must have a time series ID, which identifies the time series that the observation is part of. Ideally, your training data has many more than 3 columns. The maximum number of columns includes both feature and non-feature columns.                                                                                                                                                                                                                                                                                                                                                                     |
 | Target column                 | Specify a target column. The target column lets Gemini Enterprise Agent Platform associate the training data with the desired result. It must not contain null values and must be Numerical.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -37,8 +37,8 @@ For forecasting models, your training data must conform to the following basic r
 
 You can provide model training data to Gemini Enterprise Agent Platform in two formats:
 
-  - BigQuery tables
-  - Comma-separated values (CSV)
+- BigQuery tables
+- Comma-separated values (CSV)
 
 The source you use depends on how you store your data, and the size and complexity of your data. If your dataset is small, and you don't need more complex data types, CSV might be easier. For larger datasets that include arrays and structs, use BigQuery.
 
@@ -52,7 +52,9 @@ You don't need to specify a schema for your BigQuery table. Agent Platform autom
 
 Your BigQuery URI (specifying the location of your training data) must conform to the following format:
 
-    bq://<project_id>.<dataset_id>.<table_id>
+```
+bq://<project_id>.<dataset_id>.<table_id>
+```
 
 The URI cannot contain any other special characters.
 
@@ -62,15 +64,15 @@ For information about BigQuery data types and how they map into Agent Platform, 
 
 CSV files can be in Cloud Storage, or on your local computer. They must conform to the following requirements:
 
-  - The first line of the first file must be a header, containing the names of the columns. If the first row of a subsequent file is the same as the header, then it is also treated as a header, otherwise it's treated as data.
+- The first line of the first file must be a header, containing the names of the columns. If the first row of a subsequent file is the same as the header, then it is also treated as a header, otherwise it's treated as data.
 
-  - Column names can include any alphanumeric character or an underscore (\_). The column name cannot begin with an underscore.
+- Column names can include any alphanumeric character or an underscore (\_). The column name cannot begin with an underscore.
 
-  - Each file must not be larger than 10 GB.
-    
-    You can include multiple files, up to a maximum amount of 100 GB.
+- Each file must not be larger than 10 GB.
 
-  - The delimiter must be a comma (",").
+  You can include multiple files, up to a maximum amount of 100 GB.
+
+- The delimiter must be a comma (",").
 
 You don't need to specify a schema for your CSV data. Agent Platform automatically infers the schema for your table when you import your data, and uses the header row for column names.
 
@@ -78,16 +80,16 @@ For more information about CSV file format and data types, see [CSV files](https
 
 If you import your data from Cloud Storage, it must be in a bucket that meets the following requirements:
 
-  - It conforms to the [Agent Platform bucket requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#buckets) .
-  - If the bucket is not in the same project as Agent Platform, add one or more roles to the Agent Platform Service Agent. See [Role addition requirements for Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#storage-roles) .
+- It conforms to the [Agent Platform bucket requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#buckets) .
+- If the bucket is not in the same project as Agent Platform, add one or more roles to the Agent Platform Service Agent. See [Role addition requirements for Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#storage-roles) .
 
 If you import your data from your local computer, you must have a Cloud Storage bucket that meets the following requirements:
 
-  - It conforms to the [Agent Platform bucket requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#buckets) .
+- It conforms to the [Agent Platform bucket requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#buckets) .
 
-  - If the bucket is not in the same project as Agent Platform, add one or more roles to the Agent Platform Service Agent. See [Role addition requirements for Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#storage-roles) .
-    
-    Agent Platform uses this bucket as a staging area before importing your data.
+- If the bucket is not in the same project as Agent Platform, add one or more roles to the Agent Platform Service Agent. See [Role addition requirements for Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#storage-roles) .
+
+  Agent Platform uses this bucket as a staging area before importing your data.
 
 ## Add weights to your training data
 
@@ -103,6 +105,6 @@ Custom weighting schemes are used only for training the model; they do not affec
 
 ## What's next
 
-  - [Create your dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/create-dataset) .
-  - Learn about [best practices for creating tabular training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular) .
-  - Learn how [Agent Platform works with different types of tabular data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular) .
+- [Create your dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/create-dataset) .
+- Learn about [best practices for creating tabular training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular) .
+- Learn how [Agent Platform works with different types of tabular data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular) .

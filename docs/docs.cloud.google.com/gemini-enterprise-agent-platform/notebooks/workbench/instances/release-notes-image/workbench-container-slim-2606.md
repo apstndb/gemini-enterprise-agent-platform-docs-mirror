@@ -16,7 +16,7 @@ You can see the latest product updates for all of Google Cloud on the [Google Cl
 
 Change
 
-### 20260927.00\_p0 Release
+### 20260927.00_p0 Release
 
 Change
 
@@ -30,7 +30,7 @@ Bulk security patch remediating Critical and High-severity CVEs in the Workbench
 
 Change
 
-### 20260920.00\_p0 Release
+### 20260920.00_p0 Release
 
 Change
 
@@ -44,7 +44,7 @@ JupyterLab now forwards client-side logs (console errors, uncaught exceptions, u
 
 Change
 
-### 20260911.00\_p0 Release
+### 20260911.00_p0 Release
 
 Change
 
@@ -132,5 +132,5 @@ Feature
 
 You can build [custom containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container) for Agent Platform Workbench instances using Python 3.12 base containers, in addition to the default Python 3.10 base containers. The Python 3.12 standard and slim base containers are available at the following URIs:
 
-  - `us-docker.pkg.dev/workbench-images/gcr.io/workbench-container-2606:latest`
-  - `us-docker.pkg.dev/workbench-images/gcr.io/workbench-container-slim-2606:latest`
+- `us-docker.pkg.dev/workbench-images/gcr.io/workbench-container-2606:latest`
+- `us-docker.pkg.dev/workbench-images/gcr.io/workbench-container-slim-2606:latest`

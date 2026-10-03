@@ -14,25 +14,25 @@ This page explains how to perform data ingestion using a supported data source, 
 
 The following data sources are supported:
 
-  - **Upload a local file:** A single-file upload using `upload_file` (up to 25 MB), which is a synchronous call.
+- **Upload a local file:** A single-file upload using `upload_file` (up to 25 MB), which is a synchronous call.
 
-  - **Cloud Storage:** Import file(s) from Cloud Storage.
+- **Cloud Storage:** Import file(s) from Cloud Storage.
 
-  - **Google Drive:** Import a directory from Google Drive.
-    
-    The service account must be granted the correct permissions to import files. Otherwise, no files are imported and no error message displays. For more information on file size limits, see [Supported document types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/supported-documents) .
-    
-    To authenticate and grant permissions, do the following:
-    
-    1.  Go to the [IAM page](https://console.cloud.google.com/iam-admin/iam) of your Google Cloud project.
-    2.  Select **Include Google-provided role grant** .
-    3.  Search for the **Agent Platform RAG Data Service Agent** service account.
-    4.  Click **Share** on the drive folder, and share with the service account.
-    5.  Grant `Viewer` permission to the service account on your Google Drive folder or file. The Google Drive resource ID can be found in the web URL.
+- **Google Drive:** Import a directory from Google Drive.
 
-  - **[Slack](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-data-ingestion#import-from-slack)** : Import files from Slack by using a data connector.
+  The service account must be granted the correct permissions to import files. Otherwise, no files are imported and no error message displays. For more information on file size limits, see [Supported document types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/supported-documents) .
 
-  - **[Jira](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-data-ingestion#import-from-jira)** : Import files from Jira by using a data connector.
+  To authenticate and grant permissions, do the following:
+
+  1.  Go to the [IAM page](https://console.cloud.google.com/iam-admin/iam) of your Google Cloud project.
+  2.  Select **Include Google-provided role grant** .
+  3.  Search for the **Agent Platform RAG Data Service Agent** service account.
+  4.  Click **Share** on the drive folder, and share with the service account.
+  5.  Grant `Viewer` permission to the service account on your Google Drive folder or file. The Google Drive resource ID can be found in the web URL.
+
+- **[Slack](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-data-ingestion#import-from-slack)** : Import files from Slack by using a data connector.
+
+- **[Jira](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-data-ingestion#import-from-jira)** : Import files from Jira by using a data connector.
 
 ## Data deduplication
 
@@ -40,9 +40,9 @@ If the same file is imported multiple times with no changes, the file is skipped
 
 A file is skipped when the following conditions are met:
 
-  - The file has been imported.
-  - The file hasn't changed.
-  - The chunking configuration for the file hasn't changed.
+- The file has been imported.
+- The file hasn't changed.
+- The chunking configuration for the file hasn't changed.
 
 ## Understand import failures
 
@@ -60,9 +60,9 @@ If the `import_result_sink` is provided, the successful and failed file results 
 
 The `import_result_sink` must be a Cloud Storage path or a BigQuery table.
 
-  - If the `import_result_sink` is a Cloud Storage path, it should use the format of `gs://my-bucket/my/object.ndjson` , and the object must not exist. After the import job completes, each line of the Cloud Storage object contains a JSON object, which has an operation ID, a create timestamp, a filename, a status, and a file ID.
+- If the `import_result_sink` is a Cloud Storage path, it should use the format of `gs://my-bucket/my/object.ndjson` , and the object must not exist. After the import job completes, each line of the Cloud Storage object contains a JSON object, which has an operation ID, a create timestamp, a filename, a status, and a file ID.
 
-  - If the `import_result_sink` is a BigQuery table, it should use the format of `bq://my-project.my-dataset.my-table` . The table doesn't have to exist. If the table doesn't exist, it is created. If the table does exist, the schema is verified. The first time the BigQuery import result sink is provided, you will provide a non-existent table; otherwise, you can reuse the existing table.
+- If the `import_result_sink` is a BigQuery table, it should use the format of `bq://my-project.my-dataset.my-table` . The table doesn't have to exist. If the table doesn't exist, it is created. If the table does exist, the schema is verified. The first time the BigQuery import result sink is provided, you will provide a non-existent table; otherwise, you can reuse the existing table.
 
 ## Import files from Cloud Storage or Google Drive
 
@@ -71,9 +71,9 @@ To import files from Cloud Storage or Google Drive into your corpus, do the foll
 1.  Create a RAG corpus. For more information, see [Method: ragCorpora.create](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/create) .
 
 2.  To import your files from Cloud Storage or Google Drive, use the [ragFiles.import](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/import) method.
-    
+
     The system automatically checks your file's path, filename, and `version_id` . The `version_id` is a file hash that's calculated using the file's content, which prevents the file from being reindexed.
-    
+
     If a file with the same filename and path has a content update, the file is reindexed.
 
 ## Import files from Slack
@@ -81,14 +81,14 @@ To import files from Cloud Storage or Google Drive into your corpus, do the foll
 To import files from [Slack](https://slack.com/) into your corpus, do the following:
 
 1.  Create a corpus, which is an index that structures and optimizes your data for searching. For more information, see [Method: ragCorpora.create](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/create) .
-2.  Get your `  CHANNEL_ID  ` from the Slack channel ID.
+2.  Get your `CHANNEL_ID` from the Slack channel ID.
 3.  Create and set up an app to use with RAG Engine.
     1.  From the Slack UI, in the **Add features and functionality** section, click **Permissions** .
     2.  Add the following permissions:
-          - `channels:history`
-          - `groups:history`
-          - `im:history`
-          - `mpim:history`
+        - `channels:history`
+        - `groups:history`
+        - `im:history`
+        - `mpim:history`
     3.  Click **Install to Workspace** to install the app into your Slack workspace.
 4.  Click **Copy** to get your API token, which authenticates your identity and grants you access to an API.
 5.  Add your API token to your Secret Manager.
@@ -98,42 +98,42 @@ The following curl and Python code samples demonstrate how to import files from 
 
 ### curl
 
-If you want to get messages from a specific channel, change the `  CHANNEL_ID  ` .
+If you want to get messages from a specific channel, change the `CHANNEL_ID` .
 
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://ENDPOINT/v1beta1/projects/PROJECT_ID/locations/REGION/ragCorpora/RAG_CORPUS_ID/ragFiles:import \
-    -d '{
-      "import_rag_files_config": {
-        "slack_source": {
+```
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://ENDPOINT/v1beta1/projects/PROJECT_ID/locations/REGION/ragCorpora/RAG_CORPUS_ID/ragFiles:import \
+-d '{
+  "import_rag_files_config": {
+    "slack_source": {
+      "channels": [
+        {
+          "apiKeyConfig": {
+            "apiKeySecretVersion": "API_KEY_SECRET_VERSION"
+          },
           "channels": [
             {
-              "apiKeyConfig": {
-                "apiKeySecretVersion": "API_KEY_SECRET_VERSION"
-              },
-              "channels": [
-                {
-                  "channel_id": "CHANNEL_ID"
-                }
-              ]
+              "channel_id": "CHANNEL_ID"
             }
           ]
         }
-      }
-    }'
+      ]
+    }
+  }
+}'
+```
 
 ### Python
 
 If you want to get messages for a given range of time or from a specific channel, change any of the following fields:
 
-  - START\_TIME
-  - END\_TIME
-  - CHANNEL1 or CHANNEL2
+- ` START_TIME `
+- ` END_TIME `
+- ` CHANNEL1 ` or ` CHANNEL2 `
 
-<!-- end list -->
-
-``` 
+```
     # Slack example
     start_time = protobuf.timestamp_pb2.Timestamp()
     start_time.GetCurrentTime()
@@ -165,12 +165,12 @@ To import files from [Jira](https://www.atlassian.com/software/jira?referer=jira
 
 2.  To create an API token, sign in to the [Atlassian site](https://id.atlassian.com/login?continue=https%3A%2F%2Fid.atlassian.com%2Fmanage-profile%2Fsecurity%2Fapi-tokens) .
 
-3.  Use *{YOUR\_ORG\_ID}.atlassian.net* as the SERVER\_URI in the request.
+3.  Use *{YOUR_ORG_ID}.atlassian.net* as the ` SERVER_URI ` in the request.
 
-4.  Use your Atlassian email as the EMAIL in the request.
+4.  Use your Atlassian email as the ` EMAIL ` in the request.
 
 5.  Provide `projects` or `customQueries` with your request. To learn more about custom queries, see [Use advanced search with Jira Query Language (JQL)](https://support.atlassian.com/jira-service-management-cloud/docs/use-advanced-search-with-jira-query-language-jql/) .
-    
+
     When you import `projects` , `projects` is expanded into the corresponding queries to get the entire project. For example, `MyProject` is expanded to `project = MyProject` .
 
 6.  Click **Copy** to get your API token, which authenticates your identity and grants you access to an API.
@@ -181,29 +181,31 @@ To import files from [Jira](https://www.atlassian.com/software/jira?referer=jira
 
 ### curl
 
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://ENDPOINT/v1beta1/projects/PROJECT_ID/locations/REGION/ragCorpora/RAG_CORPUS_ID/ragFiles:import \
-    -d '{
-      "import_rag_files_config": {
-        "jiraSource": {
-          "jiraQueries": [{
-            "projects": ["JIRA_PROJECT"],
-            "customQueries": ["CUSTOM_QUERY"],
-            "email": "EMAIL",
-            "serverUri": "SERVER_URI",
-            "apiKeyConfig": {
-              "apiKeySecretVersion": "API_KEY_SECRET_VERSION"
-            }
-          }]
+```
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://ENDPOINT/v1beta1/projects/PROJECT_ID/locations/REGION/ragCorpora/RAG_CORPUS_ID/ragFiles:import \
+-d '{
+  "import_rag_files_config": {
+    "jiraSource": {
+      "jiraQueries": [{
+        "projects": ["JIRA_PROJECT"],
+        "customQueries": ["CUSTOM_QUERY"],
+        "email": "EMAIL",
+        "serverUri": "SERVER_URI",
+        "apiKeyConfig": {
+          "apiKeySecretVersion": "API_KEY_SECRET_VERSION"
         }
-      }
-    }'
+      }]
+    }
+  }
+}'
+```
 
 ### Python
 
-``` 
+```
     # Jira Example
     jira_query = rag.JiraQuery(
         email="EMAIL",
@@ -234,34 +236,34 @@ To import files from your SharePoint site into your corpus, do the following:
 1.  Create a corpus, which is an index that structures and optimizes your data for searching. For more information, see [Method: ragCorpora.create](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/create) .
 
 2.  Create an Azure app to access your SharePoint site.
-    
+
     1.  To create a registration, go to [App Registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/%7E/RegisteredApps) .
-        
+
         1.  Provide a name for the application.
-        
+
         2.  Choose the option, **Accounts in this organizational directory only** .
-        
+
         3.  Verify that the redirect URIs are empty.
-    
-    2.  In the **Overview** section, use your *Application (client) ID* as the CLIENT\_ID , and use your "Directory (tenant) ID" as the TENANT\_ID .
-    
+
+    2.  In the **Overview** section, use your *Application (client) ID* as the ` CLIENT_ID ` , and use your "Directory (tenant) ID" as the ` TENANT_ID ` .
+
     3.  In the **Manage** section, update the API permissions by doing the following:
-        
+
         1.  Add the SharePoint `Sites.Read.All` permission.
-        
+
         2.  Add the Microsoft Graph `Files.Read.All` and `Browser SiteLists.Read.All` permissions.
-        
+
         3.  Grant admin consent for these permission changes to take effect.
-    
+
     4.  In the **Manage** section, do the following:
-        
+
         1.  Update **Certificates and Secrets** with a new client secret.
-        
-        2.  Use the API\_KEY\_SECRET\_VERSION to add the secret value to the Secret Manager.
+
+        2.  Use the ` API_KEY_SECRET_VERSION ` to add the secret value to the Secret Manager.
 
 3.  Grant **Secret Manager Secret Accessor** role to your project's RAG Engine service account.
 
-4.  Use *{YOUR\_ORG\_ID}.sharepoint.com* as the `  SHAREPOINT_SITE_NAME  ` .
+4.  Use *{YOUR_ORG_ID}.sharepoint.com* as the `SHAREPOINT_SITE_NAME` .
 
 5.  A drive name or drive ID in the SharePoint site must be specified in the request.
 
@@ -272,53 +274,59 @@ To import files from your SharePoint site into your corpus, do the following:
 1.  Open your browser and navigate to your target SharePoint site URL.
 
 2.  Append `/_api/site/id/` to the end of that URL.
-    
+
     **Example:** `https://example-sp.sharepoint.com/sites/example-site/_api/site/id/`
-    
+
     The page returns an XML payload. Note the string after the `Edm.Guid` . This is your **Site ID** .
 
 #### Locate the Drive ID
 
 With the Site ID you gathered, make an authenticated GET request using Microsoft Graph Explorer or your API client:
 
-    GET https://graph.microsoft.com/v1.0/sites/SITE_ID/drive
+```
+GET https://graph.microsoft.com/v1.0/sites/SITE_ID/drive
+```
 
-Get the **SHAREPOINT\_DRIVE\_ID** . The value is listed in the `id` field in the JSON response.
+Get the **SHAREPOINT_DRIVE_ID** . The value is listed in the `id` field in the JSON response.
 
 #### Locate a Specific Folder ID
 
 Use your Drive ID to list the children of the root directory:
 
-    GET https://graph.microsoft.com/v1.0/drives/SHAREPOINT_DRIVE_ID/root/children
+```
+GET https://graph.microsoft.com/v1.0/drives/SHAREPOINT_DRIVE_ID/root/children
+```
 
-  - Find the object matching your selected folder name in the JSON response and copy its corresponding `id` string. This is your SHAREPOINT\_FOLDER\_ID .
+- Find the object matching your selected folder name in the JSON response and copy its corresponding `id` string. This is your ` SHAREPOINT_FOLDER_ID ` .
 
 ### curl
 
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://ENDPOINT/v1beta1/projects/PROJECT_ID/locations/REGION/ragCorpora/RAG_CORPUS_ID/ragFiles:import \
-    -d '{
-      "import_rag_files_config": {
-        "sharePointSources": {
-          "sharePointSource": [{
-            "clientId": "CLIENT_ID",
-            "apiKeyConfig": {
-              "apiKeySecretVersion": "API_KEY_SECRET_VERSION"
-            },
-            "tenantId": "SHAREPOINT_TENANT_ID",
-            "sharepointSiteName": "SHAREPOINT_SITE_NAME",
-            "sharepointFolderId": "SHAREPOINT_FOLDER_ID",
-            "driveId": "SHAREPOINT_DRIVE_ID"
-          }]
-        }
-      }
-    }'
+```
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://ENDPOINT/v1beta1/projects/PROJECT_ID/locations/REGION/ragCorpora/RAG_CORPUS_ID/ragFiles:import \
+-d '{
+  "import_rag_files_config": {
+    "sharePointSources": {
+      "sharePointSource": [{
+        "clientId": "CLIENT_ID",
+        "apiKeyConfig": {
+          "apiKeySecretVersion": "API_KEY_SECRET_VERSION"
+        },
+        "tenantId": "SHAREPOINT_TENANT_ID",
+        "sharepointSiteName": "SHAREPOINT_SITE_NAME",
+        "sharepointFolderId": "SHAREPOINT_FOLDER_ID",
+        "driveId": "SHAREPOINT_DRIVE_ID"
+      }]
+    }
+  }
+}'
+```
 
 ### Python
 
-``` 
+```
     from vertexai.preview import rag
     from vertexai.preview.rag.utils import resources
     import vertexai
@@ -355,4 +363,4 @@ Use your Drive ID to list the children of the root directory:
 
 ## What's next
 
-  - [Vector database choices in RAG Engine on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/vector-db-choices)
+- [Vector database choices in RAG Engine on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/vector-db-choices)

@@ -16,68 +16,46 @@ Fields
 
 Identifier. The resource name of the Skill Revision. Format: `projects/{project}/locations/{location}/skills/{skill}/revisions/{revision}`
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this Skill Revision was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`skill` ` object ( Skill  ` )
+`skill` `object ( `[`Skill`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills#Skill)` )`
 
 Output only. The state of the Skill at this revision.
 
-`state` ` enum ( State  ` )
+`state` `enum ( `[`State`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills.revisions#State)` )`
 
 Output only. The state of the Skill Revision.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;createTime&quot;: string,&quot;skill&quot;: {object (Skill)},&quot;state&quot;: enum (State)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "createTime": string,
+  "skill": {
+    object (Skill)
+  },
+  "state": enum (State)
+}
+```
 
 ## State
 
 The state of the Skill Revision.
 
-Enums
+| Enums               |                                                        |
+|---------------------|--------------------------------------------------------|
+| `STATE_UNSPECIFIED` | The state of the Skill Revision is unspecified.        |
+| `ACTIVE`            | The Skill Revision is active.                          |
+| `CREATING`          | The Skill Revision is being created.                   |
+| `FAILED`            | The Skill Revision was created, but failed to process. |
+| `DELETING`          | The Skill Revision is being deleted.                   |
 
-`STATE_UNSPECIFIED`
-
-The state of the Skill Revision is unspecified.
-
-`ACTIVE`
-
-The Skill Revision is active.
-
-`CREATING`
-
-The Skill Revision is being created.
-
-`FAILED`
-
-The Skill Revision was created, but failed to process.
-
-`DELETING`
-
-The Skill Revision is being deleted.
-
-## Methods
-
-### `            get           `
-
-Get a Skill Revision.
-
-### `            list           `
-
-List Skill Revisions for a Skill.
+| Methods                                                                                                                                  |                                   |
+|------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills.revisions/get)   | Get a Skill Revision.             |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills.revisions/list) | List Skill Revisions for a Skill. |

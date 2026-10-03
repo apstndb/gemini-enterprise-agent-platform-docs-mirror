@@ -16,21 +16,21 @@ Fields
 
 Identifier. name of the FeatureViewSync. Format: `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}/featureViews/{featureView}/featureViewSyncs/{featureViewSync}`
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. time when this FeatureViewSync is created. Creation of a FeatureViewSync means that the job is pending / waiting for sufficient resources but may not have started the actual data transfer yet.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`runTime` ` object ( Interval  ` )
+`runTime` `object ( `[`Interval`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Interval)` )`
 
 Output only. time when this FeatureViewSync is finished.
 
-`finalStatus` ` object ( Status  ` )
+`finalStatus` `object ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Status)` )`
 
 Output only. Final status of the FeatureViewSync.
 
-`syncSummary` ` object ( SyncSummary  ` )
+`syncSummary` `object ( `[`SyncSummary`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews.featureViewSyncs#SyncSummary)` )`
 
 Output only. Summary of the sync job.
 
@@ -42,21 +42,25 @@ Output only. reserved for future use.
 
 Output only. reserved for future use.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;createTime&quot;: string,&quot;runTime&quot;: {object (Interval)},&quot;finalStatus&quot;: {object (Status)},&quot;syncSummary&quot;: {object (SyncSummary)},&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "createTime": string,
+  "runTime": {
+    object (Interval)
+  },
+  "finalStatus": {
+    object (Status)
+  },
+  "syncSummary": {
+    object (SyncSummary)
+  },
+  "satisfiesPzs": boolean,
+  "satisfiesPzi": boolean
+}
+```
 
 ## SyncSummary
 
@@ -64,46 +68,31 @@ Summary from the Sync job. For continuous syncs, the summary is updated periodic
 
 Fields
 
-`rowSynced` `string ( int64 format)`
+`rowSynced` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Output only. Total number of rows synced.
 
-`totalSlot` `string ( int64 format)`
+`totalSlot` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Output only. BigQuery slot milliseconds consumed for the sync job.
 
-`systemWatermarkTime` ` string ( Timestamp  ` format)
+`systemWatermarkTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Lower bound of the system time watermark for the sync job. This is only set for continuously syncing feature views.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;rowSynced&quot;: string,
-  &quot;totalSlot&quot;: string,
-  &quot;systemWatermarkTime&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "rowSynced": string,
+  "totalSlot": string,
+  "systemWatermarkTime": string
+}
+```
 
-### `            get           `
-
-Gets details of a single FeatureViewSync.
-
-### `            list           `
-
-Lists FeatureViewSyncs in a given FeatureView.
+| Methods                                                                                                                                                              |                                                |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews.featureViewSyncs/get)   | Gets details of a single FeatureViewSync.      |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews.featureViewSyncs/list) | Lists FeatureViewSyncs in a given FeatureView. |

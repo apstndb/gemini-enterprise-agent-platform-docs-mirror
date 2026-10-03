@@ -10,7 +10,7 @@ Generate video response.
 
 Fields
 
-`generatedSamples[]` ` object ( Media  ` )
+`generatedSamples[]` `object ( `[`Media`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GenerateVideoResponse#Media)` )`
 
 The generates samples.
 
@@ -22,21 +22,21 @@ Returns if any videos were filtered due to RAI policies.
 
 Returns rai failure reasons if any.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;generatedSamples&quot;: [{object (Media)}],&quot;raiMediaFilteredCount&quot;: integer,&quot;raiMediaFilteredReasons&quot;: [string]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "generatedSamples": [
+    {
+      object (Media)
+    }
+  ],
+  "raiMediaFilteredCount": integer,
+  "raiMediaFilteredReasons": [
+    string
+  ]
+}
+```
 
 ## Media
 
@@ -48,31 +48,31 @@ Fields
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`image` ` object ( Image  ` )
+`image` `object ( `[`Image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GenerateVideoResponse#Image)` )`
 
 Image.
 
-`video` ` object ( Video  ` )
+`video` `object ( `[`Video`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GenerateVideoResponse#Video)` )`
 
 Video
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// type&quot;image&quot;: {object (Image)},&quot;video&quot;: {object (Video)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // type
+  "image": {
+    object (Image)
+  },
+  "video": {
+    object (Video)
+  }
+  // Union type
+}
+```
 
 ## Image
 
@@ -84,15 +84,15 @@ Fields
 
 Image encoding, encoded as "image/png" or "image/jpg".
 
-`imageRaiScores` ` object ( ImageRAIScores  ` )
+`imageRaiScores` `object ( `[`ImageRAIScores`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GenerateVideoResponse#ImageRAIScores)` )`
 
 RAI scores for generated image.
 
-`raiInfo` ` object ( RaiInfo  ` )
+`raiInfo` `object ( `[`RaiInfo`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GenerateVideoResponse#RaiInfo)` )`
 
 RAI info for image.
 
-`semanticFilterResponse` ` object ( SemanticFilterResponse  ` )
+`semanticFilterResponse` `object ( `[`SemanticFilterResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GenerateVideoResponse#SemanticFilterResponse)` )`
 
 Semantic filter info for image.
 
@@ -100,7 +100,7 @@ Semantic filter info for image.
 
 Text/Expanded text input for imagen.
 
-`imageSize` ` object ( ImageSize  ` )
+`imageSize` `object ( `[`ImageSize`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GenerateVideoResponse#ImageSize)` )`
 
 Image size. The size of the image. Can be self reported, or computed from the image bytes.
 
@@ -108,7 +108,7 @@ Image size. The size of the image. Can be self reported, or computed from the im
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`image` `string ( bytes format)`
+`image` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Raw bytes.
 
@@ -120,21 +120,31 @@ Path to another storage (typically Google Cloud Storage).
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;encoding&quot;: string,&quot;imageRaiScores&quot;: {object (ImageRAIScores)},&quot;raiInfo&quot;: {object (RaiInfo)},&quot;semanticFilterResponse&quot;: {object (SemanticFilterResponse)},&quot;text&quot;: string,&quot;imageSize&quot;: {object (ImageSize)},// content&quot;image&quot;: string,&quot;uri&quot;: string// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "encoding": string,
+  "imageRaiScores": {
+    object (ImageRAIScores)
+  },
+  "raiInfo": {
+    object (RaiInfo)
+  },
+  "semanticFilterResponse": {
+    object (SemanticFilterResponse)
+  },
+  "text": string,
+  "imageSize": {
+    object (ImageSize)
+  },
+
+  // content
+  "image": string,
+  "uri": string
+  // Union type
+}
+```
 
 ## ImageRAIScores
 
@@ -146,23 +156,13 @@ Fields
 
 Agile watermark score for image.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;agileWatermarkDetectionScore&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "agileWatermarkDetectionScore": number
+}
+```
 
 ## RaiInfo
 
@@ -184,34 +184,24 @@ List of blocked entities from the blocklist if it is detected.
 
 `modelName` `string`
 
-The model name used to indexing into the RaiFilterConfig map. Would either be one of <imagegeneration@002-006> , imagen-3.0-... api endpoint names, or internal names used for mapping to different filter configs (genselfie, ai\_watermark) than its api endpoint.
+The model name used to indexing into the RaiFilterConfig map. Would either be one of <imagegeneration@002-006> , imagen-3.0-... api endpoint names, or internal names used for mapping to different filter configs (genselfie, ai_watermark) than its api endpoint.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;raiCategories&quot;: [
+**JSON representation**
+
+```
+{
+  "raiCategories": [
     string
   ],
-  &quot;scores&quot;: [
+  "scores": [
     number
   ],
-  &quot;blockedEntities&quot;: [
+  "blockedEntities": [
     string
   ],
-  &quot;modelName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+  "modelName": string
+}
+```
 
 ## SemanticFilterResponse
 
@@ -221,25 +211,22 @@ Fields
 
 This response is added when semantic filter config is turned on in EditConfig. It reports if this image is passed semantic filter response. If passedSemanticFilter is false, the bounding box information will be populated for user to check what caused the semantic filter to fail.
 
-`namedBoundingBoxes[]` ` object ( NamedBoundingBox  ` )
+`namedBoundingBoxes[]` `object ( `[`NamedBoundingBox`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GenerateVideoResponse#NamedBoundingBox)` )`
 
 Class labels of the bounding boxes that failed the semantic filtering. Bounding box coordinates.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;passedSemanticFilter&quot;: boolean,&quot;namedBoundingBoxes&quot;: [{object (NamedBoundingBox)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "passedSemanticFilter": boolean,
+  "namedBoundingBoxes": [
+    {
+      object (NamedBoundingBox)
+    }
+  ]
+}
+```
 
 ## NamedBoundingBox
 
@@ -259,35 +246,25 @@ Fields
 
 `scores[]` `number`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;x1&quot;: number,
-  &quot;x2&quot;: number,
-  &quot;y1&quot;: number,
-  &quot;y2&quot;: number,
-  &quot;classes&quot;: [
+**JSON representation**
+
+```
+{
+  "x1": number,
+  "x2": number,
+  "y1": number,
+  "y2": number,
+  "classes": [
     string
   ],
-  &quot;entities&quot;: [
+  "entities": [
     string
   ],
-  &quot;scores&quot;: [
+  "scores": [
     number
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## ImageSize
 
@@ -301,25 +278,15 @@ Fields
 
 `channels` `integer`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;width&quot;: integer,
-  &quot;height&quot;: integer,
-  &quot;channels&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "width": integer,
+  "height": integer,
+  "channels": integer
+}
+```
 
 ## Video
 
@@ -339,7 +306,7 @@ Text/Expanded text input for Help Me Write.
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`video` `string ( bytes format)`
+`video` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Raw bytes.
 
@@ -355,27 +322,17 @@ Base 64 encoded video bytes.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;encoding&quot;: string,
-  &quot;text&quot;: string,
+**JSON representation**
+
+```
+{
+  "encoding": string,
+  "text": string,
 
   // content
-  &quot;video&quot;: string,
-  &quot;uri&quot;: string,
-  &quot;encodedVideo&quot;: string
+  "video": string,
+  "uri": string,
+  "encodedVideo": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

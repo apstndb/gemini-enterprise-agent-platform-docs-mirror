@@ -30,8 +30,8 @@ Optional. The user specified unique id to use for the TensorboardTimeSeries, whi
 
 ### Request body
 
-The request body contains an instance of `  TensorboardTimeSeries  ` .
+The request body contains an instance of [`TensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries#TensorboardTimeSeries) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  TensorboardTimeSeries  ` .
+If successful, the response body contains a newly created instance of [`TensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs.timeSeries#TensorboardTimeSeries) .

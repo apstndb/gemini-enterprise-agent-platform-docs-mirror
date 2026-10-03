@@ -10,11 +10,11 @@ A tensor value type.
 
 Fields
 
-`dtype` ` enum ( DataType  ` )
+`dtype` `enum ( `[`DataType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor#DataType)` )`
 
 The data type of tensor.
 
-`shape[]` `string ( int64 format)`
+`shape[]` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Shape of the tensor.
 
@@ -22,104 +22,122 @@ Shape of the tensor.
 
 type specific representations that make it easy to create tensor protos in all languages. Only the representation corresponding to "dtype" can be set. The values hold the flattened representation of the tensor in row major order.
 
-`  BOOL  `
+[`BOOL`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor#DataType.ENUM_VALUES.BOOL)
 
 `stringVal[]` `string`
 
-`  STRING  `
+[`STRING`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor#DataType.ENUM_VALUES.STRING)
 
-`bytesVal[]` `string ( bytes format)`
+`bytesVal[]` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
-`  STRING  `
+[`STRING`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor#DataType.ENUM_VALUES.STRING)
 
 A base64-encoded string.
 
 `floatVal[]` `number`
 
-`  FLOAT  `
+[`FLOAT`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor#DataType.ENUM_VALUES.FLOAT)
 
 `doubleVal[]` `number`
 
-`  DOUBLE  `
+[`DOUBLE`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor#DataType.ENUM_VALUES.DOUBLE)
 
 `intVal[]` `integer`
 
-`  INT_8  ` `  INT_16  ` `  INT_32  `
+[`INT_8`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor#DataType.ENUM_VALUES.INT8) [`INT_16`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor#DataType.ENUM_VALUES.INT16) [`INT_32`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor#DataType.ENUM_VALUES.INT32)
 
-`int64Val[]` `string ( int64 format)`
+`int64Val[]` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
-`  INT64  `
+[`INT64`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor#DataType.ENUM_VALUES.INT64)
 
-`uintVal[]` `integer ( uint32 format)`
+`uintVal[]` `integer ( `[`uint32`](https://developers.google.com/discovery/v1/type-format)` format)`
 
-`  UINT8  ` `  UINT16  ` `  UINT32  `
+[`UINT8`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor#DataType.ENUM_VALUES.UINT8) [`UINT16`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor#DataType.ENUM_VALUES.UINT16) [`UINT32`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor#DataType.ENUM_VALUES.UINT32)
 
 `uint64Val[]` `string`
 
-`  UINT64  `
+[`UINT64`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor#DataType.ENUM_VALUES.UINT64)
 
-`listVal[]` ` object ( Tensor  ` )
+`listVal[]` `object ( `[`Tensor`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor)` )`
 
 A list of tensor values.
 
-`structVal` ` map (key: string, value: object ( Tensor  ` ))
+`structVal` `map (key: string, value: object ( `[`Tensor`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tensor)` ))`
 
 A map of string to tensor.
 
-`tensorVal` `string ( bytes format)`
+`tensorVal` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Serialized raw tensor content.
 
 A base64-encoded string.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;dtype&quot;: enum (DataType),&quot;shape&quot;: [string],&quot;boolVal&quot;: [boolean],&quot;stringVal&quot;: [string],&quot;bytesVal&quot;: [string],&quot;floatVal&quot;: [number],&quot;doubleVal&quot;: [number],&quot;intVal&quot;: [integer],&quot;int64Val&quot;: [string],&quot;uintVal&quot;: [integer],&quot;uint64Val&quot;: [string],&quot;listVal&quot;: [{object (Tensor)}],&quot;structVal&quot;: {string: {object (Tensor)},...},&quot;tensorVal&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "dtype": enum (DataType),
+  "shape": [
+    string
+  ],
+  "boolVal": [
+    boolean
+  ],
+  "stringVal": [
+    string
+  ],
+  "bytesVal": [
+    string
+  ],
+  "floatVal": [
+    number
+  ],
+  "doubleVal": [
+    number
+  ],
+  "intVal": [
+    integer
+  ],
+  "int64Val": [
+    string
+  ],
+  "uintVal": [
+    integer
+  ],
+  "uint64Val": [
+    string
+  ],
+  "listVal": [
+    {
+      object (Tensor)
+    }
+  ],
+  "structVal": {
+    string: {
+      object (Tensor)
+    },
+    ...
+  },
+  "tensorVal": string
+}
+```
 
 ## DataType
 
 data type of the tensor.
 
-Enums
-
-`DATA_TYPE_UNSPECIFIED`
-
-Not a legal value for datatype. Used to indicate a datatype field has not been set.
-
-`BOOL`
-
-data types that all computation devices are expected to be capable to support.
-
-`STRING`
-
-`FLOAT`
-
-`DOUBLE`
-
-`INT8`
-
-`INT16`
-
-`INT32`
-
-`INT64`
-
-`UINT8`
-
-`UINT16`
-
-`UINT32`
-
-`UINT64`
+| Enums                   |                                                                                     |
+|-------------------------|-------------------------------------------------------------------------------------|
+| `DATA_TYPE_UNSPECIFIED` | Not a legal value for datatype. Used to indicate a datatype field has not been set. |
+| `BOOL`                  | data types that all computation devices are expected to be capable to support.      |
+| `STRING`                |                                                                                     |
+| `FLOAT`                 |                                                                                     |
+| `DOUBLE`                |                                                                                     |
+| `INT8`                  |                                                                                     |
+| `INT16`                 |                                                                                     |
+| `INT32`                 |                                                                                     |
+| `INT64`                 |                                                                                     |
+| `UINT8`                 |                                                                                     |
+| `UINT16`                |                                                                                     |
+| `UINT32`                |                                                                                     |
+| `UINT64`                |                                                                                     |

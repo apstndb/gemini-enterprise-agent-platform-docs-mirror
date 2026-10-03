@@ -14,7 +14,7 @@ When color equality needs to be decided, implementations, unless documented othe
 
 Example (Java):
 
-``` 
+```
  import com.google.type.Color;
 
  // ...
@@ -56,7 +56,7 @@ Example (Java):
 
 Example (iOS / Obj-C):
 
-``` 
+```
  // ...
  static UIColor* fromProto(color* protocolor) {
     float red = [protocolor red];
@@ -90,38 +90,40 @@ Example (iOS / Obj-C):
 
 Example (JavaScript):
 
-    // ...
-    
-    var protoToCssColor = function(rgb_color) {
-       var redFrac = rgb_color.red || 0.0;
-       var greenFrac = rgb_color.green || 0.0;
-       var blueFrac = rgb_color.blue || 0.0;
-       var red = Math.floor(redFrac * 255);
-       var green = Math.floor(greenFrac * 255);
-       var blue = Math.floor(blueFrac * 255);
-    
-       if (!('alpha' in rgb_color)) {
-          return rgbToCssColor(red, green, blue);
-       }
-    
-       var alphaFrac = rgb_color.alpha.value || 0.0;
-       var rgbParams = [red, green, blue].join(',');
-       return ['rgba(', rgbParams, ',', alphaFrac, ')'].join('');
-    };
-    
-    var rgbToCssColor = function(red, green, blue) {
-      var rgbNumber = new Number((red << 16) | (green << 8) | blue);
-      var hexString = rgbNumber.toString(16);
-      var missingZeros = 6 - hexString.length;
-      var resultBuilder = ['#'];
-      for (var i = 0; i < missingZeros; i++) {
-         resultBuilder.push('0');
-      }
-      resultBuilder.push(hexString);
-      return resultBuilder.join('');
-    };
-    
-    // ...
+```
+// ...
+
+var protoToCssColor = function(rgb_color) {
+   var redFrac = rgb_color.red || 0.0;
+   var greenFrac = rgb_color.green || 0.0;
+   var blueFrac = rgb_color.blue || 0.0;
+   var red = Math.floor(redFrac * 255);
+   var green = Math.floor(greenFrac * 255);
+   var blue = Math.floor(blueFrac * 255);
+
+   if (!('alpha' in rgb_color)) {
+      return rgbToCssColor(red, green, blue);
+   }
+
+   var alphaFrac = rgb_color.alpha.value || 0.0;
+   var rgbParams = [red, green, blue].join(',');
+   return ['rgba(', rgbParams, ',', alphaFrac, ')'].join('');
+};
+
+var rgbToCssColor = function(red, green, blue) {
+  var rgbNumber = new Number((red << 16) | (green << 8) | blue);
+  var hexString = rgbNumber.toString(16);
+  var missingZeros = 6 - hexString.length;
+  var resultBuilder = ['#'];
+  for (var i = 0; i < missingZeros; i++) {
+     resultBuilder.push('0');
+  }
+  resultBuilder.push(hexString);
+  return resultBuilder.join('');
+};
+
+// ...
+```
 
 Fields
 
@@ -145,23 +147,13 @@ The fraction of this color that should be applied to the pixel. That is, the fin
 
 This means that a value of 1.0 corresponds to a solid color, whereas a value of 0.0 corresponds to a completely transparent color. This uses a wrapper message rather than a simple float scalar so that it is possible to distinguish between a default value and the value being unset. If omitted, this color object is rendered as a solid color (as if the alpha value had been explicitly given a value of 1.0).
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;red&quot;: number,
-  &quot;green&quot;: number,
-  &quot;blue&quot;: number,
-  &quot;alpha&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "red": number,
+  "green": number,
+  "blue": number,
+  "alpha": number
+}
+```

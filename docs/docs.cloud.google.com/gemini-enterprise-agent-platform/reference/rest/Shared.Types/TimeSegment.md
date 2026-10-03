@@ -10,33 +10,23 @@ A time period inside of a DataItem that has a time dimension (e.g. video).
 
 Fields
 
-`startTimeOffset` ` string ( Duration  ` format)
+`startTimeOffset` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 Start of the time segment (inclusive), represented as the duration since the start of the DataItem.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
-`endTimeOffset` ` string ( Duration  ` format)
+`endTimeOffset` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 End of the time segment (exclusive), represented as the duration since the start of the DataItem.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;startTimeOffset&quot;: string,
-  &quot;endTimeOffset&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "startTimeOffset": string,
+  "endTimeOffset": string
+}
+```

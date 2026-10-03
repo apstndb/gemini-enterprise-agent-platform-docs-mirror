@@ -14,43 +14,45 @@ Supervised fine-tuning adapts model behavior with a labeled dataset. This proces
 
 The following Translation LLM models support supervised tuning:
 
-  - `translation-llm-002`
+- `translation-llm-002`
 
 ## Limitations
 
-  - Maximum input and output tokens:
-      - Serving: 1,000 (\~4000 characters)
-  - Validation dataset size: 1024 examples
-  - Training dataset file size: Up to 1GB for JSONL
-  - Training example length: 1,000 (\~4000 characters)
-  - Adapter size:
-      - `Translation LLM V2` : Supported value is only 4. Using any other values (e.g., 1 or 8) will result in failure.
+- Maximum input and output tokens:
+  - Serving: 1,000 (\~4000 characters)
+- Validation dataset size: 1024 examples
+- Training dataset file size: Up to 1GB for JSONL
+- Training example length: 1,000 (\~4000 characters)
+- Adapter size:
+  - `Translation LLM V2` : Supported value is only 4. Using any other values (e.g., 1 or 8) will result in failure.
 
 ## Use cases for using supervised fine-tuning
 
 General pretrained translation model works well when the text to be translated is based on general commonplace text structures that the model learned from. If you want a model to learn something niche or domain-specific that deviates from general translation, then you might want to consider tuning that model. For example, you can use model tuning to teach the model the following:
 
-  - Specific content of an industry domain with jargon or style
-  - Specific structures or formats for generating output.
-  - Specific behaviors such as when to provide a terse or verbose output.
-  - Specific customized outputs for specific types of inputs.
+- Specific content of an industry domain with jargon or style
+- Specific structures or formats for generating output.
+- Specific behaviors such as when to provide a terse or verbose output.
+- Specific customized outputs for specific types of inputs.
 
 ## Configure a tuning job region
 
 User data, such as the transformed dataset and the tuned model, is stored in the tuning job region. The only supported region is `us-central1` .
 
-  - If you use the Vertex AI SDK, you can specify the region at initialization. For example:
-    
-        import vertexai
-        vertexai.init(project='myproject', location='us-central1')
+- If you use the Vertex AI SDK, you can specify the region at initialization. For example:
 
-  - If you create a supervised fine-tuning job by sending a POST request using the [`tuningJobs.create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/create) method, then you use the URL to specify the region where the tuning job runs. For example, in the following URL, you specify a region by replacing both instances of `TUNING_JOB_REGION` with the region where the job runs.
-    
-    ``` 
-     https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
-    ```
+  ```
+  import vertexai
+  vertexai.init(project='myproject', location='us-central1')
+  ```
 
-  - If you use the [Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#create_a_text_model_supervised_tuning_job) , you can select the region name in the **Region** drop down field on the **Model details** page. This is the same page where you select the base model and a tuned model name.
+- If you create a supervised fine-tuning job by sending a POST request using the [`tuningJobs.create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/create) method, then you use the URL to specify the region where the tuning job runs. For example, in the following URL, you specify a region by replacing both instances of ` ``TUNING_JOB_REGION`` ` with the region where the job runs.
+
+  ```
+   https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
+  ```
+
+- If you use the [Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#create_a_text_model_supervised_tuning_job) , you can select the region name in the **Region** drop down field on the **Model details** page. This is the same page where you select the base model and a tuned model name.
 
 ## Quota
 
@@ -66,4 +68,4 @@ Learn about [Translation LLM pricing](https://cloud.google.com/gemini-enterprise
 
 ## What's next
 
-  - Prepare a [supervised fine-tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/translation/prepare-data) .
+- Prepare a [supervised fine-tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/translation/prepare-data) .

@@ -22,13 +22,13 @@ The last part entityType is assigned by the client. The entityType can be up to 
 
 Optional. description of the EntityType.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this EntityType was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this EntityType was most recently updated.
 
@@ -46,11 +46,11 @@ See <https://goo.gl/xmQnxf> for more information on and examples of labels. No m
 
 Optional. Used to perform a consistent read-modify-write updates. If not set, a blind "overwrite" update happens.
 
-`monitoringConfig` ` object ( FeaturestoreMonitoringConfig  ` )
+`monitoringConfig` `object ( `[`FeaturestoreMonitoringConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes#FeaturestoreMonitoringConfig)` )`
 
-Optional. The default monitoring configuration for all Features with value type ( `  feature.ValueType  ` ) BOOL, STRING, DOUBLE or INT64 under this EntityType.
+Optional. The default monitoring configuration for all Features with value type ( [`feature.ValueType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features#Feature.ValueType) ) BOOL, STRING, DOUBLE or INT64 under this EntityType.
 
-If this is populated with \[FeaturestoreMonitoringConfig.monitoring\_interval\] specified, snapshot analysis monitoring is enabled. Otherwise, snapshot analysis monitoring is disabled.
+If this is populated with \[FeaturestoreMonitoringConfig.monitoring_interval\] specified, snapshot analysis monitoring is enabled. Otherwise, snapshot analysis monitoring is disabled.
 
 `offlineStorageTtlDays` `integer`
 
@@ -64,21 +64,27 @@ Output only. reserved for future use.
 
 Output only. reserved for future use.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;description&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;labels&quot;: {string: string,...},&quot;etag&quot;: string,&quot;monitoringConfig&quot;: {object (FeaturestoreMonitoringConfig)},&quot;offlineStorageTtlDays&quot;: integer,&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "description": string,
+  "createTime": string,
+  "updateTime": string,
+  "labels": {
+    string: string,
+    ...
+  },
+  "etag": string,
+  "monitoringConfig": {
+    object (FeaturestoreMonitoringConfig)
+  },
+  "offlineStorageTtlDays": integer,
+  "satisfiesPzs": boolean,
+  "satisfiesPzi": boolean
+}
+```
 
 ## FeaturestoreMonitoringConfig
 
@@ -86,37 +92,40 @@ Configuration of how features in Featurestore are monitored.
 
 Fields
 
-`snapshotAnalysis` ` object ( SnapshotAnalysis  ` )
+`snapshotAnalysis` `object ( `[`SnapshotAnalysis`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes#SnapshotAnalysis)` )`
 
 The config for Snapshot Analysis Based feature Monitoring.
 
-`importFeaturesAnalysis` ` object ( ImportFeaturesAnalysis  ` )
+`importFeaturesAnalysis` `object ( `[`ImportFeaturesAnalysis`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes#ImportFeaturesAnalysis)` )`
 
 The config for ImportFeatures Analysis Based feature Monitoring.
 
-`numericalThresholdConfig` ` object ( ThresholdConfig  ` )
+`numericalThresholdConfig` `object ( `[`ThresholdConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes#ThresholdConfig)` )`
 
-Threshold for numerical features of anomaly detection. This is shared by all objectives of Featurestore Monitoring for numerical features (i.e. Features with type ( `  feature.ValueType  ` ) DOUBLE or INT64).
+Threshold for numerical features of anomaly detection. This is shared by all objectives of Featurestore Monitoring for numerical features (i.e. Features with type ( [`feature.ValueType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features#Feature.ValueType) ) DOUBLE or INT64).
 
-`categoricalThresholdConfig` ` object ( ThresholdConfig  ` )
+`categoricalThresholdConfig` `object ( `[`ThresholdConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes#ThresholdConfig)` )`
 
-Threshold for categorical features of anomaly detection. This is shared by all types of Featurestore Monitoring for categorical features (i.e. Features with type ( `  feature.ValueType  ` ) BOOL or STRING).
+Threshold for categorical features of anomaly detection. This is shared by all types of Featurestore Monitoring for categorical features (i.e. Features with type ( [`feature.ValueType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features#Feature.ValueType) ) BOOL or STRING).
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;snapshotAnalysis&quot;: {object (SnapshotAnalysis)},&quot;importFeaturesAnalysis&quot;: {object (ImportFeaturesAnalysis)},&quot;numericalThresholdConfig&quot;: {object (ThresholdConfig)},&quot;categoricalThresholdConfig&quot;: {object (ThresholdConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "snapshotAnalysis": {
+    object (SnapshotAnalysis)
+  },
+  "importFeaturesAnalysis": {
+    object (ImportFeaturesAnalysis)
+  },
+  "numericalThresholdConfig": {
+    object (ThresholdConfig)
+  },
+  "categoricalThresholdConfig": {
+    object (ThresholdConfig)
+  }
+}
+```
 
 ## SnapshotAnalysis
 
@@ -136,99 +145,60 @@ Configuration of the snapshot analysis based monitoring pipeline running interva
 
 Customized export features time window for snapshot analysis. Unit is one day. Default value is 3 weeks. Minimum value is 1 day. Maximum value is 4000 days.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;disabled&quot;: boolean,
-  &quot;monitoringIntervalDays&quot;: integer,
-  &quot;stalenessDays&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "disabled": boolean,
+  "monitoringIntervalDays": integer,
+  "stalenessDays": integer
+}
+```
 
 ## ImportFeaturesAnalysis
 
-Configuration of the Featurestore's ImportFeature Analysis Based Monitoring. This type of analysis generates statistics for values of each feature imported by every `  entityTypes.importFeatureValues  ` operation.
+Configuration of the Featurestore's ImportFeature Analysis Based Monitoring. This type of analysis generates statistics for values of each feature imported by every [`entityTypes.importFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/importFeatureValues#google.cloud.aiplatform.v1.FeaturestoreService.ImportFeatureValues) operation.
 
 Fields
 
-`state` ` enum ( State  ` )
+`state` `enum ( `[`State`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes#State)` )`
 
 Whether to enable / disable / inherite default hebavior for import features analysis.
 
-`anomalyDetectionBaseline` ` enum ( Baseline  ` )
+`anomalyDetectionBaseline` `enum ( `[`Baseline`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes#Baseline)` )`
 
 The baseline used to do anomaly detection for the statistics generated by import features analysis.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;state&quot;: enum (State),&quot;anomalyDetectionBaseline&quot;: enum (Baseline)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "state": enum (State),
+  "anomalyDetectionBaseline": enum (Baseline)
+}
+```
 
 ## State
 
 The state defines whether to enable ImportFeature analysis.
 
-Enums
-
-`STATE_UNSPECIFIED`
-
-Should not be used.
-
-`DEFAULT`
-
-The default behavior of whether to enable the monitoring. EntityType-level config: disabled. feature-level config: inherited from the configuration of EntityType this feature belongs to.
-
-`ENABLED`
-
-Explicitly enables import features analysis. EntityType-level config: by default enables import features analysis for all Features under it. feature-level config: enables import features analysis regardless of the EntityType-level config.
-
-`DISABLED`
-
-Explicitly disables import features analysis. EntityType-level config: by default disables import features analysis for all Features under it. feature-level config: disables import features analysis regardless of the EntityType-level config.
+| Enums               |                                                                                                                                                                                                                                                   |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `STATE_UNSPECIFIED` | Should not be used.                                                                                                                                                                                                                               |
+| `DEFAULT`           | The default behavior of whether to enable the monitoring. EntityType-level config: disabled. feature-level config: inherited from the configuration of EntityType this feature belongs to.                                                        |
+| `ENABLED`           | Explicitly enables import features analysis. EntityType-level config: by default enables import features analysis for all Features under it. feature-level config: enables import features analysis regardless of the EntityType-level config.    |
+| `DISABLED`          | Explicitly disables import features analysis. EntityType-level config: by default disables import features analysis for all Features under it. feature-level config: disables import features analysis regardless of the EntityType-level config. |
 
 ## Baseline
 
-Defines the baseline to do anomaly detection for feature values imported by each `  entityTypes.importFeatureValues  ` operation.
+Defines the baseline to do anomaly detection for feature values imported by each [`entityTypes.importFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/importFeatureValues#google.cloud.aiplatform.v1.FeaturestoreService.ImportFeatureValues) operation.
 
-Enums
-
-`BASELINE_UNSPECIFIED`
-
-Should not be used.
-
-`LATEST_STATS`
-
-Choose the later one statistics generated by either most recent snapshot analysis or previous import features analysis. If non of them exists, skip anomaly detection and only generate a statistics.
-
-`MOST_RECENT_SNAPSHOT_STATS`
-
-Use the statistics generated by the most recent snapshot analysis if exists.
-
-`PREVIOUS_IMPORT_FEATURES_STATS`
-
-Use the statistics generated by the previous import features analysis if exists.
+| Enums                            |                                                                                                                                                                                                       |
+|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `BASELINE_UNSPECIFIED`           | Should not be used.                                                                                                                                                                                   |
+| `LATEST_STATS`                   | Choose the later one statistics generated by either most recent snapshot analysis or previous import features analysis. If non of them exists, skip anomaly detection and only generate a statistics. |
+| `MOST_RECENT_SNAPSHOT_STATS`     | Use the statistics generated by the most recent snapshot analysis if exists.                                                                                                                          |
+| `PREVIOUS_IMPORT_FEATURES_STATS` | Use the statistics generated by the previous import features analysis if exists.                                                                                                                      |
 
 ## ThresholdConfig
 
@@ -246,81 +216,30 @@ Specify a threshold value that can trigger the alert. 1. For categorical feature
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+**JSON representation**
+
+```
+{
 
   // threshold
-  &quot;value&quot;: number
+  "value": number
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
-## Methods
-
-### `            create           `
-
-Creates a new EntityType in a given Featurestore.
-
-### `            delete           `
-
-Deletes a single EntityType.
-
-### `            deleteFeatureValues           `
-
-Delete Feature values from Featurestore.
-
-### `            exportFeatureValues           `
-
-Exports Feature values from all the entities of a target EntityType.
-
-### `            get           `
-
-Gets details of a single EntityType.
-
-### `            getIamPolicy           `
-
-Gets the access control policy for a resource.
-
-### `            importFeatureValues           `
-
-Imports Feature values into the Featurestore from a source storage.
-
-### `            list           `
-
-Lists EntityTypes in a given Featurestore.
-
-### `            patch           `
-
-Updates the parameters of a single EntityType.
-
-### `            readFeatureValues           `
-
-Reads Feature values of a specific entity of an EntityType.
-
-### `            setIamPolicy           `
-
-Sets the access control policy on the specified resource.
-
-### `            streamingReadFeatureValues           `
-
-Reads Feature values for multiple entities.
-
-### `            testIamPermissions           `
-
-Returns permissions that a caller has on the specified resource.
-
-### `            writeFeatureValues           `
-
-Writes Feature values of one or more entities of an EntityType.
+| Methods                                                                                                                                                                                  |                                                                      |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/create)                                         | Creates a new EntityType in a given Featurestore.                    |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/delete)                                         | Deletes a single EntityType.                                         |
+| [`deleteFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/deleteFeatureValues)               | Delete Feature values from Featurestore.                             |
+| [`exportFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/exportFeatureValues)               | Exports Feature values from all the entities of a target EntityType. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/get)                                               | Gets details of a single EntityType.                                 |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/getIamPolicy)                             | Gets the access control policy for a resource.                       |
+| [`importFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/importFeatureValues)               | Imports Feature values into the Featurestore from a source storage.  |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/list)                                             | Lists EntityTypes in a given Featurestore.                           |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/patch)                                           | Updates the parameters of a single EntityType.                       |
+| [`readFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/readFeatureValues)                   | Reads Feature values of a specific entity of an EntityType.          |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/setIamPolicy)                             | Sets the access control policy on the specified resource.            |
+| [`streamingReadFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/streamingReadFeatureValues) | Reads Feature values for multiple entities.                          |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/testIamPermissions)                 | Returns permissions that a caller has on the specified resource.     |
+| [`writeFeatureValues`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes/writeFeatureValues)                 | Writes Feature values of one or more entities of an EntityType.      |

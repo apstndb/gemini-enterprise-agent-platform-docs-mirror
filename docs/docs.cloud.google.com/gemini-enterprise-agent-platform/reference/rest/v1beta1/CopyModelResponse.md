@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Response message of `  ModelService.CopyModel  ` operation.
+Response message of [`ModelService.CopyModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.models/copy#google.cloud.aiplatform.v1beta1.ModelService.CopyModel) operation.
 
 Fields
 
@@ -18,21 +18,11 @@ The name of the copied Model resource. Format: `projects/{project}/locations/{lo
 
 Output only. The version id of the model that is copied.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;model&quot;: string,
-  &quot;modelVersionId&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "model": string,
+  "modelVersionId": string
+}
+```

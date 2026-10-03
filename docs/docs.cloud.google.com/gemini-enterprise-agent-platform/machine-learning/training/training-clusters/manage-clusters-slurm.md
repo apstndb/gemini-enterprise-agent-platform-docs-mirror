@@ -12,33 +12,35 @@ The Slurm Job API lets you manage your Gemini Enterprise Agent Platform training
 
 Before you use the Slurm Job API to manage your cluster, make sure that you meet the following requirements:
 
-  - You have access to the training clusters, typically through the **Vertex AI User** role `roles/aiplatform.user` on the cluster's project, or any role that includes the `aiplatform.googleapis.com/modelDevelopmentClusters.run` permission.
+- You have access to the training clusters, typically through the **Vertex AI User** role `roles/aiplatform.user` on the cluster's project, or any role that includes the `aiplatform.googleapis.com/modelDevelopmentClusters.run` permission.
 
-  - Google Cloud CLI is installed and you've configured Application Default Credentials ( `gcloud auth application-default login` ). For automated tools that can't run an interactive login, authenticate as a service account with the `aiplatform.googleapis.com/modelDevelopmentClusters.run` permission.
+- Google Cloud CLI is installed and you've configured Application Default Credentials ( `gcloud auth application-default login` ). For automated tools that can't run an interactive login, authenticate as a service account with the `aiplatform.googleapis.com/modelDevelopmentClusters.run` permission.
 
-  - You know your cluster's project ID, region, and cluster ID.
+- You know your cluster's project ID, region, and cluster ID.
 
 Additionally, we recommend that you set up a convenience alias:
 
-    alias gcurl='curl -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" -H "Content-Type: application/json"'
+```
+alias gcurl='curl -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" -H "Content-Type: application/json"'
+```
 
 ## Overview
 
 Every call is a POST request to the `callSlurmRestApi` endpoint for your cluster. In the request body you provide the following fields:
 
-  - **`method`** : The Slurm REST HTTP method, such as: `HTTP_METHOD_GET` , `HTTP_METHOD_POST` , or `HTTP_METHOD_DELETE` .
+- **`method`** : The Slurm REST HTTP method, such as: `HTTP_METHOD_GET` , `HTTP_METHOD_POST` , or `HTTP_METHOD_DELETE` .
 
-  - **`path`** : The Slurm REST path. For example, `/slurm/v0.0.42/job/submit` . Use the Slurm version that your cluster is running. The examples in this guide use v0.0.42.
+- **`path`** : The Slurm REST path. For example, `/slurm/v0.0.42/job/submit` . Use the Slurm version that your cluster is running. The examples in this guide use v0.0.42.
 
 > **Note:** The [public Slurm guide](https://slurm.schedmd.com/rest_api.html) defaults to v0.0.45. To view the API reference for v0.0.42, run `slurmrestd --generate-openapi-spec -d v0.0.42` while connected using SSH to your cluster.
 
-  - **`body`** : A JSON object with the request payload. The body is required for `HTTP_METHOD_POST` requests. Omit it for `HTTP_METHOD_GET` and `HTTP_METHOD_DELETE` requests.
+- **`body`** : A JSON object with the request payload. The body is required for `HTTP_METHOD_POST` requests. Omit it for `HTTP_METHOD_GET` and `HTTP_METHOD_DELETE` requests.
 
 The response contains the following fields:
 
-  - **`status`** : The HTTP status returned by the Slurm Job API. For example, `200` .
+- **`status`** : The HTTP status returned by the Slurm Job API. For example, `200` .
 
-  - **`structuredBody`** : The response from the Slurm Job API, as a JSON object. Read the fields that you need, such as the job ID or the job list, directly from `structuredBody` .
+- **`structuredBody`** : The response from the Slurm Job API, as a JSON object. Read the fields that you need, such as the job ID or the job list, directly from `structuredBody` .
 
 You run jobs on your own Linux account on the training clusters automatically. There is no additional configuration, and you can't run the job as another user. SSH isn't required, because everything is done through the Agent Platform API.
 
@@ -50,83 +52,91 @@ The following sections show how to use the Slurm Job API.
 
 ### Submit a job
 
-    gcurl -X POST \
-      "https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID:callSlurmRestApi" \
-      -d '{
-        "method": "HTTP_METHOD_POST",
-        "path": "/slurm/v0.0.42/job/submit",
-        "body": {
-          "job": {
-            "name": "my-run",
-            "partition": "PARTITION",
-            "current_working_directory": "/home/USERNAME",
-            "minimum_nodes": 1,
-            "tasks_per_node": 1,
-            "environment": ["PATH=/bin:/usr/bin"],
-            "time_limit": {"set": true, "number": 120}
-          },
-          "script": "#!/bin/bash\necho hello\nsleep 5\necho done\n"
-        }
-      }'
+```
+gcurl -X POST \
+  "https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID:callSlurmRestApi" \
+  -d '{
+    "method": "HTTP_METHOD_POST",
+    "path": "/slurm/v0.0.42/job/submit",
+    "body": {
+      "job": {
+        "name": "my-run",
+        "partition": "PARTITION",
+        "current_working_directory": "/home/USERNAME",
+        "minimum_nodes": 1,
+        "tasks_per_node": 1,
+        "environment": ["PATH=/bin:/usr/bin"],
+        "time_limit": {"set": true, "number": 120}
+      },
+      "script": "#!/bin/bash\necho hello\nsleep 5\necho done\n"
+    }
+  }'
+```
 
 Replace the following:
 
-  - `  REGION  ` : The region that your cluster is in.
+- `REGION` : The region that your cluster is in.
 
-  - `  PROJECT_ID  ` : Your project ID.
+- `PROJECT_ID` : Your project ID.
 
-  - `  CLUSTER_ID  ` : Your cluster ID.
+- `CLUSTER_ID` : Your cluster ID.
 
-  - `  PARTITION  ` : The Slurm partition you're connecting to.
+- `PARTITION` : The Slurm partition you're connecting to.
 
-  - `  USERNAME  ` : Your username on the Slurm partition.
+- `USERNAME` : Your username on the Slurm partition.
 
 The `time_limit` value is time in minutes. The `script` field holds the script contents, not a path to a file.
 
 The Slurm Job API returns the new job's ID in `structuredBody` . You can use the `jq` command to isolate the job ID:
 
-    gcurl -sS -X POST "https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID:callSlurmRestApi" \
-      -d '{ ... }' | jq -r '.structuredBody.job_id'
+```
+gcurl -sS -X POST "https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID:callSlurmRestApi" \
+  -d '{ ... }' | jq -r '.structuredBody.job_id'
+```
 
 ### Check job status
 
 Use the following to monitor a running job. Poll until the status reaches a stopped state, such as `COMPLETED` , `FAILED` , or `CANCELLED` :
 
-    gcurl -X POST \
-      "https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID:callSlurmRestApi" \
-      -d '{
-        "method": "HTTP_METHOD_GET",
-        "path": "/slurm/v0.0.42/job/JOB_ID"
-      }'
+```
+gcurl -X POST \
+  "https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID:callSlurmRestApi" \
+  -d '{
+    "method": "HTTP_METHOD_GET",
+    "path": "/slurm/v0.0.42/job/JOB_ID"
+  }'
+```
 
 Replace the following:
 
-  - `  REGION  ` : The region that your cluster is in.
+- `REGION` : The region that your cluster is in.
 
-  - `  PROJECT_ID  ` : Your project ID.
+- `PROJECT_ID` : Your project ID.
 
-  - `  CLUSTER_ID  ` : Your cluster ID.
+- `CLUSTER_ID` : Your cluster ID.
 
-  - `  JOB_ID  ` : The job ID of the Slurm job.
+- `JOB_ID` : The job ID of the Slurm job.
 
 ### List jobs
 
 Use the following to list running jobs:
 
-    gcurl -X POST \
-      "https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID:callSlurmRestApi" \
-      -d '{
-        "method": "HTTP_METHOD_GET",
-        "path": "/slurm/v0.0.42/jobs/"
-      }'
+```
+gcurl -X POST \
+  "https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID:callSlurmRestApi" \
+  -d '{
+    "method": "HTTP_METHOD_GET",
+    "path": "/slurm/v0.0.42/jobs/"
+  }'
+```
 
 Replace the following:
 
-  - `  REGION  ` : The region that your cluster is in.
+- `REGION` : The region that your cluster is in.
 
-  - `  PROJECT_ID  ` : Your project ID.
+- `PROJECT_ID` : Your project ID.
 
-  - `  CLUSTER_ID  ` : Your cluster ID.
+- `CLUSTER_ID` : Your cluster ID.
 
 ### Cancel a job
 
@@ -134,43 +144,47 @@ Canceling is accepted immediately, but the job takes a moment to stop. [Check it
 
 Use the following to cancel a running job:
 
-    gcurl -X POST \
-      "https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID:callSlurmRestApi" \
-      -d '{
-        "method": "HTTP_METHOD_DELETE",
-        "path": "/slurm/v0.0.42/job/JOB_ID"
-      }'
+```
+gcurl -X POST \
+  "https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID:callSlurmRestApi" \
+  -d '{
+    "method": "HTTP_METHOD_DELETE",
+    "path": "/slurm/v0.0.42/job/JOB_ID"
+  }'
+```
 
 Replace the following:
 
-  - `  REGION  ` : The region that your cluster is in.
+- `REGION` : The region that your cluster is in.
 
-  - `  PROJECT_ID  ` : Your project ID.
+- `PROJECT_ID` : Your project ID.
 
-  - `  CLUSTER_ID  ` : Your cluster ID.
+- `CLUSTER_ID` : Your cluster ID.
 
-  - `  JOB_ID  ` : The job ID of the Slurm job.
+- `JOB_ID` : The job ID of the Slurm job.
 
 ### Display a finished job
 
 Checking a job with the `/slurm` path works only while the job is still in the live queue. For completed jobs, use the `slurmdb` path instead:
 
-    gcurl -X POST \
-      "https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID:callSlurmRestApi" \
-      -d '{
-        "method": "HTTP_METHOD_GET",
-        "path": "/slurmdb/v0.0.42/job/JOB_ID"
-      }'
+```
+gcurl -X POST \
+  "https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID:callSlurmRestApi" \
+  -d '{
+    "method": "HTTP_METHOD_GET",
+    "path": "/slurmdb/v0.0.42/job/JOB_ID"
+  }'
+```
 
 Replace the following:
 
-  - `  REGION  ` : The region that your cluster is in.
+- `REGION` : The region that your cluster is in.
 
-  - `  PROJECT_ID  ` : Your project ID.
+- `PROJECT_ID` : Your project ID.
 
-  - `  CLUSTER_ID  ` : Your cluster ID.
+- `CLUSTER_ID` : Your cluster ID.
 
-  - `  JOB_ID  ` : The job ID of the Slurm job.
+- `JOB_ID` : The job ID of the Slurm job.
 
 ### Using the Slurm Job API from Python
 
@@ -179,72 +193,76 @@ If you prefer using Python to curl, you can use the following helper script to s
 Do the following to use the Slurm Job API from Python:
 
 1.  Install Application Default Credentials:
-    
-        pip install google-auth requests
+
+    ```
+    pip install google-auth requests
+    ```
 
 2.  Use the following Python script to use the API:
-    
-        import google.auth
-        import google.auth.transport.requests
-        
-        # Fill in your cluster's values.
-        PROJECT_ID = "PROJECT_ID"
-        REGION = "REGION"
-        CLUSTER_ID = "CLUSTER_ID"
-        PARTITION = "PARTITION"
-        USERNAME = "USERNAME"
-        
-        # Application Default Credentials: gcloud auth application-default login, or a
-        # service account for automated callers.
-        credentials, _ = google.auth.default(
-            scopes=["https://www.googleapis.com/auth/cloud-platform"])
-        session = google.auth.transport.requests.AuthorizedSession(credentials)
-        
-        url = (
-            f"https://{REGION}-aiplatform.googleapis.com/v1beta1/projects/{PROJECT_ID}"
-            f"/locations/{REGION}/modelDevelopmentClusters/{CLUSTER_ID}:callSlurmRestApi"
-        )
-        
-        def call_slurm(method, path, body=None):
-            request = {"method": method, "path": path}
-            if body is not None:
-                request["body"] = body
-            response = session.post(url, json=request)
-            response.raise_for_status()
-            envelope = response.json()
-            return envelope["status"], envelope.get("structuredBody", {})
-        
-        # Submit a job.
-        status, result = call_slurm(
-            "HTTP_METHOD_POST",
-            "/slurm/v0.0.42/job/submit",
-            {
-                "job": {
-                    "name": "my-run",
-                    "partition": f"{PARTITION}",
-                    "current_working_directory": f"/home/{USERNAME}",
-                    "minimum_nodes": 1,
-                    "tasks_per_node": 1,
-                    "environment": ["PATH=/bin:/usr/bin"],
-                    "time_limit": {"set": True, "number": 120},
-                },
-                "script": "#!/bin/bash\necho hello\nsleep 5\necho done\n",
+
+    ```
+    import google.auth
+    import google.auth.transport.requests
+
+    # Fill in your cluster's values.
+    PROJECT_ID = "PROJECT_ID"
+    REGION = "REGION"
+    CLUSTER_ID = "CLUSTER_ID"
+    PARTITION = "PARTITION"
+    USERNAME = "USERNAME"
+
+    # Application Default Credentials: gcloud auth application-default login, or a
+    # service account for automated callers.
+    credentials, _ = google.auth.default(
+        scopes=["https://www.googleapis.com/auth/cloud-platform"])
+    session = google.auth.transport.requests.AuthorizedSession(credentials)
+
+    url = (
+        f"https://{REGION}-aiplatform.googleapis.com/v1beta1/projects/{PROJECT_ID}"
+        f"/locations/{REGION}/modelDevelopmentClusters/{CLUSTER_ID}:callSlurmRestApi"
+    )
+
+    def call_slurm(method, path, body=None):
+        request = {"method": method, "path": path}
+        if body is not None:
+            request["body"] = body
+        response = session.post(url, json=request)
+        response.raise_for_status()
+        envelope = response.json()
+        return envelope["status"], envelope.get("structuredBody", {})
+
+    # Submit a job.
+    status, result = call_slurm(
+        "HTTP_METHOD_POST",
+        "/slurm/v0.0.42/job/submit",
+        {
+            "job": {
+                "name": "my-run",
+                "partition": f"{PARTITION}",
+                "current_working_directory": f"/home/{USERNAME}",
+                "minimum_nodes": 1,
+                "tasks_per_node": 1,
+                "environment": ["PATH=/bin:/usr/bin"],
+                "time_limit": {"set": True, "number": 120},
             },
-        )
-        job_id = result["job_id"]
-        print("submitted job", job_id)
-        
-        # Check its status.
-        _, pending_result = call_slurm("HTTP_METHOD_GET", f"/slurm/v0.0.42/job/{job_id}")
-        print("state:", pending_result["jobs"][0]["job_state"])
-        
-        # Cancel it.
-        call_slurm("HTTP_METHOD_DELETE", f"/slurm/v0.0.42/job/{job_id}")
-        print("cancelled job", job_id)
-        
-        # Confirm the job is cancelled.
-        _, cancelled_result  = call_slurm("HTTP_METHOD_GET", f"/slurm/v0.0.42/job/{job_id}")
-        print("state", cancelled_result["jobs"][0]["job_state"])
+            "script": "#!/bin/bash\necho hello\nsleep 5\necho done\n",
+        },
+    )
+    job_id = result["job_id"]
+    print("submitted job", job_id)
+
+    # Check its status.
+    _, pending_result = call_slurm("HTTP_METHOD_GET", f"/slurm/v0.0.42/job/{job_id}")
+    print("state:", pending_result["jobs"][0]["job_state"])
+
+    # Cancel it.
+    call_slurm("HTTP_METHOD_DELETE", f"/slurm/v0.0.42/job/{job_id}")
+    print("cancelled job", job_id)
+
+    # Confirm the job is cancelled.
+    _, cancelled_result  = call_slurm("HTTP_METHOD_GET", f"/slurm/v0.0.42/job/{job_id}")
+    print("state", cancelled_result["jobs"][0]["job_state"])
+    ```
 
 The helper script returns the status from Slurm and `structuredBody` , so that you can read fields like `job_id` or `job_state` directly. For using the script in automated environments, authenticate as a [service account](https://docs.cloud.google.com/iam/docs/service-account-overview) instead of using an interactive login.
 
@@ -252,14 +270,16 @@ The helper script returns the status from Slurm and `structuredBody` , so that y
 
 The following is a typical Slurm Job API response:
 
-    {
-      "status": 200,
-      "structuredBody": {
-        "job_id": 1234,
-        "errors": [],
-        "warnings": []
-      }
-    }
+```
+{
+  "status": 200,
+  "structuredBody": {
+    "job_id": 1234,
+    "errors": [],
+    "warnings": []
+  }
+}
+```
 
 The `status` field is the HTTP status from Slurm and `structuredBody` contains Slurm's response as a JSON object, so you can read its fields directly, such as: `jq -r '.structuredBody.job_id'` .
 
@@ -267,26 +287,28 @@ Always check `structuredBody` regardless of the `status` value, because `structu
 
 If the `CallSlurmRestApi` request is malformatted, you might get an `error` result as the following example:
 
-    {
-      "error": {
-        "code": 400,
-        "message": "{ ... some error ... }",
-        "status": "INVALID_ARGUMENT"
-      }
-    }
+```
+{
+  "error": {
+    "code": 400,
+    "message": "{ ... some error ... }",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+```
 
 ### Common responses
 
 | What you see             | What it means                                                                                                                                           |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Status 200 with a job id | Job submitted successfully.                                                                                                                             |
 | Status 200, no errors    | Request succeeded.                                                                                                                                      |
 | Status 200 with warnings | Request succeeded, but Slurm ignored or adjusted something. Read the warning.                                                                           |
 | Status 404 for a job     | The job isn't in the live queue; it may have finished. Try the history path.                                                                            |
 | Status 400 or 500        | Slurm rejected the request. Reasons for the rejection could include a malformed body or a field of the wrong type. Read the error in `structuredBody` . |
-| PERMISSION\_DENIED error | You don't have access to this cluster.                                                                                                                  |
-| NOT\_FOUND error         | The cluster name is wrong or the cluster doesn't exist.                                                                                                 |
-| INVALID\_ARGUMENT error  | The path is not a valid Slurm path, or the request is too large.                                                                                        |
+| PERMISSION_DENIED error  | You don't have access to this cluster.                                                                                                                  |
+| NOT_FOUND error          | The cluster name is wrong or the cluster doesn't exist.                                                                                                 |
+| INVALID_ARGUMENT error   | The path is not a valid Slurm path, or the request is too large.                                                                                        |
 | UNAVAILABLE error        | The cluster is temporarily unreachable. Retry after a short wait.                                                                                       |
 
 ## Limits

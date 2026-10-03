@@ -19,13 +19,13 @@ To shut down a Agent Platform Workbench instance, complete the following steps:
 2.  Select the instance that you want to open.
 
 3.  Click **Open JupyterLab** .
-    
+
     It is important to stop all running processes in case there are operations that need to complete before you shut down your Agent Platform Workbench instance, for example, I/O processes that are writing to disk.
-    
+
     To stop all running processes:
-    
+
     1.  To show all of the processes that are running, select the ![](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/icon-running-terminals.png) **Running Terminals and Kernels** tab.
-    
+
     2.  Next to each running process, click **Shutdown all** .
 
 4.  Close the browser tab or window for your Agent Platform Workbench instance.

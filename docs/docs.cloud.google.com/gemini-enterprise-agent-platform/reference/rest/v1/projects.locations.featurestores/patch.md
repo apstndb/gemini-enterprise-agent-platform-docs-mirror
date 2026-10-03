@@ -26,23 +26,23 @@ Output only. name of the Featurestore. Format: `projects/{project}/locations/{lo
 
 ### Query parameters
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Field mask is used to specify the fields to be overwritten in the Featurestore resource by the update. The fields specified in the updateMask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then only the non-empty fields present in the request will be overwritten. Set the updateMask to `*` to override all fields.
 
 Updatable fields:
 
-  - `labels`
-  - `onlineServingConfig.fixed_node_count`
-  - `onlineServingConfig.scaling`
-  - `onlineStorageTtlDays`
+- `labels`
+- `onlineServingConfig.fixed_node_count`
+- `onlineServingConfig.scaling`
+- `onlineStorageTtlDays`
 
 This is a comma-separated list of fully qualified names of fields. Example: `"user.displayName,photo"` .
 
 ### Request body
 
-The request body contains an instance of `  Featurestore  ` .
+The request body contains an instance of [`Featurestore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores#Featurestore) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

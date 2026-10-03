@@ -22,7 +22,7 @@ This section describes how delete the following project resources: endpoint, mod
 
 4.  In the **Undeploy model from endpoint** dialog, click **Undeploy** .
 
-5.  Return to the **Endpoints** tab, and find your endpoint. Click **View more more\_vert** .
+5.  Return to the **Endpoints** tab, and find your endpoint. Click **View more more_vert** .
 
 6.  Click **Remove endpoint** and confirm the operation.
 
@@ -30,7 +30,7 @@ This section describes how delete the following project resources: endpoint, mod
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Models** page.
 
-2.  Find your model. On that row, click **View more more\_vert** .
+2.  Find your model. On that row, click **View more more_vert** .
 
 3.  Click **Delete model** and confirm the operation.
 
@@ -38,12 +38,12 @@ This section describes how delete the following project resources: endpoint, mod
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Datasets** page.
 
-2.  Find your dataset. On that row, click **View more more\_vert** .
+2.  Find your dataset. On that row, click **View more more_vert** .
 
 3.  Click **Delete dataset** .
 
 ## What's next
 
-  - To learn about additional ways to train ML models on Agent Platform, try one of the other [Agent Platform tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials) .
+- To learn about additional ways to train ML models on Agent Platform, try one of the other [Agent Platform tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials) .
 
-  - Read an [overview of how Agent Platform works](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning) .
+- Read an [overview of how Agent Platform works](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning) .

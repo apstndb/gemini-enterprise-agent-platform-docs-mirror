@@ -28,7 +28,7 @@ Identifier. The resource name of the SemanticGovernancePolicyEngine. Format: pro
 
 ### Query parameters
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Optional. Specifies the fields to be overwritten in the SemanticGovernancePolicyEngine resource by the update. The fields specified in the updateMask are relative to the resource itself. If no updateMask is provided, all fields are overwritten.
 
@@ -36,8 +36,8 @@ This is a comma-separated list of fully qualified names of fields. Example: `"us
 
 ### Request body
 
-The request body contains an instance of `  SemanticGovernancePolicyEngine  ` .
+The request body contains an instance of [`SemanticGovernancePolicyEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/SemanticGovernancePolicyEngine) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

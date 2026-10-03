@@ -10,11 +10,11 @@ Notebook Software Config. This is passed to the backend when user makes software
 
 Fields
 
-`env[]` ` object ( EnvVar  ` )
+`env[]` `object ( `[`EnvVar`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/EnvVar)` )`
 
 Optional. Environment variables to be passed to the container. Maximum limit is 100.
 
-`postStartupScriptConfig` ` object ( PostStartupScriptConfig  ` )
+`postStartupScriptConfig` `object ( `[`PostStartupScriptConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/NotebookSoftwareConfig#PostStartupScriptConfig)` )`
 
 Optional. Post startup script config.
 
@@ -22,27 +22,32 @@ Optional. Post startup script config.
 
 The image to be used by the notebook runtime. Can be one of release name, or custom container image. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`colabImage` ` object ( ColabImage  ` )
+`colabImage` `object ( `[`ColabImage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/NotebookSoftwareConfig#ColabImage)` )`
 
 Optional. Google-managed NotebookRuntime colab image.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;env&quot;: [{object (EnvVar)}],&quot;postStartupScriptConfig&quot;: {object (PostStartupScriptConfig)},// runtime_image&quot;colabImage&quot;: {object (ColabImage)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "env": [
+    {
+      object (EnvVar)
+    }
+  ],
+  "postStartupScriptConfig": {
+    object (PostStartupScriptConfig)
+  },
+
+  // runtime_image
+  "colabImage": {
+    object (ColabImage)
+  }
+  // Union type
+}
+```
 
 ## ColabImage
 
@@ -58,24 +63,14 @@ Optional. The release name of the NotebookRuntime Colab image, e.g. "py310". If 
 
 Output only. A human-readable description of the specified colab image release, populated by the system. Example: "Python 3.10", "Latest - current Python 3.11"
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;releaseName&quot;: string,
-  &quot;description&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "releaseName": string,
+  "description": string
+}
+```
 
 ## PostStartupScriptConfig
 
@@ -91,44 +86,27 @@ Optional. Post startup script to run after runtime is started.
 
 Optional. Post startup script url to download. Example: `gs://bucket/script.sh`
 
-`postStartupScriptBehavior` ` enum ( PostStartupScriptBehavior  ` )
+`postStartupScriptBehavior` `enum ( `[`PostStartupScriptBehavior`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/NotebookSoftwareConfig#PostStartupScriptBehavior)` )`
 
 Optional. Post startup script behavior that defines download and execution behavior.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;postStartupScript&quot;: string,&quot;postStartupScriptUrl&quot;: string,&quot;postStartupScriptBehavior&quot;: enum (PostStartupScriptBehavior)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "postStartupScript": string,
+  "postStartupScriptUrl": string,
+  "postStartupScriptBehavior": enum (PostStartupScriptBehavior)
+}
+```
 
 ## PostStartupScriptBehavior
 
 Represents a notebook runtime post startup script behavior.
 
-Enums
-
-`POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED`
-
-Unspecified post startup script behavior.
-
-`RUN_ONCE`
-
-Run post startup script after runtime is started.
-
-`RUN_EVERY_START`
-
-Run post startup script after runtime is stopped.
-
-`DOWNLOAD_AND_RUN_EVERY_START`
-
-Download and run post startup script every time runtime is started.
+| Enums                                      |                                                                     |
+|--------------------------------------------|---------------------------------------------------------------------|
+| `POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED` | Unspecified post startup script behavior.                           |
+| `RUN_ONCE`                                 | Run post startup script after runtime is started.                   |
+| `RUN_EVERY_START`                          | Run post startup script after runtime is stopped.                   |
+| `DOWNLOAD_AND_RUN_EVERY_START`             | Download and run post startup script every time runtime is started. |

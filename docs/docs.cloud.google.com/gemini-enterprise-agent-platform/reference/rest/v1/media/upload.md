@@ -12,11 +12,11 @@ Upload a file into a RagCorpus.
 
 ### Endpoint
 
-  - Upload URI, for media upload requests:  
+- Upload URI, for media upload requests:  
 
 post `https: / /{service-endpoint} /upload /v1 /{parent} /ragFiles:upload`
 
-  - Metadata URI, for metadata-only requests:  
+- Metadata URI, for metadata-only requests:  
 
 post `https: / /{service-endpoint} /v1 /{parent} /ragFiles:upload`
 
@@ -34,17 +34,17 @@ The request body contains data with the following structure:
 
 Fields
 
-`ragFile` ` object ( RagFile  ` )
+`ragFile` `object ( `[`RagFile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#RagFile)` )`
 
 Required. The RagFile to upload.
 
-`uploadRagFileConfig` ` object ( UploadRagFileConfig  ` )
+`uploadRagFileConfig` `object ( `[`UploadRagFileConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/media/upload#UploadRagFileConfig)` )`
 
-Required. The config for the RagFiles to be uploaded into the RagCorpus. `  VertexRagDataService.UploadRagFile  ` .
+Required. The config for the RagFiles to be uploaded into the RagCorpus. [`VertexRagDataService.UploadRagFile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/media/upload#google.cloud.aiplatform.v1.VertexRagDataService.UploadRagFile) .
 
 ### Response body
 
-Response message for `  VertexRagDataService.UploadRagFile  ` .
+Response message for [`VertexRagDataService.UploadRagFile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/media/upload#google.cloud.aiplatform.v1.VertexRagDataService.UploadRagFile) .
 
 If successful, the response body contains data with the following structure:
 
@@ -54,31 +54,31 @@ Fields
 
 The result of the upload. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`ragFile` ` object ( RagFile  ` )
+`ragFile` `object ( `[`RagFile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles#RagFile)` )`
 
 The RagFile that had been uploaded into the RagCorpus.
 
-`error` ` object ( Status  ` )
+`error` `object ( `[`Status`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Status)` )`
 
 The error that occurred while processing the RagFile.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// result&quot;ragFile&quot;: {object (RagFile)},&quot;error&quot;: {object (Status)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // result
+  "ragFile": {
+    object (RagFile)
+  },
+  "error": {
+    object (Status)
+  }
+  // Union type
+}
+```
 
 ## UploadRagFileConfig
 
@@ -86,22 +86,16 @@ Config for uploading RagFile.
 
 Fields
 
-`ragFileTransformationConfig` ` object ( RagFileTransformationConfig  ` )
+`ragFileTransformationConfig` `object ( `[`RagFileTransformationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagFileTransformationConfig)` )`
 
 Specifies the transformation config for RagFiles.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;ragFileTransformationConfig&quot;: {object (RagFileTransformationConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "ragFileTransformationConfig": {
+    object (RagFileTransformationConfig)
+  }
+}
+```

@@ -34,7 +34,7 @@ Optional. The maximum number of examples to return. The service may return fewer
 
 `pageToken` `string`
 
-Optional. The `  nextPageToken  ` value returned from a previous list \[ExampleStoreService.FetchExamplesResponse\]\[\] call.
+Optional. The [`nextPageToken`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/fetchExamples#body.FetchExamplesResponse.FIELDS.next_page_token) value returned from a previous list \[ExampleStoreService.FetchExamplesResponse\]\[\] call.
 
 `exampleIds[]` `string`
 
@@ -44,7 +44,7 @@ Optional. Example IDs to fetch. If both metadata filters and Example IDs are spe
 
 The example type-specific filters to be applied to the fetch operation. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`storedContentsExampleFilter` ` object ( StoredContentsExampleFilter  ` )
+`storedContentsExampleFilter` `object ( `[`StoredContentsExampleFilter`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/StoredContentsExampleFilter)` )`
 
 The metadata filters for StoredContentsExamples.
 
@@ -52,32 +52,29 @@ End of mutually exclusive fields.
 
 ### Response body
 
-Response message for `  ExampleStoreService.FetchExamples  ` .
+Response message for [`ExampleStoreService.FetchExamples`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/fetchExamples#google.cloud.aiplatform.v1beta1.ExampleStoreService.FetchExamples) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`examples[]` ` object ( Example  ` )
+`examples[]` `object ( `[`Example`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Example)` )`
 
 The examples in the Example Store that satisfy the metadata filters.
 
 `nextPageToken` `string`
 
-A token, which can be sent as `  FetchExamplesRequest.page_token  ` to retrieve the next page. Absence of this field indicates there are no subsequent pages.
+A token, which can be sent as [`FetchExamplesRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/fetchExamples#body.request_body.FIELDS.page_token) to retrieve the next page. Absence of this field indicates there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;examples&quot;: [{object (Example)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "examples": [
+    {
+      object (Example)
+    }
+  ],
+  "nextPageToken": string
+}
+```

@@ -16,10 +16,10 @@ To learn more, see [Spot VMs](https://docs.cloud.google.com/compute/docs/instanc
 
 Consider the following limitations and requirements when using Spot VMs with Agent Platform:
 
-  - All [Spot VMs limitations](https://docs.cloud.google.com/compute/docs/instances/spot#limitations) apply when using Spot VMs with Agent Platform.
-  - Using Spot VMs with Agent Platform is supported only for serverless training and inference.
-  - Using Spot VMs with TPU Pods isn't supported.
-  - Submitting your job through the Google Cloud console is not supported.
+- All [Spot VMs limitations](https://docs.cloud.google.com/compute/docs/instances/spot#limitations) apply when using Spot VMs with Agent Platform.
+- Using Spot VMs with Agent Platform is supported only for serverless training and inference.
+- Using Spot VMs with TPU Pods isn't supported.
+- Submitting your job through the Google Cloud console is not supported.
 
 ## Billing
 
@@ -33,16 +33,16 @@ Spot VMs can be reclaimed by Compute Engine at any time. Therefore, your serverl
 
 The following are some of the methods that you can use to make your serverless training job fault tolerant:
 
-  - Create checkpoints to save progress. By periodically storing the progress of your model, you can ensure that a terminated serverless training job can resume from the last stored checkpoint, instead of starting over from the beginning.
-  - Use Elastic Horovod. Elastic training enables Horovod to scale your compute resources without requiring a restart or resuming from checkpoints. To learn more, see [Elastic Horovod](https://horovod.readthedocs.io/en/latest/elastic_include.html) .
-  - Use a shutdown script. When Compute Engine preempts a Spot VM, you can use a [shutdown script](https://docs.cloud.google.com/compute/docs/shutdownscript) that tries to perform cleanup actions before the VM is preempted. To learn more, see [Handle preemption with a shutdown script](https://docs.cloud.google.com/compute/docs/instances/create-use-spot#handle-preemption) .
+- Create checkpoints to save progress. By periodically storing the progress of your model, you can ensure that a terminated serverless training job can resume from the last stored checkpoint, instead of starting over from the beginning.
+- Use Elastic Horovod. Elastic training enables Horovod to scale your compute resources without requiring a restart or resuming from checkpoints. To learn more, see [Elastic Horovod](https://horovod.readthedocs.io/en/latest/elastic_include.html) .
+- Use a shutdown script. When Compute Engine preempts a Spot VM, you can use a [shutdown script](https://docs.cloud.google.com/compute/docs/shutdownscript) that tries to perform cleanup actions before the VM is preempted. To learn more, see [Handle preemption with a shutdown script](https://docs.cloud.google.com/compute/docs/instances/create-use-spot#handle-preemption) .
 
 ## Before you begin
 
 Prepare your serverless training application:
 
-  - To use a prebuilt container, see [Create a Python training application for a prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container) .
-  - To use a custom container, see [Create a custom container image for training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
+- To use a prebuilt container, see [Create a Python training application for a prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container) .
+- To use a custom container, see [Create a custom container image for training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
 
 ## Configure your training job to use Spot VMs
 
@@ -52,69 +52,73 @@ You can configure your serverless training job to use Spot VMs by specifying a `
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where the container or Python package will be run.
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - JOB\_NAME : Required. A display name for the `CustomJob` .
-  - Define the custom training job:
-      - MACHINE\_TYPE : The type of the machine. Refer to [available machine types for training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute) .
-      - REPLICA\_COUNT : The number of worker replicas to use. In most cases, set this to `1` for your [first worker pool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job#configure_distributed_training) .
-      - If your training application runs in a custom container, specify the following:
-          - CUSTOM\_CONTAINER\_IMAGE\_URI : the URI of a Docker container image with your training code. Learn how to [create a custom container image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
-          - CUSTOM\_CONTAINER\_COMMAND : Optional. The command to be invoked when the container is started. This command overrides the container's default entrypoint.
-          - CUSTOM\_CONTAINER\_ARGS : Optional. The arguments to be passed when starting the container.
-      - If your training application is a Python package that runs in a prebuilt container, specify the following:
-          - EXECUTOR\_IMAGE\_URI : The URI of the container image that runs the provided code. Refer to the [available prebuilt containers for training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) .
-          - PYTHON\_PACKAGE\_URIS : Comma-separated list of Cloud Storage URIs specifying the Python package files which are the training program and its dependent packages. The maximum number of package URIs is 100.
-          - PYTHON\_MODULE : The Python module name to run after installing the packages.
-          - PYTHON\_PACKAGE\_ARGS : Optional. Command-line arguments to be passed to the Python module.
+- ` LOCATION ` : The region where the container or Python package will be run.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` JOB_NAME ` : Required. A display name for the `CustomJob` .
+- Define the custom training job:
+  - ` MACHINE_TYPE ` : The type of the machine. Refer to [available machine types for training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute) .
+  - ` REPLICA_COUNT ` : The number of worker replicas to use. In most cases, set this to `1` for your [first worker pool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job#configure_distributed_training) .
+  - If your training application runs in a custom container, specify the following:
+    - ` CUSTOM_CONTAINER_IMAGE_URI ` : the URI of a Docker container image with your training code. Learn how to [create a custom container image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
+    - ` CUSTOM_CONTAINER_COMMAND ` : Optional. The command to be invoked when the container is started. This command overrides the container's default entrypoint.
+    - ` CUSTOM_CONTAINER_ARGS ` : Optional. The arguments to be passed when starting the container.
+  - If your training application is a Python package that runs in a prebuilt container, specify the following:
+    - ` EXECUTOR_IMAGE_URI ` : The URI of the container image that runs the provided code. Refer to the [available prebuilt containers for training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) .
+    - ` PYTHON_PACKAGE_URIS ` : Comma-separated list of Cloud Storage URIs specifying the Python package files which are the training program and its dependent packages. The maximum number of package URIs is 100.
+    - ` PYTHON_MODULE ` : The Python module name to run after installing the packages.
+    - ` PYTHON_PACKAGE_ARGS ` : Optional. Command-line arguments to be passed to the Python module.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/customJobs
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/customJobs
+```
 
 Request JSON body:
 
-    {
-      "displayName": "JOB_NAME",
-      "jobSpec": {
-        "workerPoolSpecs": [
-          {
-            "machineSpec": {
-              "machineType": "MACHINE_TYPE"
-              }
-            },
-            "replicaCount": REPLICA_COUNT,
-    
-            // Union field task can be only one of the following:
-            "containerSpec": {
-              "imageUri": CUSTOM_CONTAINER_IMAGE_URI,
-              "command": [
-                CUSTOM_CONTAINER_COMMAND
-              ],
-              "args": [
-                CUSTOM_CONTAINER_ARGS
-              ]
-            },
-            "pythonPackageSpec": {
-              "executorImageUri": EXECUTOR_IMAGE_URI,
-              "packageUris": [
-                PYTHON_PACKAGE_URIS
-              ],
-              "pythonModule": PYTHON_MODULE,
-              "args": [
-                PYTHON_PACKAGE_ARGS
-              ]
-            }
-            // End of list of possible types for union field task.
+```
+{
+  "displayName": "JOB_NAME",
+  "jobSpec": {
+    "workerPoolSpecs": [
+      {
+        "machineSpec": {
+          "machineType": "MACHINE_TYPE"
           }
-          // Specify one workerPoolSpec for single replica training, or multiple workerPoolSpecs
-          // for distributed training.
-        ],
-        "scheduling": {
-          "strategy": "SPOT"
+        },
+        "replicaCount": REPLICA_COUNT,
+
+        // Union field task can be only one of the following:
+        "containerSpec": {
+          "imageUri": CUSTOM_CONTAINER_IMAGE_URI,
+          "command": [
+            CUSTOM_CONTAINER_COMMAND
+          ],
+          "args": [
+            CUSTOM_CONTAINER_ARGS
+          ]
+        },
+        "pythonPackageSpec": {
+          "executorImageUri": EXECUTOR_IMAGE_URI,
+          "packageUris": [
+            PYTHON_PACKAGE_URIS
+          ],
+          "pythonModule": PYTHON_MODULE,
+          "args": [
+            PYTHON_PACKAGE_ARGS
+          ]
         }
+        // End of list of possible types for union field task.
       }
+      // Specify one workerPoolSpec for single replica training, or multiple workerPoolSpecs
+      // for distributed training.
+    ],
+    "scheduling": {
+      "strategy": "SPOT"
     }
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -124,11 +128,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/customJobs"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/customJobs"
+```
 
 #### PowerShell
 
@@ -136,47 +142,51 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/customJobs" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
 
-The response contains information about specifications as well as the JOB\_ID .
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/customJobs" | Select-Object -Expand Content
+```
+
+The response contains information about specifications as well as the ` JOB_ID ` .
 
 #### Response
 
-    {
-      "name": "projects/PROJECT_ID/locations/LOCATION/customJobs/JOB_ID",
-      "displayName": "JOB_NAME",
-      "trainingTaskInputs": {
-        "workerPoolSpecs": [
-          {
-            "machineSpec": {
-              "machineType": "MACHINE_TYPE"
-            },
-            "replicaCount": "1",
-            "pythonPackageSpec": {
-              "executorImageUri": "us-docker.pkg.dev/vertex-ai/training/training-tf-cpu.2-1:latest",
-              "packageUris": [
-                "gs://BUCKET_NAME/training/hello-custom-training-1.0.tar.gz"
-              ],
-              "pythonModule": "trainer.task",
-              "args": [
-                "--model-dir=gs://BUCKET_NAME/output/"
-              ]
-            }
-          }
-        ]
-      },
-      "state": "JOB_STATE_PENDING",
-      "createTime": "2020-09-15T19:09:54.342080Z",
-      "startTime": "2020-09-15T19:13:42.991045Z",
-    }
+```
+{
+  "name": "projects/PROJECT_ID/locations/LOCATION/customJobs/JOB_ID",
+  "displayName": "JOB_NAME",
+  "trainingTaskInputs": {
+    "workerPoolSpecs": [
+      {
+        "machineSpec": {
+          "machineType": "MACHINE_TYPE"
+        },
+        "replicaCount": "1",
+        "pythonPackageSpec": {
+          "executorImageUri": "us-docker.pkg.dev/vertex-ai/training/training-tf-cpu.2-1:latest",
+          "packageUris": [
+            "gs://BUCKET_NAME/training/hello-custom-training-1.0.tar.gz"
+          ],
+          "pythonModule": "trainer.task",
+          "args": [
+            "--model-dir=gs://BUCKET_NAME/output/"
+          ]
+        }
+      }
+    ]
+  },
+  "state": "JOB_STATE_PENDING",
+  "createTime": "2020-09-15T19:09:54.342080Z",
+  "startTime": "2020-09-15T19:13:42.991045Z",
+}
+```
 
 ### Python
 
@@ -195,7 +205,7 @@ customJob.run(
 
 ## What's next
 
-  - Learn more about [Spot VMs](https://docs.cloud.google.com/compute/docs/instances/spot) .
-  - To learn more about Compute Engine VMs in general, read the [Virtual machine instances](https://docs.cloud.google.com/compute/docs/instances) documentation.
-  - To learn how to create Spot VMs, read [Create and use Spot VMs](https://docs.cloud.google.com/compute/docs/instances/create-use-spot) .
-  - [Use Spot VMs with Vertex AI Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-spot-vms) .
+- Learn more about [Spot VMs](https://docs.cloud.google.com/compute/docs/instances/spot) .
+- To learn more about Compute Engine VMs in general, read the [Virtual machine instances](https://docs.cloud.google.com/compute/docs/instances) documentation.
+- To learn how to create Spot VMs, read [Create and use Spot VMs](https://docs.cloud.google.com/compute/docs/instances/create-use-spot) .
+- [Use Spot VMs with Vertex AI Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-spot-vms) .

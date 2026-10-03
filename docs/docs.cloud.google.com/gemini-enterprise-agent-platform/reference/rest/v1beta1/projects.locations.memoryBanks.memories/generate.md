@@ -40,15 +40,15 @@ Optional. The scope of the memories that should be generated. Memories will be c
 
 Source content used to generate memories. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`vertexSessionSource` ` object ( VertexSessionSource  ` )
+`vertexSessionSource` `object ( `[`VertexSessionSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/VertexSessionSource)` )`
 
 Defines a Vertex Session as the source content from which to generate memories.
 
-`directContentsSource` ` object ( DirectContentsSource  ` )
+`directContentsSource` `object ( `[`DirectContentsSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DirectContentsSource)` )`
 
 Defines a direct source of content as the source content from which to generate memories.
 
-`directMemoriesSource` ` object ( DirectMemoriesSource  ` )
+`directMemoriesSource` `object ( `[`DirectMemoriesSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DirectMemoriesSource)` )`
 
 Defines a direct source of memories that should be uploaded to Memory Bank. This is similar to `memories.create` , but it allows for consolidation between these new memories and existing memories for the same scope.
 
@@ -58,13 +58,13 @@ End of mutually exclusive fields.
 
 The expiration of the Memory Revisions created as a result of this request. If not set, Memory Bank will defer to `MemoryBankConfig.memory_revision_default_ttl` or the global default, 365 days. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`revisionExpireTime` ` string ( Timestamp  ` format)
+`revisionExpireTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Optional. timestamp of when the revision is considered expired. If not set, the memory revision will be kept until manually deleted.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`revisionTtl` ` string ( Duration  ` format)
+`revisionTtl` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 Optional. The TTL for the revision. The expiration time is computed: now + TTL.
 
@@ -74,4 +74,4 @@ End of mutually exclusive fields.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

@@ -24,13 +24,13 @@ Required. The display name of the Extension. The name can be up to 128 character
 
 Optional. The description of the Extension.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this Extension was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this Extension was most recently updated.
 
@@ -40,23 +40,23 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 Optional. Used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens.
 
-`manifest` ` object ( ExtensionManifest  ` )
+`manifest` `object ( `[`ExtensionManifest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#ExtensionManifest)` )`
 
 Required. Manifest of the Extension.
 
-`extensionOperations[]` ` object ( ExtensionOperation  ` )
+`extensionOperations[]` `object ( `[`ExtensionOperation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#ExtensionOperation)` )`
 
 Output only. Supported operations.
 
-`runtimeConfig` ` object ( RuntimeConfig  ` )
+`runtimeConfig` `object ( `[`RuntimeConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#RuntimeConfig)` )`
 
 Optional. Runtime config controlling the runtime behavior of this Extension.
 
-`toolUseExamples[]` ` object ( ToolUseExample  ` )
+`toolUseExamples[]` `object ( `[`ToolUseExample`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#ToolUseExample)` )`
 
 Optional. Examples to illustrate the usage of the extension as a tool.
 
-`privateServiceConnectConfig` ` object ( ExtensionPrivateServiceConnectConfig  ` )
+`privateServiceConnectConfig` `object ( `[`ExtensionPrivateServiceConnectConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#ExtensionPrivateServiceConnectConfig)` )`
 
 Optional. The PrivateServiceConnect config for the extension. If specified, the service endpoints associated with the Extension should be [registered with private network access in the provided service Directory](https://cloud.google.com/service-directory/docs/configuring-private-network-access) .
 
@@ -70,21 +70,39 @@ Output only. reserved for future use.
 
 Output only. reserved for future use.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;etag&quot;: string,&quot;manifest&quot;: {object (ExtensionManifest)},&quot;extensionOperations&quot;: [{object (ExtensionOperation)}],&quot;runtimeConfig&quot;: {object (RuntimeConfig)},&quot;toolUseExamples&quot;: [{object (ToolUseExample)}],&quot;privateServiceConnectConfig&quot;: {object (ExtensionPrivateServiceConnectConfig)},&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "description": string,
+  "createTime": string,
+  "updateTime": string,
+  "etag": string,
+  "manifest": {
+    object (ExtensionManifest)
+  },
+  "extensionOperations": [
+    {
+      object (ExtensionOperation)
+    }
+  ],
+  "runtimeConfig": {
+    object (RuntimeConfig)
+  },
+  "toolUseExamples": [
+    {
+      object (ToolUseExample)
+    }
+  ],
+  "privateServiceConnectConfig": {
+    object (ExtensionPrivateServiceConnectConfig)
+  },
+  "satisfiesPzs": boolean,
+  "satisfiesPzi": boolean
+}
+```
 
 ## ExtensionManifest
 
@@ -100,29 +118,28 @@ Required. Extension name shown to the LLM. The name can be up to 128 characters 
 
 Required. The natural language description shown to the LLM. It should describe the usage of the extension, and is essential for the LLM to perform reasoning. e.g., if the extension is a data store, you can let the LLM know what data it contains.
 
-`apiSpec` ` object ( ApiSpec  ` )
+`apiSpec` `object ( `[`ApiSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#ApiSpec)` )`
 
 Required. Immutable. The API specification shown to the LLM.
 
-`authConfig` ` object ( AuthConfig  ` )
+`authConfig` `object ( `[`AuthConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#AuthConfig)` )`
 
 Required. Immutable. type of auth supported by this extension.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;description&quot;: string,&quot;apiSpec&quot;: {object (ApiSpec)},&quot;authConfig&quot;: {object (AuthConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "description": string,
+  "apiSpec": {
+    object (ApiSpec)
+  },
+  "authConfig": {
+    object (AuthConfig)
+  }
+}
+```
 
 ## ApiSpec
 
@@ -144,27 +161,17 @@ Cloud Storage URI pointing to the OpenAPI spec.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+**JSON representation**
+
+```
+{
 
   // api_spec
-  &quot;openApiYaml&quot;: string,
-  &quot;openApiGcsUri&quot;: string
+  "openApiYaml": string,
+  "openApiGcsUri": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## AuthConfig
 
@@ -172,7 +179,7 @@ Auth configuration to run the extension.
 
 Fields
 
-`authType` ` enum ( AuthType  ` )
+`authType` `enum ( `[`AuthType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#AuthType)` )`
 
 type of auth scheme.
 
@@ -180,43 +187,53 @@ type of auth scheme.
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`apiKeyConfig` ` object ( ApiKeyConfig  ` )
+`apiKeyConfig` `object ( `[`ApiKeyConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#ApiKeyConfig)` )`
 
 Config for API key auth.
 
-`httpBasicAuthConfig` ` object ( HttpBasicAuthConfig  ` )
+`httpBasicAuthConfig` `object ( `[`HttpBasicAuthConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#HttpBasicAuthConfig)` )`
 
 Config for HTTP Basic auth.
 
-`googleServiceAccountConfig` ` object ( GoogleServiceAccountConfig  ` )
+`googleServiceAccountConfig` `object ( `[`GoogleServiceAccountConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#GoogleServiceAccountConfig)` )`
 
 Config for Google service Account auth.
 
-`oauthConfig` ` object ( OauthConfig  ` )
+`oauthConfig` `object ( `[`OauthConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#OauthConfig)` )`
 
 Config for user oauth.
 
-`oidcConfig` ` object ( OidcConfig  ` )
+`oidcConfig` `object ( `[`OidcConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#OidcConfig)` )`
 
 Config for user OIDC auth.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;authType&quot;: enum (AuthType),// auth_config&quot;apiKeyConfig&quot;: {object (ApiKeyConfig)},&quot;httpBasicAuthConfig&quot;: {object (HttpBasicAuthConfig)},&quot;googleServiceAccountConfig&quot;: {object (GoogleServiceAccountConfig)},&quot;oauthConfig&quot;: {object (OauthConfig)},&quot;oidcConfig&quot;: {object (OidcConfig)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "authType": enum (AuthType),
+
+  // auth_config
+  "apiKeyConfig": {
+    object (ApiKeyConfig)
+  },
+  "httpBasicAuthConfig": {
+    object (HttpBasicAuthConfig)
+  },
+  "googleServiceAccountConfig": {
+    object (GoogleServiceAccountConfig)
+  },
+  "oauthConfig": {
+    object (OauthConfig)
+  },
+  "oidcConfig": {
+    object (OidcConfig)
+  }
+  // Union type
+}
+```
 
 ## ApiKeyConfig
 
@@ -232,57 +249,36 @@ Optional. The parameter name of the API key. E.g. If the API request is "https:/
 
 Optional. The name of the SecretManager secret version resource storing the API key. Format: `projects/{project}/secrets/{secrete}/versions/{version}`
 
-  - If both `apiKeySecret` and `apiKeyString` are specified, this field takes precedence over `apiKeyString` .
+- If both `apiKeySecret` and `apiKeyString` are specified, this field takes precedence over `apiKeyString` .
 
-  - If specified, the `secretmanager.versions.access` permission should be granted to Agent Platform Extension service Agent ( <https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents> ) on the specified resource.
+- If specified, the `secretmanager.versions.access` permission should be granted to Agent Platform Extension service Agent ( <https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents> ) on the specified resource.
 
-`httpElementLocation` ` enum ( HttpElementLocation  ` )
+`httpElementLocation` `enum ( `[`HttpElementLocation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#HttpElementLocation)` )`
 
 Optional. The location of the API key.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;apiKeySecret&quot;: string,&quot;httpElementLocation&quot;: enum (HttpElementLocation)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "apiKeySecret": string,
+  "httpElementLocation": enum (HttpElementLocation)
+}
+```
 
 ## HttpElementLocation
 
 Enum of location an HTTP element can be.
 
-Enums
-
-`HTTP_IN_UNSPECIFIED`
-
-`HTTP_IN_QUERY`
-
-Element is in the HTTP request query.
-
-`HTTP_IN_HEADER`
-
-Element is in the HTTP request header.
-
-`HTTP_IN_PATH`
-
-Element is in the HTTP request path.
-
-`HTTP_IN_BODY`
-
-Element is in the HTTP request body.
-
-`HTTP_IN_COOKIE`
-
-Element is in the HTTP request cookie.
+| Enums                 |                                        |
+|-----------------------|----------------------------------------|
+| `HTTP_IN_UNSPECIFIED` |                                        |
+| `HTTP_IN_QUERY`       | Element is in the HTTP request query.  |
+| `HTTP_IN_HEADER`      | Element is in the HTTP request header. |
+| `HTTP_IN_PATH`        | Element is in the HTTP request path.   |
+| `HTTP_IN_BODY`        | Element is in the HTTP request body.   |
+| `HTTP_IN_COOKIE`      | Element is in the HTTP request cookie. |
 
 ## HttpBasicAuthConfig
 
@@ -294,25 +290,15 @@ Fields
 
 Required. The name of the SecretManager secret version resource storing the base64 encoded credentials. Format: `projects/{project}/secrets/{secrete}/versions/{version}`
 
-  - If specified, the `secretmanager.versions.access` permission should be granted to Agent Platform Extension service Agent ( <https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents> ) on the specified resource.
+- If specified, the `secretmanager.versions.access` permission should be granted to Agent Platform Extension service Agent ( <https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents> ) on the specified resource.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;credentialSecret&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "credentialSecret": string
+}
+```
 
 ## GoogleServiceAccountConfig
 
@@ -324,27 +310,17 @@ Fields
 
 Optional. The service account that the extension execution service runs as.
 
-  - If the service account is specified, the `iam.serviceAccounts.getAccessToken` permission should be granted to Agent Platform Extension service Agent ( <https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents> ) on the specified service account.
+- If the service account is specified, the `iam.serviceAccounts.getAccessToken` permission should be granted to Agent Platform Extension service Agent ( <https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents> ) on the specified service account.
 
-  - If not specified, the Agent Platform Extension service Agent will be used to execute the Extension.
+- If not specified, the Agent Platform Extension service Agent will be used to execute the Extension.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;serviceAccount&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "serviceAccount": string
+}
+```
 
 ## OauthConfig
 
@@ -358,37 +334,27 @@ The following is a list of mutually exclusive fields. At most one of the fields 
 
 `accessToken` `string`
 
-Access token for extension endpoint. Only used to propagate token from \[\[ExecuteExtensionRequest.runtime\_auth\_config\]\] at request time.
+Access token for extension endpoint. Only used to propagate token from \[\[ExecuteExtensionRequest.runtime_auth_config\]\] at request time.
 
 `serviceAccount` `string`
 
 The service account used to generate access tokens for executing the Extension.
 
-  - If the service account is specified, the `iam.serviceAccounts.getAccessToken` permission should be granted to Agent Platform Extension service Agent ( <https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents> ) on the provided service account.
+- If the service account is specified, the `iam.serviceAccounts.getAccessToken` permission should be granted to Agent Platform Extension service Agent ( <https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents> ) on the provided service account.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+**JSON representation**
+
+```
+{
 
   // oauth_config
-  &quot;accessToken&quot;: string,
-  &quot;serviceAccount&quot;: string
+  "accessToken": string,
+  "serviceAccount": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## OidcConfig
 
@@ -402,71 +368,43 @@ The following is a list of mutually exclusive fields. At most one of the fields 
 
 `idToken` `string`
 
-OpenID Connect formatted id token for extension endpoint. Only used to propagate token from \[\[ExecuteExtensionRequest.runtime\_auth\_config\]\] at request time.
+OpenID Connect formatted id token for extension endpoint. Only used to propagate token from \[\[ExecuteExtensionRequest.runtime_auth_config\]\] at request time.
 
 `serviceAccount` `string`
 
 The service account used to generate an OpenID Connect (OIDC)-compatible JWT token signed by the Google OIDC Provider (accounts.google.com) for extension endpoint ( <https://cloud.google.com/iam/docs/create-short-lived-credentials-direct#sa-credentials-oidc)> .
 
-  - The audience for the token will be set to the URL in the server url defined in the OpenApi spec.
+- The audience for the token will be set to the URL in the server url defined in the OpenApi spec.
 
-  - If the service account is provided, the service account should grant `iam.serviceAccounts.getOpenIdToken` permission to Agent Platform Extension service Agent ( <https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents)> .
+- If the service account is provided, the service account should grant `iam.serviceAccounts.getOpenIdToken` permission to Agent Platform Extension service Agent ( <https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents)> .
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+**JSON representation**
+
+```
+{
 
   // oidc_config
-  &quot;idToken&quot;: string,
-  &quot;serviceAccount&quot;: string
+  "idToken": string,
+  "serviceAccount": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## AuthType
 
 type of Auth.
 
-Enums
-
-`AUTH_TYPE_UNSPECIFIED`
-
-`NO_AUTH`
-
-No Auth.
-
-`API_KEY_AUTH`
-
-API Key Auth.
-
-`HTTP_BASIC_AUTH`
-
-HTTP Basic Auth.
-
-`GOOGLE_SERVICE_ACCOUNT_AUTH`
-
-Google service Account Auth.
-
-`OAUTH`
-
-OAuth auth.
-
-`OIDC_AUTH`
-
-OpenID Connect (OIDC) Auth.
+| Enums                         |                              |
+|-------------------------------|------------------------------|
+| `AUTH_TYPE_UNSPECIFIED`       |                              |
+| `NO_AUTH`                     | No Auth.                     |
+| `API_KEY_AUTH`                | API Key Auth.                |
+| `HTTP_BASIC_AUTH`             | HTTP Basic Auth.             |
+| `GOOGLE_SERVICE_ACCOUNT_AUTH` | Google service Account Auth. |
+| `OAUTH`                       | OAuth auth.                  |
+| `OIDC_AUTH`                   | OpenID Connect (OIDC) Auth.  |
 
 ## ExtensionOperation
 
@@ -480,25 +418,20 @@ Operation id that uniquely identifies the operations among the extension. See: "
 
 This field is parsed from the OpenAPI spec. For HTTP extensions, if it does not exist in the spec, we will generate one from the HTTP method and path.
 
-`functionDeclaration` ` object ( FunctionDeclaration  ` )
+`functionDeclaration` `object ( `[`FunctionDeclaration`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/FunctionDeclaration)` )`
 
 Output only. Structured representation of a function declaration as defined by the OpenAPI Spec.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;operationId&quot;: string,&quot;functionDeclaration&quot;: {object (FunctionDeclaration)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "operationId": string,
+  "functionDeclaration": {
+    object (FunctionDeclaration)
+  }
+}
+```
 
 ## RuntimeConfig
 
@@ -506,9 +439,9 @@ Runtime configuration to run the extension.
 
 Fields
 
-`defaultParams` ` object ( Struct  ` format)
+`defaultParams` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
-Optional. Default parameters that will be set for all the execution of this extension. If specified, the parameter values can be overridden by values in \[\[ExecuteExtensionRequest.operation\_params\]\] at request time.
+Optional. Default parameters that will be set for all the execution of this extension. If specified, the parameter values can be overridden by values in \[\[ExecuteExtensionRequest.operation_params\]\] at request time.
 
 The struct should be in a form of map with param name as the key and actual param value as the value. E.g. If this operation requires a param "name" to be set to "abc". you can set this to something like {"name": "abc"}.
 
@@ -516,31 +449,34 @@ The struct should be in a form of map with param name as the key and actual para
 
 Runtime configurations for Google first party extensions. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`codeInterpreterRuntimeConfig` ` object ( CodeInterpreterRuntimeConfig  ` )
+`codeInterpreterRuntimeConfig` `object ( `[`CodeInterpreterRuntimeConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#CodeInterpreterRuntimeConfig)` )`
 
 code execution runtime configurations for code interpreter extension.
 
-`vertexAiSearchRuntimeConfig` ` object ( VertexAISearchRuntimeConfig  ` )
+`vertexAiSearchRuntimeConfig` `object ( `[`VertexAISearchRuntimeConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#VertexAISearchRuntimeConfig)` )`
 
 Runtime configuration for Agent Platform Search extension.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;defaultParams&quot;: {object},// GoogleFirstPartyExtensionConfig&quot;codeInterpreterRuntimeConfig&quot;: {object (CodeInterpreterRuntimeConfig)},&quot;vertexAiSearchRuntimeConfig&quot;: {object (VertexAISearchRuntimeConfig)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "defaultParams": {
+    object
+  },
+
+  // GoogleFirstPartyExtensionConfig
+  "codeInterpreterRuntimeConfig": {
+    object (CodeInterpreterRuntimeConfig)
+  },
+  "vertexAiSearchRuntimeConfig": {
+    object (VertexAISearchRuntimeConfig)
+  }
+  // Union type
+}
+```
 
 ## CodeInterpreterRuntimeConfig
 
@@ -554,24 +490,14 @@ Optional. The Cloud Storage bucket for file input of this Extension. If specifie
 
 Optional. The Cloud Storage bucket for file output of this Extension. If specified, write all output files to the Cloud Storage bucket. Vertex Extension Custom code service Agent should be granted file writer to this bucket. If not specified, the file content will be output in response body.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;fileInputGcsBucket&quot;: string,
-  &quot;fileOutputGcsBucket&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "fileInputGcsBucket": string,
+  "fileOutputGcsBucket": string
+}
+```
 
 ## VertexAISearchRuntimeConfig
 
@@ -585,24 +511,14 @@ Optional. Agent Platform Search serving config name. Format: `projects/{project}
 
 Optional. Agent Platform Search engine id. This is used to construct the search request. By setting this engineId, API will construct the serving config using the default value to call search API for the user. The engineId and servingConfigName cannot both be empty at the same time.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;servingConfigName&quot;: string,
-  &quot;engineId&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "servingConfigName": string,
+  "engineId": string
+}
+```
 
 ## ToolUseExample
 
@@ -618,11 +534,11 @@ Required. The display name for example.
 
 Required. Query that should be routed to this tool.
 
-`requestParams` ` object ( Struct  ` format)
+`requestParams` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Request parameters used for executing this tool.
 
-`responseParams` ` object ( Struct  ` format)
+`responseParams` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Response parameters generated by this tool.
 
@@ -634,7 +550,7 @@ Summary of the tool response to the user query.
 
 Target tool to use. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`extensionOperation` ` object ( ExtensionOperation  ` )
+`extensionOperation` `object ( `[`ExtensionOperation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#ExtensionOperation_1)` )`
 
 Extension operation to call.
 
@@ -644,21 +560,28 @@ Function name to call.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;displayName&quot;: string,&quot;query&quot;: string,&quot;requestParams&quot;: {object},&quot;responseParams&quot;: {object},&quot;responseSummary&quot;: string,// Target&quot;extensionOperation&quot;: {object (ExtensionOperation)},&quot;functionName&quot;: string// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "displayName": string,
+  "query": string,
+  "requestParams": {
+    object
+  },
+  "responseParams": {
+    object
+  },
+  "responseSummary": string,
+
+  // Target
+  "extensionOperation": {
+    object (ExtensionOperation)
+  },
+  "functionName": string
+  // Union type
+}
+```
 
 ## ExtensionOperation
 
@@ -674,24 +597,14 @@ Resource name of the extension.
 
 Required. Operation id of the extension.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;extension&quot;: string,
-  &quot;operationId&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "extension": string,
+  "operationId": string
+}
+```
 
 ## ExtensionPrivateServiceConnectConfig
 
@@ -703,52 +616,22 @@ Fields
 
 Required. The service Directory resource name in which the service endpoints associated to the extension are registered. Format: `projects/{projectId}/locations/{locationId}/namespaces/{namespaceId}/services/{serviceId}`
 
-  - The Agent Platform Extension service Agent ( <https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents> ) should be granted `servicedirectory.viewer` and `servicedirectory.pscAuthorizedService` roles on the resource.
+- The Agent Platform Extension service Agent ( <https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents> ) should be granted `servicedirectory.viewer` and `servicedirectory.pscAuthorizedService` roles on the resource.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;serviceDirectory&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "serviceDirectory": string
+}
+```
 
-### `            delete           `
-
-Deletes an Extension.
-
-### `            execute           `
-
-Executes the request against a given extension.
-
-### `            get           `
-
-Gets an Extension.
-
-### `            import           `
-
-Imports an Extension.
-
-### `            list           `
-
-Lists Extensions in a location.
-
-### `            patch           `
-
-Updates an Extension.
-
-### `            query           `
-
-Queries an extension with a default controller.
+| Methods                                                                                                                                  |                                                 |
+|------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/delete)   | Deletes an Extension.                           |
+| [`execute`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/execute) | Executes the request against a given extension. |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/get)         | Gets an Extension.                              |
+| [`import`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/import)   | Imports an Extension.                           |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/list)       | Lists Extensions in a location.                 |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/patch)     | Updates an Extension.                           |
+| [`query`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/query)     | Queries an extension with a default controller. |

@@ -30,7 +30,7 @@ Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoningEngi
 
 ### Query parameters
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Optional. The field mask that controls which fields are updated. If unset or empty, all mutable fields of the FeedbackContext are replaced with the values from feedbackContext.
 
@@ -38,8 +38,8 @@ This is a comma-separated list of fully qualified names of fields. Example: `"us
 
 ### Request body
 
-The request body contains an instance of `  FeedbackContext  ` .
+The request body contains an instance of [`FeedbackContext`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeedbackContext) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

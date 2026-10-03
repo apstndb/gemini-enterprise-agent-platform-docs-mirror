@@ -18,11 +18,11 @@ Identifier. The resource name of the OnlineEvaluator. Format: projects/{project}
 
 `agentResource` `string`
 
-Required. Immutable. The name of the agent that the OnlineEvaluator evaluates periodically. This value is used to filter the traces with a matching cloud.resource\_id and link the evaluation results with relevant dashboards/UIs.
+Required. Immutable. The name of the agent that the OnlineEvaluator evaluates periodically. This value is used to filter the traces with a matching cloud.resource_id and link the evaluation results with relevant dashboards/UIs.
 
 This field is immutable. Once set, it cannot be changed.
 
-`metricSources[]` ` object ( MetricSource  ` )
+`metricSources[]` `object ( `[`MetricSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators#MetricSource)` )`
 
 Required. A list of metric sources to be used for evaluating samples. At least one MetricSource must be provided. Right now, only predefined metrics and registered metrics are supported.
 
@@ -30,25 +30,25 @@ Every registered metric must have `displayName` (or `title` ) and `scoreRange` d
 
 The maximum number of `metricSources` is 25.
 
-`config` ` object ( Config  ` )
+`config` `object ( `[`Config`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators#Config)` )`
 
 Required. Configuration for the OnlineEvaluator.
 
-`state` ` enum ( State  ` )
+`state` `enum ( `[`State`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators#State)` )`
 
 Output only. The state of the OnlineEvaluator.
 
-`stateDetails[]` ` object ( StateDetails  ` )
+`stateDetails[]` `object ( `[`StateDetails`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators#StateDetails)` )`
 
 Output only. Contains additional information about the state of the OnlineEvaluator. This is used to provide more details in the event of a failure.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when the OnlineEvaluator was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when the OnlineEvaluator was last updated.
 
@@ -68,27 +68,43 @@ Required. The data source used to query samples for evaluations. More data sourc
 
 The data source type is immutable once set. Within `cloud_observability` , `log_view` and `trace_view` can be updated; the `eval_scope` and `convention` are immutable. Within `bigquery_agent_analytics` , `result_table` can be updated; `source_table` and `scope` are immutable. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`cloudObservability` ` object ( CloudObservability  ` )
+`cloudObservability` `object ( `[`CloudObservability`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators#CloudObservability)` )`
 
 data source for the OnlineEvaluator, based on Google Cloud Observability stack (Cloud Trace & Cloud Logging).
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;agentResource&quot;: string,&quot;metricSources&quot;: [{object (MetricSource)}],&quot;config&quot;: {object (Config)},&quot;state&quot;: enum (State),&quot;stateDetails&quot;: [{object (StateDetails)}],&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;displayName&quot;: string,// data_source&quot;cloudObservability&quot;: {object (CloudObservability)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "agentResource": string,
+  "metricSources": [
+    {
+      object (MetricSource)
+    }
+  ],
+  "config": {
+    object (Config)
+  },
+  "state": enum (State),
+  "stateDetails": [
+    {
+      object (StateDetails)
+    }
+  ],
+  "createTime": string,
+  "updateTime": string,
+  "displayName": string,
+
+  // data_source
+  "cloudObservability": {
+    object (CloudObservability)
+  }
+  // Union type
+}
+```
 
 ## CloudObservability
 
@@ -110,7 +126,7 @@ Required. Defines the scope of data to be evaluated.
 
 This field is immutable. Once set, it cannot be changed. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`traceScope` ` object ( TraceScope  ` )
+`traceScope` `object ( `[`TraceScope`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators#TraceScope)` )`
 
 scope online evaluation to single traces.
 
@@ -122,27 +138,32 @@ Required. Defines which convention the data source follows.
 
 This field is immutable. Once set, it cannot be changed. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`openTelemetry` ` object ( OpenTelemetry  ` )
+`openTelemetry` `object ( `[`OpenTelemetry`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators#OpenTelemetry)` )`
 
 data source follows OpenTelemetry convention.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;logView&quot;: string,&quot;traceView&quot;: string,// eval_scope&quot;traceScope&quot;: {object (TraceScope)}// Union type// convention&quot;openTelemetry&quot;: {object (OpenTelemetry)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "logView": string,
+  "traceView": string,
+
+  // eval_scope
+  "traceScope": {
+    object (TraceScope)
+  }
+  // Union type
+
+  // convention
+  "openTelemetry": {
+    object (OpenTelemetry)
+  }
+  // Union type
+}
+```
 
 ## TraceScope
 
@@ -150,27 +171,23 @@ If chosen, the online evaluator will evaluate single traces matching specified `
 
 Fields
 
-`filter[]` ` object ( Predicate  ` )
+`filter[]` `object ( `[`Predicate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators#Predicate)` )`
 
 Optional. A list of predicates to filter traces. Multiple predicates are combined using AND.
 
 The maximum number of predicates is 10.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;filter&quot;: [{object (Predicate)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "filter": [
+    {
+      object (Predicate)
+    }
+  ]
+}
+```
 
 ## Predicate
 
@@ -182,31 +199,31 @@ Fields
 
 The type of predicate. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`duration` ` object ( NumericPredicate  ` )
+`duration` `object ( `[`NumericPredicate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators#NumericPredicate)` )`
 
 Filter on the duration of a trace (in seconds).
 
-`totalTokenUsage` ` object ( NumericPredicate  ` )
+`totalTokenUsage` `object ( `[`NumericPredicate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators#NumericPredicate)` )`
 
 Filter on the total token usage within a trace.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// predicate&quot;duration&quot;: {object (NumericPredicate)},&quot;totalTokenUsage&quot;: {object (NumericPredicate)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // predicate
+  "duration": {
+    object (NumericPredicate)
+  },
+  "totalTokenUsage": {
+    object (NumericPredicate)
+  }
+  // Union type
+}
+```
 
 ## NumericPredicate
 
@@ -214,7 +231,7 @@ Defines a predicate for filtering based on a numeric value.
 
 Fields
 
-`comparisonOperator` ` enum ( ComparisonOperator  ` )
+`comparisonOperator` `enum ( `[`ComparisonOperator`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators#ComparisonOperator)` )`
 
 Required. The comparison operator to apply.
 
@@ -222,55 +239,28 @@ Required. The comparison operator to apply.
 
 Required. The value to compare against.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;comparisonOperator&quot;: enum (ComparisonOperator),&quot;value&quot;: number}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "comparisonOperator": enum (ComparisonOperator),
+  "value": number
+}
+```
 
 ## ComparisonOperator
 
 Comparison operators for numeric predicates.
 
-Enums
-
-`COMPARISON_OPERATOR_UNSPECIFIED`
-
-Unspecified comparison operator. This value should not be used.
-
-`LESS`
-
-Less than.
-
-`LESS_OR_EQUAL`
-
-Less than or equal to.
-
-`EQUAL`
-
-Equal to.
-
-`NOT_EQUAL`
-
-Not equal to.
-
-`GREATER_OR_EQUAL`
-
-Greater than or equal to.
-
-`GREATER`
-
-Greater than.
+| Enums                             |                                                                 |
+|-----------------------------------|-----------------------------------------------------------------|
+| `COMPARISON_OPERATOR_UNSPECIFIED` | Unspecified comparison operator. This value should not be used. |
+| `LESS`                            | Less than.                                                      |
+| `LESS_OR_EQUAL`                   | Less than or equal to.                                          |
+| `EQUAL`                           | Equal to.                                                       |
+| `NOT_EQUAL`                       | Not equal to.                                                   |
+| `GREATER_OR_EQUAL`                | Greater than or equal to.                                       |
+| `GREATER`                         | Greater than.                                                   |
 
 ## OpenTelemetry
 
@@ -282,23 +272,13 @@ Fields
 
 Required. Defines which version OTel Semantic Convention the data follows. Can be "1.39.0" or newer.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;semconvVersion&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "semconvVersion": string
+}
+```
 
 ## MetricSource
 
@@ -310,7 +290,7 @@ Fields
 
 The source of the metric. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`metric` ` object ( Metric  ` )
+`metric` `object ( `[`Metric`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric)` )`
 
 Inline metric config.
 
@@ -320,21 +300,19 @@ Optional. Resource name for registered metric.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// metric_source&quot;metric&quot;: {object (Metric)},&quot;metricResourceName&quot;: string// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // metric_source
+  "metric": {
+    object (Metric)
+  },
+  "metricResourceName": string
+  // Union type
+}
+```
 
 ## Config
 
@@ -342,7 +320,7 @@ Configuration for sampling behavior of the OnlineEvaluator. The OnlineEvaluator 
 
 Fields
 
-`maxEvaluatedSamplesPerRun` `string ( int64 format)`
+`maxEvaluatedSamplesPerRun` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Optional. The maximum number of evaluations to perform per run. If set to 0, the number is unbounded.
 
@@ -350,27 +328,25 @@ Optional. The maximum number of evaluations to perform per run. If set to 0, the
 
 Required. The sampling method used to select traces for evaluation. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`randomSampling` ` object ( RandomSampling  ` )
+`randomSampling` `object ( `[`RandomSampling`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators#RandomSampling)` )`
 
 Random sampling method.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;maxEvaluatedSamplesPerRun&quot;: string,// sampling_method&quot;randomSampling&quot;: {object (RandomSampling)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "maxEvaluatedSamplesPerRun": string,
+
+  // sampling_method
+  "randomSampling": {
+    object (RandomSampling)
+  }
+  // Union type
+}
+```
 
 ## RandomSampling
 
@@ -382,51 +358,25 @@ Fields
 
 Required. The percentage of traces to sample for evaluation. Must be an integer between `1` and `100` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;percentage&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "percentage": integer
+}
+```
 
 ## State
 
 The state of the OnlineEvaluator.
 
-Enums
-
-`STATE_UNSPECIFIED`
-
-Default value.
-
-`ACTIVE`
-
-Indicates that the OnlineEvaluator is active.
-
-`SUSPENDED`
-
-Indicates that the OnlineEvaluator is suspended. In this state, the OnlineEvaluator will not evaluate any samples.
-
-`FAILED`
-
-Indicates that the OnlineEvaluator is in a failed state.
-
-This can happen if, for example, the `logView` or `traceView` set on the `CloudObservability` does not exist.
-
-`WARNING`
-
-Indicates that the OnlineEvaluator is in a warning state. This can happen if, for example, some of the metrics in the `metricSources` are invalid. Evaluation will still run with the remaining valid metrics.
+| Enums               |                                                                                                                                                                                                                |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `STATE_UNSPECIFIED` | Default value.                                                                                                                                                                                                 |
+| `ACTIVE`            | Indicates that the OnlineEvaluator is active.                                                                                                                                                                  |
+| `SUSPENDED`         | Indicates that the OnlineEvaluator is suspended. In this state, the OnlineEvaluator will not evaluate any samples.                                                                                             |
+| `FAILED`            | Indicates that the OnlineEvaluator is in a failed state. This can happen if, for example, the `logView` or `traceView` set on the `CloudObservability` does not exist.                                         |
+| `WARNING`           | Indicates that the OnlineEvaluator is in a warning state. This can happen if, for example, some of the metrics in the `metricSources` are invalid. Evaluation will still run with the remaining valid metrics. |
 
 ## StateDetails
 
@@ -438,50 +388,20 @@ Fields
 
 Output only. Human-readable message describing the state of the OnlineEvaluator.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;message&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "message": string
+}
+```
 
-### `            activate           `
-
-Activates an OnlineEvaluator.
-
-### `            create           `
-
-Creates an OnlineEvaluator in the given project and location.
-
-### `            delete           `
-
-Deletes an OnlineEvaluator.
-
-### `            get           `
-
-Gets details of an OnlineEvaluator.
-
-### `            list           `
-
-Lists the OnlineEvaluators for the given project and location.
-
-### `            patch           `
-
-Updates the fields of an OnlineEvaluator.
-
-### `            suspend           `
-
-Suspends an OnlineEvaluator.
+| Methods                                                                                                                                          |                                                                |
+|--------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| [`activate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators/activate) | Activates an OnlineEvaluator.                                  |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators/create)     | Creates an OnlineEvaluator in the given project and location.  |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators/delete)     | Deletes an OnlineEvaluator.                                    |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators/get)           | Gets details of an OnlineEvaluator.                            |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators/list)         | Lists the OnlineEvaluators for the given project and location. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators/patch)       | Updates the fields of an OnlineEvaluator.                      |
+| [`suspend`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.onlineEvaluators/suspend)   | Suspends an OnlineEvaluator.                                   |

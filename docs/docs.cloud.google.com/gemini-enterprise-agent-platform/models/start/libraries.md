@@ -16,50 +16,13 @@ Gemini Enterprise Agent Platform libraries are only supported on Gemini Enterpri
 
 ## Key library updates
 
-<table>
-<thead>
-<tr class="header">
-<th>Language</th>
-<th>Gemini Enterprise Agent Platform library</th>
-<th>New library (Recommended)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="https://ai.google.dev/gemini-api/docs/libraries#python"><strong>Python</strong></a></td>
-<td><a href="https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform"><code dir="ltr" translate="no">google-cloud-aiplatform</code></a><br />
-GenerativeModel Module Deprecated in May 2026</td>
-<td><a href="https://github.com/googleapis/python-genai"><code dir="ltr" translate="no">google-genai</code></a></td>
-</tr>
-<tr class="even">
-<td><a href="https://ai.google.dev/gemini-api/docs/libraries#go"><strong>Go</strong></a></td>
-<td><a href="https://pkg.go.dev/cloud.google.com/go/vertexai"><code dir="ltr" translate="no">cloud.google.com/vertexai</code></a><br />
-Deprecated in May 2026</td>
-<td><a href="http://google.golang.org/genai"><code dir="ltr" translate="no">google.golang.org/genai</code></a></td>
-</tr>
-<tr class="odd">
-<td><a href="https://ai.google.dev/gemini-api/docs/libraries#javascript"><strong>JavaScript and TypeScript</strong></a></td>
-<td><a href="https://www.npmjs.com/package/@google-cloud/vertexai"><code dir="ltr" translate="no">@google-cloud/vertexai</code></a><br />
-Deprecated in May 2026</td>
-<td><a href="https://www.npmjs.com/package/@google/genai"><code dir="ltr" translate="no">@google/genai</code></a><br />
-Available in <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/libraries#install-javascript">Preview</a></td>
-</tr>
-<tr class="even">
-<td><a href="https://ai.google.dev/gemini-api/docs/libraries#java"><strong>Java</strong></a></td>
-<td><a href="https://mvnrepository.com/artifact/com.google.cloud/google-cloud-vertexai"><code dir="ltr" translate="no">google-cloud-vertexai</code></a><br />
-Deprecated in May 2026</td>
-<td><a href="https://github.com/googleapis/java-genai"><code dir="ltr" translate="no">java-genai</code></a><br />
-Available in <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/libraries#install-java">Preview</a></td>
-</tr>
-<tr class="odd">
-<td><a href="https://ai.google.dev/gemini-api/docs/libraries#csharp"><strong>.NET</strong></a></td>
-<td><a href="https://www.nuget.org/packages/Google.Cloud.AIPlatform.V1"><code dir="ltr" translate="no">Google.Cloud.AIPlatform.V1</code></a><br />
-Deprecated in May 2026</td>
-<td><a href="https://github.com/googleapis/dotnet-genai"><code dir="ltr" translate="no">Google.GenAI</code></a><br />
-Available in <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/libraries#install-dotnet">Preview</a></td>
-</tr>
-</tbody>
-</table>
+| Language                                                                                    | Gemini Enterprise Agent Platform library                                                                                                                                 | New library (Recommended)                                                                                                                                                                       |
+|---------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [**Python**](https://ai.google.dev/gemini-api/docs/libraries#python)                        | [`google-cloud-aiplatform`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform) GenerativeModel Module Deprecated in May 2026 | [`google-genai`](https://github.com/googleapis/python-genai)                                                                                                                                    |
+| [**Go**](https://ai.google.dev/gemini-api/docs/libraries#go)                                | [`cloud.google.com/vertexai`](https://pkg.go.dev/cloud.google.com/go/vertexai) Deprecated in May 2026                                                                    | [`google.golang.org/genai`](http://google.golang.org/genai)                                                                                                                                     |
+| [**JavaScript and TypeScript**](https://ai.google.dev/gemini-api/docs/libraries#javascript) | [`@google-cloud/vertexai`](https://www.npmjs.com/package/@google-cloud/vertexai) Deprecated in May 2026                                                                  | [`@google/genai`](https://www.npmjs.com/package/@google/genai) Available in [Preview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/libraries#install-javascript) |
+| [**Java**](https://ai.google.dev/gemini-api/docs/libraries#java)                            | [`google-cloud-vertexai`](https://mvnrepository.com/artifact/com.google.cloud/google-cloud-vertexai) Deprecated in May 2026                                              | [`java-genai`](https://github.com/googleapis/java-genai) Available in [Preview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/libraries#install-java)             |
+| [**.NET**](https://ai.google.dev/gemini-api/docs/libraries#csharp)                          | [`Google.Cloud.AIPlatform.V1`](https://www.nuget.org/packages/Google.Cloud.AIPlatform.V1) Deprecated in May 2026                                                         | [`Google.GenAI`](https://github.com/googleapis/dotnet-genai) Available in [Preview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/libraries#install-dotnet)       |
 
 Users are encouraged to start with the new library and migrate from previous libraries.
 
@@ -71,23 +34,20 @@ Python Go JavaScript/TypeScript Java .NET
 
 Install our [Python library](https://pypi.org/project/google-genai) by running:
 
-``` 
-    pip install google-genai
-  
+```
+pip install google-genai
 ```
 
 Install our [Go library](https://pkg.go.dev/google.golang.org/genai) by running:
 
-``` 
-    go get google.golang.org/genai
-  
+```
+go get google.golang.org/genai
 ```
 
 Install our [JavaScript/TypeScript library](https://www.npmjs.com/package/@google/genai) by running:
 
-``` 
-    npm install @google/genai
-  
+```
+npm install @google/genai
 ```
 
 The [new JavaScript and TypeScript library](https://ai.google.dev/gemini-api/docs/libraries) is available in [*preview*](https://cloud.google.com/products#product-launch-stages) , which means it may not be feature complete and that we may need to introduce breaking changes.
@@ -96,7 +56,7 @@ However, we recommend that you start using the [new SDK](https://www.npmjs.com/p
 
 Install our [Java library](https://github.com/googleapis/java-genai) by adding the dependencies in Maven:
 
-``` 
+```
 <dependencies>
   <dependency>
     <groupId>com.google.genai</groupId>
@@ -104,7 +64,6 @@ Install our [Java library](https://github.com/googleapis/java-genai) by adding t
     <version>0.8.0</version>
   </dependency>
 </dependencies>
-  
 ```
 
 The new Java library is available in [*preview*](https://cloud.google.com/products#product-launch-stages) , which means it may not be feature complete and that we may need to introduce breaking changes.
@@ -113,9 +72,8 @@ However, we recommend that you start using the [new SDK](https://github.com/goog
 
 Install our [.NET library](https://www.nuget.org/packages/Google.GenAI) by running:
 
-``` 
-    dotnet add package Google.GenAI
-  
+```
+dotnet add package Google.GenAI
 ```
 
 The new .NET library is available in [*preview*](https://cloud.google.com/products#product-launch-stages) , which means it may not be feature complete and that we may need to introduce breaking changes.

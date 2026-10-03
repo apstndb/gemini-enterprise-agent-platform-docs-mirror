@@ -10,26 +10,23 @@ A TrainingJob that tunes Hypererparameters of a custom code Model.
 
 Fields
 
-`inputs` ` object ( HyperparameterTuningJobSpec  ` )
+`inputs` `object ( `[`HyperparameterTuningJobSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/HyperparameterTuningJobSpec)` )`
 
 The input parameters of this HyperparameterTuningTask.
 
-`metadata` ` object ( HyperparameterTuningJobMetadata  ` )
+`metadata` `object ( `[`HyperparameterTuningJobMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/HyperparameterTuningJobMetadata)` )`
 
 The metadata information.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;inputs&quot;: {object (HyperparameterTuningJobSpec)},&quot;metadata&quot;: {object (HyperparameterTuningJobMetadata)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "inputs": {
+    object (HyperparameterTuningJobSpec)
+  },
+  "metadata": {
+    object (HyperparameterTuningJobMetadata)
+  }
+}
+```

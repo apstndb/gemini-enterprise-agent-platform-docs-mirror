@@ -13,28 +13,32 @@ This guide describes how to access your Gemini Enterprise Agent Platform Workben
 To set up [SSH port forwarding](https://cloud.google.com/solutions/connecting-securely#port-forwarding-over-ssh) , complete the following steps, and then access your JupyterLab session through a local browser:
 
 1.  Run the following command by using the [Google Cloud CLI](https://docs.cloud.google.com/sdk/gcloud) in your preferred terminal or in [Cloud Shell](https://console.cloud.google.com/?cloudshell=true) :
-    
-        gcloud compute ssh \
-            --project PROJECT_ID \
-            --zone ZONE \
-            INSTANCE_NAME \
-            -- -L 8080:localhost:8080
-    
+
+    ```
+    gcloud compute ssh \
+        --project PROJECT_ID \
+        --zone ZONE \
+        INSTANCE_NAME \
+        -- -L 8080:localhost:8080
+    ```
+
     Replace the following:
-    
-      - `  PROJECT_ID  ` : your [Google Cloud project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
-      - `  ZONE  ` : the [zone](https://docs.cloud.google.com/compute/docs/regions-zones) where your instance is located
-      - `  INSTANCE_NAME  ` : the name of your instance
-    
+
+    - `PROJECT_ID` : your [Google Cloud project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
+    - `ZONE` : the [zone](https://docs.cloud.google.com/compute/docs/regions-zones) where your instance is located
+    - `INSTANCE_NAME` : the name of your instance
+
     If using Cloud Shell to run the command, add a `-4` to the SSH flags to use IPv4 to connect. For example:
-    
-        -- -4 -L LOCAL_PORT:localhost:REMOTE_PORT
+
+    ```
+    -- -4 -L LOCAL_PORT:localhost:REMOTE_PORT
+    ```
 
 2.  Access your JupyterLab session through a local browser:
-    
-      - If you ran the command on your local machine, visit `https://localhost:8080` to access JupyterLab.
-    
-      - If you ran the command using [Cloud Shell](https://console.cloud.google.com/?cloudshell=true) , access JupyterLab through the ![](https://docs.cloud.google.com/static/shell/docs/images/web_preview.svg) Web Preview on port 8080.
+
+    - If you ran the command on your local machine, visit `https://localhost:8080` to access JupyterLab.
+
+    - If you ran the command using [Cloud Shell](https://console.cloud.google.com/?cloudshell=true) , access JupyterLab through the ![](https://docs.cloud.google.com/static/shell/docs/images/web_preview.svg) Web Preview on port 8080.
 
 ## Why you might need to access your instance by using SSH
 
@@ -42,13 +46,13 @@ To get HTTPS access to JupyterLab, your Agent Platform Workbench instance must h
 
 The following are common reasons why you might not have HTTPS access to JupyterLab:
 
-  - Your JupyterLab instance's proxy-mode metadata setting is incorrect.
+- Your JupyterLab instance's proxy-mode metadata setting is incorrect.
 
-  - Your network is configured to block internet access for the virtual machines (VMs) running JupyterLab notebooks.
+- Your network is configured to block internet access for the virtual machines (VMs) running JupyterLab notebooks.
 
-  - Your instance doesn't have an external IP address.
+- Your instance doesn't have an external IP address.
 
-  - Your [VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview) settings block access to [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/overview) .
+- Your [VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview) settings block access to [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/overview) .
 
 The following sections show how to resolve these issues.
 

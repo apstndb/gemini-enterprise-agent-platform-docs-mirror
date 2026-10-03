@@ -17,7 +17,7 @@ VertexRanker is configured as the reranker for the `combine.ranker` field of the
 The following table lists ranker configuration fields.
 
 | Field                                                            | Required | Description                                                                                                                                                                                                                                                                                              |
-| :--------------------------------------------------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `combine.ranker.rrf.weights`                                     | Yes      | The weights for the RRF fusion of the underlying search results.                                                                                                                                                                                                                                         |
 | `combine.ranker.vertex_ranker.model`                             | Yes      | The ranking model name. Supported values: `semantic-ranker-fast@latest` , `semantic-ranker-default@latest` , `semantic-ranker-fast-004` , `semantic-ranker-default-004` . See the [Ranking API models](https://docs.cloud.google.com/generative-ai-app-builder/docs/ranking#models) for details on each. |
 | `combine.ranker.vertex_ranker.top_n`                             | Yes      | The maximum number of candidates from the fused list to send to the ranker. Valid values are from `1` to `1000` .                                                                                                                                                                                        |
@@ -28,27 +28,29 @@ The following table lists ranker configuration fields.
 
 The following example demonstrates the body of a request.
 
-    {
-      "searches": [
-        { "semantic_search": { "search_text": "running shoes", "search_field": "embedding", "task_type": "RETRIEVAL_QUERY", "top_k": 50 } },
-        { "text_search":     { "search_text": "running shoes", "data_field_names": ["title"], "top_k": 50 } }
-      ],
-      "combine": {
-        "top_k": 10,
-        "ranker": {
-          "rrf": { "weights": [1.0, 1.0] },
-          "vertex_ranker": {
-            "model": "semantic-ranker-fast@latest",
-            "top_n": 50,
-            "text_record_spec": {
-              "query": "running shoes",
-              "title_template": "{title}",
-              "content_template": "{body.text}"
-            }
-          }
+```
+{
+  "searches": [
+    { "semantic_search": { "search_text": "running shoes", "search_field": "embedding", "task_type": "RETRIEVAL_QUERY", "top_k": 50 } },
+    { "text_search":     { "search_text": "running shoes", "data_field_names": ["title"], "top_k": 50 } }
+  ],
+  "combine": {
+    "top_k": 10,
+    "ranker": {
+      "rrf": { "weights": [1.0, 1.0] },
+      "vertex_ranker": {
+        "model": "semantic-ranker-fast@latest",
+        "top_n": 50,
+        "text_record_spec": {
+          "query": "running shoes",
+          "title_template": "{title}",
+          "content_template": "{body.text}"
         }
       }
     }
+  }
+}
+```
 
 Templates use dot-paths to Data Object data fields, for example, `{title}` or `{nested.field}` . These fields must exist in the Collection schema, otherwise the request is rejected during validation. If a Data Object is missing the provided field, the server transparently refetches the full record from storage so the template can still be populated.
 
@@ -59,7 +61,7 @@ VertexRanker on Agent Retrieval uses a **free-tier allowance with usage-based ov
 The following table lists the quota values.
 
 | Item                            | Value                                                                      |
-| :------------------------------ | :------------------------------------------------------------------------- |
+|---------------------------------|----------------------------------------------------------------------------|
 | Free-tier allowance             | 80,000 ranking units per consumer project per 30-day period.               |
 | Overage                         | Billed at standard Ranking API pricing on the consumer project.            |
 | Maximum records per rerank call | 1000 ( `top_n` must be in the range `[1, 1000]` and `top_k` \<= `top_n` ). |
@@ -72,13 +74,13 @@ Before you can use VertexRanker, the Discovery Engine must be enabled on the con
 
 ## Failure handling and warnings
 
-VertexRanker is a best-effort reranker. If the ranking call fails, the `BatchSearchDataObjects` RPC still succeeds and returns the RRF-fused results truncated to top\_k. The failure is reported in the `search_response_metadata.warnings` field in the response. The full status code from the Ranking API is preserved. The warning code for unexpected statuses is `UNAVAILABLE` with the warning message: `"Reranking is temporarily unavailable. Returning fused (RRF) results without semantic reranking."`
+VertexRanker is a best-effort reranker. If the ranking call fails, the `BatchSearchDataObjects` RPC still succeeds and returns the RRF-fused results truncated to top_k. The failure is reported in the `search_response_metadata.warnings` field in the response. The full status code from the Ranking API is preserved. The warning code for unexpected statuses is `UNAVAILABLE` with the warning message: `"Reranking is temporarily unavailable. Returning fused (RRF) results without semantic reranking."`
 
 ### Failure conditions
 
 The entire `BatchSearchDataObjects` RPC fails with `FAILED_PRECONDITION` (no fallback to RRF) in the following cases.
 
-  - **Discovery Engine API not enabled** — the Ranking API returns `FAILED_PRECONDITION` with the message `Discovery Engine API is not enabled for the consumer project /<N/>. Please enable the API and try again."` Fix: enable the Discovery Engine API on the consumer project.
+- **Discovery Engine API not enabled** — the Ranking API returns `FAILED_PRECONDITION` with the message `Discovery Engine API is not enabled for the consumer project /<N/>. Please enable the API and try again."` Fix: enable the Discovery Engine API on the consumer project.
 
 The customer must enable the Discovery Engine for the consumer project for reranking to occur.
 
@@ -86,46 +88,10 @@ The following table lists warning codes, the typical causes generating the warni
 
 > **Note:** Warning messages are for demonstration purposes only and shouldn't be used for validation.
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Warning Code</th>
-<th style="text-align: left;">Typical Cause</th>
-<th style="text-align: left;">Warning Message</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><code dir="ltr" translate="no">RESOURCE_EXHAUSTED</code></td>
-<td style="text-align: left;">Exceeded a Ranking API quota on the consumer project. Note: exceeding the 80,000 ranking unit allowance does not cause this warning; overage is billed instead.</td>
-<td style="text-align: left;"><code dir="ltr" translate="no">&lt;Quota exceeded message&gt;; RankService.Rank call failed for consumer project &lt;N&gt; with request query: &lt;query&gt; and &lt;model&gt;: semantic-ranker-fast@latest number of records: &lt;N&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code dir="ltr" translate="no">DEADLINE_EXCEEDED</code></td>
-<td style="text-align: left;"><code dir="ltr" translate="no">Ranker.Rank</code> did not complete within the request deadline.</td>
-<td style="text-align: left;"><code dir="ltr" translate="no">&lt;deadline-exceeded message from Ranker.Rank&gt;; RankService.Rank call failed for consumer project &lt;N&gt; with request query: &lt;query&gt; and &lt;model&gt;: semantic-ranker-fast@latest number of records: &lt;N&gt;</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code dir="ltr" translate="no">UNAVAILABLE</code></td>
-<td style="text-align: left;">Either <code dir="ltr" translate="no">Ranker.Rank</code> returned <code dir="ltr" translate="no">UNAVAILABLE</code> , or it returned a non-preserved code (for example, <code dir="ltr" translate="no">INTERNAL</code> ) which is collapsed to <code dir="ltr" translate="no">UNAVAILABLE</code> .</td>
-<td style="text-align: left;">If underlying code is <code dir="ltr" translate="no">UNAVAILABLE</code> : <code dir="ltr" translate="no">"RankService.Rank call failed for consumer project...</code><br />
-<br />
-Otherwise: <code dir="ltr" translate="no">"Reranking is temporarily unavailable. Returning fused (RRF) results without semantic reranking."</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code dir="ltr" translate="no">FAILED_PRECONDITION</code></td>
-<td style="text-align: left;">Any <code dir="ltr" translate="no">FAILED_PRECONDITION</code> returned by the Ranking API.</td>
-<td style="text-align: left;"><code dir="ltr" translate="no">RankService.Rank call failed for consumer project &lt;N&gt; with request query: &lt;query&gt; and &lt;model&gt;: semantic-ranker-fast@latest number of records: &lt;N&gt;</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code dir="ltr" translate="no">CANCELLED</code></td>
-<td style="text-align: left;">The caller cancelled the <code dir="ltr" translate="no">BatchSearchDataObjects</code> RPC before reranking completed.</td>
-<td style="text-align: left;"><code dir="ltr" translate="no">&lt;cancellation message from the cancelled RankService.Rank RPC&gt;; RankService.Rank call failed for consumer project &lt;N&gt; with request query: &lt;query&gt; and &lt;model&gt;: semantic-ranker-fast@latest number of records: &lt;N&gt;</code></td>
-</tr>
-</tbody>
-</table>
+| Warning Code          | Typical Cause                                                                                                                                                   | Warning Message                                                                                                                                                                                                     |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `RESOURCE_EXHAUSTED`  | Exceeded a Ranking API quota on the consumer project. Note: exceeding the 80,000 ranking unit allowance does not cause this warning; overage is billed instead. | `<Quota exceeded message>; RankService.Rank call failed for consumer project <N> with request query: <query> and <model>: semantic-ranker-fast@latest number of records: <N>`                                       |
+| `DEADLINE_EXCEEDED`   | `Ranker.Rank` did not complete within the request deadline.                                                                                                     | `<deadline-exceeded message from Ranker.Rank>; RankService.Rank call failed for consumer project <N> with request query: <query> and <model>: semantic-ranker-fast@latest number of records: <N>`                   |
+| `UNAVAILABLE`         | Either `Ranker.Rank` returned `UNAVAILABLE` , or it returned a non-preserved code (for example, `INTERNAL` ) which is collapsed to `UNAVAILABLE` .              | If underlying code is `UNAVAILABLE` : `"RankService.Rank call failed for consumer project...` Otherwise: `"Reranking is temporarily unavailable. Returning fused (RRF) results without semantic reranking."`        |
+| `FAILED_PRECONDITION` | Any `FAILED_PRECONDITION` returned by the Ranking API.                                                                                                          | `RankService.Rank call failed for consumer project <N> with request query: <query> and <model>: semantic-ranker-fast@latest number of records: <N>`                                                                 |
+| `CANCELLED`           | The caller cancelled the `BatchSearchDataObjects` RPC before reranking completed.                                                                               | `<cancellation message from the cancelled RankService.Rank RPC>; RankService.Rank call failed for consumer project <N> with request query: <query> and <model>: semantic-ranker-fast@latest number of records: <N>` |

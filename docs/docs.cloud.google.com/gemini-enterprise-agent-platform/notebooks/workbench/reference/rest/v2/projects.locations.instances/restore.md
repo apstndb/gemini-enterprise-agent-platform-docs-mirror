@@ -14,57 +14,61 @@ instances.restore restores an Instance from a BackupSource.
 
 ### Path parameters
 
-Parameters
-
-`name`
-
-`string`
-
-Required. Format: `projects/{projectId}/locations/{location}/instances/{instanceId}`
-
-Authorization requires the following [IAM](https://cloud.google.com/iam/docs/) permission on the specified resource `name` :
-
-  - `notebooks.instances.update`
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>name</code></td>
+<td><p><code>string</code></p>
+<p>Required. Format: <code>projects/{projectId}/locations/{location}/instances/{instanceId}</code></p>
+<p>Authorization requires the following <a href="https://cloud.google.com/iam/docs/">IAM</a> permission on the specified resource <code>name</code> :</p>
+<ul>
+<li><code>notebooks.instances.update</code></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
 
 ### Request body
 
 The request body contains data with the following structure:
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// Union field Source can be only one of the following:&quot;snapshot&quot;: {object (Snapshot)}// End of list of possible types for union field Source.}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
 
-Union field `Source` . Source to be restored from. `Source` can be only one of the following:
+  // Union field Source can be only one of the following:
+  "snapshot": {
+    object (Snapshot)
+  }
+  // End of list of possible types for union field Source.
+}
+```
 
-`snapshot`
-
-` object ( Snapshot  ` )
-
-Snapshot to be used for restore.
+| Fields                                                                                        |                                                                                                                                                                                                                  |
+|-----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Union field `Source` . Source to be restored from. `Source` can be only one of the following: |                                                                                                                                                                                                                  |
+| `snapshot`                                                                                    | `object ( `[`Snapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/restore#Snapshot)` )` Snapshot to be used for restore. |
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ### Authorization scopes
 
 Requires the following OAuth scope:
 
-  - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/cloud-platform`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -72,35 +76,16 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 
 Snapshot represents the snapshot of the data disk used to restore the Workbench Instance from. Refers to: compute/v1/projects/{projectId}/global/snapshots/{snapshotId}
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;snapshotId&quot;: string,
-  &quot;projectId&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "snapshotId": string,
+  "projectId": string
+}
+```
 
-`snapshotId`
-
-`string`
-
-Required. The ID of the snapshot.
-
-`projectId`
-
-`string`
-
-Required. The project ID of the snapshot.
+| Fields       |                                                    |
+|--------------|----------------------------------------------------|
+| `snapshotId` | `string` Required. The ID of the snapshot.         |
+| `projectId`  | `string` Required. The project ID of the snapshot. |

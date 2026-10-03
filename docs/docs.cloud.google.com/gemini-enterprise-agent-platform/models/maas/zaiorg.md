@@ -26,9 +26,9 @@ GLM 5.2 is a model from GLM built for long-horizon agentic and coding tasks, wit
 
 For managed models, you can use curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names:
 
-  - For GLM 4.7, use `glm-4.7-maas`
-  - For GLM 5, use `glm-5-maas`
-  - For GLM 5.2, use `glm-5.2-maas`
+- For GLM 4.7, use `glm-4.7-maas`
+- For GLM 5, use `glm-5-maas`
+- For GLM 5.2, use `glm-5.2-maas`
 
 To learn how to make streaming and non-streaming calls to GLM models, see [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .
 
@@ -59,19 +59,19 @@ GLM models are available in the following regions:
 <tr class="odd">
 <td>GLM 4.7</td>
 <td><ul>
-<li><code dir="ltr" translate="no">global</code></li>
+<li><code>global</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td>GLM 5</td>
 <td><ul>
-<li><code dir="ltr" translate="no">global</code></li>
+<li><code>global</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
 <td>GLM 5.2</td>
 <td><ul>
-<li><code dir="ltr" translate="no">global</code></li>
+<li><code>global</code></li>
 </ul></td>
 </tr>
 </tbody>

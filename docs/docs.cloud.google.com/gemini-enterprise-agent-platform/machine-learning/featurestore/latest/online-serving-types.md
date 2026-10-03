@@ -8,13 +8,13 @@ data_source: docs.cloud.google.com
 
 Vertex AI Feature Store offers the following types of online serving that you can use to serve features for online predictions:
 
-  - [Bigtable online serving](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#bigtable_serving)
+- [Bigtable online serving](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#bigtable_serving)
 
-  - [Optimized online serving](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#optimized_serving) ( [Deprecated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#optimized_serving) ), where you can choose one of the following configurations:
-    
-      - [Optimized online serving with public endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#optimized_public)
-    
-      - [Optimized online serving with Private Service Connect endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#optimized_private)
+- [Optimized online serving](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#optimized_serving) ( [Deprecated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#optimized_serving) ), where you can choose one of the following configurations:
+
+  - [Optimized online serving with public endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#optimized_public)
+
+  - [Optimized online serving with Private Service Connect endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#optimized_private)
 
 ## Bigtable online serving
 
@@ -33,7 +33,7 @@ To use Bigtable online serving, you need to perform the following steps:
 ## Optimized online serving
 
 > Gemini Enterprise Agent Platform Feature Store Optimized online serving is deprecated. Beginning on May 17, 2026, no new features will be added and only critical patches will be provided. On February 17, 2027, the capability will be fully sunset and APIs will no longer be available.
-> 
+>
 > To improve latency and cost optimizations, migrate to [Bigtable online serving](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#bigtable_serving) . To efficiently store and serve embeddings, use the purpose-built [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) .
 
 With Optimized online serving, you can serve feature values from either a public endpoint or a Private Service Connect endpoint.
@@ -76,8 +76,8 @@ If you use any other configuration while setting up your feature data source and
 
 ## What's next
 
-  - Learn how to [create an online store instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-onlinestore) .
+- Learn how to [create an online store instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-onlinestore) .
 
-  - Learn how to [create a feature view](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-feature) .
+- Learn how to [create a feature view](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-feature) .
 
-  - Learn how to [serve feature values](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/serve-feature-values) .
+- Learn how to [serve feature values](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/serve-feature-values) .

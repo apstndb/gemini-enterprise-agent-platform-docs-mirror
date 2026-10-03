@@ -11,7 +11,7 @@ data_source: docs.cloud.google.com
 After a document is ingested, RAG Engine on Gemini Enterprise Agent Platform runs a set of transformations to prepare the data for indexing. You can control your use cases using the following parameters:
 
 | Parameter       | Description                                                                                                                                                                           |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `chunk_size`    | When documents are ingested into an index, they're split into chunks. The `chunk_size` parameter (in tokens) specifies the size of the chunk. The default chunk size is 1,024 tokens. |
 | `chunk_overlap` | By default, documents are split into chunks with a certain amount of overlap to improve relevance and retrieval quality. The default chunk overlap is 256 tokens.                     |
 
@@ -21,4 +21,4 @@ For example, if you convert 1,000 words into an embedding array that was meant f
 
 ## What's next
 
-  - Use [Document AI layout parser with RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/layout-parser-integration) .
+- Use [Document AI layout parser with RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/layout-parser-integration) .

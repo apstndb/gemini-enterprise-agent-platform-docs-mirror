@@ -10,25 +10,21 @@ Defines a direct source of content from which to generate the memories.
 
 Fields
 
-`events[]` ` object ( Event  ` )
+`events[]` `object ( `[`Event`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DirectContentsSource#Event)` )`
 
 Required. The source content (i.e. chat history) to generate memories from.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;events&quot;: [{object (Event)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "events": [
+    {
+      object (Event)
+    }
+  ]
+}
+```
 
 ## Event
 
@@ -36,22 +32,16 @@ A single piece of conversation from which to generate memories.
 
 Fields
 
-`content` ` object ( Content  ` )
+`content` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Required. A single piece of content from which to generate memories.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;content&quot;: {object (Content)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "content": {
+    object (Content)
+  }
+}
+```

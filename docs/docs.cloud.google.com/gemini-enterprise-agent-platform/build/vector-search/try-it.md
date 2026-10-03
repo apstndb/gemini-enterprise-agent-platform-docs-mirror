@@ -6,7 +6,7 @@ description: Experience Vector Search's state-of-the-art technology with the int
 data_source: docs.cloud.google.com
 ---
 
-Experience the power of state-of-the-art vector search technology with the Vector Search interactive demo. Leveraging real-world datasets, the demo provides a realistic example that will help you learn how Vector Search works, explore semantic and hybrid search, and see reranking in action. Submit a brief description of an animal, plant, ecommerce merchandise, or other item, and let Vector Search do the rest\!
+Experience the power of state-of-the-art vector search technology with the Vector Search interactive demo. Leveraging real-world datasets, the demo provides a realistic example that will help you learn how Vector Search works, explore semantic and hybrid search, and see reranking in action. Submit a brief description of an animal, plant, ecommerce merchandise, or other item, and let Vector Search do the rest!
 
 > **Note:** Datasets are provided by [Mercari](https://www.mercari.com/) (a popular online marketplace in the US and Japan) and [GBIF (Global Biodiversity Information Facility)](https://www.gbif.org/) .
 
@@ -14,7 +14,7 @@ Experience the power of state-of-the-art vector search technology with the Vecto
 
 ![Query results using the Vector Search interactive live demo](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/build/vector-search/images/vector-search-try-it-results.png)
 
-## Try it\!
+## Try it!
 
 Experiment with the different options in the demo to get a head start with Vector Search and understand the basics of vector search technology.
 
@@ -32,7 +32,7 @@ To learn more about what you can do in the demo, see [User Interface](https://do
 
 This section describes settings in the UI you can use to control the results Vector Search returns and how they are ranked.
 
------
+------------------------------------------------------------------------
 
 ### Dataset
 
@@ -40,7 +40,7 @@ Use the **Dataset** drop-down to choose which dataset Vector Search will run you
 
 ![Query results using the Vector Search interactive live demo](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/build/vector-search/images/vector-search-try-it-dataset-dropdown.png)
 
------
+------------------------------------------------------------------------
 
 ### Query
 
@@ -48,7 +48,7 @@ For the **Query** field, add a description or one or more keywords to specify wh
 
 ![Create or autogenerate a Vector Search query](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/build/vector-search/images/vector-search-try-it-generate-query-submit-cropped.png)
 
------
+------------------------------------------------------------------------
 
 ### Modify
 
@@ -56,19 +56,19 @@ Several options are available that modify the results Vector Search returns:
 
 ![UI settings for the Vector Search interactive live demo](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/build/vector-search/images/vector-search-try-it-ui-controls.png)
 
-  - Click **Rows** and choose the maximum number of search results that you want Vector Search to return.
+- Click **Rows** and choose the maximum number of search results that you want Vector Search to return.
 
-  - Select **Use dense embeddings** if you want Vector Search to return semantically similar results.
+- Select **Use dense embeddings** if you want Vector Search to return semantically similar results.
 
-  - Select **Use sparse embeddings** if you want Vector Search to return results based on your query's text syntax. Not all available datasets support sparse embedding models.
+- Select **Use sparse embeddings** if you want Vector Search to return results based on your query's text syntax. Not all available datasets support sparse embedding models.
 
-  - Select both **Use dense embeddings** and **Use sparse embeddings** if you want Vector Search to use hybrid search. Not all datasets support this model. Hybrid search combines elements of both dense and sparse embeddings which can improve the quality of search results. To learn more, go to [About hybrid search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/about-hybrid-search) .
+- Select both **Use dense embeddings** and **Use sparse embeddings** if you want Vector Search to use hybrid search. Not all datasets support this model. Hybrid search combines elements of both dense and sparse embeddings which can improve the quality of search results. To learn more, go to [About hybrid search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/about-hybrid-search) .
 
-  - In the **RRF Alpha** field, enter between 0.0 and 1.0 to specify RRF ranking effect.
+- In the **RRF Alpha** field, enter between 0.0 and 1.0 to specify RRF ranking effect.
 
-  - To rerank search results, select **ranking\_api** from the **Reranking** drop-down or select **None** to disable reranking.
+- To rerank search results, select **ranking_api** from the **Reranking** drop-down or select **None** to disable reranking.
 
------
+------------------------------------------------------------------------
 
 ### Metrics
 
@@ -76,7 +76,7 @@ After a query runs, you are provided with latency metrics that breakdown the tim
 
 ![Query metrics for the Vector Search interactive live demo](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/build/vector-search/images/vector-search-try-it-stats.png)
 
------
+------------------------------------------------------------------------
 
 ### Query Process
 
@@ -96,7 +96,7 @@ When a query is processed, the following occurs:
 
 **Text (semantic similarity):** Text semantic search on item names and descriptions based on semantic similarity. To learn more, go to [Agent Platform Embeddings for Text: Grounding LLMs made easy](https://cloud.google.com/blog/products/ai-machine-learning/how-to-use-grounding-for-your-llms-with-text-embeddings) .
 
-**Text (question-answering):** Text semantic search on item names and descriptions, with improved search quality by task type QUESTION\_ANSWERING. This is suited for Q\&A types of applications. For information about task type embeddings, go to [Enhancing your gen AI use case with Agent Platform embeddings and task types](https://cloud.google.com/blog/products/ai-machine-learning/improve-gen-ai-search-with-vertex-ai-embeddings-and-task-types) .
+**Text (question-answering):** Text semantic search on item names and descriptions, with improved search quality by task type QUESTION_ANSWERING. This is suited for Q&A types of applications. For information about task type embeddings, go to [Enhancing your gen AI use case with Agent Platform embeddings and task types](https://cloud.google.com/blog/products/ai-machine-learning/improve-gen-ai-search-with-vertex-ai-embeddings-and-task-types) .
 
 **Sparse (Hybrid Search):** Keyword (token-based) search on item names and descriptions, generated with the TF-IDF algorithm. For more information, go to [About hybrid search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/about-hybrid-search) .
 
@@ -106,72 +106,18 @@ When a query is processed, the following occurs:
 
 The interactive demo includes several datasets you can run queries on. Datasets differ from each other by embedding model, support for sparse embeddings, embedding dimensions, and number of stored items.
 
-<table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Dataset</th>
-<th style="text-align: left;">Embedding Model</th>
-<th style="text-align: left;">Sparse Embedding Model</th>
-<th style="text-align: left;">Embedding Dimensions</th>
-<th style="text-align: left;">Item Count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Mercari Multimodal + Sparse embeddings</td>
-<td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings">Multimodal embedding</a></td>
-<td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">TF-IDF</a><br />
-(item name and description)</td>
-<td style="text-align: left;">1408</td>
-<td style="text-align: left;">~3 million</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mercari Text (semantic similarity) + Sparse embeddings</td>
-<td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings#supported-models"><code dir="ltr" translate="no">text-embedding-005</code></a><br />
-(Task type: SEMANTIC_SIMILARITY)</td>
-<td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">TF-IDF</a><br />
-(item name and description)</td>
-<td style="text-align: left;">768</td>
-<td style="text-align: left;">~3 million</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mercari Text (question answering) + Sparse embeddings</td>
-<td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings#supported-models"><code dir="ltr" translate="no">text-embedding-005</code></a><br />
-(Task type: QUESTION_ANSWERING)</td>
-<td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">TF-IDF</a><br />
-(item name and description)</td>
-<td style="text-align: left;">768</td>
-<td style="text-align: left;">~3 million</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">GBIF Flowers Multimodal + Sparse embeddings</td>
-<td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings">Multimodal embedding</a></td>
-<td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">TF-IDF</a><br />
-(item name and description)</td>
-<td style="text-align: left;">1408</td>
-<td style="text-align: left;">~3.3 million</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">GBIF Animals Multimodal embeddings</td>
-<td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings">Multimodal embedding</a></td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">1408</td>
-<td style="text-align: left;">~7 million</td>
-</tr>
-</tbody>
-</table>
+| Dataset                                                | Embedding Model                                                                                                                                                                | Sparse Embedding Model                                                             | Embedding Dimensions | Item Count    |
+|--------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|----------------------|---------------|
+| Mercari Multimodal + Sparse embeddings                 | [Multimodal embedding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings)                                             | [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) (item name and description) | 1408                 | \~3 million   |
+| Mercari Text (semantic similarity) + Sparse embeddings | [`text-embedding-005`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings#supported-models) (Task type: SEMANTIC_SIMILARITY) | [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) (item name and description) | 768                  | \~3 million   |
+| Mercari Text (question answering) + Sparse embeddings  | [`text-embedding-005`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings#supported-models) (Task type: QUESTION_ANSWERING)  | [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) (item name and description) | 768                  | \~3 million   |
+| GBIF Flowers Multimodal + Sparse embeddings            | [Multimodal embedding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings)                                             | [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) (item name and description) | 1408                 | \~3.3 million |
+| GBIF Animals Multimodal embeddings                     | [Multimodal embedding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings)                                             | N/A                                                                                | 1408                 | \~7 million   |
 
 ## Next steps
 
 Now that you've familiar with the demo, you are ready to take a deeper dive into learning how to use Vector Search.
 
-  - **[Quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart) :** Use a example dataset to create and deploy an index in 30 minutes or less.
+- **[Quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart) :** Use a example dataset to create and deploy an index in 30 minutes or less.
 
-  - **[Before you begin](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/setup) :** Discover what to do to prepare embeddings and decide the kind of endpoint to deploy your index to.
+- **[Before you begin](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/setup) :** Discover what to do to prepare embeddings and decide the kind of endpoint to deploy your index to.

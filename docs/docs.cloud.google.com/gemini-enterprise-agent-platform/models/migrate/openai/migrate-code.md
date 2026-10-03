@@ -15,15 +15,15 @@ This page explains how to migrate code designed for the OpenAI SDK to the Google
 The following notebook demonstrates a practical migration from the `openai` library to the `google-genai` library:
 
 > To see an example of migrating from OpenAI SDK to Google GenAI SDK, run the "Migrate OpenAI SDK code to Google GenAI SDK code" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/migration/migrate_from_openai_to_gemini.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fmigration%2Fmigrate_from_openai_to_gemini.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fmigration%2Fmigrate_from_openai_to_gemini.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/migration/migrate_from_openai_to_gemini.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/migration/migrate_from_openai_to_gemini.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fmigration%2Fmigrate_from_openai_to_gemini.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fmigration%2Fmigrate_from_openai_to_gemini.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/migration/migrate_from_openai_to_gemini.ipynb)
 
 ### API & Syntax Mapping
 
 The following table compares the core components, methods, and parameters of the OpenAI SDK with the Google Gen AI SDK.
 
 | Feature                   | OpenAI SDK ( `openai` )                           | Google Gen AI SDK ( `google-genai` )                         |
-| :------------------------ | :------------------------------------------------ | :----------------------------------------------------------- |
+|---------------------------|---------------------------------------------------|--------------------------------------------------------------|
 | **Client Initialization** | `client = OpenAI(api_key=...)`                    | `client = genai.Client(vertexai=True, ...)`                  |
 | **Generation Method**     | `client.chat.completions.create`                  | `client.models.generate_content`                             |
 | **Streaming Method**      | `stream=True` (parameter)                         | `client.models.generate_content_stream` (method)             |
@@ -39,9 +39,11 @@ The following table compares the core components, methods, and parameters of the
 
 Uninstall the OpenAI library and install the Google Gen AI SDK.
 
-    pip install google-genai
+```
+pip install google-genai
+```
 
-### 2\. Authentication & Initialization
+### 2. Authentication & Initialization
 
 While OpenAI uses an API Key, Agent Platform uses [Identity and Access Management (IAM) credentials (Application Default Credentials)](https://docs.cloud.google.com/docs/authentication/application-default-credentials) . You must explicitly define your Project ID and Location.
 
@@ -58,23 +60,8 @@ While OpenAI uses an API Key, Agent Platform uses [Identity and Access Managemen
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr" translate="no"></code>
-<pre dir="ltr" data-is-upgraded="" data-syntax="Python" translate="no"><code>from openai import OpenAI
-import os
-
-# Relies on OPENAI_API_KEY environment variable
-client = OpenAI()
-        </code></pre></td>
-<td><code dir="ltr" translate="no"></code>
-<pre dir="ltr" data-is-upgraded="" data-syntax="Python" translate="no"><code>from google import genai
-
-# Use vertexai=True to use Agent Platform
-client = genai.Client(
-    vertexai=True,
-    project=&#39;your-project-id&#39;,
-    location=&#39;us-central1&#39;
-)
-        </code></pre></td>
+<td><pre data-fenced=""><code>from openai import OpenAI import os # Relies on OPENAI_API_KEY environment variable client = OpenAI()</code></pre></td>
+<td><pre data-fenced=""><code>from google import genai # Use vertexai=True to use Agent Platform client = genai.Client( vertexai=True, project=&#39;your-project-id&#39;, location=&#39;us-central1&#39; )</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -83,15 +70,19 @@ client = genai.Client(
 
 Set `GOOGLE_GENAI_USE_ENTERPRISE` , `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` , as shown:
 
-    export GOOGLE_GENAI_USE_ENTERPRISE=true
-    export GOOGLE_CLOUD_PROJECT='your-project-id'
-    export GOOGLE_CLOUD_LOCATION='global'
+```
+export GOOGLE_GENAI_USE_ENTERPRISE=true
+export GOOGLE_CLOUD_PROJECT='your-project-id'
+export GOOGLE_CLOUD_LOCATION='global'
+```
 
 Once configured, you can initialize the client without passing parameters:
 
-    from google import genai
-    
-    client = genai.Client()
+```
+from google import genai
+
+client = genai.Client()
+```
 
 ### Code Examples
 
@@ -114,28 +105,8 @@ The following code samples show how to generate text. Note that in the Google Ge
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr" translate="no"></code>
-<pre dir="ltr" data-is-upgraded="" data-syntax="Python" translate="no"><code>response = client.chat.completions.create(
-    model=&quot;gpt-4&quot;,
-    messages=[
-        {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;You are a helpful assistant.&quot;},
-        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Explain quantum physics.&quot;}
-    ]
-)
-print(response.choices[0].message.content)
-        </code></pre></td>
-<td><code dir="ltr" translate="no"></code>
-<pre dir="ltr" data-is-upgraded="" data-syntax="Python" translate="no"><code>from google.genai import types
-
-response = client.models.generate_content(
-    model=&quot;gemini-2.5-flash&quot;,
-    contents=&quot;Explain quantum physics.&quot;,
-    config=types.GenerateContentConfig(
-        system_instruction=&quot;You are a helpful assistant.&quot;
-    )
-)
-print(response.text)
-        </code></pre></td>
+<td><pre data-fenced=""><code>response = client.chat.completions.create( model=&quot;gpt-4&quot;, messages=[ {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;You are a helpful assistant.&quot;}, {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Explain quantum physics.&quot;} ] ) print(response.choices[0].message.content)</code></pre></td>
+<td><pre data-fenced=""><code>from google.genai import types response = client.models.generate_content( model=&quot;gemini-2.5-flash&quot;, contents=&quot;Explain quantum physics.&quot;, config=types.GenerateContentConfig( system_instruction=&quot;You are a helpful assistant.&quot; ) ) print(response.text)</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -157,36 +128,8 @@ The following code samples show the differences in defining configuration parame
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr" translate="no"></code>
-<pre dir="ltr" data-is-upgraded="" data-syntax="Python" translate="no"><code>response = client.chat.completions.create(
-    model=&quot;gpt-4&quot;,
-    messages=[
-        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;List 3 types of apples in JSON.&quot;}
-    ],
-    temperature=0.7,
-    max_tokens=1000,
-    response_format={&quot;type&quot;: &quot;json_object&quot;}
-)
-
-print(response.choices[0].message.content)
-        </code></pre></td>
-<td><code dir="ltr" translate="no"></code>
-<pre dir="ltr" data-is-upgraded="" data-syntax="Python" translate="no"><code>from google.genai import types
-
-config = types.GenerateContentConfig(
-    temperature=0.7,
-    max_output_tokens=1000,
-    response_mime_type=&quot;application/json&quot;
-)
-
-response = client.models.generate_content(
-    model=&quot;gemini-2.5-flash&quot;,
-    contents=&quot;List 3 types of apples in JSON.&quot;,
-    config=config
-)
-
-print(response.text)
-        </code></pre></td>
+<td><pre data-fenced=""><code>response = client.chat.completions.create( model=&quot;gpt-4&quot;, messages=[ {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;List 3 types of apples in JSON.&quot;} ], temperature=0.7, max_tokens=1000, response_format={&quot;type&quot;: &quot;json_object&quot;} ) print(response.choices[0].message.content)</code></pre></td>
+<td><pre data-fenced=""><code>from google.genai import types config = types.GenerateContentConfig( temperature=0.7, max_output_tokens=1000, response_mime_type=&quot;application/json&quot; ) response = client.models.generate_content( model=&quot;gemini-2.5-flash&quot;, contents=&quot;List 3 types of apples in JSON.&quot;, config=config ) print(response.text)</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -208,41 +151,8 @@ The following code samples show the differences in managing chat history. Google
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr" translate="no"></code>
-<pre dir="ltr" data-is-upgraded="" data-syntax="Python" translate="no"><code># You must manually manage the list state
-messages = [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Hi&quot;}]
-
-response = client.chat.completions.create(
-    model=&quot;gpt-4&quot;,
-    messages=messages
-)
-
-# Append the response to history manually
-messages.append(response.choices[0].message)
-messages.append({&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Next question&quot;})
-
-response2 = client.chat.completions.create(
-    model=&quot;gpt-4&quot;,
-    messages=messages
-)
-print(response2.choices[0].message.content)
-        </code></pre></td>
-<td><code dir="ltr" translate="no"></code>
-<pre dir="ltr" data-is-upgraded="" data-syntax="Python" translate="no"><code># The SDK manages history for you
-chat = client.chats.create(
-    model=&quot;gemini-2.5-flash&quot;,
-    config=types.GenerateContentConfig(
-        system_instruction=&quot;You are a helpful assistant.&quot;
-    )
-)
-
-response1 = chat.send_message(&quot;Hi&quot;)
-print(response1.text)
-
-# History is retained automatically in the chat object
-response2 = chat.send_message(&quot;Next question&quot;)
-print(response2.text)
-        </code></pre></td>
+<td><pre data-fenced=""><code># You must manually manage the list state messages = [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Hi&quot;}] response = client.chat.completions.create( model=&quot;gpt-4&quot;, messages=messages ) # Append the response to history manually messages.append(response.choices[0].message) messages.append({&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Next question&quot;}) response2 = client.chat.completions.create( model=&quot;gpt-4&quot;, messages=messages ) print(response2.choices[0].message.content)</code></pre></td>
+<td><pre data-fenced=""><code># The SDK manages history for you chat = client.chats.create( model=&quot;gemini-2.5-flash&quot;, config=types.GenerateContentConfig( system_instruction=&quot;You are a helpful assistant.&quot; ) ) response1 = chat.send_message(&quot;Hi&quot;) print(response1.text) # History is retained automatically in the chat object response2 = chat.send_message(&quot;Next question&quot;) print(response2.text)</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -264,32 +174,14 @@ The following code samples show the differences in streaming responses. Google G
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr" translate="no"></code>
-<pre dir="ltr" data-is-upgraded="" data-syntax="Python" translate="no"><code>stream = client.chat.completions.create(
-    model=&quot;gpt-4&quot;,
-    messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Write a story.&quot;}],
-    stream=True
-)
-
-for chunk in stream:
-    if chunk.choices[0].delta.content:
-        print(chunk.choices[0].delta.content, end=&quot;&quot;)
-        </code></pre></td>
-<td><code dir="ltr" translate="no"></code>
-<pre dir="ltr" data-is-upgraded="" data-syntax="Python" translate="no"><code>stream = client.models.generate_content_stream(
-    model=&quot;gemini-2.5-flash&quot;,
-    contents=&quot;Write a story.&quot;
-)
-
-for chunk in stream:
-    print(chunk.text, end=&quot;&quot;)
-        </code></pre></td>
+<td><pre data-fenced=""><code>stream = client.chat.completions.create( model=&quot;gpt-4&quot;, messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Write a story.&quot;}], stream=True ) for chunk in stream: if chunk.choices[0].delta.content: print(chunk.choices[0].delta.content, end=&quot;&quot;)</code></pre></td>
+<td><pre data-fenced=""><code>stream = client.models.generate_content_stream( model=&quot;gemini-2.5-flash&quot;, contents=&quot;Write a story.&quot; ) for chunk in stream: print(chunk.text, end=&quot;&quot;)</code></pre></td>
 </tr>
 </tbody>
 </table>
 
 ## What's next
 
-  - Learn how to [Use OpenAI libraries with Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview) .
-  - See code examples for [OpenAI compatibility](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/openai) .
-  - Get started with [Google Gen AI SDK quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .
+- Learn how to [Use OpenAI libraries with Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview) .
+- See code examples for [OpenAI compatibility](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/openai) .
+- Get started with [Google Gen AI SDK quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .

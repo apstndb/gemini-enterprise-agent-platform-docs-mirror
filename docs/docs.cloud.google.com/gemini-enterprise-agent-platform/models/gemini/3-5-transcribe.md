@@ -14,64 +14,66 @@ To get started, view the [introductory notebook for Gemini 3.5 Transcribe](https
 
 It supports two primary methods of operation:
 
-  - **Streaming (Live) transcription:** Streams audio and receives transcription results incrementally, in real time, using the `gemini-3.5-transcribe-live-preview` model.
-  - **Synchronous transcription:** Transcribes complete, pre-recorded audio files in a single request using the `gemini-3.5-transcribe-preview` model.
+- **Streaming (Live) transcription:** Streams audio and receives transcription results incrementally, in real time, using the `gemini-3.5-transcribe-live` model.
+- **Synchronous transcription:** Transcribes complete, prerecorded audio files in a single request using the `gemini-3.5-transcribe` model.
 
 ## Feature support and limitations
 
 Gemini 3.5 Transcribe supports the following features across its two endpoints:
 
-| Feature                          | Live Streaming ( `gemini-3.5-transcribe-live-preview` ) | Audio File Processing ( `gemini-3.5-transcribe-preview` ) | Launch Stage | Notes / Limitations                                                                                                                                                                                                                                   |
-| :------------------------------- | :------------------------------------------------------ | :-------------------------------------------------------- | :----------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Language Auto-detection**      | Supported (85+ languages)                               | Supported (85+ languages)                                 | Preview      | Includes mid-session code-mixing.                                                                                                                                                                                                                     |
-| **Utterance-level Timestamps**   | Supported                                               | Not Supported                                             | Preview      |                                                                                                                                                                                                                                                       |
-| **Word-level Timestamps**        | Not Supported                                           | Supported                                                 | Experimental | Degrades transcription accuracy.                                                                                                                                                                                                                      |
-| **Custom Vocabulary Biasing**    | Supported (up to 1000 terms)                            | Supported (up to 1000 terms)                              | Preview      | Customers typically see best results with up to 100 terms.                                                                                                                                                                                            |
-| **Smart Dictation & Formatting** | Supported (with manual endpointing)                     | Supported                                                 | Experimental | Includes filler word removal and intent-aware alphanumeric formatting. For live streaming, use with [manual endpointing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe#smart-live-manual-endpointing) . |
-| **Speaker Diarization**          | Not Supported                                           | Supported (up to 8 speakers)                              | Experimental | Attribution for 3+ speakers is Experimental.                                                                                                                                                                                                          |
-| **Max Audio Duration**           | Up to 10 minutes                                        | Up to 15 minutes                                          | Preview      | File processing is limited to 15 minutes when features like diarization or timestamps are enabled.                                                                                                                                                    |
+| Feature                          | Live Streaming ( `gemini-3.5-transcribe-live` ) | Audio File Processing ( `gemini-3.5-transcribe` ) | Launch Stage | Notes / Limitations                                                                                                                                                                                                                                   |
+|----------------------------------|-------------------------------------------------|---------------------------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Language Auto-detection**      | Supported (85+ languages)                       | Supported (85+ languages)                         | Supported    | Includes mid-session code-mixing.                                                                                                                                                                                                                     |
+| **Utterance-level Timestamps**   | Supported                                       | Not Supported                                     | Supported    |                                                                                                                                                                                                                                                       |
+| **Word-level Timestamps**        | Not Supported                                   | Supported                                         | Experimental | Degrades transcription accuracy.                                                                                                                                                                                                                      |
+| **Custom Vocabulary Biasing**    | Supported (up to 1000 terms)                    | Supported (up to 1000 terms)                      | Supported    | Customers typically see best results with up to 100 terms.                                                                                                                                                                                            |
+| **Smart Dictation & Formatting** | Supported (with manual endpointing)             | Supported                                         | Experimental | Includes filler word removal and intent-aware alphanumeric formatting. For live streaming, use with [manual endpointing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe#smart-live-manual-endpointing) . |
+| **Speaker Diarization**          | Not Supported                                   | Supported (up to 8 speakers)                      | Experimental | Attribution for 3+ speakers is Experimental.                                                                                                                                                                                                          |
+| **Max Audio Duration**           | Up to 10 minutes                                | Up to 15 minutes                                  | Supported    | File processing is limited to 15 minutes when features like diarization or timestamps are enabled.                                                                                                                                                    |
 
 ## Live streaming transcription
 
 The `BidiGenerateContent (Live) API` stays open while you stream small chunks of audio to the model and receive transcription results incrementally, as they become available. This is used for near real-time captioning or transcribing microphone input.
 
-To try streaming transcription without writing any code, open `gemini-3.5-transcribe-live-preview` on the Gemini Live API page of Agent Studio, then record or upload audio and watch the transcript stream back.
+To try streaming transcription without writing any code, open `gemini-3.5-transcribe-live` on the Gemini Live API page of Agent Studio, then record or upload audio and watch the transcript stream back.
 
-To transcribe streaming audio, build a `LiveConnectConfig` and set the response\_modalities to \["TEXT"\] alongside your input\_audio\_transcription configuration.
+To transcribe streaming audio, build a `LiveConnectConfig` and set the response_modalities to \["TEXT"\] alongside your input_audio_transcription configuration.
 
-    import asyncio
-    from google import genai
-    from google.genai import types
-    
-    client = genai.Client(enterprise=True, project=PROJECT_ID, location=LOCATION)
-    
-    config = types.LiveConnectConfig(
-        response_modalities=["TEXT"],
-        input_audio_transcription=types.AudioTranscriptionConfig(
-            language_codes=["it-IT", "en-US"],
-        ),
-    )
-    
-    async def streaming_main(audio_file, config):
-        # Connect to the Live API session
-        async with client.aio.live.connect(model="gemini-3.5-transcribe-live-preview", config=config) as session:
-            # In a complete implementation, you would chunk the audio and send via:
-            # await session.send_realtime_input(audio=types.Blob(data=data, mime_type="audio/pcm;rate=16000"))
-            # await session.send_realtime_input(audio_stream_end=True)
-    
-            async for message in session.receive():
-                if message.server_content:
-                    server_content = message.server_content
-    
-                    # Track the active interim segment
-                    interim = server_content.interim_input_transcription
-                    if interim and interim.text:
-                        print(f"Interim: {interim.text}")
-    
-                    # Save final transcript and clear the interim
-                    final = server_content.input_transcription
-                    if final and final.text:
-                        print(f"Final: {final.text}")
+```
+import asyncio
+from google import genai
+from google.genai import types
+
+client = genai.Client(enterprise=True, project=PROJECT_ID, location=LOCATION)
+
+config = types.LiveConnectConfig(
+    response_modalities=["TEXT"],
+    input_audio_transcription=types.AudioTranscriptionConfig(
+        language_codes=["it-IT", "en-US"],
+    ),
+)
+
+async def streaming_main(audio_file, config):
+    # Connect to the Live API session
+    async with client.aio.live.connect(model="gemini-3.5-transcribe-live", config=config) as session:
+        # In a complete implementation, you would chunk the audio and send via:
+        # await session.send_realtime_input(audio=types.Blob(data=data, mime_type="audio/pcm;rate=16000"))
+        # await session.send_realtime_input(audio_stream_end=True)
+
+        async for message in session.receive():
+            if message.server_content:
+                server_content = message.server_content
+
+                # Track the active interim segment
+                interim = server_content.interim_input_transcription
+                if interim and interim.text:
+                    print(f"Interim: {interim.text}")
+
+                # Save final transcript and clear the interim
+                final = server_content.input_transcription
+                if final and final.text:
+                    print(f"Final: {final.text}")
+```
 
 > **Note:** When establishing a Live API connection, clients must wait to receive the `setup_complete` message from the server before streaming audio data. Sending audio requests before `setup_complete` is received can cause the session to cancel unexpectedly and may result in empty transcriptions, particularly on short audio clips.
 
@@ -83,156 +85,140 @@ You can use the standard `generate_content` method to transcribe complete audio 
 
 Setting `word_timestamp=True` returns word-level timing. The response's `audio_transcription.words` list contains each recognized word along with its `start_offset` and `end_offset` .
 
-    from google import genai
-    from google.genai import types
-    
-    # Initialize the client for Vertex AI / Agent Platform
-    client = genai.Client(enterprise=True, project=PROJECT_ID, location=LOCATION)
-    
-    with open("input.wav", "rb") as f:
-        audio_bytes = f.read()
-    
-    response = client.models.generate_content(
-        model="gemini-3.5-transcribe-preview",
-        contents=[
-            types.Part.from_bytes(
-                data=audio_bytes,
-                mime_type="audio/wav",
-            ),
-        ],
-        config=types.GenerateContentConfig(
-            audio_transcription_config=types.AudioTranscriptionConfig(
-                word_timestamp=True,
-            ),
+```
+from google import genai
+from google.genai import types
+
+# Initialize the client for Vertex AI / Agent Platform
+client = genai.Client(enterprise=True, project=PROJECT_ID, location=LOCATION)
+
+with open("input.wav", "rb") as f:
+    audio_bytes = f.read()
+
+response = client.models.generate_content(
+    model="gemini-3.5-transcribe",
+    contents=[
+        types.Part.from_bytes(
+            data=audio_bytes,
+            mime_type="audio/wav",
         ),
-    )
-    
-    parts = getattr(response, "parts", []) or []
-    if parts and (audio_tx := getattr(parts[0], "audio_transcription", None)):
-        for w in getattr(audio_tx, "words", []) or []:
-            print(f"[{w.start_offset} - {w.end_offset}] {w.word}")
-    
-    if text := "".join(p.text for p in parts if getattr(p, "text", None)):
-        print(f"**{text}**")
+    ],
+    config=types.GenerateContentConfig(
+        audio_transcription_config=types.AudioTranscriptionConfig(
+            word_timestamp=True,
+        ),
+    ),
+)
+
+parts = getattr(response, "parts", []) or []
+if parts and (audio_tx := getattr(parts[0], "audio_transcription", None)):
+    for w in getattr(audio_tx, "words", []) or []:
+        print(f"[{w.start_offset} - {w.end_offset}] {w.word}")
+
+if text := "".join(p.text for p in parts if getattr(p, "text", None)):
+    print(f"**{text}**")
+```
 
 ### Speaker diarization and custom vocabulary
 
-Setting diarization=True asks the model to identify and label individual speakers. You can also supply a custom\_vocabulary field with a list of phrases that bias Gemini 3.5 Transcribe toward recognizing specific terms. The model generally follows custom vocabulary instructions more reliably when a language is also specified using language\_codes.
+Setting diarization=True asks the model to identify and label individual speakers. You can also supply a custom_vocabulary field with a list of phrases that bias Gemini 3.5 Transcribe toward recognizing specific terms. The model generally follows custom vocabulary instructions more reliably when a language is also specified using language_codes.
 
-    response = client.models.generate_content(
-        model="gemini-3.5-transcribe-preview",
-        contents=[
-            types.Part.from_uri(
-                file_uri="gs://cloud-samples-data/generative-ai/audio/coffee_order.wav",
-                mime_type="audio/wav",
-            ),
-        ],
-        config=types.GenerateContentConfig(
-            audio_transcription_config=types.AudioTranscriptionConfig(
-                diarization=True,
-                language_codes=["en-US"],
-                custom_vocabulary=["oatmilk", "oz"],
-            ),
+```
+response = client.models.generate_content(
+    model="gemini-3.5-transcribe",
+    contents=[
+        types.Part.from_uri(
+            file_uri="gs://cloud-samples-data/generative-ai/audio/coffee_order.wav",
+            mime_type="audio/wav",
         ),
-    )
-    
-    parts = getattr(response, "parts", []) or []
-    for p in parts:
-        audio_tx = getattr(p, "audio_transcription", None)
-        speaker = getattr(audio_tx, "speaker_label", "UNKNOWN") if audio_tx else "UNKNOWN"
-        text = getattr(p, "text", "") or (getattr(audio_tx, "text", "") if audio_tx else "")
-    
-        if text:
-            print(f"**{speaker}**: {text}")
+    ],
+    config=types.GenerateContentConfig(
+        audio_transcription_config=types.AudioTranscriptionConfig(
+            diarization=True,
+            language_codes=["en-US"],
+            custom_vocabulary=["oatmilk", "oz"],
+        ),
+    ),
+)
+
+parts = getattr(response, "parts", []) or []
+for p in parts:
+    audio_tx = getattr(p, "audio_transcription", None)
+    speaker = getattr(audio_tx, "speaker_label", "UNKNOWN") if audio_tx else "UNKNOWN"
+    text = getattr(p, "text", "") or (getattr(audio_tx, "text", "") if audio_tx else "")
+
+    if text:
+        print(f"**{speaker}**: {text}")
+```
 
 ## Transcription modes
 
 Gemini 3.5 Transcribe supports two transcription modes through the `mode` parameter in `AudioTranscriptionConfig` :
 
-  - **`VERBATIM` (default):** Returns an exact word-for-word transcript of everything spoken, preserving raw filler words ("um", "uh", "like", "you know"), repetitions, pauses, and false starts.
-  - **`SMART` (Smart transcription):** Optimizes the transcript for reading by applying intelligent post-processing:
-      - **Disfluency removal:** Strips conversational filler words, stuttering, and false starts.
-      - **Inline self-corrections:** Resolves spoken corrections directly (for example, *"Let's meet on Tuesday, actually no, Wednesday at two"* becomes *"Let's meet on Wednesday at 2:00 PM"* ).
-      - **Automatic structured formatting:** Automatically structures spoken thoughts into paragraphs, numbered lists, bullet points, formatted dates, currencies, and numbers.
-      - **Grammatical cleanup:** Applies natural punctuation, sentence casing, and flow.
+- **`VERBATIM` (default):** Returns an exact word-for-word transcript of everything spoken, preserving raw filler words ("um", "uh", "like", "you know"), repetitions, pauses, and false starts.
+- **`SMART` (Smart transcription):** Optimizes the transcript for reading by applying intelligent post-processing:
+  - **Disfluency removal:** Strips conversational filler words, stuttering, and false starts.
+  - **Inline self-corrections:** Resolves spoken corrections directly (for example, *"Let's meet on Tuesday, actually no, Wednesday at two"* becomes *"Let's meet on Wednesday at 2:00 PM"* ).
+  - **Automatic structured formatting:** Automatically structures spoken thoughts into paragraphs, numbered lists, bullet points, formatted dates, currencies, and numbers.
+  - **Grammatical cleanup:** Applies natural punctuation, sentence casing, and flow.
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Spoken audio</th>
-<th style="text-align: left;"><code dir="ltr" translate="no">VERBATIM</code> output</th>
-<th style="text-align: left;"><code dir="ltr" translate="no">SMART</code> (Smart transcription) output</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">"Um, so for the meeting, I think we should, uh, invite Alice and, wait no, Bob and Carol."</td>
-<td style="text-align: left;">"Um so for the meeting I think we should uh invite Alice and wait no Bob and Carol."</td>
-<td style="text-align: left;">"For the meeting, I think we should invite Bob and Carol."</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">"First item review budget second item finalize timeline third item send recap"</td>
-<td style="text-align: left;">"first item review budget second item finalize timeline third item send recap"</td>
-<td style="text-align: left;">"1. Review budget<br />
-2. Finalize timeline<br />
-3. Send recap"</td>
-</tr>
-</tbody>
-</table>
+| Spoken audio                                                                               | `VERBATIM` output                                                                    | `SMART` (Smart transcription) output                       |
+|--------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|------------------------------------------------------------|
+| "Um, so for the meeting, I think we should, uh, invite Alice and, wait no, Bob and Carol." | "Um so for the meeting I think we should uh invite Alice and wait no Bob and Carol." | "For the meeting, I think we should invite Bob and Carol." |
+| "First item review budget second item finalize timeline third item send recap"             | "first item review budget second item finalize timeline third item send recap"       | "1. Review budget 2. Finalize timeline 3. Send recap"      |
 
 ### Synchronous transcription with `SMART` mode
 
-    response = client.models.generate_content(
-        model="gemini-3.5-transcribe-preview",
-        contents=[
-            types.Part.from_bytes(
-                data=audio_bytes,
-                mime_type="audio/wav",
-            ),
-        ],
-        config=types.GenerateContentConfig(
-            audio_transcription_config=types.AudioTranscriptionConfig(
-                mode="SMART",
-            ),
+```
+response = client.models.generate_content(
+    model="gemini-3.5-transcribe",
+    contents=[
+        types.Part.from_bytes(
+            data=audio_bytes,
+            mime_type="audio/wav",
         ),
-    )
+    ],
+    config=types.GenerateContentConfig(
+        audio_transcription_config=types.AudioTranscriptionConfig(
+            mode="SMART",
+        ),
+    ),
+)
+```
 
 ### Live transcription with `SMART` mode and manual endpointing
 
-When using `SMART` mode with live streaming transcription ( `gemini-3.5-transcribe-live-preview` ), you should use **manual endpointing** (manual Voice Activity Detection) instead of automatic VAD. Because `SMART` mode applies utterance-level post-processing—such as resolving inline self-corrections and structuring lists or paragraphs—automatic VAD may prematurely split a user's thought during natural pauses.
+When using `SMART` mode with live streaming transcription ( `gemini-3.5-transcribe-live` ), you should use **manual endpointing** (manual Voice Activity Detection) instead of automatic VAD. Because `SMART` mode applies utterance-level post-processing—such as resolving inline self-corrections and structuring lists or paragraphs—automatic VAD may prematurely split a user's thought during natural pauses.
 
 To configure manual endpointing, disable `automatic_activity_detection` in `RealtimeInputConfig` and explicitly mark the beginning and end of the user's speech turn using `activity_start` and `activity_end` :
 
-    config = types.LiveConnectConfig(
-        response_modalities=["TEXT"],
-        realtime_input_config=types.RealtimeInputConfig(
-            automatic_activity_detection=types.AutomaticActivityDetection(
-                disabled=True,
-            ),
+```
+config = types.LiveConnectConfig(
+    response_modalities=["TEXT"],
+    realtime_input_config=types.RealtimeInputConfig(
+        automatic_activity_detection=types.AutomaticActivityDetection(
+            disabled=True,
         ),
-        input_audio_transcription=types.AudioTranscriptionConfig(
-            mode="SMART",
-        ),
+    ),
+    input_audio_transcription=types.AudioTranscriptionConfig(
+        mode="SMART",
+    ),
+)
+
+async with client.aio.live.connect(
+    model="gemini-3.5-transcribe-live", config=config
+) as session:
+    # Signal start of speech turn
+    await session.send_realtime_input(activity_start=types.ActivityStart())
+
+    # Stream audio chunks...
+    await session.send_realtime_input(
+        audio=types.Blob(data=audio_bytes, mime_type="audio/pcm;rate=16000")
     )
-    
-    async with client.aio.live.connect(
-        model="gemini-3.5-transcribe-live-preview", config=config
-    ) as session:
-        # Signal start of speech turn
-        await session.send_realtime_input(activity_start=types.ActivityStart())
-    
-        # Stream audio chunks...
-        await session.send_realtime_input(
-            audio=types.Blob(data=audio_bytes, mime_type="audio/pcm;rate=16000")
-        )
-    
-        # Signal end of speech turn so SMART mode can process the complete utterance
-        await session.send_realtime_input(activity_end=types.ActivityEnd())
+
+    # Signal end of speech turn so SMART mode can process the complete utterance
+    await session.send_realtime_input(activity_end=types.ActivityEnd())
+```
 
 > **Note:** Smart transcription ( `SMART` ) is incompatible with `word_timestamp` and `diarization` . If you need word-level timestamps or speaker diarization, use `VERBATIM` mode.
 
@@ -241,7 +227,7 @@ To configure manual endpointing, disable `automatic_activity_detection` in `Real
 The following languages and BCP-47 language codes are supported for Gemini 3.5 Transcribe:
 
 | Language                | BCP-47 Code   | Readiness    | Language                      | BCP-47 Code   | Readiness    |
-| :---------------------- | :------------ | :----------- | :---------------------------- | :------------ | :----------- |
+|-------------------------|---------------|--------------|-------------------------------|---------------|--------------|
 | Afrikaans               | `af-ZA`       | Experimental | Japanese                      | `ja-JP`       | Supported    |
 | Amharic                 | `am-ET`       | Experimental | Javanese                      | `jv-ID`       | Experimental |
 | Arabic (Egypt)          | `ar-EG`       | Experimental | Kabuverdianu                  | `kea-CV`      | Experimental |
@@ -288,112 +274,153 @@ The following languages and BCP-47 language codes are supported for Gemini 3.5 T
 
 ## Regional availability
 
-Gemini 3.5 Transcribe is available in the following Google Cloud locations, with single-region and multi-region support coming soon:
+Gemini 3.5 Transcribe is available in the following Google Cloud locations:
 
-| Endpoint                             | Google Cloud Location | Launch Readiness |
-| :----------------------------------- | :-------------------- | :--------------- |
-| `gemini-3.5-transcribe-preview`      | `global`              | Preview          |
-| `gemini-3.5-transcribe-live-preview` | `global`              | Preview          |
+| Endpoint                     | Google Cloud Location | Launch Readiness |
+|------------------------------|-----------------------|------------------|
+| `gemini-3.5-transcribe`      | `global`              | Supported        |
+| `gemini-3.5-transcribe`      | `us`                  | Supported        |
+| `gemini-3.5-transcribe`      | `eu`                  | Supported        |
+| `gemini-3.5-transcribe-live` | `global`              | Supported        |
+| `gemini-3.5-transcribe-live` | `us`                  | Supported        |
+| `gemini-3.5-transcribe-live` | `eu`                  | Supported        |
 
 ## Best practices
 
-  - **Provide clean audio:** Ensure audio recordings have clear voice separation and avoid severe clipping.
-  - **Provide language hints when known:** If you know the audio language in advance, specify `language_codes` to maximize accuracy.
-  - **Target custom vocabulary:** Include only distinct domain terms, brand names, or proper nouns in `custom_vocabulary` rather than common everyday words.
-  - **Use manual endpointing with `SMART` mode in live transcription:** Disable automatic VAD ( `automatic_activity_detection` ) and explicitly send `activity_start` and `activity_end` signals so the model can apply disfluency removal, self-corrections, and formatting across complete utterances.
+- **Provide clean audio:** Ensure audio recordings have clear voice separation and avoid severe clipping.
+- **Provide language hints when known:** If you know the audio language in advance, specify `language_codes` to maximize accuracy.
+- **Target custom vocabulary:** Include only distinct domain terms, brand names, or proper nouns in `custom_vocabulary` rather than common everyday words.
+- **Use manual endpointing with `SMART` mode in live transcription:** Disable automatic VAD ( `automatic_activity_detection` ) and explicitly send `activity_start` and `activity_end` signals so the model can apply disfluency removal, self-corrections, and formatting across complete utterances.
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal-live?model=gemini-3.5-transcribe-live-preview) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
-Model ID
-
-`['gemini-3.5-transcribe-preview', 'gemini-3.5-transcribe-live-preview']`
-
-Modalities
-
-description
-
-Text  
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>['gemini-3.5-transcribe', 'gemini-3.5-transcribe-live']</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Modalities</th>
+<td>description
+Text<br />
 Output only
-
-hide\_image
-
-Image  
+hide_image
+Image<br />
 Not supported
-
 mic
-
-Audio  
+Audio<br />
 Input only
-
-videocam\_off
-
-Video  
-Not supported
-
-Capabilities
-
-  - [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking)  
-    Not supported
-  - [System instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instruction-introduction)  
-    Not supported
-  - [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) preview Preview feature  
-    Not supported
-  - [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)  
-    Supported
-  - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output)  
-    Not supported
-  - [Context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview)  
-    Not supported
-  - [Count Tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count)  
-    Not supported
-  - [RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview)  
-    Not supported
-  - [Chat completions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview)  
-    Not supported
-  - [Tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models)  
-    Not supported
-  - [URL context](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context)  
-    Not supported
-  - [Agentic video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing) preview Preview feature  
-    Not supported
-
-Tools
-
-  - [Grounding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview)  
-    Not supported
-  - [Code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution)  
-    Not supported
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)  
-    Not supported
-  - [Computer use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use) preview Preview feature  
-    Not supported
-
-Consumption options
-
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
-    Not supported
-  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
-    Not supported
-  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
-    Standard PayGo  
-    Supported
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
-    Not supported
-
-Supported regions
-
-**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
-
-  - Global: `global`
-
-Versions
-
-`gemini-3.5-transcribe-preview`
-
-  - Launch stage: Preview
-  - Release date: August 2026
-
-`gemini-3.5-transcribe-live-preview`
-
-  - Launch stage: Preview
-  - Release date: August 2026
+videocam_off
+Video<br />
+Not supported</td>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Capabilities</th>
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking">Thinking</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instruction-introduction">System instructions</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions">Interactions API</a> preview Preview feature<br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api">Gemini Live API</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output">Structured output</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview">Context caching</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count">Count Tokens</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview">RAG Engine</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview">Chat completions</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models">Tuning</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context">URL context</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing">Agentic video understanding</a> preview Preview feature<br />
+Not supported</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Tools</th>
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview">Grounding</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution">Code execution</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling">Function calling</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use">Computer use</a> preview Preview feature<br />
+Not supported</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Consumption options</th>
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference">Batch inference</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
+Standard PayGo<br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
+Not supported</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Supported regions</th>
+<td><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations">Model availability</a></strong></p></td>
+<td><ul>
+<li>Global: <code>global</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency">ML processing</a></strong></p></th>
+<td><ul>
+<li>United States: <code>Multi-region</code></li>
+<li>Europe: <code>Multi-region</code></li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<th>Versions</th>
+<td><ul>
+<li><code>gemini-3.5-transcribe-preview</code>
+<ul>
+<li>Launch stage: Preview</li>
+<li>Release date: August 2026</li>
+</ul></li>
+<li><code>gemini-3.5-transcribe</code>
+<ul>
+<li>Launch stage: GA</li>
+<li>Release date: October 2026</li>
+</ul></li>
+<li><code>gemini-3.5-transcribe-live-preview</code>
+<ul>
+<li>Launch stage: Preview</li>
+<li>Release date: August 2026</li>
+</ul></li>
+<li><code>gemini-3.5-transcribe-live</code>
+<ul>
+<li>Launch stage: GA</li>
+<li>Release date: October 2026</li>
+</ul></li>
+</ul></td>
+<td></td>
+</tr>
+</tbody>
+</table>

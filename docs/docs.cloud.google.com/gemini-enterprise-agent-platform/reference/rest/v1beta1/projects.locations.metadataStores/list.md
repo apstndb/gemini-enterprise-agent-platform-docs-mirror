@@ -30,9 +30,9 @@ The maximum number of metadata Stores to return. The service may return fewer. M
 
 `pageToken` `string`
 
-A page token, received from a previous `  MetadataService.ListMetadataStores  ` call. Provide this to retrieve the subsequent page.
+A page token, received from a previous [`MetadataService.ListMetadataStores`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores/list#google.cloud.aiplatform.v1beta1.MetadataService.ListMetadataStores) call. Provide this to retrieve the subsequent page.
 
-When paginating, all other provided parameters must match the call that provided the page token. (Otherwise the request will fail with INVALID\_ARGUMENT error.)
+When paginating, all other provided parameters must match the call that provided the page token. (Otherwise the request will fail with INVALID_ARGUMENT error.)
 
 ### Request body
 
@@ -40,32 +40,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  MetadataService.ListMetadataStores  ` .
+Response message for [`MetadataService.ListMetadataStores`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores/list#google.cloud.aiplatform.v1beta1.MetadataService.ListMetadataStores) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`metadataStores[]` ` object ( MetadataStore  ` )
+`metadataStores[]` `object ( `[`MetadataStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores#MetadataStore)` )`
 
 The MetadataStores found for the Location.
 
 `nextPageToken` `string`
 
-A token, which can be sent as `  ListMetadataStoresRequest.page_token  ` to retrieve the next page. If this field is not populated, there are no subsequent pages.
+A token, which can be sent as [`ListMetadataStoresRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores/list#body.QUERY_PARAMETERS.page_token) to retrieve the next page. If this field is not populated, there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;metadataStores&quot;: [{object (MetadataStore)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "metadataStores": [
+    {
+      object (MetadataStore)
+    }
+  ],
+  "nextPageToken": string
+}
+```

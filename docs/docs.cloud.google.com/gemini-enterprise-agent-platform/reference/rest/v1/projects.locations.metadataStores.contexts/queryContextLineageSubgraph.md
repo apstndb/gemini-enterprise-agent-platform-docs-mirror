@@ -22,7 +22,7 @@ Where `{service-endpoint}` is one of the [supported service endpoints](https://d
 
 Required. The resource name of the Context whose Artifacts and Executions should be retrieved as a LineageSubgraph. Format: `projects/{project}/locations/{location}/metadataStores/{metadatastore}/contexts/{context}`
 
-The request may error with FAILED\_PRECONDITION if the number of Artifacts, the number of Executions, or the number of events that would be returned for the Context exceeds 1000.
+The request may error with FAILED_PRECONDITION if the number of Artifacts, the number of Executions, or the number of events that would be returned for the Context exceeds 1000.
 
 ### Request body
 
@@ -30,4 +30,4 @@ The request body must be empty.
 
 ### Response body
 
-If successful, the response body contains an instance of `  LineageSubgraph  ` .
+If successful, the response body contains an instance of [`LineageSubgraph`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/LineageSubgraph) .

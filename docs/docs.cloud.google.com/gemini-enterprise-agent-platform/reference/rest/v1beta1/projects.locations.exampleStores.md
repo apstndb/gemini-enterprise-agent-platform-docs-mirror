@@ -24,37 +24,36 @@ Required. Display name of the ExampleStore.
 
 Optional. description of the ExampleStore.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this ExampleStore was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this ExampleStore was most recently updated.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`exampleStoreConfig` ` object ( ExampleStoreConfig  ` )
+`exampleStoreConfig` `object ( `[`ExampleStoreConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores#ExampleStoreConfig)` )`
 
 Required. Example Store config.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;exampleStoreConfig&quot;: {object (ExampleStoreConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "description": string,
+  "createTime": string,
+  "updateTime": string,
+  "exampleStoreConfig": {
+    object (ExampleStoreConfig)
+  }
+}
+```
 
 ## ExampleStoreConfig
 
@@ -66,58 +65,22 @@ Fields
 
 Required. The embedding model to be used for vector embedding. Immutable. Supported models: \* "text-embedding-005" \* "text-multilingual-embedding-002"
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;vertexEmbeddingModel&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "vertexEmbeddingModel": string
+}
+```
 
-### `            create           `
-
-Create an ExampleStore.
-
-### `            delete           `
-
-Delete an ExampleStore.
-
-### `            fetchExamples           `
-
-Get Examples from the Example Store.
-
-### `            get           `
-
-Get an ExampleStore.
-
-### `            list           `
-
-List ExampleStores in a Location.
-
-### `            patch           `
-
-Update an ExampleStore.
-
-### `            removeExamples           `
-
-Remove Examples from the Example Store.
-
-### `            searchExamples           `
-
-Search for similar Examples for given selection criteria.
-
-### `            upsertExamples           `
-
-Create or update Examples in the Example Store.
+| Methods                                                                                                                                                   |                                                           |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/create)                 | Create an ExampleStore.                                   |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/delete)                 | Delete an ExampleStore.                                   |
+| [`fetchExamples`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/fetchExamples)   | Get Examples from the Example Store.                      |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/get)                       | Get an ExampleStore.                                      |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/list)                     | List ExampleStores in a Location.                         |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/patch)                   | Update an ExampleStore.                                   |
+| [`removeExamples`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/removeExamples) | Remove Examples from the Example Store.                   |
+| [`searchExamples`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/searchExamples) | Search for similar Examples for given selection criteria. |
+| [`upsertExamples`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.exampleStores/upsertExamples) | Create or update Examples in the Example Store.           |

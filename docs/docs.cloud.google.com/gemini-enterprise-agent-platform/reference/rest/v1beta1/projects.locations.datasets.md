@@ -28,21 +28,21 @@ The description of the Dataset.
 
 Required. Points to a YAML file stored on Google Cloud Storage describing additional information about the Dataset. The schema is defined as an OpenAPI 3.0.2 Schema Object. The schema files that can be used here are found in gs://google-cloud-aiplatform/schema/dataset/metadata/.
 
-`metadata` ` value ( Value  ` format)
+`metadata` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
 Required. Additional information about the Dataset.
 
-`dataItemCount` `string ( int64 format)`
+`dataItemCount` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Output only. The number of DataItems in this Dataset. Only apply for non-structured Dataset.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this Dataset was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this Dataset was last updated.
 
@@ -60,13 +60,13 @@ label keys and values can be no longer than 64 characters (Unicode codepoints), 
 
 See <https://goo.gl/xmQnxf> for more information and examples of labels. System reserved label keys are prefixed with "aiplatform.googleapis.com/" and are immutable. Following system labels exist for each Dataset:
 
-  - "aiplatform.googleapis.com/dataset\_metadata\_schema": output only, its value is the `  metadataSchema's  ` title.
+- "aiplatform.googleapis.com/dataset_metadata_schema": output only, its value is the [`metadataSchema's`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets#Dataset.FIELDS.metadata_schema_uri) title.
 
-`savedQueries[]` ` object ( SavedQuery  ` )
+`savedQueries[]` `object ( `[`SavedQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets#SavedQuery)` )`
 
-All SavedQueries belong to the Dataset will be returned in List/Get Dataset response. The annotationSpecs field will not be populated except for UI cases which will only use `  annotationSpecCount  ` . In datasets.create request, a SavedQuery is created together if this field is set, up to one SavedQuery can be set in CreateDatasetRequest. The SavedQuery should not contain any AnnotationSpec.
+All SavedQueries belong to the Dataset will be returned in List/Get Dataset response. The annotationSpecs field will not be populated except for UI cases which will only use [`annotationSpecCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets#SavedQuery.FIELDS.annotation_spec_count) . In datasets.create request, a SavedQuery is created together if this field is set, up to one SavedQuery can be set in CreateDatasetRequest. The SavedQuery should not contain any AnnotationSpec.
 
-`encryptionSpec` ` object ( EncryptionSpec  ` )
+`encryptionSpec` `object ( `[`EncryptionSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/EncryptionSpec)` )`
 
 Customer-managed encryption key spec for a Dataset. If set, this Dataset and all sub-resources of this Dataset will be secured by this key.
 
@@ -86,21 +86,37 @@ Output only. reserved for future use.
 
 Output only. reserved for future use.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;metadataSchemaUri&quot;: string,&quot;metadata&quot;: value,&quot;dataItemCount&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;etag&quot;: string,&quot;labels&quot;: {string: string,...},&quot;savedQueries&quot;: [{object (SavedQuery)}],&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;metadataArtifact&quot;: string,&quot;modelReference&quot;: string,&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "description": string,
+  "metadataSchemaUri": string,
+  "metadata": value,
+  "dataItemCount": string,
+  "createTime": string,
+  "updateTime": string,
+  "etag": string,
+  "labels": {
+    string: string,
+    ...
+  },
+  "savedQueries": [
+    {
+      object (SavedQuery)
+    }
+  ],
+  "encryptionSpec": {
+    object (EncryptionSpec)
+  },
+  "metadataArtifact": string,
+  "modelReference": string,
+  "satisfiesPzs": boolean,
+  "satisfiesPzi": boolean
+}
+```
 
 ## SavedQuery
 
@@ -116,17 +132,17 @@ Output only. Resource name of the SavedQuery.
 
 Required. The user-defined name of the SavedQuery. The name can be up to 128 characters long and can consist of any UTF-8 characters.
 
-`metadata` ` value ( Value  ` format)
+`metadata` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
 Some additional information about the SavedQuery.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this SavedQuery was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when SavedQuery was last updated.
 
@@ -140,16 +156,16 @@ Output only. Filters on the Annotations in the dataset.
 
 Required. Problem type of the SavedQuery. Allowed values:
 
-  - IMAGE\_CLASSIFICATION\_SINGLE\_LABEL
-  - IMAGE\_CLASSIFICATION\_MULTI\_LABEL
-  - IMAGE\_BOUNDING\_POLY
-  - IMAGE\_BOUNDING\_BOX
-  - TEXT\_CLASSIFICATION\_SINGLE\_LABEL
-  - TEXT\_CLASSIFICATION\_MULTI\_LABEL
-  - TEXT\_EXTRACTION
-  - TEXT\_SENTIMENT
-  - VIDEO\_CLASSIFICATION
-  - VIDEO\_OBJECT\_TRACKING
+- IMAGE_CLASSIFICATION_SINGLE_LABEL
+- IMAGE_CLASSIFICATION_MULTI_LABEL
+- IMAGE_BOUNDING_POLY
+- IMAGE_BOUNDING_BOX
+- TEXT_CLASSIFICATION_SINGLE_LABEL
+- TEXT_CLASSIFICATION_MULTI_LABEL
+- TEXT_EXTRACTION
+- TEXT_SENTIMENT
+- VIDEO_CLASSIFICATION
+- VIDEO_OBJECT_TRACKING
 
 `annotationSpecCount` `integer`
 
@@ -163,71 +179,32 @@ Used to perform a consistent read-modify-write update. If not set, a blind "over
 
 Output only. If the Annotations belonging to the SavedQuery can be used for AutoML training.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;name&quot;: string,
-  &quot;displayName&quot;: string,
-  &quot;metadata&quot;: value,
-  &quot;createTime&quot;: string,
-  &quot;updateTime&quot;: string,
-  &quot;annotationFilter&quot;: string,
-  &quot;problemType&quot;: string,
-  &quot;annotationSpecCount&quot;: integer,
-  &quot;etag&quot;: string,
-  &quot;supportAutomlTraining&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "name": string,
+  "displayName": string,
+  "metadata": value,
+  "createTime": string,
+  "updateTime": string,
+  "annotationFilter": string,
+  "problemType": string,
+  "annotationSpecCount": integer,
+  "etag": string,
+  "supportAutomlTraining": boolean
+}
+```
 
-### `            assemble           `
-
-Assembles each row of a multimodal dataset and writes the result into a BigQuery table.
-
-### `            assess           `
-
-Assesses the state or validity of the dataset with respect to a given use case.
-
-### `            create           `
-
-Creates a Dataset.
-
-### `            delete           `
-
-Deletes a Dataset.
-
-### `            export           `
-
-Exports data from a Dataset.
-
-### `            get           `
-
-Gets a Dataset.
-
-### `            import           `
-
-Imports data into a Dataset.
-
-### `            list           `
-
-Lists Datasets in a Location.
-
-### `            patch           `
-
-Updates a Dataset.
-
-### `            searchDataItems           `
-
-Searches DataItems in a Dataset.
+| Methods                                                                                                                                                |                                                                                         |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| [`assemble`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/assemble)               | Assembles each row of a multimodal dataset and writes the result into a BigQuery table. |
+| [`assess`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/assess)                   | Assesses the state or validity of the dataset with respect to a given use case.         |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/create)                   | Creates a Dataset.                                                                      |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/delete)                   | Deletes a Dataset.                                                                      |
+| [`export`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/export)                   | Exports data from a Dataset.                                                            |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/get)                         | Gets a Dataset.                                                                         |
+| [`import`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/import)                   | Imports data into a Dataset.                                                            |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/list)                       | Lists Datasets in a Location.                                                           |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/patch)                     | Updates a Dataset.                                                                      |
+| [`searchDataItems`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/searchDataItems) | Searches DataItems in a Dataset.                                                        |

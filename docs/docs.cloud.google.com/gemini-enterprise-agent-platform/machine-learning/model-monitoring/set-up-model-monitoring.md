@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 Before you can start monitoring a model, you must register the model with Gemini Enterprise Agent Platform Model Registry and then configure monitoring details by creating a model monitor. This page describes how to register a model and explains all the specifications that you can define in a monitoring configuration.
@@ -22,9 +22,11 @@ For models that you serve outside of Agent Platform, you can register a *referen
 
 ### Python SDK
 
-    model = aiplatform.Model.upload(
-     display_name="MODEL_NAME"
-    )
+```
+model = aiplatform.Model.upload(
+ display_name="MODEL_NAME"
+)
+```
 
 For reference models, Model Monitoring can support datasets from Cloud Storage or BigQuery. You cannot monitor feature attributions for reference models.
 
@@ -32,24 +34,24 @@ For reference models, Model Monitoring can support datasets from Cloud Storage o
 
 You can monitor metrics in data that is stored in the following sources. Nested features are not supported. To analyze nested data, flatten it first. If your data is in, for example, BigQuery, you can use SQL to transform nested features.
 
-  - BigQuery  
-    You can provide a BigQuery table URI or a SQL query. To specify a time window or to set up continuous monitoring, your table must include a timestamp column, which you specify in your dataset as `timestamp_field` .
+BigQuery  
+You can provide a BigQuery table URI or a SQL query. To specify a time window or to set up continuous monitoring, your table must include a timestamp column, which you specify in your dataset as `timestamp_field` .
 
-  - Cloud Storage  
-    Data must be stored in either the CSV or JSONL format. For CSV files, include a header of your column names as the first row in your file.
+Cloud Storage  
+Data must be stored in either the CSV or JSONL format. For CSV files, include a header of your column names as the first row in your file.
 
-  - Agent Platform batch prediction jobs  
-    Provide the fully qualified batch prediction job resource name to monitor a batch prediction job. You can run a monitoring job as soon as you create the batch prediction job; you don't have to wait for the batch job to complete. Model Monitoring v2 runs your monitoring job soon after the batch prediction job has completed.
+Agent Platform batch prediction jobs  
+Provide the fully qualified batch prediction job resource name to monitor a batch prediction job. You can run a monitoring job as soon as you create the batch prediction job; you don't have to wait for the batch job to complete. Model Monitoring v2 runs your monitoring job soon after the batch prediction job has completed.
 
-  - Agent Platform endpoint logging  
-    You must enable request-response logging on the endpoint before you can start monitoring it. Private endpoints aren't supported because they don't support request-response logging.
-    
-    Model Monitoring v2 expects the JSON format of Agent Platform endpoint requests and responses to follow the format used by the [`predict` method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) . The `instances` objects are inserted to the logging table in the `request_payload` column as an array: `[INSTANCE_1, INSTANCE_2]` . Similarly, the `predictions` objects are inserted to the logging table in the `response_payload` column as an array: `[PREDICTION_1, PREDICTION_2]` .
-    
-    Other methods are supported (such as raw predict), but your data must follow the request and response JSON format as documented in the API reference for the [`predict` method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) .
+Agent Platform endpoint logging  
+You must enable request-response logging on the endpoint before you can start monitoring it. Private endpoints aren't supported because they don't support request-response logging.
 
-  - Agent Platform managed dataset  
-    Datasets that are managed in Agent Platform. For more information, see the [tabular dataset format](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-managed-datasets#tabular_datasets) .
+Model Monitoring v2 expects the JSON format of Agent Platform endpoint requests and responses to follow the format used by the [`predict` method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) . The `instances` objects are inserted to the logging table in the `request_payload` column as an array: `[INSTANCE_1, INSTANCE_2]` . Similarly, the `predictions` objects are inserted to the logging table in the `response_payload` column as an array: `[PREDICTION_1, PREDICTION_2]` .
+
+Other methods are supported (such as raw predict), but your data must follow the request and response JSON format as documented in the API reference for the [`predict` method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) .
+
+Agent Platform managed dataset  
+Datasets that are managed in Agent Platform. For more information, see the [tabular dataset format](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-managed-datasets#tabular_datasets) .
 
 ### Continuous monitoring
 
@@ -65,14 +67,14 @@ Both numerical and categorical features are supported. You can include columns w
 
 Numerical features maps to the following data types:
 
-  - Float
-  - Integer
+- Float
+- Integer
 
 Categorical features maps to the following data types:
 
-  - Boolean
-  - String
-  - Categorical
+- Boolean
+- String
+- Categorical
 
 ## Model schema
 
@@ -82,29 +84,31 @@ The following example shows the general structure of the expected schema:
 
 ### Python SDK
 
-    ml_monitoring.spec.ModelMonitoringSchema(
-      feature_fields=[
-          ml_monitoring.spec.FieldSchema(
-              name="FEATURE_NAME",
-              data_type="DATA_TYPE",
-              repeated=BOOLEAN
-          )
-      ],
-        prediction_fields = [
-          ml_monitoring.spec.FieldSchema(
-              name="PREDICTION_NAME",
-              data_type="DATA_TYPE",
-              repeated=BOOLEAN
-          )
-      ],
-      ground_truth_fields = [
-          ml_monitoring.spec.FieldSchema(
-              name="GROUND_TRUTH_NAME",
-              data_type="DATA_TYPE",
-              repeated=BOOLEAN
-          )
-      ]
-    )
+```
+ml_monitoring.spec.ModelMonitoringSchema(
+  feature_fields=[
+      ml_monitoring.spec.FieldSchema(
+          name="FEATURE_NAME",
+          data_type="DATA_TYPE",
+          repeated=BOOLEAN
+      )
+  ],
+    prediction_fields = [
+      ml_monitoring.spec.FieldSchema(
+          name="PREDICTION_NAME",
+          data_type="DATA_TYPE",
+          repeated=BOOLEAN
+      )
+  ],
+  ground_truth_fields = [
+      ml_monitoring.spec.FieldSchema(
+          name="GROUND_TRUTH_NAME",
+          data_type="DATA_TYPE",
+          repeated=BOOLEAN
+      )
+  ]
+)
+```
 
 If a column includes an array of values, set `repeated` to `true` .
 
@@ -130,8 +134,8 @@ You can set your baseline dataset to any supported data source, such as an Agent
 
 You can set monitoring time specifications through two methods:
 
-  - Time range, which includes a start time and end time pair.
-  - Time window and offset, which specifies the quantity of data to include and the time period between comparison datasets.
+- Time range, which includes a start time and end time pair.
+- Time window and offset, which specifies the quantity of data to include and the time period between comparison datasets.
 
 For example, in cases where you want to compare recent data with data that was collected previously, you can set an *offset* . The offset specifies the time period between the target and baseline datasets. As an example, imagine you set your target dataset with a one day window, and your baseline is set with an offset of one week also with a one day window.
 
@@ -162,7 +166,7 @@ You can optionally set [monitoring objectives](https://docs.cloud.google.com/gem
 6.  Optional: To specify an existing Cloud Storage bucket for exporting monitoring results, expand **Advanced options** and then select a bucket.
 
 7.  To configure monitoring objectives, click **Continue** or click **Set up** to create the model monitor.
-    
+
     This configuration is used as the defaults when running a job.
 
 8.  Select the objectives to monitor. For each objective, you can set the metric to monitor and a threshold for alerts.
@@ -171,99 +175,101 @@ You can optionally set [monitoring objectives](https://docs.cloud.google.com/gem
 
 ### Python SDK
 
-    from vertexai.resources.preview import ml_monitoring
-    from google.cloud.aiplatform_v1beta1.types import ExplanationSpec, ExplanationParameters, ExplanationMetadata
-    
-    # Define Monitoring Schema. For AutoML models, this is optional if the schema information is available.
-    MONITORING_SCHEMA=ml_monitoring.spec.ModelMonitoringSchema(
-      feature_fields=[
-          ml_monitoring.spec.FieldSchema(
-              name="sepal_length_cm",
-              data_type="float"
-          ),
-          ml_monitoring.spec.FieldSchema(
-              name="sepal_width_cm",
-              data_type="float"
-          ),
-          ml_monitoring.spec.FieldSchema(
-              name="petal_length_cm",
-              data_type="float"
-          ),
-          ml_monitoring.spec.FieldSchema(
-              name="petal_width_cm",
-              data_type="float"
-          )
-      ],
-      prediction_fields = [
-          ml_monitoring.spec.FieldSchema(
-              name="predicted_species",
-              data_type="categorical"
-          )
-      ]
-    )
-    
-    TRAINING_DATASET = ml_monitoring.spec.MonitoringInput(
-      gcs_uri=GCS_INPUT_URI,
-      data_format=DATA_FORMAT,
-    )
-    
-    DEFAULT_FEATURE_DRIFT_SPEC=ml_monitoring.spec.DataDriftSpec(
-      categorical_metric_type="l_infinity",
-      numeric_metric_type="jensen_shannon_divergence",
-      default_categorical_alert_threshold=0.1,
-      default_numeric_alert_threshold=0.1,
-    )
-    
-    DEFAULT_PREDICTION_OUTPUT_DRIFT_SPEC=ml_monitoring.spec.DataDriftSpec(
-      categorical_metric_type="l_infinity",
-      numeric_metric_type="jensen_shannon_divergence",
-      default_categorical_alert_threshold=0.1,
-      default_numeric_alert_threshold=0.1,
-    )
-    
-    DEFAULT_FEATURE_ATTRIBUTION_SPEC=ml_monitoring.spec.FeatureAttributionSpec(
-      default_alert_threshold=0.0003,
-      feature_alert_thresholds={"sepal_length_cm":0.0001},
-    )
-    
-    EXPLANATION_SPEC=ExplanationSpec(
-      parameters=ExplanationParameters(
-          {"sampled_shapley_attribution": {"path_count": 2}}
+```
+from vertexai.resources.preview import ml_monitoring
+from google.cloud.aiplatform_v1beta1.types import ExplanationSpec, ExplanationParameters, ExplanationMetadata
+
+# Define Monitoring Schema. For AutoML models, this is optional if the schema information is available.
+MONITORING_SCHEMA=ml_monitoring.spec.ModelMonitoringSchema(
+  feature_fields=[
+      ml_monitoring.spec.FieldSchema(
+          name="sepal_length_cm",
+          data_type="float"
       ),
-      metadata=ExplanationMetadata(
-          inputs={
-              "sepal_length_cm": ExplanationMetadata.InputMetadata({
-                  "input_tensor_name": "sepal_length_cm",
-                  "encoding": "IDENTITY",
-                  "modality": "numeric",
-              }),
-              ...
-          },
-          ...
+      ml_monitoring.spec.FieldSchema(
+          name="sepal_width_cm",
+          data_type="float"
+      ),
+      ml_monitoring.spec.FieldSchema(
+          name="petal_length_cm",
+          data_type="float"
+      ),
+      ml_monitoring.spec.FieldSchema(
+          name="petal_width_cm",
+          data_type="float"
       )
-    )
-    
-    DEFAULT_OUTPUT_SPEC = ml_monitoring.spec.output.OutputSpec(
-      gcs_base_dir=GCS_OUTPUT_BASE_DIR
-    )
-    
-    DEFAULT_NOTIFICATION_SPEC = ml_monitoring.spec.NotificationSpec(
-      user_emails=['email@example.com']
-    )
-    
-    my_model_monitor = ml_monitoring.ModelMonitor.create(
-      display_name=MONITORING_JOB_DISPLAY_NAME,
-      model_name=MODEL_RESOURCE_NAME,
-      model_version_id=MODEL_VERSION_ID,
-      model_monitoring_schema=MONITORING_SCHEMA,
-      # The following fields are optional for creating the model monitor.
-      training_dataset=TRAINING_DATASET,
-      tabular_objective_spec=ml_monitoring.spec.TabularObjective(
-          feature_drift_spec=DEFAULT_FEATURE_DRIFT_SPEC,
-          prediction_output_drift_spec=DEFAULT_PREDICTION_OUTPUT_DRIFT_SPEC,
-          feature_attribution_spec=DEFAULT_FEATURE_ATTRIBUTION_SPEC,
-      ),
-      explanation_spec=DEFAULT_FEATURE_ATTRIBUTION_SPEC,
-      output_spec=DEFAULT_OUTPUT_SPEC,
-      notification_spec=DEFAULT_NOTIFICATION_SPEC
-    )
+  ],
+  prediction_fields = [
+      ml_monitoring.spec.FieldSchema(
+          name="predicted_species",
+          data_type="categorical"
+      )
+  ]
+)
+
+TRAINING_DATASET = ml_monitoring.spec.MonitoringInput(
+  gcs_uri=GCS_INPUT_URI,
+  data_format=DATA_FORMAT,
+)
+
+DEFAULT_FEATURE_DRIFT_SPEC=ml_monitoring.spec.DataDriftSpec(
+  categorical_metric_type="l_infinity",
+  numeric_metric_type="jensen_shannon_divergence",
+  default_categorical_alert_threshold=0.1,
+  default_numeric_alert_threshold=0.1,
+)
+
+DEFAULT_PREDICTION_OUTPUT_DRIFT_SPEC=ml_monitoring.spec.DataDriftSpec(
+  categorical_metric_type="l_infinity",
+  numeric_metric_type="jensen_shannon_divergence",
+  default_categorical_alert_threshold=0.1,
+  default_numeric_alert_threshold=0.1,
+)
+
+DEFAULT_FEATURE_ATTRIBUTION_SPEC=ml_monitoring.spec.FeatureAttributionSpec(
+  default_alert_threshold=0.0003,
+  feature_alert_thresholds={"sepal_length_cm":0.0001},
+)
+
+EXPLANATION_SPEC=ExplanationSpec(
+  parameters=ExplanationParameters(
+      {"sampled_shapley_attribution": {"path_count": 2}}
+  ),
+  metadata=ExplanationMetadata(
+      inputs={
+          "sepal_length_cm": ExplanationMetadata.InputMetadata({
+              "input_tensor_name": "sepal_length_cm",
+              "encoding": "IDENTITY",
+              "modality": "numeric",
+          }),
+          ...
+      },
+      ...
+  )
+)
+
+DEFAULT_OUTPUT_SPEC = ml_monitoring.spec.output.OutputSpec(
+  gcs_base_dir=GCS_OUTPUT_BASE_DIR
+)
+
+DEFAULT_NOTIFICATION_SPEC = ml_monitoring.spec.NotificationSpec(
+  user_emails=['email@example.com']
+)
+
+my_model_monitor = ml_monitoring.ModelMonitor.create(
+  display_name=MONITORING_JOB_DISPLAY_NAME,
+  model_name=MODEL_RESOURCE_NAME,
+  model_version_id=MODEL_VERSION_ID,
+  model_monitoring_schema=MONITORING_SCHEMA,
+  # The following fields are optional for creating the model monitor.
+  training_dataset=TRAINING_DATASET,
+  tabular_objective_spec=ml_monitoring.spec.TabularObjective(
+      feature_drift_spec=DEFAULT_FEATURE_DRIFT_SPEC,
+      prediction_output_drift_spec=DEFAULT_PREDICTION_OUTPUT_DRIFT_SPEC,
+      feature_attribution_spec=DEFAULT_FEATURE_ATTRIBUTION_SPEC,
+  ),
+  explanation_spec=DEFAULT_FEATURE_ATTRIBUTION_SPEC,
+  output_spec=DEFAULT_OUTPUT_SPEC,
+  notification_spec=DEFAULT_NOTIFICATION_SPEC
+)
+```

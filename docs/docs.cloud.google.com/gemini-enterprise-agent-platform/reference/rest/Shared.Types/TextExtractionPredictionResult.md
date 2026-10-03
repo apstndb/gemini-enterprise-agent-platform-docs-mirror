@@ -10,7 +10,7 @@ Prediction output format for Text Extraction.
 
 Fields
 
-`ids[]` `string ( int64 format)`
+`ids[]` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The resource IDs of the AnnotationSpecs that had been identified, ordered by the confidence score descendingly.
 
@@ -18,11 +18,11 @@ The resource IDs of the AnnotationSpecs that had been identified, ordered by the
 
 The display names of the AnnotationSpecs that had been identified, order matches the IDs.
 
-`textSegmentStartOffsets[]` `string ( int64 format)`
+`textSegmentStartOffsets[]` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The start offsets, inclusive, of the text segment in which the AnnotationSpec has been identified. Expressed as a zero-based number of characters as measured from the start of the text snippet.
 
-`textSegmentEndOffsets[]` `string ( int64 format)`
+`textSegmentEndOffsets[]` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The end offsets, inclusive, of the text segment in which the AnnotationSpec has been identified. Expressed as a zero-based number of characters as measured from the start of the text snippet.
 
@@ -30,34 +30,24 @@ The end offsets, inclusive, of the text segment in which the AnnotationSpec has 
 
 The Model's confidences in correctness of the predicted IDs, higher value means higher confidence. Order matches the Ids.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;ids&quot;: [
+**JSON representation**
+
+```
+{
+  "ids": [
     string
   ],
-  &quot;displayNames&quot;: [
+  "displayNames": [
     string
   ],
-  &quot;textSegmentStartOffsets&quot;: [
+  "textSegmentStartOffsets": [
     string
   ],
-  &quot;textSegmentEndOffsets&quot;: [
+  "textSegmentEndOffsets": [
     string
   ],
-  &quot;confidences&quot;: [
+  "confidences": [
     number
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```

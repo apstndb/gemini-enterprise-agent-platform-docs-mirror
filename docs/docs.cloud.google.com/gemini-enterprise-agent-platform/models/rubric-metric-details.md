@@ -14,48 +14,52 @@ For more information about test-driven evaluation, see [Define your evaluation m
 
 The Gen AI evaluation service offers a list of managed rubric-based metrics for the test-driven evaluation framework:
 
-  - For metrics with adaptive rubrics, most of them include both the workflow for rubric generation for each prompt and rubric validation. You can run them separately if needed. See [Run an evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/run-evaluation) for details.
+- For metrics with adaptive rubrics, most of them include both the workflow for rubric generation for each prompt and rubric validation. You can run them separately if needed. See [Run an evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/run-evaluation) for details.
 
-  - For metrics with static rubrics, no per-prompt rubrics are generated. For details regarding the intended outputs, see [Metric details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#managed-metrics-details) .
+- For metrics with static rubrics, no per-prompt rubrics are generated. For details regarding the intended outputs, see [Metric details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#managed-metrics-details) .
 
 Each managed rubric-based metric has a versioning number. The metric uses the latest version by default, but you can pin to a specific version if needed:
 
-    from vertexai import types
-    
-    text_quality_metric = types.RubricMetric.TEXT_QUALITY
-    general_quality_v1 = types.RubricMetric.GENERAL_QUALITY(version='v1')
+```
+from vertexai import types
+
+text_quality_metric = types.RubricMetric.TEXT_QUALITY
+general_quality_v1 = types.RubricMetric.GENERAL_QUALITY(version='v1')
+```
 
 ## Backward compatibility
 
 For metrics offered as a [Metric prompt templates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/metrics-templates) , you can still access the pointwise metrics through the GenAI Client in Agent Platform SDK through the same approach. Pairwise metrics are not supported by the GenAI Client in Agent Platform SDK, but see [Run an evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/run-evaluation) to compare two models in the same evaluation.
 
-    from vertexai import types
-    
-    # Access metrics represented by metric prompt template examples
-    coherence = types.RubricMetric.COHERENCE
-    fluency = types.RubricMetric.FLUENCY
+```
+from vertexai import types
+
+# Access metrics represented by metric prompt template examples
+coherence = types.RubricMetric.COHERENCE
+fluency = types.RubricMetric.FLUENCY
+```
 
 ## Managed metrics details
 
 This section lists managed metrics with details such as their type, required inputs, and expected output:
 
-  - [General quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#general-quality)
-  - [Text quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#text-quality)
-  - [Instruction following](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#instruction-following)
-  - [Grounding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#grounding)
-  - [Safety](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#safety)
-  - [Multi-turn general quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#multi-turn-general-quality)
-  - [Multi-turn text quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#multi-turn-text-quality)
-  - [Agent final response match](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#agent-final-response-match)
-  - [Agent final response reference free](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#agent-final-response-reference-free)
-  - [Agent final response quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#agent-final-response-quality)
-  - [Agent hallucination](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#agent-hallucination)
-  - [Agent tool use quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#agent-tool-use-quality)
-  - [Agent multi-turn task success](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#agent-multi-turn-task-success)
-  - [Agent multi-turn tool use quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#agent-multi-turn-tool-use-quality)
-  - [Agent multi-turn trajectory quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#agent-multi-turn-trajectory-quality)
-  - [Gecko text-to-image quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#gecko-t2i)
-  - [Gecko text-to-video quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#gecko-t2v)
+- [General quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#general-quality)
+- [Text quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#text-quality)
+- [Instruction following](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#instruction-following)
+- [Grounding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#grounding)
+- [Safety](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#safety)
+- [Multi-turn general quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#multi-turn-general-quality)
+- [Multi-turn text quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#multi-turn-text-quality)
+- [Agent final response match](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#agent-final-response-match)
+- [Agent final response reference free](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#agent-final-response-reference-free)
+- [Agent final response quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#agent-final-response-quality)
+- [Agent hallucination](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#agent-hallucination)
+- [Agent tool use quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#agent-tool-use-quality)
+- [Agent multi-turn task success](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#agent-multi-turn-task-success)
+- [Agent multi-turn tool use quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#agent-multi-turn-tool-use-quality)
+- [Agent multi-turn trajectory quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#agent-multi-turn-trajectory-quality)
+- [Gecko text-to-image quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#gecko-t2i)
+- [Gecko text-to-video quality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#gecko-t2v)
 
 ### General quality
 
@@ -67,7 +71,7 @@ This section lists managed metrics with details such as their type, required inp
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code dir="ltr" translate="no">general_quality_v1</code></td>
+<td><code>general_quality_v1</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -79,22 +83,22 @@ This section lists managed metrics with details such as their type, required inp
 </tr>
 <tr class="even">
 <td><strong>How to access in SDK</strong></td>
-<td><code dir="ltr" translate="no">types.RubricMetric.GENERAL_QUALITY</code></td>
+<td><code>types.RubricMetric.GENERAL_QUALITY</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Input</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">prompt</code></li>
-<li><code dir="ltr" translate="no">response</code></li>
-<li>(Optional) <code dir="ltr" translate="no">rubric_groups</code></li>
+<li><code>prompt</code></li>
+<li><code>response</code></li>
+<li>(Optional) <code>rubric_groups</code></li>
 </ul>
 If you have rubrics already generated, you can provide them directly for evaluation.</td>
 </tr>
 <tr class="even">
 <td><strong>Output</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">score</code></li>
-<li><code dir="ltr" translate="no">rubrics</code> and corresponding <code dir="ltr" translate="no">verdicts</code></li>
+<li><code>score</code></li>
+<li><code>rubrics</code> and corresponding <code>verdicts</code></li>
 </ul>
 The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
@@ -115,7 +119,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code dir="ltr" translate="no">text_quality_v1</code></td>
+<td><code>text_quality_v1</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -127,22 +131,22 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="even">
 <td><strong>How to access in SDK</strong></td>
-<td><code dir="ltr" translate="no">types.RubricMetric.TEXT_QUALITY</code></td>
+<td><code>types.RubricMetric.TEXT_QUALITY</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Input</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">prompt</code></li>
-<li><code dir="ltr" translate="no">response</code></li>
-<li>(Optional) <code dir="ltr" translate="no">rubric_groups</code></li>
+<li><code>prompt</code></li>
+<li><code>response</code></li>
+<li>(Optional) <code>rubric_groups</code></li>
 </ul>
 If you have rubrics already generated, you can provide them directly for evaluation.</td>
 </tr>
 <tr class="even">
 <td><strong>Output</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">score</code></li>
-<li><code dir="ltr" translate="no">rubrics</code> and corresponding <code dir="ltr" translate="no">verdicts</code></li>
+<li><code>score</code></li>
+<li><code>rubrics</code> and corresponding <code>verdicts</code></li>
 </ul>
 The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
@@ -163,7 +167,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code dir="ltr" translate="no">instruction_following_v1</code></td>
+<td><code>instruction_following_v1</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -175,22 +179,22 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="even">
 <td><strong>How to access in SDK</strong></td>
-<td><code dir="ltr" translate="no">types.RubricMetric.INSTRUCTION_FOLLOWING</code></td>
+<td><code>types.RubricMetric.INSTRUCTION_FOLLOWING</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Input</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">prompt</code></li>
-<li><code dir="ltr" translate="no">response</code></li>
-<li>(Optional) <code dir="ltr" translate="no">rubric_groups</code></li>
+<li><code>prompt</code></li>
+<li><code>response</code></li>
+<li>(Optional) <code>rubric_groups</code></li>
 </ul>
 If you have rubrics already generated, You can provide them directly for evaluation.</td>
 </tr>
 <tr class="even">
 <td><strong>Output</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">score</code> (passing rate)</li>
-<li><code dir="ltr" translate="no">rubrics</code> and corresponding <code dir="ltr" translate="no">verdicts</code></li>
+<li><code>score</code> (passing rate)</li>
+<li><code>rubrics</code> and corresponding <code>verdicts</code></li>
 </ul>
 The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
@@ -211,7 +215,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code dir="ltr" translate="no">grounding_v1</code></td>
+<td><code>grounding_v1</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -223,26 +227,26 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="even">
 <td><strong>How to access in SDK</strong></td>
-<td><code dir="ltr" translate="no">types.RubricMetric.GROUNDING</code></td>
+<td><code>types.RubricMetric.GROUNDING</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Input</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">prompt</code></li>
-<li><code dir="ltr" translate="no">response</code></li>
-<li><code dir="ltr" translate="no">context</code></li>
+<li><code>prompt</code></li>
+<li><code>response</code></li>
+<li><code>context</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td><strong>Output</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">score</code></li>
-<li><code dir="ltr" translate="no">explanation</code></li>
+<li><code>score</code></li>
+<li><code>explanation</code></li>
 </ul>
-The score has a range of <code dir="ltr" translate="no">0-1</code> . If any sentence is labeled <code dir="ltr" translate="no">unsupported</code> or <code dir="ltr" translate="no">contradictory</code> , the score is <code dir="ltr" translate="no">0</code> . Otherwise, the score represents the ratio of sentences labeled <code dir="ltr" translate="no">supported</code> or <code dir="ltr" translate="no">no_rad</code> to the total number of sentences.<br />
+The score has a range of <code>0-1</code> . If any sentence is labeled <code>unsupported</code> or <code>contradictory</code> , the score is <code>0</code> . Otherwise, the score represents the ratio of sentences labeled <code>supported</code> or <code>no_rad</code> to the total number of sentences.<br />
 <br />
-The <code dir="ltr" translate="no">explanation</code> field is a JSON string containing a list of per-sentence objects with the following schema:
-<pre dir="ltr" data-is-upgraded="" data-syntax="JSON" translate="no"><code>[
+The <code>explanation</code> field is a JSON string containing a list of per-sentence objects with the following schema:
+<pre data-fenced=""><code>[
   {
     &quot;sentence&quot;: &quot;string&quot;,
     &quot;label&quot;: &quot;supported | unsupported | contradictory | no_rad&quot;,
@@ -252,16 +256,16 @@ The <code dir="ltr" translate="no">explanation</code> field is a JSON string con
 ]</code></pre>
 Each object contains the following fields:
 <ul>
-<li><code dir="ltr" translate="no">sentence</code> : The sentence being analyzed from the response.</li>
-<li><code dir="ltr" translate="no">label</code> : The classification of the sentence, one of:
+<li><code>sentence</code> : The sentence being analyzed from the response.</li>
+<li><code>label</code> : The classification of the sentence, one of:
 <ul>
-<li><code dir="ltr" translate="no">supported</code> : The sentence is entailed by the context.</li>
-<li><code dir="ltr" translate="no">unsupported</code> : The sentence is not entailed by the context.</li>
-<li><code dir="ltr" translate="no">contradictory</code> : The sentence is falsified by the context.</li>
-<li><code dir="ltr" translate="no">no_rad</code> : The sentence does not require factual attribution (for example, opinions, greetings, questions, or disclaimers).</li>
+<li><code>supported</code> : The sentence is entailed by the context.</li>
+<li><code>unsupported</code> : The sentence is not entailed by the context.</li>
+<li><code>contradictory</code> : The sentence is falsified by the context.</li>
+<li><code>no_rad</code> : The sentence does not require factual attribution (for example, opinions, greetings, questions, or disclaimers).</li>
 </ul></li>
-<li><code dir="ltr" translate="no">rationale</code> : A brief explanation for the label assignment.</li>
-<li><code dir="ltr" translate="no">excerpt</code> (present for <code dir="ltr" translate="no">supported</code> and <code dir="ltr" translate="no">contradictory</code> labels): A relevant excerpt from the context that supports or contradicts the sentence.</li>
+<li><code>rationale</code> : A brief explanation for the label assignment.</li>
+<li><code>excerpt</code> (present for <code>supported</code> and <code>contradictory</code> labels): A relevant excerpt from the context that supports or contradicts the sentence.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -281,7 +285,7 @@ Each object contains the following fields:
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code dir="ltr" translate="no">safety_v1</code></td>
+<td><code>safety_v1</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -300,22 +304,22 @@ Each object contains the following fields:
 </tr>
 <tr class="even">
 <td><strong>How to access in SDK</strong></td>
-<td><code dir="ltr" translate="no">types.RubricMetric.SAFETY</code></td>
+<td><code>types.RubricMetric.SAFETY</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Input</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">prompt</code></li>
-<li><code dir="ltr" translate="no">response</code></li>
+<li><code>prompt</code></li>
+<li><code>response</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td><strong>Output</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">score</code></li>
-<li><code dir="ltr" translate="no">explanation</code></li>
+<li><code>score</code></li>
+<li><code>explanation</code></li>
 </ul>
-For the score, <code dir="ltr" translate="no">0</code> is unsafe and <code dir="ltr" translate="no">1</code> is safe.<br />
+For the score, <code>0</code> is unsafe and <code>1</code> is safe.<br />
 The explanation field includes violated policies.</td>
 </tr>
 <tr class="odd">
@@ -335,7 +339,7 @@ The explanation field includes violated policies.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code dir="ltr" translate="no">multi_turn_general_quality_v1</code></td>
+<td><code>multi_turn_general_quality_v1</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -347,21 +351,21 @@ The explanation field includes violated policies.</td>
 </tr>
 <tr class="even">
 <td><strong>How to access in SDK</strong></td>
-<td><code dir="ltr" translate="no">types.RubricMetric.MULTI_TURN_GENERAL_QUALITY</code></td>
+<td><code>types.RubricMetric.MULTI_TURN_GENERAL_QUALITY</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Input</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">prompt</code> with multi-turn conversations</li>
-<li><code dir="ltr" translate="no">response</code></li>
-<li>(Optional) <code dir="ltr" translate="no">rubric_groups</code></li>
+<li><code>prompt</code> with multi-turn conversations</li>
+<li><code>response</code></li>
+<li>(Optional) <code>rubric_groups</code></li>
 </ul>
 If you have rubrics already generated, you can provide them directly for evaluation.</td>
 </tr>
 <tr class="even">
 <td><strong>Output</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">score</code></li>
+<li><code>score</code></li>
 <li>rubrics and corresponding verdicts</li>
 </ul>
 The score represents the passing rate of the response based on the rubrics.</td>
@@ -383,7 +387,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code dir="ltr" translate="no">multi_turn_text_quality_v1</code></td>
+<td><code>multi_turn_text_quality_v1</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -395,22 +399,22 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="even">
 <td><strong>How to access in SDK</strong></td>
-<td><code dir="ltr" translate="no">types.RubricMetric.TEXT_QUALITY</code></td>
+<td><code>types.RubricMetric.TEXT_QUALITY</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Input</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">prompt</code> with multi-turn conversations</li>
-<li><code dir="ltr" translate="no">response</code></li>
-<li>(Optional) <code dir="ltr" translate="no">rubric_groups</code></li>
+<li><code>prompt</code> with multi-turn conversations</li>
+<li><code>response</code></li>
+<li>(Optional) <code>rubric_groups</code></li>
 </ul>
 If you have rubrics already generated, you can provide them directly for evaluation.</td>
 </tr>
 <tr class="even">
 <td><strong>Output</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">score</code></li>
-<li><code dir="ltr" translate="no">rubrics</code> and corresponding <code dir="ltr" translate="no">verdicts</code></li>
+<li><code>score</code></li>
+<li><code>rubrics</code> and corresponding <code>verdicts</code></li>
 </ul>
 The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
@@ -431,7 +435,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code dir="ltr" translate="no">final_response_match_v2</code></td>
+<td><code>final_response_match_v2</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -443,14 +447,14 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="even">
 <td><strong>How to access in SDK</strong></td>
-<td><code dir="ltr" translate="no">types.RubricMetric.FINAL_RESPONSE_MATCH</code></td>
+<td><code>types.RubricMetric.FINAL_RESPONSE_MATCH</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Input</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">prompt</code></li>
-<li><code dir="ltr" translate="no">response</code></li>
-<li><code dir="ltr" translate="no">reference</code></li>
+<li><code>prompt</code></li>
+<li><code>response</code></li>
+<li><code>reference</code></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -479,7 +483,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code dir="ltr" translate="no">final_response_reference_free_v1</code></td>
+<td><code>final_response_reference_free_v1</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -492,21 +496,21 @@ You need to provide rubrics for this metric, as it doesn't support auto-generate
 </tr>
 <tr class="even">
 <td><strong>How to access in SDK</strong></td>
-<td><code dir="ltr" translate="no">types.RubricMetric.FINAL_RESPONSE_REFERENCE_FREE</code></td>
+<td><code>types.RubricMetric.FINAL_RESPONSE_REFERENCE_FREE</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Input</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">prompt</code></li>
-<li><code dir="ltr" translate="no">response</code></li>
-<li><code dir="ltr" translate="no">rubric_groups</code></li>
+<li><code>prompt</code></li>
+<li><code>response</code></li>
+<li><code>rubric_groups</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td><strong>Output</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">score</code></li>
-<li><code dir="ltr" translate="no">rubrics</code> and corresponding <code dir="ltr" translate="no">verdicts</code></li>
+<li><code>score</code></li>
+<li><code>rubrics</code> and corresponding <code>verdicts</code></li>
 </ul>
 The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
@@ -527,7 +531,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code dir="ltr" translate="no">final_response_quality_v1</code></td>
+<td><code>final_response_quality_v1</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -539,24 +543,24 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="even">
 <td><strong>How to access in SDK</strong></td>
-<td><code dir="ltr" translate="no">types.RubricMetric.FINAL_RESPONSE_QUALITY</code></td>
+<td><code>types.RubricMetric.FINAL_RESPONSE_QUALITY</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Input</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">prompt</code></li>
-<li><code dir="ltr" translate="no">response</code></li>
-<li><code dir="ltr" translate="no">developer_instruction</code></li>
-<li><code dir="ltr" translate="no">tool_declarations</code> (can be an empty list)</li>
-<li><code dir="ltr" translate="no">intermediate_events</code> (containing function calls &amp; responses, can be an empty list)</li>
-<li>(Optional) <code dir="ltr" translate="no">rubric_groups</code> (If you have rubrics already generated, you can provide them directly for evaluation)</li>
+<li><code>prompt</code></li>
+<li><code>response</code></li>
+<li><code>developer_instruction</code></li>
+<li><code>tool_declarations</code> (can be an empty list)</li>
+<li><code>intermediate_events</code> (containing function calls &amp; responses, can be an empty list)</li>
+<li>(Optional) <code>rubric_groups</code> (If you have rubrics already generated, you can provide them directly for evaluation)</li>
 </ul></td>
 </tr>
 <tr class="even">
 <td><strong>Output</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">score</code></li>
-<li><code dir="ltr" translate="no">rubrics</code> and corresponding <code dir="ltr" translate="no">verdicts</code></li>
+<li><code>score</code></li>
+<li><code>rubrics</code> and corresponding <code>verdicts</code></li>
 </ul>
 <br />
 The score represents the passing rate of the response based on the rubrics.</td>
@@ -578,7 +582,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code dir="ltr" translate="no">hallucination_v1</code></td>
+<td><code>hallucination_v1</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -586,32 +590,32 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="odd">
 <td><strong>Description</strong></td>
-<td>A score-based metric that checks for factuality and consistency of text responses by segmenting the response into atomic claims. It verifies if each claim is grounded or not based on tool usage in the intermediate events. It can also be leveraged to evaluate any intermediate text responses by setting the flag <code dir="ltr" translate="no">evaluate_intermediate_nl_responses</code> to true.</td>
+<td>A score-based metric that checks for factuality and consistency of text responses by segmenting the response into atomic claims. It verifies if each claim is grounded or not based on tool usage in the intermediate events. It can also be leveraged to evaluate any intermediate text responses by setting the flag <code>evaluate_intermediate_nl_responses</code> to true.</td>
 </tr>
 <tr class="even">
 <td><strong>How to access in SDK</strong></td>
-<td><code dir="ltr" translate="no">types.RubricMetric.HALLUCINATION</code></td>
+<td><code>types.RubricMetric.HALLUCINATION</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Input</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">response</code></li>
-<li><code dir="ltr" translate="no">developer_instruction</code></li>
-<li><code dir="ltr" translate="no">tool_declarations</code> (can be an empty list)</li>
-<li><code dir="ltr" translate="no">intermediate_events</code> (containing function calls &amp; responses, can be an empty list)</li>
-<li><code dir="ltr" translate="no">evaluate_intermediate_nl_responses</code> (default is False)</li>
+<li><code>response</code></li>
+<li><code>developer_instruction</code></li>
+<li><code>tool_declarations</code> (can be an empty list)</li>
+<li><code>intermediate_events</code> (containing function calls &amp; responses, can be an empty list)</li>
+<li><code>evaluate_intermediate_nl_responses</code> (default is False)</li>
 </ul></td>
 </tr>
 <tr class="even">
 <td><strong>Output</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">score</code></li>
-<li><code dir="ltr" translate="no">explanation</code> and corresponding <code dir="ltr" translate="no">verdicts</code></li>
+<li><code>score</code></li>
+<li><code>explanation</code> and corresponding <code>verdicts</code></li>
 </ul>
-The score has a range of <code dir="ltr" translate="no">0-1</code> , and represents the ratio of sentences labeled as <code dir="ltr" translate="no">supported</code> or <code dir="ltr" translate="no">no_rad</code> to the total number of sentences.<br />
+The score has a range of <code>0-1</code> , and represents the ratio of sentences labeled as <code>supported</code> or <code>no_rad</code> to the total number of sentences.<br />
 <br />
-The <code dir="ltr" translate="no">explanation</code> field is a JSON string containing a list of per-event objects with the following schema:
-<pre dir="ltr" data-is-upgraded="" data-syntax="JSON" translate="no"><code>[
+The <code>explanation</code> field is a JSON string containing a list of per-event objects with the following schema:
+<pre data-fenced=""><code>[
   {
     &quot;response&quot;: &quot;string&quot;,
     &quot;score&quot;: &quot;double&quot;,
@@ -626,20 +630,20 @@ The <code dir="ltr" translate="no">explanation</code> field is a JSON string con
     ]
   }
 ]</code></pre>
-Each <code dir="ltr" translate="no">explanation</code> entry contains one object per segmented sentence with the following fields:
+Each <code>explanation</code> entry contains one object per segmented sentence with the following fields:
 <ul>
-<li><code dir="ltr" translate="no">sentence</code> : The exact sentence extracted during the sentence segmentation step.</li>
-<li><code dir="ltr" translate="no">label</code> : The classification of the sentence, one of:
+<li><code>sentence</code> : The exact sentence extracted during the sentence segmentation step.</li>
+<li><code>label</code> : The classification of the sentence, one of:
 <ul>
-<li><code dir="ltr" translate="no">supported</code> : The sentence is entailed by the context.</li>
-<li><code dir="ltr" translate="no">unsupported</code> : The sentence is not entailed by the context.</li>
-<li><code dir="ltr" translate="no">contradictory</code> : The sentence is falsified by the context.</li>
-<li><code dir="ltr" translate="no">disputed</code> : The context contains both supporting and contradicting information.</li>
-<li><code dir="ltr" translate="no">no_rad</code> : The sentence does not require factual attribution (for example, opinions, greetings, questions, or disclaimers).</li>
+<li><code>supported</code> : The sentence is entailed by the context.</li>
+<li><code>unsupported</code> : The sentence is not entailed by the context.</li>
+<li><code>contradictory</code> : The sentence is falsified by the context.</li>
+<li><code>disputed</code> : The context contains both supporting and contradicting information.</li>
+<li><code>no_rad</code> : The sentence does not require factual attribution (for example, opinions, greetings, questions, or disclaimers).</li>
 </ul></li>
-<li><code dir="ltr" translate="no">rationale</code> : A brief explanation for the label assignment.</li>
-<li><code dir="ltr" translate="no">supporting_excerpt</code> (present for <code dir="ltr" translate="no">supported</code> and <code dir="ltr" translate="no">disputed</code> labels): A relevant excerpt from the context that supports the sentence.</li>
-<li><code dir="ltr" translate="no">contradicting_excerpt</code> (present for <code dir="ltr" translate="no">contradictory</code> and <code dir="ltr" translate="no">disputed</code> labels): A relevant excerpt from the context that contradicts the sentence.</li>
+<li><code>rationale</code> : A brief explanation for the label assignment.</li>
+<li><code>supporting_excerpt</code> (present for <code>supported</code> and <code>disputed</code> labels): A relevant excerpt from the context that supports the sentence.</li>
+<li><code>contradicting_excerpt</code> (present for <code>contradictory</code> and <code>disputed</code> labels): A relevant excerpt from the context that contradicts the sentence.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -659,7 +663,7 @@ Each <code dir="ltr" translate="no">explanation</code> entry contains one object
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code dir="ltr" translate="no">tool_use_quality_v1</code></td>
+<td><code>tool_use_quality_v1</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -671,23 +675,23 @@ Each <code dir="ltr" translate="no">explanation</code> entry contains one object
 </tr>
 <tr class="even">
 <td><strong>How to access in SDK</strong></td>
-<td><code dir="ltr" translate="no">types.RubricMetric.TOOL_USE_QUALITY</code></td>
+<td><code>types.RubricMetric.TOOL_USE_QUALITY</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Input</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">prompt</code></li>
-<li><code dir="ltr" translate="no">developer_instruction</code></li>
-<li><code dir="ltr" translate="no">tool_declarations</code> (can be an empty list)</li>
-<li><code dir="ltr" translate="no">intermediate_events</code> (containing function calls &amp; responses, can be an empty list)</li>
-<li>(Optional) <code dir="ltr" translate="no">rubric_groups</code> (If you have rubrics already generated, you can provide them directly for evaluation)</li>
+<li><code>prompt</code></li>
+<li><code>developer_instruction</code></li>
+<li><code>tool_declarations</code> (can be an empty list)</li>
+<li><code>intermediate_events</code> (containing function calls &amp; responses, can be an empty list)</li>
+<li>(Optional) <code>rubric_groups</code> (If you have rubrics already generated, you can provide them directly for evaluation)</li>
 </ul></td>
 </tr>
 <tr class="even">
 <td><strong>Output</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">score</code></li>
-<li><code dir="ltr" translate="no">rubrics</code> and corresponding <code dir="ltr" translate="no">verdicts</code></li>
+<li><code>score</code></li>
+<li><code>rubrics</code> and corresponding <code>verdicts</code></li>
 </ul>
 The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
@@ -708,7 +712,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code dir="ltr" translate="no">multi_turn_task_success_v1</code></td>
+<td><code>multi_turn_task_success_v1</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -727,19 +731,19 @@ The metric operates in three steps:
 </tr>
 <tr class="even">
 <td><strong>How to access in SDK</strong></td>
-<td><code dir="ltr" translate="no">types.RubricMetric.MULTI_TURN_TASK_SUCCESS</code></td>
+<td><code>types.RubricMetric.MULTI_TURN_TASK_SUCCESS</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Input</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">agent_eval_data</code> (multi-turn conversation trace including model inputs, responses, and tool calls)</li>
+<li><code>agent_eval_data</code> (multi-turn conversation trace including model inputs, responses, and tool calls)</li>
 </ul></td>
 </tr>
 <tr class="even">
 <td><strong>Output</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">score</code></li>
-<li><code dir="ltr" translate="no">rubrics</code> and corresponding <code dir="ltr" translate="no">verdicts</code></li>
+<li><code>score</code></li>
+<li><code>rubrics</code> and corresponding <code>verdicts</code></li>
 </ul>
 The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
@@ -760,7 +764,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code dir="ltr" translate="no">multi_turn_tool_use_quality_v1</code></td>
+<td><code>multi_turn_tool_use_quality_v1</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -779,19 +783,19 @@ The metric operates in three steps:
 </tr>
 <tr class="even">
 <td><strong>How to access in SDK</strong></td>
-<td><code dir="ltr" translate="no">types.RubricMetric.MULTI_TURN_TOOL_USE_QUALITY</code></td>
+<td><code>types.RubricMetric.MULTI_TURN_TOOL_USE_QUALITY</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Input</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">agent_eval_data</code> (multi-turn conversation trace including model inputs, responses, and tool calls)</li>
+<li><code>agent_eval_data</code> (multi-turn conversation trace including model inputs, responses, and tool calls)</li>
 </ul></td>
 </tr>
 <tr class="even">
 <td><strong>Output</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">score</code></li>
-<li><code dir="ltr" translate="no">rubrics</code> and corresponding <code dir="ltr" translate="no">verdicts</code></li>
+<li><code>score</code></li>
+<li><code>rubrics</code> and corresponding <code>verdicts</code></li>
 </ul>
 The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
@@ -812,7 +816,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code dir="ltr" translate="no">multi_turn_trajectory_quality_v1</code></td>
+<td><code>multi_turn_trajectory_quality_v1</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -831,19 +835,19 @@ The metric operates in three steps:
 </tr>
 <tr class="even">
 <td><strong>How to access in SDK</strong></td>
-<td><code dir="ltr" translate="no">types.RubricMetric.MULTI_TURN_TRAJECTORY_QUALITY</code></td>
+<td><code>types.RubricMetric.MULTI_TURN_TRAJECTORY_QUALITY</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Input</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">agent_eval_data</code> (multi-turn conversation trace including model inputs, responses, and tool calls)</li>
+<li><code>agent_eval_data</code> (multi-turn conversation trace including model inputs, responses, and tool calls)</li>
 </ul></td>
 </tr>
 <tr class="even">
 <td><strong>Output</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">score</code></li>
-<li><code dir="ltr" translate="no">rubrics</code> and corresponding <code dir="ltr" translate="no">verdicts</code></li>
+<li><code>score</code></li>
+<li><code>rubrics</code> and corresponding <code>verdicts</code></li>
 </ul>
 The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
@@ -864,7 +868,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code dir="ltr" translate="no">gecko_text2image_v1</code></td>
+<td><code>gecko_text2image_v1</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -876,20 +880,20 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="even">
 <td><strong>How to access in SDK</strong></td>
-<td><code dir="ltr" translate="no">types.RubricMetric.GECKO_TEXT2IMAGE</code></td>
+<td><code>types.RubricMetric.GECKO_TEXT2IMAGE</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Input</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">prompt</code></li>
-<li><code dir="ltr" translate="no">response</code> - should be file data with image MIME type</li>
+<li><code>prompt</code></li>
+<li><code>response</code> - should be file data with image MIME type</li>
 </ul></td>
 </tr>
 <tr class="even">
 <td><strong>Output</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">score</code></li>
-<li><code dir="ltr" translate="no">rubrics</code> and corresponding <code dir="ltr" translate="no">verdicts</code></li>
+<li><code>score</code></li>
+<li><code>rubrics</code> and corresponding <code>verdicts</code></li>
 </ul>
 The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
@@ -910,7 +914,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code dir="ltr" translate="no">gecko_text2video_v1</code></td>
+<td><code>gecko_text2video_v1</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -922,20 +926,20 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="even">
 <td><strong>How to access in SDK</strong></td>
-<td><code dir="ltr" translate="no">types.RubricMetric.GECKO_TEXT2VIDEO</code></td>
+<td><code>types.RubricMetric.GECKO_TEXT2VIDEO</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Input</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">prompt</code></li>
-<li><code dir="ltr" translate="no">response</code> - should be file data with video MIME type</li>
+<li><code>prompt</code></li>
+<li><code>response</code> - should be file data with video MIME type</li>
 </ul></td>
 </tr>
 <tr class="even">
 <td><strong>Output</strong></td>
 <td><ul>
-<li><code dir="ltr" translate="no">score</code></li>
-<li><code dir="ltr" translate="no">rubrics</code> and corresponding <code dir="ltr" translate="no">verdicts</code></li>
+<li><code>score</code></li>
+<li><code>rubrics</code> and corresponding <code>verdicts</code></li>
 </ul>
 The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
@@ -948,4 +952,4 @@ The score represents the passing rate of the response based on the rubrics.</td>
 
 ## What's next
 
-  - [Prepare your evaluation dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-dataset) .
+- [Prepare your evaluation dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-dataset) .

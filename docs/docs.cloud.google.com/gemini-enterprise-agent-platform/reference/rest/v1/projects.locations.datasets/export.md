@@ -28,13 +28,13 @@ The request body contains data with the following structure:
 
 Fields
 
-`exportConfig` ` object ( ExportDataConfig  ` )
+`exportConfig` `object ( `[`ExportDataConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/export#ExportDataConfig)` )`
 
 Required. The desired output location.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ## ExportDataConfig
 
@@ -44,29 +44,29 @@ Fields
 
 `annotationsFilter` `string`
 
-An expression for filtering what part of the Dataset is to be exported. Only Annotations that match this filter will be exported. The filter syntax is the same as in `  ListAnnotations  ` .
+An expression for filtering what part of the Dataset is to be exported. Only Annotations that match this filter will be exported. The filter syntax is the same as in [`ListAnnotations`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.dataItems.annotations/list#google.cloud.aiplatform.v1.DatasetService.ListAnnotations) .
 
 `savedQueryId` `string`
 
-The id of a SavedQuery (annotation set) under the Dataset specified by `  ExportDataRequest.name  ` used for filtering Annotations for training.
+The id of a SavedQuery (annotation set) under the Dataset specified by [`ExportDataRequest.name`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/export#body.PATH_PARAMETERS.name) used for filtering Annotations for training.
 
 Only used for custom training data export use cases. Only applicable to Datasets that have SavedQueries.
 
-Only Annotations that are associated with this SavedQuery are used in respectively training. When used in conjunction with `  annotationsFilter  ` , the Annotations used for training are filtered by both `  savedQueryId  ` and `  annotationsFilter  ` .
+Only Annotations that are associated with this SavedQuery are used in respectively training. When used in conjunction with [`annotationsFilter`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/export#ExportDataConfig.FIELDS.annotations_filter) , the Annotations used for training are filtered by both [`savedQueryId`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/export#ExportDataConfig.FIELDS.saved_query_id) and [`annotationsFilter`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/export#ExportDataConfig.FIELDS.annotations_filter) .
 
-Only one of `  savedQueryId  ` and `  annotationSchemaUri  ` should be specified as both of them represent the same thing: problem type.
+Only one of [`savedQueryId`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/export#ExportDataConfig.FIELDS.saved_query_id) and [`annotationSchemaUri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/export#ExportDataConfig.FIELDS.annotation_schema_uri) should be specified as both of them represent the same thing: problem type.
 
 `annotationSchemaUri` `string`
 
-The Cloud Storage URI that points to a YAML file describing the annotation schema. The schema is defined as an OpenAPI 3.0.2 [Schema Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#schemaObject) . The schema files that can be used here are found in gs://google-cloud-aiplatform/schema/dataset/annotation/, note that the chosen schema must be consistent with `  metadata  ` of the Dataset specified by `  ExportDataRequest.name  ` .
+The Cloud Storage URI that points to a YAML file describing the annotation schema. The schema is defined as an OpenAPI 3.0.2 [Schema Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#schemaObject) . The schema files that can be used here are found in gs://google-cloud-aiplatform/schema/dataset/annotation/, note that the chosen schema must be consistent with [`metadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets#Dataset.FIELDS.metadata_schema_uri) of the Dataset specified by [`ExportDataRequest.name`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/export#body.PATH_PARAMETERS.name) .
 
 Only used for custom training data export use cases. Only applicable to Datasets that have DataItems and Annotations.
 
 Only Annotations that both match this schema and belong to DataItems not ignored by the split method are used in respectively training, validation or test role, depending on the role of the DataItem they are on.
 
-When used in conjunction with `  annotationsFilter  ` , the Annotations used for training are filtered by both `  annotationsFilter  ` and `  annotationSchemaUri  ` .
+When used in conjunction with [`annotationsFilter`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/export#ExportDataConfig.FIELDS.annotations_filter) , the Annotations used for training are filtered by both [`annotationsFilter`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/export#ExportDataConfig.FIELDS.annotations_filter) and [`annotationSchemaUri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/export#ExportDataConfig.FIELDS.annotation_schema_uri) .
 
-`exportUse` ` enum ( ExportUse  ` )
+`exportUse` `enum ( `[`ExportUse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/export#ExportUse)` )`
 
 Indicates the usage of the exported files.
 
@@ -74,7 +74,7 @@ Indicates the usage of the exported files.
 
 The destination of the output. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`gcsDestination` ` object ( GcsDestination  ` )
+`gcsDestination` `object ( `[`GcsDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#GcsDestination)` )`
 
 The Google Cloud Storage location where the output is to be written to. In the given directory a new directory will be created with name: `export-data-<dataset-display-name>-<timestamp-of-export-call>` where timestamp is in YYYY-MM-DDThh:mm:ss.sssZ ISO-8601 format. All export output will be written into that directory. Inside that directory, annotations with the same schema will be grouped into sub directories which are named with the corresponding annotations' schema title. Inside these sub directories, a schema.yaml will be created to describe the output format.
 
@@ -84,31 +84,41 @@ End of mutually exclusive fields.
 
 The instructions how the export data should be split between the training, validation and test sets. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`fractionSplit` ` object ( ExportFractionSplit  ` )
+`fractionSplit` `object ( `[`ExportFractionSplit`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/export#ExportFractionSplit)` )`
 
 Split based on fractions defining the size of each set.
 
-`filterSplit` ` object ( ExportFilterSplit  ` )
+`filterSplit` `object ( `[`ExportFilterSplit`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/export#ExportFilterSplit)` )`
 
 Split based on the provided filters for each set.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;annotationsFilter&quot;: string,&quot;savedQueryId&quot;: string,&quot;annotationSchemaUri&quot;: string,&quot;exportUse&quot;: enum (ExportUse),// destination&quot;gcsDestination&quot;: {object (GcsDestination)}// Union type// split&quot;fractionSplit&quot;: {object (ExportFractionSplit)},&quot;filterSplit&quot;: {object (ExportFilterSplit)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "annotationsFilter": string,
+  "savedQueryId": string,
+  "annotationSchemaUri": string,
+  "exportUse": enum (ExportUse),
+
+  // destination
+  "gcsDestination": {
+    object (GcsDestination)
+  }
+  // Union type
+
+  // split
+  "fractionSplit": {
+    object (ExportFractionSplit)
+  },
+  "filterSplit": {
+    object (ExportFilterSplit)
+  }
+  // Union type
+}
+```
 
 ## ExportFractionSplit
 
@@ -128,25 +138,15 @@ The fraction of the input data that is to be used to validate the Model.
 
 The fraction of the input data that is to be used to evaluate the Model.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;trainingFraction&quot;: number,
-  &quot;validationFraction&quot;: number,
-  &quot;testFraction&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "trainingFraction": number,
+  "validationFraction": number,
+  "testFraction": number
+}
+```
 
 ## ExportFilterSplit
 
@@ -158,46 +158,31 @@ Fields
 
 `trainingFilter` `string`
 
-Required. A filter on DataItems of the Dataset. DataItems that match this filter are used to train the Model. A filter with same syntax as the one used in `  DatasetService.ListDataItems  ` may be used. If a single DataItem is matched by more than one of the FilterSplit filters, then it is assigned to the first set that applies to it in the training, validation, test order.
+Required. A filter on DataItems of the Dataset. DataItems that match this filter are used to train the Model. A filter with same syntax as the one used in [`DatasetService.ListDataItems`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.dataItems/list#google.cloud.aiplatform.v1.DatasetService.ListDataItems) may be used. If a single DataItem is matched by more than one of the FilterSplit filters, then it is assigned to the first set that applies to it in the training, validation, test order.
 
 `validationFilter` `string`
 
-Required. A filter on DataItems of the Dataset. DataItems that match this filter are used to validate the Model. A filter with same syntax as the one used in `  DatasetService.ListDataItems  ` may be used. If a single DataItem is matched by more than one of the FilterSplit filters, then it is assigned to the first set that applies to it in the training, validation, test order.
+Required. A filter on DataItems of the Dataset. DataItems that match this filter are used to validate the Model. A filter with same syntax as the one used in [`DatasetService.ListDataItems`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.dataItems/list#google.cloud.aiplatform.v1.DatasetService.ListDataItems) may be used. If a single DataItem is matched by more than one of the FilterSplit filters, then it is assigned to the first set that applies to it in the training, validation, test order.
 
 `testFilter` `string`
 
-Required. A filter on DataItems of the Dataset. DataItems that match this filter are used to test the Model. A filter with same syntax as the one used in `  DatasetService.ListDataItems  ` may be used. If a single DataItem is matched by more than one of the FilterSplit filters, then it is assigned to the first set that applies to it in the training, validation, test order.
+Required. A filter on DataItems of the Dataset. DataItems that match this filter are used to test the Model. A filter with same syntax as the one used in [`DatasetService.ListDataItems`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets.dataItems/list#google.cloud.aiplatform.v1.DatasetService.ListDataItems) may be used. If a single DataItem is matched by more than one of the FilterSplit filters, then it is assigned to the first set that applies to it in the training, validation, test order.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;trainingFilter&quot;: string,
-  &quot;validationFilter&quot;: string,
-  &quot;testFilter&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "trainingFilter": string,
+  "validationFilter": string,
+  "testFilter": string
+}
+```
 
 ## ExportUse
 
 ExportUse indicates the usage of the exported files. It restricts file destination, format, annotations to be exported, whether to allow unannotated data to be exported and whether to clone files to temp Cloud Storage bucket.
 
-Enums
-
-`EXPORT_USE_UNSPECIFIED`
-
-Regular user export.
-
-`CUSTOM_CODE_TRAINING`
-
-Export for custom code training.
+| Enums                    |                                  |
+|--------------------------|----------------------------------|
+| `EXPORT_USE_UNSPECIFIED` | Regular user export.             |
+| `CUSTOM_CODE_TRAINING`   | Export for custom code training. |

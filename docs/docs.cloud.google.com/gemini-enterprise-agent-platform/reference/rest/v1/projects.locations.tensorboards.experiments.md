@@ -24,13 +24,13 @@ user provided name of this TensorboardExperiment.
 
 description of this TensorboardExperiment.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this TensorboardExperiment was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this TensorboardExperiment was last updated.
 
@@ -44,7 +44,7 @@ label keys and values cannot be longer than 64 characters (Unicode codepoints), 
 
 See <https://goo.gl/xmQnxf> for more information and examples of labels. System reserved label keys are prefixed with `aiplatform.googleapis.com/` and are immutable. The following system labels exist for each Dataset:
 
-  - `aiplatform.googleapis.com/dataset_metadata_schema` : output only. Its value is the `  metadataSchema's  ` title.
+- `aiplatform.googleapis.com/dataset_metadata_schema` : output only. Its value is the [`metadataSchema's`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets#Dataset.FIELDS.metadata_schema_uri) title.
 
 `etag` `string`
 
@@ -54,60 +54,30 @@ Used to perform consistent read-modify-write updates. If not set, a blind "overw
 
 Immutable. Source of the TensorboardExperiment. Example: a custom training job.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;name&quot;: string,
-  &quot;displayName&quot;: string,
-  &quot;description&quot;: string,
-  &quot;createTime&quot;: string,
-  &quot;updateTime&quot;: string,
-  &quot;labels&quot;: {
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "description": string,
+  "createTime": string,
+  "updateTime": string,
+  "labels": {
     string: string,
     ...
   },
-  &quot;etag&quot;: string,
-  &quot;source&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+  "etag": string,
+  "source": string
+}
+```
 
-## Methods
-
-### `            batchCreate           `
-
-Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.
-
-### `            create           `
-
-Creates a TensorboardExperiment.
-
-### `            delete           `
-
-Deletes a TensorboardExperiment.
-
-### `            get           `
-
-Gets a TensorboardExperiment.
-
-### `            list           `
-
-Lists TensorboardExperiments in a Location.
-
-### `            patch           `
-
-Updates a TensorboardExperiment.
-
-### `            write           `
-
-Write time series data points of multiple TensorboardTimeSeries in multiple TensorboardRun's.
+| Methods                                                                                                                                                   |                                                                                               |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| [`batchCreate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments/batchCreate) | Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.                    |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments/create)           | Creates a TensorboardExperiment.                                                              |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments/delete)           | Deletes a TensorboardExperiment.                                                              |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments/get)                 | Gets a TensorboardExperiment.                                                                 |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments/list)               | Lists TensorboardExperiments in a Location.                                                   |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments/patch)             | Updates a TensorboardExperiment.                                                              |
+| [`write`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments/write)             | Write time series data points of multiple TensorboardTimeSeries in multiple TensorboardRun's. |

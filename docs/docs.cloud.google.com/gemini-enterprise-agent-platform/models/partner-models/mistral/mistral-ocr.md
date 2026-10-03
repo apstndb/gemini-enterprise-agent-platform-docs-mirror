@@ -14,76 +14,96 @@ You can couple Mistral OCR (25.05) with other Mistral models to reformat the res
 
 [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/mistralai/model-garden/mistral-ocr-2505)
 
-Model ID
-
-`mistral-ocr-2505`
-
-Launch stage
-
-GA
-
-Supported inputs & outputs
-
-  - Inputs:
-    Documents
-  - Outputs:
-    Text
-
-Usage types
-
-Supported
-
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
-
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Model ID</th>
+<td><code>mistral-ocr-2505</code></td>
+</tr>
+<tr class="even">
+<th>Launch stage</th>
+<td>GA</td>
+</tr>
+<tr class="odd">
+<th>Supported inputs &amp; outputs</th>
+<td><ul>
+<li>Inputs:
+Documents</li>
+<li>Outputs:
+Text</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Usage types</th>
+<td>Supported
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a></li>
+</ul>
 Not supported
-
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-
-Versions
-
-`Mistral OCR (25.05)`
-
-  - **Launch stage:** GA
-  - **Release date:** May 14, 2025
-
-Supported regions
-
-Model availability
-
-United States
-
-  - `us-central1`
-
+<ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Versions</th>
+<td><ul>
+<li><code>Mistral OCR (25.05)</code>
+<ul>
+<li><strong>Launch stage:</strong> GA</li>
+<li><strong>Release date:</strong> May 14, 2025</li>
+</ul></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Supported regions</th>
+<td></td>
+</tr>
+<tr class="odd">
+<th><p>Model availability</p></th>
+<td>United States
+<ul>
+<li><code>us-central1</code></li>
+</ul>
 Europe
-
-  - `europe-west4`
-
-ML processing
-
-United States
-
-  - `Multi-region`
-
+<ul>
+<li><code>europe-west4</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<th><p>ML processing</p></th>
+<td>United States
+<ul>
+<li><code>Multi-region</code></li>
+</ul>
 Europe
-
-  - `Multi-region`
-
-Quota limits
-
-us-central1:
-
-  - QPM: 30
-  - Pages per request: 30 (1 page = 1 million input tokens and 1 million output tokens)
-  - Context length: 30 pages
-  - Max request size: 30MB for streaming, 10MB for unary
-
-europe-west4:
-
-  - QPM: 30
-  - Pages per request: 30 (1 page = 1 million input tokens and 1 million output tokens)
-  - Context length: 30 pages
-  - Max request size: 30MB for streaming, 10MB for unary
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+<ul>
+<li><code>Multi-region</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<th>Quota limits</th>
+<td><p>us-central1:</p>
+<ul>
+<li>QPM: 30</li>
+<li>Pages per request: 30 (1 page = 1 million input tokens and 1 million output tokens)</li>
+<li>Context length: 30 pages</li>
+<li>Max request size: 30MB for streaming, 10MB for unary</li>
+</ul>
+<p>europe-west4:</p>
+<ul>
+<li>QPM: 30</li>
+<li>Pages per request: 30 (1 page = 1 million input tokens and 1 million output tokens)</li>
+<li>Context length: 30 pages</li>
+<li>Max request size: 30MB for streaming, 10MB for unary</li>
+</ul></td>
+</tr>
+<tr class="even">
+<th>Pricing</th>
+<td>See <a href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">Pricing</a> .</td>
+</tr>
+</tbody>
+</table>

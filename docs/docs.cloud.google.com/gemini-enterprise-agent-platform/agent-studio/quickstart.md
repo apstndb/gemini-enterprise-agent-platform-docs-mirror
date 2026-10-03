@@ -12,10 +12,10 @@ You can use [Agent Studio](https://console.cloud.google.com/agent-platform/studi
 
 In this quickstart, you do the following:
 
-  - Send these prompts to the Agent Platform API using samples from the generative AI prompt gallery, including the following:
-      - A summarization text prompt
-      - A code generation prompt
-  - View the code used to generate the responses
+- Send these prompts to the Agent Platform API using samples from the generative AI prompt gallery, including the following:
+  - A summarization text prompt
+  - A code generation prompt
+- View the code used to generate the responses
 
 ## Sample prompts in Agent Studio
 
@@ -32,17 +32,17 @@ Send a summarization text prompt to the Agent Platform API. A summarization task
 2.  In the **Tasks** drop-down menu, select **Summarize** .
 
 3.  Open the **Audio Summarization** card.
-    
+
     This sample prompt includes an audio file and requests a summary of the file contents in a bulleted list.
 
 4.  Notice that in the settings panel, the model's default value is set to **gemini-3.7-flash** . You can choose a different Gemini model in the **Model settings** panel.
 
 5.  Click **Submit** send to generate the summary.
-    
+
     The output is displayed in the response.
 
 6.  To view the Gemini Enterprise Agent Platform code used to generate the transcript summary, click **Code** .
-    
+
     In the **Get code** panel, you can choose your preferred language to get the sample code for the prompt, or you can open the Python code in a Colab Enterprise notebook.
 
 ## Test the Gemini model using a code generation prompt
@@ -54,17 +54,17 @@ Send a code generation prompt to the Agent Platform API. A code generation task 
 2.  In the **Tasks** drop-down menu, select **Code** .
 
 3.  Open the **Generate code from comments** card.
-    
+
     This sample prompt includes a [system instruction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instruction-introduction) that tells the model how to respond and some incomplete Java methods.
 
 4.  Notice that in the settings panel, the model's default value is set to **gemini-3.7-flash** . You can choose a different Gemini model in the **Model settings** panel.
 
 5.  To complete each method by generating code in the areas marked `<WRITE CODE HERE>` , click **Submit** send .
-    
+
     The output is displayed in the response.
 
 6.  To view the Gemini Enterprise Agent Platform code used to generate the code, click **Code** .
-    
+
     In the **Get code** panel, you can choose your preferred language to get the sample code for the prompt, or you can open the Python code in a Colab Enterprise notebook.
 
 ## What's next

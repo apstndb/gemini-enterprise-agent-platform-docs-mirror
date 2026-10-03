@@ -16,9 +16,9 @@ Gemini Enterprise Agent Platform supports batch predictions for the following mo
 
 **Llama:**
 
-  - [Llama 4 Maverick 17B-128E](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-4-maverick-17b-128e-instruct-maas)
-  - [Llama 4 Scout 17B-16E](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-4-maverick-17b-128e-instruct-maas)
-  - [Llama 3.3 70B](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-3.3-70b-instruct-maas)
+- [Llama 4 Maverick 17B-128E](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-4-maverick-17b-128e-instruct-maas)
+- [Llama 4 Scout 17B-16E](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-4-maverick-17b-128e-instruct-maas)
+- [Llama 3.3 70B](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-3.3-70b-instruct-maas)
 
 **OpenAI gpt-oss:**
 
@@ -28,8 +28,8 @@ Gemini Enterprise Agent Platform supports batch predictions for the following mo
 
 **Embedding models:**
 
-  - [Multilingual E5 (small)](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)
-  - [Multilingual E5 (large)](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)
+- [Multilingual E5 (small)](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)
+- [Multilingual E5 (large)](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)
 
 ## Prepare input
 
@@ -37,11 +37,15 @@ Before you begin, prepare your inputs in a BigQuery table or as a JSONL file in 
 
 Large language models:
 
-    {"custom_id": "test-request-0", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "MODEL_ID", "messages": [{"role": "user", "content": "Give me a recipe for banana bread"}], "max_tokens": 1000}}
+```
+{"custom_id": "test-request-0", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "MODEL_ID", "messages": [{"role": "user", "content": "Give me a recipe for banana bread"}], "max_tokens": 1000}}
+```
 
 Embedding models:
 
-    {"custom_id": "test-request-0", "method": "POST", "url": "/v1/embeddings", "body": {"model": "MODEL_ID", "input": "Hello World"}}
+```
+{"custom_id": "test-request-0", "method": "POST", "url": "/v1/embeddings", "body": {"model": "MODEL_ID", "input": "Hello World"}}
+```
 
 > **Note:** Gemini Enterprise Agent Platform doesn't use the `custom_id` , `method` , `url` , and `model` fields. You can include them but they are ignored by the batch prediction job.
 
@@ -50,15 +54,15 @@ Embedding models:
 Your BigQuery input table must adhere to the following schema:
 
 | Column name | Description                                                |
-| ----------- | ---------------------------------------------------------- |
-| custom\_id  | An ID for each request to match the input with the output. |
+|-------------|------------------------------------------------------------|
+| custom_id   | An ID for each request to match the input with the output. |
 | method      | The request method.                                        |
 | url         | The request endpoint.                                      |
 | body(JSON)  | Your input prompt.                                         |
 
-  - Your input table can have other columns, which are ignored by the batch job and passed directly to the output table.
-  - Batch prediction jobs reserve two column names for the batch prediction output: **response(JSON)** and **id** . Don't use these columns in the input table.
-  - The **method** and **url** columns are dropped and not included in the output table.
+- Your input table can have other columns, which are ignored by the batch job and passed directly to the output table.
+- Batch prediction jobs reserve two column names for the batch prediction output: **response(JSON)** and **id** . Don't use these columns in the input table.
+- The **method** and **url** columns are dropped and not included in the output table.
 
 ### Cloud Storage
 
@@ -78,37 +82,41 @@ Specify your BigQuery input table, model, and output location. The batch predict
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : A region that supports the model.
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - MODEL : The name of the [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction#models) to tune.
-  - INPUT\_URI : The BigQuery table where your batch prediction input is located such as `myproject.mydataset.input_table` .
-  - OUTPUT\_FORMAT : To output to a BigQuery table, specify `bigquery` . To output to a Cloud Storage bucket, specify `jsonl` .
-  - DESTINATION : For BigQuery, specify `bigqueryDestination` . For Cloud Storage, specify `gcsDestination` .
-  - OUTPUT\_URI\_FIELD\_NAME : For BigQuery, specify `outputUri` . For Cloud Storage, specify `outputUriPrefix` .
-  - OUTPUT\_URI : For BigQuery, specify the table location such as `myproject.mydataset.output_result` . For Cloud Storage, specify the bucket and folder location such as `gs://mybucket/path/to/outputfile` .
+- ` LOCATION ` : A region that supports the model.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` MODEL ` : The name of the [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction#models) to tune.
+- ` INPUT_URI ` : The BigQuery table where your batch prediction input is located such as `myproject.mydataset.input_table` .
+- ` OUTPUT_FORMAT ` : To output to a BigQuery table, specify `bigquery` . To output to a Cloud Storage bucket, specify `jsonl` .
+- ` DESTINATION ` : For BigQuery, specify `bigqueryDestination` . For Cloud Storage, specify `gcsDestination` .
+- ` OUTPUT_URI_FIELD_NAME ` : For BigQuery, specify `outputUri` . For Cloud Storage, specify `outputUriPrefix` .
+- ` OUTPUT_URI ` : For BigQuery, specify the table location such as `myproject.mydataset.output_result` . For Cloud Storage, specify the bucket and folder location such as `gs://mybucket/path/to/outputfile` .
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs
+```
 
 Request JSON body:
 
-    '{
-      "displayName": "JOB_NAME",
-      "model": "publishers/PUBLISHER/models/MODEL_ID",
-      "inputConfig": {
-        "instancesFormat":"bigquery",
-        "bigquerySource":{
-          "inputUri" : "INPUT_URI"
-        }
-      },
-      "outputConfig": {
-        "predictionsFormat":"OUTPUT_FORMAT",
-        "DESTINATION":{
-          "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
-        }
-      }
-    }'
+```
+'{
+  "displayName": "JOB_NAME",
+  "model": "publishers/PUBLISHER/models/MODEL_ID",
+  "inputConfig": {
+    "instancesFormat":"bigquery",
+    "bigquerySource":{
+      "inputUri" : "INPUT_URI"
+    }
+  },
+  "outputConfig": {
+    "predictionsFormat":"OUTPUT_FORMAT",
+    "DESTINATION":{
+      "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
+    }
+  }
+}'
+```
 
 To send your request, choose one of these options:
 
@@ -118,11 +126,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs"
+```
 
 #### PowerShell
 
@@ -130,45 +140,49 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following.
 
 #### Response
 
-    {
-    "name":
-      "projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/BATCH_JOB_ID",
-      "displayName": "JOB_NAME",
-      "model": "publishers/PUBLISHER/models/MODEL_ID",
-      "inputConfig": {
-        "instancesFormat":"bigquery",
-        "bigquerySource":{
-          "inputUri" : "INPUT_URI"
-        }
-      },
-      "outputConfig": {
-        "predictionsFormat":"OUTPUT_FORMAT",
-        "DESTINATION":{
-          "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
-        }
-      },
-      "state": "JOB_STATE_PENDING",
-      "createTime": "2024-10-16T19:33:59.153782Z", 
-      "updateTime": "2024-10-16T19:33:59.153782Z", 
-      "labels": {
-        "purpose": "testing"
-      },
-      "modelVersionId": "1"
+```
+{
+"name":
+  "projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/BATCH_JOB_ID",
+  "displayName": "JOB_NAME",
+  "model": "publishers/PUBLISHER/models/MODEL_ID",
+  "inputConfig": {
+    "instancesFormat":"bigquery",
+    "bigquerySource":{
+      "inputUri" : "INPUT_URI"
     }
+  },
+  "outputConfig": {
+    "predictionsFormat":"OUTPUT_FORMAT",
+    "DESTINATION":{
+      "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
+    }
+  },
+  "state": "JOB_STATE_PENDING",
+  "createTime": "2024-10-16T19:33:59.153782Z", 
+  "updateTime": "2024-10-16T19:33:59.153782Z", 
+  "labels": {
+    "purpose": "testing"
+  },
+  "modelVersionId": "1"
+}
+```
 
 ### Cloud Storage
 
@@ -178,37 +192,41 @@ Specify your JSONL file's Cloud Storage location, model, and output location.
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : A region that supports the model.
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - MODEL : The name of the [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction#models) to tune.
-  - INPUT\_URI : The Cloud Storage location of your JSONL batch prediction input such as `gs://bucketname/path/to/jsonl` .
-  - OUTPUT\_FORMAT : To output to a BigQuery table, specify `bigquery` . To output to a Cloud Storage bucket, specify `jsonl` .
-  - DESTINATION : For BigQuery, specify `bigqueryDestination` . For Cloud Storage, specify `gcsDestination` .
-  - OUTPUT\_URI\_FIELD\_NAME : For BigQuery, specify `outputUri` . For Cloud Storage, specify `outputUriPrefix` .
-  - OUTPUT\_URI : For BigQuery, specify the table location such as `myproject.mydataset.output_result` . For Cloud Storage, specify the bucket and folder location such as `gs://mybucket/path/to/outputfile` .
+- ` LOCATION ` : A region that supports the model.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` MODEL ` : The name of the [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction#models) to tune.
+- ` INPUT_URI ` : The Cloud Storage location of your JSONL batch prediction input such as `gs://bucketname/path/to/jsonl` .
+- ` OUTPUT_FORMAT ` : To output to a BigQuery table, specify `bigquery` . To output to a Cloud Storage bucket, specify `jsonl` .
+- ` DESTINATION ` : For BigQuery, specify `bigqueryDestination` . For Cloud Storage, specify `gcsDestination` .
+- ` OUTPUT_URI_FIELD_NAME ` : For BigQuery, specify `outputUri` . For Cloud Storage, specify `outputUriPrefix` .
+- ` OUTPUT_URI ` : For BigQuery, specify the table location such as `myproject.mydataset.output_result` . For Cloud Storage, specify the bucket and folder location such as `gs://mybucket/path/to/outputfile` .
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs
+```
 
 Request JSON body:
 
-    '{
-      "displayName": "JOB_NAME",
-      "model": "publishers/PUBLISHER/models/MODEL_ID",
-      "inputConfig": {
-        "instancesFormat":"jsonl",
-        "gcsSource":{
-          "uris" : "INPUT_URI"
-        }
-      },
-      "outputConfig": {
-        "predictionsFormat":"OUTPUT_FORMAT",
-        "DESTINATION":{
-          "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
-        }
-      }
-    }'
+```
+'{
+  "displayName": "JOB_NAME",
+  "model": "publishers/PUBLISHER/models/MODEL_ID",
+  "inputConfig": {
+    "instancesFormat":"jsonl",
+    "gcsSource":{
+      "uris" : "INPUT_URI"
+    }
+  },
+  "outputConfig": {
+    "predictionsFormat":"OUTPUT_FORMAT",
+    "DESTINATION":{
+      "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
+    }
+  }
+}'
+```
 
 To send your request, choose one of these options:
 
@@ -218,11 +236,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs"
+```
 
 #### PowerShell
 
@@ -230,47 +250,51 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following.
 
 #### Response
 
-    {
-    "name":
-      "projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/BATCH_JOB_ID",
-      "displayName": "JOB_NAME",
-      "model": "publishers/PUBLISHER/models/MODEL_ID",
-      "inputConfig": {
-        "instancesFormat": "jsonl",
-        "gcsSource": {
-          "uris": [
-            "INPUT_URI"
-          ]
-        }
-      },
-      "outputConfig": {
-        "predictionsFormat":"OUTPUT_FORMAT",
-        "DESTINATION":{
-          "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
-        }
-      },
-      "state": "JOB_STATE_PENDING",
-      "createTime": "2024-10-16T19:33:59.153782Z", 
-      "updateTime": "2024-10-16T19:33:59.153782Z", 
-      "labels": {
-        "purpose": "testing"
-      },
-      "modelVersionId": "1"
+```
+{
+"name":
+  "projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/BATCH_JOB_ID",
+  "displayName": "JOB_NAME",
+  "model": "publishers/PUBLISHER/models/MODEL_ID",
+  "inputConfig": {
+    "instancesFormat": "jsonl",
+    "gcsSource": {
+      "uris": [
+        "INPUT_URI"
+      ]
     }
+  },
+  "outputConfig": {
+    "predictionsFormat":"OUTPUT_FORMAT",
+    "DESTINATION":{
+      "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
+    }
+  },
+  "state": "JOB_STATE_PENDING",
+  "createTime": "2024-10-16T19:33:59.153782Z", 
+  "updateTime": "2024-10-16T19:33:59.153782Z", 
+  "labels": {
+    "purpose": "testing"
+  },
+  "modelVersionId": "1"
+}
+```
 
 ## Get the status of a batch prediction job
 
@@ -280,13 +304,15 @@ Get the state of your batch prediction job to check whether it has completed suc
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region where your batch job is located.
-  - JOB\_ID : The batch job ID that was returned when you created the job.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region where your batch job is located.
+- ` JOB_ID ` : The batch job ID that was returned when you created the job.
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/JOB_ID
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/JOB_ID
+```
 
 To send your request, choose one of these options:
 
@@ -296,9 +322,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/JOB_ID"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/JOB_ID"
+```
 
 #### PowerShell
 
@@ -306,43 +334,47 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/JOB_ID" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/JOB_ID" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following.
 
 #### Response
 
-    {
-    "name":
-      "projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/BATCH_JOB_ID",
-      "displayName": "JOB_NAME",
-      "model": "publishers/PUBLISHER/models/MODEL_ID",
-      "inputConfig": {
-        "instancesFormat":"bigquery",
-        "bigquerySource":{
-          "inputUri" : "INPUT_URI"
-        }
-      },
-      "outputConfig": {
-        "predictionsFormat":"OUTPUT_FORMAT",
-        "DESTINATION":{
-          "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
-        }
-      },
-      "state": "JOB_STATE_SUCCEEDED",
-      "createTime": "2024-10-16T19:33:59.153782Z", 
-      "updateTime": "2024-10-16T19:33:59.153782Z", 
-      "labels": {
-        "purpose": "testing"
-      },
-      "modelVersionId": "1"
+```
+{
+"name":
+  "projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/BATCH_JOB_ID",
+  "displayName": "JOB_NAME",
+  "model": "publishers/PUBLISHER/models/MODEL_ID",
+  "inputConfig": {
+    "instancesFormat":"bigquery",
+    "bigquerySource":{
+      "inputUri" : "INPUT_URI"
     }
+  },
+  "outputConfig": {
+    "predictionsFormat":"OUTPUT_FORMAT",
+    "DESTINATION":{
+      "OUTPUT_URI_FIELD_NAME": "OUTPUT_URI"
+    }
+  },
+  "state": "JOB_STATE_SUCCEEDED",
+  "createTime": "2024-10-16T19:33:59.153782Z", 
+  "updateTime": "2024-10-16T19:33:59.153782Z", 
+  "labels": {
+    "purpose": "testing"
+  },
+  "modelVersionId": "1"
+}
+```
 
 ## Retrieve output
 
@@ -350,4 +382,4 @@ When a batch prediction job completes, retrieve the output from the location tha
 
 ## What's next
 
-  - Learn how to [Call MaaS APIs for open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) for streaming and non-streaming use cases.
+- Learn how to [Call MaaS APIs for open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) for streaming and non-streaming use cases.

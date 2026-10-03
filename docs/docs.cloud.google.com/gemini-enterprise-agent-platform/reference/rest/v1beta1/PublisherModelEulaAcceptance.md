@@ -10,7 +10,7 @@ Response message for \[ModelGardenService.UpdatePublisherModelEula\]\[\].
 
 Fields
 
-`projectNumber` `string ( int64 format)`
+`projectNumber` `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 The project number requesting access for named model.
 
@@ -22,22 +22,12 @@ The publisher model resource name.
 
 The EULA content acceptance status.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;projectNumber&quot;: string,
-  &quot;publisherModel&quot;: string,
-  &quot;publisherModelEulaAcked&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "projectNumber": string,
+  "publisherModel": string,
+  "publisherModelEulaAcked": boolean
+}
+```

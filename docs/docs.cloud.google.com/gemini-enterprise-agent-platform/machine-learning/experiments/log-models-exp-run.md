@@ -20,44 +20,46 @@ The Vertex AI SDK provides the [`save_model`](https://cloud.google.com/python/do
 
 ### Python
 
-    from typing import Optional, Union
-    
-    from google.cloud import aiplatform
-    
-    
-    def save_model_sample(
-        project: str,
-        location: str,
-        model: Union[
-            "sklearn.base.BaseEstimator", "xgb.Booster", "tf.Module"  # noqa: F821
-        ],
-        artifact_id: Optional[str] = None,
-        uri: Optional[str] = None,
-        input_example: Optional[
-            Union[list, dict, "pd.DataFrame", "np.ndarray"]  # noqa: F821
-        ] = None,
-        display_name: Optional[str] = None,
-        staging_bucket: Optional[str] = None,
-    ) -> None:
-        aiplatform.init(project=project, location=location)
-    
-        aiplatform.save_model(
-            model=model,
-            artifact_id=artifact_id,
-            uri=uri,
-            input_example=input_example,
-            display_name=display_name,
-            staging_bucket=staging_bucket,
-        )
+```
+from typing import Optional, Union
 
-  - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
-  - `model` : (Required). A machine learning model. `(Union["sklearn.base.BaseEstimator", "xgb.Booster", "tf.Module"])`
-  - `artifact_id` : Optional. The resource ID of the artifact. This ID must be globally unique in a metadataStore. It might be up to 63 characters, and valid characters are `[a-z0-9_-]` . The first character can't be a number or a hyphen.
-  - `uri` : Optional. A gcs directory in which to save the model file. If a uri isn't provided, `gs://default-bucket/timestamp-uuid-frameworkName-model` is used. If a default staging bucket isn't set, it must be passed in the `staging_bucket` parameter.
-  - `input_example` : Optional. Each model takes input data and then produces a prediction. Each model accepts one particular format of input (for example, a number, a string, 2d array) and is stored as a yaml file in the gcs uri. Accepts list, dict, pd.DataFrame, and np.ndarray The value inside a list must be a scalar or list. The value inside a dict must be a scalar, list, or np.ndarray. `(Union[list, dict, pd.DataFrame, np.ndarray])` .
-  - `display_name` : The display name of the artifact.
-  - `staging_bucket` : Optional. The staging bucket used to save the model. If not provided, the staging bucket set in `aiplatform.init` is used. A staging bucket or uri is required for saving a model.
+from google.cloud import aiplatform
+
+
+def save_model_sample(
+    project: str,
+    location: str,
+    model: Union[
+        "sklearn.base.BaseEstimator", "xgb.Booster", "tf.Module"  # noqa: F821
+    ],
+    artifact_id: Optional[str] = None,
+    uri: Optional[str] = None,
+    input_example: Optional[
+        Union[list, dict, "pd.DataFrame", "np.ndarray"]  # noqa: F821
+    ] = None,
+    display_name: Optional[str] = None,
+    staging_bucket: Optional[str] = None,
+) -> None:
+    aiplatform.init(project=project, location=location)
+
+    aiplatform.save_model(
+        model=model,
+        artifact_id=artifact_id,
+        uri=uri,
+        input_example=input_example,
+        display_name=display_name,
+        staging_bucket=staging_bucket,
+    )
+```
+
+- `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
+- `model` : (Required). A machine learning model. `(Union["sklearn.base.BaseEstimator", "xgb.Booster", "tf.Module"])`
+- `artifact_id` : Optional. The resource ID of the artifact. This ID must be globally unique in a metadataStore. It might be up to 63 characters, and valid characters are `[a-z0-9_-]` . The first character can't be a number or a hyphen.
+- `uri` : Optional. A gcs directory in which to save the model file. If a uri isn't provided, `gs://default-bucket/timestamp-uuid-frameworkName-model` is used. If a default staging bucket isn't set, it must be passed in the `staging_bucket` parameter.
+- `input_example` : Optional. Each model takes input data and then produces a prediction. Each model accepts one particular format of input (for example, a number, a string, 2d array) and is stored as a yaml file in the gcs uri. Accepts list, dict, pd.DataFrame, and np.ndarray The value inside a list must be a scalar or list. The value inside a dict must be a scalar, list, or np.ndarray. `(Union[list, dict, pd.DataFrame, np.ndarray])` .
+- `display_name` : The display name of the artifact.
+- `staging_bucket` : Optional. The staging bucket used to save the model. If not provided, the staging bucket set in `aiplatform.init` is used. A staging bucket or uri is required for saving a model.
 
 ### Log models
 
@@ -65,46 +67,48 @@ The Vertex AI SDK provides a [`log_model`](https://cloud.google.com/python/docs/
 
 ### Python
 
-    from typing import Optional, Union
-    
-    from google.cloud import aiplatform
-    
-    
-    def log_model_sample(
-        experiment_name: str,
-        run_name: str,
-        project: str,
-        location: str,
-        model: Union[
-            "sklearn.base.BaseEstimator", "xgb.Booster", "tf.Module"  # noqa: F821
-        ],
-        artifact_id: Optional[str] = None,
-        uri: Optional[str] = None,
-        input_example: Optional[
-            Union[list, dict, "pd.DataFrame", "np.ndarray"]  # noqa: F821
-        ] = None,  # noqa: F821
-        display_name: Optional[str] = None,
-    ) -> None:
-        aiplatform.init(experiment=experiment_name, project=project, location=location)
-    
-        aiplatform.start_run(run=run_name, resume=True)
-    
-        aiplatform.log_model(
-            model=model,
-            artifact_id=artifact_id,
-            uri=uri,
-            input_example=input_example,
-            display_name=display_name,
-        )
+```
+from typing import Optional, Union
 
-  - `experiment_name` : Provide the name of your experiment. You can find your list of experiments in the Google Cloud console by selecting "Experiments" in the section nav.
-  - `run_name` : Specify a run name.
-  - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
-  - `model` : Required. A machine learning model. `(Union["sklearn.base.BaseEstimator", "xgb.Booster", "tf.Module"])`
-  - `uri` : Optional. A gcs directory in which to save the model file. If a uri is not provided, `gs://default-bucket/timestamp-uuid-frameworkName-model` is used. If a default staging bucket is not set, a new bucket is created.
-  - `input_example` : Optional. Each model takes input data and then produces a prediction. Each model accepts one particular format of input (for example, a number, a string, 2d array) and is stored as a yaml file in the gcs uri. Accepts list, dict, pd.DataFrame, and np.ndarray The value inside a list must be a scalar or list. The value inside a dict must be a scalar, list, or np.ndarray. `(Union[list, dict, pd.DataFrame, np.ndarray])` .
-  - `display_name` : Optional. The display name of the artifact.
+from google.cloud import aiplatform
+
+
+def log_model_sample(
+    experiment_name: str,
+    run_name: str,
+    project: str,
+    location: str,
+    model: Union[
+        "sklearn.base.BaseEstimator", "xgb.Booster", "tf.Module"  # noqa: F821
+    ],
+    artifact_id: Optional[str] = None,
+    uri: Optional[str] = None,
+    input_example: Optional[
+        Union[list, dict, "pd.DataFrame", "np.ndarray"]  # noqa: F821
+    ] = None,  # noqa: F821
+    display_name: Optional[str] = None,
+) -> None:
+    aiplatform.init(experiment=experiment_name, project=project, location=location)
+
+    aiplatform.start_run(run=run_name, resume=True)
+
+    aiplatform.log_model(
+        model=model,
+        artifact_id=artifact_id,
+        uri=uri,
+        input_example=input_example,
+        display_name=display_name,
+    )
+```
+
+- `experiment_name` : Provide the name of your experiment. You can find your list of experiments in the Google Cloud console by selecting "Experiments" in the section nav.
+- `run_name` : Specify a run name.
+- `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
+- `model` : Required. A machine learning model. `(Union["sklearn.base.BaseEstimator", "xgb.Booster", "tf.Module"])`
+- `uri` : Optional. A gcs directory in which to save the model file. If a uri is not provided, `gs://default-bucket/timestamp-uuid-frameworkName-model` is used. If a default staging bucket is not set, a new bucket is created.
+- `input_example` : Optional. Each model takes input data and then produces a prediction. Each model accepts one particular format of input (for example, a number, a string, 2d array) and is stored as a yaml file in the gcs uri. Accepts list, dict, pd.DataFrame, and np.ndarray The value inside a list must be a scalar or list. The value inside a dict must be a scalar, list, or np.ndarray. `(Union[list, dict, pd.DataFrame, np.ndarray])` .
+- `display_name` : Optional. The display name of the artifact.
 
 ### Track `ExperimentModel`
 
@@ -114,22 +118,24 @@ To use [`get_experiment_model`](https://cloud.google.com/python/docs/reference/a
 
 ### Python
 
-    from google.cloud import aiplatform
-    
-    
-    def get_experiment_model_sample(
-        project: str,
-        location: str,
-        artifact_id: str,
-    ) -> "ExperimentModel":  # noqa: F821
-        aiplatform.init(project=project, location=location)
-        experiment_model = aiplatform.get_experiment_model(artifact_id=artifact_id)
-    
-        return experiment_model
+```
+from google.cloud import aiplatform
 
-  - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
-  - `artifact_id` : Required: The resource ID of the existing model.
+
+def get_experiment_model_sample(
+    project: str,
+    location: str,
+    artifact_id: str,
+) -> "ExperimentModel":  # noqa: F821
+    aiplatform.init(project=project, location=location)
+    experiment_model = aiplatform.get_experiment_model(artifact_id=artifact_id)
+
+    return experiment_model
+```
+
+- `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
+- `artifact_id` : Required: The resource ID of the existing model.
 
 ### Get experiment models
 
@@ -137,27 +143,29 @@ The [`get_experiment_models`](https://cloud.google.com/python/docs/reference/aip
 
 ### Python
 
-    from typing import List, Union
-    
-    from google.cloud import aiplatform
-    
-    
-    def get_experiment_run_models_sample(
-        run_name: str,
-        experiment: Union[str, aiplatform.Experiment],
-        project: str,
-        location: str,
-    ) -> List["ExperimentModel"]:  # noqa: F821
-        experiment_run = aiplatform.ExperimentRun(
-            run_name=run_name, experiment=experiment, project=project, location=location
-        )
-    
-        return experiment_run.get_experiment_models()
+```
+from typing import List, Union
 
-  - `run_name` : Specify a run name.
-  - `experiment` : Provide the name of your experiment. You can find your list of experiments in the Google Cloud console by selecting "Experiments" in the section nav.
-  - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
+from google.cloud import aiplatform
+
+
+def get_experiment_run_models_sample(
+    run_name: str,
+    experiment: Union[str, aiplatform.Experiment],
+    project: str,
+    location: str,
+) -> List["ExperimentModel"]:  # noqa: F821
+    experiment_run = aiplatform.ExperimentRun(
+        run_name=run_name, experiment=experiment, project=project, location=location
+    )
+
+    return experiment_run.get_experiment_models()
+```
+
+- `run_name` : Specify a run name.
+- `experiment` : Provide the name of your experiment. You can find your list of experiments in the Google Cloud console by selecting "Experiments" in the section nav.
+- `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Get model information
 
@@ -165,25 +173,27 @@ The `get_model_info` method returns the model's metadata of a given `ExperimentM
 
 ### Python
 
-    from typing import Any, Dict
-    
-    from google.cloud import aiplatform
-    
-    
-    def get_model_info_sample(
-        artifact_id: str,
-        project: str,
-        location: str,
-    ) -> Dict[str, Any]:
-        experiment_model = aiplatform.get_experiment_model(
-            artifact_id=artifact_id, project=project, location=location
-        )
-    
-        return experiment_model.get_model_info()
+```
+from typing import Any, Dict
 
-  - `artifact_id` : Required The resource ID of the existing `ExperimentModel` .
-  - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
+from google.cloud import aiplatform
+
+
+def get_model_info_sample(
+    artifact_id: str,
+    project: str,
+    location: str,
+) -> Dict[str, Any]:
+    experiment_model = aiplatform.get_experiment_model(
+        artifact_id=artifact_id, project=project, location=location
+    )
+
+    return experiment_model.get_model_info()
+```
+
+- `artifact_id` : Required The resource ID of the existing `ExperimentModel` .
+- `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Load `ExperimentModel`
 
@@ -193,25 +203,27 @@ The `load_experiment_model` method helps you deserialize an `ExperimentModel` in
 
 ### Python
 
-    from typing import Union
-    
-    from google.cloud import aiplatform
-    
-    
-    def load_experiment_model_sample(
-        artifact_id: str,
-        project: str,
-        location: str,
-    ) -> Union["sklearn.base.BaseEstimator", "xgb.Booster", "tf.Module"]:  # noqa: F821:
-        experiment_model = aiplatform.get_experiment_model(
-            artifact_id=artifact_id, project=project, location=location
-        )
-    
-        return experiment_model.load_model()
+```
+from typing import Union
 
-  - `artifact_id` : (Required). The resource ID of the existing `ExperimentModel` . Example: `artifact_id="my-sklearn-model"`
-  - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
+from google.cloud import aiplatform
+
+
+def load_experiment_model_sample(
+    artifact_id: str,
+    project: str,
+    location: str,
+) -> Union["sklearn.base.BaseEstimator", "xgb.Booster", "tf.Module"]:  # noqa: F821:
+    experiment_model = aiplatform.get_experiment_model(
+        artifact_id=artifact_id, project=project, location=location
+    )
+
+    return experiment_model.load_model()
+```
+
+- `artifact_id` : (Required). The resource ID of the existing `ExperimentModel` . Example: `artifact_id="my-sklearn-model"`
+- `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Register `ExperimentModel`
 
@@ -221,25 +233,27 @@ The `register_experiment_model` API enables registering the model that was deeme
 
 ### Python
 
-    from google.cloud import aiplatform
-    
-    
-    def register_experiment_model_sample(
-        artifact_id: str,
-        project: str,
-        location: str,
-        display_name: str,
-    ) -> aiplatform.models.Model:
-        experiment_model = aiplatform.get_experiment_model(
-            artifact_id=artifact_id, project=project, location=location
-        )
-    
-        return experiment_model.register_model(display_name=display_name)
+```
+from google.cloud import aiplatform
 
-  - `artifact_id` : (Required). The resource ID of the existing `ExperimentModel` .
-  - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
-  - `display_name` : Optional. The user-defined name of the registered model.
+
+def register_experiment_model_sample(
+    artifact_id: str,
+    project: str,
+    location: str,
+    display_name: str,
+) -> aiplatform.models.Model:
+    experiment_model = aiplatform.get_experiment_model(
+        artifact_id=artifact_id, project=project, location=location
+    )
+
+    return experiment_model.register_model(display_name=display_name)
+```
+
+- `artifact_id` : (Required). The resource ID of the existing `ExperimentModel` .
+- `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
+- `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
+- `display_name` : Optional. The user-defined name of the registered model.
 
 ## View experiment runs list in the Google Cloud console
 
@@ -253,12 +267,12 @@ The `register_experiment_model` API enables registering the model that was deeme
 
 ## What's next
 
-  - [Compare and analyze runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs)
+- [Compare and analyze runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs)
 
 ### Relevant notebook sample
 
-  - [Compare models trained and evaluated locally](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-compare-models)
+- [Compare models trained and evaluated locally](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-compare-models)
 
 ### Blog post
 
-  - [Machine Learning Experiments in Gaming and Why it Matters](https://cloud.google.com/blog/topics/developers-practitioners/machine-learning-experiments-gaming-and-why-it-matters)
+- [Machine Learning Experiments in Gaming and Why it Matters](https://cloud.google.com/blog/topics/developers-practitioners/machine-learning-experiments-gaming-and-why-it-matters)

@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 Cancels a BatchPredictionJob.
 
-Starts asynchronous cancellation on the BatchPredictionJob. The server makes the best effort to cancel the job, but success is not guaranteed. Clients can use `  JobService.GetBatchPredictionJob  ` or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On a successful cancellation, the BatchPredictionJob is not deleted;instead its `  BatchPredictionJob.state  ` is set to `CANCELLED` . Any files already outputted by the job are not deleted.
+Starts asynchronous cancellation on the BatchPredictionJob. The server makes the best effort to cancel the job, but success is not guaranteed. Clients can use [`JobService.GetBatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs/get#google.cloud.aiplatform.v1.JobService.GetBatchPredictionJob) or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On a successful cancellation, the BatchPredictionJob is not deleted;instead its [`BatchPredictionJob.state`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs#BatchPredictionJob.FIELDS.state) is set to `CANCELLED` . Any files already outputted by the job are not deleted.
 
 ### Endpoint
 

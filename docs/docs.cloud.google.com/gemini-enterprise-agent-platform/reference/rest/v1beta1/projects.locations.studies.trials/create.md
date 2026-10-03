@@ -24,8 +24,8 @@ Required. The resource name of the Study to create the Trial in. Format: `projec
 
 ### Request body
 
-The request body contains an instance of `  Trial  ` .
+The request body contains an instance of [`Trial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies.trials#Trial) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  Trial  ` .
+If successful, the response body contains a newly created instance of [`Trial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies.trials#Trial) .

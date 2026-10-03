@@ -10,8 +10,6 @@ data_source: docs.cloud.google.com
 
 There is no persistent data associated with this resource.
 
-## Methods
-
-### `            upload           `
-
-Upload a file into a RagCorpus.
+| Methods                                                                                                        |                                 |
+|----------------------------------------------------------------------------------------------------------------|---------------------------------|
+| [`upload`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/media/upload) | Upload a file into a RagCorpus. |

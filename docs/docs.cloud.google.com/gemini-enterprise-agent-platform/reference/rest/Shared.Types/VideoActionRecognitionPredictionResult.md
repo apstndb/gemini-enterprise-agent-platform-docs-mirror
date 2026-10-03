@@ -18,13 +18,13 @@ The resource id of the AnnotationSpec that had been identified.
 
 The display name of the AnnotationSpec that had been identified.
 
-`timeSegmentStart` ` string ( Duration  ` format)
+`timeSegmentStart` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 The beginning, inclusive, of the video's time segment in which the AnnotationSpec has been identified. Expressed as a number of seconds as measured from the start of the video, with fractions up to a microsecond precision, and with "s" appended at the end.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
-`timeSegmentEnd` ` string ( Duration  ` format)
+`timeSegmentEnd` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 The end, exclusive, of the video's time segment in which the AnnotationSpec has been identified. Expressed as a number of seconds as measured from the start of the video, with fractions up to a microsecond precision, and with "s" appended at the end.
 
@@ -34,24 +34,14 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
 
 The Model's confidence in correction of this prediction, higher value means higher confidence.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;id&quot;: string,
-  &quot;displayName&quot;: string,
-  &quot;timeSegmentStart&quot;: string,
-  &quot;timeSegmentEnd&quot;: string,
-  &quot;confidence&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "id": string,
+  "displayName": string,
+  "timeSegmentStart": string,
+  "timeSegmentEnd": string,
+  "confidence": number
+}
+```

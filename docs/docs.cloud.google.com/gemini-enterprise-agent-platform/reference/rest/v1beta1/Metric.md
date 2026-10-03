@@ -10,11 +10,11 @@ The metric used for running evaluations.
 
 Fields
 
-`aggregationMetrics[]` ` enum ( AggregationMetric  ` )
+`aggregationMetrics[]` `enum ( `[`AggregationMetric`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/AggregationMetric)` )`
 
 Optional. The aggregation metrics to use.
 
-`metadata` ` object ( MetricMetadata  ` )
+`metadata` `object ( `[`MetricMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#MetricMetadata)` )`
 
 Optional. metadata about the metric, used for visualization and organization.
 
@@ -22,59 +22,86 @@ Optional. metadata about the metric, used for visualization and organization.
 
 The spec for the metric. It would be either a pre-defined metric, or a inline metric spec. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`predefinedMetricSpec` ` object ( PredefinedMetricSpec  ` )
+`predefinedMetricSpec` `object ( `[`PredefinedMetricSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#PredefinedMetricSpec)` )`
 
 The spec for a pre-defined metric.
 
-`computationBasedMetricSpec` ` object ( ComputationBasedMetricSpec  ` )
+`computationBasedMetricSpec` `object ( `[`ComputationBasedMetricSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#ComputationBasedMetricSpec)` )`
 
 Spec for a computation based metric.
 
-`llmBasedMetricSpec` ` object ( LLMBasedMetricSpec  ` )
+`llmBasedMetricSpec` `object ( `[`LLMBasedMetricSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#LLMBasedMetricSpec)` )`
 
 Spec for an LLM based metric.
 
-`customCodeExecutionSpec` ` object ( CustomCodeExecutionSpec  ` )
+`customCodeExecutionSpec` `object ( `[`CustomCodeExecutionSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#CustomCodeExecutionSpec)` )`
 
 Spec for Custom code Execution metric.
 
-`pointwiseMetricSpec` ` object ( PointwiseMetricSpec  ` )
+`pointwiseMetricSpec` `object ( `[`PointwiseMetricSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#PointwiseMetricSpec)` )`
 
 Spec for pointwise metric.
 
-`pairwiseMetricSpec` ` object ( PairwiseMetricSpec  ` )
+`pairwiseMetricSpec` `object ( `[`PairwiseMetricSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#PairwiseMetricSpec)` )`
 
 Spec for pairwise metric.
 
-`exactMatchSpec` ` object ( ExactMatchSpec  ` )
+`exactMatchSpec` `object ( `[`ExactMatchSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#ExactMatchSpec)` )`
 
 Spec for exact match metric.
 
-`bleuSpec` ` object ( BleuSpec  ` )
+`bleuSpec` `object ( `[`BleuSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#BleuSpec)` )`
 
 Spec for bleu metric.
 
-`rougeSpec` ` object ( RougeSpec  ` )
+`rougeSpec` `object ( `[`RougeSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#RougeSpec)` )`
 
 Spec for rouge metric.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;aggregationMetrics&quot;: [enum (AggregationMetric)],&quot;metadata&quot;: {object (MetricMetadata)},// metric_spec&quot;predefinedMetricSpec&quot;: {object (PredefinedMetricSpec)},&quot;computationBasedMetricSpec&quot;: {object (ComputationBasedMetricSpec)},&quot;llmBasedMetricSpec&quot;: {object (LLMBasedMetricSpec)},&quot;customCodeExecutionSpec&quot;: {object (CustomCodeExecutionSpec)},&quot;pointwiseMetricSpec&quot;: {object (PointwiseMetricSpec)},&quot;pairwiseMetricSpec&quot;: {object (PairwiseMetricSpec)},&quot;exactMatchSpec&quot;: {object (ExactMatchSpec)},&quot;bleuSpec&quot;: {object (BleuSpec)},&quot;rougeSpec&quot;: {object (RougeSpec)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "aggregationMetrics": [
+    enum (AggregationMetric)
+  ],
+  "metadata": {
+    object (MetricMetadata)
+  },
+
+  // metric_spec
+  "predefinedMetricSpec": {
+    object (PredefinedMetricSpec)
+  },
+  "computationBasedMetricSpec": {
+    object (ComputationBasedMetricSpec)
+  },
+  "llmBasedMetricSpec": {
+    object (LLMBasedMetricSpec)
+  },
+  "customCodeExecutionSpec": {
+    object (CustomCodeExecutionSpec)
+  },
+  "pointwiseMetricSpec": {
+    object (PointwiseMetricSpec)
+  },
+  "pairwiseMetricSpec": {
+    object (PairwiseMetricSpec)
+  },
+  "exactMatchSpec": {
+    object (ExactMatchSpec)
+  },
+  "bleuSpec": {
+    object (BleuSpec)
+  },
+  "rougeSpec": {
+    object (RougeSpec)
+  }
+  // Union type
+}
+```
 
 ## PredefinedMetricSpec
 
@@ -84,32 +111,22 @@ Fields
 
 `metricSpecName` `string`
 
-Required. The name of a pre-defined metric, such as "instruction\_following\_v1" or "text\_quality\_v1".
+Required. The name of a pre-defined metric, such as "instruction_following_v1" or "text_quality_v1".
 
-`metricSpecParameters` ` object ( Struct  ` format)
+`metricSpecParameters` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Optional. The parameters needed to run the pre-defined metric.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;metricSpecName&quot;: string,
-  &quot;metricSpecParameters&quot;: {
+**JSON representation**
+
+```
+{
+  "metricSpecName": string,
+  "metricSpecParameters": {
     object
   }
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## ComputationBasedMetricSpec
 
@@ -117,51 +134,35 @@ Specification for a computation based metric.
 
 Fields
 
-`type` ` enum ( ComputationBasedMetricType  ` )
+`type` `enum ( `[`ComputationBasedMetricType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#ComputationBasedMetricType)` )`
 
 Required. The type of the computation based metric.
 
-`parameters` ` object ( Struct  ` format)
+`parameters` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Optional. A map of parameters for the metric, e.g. {"rougeType": "rougeL"}.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;type&quot;: enum (ComputationBasedMetricType),&quot;parameters&quot;: {object}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "type": enum (ComputationBasedMetricType),
+  "parameters": {
+    object
+  }
+}
+```
 
 ## ComputationBasedMetricType
 
 Types of computation based metrics.
 
-Enums
-
-`COMPUTATION_BASED_METRIC_TYPE_UNSPECIFIED`
-
-Unspecified computation based metric type.
-
-`EXACT_MATCH`
-
-Exact match metric.
-
-`BLEU`
-
-BLEU metric.
-
-`ROUGE`
-
-ROUGE metric.
+| Enums                                       |                                            |
+|---------------------------------------------|--------------------------------------------|
+| `COMPUTATION_BASED_METRIC_TYPE_UNSPECIFIED` | Unspecified computation based metric type. |
+| `EXACT_MATCH`                               | Exact match metric.                        |
+| `BLEU`                                      | BLEU metric.                               |
+| `ROUGE`                                     | ROUGE metric.                              |
 
 ## LLMBasedMetricSpec
 
@@ -169,7 +170,7 @@ Specification for an LLM based metric.
 
 Fields
 
-`resultParserConfig` ` object ( EvaluationParserConfig  ` )
+`resultParserConfig` `object ( `[`EvaluationParserConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#EvaluationParserConfig)` )`
 
 Optional. The parser config for the metric result.
 
@@ -181,11 +182,11 @@ Source of the rubrics to be used for evaluation. The following is a list of mutu
 
 Use a pre-defined group of rubrics associated with the input. Refers to a key in the rubricGroups map of EvaluationInstance.
 
-`rubricGenerationSpec` ` object ( RubricGenerationSpec  ` )
+`rubricGenerationSpec` `object ( `[`RubricGenerationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#RubricGenerationSpec)` )`
 
 Dynamically generate rubrics using this specification.
 
-`predefinedRubricGenerationSpec` ` object ( PredefinedMetricSpec  ` )
+`predefinedRubricGenerationSpec` `object ( `[`PredefinedMetricSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#PredefinedMetricSpec)` )`
 
 Dynamically generate rubrics using a predefined spec.
 
@@ -199,29 +200,41 @@ Required. Template for the prompt sent to the judge model.
 
 Optional. System instructions for the judge model.
 
-`judgeAutoraterConfig` ` object ( AutoraterConfig  ` )
+`judgeAutoraterConfig` `object ( `[`AutoraterConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/AutoraterConfig)` )`
 
 Optional. Optional configuration for the judge LLM (Autorater).
 
-`additionalConfig` ` object ( Struct  ` format)
+`additionalConfig` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Optional. Optional additional configuration for the metric.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;resultParserConfig&quot;: {object (EvaluationParserConfig)},// rubrics_source&quot;rubricGroupKey&quot;: string,&quot;rubricGenerationSpec&quot;: {object (RubricGenerationSpec)},&quot;predefinedRubricGenerationSpec&quot;: {object (PredefinedMetricSpec)}// Union type&quot;metricPromptTemplate&quot;: string,&quot;systemInstruction&quot;: string,&quot;judgeAutoraterConfig&quot;: {object (AutoraterConfig)},&quot;additionalConfig&quot;: {object}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "resultParserConfig": {
+    object (EvaluationParserConfig)
+  },
+
+  // rubrics_source
+  "rubricGroupKey": string,
+  "rubricGenerationSpec": {
+    object (RubricGenerationSpec)
+  },
+  "predefinedRubricGenerationSpec": {
+    object (PredefinedMetricSpec)
+  }
+  // Union type
+  "metricPromptTemplate": string,
+  "systemInstruction": string,
+  "judgeAutoraterConfig": {
+    object (AutoraterConfig)
+  },
+  "additionalConfig": {
+    object
+  }
+}
+```
 
 ## RubricGenerationSpec
 
@@ -233,7 +246,7 @@ Fields
 
 Template for the prompt used to generate rubrics. The details should be updated based on the most-recent recipe requirements.
 
-`rubricContentType` ` enum ( RubricContentType  ` )
+`rubricContentType` `enum ( `[`RubricContentType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#RubricContentType)` )`
 
 The type of rubric content to be generated.
 
@@ -241,47 +254,35 @@ The type of rubric content to be generated.
 
 Optional. An optional, pre-defined list of allowed types for generated rubrics. If this field is provided, it implies `include_rubric_type` should be true, and the generated rubric types should be chosen from this ontology.
 
-`modelConfig` ` object ( AutoraterConfig  ` )
+`modelConfig` `object ( `[`AutoraterConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/AutoraterConfig)` )`
 
 Configuration for the model used in rubric generation. Configs including sampling count and base model can be specified here. Flipping is not supported for rubric generation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;promptTemplate&quot;: string,&quot;rubricContentType&quot;: enum (RubricContentType),&quot;rubricTypeOntology&quot;: [string],&quot;modelConfig&quot;: {object (AutoraterConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "promptTemplate": string,
+  "rubricContentType": enum (RubricContentType),
+  "rubricTypeOntology": [
+    string
+  ],
+  "modelConfig": {
+    object (AutoraterConfig)
+  }
+}
+```
 
 ## RubricContentType
 
 Specifies the type of rubric content to generate.
 
-Enums
-
-`RUBRIC_CONTENT_TYPE_UNSPECIFIED`
-
-The content type to generate is not specified.
-
-`PROPERTY`
-
-Generate rubrics based on properties.
-
-`NL_QUESTION_ANSWER`
-
-Generate rubrics in an NL question answer format.
-
-`PYTHON_CODE_ASSERTION`
-
-Generate rubrics in a unit test format.
+| Enums                             |                                                   |
+|-----------------------------------|---------------------------------------------------|
+| `RUBRIC_CONTENT_TYPE_UNSPECIFIED` | The content type to generate is not specified.    |
+| `PROPERTY`                        | Generate rubrics based on properties.             |
+| `NL_QUESTION_ANSWER`              | Generate rubrics in an NL question answer format. |
+| `PYTHON_CODE_ASSERTION`           | Generate rubrics in a unit test format.           |
 
 ## EvaluationParserConfig
 
@@ -293,27 +294,24 @@ Fields
 
 The parser to use. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`customCodeParserConfig` ` object ( CustomCodeParserConfig  ` )
+`customCodeParserConfig` `object ( `[`CustomCodeParserConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#CustomCodeParserConfig)` )`
 
 Optional. Use custom code to parse the LLM response.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// parser&quot;customCodeParserConfig&quot;: {object (CustomCodeParserConfig)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // parser
+  "customCodeParserConfig": {
+    object (CustomCodeParserConfig)
+  }
+  // Union type
+}
+```
 
 ## CustomCodeParserConfig
 
@@ -331,7 +329,7 @@ Required. Python function for parsing results. The function should be defined wi
 
 The function takes a list of strings (LLM responses) and should return either a list of dictionaries (for rubrics) or a single dictionary (for a metric result).
 
-Example function signature: def parse(responses: list\[str\]) -\> list\[dict\[str, Any\]\] | dict\[str, Any\]:
+Example function signature: def parse(responses: list\[str\]) -\> list\[dict\[str, Any\]\] \| dict\[str, Any\]:
 
 When parsing rubrics, return a list of dictionaries, where each dictionary represents a Rubric. Example for rubrics: \[ { "content": {"property": {"description": "The response is factual."}}, "type": "FACTUALITY", "importance": "HIGH" }, { "content": {"property": {"description": "The response is fluent."}}, "type": "FLUENCY", "importance": "MEDIUM" } \]
 
@@ -339,24 +337,14 @@ When parsing critique results, return a dictionary representing a MetricResult. 
 
 ... code for result extraction and aggregation
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;codeExecutionRegion&quot;: string,
-  &quot;parsingFunction&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "codeExecutionRegion": string,
+  "parsingFunction": string
+}
+```
 
 ## CustomCodeExecutionSpec
 
@@ -386,24 +374,14 @@ Example python function:
 
 CustomCodeExecutionSpec is also supported in Batch Evaluation (EvalDataset RPC) and Tuning Evaluation. Each line in the input jsonl file will be converted to dict\[str, Any\] and passed to the evaluation function.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;codeExecutionRegion&quot;: string,
-  &quot;evaluationFunction&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "codeExecutionRegion": string,
+  "evaluationFunction": string
+}
+```
 
 ## PointwiseMetricSpec
 
@@ -411,7 +389,7 @@ Spec for pointwise metric.
 
 Fields
 
-`customOutputFormatConfig` ` object ( CustomOutputFormatConfig  ` )
+`customOutputFormatConfig` `object ( `[`CustomOutputFormatConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#CustomOutputFormatConfig)` )`
 
 Optional. CustomOutputFormatConfig allows customization of metric output. By default, metrics return a score and explanation. When this config is set, the default output is replaced with either: - The raw output string. - A parsed output based on a user-defined schema. If a custom format is chosen, the `score` and `explanation` fields in the corresponding metric result will be empty.
 
@@ -423,21 +401,17 @@ Required. Metric prompt template for pointwise metric.
 
 Optional. System instructions for pointwise metric.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;customOutputFormatConfig&quot;: {object (CustomOutputFormatConfig)},&quot;metricPromptTemplate&quot;: string,&quot;systemInstruction&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "customOutputFormatConfig": {
+    object (CustomOutputFormatConfig)
+  },
+  "metricPromptTemplate": string,
+  "systemInstruction": string
+}
+```
 
 ## CustomOutputFormatConfig
 
@@ -455,26 +429,16 @@ Optional. Whether to return raw output.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+**JSON representation**
+
+```
+{
 
   // custom_output_format_config
-  &quot;returnRawOutput&quot;: boolean
+  "returnRawOutput": boolean
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## PairwiseMetricSpec
 
@@ -490,7 +454,7 @@ Optional. The field name of the candidate response.
 
 Optional. The field name of the baseline response.
 
-`customOutputFormatConfig` ` object ( CustomOutputFormatConfig  ` )
+`customOutputFormatConfig` `object ( `[`CustomOutputFormatConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#CustomOutputFormatConfig)` )`
 
 Optional. CustomOutputFormatConfig allows customization of metric output. When this config is set, the default output is replaced with the raw output string. If a custom format is chosen, the `pairwiseChoice` and `explanation` fields in the corresponding metric result will be empty.
 
@@ -502,21 +466,19 @@ Required. Metric prompt template for pairwise metric.
 
 Optional. System instructions for pairwise metric.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;candidateResponseFieldName&quot;: string,&quot;baselineResponseFieldName&quot;: string,&quot;customOutputFormatConfig&quot;: {object (CustomOutputFormatConfig)},&quot;metricPromptTemplate&quot;: string,&quot;systemInstruction&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "candidateResponseFieldName": string,
+  "baselineResponseFieldName": string,
+  "customOutputFormatConfig": {
+    object (CustomOutputFormatConfig)
+  },
+  "metricPromptTemplate": string,
+  "systemInstruction": string
+}
+```
 
 ## ExactMatchSpec
 
@@ -534,23 +496,13 @@ Fields
 
 Optional. Whether to useEffectiveOrder to compute bleu score.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;useEffectiveOrder&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "useEffectiveOrder": boolean
+}
+```
 
 ## RougeSpec
 
@@ -570,25 +522,15 @@ Optional. Whether to use stemmer to compute rouge score.
 
 Optional. Whether to split summaries while using rougeLsum.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;rougeType&quot;: string,
-  &quot;useStemmer&quot;: boolean,
-  &quot;splitSummaries&quot;: boolean
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "rougeType": string,
+  "useStemmer": boolean,
+  "splitSummaries": boolean
+}
+```
 
 ## MetricMetadata
 
@@ -600,29 +542,27 @@ Fields
 
 Optional. The user-friendly name for the metric. If not set for a registered metric, it will default to the metric's display name.
 
-`scoreRange` ` object ( ScoreRange  ` )
+`scoreRange` `object ( `[`ScoreRange`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Metric#ScoreRange)` )`
 
 Optional. The range of possible scores for this metric, used for plotting.
 
-`otherMetadata` ` object ( Struct  ` format)
+`otherMetadata` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Optional. Flexible metadata for user-defined attributes.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;title&quot;: string,&quot;scoreRange&quot;: {object (ScoreRange)},&quot;otherMetadata&quot;: {object}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "title": string,
+  "scoreRange": {
+    object (ScoreRange)
+  },
+  "otherMetadata": {
+    object
+  }
+}
+```
 
 ## ScoreRange
 
@@ -646,23 +586,13 @@ Required. The maximum value of the score range (inclusive).
 
 Optional. The distance between discrete steps in the range. If unset, the range is assumed to be continuous.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;description&quot;: string,
-  &quot;min&quot;: number,
-  &quot;max&quot;: number,
-  &quot;step&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "description": string,
+  "min": number,
+  "max": number,
+  "step": number
+}
+```

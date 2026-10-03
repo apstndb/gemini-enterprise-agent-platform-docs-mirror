@@ -18,9 +18,9 @@ You can also enable concurrent grounding with Google Maps, Google Search, and gr
 
 You can use Grounding with Google Maps for various applications, such as:
 
-  - Conversational assistants that can answer questions about nearby places, such as "Where's the nearest place to get an Italian espresso?"
-  - Personalized descriptions and community insights, such as "Can you tell me more about family-friendly restaurants that are within a walkable distance?"
-  - Summaries of areas around specific locations, such as an EV charging station or a hotel.
+- Conversational assistants that can answer questions about nearby places, such as "Where's the nearest place to get an Italian espresso?"
+- Personalized descriptions and community insights, such as "Can you tell me more about family-friendly restaurants that are within a walkable distance?"
+- Summaries of areas around specific locations, such as an EV charging station or a hotel.
 
 This can be beneficial for use cases in real estate, travel, mobility, and social-media apps.
 
@@ -30,21 +30,21 @@ This section lists the models that support Grounding with Google Maps.
 
 #### Click to expand supported models
 
-  - [Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)
-  - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
-  - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
-  - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
-  - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
-  - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
-  - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
-  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
-  - [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
-  - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
-  - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
-  - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
-  - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
-  - [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
+- [Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)
+- [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
+- [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
+- [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
+- [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
+- [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+- [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
+- [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
+- [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
+- [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
+- [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
+- [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
+- [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+- [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)
+- [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 For more information about the Gemini models, see [Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview#gemini-models) .
 
@@ -72,99 +72,110 @@ To use Grounding with Google Maps with Gemini Enterprise Agent Platform, follow 
 
 #### Install
 
-    pip install --upgrade google-genai
+```
+pip install --upgrade google-genai
+```
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    from google import genai
-    from google.genai.types import (
-        GenerateContentConfig,
-        GoogleMaps,
-        HttpOptions,
-        Tool,
-    )
-    
-    client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    
-    response = client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents="Where can I get the best espresso near me?",
-        config=GenerateContentConfig(
-            tools=[
-                # Use Google Maps Tool
-                Tool(google_maps=GoogleMaps())
-            ],
-            tool_config=types.ToolConfig(
-                retrieval_config = types.RetrievalConfig(
-                    lat_lng = types.LatLng( # Pass geo coordinates for location-aware grounding
-                        latitude=40.7128,
-                        longitude=-74.006
-                    ),
-                    language_code = "en_US", # Optional: localize Maps results
+```
+from google import genai
+from google.genai.types import (
+    GenerateContentConfig,
+    GoogleMaps,
+    HttpOptions,
+    Tool,
+)
+
+client = genai.Client(http_options=HttpOptions(api_version="v1"))
+
+response = client.models.generate_content(
+    model="gemini-2.5-flash",
+    contents="Where can I get the best espresso near me?",
+    config=GenerateContentConfig(
+        tools=[
+            # Use Google Maps Tool
+            Tool(google_maps=GoogleMaps())
+        ],
+        tool_config=types.ToolConfig(
+            retrieval_config = types.RetrievalConfig(
+                lat_lng = types.LatLng( # Pass geo coordinates for location-aware grounding
+                    latitude=40.7128,
+                    longitude=-74.006
                 ),
+                language_code = "en_US", # Optional: localize Maps results
             ),
         ),
-    )
-    
-    print(response.text)
-    # Example response:
-    # 'Here are some of the top-rated places to get espresso near you: ...'
+    ),
+)
+
+print(response.text)
+# Example response:
+# 'Here are some of the top-rated places to get espresso near you: ...'
+```
 
 ### REST
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region to process the request. To use the [global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#use_the_global_endpoint) , exclude the location from the endpoint name and configure the location of the resource to global.
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - MODEL\_ID : The model ID of the multimodal model.
-  - PROMPT : The prompt to send to the model.
-  - LATITUDE : The latitude of the location. For example, a latitude of `37.7749` represents San Francisco. You can obtain latitude and longitude coordinates using services like Google Maps or other geocoding tools.
-  - LONGITUDE : The longitude of the location. For example, a longitude of `-122.4194` represents San Francisco.
-  - GROUNDING\_TYPES : The types of Google Maps grounding to enable. Currently supports `places` and `routing` .
-      - `places` : Search for place information including establishments, prominent points of interest, and geographical locations.
-      - `routing` : Find directions and search along route.
-    If not specified, it defaults to `places` only.
+- ` LOCATION ` : The region to process the request. To use the [global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#use_the_global_endpoint) , exclude the location from the endpoint name and configure the location of the resource to global.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` MODEL_ID ` : The model ID of the multimodal model.
+- ` PROMPT ` : The prompt to send to the model.
+- ` LATITUDE ` : The latitude of the location. For example, a latitude of `37.7749` represents San Francisco. You can obtain latitude and longitude coordinates using services like Google Maps or other geocoding tools.
+- ` LONGITUDE ` : The longitude of the location. For example, a longitude of `-122.4194` represents San Francisco.
+- ` GROUNDING_TYPES ` : The types of Google Maps grounding to enable. Currently supports `places` and `routing` .
+  - `places` : Search for place information including establishments, prominent points of interest, and geographical locations.
+  - `routing` : Find directions and search along route.
+
+  If not specified, it defaults to `places` only.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent
+```
 
 Request JSON body:
 
-    {
-      "contents": [{
-        "role": "user",
-        "parts": [{
-          "text": "PROMPT"
-        }]
-      }],
-      "tools": [{
-        "googleMaps": {
-          "groundingTypes": {
-            "places": {},
-            "routing": {}
-          }
-        }
-      }],
-      "toolConfig": {
-        "retrievalConfig": {
-          "latLng": {
-            "latitude": LATITUDE,
-            "longitude": LONGITUDE
-          },
-          "languageCode": "en_US"
-        }
-      },
-      "model": "projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID"
+```
+{
+  "contents": [{
+    "role": "user",
+    "parts": [{
+      "text": "PROMPT"
+    }]
+  }],
+  "tools": [{
+    "googleMaps": {
+      "groundingTypes": {
+        "places": {},
+        "routing": {}
+      }
     }
+  }],
+  "toolConfig": {
+    "retrievalConfig": {
+      "latLng": {
+        "latitude": LATITUDE,
+        "longitude": LONGITUDE
+      },
+      "languageCode": "en_US"
+    }
+  },
+  "model": "projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID"
+}
+```
 
 To send your request, expand one of these options:
 
@@ -174,11 +185,13 @@ To send your request, expand one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent"
+```
 
 #### PowerShell (Windows)
 
@@ -186,73 +199,77 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
+```
+{
+  "candidates": [
     {
-      "candidates": [
-        {
-          "content": {
-            "role": "model",
-            "parts": [
-              {
-                "text": "\"The Italian Place\" in Alexandria, VA, is good for children and offers takeout. It has a rating of 4.2 stars based on 411 reviews."
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "\"The Italian Place\" in Alexandria, VA, is good for children and offers takeout. It has a rating of 4.2 stars based on 411 reviews."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "groundingMetadata": {
+        "groundingChunks": [
+          {
+            "maps": {
+              "uri": "https://maps.google.com/?cid=9001322937822692826",
+              "title": "The Italian Place",
+              "placeId": "places/ChIJOTRDf_qwt4kR2kV_WYUf63w"
+            }
+          },
+          {
+            "maps": {
+              "uri": "https://maps.google.com/?cid=9001322937822692826",
+              "title": "Hank's Pasta Bar",
+              "placeId": "places/MMVtPzn9FGcevML89",
+              "placeAnswerSources": {
+                "reviewSnippets": [
+                  {
+                    "id": "places/ChIJOTRDf_qwt4kR2kV_WYUf63w",
+                    "title": "Google Maps Review",
+                    "uri": "https://maps.google.com/?cid=9001322937822692826"
+                  },
+                ]
               }
+            }
+          },
+          ...
+        ],
+        "groundingSupports": [
+          {
+            "segment": {
+              "endIndex": 79,
+              "text": "\"The Italian Place\" in Alexandria, VA, is good for children and offers takeout."
+            },
+            "groundingChunkIndices": [
+              0
             ]
           },
-          "finishReason": "STOP",
-          "groundingMetadata": {
-            "groundingChunks": [
-              {
-                "maps": {
-                  "uri": "https://maps.google.com/?cid=9001322937822692826",
-                  "title": "The Italian Place",
-                  "placeId": "places/ChIJOTRDf_qwt4kR2kV_WYUf63w"
-                }
-              },
-              {
-                "maps": {
-                  "uri": "https://maps.google.com/?cid=9001322937822692826",
-                  "title": "Hank's Pasta Bar",
-                  "placeId": "places/MMVtPzn9FGcevML89",
-                  "placeAnswerSources": {
-                    "reviewSnippets": [
-                      {
-                        "id": "places/ChIJOTRDf_qwt4kR2kV_WYUf63w",
-                        "title": "Google Maps Review",
-                        "uri": "https://maps.google.com/?cid=9001322937822692826"
-                      },
-                    ]
-                  }
-                }
-              },
-              ...
-            ],
-            "groundingSupports": [
-              {
-                "segment": {
-                  "endIndex": 79,
-                  "text": "\"The Italian Place\" in Alexandria, VA, is good for children and offers takeout."
-                },
-                "groundingChunkIndices": [
-                  0
-                ]
-              },
-            ],
-          }
-        }
-      ],
-      ...
+        ],
+      }
     }
+  ],
+  ...
+}
+```
 
 ## Place properties
 
@@ -262,57 +279,57 @@ This section lists place properties that are used to describe locations and used
 
 This list provides an alphabetized sampling of properties about places that can be used by your model to generate responses:
 
-  - Address
-  - Busyness trends
-  - Curbside pickup
-  - Debit card
-  - Distance
-  - EV charging station info (connector types, charging speeds, and availability)
-  - Free parking lot
-  - Gas prices and available fuel types
-  - Good for kids
-  - Live music
-  - Menu highlights
-  - Opening hours
-  - Payment options (such as *cash* or *credit card* )
-  - Pet friendly
-  - Review insights
-  - Serves beer
-  - Serves vegetarian food
-  - Wheelchair accessible
-  - Wifi
+- Address
+- Busyness trends
+- Curbside pickup
+- Debit card
+- Distance
+- EV charging station info (connector types, charging speeds, and availability)
+- Free parking lot
+- Gas prices and available fuel types
+- Good for kids
+- Live music
+- Menu highlights
+- Opening hours
+- Payment options (such as *cash* or *credit card* )
+- Pet friendly
+- Review insights
+- Serves beer
+- Serves vegetarian food
+- Wheelchair accessible
+- Wifi
 
 ### Examples of using place properties
 
 The following examples use [place properties](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-maps#place-properties) in questions about different types of places. Grounding with Google Maps uses the properties to understand your intent and then provides relevant answers based on the data associated with places in Google Maps.
 
-  - **Plan a family dinner** : You might ask, *Is "The Italian Place" good for children, and do they offer takeout? What is their rating?*
-    
-    Answers to these questions help you to determine if a restaurant is suitable for a family and if the restaurant offers a convenient service.
+- **Plan a family dinner** : You might ask, *Is "The Italian Place" good for children, and do they offer takeout? What is their rating?*
 
-  - **Explore menu highlights and signature dishes** : You might ask, *What are the most recommended pasta dishes on the menu at "The Italian Place"? Do they have vegetarian entrees, and what do reviewers say about their marinara sauce?*
-    
-    Answers to these questions use **Menu highlights** , and **Review insights** to help you explore specific culinary offerings and community favorites.
+  Answers to these questions help you to determine if a restaurant is suitable for a family and if the restaurant offers a convenient service.
 
-  - **Check accessibility for a friend** : You might ask, *I need a restaurant that has a wheelchair accessible entrance.*
-    
-    A response to this prompt might help you to determine if the location meets specific accessibility needs.
+- **Explore menu highlights and signature dishes** : You might ask, *What are the most recommended pasta dishes on the menu at "The Italian Place"? Do they have vegetarian entrees, and what do reviewers say about their marinara sauce?*
 
-  - **Find a location for a late-night snack** : You might ask, *Is "Burger Joint" open now? Do they serve dinner? What are their opening hours for Friday?*
-    
-    Answers to these questions help you to find an open establishment serving a specific meal during a particular time.
+  Answers to these questions use **Menu highlights** , and **Review insights** to help you explore specific culinary offerings and community favorites.
 
-  - **Plan EV charging and hotel amenities for a road trip** : You might ask, *I am staying at "Overnight Motel". Do they have on-site EV charging stations, what connector types are supported, and how busy is their parking area on Friday evenings?*
-    
-    Answers to these questions combine **EV charging station info** and **Busyness trends** to help you plan vehicle charging and evaluate crowd levels during your stay.
+- **Check accessibility for a friend** : You might ask, *I need a restaurant that has a wheelchair accessible entrance.*
 
-  - **Compare gas prices and specialty fuels nearby** : You might ask, *Which gas stations near Mountain View, CA sell diesel or hydrogen, and how do their current prices compare?*
-    
-    Answers to these questions leverage **Gas prices and available fuel types** to help you locate specialty fuels and cost-effective refueling stops.
+  A response to this prompt might help you to determine if the location meets specific accessibility needs.
 
-  - **Synthesize work atmosphere from reviews** : You might ask, *What do customer review summaries say about the noise level, seating comfort, and Wifi reliability at "Breakfast Cafe" for remote work?*
-    
-    A response to this prompt leverages **Review insights** to assess the suitability of a cafe for working or studying based on community consensus.
+- **Find a location for a late-night snack** : You might ask, *Is "Burger Joint" open now? Do they serve dinner? What are their opening hours for Friday?*
+
+  Answers to these questions help you to find an open establishment serving a specific meal during a particular time.
+
+- **Plan EV charging and hotel amenities for a road trip** : You might ask, *I am staying at "Overnight Motel". Do they have on-site EV charging stations, what connector types are supported, and how busy is their parking area on Friday evenings?*
+
+  Answers to these questions combine **EV charging station info** and **Busyness trends** to help you plan vehicle charging and evaluate crowd levels during your stay.
+
+- **Compare gas prices and specialty fuels nearby** : You might ask, *Which gas stations near Mountain View, CA sell diesel or hydrogen, and how do their current prices compare?*
+
+  Answers to these questions leverage **Gas prices and available fuel types** to help you locate specialty fuels and cost-effective refueling stops.
+
+- **Synthesize work atmosphere from reviews** : You might ask, *What do customer review summaries say about the noise level, seating comfort, and Wifi reliability at "Breakfast Cafe" for remote work?*
+
+  A response to this prompt leverages **Review insights** to assess the suitability of a cafe for working or studying based on community consensus.
 
 Information in the **Google Maps Grounded Results** might differ from actual conditions of the road or venue.
 
@@ -322,15 +339,17 @@ Google Maps sources are returned in `groundingMetadata` within `groundingChunks`
 
 This code sample demonstrates a place source in the response:
 
-    "groundingChunks": [
-      {
-        "maps": {
-          "uri": "{Link to place sheet or review on Maps}",
-          "title": "{Name of Maps Place}",
-          "placeId": "{Place ID}"
-        }
-      }
-    ],
+```
+"groundingChunks": [
+  {
+    "maps": {
+      "uri": "{Link to place sheet or review on Maps}",
+      "title": "{Name of Maps Place}",
+      "placeId": "{Place ID}"
+    }
+  }
+],
+```
 
 ## Routing - Find Directions
 
@@ -342,17 +361,17 @@ Find Directions calculates precise travel distances and durations between origin
 
 Find Directions supports the following:
 
-  - **Modes of transportation** : Routing for driving, walking, bicycling, transit, and two-wheeled motorized vehicles (not all travel modes are available in all countries)
+- **Modes of transportation** : Routing for driving, walking, bicycling, transit, and two-wheeled motorized vehicles (not all travel modes are available in all countries)
 
-  - **Multiple waypoints** : Up to 13 intermediate stops between origin and destination
+- **Multiple waypoints** : Up to 13 intermediate stops between origin and destination
 
-  - **Real-time traffic** : Accounting for current traffic conditions to provide accurate "live" travel times rather than static averages
+- **Real-time traffic** : Accounting for current traffic conditions to provide accurate "live" travel times rather than static averages
 
 The following are examples of the types of questions that Find Directions supports:
 
-  - **Proximity based on travel time** : "What are some American restaurants within a 10-minute walk from the Hilton Hotel on 1335 6th Ave in NYC?"
+- **Proximity based on travel time** : "What are some American restaurants within a 10-minute walk from the Hilton Hotel on 1335 6th Ave in NYC?"
 
-  - **Commute estimation** : "How long does it take to take public transit from Pike Place Market to Capitol Hill in Seattle?"
+- **Commute estimation** : "How long does it take to take public transit from Pike Place Market to Capitol Hill in Seattle?"
 
 ### Enable Find Directions
 
@@ -364,35 +383,35 @@ When a prompt triggers Find Directions capability, the model generates a natural
 
 The following data is returned in a payload response:
 
-  - **Duration** : The time required to travel between locations, accounting for traffic if requested. For example, "500 seconds".
+- **Duration** : The time required to travel between locations, accounting for traffic if requested. For example, "500 seconds".
 
-  - **Distance** : The physical distance of the route. For example, "1.9 km".
+- **Distance** : The physical distance of the route. For example, "1.9 km".
 
-  - **Polyline** : An encoded text string that lets you visually render the specific route path on a map.
+- **Polyline** : An encoded text string that lets you visually render the specific route path on a map.
 
 The following is an example response for the prompt: "How do I get to Carmine's restaurant from the Hilton Hotel (1335 6th Ave in NYC) where I'm staying?"
 
 > To get to Carmine's restaurant from the Hilton Hotel at 1335 6th Ave in NYC, you'll want to head to the Carmine's - Time Square location at 200 W 44th St, New York, NY 10036, USA.
-> 
+>
 > Here are the walking directions:
-> 
+>
 > 1.  **Start at the Hilton Hotel:** Exit the Hilton Hotel at 1335 6th Ave.
-> 
+>
 > 2.  **Walk South on 6th Avenue:** Head south on 6th Avenue (Avenue of the Americas) towards W 44th Street.
-> 
+>
 > 3.  **Turn Right onto W 44th Street:** Turn right onto W 44th Street.
-> 
+>
 > 4.  **Carmine's is on your left:** Walk down W 44th Street, and Carmine's will be on your left side at 200 W 44th St.
-> 
+>
 > This walk is approximately 0.5 miles and should take about 10-15 minutes.
 
 The following is an example response for the prompt: "How long does it take to take public transit from Pikes Place Market to Capitol Hill in Seattle?"
 
 > To get from Pike Place Market to Capitol Hill in Seattle using public transit, you have a couple of options:
-> 
->   - **Tram (Light Rail):** The tram from Westlake, which is near Pike Place Market, to Capitol Hill takes approximately 3 minutes. Including transfers, the total travel time is about 9 minutes, with trams departing every 10 minutes.
-> 
->   - **Bus:** A direct King County Metro bus from Pike St & 4th Ave (near Pike Place Market) to Capitol Hill takes about 11 minutes, with departures every 20 minutes. Alternatively, the Line 49 bus takes around 16 minutes.
+>
+> - **Tram (Light Rail):** The tram from Westlake, which is near Pike Place Market, to Capitol Hill takes approximately 3 minutes. Including transfers, the total travel time is about 9 minutes, with trams departing every 10 minutes.
+>
+> - **Bus:** A direct King County Metro bus from Pike St & 4th Ave (near Pike Place Market) to Capitol Hill takes about 11 minutes, with departures every 20 minutes. Alternatively, the Line 49 bus takes around 16 minutes.
 
 ## Routing - Search Along Route
 
@@ -404,9 +423,9 @@ Search Along Route allows your application to identify specific businesses, amen
 
 The following examples illustrate the types of questions the Search Along Route tool can handle.
 
-  - **Basic route search** : "Find gas stations on the way from 1800 Amphibious Blvd. Mountain View, CA 94045, to 456 Sunny St, Sunnyvale CA." (Usually, the origin and destination addresses are derived from the chat history.)
-  - **Search based on Place Properties** : "Are there any bakeries with at least a 4 star rating between San Francisco and 1800 Amphibious Blvd. Mountain View, CA 94045?"
-  - **Multi-leg route search** : "I'm going on a roadtrip from San Francisco to San Luis Obispo to Los Angeles, suggest three EV charger options between San Francisco and San Luis Obispo, and then between San Luis Obispo and Los Angeles?"
+- **Basic route search** : "Find gas stations on the way from 1800 Amphibious Blvd. Mountain View, CA 94045, to 456 Sunny St, Sunnyvale CA." (Usually, the origin and destination addresses are derived from the chat history.)
+- **Search based on Place Properties** : "Are there any bakeries with at least a 4 star rating between San Francisco and 1800 Amphibious Blvd. Mountain View, CA 94045?"
+- **Multi-leg route search** : "I'm going on a roadtrip from San Francisco to San Luis Obispo to Los Angeles, suggest three EV charger options between San Francisco and San Luis Obispo, and then between San Luis Obispo and Los Angeles?"
 
 ### Enable Search Along Route
 
@@ -423,10 +442,10 @@ Find gas stations on the way from 1800 Amphibious Blvd. Mountain View, CA 94045,
 **Example Response \[Basic route search\]** :
 
 > Here are some gas stations en route from 1800 Amphibious Blvd. Mountain View, CA 94045 to 456 Sunny St, Sunnyvale, CA:
-> 
->   - **Example Gas station** - Located at 123 Example Rd, Sunnyvale, CA 94045. It has a rating of 3.5 stars from 122 reviews and sells hydrogen, propane, and gasoline, along with car washes. It is open until 9:50 PM tonight and has restrooms.
->   - **Fictional Gas station** - Located at 456 Fictional Ave, Sunnyvale, CA 94045. It has a rating of 3.6 stars from 52 reviews and offers a convenience store and car wash. This station is open 24 hours and has restrooms.
->   - **Generic Gas station** - Located at 789 W Generic St, Sunnyvale, CA 94045. It has a rating of 3.6 stars from 35 reviews. This station is open 24 hours and has restrooms.
+>
+> - **Example Gas station** - Located at 123 Example Rd, Sunnyvale, CA 94045. It has a rating of 3.5 stars from 122 reviews and sells hydrogen, propane, and gasoline, along with car washes. It is open until 9:50 PM tonight and has restrooms.
+> - **Fictional Gas station** - Located at 456 Fictional Ave, Sunnyvale, CA 94045. It has a rating of 3.6 stars from 52 reviews and offers a convenience store and car wash. This station is open 24 hours and has restrooms.
+> - **Generic Gas station** - Located at 789 W Generic St, Sunnyvale, CA 94045. It has a rating of 3.6 stars from 35 reviews. This station is open 24 hours and has restrooms.
 
 **Example Prompt \[Multi-leg route search\]** :
 
@@ -435,20 +454,20 @@ I'm going on a roadtrip from San Francisco to San Luis Obispo to Los Angeles, su
 **Example Response \[Multi-leg route search\]** :
 
 > Here are some EV charger options for your road trip from San Francisco to Los Angeles, with stops in San Luis Obispo.
-> 
+>
 > **Between San Francisco and San Luis Obispo** :
-> 
->   - **Example Charger** : Located at 123 Example Blvd, Campbell, CA 95008, this station has a rating of 4.5.
->   - **Fictional EV Station** : You can find this station at 456 Fictional Rd, Gilroy, CA 95008, with a rating of 4.4.
->   - **Generic Charging Station** : This station is at 789 Generic St, Salinas, CA 95008, and has a rating of 3.5.
-> 
+>
+> - **Example Charger** : Located at 123 Example Blvd, Campbell, CA 95008, this station has a rating of 4.5.
+> - **Fictional EV Station** : You can find this station at 456 Fictional Rd, Gilroy, CA 95008, with a rating of 4.4.
+> - **Generic Charging Station** : This station is at 789 Generic St, Salinas, CA 95008, and has a rating of 3.5.
+>
 > **Between San Luis Obispo and Los Angeles** :
-> 
->   - **Example Charger** : Located at 123 Example Rd, San Luis Obispo, CA 93123, this station has a rating of 4.3.
->   - **Fictional EV Station** : This station can be found at 456 Fictional Ave, Santa Barbara, CA 93123, with a rating of 3.9.
->   - **Generic Charging Station** : You can find this station at 789 Generic St, Glendale, CA 93123, with a rating of 3.0.
-> 
-> Have a great road trip\!
+>
+> - **Example Charger** : Located at 123 Example Rd, San Luis Obispo, CA 93123, this station has a rating of 4.3.
+> - **Fictional EV Station** : This station can be found at 456 Fictional Ave, Santa Barbara, CA 93123, with a rating of 3.9.
+> - **Generic Charging Station** : You can find this station at 789 Generic St, Glendale, CA 93123, with a rating of 3.0.
+>
+> Have a great road trip!
 
 ## Service usage requirements
 
@@ -458,14 +477,14 @@ This section describes the service usage requirements for Grounding with Google 
 
 With each **Google Maps Grounded Result** , you'll receive sources in `groundingChunks` that support each response. The following metadata is also returned:
 
-  - source uri
-  - title
-  - ID
+- source uri
+- title
+- ID
 
 When presenting results from Grounding with Google Maps with Gemini Enterprise Agent Platform, you must specify the associated Google Maps sources, and inform your users of the following:
 
-  - The Google Maps sources must immediately follow the generated content that the sources support. This generated content is also referred to as **Google Maps Grounded Result** .
-  - The Google Maps sources must be viewable within one user interaction.
+- The Google Maps sources must immediately follow the generated content that the sources support. This generated content is also referred to as **Google Maps Grounded Result** .
+- The Google Maps sources must be viewable within one user interaction.
 
 ### For voice-first interfaces
 
@@ -475,15 +494,15 @@ When presenting results from Grounding with Google Maps with Gemini Enterprise A
 
 The active disclosure of sources must convey the following points:
 
-  - AI generated content may include information from Google Maps.
+- AI generated content may include information from Google Maps.
 
-  - Detailed sources are available in the companion UI.
+- Detailed sources are available in the companion UI.
 
 You must convey the active disclosure of sources using **at least one** of the following methods.
 
-  - **Visual display:** For voice interactions that occur on a device with a screen, display the active disclosure on the screen whenever Grounding with Google Maps is used.
+- **Visual display:** For voice interactions that occur on a device with a screen, display the active disclosure on the screen whenever Grounding with Google Maps is used.
 
-  - **Voice announcement:** Read the active disclosure to the user. This must occur during the first interaction supported by Grounding with Google Maps and recur at least every 6 months.
+- **Voice announcement:** Read the active disclosure to the user. This must occur during the first interaction supported by Grounding with Google Maps and recur at least every 6 months.
 
 *Example disclosure: "AI generated content may include information from Google Maps. You can find detailed sources in the companion app."*
 
@@ -495,9 +514,9 @@ You must convey the active disclosure of sources using **at least one** of the f
 
 For each source in `groundingChunks` , a link preview must be generated following these requirements:
 
-  - Attribute each source to Google Maps following the [Google Maps text attribution guidelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-maps#google-maps-attribution-guidelines) .
-  - Display the source title provided in the response.
-  - Link to the source using the `uri` from the response.
+- Attribute each source to Google Maps following the [Google Maps text attribution guidelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-maps#google-maps-attribution-guidelines) .
+- Display the source title provided in the response.
+- Link to the source using the `uri` from the response.
 
 These images show the minimum requirements for displaying the sources and Google Maps links.
 
@@ -509,8 +528,8 @@ You can collapse the view of the sources.
 
 Optional: Enhance the link preview with additional content, such as:
 
-  - A [Google Maps favicon](https://www.google.com/favicon.ico) is inserted before the Google Maps text attribution.
-  - A photo from the source URL ( `og:image` ).
+- A [Google Maps favicon](https://www.google.com/favicon.ico) is inserted before the Google Maps text attribution.
+- A photo from the source URL ( `og:image` ).
 
 For more information about some of our Google Maps data providers and their license terms, see the [Google Maps and Google Earth legal notices](https://www.google.com/help/legalnotices_maps/) .
 
@@ -518,80 +537,47 @@ For more information about some of our Google Maps data providers and their lice
 
 When you attribute sources to Google Maps in text, follow these guidelines:
 
-  - Don't modify the text **Google Maps** in any way:
-      - Don't change the capitalization of **Google Maps** .
-      - Don't wrap **Google Maps** onto multiple lines.
-      - Don't localize **Google Maps** into another language.
-      - Prevent browsers from translating **Google Maps** by using the HTML attribute `translate="no"` .
-  - Style **Google Maps** text as described in the following table:
+- Don't modify the text **Google Maps** in any way:
+  - Don't change the capitalization of **Google Maps** .
+  - Don't wrap **Google Maps** onto multiple lines.
+  - Don't localize **Google Maps** into another language.
+  - Prevent browsers from translating **Google Maps** by using the HTML attribute `translate="no"` .
+- Style **Google Maps** text as described in the following table:
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Property</th>
-<th>Style</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Font family</td>
-<td>Roboto. Loading the font is optional.</td>
-</tr>
-<tr class="even">
-<td>Fallback font family</td>
-<td>Any sans serif body font already used in your product or "Sans-Serif" to invoke the default system font</td>
-</tr>
-<tr class="odd">
-<td>Font style</td>
-<td>Normal</td>
-</tr>
-<tr class="even">
-<td>Font weight</td>
-<td>400</td>
-</tr>
-<tr class="odd">
-<td>Font color</td>
-<td>White, black (#1F1F1F), or gray (#5E5E5E). Maintain accessible (4.5:1) contrast against the background.</td>
-</tr>
-<tr class="even">
-<td>Font size</td>
-<td>Minimum font size: 12sp<br />
-Maximum font size: 16sp<br />
-To learn about sp, see Font size units on the <a href="https://m3.material.io/styles/typography/type-scale-tokens#3f4488e7-3b74-45b0-a143-9d6afa4d62dc">Material Design website.</a></td>
-</tr>
-<tr class="odd">
-<td>Letter spacing</td>
-<td>Normal</td>
-</tr>
-</tbody>
-</table>
+| Property             | Style                                                                                                                                                                                                                     |
+|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Font family          | Roboto. Loading the font is optional.                                                                                                                                                                                     |
+| Fallback font family | Any sans serif body font already used in your product or "Sans-Serif" to invoke the default system font                                                                                                                   |
+| Font style           | Normal                                                                                                                                                                                                                    |
+| Font weight          | 400                                                                                                                                                                                                                       |
+| Font color           | White, black (#1F1F1F), or gray (#5E5E5E). Maintain accessible (4.5:1) contrast against the background.                                                                                                                   |
+| Font size            | Minimum font size: 12sp Maximum font size: 16sp To learn about sp, see Font size units on the [Material Design website.](https://m3.material.io/styles/typography/type-scale-tokens#3f4488e7-3b74-45b0-a143-9d6afa4d62dc) |
+| Letter spacing       | Normal                                                                                                                                                                                                                    |
 
 #### Example CSS
 
 The following CSS renders **Google Maps** with the appropriate typographic style and color on a white or light background.
 
-    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-    
-    .GMP-attribution {
-    font-family: Roboto, Sans-Serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
-    letter-spacing: normal;
-    white-space: nowrap;
-    color: #5e5e5e;
-    }
+```
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.GMP-attribution {
+font-family: Roboto, Sans-Serif;
+font-style: normal;
+font-weight: 400;
+font-size: 1rem;
+letter-spacing: normal;
+white-space: nowrap;
+color: #5e5e5e;
+}
+```
 
 ### Place ID and review ID
 
 The Google Maps data includes place ID and review ID. You might cache, store, and export the following response data:
 
-  - `placeId`
-  - `reviewId`
+- `placeId`
+- `reviewId`
 
 The restrictions against caching in the Grounding with Google Maps Terms don't apply.
 
@@ -605,55 +591,14 @@ Grounding with Google Maps charges for each Google Maps query (see [Pricing](htt
 
 A customer-submitted request to Gemini may result in one or more queries to Google Maps. The following table shows a few examples:
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Example prompt</th>
-<th>Potential number of Google Maps queries</th>
-<th>Example query generation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Sushi restaurants near the Hilton Hotel (1335 6th Ave in NYC).</td>
-<td>3 Place Search queries (Google Maps queries), assuming this prompt generates 3 fanout queries.</td>
-<td>3 fanout Place Search queries:<br />
-- Best sushi near Hilton Midtown Manhattan<br />
-- Sushi restaurants near 1335 6th Ave New York<br />
-- Japanese restaurants near 1335 6th Ave New York</td>
-</tr>
-<tr class="even">
-<td>How do I get to 200 W 44th St, New York from Hilton Hotel, 1335 6th Ave.</td>
-<td>1 Find Directions query (Google Maps query)</td>
-<td>1 Find Directions query:<br />
-- Directions from Hilton Hotel, 1335 6th Ave, New York, NY to 200 W 44th St, New York, NY 10036</td>
-</tr>
-<tr class="odd">
-<td>Distance from the Hilton Hotel (1335 6th Ave in NYC) to the airport.</td>
-<td>4 Google Maps queries (1 Place Search query + 3 Find Directions queries), assuming the place search returns 3 airports.</td>
-<td>1 fanout Place Search query:<br />
-- Airports near New York City<br />
-<br />
-3 Find Directions queries:<br />
-- Directions from 1335 6th Ave, New York, NY 10019, USA to John F. Kennedy International Airport, Queens, NY 11430, USA<br />
-- Directions from 1335 6th Ave, New York, NY 10019, USA to Newark Liberty International Airport, Newark, NJ 07114, USA<br />
-- Directions from 1335 6th Ave, New York, NY 10019, USA to LaGuardia</td>
-</tr>
-<tr class="even">
-<td>Find gas stations on the way from 1800 Amphibious Blvd. Mountain View, CA 94045, to 456 Sunny St, Sunnyvale CA.</td>
-<td>1 Search Along Route query (Google Maps query)</td>
-<td>1 Search Along Route query:<br />
-- Gas stations from 1800 Amphibious Blvd. Mountain View, CA 94045, to 456 Sunny St, Sunnyvale CA</td>
-</tr>
-</tbody>
-</table>
+| Example prompt                                                                                                  | Potential number of Google Maps queries                                                                                 | Example query generation                                                                                                                                                                                                                                                                                                                                                                                  |
+|-----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Sushi restaurants near the Hilton Hotel (1335 6th Ave in NYC).                                                  | 3 Place Search queries (Google Maps queries), assuming this prompt generates 3 fanout queries.                          | 3 fanout Place Search queries: - Best sushi near Hilton Midtown Manhattan - Sushi restaurants near 1335 6th Ave New York - Japanese restaurants near 1335 6th Ave New York                                                                                                                                                                                                                                |
+| How do I get to 200 W 44th St, New York from Hilton Hotel, 1335 6th Ave.                                        | 1 Find Directions query (Google Maps query)                                                                             | 1 Find Directions query: - Directions from Hilton Hotel, 1335 6th Ave, New York, NY to 200 W 44th St, New York, NY 10036                                                                                                                                                                                                                                                                                  |
+| Distance from the Hilton Hotel (1335 6th Ave in NYC) to the airport.                                            | 4 Google Maps queries (1 Place Search query + 3 Find Directions queries), assuming the place search returns 3 airports. | 1 fanout Place Search query: - Airports near New York City 3 Find Directions queries: - Directions from 1335 6th Ave, New York, NY 10019, USA to John F. Kennedy International Airport, Queens, NY 11430, USA - Directions from 1335 6th Ave, New York, NY 10019, USA to Newark Liberty International Airport, Newark, NJ 07114, USA - Directions from 1335 6th Ave, New York, NY 10019, USA to LaGuardia |
+| Find gas stations on the way from 1800 Amphibious Blvd. Mountain View, CA 94045, to 456 Sunny St, Sunnyvale CA. | 1 Search Along Route query (Google Maps query)                                                                          | 1 Search Along Route query: - Gas stations from 1800 Amphibious Blvd. Mountain View, CA 94045, to 456 Sunny St, Sunnyvale CA                                                                                                                                                                                                                                                                              |
 
 ## What's next
 
-  - To learn more about how to ground Gemini models to your data, see [Grounding with your data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/ground-responses-using-rag) .
-  - To learn more about responsible AI best practices and Gemini Enterprise Agent Platform's safety filters, see [Responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .
+- To learn more about how to ground Gemini models to your data, see [Grounding with your data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/ground-responses-using-rag) .
+- To learn more about responsible AI best practices and Gemini Enterprise Agent Platform's safety filters, see [Responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .

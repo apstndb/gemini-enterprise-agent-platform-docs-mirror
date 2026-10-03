@@ -33,16 +33,18 @@ Follow these instructions to create an in-memory pipeline spec that you can use 
 1.  Define a pipeline and compile it into a YAML file. For more information about defining and compiling a pipeline, see [Build a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline) .
 
 2.  Use the following code sample to convert the compiled pipeline YAML file to an in-memory pipeline spec.
-    
-        import yaml
-        with open("COMPILED_PIPELINE_PATH", "r") as stream:
-          try:
-            pipeline_spec = yaml.safe_load(stream)
-            print(pipeline_spec)
-          except yaml.YAMLError as exc:
-            print(exc)
-    
-    Replace COMPILED\_PIPELINE\_PATH with the local path to your compiled pipeline YAML file.
+
+    ```
+    import yaml
+    with open("COMPILED_PIPELINE_PATH", "r") as stream:
+      try:
+        pipeline_spec = yaml.safe_load(stream)
+        print(pipeline_spec)
+      except yaml.YAMLError as exc:
+        print(exc)
+    ```
+
+    Replace ` COMPILED_PIPELINE_PATH ` with the local path to your compiled pipeline YAML file.
 
 ### Create the pipeline run
 
@@ -50,64 +52,66 @@ Use the following samples to create a pipeline run using Private Service Connect
 
 ### Python
 
-To create a pipeline run with Private Service Connect interfaces using the Agent Platform SDK for Python, configure the run using the `  aiplatform_v1/services/pipeline_service  ` definition.
+To create a pipeline run with Private Service Connect interfaces using the Agent Platform SDK for Python, configure the run using the [`aiplatform_v1/services/pipeline_service`](https://github.com/googleapis/python-aiplatform/tree/main/google/cloud/aiplatform_v1/services/pipeline_service) definition.
 
-    # Import aiplatform and the appropriate API version v1
-    from google.cloud import aiplatform, aiplatform_v1
-    
-    # Initialize the Vertex SDK using PROJECT_ID and LOCATION
-    aiplatform.init(project="PROJECT_ID", location="LOCATION")
-    
-    # Create the API endpoint
-    client_options = {
-    "api_endpoint": f"LOCATION-aiplatform.googleapis.com"
-    }
-    
-    # Initialize the PipelineServiceClient
-    client = aiplatform_v1.PipelineServiceClient(client_options=client_options)
-    
-    PSCI_INTERFACE_CONFIG = {
-        "network_attachment": "NETWORK_ATTACHMENT_NAME",
-        "dns_peering_configs": [
-          {
-            "domain": "DNS_DOMAIN",
-            "target_project": "TARGET_PROJECT",
-            "target_network": "TARGET_NETWORK"
-          }
-        ]
-    }
-    
-    # Construct the request
-    request = aiplatform_v1.CreatePipelineJobRequest(
-    parent=f"projects/PROJECT_ID/locations/LOCATION",
-    pipeline_job=aiplatform_v1.PipelineJob(
-        display_name="DISPLAY_NAME",
-        pipeline_spec=PIPELINE_SPEC,
-        runtime_config=aiplatform_v1.PipelineJob.RuntimeConfig(
-            gcs_output_directory="OUTPUT_DIRECTORY",
-        ),
-        psc_interface_config=aiplatform_v1.PscInterfaceConfig(
-            PSCI_INTERFACE_CONFIG
-        ),
-    )
-    
-    # Make the API call
-    response = client.create_pipeline_job(request=request)
-    
-    # Print the response
-    print(response)
+```
+# Import aiplatform and the appropriate API version v1
+from google.cloud import aiplatform, aiplatform_v1
+
+# Initialize the Vertex SDK using PROJECT_ID and LOCATION
+aiplatform.init(project="PROJECT_ID", location="LOCATION")
+
+# Create the API endpoint
+client_options = {
+"api_endpoint": f"LOCATION-aiplatform.googleapis.com"
+}
+
+# Initialize the PipelineServiceClient
+client = aiplatform_v1.PipelineServiceClient(client_options=client_options)
+
+PSCI_INTERFACE_CONFIG = {
+    "network_attachment": "NETWORK_ATTACHMENT_NAME",
+    "dns_peering_configs": [
+      {
+        "domain": "DNS_DOMAIN",
+        "target_project": "TARGET_PROJECT",
+        "target_network": "TARGET_NETWORK"
+      }
+    ]
+}
+
+# Construct the request
+request = aiplatform_v1.CreatePipelineJobRequest(
+parent=f"projects/PROJECT_ID/locations/LOCATION",
+pipeline_job=aiplatform_v1.PipelineJob(
+    display_name="DISPLAY_NAME",
+    pipeline_spec=PIPELINE_SPEC,
+    runtime_config=aiplatform_v1.PipelineJob.RuntimeConfig(
+        gcs_output_directory="OUTPUT_DIRECTORY",
+    ),
+    psc_interface_config=aiplatform_v1.PscInterfaceConfig(
+        PSCI_INTERFACE_CONFIG
+    ),
+)
+
+# Make the API call
+response = client.create_pipeline_job(request=request)
+
+# Print the response
+print(response)
+```
 
 Replace the following:
 
-  - PROJECT\_ID : The project ID of the project where you want to create the pipeline run.
-  - LOCATION : The region where you want to create the pipeline run.
-  - DISPLAY\_NAME : The name of the pipeline job. The maximum length for a display name is 128 UTF-8 characters.
-  - PIPELINE\_SPEC : The pipeline spec you created in [Create a pipeline spec](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect#create-spec) .
-  - OUTPUT\_DIRECTORY : The URI of the Cloud Storage bucket for storing output artifacts. This path is the root output directory for the pipeline and is used to generate the paths of output artifacts.
-  - NETWORK\_ATTACHMENT\_NAME : The name of the Compute Engine network attachment to attach to the `PipelineJob` resource. To obtain the network attachment, you must have completed the steps in the [Before you begin](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect#before-you-begin) section. For more information about the network attachment, see [Set up a VPC network, subnet, and network attachment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup#set_up_a_network_subnet_and_network_attachment) .
-  - DNS\_DOMAIN : The DNS name of the private cloud DNS zone you created when you set up private DNS peering.
-  - TARGET\_PROJECT : The project hosting the VPC network.
-  - TARGET\_NETWORK : The VPC network name.
+- ` PROJECT_ID ` : The project ID of the project where you want to create the pipeline run.
+- ` LOCATION ` : The region where you want to create the pipeline run.
+- ` DISPLAY_NAME ` : The name of the pipeline job. The maximum length for a display name is 128 UTF-8 characters.
+- ` PIPELINE_SPEC ` : The pipeline spec you created in [Create a pipeline spec](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect#create-spec) .
+- ` OUTPUT_DIRECTORY ` : The URI of the Cloud Storage bucket for storing output artifacts. This path is the root output directory for the pipeline and is used to generate the paths of output artifacts.
+- ` NETWORK_ATTACHMENT_NAME ` : The name of the Compute Engine network attachment to attach to the `PipelineJob` resource. To obtain the network attachment, you must have completed the steps in the [Before you begin](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect#before-you-begin) section. For more information about the network attachment, see [Set up a VPC network, subnet, and network attachment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup#set_up_a_network_subnet_and_network_attachment) .
+- ` DNS_DOMAIN ` : The DNS name of the private cloud DNS zone you created when you set up private DNS peering.
+- ` TARGET_PROJECT ` : The project hosting the VPC network.
+- ` TARGET_NETWORK ` : The VPC network name.
 
 ### REST
 
@@ -115,39 +119,43 @@ To create a pipeline run, send a `POST` request by using the [pipelineJobs.creat
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : The project ID of the project where you want to create the pipeline run.
-  - LOCATION : The region where you want to create the pipeline run.
-  - DISPLAY\_NAME : The name of the pipeline job. The maximum length for a display name is 128 UTF-8 characters.
-  - PIPELINE\_SPEC : The pipeline spec you created in [Create a pipeline spec](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect#create-spec) .
-  - OUTPUT\_DIRECTORY : The URI of the Cloud Storage bucket for storing output artifacts. This path is the root output directory for the pipeline and is used to generate the paths of output artifacts.
-  - NETWORK\_ATTACHMENT\_NAME : The name of the Compute Engine network attachment to attach to the `PipelineJob` resource. To obtain the network attachment, you must have completed the steps in the [Before you begin](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect#before-you-begin) section. For more information about the network attachment, see [Set up a VPC network, subnet, and network attachment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup#set_up_a_network_subnet_and_network_attachment) .
-  - DNS\_DOMAIN : The DNS name of the private cloud DNS zone you created when you set up private DNS peering.
-  - TARGET\_PROJECT : The project hosting the VPC network.
-  - TARGET\_NETWORK : The VPC network name.
+- ` PROJECT_ID ` : The project ID of the project where you want to create the pipeline run.
+- ` LOCATION ` : The region where you want to create the pipeline run.
+- ` DISPLAY_NAME ` : The name of the pipeline job. The maximum length for a display name is 128 UTF-8 characters.
+- ` PIPELINE_SPEC ` : The pipeline spec you created in [Create a pipeline spec](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect#create-spec) .
+- ` OUTPUT_DIRECTORY ` : The URI of the Cloud Storage bucket for storing output artifacts. This path is the root output directory for the pipeline and is used to generate the paths of output artifacts.
+- ` NETWORK_ATTACHMENT_NAME ` : The name of the Compute Engine network attachment to attach to the `PipelineJob` resource. To obtain the network attachment, you must have completed the steps in the [Before you begin](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect#before-you-begin) section. For more information about the network attachment, see [Set up a VPC network, subnet, and network attachment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup#set_up_a_network_subnet_and_network_attachment) .
+- ` DNS_DOMAIN ` : The DNS name of the private cloud DNS zone you created when you set up private DNS peering.
+- ` TARGET_PROJECT ` : The project hosting the VPC network.
+- ` TARGET_NETWORK ` : The VPC network name.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/pipelineJobs
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/pipelineJobs
+```
 
 Request JSON body:
 
-    {
-      "display_name": "DISPLAY_NAME",
-      "pipeline_spec": "PIPELINE_SPEC",
-      "runtime_config": {
-           "gcs_output_directory": "OUTPUT_DIRECTORY",
-       },
-       "psc_interface_config": {
-          "network_attachment": "NETWORK_ATTACHMENT_NAME",
-          "dns_peering_configs": [
-          {
-            "domain": "DNS_DOMAIN",
-            "target_project": "TARGET_PROJECT",
-            "target_network": "TARGET_NETWORK"
-          }
-        ]
+```
+{
+  "display_name": "DISPLAY_NAME",
+  "pipeline_spec": "PIPELINE_SPEC",
+  "runtime_config": {
+       "gcs_output_directory": "OUTPUT_DIRECTORY",
+   },
+   "psc_interface_config": {
+      "network_attachment": "NETWORK_ATTACHMENT_NAME",
+      "dns_peering_configs": [
+      {
+        "domain": "DNS_DOMAIN",
+        "target_project": "TARGET_PROJECT",
+        "target_network": "TARGET_NETWORK"
       }
-    }
+    ]
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -157,11 +165,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/pipelineJobs"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/pipelineJobs"
+```
 
 #### PowerShell
 
@@ -169,40 +179,44 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/pipelineJobs" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
 
-You should see output similar to the following. PIPELINE\_JOB\_ID represents the ID of the pipeline run and SERVICE\_ACCOUNT\_NAME represents the service account used to run the pipeline.
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/pipelineJobs" | Select-Object -Expand Content
+```
 
-    {
-      "name": "projects/PROJECT_ID/locations/LOCATION/pipelineJobs/PIPELINE_JOB_ID",
-      "displayName": "DISPLAY_NAME",
-      "createTime": "20xx-01-01T00:00:00.000000Z",
-      "updateTime": "20xx-01-01T00:00:00.000000Z",
-      "pipelineSpec": PIPELINE_SPEC,
-      "state": "PIPELINE_STATE_PENDING",
-      "labels": {
-        "vertex-ai-pipelines-run-billing-id": "VERTEX_AI_PIPELINES_RUN_BILLING_ID"
-      },
-      "runtimeConfig": {
-        "gcsOutputDirectory": "OUTPUT_DIRECTORY"
-      },
-      "serviceAccount": "SERVICE_ACCOUNT_NAME"
-      "pscInterfaceConfig": {
-        "networkAttachment": "NETWORK_ATTACHMENT_NAME",
-        "dnsPeeringConfigs": [
-          {
-            "domain": "DNS_DOMAIN",
-            "targetProject": "TARGET_PROJECT",
-            "targetNetwork": "TARGET_NETWORK"
-          }
-        ]
+You should see output similar to the following. ` PIPELINE_JOB_ID ` represents the ID of the pipeline run and ` SERVICE_ACCOUNT_NAME ` represents the service account used to run the pipeline.
+
+```
+{
+  "name": "projects/PROJECT_ID/locations/LOCATION/pipelineJobs/PIPELINE_JOB_ID",
+  "displayName": "DISPLAY_NAME",
+  "createTime": "20xx-01-01T00:00:00.000000Z",
+  "updateTime": "20xx-01-01T00:00:00.000000Z",
+  "pipelineSpec": PIPELINE_SPEC,
+  "state": "PIPELINE_STATE_PENDING",
+  "labels": {
+    "vertex-ai-pipelines-run-billing-id": "VERTEX_AI_PIPELINES_RUN_BILLING_ID"
+  },
+  "runtimeConfig": {
+    "gcsOutputDirectory": "OUTPUT_DIRECTORY"
+  },
+  "serviceAccount": "SERVICE_ACCOUNT_NAME"
+  "pscInterfaceConfig": {
+    "networkAttachment": "NETWORK_ATTACHMENT_NAME",
+    "dnsPeeringConfigs": [
+      {
+        "domain": "DNS_DOMAIN",
+        "targetProject": "TARGET_PROJECT",
+        "targetNetwork": "TARGET_NETWORK"
       }
-    }
+    ]
+  }
+}
+```

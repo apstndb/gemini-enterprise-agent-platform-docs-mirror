@@ -10,29 +10,28 @@ Metrics for text extraction evaluation results.
 
 Fields
 
-`confidenceMetrics[]` ` object ( ConfidenceMetrics  ` )
+`confidenceMetrics[]` `object ( `[`ConfidenceMetrics`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/TextExtractionEvaluationMetrics#ConfidenceMetrics)` )`
 
 Metrics that have confidence thresholds. Precision-recall curve can be derived from them.
 
-`confusionMatrix` ` object ( ConfusionMatrix  ` )
+`confusionMatrix` `object ( `[`ConfusionMatrix`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ConfusionMatrix)` )`
 
 Confusion matrix of the evaluation. Only set for Models where number of AnnotationSpecs is no more than 10. Only set for ModelEvaluations, not for ModelEvaluationSlices.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;confidenceMetrics&quot;: [{object (ConfidenceMetrics)}],&quot;confusionMatrix&quot;: {object (ConfusionMatrix)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "confidenceMetrics": [
+    {
+      object (ConfidenceMetrics)
+    }
+  ],
+  "confusionMatrix": {
+    object (ConfusionMatrix)
+  }
+}
+```
 
 ## ConfidenceMetrics
 
@@ -54,23 +53,13 @@ Precision for the given confidence threshold.
 
 The harmonic mean of recall and precision.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;confidenceThreshold&quot;: number,
-  &quot;recall&quot;: number,
-  &quot;precision&quot;: number,
-  &quot;f1Score&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "confidenceThreshold": number,
+  "recall": number,
+  "precision": number,
+  "f1Score": number
+}
+```

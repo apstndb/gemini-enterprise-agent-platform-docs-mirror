@@ -24,7 +24,7 @@ This tutorial has several pages:
 
 Each page assumes that you have already performed the instructions from the previous pages of the tutorial.
 
-## 1\. Understand AutoML model evaluation results
+## 1. Understand AutoML model evaluation results
 
 After training is completed, your model is automatically evaluated against the test data split. The corresponding evaluation results are presented by clicking the model's name from either the **Model Registry** page or the **Dataset** page.
 
@@ -34,13 +34,13 @@ From there, you can find the metrics to measure the model's performance.
 
 You can find a more detailed introduction to different evaluation metrics in the [Evaluate, test, and deploy your model](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/beginner/beginners-guide/#evaluate_model) section.
 
-## 2\. Analyze test results
+## 2. Analyze test results
 
 If you want to continue improving the model performance, the first step is often to examine the error cases and investigate the potential causes. The evaluation page of each class presents detailed test images of the given class categorized as false negatives, false positives, and true positives. The definition of each category can be found in the [Evaluate, test, and deploy your model](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/beginner/beginners-guide/#evaluate_model) section.
 
 For each image under every category, you can further check the prediction details by clicking the image and access the detailed analysis results. You will see the **Review similar images** panel on the right side of the page, where the closest samples from the training set are presented with distances measured in the feature space.
 
-![Error\_analysis page](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/images/error-analysis.png)
+![Error_analysis page](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/images/error-analysis.png)
 
 There are two types of data issues that you might want to pay attention:
 

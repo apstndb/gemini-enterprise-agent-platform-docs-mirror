@@ -22,6 +22,10 @@ When you use the Google Cloud console to access Google Cloud services and APIs, 
 
 To use the REST API samples on this page in a local development environment, you use the credentials you provide to the gcloud CLI.
 
+[Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI.
+
+If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
+
 For more information, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) in the Google Cloud authentication documentation.
 
 ## List features in a feature group
@@ -42,13 +46,15 @@ To retrieve a list of all the [`Feature`](https://docs.cloud.google.com/gemini-e
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region where the featuregroup is located, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATURE\_GROUP\_NAME : The name of the feature group for which you want to view the list of features.
+- ` LOCATION_ID ` : Region where the featuregroup is located, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATURE_GROUP_NAME ` : The name of the feature group for which you want to view the list of features.
 
 HTTP method and URL:
 
-    GET https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME/features
+```
+GET https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME/features
+```
 
 To send your request, choose one of these options:
 
@@ -58,9 +64,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME/features"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME/features"
+```
 
 #### PowerShell
 
@@ -68,39 +76,43 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME/features" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME/features" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
+```
+{
+  "features": [
     {
-      "features": [
-        {
-          "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME/features/FEATURE_NAME_1",
-          "createTime": "2023-09-06T23:16:00.429055Z",
-          "updateTime": "2023-09-06T23:16:00.429055Z",
-          "etag": "AMEw9yP4QWrXwty9C5J9a77O3_yV5LW4DUIIagKpmoHdzctF577OtlBlOyZC7EIQUZ8_",
-          "versionColumnName": "double"
-        },
-        {
-          "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME/features/FEATURE_NAME_2",
-          "createTime": "2023-09-07T00:59:39.330881Z",
-          "updateTime": "2023-09-07T00:59:39.330881Z",
-          "etag": "AMEw9yOZhegkDL44AMibnanMoDNJeVx-MHwcOqAQuihGHWFQxJMpvG3ePH3bNDS-tIRX",
-          "versionColumnName": "double2"
-        }
-      ]
+      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME/features/FEATURE_NAME_1",
+      "createTime": "2023-09-06T23:16:00.429055Z",
+      "updateTime": "2023-09-06T23:16:00.429055Z",
+      "etag": "AMEw9yP4QWrXwty9C5J9a77O3_yV5LW4DUIIagKpmoHdzctF577OtlBlOyZC7EIQUZ8_",
+      "versionColumnName": "double"
+    },
+    {
+      "name": "projects/PROJECT_NUMBER/locations/LOCATION_ID/featureGroups/FEATURE_GROUP_NAME/features/FEATURE_NAME_2",
+      "createTime": "2023-09-07T00:59:39.330881Z",
+      "updateTime": "2023-09-07T00:59:39.330881Z",
+      "etag": "AMEw9yOZhegkDL44AMibnanMoDNJeVx-MHwcOqAQuihGHWFQxJMpvG3ePH3bNDS-tIRX",
+      "versionColumnName": "double2"
     }
+  ]
+}
+```
 
 ## What's next
 
-  - Learn how to [create a feature view](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-featureview) .
+- Learn how to [create a feature view](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-featureview) .
 
-  - Learn how to [update a feature](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-feature) .
+- Learn how to [update a feature](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-feature) .
 
-  - Learn how to [delete a feature](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/delete-feature) .
+- Learn how to [delete a feature](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/delete-feature) .

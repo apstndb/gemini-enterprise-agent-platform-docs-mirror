@@ -16,23 +16,23 @@ When our generative APIs are integrated into your unique use case and context, a
 
 *Limitations you can encounter when using generative AI models include (but are not limited to):*
 
-  - **Edge cases** : Edge cases refer to unusual, rare, or exceptional situations that are not well-represented in the training data. These cases can lead to limitations in the performance of the model, such as model overconfidence, misinterpretation of context, or inappropriate outputs.
+- **Edge cases** : Edge cases refer to unusual, rare, or exceptional situations that are not well-represented in the training data. These cases can lead to limitations in the performance of the model, such as model overconfidence, misinterpretation of context, or inappropriate outputs.
 
-  - **Model hallucinations, grounding, and factuality** : Generative AI models require context grounded in real-world information, physical properties, and accurate understanding of your specific data in order to reduce the chance of the model producing inaccurate, irrelevant, or nonsensical outputs. To learn more about grounding in Agent Platform, see [Grounding overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) .
+- **Model hallucinations, grounding, and factuality** : Generative AI models require context grounded in real-world information, physical properties, and accurate understanding of your specific data in order to reduce the chance of the model producing inaccurate, irrelevant, or nonsensical outputs. To learn more about grounding in Agent Platform, see [Grounding overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) .
 
-  - **Data quality and tuning** : The quality, accuracy, and bias of the prompt or data input into a model can have a significant impact on the quality of its responses. If users enter inaccurate or incorrect data or prompts, the model can have suboptimal performance or false model outputs.
+- **Data quality and tuning** : The quality, accuracy, and bias of the prompt or data input into a model can have a significant impact on the quality of its responses. If users enter inaccurate or incorrect data or prompts, the model can have suboptimal performance or false model outputs.
 
-  - **Bias amplification** : Generative AI models can inadvertently amplify existing biases in their training data, leading to outputs that can further reinforce societal prejudices and unequal treatment of certain groups.
+- **Bias amplification** : Generative AI models can inadvertently amplify existing biases in their training data, leading to outputs that can further reinforce societal prejudices and unequal treatment of certain groups.
 
-  - **Language quality** : While the models yield impressive multilingual capabilities on the benchmarks we evaluated against, the majority of our benchmarks (including all of fairness evaluations) are in the English language. For more information, see the [Google Research blog](https://ai.googleblog.com/2022/04/pathways-language-model-palm-scaling-to.html) .
-    
-      - Generative AI models can provide inconsistent service quality to different users. For example, text generation might not be as effective for some dialects or language varieties due to underrepresentation in the training data. Performance can be worse for non-English languages or English language varieties with less representation.
+- **Language quality** : While the models yield impressive multilingual capabilities on the benchmarks we evaluated against, the majority of our benchmarks (including all of fairness evaluations) are in the English language. For more information, see the [Google Research blog](https://ai.googleblog.com/2022/04/pathways-language-model-palm-scaling-to.html) .
 
-  - **Fairness benchmarks and subgroups** : Google Research's fairness analyses of our generative AI models don't provide an exhaustive account of the various potential risks. For example, we focus on biases along gender, race, ethnicity and religion axes, but perform the analysis only on the English language data and model outputs. For more information, see the [Google Research blog](https://ai.googleblog.com/2022/04/pathways-language-model-palm-scaling-to.html) .
+  - Generative AI models can provide inconsistent service quality to different users. For example, text generation might not be as effective for some dialects or language varieties due to underrepresentation in the training data. Performance can be worse for non-English languages or English language varieties with less representation.
 
-  - **Limited domain expertise** : Generative AI models can lack the depth of information required to provide accurate and detailed responses on highly specialized or technical topics, leading to superficial or incorrect information. For specialized, complex use cases, models should be tuned on domain-specific data, and there must be meaningful human supervision in contexts with the potential to materially impact individual rights.
+- **Fairness benchmarks and subgroups** : Google Research's fairness analyses of our generative AI models don't provide an exhaustive account of the various potential risks. For example, we focus on biases along gender, race, ethnicity and religion axes, but perform the analysis only on the English language data and model outputs. For more information, see the [Google Research blog](https://ai.googleblog.com/2022/04/pathways-language-model-palm-scaling-to.html) .
 
-  - **Length and structure of inputs and outputs** : Generative AI models have a maximum input and output token limit. If the input or output exceeds this limit, our safety classifiers are not applied, which could ultimately lead to poor model performance. While models hosted on Agent Platform are designed to handle a wide range of text formats, their performance can be affected if the input data has an unusual or complex structure.
+- **Limited domain expertise** : Generative AI models can lack the depth of information required to provide accurate and detailed responses on highly specialized or technical topics, leading to superficial or incorrect information. For specialized, complex use cases, models should be tuned on domain-specific data, and there must be meaningful human supervision in contexts with the potential to materially impact individual rights.
+
+- **Length and structure of inputs and outputs** : Generative AI models have a maximum input and output token limit. If the input or output exceeds this limit, our safety classifiers are not applied, which could ultimately lead to poor model performance. While models hosted on Agent Platform are designed to handle a wide range of text formats, their performance can be affected if the input data has an unusual or complex structure.
 
 ## Recommended practices
 
@@ -51,10 +51,10 @@ If your application automatically renders model output, such as Markdown or HTML
 
 To protect your users, do the following:
 
-  - **Sanitize output** : Use a strict HTML sanitizer (such as DOMPurify) to strip malicious artifacts before rendering.
-  - **Enforce CSP** : Use Content Security Policy (CSP) headers to block external image loading ( `img-src` ) and untrusted script execution ( `script-src` ).
-  - **Control image loading** : Disable automatic rendering of external images or require user consent.
-  - **Harden links** : Automatically append `rel="noopener noreferrer"` to generated links.
+- **Sanitize output** : Use a strict HTML sanitizer (such as DOMPurify) to strip malicious artifacts before rendering.
+- **Enforce CSP** : Use Content Security Policy (CSP) headers to block external image loading ( `img-src` ) and untrusted script execution ( `script-src` ).
+- **Control image loading** : Disable automatic rendering of external images or require user consent.
+- **Harden links** : Automatically append `rel="noopener noreferrer"` to generated links.
 
 ## Abuse monitoring
 
@@ -66,5 +66,5 @@ You can report suspected abuse of the Service or any generated output that conta
 
 ## Additional resources
 
-  - Learn more about Google's recommendations for [Responsible AI practices](https://ai.google/responsibilities/responsible-ai-practices/?category=general) .
-  - Read our blog, [A shared agenda for responsible AI progress](https://blog.google/technology/ai/a-shared-agenda-for-responsible-ai-progress/)
+- Learn more about Google's recommendations for [Responsible AI practices](https://ai.google/responsibilities/responsible-ai-practices/?category=general) .
+- Read our blog, [A shared agenda for responsible AI progress](https://blog.google/technology/ai/a-shared-agenda-for-responsible-ai-progress/)

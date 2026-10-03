@@ -23,40 +23,48 @@ Use the following instructions to view logs for your Agent Platform Pipelines jo
 3.  Select an existing Gemini Enterprise Agent Platform project at the top of the page.
 
 4.  In the **Query builder** , add the following:
-    
-      - **Resource** : Select **Vertex Pipelines Job** . In the dialog, select an Agent Platform Pipelines job.
-      - **Log names** : In the Gemini Enterprise Agent Platform section, select `aiplatform.googlapis.com/pipeline_job_events` .
-      - **Severity** : Select a log level.
-      - **Time range** : Select a preset range or create a custom range.
+
+    - **Resource** : Select **Vertex Pipelines Job** . In the dialog, select an Agent Platform Pipelines job.
+    - **Log names** : In the Gemini Enterprise Agent Platform section, select `aiplatform.googlapis.com/pipeline_job_events` .
+    - **Severity** : Select a log level.
+    - **Time range** : Select a preset range or create a custom range.
 
 ### gcloud
 
 1.  Run the following command to enable the Cloud Logging API:
-    
-        gcloud services enable logging.googleapis.com
+
+    ```
+    gcloud services enable logging.googleapis.com
+    ```
 
 2.  Execute the [gcloud logging read](https://docs.cloud.google.com/sdk/gcloud/reference/logging/read) command:
-    
+
     #### Linux, macOS, or Cloud Shell
-    
+
     > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
-    
-        gcloud logging read "projects/PROJECT_ID/logs/aiplatform.googleapis.com/pipeline_job_events" \
-            --limit=LIMIT
-    
+
+    ```
+    gcloud logging read "projects/PROJECT_ID/logs/aiplatform.googleapis.com/pipeline_job_events" \
+        --limit=LIMIT
+    ```
+
     #### Windows (PowerShell)
-    
+
     > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
-    
-        gcloud logging read "projects/PROJECT_ID/logs/aiplatform.googleapis.com/pipeline_job_events" `
-            --limit=LIMIT
-    
+
+    ```
+    gcloud logging read "projects/PROJECT_ID/logs/aiplatform.googleapis.com/pipeline_job_events" `
+        --limit=LIMIT
+    ```
+
     #### Windows (cmd.exe)
-    
+
     > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
-    
-        gcloud logging read "projects/PROJECT_ID/logs/aiplatform.googleapis.com/pipeline_job_events" ^
-            --limit=LIMIT
+
+    ```
+    gcloud logging read "projects/PROJECT_ID/logs/aiplatform.googleapis.com/pipeline_job_events" ^
+        --limit=LIMIT
+    ```
 
 ## View Gemini Enterprise API logs for pipeline tasks
 
@@ -71,45 +79,53 @@ Use the following instructions to view logs for your Agent Platform Pipelines ta
 3.  Select an existing Gemini Enterprise Agent Platform project at the top of the page.
 
 4.  In the **Query builder** , add the following:
-    
-      - **Resource** : Select **Vertex Pipelines Job** . In the dialog, select an Agent Platform Pipelines job.
-      - **Log names** : In the Gemini Enterprise Agent Platform section, select `aiplatform.googlapis.com/pipeline_job_task_events` .
-      - **Severity** : Select a log level.
-      - **Time range** : Select a preset range or create a custom range.
+
+    - **Resource** : Select **Vertex Pipelines Job** . In the dialog, select an Agent Platform Pipelines job.
+    - **Log names** : In the Gemini Enterprise Agent Platform section, select `aiplatform.googlapis.com/pipeline_job_task_events` .
+    - **Severity** : Select a log level.
+    - **Time range** : Select a preset range or create a custom range.
 
 ### gcloud
 
 1.  Run the following command to enable the Cloud Logging API:
-    
-        gcloud services enable logging.googleapis.com
+
+    ```
+    gcloud services enable logging.googleapis.com
+    ```
 
 2.  Execute the [gcloud logging read](https://docs.cloud.google.com/sdk/gcloud/reference/logging/read) command:
-    
+
     #### Linux, macOS, or Cloud Shell
-    
+
     > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
-    
-        gcloud logging read "projects/PROJECT_ID/logs/aiplatform.googleapis.com/pipeline_job_task_events" \
-            --limit=LIMIT
-    
+
+    ```
+    gcloud logging read "projects/PROJECT_ID/logs/aiplatform.googleapis.com/pipeline_job_task_events" \
+        --limit=LIMIT
+    ```
+
     #### Windows (PowerShell)
-    
+
     > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
-    
-        gcloud logging read "projects/PROJECT_ID/logs/aiplatform.googleapis.com/pipeline_job_task_events" `
-            --limit=LIMIT
-    
+
+    ```
+    gcloud logging read "projects/PROJECT_ID/logs/aiplatform.googleapis.com/pipeline_job_task_events" `
+        --limit=LIMIT
+    ```
+
     #### Windows (cmd.exe)
-    
+
     > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
-    
-        gcloud logging read "projects/PROJECT_ID/logs/aiplatform.googleapis.com/pipeline_job_task_events" ^
-            --limit=LIMIT
+
+    ```
+    gcloud logging read "projects/PROJECT_ID/logs/aiplatform.googleapis.com/pipeline_job_task_events" ^
+        --limit=LIMIT
+    ```
 
 ## What's next
 
-  - Learn how to [view pipeline metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/metrics) .
+- Learn how to [view pipeline metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/metrics) .
 
-  - Learn how to [create custom metrics in the Logs Explorer](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/metrics#build-custom-metrics) to monitor the pipeline job failure rate.
+- Learn how to [create custom metrics in the Logs Explorer](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/metrics#build-custom-metrics) to monitor the pipeline job failure rate.
 
-  - Learn how to [configure email notifications](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/email-notifications) .
+- Learn how to [configure email notifications](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/email-notifications) .

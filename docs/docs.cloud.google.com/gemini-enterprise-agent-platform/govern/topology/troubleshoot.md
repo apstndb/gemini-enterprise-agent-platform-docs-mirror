@@ -12,8 +12,8 @@ Use the information in this document to help you to identify and resolve issues 
 
 Review the requirements to view topologies and the underlying data.
 
-  - [Requirements for the Gemini Enterprise Agent Platform **Topology** page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/view-project-topology#requirements)
-  - [Requirements for topologies in Agent Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/view-agent-registry-topology#requirements)
+- [Requirements for the Gemini Enterprise Agent Platform **Topology** page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/view-project-topology#requirements)
+- [Requirements for topologies in Agent Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/view-agent-registry-topology#requirements)
 
 You can also review App Topology [limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology#limitations) for additional considerations.
 

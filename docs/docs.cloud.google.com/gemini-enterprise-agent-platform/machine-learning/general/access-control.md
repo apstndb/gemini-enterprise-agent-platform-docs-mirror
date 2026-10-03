@@ -12,21 +12,19 @@ This page describes how to use [Identity and Access Management (IAM)](https://do
 
 Agent Platform uses IAM to manage access to resources. When you plan access control for your resources, consider the following:
 
-  - You can manage access at the project level or resource level. Project-level access applies to all of the resources in that project. Access to a specific resource only applies to that resource. See [Project-level versus resource-level access](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#resource-policy) .
+- You can manage access at the project level or resource level. Project-level access applies to all of the resources in that project. Access to a specific resource only applies to that resource. See [Project-level versus resource-level access](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#resource-policy) .
 
-  - You grant access by assigning IAM roles to principals. Predefined roles are available to make it easier to set up access, but custom roles are recommended because you create them, so you can limit their access to only the permissions that are required. See [IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#roles) .
-
-<span id="project-roles"></span>
+- You grant access by assigning IAM roles to principals. Predefined roles are available to make it easier to set up access, but custom roles are recommended because you create them, so you can limit their access to only the permissions that are required. See [IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#roles) .
 
 ## IAM roles
 
 There are different types of IAM roles that can be used in Agent Platform:
 
-  - [Custom roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#custom-roles) let you choose a specific set of permissions, create your own role with those permissions, and grant the role to users in your organization.
+- [Custom roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#custom-roles) let you choose a specific set of permissions, create your own role with those permissions, and grant the role to users in your organization.
 
-  - [Predefined roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined-roles) let you grant a set of related permissions to your Agent Platform resources at the project level.
+- [Predefined roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined-roles) let you grant a set of related permissions to your Agent Platform resources at the project level.
 
-  - [Basic roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#basic-roles) (Owner, Editor, and Viewer) provide access control to your Agent Platform resources at the project level, and are common to all Google Cloud services.
+- [Basic roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#basic-roles) (Owner, Editor, and Viewer) provide access control to your Agent Platform resources at the project level, and are common to all Google Cloud services.
 
 To add, update, or remove these roles in your Agent Platform project, see the documentation on [granting, changing, and revoking access](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
@@ -57,2917 +55,2917 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 </thead>
 <tbody>
 <tr class="odd">
-<td><h4 id="aiplatform.admin" class="role-title add-link" data-text="Agent Platform Administrator" tabindex="-1">Agent Platform Administrator</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.admin</code> )</p>
+<td>Agent Platform Administrator
+<p>( <code>roles/ aiplatform.admin</code> )</p>
 <p>Grants full access to all resources in Agent Platform.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.*</code></p>
+<td><p><code>aiplatform.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentExamples.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentExamples.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agentExamples.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agentExamples.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentExamples.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotationSpecs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.cacheConfigs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.cacheConfigs.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  cachedContents.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  cachedContents.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.cachedContents.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.cachedContents.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  cachedContents.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.consents.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.consents.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  addContextArtifactsAndExecutions</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  addContextChildren</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  queryContextLineageSubgraph</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasetVersions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  restore</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.export</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  queryDeployedModels</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeviceDebugInfo.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.endpoints.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.endpoints.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.endpoints.deploy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.endpoints.explain</code></li>
-<li><code dir="ltr" translate="no">aiplatform.endpoints.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  endpoints.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.endpoints.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.endpoints.predict</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  endpoints.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.endpoints.undeploy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.endpoints.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.entityTypes.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.entityTypes.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  deleteFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  exportFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.entityTypes.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  importFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.entityTypes.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  readFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  streamingReadFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.entityTypes.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  writeFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationItems.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  execute</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationRuns.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationRuns.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationSets.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationSets.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.exampleStores.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.exampleStores.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  readExample</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  writeExample</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  executions.  addExecutionEvents</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  executions.  queryExecutionInputsAndOutputs</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.execute</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureGroups.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureGroups.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureGroups.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureGroups.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureGroups.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureGroups.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureGroups.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureMonitors.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureViews.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureViews.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViews.  directWrite</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViews.  fetchFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureViews.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViews.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureViews.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViews.  searchNearestEntities</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViews.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureViews.sync</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureViews.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  batchReadFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  exportFeatures</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featurestores.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  importFeatures</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featurestores.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  readFeatures</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  writeFeatures</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.humanInTheLoops.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  queryAnnotationStats</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  send</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  deploy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexEndpoints.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexEndpoints.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  queryVectors</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  undeploy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  locations.  evaluateInstances</code></li>
-<li><code dir="ltr" translate="no">aiplatform.locations.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.locations.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.generate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.retrieve</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memoryRevisions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  memoryRevisions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  memoryRevisions.  rollback</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataSchemas.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataStores.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataStores.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataStores.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataStores.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  migratableResources.  migrate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  migratableResources.  search</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  pause</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  resume</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  searchStatsAnomalies</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.  import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  exportEvaluatedDataItems</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.modelMonitors.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.modelMonitors.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  searchModelMonitoringAlerts</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  searchModelMonitoringStats</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.export</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.upload</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  clearTrainingData</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></li>
-<li><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasTrialDetails.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  nasTrialDetails.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  apply</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  setDefault</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  assign</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  start</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  upgrade</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.operations.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  persistentResources.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  persistentResources.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  persistentResources.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  persistentResources.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  changeScope</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  split</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.query</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  ragEngineConfigs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  ragEngineConfigs.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.upload</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  query</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  query</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  execute</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicyEngine.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicyEngine.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sessionEvents.  append</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessionEvents.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.run</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.specialistPools.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  write</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  batchCreate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tensorboardRuns.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  write</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  batchCreate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  batchRead</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  read</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tensorboards.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tensorboards.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tensorboards.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tensorboards.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboards.  recordAccess</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tensorboards.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tuningJobs.  optimizePrompt</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tuningJobs.  validateReinforcementTuningReward</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tuningJobs.  vertexTune</code></li>
+<li><code>aiplatform. agentAnomalyDetectionScopes. create</code></li>
+<li><code>aiplatform. agentAnomalyDetectionScopes. delete</code></li>
+<li><code>aiplatform. agentAnomalyDetectionScopes. get</code></li>
+<li><code>aiplatform. agentAnomalyDetectionScopes. list</code></li>
+<li><code>aiplatform. agentExamples. create</code></li>
+<li><code>aiplatform. agentExamples. delete</code></li>
+<li><code>aiplatform.agentExamples.get</code></li>
+<li><code>aiplatform.agentExamples.list</code></li>
+<li><code>aiplatform. agentExamples. update</code></li>
+<li><code>aiplatform.agents.create</code></li>
+<li><code>aiplatform.agents.delete</code></li>
+<li><code>aiplatform.agents.get</code></li>
+<li><code>aiplatform.agents.list</code></li>
+<li><code>aiplatform.agents.update</code></li>
+<li><code>aiplatform. analyzedInvocations. get</code></li>
+<li><code>aiplatform. analyzedInvocations. list</code></li>
+<li><code>aiplatform. analyzedSessions. aggregate</code></li>
+<li><code>aiplatform. analyzedSessions. get</code></li>
+<li><code>aiplatform. analyzedSessions. list</code></li>
+<li><code>aiplatform. annotationSpecs. create</code></li>
+<li><code>aiplatform. annotationSpecs. delete</code></li>
+<li><code>aiplatform.annotationSpecs.get</code></li>
+<li><code>aiplatform. annotationSpecs. list</code></li>
+<li><code>aiplatform. annotationSpecs. update</code></li>
+<li><code>aiplatform.annotations.create</code></li>
+<li><code>aiplatform.annotations.delete</code></li>
+<li><code>aiplatform.annotations.get</code></li>
+<li><code>aiplatform.annotations.list</code></li>
+<li><code>aiplatform.annotations.update</code></li>
+<li><code>aiplatform.apps.create</code></li>
+<li><code>aiplatform.apps.delete</code></li>
+<li><code>aiplatform.apps.get</code></li>
+<li><code>aiplatform.apps.list</code></li>
+<li><code>aiplatform.apps.update</code></li>
+<li><code>aiplatform.artifacts.create</code></li>
+<li><code>aiplatform.artifacts.delete</code></li>
+<li><code>aiplatform.artifacts.get</code></li>
+<li><code>aiplatform.artifacts.list</code></li>
+<li><code>aiplatform.artifacts.update</code></li>
+<li><code>aiplatform. batchPredictionJobs. cancel</code></li>
+<li><code>aiplatform. batchPredictionJobs. create</code></li>
+<li><code>aiplatform. batchPredictionJobs. delete</code></li>
+<li><code>aiplatform. batchPredictionJobs. get</code></li>
+<li><code>aiplatform. batchPredictionJobs. list</code></li>
+<li><code>aiplatform.cacheConfigs.get</code></li>
+<li><code>aiplatform.cacheConfigs.update</code></li>
+<li><code>aiplatform. cachedContents. create</code></li>
+<li><code>aiplatform. cachedContents. delete</code></li>
+<li><code>aiplatform.cachedContents.get</code></li>
+<li><code>aiplatform.cachedContents.list</code></li>
+<li><code>aiplatform. cachedContents. update</code></li>
+<li><code>aiplatform.consents.get</code></li>
+<li><code>aiplatform.consents.update</code></li>
+<li><code>aiplatform. contexts. addContextArtifactsAndExecutions</code></li>
+<li><code>aiplatform. contexts. addContextChildren</code></li>
+<li><code>aiplatform.contexts.create</code></li>
+<li><code>aiplatform.contexts.delete</code></li>
+<li><code>aiplatform.contexts.get</code></li>
+<li><code>aiplatform.contexts.list</code></li>
+<li><code>aiplatform. contexts. queryContextLineageSubgraph</code></li>
+<li><code>aiplatform.contexts.update</code></li>
+<li><code>aiplatform.customJobs.cancel</code></li>
+<li><code>aiplatform.customJobs.create</code></li>
+<li><code>aiplatform.customJobs.delete</code></li>
+<li><code>aiplatform.customJobs.get</code></li>
+<li><code>aiplatform.customJobs.list</code></li>
+<li><code>aiplatform.dataItems.create</code></li>
+<li><code>aiplatform.dataItems.delete</code></li>
+<li><code>aiplatform.dataItems.get</code></li>
+<li><code>aiplatform.dataItems.list</code></li>
+<li><code>aiplatform.dataItems.update</code></li>
+<li><code>aiplatform. dataLabelingJobs. cancel</code></li>
+<li><code>aiplatform. dataLabelingJobs. create</code></li>
+<li><code>aiplatform. dataLabelingJobs. delete</code></li>
+<li><code>aiplatform. dataLabelingJobs. get</code></li>
+<li><code>aiplatform. dataLabelingJobs. list</code></li>
+<li><code>aiplatform. datasetVersions. create</code></li>
+<li><code>aiplatform. datasetVersions. delete</code></li>
+<li><code>aiplatform.datasetVersions.get</code></li>
+<li><code>aiplatform. datasetVersions. list</code></li>
+<li><code>aiplatform. datasetVersions. restore</code></li>
+<li><code>aiplatform.datasets.create</code></li>
+<li><code>aiplatform.datasets.delete</code></li>
+<li><code>aiplatform.datasets.export</code></li>
+<li><code>aiplatform.datasets.get</code></li>
+<li><code>aiplatform.datasets.import</code></li>
+<li><code>aiplatform.datasets.list</code></li>
+<li><code>aiplatform.datasets.update</code></li>
+<li><code>aiplatform. deploymentResourcePools. create</code></li>
+<li><code>aiplatform. deploymentResourcePools. delete</code></li>
+<li><code>aiplatform. deploymentResourcePools. get</code></li>
+<li><code>aiplatform. deploymentResourcePools. list</code></li>
+<li><code>aiplatform. deploymentResourcePools. queryDeployedModels</code></li>
+<li><code>aiplatform. deploymentResourcePools. update</code></li>
+<li><code>aiplatform. edgeDeploymentJobs. create</code></li>
+<li><code>aiplatform. edgeDeploymentJobs. delete</code></li>
+<li><code>aiplatform. edgeDeploymentJobs. get</code></li>
+<li><code>aiplatform. edgeDeploymentJobs. list</code></li>
+<li><code>aiplatform. edgeDeviceDebugInfo. get</code></li>
+<li><code>aiplatform.edgeDevices.create</code></li>
+<li><code>aiplatform.edgeDevices.delete</code></li>
+<li><code>aiplatform.edgeDevices.get</code></li>
+<li><code>aiplatform.edgeDevices.list</code></li>
+<li><code>aiplatform.edgeDevices.update</code></li>
+<li><code>aiplatform.endpoints.create</code></li>
+<li><code>aiplatform.endpoints.delete</code></li>
+<li><code>aiplatform.endpoints.deploy</code></li>
+<li><code>aiplatform.endpoints.explain</code></li>
+<li><code>aiplatform.endpoints.get</code></li>
+<li><code>aiplatform. endpoints. getIamPolicy</code></li>
+<li><code>aiplatform.endpoints.list</code></li>
+<li><code>aiplatform.endpoints.predict</code></li>
+<li><code>aiplatform. endpoints. setIamPolicy</code></li>
+<li><code>aiplatform.endpoints.undeploy</code></li>
+<li><code>aiplatform.endpoints.update</code></li>
+<li><code>aiplatform.entityTypes.create</code></li>
+<li><code>aiplatform.entityTypes.delete</code></li>
+<li><code>aiplatform. entityTypes. deleteFeatureValues</code></li>
+<li><code>aiplatform. entityTypes. exportFeatureValues</code></li>
+<li><code>aiplatform.entityTypes.get</code></li>
+<li><code>aiplatform. entityTypes. getIamPolicy</code></li>
+<li><code>aiplatform. entityTypes. importFeatureValues</code></li>
+<li><code>aiplatform.entityTypes.list</code></li>
+<li><code>aiplatform. entityTypes. readFeatureValues</code></li>
+<li><code>aiplatform. entityTypes. setIamPolicy</code></li>
+<li><code>aiplatform. entityTypes. streamingReadFeatureValues</code></li>
+<li><code>aiplatform.entityTypes.update</code></li>
+<li><code>aiplatform. entityTypes. writeFeatureValues</code></li>
+<li><code>aiplatform. evaluationExperiments. create</code></li>
+<li><code>aiplatform. evaluationExperiments. delete</code></li>
+<li><code>aiplatform. evaluationExperiments. get</code></li>
+<li><code>aiplatform. evaluationExperiments. list</code></li>
+<li><code>aiplatform. evaluationExperiments. update</code></li>
+<li><code>aiplatform. evaluationItems. create</code></li>
+<li><code>aiplatform. evaluationItems. delete</code></li>
+<li><code>aiplatform.evaluationItems.get</code></li>
+<li><code>aiplatform. evaluationItems. list</code></li>
+<li><code>aiplatform. evaluationItems. update</code></li>
+<li><code>aiplatform. evaluationMetrics. create</code></li>
+<li><code>aiplatform. evaluationMetrics. delete</code></li>
+<li><code>aiplatform. evaluationMetrics. get</code></li>
+<li><code>aiplatform. evaluationMetrics. list</code></li>
+<li><code>aiplatform. evaluationRuns. cancel</code></li>
+<li><code>aiplatform. evaluationRuns. create</code></li>
+<li><code>aiplatform. evaluationRuns. delete</code></li>
+<li><code>aiplatform. evaluationRuns. execute</code></li>
+<li><code>aiplatform.evaluationRuns.get</code></li>
+<li><code>aiplatform.evaluationRuns.list</code></li>
+<li><code>aiplatform. evaluationRuns. update</code></li>
+<li><code>aiplatform. evaluationSets. create</code></li>
+<li><code>aiplatform. evaluationSets. delete</code></li>
+<li><code>aiplatform.evaluationSets.get</code></li>
+<li><code>aiplatform. evaluationSets. import</code></li>
+<li><code>aiplatform.evaluationSets.list</code></li>
+<li><code>aiplatform. evaluationSets. update</code></li>
+<li><code>aiplatform. exampleStores. create</code></li>
+<li><code>aiplatform. exampleStores. delete</code></li>
+<li><code>aiplatform.exampleStores.get</code></li>
+<li><code>aiplatform.exampleStores.list</code></li>
+<li><code>aiplatform. exampleStores. readExample</code></li>
+<li><code>aiplatform. exampleStores. update</code></li>
+<li><code>aiplatform. exampleStores. writeExample</code></li>
+<li><code>aiplatform. executions. addExecutionEvents</code></li>
+<li><code>aiplatform.executions.create</code></li>
+<li><code>aiplatform.executions.delete</code></li>
+<li><code>aiplatform.executions.get</code></li>
+<li><code>aiplatform.executions.list</code></li>
+<li><code>aiplatform. executions. queryExecutionInputsAndOutputs</code></li>
+<li><code>aiplatform.executions.update</code></li>
+<li><code>aiplatform.extensions.delete</code></li>
+<li><code>aiplatform.extensions.execute</code></li>
+<li><code>aiplatform.extensions.get</code></li>
+<li><code>aiplatform.extensions.import</code></li>
+<li><code>aiplatform.extensions.list</code></li>
+<li><code>aiplatform.extensions.update</code></li>
+<li><code>aiplatform. featureGroups. create</code></li>
+<li><code>aiplatform. featureGroups. delete</code></li>
+<li><code>aiplatform.featureGroups.get</code></li>
+<li><code>aiplatform. featureGroups. getIamPolicy</code></li>
+<li><code>aiplatform.featureGroups.list</code></li>
+<li><code>aiplatform. featureGroups. setIamPolicy</code></li>
+<li><code>aiplatform. featureGroups. update</code></li>
+<li><code>aiplatform. featureMonitorJobs. create</code></li>
+<li><code>aiplatform. featureMonitorJobs. get</code></li>
+<li><code>aiplatform. featureMonitorJobs. list</code></li>
+<li><code>aiplatform. featureMonitors. create</code></li>
+<li><code>aiplatform. featureMonitors. delete</code></li>
+<li><code>aiplatform.featureMonitors.get</code></li>
+<li><code>aiplatform. featureMonitors. list</code></li>
+<li><code>aiplatform. featureMonitors. update</code></li>
+<li><code>aiplatform. featureOnlineStores. create</code></li>
+<li><code>aiplatform. featureOnlineStores. delete</code></li>
+<li><code>aiplatform. featureOnlineStores. get</code></li>
+<li><code>aiplatform. featureOnlineStores. getIamPolicy</code></li>
+<li><code>aiplatform. featureOnlineStores. list</code></li>
+<li><code>aiplatform. featureOnlineStores. setIamPolicy</code></li>
+<li><code>aiplatform. featureOnlineStores. update</code></li>
+<li><code>aiplatform. featureViewSyncs. get</code></li>
+<li><code>aiplatform. featureViewSyncs. list</code></li>
+<li><code>aiplatform.featureViews.create</code></li>
+<li><code>aiplatform.featureViews.delete</code></li>
+<li><code>aiplatform. featureViews. directWrite</code></li>
+<li><code>aiplatform. featureViews. fetchFeatureValues</code></li>
+<li><code>aiplatform.featureViews.get</code></li>
+<li><code>aiplatform. featureViews. getIamPolicy</code></li>
+<li><code>aiplatform.featureViews.list</code></li>
+<li><code>aiplatform. featureViews. searchNearestEntities</code></li>
+<li><code>aiplatform. featureViews. setIamPolicy</code></li>
+<li><code>aiplatform.featureViews.sync</code></li>
+<li><code>aiplatform.featureViews.update</code></li>
+<li><code>aiplatform.features.create</code></li>
+<li><code>aiplatform.features.delete</code></li>
+<li><code>aiplatform.features.get</code></li>
+<li><code>aiplatform.features.list</code></li>
+<li><code>aiplatform.features.update</code></li>
+<li><code>aiplatform. featurestores. batchReadFeatureValues</code></li>
+<li><code>aiplatform. featurestores. create</code></li>
+<li><code>aiplatform. featurestores. delete</code></li>
+<li><code>aiplatform. featurestores. exportFeatures</code></li>
+<li><code>aiplatform.featurestores.get</code></li>
+<li><code>aiplatform. featurestores. getIamPolicy</code></li>
+<li><code>aiplatform. featurestores. importFeatures</code></li>
+<li><code>aiplatform.featurestores.list</code></li>
+<li><code>aiplatform. featurestores. readFeatures</code></li>
+<li><code>aiplatform. featurestores. setIamPolicy</code></li>
+<li><code>aiplatform. featurestores. update</code></li>
+<li><code>aiplatform. featurestores. writeFeatures</code></li>
+<li><code>aiplatform. humanInTheLoops. cancel</code></li>
+<li><code>aiplatform. humanInTheLoops. create</code></li>
+<li><code>aiplatform. humanInTheLoops. delete</code></li>
+<li><code>aiplatform.humanInTheLoops.get</code></li>
+<li><code>aiplatform. humanInTheLoops. list</code></li>
+<li><code>aiplatform. humanInTheLoops. queryAnnotationStats</code></li>
+<li><code>aiplatform. humanInTheLoops. send</code></li>
+<li><code>aiplatform. humanInTheLoops. update</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. cancel</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. create</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. delete</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. get</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. list</code></li>
+<li><code>aiplatform. indexEndpoints. create</code></li>
+<li><code>aiplatform. indexEndpoints. delete</code></li>
+<li><code>aiplatform. indexEndpoints. deploy</code></li>
+<li><code>aiplatform.indexEndpoints.get</code></li>
+<li><code>aiplatform.indexEndpoints.list</code></li>
+<li><code>aiplatform. indexEndpoints. queryVectors</code></li>
+<li><code>aiplatform. indexEndpoints. undeploy</code></li>
+<li><code>aiplatform. indexEndpoints. update</code></li>
+<li><code>aiplatform.indexes.create</code></li>
+<li><code>aiplatform.indexes.delete</code></li>
+<li><code>aiplatform.indexes.get</code></li>
+<li><code>aiplatform.indexes.list</code></li>
+<li><code>aiplatform.indexes.update</code></li>
+<li><code>aiplatform.interactions.cancel</code></li>
+<li><code>aiplatform.interactions.create</code></li>
+<li><code>aiplatform.interactions.delete</code></li>
+<li><code>aiplatform.interactions.get</code></li>
+<li><code>aiplatform.interactions.list</code></li>
+<li><code>aiplatform. locations. evaluateInstances</code></li>
+<li><code>aiplatform.locations.get</code></li>
+<li><code>aiplatform.locations.list</code></li>
+<li><code>aiplatform.memories.create</code></li>
+<li><code>aiplatform.memories.delete</code></li>
+<li><code>aiplatform.memories.generate</code></li>
+<li><code>aiplatform.memories.get</code></li>
+<li><code>aiplatform.memories.list</code></li>
+<li><code>aiplatform.memories.retrieve</code></li>
+<li><code>aiplatform.memories.update</code></li>
+<li><code>aiplatform.memoryRevisions.get</code></li>
+<li><code>aiplatform. memoryRevisions. list</code></li>
+<li><code>aiplatform. memoryRevisions. rollback</code></li>
+<li><code>aiplatform. metadataSchemas. create</code></li>
+<li><code>aiplatform. metadataSchemas. delete</code></li>
+<li><code>aiplatform.metadataSchemas.get</code></li>
+<li><code>aiplatform. metadataSchemas. list</code></li>
+<li><code>aiplatform. metadataStores. create</code></li>
+<li><code>aiplatform. metadataStores. delete</code></li>
+<li><code>aiplatform.metadataStores.get</code></li>
+<li><code>aiplatform.metadataStores.list</code></li>
+<li><code>aiplatform. migratableResources. migrate</code></li>
+<li><code>aiplatform. migratableResources. search</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. create</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. delete</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. get</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. list</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. pause</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. resume</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. searchStatsAnomalies</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. update</code></li>
+<li><code>aiplatform. modelEvaluationSlices. get</code></li>
+<li><code>aiplatform. modelEvaluationSlices. import</code></li>
+<li><code>aiplatform. modelEvaluationSlices. list</code></li>
+<li><code>aiplatform. modelEvaluations. exportEvaluatedDataItems</code></li>
+<li><code>aiplatform. modelEvaluations. get</code></li>
+<li><code>aiplatform. modelEvaluations. import</code></li>
+<li><code>aiplatform. modelEvaluations. list</code></li>
+<li><code>aiplatform. modelMonitoringJobs. create</code></li>
+<li><code>aiplatform. modelMonitoringJobs. delete</code></li>
+<li><code>aiplatform. modelMonitoringJobs. get</code></li>
+<li><code>aiplatform. modelMonitoringJobs. list</code></li>
+<li><code>aiplatform. modelMonitors. create</code></li>
+<li><code>aiplatform. modelMonitors. delete</code></li>
+<li><code>aiplatform.modelMonitors.get</code></li>
+<li><code>aiplatform.modelMonitors.list</code></li>
+<li><code>aiplatform. modelMonitors. searchModelMonitoringAlerts</code></li>
+<li><code>aiplatform. modelMonitors. searchModelMonitoringStats</code></li>
+<li><code>aiplatform. modelMonitors. update</code></li>
+<li><code>aiplatform.models.delete</code></li>
+<li><code>aiplatform.models.export</code></li>
+<li><code>aiplatform.models.get</code></li>
+<li><code>aiplatform.models.list</code></li>
+<li><code>aiplatform.models.update</code></li>
+<li><code>aiplatform.models.upload</code></li>
+<li><code>aiplatform. monitoredAgents. clearTrainingData</code></li>
+<li><code>aiplatform. monitoredAgents. disable</code></li>
+<li><code>aiplatform. monitoredAgents. enable</code></li>
+<li><code>aiplatform.monitoredAgents.get</code></li>
+<li><code>aiplatform. monitoredAgents. list</code></li>
+<li><code>aiplatform.nasJobs.cancel</code></li>
+<li><code>aiplatform.nasJobs.create</code></li>
+<li><code>aiplatform.nasJobs.delete</code></li>
+<li><code>aiplatform.nasJobs.get</code></li>
+<li><code>aiplatform.nasJobs.list</code></li>
+<li><code>aiplatform.nasTrialDetails.get</code></li>
+<li><code>aiplatform. nasTrialDetails. list</code></li>
+<li><code>aiplatform. notebookExecutionJobs. create</code></li>
+<li><code>aiplatform. notebookExecutionJobs. delete</code></li>
+<li><code>aiplatform. notebookExecutionJobs. get</code></li>
+<li><code>aiplatform. notebookExecutionJobs. list</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. apply</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. create</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. delete</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. get</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. getIamPolicy</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. list</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. setDefault</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. setIamPolicy</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. update</code></li>
+<li><code>aiplatform. notebookRuntimes. assign</code></li>
+<li><code>aiplatform. notebookRuntimes. delete</code></li>
+<li><code>aiplatform. notebookRuntimes. get</code></li>
+<li><code>aiplatform. notebookRuntimes. list</code></li>
+<li><code>aiplatform. notebookRuntimes. start</code></li>
+<li><code>aiplatform. notebookRuntimes. update</code></li>
+<li><code>aiplatform. notebookRuntimes. upgrade</code></li>
+<li><code>aiplatform. onlineEvaluators. create</code></li>
+<li><code>aiplatform. onlineEvaluators. delete</code></li>
+<li><code>aiplatform. onlineEvaluators. get</code></li>
+<li><code>aiplatform. onlineEvaluators. list</code></li>
+<li><code>aiplatform. onlineEvaluators. update</code></li>
+<li><code>aiplatform.operations.list</code></li>
+<li><code>aiplatform. persistentResources. create</code></li>
+<li><code>aiplatform. persistentResources. delete</code></li>
+<li><code>aiplatform. persistentResources. get</code></li>
+<li><code>aiplatform. persistentResources. list</code></li>
+<li><code>aiplatform.pipelineJobs.cancel</code></li>
+<li><code>aiplatform.pipelineJobs.create</code></li>
+<li><code>aiplatform.pipelineJobs.delete</code></li>
+<li><code>aiplatform.pipelineJobs.get</code></li>
+<li><code>aiplatform.pipelineJobs.list</code></li>
+<li><code>aiplatform. provisionedThroughputRevisions. get</code></li>
+<li><code>aiplatform. provisionedThroughputRevisions. list</code></li>
+<li><code>aiplatform. provisionedThroughputs. cancel</code></li>
+<li><code>aiplatform. provisionedThroughputs. changeScope</code></li>
+<li><code>aiplatform. provisionedThroughputs. create</code></li>
+<li><code>aiplatform. provisionedThroughputs. get</code></li>
+<li><code>aiplatform. provisionedThroughputs. list</code></li>
+<li><code>aiplatform. provisionedThroughputs. split</code></li>
+<li><code>aiplatform. provisionedThroughputs. update</code></li>
+<li><code>aiplatform.ragCorpora.create</code></li>
+<li><code>aiplatform.ragCorpora.delete</code></li>
+<li><code>aiplatform.ragCorpora.get</code></li>
+<li><code>aiplatform.ragCorpora.list</code></li>
+<li><code>aiplatform.ragCorpora.query</code></li>
+<li><code>aiplatform.ragCorpora.update</code></li>
+<li><code>aiplatform. ragEngineConfigs. get</code></li>
+<li><code>aiplatform. ragEngineConfigs. update</code></li>
+<li><code>aiplatform.ragFiles.delete</code></li>
+<li><code>aiplatform.ragFiles.get</code></li>
+<li><code>aiplatform.ragFiles.import</code></li>
+<li><code>aiplatform.ragFiles.list</code></li>
+<li><code>aiplatform.ragFiles.upload</code></li>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. delete</code></li>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. get</code></li>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. list</code></li>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. query</code></li>
+<li><code>aiplatform. reasoningEngines. create</code></li>
+<li><code>aiplatform. reasoningEngines. delete</code></li>
+<li><code>aiplatform. reasoningEngines. get</code></li>
+<li><code>aiplatform. reasoningEngines. getIamPolicy</code></li>
+<li><code>aiplatform. reasoningEngines. list</code></li>
+<li><code>aiplatform. reasoningEngines. query</code></li>
+<li><code>aiplatform. reasoningEngines. setIamPolicy</code></li>
+<li><code>aiplatform. reasoningEngines. update</code></li>
+<li><code>aiplatform. sandboxEnvironments. create</code></li>
+<li><code>aiplatform. sandboxEnvironments. delete</code></li>
+<li><code>aiplatform. sandboxEnvironments. execute</code></li>
+<li><code>aiplatform. sandboxEnvironments. get</code></li>
+<li><code>aiplatform. sandboxEnvironments. list</code></li>
+<li><code>aiplatform.schedules.create</code></li>
+<li><code>aiplatform.schedules.delete</code></li>
+<li><code>aiplatform.schedules.get</code></li>
+<li><code>aiplatform.schedules.list</code></li>
+<li><code>aiplatform.schedules.update</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. create</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. delete</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. get</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. list</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. update</code></li>
+<li><code>aiplatform. semanticGovernancePolicyEngine. get</code></li>
+<li><code>aiplatform. semanticGovernancePolicyEngine. update</code></li>
+<li><code>aiplatform. sessionEvents. append</code></li>
+<li><code>aiplatform.sessionEvents.list</code></li>
+<li><code>aiplatform.sessions.create</code></li>
+<li><code>aiplatform.sessions.delete</code></li>
+<li><code>aiplatform.sessions.get</code></li>
+<li><code>aiplatform.sessions.list</code></li>
+<li><code>aiplatform.sessions.run</code></li>
+<li><code>aiplatform.sessions.update</code></li>
+<li><code>aiplatform. specialistPools. create</code></li>
+<li><code>aiplatform. specialistPools. delete</code></li>
+<li><code>aiplatform.specialistPools.get</code></li>
+<li><code>aiplatform. specialistPools. list</code></li>
+<li><code>aiplatform. specialistPools. update</code></li>
+<li><code>aiplatform.studies.create</code></li>
+<li><code>aiplatform.studies.delete</code></li>
+<li><code>aiplatform.studies.get</code></li>
+<li><code>aiplatform.studies.list</code></li>
+<li><code>aiplatform.studies.update</code></li>
+<li><code>aiplatform.tasks.cancel</code></li>
+<li><code>aiplatform.tasks.create</code></li>
+<li><code>aiplatform.tasks.delete</code></li>
+<li><code>aiplatform.tasks.get</code></li>
+<li><code>aiplatform.tasks.list</code></li>
+<li><code>aiplatform.tasks.update</code></li>
+<li><code>aiplatform. tensorboardExperiments. create</code></li>
+<li><code>aiplatform. tensorboardExperiments. delete</code></li>
+<li><code>aiplatform. tensorboardExperiments. get</code></li>
+<li><code>aiplatform. tensorboardExperiments. list</code></li>
+<li><code>aiplatform. tensorboardExperiments. update</code></li>
+<li><code>aiplatform. tensorboardExperiments. write</code></li>
+<li><code>aiplatform. tensorboardRuns. batchCreate</code></li>
+<li><code>aiplatform. tensorboardRuns. create</code></li>
+<li><code>aiplatform. tensorboardRuns. delete</code></li>
+<li><code>aiplatform.tensorboardRuns.get</code></li>
+<li><code>aiplatform. tensorboardRuns. list</code></li>
+<li><code>aiplatform. tensorboardRuns. update</code></li>
+<li><code>aiplatform. tensorboardRuns. write</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. batchCreate</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. batchRead</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. create</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. delete</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. get</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. list</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. read</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. update</code></li>
+<li><code>aiplatform.tensorboards.create</code></li>
+<li><code>aiplatform.tensorboards.delete</code></li>
+<li><code>aiplatform.tensorboards.get</code></li>
+<li><code>aiplatform.tensorboards.list</code></li>
+<li><code>aiplatform. tensorboards. recordAccess</code></li>
+<li><code>aiplatform.tensorboards.update</code></li>
+<li><code>aiplatform. trainingPipelines. cancel</code></li>
+<li><code>aiplatform. trainingPipelines. create</code></li>
+<li><code>aiplatform. trainingPipelines. delete</code></li>
+<li><code>aiplatform. trainingPipelines. get</code></li>
+<li><code>aiplatform. trainingPipelines. list</code></li>
+<li><code>aiplatform.trials.create</code></li>
+<li><code>aiplatform.trials.delete</code></li>
+<li><code>aiplatform.trials.get</code></li>
+<li><code>aiplatform.trials.list</code></li>
+<li><code>aiplatform.trials.update</code></li>
+<li><code>aiplatform.tuningJobs.cancel</code></li>
+<li><code>aiplatform.tuningJobs.create</code></li>
+<li><code>aiplatform.tuningJobs.delete</code></li>
+<li><code>aiplatform.tuningJobs.get</code></li>
+<li><code>aiplatform.tuningJobs.list</code></li>
+<li><code>aiplatform. tuningJobs. optimizePrompt</code></li>
+<li><code>aiplatform. tuningJobs. validateReinforcementTuningReward</code></li>
+<li><code>aiplatform. tuningJobs. vertexTune</code></li>
 </ul>
-<p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.list</code></p></td>
+<p><code>resourcemanager.projects.get</code></p>
+<p><code>resourcemanager.projects.list</code></p></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.editor" class="role-title add-link" data-text="Aiplatform Editor" tabindex="-1">Aiplatform Editor</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.editor</code> )</p>
+<td>Aiplatform Editor
+<p>( <code>roles/ aiplatform.editor</code> )</p>
 <p>Editor role for aiplatform</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.*</code></p>
+<td><p><code>aiplatform. agentAnomalyDetectionScopes.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  list</code></li>
+<li><code>aiplatform. agentAnomalyDetectionScopes. create</code></li>
+<li><code>aiplatform. agentAnomalyDetectionScopes. delete</code></li>
+<li><code>aiplatform. agentAnomalyDetectionScopes. get</code></li>
+<li><code>aiplatform. agentAnomalyDetectionScopes. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.agentExamples.*</code></p>
+<p><code>aiplatform.agentExamples.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  agentExamples.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentExamples.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agentExamples.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agentExamples.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentExamples.  update</code></li>
+<li><code>aiplatform. agentExamples. create</code></li>
+<li><code>aiplatform. agentExamples. delete</code></li>
+<li><code>aiplatform.agentExamples.get</code></li>
+<li><code>aiplatform.agentExamples.list</code></li>
+<li><code>aiplatform. agentExamples. update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.agents.*</code></p>
+<p><code>aiplatform.agents.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.agents.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.update</code></li>
+<li><code>aiplatform.agents.create</code></li>
+<li><code>aiplatform.agents.delete</code></li>
+<li><code>aiplatform.agents.get</code></li>
+<li><code>aiplatform.agents.list</code></li>
+<li><code>aiplatform.agents.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.*</code></p>
+<p><code>aiplatform. analyzedInvocations.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  list</code></li>
+<li><code>aiplatform. analyzedInvocations. get</code></li>
+<li><code>aiplatform. analyzedInvocations. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.analyzedSessions.*</code></p>
+<p><code>aiplatform.analyzedSessions.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  list</code></li>
+<li><code>aiplatform. analyzedSessions. aggregate</code></li>
+<li><code>aiplatform. analyzedSessions. get</code></li>
+<li><code>aiplatform. analyzedSessions. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.annotationSpecs.*</code></p>
+<p><code>aiplatform.annotationSpecs.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotationSpecs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  update</code></li>
+<li><code>aiplatform. annotationSpecs. create</code></li>
+<li><code>aiplatform. annotationSpecs. delete</code></li>
+<li><code>aiplatform.annotationSpecs.get</code></li>
+<li><code>aiplatform. annotationSpecs. list</code></li>
+<li><code>aiplatform. annotationSpecs. update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.annotations.*</code></p>
+<p><code>aiplatform.annotations.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.annotations.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.update</code></li>
+<li><code>aiplatform.annotations.create</code></li>
+<li><code>aiplatform.annotations.delete</code></li>
+<li><code>aiplatform.annotations.get</code></li>
+<li><code>aiplatform.annotations.list</code></li>
+<li><code>aiplatform.annotations.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.apps.*</code></p>
+<p><code>aiplatform.apps.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.apps.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.update</code></li>
+<li><code>aiplatform.apps.create</code></li>
+<li><code>aiplatform.apps.delete</code></li>
+<li><code>aiplatform.apps.get</code></li>
+<li><code>aiplatform.apps.list</code></li>
+<li><code>aiplatform.apps.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.artifacts.*</code></p>
+<p><code>aiplatform.artifacts.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.update</code></li>
+<li><code>aiplatform.artifacts.create</code></li>
+<li><code>aiplatform.artifacts.delete</code></li>
+<li><code>aiplatform.artifacts.get</code></li>
+<li><code>aiplatform.artifacts.list</code></li>
+<li><code>aiplatform.artifacts.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.*</code></p>
+<p><code>aiplatform. batchPredictionJobs.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  list</code></li>
+<li><code>aiplatform. batchPredictionJobs. cancel</code></li>
+<li><code>aiplatform. batchPredictionJobs. create</code></li>
+<li><code>aiplatform. batchPredictionJobs. delete</code></li>
+<li><code>aiplatform. batchPredictionJobs. get</code></li>
+<li><code>aiplatform. batchPredictionJobs. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.cacheConfigs.*</code></p>
+<p><code>aiplatform.cacheConfigs.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.cacheConfigs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.cacheConfigs.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.cachedContents.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  cachedContents.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  cachedContents.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.cachedContents.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.cachedContents.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  cachedContents.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.consents.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.consents.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.consents.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.contexts.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  addContextArtifactsAndExecutions</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  addContextChildren</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  queryContextLineageSubgraph</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.customJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.dataItems.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.dataLabelingJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.datasetVersions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasetVersions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  restore</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.datasets.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.datasets.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.export</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  queryDeployedModels</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  edgeDeviceDebugInfo.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.edgeDevices.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.deploy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.explain</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  endpoints.  getIamPolicy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.predict</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.undeploy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  deleteFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  exportFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  getIamPolicy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  importFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  readFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  streamingReadFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  writeFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.evaluationItems.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationItems.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.evaluationMetrics.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.evaluationRuns.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  execute</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationRuns.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationRuns.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.evaluationSets.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationSets.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationSets.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.exampleStores.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.exampleStores.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.exampleStores.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  readExample</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  writeExample</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.executions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  executions.  addExecutionEvents</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  executions.  queryExecutionInputsAndOutputs</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.extensions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.extensions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.execute</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  featureGroups.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureGroups.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureGroups.  getIamPolicy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureGroups.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.featureMonitors.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureMonitors.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  getIamPolicy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViewSyncs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  directWrite</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  fetchFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  getIamPolicy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  searchNearestEntities</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.sync</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.features.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.features.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  batchReadFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  exportFeatures</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featurestores.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  getIamPolicy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  importFeatures</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featurestores.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  readFeatures</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  writeFeatures</code></p>
-<p><code dir="ltr" translate="no">aiplatform.humanInTheLoops.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.humanInTheLoops.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  queryAnnotationStats</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  send</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.indexEndpoints.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  deploy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexEndpoints.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexEndpoints.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  queryVectors</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  undeploy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.indexes.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.indexes.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.interactions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.interactions.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.locations.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  locations.  evaluateInstances</code></li>
-<li><code dir="ltr" translate="no">aiplatform.locations.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.locations.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.memories.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.memories.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.generate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.retrieve</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.memoryRevisions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.memoryRevisions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  memoryRevisions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  memoryRevisions.  rollback</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.metadataSchemas.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataSchemas.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.metadataStores.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  metadataStores.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataStores.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataStores.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataStores.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  migratableResources.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  migratableResources.  migrate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  migratableResources.  search</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  pause</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  resume</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  searchStatsAnomalies</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.  import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.modelEvaluations.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  exportEvaluatedDataItems</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.modelMonitors.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.modelMonitors.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.modelMonitors.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  searchModelMonitoringAlerts</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  searchModelMonitoringStats</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.models.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.models.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.export</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.upload</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.monitoredAgents.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  clearTrainingData</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></li>
-<li><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.nasJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.nasTrialDetails.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.nasTrialDetails.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  nasTrialDetails.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  apply</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  getIamPolicy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  setDefault</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.notebookRuntimes.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  assign</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  start</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  upgrade</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.onlineEvaluators.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.operations.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  persistentResources.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  persistentResources.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  persistentResources.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  persistentResources.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  persistentResources.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.pipelineJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  changeScope</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  split</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.ragCorpora.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.query</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.ragEngineConfigs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  ragEngineConfigs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  ragEngineConfigs.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.ragFiles.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.upload</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  query</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  getIamPolicy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  query</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  execute</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.schedules.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.schedules.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicyEngine.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicyEngine.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicyEngine.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.sessionEvents.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  sessionEvents.  append</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessionEvents.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.sessions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.sessions.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.run</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.specialistPools.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.specialistPools.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.studies.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.studies.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.tasks.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.tasks.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  write</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.tensorboardRuns.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  batchCreate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tensorboardRuns.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  write</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  batchCreate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  batchRead</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  read</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.trainingPipelines.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.trials.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.trials.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.tuningJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tuningJobs.  optimizePrompt</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tuningJobs.  validateReinforcementTuningReward</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tuningJobs.  vertexTune</code></li>
-</ul>
-<p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.list</code></p></td>
+<li><code>aiplatform.cacheConfigs.get</code></li>
+<li><code>aiplatform.cacheConfigs.update</code></li>
+</ul>
+<p><code>aiplatform.cachedContents.*</code></p>
+<ul>
+<li><code>aiplatform. cachedContents. create</code></li>
+<li><code>aiplatform. cachedContents. delete</code></li>
+<li><code>aiplatform.cachedContents.get</code></li>
+<li><code>aiplatform.cachedContents.list</code></li>
+<li><code>aiplatform. cachedContents. update</code></li>
+</ul>
+<p><code>aiplatform.consents.*</code></p>
+<ul>
+<li><code>aiplatform.consents.get</code></li>
+<li><code>aiplatform.consents.update</code></li>
+</ul>
+<p><code>aiplatform.contexts.*</code></p>
+<ul>
+<li><code>aiplatform. contexts. addContextArtifactsAndExecutions</code></li>
+<li><code>aiplatform. contexts. addContextChildren</code></li>
+<li><code>aiplatform.contexts.create</code></li>
+<li><code>aiplatform.contexts.delete</code></li>
+<li><code>aiplatform.contexts.get</code></li>
+<li><code>aiplatform.contexts.list</code></li>
+<li><code>aiplatform. contexts. queryContextLineageSubgraph</code></li>
+<li><code>aiplatform.contexts.update</code></li>
+</ul>
+<p><code>aiplatform.customJobs.*</code></p>
+<ul>
+<li><code>aiplatform.customJobs.cancel</code></li>
+<li><code>aiplatform.customJobs.create</code></li>
+<li><code>aiplatform.customJobs.delete</code></li>
+<li><code>aiplatform.customJobs.get</code></li>
+<li><code>aiplatform.customJobs.list</code></li>
+</ul>
+<p><code>aiplatform.dataItems.*</code></p>
+<ul>
+<li><code>aiplatform.dataItems.create</code></li>
+<li><code>aiplatform.dataItems.delete</code></li>
+<li><code>aiplatform.dataItems.get</code></li>
+<li><code>aiplatform.dataItems.list</code></li>
+<li><code>aiplatform.dataItems.update</code></li>
+</ul>
+<p><code>aiplatform.dataLabelingJobs.*</code></p>
+<ul>
+<li><code>aiplatform. dataLabelingJobs. cancel</code></li>
+<li><code>aiplatform. dataLabelingJobs. create</code></li>
+<li><code>aiplatform. dataLabelingJobs. delete</code></li>
+<li><code>aiplatform. dataLabelingJobs. get</code></li>
+<li><code>aiplatform. dataLabelingJobs. list</code></li>
+</ul>
+<p><code>aiplatform.datasetVersions.*</code></p>
+<ul>
+<li><code>aiplatform. datasetVersions. create</code></li>
+<li><code>aiplatform. datasetVersions. delete</code></li>
+<li><code>aiplatform.datasetVersions.get</code></li>
+<li><code>aiplatform. datasetVersions. list</code></li>
+<li><code>aiplatform. datasetVersions. restore</code></li>
+</ul>
+<p><code>aiplatform.datasets.*</code></p>
+<ul>
+<li><code>aiplatform.datasets.create</code></li>
+<li><code>aiplatform.datasets.delete</code></li>
+<li><code>aiplatform.datasets.export</code></li>
+<li><code>aiplatform.datasets.get</code></li>
+<li><code>aiplatform.datasets.import</code></li>
+<li><code>aiplatform.datasets.list</code></li>
+<li><code>aiplatform.datasets.update</code></li>
+</ul>
+<p><code>aiplatform. deploymentResourcePools.*</code></p>
+<ul>
+<li><code>aiplatform. deploymentResourcePools. create</code></li>
+<li><code>aiplatform. deploymentResourcePools. delete</code></li>
+<li><code>aiplatform. deploymentResourcePools. get</code></li>
+<li><code>aiplatform. deploymentResourcePools. list</code></li>
+<li><code>aiplatform. deploymentResourcePools. queryDeployedModels</code></li>
+<li><code>aiplatform. deploymentResourcePools. update</code></li>
+</ul>
+<p><code>aiplatform. edgeDeploymentJobs.*</code></p>
+<ul>
+<li><code>aiplatform. edgeDeploymentJobs. create</code></li>
+<li><code>aiplatform. edgeDeploymentJobs. delete</code></li>
+<li><code>aiplatform. edgeDeploymentJobs. get</code></li>
+<li><code>aiplatform. edgeDeploymentJobs. list</code></li>
+</ul>
+<p><code>aiplatform. edgeDeviceDebugInfo. get</code></p>
+<p><code>aiplatform.edgeDevices.*</code></p>
+<ul>
+<li><code>aiplatform.edgeDevices.create</code></li>
+<li><code>aiplatform.edgeDevices.delete</code></li>
+<li><code>aiplatform.edgeDevices.get</code></li>
+<li><code>aiplatform.edgeDevices.list</code></li>
+<li><code>aiplatform.edgeDevices.update</code></li>
+</ul>
+<p><code>aiplatform.endpoints.create</code></p>
+<p><code>aiplatform.endpoints.delete</code></p>
+<p><code>aiplatform.endpoints.deploy</code></p>
+<p><code>aiplatform.endpoints.explain</code></p>
+<p><code>aiplatform.endpoints.get</code></p>
+<p><code>aiplatform. endpoints. getIamPolicy</code></p>
+<p><code>aiplatform.endpoints.list</code></p>
+<p><code>aiplatform.endpoints.predict</code></p>
+<p><code>aiplatform.endpoints.undeploy</code></p>
+<p><code>aiplatform.endpoints.update</code></p>
+<p><code>aiplatform.entityTypes.create</code></p>
+<p><code>aiplatform.entityTypes.delete</code></p>
+<p><code>aiplatform. entityTypes. deleteFeatureValues</code></p>
+<p><code>aiplatform. entityTypes. exportFeatureValues</code></p>
+<p><code>aiplatform.entityTypes.get</code></p>
+<p><code>aiplatform. entityTypes. getIamPolicy</code></p>
+<p><code>aiplatform. entityTypes. importFeatureValues</code></p>
+<p><code>aiplatform.entityTypes.list</code></p>
+<p><code>aiplatform. entityTypes. readFeatureValues</code></p>
+<p><code>aiplatform. entityTypes. streamingReadFeatureValues</code></p>
+<p><code>aiplatform.entityTypes.update</code></p>
+<p><code>aiplatform. entityTypes. writeFeatureValues</code></p>
+<p><code>aiplatform. evaluationExperiments.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationExperiments. create</code></li>
+<li><code>aiplatform. evaluationExperiments. delete</code></li>
+<li><code>aiplatform. evaluationExperiments. get</code></li>
+<li><code>aiplatform. evaluationExperiments. list</code></li>
+<li><code>aiplatform. evaluationExperiments. update</code></li>
+</ul>
+<p><code>aiplatform.evaluationItems.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationItems. create</code></li>
+<li><code>aiplatform. evaluationItems. delete</code></li>
+<li><code>aiplatform.evaluationItems.get</code></li>
+<li><code>aiplatform. evaluationItems. list</code></li>
+<li><code>aiplatform. evaluationItems. update</code></li>
+</ul>
+<p><code>aiplatform.evaluationMetrics.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationMetrics. create</code></li>
+<li><code>aiplatform. evaluationMetrics. delete</code></li>
+<li><code>aiplatform. evaluationMetrics. get</code></li>
+<li><code>aiplatform. evaluationMetrics. list</code></li>
+</ul>
+<p><code>aiplatform.evaluationRuns.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationRuns. cancel</code></li>
+<li><code>aiplatform. evaluationRuns. create</code></li>
+<li><code>aiplatform. evaluationRuns. delete</code></li>
+<li><code>aiplatform. evaluationRuns. execute</code></li>
+<li><code>aiplatform.evaluationRuns.get</code></li>
+<li><code>aiplatform.evaluationRuns.list</code></li>
+<li><code>aiplatform. evaluationRuns. update</code></li>
+</ul>
+<p><code>aiplatform.evaluationSets.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationSets. create</code></li>
+<li><code>aiplatform. evaluationSets. delete</code></li>
+<li><code>aiplatform.evaluationSets.get</code></li>
+<li><code>aiplatform. evaluationSets. import</code></li>
+<li><code>aiplatform.evaluationSets.list</code></li>
+<li><code>aiplatform. evaluationSets. update</code></li>
+</ul>
+<p><code>aiplatform.exampleStores.*</code></p>
+<ul>
+<li><code>aiplatform. exampleStores. create</code></li>
+<li><code>aiplatform. exampleStores. delete</code></li>
+<li><code>aiplatform.exampleStores.get</code></li>
+<li><code>aiplatform.exampleStores.list</code></li>
+<li><code>aiplatform. exampleStores. readExample</code></li>
+<li><code>aiplatform. exampleStores. update</code></li>
+<li><code>aiplatform. exampleStores. writeExample</code></li>
+</ul>
+<p><code>aiplatform.executions.*</code></p>
+<ul>
+<li><code>aiplatform. executions. addExecutionEvents</code></li>
+<li><code>aiplatform.executions.create</code></li>
+<li><code>aiplatform.executions.delete</code></li>
+<li><code>aiplatform.executions.get</code></li>
+<li><code>aiplatform.executions.list</code></li>
+<li><code>aiplatform. executions. queryExecutionInputsAndOutputs</code></li>
+<li><code>aiplatform.executions.update</code></li>
+</ul>
+<p><code>aiplatform.extensions.*</code></p>
+<ul>
+<li><code>aiplatform.extensions.delete</code></li>
+<li><code>aiplatform.extensions.execute</code></li>
+<li><code>aiplatform.extensions.get</code></li>
+<li><code>aiplatform.extensions.import</code></li>
+<li><code>aiplatform.extensions.list</code></li>
+<li><code>aiplatform.extensions.update</code></li>
+</ul>
+<p><code>aiplatform. featureGroups. create</code></p>
+<p><code>aiplatform. featureGroups. delete</code></p>
+<p><code>aiplatform.featureGroups.get</code></p>
+<p><code>aiplatform. featureGroups. getIamPolicy</code></p>
+<p><code>aiplatform.featureGroups.list</code></p>
+<p><code>aiplatform. featureGroups. update</code></p>
+<p><code>aiplatform. featureMonitorJobs.*</code></p>
+<ul>
+<li><code>aiplatform. featureMonitorJobs. create</code></li>
+<li><code>aiplatform. featureMonitorJobs. get</code></li>
+<li><code>aiplatform. featureMonitorJobs. list</code></li>
+</ul>
+<p><code>aiplatform.featureMonitors.*</code></p>
+<ul>
+<li><code>aiplatform. featureMonitors. create</code></li>
+<li><code>aiplatform. featureMonitors. delete</code></li>
+<li><code>aiplatform.featureMonitors.get</code></li>
+<li><code>aiplatform. featureMonitors. list</code></li>
+<li><code>aiplatform. featureMonitors. update</code></li>
+</ul>
+<p><code>aiplatform. featureOnlineStores. create</code></p>
+<p><code>aiplatform. featureOnlineStores. delete</code></p>
+<p><code>aiplatform. featureOnlineStores. get</code></p>
+<p><code>aiplatform. featureOnlineStores. getIamPolicy</code></p>
+<p><code>aiplatform. featureOnlineStores. list</code></p>
+<p><code>aiplatform. featureOnlineStores. update</code></p>
+<p><code>aiplatform.featureViewSyncs.*</code></p>
+<ul>
+<li><code>aiplatform. featureViewSyncs. get</code></li>
+<li><code>aiplatform. featureViewSyncs. list</code></li>
+</ul>
+<p><code>aiplatform.featureViews.create</code></p>
+<p><code>aiplatform.featureViews.delete</code></p>
+<p><code>aiplatform. featureViews. directWrite</code></p>
+<p><code>aiplatform. featureViews. fetchFeatureValues</code></p>
+<p><code>aiplatform.featureViews.get</code></p>
+<p><code>aiplatform. featureViews. getIamPolicy</code></p>
+<p><code>aiplatform.featureViews.list</code></p>
+<p><code>aiplatform. featureViews. searchNearestEntities</code></p>
+<p><code>aiplatform.featureViews.sync</code></p>
+<p><code>aiplatform.featureViews.update</code></p>
+<p><code>aiplatform.features.*</code></p>
+<ul>
+<li><code>aiplatform.features.create</code></li>
+<li><code>aiplatform.features.delete</code></li>
+<li><code>aiplatform.features.get</code></li>
+<li><code>aiplatform.features.list</code></li>
+<li><code>aiplatform.features.update</code></li>
+</ul>
+<p><code>aiplatform. featurestores. batchReadFeatureValues</code></p>
+<p><code>aiplatform. featurestores. create</code></p>
+<p><code>aiplatform. featurestores. delete</code></p>
+<p><code>aiplatform. featurestores. exportFeatures</code></p>
+<p><code>aiplatform.featurestores.get</code></p>
+<p><code>aiplatform. featurestores. getIamPolicy</code></p>
+<p><code>aiplatform. featurestores. importFeatures</code></p>
+<p><code>aiplatform.featurestores.list</code></p>
+<p><code>aiplatform. featurestores. readFeatures</code></p>
+<p><code>aiplatform. featurestores. update</code></p>
+<p><code>aiplatform. featurestores. writeFeatures</code></p>
+<p><code>aiplatform.humanInTheLoops.*</code></p>
+<ul>
+<li><code>aiplatform. humanInTheLoops. cancel</code></li>
+<li><code>aiplatform. humanInTheLoops. create</code></li>
+<li><code>aiplatform. humanInTheLoops. delete</code></li>
+<li><code>aiplatform.humanInTheLoops.get</code></li>
+<li><code>aiplatform. humanInTheLoops. list</code></li>
+<li><code>aiplatform. humanInTheLoops. queryAnnotationStats</code></li>
+<li><code>aiplatform. humanInTheLoops. send</code></li>
+<li><code>aiplatform. humanInTheLoops. update</code></li>
+</ul>
+<p><code>aiplatform. hyperparameterTuningJobs.*</code></p>
+<ul>
+<li><code>aiplatform. hyperparameterTuningJobs. cancel</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. create</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. delete</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. get</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. list</code></li>
+</ul>
+<p><code>aiplatform.indexEndpoints.*</code></p>
+<ul>
+<li><code>aiplatform. indexEndpoints. create</code></li>
+<li><code>aiplatform. indexEndpoints. delete</code></li>
+<li><code>aiplatform. indexEndpoints. deploy</code></li>
+<li><code>aiplatform.indexEndpoints.get</code></li>
+<li><code>aiplatform.indexEndpoints.list</code></li>
+<li><code>aiplatform. indexEndpoints. queryVectors</code></li>
+<li><code>aiplatform. indexEndpoints. undeploy</code></li>
+<li><code>aiplatform. indexEndpoints. update</code></li>
+</ul>
+<p><code>aiplatform.indexes.*</code></p>
+<ul>
+<li><code>aiplatform.indexes.create</code></li>
+<li><code>aiplatform.indexes.delete</code></li>
+<li><code>aiplatform.indexes.get</code></li>
+<li><code>aiplatform.indexes.list</code></li>
+<li><code>aiplatform.indexes.update</code></li>
+</ul>
+<p><code>aiplatform.interactions.*</code></p>
+<ul>
+<li><code>aiplatform.interactions.cancel</code></li>
+<li><code>aiplatform.interactions.create</code></li>
+<li><code>aiplatform.interactions.delete</code></li>
+<li><code>aiplatform.interactions.get</code></li>
+<li><code>aiplatform.interactions.list</code></li>
+</ul>
+<p><code>aiplatform.locations.*</code></p>
+<ul>
+<li><code>aiplatform. locations. evaluateInstances</code></li>
+<li><code>aiplatform.locations.get</code></li>
+<li><code>aiplatform.locations.list</code></li>
+</ul>
+<p><code>aiplatform.memories.*</code></p>
+<ul>
+<li><code>aiplatform.memories.create</code></li>
+<li><code>aiplatform.memories.delete</code></li>
+<li><code>aiplatform.memories.generate</code></li>
+<li><code>aiplatform.memories.get</code></li>
+<li><code>aiplatform.memories.list</code></li>
+<li><code>aiplatform.memories.retrieve</code></li>
+<li><code>aiplatform.memories.update</code></li>
+</ul>
+<p><code>aiplatform.memoryRevisions.*</code></p>
+<ul>
+<li><code>aiplatform.memoryRevisions.get</code></li>
+<li><code>aiplatform. memoryRevisions. list</code></li>
+<li><code>aiplatform. memoryRevisions. rollback</code></li>
+</ul>
+<p><code>aiplatform.metadataSchemas.*</code></p>
+<ul>
+<li><code>aiplatform. metadataSchemas. create</code></li>
+<li><code>aiplatform. metadataSchemas. delete</code></li>
+<li><code>aiplatform.metadataSchemas.get</code></li>
+<li><code>aiplatform. metadataSchemas. list</code></li>
+</ul>
+<p><code>aiplatform.metadataStores.*</code></p>
+<ul>
+<li><code>aiplatform. metadataStores. create</code></li>
+<li><code>aiplatform. metadataStores. delete</code></li>
+<li><code>aiplatform.metadataStores.get</code></li>
+<li><code>aiplatform.metadataStores.list</code></li>
+</ul>
+<p><code>aiplatform. migratableResources.*</code></p>
+<ul>
+<li><code>aiplatform. migratableResources. migrate</code></li>
+<li><code>aiplatform. migratableResources. search</code></li>
+</ul>
+<p><code>aiplatform. modelDeploymentMonitoringJobs.*</code></p>
+<ul>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. create</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. delete</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. get</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. list</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. pause</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. resume</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. searchStatsAnomalies</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. update</code></li>
+</ul>
+<p><code>aiplatform. modelEvaluationSlices.*</code></p>
+<ul>
+<li><code>aiplatform. modelEvaluationSlices. get</code></li>
+<li><code>aiplatform. modelEvaluationSlices. import</code></li>
+<li><code>aiplatform. modelEvaluationSlices. list</code></li>
+</ul>
+<p><code>aiplatform.modelEvaluations.*</code></p>
+<ul>
+<li><code>aiplatform. modelEvaluations. exportEvaluatedDataItems</code></li>
+<li><code>aiplatform. modelEvaluations. get</code></li>
+<li><code>aiplatform. modelEvaluations. import</code></li>
+<li><code>aiplatform. modelEvaluations. list</code></li>
+</ul>
+<p><code>aiplatform. modelMonitoringJobs.*</code></p>
+<ul>
+<li><code>aiplatform. modelMonitoringJobs. create</code></li>
+<li><code>aiplatform. modelMonitoringJobs. delete</code></li>
+<li><code>aiplatform. modelMonitoringJobs. get</code></li>
+<li><code>aiplatform. modelMonitoringJobs. list</code></li>
+</ul>
+<p><code>aiplatform.modelMonitors.*</code></p>
+<ul>
+<li><code>aiplatform. modelMonitors. create</code></li>
+<li><code>aiplatform. modelMonitors. delete</code></li>
+<li><code>aiplatform.modelMonitors.get</code></li>
+<li><code>aiplatform.modelMonitors.list</code></li>
+<li><code>aiplatform. modelMonitors. searchModelMonitoringAlerts</code></li>
+<li><code>aiplatform. modelMonitors. searchModelMonitoringStats</code></li>
+<li><code>aiplatform. modelMonitors. update</code></li>
+</ul>
+<p><code>aiplatform.models.*</code></p>
+<ul>
+<li><code>aiplatform.models.delete</code></li>
+<li><code>aiplatform.models.export</code></li>
+<li><code>aiplatform.models.get</code></li>
+<li><code>aiplatform.models.list</code></li>
+<li><code>aiplatform.models.update</code></li>
+<li><code>aiplatform.models.upload</code></li>
+</ul>
+<p><code>aiplatform.monitoredAgents.*</code></p>
+<ul>
+<li><code>aiplatform. monitoredAgents. clearTrainingData</code></li>
+<li><code>aiplatform. monitoredAgents. disable</code></li>
+<li><code>aiplatform. monitoredAgents. enable</code></li>
+<li><code>aiplatform.monitoredAgents.get</code></li>
+<li><code>aiplatform. monitoredAgents. list</code></li>
+</ul>
+<p><code>aiplatform.nasJobs.*</code></p>
+<ul>
+<li><code>aiplatform.nasJobs.cancel</code></li>
+<li><code>aiplatform.nasJobs.create</code></li>
+<li><code>aiplatform.nasJobs.delete</code></li>
+<li><code>aiplatform.nasJobs.get</code></li>
+<li><code>aiplatform.nasJobs.list</code></li>
+</ul>
+<p><code>aiplatform.nasTrialDetails.*</code></p>
+<ul>
+<li><code>aiplatform.nasTrialDetails.get</code></li>
+<li><code>aiplatform. nasTrialDetails. list</code></li>
+</ul>
+<p><code>aiplatform. notebookExecutionJobs.*</code></p>
+<ul>
+<li><code>aiplatform. notebookExecutionJobs. create</code></li>
+<li><code>aiplatform. notebookExecutionJobs. delete</code></li>
+<li><code>aiplatform. notebookExecutionJobs. get</code></li>
+<li><code>aiplatform. notebookExecutionJobs. list</code></li>
+</ul>
+<p><code>aiplatform. notebookRuntimeTemplates. apply</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. create</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. delete</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. get</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. getIamPolicy</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. list</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. setDefault</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. update</code></p>
+<p><code>aiplatform.notebookRuntimes.*</code></p>
+<ul>
+<li><code>aiplatform. notebookRuntimes. assign</code></li>
+<li><code>aiplatform. notebookRuntimes. delete</code></li>
+<li><code>aiplatform. notebookRuntimes. get</code></li>
+<li><code>aiplatform. notebookRuntimes. list</code></li>
+<li><code>aiplatform. notebookRuntimes. start</code></li>
+<li><code>aiplatform. notebookRuntimes. update</code></li>
+<li><code>aiplatform. notebookRuntimes. upgrade</code></li>
+</ul>
+<p><code>aiplatform.onlineEvaluators.*</code></p>
+<ul>
+<li><code>aiplatform. onlineEvaluators. create</code></li>
+<li><code>aiplatform. onlineEvaluators. delete</code></li>
+<li><code>aiplatform. onlineEvaluators. get</code></li>
+<li><code>aiplatform. onlineEvaluators. list</code></li>
+<li><code>aiplatform. onlineEvaluators. update</code></li>
+</ul>
+<p><code>aiplatform.operations.list</code></p>
+<p><code>aiplatform. persistentResources.*</code></p>
+<ul>
+<li><code>aiplatform. persistentResources. create</code></li>
+<li><code>aiplatform. persistentResources. delete</code></li>
+<li><code>aiplatform. persistentResources. get</code></li>
+<li><code>aiplatform. persistentResources. list</code></li>
+</ul>
+<p><code>aiplatform.pipelineJobs.*</code></p>
+<ul>
+<li><code>aiplatform.pipelineJobs.cancel</code></li>
+<li><code>aiplatform.pipelineJobs.create</code></li>
+<li><code>aiplatform.pipelineJobs.delete</code></li>
+<li><code>aiplatform.pipelineJobs.get</code></li>
+<li><code>aiplatform.pipelineJobs.list</code></li>
+</ul>
+<p><code>aiplatform. provisionedThroughputRevisions.*</code></p>
+<ul>
+<li><code>aiplatform. provisionedThroughputRevisions. get</code></li>
+<li><code>aiplatform. provisionedThroughputRevisions. list</code></li>
+</ul>
+<p><code>aiplatform. provisionedThroughputs.*</code></p>
+<ul>
+<li><code>aiplatform. provisionedThroughputs. cancel</code></li>
+<li><code>aiplatform. provisionedThroughputs. changeScope</code></li>
+<li><code>aiplatform. provisionedThroughputs. create</code></li>
+<li><code>aiplatform. provisionedThroughputs. get</code></li>
+<li><code>aiplatform. provisionedThroughputs. list</code></li>
+<li><code>aiplatform. provisionedThroughputs. split</code></li>
+<li><code>aiplatform. provisionedThroughputs. update</code></li>
+</ul>
+<p><code>aiplatform.ragCorpora.*</code></p>
+<ul>
+<li><code>aiplatform.ragCorpora.create</code></li>
+<li><code>aiplatform.ragCorpora.delete</code></li>
+<li><code>aiplatform.ragCorpora.get</code></li>
+<li><code>aiplatform.ragCorpora.list</code></li>
+<li><code>aiplatform.ragCorpora.query</code></li>
+<li><code>aiplatform.ragCorpora.update</code></li>
+</ul>
+<p><code>aiplatform.ragEngineConfigs.*</code></p>
+<ul>
+<li><code>aiplatform. ragEngineConfigs. get</code></li>
+<li><code>aiplatform. ragEngineConfigs. update</code></li>
+</ul>
+<p><code>aiplatform.ragFiles.*</code></p>
+<ul>
+<li><code>aiplatform.ragFiles.delete</code></li>
+<li><code>aiplatform.ragFiles.get</code></li>
+<li><code>aiplatform.ragFiles.import</code></li>
+<li><code>aiplatform.ragFiles.list</code></li>
+<li><code>aiplatform.ragFiles.upload</code></li>
+</ul>
+<p><code>aiplatform. reasoningEngineRuntimeRevisions.*</code></p>
+<ul>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. delete</code></li>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. get</code></li>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. list</code></li>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. query</code></li>
+</ul>
+<p><code>aiplatform. reasoningEngines. create</code></p>
+<p><code>aiplatform. reasoningEngines. delete</code></p>
+<p><code>aiplatform. reasoningEngines. get</code></p>
+<p><code>aiplatform. reasoningEngines. getIamPolicy</code></p>
+<p><code>aiplatform. reasoningEngines. list</code></p>
+<p><code>aiplatform. reasoningEngines. query</code></p>
+<p><code>aiplatform. reasoningEngines. update</code></p>
+<p><code>aiplatform. sandboxEnvironments.*</code></p>
+<ul>
+<li><code>aiplatform. sandboxEnvironments. create</code></li>
+<li><code>aiplatform. sandboxEnvironments. delete</code></li>
+<li><code>aiplatform. sandboxEnvironments. execute</code></li>
+<li><code>aiplatform. sandboxEnvironments. get</code></li>
+<li><code>aiplatform. sandboxEnvironments. list</code></li>
+</ul>
+<p><code>aiplatform.schedules.*</code></p>
+<ul>
+<li><code>aiplatform.schedules.create</code></li>
+<li><code>aiplatform.schedules.delete</code></li>
+<li><code>aiplatform.schedules.get</code></li>
+<li><code>aiplatform.schedules.list</code></li>
+<li><code>aiplatform.schedules.update</code></li>
+</ul>
+<p><code>aiplatform. semanticGovernancePolicies.*</code></p>
+<ul>
+<li><code>aiplatform. semanticGovernancePolicies. create</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. delete</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. get</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. list</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. update</code></li>
+</ul>
+<p><code>aiplatform. semanticGovernancePolicyEngine.*</code></p>
+<ul>
+<li><code>aiplatform. semanticGovernancePolicyEngine. get</code></li>
+<li><code>aiplatform. semanticGovernancePolicyEngine. update</code></li>
+</ul>
+<p><code>aiplatform.sessionEvents.*</code></p>
+<ul>
+<li><code>aiplatform. sessionEvents. append</code></li>
+<li><code>aiplatform.sessionEvents.list</code></li>
+</ul>
+<p><code>aiplatform.sessions.*</code></p>
+<ul>
+<li><code>aiplatform.sessions.create</code></li>
+<li><code>aiplatform.sessions.delete</code></li>
+<li><code>aiplatform.sessions.get</code></li>
+<li><code>aiplatform.sessions.list</code></li>
+<li><code>aiplatform.sessions.run</code></li>
+<li><code>aiplatform.sessions.update</code></li>
+</ul>
+<p><code>aiplatform.specialistPools.*</code></p>
+<ul>
+<li><code>aiplatform. specialistPools. create</code></li>
+<li><code>aiplatform. specialistPools. delete</code></li>
+<li><code>aiplatform.specialistPools.get</code></li>
+<li><code>aiplatform. specialistPools. list</code></li>
+<li><code>aiplatform. specialistPools. update</code></li>
+</ul>
+<p><code>aiplatform.studies.*</code></p>
+<ul>
+<li><code>aiplatform.studies.create</code></li>
+<li><code>aiplatform.studies.delete</code></li>
+<li><code>aiplatform.studies.get</code></li>
+<li><code>aiplatform.studies.list</code></li>
+<li><code>aiplatform.studies.update</code></li>
+</ul>
+<p><code>aiplatform.tasks.*</code></p>
+<ul>
+<li><code>aiplatform.tasks.cancel</code></li>
+<li><code>aiplatform.tasks.create</code></li>
+<li><code>aiplatform.tasks.delete</code></li>
+<li><code>aiplatform.tasks.get</code></li>
+<li><code>aiplatform.tasks.list</code></li>
+<li><code>aiplatform.tasks.update</code></li>
+</ul>
+<p><code>aiplatform. tensorboardExperiments.*</code></p>
+<ul>
+<li><code>aiplatform. tensorboardExperiments. create</code></li>
+<li><code>aiplatform. tensorboardExperiments. delete</code></li>
+<li><code>aiplatform. tensorboardExperiments. get</code></li>
+<li><code>aiplatform. tensorboardExperiments. list</code></li>
+<li><code>aiplatform. tensorboardExperiments. update</code></li>
+<li><code>aiplatform. tensorboardExperiments. write</code></li>
+</ul>
+<p><code>aiplatform.tensorboardRuns.*</code></p>
+<ul>
+<li><code>aiplatform. tensorboardRuns. batchCreate</code></li>
+<li><code>aiplatform. tensorboardRuns. create</code></li>
+<li><code>aiplatform. tensorboardRuns. delete</code></li>
+<li><code>aiplatform.tensorboardRuns.get</code></li>
+<li><code>aiplatform. tensorboardRuns. list</code></li>
+<li><code>aiplatform. tensorboardRuns. update</code></li>
+<li><code>aiplatform. tensorboardRuns. write</code></li>
+</ul>
+<p><code>aiplatform. tensorboardTimeSeries.*</code></p>
+<ul>
+<li><code>aiplatform. tensorboardTimeSeries. batchCreate</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. batchRead</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. create</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. delete</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. get</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. list</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. read</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. update</code></li>
+</ul>
+<p><code>aiplatform.tensorboards.create</code></p>
+<p><code>aiplatform.tensorboards.delete</code></p>
+<p><code>aiplatform.tensorboards.get</code></p>
+<p><code>aiplatform.tensorboards.list</code></p>
+<p><code>aiplatform.tensorboards.update</code></p>
+<p><code>aiplatform.trainingPipelines.*</code></p>
+<ul>
+<li><code>aiplatform. trainingPipelines. cancel</code></li>
+<li><code>aiplatform. trainingPipelines. create</code></li>
+<li><code>aiplatform. trainingPipelines. delete</code></li>
+<li><code>aiplatform. trainingPipelines. get</code></li>
+<li><code>aiplatform. trainingPipelines. list</code></li>
+</ul>
+<p><code>aiplatform.trials.*</code></p>
+<ul>
+<li><code>aiplatform.trials.create</code></li>
+<li><code>aiplatform.trials.delete</code></li>
+<li><code>aiplatform.trials.get</code></li>
+<li><code>aiplatform.trials.list</code></li>
+<li><code>aiplatform.trials.update</code></li>
+</ul>
+<p><code>aiplatform.tuningJobs.*</code></p>
+<ul>
+<li><code>aiplatform.tuningJobs.cancel</code></li>
+<li><code>aiplatform.tuningJobs.create</code></li>
+<li><code>aiplatform.tuningJobs.delete</code></li>
+<li><code>aiplatform.tuningJobs.get</code></li>
+<li><code>aiplatform.tuningJobs.list</code></li>
+<li><code>aiplatform. tuningJobs. optimizePrompt</code></li>
+<li><code>aiplatform. tuningJobs. validateReinforcementTuningReward</code></li>
+<li><code>aiplatform. tuningJobs. vertexTune</code></li>
+</ul>
+<p><code>resourcemanager.projects.get</code></p>
+<p><code>resourcemanager.projects.list</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.expressUser" class="role-title add-link" data-text="Agent Platform Express User Beta" tabindex="-1">Agent Platform Express User <sup>Beta</sup></h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.expressUser</code> )</p>
+<td>Agent Platform Express User <sup>Beta</sup>
+<p>( <code>roles/ aiplatform.expressUser</code> )</p>
 <p>Grants user access to Agent Platform Express.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.datasetVersions.*</code></p>
+<td><p><code>aiplatform.datasetVersions.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasetVersions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  restore</code></li>
+<li><code>aiplatform. datasetVersions. create</code></li>
+<li><code>aiplatform. datasetVersions. delete</code></li>
+<li><code>aiplatform.datasetVersions.get</code></li>
+<li><code>aiplatform. datasetVersions. list</code></li>
+<li><code>aiplatform. datasetVersions. restore</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.datasets.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.datasets.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.datasets.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.datasets.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.datasets.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.predict</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  locations.  evaluateInstances</code></p>
-<p><code dir="ltr" translate="no">aiplatform.memories.*</code></p>
+<p><code>aiplatform.datasets.create</code></p>
+<p><code>aiplatform.datasets.delete</code></p>
+<p><code>aiplatform.datasets.get</code></p>
+<p><code>aiplatform.datasets.list</code></p>
+<p><code>aiplatform.datasets.update</code></p>
+<p><code>aiplatform.endpoints.predict</code></p>
+<p><code>aiplatform. locations. evaluateInstances</code></p>
+<p><code>aiplatform.memories.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.memories.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.generate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.retrieve</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.update</code></li>
+<li><code>aiplatform.memories.create</code></li>
+<li><code>aiplatform.memories.delete</code></li>
+<li><code>aiplatform.memories.generate</code></li>
+<li><code>aiplatform.memories.get</code></li>
+<li><code>aiplatform.memories.list</code></li>
+<li><code>aiplatform.memories.retrieve</code></li>
+<li><code>aiplatform.memories.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.operations.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  query</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.*</code></p>
+<p><code>aiplatform.operations.list</code></p>
+<p><code>aiplatform. reasoningEngines. create</code></p>
+<p><code>aiplatform. reasoningEngines. delete</code></p>
+<p><code>aiplatform. reasoningEngines. get</code></p>
+<p><code>aiplatform. reasoningEngines. list</code></p>
+<p><code>aiplatform. reasoningEngines. query</code></p>
+<p><code>aiplatform. reasoningEngines. update</code></p>
+<p><code>aiplatform. sandboxEnvironments.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  execute</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  list</code></li>
+<li><code>aiplatform. sandboxEnvironments. create</code></li>
+<li><code>aiplatform. sandboxEnvironments. delete</code></li>
+<li><code>aiplatform. sandboxEnvironments. execute</code></li>
+<li><code>aiplatform. sandboxEnvironments. get</code></li>
+<li><code>aiplatform. sandboxEnvironments. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.sessionEvents.*</code></p>
+<p><code>aiplatform.sessionEvents.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  sessionEvents.  append</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessionEvents.list</code></li>
+<li><code>aiplatform. sessionEvents. append</code></li>
+<li><code>aiplatform.sessionEvents.list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.sessions.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.update</code></p></td>
+<p><code>aiplatform.sessions.create</code></p>
+<p><code>aiplatform.sessions.delete</code></p>
+<p><code>aiplatform.sessions.get</code></p>
+<p><code>aiplatform.sessions.list</code></p>
+<p><code>aiplatform.sessions.update</code></p></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.user" class="role-title add-link" data-text="Agent Platform User" tabindex="-1">Agent Platform User</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.user</code> )</p>
+<td>Agent Platform User
+<p>( <code>roles/ aiplatform.user</code> )</p>
 <p>Grants access to use all resource in Agent Platform.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  list</code></li>
+<td><p><code>aiplatform. agentAnomalyDetectionScopes.*</code></p>
+<ul>
+<li><code>aiplatform. agentAnomalyDetectionScopes. create</code></li>
+<li><code>aiplatform. agentAnomalyDetectionScopes. delete</code></li>
+<li><code>aiplatform. agentAnomalyDetectionScopes. get</code></li>
+<li><code>aiplatform. agentAnomalyDetectionScopes. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.agentExamples.*</code></p>
+<p><code>aiplatform.agentExamples.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  agentExamples.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentExamples.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agentExamples.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agentExamples.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentExamples.  update</code></li>
+<li><code>aiplatform. agentExamples. create</code></li>
+<li><code>aiplatform. agentExamples. delete</code></li>
+<li><code>aiplatform.agentExamples.get</code></li>
+<li><code>aiplatform.agentExamples.list</code></li>
+<li><code>aiplatform. agentExamples. update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.agents.*</code></p>
+<p><code>aiplatform.agents.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.agents.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.update</code></li>
+<li><code>aiplatform.agents.create</code></li>
+<li><code>aiplatform.agents.delete</code></li>
+<li><code>aiplatform.agents.get</code></li>
+<li><code>aiplatform.agents.list</code></li>
+<li><code>aiplatform.agents.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.*</code></p>
+<p><code>aiplatform. analyzedInvocations.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  list</code></li>
+<li><code>aiplatform. analyzedInvocations. get</code></li>
+<li><code>aiplatform. analyzedInvocations. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.analyzedSessions.*</code></p>
+<p><code>aiplatform.analyzedSessions.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.annotationSpecs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotationSpecs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.annotations.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.annotations.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.apps.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.apps.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.artifacts.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.cacheConfigs.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.cachedContents.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  cachedContents.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  cachedContents.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.cachedContents.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.cachedContents.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  cachedContents.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.consents.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.contexts.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  addContextArtifactsAndExecutions</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  addContextChildren</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  queryContextLineageSubgraph</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.customJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.dataItems.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.dataLabelingJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.datasetVersions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasetVersions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  restore</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.datasets.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.datasets.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.export</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  queryDeployedModels</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  edgeDeviceDebugInfo.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.edgeDevices.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.deploy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.explain</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.predict</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.undeploy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  deleteFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  exportFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  importFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  readFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  streamingReadFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  writeFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.evaluationItems.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationItems.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.evaluationMetrics.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.evaluationRuns.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  execute</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationRuns.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationRuns.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.evaluationSets.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationSets.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationSets.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.exampleStores.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.exampleStores.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.exampleStores.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  readExample</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  writeExample</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.executions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  executions.  addExecutionEvents</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  executions.  queryExecutionInputsAndOutputs</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.extensions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.extensions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.execute</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  featureGroups.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureGroups.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureGroups.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.featureMonitors.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureMonitors.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViewSyncs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  directWrite</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  fetchFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  searchNearestEntities</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.sync</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.features.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.features.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  batchReadFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  exportFeatures</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featurestores.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  importFeatures</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featurestores.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  readFeatures</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  writeFeatures</code></p>
-<p><code dir="ltr" translate="no">aiplatform.humanInTheLoops.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.humanInTheLoops.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  queryAnnotationStats</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  send</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.indexEndpoints.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  deploy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexEndpoints.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexEndpoints.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  queryVectors</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  undeploy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.indexes.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.indexes.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.interactions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.interactions.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.locations.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  locations.  evaluateInstances</code></li>
-<li><code dir="ltr" translate="no">aiplatform.locations.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.locations.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.memories.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.memories.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.generate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.retrieve</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.memoryRevisions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.memoryRevisions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  memoryRevisions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  memoryRevisions.  rollback</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.metadataSchemas.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataSchemas.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.metadataStores.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  metadataStores.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataStores.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataStores.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataStores.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  pause</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  resume</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  searchStatsAnomalies</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.  import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.modelEvaluations.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  exportEvaluatedDataItems</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.modelMonitors.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.modelMonitors.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.modelMonitors.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  searchModelMonitoringAlerts</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  searchModelMonitoringStats</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.models.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.models.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.export</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.upload</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></p>
-<p><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.nasJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.nasTrialDetails.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.nasTrialDetails.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  nasTrialDetails.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  apply</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.notebookRuntimes.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  assign</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  start</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  upgrade</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.onlineEvaluators.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.operations.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  persistentResources.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  persistentResources.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.pipelineJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.ragCorpora.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.query</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  ragEngineConfigs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.ragFiles.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.upload</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  query</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  query</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  execute</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.schedules.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.schedules.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicyEngine.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicyEngine.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicyEngine.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.sessionEvents.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  sessionEvents.  append</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessionEvents.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.sessions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.sessions.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.run</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.specialistPools.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.specialistPools.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.studies.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.studies.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.tasks.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.tasks.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  write</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.tensorboardRuns.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  batchCreate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tensorboardRuns.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  write</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  batchCreate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  batchRead</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  read</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.trainingPipelines.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.trials.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.trials.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.tuningJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tuningJobs.  optimizePrompt</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tuningJobs.  validateReinforcementTuningReward</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tuningJobs.  vertexTune</code></li>
-</ul>
-<p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.list</code></p></td>
+<li><code>aiplatform. analyzedSessions. aggregate</code></li>
+<li><code>aiplatform. analyzedSessions. get</code></li>
+<li><code>aiplatform. analyzedSessions. list</code></li>
+</ul>
+<p><code>aiplatform.annotationSpecs.*</code></p>
+<ul>
+<li><code>aiplatform. annotationSpecs. create</code></li>
+<li><code>aiplatform. annotationSpecs. delete</code></li>
+<li><code>aiplatform.annotationSpecs.get</code></li>
+<li><code>aiplatform. annotationSpecs. list</code></li>
+<li><code>aiplatform. annotationSpecs. update</code></li>
+</ul>
+<p><code>aiplatform.annotations.*</code></p>
+<ul>
+<li><code>aiplatform.annotations.create</code></li>
+<li><code>aiplatform.annotations.delete</code></li>
+<li><code>aiplatform.annotations.get</code></li>
+<li><code>aiplatform.annotations.list</code></li>
+<li><code>aiplatform.annotations.update</code></li>
+</ul>
+<p><code>aiplatform.apps.*</code></p>
+<ul>
+<li><code>aiplatform.apps.create</code></li>
+<li><code>aiplatform.apps.delete</code></li>
+<li><code>aiplatform.apps.get</code></li>
+<li><code>aiplatform.apps.list</code></li>
+<li><code>aiplatform.apps.update</code></li>
+</ul>
+<p><code>aiplatform.artifacts.*</code></p>
+<ul>
+<li><code>aiplatform.artifacts.create</code></li>
+<li><code>aiplatform.artifacts.delete</code></li>
+<li><code>aiplatform.artifacts.get</code></li>
+<li><code>aiplatform.artifacts.list</code></li>
+<li><code>aiplatform.artifacts.update</code></li>
+</ul>
+<p><code>aiplatform. batchPredictionJobs.*</code></p>
+<ul>
+<li><code>aiplatform. batchPredictionJobs. cancel</code></li>
+<li><code>aiplatform. batchPredictionJobs. create</code></li>
+<li><code>aiplatform. batchPredictionJobs. delete</code></li>
+<li><code>aiplatform. batchPredictionJobs. get</code></li>
+<li><code>aiplatform. batchPredictionJobs. list</code></li>
+</ul>
+<p><code>aiplatform.cacheConfigs.get</code></p>
+<p><code>aiplatform.cachedContents.*</code></p>
+<ul>
+<li><code>aiplatform. cachedContents. create</code></li>
+<li><code>aiplatform. cachedContents. delete</code></li>
+<li><code>aiplatform.cachedContents.get</code></li>
+<li><code>aiplatform.cachedContents.list</code></li>
+<li><code>aiplatform. cachedContents. update</code></li>
+</ul>
+<p><code>aiplatform.consents.get</code></p>
+<p><code>aiplatform.contexts.*</code></p>
+<ul>
+<li><code>aiplatform. contexts. addContextArtifactsAndExecutions</code></li>
+<li><code>aiplatform. contexts. addContextChildren</code></li>
+<li><code>aiplatform.contexts.create</code></li>
+<li><code>aiplatform.contexts.delete</code></li>
+<li><code>aiplatform.contexts.get</code></li>
+<li><code>aiplatform.contexts.list</code></li>
+<li><code>aiplatform. contexts. queryContextLineageSubgraph</code></li>
+<li><code>aiplatform.contexts.update</code></li>
+</ul>
+<p><code>aiplatform.customJobs.*</code></p>
+<ul>
+<li><code>aiplatform.customJobs.cancel</code></li>
+<li><code>aiplatform.customJobs.create</code></li>
+<li><code>aiplatform.customJobs.delete</code></li>
+<li><code>aiplatform.customJobs.get</code></li>
+<li><code>aiplatform.customJobs.list</code></li>
+</ul>
+<p><code>aiplatform.dataItems.*</code></p>
+<ul>
+<li><code>aiplatform.dataItems.create</code></li>
+<li><code>aiplatform.dataItems.delete</code></li>
+<li><code>aiplatform.dataItems.get</code></li>
+<li><code>aiplatform.dataItems.list</code></li>
+<li><code>aiplatform.dataItems.update</code></li>
+</ul>
+<p><code>aiplatform.dataLabelingJobs.*</code></p>
+<ul>
+<li><code>aiplatform. dataLabelingJobs. cancel</code></li>
+<li><code>aiplatform. dataLabelingJobs. create</code></li>
+<li><code>aiplatform. dataLabelingJobs. delete</code></li>
+<li><code>aiplatform. dataLabelingJobs. get</code></li>
+<li><code>aiplatform. dataLabelingJobs. list</code></li>
+</ul>
+<p><code>aiplatform.datasetVersions.*</code></p>
+<ul>
+<li><code>aiplatform. datasetVersions. create</code></li>
+<li><code>aiplatform. datasetVersions. delete</code></li>
+<li><code>aiplatform.datasetVersions.get</code></li>
+<li><code>aiplatform. datasetVersions. list</code></li>
+<li><code>aiplatform. datasetVersions. restore</code></li>
+</ul>
+<p><code>aiplatform.datasets.*</code></p>
+<ul>
+<li><code>aiplatform.datasets.create</code></li>
+<li><code>aiplatform.datasets.delete</code></li>
+<li><code>aiplatform.datasets.export</code></li>
+<li><code>aiplatform.datasets.get</code></li>
+<li><code>aiplatform.datasets.import</code></li>
+<li><code>aiplatform.datasets.list</code></li>
+<li><code>aiplatform.datasets.update</code></li>
+</ul>
+<p><code>aiplatform. deploymentResourcePools.*</code></p>
+<ul>
+<li><code>aiplatform. deploymentResourcePools. create</code></li>
+<li><code>aiplatform. deploymentResourcePools. delete</code></li>
+<li><code>aiplatform. deploymentResourcePools. get</code></li>
+<li><code>aiplatform. deploymentResourcePools. list</code></li>
+<li><code>aiplatform. deploymentResourcePools. queryDeployedModels</code></li>
+<li><code>aiplatform. deploymentResourcePools. update</code></li>
+</ul>
+<p><code>aiplatform. edgeDeploymentJobs.*</code></p>
+<ul>
+<li><code>aiplatform. edgeDeploymentJobs. create</code></li>
+<li><code>aiplatform. edgeDeploymentJobs. delete</code></li>
+<li><code>aiplatform. edgeDeploymentJobs. get</code></li>
+<li><code>aiplatform. edgeDeploymentJobs. list</code></li>
+</ul>
+<p><code>aiplatform. edgeDeviceDebugInfo. get</code></p>
+<p><code>aiplatform.edgeDevices.*</code></p>
+<ul>
+<li><code>aiplatform.edgeDevices.create</code></li>
+<li><code>aiplatform.edgeDevices.delete</code></li>
+<li><code>aiplatform.edgeDevices.get</code></li>
+<li><code>aiplatform.edgeDevices.list</code></li>
+<li><code>aiplatform.edgeDevices.update</code></li>
+</ul>
+<p><code>aiplatform.endpoints.create</code></p>
+<p><code>aiplatform.endpoints.delete</code></p>
+<p><code>aiplatform.endpoints.deploy</code></p>
+<p><code>aiplatform.endpoints.explain</code></p>
+<p><code>aiplatform.endpoints.get</code></p>
+<p><code>aiplatform.endpoints.list</code></p>
+<p><code>aiplatform.endpoints.predict</code></p>
+<p><code>aiplatform.endpoints.undeploy</code></p>
+<p><code>aiplatform.endpoints.update</code></p>
+<p><code>aiplatform.entityTypes.create</code></p>
+<p><code>aiplatform.entityTypes.delete</code></p>
+<p><code>aiplatform. entityTypes. deleteFeatureValues</code></p>
+<p><code>aiplatform. entityTypes. exportFeatureValues</code></p>
+<p><code>aiplatform.entityTypes.get</code></p>
+<p><code>aiplatform. entityTypes. importFeatureValues</code></p>
+<p><code>aiplatform.entityTypes.list</code></p>
+<p><code>aiplatform. entityTypes. readFeatureValues</code></p>
+<p><code>aiplatform. entityTypes. streamingReadFeatureValues</code></p>
+<p><code>aiplatform.entityTypes.update</code></p>
+<p><code>aiplatform. entityTypes. writeFeatureValues</code></p>
+<p><code>aiplatform. evaluationExperiments.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationExperiments. create</code></li>
+<li><code>aiplatform. evaluationExperiments. delete</code></li>
+<li><code>aiplatform. evaluationExperiments. get</code></li>
+<li><code>aiplatform. evaluationExperiments. list</code></li>
+<li><code>aiplatform. evaluationExperiments. update</code></li>
+</ul>
+<p><code>aiplatform.evaluationItems.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationItems. create</code></li>
+<li><code>aiplatform. evaluationItems. delete</code></li>
+<li><code>aiplatform.evaluationItems.get</code></li>
+<li><code>aiplatform. evaluationItems. list</code></li>
+<li><code>aiplatform. evaluationItems. update</code></li>
+</ul>
+<p><code>aiplatform.evaluationMetrics.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationMetrics. create</code></li>
+<li><code>aiplatform. evaluationMetrics. delete</code></li>
+<li><code>aiplatform. evaluationMetrics. get</code></li>
+<li><code>aiplatform. evaluationMetrics. list</code></li>
+</ul>
+<p><code>aiplatform.evaluationRuns.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationRuns. cancel</code></li>
+<li><code>aiplatform. evaluationRuns. create</code></li>
+<li><code>aiplatform. evaluationRuns. delete</code></li>
+<li><code>aiplatform. evaluationRuns. execute</code></li>
+<li><code>aiplatform.evaluationRuns.get</code></li>
+<li><code>aiplatform.evaluationRuns.list</code></li>
+<li><code>aiplatform. evaluationRuns. update</code></li>
+</ul>
+<p><code>aiplatform.evaluationSets.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationSets. create</code></li>
+<li><code>aiplatform. evaluationSets. delete</code></li>
+<li><code>aiplatform.evaluationSets.get</code></li>
+<li><code>aiplatform. evaluationSets. import</code></li>
+<li><code>aiplatform.evaluationSets.list</code></li>
+<li><code>aiplatform. evaluationSets. update</code></li>
+</ul>
+<p><code>aiplatform.exampleStores.*</code></p>
+<ul>
+<li><code>aiplatform. exampleStores. create</code></li>
+<li><code>aiplatform. exampleStores. delete</code></li>
+<li><code>aiplatform.exampleStores.get</code></li>
+<li><code>aiplatform.exampleStores.list</code></li>
+<li><code>aiplatform. exampleStores. readExample</code></li>
+<li><code>aiplatform. exampleStores. update</code></li>
+<li><code>aiplatform. exampleStores. writeExample</code></li>
+</ul>
+<p><code>aiplatform.executions.*</code></p>
+<ul>
+<li><code>aiplatform. executions. addExecutionEvents</code></li>
+<li><code>aiplatform.executions.create</code></li>
+<li><code>aiplatform.executions.delete</code></li>
+<li><code>aiplatform.executions.get</code></li>
+<li><code>aiplatform.executions.list</code></li>
+<li><code>aiplatform. executions. queryExecutionInputsAndOutputs</code></li>
+<li><code>aiplatform.executions.update</code></li>
+</ul>
+<p><code>aiplatform.extensions.*</code></p>
+<ul>
+<li><code>aiplatform.extensions.delete</code></li>
+<li><code>aiplatform.extensions.execute</code></li>
+<li><code>aiplatform.extensions.get</code></li>
+<li><code>aiplatform.extensions.import</code></li>
+<li><code>aiplatform.extensions.list</code></li>
+<li><code>aiplatform.extensions.update</code></li>
+</ul>
+<p><code>aiplatform. featureGroups. create</code></p>
+<p><code>aiplatform. featureGroups. delete</code></p>
+<p><code>aiplatform.featureGroups.get</code></p>
+<p><code>aiplatform.featureGroups.list</code></p>
+<p><code>aiplatform. featureGroups. update</code></p>
+<p><code>aiplatform. featureMonitorJobs.*</code></p>
+<ul>
+<li><code>aiplatform. featureMonitorJobs. create</code></li>
+<li><code>aiplatform. featureMonitorJobs. get</code></li>
+<li><code>aiplatform. featureMonitorJobs. list</code></li>
+</ul>
+<p><code>aiplatform.featureMonitors.*</code></p>
+<ul>
+<li><code>aiplatform. featureMonitors. create</code></li>
+<li><code>aiplatform. featureMonitors. delete</code></li>
+<li><code>aiplatform.featureMonitors.get</code></li>
+<li><code>aiplatform. featureMonitors. list</code></li>
+<li><code>aiplatform. featureMonitors. update</code></li>
+</ul>
+<p><code>aiplatform. featureOnlineStores. create</code></p>
+<p><code>aiplatform. featureOnlineStores. delete</code></p>
+<p><code>aiplatform. featureOnlineStores. get</code></p>
+<p><code>aiplatform. featureOnlineStores. list</code></p>
+<p><code>aiplatform. featureOnlineStores. update</code></p>
+<p><code>aiplatform.featureViewSyncs.*</code></p>
+<ul>
+<li><code>aiplatform. featureViewSyncs. get</code></li>
+<li><code>aiplatform. featureViewSyncs. list</code></li>
+</ul>
+<p><code>aiplatform.featureViews.create</code></p>
+<p><code>aiplatform.featureViews.delete</code></p>
+<p><code>aiplatform. featureViews. directWrite</code></p>
+<p><code>aiplatform. featureViews. fetchFeatureValues</code></p>
+<p><code>aiplatform.featureViews.get</code></p>
+<p><code>aiplatform.featureViews.list</code></p>
+<p><code>aiplatform. featureViews. searchNearestEntities</code></p>
+<p><code>aiplatform.featureViews.sync</code></p>
+<p><code>aiplatform.featureViews.update</code></p>
+<p><code>aiplatform.features.*</code></p>
+<ul>
+<li><code>aiplatform.features.create</code></li>
+<li><code>aiplatform.features.delete</code></li>
+<li><code>aiplatform.features.get</code></li>
+<li><code>aiplatform.features.list</code></li>
+<li><code>aiplatform.features.update</code></li>
+</ul>
+<p><code>aiplatform. featurestores. batchReadFeatureValues</code></p>
+<p><code>aiplatform. featurestores. create</code></p>
+<p><code>aiplatform. featurestores. delete</code></p>
+<p><code>aiplatform. featurestores. exportFeatures</code></p>
+<p><code>aiplatform.featurestores.get</code></p>
+<p><code>aiplatform. featurestores. importFeatures</code></p>
+<p><code>aiplatform.featurestores.list</code></p>
+<p><code>aiplatform. featurestores. readFeatures</code></p>
+<p><code>aiplatform. featurestores. update</code></p>
+<p><code>aiplatform. featurestores. writeFeatures</code></p>
+<p><code>aiplatform.humanInTheLoops.*</code></p>
+<ul>
+<li><code>aiplatform. humanInTheLoops. cancel</code></li>
+<li><code>aiplatform. humanInTheLoops. create</code></li>
+<li><code>aiplatform. humanInTheLoops. delete</code></li>
+<li><code>aiplatform.humanInTheLoops.get</code></li>
+<li><code>aiplatform. humanInTheLoops. list</code></li>
+<li><code>aiplatform. humanInTheLoops. queryAnnotationStats</code></li>
+<li><code>aiplatform. humanInTheLoops. send</code></li>
+<li><code>aiplatform. humanInTheLoops. update</code></li>
+</ul>
+<p><code>aiplatform. hyperparameterTuningJobs.*</code></p>
+<ul>
+<li><code>aiplatform. hyperparameterTuningJobs. cancel</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. create</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. delete</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. get</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. list</code></li>
+</ul>
+<p><code>aiplatform.indexEndpoints.*</code></p>
+<ul>
+<li><code>aiplatform. indexEndpoints. create</code></li>
+<li><code>aiplatform. indexEndpoints. delete</code></li>
+<li><code>aiplatform. indexEndpoints. deploy</code></li>
+<li><code>aiplatform.indexEndpoints.get</code></li>
+<li><code>aiplatform.indexEndpoints.list</code></li>
+<li><code>aiplatform. indexEndpoints. queryVectors</code></li>
+<li><code>aiplatform. indexEndpoints. undeploy</code></li>
+<li><code>aiplatform. indexEndpoints. update</code></li>
+</ul>
+<p><code>aiplatform.indexes.*</code></p>
+<ul>
+<li><code>aiplatform.indexes.create</code></li>
+<li><code>aiplatform.indexes.delete</code></li>
+<li><code>aiplatform.indexes.get</code></li>
+<li><code>aiplatform.indexes.list</code></li>
+<li><code>aiplatform.indexes.update</code></li>
+</ul>
+<p><code>aiplatform.interactions.*</code></p>
+<ul>
+<li><code>aiplatform.interactions.cancel</code></li>
+<li><code>aiplatform.interactions.create</code></li>
+<li><code>aiplatform.interactions.delete</code></li>
+<li><code>aiplatform.interactions.get</code></li>
+<li><code>aiplatform.interactions.list</code></li>
+</ul>
+<p><code>aiplatform.locations.*</code></p>
+<ul>
+<li><code>aiplatform. locations. evaluateInstances</code></li>
+<li><code>aiplatform.locations.get</code></li>
+<li><code>aiplatform.locations.list</code></li>
+</ul>
+<p><code>aiplatform.memories.*</code></p>
+<ul>
+<li><code>aiplatform.memories.create</code></li>
+<li><code>aiplatform.memories.delete</code></li>
+<li><code>aiplatform.memories.generate</code></li>
+<li><code>aiplatform.memories.get</code></li>
+<li><code>aiplatform.memories.list</code></li>
+<li><code>aiplatform.memories.retrieve</code></li>
+<li><code>aiplatform.memories.update</code></li>
+</ul>
+<p><code>aiplatform.memoryRevisions.*</code></p>
+<ul>
+<li><code>aiplatform.memoryRevisions.get</code></li>
+<li><code>aiplatform. memoryRevisions. list</code></li>
+<li><code>aiplatform. memoryRevisions. rollback</code></li>
+</ul>
+<p><code>aiplatform.metadataSchemas.*</code></p>
+<ul>
+<li><code>aiplatform. metadataSchemas. create</code></li>
+<li><code>aiplatform. metadataSchemas. delete</code></li>
+<li><code>aiplatform.metadataSchemas.get</code></li>
+<li><code>aiplatform. metadataSchemas. list</code></li>
+</ul>
+<p><code>aiplatform.metadataStores.*</code></p>
+<ul>
+<li><code>aiplatform. metadataStores. create</code></li>
+<li><code>aiplatform. metadataStores. delete</code></li>
+<li><code>aiplatform.metadataStores.get</code></li>
+<li><code>aiplatform.metadataStores.list</code></li>
+</ul>
+<p><code>aiplatform. modelDeploymentMonitoringJobs.*</code></p>
+<ul>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. create</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. delete</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. get</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. list</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. pause</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. resume</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. searchStatsAnomalies</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. update</code></li>
+</ul>
+<p><code>aiplatform. modelEvaluationSlices.*</code></p>
+<ul>
+<li><code>aiplatform. modelEvaluationSlices. get</code></li>
+<li><code>aiplatform. modelEvaluationSlices. import</code></li>
+<li><code>aiplatform. modelEvaluationSlices. list</code></li>
+</ul>
+<p><code>aiplatform.modelEvaluations.*</code></p>
+<ul>
+<li><code>aiplatform. modelEvaluations. exportEvaluatedDataItems</code></li>
+<li><code>aiplatform. modelEvaluations. get</code></li>
+<li><code>aiplatform. modelEvaluations. import</code></li>
+<li><code>aiplatform. modelEvaluations. list</code></li>
+</ul>
+<p><code>aiplatform. modelMonitoringJobs.*</code></p>
+<ul>
+<li><code>aiplatform. modelMonitoringJobs. create</code></li>
+<li><code>aiplatform. modelMonitoringJobs. delete</code></li>
+<li><code>aiplatform. modelMonitoringJobs. get</code></li>
+<li><code>aiplatform. modelMonitoringJobs. list</code></li>
+</ul>
+<p><code>aiplatform.modelMonitors.*</code></p>
+<ul>
+<li><code>aiplatform. modelMonitors. create</code></li>
+<li><code>aiplatform. modelMonitors. delete</code></li>
+<li><code>aiplatform.modelMonitors.get</code></li>
+<li><code>aiplatform.modelMonitors.list</code></li>
+<li><code>aiplatform. modelMonitors. searchModelMonitoringAlerts</code></li>
+<li><code>aiplatform. modelMonitors. searchModelMonitoringStats</code></li>
+<li><code>aiplatform. modelMonitors. update</code></li>
+</ul>
+<p><code>aiplatform.models.*</code></p>
+<ul>
+<li><code>aiplatform.models.delete</code></li>
+<li><code>aiplatform.models.export</code></li>
+<li><code>aiplatform.models.get</code></li>
+<li><code>aiplatform.models.list</code></li>
+<li><code>aiplatform.models.update</code></li>
+<li><code>aiplatform.models.upload</code></li>
+</ul>
+<p><code>aiplatform. monitoredAgents. disable</code></p>
+<p><code>aiplatform. monitoredAgents. enable</code></p>
+<p><code>aiplatform.monitoredAgents.get</code></p>
+<p><code>aiplatform. monitoredAgents. list</code></p>
+<p><code>aiplatform.nasJobs.*</code></p>
+<ul>
+<li><code>aiplatform.nasJobs.cancel</code></li>
+<li><code>aiplatform.nasJobs.create</code></li>
+<li><code>aiplatform.nasJobs.delete</code></li>
+<li><code>aiplatform.nasJobs.get</code></li>
+<li><code>aiplatform.nasJobs.list</code></li>
+</ul>
+<p><code>aiplatform.nasTrialDetails.*</code></p>
+<ul>
+<li><code>aiplatform.nasTrialDetails.get</code></li>
+<li><code>aiplatform. nasTrialDetails. list</code></li>
+</ul>
+<p><code>aiplatform. notebookExecutionJobs.*</code></p>
+<ul>
+<li><code>aiplatform. notebookExecutionJobs. create</code></li>
+<li><code>aiplatform. notebookExecutionJobs. delete</code></li>
+<li><code>aiplatform. notebookExecutionJobs. get</code></li>
+<li><code>aiplatform. notebookExecutionJobs. list</code></li>
+</ul>
+<p><code>aiplatform. notebookRuntimeTemplates. apply</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. create</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. delete</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. get</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. list</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. update</code></p>
+<p><code>aiplatform.notebookRuntimes.*</code></p>
+<ul>
+<li><code>aiplatform. notebookRuntimes. assign</code></li>
+<li><code>aiplatform. notebookRuntimes. delete</code></li>
+<li><code>aiplatform. notebookRuntimes. get</code></li>
+<li><code>aiplatform. notebookRuntimes. list</code></li>
+<li><code>aiplatform. notebookRuntimes. start</code></li>
+<li><code>aiplatform. notebookRuntimes. update</code></li>
+<li><code>aiplatform. notebookRuntimes. upgrade</code></li>
+</ul>
+<p><code>aiplatform.onlineEvaluators.*</code></p>
+<ul>
+<li><code>aiplatform. onlineEvaluators. create</code></li>
+<li><code>aiplatform. onlineEvaluators. delete</code></li>
+<li><code>aiplatform. onlineEvaluators. get</code></li>
+<li><code>aiplatform. onlineEvaluators. list</code></li>
+<li><code>aiplatform. onlineEvaluators. update</code></li>
+</ul>
+<p><code>aiplatform.operations.list</code></p>
+<p><code>aiplatform. persistentResources. get</code></p>
+<p><code>aiplatform. persistentResources. list</code></p>
+<p><code>aiplatform.pipelineJobs.*</code></p>
+<ul>
+<li><code>aiplatform.pipelineJobs.cancel</code></li>
+<li><code>aiplatform.pipelineJobs.create</code></li>
+<li><code>aiplatform.pipelineJobs.delete</code></li>
+<li><code>aiplatform.pipelineJobs.get</code></li>
+<li><code>aiplatform.pipelineJobs.list</code></li>
+</ul>
+<p><code>aiplatform. provisionedThroughputRevisions.*</code></p>
+<ul>
+<li><code>aiplatform. provisionedThroughputRevisions. get</code></li>
+<li><code>aiplatform. provisionedThroughputRevisions. list</code></li>
+</ul>
+<p><code>aiplatform. provisionedThroughputs. get</code></p>
+<p><code>aiplatform. provisionedThroughputs. list</code></p>
+<p><code>aiplatform.ragCorpora.*</code></p>
+<ul>
+<li><code>aiplatform.ragCorpora.create</code></li>
+<li><code>aiplatform.ragCorpora.delete</code></li>
+<li><code>aiplatform.ragCorpora.get</code></li>
+<li><code>aiplatform.ragCorpora.list</code></li>
+<li><code>aiplatform.ragCorpora.query</code></li>
+<li><code>aiplatform.ragCorpora.update</code></li>
+</ul>
+<p><code>aiplatform. ragEngineConfigs. get</code></p>
+<p><code>aiplatform.ragFiles.*</code></p>
+<ul>
+<li><code>aiplatform.ragFiles.delete</code></li>
+<li><code>aiplatform.ragFiles.get</code></li>
+<li><code>aiplatform.ragFiles.import</code></li>
+<li><code>aiplatform.ragFiles.list</code></li>
+<li><code>aiplatform.ragFiles.upload</code></li>
+</ul>
+<p><code>aiplatform. reasoningEngineRuntimeRevisions.*</code></p>
+<ul>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. delete</code></li>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. get</code></li>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. list</code></li>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. query</code></li>
+</ul>
+<p><code>aiplatform. reasoningEngines. create</code></p>
+<p><code>aiplatform. reasoningEngines. delete</code></p>
+<p><code>aiplatform. reasoningEngines. get</code></p>
+<p><code>aiplatform. reasoningEngines. list</code></p>
+<p><code>aiplatform. reasoningEngines. query</code></p>
+<p><code>aiplatform. reasoningEngines. update</code></p>
+<p><code>aiplatform. sandboxEnvironments.*</code></p>
+<ul>
+<li><code>aiplatform. sandboxEnvironments. create</code></li>
+<li><code>aiplatform. sandboxEnvironments. delete</code></li>
+<li><code>aiplatform. sandboxEnvironments. execute</code></li>
+<li><code>aiplatform. sandboxEnvironments. get</code></li>
+<li><code>aiplatform. sandboxEnvironments. list</code></li>
+</ul>
+<p><code>aiplatform.schedules.*</code></p>
+<ul>
+<li><code>aiplatform.schedules.create</code></li>
+<li><code>aiplatform.schedules.delete</code></li>
+<li><code>aiplatform.schedules.get</code></li>
+<li><code>aiplatform.schedules.list</code></li>
+<li><code>aiplatform.schedules.update</code></li>
+</ul>
+<p><code>aiplatform. semanticGovernancePolicies.*</code></p>
+<ul>
+<li><code>aiplatform. semanticGovernancePolicies. create</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. delete</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. get</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. list</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. update</code></li>
+</ul>
+<p><code>aiplatform. semanticGovernancePolicyEngine.*</code></p>
+<ul>
+<li><code>aiplatform. semanticGovernancePolicyEngine. get</code></li>
+<li><code>aiplatform. semanticGovernancePolicyEngine. update</code></li>
+</ul>
+<p><code>aiplatform.sessionEvents.*</code></p>
+<ul>
+<li><code>aiplatform. sessionEvents. append</code></li>
+<li><code>aiplatform.sessionEvents.list</code></li>
+</ul>
+<p><code>aiplatform.sessions.*</code></p>
+<ul>
+<li><code>aiplatform.sessions.create</code></li>
+<li><code>aiplatform.sessions.delete</code></li>
+<li><code>aiplatform.sessions.get</code></li>
+<li><code>aiplatform.sessions.list</code></li>
+<li><code>aiplatform.sessions.run</code></li>
+<li><code>aiplatform.sessions.update</code></li>
+</ul>
+<p><code>aiplatform.specialistPools.*</code></p>
+<ul>
+<li><code>aiplatform. specialistPools. create</code></li>
+<li><code>aiplatform. specialistPools. delete</code></li>
+<li><code>aiplatform.specialistPools.get</code></li>
+<li><code>aiplatform. specialistPools. list</code></li>
+<li><code>aiplatform. specialistPools. update</code></li>
+</ul>
+<p><code>aiplatform.studies.*</code></p>
+<ul>
+<li><code>aiplatform.studies.create</code></li>
+<li><code>aiplatform.studies.delete</code></li>
+<li><code>aiplatform.studies.get</code></li>
+<li><code>aiplatform.studies.list</code></li>
+<li><code>aiplatform.studies.update</code></li>
+</ul>
+<p><code>aiplatform.tasks.*</code></p>
+<ul>
+<li><code>aiplatform.tasks.cancel</code></li>
+<li><code>aiplatform.tasks.create</code></li>
+<li><code>aiplatform.tasks.delete</code></li>
+<li><code>aiplatform.tasks.get</code></li>
+<li><code>aiplatform.tasks.list</code></li>
+<li><code>aiplatform.tasks.update</code></li>
+</ul>
+<p><code>aiplatform. tensorboardExperiments.*</code></p>
+<ul>
+<li><code>aiplatform. tensorboardExperiments. create</code></li>
+<li><code>aiplatform. tensorboardExperiments. delete</code></li>
+<li><code>aiplatform. tensorboardExperiments. get</code></li>
+<li><code>aiplatform. tensorboardExperiments. list</code></li>
+<li><code>aiplatform. tensorboardExperiments. update</code></li>
+<li><code>aiplatform. tensorboardExperiments. write</code></li>
+</ul>
+<p><code>aiplatform.tensorboardRuns.*</code></p>
+<ul>
+<li><code>aiplatform. tensorboardRuns. batchCreate</code></li>
+<li><code>aiplatform. tensorboardRuns. create</code></li>
+<li><code>aiplatform. tensorboardRuns. delete</code></li>
+<li><code>aiplatform.tensorboardRuns.get</code></li>
+<li><code>aiplatform. tensorboardRuns. list</code></li>
+<li><code>aiplatform. tensorboardRuns. update</code></li>
+<li><code>aiplatform. tensorboardRuns. write</code></li>
+</ul>
+<p><code>aiplatform. tensorboardTimeSeries.*</code></p>
+<ul>
+<li><code>aiplatform. tensorboardTimeSeries. batchCreate</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. batchRead</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. create</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. delete</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. get</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. list</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. read</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. update</code></li>
+</ul>
+<p><code>aiplatform.tensorboards.create</code></p>
+<p><code>aiplatform.tensorboards.delete</code></p>
+<p><code>aiplatform.tensorboards.get</code></p>
+<p><code>aiplatform.tensorboards.list</code></p>
+<p><code>aiplatform.tensorboards.update</code></p>
+<p><code>aiplatform.trainingPipelines.*</code></p>
+<ul>
+<li><code>aiplatform. trainingPipelines. cancel</code></li>
+<li><code>aiplatform. trainingPipelines. create</code></li>
+<li><code>aiplatform. trainingPipelines. delete</code></li>
+<li><code>aiplatform. trainingPipelines. get</code></li>
+<li><code>aiplatform. trainingPipelines. list</code></li>
+</ul>
+<p><code>aiplatform.trials.*</code></p>
+<ul>
+<li><code>aiplatform.trials.create</code></li>
+<li><code>aiplatform.trials.delete</code></li>
+<li><code>aiplatform.trials.get</code></li>
+<li><code>aiplatform.trials.list</code></li>
+<li><code>aiplatform.trials.update</code></li>
+</ul>
+<p><code>aiplatform.tuningJobs.*</code></p>
+<ul>
+<li><code>aiplatform.tuningJobs.cancel</code></li>
+<li><code>aiplatform.tuningJobs.create</code></li>
+<li><code>aiplatform.tuningJobs.delete</code></li>
+<li><code>aiplatform.tuningJobs.get</code></li>
+<li><code>aiplatform.tuningJobs.list</code></li>
+<li><code>aiplatform. tuningJobs. optimizePrompt</code></li>
+<li><code>aiplatform. tuningJobs. validateReinforcementTuningReward</code></li>
+<li><code>aiplatform. tuningJobs. vertexTune</code></li>
+</ul>
+<p><code>resourcemanager.projects.get</code></p>
+<p><code>resourcemanager.projects.list</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.viewer" class="role-title add-link" data-text="Agent Platform Viewer" tabindex="-1">Agent Platform Viewer</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.viewer</code> )</p>
+<td>Agent Platform Viewer
+<p>( <code>roles/ aiplatform.viewer</code> )</p>
 <p>Grants access to view all resource in Agent Platform.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.agentExamples.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.agentExamples.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.agents.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.agents.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.*</code></p>
+<td><p><code>aiplatform. agentAnomalyDetectionScopes. get</code></p>
+<p><code>aiplatform. agentAnomalyDetectionScopes. list</code></p>
+<p><code>aiplatform.agentExamples.get</code></p>
+<p><code>aiplatform.agentExamples.list</code></p>
+<p><code>aiplatform.agents.get</code></p>
+<p><code>aiplatform.agents.list</code></p>
+<p><code>aiplatform. analyzedInvocations.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  list</code></li>
+<li><code>aiplatform. analyzedInvocations. get</code></li>
+<li><code>aiplatform. analyzedInvocations. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.analyzedSessions.*</code></p>
+<p><code>aiplatform.analyzedSessions.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  list</code></li>
+<li><code>aiplatform. analyzedSessions. aggregate</code></li>
+<li><code>aiplatform. analyzedSessions. get</code></li>
+<li><code>aiplatform. analyzedSessions. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.annotationSpecs.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.annotations.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.annotations.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.apps.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.apps.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.artifacts.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.artifacts.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.cacheConfigs.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.cachedContents.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.cachedContents.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.consents.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.contexts.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.contexts.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  contexts.  queryContextLineageSubgraph</code></p>
-<p><code dir="ltr" translate="no">aiplatform.customJobs.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.customJobs.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.dataItems.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.dataItems.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.datasetVersions.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  datasetVersions.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.datasets.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.datasets.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  queryDeployedModels</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  edgeDeviceDebugInfo.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.edgeDevices.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.edgeDevices.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.evaluationItems.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  evaluationItems.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.evaluationRuns.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.evaluationRuns.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.evaluationSets.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.evaluationSets.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.exampleStores.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.exampleStores.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  exampleStores.  readExample</code></p>
-<p><code dir="ltr" translate="no">aiplatform.executions.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.executions.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  executions.  queryExecutionInputsAndOutputs</code></p>
-<p><code dir="ltr" translate="no">aiplatform.extensions.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.extensions.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureMonitors.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitors.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViewSyncs.*</code></p>
+<p><code>aiplatform.annotationSpecs.get</code></p>
+<p><code>aiplatform. annotationSpecs. list</code></p>
+<p><code>aiplatform.annotations.get</code></p>
+<p><code>aiplatform.annotations.list</code></p>
+<p><code>aiplatform.apps.get</code></p>
+<p><code>aiplatform.apps.list</code></p>
+<p><code>aiplatform.artifacts.get</code></p>
+<p><code>aiplatform.artifacts.list</code></p>
+<p><code>aiplatform. batchPredictionJobs. get</code></p>
+<p><code>aiplatform. batchPredictionJobs. list</code></p>
+<p><code>aiplatform.cacheConfigs.get</code></p>
+<p><code>aiplatform.cachedContents.get</code></p>
+<p><code>aiplatform.cachedContents.list</code></p>
+<p><code>aiplatform.consents.get</code></p>
+<p><code>aiplatform.contexts.get</code></p>
+<p><code>aiplatform.contexts.list</code></p>
+<p><code>aiplatform. contexts. queryContextLineageSubgraph</code></p>
+<p><code>aiplatform.customJobs.get</code></p>
+<p><code>aiplatform.customJobs.list</code></p>
+<p><code>aiplatform.dataItems.get</code></p>
+<p><code>aiplatform.dataItems.list</code></p>
+<p><code>aiplatform. dataLabelingJobs. get</code></p>
+<p><code>aiplatform. dataLabelingJobs. list</code></p>
+<p><code>aiplatform.datasetVersions.get</code></p>
+<p><code>aiplatform. datasetVersions. list</code></p>
+<p><code>aiplatform.datasets.get</code></p>
+<p><code>aiplatform.datasets.list</code></p>
+<p><code>aiplatform. deploymentResourcePools. get</code></p>
+<p><code>aiplatform. deploymentResourcePools. list</code></p>
+<p><code>aiplatform. deploymentResourcePools. queryDeployedModels</code></p>
+<p><code>aiplatform. edgeDeploymentJobs. get</code></p>
+<p><code>aiplatform. edgeDeploymentJobs. list</code></p>
+<p><code>aiplatform. edgeDeviceDebugInfo. get</code></p>
+<p><code>aiplatform.edgeDevices.get</code></p>
+<p><code>aiplatform.edgeDevices.list</code></p>
+<p><code>aiplatform.endpoints.get</code></p>
+<p><code>aiplatform.endpoints.list</code></p>
+<p><code>aiplatform.entityTypes.get</code></p>
+<p><code>aiplatform.entityTypes.list</code></p>
+<p><code>aiplatform. evaluationExperiments. get</code></p>
+<p><code>aiplatform. evaluationExperiments. list</code></p>
+<p><code>aiplatform.evaluationItems.get</code></p>
+<p><code>aiplatform. evaluationItems. list</code></p>
+<p><code>aiplatform. evaluationMetrics. get</code></p>
+<p><code>aiplatform. evaluationMetrics. list</code></p>
+<p><code>aiplatform.evaluationRuns.get</code></p>
+<p><code>aiplatform.evaluationRuns.list</code></p>
+<p><code>aiplatform.evaluationSets.get</code></p>
+<p><code>aiplatform.evaluationSets.list</code></p>
+<p><code>aiplatform.exampleStores.get</code></p>
+<p><code>aiplatform.exampleStores.list</code></p>
+<p><code>aiplatform. exampleStores. readExample</code></p>
+<p><code>aiplatform.executions.get</code></p>
+<p><code>aiplatform.executions.list</code></p>
+<p><code>aiplatform. executions. queryExecutionInputsAndOutputs</code></p>
+<p><code>aiplatform.extensions.get</code></p>
+<p><code>aiplatform.extensions.list</code></p>
+<p><code>aiplatform.featureGroups.get</code></p>
+<p><code>aiplatform.featureGroups.list</code></p>
+<p><code>aiplatform. featureMonitorJobs. get</code></p>
+<p><code>aiplatform. featureMonitorJobs. list</code></p>
+<p><code>aiplatform.featureMonitors.get</code></p>
+<p><code>aiplatform. featureMonitors. list</code></p>
+<p><code>aiplatform. featureOnlineStores. get</code></p>
+<p><code>aiplatform. featureOnlineStores. list</code></p>
+<p><code>aiplatform.featureViewSyncs.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  list</code></li>
+<li><code>aiplatform. featureViewSyncs. get</code></li>
+<li><code>aiplatform. featureViewSyncs. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  fetchFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  searchNearestEntities</code></p>
-<p><code dir="ltr" translate="no">aiplatform.features.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.features.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featurestores.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featurestores.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.humanInTheLoops.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.indexEndpoints.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.indexEndpoints.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  queryVectors</code></p>
-<p><code dir="ltr" translate="no">aiplatform.indexes.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.indexes.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.interactions.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.interactions.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.locations.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.locations.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.memories.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.memories.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.memoryRevisions.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  memoryRevisions.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.metadataSchemas.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.metadataStores.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.metadataStores.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  searchStatsAnomalies</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.modelMonitors.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.modelMonitors.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  modelMonitors.  searchModelMonitoringAlerts</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  modelMonitors.  searchModelMonitoringStats</code></p>
-<p><code dir="ltr" translate="no">aiplatform.models.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.models.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.nasJobs.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.nasJobs.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.nasTrialDetails.*</code></p>
+<p><code>aiplatform. featureViews. fetchFeatureValues</code></p>
+<p><code>aiplatform.featureViews.get</code></p>
+<p><code>aiplatform.featureViews.list</code></p>
+<p><code>aiplatform. featureViews. searchNearestEntities</code></p>
+<p><code>aiplatform.features.get</code></p>
+<p><code>aiplatform.features.list</code></p>
+<p><code>aiplatform.featurestores.get</code></p>
+<p><code>aiplatform.featurestores.list</code></p>
+<p><code>aiplatform.humanInTheLoops.get</code></p>
+<p><code>aiplatform. humanInTheLoops. list</code></p>
+<p><code>aiplatform. hyperparameterTuningJobs. get</code></p>
+<p><code>aiplatform. hyperparameterTuningJobs. list</code></p>
+<p><code>aiplatform.indexEndpoints.get</code></p>
+<p><code>aiplatform.indexEndpoints.list</code></p>
+<p><code>aiplatform. indexEndpoints. queryVectors</code></p>
+<p><code>aiplatform.indexes.get</code></p>
+<p><code>aiplatform.indexes.list</code></p>
+<p><code>aiplatform.interactions.get</code></p>
+<p><code>aiplatform.interactions.list</code></p>
+<p><code>aiplatform.locations.get</code></p>
+<p><code>aiplatform.locations.list</code></p>
+<p><code>aiplatform.memories.get</code></p>
+<p><code>aiplatform.memories.list</code></p>
+<p><code>aiplatform.memoryRevisions.get</code></p>
+<p><code>aiplatform. memoryRevisions. list</code></p>
+<p><code>aiplatform.metadataSchemas.get</code></p>
+<p><code>aiplatform. metadataSchemas. list</code></p>
+<p><code>aiplatform.metadataStores.get</code></p>
+<p><code>aiplatform.metadataStores.list</code></p>
+<p><code>aiplatform. modelDeploymentMonitoringJobs. get</code></p>
+<p><code>aiplatform. modelDeploymentMonitoringJobs. list</code></p>
+<p><code>aiplatform. modelDeploymentMonitoringJobs. searchStatsAnomalies</code></p>
+<p><code>aiplatform. modelEvaluationSlices. get</code></p>
+<p><code>aiplatform. modelEvaluationSlices. list</code></p>
+<p><code>aiplatform. modelEvaluations. get</code></p>
+<p><code>aiplatform. modelEvaluations. list</code></p>
+<p><code>aiplatform. modelMonitoringJobs. get</code></p>
+<p><code>aiplatform. modelMonitoringJobs. list</code></p>
+<p><code>aiplatform.modelMonitors.get</code></p>
+<p><code>aiplatform.modelMonitors.list</code></p>
+<p><code>aiplatform. modelMonitors. searchModelMonitoringAlerts</code></p>
+<p><code>aiplatform. modelMonitors. searchModelMonitoringStats</code></p>
+<p><code>aiplatform.models.get</code></p>
+<p><code>aiplatform.models.list</code></p>
+<p><code>aiplatform.monitoredAgents.get</code></p>
+<p><code>aiplatform. monitoredAgents. list</code></p>
+<p><code>aiplatform.nasJobs.get</code></p>
+<p><code>aiplatform.nasJobs.list</code></p>
+<p><code>aiplatform.nasTrialDetails.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.nasTrialDetails.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  nasTrialDetails.  list</code></li>
+<li><code>aiplatform.nasTrialDetails.get</code></li>
+<li><code>aiplatform. nasTrialDetails. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.operations.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  persistentResources.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  persistentResources.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.pipelineJobs.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.pipelineJobs.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.*</code></p>
+<p><code>aiplatform. notebookExecutionJobs. get</code></p>
+<p><code>aiplatform. notebookExecutionJobs. list</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. get</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. list</code></p>
+<p><code>aiplatform. notebookRuntimes. get</code></p>
+<p><code>aiplatform. notebookRuntimes. list</code></p>
+<p><code>aiplatform. onlineEvaluators. get</code></p>
+<p><code>aiplatform. onlineEvaluators. list</code></p>
+<p><code>aiplatform.operations.list</code></p>
+<p><code>aiplatform. persistentResources. get</code></p>
+<p><code>aiplatform. persistentResources. list</code></p>
+<p><code>aiplatform.pipelineJobs.get</code></p>
+<p><code>aiplatform.pipelineJobs.list</code></p>
+<p><code>aiplatform. provisionedThroughputRevisions.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.  list</code></li>
+<li><code>aiplatform. provisionedThroughputRevisions. get</code></li>
+<li><code>aiplatform. provisionedThroughputRevisions. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.ragCorpora.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.ragCorpora.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.ragCorpora.query</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  ragEngineConfigs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.ragFiles.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.ragFiles.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  query</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.schedules.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.schedules.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicyEngine.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessionEvents.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.specialistPools.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  specialistPools.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  specialistPools.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.studies.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.studies.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tasks.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tasks.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboardRuns.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  batchRead</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  read</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.trials.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.trials.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tuningJobs.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tuningJobs.list</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.list</code></p></td>
+<p><code>aiplatform. provisionedThroughputs. get</code></p>
+<p><code>aiplatform. provisionedThroughputs. list</code></p>
+<p><code>aiplatform.ragCorpora.get</code></p>
+<p><code>aiplatform.ragCorpora.list</code></p>
+<p><code>aiplatform.ragCorpora.query</code></p>
+<p><code>aiplatform. ragEngineConfigs. get</code></p>
+<p><code>aiplatform.ragFiles.get</code></p>
+<p><code>aiplatform.ragFiles.list</code></p>
+<p><code>aiplatform. reasoningEngineRuntimeRevisions. get</code></p>
+<p><code>aiplatform. reasoningEngineRuntimeRevisions. list</code></p>
+<p><code>aiplatform. reasoningEngines. get</code></p>
+<p><code>aiplatform. reasoningEngines. list</code></p>
+<p><code>aiplatform. reasoningEngines. query</code></p>
+<p><code>aiplatform. sandboxEnvironments. get</code></p>
+<p><code>aiplatform. sandboxEnvironments. list</code></p>
+<p><code>aiplatform.schedules.get</code></p>
+<p><code>aiplatform.schedules.list</code></p>
+<p><code>aiplatform. semanticGovernancePolicies. get</code></p>
+<p><code>aiplatform. semanticGovernancePolicies. list</code></p>
+<p><code>aiplatform. semanticGovernancePolicyEngine. get</code></p>
+<p><code>aiplatform.sessionEvents.list</code></p>
+<p><code>aiplatform.sessions.get</code></p>
+<p><code>aiplatform.sessions.list</code></p>
+<p><code>aiplatform.specialistPools.get</code></p>
+<p><code>aiplatform. specialistPools. list</code></p>
+<p><code>aiplatform. specialistPools. update</code></p>
+<p><code>aiplatform.studies.get</code></p>
+<p><code>aiplatform.studies.list</code></p>
+<p><code>aiplatform.tasks.get</code></p>
+<p><code>aiplatform.tasks.list</code></p>
+<p><code>aiplatform. tensorboardExperiments. get</code></p>
+<p><code>aiplatform. tensorboardExperiments. list</code></p>
+<p><code>aiplatform.tensorboardRuns.get</code></p>
+<p><code>aiplatform. tensorboardRuns. list</code></p>
+<p><code>aiplatform. tensorboardTimeSeries. batchRead</code></p>
+<p><code>aiplatform. tensorboardTimeSeries. get</code></p>
+<p><code>aiplatform. tensorboardTimeSeries. list</code></p>
+<p><code>aiplatform. tensorboardTimeSeries. read</code></p>
+<p><code>aiplatform.tensorboards.get</code></p>
+<p><code>aiplatform.tensorboards.list</code></p>
+<p><code>aiplatform. trainingPipelines. get</code></p>
+<p><code>aiplatform. trainingPipelines. list</code></p>
+<p><code>aiplatform.trials.get</code></p>
+<p><code>aiplatform.trials.list</code></p>
+<p><code>aiplatform.tuningJobs.get</code></p>
+<p><code>aiplatform.tuningJobs.list</code></p>
+<p><code>resourcemanager.projects.get</code></p>
+<p><code>resourcemanager.projects.list</code></p></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.colabEnterpriseAdmin" class="role-title add-link" data-text="Colab Enterprise Admin" tabindex="-1">Colab Enterprise Admin</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.colabEnterpriseAdmin</code> )</p>
+<td>Colab Enterprise Admin
+<p>( <code>roles/ aiplatform.colabEnterpriseAdmin</code> )</p>
 <p>Admin role of using colab enterprise.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.locations.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.*</code></p>
+<td><p><code>aiplatform.locations.get</code></p>
+<p><code>aiplatform. notebookExecutionJobs.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  list</code></li>
+<li><code>aiplatform. notebookExecutionJobs. create</code></li>
+<li><code>aiplatform. notebookExecutionJobs. delete</code></li>
+<li><code>aiplatform. notebookExecutionJobs. get</code></li>
+<li><code>aiplatform. notebookExecutionJobs. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.*</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  apply</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  setDefault</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  update</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. apply</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. create</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. delete</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. get</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. getIamPolicy</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. list</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. setDefault</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. setIamPolicy</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.notebookRuntimes.*</code></p>
+<p><code>aiplatform.notebookRuntimes.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  assign</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  start</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  upgrade</code></li>
+<li><code>aiplatform. notebookRuntimes. assign</code></li>
+<li><code>aiplatform. notebookRuntimes. delete</code></li>
+<li><code>aiplatform. notebookRuntimes. get</code></li>
+<li><code>aiplatform. notebookRuntimes. list</code></li>
+<li><code>aiplatform. notebookRuntimes. start</code></li>
+<li><code>aiplatform. notebookRuntimes. update</code></li>
+<li><code>aiplatform. notebookRuntimes. upgrade</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.operations.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.pipelineJobs.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.schedules.*</code></p>
+<p><code>aiplatform.operations.list</code></p>
+<p><code>aiplatform.pipelineJobs.create</code></p>
+<p><code>aiplatform.schedules.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.schedules.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.update</code></li>
+<li><code>aiplatform.schedules.create</code></li>
+<li><code>aiplatform.schedules.delete</code></li>
+<li><code>aiplatform.schedules.get</code></li>
+<li><code>aiplatform.schedules.list</code></li>
+<li><code>aiplatform.schedules.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">compute.reservations.get</code></p>
-<p><code dir="ltr" translate="no">compute.reservations.list</code></p>
-<p><code dir="ltr" translate="no">dataform.*</code></p>
+<p><code>compute.reservations.get</code></p>
+<p><code>compute.reservations.list</code></p>
+<p><code>dataform.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">dataform.commentThreads.create</code></li>
-<li><code dir="ltr" translate="no">dataform.commentThreads.delete</code></li>
-<li><code dir="ltr" translate="no">dataform.commentThreads.get</code></li>
-<li><code dir="ltr" translate="no">dataform.commentThreads.list</code></li>
-<li><code dir="ltr" translate="no">dataform.commentThreads.update</code></li>
-<li><code dir="ltr" translate="no">dataform.comments.create</code></li>
-<li><code dir="ltr" translate="no">dataform.comments.delete</code></li>
-<li><code dir="ltr" translate="no">dataform.comments.get</code></li>
-<li><code dir="ltr" translate="no">dataform.comments.list</code></li>
-<li><code dir="ltr" translate="no">dataform.comments.update</code></li>
-<li><code dir="ltr" translate="no">dataform.  compilationResults.  create</code></li>
-<li><code dir="ltr" translate="no">dataform.  compilationResults.  get</code></li>
-<li><code dir="ltr" translate="no">dataform.  compilationResults.  list</code></li>
-<li><code dir="ltr" translate="no">dataform.  compilationResults.  query</code></li>
-<li><code dir="ltr" translate="no">dataform.config.get</code></li>
-<li><code dir="ltr" translate="no">dataform.config.update</code></li>
-<li><code dir="ltr" translate="no">dataform.folders.addContents</code></li>
-<li><code dir="ltr" translate="no">dataform.folders.create</code></li>
-<li><code dir="ltr" translate="no">dataform.folders.delete</code></li>
-<li><code dir="ltr" translate="no">dataform.folders.deleteTree</code></li>
-<li><code dir="ltr" translate="no">dataform.folders.get</code></li>
-<li><code dir="ltr" translate="no">dataform.folders.getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">dataform.folders.move</code></li>
-<li><code dir="ltr" translate="no">dataform.folders.queryContents</code></li>
-<li><code dir="ltr" translate="no">dataform.folders.setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">dataform.folders.update</code></li>
-<li><code dir="ltr" translate="no">dataform.locations.get</code></li>
-<li><code dir="ltr" translate="no">dataform.locations.list</code></li>
-<li><code dir="ltr" translate="no">dataform.operations.cancel</code></li>
-<li><code dir="ltr" translate="no">dataform.operations.delete</code></li>
-<li><code dir="ltr" translate="no">dataform.operations.get</code></li>
-<li><code dir="ltr" translate="no">dataform.operations.list</code></li>
-<li><code dir="ltr" translate="no">dataform.releaseConfigs.create</code></li>
-<li><code dir="ltr" translate="no">dataform.releaseConfigs.delete</code></li>
-<li><code dir="ltr" translate="no">dataform.releaseConfigs.get</code></li>
-<li><code dir="ltr" translate="no">dataform.releaseConfigs.list</code></li>
-<li><code dir="ltr" translate="no">dataform.releaseConfigs.update</code></li>
-<li><code dir="ltr" translate="no">dataform.repositories.commit</code></li>
-<li><code dir="ltr" translate="no">dataform.  repositories.  computeAccessTokenStatus</code></li>
-<li><code dir="ltr" translate="no">dataform.repositories.create</code></li>
-<li><code dir="ltr" translate="no">dataform.  repositories.  createTagBinding</code></li>
-<li><code dir="ltr" translate="no">dataform.repositories.delete</code></li>
-<li><code dir="ltr" translate="no">dataform.  repositories.  deleteTagBinding</code></li>
-<li><code dir="ltr" translate="no">dataform.  repositories.  fetchHistory</code></li>
-<li><code dir="ltr" translate="no">dataform.  repositories.  fetchRemoteBranches</code></li>
-<li><code dir="ltr" translate="no">dataform.repositories.get</code></li>
-<li><code dir="ltr" translate="no">dataform.  repositories.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">dataform.repositories.list</code></li>
-<li><code dir="ltr" translate="no">dataform.  repositories.  listEffectiveTags</code></li>
-<li><code dir="ltr" translate="no">dataform.  repositories.  listTagBindings</code></li>
-<li><code dir="ltr" translate="no">dataform.repositories.move</code></li>
-<li><code dir="ltr" translate="no">dataform.  repositories.  queryDirectoryContents</code></li>
-<li><code dir="ltr" translate="no">dataform.repositories.readFile</code></li>
-<li><code dir="ltr" translate="no">dataform.  repositories.  scheduleRelease</code></li>
-<li><code dir="ltr" translate="no">dataform.  repositories.  scheduleWorkflow</code></li>
-<li><code dir="ltr" translate="no">dataform.  repositories.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">dataform.repositories.update</code></li>
-<li><code dir="ltr" translate="no">dataform.teamFolders.create</code></li>
-<li><code dir="ltr" translate="no">dataform.teamFolders.delete</code></li>
-<li><code dir="ltr" translate="no">dataform.  teamFolders.  deleteTree</code></li>
-<li><code dir="ltr" translate="no">dataform.teamFolders.get</code></li>
-<li><code dir="ltr" translate="no">dataform.  teamFolders.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">dataform.  teamFolders.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">dataform.teamFolders.update</code></li>
-<li><code dir="ltr" translate="no">dataform.  workflowConfigs.  create</code></li>
-<li><code dir="ltr" translate="no">dataform.  workflowConfigs.  delete</code></li>
-<li><code dir="ltr" translate="no">dataform.workflowConfigs.get</code></li>
-<li><code dir="ltr" translate="no">dataform.workflowConfigs.list</code></li>
-<li><code dir="ltr" translate="no">dataform.  workflowConfigs.  update</code></li>
-<li><code dir="ltr" translate="no">dataform.  workflowInvocations.  cancel</code></li>
-<li><code dir="ltr" translate="no">dataform.  workflowInvocations.  create</code></li>
-<li><code dir="ltr" translate="no">dataform.  workflowInvocations.  delete</code></li>
-<li><code dir="ltr" translate="no">dataform.  workflowInvocations.  get</code></li>
-<li><code dir="ltr" translate="no">dataform.  workflowInvocations.  list</code></li>
-<li><code dir="ltr" translate="no">dataform.  workflowInvocations.  query</code></li>
-<li><code dir="ltr" translate="no">dataform.workspaces.commit</code></li>
-<li><code dir="ltr" translate="no">dataform.workspaces.create</code></li>
-<li><code dir="ltr" translate="no">dataform.workspaces.delete</code></li>
-<li><code dir="ltr" translate="no">dataform.  workspaces.  fetchFileDiff</code></li>
-<li><code dir="ltr" translate="no">dataform.  workspaces.  fetchFileGitStatuses</code></li>
-<li><code dir="ltr" translate="no">dataform.  workspaces.  fetchGitAheadBehind</code></li>
-<li><code dir="ltr" translate="no">dataform.workspaces.get</code></li>
-<li><code dir="ltr" translate="no">dataform.  workspaces.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">dataform.  workspaces.  installNpmPackages</code></li>
-<li><code dir="ltr" translate="no">dataform.workspaces.list</code></li>
-<li><code dir="ltr" translate="no">dataform.  workspaces.  makeDirectory</code></li>
-<li><code dir="ltr" translate="no">dataform.  workspaces.  moveDirectory</code></li>
-<li><code dir="ltr" translate="no">dataform.workspaces.moveFile</code></li>
-<li><code dir="ltr" translate="no">dataform.workspaces.pull</code></li>
-<li><code dir="ltr" translate="no">dataform.workspaces.push</code></li>
-<li><code dir="ltr" translate="no">dataform.  workspaces.  queryDirectoryContents</code></li>
-<li><code dir="ltr" translate="no">dataform.workspaces.readFile</code></li>
-<li><code dir="ltr" translate="no">dataform.  workspaces.  removeDirectory</code></li>
-<li><code dir="ltr" translate="no">dataform.workspaces.removeFile</code></li>
-<li><code dir="ltr" translate="no">dataform.workspaces.reset</code></li>
-<li><code dir="ltr" translate="no">dataform.  workspaces.  searchFiles</code></li>
-<li><code dir="ltr" translate="no">dataform.  workspaces.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">dataform.workspaces.writeFile</code></li>
+<li><code>dataform.commentThreads.create</code></li>
+<li><code>dataform.commentThreads.delete</code></li>
+<li><code>dataform.commentThreads.get</code></li>
+<li><code>dataform.commentThreads.list</code></li>
+<li><code>dataform.commentThreads.update</code></li>
+<li><code>dataform.comments.create</code></li>
+<li><code>dataform.comments.delete</code></li>
+<li><code>dataform.comments.get</code></li>
+<li><code>dataform.comments.list</code></li>
+<li><code>dataform.comments.update</code></li>
+<li><code>dataform. compilationResults. create</code></li>
+<li><code>dataform. compilationResults. get</code></li>
+<li><code>dataform. compilationResults. list</code></li>
+<li><code>dataform. compilationResults. query</code></li>
+<li><code>dataform.config.get</code></li>
+<li><code>dataform.config.update</code></li>
+<li><code>dataform.folders.addContents</code></li>
+<li><code>dataform.folders.create</code></li>
+<li><code>dataform.folders.delete</code></li>
+<li><code>dataform.folders.deleteTree</code></li>
+<li><code>dataform.folders.get</code></li>
+<li><code>dataform.folders.getIamPolicy</code></li>
+<li><code>dataform.folders.move</code></li>
+<li><code>dataform.folders.queryContents</code></li>
+<li><code>dataform.folders.setIamPolicy</code></li>
+<li><code>dataform.folders.update</code></li>
+<li><code>dataform.locations.get</code></li>
+<li><code>dataform.locations.list</code></li>
+<li><code>dataform.operations.cancel</code></li>
+<li><code>dataform.operations.delete</code></li>
+<li><code>dataform.operations.get</code></li>
+<li><code>dataform.operations.list</code></li>
+<li><code>dataform.releaseConfigs.create</code></li>
+<li><code>dataform.releaseConfigs.delete</code></li>
+<li><code>dataform.releaseConfigs.get</code></li>
+<li><code>dataform.releaseConfigs.list</code></li>
+<li><code>dataform.releaseConfigs.update</code></li>
+<li><code>dataform.repositories.commit</code></li>
+<li><code>dataform. repositories. computeAccessTokenStatus</code></li>
+<li><code>dataform.repositories.create</code></li>
+<li><code>dataform. repositories. createTagBinding</code></li>
+<li><code>dataform.repositories.delete</code></li>
+<li><code>dataform. repositories. deleteTagBinding</code></li>
+<li><code>dataform. repositories. fetchHistory</code></li>
+<li><code>dataform. repositories. fetchRemoteBranches</code></li>
+<li><code>dataform.repositories.get</code></li>
+<li><code>dataform. repositories. getIamPolicy</code></li>
+<li><code>dataform.repositories.list</code></li>
+<li><code>dataform. repositories. listEffectiveTags</code></li>
+<li><code>dataform. repositories. listTagBindings</code></li>
+<li><code>dataform.repositories.move</code></li>
+<li><code>dataform. repositories. queryDirectoryContents</code></li>
+<li><code>dataform.repositories.readFile</code></li>
+<li><code>dataform. repositories. scheduleRelease</code></li>
+<li><code>dataform. repositories. scheduleWorkflow</code></li>
+<li><code>dataform. repositories. setIamPolicy</code></li>
+<li><code>dataform.repositories.update</code></li>
+<li><code>dataform.teamFolders.create</code></li>
+<li><code>dataform.teamFolders.delete</code></li>
+<li><code>dataform. teamFolders. deleteTree</code></li>
+<li><code>dataform.teamFolders.get</code></li>
+<li><code>dataform. teamFolders. getIamPolicy</code></li>
+<li><code>dataform. teamFolders. setIamPolicy</code></li>
+<li><code>dataform.teamFolders.update</code></li>
+<li><code>dataform. workflowConfigs. create</code></li>
+<li><code>dataform. workflowConfigs. delete</code></li>
+<li><code>dataform.workflowConfigs.get</code></li>
+<li><code>dataform.workflowConfigs.list</code></li>
+<li><code>dataform. workflowConfigs. update</code></li>
+<li><code>dataform. workflowInvocations. cancel</code></li>
+<li><code>dataform. workflowInvocations. create</code></li>
+<li><code>dataform. workflowInvocations. delete</code></li>
+<li><code>dataform. workflowInvocations. get</code></li>
+<li><code>dataform. workflowInvocations. list</code></li>
+<li><code>dataform. workflowInvocations. query</code></li>
+<li><code>dataform.workspaces.commit</code></li>
+<li><code>dataform.workspaces.create</code></li>
+<li><code>dataform.workspaces.delete</code></li>
+<li><code>dataform. workspaces. fetchFileDiff</code></li>
+<li><code>dataform. workspaces. fetchFileGitStatuses</code></li>
+<li><code>dataform. workspaces. fetchGitAheadBehind</code></li>
+<li><code>dataform.workspaces.get</code></li>
+<li><code>dataform. workspaces. getIamPolicy</code></li>
+<li><code>dataform. workspaces. installNpmPackages</code></li>
+<li><code>dataform.workspaces.list</code></li>
+<li><code>dataform. workspaces. makeDirectory</code></li>
+<li><code>dataform. workspaces. moveDirectory</code></li>
+<li><code>dataform.workspaces.moveFile</code></li>
+<li><code>dataform.workspaces.pull</code></li>
+<li><code>dataform.workspaces.push</code></li>
+<li><code>dataform. workspaces. queryDirectoryContents</code></li>
+<li><code>dataform.workspaces.readFile</code></li>
+<li><code>dataform. workspaces. removeDirectory</code></li>
+<li><code>dataform.workspaces.removeFile</code></li>
+<li><code>dataform.workspaces.reset</code></li>
+<li><code>dataform. workspaces. searchFiles</code></li>
+<li><code>dataform. workspaces. setIamPolicy</code></li>
+<li><code>dataform.workspaces.writeFile</code></li>
 </ul>
-<p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.list</code></p></td>
+<p><code>resourcemanager.projects.get</code></p>
+<p><code>resourcemanager.projects.list</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.colabEnterpriseUser" class="role-title add-link" data-text="Colab Enterprise User" tabindex="-1">Colab Enterprise User</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.colabEnterpriseUser</code> )</p>
+<td>Colab Enterprise User
+<p>( <code>roles/ aiplatform.colabEnterpriseUser</code> )</p>
 <p>User role of using colab enterprise.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.locations.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.*</code></p>
+<td><p><code>aiplatform.locations.get</code></p>
+<p><code>aiplatform. notebookExecutionJobs.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  list</code></li>
+<li><code>aiplatform. notebookExecutionJobs. create</code></li>
+<li><code>aiplatform. notebookExecutionJobs. delete</code></li>
+<li><code>aiplatform. notebookExecutionJobs. get</code></li>
+<li><code>aiplatform. notebookExecutionJobs. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  apply</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  getIamPolicy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  assign</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.operations.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.pipelineJobs.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.schedules.*</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. apply</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. get</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. getIamPolicy</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. list</code></p>
+<p><code>aiplatform. notebookRuntimes. assign</code></p>
+<p><code>aiplatform. notebookRuntimes. get</code></p>
+<p><code>aiplatform. notebookRuntimes. list</code></p>
+<p><code>aiplatform.operations.list</code></p>
+<p><code>aiplatform.pipelineJobs.create</code></p>
+<p><code>aiplatform.schedules.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.schedules.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.update</code></li>
+<li><code>aiplatform.schedules.create</code></li>
+<li><code>aiplatform.schedules.delete</code></li>
+<li><code>aiplatform.schedules.get</code></li>
+<li><code>aiplatform.schedules.list</code></li>
+<li><code>aiplatform.schedules.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">dataform.commentThreads.get</code></p>
-<p><code dir="ltr" translate="no">dataform.commentThreads.list</code></p>
-<p><code dir="ltr" translate="no">dataform.comments.get</code></p>
-<p><code dir="ltr" translate="no">dataform.comments.list</code></p>
-<p><code dir="ltr" translate="no">dataform.folders.create</code></p>
-<p><code dir="ltr" translate="no">dataform.locations.*</code></p>
+<p><code>dataform.commentThreads.get</code></p>
+<p><code>dataform.commentThreads.list</code></p>
+<p><code>dataform.comments.get</code></p>
+<p><code>dataform.comments.list</code></p>
+<p><code>dataform.folders.create</code></p>
+<p><code>dataform.locations.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">dataform.locations.get</code></li>
-<li><code dir="ltr" translate="no">dataform.locations.list</code></li>
+<li><code>dataform.locations.get</code></li>
+<li><code>dataform.locations.list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">dataform.repositories.create</code></p>
-<p><code dir="ltr" translate="no">dataform.repositories.list</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.list</code></p></td>
+<p><code>dataform.repositories.create</code></p>
+<p><code>dataform.repositories.list</code></p>
+<p><code>resourcemanager.projects.get</code></p>
+<p><code>resourcemanager.projects.list</code></p></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.entityTypeOwner" class="role-title add-link" data-text="Agent Platform Feature Store EntityType owner" tabindex="-1">Agent Platform Feature Store EntityType owner</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.entityTypeOwner</code> )</p>
+<td>Agent Platform Feature Store EntityType owner
+<p>( <code>roles/ aiplatform.entityTypeOwner</code> )</p>
 <p>Provides full access to all permissions for a particular entity type resource.</p>
 <p>Lowest-level resources where you can grant this role:</p>
 <ul>
 <li>Entity type</li>
 </ul></td>
-<td><p><code dir="ltr" translate="no">aiplatform.entityTypes.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  deleteFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  exportFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  getIamPolicy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  importFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  readFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  setIamPolicy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  streamingReadFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  writeFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureMonitors.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitors.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViewSyncs.*</code></p>
+<td><p><code>aiplatform.entityTypes.delete</code></p>
+<p><code>aiplatform. entityTypes. deleteFeatureValues</code></p>
+<p><code>aiplatform. entityTypes. exportFeatureValues</code></p>
+<p><code>aiplatform.entityTypes.get</code></p>
+<p><code>aiplatform. entityTypes. getIamPolicy</code></p>
+<p><code>aiplatform. entityTypes. importFeatureValues</code></p>
+<p><code>aiplatform. entityTypes. readFeatureValues</code></p>
+<p><code>aiplatform. entityTypes. setIamPolicy</code></p>
+<p><code>aiplatform. entityTypes. streamingReadFeatureValues</code></p>
+<p><code>aiplatform.entityTypes.update</code></p>
+<p><code>aiplatform. entityTypes. writeFeatureValues</code></p>
+<p><code>aiplatform.featureGroups.get</code></p>
+<p><code>aiplatform.featureGroups.list</code></p>
+<p><code>aiplatform. featureMonitorJobs. get</code></p>
+<p><code>aiplatform. featureMonitorJobs. list</code></p>
+<p><code>aiplatform.featureMonitors.get</code></p>
+<p><code>aiplatform. featureMonitors. list</code></p>
+<p><code>aiplatform. featureOnlineStores. get</code></p>
+<p><code>aiplatform. featureOnlineStores. list</code></p>
+<p><code>aiplatform.featureViewSyncs.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  list</code></li>
+<li><code>aiplatform. featureViewSyncs. get</code></li>
+<li><code>aiplatform. featureViewSyncs. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  fetchFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  searchNearestEntities</code></p>
-<p><code dir="ltr" translate="no">aiplatform.features.*</code></p>
+<p><code>aiplatform. featureViews. fetchFeatureValues</code></p>
+<p><code>aiplatform.featureViews.get</code></p>
+<p><code>aiplatform.featureViews.list</code></p>
+<p><code>aiplatform. featureViews. searchNearestEntities</code></p>
+<p><code>aiplatform.features.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.features.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.update</code></li>
+<li><code>aiplatform.features.create</code></li>
+<li><code>aiplatform.features.delete</code></li>
+<li><code>aiplatform.features.get</code></li>
+<li><code>aiplatform.features.list</code></li>
+<li><code>aiplatform.features.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  batchReadFeatureValues</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.list</code></p></td>
+<p><code>aiplatform. featurestores. batchReadFeatureValues</code></p>
+<p><code>resourcemanager.projects.get</code></p>
+<p><code>resourcemanager.projects.list</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.expressAdmin" class="role-title add-link" data-text="Agent Platform Express Admin Beta" tabindex="-1">Agent Platform Express Admin <sup>Beta</sup></h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.expressAdmin</code> )</p>
+<td>Agent Platform Express Admin <sup>Beta</sup>
+<p>( <code>roles/ aiplatform.expressAdmin</code> )</p>
 <p>Grants admin access to Agent Platform Express.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.*</code></p>
+<td><p><code>aiplatform. batchPredictionJobs.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  list</code></li>
+<li><code>aiplatform. batchPredictionJobs. cancel</code></li>
+<li><code>aiplatform. batchPredictionJobs. create</code></li>
+<li><code>aiplatform. batchPredictionJobs. delete</code></li>
+<li><code>aiplatform. batchPredictionJobs. get</code></li>
+<li><code>aiplatform. batchPredictionJobs. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.datasetVersions.*</code></p>
+<p><code>aiplatform.datasetVersions.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasetVersions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  restore</code></li>
+<li><code>aiplatform. datasetVersions. create</code></li>
+<li><code>aiplatform. datasetVersions. delete</code></li>
+<li><code>aiplatform.datasetVersions.get</code></li>
+<li><code>aiplatform. datasetVersions. list</code></li>
+<li><code>aiplatform. datasetVersions. restore</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.datasets.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.datasets.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.datasets.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.datasets.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.datasets.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.predict</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  locations.  evaluateInstances</code></p>
-<p><code dir="ltr" translate="no">aiplatform.memories.*</code></p>
+<p><code>aiplatform.datasets.create</code></p>
+<p><code>aiplatform.datasets.delete</code></p>
+<p><code>aiplatform.datasets.get</code></p>
+<p><code>aiplatform.datasets.list</code></p>
+<p><code>aiplatform.datasets.update</code></p>
+<p><code>aiplatform.endpoints.predict</code></p>
+<p><code>aiplatform. locations. evaluateInstances</code></p>
+<p><code>aiplatform.memories.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.memories.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.generate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.retrieve</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.update</code></li>
+<li><code>aiplatform.memories.create</code></li>
+<li><code>aiplatform.memories.delete</code></li>
+<li><code>aiplatform.memories.generate</code></li>
+<li><code>aiplatform.memories.get</code></li>
+<li><code>aiplatform.memories.list</code></li>
+<li><code>aiplatform.memories.retrieve</code></li>
+<li><code>aiplatform.memories.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.operations.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  query</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.*</code></p>
+<p><code>aiplatform.operations.list</code></p>
+<p><code>aiplatform. reasoningEngines. create</code></p>
+<p><code>aiplatform. reasoningEngines. delete</code></p>
+<p><code>aiplatform. reasoningEngines. get</code></p>
+<p><code>aiplatform. reasoningEngines. list</code></p>
+<p><code>aiplatform. reasoningEngines. query</code></p>
+<p><code>aiplatform. reasoningEngines. update</code></p>
+<p><code>aiplatform. sandboxEnvironments.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  execute</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  list</code></li>
+<li><code>aiplatform. sandboxEnvironments. create</code></li>
+<li><code>aiplatform. sandboxEnvironments. delete</code></li>
+<li><code>aiplatform. sandboxEnvironments. execute</code></li>
+<li><code>aiplatform. sandboxEnvironments. get</code></li>
+<li><code>aiplatform. sandboxEnvironments. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.sessionEvents.*</code></p>
+<p><code>aiplatform.sessionEvents.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  sessionEvents.  append</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessionEvents.list</code></li>
+<li><code>aiplatform. sessionEvents. append</code></li>
+<li><code>aiplatform.sessionEvents.list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.sessions.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.update</code></p></td>
+<p><code>aiplatform.sessions.create</code></p>
+<p><code>aiplatform.sessions.delete</code></p>
+<p><code>aiplatform.sessions.get</code></p>
+<p><code>aiplatform.sessions.list</code></p>
+<p><code>aiplatform.sessions.update</code></p></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.featurestoreAdmin" class="role-title add-link" data-text="Agent Platform Feature Store Admin" tabindex="-1">Agent Platform Feature Store Admin</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.featurestoreAdmin</code> )</p>
+<td>Agent Platform Feature Store Admin
+<p>( <code>roles/ aiplatform.featurestoreAdmin</code> )</p>
 <p>Grants full access to all resources in Agent Platform Feature Store.</p>
 <p>Lowest-level resources where you can grant this role:</p>
 <ul>
 <li>Entity type</li>
 </ul></td>
-<td><p><code dir="ltr" translate="no">aiplatform.entityTypes.*</code></p>
+<td><p><code>aiplatform.entityTypes.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.entityTypes.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.entityTypes.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  deleteFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  exportFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.entityTypes.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  importFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.entityTypes.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  readFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  streamingReadFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.entityTypes.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  writeFeatureValues</code></li>
+<li><code>aiplatform.entityTypes.create</code></li>
+<li><code>aiplatform.entityTypes.delete</code></li>
+<li><code>aiplatform. entityTypes. deleteFeatureValues</code></li>
+<li><code>aiplatform. entityTypes. exportFeatureValues</code></li>
+<li><code>aiplatform.entityTypes.get</code></li>
+<li><code>aiplatform. entityTypes. getIamPolicy</code></li>
+<li><code>aiplatform. entityTypes. importFeatureValues</code></li>
+<li><code>aiplatform.entityTypes.list</code></li>
+<li><code>aiplatform. entityTypes. readFeatureValues</code></li>
+<li><code>aiplatform. entityTypes. setIamPolicy</code></li>
+<li><code>aiplatform. entityTypes. streamingReadFeatureValues</code></li>
+<li><code>aiplatform.entityTypes.update</code></li>
+<li><code>aiplatform. entityTypes. writeFeatureValues</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.*</code></p>
+<p><code>aiplatform.featureGroups.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureGroups.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureGroups.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureGroups.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureGroups.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureGroups.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureGroups.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureGroups.  update</code></li>
+<li><code>aiplatform. featureGroups. create</code></li>
+<li><code>aiplatform. featureGroups. delete</code></li>
+<li><code>aiplatform.featureGroups.get</code></li>
+<li><code>aiplatform. featureGroups. getIamPolicy</code></li>
+<li><code>aiplatform.featureGroups.list</code></li>
+<li><code>aiplatform. featureGroups. setIamPolicy</code></li>
+<li><code>aiplatform. featureGroups. update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.*</code></p>
+<p><code>aiplatform. featureMonitorJobs.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  list</code></li>
+<li><code>aiplatform. featureMonitorJobs. create</code></li>
+<li><code>aiplatform. featureMonitorJobs. get</code></li>
+<li><code>aiplatform. featureMonitorJobs. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.featureMonitors.*</code></p>
+<p><code>aiplatform.featureMonitors.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureMonitors.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  update</code></li>
+<li><code>aiplatform. featureMonitors. create</code></li>
+<li><code>aiplatform. featureMonitors. delete</code></li>
+<li><code>aiplatform.featureMonitors.get</code></li>
+<li><code>aiplatform. featureMonitors. list</code></li>
+<li><code>aiplatform. featureMonitors. update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.*</code></p>
+<p><code>aiplatform. featureOnlineStores.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  update</code></li>
+<li><code>aiplatform. featureOnlineStores. create</code></li>
+<li><code>aiplatform. featureOnlineStores. delete</code></li>
+<li><code>aiplatform. featureOnlineStores. get</code></li>
+<li><code>aiplatform. featureOnlineStores. getIamPolicy</code></li>
+<li><code>aiplatform. featureOnlineStores. list</code></li>
+<li><code>aiplatform. featureOnlineStores. setIamPolicy</code></li>
+<li><code>aiplatform. featureOnlineStores. update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.featureViewSyncs.*</code></p>
+<p><code>aiplatform.featureViewSyncs.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  list</code></li>
+<li><code>aiplatform. featureViewSyncs. get</code></li>
+<li><code>aiplatform. featureViewSyncs. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.*</code></p>
+<p><code>aiplatform.featureViews.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.featureViews.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureViews.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViews.  directWrite</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViews.  fetchFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureViews.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViews.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureViews.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViews.  searchNearestEntities</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViews.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureViews.sync</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureViews.update</code></li>
+<li><code>aiplatform.featureViews.create</code></li>
+<li><code>aiplatform.featureViews.delete</code></li>
+<li><code>aiplatform. featureViews. directWrite</code></li>
+<li><code>aiplatform. featureViews. fetchFeatureValues</code></li>
+<li><code>aiplatform.featureViews.get</code></li>
+<li><code>aiplatform. featureViews. getIamPolicy</code></li>
+<li><code>aiplatform.featureViews.list</code></li>
+<li><code>aiplatform. featureViews. searchNearestEntities</code></li>
+<li><code>aiplatform. featureViews. setIamPolicy</code></li>
+<li><code>aiplatform.featureViews.sync</code></li>
+<li><code>aiplatform.featureViews.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.features.*</code></p>
+<p><code>aiplatform.features.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.features.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.update</code></li>
+<li><code>aiplatform.features.create</code></li>
+<li><code>aiplatform.features.delete</code></li>
+<li><code>aiplatform.features.get</code></li>
+<li><code>aiplatform.features.list</code></li>
+<li><code>aiplatform.features.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.featurestores.*</code></p>
+<p><code>aiplatform.featurestores.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  batchReadFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  exportFeatures</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featurestores.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  importFeatures</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featurestores.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  readFeatures</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  writeFeatures</code></li>
+<li><code>aiplatform. featurestores. batchReadFeatureValues</code></li>
+<li><code>aiplatform. featurestores. create</code></li>
+<li><code>aiplatform. featurestores. delete</code></li>
+<li><code>aiplatform. featurestores. exportFeatures</code></li>
+<li><code>aiplatform.featurestores.get</code></li>
+<li><code>aiplatform. featurestores. getIamPolicy</code></li>
+<li><code>aiplatform. featurestores. importFeatures</code></li>
+<li><code>aiplatform.featurestores.list</code></li>
+<li><code>aiplatform. featurestores. readFeatures</code></li>
+<li><code>aiplatform. featurestores. setIamPolicy</code></li>
+<li><code>aiplatform. featurestores. update</code></li>
+<li><code>aiplatform. featurestores. writeFeatures</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.operations.list</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.list</code></p></td>
+<p><code>aiplatform.operations.list</code></p>
+<p><code>resourcemanager.projects.get</code></p>
+<p><code>resourcemanager.projects.list</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.featurestoreDataViewer" class="role-title add-link" data-text="Agent Platform Feature Store Data Viewer" tabindex="-1">Agent Platform Feature Store Data Viewer</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.featurestoreDataViewer</code> )</p>
+<td>Agent Platform Feature Store Data Viewer
+<p>( <code>roles/ aiplatform.featurestoreDataViewer</code> )</p>
 <p>This role provides permissions to read Feature data.</p>
 <p>Lowest-level resources where you can grant this role:</p>
 <ul>
 <li>Entity type</li>
 </ul></td>
-<td><p><code dir="ltr" translate="no">aiplatform.  entityTypes.  exportFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  readFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  streamingReadFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureMonitors.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitors.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViewSyncs.*</code></p>
+<td><p><code>aiplatform. entityTypes. exportFeatureValues</code></p>
+<p><code>aiplatform.entityTypes.get</code></p>
+<p><code>aiplatform. entityTypes. readFeatureValues</code></p>
+<p><code>aiplatform. entityTypes. streamingReadFeatureValues</code></p>
+<p><code>aiplatform.featureGroups.get</code></p>
+<p><code>aiplatform.featureGroups.list</code></p>
+<p><code>aiplatform. featureMonitorJobs. get</code></p>
+<p><code>aiplatform. featureMonitorJobs. list</code></p>
+<p><code>aiplatform.featureMonitors.get</code></p>
+<p><code>aiplatform. featureMonitors. list</code></p>
+<p><code>aiplatform. featureOnlineStores. get</code></p>
+<p><code>aiplatform. featureOnlineStores. list</code></p>
+<p><code>aiplatform.featureViewSyncs.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  list</code></li>
+<li><code>aiplatform. featureViewSyncs. get</code></li>
+<li><code>aiplatform. featureViewSyncs. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  fetchFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  searchNearestEntities</code></p>
-<p><code dir="ltr" translate="no">aiplatform.features.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.features.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  batchReadFeatureValues</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.list</code></p></td>
+<p><code>aiplatform. featureViews. fetchFeatureValues</code></p>
+<p><code>aiplatform.featureViews.get</code></p>
+<p><code>aiplatform.featureViews.list</code></p>
+<p><code>aiplatform. featureViews. searchNearestEntities</code></p>
+<p><code>aiplatform.features.get</code></p>
+<p><code>aiplatform.features.list</code></p>
+<p><code>aiplatform. featurestores. batchReadFeatureValues</code></p>
+<p><code>resourcemanager.projects.get</code></p>
+<p><code>resourcemanager.projects.list</code></p></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.featurestoreDataWriter" class="role-title add-link" data-text="Agent Platform Feature Store Data Writer" tabindex="-1">Agent Platform Feature Store Data Writer</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.featurestoreDataWriter</code> )</p>
+<td>Agent Platform Feature Store Data Writer
+<p>( <code>roles/ aiplatform.featurestoreDataWriter</code> )</p>
 <p>This role provides permissions to read and write Feature data.</p>
 <p>Lowest-level resources where you can grant this role:</p>
 <ul>
 <li>Entity type</li>
 </ul></td>
-<td><p><code dir="ltr" translate="no">aiplatform.  entityTypes.  deleteFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  exportFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  importFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  readFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  streamingReadFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  writeFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureMonitors.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitors.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViewSyncs.*</code></p>
+<td><p><code>aiplatform. entityTypes. deleteFeatureValues</code></p>
+<p><code>aiplatform. entityTypes. exportFeatureValues</code></p>
+<p><code>aiplatform.entityTypes.get</code></p>
+<p><code>aiplatform. entityTypes. importFeatureValues</code></p>
+<p><code>aiplatform. entityTypes. readFeatureValues</code></p>
+<p><code>aiplatform. entityTypes. streamingReadFeatureValues</code></p>
+<p><code>aiplatform. entityTypes. writeFeatureValues</code></p>
+<p><code>aiplatform.featureGroups.get</code></p>
+<p><code>aiplatform.featureGroups.list</code></p>
+<p><code>aiplatform. featureMonitorJobs. get</code></p>
+<p><code>aiplatform. featureMonitorJobs. list</code></p>
+<p><code>aiplatform.featureMonitors.get</code></p>
+<p><code>aiplatform. featureMonitors. list</code></p>
+<p><code>aiplatform. featureOnlineStores. get</code></p>
+<p><code>aiplatform. featureOnlineStores. list</code></p>
+<p><code>aiplatform.featureViewSyncs.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  list</code></li>
+<li><code>aiplatform. featureViewSyncs. get</code></li>
+<li><code>aiplatform. featureViewSyncs. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  fetchFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  searchNearestEntities</code></p>
-<p><code dir="ltr" translate="no">aiplatform.features.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.features.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  batchReadFeatureValues</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.list</code></p></td>
+<p><code>aiplatform. featureViews. fetchFeatureValues</code></p>
+<p><code>aiplatform.featureViews.get</code></p>
+<p><code>aiplatform.featureViews.list</code></p>
+<p><code>aiplatform. featureViews. searchNearestEntities</code></p>
+<p><code>aiplatform.features.get</code></p>
+<p><code>aiplatform.features.list</code></p>
+<p><code>aiplatform. featurestores. batchReadFeatureValues</code></p>
+<p><code>resourcemanager.projects.get</code></p>
+<p><code>resourcemanager.projects.list</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.featurestoreInstanceCreator" class="role-title add-link" data-text="Agent Platform Feature Store Instance Creator" tabindex="-1">Agent Platform Feature Store Instance Creator</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.featurestoreInstanceCreator</code> )</p>
+<td>Agent Platform Feature Store Instance Creator
+<p>( <code>roles/ aiplatform.featurestoreInstanceCreator</code> )</p>
 <p>Administrator of Featurestore resources, but not the child resources under Featurestores.</p>
 <p>Lowest-level resources where you can grant this role:</p>
 <ul>
 <li>Featurestore</li>
 </ul></td>
-<td><p><code dir="ltr" translate="no">aiplatform.  featurestores.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featurestores.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featurestores.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  update</code></p></td>
+<td><p><code>aiplatform. featurestores. create</code></p>
+<p><code>aiplatform. featurestores. delete</code></p>
+<p><code>aiplatform.featurestores.get</code></p>
+<p><code>aiplatform.featurestores.list</code></p>
+<p><code>aiplatform. featurestores. update</code></p></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.featurestoreResourceViewer" class="role-title add-link" data-text="Agent Platform Feature Store Resource Viewer" tabindex="-1">Agent Platform Feature Store Resource Viewer</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.featurestoreResourceViewer</code> )</p>
+<td>Agent Platform Feature Store Resource Viewer
+<p>( <code>roles/ aiplatform.featurestoreResourceViewer</code> )</p>
 <p>Viewer of all resources in Agent Platform Feature Store but cannot make changes.</p>
 <p>Lowest-level resources where you can grant this role:</p>
 <ul>
 <li>Entity type</li>
 </ul></td>
-<td><p><code dir="ltr" translate="no">aiplatform.entityTypes.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureMonitors.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitors.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViewSyncs.*</code></p>
+<td><p><code>aiplatform.entityTypes.get</code></p>
+<p><code>aiplatform.entityTypes.list</code></p>
+<p><code>aiplatform.featureGroups.get</code></p>
+<p><code>aiplatform.featureGroups.list</code></p>
+<p><code>aiplatform. featureMonitorJobs. get</code></p>
+<p><code>aiplatform. featureMonitorJobs. list</code></p>
+<p><code>aiplatform.featureMonitors.get</code></p>
+<p><code>aiplatform. featureMonitors. list</code></p>
+<p><code>aiplatform. featureOnlineStores. get</code></p>
+<p><code>aiplatform. featureOnlineStores. list</code></p>
+<p><code>aiplatform.featureViewSyncs.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  list</code></li>
+<li><code>aiplatform. featureViewSyncs. get</code></li>
+<li><code>aiplatform. featureViewSyncs. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.features.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.features.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featurestores.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featurestores.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.operations.list</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.list</code></p></td>
+<p><code>aiplatform.featureViews.get</code></p>
+<p><code>aiplatform.featureViews.list</code></p>
+<p><code>aiplatform.features.get</code></p>
+<p><code>aiplatform.features.list</code></p>
+<p><code>aiplatform.featurestores.get</code></p>
+<p><code>aiplatform.featurestores.list</code></p>
+<p><code>aiplatform.operations.list</code></p>
+<p><code>resourcemanager.projects.get</code></p>
+<p><code>resourcemanager.projects.list</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.featurestoreUser" class="role-title add-link" data-text="Agent Platform Feature Store User Beta" tabindex="-1">Agent Platform Feature Store User <sup>Beta</sup></h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.featurestoreUser</code> )</p>
+<td>Agent Platform Feature Store User <sup>Beta</sup>
+<p>( <code>roles/ aiplatform.featurestoreUser</code> )</p>
 <p>Deprecated. Use featurestoreAdmin instead.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.entityTypes.*</code></p>
+<td><p><code>aiplatform.entityTypes.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.entityTypes.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.entityTypes.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  deleteFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  exportFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.entityTypes.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  importFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.entityTypes.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  readFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  streamingReadFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.entityTypes.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  entityTypes.  writeFeatureValues</code></li>
+<li><code>aiplatform.entityTypes.create</code></li>
+<li><code>aiplatform.entityTypes.delete</code></li>
+<li><code>aiplatform. entityTypes. deleteFeatureValues</code></li>
+<li><code>aiplatform. entityTypes. exportFeatureValues</code></li>
+<li><code>aiplatform.entityTypes.get</code></li>
+<li><code>aiplatform. entityTypes. getIamPolicy</code></li>
+<li><code>aiplatform. entityTypes. importFeatureValues</code></li>
+<li><code>aiplatform.entityTypes.list</code></li>
+<li><code>aiplatform. entityTypes. readFeatureValues</code></li>
+<li><code>aiplatform. entityTypes. setIamPolicy</code></li>
+<li><code>aiplatform. entityTypes. streamingReadFeatureValues</code></li>
+<li><code>aiplatform.entityTypes.update</code></li>
+<li><code>aiplatform. entityTypes. writeFeatureValues</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.features.*</code></p>
+<p><code>aiplatform.features.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.features.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.update</code></li>
+<li><code>aiplatform.features.create</code></li>
+<li><code>aiplatform.features.delete</code></li>
+<li><code>aiplatform.features.get</code></li>
+<li><code>aiplatform.features.list</code></li>
+<li><code>aiplatform.features.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.featurestores.*</code></p>
+<p><code>aiplatform.featurestores.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  batchReadFeatureValues</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  exportFeatures</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featurestores.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  importFeatures</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featurestores.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  readFeatures</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featurestores.  writeFeatures</code></li>
+<li><code>aiplatform. featurestores. batchReadFeatureValues</code></li>
+<li><code>aiplatform. featurestores. create</code></li>
+<li><code>aiplatform. featurestores. delete</code></li>
+<li><code>aiplatform. featurestores. exportFeatures</code></li>
+<li><code>aiplatform.featurestores.get</code></li>
+<li><code>aiplatform. featurestores. getIamPolicy</code></li>
+<li><code>aiplatform. featurestores. importFeatures</code></li>
+<li><code>aiplatform.featurestores.list</code></li>
+<li><code>aiplatform. featurestores. readFeatures</code></li>
+<li><code>aiplatform. featurestores. setIamPolicy</code></li>
+<li><code>aiplatform. featurestores. update</code></li>
+<li><code>aiplatform. featurestores. writeFeatures</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.operations.list</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.list</code></p></td>
+<p><code>aiplatform.operations.list</code></p>
+<p><code>resourcemanager.projects.get</code></p>
+<p><code>resourcemanager.projects.list</code></p></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.memoryEditor" class="role-title add-link" data-text="Agent Platform Memory Bank Editor Role" tabindex="-1">Agent Platform Memory Bank Editor Role</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.memoryEditor</code> )</p>
+<td>Agent Platform Memory Bank Editor Role
+<p>( <code>roles/ aiplatform.memoryEditor</code> )</p>
 <p>Grants edit access to Agent Platform Memory Bank.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.memories.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.memories.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.memories.generate</code></p>
-<p><code dir="ltr" translate="no">aiplatform.memories.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  memoryRevisions.  rollback</code></p></td>
+<td><p><code>aiplatform.memories.create</code></p>
+<p><code>aiplatform.memories.delete</code></p>
+<p><code>aiplatform.memories.generate</code></p>
+<p><code>aiplatform.memories.update</code></p>
+<p><code>aiplatform. memoryRevisions. rollback</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.memoryUser" class="role-title add-link" data-text="Agent Platform Memory Bank User Role" tabindex="-1">Agent Platform Memory Bank User Role</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.memoryUser</code> )</p>
+<td>Agent Platform Memory Bank User Role
+<p>( <code>roles/ aiplatform.memoryUser</code> )</p>
 <p>Grants full user access to Agent Platform Memory Bank.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.memories.*</code></p>
+<td><p><code>aiplatform.memories.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.memories.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.generate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.retrieve</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.update</code></li>
+<li><code>aiplatform.memories.create</code></li>
+<li><code>aiplatform.memories.delete</code></li>
+<li><code>aiplatform.memories.generate</code></li>
+<li><code>aiplatform.memories.get</code></li>
+<li><code>aiplatform.memories.list</code></li>
+<li><code>aiplatform.memories.retrieve</code></li>
+<li><code>aiplatform.memories.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.memoryRevisions.*</code></p>
+<p><code>aiplatform.memoryRevisions.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.memoryRevisions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  memoryRevisions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  memoryRevisions.  rollback</code></li>
+<li><code>aiplatform.memoryRevisions.get</code></li>
+<li><code>aiplatform. memoryRevisions. list</code></li>
+<li><code>aiplatform. memoryRevisions. rollback</code></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.memoryViewer" class="role-title add-link" data-text="Agent Platform Memory Bank Viewer Role" tabindex="-1">Agent Platform Memory Bank Viewer Role</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.memoryViewer</code> )</p>
+<td>Agent Platform Memory Bank Viewer Role
+<p>( <code>roles/ aiplatform.memoryViewer</code> )</p>
 <p>Grants viewer access to Agent Platform Memory Bank.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.memories.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.memories.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.memories.retrieve</code></p>
-<p><code dir="ltr" translate="no">aiplatform.memoryRevisions.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  memoryRevisions.  list</code></p></td>
+<td><p><code>aiplatform.memories.get</code></p>
+<p><code>aiplatform.memories.list</code></p>
+<p><code>aiplatform.memories.retrieve</code></p>
+<p><code>aiplatform.memoryRevisions.get</code></p>
+<p><code>aiplatform. memoryRevisions. list</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.migrator" class="role-title add-link" data-text="Agent Platform Migration Service User" tabindex="-1">Agent Platform Migration Service User</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.migrator</code> )</p>
+<td>Agent Platform Migration Service User
+<p>( <code>roles/ aiplatform.migrator</code> )</p>
 <p>Grants access to use migration service in Agent Platform</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.  migratableResources.*</code></p>
+<td><p><code>aiplatform. migratableResources.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  migratableResources.  migrate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  migratableResources.  search</code></li>
+<li><code>aiplatform. migratableResources. migrate</code></li>
+<li><code>aiplatform. migratableResources. search</code></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.notebookExecutorUser" class="role-title add-link" data-text="Notebook Executor User Beta" tabindex="-1">Notebook Executor User <sup>Beta</sup></h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.notebookExecutorUser</code> )</p>
+<td>Notebook Executor User <sup>Beta</sup>
+<p>( <code>roles/ aiplatform.notebookExecutorUser</code> )</p>
 <p>Grants users full access to schedules and notebook execution jobs.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.*</code></p>
+<td><p><code>aiplatform. notebookExecutionJobs.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  list</code></li>
+<li><code>aiplatform. notebookExecutionJobs. create</code></li>
+<li><code>aiplatform. notebookExecutionJobs. delete</code></li>
+<li><code>aiplatform. notebookExecutionJobs. get</code></li>
+<li><code>aiplatform. notebookExecutionJobs. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.operations.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.pipelineJobs.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.schedules.*</code></p>
+<p><code>aiplatform.operations.list</code></p>
+<p><code>aiplatform.pipelineJobs.create</code></p>
+<p><code>aiplatform.schedules.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.schedules.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.update</code></li>
+<li><code>aiplatform.schedules.create</code></li>
+<li><code>aiplatform.schedules.delete</code></li>
+<li><code>aiplatform.schedules.get</code></li>
+<li><code>aiplatform.schedules.list</code></li>
+<li><code>aiplatform.schedules.update</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.notebookRuntimeAdmin" class="role-title add-link" data-text="Notebook Runtime Admin" tabindex="-1">Notebook Runtime Admin</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.notebookRuntimeAdmin</code> )</p>
+<td>Notebook Runtime Admin
+<p>( <code>roles/ aiplatform.notebookRuntimeAdmin</code> )</p>
 <p>Grants full access to all runtime templates and runtimes in Notebook Service.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.locations.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.*</code></p>
+<td><p><code>aiplatform.locations.get</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  apply</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  setDefault</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  update</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. apply</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. create</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. delete</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. get</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. getIamPolicy</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. list</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. setDefault</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. setIamPolicy</code></li>
+<li><code>aiplatform. notebookRuntimeTemplates. update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.notebookRuntimes.*</code></p>
+<p><code>aiplatform.notebookRuntimes.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  assign</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  start</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  upgrade</code></li>
+<li><code>aiplatform. notebookRuntimes. assign</code></li>
+<li><code>aiplatform. notebookRuntimes. delete</code></li>
+<li><code>aiplatform. notebookRuntimes. get</code></li>
+<li><code>aiplatform. notebookRuntimes. list</code></li>
+<li><code>aiplatform. notebookRuntimes. start</code></li>
+<li><code>aiplatform. notebookRuntimes. update</code></li>
+<li><code>aiplatform. notebookRuntimes. upgrade</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.operations.list</code></p>
-<p><code dir="ltr" translate="no">compute.reservations.get</code></p>
-<p><code dir="ltr" translate="no">compute.reservations.list</code></p></td>
+<p><code>aiplatform.operations.list</code></p>
+<p><code>compute.reservations.get</code></p>
+<p><code>compute.reservations.list</code></p></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.notebookRuntimeUser" class="role-title add-link" data-text="Notebook Runtime User" tabindex="-1">Notebook Runtime User</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.notebookRuntimeUser</code> )</p>
+<td>Notebook Runtime User
+<p>( <code>roles/ aiplatform.notebookRuntimeUser</code> )</p>
 <p>Grants users permissions to create runtime resources using a runtime template and manage the runtime resources they created.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.locations.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  apply</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  getIamPolicy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  assign</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.operations.list</code></p></td>
+<td><p><code>aiplatform.locations.get</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. apply</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. get</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. getIamPolicy</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. list</code></p>
+<p><code>aiplatform. notebookRuntimes. assign</code></p>
+<p><code>aiplatform. notebookRuntimes. get</code></p>
+<p><code>aiplatform. notebookRuntimes. list</code></p>
+<p><code>aiplatform.operations.list</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.provisionedThroughputAdmin" class="role-title add-link" data-text="Vertex AI Platform Provisioned Throughput Admin Beta" tabindex="-1">Vertex AI Platform Provisioned Throughput Admin <sup>Beta</sup></h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.provisionedThroughputAdmin</code> )</p>
+<td>Vertex AI Platform Provisioned Throughput Admin <sup>Beta</sup>
+<p>( <code>roles/ aiplatform.provisionedThroughputAdmin</code> )</p>
 <p>Grants access to use all resources related to Vertex AI Provisioned Throughput</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.*</code></p>
+<td><p><code>aiplatform. provisionedThroughputRevisions.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.  list</code></li>
+<li><code>aiplatform. provisionedThroughputRevisions. get</code></li>
+<li><code>aiplatform. provisionedThroughputRevisions. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.*</code></p>
+<p><code>aiplatform. provisionedThroughputs.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  changeScope</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  split</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  update</code></li>
+<li><code>aiplatform. provisionedThroughputs. cancel</code></li>
+<li><code>aiplatform. provisionedThroughputs. changeScope</code></li>
+<li><code>aiplatform. provisionedThroughputs. create</code></li>
+<li><code>aiplatform. provisionedThroughputs. get</code></li>
+<li><code>aiplatform. provisionedThroughputs. list</code></li>
+<li><code>aiplatform. provisionedThroughputs. split</code></li>
+<li><code>aiplatform. provisionedThroughputs. update</code></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.publisherProvisionedThroughputAdmin" class="role-title add-link" data-text="Vertex AI Platform Publisher Provisioned Throughput Admin Beta" tabindex="-1">Vertex AI Platform Publisher Provisioned Throughput Admin <sup>Beta</sup></h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.publisherProvisionedThroughputAdmin</code> )</p>
+<td>Vertex AI Platform Publisher Provisioned Throughput Admin <sup>Beta</sup>
+<p>( <code>roles/ aiplatform.publisherProvisionedThroughputAdmin</code> )</p>
 <p>Grants Publisher access to use all resources related to Vertex AI Provisioned Throughput Orders</p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.publisherProvisionedThroughputViewer" class="role-title add-link" data-text="Vertex AI Platform Publisher Provisioned Throughput Viewer Beta" tabindex="-1">Vertex AI Platform Publisher Provisioned Throughput Viewer <sup>Beta</sup></h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.publisherProvisionedThroughputViewer</code> )</p>
+<td>Vertex AI Platform Publisher Provisioned Throughput Viewer <sup>Beta</sup>
+<p>( <code>roles/ aiplatform.publisherProvisionedThroughputViewer</code> )</p>
 <p>Grants Publisher access to view all resources related to Vertex AI Provisioned Throughput Orders</p></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.sessionEditor" class="role-title add-link" data-text="Agent Platform Sessions Editor Role" tabindex="-1">Agent Platform Sessions Editor Role</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.sessionEditor</code> )</p>
+<td>Agent Platform Sessions Editor Role
+<p>( <code>roles/ aiplatform.sessionEditor</code> )</p>
 <p>Grants edit access to Agent Platform Sessions.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.  sessionEvents.  append</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.update</code></p></td>
+<td><p><code>aiplatform. sessionEvents. append</code></p>
+<p><code>aiplatform.sessions.create</code></p>
+<p><code>aiplatform.sessions.delete</code></p>
+<p><code>aiplatform.sessions.update</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.sessionUser" class="role-title add-link" data-text="Agent Platform Sessions User Role" tabindex="-1">Agent Platform Sessions User Role</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.sessionUser</code> )</p>
+<td>Agent Platform Sessions User Role
+<p>( <code>roles/ aiplatform.sessionUser</code> )</p>
 <p>Grants full user access to Agent Platform Sessions.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.sessionEvents.*</code></p>
+<td><p><code>aiplatform.sessionEvents.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  sessionEvents.  append</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessionEvents.list</code></li>
+<li><code>aiplatform. sessionEvents. append</code></li>
+<li><code>aiplatform.sessionEvents.list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.sessions.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.update</code></p></td>
+<p><code>aiplatform.sessions.create</code></p>
+<p><code>aiplatform.sessions.delete</code></p>
+<p><code>aiplatform.sessions.get</code></p>
+<p><code>aiplatform.sessions.list</code></p>
+<p><code>aiplatform.sessions.update</code></p></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.sessionViewer" class="role-title add-link" data-text="Agent Platform Sessions Viewer Role" tabindex="-1">Agent Platform Sessions Viewer Role</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.sessionViewer</code> )</p>
+<td>Agent Platform Sessions Viewer Role
+<p>( <code>roles/ aiplatform.sessionViewer</code> )</p>
 <p>Grants viewer access to Agent Platform Sessions</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.sessionEvents.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.list</code></p></td>
+<td><p><code>aiplatform.sessionEvents.list</code></p>
+<p><code>aiplatform.sessions.get</code></p>
+<p><code>aiplatform.sessions.list</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.tensorboardWebAppUser" class="role-title add-link" data-text="Agent Platform Tensorboard Web App User Beta" tabindex="-1">Agent Platform Tensorboard Web App User <sup>Beta</sup></h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.tensorboardWebAppUser</code> )</p>
+<td>Agent Platform Tensorboard Web App User <sup>Beta</sup>
+<p>( <code>roles/ aiplatform.tensorboardWebAppUser</code> )</p>
 <p>Grants access to the Vertex AI TensorBoard web app.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.  tensorboards.  recordAccess</code></p></td>
+<td><p><code>aiplatform. tensorboards. recordAccess</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -2989,2200 +2987,2198 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 </thead>
 <tbody>
 <tr class="odd">
-<td><h4 id="aiplatform.agentSandboxServiceAgent" class="role-title add-link" data-text="Vertex AI Agent Sandbox Service Agent" tabindex="-1">Vertex AI Agent Sandbox Service Agent</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.agentSandboxServiceAgent</code> )</p>
+<td>Vertex AI Agent Sandbox Service Agent
+<p>( <code>roles/ aiplatform.agentSandboxServiceAgent</code> )</p>
 <p>Vertex AI Service Agent used to access Agent Sandbox managed resources in consumer project with restricted permissions.</p>
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">artifactregistry.  repositories.  downloadArtifacts</code></p>
-<p><code dir="ltr" translate="no">logging.logEntries.create</code></p>
-<p><code dir="ltr" translate="no">logging.logEntries.route</code></p>
-<p><code dir="ltr" translate="no">serviceusage.services.use</code></p>
-<p><code dir="ltr" translate="no">storage.objects.create</code></p>
-<p><code dir="ltr" translate="no">storage.objects.delete</code></p>
-<p><code dir="ltr" translate="no">storage.objects.get</code></p>
-<p><code dir="ltr" translate="no">storage.objects.list</code></p></td>
+<td><p><code>artifactregistry. repositories. downloadArtifacts</code></p>
+<p><code>logging.logEntries.create</code></p>
+<p><code>logging.logEntries.route</code></p>
+<p><code>serviceusage.services.use</code></p>
+<p><code>storage.objects.create</code></p>
+<p><code>storage.objects.delete</code></p>
+<p><code>storage.objects.get</code></p>
+<p><code>storage.objects.list</code></p></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.batchPredictionServiceAgent" class="role-title add-link" data-text="Vertex AI Batch Prediction Service Agent" tabindex="-1">Vertex AI Batch Prediction Service Agent</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.batchPredictionServiceAgent</code> )</p>
+<td>Vertex AI Batch Prediction Service Agent
+<p>( <code>roles/ aiplatform.batchPredictionServiceAgent</code> )</p>
 <p>Vertex AI Batch Prediction Service Agent for serving batch prediction requests.</p>
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">bigquery.datasets.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.datasets.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.jobs.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.jobs.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.models.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.models.export</code></p>
-<p><code dir="ltr" translate="no">bigquery.models.getData</code></p>
-<p><code dir="ltr" translate="no">bigquery.readsessions.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.readsessions.getData</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.createSnapshot</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.deleteSnapshot</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.export</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.getData</code></p>
-<p><code dir="ltr" translate="no">bigquery.  tables.  restoreSnapshot</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.update</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.updateData</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.create</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.delete</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.get</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.list</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.update</code></p>
-<p><code dir="ltr" translate="no">storage.objects.create</code></p>
-<p><code dir="ltr" translate="no">storage.objects.delete</code></p>
-<p><code dir="ltr" translate="no">storage.objects.get</code></p>
-<p><code dir="ltr" translate="no">storage.objects.list</code></p>
-<p><code dir="ltr" translate="no">storage.objects.update</code></p></td>
+<td><p><code>bigquery.datasets.create</code></p>
+<p><code>bigquery.datasets.get</code></p>
+<p><code>bigquery.jobs.create</code></p>
+<p><code>bigquery.jobs.get</code></p>
+<p><code>bigquery.models.create</code></p>
+<p><code>bigquery.models.export</code></p>
+<p><code>bigquery.models.getData</code></p>
+<p><code>bigquery.readsessions.create</code></p>
+<p><code>bigquery.readsessions.getData</code></p>
+<p><code>bigquery.tables.create</code></p>
+<p><code>bigquery.tables.createSnapshot</code></p>
+<p><code>bigquery.tables.deleteSnapshot</code></p>
+<p><code>bigquery.tables.export</code></p>
+<p><code>bigquery.tables.get</code></p>
+<p><code>bigquery.tables.getData</code></p>
+<p><code>bigquery. tables. restoreSnapshot</code></p>
+<p><code>bigquery.tables.update</code></p>
+<p><code>bigquery.tables.updateData</code></p>
+<p><code>storage.buckets.create</code></p>
+<p><code>storage.buckets.delete</code></p>
+<p><code>storage.buckets.get</code></p>
+<p><code>storage.buckets.list</code></p>
+<p><code>storage.buckets.update</code></p>
+<p><code>storage.objects.create</code></p>
+<p><code>storage.objects.delete</code></p>
+<p><code>storage.objects.get</code></p>
+<p><code>storage.objects.list</code></p>
+<p><code>storage.objects.update</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.colabServiceAgent" class="role-title add-link" data-text="Vertex AI Colab Service Agent" tabindex="-1">Vertex AI Colab Service Agent</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.colabServiceAgent</code> )</p>
+<td>Vertex AI Colab Service Agent
+<p>( <code>roles/ aiplatform.colabServiceAgent</code> )</p>
 <p>Gives Vertex AI Colab the proper permissions to function.</p>
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  create</code></p>
-<p><code dir="ltr" translate="no">compute.addresses.get</code></p>
-<p><code dir="ltr" translate="no">compute.addresses.list</code></p>
-<p><code dir="ltr" translate="no">compute.addresses.use</code></p>
-<p><code dir="ltr" translate="no">compute.addresses.useInternal</code></p>
-<p><code dir="ltr" translate="no">compute.disks.create</code></p>
-<p><code dir="ltr" translate="no">compute.disks.createSnapshot</code></p>
-<p><code dir="ltr" translate="no">compute.disks.createTagBinding</code></p>
-<p><code dir="ltr" translate="no">compute.disks.delete</code></p>
-<p><code dir="ltr" translate="no">compute.disks.get</code></p>
-<p><code dir="ltr" translate="no">compute.disks.setLabels</code></p>
-<p><code dir="ltr" translate="no">compute.disks.use</code></p>
-<p><code dir="ltr" translate="no">compute.disks.useReadOnly</code></p>
-<p><code dir="ltr" translate="no">compute.globalOperations.get</code></p>
-<p><code dir="ltr" translate="no">compute.instances.attachDisk</code></p>
-<p><code dir="ltr" translate="no">compute.instances.create</code></p>
-<p><code dir="ltr" translate="no">compute.  instances.  createTagBinding</code></p>
-<p><code dir="ltr" translate="no">compute.instances.delete</code></p>
-<p><code dir="ltr" translate="no">compute.instances.detachDisk</code></p>
-<p><code dir="ltr" translate="no">compute.instances.get</code></p>
-<p><code dir="ltr" translate="no">compute.  instances.  getGuestAttributes</code></p>
-<p><code dir="ltr" translate="no">compute.instances.reset</code></p>
-<p><code dir="ltr" translate="no">compute.instances.setLabels</code></p>
-<p><code dir="ltr" translate="no">compute.instances.setMetadata</code></p>
-<p><code dir="ltr" translate="no">compute.  instances.  setServiceAccount</code></p>
-<p><code dir="ltr" translate="no">compute.instances.setTags</code></p>
-<p><code dir="ltr" translate="no">compute.instances.start</code></p>
-<p><code dir="ltr" translate="no">compute.instances.stop</code></p>
-<p><code dir="ltr" translate="no">compute.instances.useReadOnly</code></p>
-<p><code dir="ltr" translate="no">compute.networks.get</code></p>
-<p><code dir="ltr" translate="no">compute.networks.use</code></p>
-<p><code dir="ltr" translate="no">compute.networks.useExternalIp</code></p>
-<p><code dir="ltr" translate="no">compute.snapshots.create</code></p>
-<p><code dir="ltr" translate="no">compute.snapshots.delete</code></p>
-<p><code dir="ltr" translate="no">compute.snapshots.useReadOnly</code></p>
-<p><code dir="ltr" translate="no">compute.subnetworks.get</code></p>
-<p><code dir="ltr" translate="no">compute.subnetworks.list</code></p>
-<p><code dir="ltr" translate="no">compute.subnetworks.use</code></p>
-<p><code dir="ltr" translate="no">compute.  subnetworks.  useExternalIp</code></p>
-<p><code dir="ltr" translate="no">compute.zoneOperations.get</code></p>
-<p><code dir="ltr" translate="no">compute.zoneOperations.list</code></p>
-<p><code dir="ltr" translate="no">iam.serviceAccounts.actAs</code></p>
-<p><code dir="ltr" translate="no">notebooks.instances.create</code></p>
-<p><code dir="ltr" translate="no">notebooks.instances.delete</code></p>
-<p><code dir="ltr" translate="no">notebooks.instances.get</code></p></td>
+<td><p><code>aiplatform. notebookExecutionJobs. create</code></p>
+<p><code>compute.addresses.get</code></p>
+<p><code>compute.addresses.list</code></p>
+<p><code>compute.addresses.use</code></p>
+<p><code>compute.addresses.useInternal</code></p>
+<p><code>compute.disks.create</code></p>
+<p><code>compute.disks.createSnapshot</code></p>
+<p><code>compute.disks.createTagBinding</code></p>
+<p><code>compute.disks.delete</code></p>
+<p><code>compute.disks.get</code></p>
+<p><code>compute.disks.setLabels</code></p>
+<p><code>compute.disks.use</code></p>
+<p><code>compute.disks.useReadOnly</code></p>
+<p><code>compute.globalOperations.get</code></p>
+<p><code>compute.instances.attachDisk</code></p>
+<p><code>compute.instances.create</code></p>
+<p><code>compute. instances. createTagBinding</code></p>
+<p><code>compute.instances.delete</code></p>
+<p><code>compute.instances.detachDisk</code></p>
+<p><code>compute.instances.get</code></p>
+<p><code>compute. instances. getGuestAttributes</code></p>
+<p><code>compute.instances.reset</code></p>
+<p><code>compute.instances.setLabels</code></p>
+<p><code>compute.instances.setMetadata</code></p>
+<p><code>compute. instances. setServiceAccount</code></p>
+<p><code>compute.instances.setTags</code></p>
+<p><code>compute.instances.start</code></p>
+<p><code>compute.instances.stop</code></p>
+<p><code>compute.instances.useReadOnly</code></p>
+<p><code>compute.networks.get</code></p>
+<p><code>compute.networks.use</code></p>
+<p><code>compute.networks.useExternalIp</code></p>
+<p><code>compute.snapshots.create</code></p>
+<p><code>compute.snapshots.delete</code></p>
+<p><code>compute.snapshots.useReadOnly</code></p>
+<p><code>compute.subnetworks.get</code></p>
+<p><code>compute.subnetworks.list</code></p>
+<p><code>compute.subnetworks.use</code></p>
+<p><code>compute. subnetworks. useExternalIp</code></p>
+<p><code>compute.zoneOperations.get</code></p>
+<p><code>compute.zoneOperations.list</code></p>
+<p><code>iam.serviceAccounts.actAs</code></p>
+<p><code>notebooks.instances.create</code></p>
+<p><code>notebooks.instances.delete</code></p>
+<p><code>notebooks.instances.get</code></p></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.customCodeServiceAgent" class="role-title add-link" data-text="Vertex AI Custom Code Service Agent" tabindex="-1">Vertex AI Custom Code Service Agent</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.customCodeServiceAgent</code> )</p>
+<td>Vertex AI Custom Code Service Agent
+<p>( <code>roles/ aiplatform.customCodeServiceAgent</code> )</p>
 <p>Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.create IAM permission is highly privileged. Through Vertex AI Custom Training jobs, it effectively grants editor-level access to other services activated for the consumer project, such as GCS and BigQuery.</p>
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  list</code></li>
+<td><p><code>aiplatform. agentAnomalyDetectionScopes.*</code></p>
+<ul>
+<li><code>aiplatform. agentAnomalyDetectionScopes. create</code></li>
+<li><code>aiplatform. agentAnomalyDetectionScopes. delete</code></li>
+<li><code>aiplatform. agentAnomalyDetectionScopes. get</code></li>
+<li><code>aiplatform. agentAnomalyDetectionScopes. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.agentExamples.*</code></p>
+<p><code>aiplatform.agentExamples.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  agentExamples.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentExamples.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agentExamples.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agentExamples.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentExamples.  update</code></li>
+<li><code>aiplatform. agentExamples. create</code></li>
+<li><code>aiplatform. agentExamples. delete</code></li>
+<li><code>aiplatform.agentExamples.get</code></li>
+<li><code>aiplatform.agentExamples.list</code></li>
+<li><code>aiplatform. agentExamples. update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.agents.*</code></p>
+<p><code>aiplatform.agents.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.agents.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.update</code></li>
+<li><code>aiplatform.agents.create</code></li>
+<li><code>aiplatform.agents.delete</code></li>
+<li><code>aiplatform.agents.get</code></li>
+<li><code>aiplatform.agents.list</code></li>
+<li><code>aiplatform.agents.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.*</code></p>
+<p><code>aiplatform. analyzedInvocations.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  list</code></li>
+<li><code>aiplatform. analyzedInvocations. get</code></li>
+<li><code>aiplatform. analyzedInvocations. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.analyzedSessions.*</code></p>
+<p><code>aiplatform.analyzedSessions.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.annotationSpecs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotationSpecs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.annotations.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.annotations.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.apps.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.apps.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.artifacts.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.cacheConfigs.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.cachedContents.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  cachedContents.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  cachedContents.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.cachedContents.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.cachedContents.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  cachedContents.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.consents.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.contexts.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  addContextArtifactsAndExecutions</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  addContextChildren</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  queryContextLineageSubgraph</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.customJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.dataItems.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.dataLabelingJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.datasetVersions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasetVersions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  restore</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.datasets.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.datasets.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.export</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  queryDeployedModels</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  edgeDeviceDebugInfo.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.edgeDevices.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.deploy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.explain</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.predict</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.undeploy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  deleteFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  exportFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  importFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  readFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  streamingReadFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  writeFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.evaluationItems.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationItems.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.evaluationMetrics.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.evaluationRuns.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  execute</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationRuns.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationRuns.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.evaluationSets.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationSets.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationSets.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.exampleStores.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.exampleStores.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.exampleStores.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  readExample</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  writeExample</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.executions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  executions.  addExecutionEvents</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  executions.  queryExecutionInputsAndOutputs</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.extensions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.extensions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.execute</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  featureGroups.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureGroups.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureGroups.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.featureMonitors.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureMonitors.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViewSyncs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  directWrite</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  fetchFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  searchNearestEntities</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.sync</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.features.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.features.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  batchReadFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  exportFeatures</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featurestores.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  importFeatures</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featurestores.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  readFeatures</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  writeFeatures</code></p>
-<p><code dir="ltr" translate="no">aiplatform.humanInTheLoops.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.humanInTheLoops.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  queryAnnotationStats</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  send</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.indexEndpoints.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  deploy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexEndpoints.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexEndpoints.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  queryVectors</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  undeploy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.indexes.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.indexes.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.interactions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.interactions.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.locations.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  locations.  evaluateInstances</code></li>
-<li><code dir="ltr" translate="no">aiplatform.locations.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.locations.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.memories.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.memories.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.generate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.retrieve</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.memoryRevisions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.memoryRevisions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  memoryRevisions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  memoryRevisions.  rollback</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.metadataSchemas.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataSchemas.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.metadataStores.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  metadataStores.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataStores.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataStores.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataStores.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  pause</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  resume</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  searchStatsAnomalies</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.  import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.modelEvaluations.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  exportEvaluatedDataItems</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.modelMonitors.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.modelMonitors.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.modelMonitors.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  searchModelMonitoringAlerts</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  searchModelMonitoringStats</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.models.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.models.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.export</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.upload</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></p>
-<p><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.nasJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.nasTrialDetails.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.nasTrialDetails.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  nasTrialDetails.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  apply</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.notebookRuntimes.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  assign</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  start</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  upgrade</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.onlineEvaluators.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.operations.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  persistentResources.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  persistentResources.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.pipelineJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.ragCorpora.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.query</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  ragEngineConfigs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.ragFiles.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.upload</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  query</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  query</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  execute</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.schedules.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.schedules.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicyEngine.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicyEngine.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicyEngine.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.sessionEvents.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  sessionEvents.  append</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessionEvents.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.sessions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.sessions.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.run</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.specialistPools.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.specialistPools.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.studies.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.studies.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.tasks.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.tasks.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  write</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.tensorboardRuns.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  batchCreate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tensorboardRuns.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  write</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  batchCreate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  batchRead</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  read</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.trainingPipelines.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.trials.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.trials.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.tuningJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tuningJobs.  optimizePrompt</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tuningJobs.  validateReinforcementTuningReward</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tuningJobs.  vertexTune</code></li>
-</ul>
-<p><code dir="ltr" translate="no">artifactregistry.  repositories.  downloadArtifacts</code></p>
-<p><code dir="ltr" translate="no">artifactregistry.  repositories.  get</code></p>
-<p><code dir="ltr" translate="no">artifactregistry.  repositories.  list</code></p>
-<p><code dir="ltr" translate="no">artifactregistry.tags.get</code></p>
-<p><code dir="ltr" translate="no">artifactregistry.versions.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.datasets.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.datasets.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.jobs.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.jobs.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.readsessions.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.readsessions.getData</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.export</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.getData</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.update</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.updateData</code></p>
-<p><code dir="ltr" translate="no">cloudtrace.traces.list</code></p>
-<p><code dir="ltr" translate="no">iam.serviceAccounts.get</code></p>
-<p><code dir="ltr" translate="no">iam.  serviceAccounts.  getAccessToken</code></p>
-<p><code dir="ltr" translate="no">iam.  serviceAccounts.  getOpenIdToken</code></p>
-<p><code dir="ltr" translate="no">iam.  serviceAccounts.  implicitDelegation</code></p>
-<p><code dir="ltr" translate="no">iam.serviceAccounts.list</code></p>
-<p><code dir="ltr" translate="no">iam.serviceAccounts.signBlob</code></p>
-<p><code dir="ltr" translate="no">iam.serviceAccounts.signJwt</code></p>
-<p><code dir="ltr" translate="no">logging.logEntries.create</code></p>
-<p><code dir="ltr" translate="no">logging.logEntries.route</code></p>
-<p><code dir="ltr" translate="no">logging.views.access</code></p>
-<p><code dir="ltr" translate="no">logging.views.get</code></p>
-<p><code dir="ltr" translate="no">monitoring.  metricDescriptors.  create</code></p>
-<p><code dir="ltr" translate="no">monitoring.  metricDescriptors.  get</code></p>
-<p><code dir="ltr" translate="no">monitoring.  metricDescriptors.  list</code></p>
-<p><code dir="ltr" translate="no">monitoring.  monitoredResourceDescriptors.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">monitoring.  monitoredResourceDescriptors.  get</code></li>
-<li><code dir="ltr" translate="no">monitoring.  monitoredResourceDescriptors.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">monitoring.timeSeries.create</code></p>
-<p><code dir="ltr" translate="no">observability.views.access</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.list</code></p>
-<p><code dir="ltr" translate="no">servicemanagement.  services.  report</code></p>
-<p><code dir="ltr" translate="no">serviceusage.services.use</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.create</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.delete</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.get</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.list</code></p>
-<p><code dir="ltr" translate="no">storage.objects.create</code></p>
-<p><code dir="ltr" translate="no">storage.objects.delete</code></p>
-<p><code dir="ltr" translate="no">storage.objects.get</code></p>
-<p><code dir="ltr" translate="no">storage.objects.list</code></p>
-<p><code dir="ltr" translate="no">storage.objects.update</code></p></td>
+<li><code>aiplatform. analyzedSessions. aggregate</code></li>
+<li><code>aiplatform. analyzedSessions. get</code></li>
+<li><code>aiplatform. analyzedSessions. list</code></li>
+</ul>
+<p><code>aiplatform.annotationSpecs.*</code></p>
+<ul>
+<li><code>aiplatform. annotationSpecs. create</code></li>
+<li><code>aiplatform. annotationSpecs. delete</code></li>
+<li><code>aiplatform.annotationSpecs.get</code></li>
+<li><code>aiplatform. annotationSpecs. list</code></li>
+<li><code>aiplatform. annotationSpecs. update</code></li>
+</ul>
+<p><code>aiplatform.annotations.*</code></p>
+<ul>
+<li><code>aiplatform.annotations.create</code></li>
+<li><code>aiplatform.annotations.delete</code></li>
+<li><code>aiplatform.annotations.get</code></li>
+<li><code>aiplatform.annotations.list</code></li>
+<li><code>aiplatform.annotations.update</code></li>
+</ul>
+<p><code>aiplatform.apps.*</code></p>
+<ul>
+<li><code>aiplatform.apps.create</code></li>
+<li><code>aiplatform.apps.delete</code></li>
+<li><code>aiplatform.apps.get</code></li>
+<li><code>aiplatform.apps.list</code></li>
+<li><code>aiplatform.apps.update</code></li>
+</ul>
+<p><code>aiplatform.artifacts.*</code></p>
+<ul>
+<li><code>aiplatform.artifacts.create</code></li>
+<li><code>aiplatform.artifacts.delete</code></li>
+<li><code>aiplatform.artifacts.get</code></li>
+<li><code>aiplatform.artifacts.list</code></li>
+<li><code>aiplatform.artifacts.update</code></li>
+</ul>
+<p><code>aiplatform. batchPredictionJobs.*</code></p>
+<ul>
+<li><code>aiplatform. batchPredictionJobs. cancel</code></li>
+<li><code>aiplatform. batchPredictionJobs. create</code></li>
+<li><code>aiplatform. batchPredictionJobs. delete</code></li>
+<li><code>aiplatform. batchPredictionJobs. get</code></li>
+<li><code>aiplatform. batchPredictionJobs. list</code></li>
+</ul>
+<p><code>aiplatform.cacheConfigs.get</code></p>
+<p><code>aiplatform.cachedContents.*</code></p>
+<ul>
+<li><code>aiplatform. cachedContents. create</code></li>
+<li><code>aiplatform. cachedContents. delete</code></li>
+<li><code>aiplatform.cachedContents.get</code></li>
+<li><code>aiplatform.cachedContents.list</code></li>
+<li><code>aiplatform. cachedContents. update</code></li>
+</ul>
+<p><code>aiplatform.consents.get</code></p>
+<p><code>aiplatform.contexts.*</code></p>
+<ul>
+<li><code>aiplatform. contexts. addContextArtifactsAndExecutions</code></li>
+<li><code>aiplatform. contexts. addContextChildren</code></li>
+<li><code>aiplatform.contexts.create</code></li>
+<li><code>aiplatform.contexts.delete</code></li>
+<li><code>aiplatform.contexts.get</code></li>
+<li><code>aiplatform.contexts.list</code></li>
+<li><code>aiplatform. contexts. queryContextLineageSubgraph</code></li>
+<li><code>aiplatform.contexts.update</code></li>
+</ul>
+<p><code>aiplatform.customJobs.*</code></p>
+<ul>
+<li><code>aiplatform.customJobs.cancel</code></li>
+<li><code>aiplatform.customJobs.create</code></li>
+<li><code>aiplatform.customJobs.delete</code></li>
+<li><code>aiplatform.customJobs.get</code></li>
+<li><code>aiplatform.customJobs.list</code></li>
+</ul>
+<p><code>aiplatform.dataItems.*</code></p>
+<ul>
+<li><code>aiplatform.dataItems.create</code></li>
+<li><code>aiplatform.dataItems.delete</code></li>
+<li><code>aiplatform.dataItems.get</code></li>
+<li><code>aiplatform.dataItems.list</code></li>
+<li><code>aiplatform.dataItems.update</code></li>
+</ul>
+<p><code>aiplatform.dataLabelingJobs.*</code></p>
+<ul>
+<li><code>aiplatform. dataLabelingJobs. cancel</code></li>
+<li><code>aiplatform. dataLabelingJobs. create</code></li>
+<li><code>aiplatform. dataLabelingJobs. delete</code></li>
+<li><code>aiplatform. dataLabelingJobs. get</code></li>
+<li><code>aiplatform. dataLabelingJobs. list</code></li>
+</ul>
+<p><code>aiplatform.datasetVersions.*</code></p>
+<ul>
+<li><code>aiplatform. datasetVersions. create</code></li>
+<li><code>aiplatform. datasetVersions. delete</code></li>
+<li><code>aiplatform.datasetVersions.get</code></li>
+<li><code>aiplatform. datasetVersions. list</code></li>
+<li><code>aiplatform. datasetVersions. restore</code></li>
+</ul>
+<p><code>aiplatform.datasets.*</code></p>
+<ul>
+<li><code>aiplatform.datasets.create</code></li>
+<li><code>aiplatform.datasets.delete</code></li>
+<li><code>aiplatform.datasets.export</code></li>
+<li><code>aiplatform.datasets.get</code></li>
+<li><code>aiplatform.datasets.import</code></li>
+<li><code>aiplatform.datasets.list</code></li>
+<li><code>aiplatform.datasets.update</code></li>
+</ul>
+<p><code>aiplatform. deploymentResourcePools.*</code></p>
+<ul>
+<li><code>aiplatform. deploymentResourcePools. create</code></li>
+<li><code>aiplatform. deploymentResourcePools. delete</code></li>
+<li><code>aiplatform. deploymentResourcePools. get</code></li>
+<li><code>aiplatform. deploymentResourcePools. list</code></li>
+<li><code>aiplatform. deploymentResourcePools. queryDeployedModels</code></li>
+<li><code>aiplatform. deploymentResourcePools. update</code></li>
+</ul>
+<p><code>aiplatform. edgeDeploymentJobs.*</code></p>
+<ul>
+<li><code>aiplatform. edgeDeploymentJobs. create</code></li>
+<li><code>aiplatform. edgeDeploymentJobs. delete</code></li>
+<li><code>aiplatform. edgeDeploymentJobs. get</code></li>
+<li><code>aiplatform. edgeDeploymentJobs. list</code></li>
+</ul>
+<p><code>aiplatform. edgeDeviceDebugInfo. get</code></p>
+<p><code>aiplatform.edgeDevices.*</code></p>
+<ul>
+<li><code>aiplatform.edgeDevices.create</code></li>
+<li><code>aiplatform.edgeDevices.delete</code></li>
+<li><code>aiplatform.edgeDevices.get</code></li>
+<li><code>aiplatform.edgeDevices.list</code></li>
+<li><code>aiplatform.edgeDevices.update</code></li>
+</ul>
+<p><code>aiplatform.endpoints.create</code></p>
+<p><code>aiplatform.endpoints.delete</code></p>
+<p><code>aiplatform.endpoints.deploy</code></p>
+<p><code>aiplatform.endpoints.explain</code></p>
+<p><code>aiplatform.endpoints.get</code></p>
+<p><code>aiplatform.endpoints.list</code></p>
+<p><code>aiplatform.endpoints.predict</code></p>
+<p><code>aiplatform.endpoints.undeploy</code></p>
+<p><code>aiplatform.endpoints.update</code></p>
+<p><code>aiplatform.entityTypes.create</code></p>
+<p><code>aiplatform.entityTypes.delete</code></p>
+<p><code>aiplatform. entityTypes. deleteFeatureValues</code></p>
+<p><code>aiplatform. entityTypes. exportFeatureValues</code></p>
+<p><code>aiplatform.entityTypes.get</code></p>
+<p><code>aiplatform. entityTypes. importFeatureValues</code></p>
+<p><code>aiplatform.entityTypes.list</code></p>
+<p><code>aiplatform. entityTypes. readFeatureValues</code></p>
+<p><code>aiplatform. entityTypes. streamingReadFeatureValues</code></p>
+<p><code>aiplatform.entityTypes.update</code></p>
+<p><code>aiplatform. entityTypes. writeFeatureValues</code></p>
+<p><code>aiplatform. evaluationExperiments.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationExperiments. create</code></li>
+<li><code>aiplatform. evaluationExperiments. delete</code></li>
+<li><code>aiplatform. evaluationExperiments. get</code></li>
+<li><code>aiplatform. evaluationExperiments. list</code></li>
+<li><code>aiplatform. evaluationExperiments. update</code></li>
+</ul>
+<p><code>aiplatform.evaluationItems.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationItems. create</code></li>
+<li><code>aiplatform. evaluationItems. delete</code></li>
+<li><code>aiplatform.evaluationItems.get</code></li>
+<li><code>aiplatform. evaluationItems. list</code></li>
+<li><code>aiplatform. evaluationItems. update</code></li>
+</ul>
+<p><code>aiplatform.evaluationMetrics.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationMetrics. create</code></li>
+<li><code>aiplatform. evaluationMetrics. delete</code></li>
+<li><code>aiplatform. evaluationMetrics. get</code></li>
+<li><code>aiplatform. evaluationMetrics. list</code></li>
+</ul>
+<p><code>aiplatform.evaluationRuns.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationRuns. cancel</code></li>
+<li><code>aiplatform. evaluationRuns. create</code></li>
+<li><code>aiplatform. evaluationRuns. delete</code></li>
+<li><code>aiplatform. evaluationRuns. execute</code></li>
+<li><code>aiplatform.evaluationRuns.get</code></li>
+<li><code>aiplatform.evaluationRuns.list</code></li>
+<li><code>aiplatform. evaluationRuns. update</code></li>
+</ul>
+<p><code>aiplatform.evaluationSets.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationSets. create</code></li>
+<li><code>aiplatform. evaluationSets. delete</code></li>
+<li><code>aiplatform.evaluationSets.get</code></li>
+<li><code>aiplatform. evaluationSets. import</code></li>
+<li><code>aiplatform.evaluationSets.list</code></li>
+<li><code>aiplatform. evaluationSets. update</code></li>
+</ul>
+<p><code>aiplatform.exampleStores.*</code></p>
+<ul>
+<li><code>aiplatform. exampleStores. create</code></li>
+<li><code>aiplatform. exampleStores. delete</code></li>
+<li><code>aiplatform.exampleStores.get</code></li>
+<li><code>aiplatform.exampleStores.list</code></li>
+<li><code>aiplatform. exampleStores. readExample</code></li>
+<li><code>aiplatform. exampleStores. update</code></li>
+<li><code>aiplatform. exampleStores. writeExample</code></li>
+</ul>
+<p><code>aiplatform.executions.*</code></p>
+<ul>
+<li><code>aiplatform. executions. addExecutionEvents</code></li>
+<li><code>aiplatform.executions.create</code></li>
+<li><code>aiplatform.executions.delete</code></li>
+<li><code>aiplatform.executions.get</code></li>
+<li><code>aiplatform.executions.list</code></li>
+<li><code>aiplatform. executions. queryExecutionInputsAndOutputs</code></li>
+<li><code>aiplatform.executions.update</code></li>
+</ul>
+<p><code>aiplatform.extensions.*</code></p>
+<ul>
+<li><code>aiplatform.extensions.delete</code></li>
+<li><code>aiplatform.extensions.execute</code></li>
+<li><code>aiplatform.extensions.get</code></li>
+<li><code>aiplatform.extensions.import</code></li>
+<li><code>aiplatform.extensions.list</code></li>
+<li><code>aiplatform.extensions.update</code></li>
+</ul>
+<p><code>aiplatform. featureGroups. create</code></p>
+<p><code>aiplatform. featureGroups. delete</code></p>
+<p><code>aiplatform.featureGroups.get</code></p>
+<p><code>aiplatform.featureGroups.list</code></p>
+<p><code>aiplatform. featureGroups. update</code></p>
+<p><code>aiplatform. featureMonitorJobs.*</code></p>
+<ul>
+<li><code>aiplatform. featureMonitorJobs. create</code></li>
+<li><code>aiplatform. featureMonitorJobs. get</code></li>
+<li><code>aiplatform. featureMonitorJobs. list</code></li>
+</ul>
+<p><code>aiplatform.featureMonitors.*</code></p>
+<ul>
+<li><code>aiplatform. featureMonitors. create</code></li>
+<li><code>aiplatform. featureMonitors. delete</code></li>
+<li><code>aiplatform.featureMonitors.get</code></li>
+<li><code>aiplatform. featureMonitors. list</code></li>
+<li><code>aiplatform. featureMonitors. update</code></li>
+</ul>
+<p><code>aiplatform. featureOnlineStores. create</code></p>
+<p><code>aiplatform. featureOnlineStores. delete</code></p>
+<p><code>aiplatform. featureOnlineStores. get</code></p>
+<p><code>aiplatform. featureOnlineStores. list</code></p>
+<p><code>aiplatform. featureOnlineStores. update</code></p>
+<p><code>aiplatform.featureViewSyncs.*</code></p>
+<ul>
+<li><code>aiplatform. featureViewSyncs. get</code></li>
+<li><code>aiplatform. featureViewSyncs. list</code></li>
+</ul>
+<p><code>aiplatform.featureViews.create</code></p>
+<p><code>aiplatform.featureViews.delete</code></p>
+<p><code>aiplatform. featureViews. directWrite</code></p>
+<p><code>aiplatform. featureViews. fetchFeatureValues</code></p>
+<p><code>aiplatform.featureViews.get</code></p>
+<p><code>aiplatform.featureViews.list</code></p>
+<p><code>aiplatform. featureViews. searchNearestEntities</code></p>
+<p><code>aiplatform.featureViews.sync</code></p>
+<p><code>aiplatform.featureViews.update</code></p>
+<p><code>aiplatform.features.*</code></p>
+<ul>
+<li><code>aiplatform.features.create</code></li>
+<li><code>aiplatform.features.delete</code></li>
+<li><code>aiplatform.features.get</code></li>
+<li><code>aiplatform.features.list</code></li>
+<li><code>aiplatform.features.update</code></li>
+</ul>
+<p><code>aiplatform. featurestores. batchReadFeatureValues</code></p>
+<p><code>aiplatform. featurestores. create</code></p>
+<p><code>aiplatform. featurestores. delete</code></p>
+<p><code>aiplatform. featurestores. exportFeatures</code></p>
+<p><code>aiplatform.featurestores.get</code></p>
+<p><code>aiplatform. featurestores. importFeatures</code></p>
+<p><code>aiplatform.featurestores.list</code></p>
+<p><code>aiplatform. featurestores. readFeatures</code></p>
+<p><code>aiplatform. featurestores. update</code></p>
+<p><code>aiplatform. featurestores. writeFeatures</code></p>
+<p><code>aiplatform.humanInTheLoops.*</code></p>
+<ul>
+<li><code>aiplatform. humanInTheLoops. cancel</code></li>
+<li><code>aiplatform. humanInTheLoops. create</code></li>
+<li><code>aiplatform. humanInTheLoops. delete</code></li>
+<li><code>aiplatform.humanInTheLoops.get</code></li>
+<li><code>aiplatform. humanInTheLoops. list</code></li>
+<li><code>aiplatform. humanInTheLoops. queryAnnotationStats</code></li>
+<li><code>aiplatform. humanInTheLoops. send</code></li>
+<li><code>aiplatform. humanInTheLoops. update</code></li>
+</ul>
+<p><code>aiplatform. hyperparameterTuningJobs.*</code></p>
+<ul>
+<li><code>aiplatform. hyperparameterTuningJobs. cancel</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. create</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. delete</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. get</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. list</code></li>
+</ul>
+<p><code>aiplatform.indexEndpoints.*</code></p>
+<ul>
+<li><code>aiplatform. indexEndpoints. create</code></li>
+<li><code>aiplatform. indexEndpoints. delete</code></li>
+<li><code>aiplatform. indexEndpoints. deploy</code></li>
+<li><code>aiplatform.indexEndpoints.get</code></li>
+<li><code>aiplatform.indexEndpoints.list</code></li>
+<li><code>aiplatform. indexEndpoints. queryVectors</code></li>
+<li><code>aiplatform. indexEndpoints. undeploy</code></li>
+<li><code>aiplatform. indexEndpoints. update</code></li>
+</ul>
+<p><code>aiplatform.indexes.*</code></p>
+<ul>
+<li><code>aiplatform.indexes.create</code></li>
+<li><code>aiplatform.indexes.delete</code></li>
+<li><code>aiplatform.indexes.get</code></li>
+<li><code>aiplatform.indexes.list</code></li>
+<li><code>aiplatform.indexes.update</code></li>
+</ul>
+<p><code>aiplatform.interactions.*</code></p>
+<ul>
+<li><code>aiplatform.interactions.cancel</code></li>
+<li><code>aiplatform.interactions.create</code></li>
+<li><code>aiplatform.interactions.delete</code></li>
+<li><code>aiplatform.interactions.get</code></li>
+<li><code>aiplatform.interactions.list</code></li>
+</ul>
+<p><code>aiplatform.locations.*</code></p>
+<ul>
+<li><code>aiplatform. locations. evaluateInstances</code></li>
+<li><code>aiplatform.locations.get</code></li>
+<li><code>aiplatform.locations.list</code></li>
+</ul>
+<p><code>aiplatform.memories.*</code></p>
+<ul>
+<li><code>aiplatform.memories.create</code></li>
+<li><code>aiplatform.memories.delete</code></li>
+<li><code>aiplatform.memories.generate</code></li>
+<li><code>aiplatform.memories.get</code></li>
+<li><code>aiplatform.memories.list</code></li>
+<li><code>aiplatform.memories.retrieve</code></li>
+<li><code>aiplatform.memories.update</code></li>
+</ul>
+<p><code>aiplatform.memoryRevisions.*</code></p>
+<ul>
+<li><code>aiplatform.memoryRevisions.get</code></li>
+<li><code>aiplatform. memoryRevisions. list</code></li>
+<li><code>aiplatform. memoryRevisions. rollback</code></li>
+</ul>
+<p><code>aiplatform.metadataSchemas.*</code></p>
+<ul>
+<li><code>aiplatform. metadataSchemas. create</code></li>
+<li><code>aiplatform. metadataSchemas. delete</code></li>
+<li><code>aiplatform.metadataSchemas.get</code></li>
+<li><code>aiplatform. metadataSchemas. list</code></li>
+</ul>
+<p><code>aiplatform.metadataStores.*</code></p>
+<ul>
+<li><code>aiplatform. metadataStores. create</code></li>
+<li><code>aiplatform. metadataStores. delete</code></li>
+<li><code>aiplatform.metadataStores.get</code></li>
+<li><code>aiplatform.metadataStores.list</code></li>
+</ul>
+<p><code>aiplatform. modelDeploymentMonitoringJobs.*</code></p>
+<ul>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. create</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. delete</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. get</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. list</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. pause</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. resume</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. searchStatsAnomalies</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. update</code></li>
+</ul>
+<p><code>aiplatform. modelEvaluationSlices.*</code></p>
+<ul>
+<li><code>aiplatform. modelEvaluationSlices. get</code></li>
+<li><code>aiplatform. modelEvaluationSlices. import</code></li>
+<li><code>aiplatform. modelEvaluationSlices. list</code></li>
+</ul>
+<p><code>aiplatform.modelEvaluations.*</code></p>
+<ul>
+<li><code>aiplatform. modelEvaluations. exportEvaluatedDataItems</code></li>
+<li><code>aiplatform. modelEvaluations. get</code></li>
+<li><code>aiplatform. modelEvaluations. import</code></li>
+<li><code>aiplatform. modelEvaluations. list</code></li>
+</ul>
+<p><code>aiplatform. modelMonitoringJobs.*</code></p>
+<ul>
+<li><code>aiplatform. modelMonitoringJobs. create</code></li>
+<li><code>aiplatform. modelMonitoringJobs. delete</code></li>
+<li><code>aiplatform. modelMonitoringJobs. get</code></li>
+<li><code>aiplatform. modelMonitoringJobs. list</code></li>
+</ul>
+<p><code>aiplatform.modelMonitors.*</code></p>
+<ul>
+<li><code>aiplatform. modelMonitors. create</code></li>
+<li><code>aiplatform. modelMonitors. delete</code></li>
+<li><code>aiplatform.modelMonitors.get</code></li>
+<li><code>aiplatform.modelMonitors.list</code></li>
+<li><code>aiplatform. modelMonitors. searchModelMonitoringAlerts</code></li>
+<li><code>aiplatform. modelMonitors. searchModelMonitoringStats</code></li>
+<li><code>aiplatform. modelMonitors. update</code></li>
+</ul>
+<p><code>aiplatform.models.*</code></p>
+<ul>
+<li><code>aiplatform.models.delete</code></li>
+<li><code>aiplatform.models.export</code></li>
+<li><code>aiplatform.models.get</code></li>
+<li><code>aiplatform.models.list</code></li>
+<li><code>aiplatform.models.update</code></li>
+<li><code>aiplatform.models.upload</code></li>
+</ul>
+<p><code>aiplatform. monitoredAgents. disable</code></p>
+<p><code>aiplatform. monitoredAgents. enable</code></p>
+<p><code>aiplatform.monitoredAgents.get</code></p>
+<p><code>aiplatform. monitoredAgents. list</code></p>
+<p><code>aiplatform.nasJobs.*</code></p>
+<ul>
+<li><code>aiplatform.nasJobs.cancel</code></li>
+<li><code>aiplatform.nasJobs.create</code></li>
+<li><code>aiplatform.nasJobs.delete</code></li>
+<li><code>aiplatform.nasJobs.get</code></li>
+<li><code>aiplatform.nasJobs.list</code></li>
+</ul>
+<p><code>aiplatform.nasTrialDetails.*</code></p>
+<ul>
+<li><code>aiplatform.nasTrialDetails.get</code></li>
+<li><code>aiplatform. nasTrialDetails. list</code></li>
+</ul>
+<p><code>aiplatform. notebookExecutionJobs.*</code></p>
+<ul>
+<li><code>aiplatform. notebookExecutionJobs. create</code></li>
+<li><code>aiplatform. notebookExecutionJobs. delete</code></li>
+<li><code>aiplatform. notebookExecutionJobs. get</code></li>
+<li><code>aiplatform. notebookExecutionJobs. list</code></li>
+</ul>
+<p><code>aiplatform. notebookRuntimeTemplates. apply</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. create</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. delete</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. get</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. list</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. update</code></p>
+<p><code>aiplatform.notebookRuntimes.*</code></p>
+<ul>
+<li><code>aiplatform. notebookRuntimes. assign</code></li>
+<li><code>aiplatform. notebookRuntimes. delete</code></li>
+<li><code>aiplatform. notebookRuntimes. get</code></li>
+<li><code>aiplatform. notebookRuntimes. list</code></li>
+<li><code>aiplatform. notebookRuntimes. start</code></li>
+<li><code>aiplatform. notebookRuntimes. update</code></li>
+<li><code>aiplatform. notebookRuntimes. upgrade</code></li>
+</ul>
+<p><code>aiplatform.onlineEvaluators.*</code></p>
+<ul>
+<li><code>aiplatform. onlineEvaluators. create</code></li>
+<li><code>aiplatform. onlineEvaluators. delete</code></li>
+<li><code>aiplatform. onlineEvaluators. get</code></li>
+<li><code>aiplatform. onlineEvaluators. list</code></li>
+<li><code>aiplatform. onlineEvaluators. update</code></li>
+</ul>
+<p><code>aiplatform.operations.list</code></p>
+<p><code>aiplatform. persistentResources. get</code></p>
+<p><code>aiplatform. persistentResources. list</code></p>
+<p><code>aiplatform.pipelineJobs.*</code></p>
+<ul>
+<li><code>aiplatform.pipelineJobs.cancel</code></li>
+<li><code>aiplatform.pipelineJobs.create</code></li>
+<li><code>aiplatform.pipelineJobs.delete</code></li>
+<li><code>aiplatform.pipelineJobs.get</code></li>
+<li><code>aiplatform.pipelineJobs.list</code></li>
+</ul>
+<p><code>aiplatform. provisionedThroughputRevisions.*</code></p>
+<ul>
+<li><code>aiplatform. provisionedThroughputRevisions. get</code></li>
+<li><code>aiplatform. provisionedThroughputRevisions. list</code></li>
+</ul>
+<p><code>aiplatform. provisionedThroughputs. get</code></p>
+<p><code>aiplatform. provisionedThroughputs. list</code></p>
+<p><code>aiplatform.ragCorpora.*</code></p>
+<ul>
+<li><code>aiplatform.ragCorpora.create</code></li>
+<li><code>aiplatform.ragCorpora.delete</code></li>
+<li><code>aiplatform.ragCorpora.get</code></li>
+<li><code>aiplatform.ragCorpora.list</code></li>
+<li><code>aiplatform.ragCorpora.query</code></li>
+<li><code>aiplatform.ragCorpora.update</code></li>
+</ul>
+<p><code>aiplatform. ragEngineConfigs. get</code></p>
+<p><code>aiplatform.ragFiles.*</code></p>
+<ul>
+<li><code>aiplatform.ragFiles.delete</code></li>
+<li><code>aiplatform.ragFiles.get</code></li>
+<li><code>aiplatform.ragFiles.import</code></li>
+<li><code>aiplatform.ragFiles.list</code></li>
+<li><code>aiplatform.ragFiles.upload</code></li>
+</ul>
+<p><code>aiplatform. reasoningEngineRuntimeRevisions.*</code></p>
+<ul>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. delete</code></li>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. get</code></li>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. list</code></li>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. query</code></li>
+</ul>
+<p><code>aiplatform. reasoningEngines. create</code></p>
+<p><code>aiplatform. reasoningEngines. delete</code></p>
+<p><code>aiplatform. reasoningEngines. get</code></p>
+<p><code>aiplatform. reasoningEngines. list</code></p>
+<p><code>aiplatform. reasoningEngines. query</code></p>
+<p><code>aiplatform. reasoningEngines. update</code></p>
+<p><code>aiplatform. sandboxEnvironments.*</code></p>
+<ul>
+<li><code>aiplatform. sandboxEnvironments. create</code></li>
+<li><code>aiplatform. sandboxEnvironments. delete</code></li>
+<li><code>aiplatform. sandboxEnvironments. execute</code></li>
+<li><code>aiplatform. sandboxEnvironments. get</code></li>
+<li><code>aiplatform. sandboxEnvironments. list</code></li>
+</ul>
+<p><code>aiplatform.schedules.*</code></p>
+<ul>
+<li><code>aiplatform.schedules.create</code></li>
+<li><code>aiplatform.schedules.delete</code></li>
+<li><code>aiplatform.schedules.get</code></li>
+<li><code>aiplatform.schedules.list</code></li>
+<li><code>aiplatform.schedules.update</code></li>
+</ul>
+<p><code>aiplatform. semanticGovernancePolicies.*</code></p>
+<ul>
+<li><code>aiplatform. semanticGovernancePolicies. create</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. delete</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. get</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. list</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. update</code></li>
+</ul>
+<p><code>aiplatform. semanticGovernancePolicyEngine.*</code></p>
+<ul>
+<li><code>aiplatform. semanticGovernancePolicyEngine. get</code></li>
+<li><code>aiplatform. semanticGovernancePolicyEngine. update</code></li>
+</ul>
+<p><code>aiplatform.sessionEvents.*</code></p>
+<ul>
+<li><code>aiplatform. sessionEvents. append</code></li>
+<li><code>aiplatform.sessionEvents.list</code></li>
+</ul>
+<p><code>aiplatform.sessions.*</code></p>
+<ul>
+<li><code>aiplatform.sessions.create</code></li>
+<li><code>aiplatform.sessions.delete</code></li>
+<li><code>aiplatform.sessions.get</code></li>
+<li><code>aiplatform.sessions.list</code></li>
+<li><code>aiplatform.sessions.run</code></li>
+<li><code>aiplatform.sessions.update</code></li>
+</ul>
+<p><code>aiplatform.specialistPools.*</code></p>
+<ul>
+<li><code>aiplatform. specialistPools. create</code></li>
+<li><code>aiplatform. specialistPools. delete</code></li>
+<li><code>aiplatform.specialistPools.get</code></li>
+<li><code>aiplatform. specialistPools. list</code></li>
+<li><code>aiplatform. specialistPools. update</code></li>
+</ul>
+<p><code>aiplatform.studies.*</code></p>
+<ul>
+<li><code>aiplatform.studies.create</code></li>
+<li><code>aiplatform.studies.delete</code></li>
+<li><code>aiplatform.studies.get</code></li>
+<li><code>aiplatform.studies.list</code></li>
+<li><code>aiplatform.studies.update</code></li>
+</ul>
+<p><code>aiplatform.tasks.*</code></p>
+<ul>
+<li><code>aiplatform.tasks.cancel</code></li>
+<li><code>aiplatform.tasks.create</code></li>
+<li><code>aiplatform.tasks.delete</code></li>
+<li><code>aiplatform.tasks.get</code></li>
+<li><code>aiplatform.tasks.list</code></li>
+<li><code>aiplatform.tasks.update</code></li>
+</ul>
+<p><code>aiplatform. tensorboardExperiments.*</code></p>
+<ul>
+<li><code>aiplatform. tensorboardExperiments. create</code></li>
+<li><code>aiplatform. tensorboardExperiments. delete</code></li>
+<li><code>aiplatform. tensorboardExperiments. get</code></li>
+<li><code>aiplatform. tensorboardExperiments. list</code></li>
+<li><code>aiplatform. tensorboardExperiments. update</code></li>
+<li><code>aiplatform. tensorboardExperiments. write</code></li>
+</ul>
+<p><code>aiplatform.tensorboardRuns.*</code></p>
+<ul>
+<li><code>aiplatform. tensorboardRuns. batchCreate</code></li>
+<li><code>aiplatform. tensorboardRuns. create</code></li>
+<li><code>aiplatform. tensorboardRuns. delete</code></li>
+<li><code>aiplatform.tensorboardRuns.get</code></li>
+<li><code>aiplatform. tensorboardRuns. list</code></li>
+<li><code>aiplatform. tensorboardRuns. update</code></li>
+<li><code>aiplatform. tensorboardRuns. write</code></li>
+</ul>
+<p><code>aiplatform. tensorboardTimeSeries.*</code></p>
+<ul>
+<li><code>aiplatform. tensorboardTimeSeries. batchCreate</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. batchRead</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. create</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. delete</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. get</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. list</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. read</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. update</code></li>
+</ul>
+<p><code>aiplatform.tensorboards.create</code></p>
+<p><code>aiplatform.tensorboards.delete</code></p>
+<p><code>aiplatform.tensorboards.get</code></p>
+<p><code>aiplatform.tensorboards.list</code></p>
+<p><code>aiplatform.tensorboards.update</code></p>
+<p><code>aiplatform.trainingPipelines.*</code></p>
+<ul>
+<li><code>aiplatform. trainingPipelines. cancel</code></li>
+<li><code>aiplatform. trainingPipelines. create</code></li>
+<li><code>aiplatform. trainingPipelines. delete</code></li>
+<li><code>aiplatform. trainingPipelines. get</code></li>
+<li><code>aiplatform. trainingPipelines. list</code></li>
+</ul>
+<p><code>aiplatform.trials.*</code></p>
+<ul>
+<li><code>aiplatform.trials.create</code></li>
+<li><code>aiplatform.trials.delete</code></li>
+<li><code>aiplatform.trials.get</code></li>
+<li><code>aiplatform.trials.list</code></li>
+<li><code>aiplatform.trials.update</code></li>
+</ul>
+<p><code>aiplatform.tuningJobs.*</code></p>
+<ul>
+<li><code>aiplatform.tuningJobs.cancel</code></li>
+<li><code>aiplatform.tuningJobs.create</code></li>
+<li><code>aiplatform.tuningJobs.delete</code></li>
+<li><code>aiplatform.tuningJobs.get</code></li>
+<li><code>aiplatform.tuningJobs.list</code></li>
+<li><code>aiplatform. tuningJobs. optimizePrompt</code></li>
+<li><code>aiplatform. tuningJobs. validateReinforcementTuningReward</code></li>
+<li><code>aiplatform. tuningJobs. vertexTune</code></li>
+</ul>
+<p><code>artifactregistry. repositories. downloadArtifacts</code></p>
+<p><code>artifactregistry. repositories. get</code></p>
+<p><code>artifactregistry. repositories. list</code></p>
+<p><code>artifactregistry.tags.get</code></p>
+<p><code>artifactregistry.versions.get</code></p>
+<p><code>bigquery.datasets.create</code></p>
+<p><code>bigquery.datasets.get</code></p>
+<p><code>bigquery.jobs.create</code></p>
+<p><code>bigquery.jobs.get</code></p>
+<p><code>bigquery.readsessions.create</code></p>
+<p><code>bigquery.readsessions.getData</code></p>
+<p><code>bigquery.tables.create</code></p>
+<p><code>bigquery.tables.export</code></p>
+<p><code>bigquery.tables.get</code></p>
+<p><code>bigquery.tables.getData</code></p>
+<p><code>bigquery.tables.update</code></p>
+<p><code>bigquery.tables.updateData</code></p>
+<p><code>cloudtrace.traces.list</code></p>
+<p><code>iam.serviceAccounts.get</code></p>
+<p><code>iam. serviceAccounts. getAccessToken</code></p>
+<p><code>iam. serviceAccounts. getOpenIdToken</code></p>
+<p><code>iam. serviceAccounts. implicitDelegation</code></p>
+<p><code>iam.serviceAccounts.list</code></p>
+<p><code>iam.serviceAccounts.signBlob</code></p>
+<p><code>iam.serviceAccounts.signJwt</code></p>
+<p><code>logging.logEntries.create</code></p>
+<p><code>logging.logEntries.route</code></p>
+<p><code>logging.views.access</code></p>
+<p><code>logging.views.get</code></p>
+<p><code>monitoring. metricDescriptors. create</code></p>
+<p><code>monitoring. metricDescriptors. get</code></p>
+<p><code>monitoring. metricDescriptors. list</code></p>
+<p><code>monitoring. monitoredResourceDescriptors.*</code></p>
+<ul>
+<li><code>monitoring. monitoredResourceDescriptors. get</code></li>
+<li><code>monitoring. monitoredResourceDescriptors. list</code></li>
+</ul>
+<p><code>monitoring.timeSeries.create</code></p>
+<p><code>observability.views.access</code></p>
+<p><code>resourcemanager.projects.get</code></p>
+<p><code>resourcemanager.projects.list</code></p>
+<p><code>servicemanagement. services. report</code></p>
+<p><code>serviceusage.services.use</code></p>
+<p><code>storage.buckets.create</code></p>
+<p><code>storage.buckets.delete</code></p>
+<p><code>storage.buckets.get</code></p>
+<p><code>storage.buckets.list</code></p>
+<p><code>storage.objects.create</code></p>
+<p><code>storage.objects.delete</code></p>
+<p><code>storage.objects.get</code></p>
+<p><code>storage.objects.list</code></p>
+<p><code>storage.objects.update</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.extensionCustomCodeServiceAgent" class="role-title add-link" data-text="Vertex AI Extension Custom Code Service Agent" tabindex="-1">Vertex AI Extension Custom Code Service Agent</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.extensionCustomCodeServiceAgent</code> )</p>
+<td>Vertex AI Extension Custom Code Service Agent
+<p>( <code>roles/ aiplatform.extensionCustomCodeServiceAgent</code> )</p>
 <p>Gives Vertex AI Extension that executes custom code the permissions it needs to function.</p>
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">logging.logEntries.create</code></p>
-<p><code dir="ltr" translate="no">logging.logEntries.route</code></p>
-<p><code dir="ltr" translate="no">monitoring.timeSeries.create</code></p>
-<p><code dir="ltr" translate="no">orgpolicy.policy.get</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.list</code></p>
-<p><code dir="ltr" translate="no">storage.folders.*</code></p>
+<td><p><code>logging.logEntries.create</code></p>
+<p><code>logging.logEntries.route</code></p>
+<p><code>monitoring.timeSeries.create</code></p>
+<p><code>orgpolicy.policy.get</code></p>
+<p><code>resourcemanager.projects.get</code></p>
+<p><code>resourcemanager.projects.list</code></p>
+<p><code>storage.folders.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">storage.folders.create</code></li>
-<li><code dir="ltr" translate="no">storage.folders.delete</code></li>
-<li><code dir="ltr" translate="no">storage.folders.get</code></li>
-<li><code dir="ltr" translate="no">storage.folders.list</code></li>
-<li><code dir="ltr" translate="no">storage.folders.rename</code></li>
+<li><code>storage.folders.create</code></li>
+<li><code>storage.folders.delete</code></li>
+<li><code>storage.folders.get</code></li>
+<li><code>storage.folders.list</code></li>
+<li><code>storage.folders.rename</code></li>
 </ul>
-<p><code dir="ltr" translate="no">storage.managedFolders.create</code></p>
-<p><code dir="ltr" translate="no">storage.managedFolders.delete</code></p>
-<p><code dir="ltr" translate="no">storage.managedFolders.get</code></p>
-<p><code dir="ltr" translate="no">storage.managedFolders.list</code></p>
-<p><code dir="ltr" translate="no">storage.managedFolders.update</code></p>
-<p><code dir="ltr" translate="no">storage.multipartUploads.*</code></p>
+<p><code>storage.managedFolders.create</code></p>
+<p><code>storage.managedFolders.delete</code></p>
+<p><code>storage.managedFolders.get</code></p>
+<p><code>storage.managedFolders.list</code></p>
+<p><code>storage.managedFolders.update</code></p>
+<p><code>storage.multipartUploads.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">storage.multipartUploads.abort</code></li>
-<li><code dir="ltr" translate="no">storage.  multipartUploads.  create</code></li>
-<li><code dir="ltr" translate="no">storage.multipartUploads.list</code></li>
-<li><code dir="ltr" translate="no">storage.  multipartUploads.  listParts</code></li>
+<li><code>storage.multipartUploads.abort</code></li>
+<li><code>storage. multipartUploads. create</code></li>
+<li><code>storage.multipartUploads.list</code></li>
+<li><code>storage. multipartUploads. listParts</code></li>
 </ul>
-<p><code dir="ltr" translate="no">storage.objects.*</code></p>
+<p><code>storage.objects.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">storage.objects.create</code></li>
-<li><code dir="ltr" translate="no">storage.objects.createContext</code></li>
-<li><code dir="ltr" translate="no">storage.objects.delete</code></li>
-<li><code dir="ltr" translate="no">storage.objects.deleteContext</code></li>
-<li><code dir="ltr" translate="no">storage.objects.get</code></li>
-<li><code dir="ltr" translate="no">storage.objects.getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">storage.objects.list</code></li>
-<li><code dir="ltr" translate="no">storage.objects.move</code></li>
-<li><code dir="ltr" translate="no">storage.  objects.  overrideUnlockedRetention</code></li>
-<li><code dir="ltr" translate="no">storage.objects.restore</code></li>
-<li><code dir="ltr" translate="no">storage.objects.setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">storage.objects.setRetention</code></li>
-<li><code dir="ltr" translate="no">storage.objects.update</code></li>
-<li><code dir="ltr" translate="no">storage.objects.updateContext</code></li>
+<li><code>storage.objects.create</code></li>
+<li><code>storage.objects.createContext</code></li>
+<li><code>storage.objects.delete</code></li>
+<li><code>storage.objects.deleteContext</code></li>
+<li><code>storage.objects.get</code></li>
+<li><code>storage.objects.getIamPolicy</code></li>
+<li><code>storage.objects.list</code></li>
+<li><code>storage.objects.move</code></li>
+<li><code>storage. objects. overrideUnlockedRetention</code></li>
+<li><code>storage.objects.restore</code></li>
+<li><code>storage.objects.setIamPolicy</code></li>
+<li><code>storage.objects.setRetention</code></li>
+<li><code>storage.objects.update</code></li>
+<li><code>storage.objects.updateContext</code></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.extensionServiceAgent" class="role-title add-link" data-text="Vertex AI Extension Service Agent" tabindex="-1">Vertex AI Extension Service Agent</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.extensionServiceAgent</code> )</p>
+<td>Vertex AI Extension Service Agent
+<p>( <code>roles/ aiplatform.extensionServiceAgent</code> )</p>
 <p>Gives Vertex AI Extension the permissions it needs to function.</p>
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">aiplatform.endpoints.predict</code></p>
-<p><code dir="ltr" translate="no">aiplatform.locations.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.ragCorpora.query</code></p>
-<p><code dir="ltr" translate="no">discoveryengine.  servingConfigs.  search</code></p>
-<p><code dir="ltr" translate="no">iam.  serviceAccounts.  getAccessToken</code></p>
-<p><code dir="ltr" translate="no">iam.  serviceAccounts.  getOpenIdToken</code></p>
-<p><code dir="ltr" translate="no">logging.logEntries.create</code></p>
-<p><code dir="ltr" translate="no">logging.logEntries.route</code></p>
-<p><code dir="ltr" translate="no">serviceusage.services.use</code></p>
-<p><code dir="ltr" translate="no">storage.objects.get</code></p></td>
+<td><p><code>aiplatform.endpoints.predict</code></p>
+<p><code>aiplatform.locations.get</code></p>
+<p><code>aiplatform.ragCorpora.query</code></p>
+<p><code>discoveryengine. servingConfigs. search</code></p>
+<p><code>iam. serviceAccounts. getAccessToken</code></p>
+<p><code>iam. serviceAccounts. getOpenIdToken</code></p>
+<p><code>logging.logEntries.create</code></p>
+<p><code>logging.logEntries.route</code></p>
+<p><code>serviceusage.services.use</code></p>
+<p><code>storage.objects.get</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.modelMonitoringServiceAgent" class="role-title add-link" data-text="Vertex AI Model Monitoring Service Agent" tabindex="-1">Vertex AI Model Monitoring Service Agent</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.modelMonitoringServiceAgent</code> )</p>
+<td>Vertex AI Model Monitoring Service Agent
+<p>( <code>roles/ aiplatform.modelMonitoringServiceAgent</code> )</p>
 <p>Gives Vertex AI Model Monitoring the permissions it needs to function.</p>
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  locations.  evaluateInstances</code></p>
-<p><code dir="ltr" translate="no">bigquery.datasets.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.datasets.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.jobs.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.jobs.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.export</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.getData</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.update</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.updateData</code></p>
-<p><code dir="ltr" translate="no">monitoring.  notificationChannels.  get</code></p>
-<p><code dir="ltr" translate="no">serviceusage.services.use</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.create</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.delete</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.get</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.list</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.update</code></p>
-<p><code dir="ltr" translate="no">storage.objects.create</code></p>
-<p><code dir="ltr" translate="no">storage.objects.delete</code></p>
-<p><code dir="ltr" translate="no">storage.objects.get</code></p>
-<p><code dir="ltr" translate="no">storage.objects.list</code></p>
-<p><code dir="ltr" translate="no">storage.objects.update</code></p></td>
+<td><p><code>aiplatform. batchPredictionJobs. create</code></p>
+<p><code>aiplatform. batchPredictionJobs. get</code></p>
+<p><code>aiplatform. batchPredictionJobs. list</code></p>
+<p><code>aiplatform. locations. evaluateInstances</code></p>
+<p><code>bigquery.datasets.create</code></p>
+<p><code>bigquery.datasets.get</code></p>
+<p><code>bigquery.jobs.create</code></p>
+<p><code>bigquery.jobs.get</code></p>
+<p><code>bigquery.tables.create</code></p>
+<p><code>bigquery.tables.export</code></p>
+<p><code>bigquery.tables.get</code></p>
+<p><code>bigquery.tables.getData</code></p>
+<p><code>bigquery.tables.update</code></p>
+<p><code>bigquery.tables.updateData</code></p>
+<p><code>monitoring. notificationChannels. get</code></p>
+<p><code>serviceusage.services.use</code></p>
+<p><code>storage.buckets.create</code></p>
+<p><code>storage.buckets.delete</code></p>
+<p><code>storage.buckets.get</code></p>
+<p><code>storage.buckets.list</code></p>
+<p><code>storage.buckets.update</code></p>
+<p><code>storage.objects.create</code></p>
+<p><code>storage.objects.delete</code></p>
+<p><code>storage.objects.get</code></p>
+<p><code>storage.objects.list</code></p>
+<p><code>storage.objects.update</code></p></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.notebookServiceAgent" class="role-title add-link" data-text="Vertex AI Notebook Service Agent" tabindex="-1">Vertex AI Notebook Service Agent</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.notebookServiceAgent</code> )</p>
+<td>Vertex AI Notebook Service Agent
+<p>( <code>roles/ aiplatform.notebookServiceAgent</code> )</p>
 <p>Vertex AI Service Agent used to run Notebook managed resources in user project with restricted permissions.</p>
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">logging.logEntries.create</code></p>
-<p><code dir="ltr" translate="no">logging.logEntries.route</code></p>
-<p><code dir="ltr" translate="no">monitoring.  metricDescriptors.  create</code></p>
-<p><code dir="ltr" translate="no">monitoring.  metricDescriptors.  get</code></p>
-<p><code dir="ltr" translate="no">monitoring.  metricDescriptors.  list</code></p>
-<p><code dir="ltr" translate="no">monitoring.  monitoredResourceDescriptors.*</code></p>
+<td><p><code>logging.logEntries.create</code></p>
+<p><code>logging.logEntries.route</code></p>
+<p><code>monitoring. metricDescriptors. create</code></p>
+<p><code>monitoring. metricDescriptors. get</code></p>
+<p><code>monitoring. metricDescriptors. list</code></p>
+<p><code>monitoring. monitoredResourceDescriptors.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">monitoring.  monitoredResourceDescriptors.  get</code></li>
-<li><code dir="ltr" translate="no">monitoring.  monitoredResourceDescriptors.  list</code></li>
+<li><code>monitoring. monitoredResourceDescriptors. get</code></li>
+<li><code>monitoring. monitoredResourceDescriptors. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">monitoring.timeSeries.create</code></p></td>
+<p><code>monitoring.timeSeries.create</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.onlinePredictionServiceAgent" class="role-title add-link" data-text="Vertex AI Online Prediction Service Agent" tabindex="-1">Vertex AI Online Prediction Service Agent</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.onlinePredictionServiceAgent</code> )</p>
+<td>Vertex AI Online Prediction Service Agent
+<p>( <code>roles/ aiplatform.onlinePredictionServiceAgent</code> )</p>
 <p>Gives Vertex AI Online Prediction the permissions it needs to function.</p>
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">gkehub.features.get</code></p>
-<p><code dir="ltr" translate="no">gkehub.features.getIamPolicy</code></p>
-<p><code dir="ltr" translate="no">gkehub.features.list</code></p>
-<p><code dir="ltr" translate="no">gkehub.fleet.get</code></p>
-<p><code dir="ltr" translate="no">gkehub.gateway.delete</code></p>
-<p><code dir="ltr" translate="no">gkehub.  gateway.  generateCredentials</code></p>
-<p><code dir="ltr" translate="no">gkehub.gateway.get</code></p>
-<p><code dir="ltr" translate="no">gkehub.gateway.patch</code></p>
-<p><code dir="ltr" translate="no">gkehub.gateway.post</code></p>
-<p><code dir="ltr" translate="no">gkehub.gateway.put</code></p>
-<p><code dir="ltr" translate="no">gkehub.locations.*</code></p>
+<td><p><code>gkehub.features.get</code></p>
+<p><code>gkehub.features.getIamPolicy</code></p>
+<p><code>gkehub.features.list</code></p>
+<p><code>gkehub.fleet.get</code></p>
+<p><code>gkehub.gateway.delete</code></p>
+<p><code>gkehub. gateway. generateCredentials</code></p>
+<p><code>gkehub.gateway.get</code></p>
+<p><code>gkehub.gateway.patch</code></p>
+<p><code>gkehub.gateway.post</code></p>
+<p><code>gkehub.gateway.put</code></p>
+<p><code>gkehub.locations.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">gkehub.locations.get</code></li>
-<li><code dir="ltr" translate="no">gkehub.locations.list</code></li>
+<li><code>gkehub.locations.get</code></li>
+<li><code>gkehub.locations.list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">gkehub.memberships.get</code></p>
-<p><code dir="ltr" translate="no">gkehub.  memberships.  getIamPolicy</code></p>
-<p><code dir="ltr" translate="no">gkehub.memberships.list</code></p>
-<p><code dir="ltr" translate="no">serviceusage.services.get</code></p></td>
+<p><code>gkehub.memberships.get</code></p>
+<p><code>gkehub. memberships. getIamPolicy</code></p>
+<p><code>gkehub.memberships.list</code></p>
+<p><code>serviceusage.services.get</code></p></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.ragServiceAgent" class="role-title add-link" data-text="Vertex AI RAG Data Service Agent" tabindex="-1">Vertex AI RAG Data Service Agent</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.ragServiceAgent</code> )</p>
+<td>Vertex AI RAG Data Service Agent
+<p>( <code>roles/ aiplatform.ragServiceAgent</code> )</p>
 <p>Vertex AI Service Agent used by Vertex RAG to access user imported data, Vertex AI, Document AI processors, and Vector Search in the project</p>
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">aiplatform.endpoints.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.predict</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.sync</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.indexEndpoints.*</code></p>
+<td><p><code>aiplatform.endpoints.get</code></p>
+<p><code>aiplatform.endpoints.predict</code></p>
+<p><code>aiplatform.featureViews.get</code></p>
+<p><code>aiplatform.featureViews.list</code></p>
+<p><code>aiplatform.featureViews.sync</code></p>
+<p><code>aiplatform.featureViews.update</code></p>
+<p><code>aiplatform.indexEndpoints.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  deploy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexEndpoints.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexEndpoints.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  queryVectors</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  undeploy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  update</code></li>
+<li><code>aiplatform. indexEndpoints. create</code></li>
+<li><code>aiplatform. indexEndpoints. delete</code></li>
+<li><code>aiplatform. indexEndpoints. deploy</code></li>
+<li><code>aiplatform.indexEndpoints.get</code></li>
+<li><code>aiplatform.indexEndpoints.list</code></li>
+<li><code>aiplatform. indexEndpoints. queryVectors</code></li>
+<li><code>aiplatform. indexEndpoints. undeploy</code></li>
+<li><code>aiplatform. indexEndpoints. update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.indexes.*</code></p>
+<p><code>aiplatform.indexes.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.indexes.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.update</code></li>
+<li><code>aiplatform.indexes.create</code></li>
+<li><code>aiplatform.indexes.delete</code></li>
+<li><code>aiplatform.indexes.get</code></li>
+<li><code>aiplatform.indexes.list</code></li>
+<li><code>aiplatform.indexes.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.models.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.ragCorpora.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.ragCorpora.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.ragCorpora.query</code></p>
-<p><code dir="ltr" translate="no">aiplatform.ragFiles.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.ragFiles.list</code></p>
-<p><code dir="ltr" translate="no">bigquery.datasets.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.datasets.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.jobs.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.jobs.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.readsessions.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.readsessions.getData</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.createSnapshot</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.deleteSnapshot</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.export</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.getData</code></p>
-<p><code dir="ltr" translate="no">bigquery.  tables.  restoreSnapshot</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.update</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.updateData</code></p>
-<p><code dir="ltr" translate="no">documentai.  processorVersions.  processOnline</code></p>
-<p><code dir="ltr" translate="no">documentai.processors.get</code></p>
-<p><code dir="ltr" translate="no">documentai.  processors.  processOnline</code></p>
-<p><code dir="ltr" translate="no">logging.logEntries.create</code></p>
-<p><code dir="ltr" translate="no">logging.logEntries.route</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.get</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.list</code></p>
-<p><code dir="ltr" translate="no">storage.objects.get</code></p>
-<p><code dir="ltr" translate="no">storage.objects.list</code></p>
-<p><code dir="ltr" translate="no">vectorsearch.collections.*</code></p>
+<p><code>aiplatform.models.get</code></p>
+<p><code>aiplatform.ragCorpora.get</code></p>
+<p><code>aiplatform.ragCorpora.list</code></p>
+<p><code>aiplatform.ragCorpora.query</code></p>
+<p><code>aiplatform.ragFiles.get</code></p>
+<p><code>aiplatform.ragFiles.list</code></p>
+<p><code>bigquery.datasets.create</code></p>
+<p><code>bigquery.datasets.get</code></p>
+<p><code>bigquery.jobs.create</code></p>
+<p><code>bigquery.jobs.get</code></p>
+<p><code>bigquery.readsessions.create</code></p>
+<p><code>bigquery.readsessions.getData</code></p>
+<p><code>bigquery.tables.create</code></p>
+<p><code>bigquery.tables.createSnapshot</code></p>
+<p><code>bigquery.tables.deleteSnapshot</code></p>
+<p><code>bigquery.tables.export</code></p>
+<p><code>bigquery.tables.get</code></p>
+<p><code>bigquery.tables.getData</code></p>
+<p><code>bigquery. tables. restoreSnapshot</code></p>
+<p><code>bigquery.tables.update</code></p>
+<p><code>bigquery.tables.updateData</code></p>
+<p><code>documentai. processorVersions. processOnline</code></p>
+<p><code>documentai.processors.get</code></p>
+<p><code>documentai. processors. processOnline</code></p>
+<p><code>logging.logEntries.create</code></p>
+<p><code>logging.logEntries.route</code></p>
+<p><code>storage.buckets.get</code></p>
+<p><code>storage.buckets.list</code></p>
+<p><code>storage.objects.get</code></p>
+<p><code>storage.objects.list</code></p>
+<p><code>vectorsearch.collections.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">vectorsearch.  collections.  create</code></li>
-<li><code dir="ltr" translate="no">vectorsearch.  collections.  delete</code></li>
-<li><code dir="ltr" translate="no">vectorsearch.collections.get</code></li>
-<li><code dir="ltr" translate="no">vectorsearch.collections.list</code></li>
-<li><code dir="ltr" translate="no">vectorsearch.  collections.  update</code></li>
+<li><code>vectorsearch. collections. create</code></li>
+<li><code>vectorsearch. collections. delete</code></li>
+<li><code>vectorsearch.collections.get</code></li>
+<li><code>vectorsearch.collections.list</code></li>
+<li><code>vectorsearch. collections. update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">vectorsearch.  dataObjects.  create</code></p>
-<p><code dir="ltr" translate="no">vectorsearch.  dataObjects.  delete</code></p>
-<p><code dir="ltr" translate="no">vectorsearch.dataObjects.get</code></p>
-<p><code dir="ltr" translate="no">vectorsearch.  dataObjects.  import</code></p>
-<p><code dir="ltr" translate="no">vectorsearch.dataObjects.query</code></p>
-<p><code dir="ltr" translate="no">vectorsearch.  dataObjects.  search</code></p>
-<p><code dir="ltr" translate="no">vectorsearch.  dataObjects.  update</code></p>
-<p><code dir="ltr" translate="no">vectorsearch.indexes.create</code></p>
-<p><code dir="ltr" translate="no">vectorsearch.indexes.delete</code></p>
-<p><code dir="ltr" translate="no">vectorsearch.indexes.get</code></p>
-<p><code dir="ltr" translate="no">vectorsearch.indexes.list</code></p>
-<p><code dir="ltr" translate="no">vectorsearch.operations.get</code></p>
-<p><code dir="ltr" translate="no">vectorsearch.operations.list</code></p></td>
+<p><code>vectorsearch. dataObjects. create</code></p>
+<p><code>vectorsearch. dataObjects. delete</code></p>
+<p><code>vectorsearch.dataObjects.get</code></p>
+<p><code>vectorsearch. dataObjects. import</code></p>
+<p><code>vectorsearch.dataObjects.query</code></p>
+<p><code>vectorsearch. dataObjects. search</code></p>
+<p><code>vectorsearch. dataObjects. update</code></p>
+<p><code>vectorsearch.indexes.create</code></p>
+<p><code>vectorsearch.indexes.delete</code></p>
+<p><code>vectorsearch.indexes.get</code></p>
+<p><code>vectorsearch.indexes.list</code></p>
+<p><code>vectorsearch.operations.get</code></p>
+<p><code>vectorsearch.operations.list</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.rapidevalServiceAgent" class="role-title add-link" data-text="Vertex AI Rapid Eval Service Agent" tabindex="-1">Vertex AI Rapid Eval Service Agent</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.rapidevalServiceAgent</code> )</p>
+<td>Vertex AI Rapid Eval Service Agent
+<p>( <code>roles/ aiplatform.rapidevalServiceAgent</code> )</p>
 <p>Vertex AI Service Agent used by GenAI Rapid Evaluation Service to access publisher model endpoints in the user project</p>
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">aiplatform.endpoints.predict</code></p></td>
+<td><p><code>aiplatform.endpoints.predict</code></p></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.reasoningEngineServiceAgent" class="role-title add-link" data-text="Vertex AI Reasoning Engine Service Agent" tabindex="-1">Vertex AI Reasoning Engine Service Agent</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.reasoningEngineServiceAgent</code> )</p>
+<td>Vertex AI Reasoning Engine Service Agent
+<p>( <code>roles/ aiplatform.reasoningEngineServiceAgent</code> )</p>
 <p>Gives Vertex AI Reasoning Engine the proper permissions to function. The aiplatform.reasoningEngines.create IAM permission implies read access to the GCS objects of the consumer project through this service agent.</p>
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">aiplatform.endpoints.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.deploy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.explain</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.predict</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.undeploy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.memories.*</code></p>
+<td><p><code>aiplatform.endpoints.create</code></p>
+<p><code>aiplatform.endpoints.delete</code></p>
+<p><code>aiplatform.endpoints.deploy</code></p>
+<p><code>aiplatform.endpoints.explain</code></p>
+<p><code>aiplatform.endpoints.get</code></p>
+<p><code>aiplatform.endpoints.list</code></p>
+<p><code>aiplatform.endpoints.predict</code></p>
+<p><code>aiplatform.endpoints.undeploy</code></p>
+<p><code>aiplatform.endpoints.update</code></p>
+<p><code>aiplatform.memories.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.memories.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.generate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.retrieve</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.update</code></li>
+<li><code>aiplatform.memories.create</code></li>
+<li><code>aiplatform.memories.delete</code></li>
+<li><code>aiplatform.memories.generate</code></li>
+<li><code>aiplatform.memories.get</code></li>
+<li><code>aiplatform.memories.list</code></li>
+<li><code>aiplatform.memories.retrieve</code></li>
+<li><code>aiplatform.memories.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.sessionEvents.*</code></p>
+<p><code>aiplatform.sessionEvents.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  sessionEvents.  append</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessionEvents.list</code></li>
+<li><code>aiplatform. sessionEvents. append</code></li>
+<li><code>aiplatform.sessionEvents.list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.sessions.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.sessions.update</code></p>
-<p><code dir="ltr" translate="no">cloudapiregistry.*</code></p>
+<p><code>aiplatform.sessions.create</code></p>
+<p><code>aiplatform.sessions.delete</code></p>
+<p><code>aiplatform.sessions.get</code></p>
+<p><code>aiplatform.sessions.list</code></p>
+<p><code>aiplatform.sessions.update</code></p>
+<p><code>cloudapiregistry.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">cloudapiregistry.locations.get</code></li>
-<li><code dir="ltr" translate="no">cloudapiregistry.  locations.  list</code></li>
-<li><code dir="ltr" translate="no">cloudapiregistry.  mcpServers.  get</code></li>
-<li><code dir="ltr" translate="no">cloudapiregistry.  mcpServers.  list</code></li>
-<li><code dir="ltr" translate="no">cloudapiregistry.mcpTools.get</code></li>
-<li><code dir="ltr" translate="no">cloudapiregistry.mcpTools.list</code></li>
+<li><code>cloudapiregistry.locations.get</code></li>
+<li><code>cloudapiregistry. locations. list</code></li>
+<li><code>cloudapiregistry. mcpServers. get</code></li>
+<li><code>cloudapiregistry. mcpServers. list</code></li>
+<li><code>cloudapiregistry.mcpTools.get</code></li>
+<li><code>cloudapiregistry.mcpTools.list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">cloudtrace.traces.patch</code></p>
-<p><code dir="ltr" translate="no">developerconnect.  connections.  get</code></p>
-<p><code dir="ltr" translate="no">developerconnect.  gitRepositoryLinks.  fetchReadToken</code></p>
-<p><code dir="ltr" translate="no">developerconnect.  gitRepositoryLinks.  get</code></p>
-<p><code dir="ltr" translate="no">logging.logEntries.create</code></p>
-<p><code dir="ltr" translate="no">logging.logEntries.route</code></p>
-<p><code dir="ltr" translate="no">modelarmor.callouts.invoke</code></p>
-<p><code dir="ltr" translate="no">modelarmor.locations.*</code></p>
+<p><code>cloudtrace.traces.patch</code></p>
+<p><code>developerconnect. connections. get</code></p>
+<p><code>developerconnect. gitRepositoryLinks. fetchReadToken</code></p>
+<p><code>developerconnect. gitRepositoryLinks. get</code></p>
+<p><code>logging.logEntries.create</code></p>
+<p><code>logging.logEntries.route</code></p>
+<p><code>modelarmor.callouts.invoke</code></p>
+<p><code>modelarmor.locations.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">modelarmor.locations.get</code></li>
-<li><code dir="ltr" translate="no">modelarmor.locations.list</code></li>
+<li><code>modelarmor.locations.get</code></li>
+<li><code>modelarmor.locations.list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">modelarmor.  templates.  useToSanitizeInput</code></p>
-<p><code dir="ltr" translate="no">modelarmor.  templates.  useToSanitizeModelResponse</code></p>
-<p><code dir="ltr" translate="no">modelarmor.  templates.  useToSanitizeOutput</code></p>
-<p><code dir="ltr" translate="no">modelarmor.  templates.  useToSanitizeUserPrompt</code></p>
-<p><code dir="ltr" translate="no">monitoring.  metricDescriptors.  create</code></p>
-<p><code dir="ltr" translate="no">monitoring.  metricDescriptors.  get</code></p>
-<p><code dir="ltr" translate="no">monitoring.  metricDescriptors.  list</code></p>
-<p><code dir="ltr" translate="no">monitoring.  monitoredResourceDescriptors.*</code></p>
+<p><code>modelarmor. templates. useToSanitizeInput</code></p>
+<p><code>modelarmor. templates. useToSanitizeModelResponse</code></p>
+<p><code>modelarmor. templates. useToSanitizeOutput</code></p>
+<p><code>modelarmor. templates. useToSanitizeUserPrompt</code></p>
+<p><code>monitoring. metricDescriptors. create</code></p>
+<p><code>monitoring. metricDescriptors. get</code></p>
+<p><code>monitoring. metricDescriptors. list</code></p>
+<p><code>monitoring. monitoredResourceDescriptors.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">monitoring.  monitoredResourceDescriptors.  get</code></li>
-<li><code dir="ltr" translate="no">monitoring.  monitoredResourceDescriptors.  list</code></li>
+<li><code>monitoring. monitoredResourceDescriptors. get</code></li>
+<li><code>monitoring. monitoredResourceDescriptors. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">monitoring.timeSeries.create</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.list</code></p>
-<p><code dir="ltr" translate="no">serviceusage.services.use</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.get</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.list</code></p>
-<p><code dir="ltr" translate="no">storage.objects.get</code></p>
-<p><code dir="ltr" translate="no">storage.objects.list</code></p>
-<p><code dir="ltr" translate="no">telemetry.traces.write</code></p></td>
+<p><code>monitoring.timeSeries.create</code></p>
+<p><code>resourcemanager.projects.get</code></p>
+<p><code>resourcemanager.projects.list</code></p>
+<p><code>serviceusage.services.use</code></p>
+<p><code>storage.buckets.get</code></p>
+<p><code>storage.buckets.list</code></p>
+<p><code>storage.objects.get</code></p>
+<p><code>storage.objects.list</code></p>
+<p><code>telemetry.traces.write</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.serviceAgent" class="role-title add-link" data-text="Vertex AI Service Agent" tabindex="-1">Vertex AI Service Agent</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.serviceAgent</code> )</p>
+<td>Vertex AI Service Agent
+<p>( <code>roles/ aiplatform.serviceAgent</code> )</p>
 <p>Gives Vertex AI the permissions it needs to function.</p>
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">agentregistry.agents.get</code></p>
-<p><code dir="ltr" translate="no">agentregistry.agents.list</code></p>
-<p><code dir="ltr" translate="no">agentregistry.endpoints.*</code></p>
+<td><p><code>agentregistry.agents.get</code></p>
+<p><code>agentregistry.agents.list</code></p>
+<p><code>agentregistry.endpoints.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">agentregistry.endpoints.get</code></li>
-<li><code dir="ltr" translate="no">agentregistry.endpoints.list</code></li>
+<li><code>agentregistry.endpoints.get</code></li>
+<li><code>agentregistry.endpoints.list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">agentregistry.mcpServers.get</code></p>
-<p><code dir="ltr" translate="no">agentregistry.mcpServers.list</code></p>
-<p><code dir="ltr" translate="no">agentregistry.operations.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">agentregistry.  operations.  cancel</code></li>
-<li><code dir="ltr" translate="no">agentregistry.  operations.  delete</code></li>
-<li><code dir="ltr" translate="no">agentregistry.operations.get</code></li>
-<li><code dir="ltr" translate="no">agentregistry.operations.list</code></li>
+<p><code>agentregistry.mcpServers.get</code></p>
+<p><code>agentregistry.mcpServers.list</code></p>
+<p><code>agentregistry.operations.*</code></p>
+<ul>
+<li><code>agentregistry. operations. cancel</code></li>
+<li><code>agentregistry. operations. delete</code></li>
+<li><code>agentregistry.operations.get</code></li>
+<li><code>agentregistry.operations.list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">agentregistry.skills.create</code></p>
-<p><code dir="ltr" translate="no">agentregistry.skills.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  list</code></li>
+<p><code>agentregistry.skills.create</code></p>
+<p><code>agentregistry.skills.delete</code></p>
+<p><code>aiplatform. agentAnomalyDetectionScopes.*</code></p>
+<ul>
+<li><code>aiplatform. agentAnomalyDetectionScopes. create</code></li>
+<li><code>aiplatform. agentAnomalyDetectionScopes. delete</code></li>
+<li><code>aiplatform. agentAnomalyDetectionScopes. get</code></li>
+<li><code>aiplatform. agentAnomalyDetectionScopes. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.agentExamples.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  agentExamples.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentExamples.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agentExamples.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agentExamples.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  agentExamples.  update</code></li>
+<p><code>aiplatform.agentExamples.*</code></p>
+<ul>
+<li><code>aiplatform. agentExamples. create</code></li>
+<li><code>aiplatform. agentExamples. delete</code></li>
+<li><code>aiplatform.agentExamples.get</code></li>
+<li><code>aiplatform.agentExamples.list</code></li>
+<li><code>aiplatform. agentExamples. update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.agents.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.agents.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.agents.update</code></li>
+<p><code>aiplatform.agents.*</code></p>
+<ul>
+<li><code>aiplatform.agents.create</code></li>
+<li><code>aiplatform.agents.delete</code></li>
+<li><code>aiplatform.agents.get</code></li>
+<li><code>aiplatform.agents.list</code></li>
+<li><code>aiplatform.agents.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.analyzedSessions.*</code></p>
+<p><code>aiplatform. analyzedInvocations.*</code></p>
+<ul>
+<li><code>aiplatform. analyzedInvocations. get</code></li>
+<li><code>aiplatform. analyzedInvocations. list</code></li>
+</ul>
+<p><code>aiplatform.analyzedSessions.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.annotationSpecs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotationSpecs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.annotations.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.annotations.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.annotations.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.apps.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.apps.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.apps.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.artifacts.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.cacheConfigs.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.cachedContents.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  cachedContents.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  cachedContents.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.cachedContents.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.cachedContents.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  cachedContents.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.consents.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.contexts.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  addContextArtifactsAndExecutions</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  addContextChildren</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  queryContextLineageSubgraph</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.customJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.customJobs.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.dataItems.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.dataItems.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.dataLabelingJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  dataLabelingJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.datasetVersions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasetVersions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  datasetVersions.  restore</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.datasets.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.datasets.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.export</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.datasets.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  queryDeployedModels</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  deploymentResourcePools.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  edgeDeploymentJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  edgeDeviceDebugInfo.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.edgeDevices.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.edgeDevices.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.deploy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.explain</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.predict</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.undeploy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  deleteFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  exportFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  importFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  readFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  streamingReadFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.entityTypes.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  entityTypes.  writeFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.evaluationItems.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationItems.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.evaluationMetrics.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.evaluationRuns.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  execute</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationRuns.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationRuns.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.evaluationSets.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationSets.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.evaluationSets.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  evaluationSets.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.exampleStores.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.exampleStores.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.exampleStores.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  readExample</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  exampleStores.  writeExample</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.executions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  executions.  addExecutionEvents</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  executions.  queryExecutionInputsAndOutputs</code></li>
-<li><code dir="ltr" translate="no">aiplatform.executions.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.extensions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.extensions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.execute</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.extensions.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  featureGroups.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureGroups.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureGroups.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureGroups.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitorJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.featureMonitors.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.featureMonitors.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureMonitors.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureOnlineStores.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViewSyncs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  featureViewSyncs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  directWrite</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  fetchFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featureViews.  searchNearestEntities</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.sync</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featureViews.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.features.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.features.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.features.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  batchReadFeatureValues</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  exportFeatures</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featurestores.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  importFeatures</code></p>
-<p><code dir="ltr" translate="no">aiplatform.featurestores.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  readFeatures</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  featurestores.  writeFeatures</code></p>
-<p><code dir="ltr" translate="no">aiplatform.humanInTheLoops.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.humanInTheLoops.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  queryAnnotationStats</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  send</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  humanInTheLoops.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  hyperparameterTuningJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.indexEndpoints.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  deploy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexEndpoints.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexEndpoints.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  queryVectors</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  undeploy</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.indexes.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.indexes.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.indexes.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.interactions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.interactions.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.interactions.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.locations.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  locations.  evaluateInstances</code></li>
-<li><code dir="ltr" translate="no">aiplatform.locations.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.locations.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.memories.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.memories.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.generate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.retrieve</code></li>
-<li><code dir="ltr" translate="no">aiplatform.memories.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.memoryRevisions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.memoryRevisions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  memoryRevisions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  memoryRevisions.  rollback</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.metadataSchemas.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataSchemas.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.metadataStores.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  metadataStores.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataStores.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataStores.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataStores.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  pause</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  resume</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  searchStatsAnomalies</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelDeploymentMonitoringJobs.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.  import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluationSlices.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.modelEvaluations.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  exportEvaluatedDataItems</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelEvaluations.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitoringJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.modelMonitors.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.modelMonitors.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.modelMonitors.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  searchModelMonitoringAlerts</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  searchModelMonitoringStats</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  modelMonitors.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.models.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.models.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.export</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.models.upload</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></p>
-<p><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.nasJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.nasJobs.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.nasTrialDetails.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.nasTrialDetails.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  nasTrialDetails.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookExecutionJobs.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  apply</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.notebookRuntimes.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  assign</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  start</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  upgrade</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.onlineEvaluators.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  onlineEvaluators.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.operations.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  persistentResources.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  persistentResources.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.pipelineJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.pipelineJobs.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.ragCorpora.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.query</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragCorpora.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  ragEngineConfigs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.ragFiles.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.import</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.ragFiles.upload</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  reasoningEngineRuntimeRevisions.  query</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  query</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  reasoningEngines.  update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  execute</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  sandboxEnvironments.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.schedules.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.schedules.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.schedules.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicies.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicyEngine.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicyEngine.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  semanticGovernancePolicyEngine.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.sessionEvents.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  sessionEvents.  append</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessionEvents.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.sessions.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.sessions.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.run</code></li>
-<li><code dir="ltr" translate="no">aiplatform.sessions.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.specialistPools.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.specialistPools.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  specialistPools.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.studies.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.studies.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.studies.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.tasks.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.tasks.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tasks.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  write</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.tensorboardRuns.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  batchCreate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tensorboardRuns.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  write</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  batchCreate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  batchRead</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  read</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.trainingPipelines.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  trainingPipelines.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.trials.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.trials.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.trials.update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">aiplatform.tuningJobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.cancel</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tuningJobs.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tuningJobs.  optimizePrompt</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tuningJobs.  validateReinforcementTuningReward</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tuningJobs.  vertexTune</code></li>
-</ul>
-<p><code dir="ltr" translate="no">artifactregistry.  repositories.  create</code></p>
-<p><code dir="ltr" translate="no">artifactregistry.  repositories.  downloadArtifacts</code></p>
-<p><code dir="ltr" translate="no">artifactregistry.  repositories.  get</code></p>
-<p><code dir="ltr" translate="no">artifactregistry.  repositories.  list</code></p>
-<p><code dir="ltr" translate="no">artifactregistry.  repositories.  uploadArtifacts</code></p>
-<p><code dir="ltr" translate="no">artifactregistry.tags.get</code></p>
-<p><code dir="ltr" translate="no">artifactregistry.versions.get</code></p>
-<p><code dir="ltr" translate="no">automl.datasets.export</code></p>
-<p><code dir="ltr" translate="no">automl.datasets.get</code></p>
-<p><code dir="ltr" translate="no">automl.datasets.list</code></p>
-<p><code dir="ltr" translate="no">automl.modelEvaluations.list</code></p>
-<p><code dir="ltr" translate="no">automl.models.get</code></p>
-<p><code dir="ltr" translate="no">automl.models.list</code></p>
-<p><code dir="ltr" translate="no">automl.operations.get</code></p>
-<p><code dir="ltr" translate="no">automl.tableSpecs.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.datasets.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.datasets.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.jobs.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.jobs.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.models.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.models.export</code></p>
-<p><code dir="ltr" translate="no">bigquery.models.getData</code></p>
-<p><code dir="ltr" translate="no">bigquery.objectRefs.read</code></p>
-<p><code dir="ltr" translate="no">bigquery.readsessions.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.readsessions.getData</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.export</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.getData</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.list</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.update</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.updateData</code></p>
-<p><code dir="ltr" translate="no">bigtable.tables.get</code></p>
-<p><code dir="ltr" translate="no">bigtable.tables.list</code></p>
-<p><code dir="ltr" translate="no">bigtable.tables.readRows</code></p>
-<p><code dir="ltr" translate="no">binaryauthorization.  policy.  evaluatePolicy</code></p>
-<p><code dir="ltr" translate="no">cloudtrace.traces.get</code></p>
-<p><code dir="ltr" translate="no">cloudtrace.traces.list</code></p>
-<p><code dir="ltr" translate="no">compute.addresses.get</code></p>
-<p><code dir="ltr" translate="no">compute.addresses.list</code></p>
-<p><code dir="ltr" translate="no">compute.addresses.use</code></p>
-<p><code dir="ltr" translate="no">compute.addresses.useInternal</code></p>
-<p><code dir="ltr" translate="no">compute.disks.create</code></p>
-<p><code dir="ltr" translate="no">compute.disks.createSnapshot</code></p>
-<p><code dir="ltr" translate="no">compute.disks.createTagBinding</code></p>
-<p><code dir="ltr" translate="no">compute.disks.delete</code></p>
-<p><code dir="ltr" translate="no">compute.disks.get</code></p>
-<p><code dir="ltr" translate="no">compute.disks.setLabels</code></p>
-<p><code dir="ltr" translate="no">compute.disks.use</code></p>
-<p><code dir="ltr" translate="no">compute.disks.useReadOnly</code></p>
-<p><code dir="ltr" translate="no">compute.globalOperations.get</code></p>
-<p><code dir="ltr" translate="no">compute.  instanceGroupManagers.  update</code></p>
-<p><code dir="ltr" translate="no">compute.instances.attachDisk</code></p>
-<p><code dir="ltr" translate="no">compute.instances.create</code></p>
-<p><code dir="ltr" translate="no">compute.  instances.  createTagBinding</code></p>
-<p><code dir="ltr" translate="no">compute.instances.delete</code></p>
-<p><code dir="ltr" translate="no">compute.instances.detachDisk</code></p>
-<p><code dir="ltr" translate="no">compute.instances.get</code></p>
-<p><code dir="ltr" translate="no">compute.  instances.  getGuestAttributes</code></p>
-<p><code dir="ltr" translate="no">compute.instances.list</code></p>
-<p><code dir="ltr" translate="no">compute.instances.setLabels</code></p>
-<p><code dir="ltr" translate="no">compute.instances.setMetadata</code></p>
-<p><code dir="ltr" translate="no">compute.  instances.  setServiceAccount</code></p>
-<p><code dir="ltr" translate="no">compute.instances.setTags</code></p>
-<p><code dir="ltr" translate="no">compute.instances.start</code></p>
-<p><code dir="ltr" translate="no">compute.instances.stop</code></p>
-<p><code dir="ltr" translate="no">compute.instances.update</code></p>
-<p><code dir="ltr" translate="no">compute.instances.useReadOnly</code></p>
-<p><code dir="ltr" translate="no">compute.machineTypes.get</code></p>
-<p><code dir="ltr" translate="no">compute.networks.get</code></p>
-<p><code dir="ltr" translate="no">compute.networks.use</code></p>
-<p><code dir="ltr" translate="no">compute.networks.useExternalIp</code></p>
-<p><code dir="ltr" translate="no">compute.snapshots.create</code></p>
-<p><code dir="ltr" translate="no">compute.snapshots.delete</code></p>
-<p><code dir="ltr" translate="no">compute.snapshots.useReadOnly</code></p>
-<p><code dir="ltr" translate="no">compute.subnetworks.get</code></p>
-<p><code dir="ltr" translate="no">compute.subnetworks.list</code></p>
-<p><code dir="ltr" translate="no">compute.subnetworks.use</code></p>
-<p><code dir="ltr" translate="no">compute.  subnetworks.  useExternalIp</code></p>
-<p><code dir="ltr" translate="no">compute.zoneOperations.get</code></p>
-<p><code dir="ltr" translate="no">dataflow.jobs.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">dataflow.jobs.cancel</code></li>
-<li><code dir="ltr" translate="no">dataflow.jobs.create</code></li>
-<li><code dir="ltr" translate="no">dataflow.jobs.get</code></li>
-<li><code dir="ltr" translate="no">dataflow.jobs.list</code></li>
-<li><code dir="ltr" translate="no">dataflow.jobs.snapshot</code></li>
-<li><code dir="ltr" translate="no">dataflow.jobs.updateContents</code></li>
-</ul>
-<p><code dir="ltr" translate="no">dataflow.messages.list</code></p>
-<p><code dir="ltr" translate="no">dataflow.metrics.get</code></p>
-<p><code dir="ltr" translate="no">dataflow.snapshots.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">dataflow.snapshots.delete</code></li>
-<li><code dir="ltr" translate="no">dataflow.snapshots.get</code></li>
-<li><code dir="ltr" translate="no">dataflow.snapshots.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">datalabeling.  annotateddatasets.  get</code></p>
-<p><code dir="ltr" translate="no">datalabeling.datasets.export</code></p>
-<p><code dir="ltr" translate="no">datalabeling.datasets.get</code></p>
-<p><code dir="ltr" translate="no">datalabeling.datasets.list</code></p>
-<p><code dir="ltr" translate="no">datalabeling.operations.get</code></p>
-<p><code dir="ltr" translate="no">hypercomputecluster.clusters.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">hypercomputecluster.  clusters.  create</code></li>
-<li><code dir="ltr" translate="no">hypercomputecluster.  clusters.  delete</code></li>
-<li><code dir="ltr" translate="no">hypercomputecluster.  clusters.  get</code></li>
-<li><code dir="ltr" translate="no">hypercomputecluster.  clusters.  list</code></li>
-<li><code dir="ltr" translate="no">hypercomputecluster.  clusters.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">hypercomputecluster.  locations.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">hypercomputecluster.  locations.  get</code></li>
-<li><code dir="ltr" translate="no">hypercomputecluster.  locations.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">hypercomputecluster.  operations.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">hypercomputecluster.  operations.  cancel</code></li>
-<li><code dir="ltr" translate="no">hypercomputecluster.  operations.  delete</code></li>
-<li><code dir="ltr" translate="no">hypercomputecluster.  operations.  get</code></li>
-<li><code dir="ltr" translate="no">hypercomputecluster.  operations.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">iam.serviceAccounts.actAs</code></p>
-<p><code dir="ltr" translate="no">iam.  serviceAccounts.  getAccessToken</code></p>
-<p><code dir="ltr" translate="no">iam.  serviceAccounts.  getOpenIdToken</code></p>
-<p><code dir="ltr" translate="no">logging.links.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">logging.links.create</code></li>
-<li><code dir="ltr" translate="no">logging.links.delete</code></li>
-<li><code dir="ltr" translate="no">logging.links.get</code></li>
-<li><code dir="ltr" translate="no">logging.links.list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">logging.logEntries.create</code></p>
-<p><code dir="ltr" translate="no">logging.logEntries.route</code></p>
-<p><code dir="ltr" translate="no">logging.operations.get</code></p>
-<p><code dir="ltr" translate="no">logging.operations.list</code></p>
-<p><code dir="ltr" translate="no">logging.views.access</code></p>
-<p><code dir="ltr" translate="no">logging.views.get</code></p>
-<p><code dir="ltr" translate="no">ml.models.list</code></p>
-<p><code dir="ltr" translate="no">ml.operations.get</code></p>
-<p><code dir="ltr" translate="no">ml.versions.get</code></p>
-<p><code dir="ltr" translate="no">ml.versions.list</code></p>
-<p><code dir="ltr" translate="no">monitoring.  metricDescriptors.  create</code></p>
-<p><code dir="ltr" translate="no">monitoring.  metricDescriptors.  get</code></p>
-<p><code dir="ltr" translate="no">monitoring.  metricDescriptors.  list</code></p>
-<p><code dir="ltr" translate="no">monitoring.  monitoredResourceDescriptors.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">monitoring.  monitoredResourceDescriptors.  get</code></li>
-<li><code dir="ltr" translate="no">monitoring.  monitoredResourceDescriptors.  list</code></li>
-</ul>
-<p><code dir="ltr" translate="no">monitoring.  notificationChannels.  get</code></p>
-<p><code dir="ltr" translate="no">monitoring.timeSeries.create</code></p>
-<p><code dir="ltr" translate="no">networkservices.  agentGateways.  get</code></p>
-<p><code dir="ltr" translate="no">networkservices.  agentGateways.  use</code></p>
-<p><code dir="ltr" translate="no">networkservices.operations.get</code></p>
-<p><code dir="ltr" translate="no">notebooks.instances.create</code></p>
-<p><code dir="ltr" translate="no">notebooks.instances.delete</code></p>
-<p><code dir="ltr" translate="no">notebooks.instances.get</code></p>
-<p><code dir="ltr" translate="no">observability.links.create</code></p>
-<p><code dir="ltr" translate="no">observability.links.delete</code></p>
-<p><code dir="ltr" translate="no">observability.links.get</code></p>
-<p><code dir="ltr" translate="no">observability.links.list</code></p>
-<p><code dir="ltr" translate="no">observability.operations.get</code></p>
-<p><code dir="ltr" translate="no">observability.operations.list</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.list</code></p>
-<p><code dir="ltr" translate="no">run.executions.delete</code></p>
-<p><code dir="ltr" translate="no">run.executions.get</code></p>
-<p><code dir="ltr" translate="no">run.jobs.create</code></p>
-<p><code dir="ltr" translate="no">run.jobs.delete</code></p>
-<p><code dir="ltr" translate="no">run.jobs.get</code></p>
-<p><code dir="ltr" translate="no">run.jobs.run</code></p>
-<p><code dir="ltr" translate="no">run.jobs.update</code></p>
-<p><code dir="ltr" translate="no">run.operations.delete</code></p>
-<p><code dir="ltr" translate="no">run.operations.get</code></p>
-<p><code dir="ltr" translate="no">run.routes.invoke</code></p>
-<p><code dir="ltr" translate="no">run.services.create</code></p>
-<p><code dir="ltr" translate="no">run.services.delete</code></p>
-<p><code dir="ltr" translate="no">run.services.get</code></p>
-<p><code dir="ltr" translate="no">servicemanagement.  services.  report</code></p>
-<p><code dir="ltr" translate="no">serviceusage.services.list</code></p>
-<p><code dir="ltr" translate="no">serviceusage.services.use</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.create</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.delete</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.get</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.list</code></p>
-<p><code dir="ltr" translate="no">storage.folders.create</code></p>
-<p><code dir="ltr" translate="no">storage.folders.delete</code></p>
-<p><code dir="ltr" translate="no">storage.folders.get</code></p>
-<p><code dir="ltr" translate="no">storage.folders.list</code></p>
-<p><code dir="ltr" translate="no">storage.objects.create</code></p>
-<p><code dir="ltr" translate="no">storage.objects.delete</code></p>
-<p><code dir="ltr" translate="no">storage.objects.get</code></p>
-<p><code dir="ltr" translate="no">storage.objects.list</code></p>
-<p><code dir="ltr" translate="no">storage.objects.update</code></p></td>
+<li><code>aiplatform. analyzedSessions. aggregate</code></li>
+<li><code>aiplatform. analyzedSessions. get</code></li>
+<li><code>aiplatform. analyzedSessions. list</code></li>
+</ul>
+<p><code>aiplatform.annotationSpecs.*</code></p>
+<ul>
+<li><code>aiplatform. annotationSpecs. create</code></li>
+<li><code>aiplatform. annotationSpecs. delete</code></li>
+<li><code>aiplatform.annotationSpecs.get</code></li>
+<li><code>aiplatform. annotationSpecs. list</code></li>
+<li><code>aiplatform. annotationSpecs. update</code></li>
+</ul>
+<p><code>aiplatform.annotations.*</code></p>
+<ul>
+<li><code>aiplatform.annotations.create</code></li>
+<li><code>aiplatform.annotations.delete</code></li>
+<li><code>aiplatform.annotations.get</code></li>
+<li><code>aiplatform.annotations.list</code></li>
+<li><code>aiplatform.annotations.update</code></li>
+</ul>
+<p><code>aiplatform.apps.*</code></p>
+<ul>
+<li><code>aiplatform.apps.create</code></li>
+<li><code>aiplatform.apps.delete</code></li>
+<li><code>aiplatform.apps.get</code></li>
+<li><code>aiplatform.apps.list</code></li>
+<li><code>aiplatform.apps.update</code></li>
+</ul>
+<p><code>aiplatform.artifacts.*</code></p>
+<ul>
+<li><code>aiplatform.artifacts.create</code></li>
+<li><code>aiplatform.artifacts.delete</code></li>
+<li><code>aiplatform.artifacts.get</code></li>
+<li><code>aiplatform.artifacts.list</code></li>
+<li><code>aiplatform.artifacts.update</code></li>
+</ul>
+<p><code>aiplatform. batchPredictionJobs.*</code></p>
+<ul>
+<li><code>aiplatform. batchPredictionJobs. cancel</code></li>
+<li><code>aiplatform. batchPredictionJobs. create</code></li>
+<li><code>aiplatform. batchPredictionJobs. delete</code></li>
+<li><code>aiplatform. batchPredictionJobs. get</code></li>
+<li><code>aiplatform. batchPredictionJobs. list</code></li>
+</ul>
+<p><code>aiplatform.cacheConfigs.get</code></p>
+<p><code>aiplatform.cachedContents.*</code></p>
+<ul>
+<li><code>aiplatform. cachedContents. create</code></li>
+<li><code>aiplatform. cachedContents. delete</code></li>
+<li><code>aiplatform.cachedContents.get</code></li>
+<li><code>aiplatform.cachedContents.list</code></li>
+<li><code>aiplatform. cachedContents. update</code></li>
+</ul>
+<p><code>aiplatform.consents.get</code></p>
+<p><code>aiplatform.contexts.*</code></p>
+<ul>
+<li><code>aiplatform. contexts. addContextArtifactsAndExecutions</code></li>
+<li><code>aiplatform. contexts. addContextChildren</code></li>
+<li><code>aiplatform.contexts.create</code></li>
+<li><code>aiplatform.contexts.delete</code></li>
+<li><code>aiplatform.contexts.get</code></li>
+<li><code>aiplatform.contexts.list</code></li>
+<li><code>aiplatform. contexts. queryContextLineageSubgraph</code></li>
+<li><code>aiplatform.contexts.update</code></li>
+</ul>
+<p><code>aiplatform.customJobs.*</code></p>
+<ul>
+<li><code>aiplatform.customJobs.cancel</code></li>
+<li><code>aiplatform.customJobs.create</code></li>
+<li><code>aiplatform.customJobs.delete</code></li>
+<li><code>aiplatform.customJobs.get</code></li>
+<li><code>aiplatform.customJobs.list</code></li>
+</ul>
+<p><code>aiplatform.dataItems.*</code></p>
+<ul>
+<li><code>aiplatform.dataItems.create</code></li>
+<li><code>aiplatform.dataItems.delete</code></li>
+<li><code>aiplatform.dataItems.get</code></li>
+<li><code>aiplatform.dataItems.list</code></li>
+<li><code>aiplatform.dataItems.update</code></li>
+</ul>
+<p><code>aiplatform.dataLabelingJobs.*</code></p>
+<ul>
+<li><code>aiplatform. dataLabelingJobs. cancel</code></li>
+<li><code>aiplatform. dataLabelingJobs. create</code></li>
+<li><code>aiplatform. dataLabelingJobs. delete</code></li>
+<li><code>aiplatform. dataLabelingJobs. get</code></li>
+<li><code>aiplatform. dataLabelingJobs. list</code></li>
+</ul>
+<p><code>aiplatform.datasetVersions.*</code></p>
+<ul>
+<li><code>aiplatform. datasetVersions. create</code></li>
+<li><code>aiplatform. datasetVersions. delete</code></li>
+<li><code>aiplatform.datasetVersions.get</code></li>
+<li><code>aiplatform. datasetVersions. list</code></li>
+<li><code>aiplatform. datasetVersions. restore</code></li>
+</ul>
+<p><code>aiplatform.datasets.*</code></p>
+<ul>
+<li><code>aiplatform.datasets.create</code></li>
+<li><code>aiplatform.datasets.delete</code></li>
+<li><code>aiplatform.datasets.export</code></li>
+<li><code>aiplatform.datasets.get</code></li>
+<li><code>aiplatform.datasets.import</code></li>
+<li><code>aiplatform.datasets.list</code></li>
+<li><code>aiplatform.datasets.update</code></li>
+</ul>
+<p><code>aiplatform. deploymentResourcePools.*</code></p>
+<ul>
+<li><code>aiplatform. deploymentResourcePools. create</code></li>
+<li><code>aiplatform. deploymentResourcePools. delete</code></li>
+<li><code>aiplatform. deploymentResourcePools. get</code></li>
+<li><code>aiplatform. deploymentResourcePools. list</code></li>
+<li><code>aiplatform. deploymentResourcePools. queryDeployedModels</code></li>
+<li><code>aiplatform. deploymentResourcePools. update</code></li>
+</ul>
+<p><code>aiplatform. edgeDeploymentJobs.*</code></p>
+<ul>
+<li><code>aiplatform. edgeDeploymentJobs. create</code></li>
+<li><code>aiplatform. edgeDeploymentJobs. delete</code></li>
+<li><code>aiplatform. edgeDeploymentJobs. get</code></li>
+<li><code>aiplatform. edgeDeploymentJobs. list</code></li>
+</ul>
+<p><code>aiplatform. edgeDeviceDebugInfo. get</code></p>
+<p><code>aiplatform.edgeDevices.*</code></p>
+<ul>
+<li><code>aiplatform.edgeDevices.create</code></li>
+<li><code>aiplatform.edgeDevices.delete</code></li>
+<li><code>aiplatform.edgeDevices.get</code></li>
+<li><code>aiplatform.edgeDevices.list</code></li>
+<li><code>aiplatform.edgeDevices.update</code></li>
+</ul>
+<p><code>aiplatform.endpoints.create</code></p>
+<p><code>aiplatform.endpoints.delete</code></p>
+<p><code>aiplatform.endpoints.deploy</code></p>
+<p><code>aiplatform.endpoints.explain</code></p>
+<p><code>aiplatform.endpoints.get</code></p>
+<p><code>aiplatform.endpoints.list</code></p>
+<p><code>aiplatform.endpoints.predict</code></p>
+<p><code>aiplatform.endpoints.undeploy</code></p>
+<p><code>aiplatform.endpoints.update</code></p>
+<p><code>aiplatform.entityTypes.create</code></p>
+<p><code>aiplatform.entityTypes.delete</code></p>
+<p><code>aiplatform. entityTypes. deleteFeatureValues</code></p>
+<p><code>aiplatform. entityTypes. exportFeatureValues</code></p>
+<p><code>aiplatform.entityTypes.get</code></p>
+<p><code>aiplatform. entityTypes. importFeatureValues</code></p>
+<p><code>aiplatform.entityTypes.list</code></p>
+<p><code>aiplatform. entityTypes. readFeatureValues</code></p>
+<p><code>aiplatform. entityTypes. streamingReadFeatureValues</code></p>
+<p><code>aiplatform.entityTypes.update</code></p>
+<p><code>aiplatform. entityTypes. writeFeatureValues</code></p>
+<p><code>aiplatform. evaluationExperiments.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationExperiments. create</code></li>
+<li><code>aiplatform. evaluationExperiments. delete</code></li>
+<li><code>aiplatform. evaluationExperiments. get</code></li>
+<li><code>aiplatform. evaluationExperiments. list</code></li>
+<li><code>aiplatform. evaluationExperiments. update</code></li>
+</ul>
+<p><code>aiplatform.evaluationItems.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationItems. create</code></li>
+<li><code>aiplatform. evaluationItems. delete</code></li>
+<li><code>aiplatform.evaluationItems.get</code></li>
+<li><code>aiplatform. evaluationItems. list</code></li>
+<li><code>aiplatform. evaluationItems. update</code></li>
+</ul>
+<p><code>aiplatform.evaluationMetrics.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationMetrics. create</code></li>
+<li><code>aiplatform. evaluationMetrics. delete</code></li>
+<li><code>aiplatform. evaluationMetrics. get</code></li>
+<li><code>aiplatform. evaluationMetrics. list</code></li>
+</ul>
+<p><code>aiplatform.evaluationRuns.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationRuns. cancel</code></li>
+<li><code>aiplatform. evaluationRuns. create</code></li>
+<li><code>aiplatform. evaluationRuns. delete</code></li>
+<li><code>aiplatform. evaluationRuns. execute</code></li>
+<li><code>aiplatform.evaluationRuns.get</code></li>
+<li><code>aiplatform.evaluationRuns.list</code></li>
+<li><code>aiplatform. evaluationRuns. update</code></li>
+</ul>
+<p><code>aiplatform.evaluationSets.*</code></p>
+<ul>
+<li><code>aiplatform. evaluationSets. create</code></li>
+<li><code>aiplatform. evaluationSets. delete</code></li>
+<li><code>aiplatform.evaluationSets.get</code></li>
+<li><code>aiplatform. evaluationSets. import</code></li>
+<li><code>aiplatform.evaluationSets.list</code></li>
+<li><code>aiplatform. evaluationSets. update</code></li>
+</ul>
+<p><code>aiplatform.exampleStores.*</code></p>
+<ul>
+<li><code>aiplatform. exampleStores. create</code></li>
+<li><code>aiplatform. exampleStores. delete</code></li>
+<li><code>aiplatform.exampleStores.get</code></li>
+<li><code>aiplatform.exampleStores.list</code></li>
+<li><code>aiplatform. exampleStores. readExample</code></li>
+<li><code>aiplatform. exampleStores. update</code></li>
+<li><code>aiplatform. exampleStores. writeExample</code></li>
+</ul>
+<p><code>aiplatform.executions.*</code></p>
+<ul>
+<li><code>aiplatform. executions. addExecutionEvents</code></li>
+<li><code>aiplatform.executions.create</code></li>
+<li><code>aiplatform.executions.delete</code></li>
+<li><code>aiplatform.executions.get</code></li>
+<li><code>aiplatform.executions.list</code></li>
+<li><code>aiplatform. executions. queryExecutionInputsAndOutputs</code></li>
+<li><code>aiplatform.executions.update</code></li>
+</ul>
+<p><code>aiplatform.extensions.*</code></p>
+<ul>
+<li><code>aiplatform.extensions.delete</code></li>
+<li><code>aiplatform.extensions.execute</code></li>
+<li><code>aiplatform.extensions.get</code></li>
+<li><code>aiplatform.extensions.import</code></li>
+<li><code>aiplatform.extensions.list</code></li>
+<li><code>aiplatform.extensions.update</code></li>
+</ul>
+<p><code>aiplatform. featureGroups. create</code></p>
+<p><code>aiplatform. featureGroups. delete</code></p>
+<p><code>aiplatform.featureGroups.get</code></p>
+<p><code>aiplatform.featureGroups.list</code></p>
+<p><code>aiplatform. featureGroups. update</code></p>
+<p><code>aiplatform. featureMonitorJobs.*</code></p>
+<ul>
+<li><code>aiplatform. featureMonitorJobs. create</code></li>
+<li><code>aiplatform. featureMonitorJobs. get</code></li>
+<li><code>aiplatform. featureMonitorJobs. list</code></li>
+</ul>
+<p><code>aiplatform.featureMonitors.*</code></p>
+<ul>
+<li><code>aiplatform. featureMonitors. create</code></li>
+<li><code>aiplatform. featureMonitors. delete</code></li>
+<li><code>aiplatform.featureMonitors.get</code></li>
+<li><code>aiplatform. featureMonitors. list</code></li>
+<li><code>aiplatform. featureMonitors. update</code></li>
+</ul>
+<p><code>aiplatform. featureOnlineStores. create</code></p>
+<p><code>aiplatform. featureOnlineStores. delete</code></p>
+<p><code>aiplatform. featureOnlineStores. get</code></p>
+<p><code>aiplatform. featureOnlineStores. list</code></p>
+<p><code>aiplatform. featureOnlineStores. update</code></p>
+<p><code>aiplatform.featureViewSyncs.*</code></p>
+<ul>
+<li><code>aiplatform. featureViewSyncs. get</code></li>
+<li><code>aiplatform. featureViewSyncs. list</code></li>
+</ul>
+<p><code>aiplatform.featureViews.create</code></p>
+<p><code>aiplatform.featureViews.delete</code></p>
+<p><code>aiplatform. featureViews. directWrite</code></p>
+<p><code>aiplatform. featureViews. fetchFeatureValues</code></p>
+<p><code>aiplatform.featureViews.get</code></p>
+<p><code>aiplatform.featureViews.list</code></p>
+<p><code>aiplatform. featureViews. searchNearestEntities</code></p>
+<p><code>aiplatform.featureViews.sync</code></p>
+<p><code>aiplatform.featureViews.update</code></p>
+<p><code>aiplatform.features.*</code></p>
+<ul>
+<li><code>aiplatform.features.create</code></li>
+<li><code>aiplatform.features.delete</code></li>
+<li><code>aiplatform.features.get</code></li>
+<li><code>aiplatform.features.list</code></li>
+<li><code>aiplatform.features.update</code></li>
+</ul>
+<p><code>aiplatform. featurestores. batchReadFeatureValues</code></p>
+<p><code>aiplatform. featurestores. create</code></p>
+<p><code>aiplatform. featurestores. delete</code></p>
+<p><code>aiplatform. featurestores. exportFeatures</code></p>
+<p><code>aiplatform.featurestores.get</code></p>
+<p><code>aiplatform. featurestores. importFeatures</code></p>
+<p><code>aiplatform.featurestores.list</code></p>
+<p><code>aiplatform. featurestores. readFeatures</code></p>
+<p><code>aiplatform. featurestores. update</code></p>
+<p><code>aiplatform. featurestores. writeFeatures</code></p>
+<p><code>aiplatform.humanInTheLoops.*</code></p>
+<ul>
+<li><code>aiplatform. humanInTheLoops. cancel</code></li>
+<li><code>aiplatform. humanInTheLoops. create</code></li>
+<li><code>aiplatform. humanInTheLoops. delete</code></li>
+<li><code>aiplatform.humanInTheLoops.get</code></li>
+<li><code>aiplatform. humanInTheLoops. list</code></li>
+<li><code>aiplatform. humanInTheLoops. queryAnnotationStats</code></li>
+<li><code>aiplatform. humanInTheLoops. send</code></li>
+<li><code>aiplatform. humanInTheLoops. update</code></li>
+</ul>
+<p><code>aiplatform. hyperparameterTuningJobs.*</code></p>
+<ul>
+<li><code>aiplatform. hyperparameterTuningJobs. cancel</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. create</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. delete</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. get</code></li>
+<li><code>aiplatform. hyperparameterTuningJobs. list</code></li>
+</ul>
+<p><code>aiplatform.indexEndpoints.*</code></p>
+<ul>
+<li><code>aiplatform. indexEndpoints. create</code></li>
+<li><code>aiplatform. indexEndpoints. delete</code></li>
+<li><code>aiplatform. indexEndpoints. deploy</code></li>
+<li><code>aiplatform.indexEndpoints.get</code></li>
+<li><code>aiplatform.indexEndpoints.list</code></li>
+<li><code>aiplatform. indexEndpoints. queryVectors</code></li>
+<li><code>aiplatform. indexEndpoints. undeploy</code></li>
+<li><code>aiplatform. indexEndpoints. update</code></li>
+</ul>
+<p><code>aiplatform.indexes.*</code></p>
+<ul>
+<li><code>aiplatform.indexes.create</code></li>
+<li><code>aiplatform.indexes.delete</code></li>
+<li><code>aiplatform.indexes.get</code></li>
+<li><code>aiplatform.indexes.list</code></li>
+<li><code>aiplatform.indexes.update</code></li>
+</ul>
+<p><code>aiplatform.interactions.*</code></p>
+<ul>
+<li><code>aiplatform.interactions.cancel</code></li>
+<li><code>aiplatform.interactions.create</code></li>
+<li><code>aiplatform.interactions.delete</code></li>
+<li><code>aiplatform.interactions.get</code></li>
+<li><code>aiplatform.interactions.list</code></li>
+</ul>
+<p><code>aiplatform.locations.*</code></p>
+<ul>
+<li><code>aiplatform. locations. evaluateInstances</code></li>
+<li><code>aiplatform.locations.get</code></li>
+<li><code>aiplatform.locations.list</code></li>
+</ul>
+<p><code>aiplatform.memories.*</code></p>
+<ul>
+<li><code>aiplatform.memories.create</code></li>
+<li><code>aiplatform.memories.delete</code></li>
+<li><code>aiplatform.memories.generate</code></li>
+<li><code>aiplatform.memories.get</code></li>
+<li><code>aiplatform.memories.list</code></li>
+<li><code>aiplatform.memories.retrieve</code></li>
+<li><code>aiplatform.memories.update</code></li>
+</ul>
+<p><code>aiplatform.memoryRevisions.*</code></p>
+<ul>
+<li><code>aiplatform.memoryRevisions.get</code></li>
+<li><code>aiplatform. memoryRevisions. list</code></li>
+<li><code>aiplatform. memoryRevisions. rollback</code></li>
+</ul>
+<p><code>aiplatform.metadataSchemas.*</code></p>
+<ul>
+<li><code>aiplatform. metadataSchemas. create</code></li>
+<li><code>aiplatform. metadataSchemas. delete</code></li>
+<li><code>aiplatform.metadataSchemas.get</code></li>
+<li><code>aiplatform. metadataSchemas. list</code></li>
+</ul>
+<p><code>aiplatform.metadataStores.*</code></p>
+<ul>
+<li><code>aiplatform. metadataStores. create</code></li>
+<li><code>aiplatform. metadataStores. delete</code></li>
+<li><code>aiplatform.metadataStores.get</code></li>
+<li><code>aiplatform.metadataStores.list</code></li>
+</ul>
+<p><code>aiplatform. modelDeploymentMonitoringJobs.*</code></p>
+<ul>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. create</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. delete</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. get</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. list</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. pause</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. resume</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. searchStatsAnomalies</code></li>
+<li><code>aiplatform. modelDeploymentMonitoringJobs. update</code></li>
+</ul>
+<p><code>aiplatform. modelEvaluationSlices.*</code></p>
+<ul>
+<li><code>aiplatform. modelEvaluationSlices. get</code></li>
+<li><code>aiplatform. modelEvaluationSlices. import</code></li>
+<li><code>aiplatform. modelEvaluationSlices. list</code></li>
+</ul>
+<p><code>aiplatform.modelEvaluations.*</code></p>
+<ul>
+<li><code>aiplatform. modelEvaluations. exportEvaluatedDataItems</code></li>
+<li><code>aiplatform. modelEvaluations. get</code></li>
+<li><code>aiplatform. modelEvaluations. import</code></li>
+<li><code>aiplatform. modelEvaluations. list</code></li>
+</ul>
+<p><code>aiplatform. modelMonitoringJobs.*</code></p>
+<ul>
+<li><code>aiplatform. modelMonitoringJobs. create</code></li>
+<li><code>aiplatform. modelMonitoringJobs. delete</code></li>
+<li><code>aiplatform. modelMonitoringJobs. get</code></li>
+<li><code>aiplatform. modelMonitoringJobs. list</code></li>
+</ul>
+<p><code>aiplatform.modelMonitors.*</code></p>
+<ul>
+<li><code>aiplatform. modelMonitors. create</code></li>
+<li><code>aiplatform. modelMonitors. delete</code></li>
+<li><code>aiplatform.modelMonitors.get</code></li>
+<li><code>aiplatform.modelMonitors.list</code></li>
+<li><code>aiplatform. modelMonitors. searchModelMonitoringAlerts</code></li>
+<li><code>aiplatform. modelMonitors. searchModelMonitoringStats</code></li>
+<li><code>aiplatform. modelMonitors. update</code></li>
+</ul>
+<p><code>aiplatform.models.*</code></p>
+<ul>
+<li><code>aiplatform.models.delete</code></li>
+<li><code>aiplatform.models.export</code></li>
+<li><code>aiplatform.models.get</code></li>
+<li><code>aiplatform.models.list</code></li>
+<li><code>aiplatform.models.update</code></li>
+<li><code>aiplatform.models.upload</code></li>
+</ul>
+<p><code>aiplatform. monitoredAgents. disable</code></p>
+<p><code>aiplatform. monitoredAgents. enable</code></p>
+<p><code>aiplatform.monitoredAgents.get</code></p>
+<p><code>aiplatform. monitoredAgents. list</code></p>
+<p><code>aiplatform.nasJobs.*</code></p>
+<ul>
+<li><code>aiplatform.nasJobs.cancel</code></li>
+<li><code>aiplatform.nasJobs.create</code></li>
+<li><code>aiplatform.nasJobs.delete</code></li>
+<li><code>aiplatform.nasJobs.get</code></li>
+<li><code>aiplatform.nasJobs.list</code></li>
+</ul>
+<p><code>aiplatform.nasTrialDetails.*</code></p>
+<ul>
+<li><code>aiplatform.nasTrialDetails.get</code></li>
+<li><code>aiplatform. nasTrialDetails. list</code></li>
+</ul>
+<p><code>aiplatform. notebookExecutionJobs.*</code></p>
+<ul>
+<li><code>aiplatform. notebookExecutionJobs. create</code></li>
+<li><code>aiplatform. notebookExecutionJobs. delete</code></li>
+<li><code>aiplatform. notebookExecutionJobs. get</code></li>
+<li><code>aiplatform. notebookExecutionJobs. list</code></li>
+</ul>
+<p><code>aiplatform. notebookRuntimeTemplates. apply</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. create</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. delete</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. get</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. list</code></p>
+<p><code>aiplatform. notebookRuntimeTemplates. update</code></p>
+<p><code>aiplatform.notebookRuntimes.*</code></p>
+<ul>
+<li><code>aiplatform. notebookRuntimes. assign</code></li>
+<li><code>aiplatform. notebookRuntimes. delete</code></li>
+<li><code>aiplatform. notebookRuntimes. get</code></li>
+<li><code>aiplatform. notebookRuntimes. list</code></li>
+<li><code>aiplatform. notebookRuntimes. start</code></li>
+<li><code>aiplatform. notebookRuntimes. update</code></li>
+<li><code>aiplatform. notebookRuntimes. upgrade</code></li>
+</ul>
+<p><code>aiplatform.onlineEvaluators.*</code></p>
+<ul>
+<li><code>aiplatform. onlineEvaluators. create</code></li>
+<li><code>aiplatform. onlineEvaluators. delete</code></li>
+<li><code>aiplatform. onlineEvaluators. get</code></li>
+<li><code>aiplatform. onlineEvaluators. list</code></li>
+<li><code>aiplatform. onlineEvaluators. update</code></li>
+</ul>
+<p><code>aiplatform.operations.list</code></p>
+<p><code>aiplatform. persistentResources. get</code></p>
+<p><code>aiplatform. persistentResources. list</code></p>
+<p><code>aiplatform.pipelineJobs.*</code></p>
+<ul>
+<li><code>aiplatform.pipelineJobs.cancel</code></li>
+<li><code>aiplatform.pipelineJobs.create</code></li>
+<li><code>aiplatform.pipelineJobs.delete</code></li>
+<li><code>aiplatform.pipelineJobs.get</code></li>
+<li><code>aiplatform.pipelineJobs.list</code></li>
+</ul>
+<p><code>aiplatform. provisionedThroughputRevisions.*</code></p>
+<ul>
+<li><code>aiplatform. provisionedThroughputRevisions. get</code></li>
+<li><code>aiplatform. provisionedThroughputRevisions. list</code></li>
+</ul>
+<p><code>aiplatform. provisionedThroughputs. get</code></p>
+<p><code>aiplatform. provisionedThroughputs. list</code></p>
+<p><code>aiplatform.ragCorpora.*</code></p>
+<ul>
+<li><code>aiplatform.ragCorpora.create</code></li>
+<li><code>aiplatform.ragCorpora.delete</code></li>
+<li><code>aiplatform.ragCorpora.get</code></li>
+<li><code>aiplatform.ragCorpora.list</code></li>
+<li><code>aiplatform.ragCorpora.query</code></li>
+<li><code>aiplatform.ragCorpora.update</code></li>
+</ul>
+<p><code>aiplatform. ragEngineConfigs. get</code></p>
+<p><code>aiplatform.ragFiles.*</code></p>
+<ul>
+<li><code>aiplatform.ragFiles.delete</code></li>
+<li><code>aiplatform.ragFiles.get</code></li>
+<li><code>aiplatform.ragFiles.import</code></li>
+<li><code>aiplatform.ragFiles.list</code></li>
+<li><code>aiplatform.ragFiles.upload</code></li>
+</ul>
+<p><code>aiplatform. reasoningEngineRuntimeRevisions.*</code></p>
+<ul>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. delete</code></li>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. get</code></li>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. list</code></li>
+<li><code>aiplatform. reasoningEngineRuntimeRevisions. query</code></li>
+</ul>
+<p><code>aiplatform. reasoningEngines. create</code></p>
+<p><code>aiplatform. reasoningEngines. delete</code></p>
+<p><code>aiplatform. reasoningEngines. get</code></p>
+<p><code>aiplatform. reasoningEngines. list</code></p>
+<p><code>aiplatform. reasoningEngines. query</code></p>
+<p><code>aiplatform. reasoningEngines. update</code></p>
+<p><code>aiplatform. sandboxEnvironments.*</code></p>
+<ul>
+<li><code>aiplatform. sandboxEnvironments. create</code></li>
+<li><code>aiplatform. sandboxEnvironments. delete</code></li>
+<li><code>aiplatform. sandboxEnvironments. execute</code></li>
+<li><code>aiplatform. sandboxEnvironments. get</code></li>
+<li><code>aiplatform. sandboxEnvironments. list</code></li>
+</ul>
+<p><code>aiplatform.schedules.*</code></p>
+<ul>
+<li><code>aiplatform.schedules.create</code></li>
+<li><code>aiplatform.schedules.delete</code></li>
+<li><code>aiplatform.schedules.get</code></li>
+<li><code>aiplatform.schedules.list</code></li>
+<li><code>aiplatform.schedules.update</code></li>
+</ul>
+<p><code>aiplatform. semanticGovernancePolicies.*</code></p>
+<ul>
+<li><code>aiplatform. semanticGovernancePolicies. create</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. delete</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. get</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. list</code></li>
+<li><code>aiplatform. semanticGovernancePolicies. update</code></li>
+</ul>
+<p><code>aiplatform. semanticGovernancePolicyEngine.*</code></p>
+<ul>
+<li><code>aiplatform. semanticGovernancePolicyEngine. get</code></li>
+<li><code>aiplatform. semanticGovernancePolicyEngine. update</code></li>
+</ul>
+<p><code>aiplatform.sessionEvents.*</code></p>
+<ul>
+<li><code>aiplatform. sessionEvents. append</code></li>
+<li><code>aiplatform.sessionEvents.list</code></li>
+</ul>
+<p><code>aiplatform.sessions.*</code></p>
+<ul>
+<li><code>aiplatform.sessions.create</code></li>
+<li><code>aiplatform.sessions.delete</code></li>
+<li><code>aiplatform.sessions.get</code></li>
+<li><code>aiplatform.sessions.list</code></li>
+<li><code>aiplatform.sessions.run</code></li>
+<li><code>aiplatform.sessions.update</code></li>
+</ul>
+<p><code>aiplatform.specialistPools.*</code></p>
+<ul>
+<li><code>aiplatform. specialistPools. create</code></li>
+<li><code>aiplatform. specialistPools. delete</code></li>
+<li><code>aiplatform.specialistPools.get</code></li>
+<li><code>aiplatform. specialistPools. list</code></li>
+<li><code>aiplatform. specialistPools. update</code></li>
+</ul>
+<p><code>aiplatform.studies.*</code></p>
+<ul>
+<li><code>aiplatform.studies.create</code></li>
+<li><code>aiplatform.studies.delete</code></li>
+<li><code>aiplatform.studies.get</code></li>
+<li><code>aiplatform.studies.list</code></li>
+<li><code>aiplatform.studies.update</code></li>
+</ul>
+<p><code>aiplatform.tasks.*</code></p>
+<ul>
+<li><code>aiplatform.tasks.cancel</code></li>
+<li><code>aiplatform.tasks.create</code></li>
+<li><code>aiplatform.tasks.delete</code></li>
+<li><code>aiplatform.tasks.get</code></li>
+<li><code>aiplatform.tasks.list</code></li>
+<li><code>aiplatform.tasks.update</code></li>
+</ul>
+<p><code>aiplatform. tensorboardExperiments.*</code></p>
+<ul>
+<li><code>aiplatform. tensorboardExperiments. create</code></li>
+<li><code>aiplatform. tensorboardExperiments. delete</code></li>
+<li><code>aiplatform. tensorboardExperiments. get</code></li>
+<li><code>aiplatform. tensorboardExperiments. list</code></li>
+<li><code>aiplatform. tensorboardExperiments. update</code></li>
+<li><code>aiplatform. tensorboardExperiments. write</code></li>
+</ul>
+<p><code>aiplatform.tensorboardRuns.*</code></p>
+<ul>
+<li><code>aiplatform. tensorboardRuns. batchCreate</code></li>
+<li><code>aiplatform. tensorboardRuns. create</code></li>
+<li><code>aiplatform. tensorboardRuns. delete</code></li>
+<li><code>aiplatform.tensorboardRuns.get</code></li>
+<li><code>aiplatform. tensorboardRuns. list</code></li>
+<li><code>aiplatform. tensorboardRuns. update</code></li>
+<li><code>aiplatform. tensorboardRuns. write</code></li>
+</ul>
+<p><code>aiplatform. tensorboardTimeSeries.*</code></p>
+<ul>
+<li><code>aiplatform. tensorboardTimeSeries. batchCreate</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. batchRead</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. create</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. delete</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. get</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. list</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. read</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. update</code></li>
+</ul>
+<p><code>aiplatform.tensorboards.create</code></p>
+<p><code>aiplatform.tensorboards.delete</code></p>
+<p><code>aiplatform.tensorboards.get</code></p>
+<p><code>aiplatform.tensorboards.list</code></p>
+<p><code>aiplatform.tensorboards.update</code></p>
+<p><code>aiplatform.trainingPipelines.*</code></p>
+<ul>
+<li><code>aiplatform. trainingPipelines. cancel</code></li>
+<li><code>aiplatform. trainingPipelines. create</code></li>
+<li><code>aiplatform. trainingPipelines. delete</code></li>
+<li><code>aiplatform. trainingPipelines. get</code></li>
+<li><code>aiplatform. trainingPipelines. list</code></li>
+</ul>
+<p><code>aiplatform.trials.*</code></p>
+<ul>
+<li><code>aiplatform.trials.create</code></li>
+<li><code>aiplatform.trials.delete</code></li>
+<li><code>aiplatform.trials.get</code></li>
+<li><code>aiplatform.trials.list</code></li>
+<li><code>aiplatform.trials.update</code></li>
+</ul>
+<p><code>aiplatform.tuningJobs.*</code></p>
+<ul>
+<li><code>aiplatform.tuningJobs.cancel</code></li>
+<li><code>aiplatform.tuningJobs.create</code></li>
+<li><code>aiplatform.tuningJobs.delete</code></li>
+<li><code>aiplatform.tuningJobs.get</code></li>
+<li><code>aiplatform.tuningJobs.list</code></li>
+<li><code>aiplatform. tuningJobs. optimizePrompt</code></li>
+<li><code>aiplatform. tuningJobs. validateReinforcementTuningReward</code></li>
+<li><code>aiplatform. tuningJobs. vertexTune</code></li>
+</ul>
+<p><code>artifactregistry. repositories. create</code></p>
+<p><code>artifactregistry. repositories. downloadArtifacts</code></p>
+<p><code>artifactregistry. repositories. get</code></p>
+<p><code>artifactregistry. repositories. list</code></p>
+<p><code>artifactregistry. repositories. uploadArtifacts</code></p>
+<p><code>artifactregistry.tags.get</code></p>
+<p><code>artifactregistry.versions.get</code></p>
+<p><code>automl.datasets.export</code></p>
+<p><code>automl.datasets.get</code></p>
+<p><code>automl.datasets.list</code></p>
+<p><code>automl.modelEvaluations.list</code></p>
+<p><code>automl.models.get</code></p>
+<p><code>automl.models.list</code></p>
+<p><code>automl.operations.get</code></p>
+<p><code>automl.tableSpecs.get</code></p>
+<p><code>bigquery.datasets.create</code></p>
+<p><code>bigquery.datasets.get</code></p>
+<p><code>bigquery.jobs.create</code></p>
+<p><code>bigquery.jobs.get</code></p>
+<p><code>bigquery.models.create</code></p>
+<p><code>bigquery.models.export</code></p>
+<p><code>bigquery.models.getData</code></p>
+<p><code>bigquery.objectRefs.read</code></p>
+<p><code>bigquery.readsessions.create</code></p>
+<p><code>bigquery.readsessions.getData</code></p>
+<p><code>bigquery.tables.create</code></p>
+<p><code>bigquery.tables.export</code></p>
+<p><code>bigquery.tables.get</code></p>
+<p><code>bigquery.tables.getData</code></p>
+<p><code>bigquery.tables.list</code></p>
+<p><code>bigquery.tables.update</code></p>
+<p><code>bigquery.tables.updateData</code></p>
+<p><code>bigtable.tables.get</code></p>
+<p><code>bigtable.tables.list</code></p>
+<p><code>bigtable.tables.readRows</code></p>
+<p><code>binaryauthorization. policy. evaluatePolicy</code></p>
+<p><code>cloudtrace.traces.get</code></p>
+<p><code>cloudtrace.traces.list</code></p>
+<p><code>compute.addresses.get</code></p>
+<p><code>compute.addresses.list</code></p>
+<p><code>compute.addresses.use</code></p>
+<p><code>compute.addresses.useInternal</code></p>
+<p><code>compute.disks.create</code></p>
+<p><code>compute.disks.createSnapshot</code></p>
+<p><code>compute.disks.createTagBinding</code></p>
+<p><code>compute.disks.delete</code></p>
+<p><code>compute.disks.get</code></p>
+<p><code>compute.disks.setLabels</code></p>
+<p><code>compute.disks.use</code></p>
+<p><code>compute.disks.useReadOnly</code></p>
+<p><code>compute.globalOperations.get</code></p>
+<p><code>compute. instanceGroupManagers. update</code></p>
+<p><code>compute.instances.attachDisk</code></p>
+<p><code>compute.instances.create</code></p>
+<p><code>compute. instances. createTagBinding</code></p>
+<p><code>compute.instances.delete</code></p>
+<p><code>compute.instances.detachDisk</code></p>
+<p><code>compute.instances.get</code></p>
+<p><code>compute. instances. getGuestAttributes</code></p>
+<p><code>compute.instances.list</code></p>
+<p><code>compute.instances.setLabels</code></p>
+<p><code>compute.instances.setMetadata</code></p>
+<p><code>compute. instances. setServiceAccount</code></p>
+<p><code>compute.instances.setTags</code></p>
+<p><code>compute.instances.start</code></p>
+<p><code>compute.instances.stop</code></p>
+<p><code>compute.instances.update</code></p>
+<p><code>compute.instances.useReadOnly</code></p>
+<p><code>compute.machineTypes.get</code></p>
+<p><code>compute.networks.get</code></p>
+<p><code>compute.networks.use</code></p>
+<p><code>compute.networks.useExternalIp</code></p>
+<p><code>compute.snapshots.create</code></p>
+<p><code>compute.snapshots.delete</code></p>
+<p><code>compute.snapshots.useReadOnly</code></p>
+<p><code>compute.subnetworks.get</code></p>
+<p><code>compute.subnetworks.list</code></p>
+<p><code>compute.subnetworks.use</code></p>
+<p><code>compute. subnetworks. useExternalIp</code></p>
+<p><code>compute.zoneOperations.get</code></p>
+<p><code>dataflow.jobs.*</code></p>
+<ul>
+<li><code>dataflow.jobs.cancel</code></li>
+<li><code>dataflow.jobs.create</code></li>
+<li><code>dataflow.jobs.get</code></li>
+<li><code>dataflow.jobs.list</code></li>
+<li><code>dataflow.jobs.snapshot</code></li>
+<li><code>dataflow.jobs.updateContents</code></li>
+</ul>
+<p><code>dataflow.messages.list</code></p>
+<p><code>dataflow.metrics.get</code></p>
+<p><code>dataflow.snapshots.*</code></p>
+<ul>
+<li><code>dataflow.snapshots.delete</code></li>
+<li><code>dataflow.snapshots.get</code></li>
+<li><code>dataflow.snapshots.list</code></li>
+</ul>
+<p><code>datalabeling. annotateddatasets. get</code></p>
+<p><code>datalabeling.datasets.export</code></p>
+<p><code>datalabeling.datasets.get</code></p>
+<p><code>datalabeling.datasets.list</code></p>
+<p><code>datalabeling.operations.get</code></p>
+<p><code>hypercomputecluster.clusters.*</code></p>
+<ul>
+<li><code>hypercomputecluster. clusters. create</code></li>
+<li><code>hypercomputecluster. clusters. delete</code></li>
+<li><code>hypercomputecluster. clusters. get</code></li>
+<li><code>hypercomputecluster. clusters. list</code></li>
+<li><code>hypercomputecluster. clusters. update</code></li>
+</ul>
+<p><code>hypercomputecluster. locations.*</code></p>
+<ul>
+<li><code>hypercomputecluster. locations. get</code></li>
+<li><code>hypercomputecluster. locations. list</code></li>
+</ul>
+<p><code>hypercomputecluster. operations.*</code></p>
+<ul>
+<li><code>hypercomputecluster. operations. cancel</code></li>
+<li><code>hypercomputecluster. operations. delete</code></li>
+<li><code>hypercomputecluster. operations. get</code></li>
+<li><code>hypercomputecluster. operations. list</code></li>
+</ul>
+<p><code>iam.serviceAccounts.actAs</code></p>
+<p><code>iam. serviceAccounts. getAccessToken</code></p>
+<p><code>iam. serviceAccounts. getOpenIdToken</code></p>
+<p><code>logging.links.*</code></p>
+<ul>
+<li><code>logging.links.create</code></li>
+<li><code>logging.links.delete</code></li>
+<li><code>logging.links.get</code></li>
+<li><code>logging.links.list</code></li>
+</ul>
+<p><code>logging.logEntries.create</code></p>
+<p><code>logging.logEntries.route</code></p>
+<p><code>logging.operations.get</code></p>
+<p><code>logging.operations.list</code></p>
+<p><code>logging.views.access</code></p>
+<p><code>logging.views.get</code></p>
+<p><code>ml.models.list</code></p>
+<p><code>ml.operations.get</code></p>
+<p><code>ml.versions.get</code></p>
+<p><code>ml.versions.list</code></p>
+<p><code>monitoring. metricDescriptors. create</code></p>
+<p><code>monitoring. metricDescriptors. get</code></p>
+<p><code>monitoring. metricDescriptors. list</code></p>
+<p><code>monitoring. monitoredResourceDescriptors.*</code></p>
+<ul>
+<li><code>monitoring. monitoredResourceDescriptors. get</code></li>
+<li><code>monitoring. monitoredResourceDescriptors. list</code></li>
+</ul>
+<p><code>monitoring. notificationChannels. get</code></p>
+<p><code>monitoring.timeSeries.create</code></p>
+<p><code>networkservices. agentGateways. get</code></p>
+<p><code>networkservices. agentGateways. use</code></p>
+<p><code>networkservices.operations.get</code></p>
+<p><code>notebooks.instances.create</code></p>
+<p><code>notebooks.instances.delete</code></p>
+<p><code>notebooks.instances.get</code></p>
+<p><code>observability.links.create</code></p>
+<p><code>observability.links.delete</code></p>
+<p><code>observability.links.get</code></p>
+<p><code>observability.links.list</code></p>
+<p><code>observability.operations.get</code></p>
+<p><code>observability.operations.list</code></p>
+<p><code>resourcemanager.projects.get</code></p>
+<p><code>resourcemanager.projects.list</code></p>
+<p><code>run.executions.delete</code></p>
+<p><code>run.executions.get</code></p>
+<p><code>run.jobs.create</code></p>
+<p><code>run.jobs.delete</code></p>
+<p><code>run.jobs.get</code></p>
+<p><code>run.jobs.run</code></p>
+<p><code>run.jobs.update</code></p>
+<p><code>run.operations.delete</code></p>
+<p><code>run.operations.get</code></p>
+<p><code>run.routes.invoke</code></p>
+<p><code>run.services.create</code></p>
+<p><code>run.services.delete</code></p>
+<p><code>run.services.get</code></p>
+<p><code>servicemanagement. services. report</code></p>
+<p><code>serviceusage.services.list</code></p>
+<p><code>serviceusage.services.use</code></p>
+<p><code>storage.buckets.create</code></p>
+<p><code>storage.buckets.delete</code></p>
+<p><code>storage.buckets.get</code></p>
+<p><code>storage.buckets.list</code></p>
+<p><code>storage.folders.create</code></p>
+<p><code>storage.folders.delete</code></p>
+<p><code>storage.folders.get</code></p>
+<p><code>storage.folders.list</code></p>
+<p><code>storage.objects.create</code></p>
+<p><code>storage.objects.delete</code></p>
+<p><code>storage.objects.get</code></p>
+<p><code>storage.objects.list</code></p>
+<p><code>storage.objects.update</code></p></td>
 </tr>
 <tr class="even">
-<td><h4 id="aiplatform.telemetryServiceAgent" class="role-title add-link" data-text="Vertex AI Telemetry Service Agent" tabindex="-1">Vertex AI Telemetry Service Agent</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.telemetryServiceAgent</code> )</p>
+<td>Vertex AI Telemetry Service Agent
+<p>( <code>roles/ aiplatform.telemetryServiceAgent</code> )</p>
 <p>Allows Vertex AI Telemetry Service Agent to access telemetry data.</p>
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">logging.logEntries.create</code></p>
-<p><code dir="ltr" translate="no">logging.logEntries.list</code></p>
-<p><code dir="ltr" translate="no">logging.logEntries.route</code></p>
-<p><code dir="ltr" translate="no">monitoring.  metricDescriptors.  create</code></p>
-<p><code dir="ltr" translate="no">monitoring.  metricDescriptors.  get</code></p>
-<p><code dir="ltr" translate="no">monitoring.  metricDescriptors.  list</code></p>
-<p><code dir="ltr" translate="no">monitoring.  monitoredResourceDescriptors.*</code></p>
+<td><p><code>logging.logEntries.create</code></p>
+<p><code>logging.logEntries.list</code></p>
+<p><code>logging.logEntries.route</code></p>
+<p><code>monitoring. metricDescriptors. create</code></p>
+<p><code>monitoring. metricDescriptors. get</code></p>
+<p><code>monitoring. metricDescriptors. list</code></p>
+<p><code>monitoring. monitoredResourceDescriptors.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">monitoring.  monitoredResourceDescriptors.  get</code></li>
-<li><code dir="ltr" translate="no">monitoring.  monitoredResourceDescriptors.  list</code></li>
+<li><code>monitoring. monitoredResourceDescriptors. get</code></li>
+<li><code>monitoring. monitoredResourceDescriptors. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">monitoring.timeSeries.*</code></p>
+<p><code>monitoring.timeSeries.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">monitoring.timeSeries.create</code></li>
-<li><code dir="ltr" translate="no">monitoring.timeSeries.list</code></li>
+<li><code>monitoring.timeSeries.create</code></li>
+<li><code>monitoring.timeSeries.list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">servicemanagement.  services.  report</code></p></td>
+<p><code>servicemanagement. services. report</code></p></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aiplatform.tuningServiceAgent" class="role-title add-link" data-text="Vertex AI Tuning Service Agent" tabindex="-1">Vertex AI Tuning Service Agent</h4>
-<p>( <code dir="ltr" translate="no">roles/  aiplatform.tuningServiceAgent</code> )</p>
+<td>Vertex AI Tuning Service Agent
+<p>( <code>roles/ aiplatform.tuningServiceAgent</code> )</p>
 <p>Vertex AI Service Agent used for tuning in user project.</p>
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">aiplatform.artifacts.*</code></p>
+<td><p><code>aiplatform.artifacts.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.artifacts.update</code></li>
+<li><code>aiplatform.artifacts.create</code></li>
+<li><code>aiplatform.artifacts.delete</code></li>
+<li><code>aiplatform.artifacts.get</code></li>
+<li><code>aiplatform.artifacts.list</code></li>
+<li><code>aiplatform.artifacts.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  cancel</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  batchPredictionJobs.  get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.contexts.*</code></p>
+<p><code>aiplatform. batchPredictionJobs. cancel</code></p>
+<p><code>aiplatform. batchPredictionJobs. create</code></p>
+<p><code>aiplatform. batchPredictionJobs. get</code></p>
+<p><code>aiplatform.contexts.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  addContextArtifactsAndExecutions</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  addContextChildren</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  contexts.  queryContextLineageSubgraph</code></li>
-<li><code dir="ltr" translate="no">aiplatform.contexts.update</code></li>
+<li><code>aiplatform. contexts. addContextArtifactsAndExecutions</code></li>
+<li><code>aiplatform. contexts. addContextChildren</code></li>
+<li><code>aiplatform.contexts.create</code></li>
+<li><code>aiplatform.contexts.delete</code></li>
+<li><code>aiplatform.contexts.get</code></li>
+<li><code>aiplatform.contexts.list</code></li>
+<li><code>aiplatform. contexts. queryContextLineageSubgraph</code></li>
+<li><code>aiplatform.contexts.update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.deploy</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.endpoints.predict</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.evaluationRuns.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  locations.  evaluateInstances</code></p>
-<p><code dir="ltr" translate="no">aiplatform.locations.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.metadataSchemas.*</code></p>
+<p><code>aiplatform.endpoints.create</code></p>
+<p><code>aiplatform.endpoints.deploy</code></p>
+<p><code>aiplatform.endpoints.get</code></p>
+<p><code>aiplatform.endpoints.predict</code></p>
+<p><code>aiplatform. evaluationRuns. create</code></p>
+<p><code>aiplatform.evaluationRuns.get</code></p>
+<p><code>aiplatform. locations. evaluateInstances</code></p>
+<p><code>aiplatform.locations.get</code></p>
+<p><code>aiplatform.metadataSchemas.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataSchemas.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataSchemas.  list</code></li>
+<li><code>aiplatform. metadataSchemas. create</code></li>
+<li><code>aiplatform. metadataSchemas. delete</code></li>
+<li><code>aiplatform.metadataSchemas.get</code></li>
+<li><code>aiplatform. metadataSchemas. list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.metadataStores.*</code></p>
+<p><code>aiplatform.metadataStores.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  metadataStores.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  metadataStores.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataStores.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.metadataStores.list</code></li>
+<li><code>aiplatform. metadataStores. create</code></li>
+<li><code>aiplatform. metadataStores. delete</code></li>
+<li><code>aiplatform.metadataStores.get</code></li>
+<li><code>aiplatform.metadataStores.list</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.models.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.models.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.models.upload</code></p>
-<p><code dir="ltr" translate="no">aiplatform.operations.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.pipelineJobs.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.pipelineJobs.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.*</code></p>
+<p><code>aiplatform.models.get</code></p>
+<p><code>aiplatform.models.update</code></p>
+<p><code>aiplatform.models.upload</code></p>
+<p><code>aiplatform.operations.list</code></p>
+<p><code>aiplatform.pipelineJobs.get</code></p>
+<p><code>aiplatform.pipelineJobs.list</code></p>
+<p><code>aiplatform. tensorboardExperiments.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  write</code></li>
+<li><code>aiplatform. tensorboardExperiments. create</code></li>
+<li><code>aiplatform. tensorboardExperiments. delete</code></li>
+<li><code>aiplatform. tensorboardExperiments. get</code></li>
+<li><code>aiplatform. tensorboardExperiments. list</code></li>
+<li><code>aiplatform. tensorboardExperiments. update</code></li>
+<li><code>aiplatform. tensorboardExperiments. write</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.tensorboardRuns.*</code></p>
+<p><code>aiplatform.tensorboardRuns.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  batchCreate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.tensorboardRuns.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  update</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardRuns.  write</code></li>
+<li><code>aiplatform. tensorboardRuns. batchCreate</code></li>
+<li><code>aiplatform. tensorboardRuns. create</code></li>
+<li><code>aiplatform. tensorboardRuns. delete</code></li>
+<li><code>aiplatform.tensorboardRuns.get</code></li>
+<li><code>aiplatform. tensorboardRuns. list</code></li>
+<li><code>aiplatform. tensorboardRuns. update</code></li>
+<li><code>aiplatform. tensorboardRuns. write</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.*</code></p>
+<p><code>aiplatform. tensorboardTimeSeries.*</code></p>
 <ul>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  batchCreate</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  batchRead</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  create</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  delete</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  list</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  read</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  tensorboardTimeSeries.  update</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. batchCreate</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. batchRead</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. create</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. delete</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. get</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. list</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. read</code></li>
+<li><code>aiplatform. tensorboardTimeSeries. update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tensorboards.update</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tuningJobs.cancel</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tuningJobs.create</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tuningJobs.delete</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tuningJobs.get</code></p>
-<p><code dir="ltr" translate="no">aiplatform.tuningJobs.list</code></p>
-<p><code dir="ltr" translate="no">aiplatform.  tuningJobs.  vertexTune</code></p>
-<p><code dir="ltr" translate="no">bigquery.datasets.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.datasets.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.jobs.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.jobs.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.create</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.delete</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.get</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.getData</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.list</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.update</code></p>
-<p><code dir="ltr" translate="no">bigquery.tables.updateData</code></p>
-<p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
-<p><code dir="ltr" translate="no">serviceusage.services.use</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.create</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.get</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.getIamPolicy</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.list</code></p>
-<p><code dir="ltr" translate="no">storage.buckets.update</code></p>
-<p><code dir="ltr" translate="no">storage.objects.create</code></p>
-<p><code dir="ltr" translate="no">storage.objects.delete</code></p>
-<p><code dir="ltr" translate="no">storage.objects.get</code></p>
-<p><code dir="ltr" translate="no">storage.objects.getIamPolicy</code></p>
-<p><code dir="ltr" translate="no">storage.objects.list</code></p>
-<p><code dir="ltr" translate="no">storage.objects.update</code></p></td>
+<p><code>aiplatform.tensorboards.create</code></p>
+<p><code>aiplatform.tensorboards.delete</code></p>
+<p><code>aiplatform.tensorboards.get</code></p>
+<p><code>aiplatform.tensorboards.list</code></p>
+<p><code>aiplatform.tensorboards.update</code></p>
+<p><code>aiplatform.tuningJobs.cancel</code></p>
+<p><code>aiplatform.tuningJobs.create</code></p>
+<p><code>aiplatform.tuningJobs.delete</code></p>
+<p><code>aiplatform.tuningJobs.get</code></p>
+<p><code>aiplatform.tuningJobs.list</code></p>
+<p><code>aiplatform. tuningJobs. vertexTune</code></p>
+<p><code>bigquery.datasets.create</code></p>
+<p><code>bigquery.datasets.get</code></p>
+<p><code>bigquery.jobs.create</code></p>
+<p><code>bigquery.jobs.get</code></p>
+<p><code>bigquery.tables.create</code></p>
+<p><code>bigquery.tables.delete</code></p>
+<p><code>bigquery.tables.get</code></p>
+<p><code>bigquery.tables.getData</code></p>
+<p><code>bigquery.tables.list</code></p>
+<p><code>bigquery.tables.update</code></p>
+<p><code>bigquery.tables.updateData</code></p>
+<p><code>resourcemanager.projects.get</code></p>
+<p><code>serviceusage.services.use</code></p>
+<p><code>storage.buckets.create</code></p>
+<p><code>storage.buckets.get</code></p>
+<p><code>storage.buckets.getIamPolicy</code></p>
+<p><code>storage.buckets.list</code></p>
+<p><code>storage.buckets.update</code></p>
+<p><code>storage.objects.create</code></p>
+<p><code>storage.objects.delete</code></p>
+<p><code>storage.objects.get</code></p>
+<p><code>storage.objects.getIamPolicy</code></p>
+<p><code>storage.objects.list</code></p>
+<p><code>storage.objects.update</code></p></td>
 </tr>
 </tbody>
 </table>
-
-<span id="primitive-roles"></span>
 
 ### Basic roles
 
@@ -5236,55 +5232,13 @@ Service accounts are identified by an email address.
 
 When a service agent is created, the service agent is granted a predefined role for your project. The following table lists Agent Platform service agents, their email addresses, and their respective roles:
 
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Used for</th>
-<th>Email address</th>
-<th>Role</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Agent Platform Service Agent</td>
-<td>Agent Platform capabilities</td>
-<td><code dir="ltr" translate="no">service-         PROJECT_NUMBER        @gcp-sa-aiplatform.iam.gserviceaccount.com</code></td>
-<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.serviceAgent"><code dir="ltr" translate="no">roles/aiplatform.serviceAgent</code></a></td>
-</tr>
-<tr class="even">
-<td>Gemini Enterprise Agent Platform RAG Data Service Agent</td>
-<td>Agent Platform RAG accesses user-imported data, Agent Platform, Document AI processors in the project</td>
-<td><code dir="ltr" translate="no">service-         PROJECT_NUMBER        @gcp-sa-vertex-rag.iam.gserviceaccount.com</code></td>
-<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.ragServiceAgent"><code dir="ltr" translate="no">roles/  aiplatform.ragServiceAgent</code></a></td>
-</tr>
-<tr class="odd">
-<td>Gemini Enterprise Agent Platform Custom Code Service Agent</td>
-<td><p>Custom training code</p>
-<p>Ray on Agent Platform application code</p></td>
-<td><code dir="ltr" translate="no">service-         PROJECT_NUMBER        @gcp-sa-aiplatform-cc.iam.gserviceaccount.com</code></td>
-<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.customCodeServiceAgent"><code dir="ltr" translate="no">roles/aiplatform.customCodeServiceAgent</code></a></td>
-</tr>
-<tr class="even">
-<td>Agent Platform Extension Service Agent</td>
-<td>Vertex Extensions</td>
-<td><code dir="ltr" translate="no">service-         PROJECT_NUMBER        @gcp-sa-vertex-ex.iam.gserviceaccount.com</code></td>
-<td><code dir="ltr" translate="no"> roles/aiplatform.extensionServiceAgent</code></td>
-</tr>
-<tr class="odd">
-<td>Cloud AI Platform Notebooks Service Account</td>
-<td>Agent Platform Workbench capabilities</td>
-<td><code dir="ltr" translate="no">service-         PROJECT_NUMBER        @gcp-sa-notebooks.iam.gserviceaccount.com</code></td>
-<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#notebooks.serviceAgent"><code dir="ltr" translate="no">roles/notebooks.serviceAgent</code></a></td>
-</tr>
-</tbody>
-</table>
+| Name                                                       | Used for                                                                                              | Email address                                                                 | Role                                                                                                                                                                                  |
+|------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Agent Platform Service Agent                               | Agent Platform capabilities                                                                           | `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform.iam.gserviceaccount.com`    | [`roles/aiplatform.serviceAgent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.serviceAgent)                     |
+| Gemini Enterprise Agent Platform RAG Data Service Agent    | Agent Platform RAG accesses user-imported data, Agent Platform, Document AI processors in the project | `service- `` PROJECT_NUMBER `` @gcp-sa-vertex-rag.iam.gserviceaccount.com`    | [`roles/ aiplatform.ragServiceAgent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.ragServiceAgent)              |
+| Gemini Enterprise Agent Platform Custom Code Service Agent | Custom training code Ray on Agent Platform application code                                           | `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-cc.iam.gserviceaccount.com` | [`roles/aiplatform.customCodeServiceAgent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.customCodeServiceAgent) |
+| Agent Platform Extension Service Agent                     | Vertex Extensions                                                                                     | `service- `` PROJECT_NUMBER `` @gcp-sa-vertex-ex.iam.gserviceaccount.com`     | [`roles/aiplatform.extensionServiceAgent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.extensionServiceAgent)   |
+| Cloud AI Platform Notebooks Service Account                | Agent Platform Workbench capabilities                                                                 | `service- `` PROJECT_NUMBER `` @gcp-sa-notebooks.iam.gserviceaccount.com`     | [`roles/notebooks.serviceAgent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#notebooks.serviceAgent)                       |
 
 The Gemini Enterprise Agent Platform Custom Code Service Agent is created only if you run custom training code to train a custom-trained model.
 
@@ -5298,7 +5252,7 @@ Role
 
 Permissions
 
-#### Vertex AI Service Agent
+Vertex AI Service Agent
 
 ( `roles/ aiplatform.serviceAgent` )
 
@@ -5312,8 +5266,8 @@ Gives Vertex AI the permissions it needs to function.
 
 `agentregistry.endpoints.*`
 
-  - `agentregistry.endpoints.get`
-  - `agentregistry.endpoints.list`
+- `agentregistry.endpoints.get`
+- `agentregistry.endpoints.list`
 
 `agentregistry.mcpServers.get`
 
@@ -5321,10 +5275,10 @@ Gives Vertex AI the permissions it needs to function.
 
 `agentregistry.operations.*`
 
-  - `agentregistry. operations. cancel`
-  - `agentregistry. operations. delete`
-  - `agentregistry.operations.get`
-  - `agentregistry.operations.list`
+- `agentregistry. operations. cancel`
+- `agentregistry. operations. delete`
+- `agentregistry.operations.get`
+- `agentregistry.operations.list`
 
 `agentregistry.skills.create`
 
@@ -5332,168 +5286,168 @@ Gives Vertex AI the permissions it needs to function.
 
 `aiplatform. agentAnomalyDetectionScopes.*`
 
-  - `aiplatform. agentAnomalyDetectionScopes. create`
-  - `aiplatform. agentAnomalyDetectionScopes. delete`
-  - `aiplatform. agentAnomalyDetectionScopes. get`
-  - `aiplatform. agentAnomalyDetectionScopes. list`
+- `aiplatform. agentAnomalyDetectionScopes. create`
+- `aiplatform. agentAnomalyDetectionScopes. delete`
+- `aiplatform. agentAnomalyDetectionScopes. get`
+- `aiplatform. agentAnomalyDetectionScopes. list`
 
 `aiplatform.agentExamples.*`
 
-  - `aiplatform. agentExamples. create`
-  - `aiplatform. agentExamples. delete`
-  - `aiplatform.agentExamples.get`
-  - `aiplatform.agentExamples.list`
-  - `aiplatform. agentExamples. update`
+- `aiplatform. agentExamples. create`
+- `aiplatform. agentExamples. delete`
+- `aiplatform.agentExamples.get`
+- `aiplatform.agentExamples.list`
+- `aiplatform. agentExamples. update`
 
 `aiplatform.agents.*`
 
-  - `aiplatform.agents.create`
-  - `aiplatform.agents.delete`
-  - `aiplatform.agents.get`
-  - `aiplatform.agents.list`
-  - `aiplatform.agents.update`
+- `aiplatform.agents.create`
+- `aiplatform.agents.delete`
+- `aiplatform.agents.get`
+- `aiplatform.agents.list`
+- `aiplatform.agents.update`
 
 `aiplatform. analyzedInvocations.*`
 
-  - `aiplatform. analyzedInvocations. get`
-  - `aiplatform. analyzedInvocations. list`
+- `aiplatform. analyzedInvocations. get`
+- `aiplatform. analyzedInvocations. list`
 
 `aiplatform.analyzedSessions.*`
 
-  - `aiplatform. analyzedSessions. aggregate`
-  - `aiplatform. analyzedSessions. get`
-  - `aiplatform. analyzedSessions. list`
+- `aiplatform. analyzedSessions. aggregate`
+- `aiplatform. analyzedSessions. get`
+- `aiplatform. analyzedSessions. list`
 
 `aiplatform.annotationSpecs.*`
 
-  - `aiplatform. annotationSpecs. create`
-  - `aiplatform. annotationSpecs. delete`
-  - `aiplatform.annotationSpecs.get`
-  - `aiplatform. annotationSpecs. list`
-  - `aiplatform. annotationSpecs. update`
+- `aiplatform. annotationSpecs. create`
+- `aiplatform. annotationSpecs. delete`
+- `aiplatform.annotationSpecs.get`
+- `aiplatform. annotationSpecs. list`
+- `aiplatform. annotationSpecs. update`
 
 `aiplatform.annotations.*`
 
-  - `aiplatform.annotations.create`
-  - `aiplatform.annotations.delete`
-  - `aiplatform.annotations.get`
-  - `aiplatform.annotations.list`
-  - `aiplatform.annotations.update`
+- `aiplatform.annotations.create`
+- `aiplatform.annotations.delete`
+- `aiplatform.annotations.get`
+- `aiplatform.annotations.list`
+- `aiplatform.annotations.update`
 
 `aiplatform.apps.*`
 
-  - `aiplatform.apps.create`
-  - `aiplatform.apps.delete`
-  - `aiplatform.apps.get`
-  - `aiplatform.apps.list`
-  - `aiplatform.apps.update`
+- `aiplatform.apps.create`
+- `aiplatform.apps.delete`
+- `aiplatform.apps.get`
+- `aiplatform.apps.list`
+- `aiplatform.apps.update`
 
 `aiplatform.artifacts.*`
 
-  - `aiplatform.artifacts.create`
-  - `aiplatform.artifacts.delete`
-  - `aiplatform.artifacts.get`
-  - `aiplatform.artifacts.list`
-  - `aiplatform.artifacts.update`
+- `aiplatform.artifacts.create`
+- `aiplatform.artifacts.delete`
+- `aiplatform.artifacts.get`
+- `aiplatform.artifacts.list`
+- `aiplatform.artifacts.update`
 
 `aiplatform. batchPredictionJobs.*`
 
-  - `aiplatform. batchPredictionJobs. cancel`
-  - `aiplatform. batchPredictionJobs. create`
-  - `aiplatform. batchPredictionJobs. delete`
-  - `aiplatform. batchPredictionJobs. get`
-  - `aiplatform. batchPredictionJobs. list`
+- `aiplatform. batchPredictionJobs. cancel`
+- `aiplatform. batchPredictionJobs. create`
+- `aiplatform. batchPredictionJobs. delete`
+- `aiplatform. batchPredictionJobs. get`
+- `aiplatform. batchPredictionJobs. list`
 
 `aiplatform.cacheConfigs.get`
 
 `aiplatform.cachedContents.*`
 
-  - `aiplatform. cachedContents. create`
-  - `aiplatform. cachedContents. delete`
-  - `aiplatform.cachedContents.get`
-  - `aiplatform.cachedContents.list`
-  - `aiplatform. cachedContents. update`
+- `aiplatform. cachedContents. create`
+- `aiplatform. cachedContents. delete`
+- `aiplatform.cachedContents.get`
+- `aiplatform.cachedContents.list`
+- `aiplatform. cachedContents. update`
 
 `aiplatform.consents.get`
 
 `aiplatform.contexts.*`
 
-  - `aiplatform. contexts. addContextArtifactsAndExecutions`
-  - `aiplatform. contexts. addContextChildren`
-  - `aiplatform.contexts.create`
-  - `aiplatform.contexts.delete`
-  - `aiplatform.contexts.get`
-  - `aiplatform.contexts.list`
-  - `aiplatform. contexts. queryContextLineageSubgraph`
-  - `aiplatform.contexts.update`
+- `aiplatform. contexts. addContextArtifactsAndExecutions`
+- `aiplatform. contexts. addContextChildren`
+- `aiplatform.contexts.create`
+- `aiplatform.contexts.delete`
+- `aiplatform.contexts.get`
+- `aiplatform.contexts.list`
+- `aiplatform. contexts. queryContextLineageSubgraph`
+- `aiplatform.contexts.update`
 
 `aiplatform.customJobs.*`
 
-  - `aiplatform.customJobs.cancel`
-  - `aiplatform.customJobs.create`
-  - `aiplatform.customJobs.delete`
-  - `aiplatform.customJobs.get`
-  - `aiplatform.customJobs.list`
+- `aiplatform.customJobs.cancel`
+- `aiplatform.customJobs.create`
+- `aiplatform.customJobs.delete`
+- `aiplatform.customJobs.get`
+- `aiplatform.customJobs.list`
 
 `aiplatform.dataItems.*`
 
-  - `aiplatform.dataItems.create`
-  - `aiplatform.dataItems.delete`
-  - `aiplatform.dataItems.get`
-  - `aiplatform.dataItems.list`
-  - `aiplatform.dataItems.update`
+- `aiplatform.dataItems.create`
+- `aiplatform.dataItems.delete`
+- `aiplatform.dataItems.get`
+- `aiplatform.dataItems.list`
+- `aiplatform.dataItems.update`
 
 `aiplatform.dataLabelingJobs.*`
 
-  - `aiplatform. dataLabelingJobs. cancel`
-  - `aiplatform. dataLabelingJobs. create`
-  - `aiplatform. dataLabelingJobs. delete`
-  - `aiplatform. dataLabelingJobs. get`
-  - `aiplatform. dataLabelingJobs. list`
+- `aiplatform. dataLabelingJobs. cancel`
+- `aiplatform. dataLabelingJobs. create`
+- `aiplatform. dataLabelingJobs. delete`
+- `aiplatform. dataLabelingJobs. get`
+- `aiplatform. dataLabelingJobs. list`
 
 `aiplatform.datasetVersions.*`
 
-  - `aiplatform. datasetVersions. create`
-  - `aiplatform. datasetVersions. delete`
-  - `aiplatform.datasetVersions.get`
-  - `aiplatform. datasetVersions. list`
-  - `aiplatform. datasetVersions. restore`
+- `aiplatform. datasetVersions. create`
+- `aiplatform. datasetVersions. delete`
+- `aiplatform.datasetVersions.get`
+- `aiplatform. datasetVersions. list`
+- `aiplatform. datasetVersions. restore`
 
 `aiplatform.datasets.*`
 
-  - `aiplatform.datasets.create`
-  - `aiplatform.datasets.delete`
-  - `aiplatform.datasets.export`
-  - `aiplatform.datasets.get`
-  - `aiplatform.datasets.import`
-  - `aiplatform.datasets.list`
-  - `aiplatform.datasets.update`
+- `aiplatform.datasets.create`
+- `aiplatform.datasets.delete`
+- `aiplatform.datasets.export`
+- `aiplatform.datasets.get`
+- `aiplatform.datasets.import`
+- `aiplatform.datasets.list`
+- `aiplatform.datasets.update`
 
 `aiplatform. deploymentResourcePools.*`
 
-  - `aiplatform. deploymentResourcePools. create`
-  - `aiplatform. deploymentResourcePools. delete`
-  - `aiplatform. deploymentResourcePools. get`
-  - `aiplatform. deploymentResourcePools. list`
-  - `aiplatform. deploymentResourcePools. queryDeployedModels`
-  - `aiplatform. deploymentResourcePools. update`
+- `aiplatform. deploymentResourcePools. create`
+- `aiplatform. deploymentResourcePools. delete`
+- `aiplatform. deploymentResourcePools. get`
+- `aiplatform. deploymentResourcePools. list`
+- `aiplatform. deploymentResourcePools. queryDeployedModels`
+- `aiplatform. deploymentResourcePools. update`
 
 `aiplatform. edgeDeploymentJobs.*`
 
-  - `aiplatform. edgeDeploymentJobs. create`
-  - `aiplatform. edgeDeploymentJobs. delete`
-  - `aiplatform. edgeDeploymentJobs. get`
-  - `aiplatform. edgeDeploymentJobs. list`
+- `aiplatform. edgeDeploymentJobs. create`
+- `aiplatform. edgeDeploymentJobs. delete`
+- `aiplatform. edgeDeploymentJobs. get`
+- `aiplatform. edgeDeploymentJobs. list`
 
 `aiplatform. edgeDeviceDebugInfo. get`
 
 `aiplatform.edgeDevices.*`
 
-  - `aiplatform.edgeDevices.create`
-  - `aiplatform.edgeDevices.delete`
-  - `aiplatform.edgeDevices.get`
-  - `aiplatform.edgeDevices.list`
-  - `aiplatform.edgeDevices.update`
+- `aiplatform.edgeDevices.create`
+- `aiplatform.edgeDevices.delete`
+- `aiplatform.edgeDevices.get`
+- `aiplatform.edgeDevices.list`
+- `aiplatform.edgeDevices.update`
 
 `aiplatform.endpoints.create`
 
@@ -5537,74 +5491,74 @@ Gives Vertex AI the permissions it needs to function.
 
 `aiplatform. evaluationExperiments.*`
 
-  - `aiplatform. evaluationExperiments. create`
-  - `aiplatform. evaluationExperiments. delete`
-  - `aiplatform. evaluationExperiments. get`
-  - `aiplatform. evaluationExperiments. list`
-  - `aiplatform. evaluationExperiments. update`
+- `aiplatform. evaluationExperiments. create`
+- `aiplatform. evaluationExperiments. delete`
+- `aiplatform. evaluationExperiments. get`
+- `aiplatform. evaluationExperiments. list`
+- `aiplatform. evaluationExperiments. update`
 
 `aiplatform.evaluationItems.*`
 
-  - `aiplatform. evaluationItems. create`
-  - `aiplatform. evaluationItems. delete`
-  - `aiplatform.evaluationItems.get`
-  - `aiplatform. evaluationItems. list`
-  - `aiplatform. evaluationItems. update`
+- `aiplatform. evaluationItems. create`
+- `aiplatform. evaluationItems. delete`
+- `aiplatform.evaluationItems.get`
+- `aiplatform. evaluationItems. list`
+- `aiplatform. evaluationItems. update`
 
 `aiplatform.evaluationMetrics.*`
 
-  - `aiplatform. evaluationMetrics. create`
-  - `aiplatform. evaluationMetrics. delete`
-  - `aiplatform. evaluationMetrics. get`
-  - `aiplatform. evaluationMetrics. list`
+- `aiplatform. evaluationMetrics. create`
+- `aiplatform. evaluationMetrics. delete`
+- `aiplatform. evaluationMetrics. get`
+- `aiplatform. evaluationMetrics. list`
 
 `aiplatform.evaluationRuns.*`
 
-  - `aiplatform. evaluationRuns. cancel`
-  - `aiplatform. evaluationRuns. create`
-  - `aiplatform. evaluationRuns. delete`
-  - `aiplatform. evaluationRuns. execute`
-  - `aiplatform.evaluationRuns.get`
-  - `aiplatform.evaluationRuns.list`
-  - `aiplatform. evaluationRuns. update`
+- `aiplatform. evaluationRuns. cancel`
+- `aiplatform. evaluationRuns. create`
+- `aiplatform. evaluationRuns. delete`
+- `aiplatform. evaluationRuns. execute`
+- `aiplatform.evaluationRuns.get`
+- `aiplatform.evaluationRuns.list`
+- `aiplatform. evaluationRuns. update`
 
 `aiplatform.evaluationSets.*`
 
-  - `aiplatform. evaluationSets. create`
-  - `aiplatform. evaluationSets. delete`
-  - `aiplatform.evaluationSets.get`
-  - `aiplatform. evaluationSets. import`
-  - `aiplatform.evaluationSets.list`
-  - `aiplatform. evaluationSets. update`
+- `aiplatform. evaluationSets. create`
+- `aiplatform. evaluationSets. delete`
+- `aiplatform.evaluationSets.get`
+- `aiplatform. evaluationSets. import`
+- `aiplatform.evaluationSets.list`
+- `aiplatform. evaluationSets. update`
 
 `aiplatform.exampleStores.*`
 
-  - `aiplatform. exampleStores. create`
-  - `aiplatform. exampleStores. delete`
-  - `aiplatform.exampleStores.get`
-  - `aiplatform.exampleStores.list`
-  - `aiplatform. exampleStores. readExample`
-  - `aiplatform. exampleStores. update`
-  - `aiplatform. exampleStores. writeExample`
+- `aiplatform. exampleStores. create`
+- `aiplatform. exampleStores. delete`
+- `aiplatform.exampleStores.get`
+- `aiplatform.exampleStores.list`
+- `aiplatform. exampleStores. readExample`
+- `aiplatform. exampleStores. update`
+- `aiplatform. exampleStores. writeExample`
 
 `aiplatform.executions.*`
 
-  - `aiplatform. executions. addExecutionEvents`
-  - `aiplatform.executions.create`
-  - `aiplatform.executions.delete`
-  - `aiplatform.executions.get`
-  - `aiplatform.executions.list`
-  - `aiplatform. executions. queryExecutionInputsAndOutputs`
-  - `aiplatform.executions.update`
+- `aiplatform. executions. addExecutionEvents`
+- `aiplatform.executions.create`
+- `aiplatform.executions.delete`
+- `aiplatform.executions.get`
+- `aiplatform.executions.list`
+- `aiplatform. executions. queryExecutionInputsAndOutputs`
+- `aiplatform.executions.update`
 
 `aiplatform.extensions.*`
 
-  - `aiplatform.extensions.delete`
-  - `aiplatform.extensions.execute`
-  - `aiplatform.extensions.get`
-  - `aiplatform.extensions.import`
-  - `aiplatform.extensions.list`
-  - `aiplatform.extensions.update`
+- `aiplatform.extensions.delete`
+- `aiplatform.extensions.execute`
+- `aiplatform.extensions.get`
+- `aiplatform.extensions.import`
+- `aiplatform.extensions.list`
+- `aiplatform.extensions.update`
 
 `aiplatform. featureGroups. create`
 
@@ -5618,17 +5572,17 @@ Gives Vertex AI the permissions it needs to function.
 
 `aiplatform. featureMonitorJobs.*`
 
-  - `aiplatform. featureMonitorJobs. create`
-  - `aiplatform. featureMonitorJobs. get`
-  - `aiplatform. featureMonitorJobs. list`
+- `aiplatform. featureMonitorJobs. create`
+- `aiplatform. featureMonitorJobs. get`
+- `aiplatform. featureMonitorJobs. list`
 
 `aiplatform.featureMonitors.*`
 
-  - `aiplatform. featureMonitors. create`
-  - `aiplatform. featureMonitors. delete`
-  - `aiplatform.featureMonitors.get`
-  - `aiplatform. featureMonitors. list`
-  - `aiplatform. featureMonitors. update`
+- `aiplatform. featureMonitors. create`
+- `aiplatform. featureMonitors. delete`
+- `aiplatform.featureMonitors.get`
+- `aiplatform. featureMonitors. list`
+- `aiplatform. featureMonitors. update`
 
 `aiplatform. featureOnlineStores. create`
 
@@ -5642,8 +5596,8 @@ Gives Vertex AI the permissions it needs to function.
 
 `aiplatform.featureViewSyncs.*`
 
-  - `aiplatform. featureViewSyncs. get`
-  - `aiplatform. featureViewSyncs. list`
+- `aiplatform. featureViewSyncs. get`
+- `aiplatform. featureViewSyncs. list`
 
 `aiplatform.featureViews.create`
 
@@ -5665,11 +5619,11 @@ Gives Vertex AI the permissions it needs to function.
 
 `aiplatform.features.*`
 
-  - `aiplatform.features.create`
-  - `aiplatform.features.delete`
-  - `aiplatform.features.get`
-  - `aiplatform.features.list`
-  - `aiplatform.features.update`
+- `aiplatform.features.create`
+- `aiplatform.features.delete`
+- `aiplatform.features.get`
+- `aiplatform.features.list`
+- `aiplatform.features.update`
 
 `aiplatform. featurestores. batchReadFeatureValues`
 
@@ -5693,135 +5647,135 @@ Gives Vertex AI the permissions it needs to function.
 
 `aiplatform.humanInTheLoops.*`
 
-  - `aiplatform. humanInTheLoops. cancel`
-  - `aiplatform. humanInTheLoops. create`
-  - `aiplatform. humanInTheLoops. delete`
-  - `aiplatform.humanInTheLoops.get`
-  - `aiplatform. humanInTheLoops. list`
-  - `aiplatform. humanInTheLoops. queryAnnotationStats`
-  - `aiplatform. humanInTheLoops. send`
-  - `aiplatform. humanInTheLoops. update`
+- `aiplatform. humanInTheLoops. cancel`
+- `aiplatform. humanInTheLoops. create`
+- `aiplatform. humanInTheLoops. delete`
+- `aiplatform.humanInTheLoops.get`
+- `aiplatform. humanInTheLoops. list`
+- `aiplatform. humanInTheLoops. queryAnnotationStats`
+- `aiplatform. humanInTheLoops. send`
+- `aiplatform. humanInTheLoops. update`
 
 `aiplatform. hyperparameterTuningJobs.*`
 
-  - `aiplatform. hyperparameterTuningJobs. cancel`
-  - `aiplatform. hyperparameterTuningJobs. create`
-  - `aiplatform. hyperparameterTuningJobs. delete`
-  - `aiplatform. hyperparameterTuningJobs. get`
-  - `aiplatform. hyperparameterTuningJobs. list`
+- `aiplatform. hyperparameterTuningJobs. cancel`
+- `aiplatform. hyperparameterTuningJobs. create`
+- `aiplatform. hyperparameterTuningJobs. delete`
+- `aiplatform. hyperparameterTuningJobs. get`
+- `aiplatform. hyperparameterTuningJobs. list`
 
 `aiplatform.indexEndpoints.*`
 
-  - `aiplatform. indexEndpoints. create`
-  - `aiplatform. indexEndpoints. delete`
-  - `aiplatform. indexEndpoints. deploy`
-  - `aiplatform.indexEndpoints.get`
-  - `aiplatform.indexEndpoints.list`
-  - `aiplatform. indexEndpoints. queryVectors`
-  - `aiplatform. indexEndpoints. undeploy`
-  - `aiplatform. indexEndpoints. update`
+- `aiplatform. indexEndpoints. create`
+- `aiplatform. indexEndpoints. delete`
+- `aiplatform. indexEndpoints. deploy`
+- `aiplatform.indexEndpoints.get`
+- `aiplatform.indexEndpoints.list`
+- `aiplatform. indexEndpoints. queryVectors`
+- `aiplatform. indexEndpoints. undeploy`
+- `aiplatform. indexEndpoints. update`
 
 `aiplatform.indexes.*`
 
-  - `aiplatform.indexes.create`
-  - `aiplatform.indexes.delete`
-  - `aiplatform.indexes.get`
-  - `aiplatform.indexes.list`
-  - `aiplatform.indexes.update`
+- `aiplatform.indexes.create`
+- `aiplatform.indexes.delete`
+- `aiplatform.indexes.get`
+- `aiplatform.indexes.list`
+- `aiplatform.indexes.update`
 
 `aiplatform.interactions.*`
 
-  - `aiplatform.interactions.cancel`
-  - `aiplatform.interactions.create`
-  - `aiplatform.interactions.delete`
-  - `aiplatform.interactions.get`
-  - `aiplatform.interactions.list`
+- `aiplatform.interactions.cancel`
+- `aiplatform.interactions.create`
+- `aiplatform.interactions.delete`
+- `aiplatform.interactions.get`
+- `aiplatform.interactions.list`
 
 `aiplatform.locations.*`
 
-  - `aiplatform. locations. evaluateInstances`
-  - `aiplatform.locations.get`
-  - `aiplatform.locations.list`
+- `aiplatform. locations. evaluateInstances`
+- `aiplatform.locations.get`
+- `aiplatform.locations.list`
 
 `aiplatform.memories.*`
 
-  - `aiplatform.memories.create`
-  - `aiplatform.memories.delete`
-  - `aiplatform.memories.generate`
-  - `aiplatform.memories.get`
-  - `aiplatform.memories.list`
-  - `aiplatform.memories.retrieve`
-  - `aiplatform.memories.update`
+- `aiplatform.memories.create`
+- `aiplatform.memories.delete`
+- `aiplatform.memories.generate`
+- `aiplatform.memories.get`
+- `aiplatform.memories.list`
+- `aiplatform.memories.retrieve`
+- `aiplatform.memories.update`
 
 `aiplatform.memoryRevisions.*`
 
-  - `aiplatform.memoryRevisions.get`
-  - `aiplatform. memoryRevisions. list`
-  - `aiplatform. memoryRevisions. rollback`
+- `aiplatform.memoryRevisions.get`
+- `aiplatform. memoryRevisions. list`
+- `aiplatform. memoryRevisions. rollback`
 
 `aiplatform.metadataSchemas.*`
 
-  - `aiplatform. metadataSchemas. create`
-  - `aiplatform. metadataSchemas. delete`
-  - `aiplatform.metadataSchemas.get`
-  - `aiplatform. metadataSchemas. list`
+- `aiplatform. metadataSchemas. create`
+- `aiplatform. metadataSchemas. delete`
+- `aiplatform.metadataSchemas.get`
+- `aiplatform. metadataSchemas. list`
 
 `aiplatform.metadataStores.*`
 
-  - `aiplatform. metadataStores. create`
-  - `aiplatform. metadataStores. delete`
-  - `aiplatform.metadataStores.get`
-  - `aiplatform.metadataStores.list`
+- `aiplatform. metadataStores. create`
+- `aiplatform. metadataStores. delete`
+- `aiplatform.metadataStores.get`
+- `aiplatform.metadataStores.list`
 
 `aiplatform. modelDeploymentMonitoringJobs.*`
 
-  - `aiplatform. modelDeploymentMonitoringJobs. create`
-  - `aiplatform. modelDeploymentMonitoringJobs. delete`
-  - `aiplatform. modelDeploymentMonitoringJobs. get`
-  - `aiplatform. modelDeploymentMonitoringJobs. list`
-  - `aiplatform. modelDeploymentMonitoringJobs. pause`
-  - `aiplatform. modelDeploymentMonitoringJobs. resume`
-  - `aiplatform. modelDeploymentMonitoringJobs. searchStatsAnomalies`
-  - `aiplatform. modelDeploymentMonitoringJobs. update`
+- `aiplatform. modelDeploymentMonitoringJobs. create`
+- `aiplatform. modelDeploymentMonitoringJobs. delete`
+- `aiplatform. modelDeploymentMonitoringJobs. get`
+- `aiplatform. modelDeploymentMonitoringJobs. list`
+- `aiplatform. modelDeploymentMonitoringJobs. pause`
+- `aiplatform. modelDeploymentMonitoringJobs. resume`
+- `aiplatform. modelDeploymentMonitoringJobs. searchStatsAnomalies`
+- `aiplatform. modelDeploymentMonitoringJobs. update`
 
 `aiplatform. modelEvaluationSlices.*`
 
-  - `aiplatform. modelEvaluationSlices. get`
-  - `aiplatform. modelEvaluationSlices. import`
-  - `aiplatform. modelEvaluationSlices. list`
+- `aiplatform. modelEvaluationSlices. get`
+- `aiplatform. modelEvaluationSlices. import`
+- `aiplatform. modelEvaluationSlices. list`
 
 `aiplatform.modelEvaluations.*`
 
-  - `aiplatform. modelEvaluations. exportEvaluatedDataItems`
-  - `aiplatform. modelEvaluations. get`
-  - `aiplatform. modelEvaluations. import`
-  - `aiplatform. modelEvaluations. list`
+- `aiplatform. modelEvaluations. exportEvaluatedDataItems`
+- `aiplatform. modelEvaluations. get`
+- `aiplatform. modelEvaluations. import`
+- `aiplatform. modelEvaluations. list`
 
 `aiplatform. modelMonitoringJobs.*`
 
-  - `aiplatform. modelMonitoringJobs. create`
-  - `aiplatform. modelMonitoringJobs. delete`
-  - `aiplatform. modelMonitoringJobs. get`
-  - `aiplatform. modelMonitoringJobs. list`
+- `aiplatform. modelMonitoringJobs. create`
+- `aiplatform. modelMonitoringJobs. delete`
+- `aiplatform. modelMonitoringJobs. get`
+- `aiplatform. modelMonitoringJobs. list`
 
 `aiplatform.modelMonitors.*`
 
-  - `aiplatform. modelMonitors. create`
-  - `aiplatform. modelMonitors. delete`
-  - `aiplatform.modelMonitors.get`
-  - `aiplatform.modelMonitors.list`
-  - `aiplatform. modelMonitors. searchModelMonitoringAlerts`
-  - `aiplatform. modelMonitors. searchModelMonitoringStats`
-  - `aiplatform. modelMonitors. update`
+- `aiplatform. modelMonitors. create`
+- `aiplatform. modelMonitors. delete`
+- `aiplatform.modelMonitors.get`
+- `aiplatform.modelMonitors.list`
+- `aiplatform. modelMonitors. searchModelMonitoringAlerts`
+- `aiplatform. modelMonitors. searchModelMonitoringStats`
+- `aiplatform. modelMonitors. update`
 
 `aiplatform.models.*`
 
-  - `aiplatform.models.delete`
-  - `aiplatform.models.export`
-  - `aiplatform.models.get`
-  - `aiplatform.models.list`
-  - `aiplatform.models.update`
-  - `aiplatform.models.upload`
+- `aiplatform.models.delete`
+- `aiplatform.models.export`
+- `aiplatform.models.get`
+- `aiplatform.models.list`
+- `aiplatform.models.update`
+- `aiplatform.models.upload`
 
 `aiplatform. monitoredAgents. disable`
 
@@ -5833,23 +5787,23 @@ Gives Vertex AI the permissions it needs to function.
 
 `aiplatform.nasJobs.*`
 
-  - `aiplatform.nasJobs.cancel`
-  - `aiplatform.nasJobs.create`
-  - `aiplatform.nasJobs.delete`
-  - `aiplatform.nasJobs.get`
-  - `aiplatform.nasJobs.list`
+- `aiplatform.nasJobs.cancel`
+- `aiplatform.nasJobs.create`
+- `aiplatform.nasJobs.delete`
+- `aiplatform.nasJobs.get`
+- `aiplatform.nasJobs.list`
 
 `aiplatform.nasTrialDetails.*`
 
-  - `aiplatform.nasTrialDetails.get`
-  - `aiplatform. nasTrialDetails. list`
+- `aiplatform.nasTrialDetails.get`
+- `aiplatform. nasTrialDetails. list`
 
 `aiplatform. notebookExecutionJobs.*`
 
-  - `aiplatform. notebookExecutionJobs. create`
-  - `aiplatform. notebookExecutionJobs. delete`
-  - `aiplatform. notebookExecutionJobs. get`
-  - `aiplatform. notebookExecutionJobs. list`
+- `aiplatform. notebookExecutionJobs. create`
+- `aiplatform. notebookExecutionJobs. delete`
+- `aiplatform. notebookExecutionJobs. get`
+- `aiplatform. notebookExecutionJobs. list`
 
 `aiplatform. notebookRuntimeTemplates. apply`
 
@@ -5865,21 +5819,21 @@ Gives Vertex AI the permissions it needs to function.
 
 `aiplatform.notebookRuntimes.*`
 
-  - `aiplatform. notebookRuntimes. assign`
-  - `aiplatform. notebookRuntimes. delete`
-  - `aiplatform. notebookRuntimes. get`
-  - `aiplatform. notebookRuntimes. list`
-  - `aiplatform. notebookRuntimes. start`
-  - `aiplatform. notebookRuntimes. update`
-  - `aiplatform. notebookRuntimes. upgrade`
+- `aiplatform. notebookRuntimes. assign`
+- `aiplatform. notebookRuntimes. delete`
+- `aiplatform. notebookRuntimes. get`
+- `aiplatform. notebookRuntimes. list`
+- `aiplatform. notebookRuntimes. start`
+- `aiplatform. notebookRuntimes. update`
+- `aiplatform. notebookRuntimes. upgrade`
 
 `aiplatform.onlineEvaluators.*`
 
-  - `aiplatform. onlineEvaluators. create`
-  - `aiplatform. onlineEvaluators. delete`
-  - `aiplatform. onlineEvaluators. get`
-  - `aiplatform. onlineEvaluators. list`
-  - `aiplatform. onlineEvaluators. update`
+- `aiplatform. onlineEvaluators. create`
+- `aiplatform. onlineEvaluators. delete`
+- `aiplatform. onlineEvaluators. get`
+- `aiplatform. onlineEvaluators. list`
+- `aiplatform. onlineEvaluators. update`
 
 `aiplatform.operations.list`
 
@@ -5889,16 +5843,16 @@ Gives Vertex AI the permissions it needs to function.
 
 `aiplatform.pipelineJobs.*`
 
-  - `aiplatform.pipelineJobs.cancel`
-  - `aiplatform.pipelineJobs.create`
-  - `aiplatform.pipelineJobs.delete`
-  - `aiplatform.pipelineJobs.get`
-  - `aiplatform.pipelineJobs.list`
+- `aiplatform.pipelineJobs.cancel`
+- `aiplatform.pipelineJobs.create`
+- `aiplatform.pipelineJobs.delete`
+- `aiplatform.pipelineJobs.get`
+- `aiplatform.pipelineJobs.list`
 
 `aiplatform. provisionedThroughputRevisions.*`
 
-  - `aiplatform. provisionedThroughputRevisions. get`
-  - `aiplatform. provisionedThroughputRevisions. list`
+- `aiplatform. provisionedThroughputRevisions. get`
+- `aiplatform. provisionedThroughputRevisions. list`
 
 `aiplatform. provisionedThroughputs. get`
 
@@ -5906,29 +5860,29 @@ Gives Vertex AI the permissions it needs to function.
 
 `aiplatform.ragCorpora.*`
 
-  - `aiplatform.ragCorpora.create`
-  - `aiplatform.ragCorpora.delete`
-  - `aiplatform.ragCorpora.get`
-  - `aiplatform.ragCorpora.list`
-  - `aiplatform.ragCorpora.query`
-  - `aiplatform.ragCorpora.update`
+- `aiplatform.ragCorpora.create`
+- `aiplatform.ragCorpora.delete`
+- `aiplatform.ragCorpora.get`
+- `aiplatform.ragCorpora.list`
+- `aiplatform.ragCorpora.query`
+- `aiplatform.ragCorpora.update`
 
 `aiplatform. ragEngineConfigs. get`
 
 `aiplatform.ragFiles.*`
 
-  - `aiplatform.ragFiles.delete`
-  - `aiplatform.ragFiles.get`
-  - `aiplatform.ragFiles.import`
-  - `aiplatform.ragFiles.list`
-  - `aiplatform.ragFiles.upload`
+- `aiplatform.ragFiles.delete`
+- `aiplatform.ragFiles.get`
+- `aiplatform.ragFiles.import`
+- `aiplatform.ragFiles.list`
+- `aiplatform.ragFiles.upload`
 
 `aiplatform. reasoningEngineRuntimeRevisions.*`
 
-  - `aiplatform. reasoningEngineRuntimeRevisions. delete`
-  - `aiplatform. reasoningEngineRuntimeRevisions. get`
-  - `aiplatform. reasoningEngineRuntimeRevisions. list`
-  - `aiplatform. reasoningEngineRuntimeRevisions. query`
+- `aiplatform. reasoningEngineRuntimeRevisions. delete`
+- `aiplatform. reasoningEngineRuntimeRevisions. get`
+- `aiplatform. reasoningEngineRuntimeRevisions. list`
+- `aiplatform. reasoningEngineRuntimeRevisions. query`
 
 `aiplatform. reasoningEngines. create`
 
@@ -5944,101 +5898,101 @@ Gives Vertex AI the permissions it needs to function.
 
 `aiplatform. sandboxEnvironments.*`
 
-  - `aiplatform. sandboxEnvironments. create`
-  - `aiplatform. sandboxEnvironments. delete`
-  - `aiplatform. sandboxEnvironments. execute`
-  - `aiplatform. sandboxEnvironments. get`
-  - `aiplatform. sandboxEnvironments. list`
+- `aiplatform. sandboxEnvironments. create`
+- `aiplatform. sandboxEnvironments. delete`
+- `aiplatform. sandboxEnvironments. execute`
+- `aiplatform. sandboxEnvironments. get`
+- `aiplatform. sandboxEnvironments. list`
 
 `aiplatform.schedules.*`
 
-  - `aiplatform.schedules.create`
-  - `aiplatform.schedules.delete`
-  - `aiplatform.schedules.get`
-  - `aiplatform.schedules.list`
-  - `aiplatform.schedules.update`
+- `aiplatform.schedules.create`
+- `aiplatform.schedules.delete`
+- `aiplatform.schedules.get`
+- `aiplatform.schedules.list`
+- `aiplatform.schedules.update`
 
 `aiplatform. semanticGovernancePolicies.*`
 
-  - `aiplatform. semanticGovernancePolicies. create`
-  - `aiplatform. semanticGovernancePolicies. delete`
-  - `aiplatform. semanticGovernancePolicies. get`
-  - `aiplatform. semanticGovernancePolicies. list`
-  - `aiplatform. semanticGovernancePolicies. update`
+- `aiplatform. semanticGovernancePolicies. create`
+- `aiplatform. semanticGovernancePolicies. delete`
+- `aiplatform. semanticGovernancePolicies. get`
+- `aiplatform. semanticGovernancePolicies. list`
+- `aiplatform. semanticGovernancePolicies. update`
 
 `aiplatform. semanticGovernancePolicyEngine.*`
 
-  - `aiplatform. semanticGovernancePolicyEngine. get`
-  - `aiplatform. semanticGovernancePolicyEngine. update`
+- `aiplatform. semanticGovernancePolicyEngine. get`
+- `aiplatform. semanticGovernancePolicyEngine. update`
 
 `aiplatform.sessionEvents.*`
 
-  - `aiplatform. sessionEvents. append`
-  - `aiplatform.sessionEvents.list`
+- `aiplatform. sessionEvents. append`
+- `aiplatform.sessionEvents.list`
 
 `aiplatform.sessions.*`
 
-  - `aiplatform.sessions.create`
-  - `aiplatform.sessions.delete`
-  - `aiplatform.sessions.get`
-  - `aiplatform.sessions.list`
-  - `aiplatform.sessions.run`
-  - `aiplatform.sessions.update`
+- `aiplatform.sessions.create`
+- `aiplatform.sessions.delete`
+- `aiplatform.sessions.get`
+- `aiplatform.sessions.list`
+- `aiplatform.sessions.run`
+- `aiplatform.sessions.update`
 
 `aiplatform.specialistPools.*`
 
-  - `aiplatform. specialistPools. create`
-  - `aiplatform. specialistPools. delete`
-  - `aiplatform.specialistPools.get`
-  - `aiplatform. specialistPools. list`
-  - `aiplatform. specialistPools. update`
+- `aiplatform. specialistPools. create`
+- `aiplatform. specialistPools. delete`
+- `aiplatform.specialistPools.get`
+- `aiplatform. specialistPools. list`
+- `aiplatform. specialistPools. update`
 
 `aiplatform.studies.*`
 
-  - `aiplatform.studies.create`
-  - `aiplatform.studies.delete`
-  - `aiplatform.studies.get`
-  - `aiplatform.studies.list`
-  - `aiplatform.studies.update`
+- `aiplatform.studies.create`
+- `aiplatform.studies.delete`
+- `aiplatform.studies.get`
+- `aiplatform.studies.list`
+- `aiplatform.studies.update`
 
 `aiplatform.tasks.*`
 
-  - `aiplatform.tasks.cancel`
-  - `aiplatform.tasks.create`
-  - `aiplatform.tasks.delete`
-  - `aiplatform.tasks.get`
-  - `aiplatform.tasks.list`
-  - `aiplatform.tasks.update`
+- `aiplatform.tasks.cancel`
+- `aiplatform.tasks.create`
+- `aiplatform.tasks.delete`
+- `aiplatform.tasks.get`
+- `aiplatform.tasks.list`
+- `aiplatform.tasks.update`
 
 `aiplatform. tensorboardExperiments.*`
 
-  - `aiplatform. tensorboardExperiments. create`
-  - `aiplatform. tensorboardExperiments. delete`
-  - `aiplatform. tensorboardExperiments. get`
-  - `aiplatform. tensorboardExperiments. list`
-  - `aiplatform. tensorboardExperiments. update`
-  - `aiplatform. tensorboardExperiments. write`
+- `aiplatform. tensorboardExperiments. create`
+- `aiplatform. tensorboardExperiments. delete`
+- `aiplatform. tensorboardExperiments. get`
+- `aiplatform. tensorboardExperiments. list`
+- `aiplatform. tensorboardExperiments. update`
+- `aiplatform. tensorboardExperiments. write`
 
 `aiplatform.tensorboardRuns.*`
 
-  - `aiplatform. tensorboardRuns. batchCreate`
-  - `aiplatform. tensorboardRuns. create`
-  - `aiplatform. tensorboardRuns. delete`
-  - `aiplatform.tensorboardRuns.get`
-  - `aiplatform. tensorboardRuns. list`
-  - `aiplatform. tensorboardRuns. update`
-  - `aiplatform. tensorboardRuns. write`
+- `aiplatform. tensorboardRuns. batchCreate`
+- `aiplatform. tensorboardRuns. create`
+- `aiplatform. tensorboardRuns. delete`
+- `aiplatform.tensorboardRuns.get`
+- `aiplatform. tensorboardRuns. list`
+- `aiplatform. tensorboardRuns. update`
+- `aiplatform. tensorboardRuns. write`
 
 `aiplatform. tensorboardTimeSeries.*`
 
-  - `aiplatform. tensorboardTimeSeries. batchCreate`
-  - `aiplatform. tensorboardTimeSeries. batchRead`
-  - `aiplatform. tensorboardTimeSeries. create`
-  - `aiplatform. tensorboardTimeSeries. delete`
-  - `aiplatform. tensorboardTimeSeries. get`
-  - `aiplatform. tensorboardTimeSeries. list`
-  - `aiplatform. tensorboardTimeSeries. read`
-  - `aiplatform. tensorboardTimeSeries. update`
+- `aiplatform. tensorboardTimeSeries. batchCreate`
+- `aiplatform. tensorboardTimeSeries. batchRead`
+- `aiplatform. tensorboardTimeSeries. create`
+- `aiplatform. tensorboardTimeSeries. delete`
+- `aiplatform. tensorboardTimeSeries. get`
+- `aiplatform. tensorboardTimeSeries. list`
+- `aiplatform. tensorboardTimeSeries. read`
+- `aiplatform. tensorboardTimeSeries. update`
 
 `aiplatform.tensorboards.create`
 
@@ -6052,30 +6006,30 @@ Gives Vertex AI the permissions it needs to function.
 
 `aiplatform.trainingPipelines.*`
 
-  - `aiplatform. trainingPipelines. cancel`
-  - `aiplatform. trainingPipelines. create`
-  - `aiplatform. trainingPipelines. delete`
-  - `aiplatform. trainingPipelines. get`
-  - `aiplatform. trainingPipelines. list`
+- `aiplatform. trainingPipelines. cancel`
+- `aiplatform. trainingPipelines. create`
+- `aiplatform. trainingPipelines. delete`
+- `aiplatform. trainingPipelines. get`
+- `aiplatform. trainingPipelines. list`
 
 `aiplatform.trials.*`
 
-  - `aiplatform.trials.create`
-  - `aiplatform.trials.delete`
-  - `aiplatform.trials.get`
-  - `aiplatform.trials.list`
-  - `aiplatform.trials.update`
+- `aiplatform.trials.create`
+- `aiplatform.trials.delete`
+- `aiplatform.trials.get`
+- `aiplatform.trials.list`
+- `aiplatform.trials.update`
 
 `aiplatform.tuningJobs.*`
 
-  - `aiplatform.tuningJobs.cancel`
-  - `aiplatform.tuningJobs.create`
-  - `aiplatform.tuningJobs.delete`
-  - `aiplatform.tuningJobs.get`
-  - `aiplatform.tuningJobs.list`
-  - `aiplatform. tuningJobs. optimizePrompt`
-  - `aiplatform. tuningJobs. validateReinforcementTuningReward`
-  - `aiplatform. tuningJobs. vertexTune`
+- `aiplatform.tuningJobs.cancel`
+- `aiplatform.tuningJobs.create`
+- `aiplatform.tuningJobs.delete`
+- `aiplatform.tuningJobs.get`
+- `aiplatform.tuningJobs.list`
+- `aiplatform. tuningJobs. optimizePrompt`
+- `aiplatform. tuningJobs. validateReinforcementTuningReward`
+- `aiplatform. tuningJobs. vertexTune`
 
 `artifactregistry. repositories. create`
 
@@ -6239,12 +6193,12 @@ Gives Vertex AI the permissions it needs to function.
 
 `dataflow.jobs.*`
 
-  - `dataflow.jobs.cancel`
-  - `dataflow.jobs.create`
-  - `dataflow.jobs.get`
-  - `dataflow.jobs.list`
-  - `dataflow.jobs.snapshot`
-  - `dataflow.jobs.updateContents`
+- `dataflow.jobs.cancel`
+- `dataflow.jobs.create`
+- `dataflow.jobs.get`
+- `dataflow.jobs.list`
+- `dataflow.jobs.snapshot`
+- `dataflow.jobs.updateContents`
 
 `dataflow.messages.list`
 
@@ -6252,9 +6206,9 @@ Gives Vertex AI the permissions it needs to function.
 
 `dataflow.snapshots.*`
 
-  - `dataflow.snapshots.delete`
-  - `dataflow.snapshots.get`
-  - `dataflow.snapshots.list`
+- `dataflow.snapshots.delete`
+- `dataflow.snapshots.get`
+- `dataflow.snapshots.list`
 
 `datalabeling. annotateddatasets. get`
 
@@ -6268,23 +6222,23 @@ Gives Vertex AI the permissions it needs to function.
 
 `hypercomputecluster.clusters.*`
 
-  - `hypercomputecluster. clusters. create`
-  - `hypercomputecluster. clusters. delete`
-  - `hypercomputecluster. clusters. get`
-  - `hypercomputecluster. clusters. list`
-  - `hypercomputecluster. clusters. update`
+- `hypercomputecluster. clusters. create`
+- `hypercomputecluster. clusters. delete`
+- `hypercomputecluster. clusters. get`
+- `hypercomputecluster. clusters. list`
+- `hypercomputecluster. clusters. update`
 
 `hypercomputecluster. locations.*`
 
-  - `hypercomputecluster. locations. get`
-  - `hypercomputecluster. locations. list`
+- `hypercomputecluster. locations. get`
+- `hypercomputecluster. locations. list`
 
 `hypercomputecluster. operations.*`
 
-  - `hypercomputecluster. operations. cancel`
-  - `hypercomputecluster. operations. delete`
-  - `hypercomputecluster. operations. get`
-  - `hypercomputecluster. operations. list`
+- `hypercomputecluster. operations. cancel`
+- `hypercomputecluster. operations. delete`
+- `hypercomputecluster. operations. get`
+- `hypercomputecluster. operations. list`
 
 `iam.serviceAccounts.actAs`
 
@@ -6294,10 +6248,10 @@ Gives Vertex AI the permissions it needs to function.
 
 `logging.links.*`
 
-  - `logging.links.create`
-  - `logging.links.delete`
-  - `logging.links.get`
-  - `logging.links.list`
+- `logging.links.create`
+- `logging.links.delete`
+- `logging.links.get`
+- `logging.links.list`
 
 `logging.logEntries.create`
 
@@ -6327,8 +6281,8 @@ Gives Vertex AI the permissions it needs to function.
 
 `monitoring. monitoredResourceDescriptors.*`
 
-  - `monitoring. monitoredResourceDescriptors. get`
-  - `monitoring. monitoredResourceDescriptors. list`
+- `monitoring. monitoredResourceDescriptors. get`
+- `monitoring. monitoredResourceDescriptors. list`
 
 `monitoring. notificationChannels. get`
 
@@ -6420,7 +6374,7 @@ Gives Vertex AI the permissions it needs to function.
 
 `storage.objects.update`
 
-#### Vertex AI RAG Data Service Agent
+Vertex AI RAG Data Service Agent
 
 ( `roles/ aiplatform.ragServiceAgent` )
 
@@ -6442,22 +6396,22 @@ Vertex AI Service Agent used by Vertex RAG to access user imported data, Vertex 
 
 `aiplatform.indexEndpoints.*`
 
-  - `aiplatform. indexEndpoints. create`
-  - `aiplatform. indexEndpoints. delete`
-  - `aiplatform. indexEndpoints. deploy`
-  - `aiplatform.indexEndpoints.get`
-  - `aiplatform.indexEndpoints.list`
-  - `aiplatform. indexEndpoints. queryVectors`
-  - `aiplatform. indexEndpoints. undeploy`
-  - `aiplatform. indexEndpoints. update`
+- `aiplatform. indexEndpoints. create`
+- `aiplatform. indexEndpoints. delete`
+- `aiplatform. indexEndpoints. deploy`
+- `aiplatform.indexEndpoints.get`
+- `aiplatform.indexEndpoints.list`
+- `aiplatform. indexEndpoints. queryVectors`
+- `aiplatform. indexEndpoints. undeploy`
+- `aiplatform. indexEndpoints. update`
 
 `aiplatform.indexes.*`
 
-  - `aiplatform.indexes.create`
-  - `aiplatform.indexes.delete`
-  - `aiplatform.indexes.get`
-  - `aiplatform.indexes.list`
-  - `aiplatform.indexes.update`
+- `aiplatform.indexes.create`
+- `aiplatform.indexes.delete`
+- `aiplatform.indexes.get`
+- `aiplatform.indexes.list`
+- `aiplatform.indexes.update`
 
 `aiplatform.models.get`
 
@@ -6521,11 +6475,11 @@ Vertex AI Service Agent used by Vertex RAG to access user imported data, Vertex 
 
 `vectorsearch.collections.*`
 
-  - `vectorsearch. collections. create`
-  - `vectorsearch. collections. delete`
-  - `vectorsearch.collections.get`
-  - `vectorsearch.collections.list`
-  - `vectorsearch. collections. update`
+- `vectorsearch. collections. create`
+- `vectorsearch. collections. delete`
+- `vectorsearch.collections.get`
+- `vectorsearch.collections.list`
+- `vectorsearch. collections. update`
 
 `vectorsearch. dataObjects. create`
 
@@ -6553,7 +6507,7 @@ Vertex AI Service Agent used by Vertex RAG to access user imported data, Vertex 
 
 `vectorsearch.operations.list`
 
-#### Vertex AI Custom Code Service Agent
+Vertex AI Custom Code Service Agent
 
 ( `roles/ aiplatform.customCodeServiceAgent` )
 
@@ -6563,168 +6517,168 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 
 `aiplatform. agentAnomalyDetectionScopes.*`
 
-  - `aiplatform. agentAnomalyDetectionScopes. create`
-  - `aiplatform. agentAnomalyDetectionScopes. delete`
-  - `aiplatform. agentAnomalyDetectionScopes. get`
-  - `aiplatform. agentAnomalyDetectionScopes. list`
+- `aiplatform. agentAnomalyDetectionScopes. create`
+- `aiplatform. agentAnomalyDetectionScopes. delete`
+- `aiplatform. agentAnomalyDetectionScopes. get`
+- `aiplatform. agentAnomalyDetectionScopes. list`
 
 `aiplatform.agentExamples.*`
 
-  - `aiplatform. agentExamples. create`
-  - `aiplatform. agentExamples. delete`
-  - `aiplatform.agentExamples.get`
-  - `aiplatform.agentExamples.list`
-  - `aiplatform. agentExamples. update`
+- `aiplatform. agentExamples. create`
+- `aiplatform. agentExamples. delete`
+- `aiplatform.agentExamples.get`
+- `aiplatform.agentExamples.list`
+- `aiplatform. agentExamples. update`
 
 `aiplatform.agents.*`
 
-  - `aiplatform.agents.create`
-  - `aiplatform.agents.delete`
-  - `aiplatform.agents.get`
-  - `aiplatform.agents.list`
-  - `aiplatform.agents.update`
+- `aiplatform.agents.create`
+- `aiplatform.agents.delete`
+- `aiplatform.agents.get`
+- `aiplatform.agents.list`
+- `aiplatform.agents.update`
 
 `aiplatform. analyzedInvocations.*`
 
-  - `aiplatform. analyzedInvocations. get`
-  - `aiplatform. analyzedInvocations. list`
+- `aiplatform. analyzedInvocations. get`
+- `aiplatform. analyzedInvocations. list`
 
 `aiplatform.analyzedSessions.*`
 
-  - `aiplatform. analyzedSessions. aggregate`
-  - `aiplatform. analyzedSessions. get`
-  - `aiplatform. analyzedSessions. list`
+- `aiplatform. analyzedSessions. aggregate`
+- `aiplatform. analyzedSessions. get`
+- `aiplatform. analyzedSessions. list`
 
 `aiplatform.annotationSpecs.*`
 
-  - `aiplatform. annotationSpecs. create`
-  - `aiplatform. annotationSpecs. delete`
-  - `aiplatform.annotationSpecs.get`
-  - `aiplatform. annotationSpecs. list`
-  - `aiplatform. annotationSpecs. update`
+- `aiplatform. annotationSpecs. create`
+- `aiplatform. annotationSpecs. delete`
+- `aiplatform.annotationSpecs.get`
+- `aiplatform. annotationSpecs. list`
+- `aiplatform. annotationSpecs. update`
 
 `aiplatform.annotations.*`
 
-  - `aiplatform.annotations.create`
-  - `aiplatform.annotations.delete`
-  - `aiplatform.annotations.get`
-  - `aiplatform.annotations.list`
-  - `aiplatform.annotations.update`
+- `aiplatform.annotations.create`
+- `aiplatform.annotations.delete`
+- `aiplatform.annotations.get`
+- `aiplatform.annotations.list`
+- `aiplatform.annotations.update`
 
 `aiplatform.apps.*`
 
-  - `aiplatform.apps.create`
-  - `aiplatform.apps.delete`
-  - `aiplatform.apps.get`
-  - `aiplatform.apps.list`
-  - `aiplatform.apps.update`
+- `aiplatform.apps.create`
+- `aiplatform.apps.delete`
+- `aiplatform.apps.get`
+- `aiplatform.apps.list`
+- `aiplatform.apps.update`
 
 `aiplatform.artifacts.*`
 
-  - `aiplatform.artifacts.create`
-  - `aiplatform.artifacts.delete`
-  - `aiplatform.artifacts.get`
-  - `aiplatform.artifacts.list`
-  - `aiplatform.artifacts.update`
+- `aiplatform.artifacts.create`
+- `aiplatform.artifacts.delete`
+- `aiplatform.artifacts.get`
+- `aiplatform.artifacts.list`
+- `aiplatform.artifacts.update`
 
 `aiplatform. batchPredictionJobs.*`
 
-  - `aiplatform. batchPredictionJobs. cancel`
-  - `aiplatform. batchPredictionJobs. create`
-  - `aiplatform. batchPredictionJobs. delete`
-  - `aiplatform. batchPredictionJobs. get`
-  - `aiplatform. batchPredictionJobs. list`
+- `aiplatform. batchPredictionJobs. cancel`
+- `aiplatform. batchPredictionJobs. create`
+- `aiplatform. batchPredictionJobs. delete`
+- `aiplatform. batchPredictionJobs. get`
+- `aiplatform. batchPredictionJobs. list`
 
 `aiplatform.cacheConfigs.get`
 
 `aiplatform.cachedContents.*`
 
-  - `aiplatform. cachedContents. create`
-  - `aiplatform. cachedContents. delete`
-  - `aiplatform.cachedContents.get`
-  - `aiplatform.cachedContents.list`
-  - `aiplatform. cachedContents. update`
+- `aiplatform. cachedContents. create`
+- `aiplatform. cachedContents. delete`
+- `aiplatform.cachedContents.get`
+- `aiplatform.cachedContents.list`
+- `aiplatform. cachedContents. update`
 
 `aiplatform.consents.get`
 
 `aiplatform.contexts.*`
 
-  - `aiplatform. contexts. addContextArtifactsAndExecutions`
-  - `aiplatform. contexts. addContextChildren`
-  - `aiplatform.contexts.create`
-  - `aiplatform.contexts.delete`
-  - `aiplatform.contexts.get`
-  - `aiplatform.contexts.list`
-  - `aiplatform. contexts. queryContextLineageSubgraph`
-  - `aiplatform.contexts.update`
+- `aiplatform. contexts. addContextArtifactsAndExecutions`
+- `aiplatform. contexts. addContextChildren`
+- `aiplatform.contexts.create`
+- `aiplatform.contexts.delete`
+- `aiplatform.contexts.get`
+- `aiplatform.contexts.list`
+- `aiplatform. contexts. queryContextLineageSubgraph`
+- `aiplatform.contexts.update`
 
 `aiplatform.customJobs.*`
 
-  - `aiplatform.customJobs.cancel`
-  - `aiplatform.customJobs.create`
-  - `aiplatform.customJobs.delete`
-  - `aiplatform.customJobs.get`
-  - `aiplatform.customJobs.list`
+- `aiplatform.customJobs.cancel`
+- `aiplatform.customJobs.create`
+- `aiplatform.customJobs.delete`
+- `aiplatform.customJobs.get`
+- `aiplatform.customJobs.list`
 
 `aiplatform.dataItems.*`
 
-  - `aiplatform.dataItems.create`
-  - `aiplatform.dataItems.delete`
-  - `aiplatform.dataItems.get`
-  - `aiplatform.dataItems.list`
-  - `aiplatform.dataItems.update`
+- `aiplatform.dataItems.create`
+- `aiplatform.dataItems.delete`
+- `aiplatform.dataItems.get`
+- `aiplatform.dataItems.list`
+- `aiplatform.dataItems.update`
 
 `aiplatform.dataLabelingJobs.*`
 
-  - `aiplatform. dataLabelingJobs. cancel`
-  - `aiplatform. dataLabelingJobs. create`
-  - `aiplatform. dataLabelingJobs. delete`
-  - `aiplatform. dataLabelingJobs. get`
-  - `aiplatform. dataLabelingJobs. list`
+- `aiplatform. dataLabelingJobs. cancel`
+- `aiplatform. dataLabelingJobs. create`
+- `aiplatform. dataLabelingJobs. delete`
+- `aiplatform. dataLabelingJobs. get`
+- `aiplatform. dataLabelingJobs. list`
 
 `aiplatform.datasetVersions.*`
 
-  - `aiplatform. datasetVersions. create`
-  - `aiplatform. datasetVersions. delete`
-  - `aiplatform.datasetVersions.get`
-  - `aiplatform. datasetVersions. list`
-  - `aiplatform. datasetVersions. restore`
+- `aiplatform. datasetVersions. create`
+- `aiplatform. datasetVersions. delete`
+- `aiplatform.datasetVersions.get`
+- `aiplatform. datasetVersions. list`
+- `aiplatform. datasetVersions. restore`
 
 `aiplatform.datasets.*`
 
-  - `aiplatform.datasets.create`
-  - `aiplatform.datasets.delete`
-  - `aiplatform.datasets.export`
-  - `aiplatform.datasets.get`
-  - `aiplatform.datasets.import`
-  - `aiplatform.datasets.list`
-  - `aiplatform.datasets.update`
+- `aiplatform.datasets.create`
+- `aiplatform.datasets.delete`
+- `aiplatform.datasets.export`
+- `aiplatform.datasets.get`
+- `aiplatform.datasets.import`
+- `aiplatform.datasets.list`
+- `aiplatform.datasets.update`
 
 `aiplatform. deploymentResourcePools.*`
 
-  - `aiplatform. deploymentResourcePools. create`
-  - `aiplatform. deploymentResourcePools. delete`
-  - `aiplatform. deploymentResourcePools. get`
-  - `aiplatform. deploymentResourcePools. list`
-  - `aiplatform. deploymentResourcePools. queryDeployedModels`
-  - `aiplatform. deploymentResourcePools. update`
+- `aiplatform. deploymentResourcePools. create`
+- `aiplatform. deploymentResourcePools. delete`
+- `aiplatform. deploymentResourcePools. get`
+- `aiplatform. deploymentResourcePools. list`
+- `aiplatform. deploymentResourcePools. queryDeployedModels`
+- `aiplatform. deploymentResourcePools. update`
 
 `aiplatform. edgeDeploymentJobs.*`
 
-  - `aiplatform. edgeDeploymentJobs. create`
-  - `aiplatform. edgeDeploymentJobs. delete`
-  - `aiplatform. edgeDeploymentJobs. get`
-  - `aiplatform. edgeDeploymentJobs. list`
+- `aiplatform. edgeDeploymentJobs. create`
+- `aiplatform. edgeDeploymentJobs. delete`
+- `aiplatform. edgeDeploymentJobs. get`
+- `aiplatform. edgeDeploymentJobs. list`
 
 `aiplatform. edgeDeviceDebugInfo. get`
 
 `aiplatform.edgeDevices.*`
 
-  - `aiplatform.edgeDevices.create`
-  - `aiplatform.edgeDevices.delete`
-  - `aiplatform.edgeDevices.get`
-  - `aiplatform.edgeDevices.list`
-  - `aiplatform.edgeDevices.update`
+- `aiplatform.edgeDevices.create`
+- `aiplatform.edgeDevices.delete`
+- `aiplatform.edgeDevices.get`
+- `aiplatform.edgeDevices.list`
+- `aiplatform.edgeDevices.update`
 
 `aiplatform.endpoints.create`
 
@@ -6768,74 +6722,74 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 
 `aiplatform. evaluationExperiments.*`
 
-  - `aiplatform. evaluationExperiments. create`
-  - `aiplatform. evaluationExperiments. delete`
-  - `aiplatform. evaluationExperiments. get`
-  - `aiplatform. evaluationExperiments. list`
-  - `aiplatform. evaluationExperiments. update`
+- `aiplatform. evaluationExperiments. create`
+- `aiplatform. evaluationExperiments. delete`
+- `aiplatform. evaluationExperiments. get`
+- `aiplatform. evaluationExperiments. list`
+- `aiplatform. evaluationExperiments. update`
 
 `aiplatform.evaluationItems.*`
 
-  - `aiplatform. evaluationItems. create`
-  - `aiplatform. evaluationItems. delete`
-  - `aiplatform.evaluationItems.get`
-  - `aiplatform. evaluationItems. list`
-  - `aiplatform. evaluationItems. update`
+- `aiplatform. evaluationItems. create`
+- `aiplatform. evaluationItems. delete`
+- `aiplatform.evaluationItems.get`
+- `aiplatform. evaluationItems. list`
+- `aiplatform. evaluationItems. update`
 
 `aiplatform.evaluationMetrics.*`
 
-  - `aiplatform. evaluationMetrics. create`
-  - `aiplatform. evaluationMetrics. delete`
-  - `aiplatform. evaluationMetrics. get`
-  - `aiplatform. evaluationMetrics. list`
+- `aiplatform. evaluationMetrics. create`
+- `aiplatform. evaluationMetrics. delete`
+- `aiplatform. evaluationMetrics. get`
+- `aiplatform. evaluationMetrics. list`
 
 `aiplatform.evaluationRuns.*`
 
-  - `aiplatform. evaluationRuns. cancel`
-  - `aiplatform. evaluationRuns. create`
-  - `aiplatform. evaluationRuns. delete`
-  - `aiplatform. evaluationRuns. execute`
-  - `aiplatform.evaluationRuns.get`
-  - `aiplatform.evaluationRuns.list`
-  - `aiplatform. evaluationRuns. update`
+- `aiplatform. evaluationRuns. cancel`
+- `aiplatform. evaluationRuns. create`
+- `aiplatform. evaluationRuns. delete`
+- `aiplatform. evaluationRuns. execute`
+- `aiplatform.evaluationRuns.get`
+- `aiplatform.evaluationRuns.list`
+- `aiplatform. evaluationRuns. update`
 
 `aiplatform.evaluationSets.*`
 
-  - `aiplatform. evaluationSets. create`
-  - `aiplatform. evaluationSets. delete`
-  - `aiplatform.evaluationSets.get`
-  - `aiplatform. evaluationSets. import`
-  - `aiplatform.evaluationSets.list`
-  - `aiplatform. evaluationSets. update`
+- `aiplatform. evaluationSets. create`
+- `aiplatform. evaluationSets. delete`
+- `aiplatform.evaluationSets.get`
+- `aiplatform. evaluationSets. import`
+- `aiplatform.evaluationSets.list`
+- `aiplatform. evaluationSets. update`
 
 `aiplatform.exampleStores.*`
 
-  - `aiplatform. exampleStores. create`
-  - `aiplatform. exampleStores. delete`
-  - `aiplatform.exampleStores.get`
-  - `aiplatform.exampleStores.list`
-  - `aiplatform. exampleStores. readExample`
-  - `aiplatform. exampleStores. update`
-  - `aiplatform. exampleStores. writeExample`
+- `aiplatform. exampleStores. create`
+- `aiplatform. exampleStores. delete`
+- `aiplatform.exampleStores.get`
+- `aiplatform.exampleStores.list`
+- `aiplatform. exampleStores. readExample`
+- `aiplatform. exampleStores. update`
+- `aiplatform. exampleStores. writeExample`
 
 `aiplatform.executions.*`
 
-  - `aiplatform. executions. addExecutionEvents`
-  - `aiplatform.executions.create`
-  - `aiplatform.executions.delete`
-  - `aiplatform.executions.get`
-  - `aiplatform.executions.list`
-  - `aiplatform. executions. queryExecutionInputsAndOutputs`
-  - `aiplatform.executions.update`
+- `aiplatform. executions. addExecutionEvents`
+- `aiplatform.executions.create`
+- `aiplatform.executions.delete`
+- `aiplatform.executions.get`
+- `aiplatform.executions.list`
+- `aiplatform. executions. queryExecutionInputsAndOutputs`
+- `aiplatform.executions.update`
 
 `aiplatform.extensions.*`
 
-  - `aiplatform.extensions.delete`
-  - `aiplatform.extensions.execute`
-  - `aiplatform.extensions.get`
-  - `aiplatform.extensions.import`
-  - `aiplatform.extensions.list`
-  - `aiplatform.extensions.update`
+- `aiplatform.extensions.delete`
+- `aiplatform.extensions.execute`
+- `aiplatform.extensions.get`
+- `aiplatform.extensions.import`
+- `aiplatform.extensions.list`
+- `aiplatform.extensions.update`
 
 `aiplatform. featureGroups. create`
 
@@ -6849,17 +6803,17 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 
 `aiplatform. featureMonitorJobs.*`
 
-  - `aiplatform. featureMonitorJobs. create`
-  - `aiplatform. featureMonitorJobs. get`
-  - `aiplatform. featureMonitorJobs. list`
+- `aiplatform. featureMonitorJobs. create`
+- `aiplatform. featureMonitorJobs. get`
+- `aiplatform. featureMonitorJobs. list`
 
 `aiplatform.featureMonitors.*`
 
-  - `aiplatform. featureMonitors. create`
-  - `aiplatform. featureMonitors. delete`
-  - `aiplatform.featureMonitors.get`
-  - `aiplatform. featureMonitors. list`
-  - `aiplatform. featureMonitors. update`
+- `aiplatform. featureMonitors. create`
+- `aiplatform. featureMonitors. delete`
+- `aiplatform.featureMonitors.get`
+- `aiplatform. featureMonitors. list`
+- `aiplatform. featureMonitors. update`
 
 `aiplatform. featureOnlineStores. create`
 
@@ -6873,8 +6827,8 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 
 `aiplatform.featureViewSyncs.*`
 
-  - `aiplatform. featureViewSyncs. get`
-  - `aiplatform. featureViewSyncs. list`
+- `aiplatform. featureViewSyncs. get`
+- `aiplatform. featureViewSyncs. list`
 
 `aiplatform.featureViews.create`
 
@@ -6896,11 +6850,11 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 
 `aiplatform.features.*`
 
-  - `aiplatform.features.create`
-  - `aiplatform.features.delete`
-  - `aiplatform.features.get`
-  - `aiplatform.features.list`
-  - `aiplatform.features.update`
+- `aiplatform.features.create`
+- `aiplatform.features.delete`
+- `aiplatform.features.get`
+- `aiplatform.features.list`
+- `aiplatform.features.update`
 
 `aiplatform. featurestores. batchReadFeatureValues`
 
@@ -6924,135 +6878,135 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 
 `aiplatform.humanInTheLoops.*`
 
-  - `aiplatform. humanInTheLoops. cancel`
-  - `aiplatform. humanInTheLoops. create`
-  - `aiplatform. humanInTheLoops. delete`
-  - `aiplatform.humanInTheLoops.get`
-  - `aiplatform. humanInTheLoops. list`
-  - `aiplatform. humanInTheLoops. queryAnnotationStats`
-  - `aiplatform. humanInTheLoops. send`
-  - `aiplatform. humanInTheLoops. update`
+- `aiplatform. humanInTheLoops. cancel`
+- `aiplatform. humanInTheLoops. create`
+- `aiplatform. humanInTheLoops. delete`
+- `aiplatform.humanInTheLoops.get`
+- `aiplatform. humanInTheLoops. list`
+- `aiplatform. humanInTheLoops. queryAnnotationStats`
+- `aiplatform. humanInTheLoops. send`
+- `aiplatform. humanInTheLoops. update`
 
 `aiplatform. hyperparameterTuningJobs.*`
 
-  - `aiplatform. hyperparameterTuningJobs. cancel`
-  - `aiplatform. hyperparameterTuningJobs. create`
-  - `aiplatform. hyperparameterTuningJobs. delete`
-  - `aiplatform. hyperparameterTuningJobs. get`
-  - `aiplatform. hyperparameterTuningJobs. list`
+- `aiplatform. hyperparameterTuningJobs. cancel`
+- `aiplatform. hyperparameterTuningJobs. create`
+- `aiplatform. hyperparameterTuningJobs. delete`
+- `aiplatform. hyperparameterTuningJobs. get`
+- `aiplatform. hyperparameterTuningJobs. list`
 
 `aiplatform.indexEndpoints.*`
 
-  - `aiplatform. indexEndpoints. create`
-  - `aiplatform. indexEndpoints. delete`
-  - `aiplatform. indexEndpoints. deploy`
-  - `aiplatform.indexEndpoints.get`
-  - `aiplatform.indexEndpoints.list`
-  - `aiplatform. indexEndpoints. queryVectors`
-  - `aiplatform. indexEndpoints. undeploy`
-  - `aiplatform. indexEndpoints. update`
+- `aiplatform. indexEndpoints. create`
+- `aiplatform. indexEndpoints. delete`
+- `aiplatform. indexEndpoints. deploy`
+- `aiplatform.indexEndpoints.get`
+- `aiplatform.indexEndpoints.list`
+- `aiplatform. indexEndpoints. queryVectors`
+- `aiplatform. indexEndpoints. undeploy`
+- `aiplatform. indexEndpoints. update`
 
 `aiplatform.indexes.*`
 
-  - `aiplatform.indexes.create`
-  - `aiplatform.indexes.delete`
-  - `aiplatform.indexes.get`
-  - `aiplatform.indexes.list`
-  - `aiplatform.indexes.update`
+- `aiplatform.indexes.create`
+- `aiplatform.indexes.delete`
+- `aiplatform.indexes.get`
+- `aiplatform.indexes.list`
+- `aiplatform.indexes.update`
 
 `aiplatform.interactions.*`
 
-  - `aiplatform.interactions.cancel`
-  - `aiplatform.interactions.create`
-  - `aiplatform.interactions.delete`
-  - `aiplatform.interactions.get`
-  - `aiplatform.interactions.list`
+- `aiplatform.interactions.cancel`
+- `aiplatform.interactions.create`
+- `aiplatform.interactions.delete`
+- `aiplatform.interactions.get`
+- `aiplatform.interactions.list`
 
 `aiplatform.locations.*`
 
-  - `aiplatform. locations. evaluateInstances`
-  - `aiplatform.locations.get`
-  - `aiplatform.locations.list`
+- `aiplatform. locations. evaluateInstances`
+- `aiplatform.locations.get`
+- `aiplatform.locations.list`
 
 `aiplatform.memories.*`
 
-  - `aiplatform.memories.create`
-  - `aiplatform.memories.delete`
-  - `aiplatform.memories.generate`
-  - `aiplatform.memories.get`
-  - `aiplatform.memories.list`
-  - `aiplatform.memories.retrieve`
-  - `aiplatform.memories.update`
+- `aiplatform.memories.create`
+- `aiplatform.memories.delete`
+- `aiplatform.memories.generate`
+- `aiplatform.memories.get`
+- `aiplatform.memories.list`
+- `aiplatform.memories.retrieve`
+- `aiplatform.memories.update`
 
 `aiplatform.memoryRevisions.*`
 
-  - `aiplatform.memoryRevisions.get`
-  - `aiplatform. memoryRevisions. list`
-  - `aiplatform. memoryRevisions. rollback`
+- `aiplatform.memoryRevisions.get`
+- `aiplatform. memoryRevisions. list`
+- `aiplatform. memoryRevisions. rollback`
 
 `aiplatform.metadataSchemas.*`
 
-  - `aiplatform. metadataSchemas. create`
-  - `aiplatform. metadataSchemas. delete`
-  - `aiplatform.metadataSchemas.get`
-  - `aiplatform. metadataSchemas. list`
+- `aiplatform. metadataSchemas. create`
+- `aiplatform. metadataSchemas. delete`
+- `aiplatform.metadataSchemas.get`
+- `aiplatform. metadataSchemas. list`
 
 `aiplatform.metadataStores.*`
 
-  - `aiplatform. metadataStores. create`
-  - `aiplatform. metadataStores. delete`
-  - `aiplatform.metadataStores.get`
-  - `aiplatform.metadataStores.list`
+- `aiplatform. metadataStores. create`
+- `aiplatform. metadataStores. delete`
+- `aiplatform.metadataStores.get`
+- `aiplatform.metadataStores.list`
 
 `aiplatform. modelDeploymentMonitoringJobs.*`
 
-  - `aiplatform. modelDeploymentMonitoringJobs. create`
-  - `aiplatform. modelDeploymentMonitoringJobs. delete`
-  - `aiplatform. modelDeploymentMonitoringJobs. get`
-  - `aiplatform. modelDeploymentMonitoringJobs. list`
-  - `aiplatform. modelDeploymentMonitoringJobs. pause`
-  - `aiplatform. modelDeploymentMonitoringJobs. resume`
-  - `aiplatform. modelDeploymentMonitoringJobs. searchStatsAnomalies`
-  - `aiplatform. modelDeploymentMonitoringJobs. update`
+- `aiplatform. modelDeploymentMonitoringJobs. create`
+- `aiplatform. modelDeploymentMonitoringJobs. delete`
+- `aiplatform. modelDeploymentMonitoringJobs. get`
+- `aiplatform. modelDeploymentMonitoringJobs. list`
+- `aiplatform. modelDeploymentMonitoringJobs. pause`
+- `aiplatform. modelDeploymentMonitoringJobs. resume`
+- `aiplatform. modelDeploymentMonitoringJobs. searchStatsAnomalies`
+- `aiplatform. modelDeploymentMonitoringJobs. update`
 
 `aiplatform. modelEvaluationSlices.*`
 
-  - `aiplatform. modelEvaluationSlices. get`
-  - `aiplatform. modelEvaluationSlices. import`
-  - `aiplatform. modelEvaluationSlices. list`
+- `aiplatform. modelEvaluationSlices. get`
+- `aiplatform. modelEvaluationSlices. import`
+- `aiplatform. modelEvaluationSlices. list`
 
 `aiplatform.modelEvaluations.*`
 
-  - `aiplatform. modelEvaluations. exportEvaluatedDataItems`
-  - `aiplatform. modelEvaluations. get`
-  - `aiplatform. modelEvaluations. import`
-  - `aiplatform. modelEvaluations. list`
+- `aiplatform. modelEvaluations. exportEvaluatedDataItems`
+- `aiplatform. modelEvaluations. get`
+- `aiplatform. modelEvaluations. import`
+- `aiplatform. modelEvaluations. list`
 
 `aiplatform. modelMonitoringJobs.*`
 
-  - `aiplatform. modelMonitoringJobs. create`
-  - `aiplatform. modelMonitoringJobs. delete`
-  - `aiplatform. modelMonitoringJobs. get`
-  - `aiplatform. modelMonitoringJobs. list`
+- `aiplatform. modelMonitoringJobs. create`
+- `aiplatform. modelMonitoringJobs. delete`
+- `aiplatform. modelMonitoringJobs. get`
+- `aiplatform. modelMonitoringJobs. list`
 
 `aiplatform.modelMonitors.*`
 
-  - `aiplatform. modelMonitors. create`
-  - `aiplatform. modelMonitors. delete`
-  - `aiplatform.modelMonitors.get`
-  - `aiplatform.modelMonitors.list`
-  - `aiplatform. modelMonitors. searchModelMonitoringAlerts`
-  - `aiplatform. modelMonitors. searchModelMonitoringStats`
-  - `aiplatform. modelMonitors. update`
+- `aiplatform. modelMonitors. create`
+- `aiplatform. modelMonitors. delete`
+- `aiplatform.modelMonitors.get`
+- `aiplatform.modelMonitors.list`
+- `aiplatform. modelMonitors. searchModelMonitoringAlerts`
+- `aiplatform. modelMonitors. searchModelMonitoringStats`
+- `aiplatform. modelMonitors. update`
 
 `aiplatform.models.*`
 
-  - `aiplatform.models.delete`
-  - `aiplatform.models.export`
-  - `aiplatform.models.get`
-  - `aiplatform.models.list`
-  - `aiplatform.models.update`
-  - `aiplatform.models.upload`
+- `aiplatform.models.delete`
+- `aiplatform.models.export`
+- `aiplatform.models.get`
+- `aiplatform.models.list`
+- `aiplatform.models.update`
+- `aiplatform.models.upload`
 
 `aiplatform. monitoredAgents. disable`
 
@@ -7064,23 +7018,23 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 
 `aiplatform.nasJobs.*`
 
-  - `aiplatform.nasJobs.cancel`
-  - `aiplatform.nasJobs.create`
-  - `aiplatform.nasJobs.delete`
-  - `aiplatform.nasJobs.get`
-  - `aiplatform.nasJobs.list`
+- `aiplatform.nasJobs.cancel`
+- `aiplatform.nasJobs.create`
+- `aiplatform.nasJobs.delete`
+- `aiplatform.nasJobs.get`
+- `aiplatform.nasJobs.list`
 
 `aiplatform.nasTrialDetails.*`
 
-  - `aiplatform.nasTrialDetails.get`
-  - `aiplatform. nasTrialDetails. list`
+- `aiplatform.nasTrialDetails.get`
+- `aiplatform. nasTrialDetails. list`
 
 `aiplatform. notebookExecutionJobs.*`
 
-  - `aiplatform. notebookExecutionJobs. create`
-  - `aiplatform. notebookExecutionJobs. delete`
-  - `aiplatform. notebookExecutionJobs. get`
-  - `aiplatform. notebookExecutionJobs. list`
+- `aiplatform. notebookExecutionJobs. create`
+- `aiplatform. notebookExecutionJobs. delete`
+- `aiplatform. notebookExecutionJobs. get`
+- `aiplatform. notebookExecutionJobs. list`
 
 `aiplatform. notebookRuntimeTemplates. apply`
 
@@ -7096,21 +7050,21 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 
 `aiplatform.notebookRuntimes.*`
 
-  - `aiplatform. notebookRuntimes. assign`
-  - `aiplatform. notebookRuntimes. delete`
-  - `aiplatform. notebookRuntimes. get`
-  - `aiplatform. notebookRuntimes. list`
-  - `aiplatform. notebookRuntimes. start`
-  - `aiplatform. notebookRuntimes. update`
-  - `aiplatform. notebookRuntimes. upgrade`
+- `aiplatform. notebookRuntimes. assign`
+- `aiplatform. notebookRuntimes. delete`
+- `aiplatform. notebookRuntimes. get`
+- `aiplatform. notebookRuntimes. list`
+- `aiplatform. notebookRuntimes. start`
+- `aiplatform. notebookRuntimes. update`
+- `aiplatform. notebookRuntimes. upgrade`
 
 `aiplatform.onlineEvaluators.*`
 
-  - `aiplatform. onlineEvaluators. create`
-  - `aiplatform. onlineEvaluators. delete`
-  - `aiplatform. onlineEvaluators. get`
-  - `aiplatform. onlineEvaluators. list`
-  - `aiplatform. onlineEvaluators. update`
+- `aiplatform. onlineEvaluators. create`
+- `aiplatform. onlineEvaluators. delete`
+- `aiplatform. onlineEvaluators. get`
+- `aiplatform. onlineEvaluators. list`
+- `aiplatform. onlineEvaluators. update`
 
 `aiplatform.operations.list`
 
@@ -7120,16 +7074,16 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 
 `aiplatform.pipelineJobs.*`
 
-  - `aiplatform.pipelineJobs.cancel`
-  - `aiplatform.pipelineJobs.create`
-  - `aiplatform.pipelineJobs.delete`
-  - `aiplatform.pipelineJobs.get`
-  - `aiplatform.pipelineJobs.list`
+- `aiplatform.pipelineJobs.cancel`
+- `aiplatform.pipelineJobs.create`
+- `aiplatform.pipelineJobs.delete`
+- `aiplatform.pipelineJobs.get`
+- `aiplatform.pipelineJobs.list`
 
 `aiplatform. provisionedThroughputRevisions.*`
 
-  - `aiplatform. provisionedThroughputRevisions. get`
-  - `aiplatform. provisionedThroughputRevisions. list`
+- `aiplatform. provisionedThroughputRevisions. get`
+- `aiplatform. provisionedThroughputRevisions. list`
 
 `aiplatform. provisionedThroughputs. get`
 
@@ -7137,29 +7091,29 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 
 `aiplatform.ragCorpora.*`
 
-  - `aiplatform.ragCorpora.create`
-  - `aiplatform.ragCorpora.delete`
-  - `aiplatform.ragCorpora.get`
-  - `aiplatform.ragCorpora.list`
-  - `aiplatform.ragCorpora.query`
-  - `aiplatform.ragCorpora.update`
+- `aiplatform.ragCorpora.create`
+- `aiplatform.ragCorpora.delete`
+- `aiplatform.ragCorpora.get`
+- `aiplatform.ragCorpora.list`
+- `aiplatform.ragCorpora.query`
+- `aiplatform.ragCorpora.update`
 
 `aiplatform. ragEngineConfigs. get`
 
 `aiplatform.ragFiles.*`
 
-  - `aiplatform.ragFiles.delete`
-  - `aiplatform.ragFiles.get`
-  - `aiplatform.ragFiles.import`
-  - `aiplatform.ragFiles.list`
-  - `aiplatform.ragFiles.upload`
+- `aiplatform.ragFiles.delete`
+- `aiplatform.ragFiles.get`
+- `aiplatform.ragFiles.import`
+- `aiplatform.ragFiles.list`
+- `aiplatform.ragFiles.upload`
 
 `aiplatform. reasoningEngineRuntimeRevisions.*`
 
-  - `aiplatform. reasoningEngineRuntimeRevisions. delete`
-  - `aiplatform. reasoningEngineRuntimeRevisions. get`
-  - `aiplatform. reasoningEngineRuntimeRevisions. list`
-  - `aiplatform. reasoningEngineRuntimeRevisions. query`
+- `aiplatform. reasoningEngineRuntimeRevisions. delete`
+- `aiplatform. reasoningEngineRuntimeRevisions. get`
+- `aiplatform. reasoningEngineRuntimeRevisions. list`
+- `aiplatform. reasoningEngineRuntimeRevisions. query`
 
 `aiplatform. reasoningEngines. create`
 
@@ -7175,101 +7129,101 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 
 `aiplatform. sandboxEnvironments.*`
 
-  - `aiplatform. sandboxEnvironments. create`
-  - `aiplatform. sandboxEnvironments. delete`
-  - `aiplatform. sandboxEnvironments. execute`
-  - `aiplatform. sandboxEnvironments. get`
-  - `aiplatform. sandboxEnvironments. list`
+- `aiplatform. sandboxEnvironments. create`
+- `aiplatform. sandboxEnvironments. delete`
+- `aiplatform. sandboxEnvironments. execute`
+- `aiplatform. sandboxEnvironments. get`
+- `aiplatform. sandboxEnvironments. list`
 
 `aiplatform.schedules.*`
 
-  - `aiplatform.schedules.create`
-  - `aiplatform.schedules.delete`
-  - `aiplatform.schedules.get`
-  - `aiplatform.schedules.list`
-  - `aiplatform.schedules.update`
+- `aiplatform.schedules.create`
+- `aiplatform.schedules.delete`
+- `aiplatform.schedules.get`
+- `aiplatform.schedules.list`
+- `aiplatform.schedules.update`
 
 `aiplatform. semanticGovernancePolicies.*`
 
-  - `aiplatform. semanticGovernancePolicies. create`
-  - `aiplatform. semanticGovernancePolicies. delete`
-  - `aiplatform. semanticGovernancePolicies. get`
-  - `aiplatform. semanticGovernancePolicies. list`
-  - `aiplatform. semanticGovernancePolicies. update`
+- `aiplatform. semanticGovernancePolicies. create`
+- `aiplatform. semanticGovernancePolicies. delete`
+- `aiplatform. semanticGovernancePolicies. get`
+- `aiplatform. semanticGovernancePolicies. list`
+- `aiplatform. semanticGovernancePolicies. update`
 
 `aiplatform. semanticGovernancePolicyEngine.*`
 
-  - `aiplatform. semanticGovernancePolicyEngine. get`
-  - `aiplatform. semanticGovernancePolicyEngine. update`
+- `aiplatform. semanticGovernancePolicyEngine. get`
+- `aiplatform. semanticGovernancePolicyEngine. update`
 
 `aiplatform.sessionEvents.*`
 
-  - `aiplatform. sessionEvents. append`
-  - `aiplatform.sessionEvents.list`
+- `aiplatform. sessionEvents. append`
+- `aiplatform.sessionEvents.list`
 
 `aiplatform.sessions.*`
 
-  - `aiplatform.sessions.create`
-  - `aiplatform.sessions.delete`
-  - `aiplatform.sessions.get`
-  - `aiplatform.sessions.list`
-  - `aiplatform.sessions.run`
-  - `aiplatform.sessions.update`
+- `aiplatform.sessions.create`
+- `aiplatform.sessions.delete`
+- `aiplatform.sessions.get`
+- `aiplatform.sessions.list`
+- `aiplatform.sessions.run`
+- `aiplatform.sessions.update`
 
 `aiplatform.specialistPools.*`
 
-  - `aiplatform. specialistPools. create`
-  - `aiplatform. specialistPools. delete`
-  - `aiplatform.specialistPools.get`
-  - `aiplatform. specialistPools. list`
-  - `aiplatform. specialistPools. update`
+- `aiplatform. specialistPools. create`
+- `aiplatform. specialistPools. delete`
+- `aiplatform.specialistPools.get`
+- `aiplatform. specialistPools. list`
+- `aiplatform. specialistPools. update`
 
 `aiplatform.studies.*`
 
-  - `aiplatform.studies.create`
-  - `aiplatform.studies.delete`
-  - `aiplatform.studies.get`
-  - `aiplatform.studies.list`
-  - `aiplatform.studies.update`
+- `aiplatform.studies.create`
+- `aiplatform.studies.delete`
+- `aiplatform.studies.get`
+- `aiplatform.studies.list`
+- `aiplatform.studies.update`
 
 `aiplatform.tasks.*`
 
-  - `aiplatform.tasks.cancel`
-  - `aiplatform.tasks.create`
-  - `aiplatform.tasks.delete`
-  - `aiplatform.tasks.get`
-  - `aiplatform.tasks.list`
-  - `aiplatform.tasks.update`
+- `aiplatform.tasks.cancel`
+- `aiplatform.tasks.create`
+- `aiplatform.tasks.delete`
+- `aiplatform.tasks.get`
+- `aiplatform.tasks.list`
+- `aiplatform.tasks.update`
 
 `aiplatform. tensorboardExperiments.*`
 
-  - `aiplatform. tensorboardExperiments. create`
-  - `aiplatform. tensorboardExperiments. delete`
-  - `aiplatform. tensorboardExperiments. get`
-  - `aiplatform. tensorboardExperiments. list`
-  - `aiplatform. tensorboardExperiments. update`
-  - `aiplatform. tensorboardExperiments. write`
+- `aiplatform. tensorboardExperiments. create`
+- `aiplatform. tensorboardExperiments. delete`
+- `aiplatform. tensorboardExperiments. get`
+- `aiplatform. tensorboardExperiments. list`
+- `aiplatform. tensorboardExperiments. update`
+- `aiplatform. tensorboardExperiments. write`
 
 `aiplatform.tensorboardRuns.*`
 
-  - `aiplatform. tensorboardRuns. batchCreate`
-  - `aiplatform. tensorboardRuns. create`
-  - `aiplatform. tensorboardRuns. delete`
-  - `aiplatform.tensorboardRuns.get`
-  - `aiplatform. tensorboardRuns. list`
-  - `aiplatform. tensorboardRuns. update`
-  - `aiplatform. tensorboardRuns. write`
+- `aiplatform. tensorboardRuns. batchCreate`
+- `aiplatform. tensorboardRuns. create`
+- `aiplatform. tensorboardRuns. delete`
+- `aiplatform.tensorboardRuns.get`
+- `aiplatform. tensorboardRuns. list`
+- `aiplatform. tensorboardRuns. update`
+- `aiplatform. tensorboardRuns. write`
 
 `aiplatform. tensorboardTimeSeries.*`
 
-  - `aiplatform. tensorboardTimeSeries. batchCreate`
-  - `aiplatform. tensorboardTimeSeries. batchRead`
-  - `aiplatform. tensorboardTimeSeries. create`
-  - `aiplatform. tensorboardTimeSeries. delete`
-  - `aiplatform. tensorboardTimeSeries. get`
-  - `aiplatform. tensorboardTimeSeries. list`
-  - `aiplatform. tensorboardTimeSeries. read`
-  - `aiplatform. tensorboardTimeSeries. update`
+- `aiplatform. tensorboardTimeSeries. batchCreate`
+- `aiplatform. tensorboardTimeSeries. batchRead`
+- `aiplatform. tensorboardTimeSeries. create`
+- `aiplatform. tensorboardTimeSeries. delete`
+- `aiplatform. tensorboardTimeSeries. get`
+- `aiplatform. tensorboardTimeSeries. list`
+- `aiplatform. tensorboardTimeSeries. read`
+- `aiplatform. tensorboardTimeSeries. update`
 
 `aiplatform.tensorboards.create`
 
@@ -7283,30 +7237,30 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 
 `aiplatform.trainingPipelines.*`
 
-  - `aiplatform. trainingPipelines. cancel`
-  - `aiplatform. trainingPipelines. create`
-  - `aiplatform. trainingPipelines. delete`
-  - `aiplatform. trainingPipelines. get`
-  - `aiplatform. trainingPipelines. list`
+- `aiplatform. trainingPipelines. cancel`
+- `aiplatform. trainingPipelines. create`
+- `aiplatform. trainingPipelines. delete`
+- `aiplatform. trainingPipelines. get`
+- `aiplatform. trainingPipelines. list`
 
 `aiplatform.trials.*`
 
-  - `aiplatform.trials.create`
-  - `aiplatform.trials.delete`
-  - `aiplatform.trials.get`
-  - `aiplatform.trials.list`
-  - `aiplatform.trials.update`
+- `aiplatform.trials.create`
+- `aiplatform.trials.delete`
+- `aiplatform.trials.get`
+- `aiplatform.trials.list`
+- `aiplatform.trials.update`
 
 `aiplatform.tuningJobs.*`
 
-  - `aiplatform.tuningJobs.cancel`
-  - `aiplatform.tuningJobs.create`
-  - `aiplatform.tuningJobs.delete`
-  - `aiplatform.tuningJobs.get`
-  - `aiplatform.tuningJobs.list`
-  - `aiplatform. tuningJobs. optimizePrompt`
-  - `aiplatform. tuningJobs. validateReinforcementTuningReward`
-  - `aiplatform. tuningJobs. vertexTune`
+- `aiplatform.tuningJobs.cancel`
+- `aiplatform.tuningJobs.create`
+- `aiplatform.tuningJobs.delete`
+- `aiplatform.tuningJobs.get`
+- `aiplatform.tuningJobs.list`
+- `aiplatform. tuningJobs. optimizePrompt`
+- `aiplatform. tuningJobs. validateReinforcementTuningReward`
+- `aiplatform. tuningJobs. vertexTune`
 
 `artifactregistry. repositories. downloadArtifacts`
 
@@ -7374,8 +7328,8 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 
 `monitoring. monitoredResourceDescriptors.*`
 
-  - `monitoring. monitoredResourceDescriptors. get`
-  - `monitoring. monitoredResourceDescriptors. list`
+- `monitoring. monitoredResourceDescriptors. get`
+- `monitoring. monitoredResourceDescriptors. list`
 
 `monitoring.timeSeries.create`
 
@@ -7407,7 +7361,7 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 
 `storage.objects.update`
 
-#### Vertex AI Extension Service Agent
+Vertex AI Extension Service Agent
 
 ( `roles/ aiplatform.extensionServiceAgent` )
 
@@ -7435,7 +7389,7 @@ Gives Vertex AI Extension the permissions it needs to function.
 
 `storage.objects.get`
 
-#### AI Platform Notebooks Service Agent
+AI Platform Notebooks Service Agent
 
 ( `roles/ notebooks.serviceAgent` )
 
@@ -7453,10 +7407,10 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `aiplatform. notebookExecutionJobs.*`
 
-  - `aiplatform. notebookExecutionJobs. create`
-  - `aiplatform. notebookExecutionJobs. delete`
-  - `aiplatform. notebookExecutionJobs. get`
-  - `aiplatform. notebookExecutionJobs. list`
+- `aiplatform. notebookExecutionJobs. create`
+- `aiplatform. notebookExecutionJobs. delete`
+- `aiplatform. notebookExecutionJobs. get`
+- `aiplatform. notebookExecutionJobs. list`
 
 `aiplatform. notebookRuntimes. get`
 
@@ -7466,11 +7420,11 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `aiplatform.schedules.*`
 
-  - `aiplatform.schedules.create`
-  - `aiplatform.schedules.delete`
-  - `aiplatform.schedules.get`
-  - `aiplatform.schedules.list`
-  - `aiplatform.schedules.update`
+- `aiplatform.schedules.create`
+- `aiplatform.schedules.delete`
+- `aiplatform.schedules.get`
+- `aiplatform.schedules.list`
+- `aiplatform.schedules.update`
 
 `backupdr. backupPlanAssociations. createForComputeDisk`
 
@@ -7516,8 +7470,8 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute.acceleratorTypes.*`
 
-  - `compute.acceleratorTypes.get`
-  - `compute.acceleratorTypes.list`
+- `compute.acceleratorTypes.get`
+- `compute.acceleratorTypes.list`
 
 `compute. addresses. createInternal`
 
@@ -7541,11 +7495,11 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute.autoscalers.*`
 
-  - `compute.autoscalers.create`
-  - `compute.autoscalers.delete`
-  - `compute.autoscalers.get`
-  - `compute.autoscalers.list`
-  - `compute.autoscalers.update`
+- `compute.autoscalers.create`
+- `compute.autoscalers.delete`
+- `compute.autoscalers.get`
+- `compute.autoscalers.list`
+- `compute.autoscalers.update`
 
 `compute.backendBuckets.get`
 
@@ -7583,33 +7537,33 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute.diskTypes.*`
 
-  - `compute.diskTypes.get`
-  - `compute.diskTypes.list`
+- `compute.diskTypes.get`
+- `compute.diskTypes.list`
 
 `compute.disks.*`
 
-  - `compute. disks. addResourcePolicies`
-  - `compute.disks.create`
-  - `compute.disks.createSnapshot`
-  - `compute.disks.createTagBinding`
-  - `compute.disks.delete`
-  - `compute.disks.deleteTagBinding`
-  - `compute.disks.get`
-  - `compute.disks.getIamPolicy`
-  - `compute.disks.list`
-  - `compute. disks. listEffectiveTags`
-  - `compute.disks.listTagBindings`
-  - `compute. disks. removeResourcePolicies`
-  - `compute.disks.resize`
-  - `compute.disks.setIamPolicy`
-  - `compute.disks.setLabels`
-  - `compute. disks. startAsyncReplication`
-  - `compute. disks. stopAsyncReplication`
-  - `compute. disks. stopGroupAsyncReplication`
-  - `compute.disks.update`
-  - `compute.disks.updateKmsKey`
-  - `compute.disks.use`
-  - `compute.disks.useReadOnly`
+- `compute. disks. addResourcePolicies`
+- `compute.disks.create`
+- `compute.disks.createSnapshot`
+- `compute.disks.createTagBinding`
+- `compute.disks.delete`
+- `compute.disks.deleteTagBinding`
+- `compute.disks.get`
+- `compute.disks.getIamPolicy`
+- `compute.disks.list`
+- `compute. disks. listEffectiveTags`
+- `compute.disks.listTagBindings`
+- `compute. disks. removeResourcePolicies`
+- `compute.disks.resize`
+- `compute.disks.setIamPolicy`
+- `compute.disks.setLabels`
+- `compute. disks. startAsyncReplication`
+- `compute. disks. stopAsyncReplication`
+- `compute. disks. stopGroupAsyncReplication`
+- `compute.disks.update`
+- `compute.disks.updateKmsKey`
+- `compute.disks.use`
+- `compute.disks.useReadOnly`
 
 `compute. externalVpnGateways. get`
 
@@ -7677,17 +7631,17 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute. globalNetworkEndpointGroups.*`
 
-  - `compute. globalNetworkEndpointGroups. attachNetworkEndpoints`
-  - `compute. globalNetworkEndpointGroups. create`
-  - `compute. globalNetworkEndpointGroups. createTagBinding`
-  - `compute. globalNetworkEndpointGroups. delete`
-  - `compute. globalNetworkEndpointGroups. deleteTagBinding`
-  - `compute. globalNetworkEndpointGroups. detachNetworkEndpoints`
-  - `compute. globalNetworkEndpointGroups. get`
-  - `compute. globalNetworkEndpointGroups. list`
-  - `compute. globalNetworkEndpointGroups. listEffectiveTags`
-  - `compute. globalNetworkEndpointGroups. listTagBindings`
-  - `compute. globalNetworkEndpointGroups. use`
+- `compute. globalNetworkEndpointGroups. attachNetworkEndpoints`
+- `compute. globalNetworkEndpointGroups. create`
+- `compute. globalNetworkEndpointGroups. createTagBinding`
+- `compute. globalNetworkEndpointGroups. delete`
+- `compute. globalNetworkEndpointGroups. deleteTagBinding`
+- `compute. globalNetworkEndpointGroups. detachNetworkEndpoints`
+- `compute. globalNetworkEndpointGroups. get`
+- `compute. globalNetworkEndpointGroups. list`
+- `compute. globalNetworkEndpointGroups. listEffectiveTags`
+- `compute. globalNetworkEndpointGroups. listTagBindings`
+- `compute. globalNetworkEndpointGroups. use`
 
 `compute.globalOperations.get`
 
@@ -7709,9 +7663,9 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute.hosts.*`
 
-  - `compute.hosts.get`
-  - `compute.hosts.getVersion`
-  - `compute.hosts.list`
+- `compute.hosts.get`
+- `compute.hosts.getVersion`
+- `compute.hosts.list`
 
 `compute.httpHealthChecks.get`
 
@@ -7731,137 +7685,137 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute.images.*`
 
-  - `compute.images.create`
-  - `compute. images. createTagBinding`
-  - `compute.images.delete`
-  - `compute. images. deleteTagBinding`
-  - `compute.images.deprecate`
-  - `compute.images.get`
-  - `compute.images.getFromFamily`
-  - `compute.images.getIamPolicy`
-  - `compute.images.list`
-  - `compute. images. listEffectiveTags`
-  - `compute.images.listTagBindings`
-  - `compute.images.setIamPolicy`
-  - `compute.images.setLabels`
-  - `compute.images.update`
-  - `compute.images.useReadOnly`
+- `compute.images.create`
+- `compute. images. createTagBinding`
+- `compute.images.delete`
+- `compute. images. deleteTagBinding`
+- `compute.images.deprecate`
+- `compute.images.get`
+- `compute.images.getFromFamily`
+- `compute.images.getIamPolicy`
+- `compute.images.list`
+- `compute. images. listEffectiveTags`
+- `compute.images.listTagBindings`
+- `compute.images.setIamPolicy`
+- `compute.images.setLabels`
+- `compute.images.update`
+- `compute.images.useReadOnly`
 
 `compute. instanceGroupManagers.*`
 
-  - `compute. instanceGroupManagers. create`
-  - `compute. instanceGroupManagers. createTagBinding`
-  - `compute. instanceGroupManagers. delete`
-  - `compute. instanceGroupManagers. deleteTagBinding`
-  - `compute. instanceGroupManagers. get`
-  - `compute. instanceGroupManagers. list`
-  - `compute. instanceGroupManagers. listEffectiveTags`
-  - `compute. instanceGroupManagers. listTagBindings`
-  - `compute. instanceGroupManagers. update`
-  - `compute. instanceGroupManagers. use`
+- `compute. instanceGroupManagers. create`
+- `compute. instanceGroupManagers. createTagBinding`
+- `compute. instanceGroupManagers. delete`
+- `compute. instanceGroupManagers. deleteTagBinding`
+- `compute. instanceGroupManagers. get`
+- `compute. instanceGroupManagers. list`
+- `compute. instanceGroupManagers. listEffectiveTags`
+- `compute. instanceGroupManagers. listTagBindings`
+- `compute. instanceGroupManagers. update`
+- `compute. instanceGroupManagers. use`
 
 `compute.instanceGroups.*`
 
-  - `compute.instanceGroups.create`
-  - `compute. instanceGroups. createTagBinding`
-  - `compute.instanceGroups.delete`
-  - `compute. instanceGroups. deleteTagBinding`
-  - `compute.instanceGroups.get`
-  - `compute.instanceGroups.list`
-  - `compute. instanceGroups. listEffectiveTags`
-  - `compute. instanceGroups. listTagBindings`
-  - `compute.instanceGroups.update`
-  - `compute.instanceGroups.use`
+- `compute.instanceGroups.create`
+- `compute. instanceGroups. createTagBinding`
+- `compute.instanceGroups.delete`
+- `compute. instanceGroups. deleteTagBinding`
+- `compute.instanceGroups.get`
+- `compute.instanceGroups.list`
+- `compute. instanceGroups. listEffectiveTags`
+- `compute. instanceGroups. listTagBindings`
+- `compute.instanceGroups.update`
+- `compute.instanceGroups.use`
 
 `compute.instanceSettings.*`
 
-  - `compute.instanceSettings.get`
-  - `compute. instanceSettings. update`
+- `compute.instanceSettings.get`
+- `compute. instanceSettings. update`
 
 `compute.instanceTemplates.*`
 
-  - `compute. instanceTemplates. create`
-  - `compute. instanceTemplates. delete`
-  - `compute.instanceTemplates.get`
-  - `compute. instanceTemplates. getIamPolicy`
-  - `compute.instanceTemplates.list`
-  - `compute. instanceTemplates. setIamPolicy`
-  - `compute. instanceTemplates. useReadOnly`
+- `compute. instanceTemplates. create`
+- `compute. instanceTemplates. delete`
+- `compute.instanceTemplates.get`
+- `compute. instanceTemplates. getIamPolicy`
+- `compute.instanceTemplates.list`
+- `compute. instanceTemplates. setIamPolicy`
+- `compute. instanceTemplates. useReadOnly`
 
 `compute.instances.*`
 
-  - `compute. instances. addAccessConfig`
-  - `compute. instances. addNetworkInterface`
-  - `compute. instances. addResourcePolicies`
-  - `compute.instances.attachDisk`
-  - `compute.instances.create`
-  - `compute. instances. createTagBinding`
-  - `compute.instances.delete`
-  - `compute. instances. deleteAccessConfig`
-  - `compute. instances. deleteNetworkInterface`
-  - `compute. instances. deleteTagBinding`
-  - `compute.instances.detachDisk`
-  - `compute.instances.get`
-  - `compute. instances. getEffectiveFirewalls`
-  - `compute. instances. getGuestAttributes`
-  - `compute.instances.getIamPolicy`
-  - `compute. instances. getScreenshot`
-  - `compute. instances. getSerialPortOutput`
-  - `compute. instances. getShieldedInstanceIdentity`
-  - `compute. instances. getShieldedVmIdentity`
-  - `compute. instances. getVmExtensionState`
-  - `compute.instances.list`
-  - `compute. instances. listEffectiveTags`
-  - `compute. instances. listReferrers`
-  - `compute. instances. listTagBindings`
-  - `compute. instances. listVmExtensionStates`
-  - `compute.instances.osAdminLogin`
-  - `compute.instances.osLogin`
-  - `compute. instances. pscInterfaceCreate`
-  - `compute. instances. removeResourcePolicies`
-  - `compute.instances.reset`
-  - `compute.instances.resume`
-  - `compute. instances. sendDiagnosticInterrupt`
-  - `compute. instances. setDeletionProtection`
-  - `compute. instances. setDiskAutoDelete`
-  - `compute.instances.setIamPolicy`
-  - `compute.instances.setLabels`
-  - `compute. instances. setMachineResources`
-  - `compute. instances. setMachineType`
-  - `compute.instances.setMetadata`
-  - `compute. instances. setMinCpuPlatform`
-  - `compute.instances.setName`
-  - `compute. instances. setScheduling`
-  - `compute. instances. setSecurityPolicy`
-  - `compute. instances. setServiceAccount`
-  - `compute. instances. setShieldedInstanceIntegrityPolicy`
-  - `compute. instances. setShieldedVmIntegrityPolicy`
-  - `compute.instances.setTags`
-  - `compute. instances. simulateMaintenanceEvent`
-  - `compute.instances.start`
-  - `compute. instances. startWithEncryptionKey`
-  - `compute.instances.stop`
-  - `compute.instances.suspend`
-  - `compute.instances.troubleshoot`
-  - `compute.instances.update`
-  - `compute. instances. updateAccessConfig`
-  - `compute. instances. updateDisplayDevice`
-  - `compute. instances. updateNetworkInterface`
-  - `compute. instances. updateSecurity`
-  - `compute. instances. updateShieldedInstanceConfig`
-  - `compute. instances. updateShieldedVmConfig`
-  - `compute.instances.use`
-  - `compute.instances.useReadOnly`
+- `compute. instances. addAccessConfig`
+- `compute. instances. addNetworkInterface`
+- `compute. instances. addResourcePolicies`
+- `compute.instances.attachDisk`
+- `compute.instances.create`
+- `compute. instances. createTagBinding`
+- `compute.instances.delete`
+- `compute. instances. deleteAccessConfig`
+- `compute. instances. deleteNetworkInterface`
+- `compute. instances. deleteTagBinding`
+- `compute.instances.detachDisk`
+- `compute.instances.get`
+- `compute. instances. getEffectiveFirewalls`
+- `compute. instances. getGuestAttributes`
+- `compute.instances.getIamPolicy`
+- `compute. instances. getScreenshot`
+- `compute. instances. getSerialPortOutput`
+- `compute. instances. getShieldedInstanceIdentity`
+- `compute. instances. getShieldedVmIdentity`
+- `compute. instances. getVmExtensionState`
+- `compute.instances.list`
+- `compute. instances. listEffectiveTags`
+- `compute. instances. listReferrers`
+- `compute. instances. listTagBindings`
+- `compute. instances. listVmExtensionStates`
+- `compute.instances.osAdminLogin`
+- `compute.instances.osLogin`
+- `compute. instances. pscInterfaceCreate`
+- `compute. instances. removeResourcePolicies`
+- `compute.instances.reset`
+- `compute.instances.resume`
+- `compute. instances. sendDiagnosticInterrupt`
+- `compute. instances. setDeletionProtection`
+- `compute. instances. setDiskAutoDelete`
+- `compute.instances.setIamPolicy`
+- `compute.instances.setLabels`
+- `compute. instances. setMachineResources`
+- `compute. instances. setMachineType`
+- `compute.instances.setMetadata`
+- `compute. instances. setMinCpuPlatform`
+- `compute.instances.setName`
+- `compute. instances. setScheduling`
+- `compute. instances. setSecurityPolicy`
+- `compute. instances. setServiceAccount`
+- `compute. instances. setShieldedInstanceIntegrityPolicy`
+- `compute. instances. setShieldedVmIntegrityPolicy`
+- `compute.instances.setTags`
+- `compute. instances. simulateMaintenanceEvent`
+- `compute.instances.start`
+- `compute. instances. startWithEncryptionKey`
+- `compute.instances.stop`
+- `compute.instances.suspend`
+- `compute.instances.troubleshoot`
+- `compute.instances.update`
+- `compute. instances. updateAccessConfig`
+- `compute. instances. updateDisplayDevice`
+- `compute. instances. updateNetworkInterface`
+- `compute. instances. updateSecurity`
+- `compute. instances. updateShieldedInstanceConfig`
+- `compute. instances. updateShieldedVmConfig`
+- `compute.instances.use`
+- `compute.instances.useReadOnly`
 
 `compute. instantSnapshotGroups.*`
 
-  - `compute. instantSnapshotGroups. create`
-  - `compute. instantSnapshotGroups. delete`
-  - `compute. instantSnapshotGroups. get`
-  - `compute. instantSnapshotGroups. getIamPolicy`
-  - `compute. instantSnapshotGroups. list`
-  - `compute. instantSnapshotGroups. setIamPolicy`
-  - `compute. instantSnapshotGroups. useReadOnly`
+- `compute. instantSnapshotGroups. create`
+- `compute. instantSnapshotGroups. delete`
+- `compute. instantSnapshotGroups. get`
+- `compute. instantSnapshotGroups. getIamPolicy`
+- `compute. instantSnapshotGroups. list`
+- `compute. instantSnapshotGroups. setIamPolicy`
+- `compute. instantSnapshotGroups. useReadOnly`
 
 `compute. instantSnapshots. create`
 
@@ -7903,13 +7857,13 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute. interconnectLocations.*`
 
-  - `compute. interconnectLocations. get`
-  - `compute. interconnectLocations. list`
+- `compute. interconnectLocations. get`
+- `compute. interconnectLocations. list`
 
 `compute. interconnectRemoteLocations.*`
 
-  - `compute. interconnectRemoteLocations. get`
-  - `compute. interconnectRemoteLocations. list`
+- `compute. interconnectRemoteLocations. get`
+- `compute. interconnectRemoteLocations. list`
 
 `compute.interconnects.get`
 
@@ -7921,10 +7875,10 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute.licenseCodes.*`
 
-  - `compute.licenseCodes.get`
-  - `compute. licenseCodes. getIamPolicy`
-  - `compute.licenseCodes.list`
-  - `compute. licenseCodes. setIamPolicy`
+- `compute.licenseCodes.get`
+- `compute. licenseCodes. getIamPolicy`
+- `compute.licenseCodes.list`
+- `compute. licenseCodes. setIamPolicy`
 
 `compute.licenses.create`
 
@@ -7966,25 +7920,25 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute.machineTypes.*`
 
-  - `compute.machineTypes.get`
-  - `compute.machineTypes.list`
+- `compute.machineTypes.get`
+- `compute.machineTypes.list`
 
 `compute.managedRulesets.*`
 
-  - `compute.managedRulesets.get`
-  - `compute.managedRulesets.list`
+- `compute.managedRulesets.get`
+- `compute.managedRulesets.list`
 
 `compute.multiMig.*`
 
-  - `compute.multiMig.create`
-  - `compute.multiMig.delete`
-  - `compute.multiMig.get`
-  - `compute.multiMig.list`
+- `compute.multiMig.create`
+- `compute.multiMig.delete`
+- `compute.multiMig.get`
+- `compute.multiMig.list`
 
 `compute.multiMigMembers.*`
 
-  - `compute.multiMigMembers.get`
-  - `compute.multiMigMembers.list`
+- `compute.multiMigMembers.get`
+- `compute.multiMigMembers.list`
 
 `compute.networkAttachments.get`
 
@@ -8006,22 +7960,22 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute. networkEndpointGroups.*`
 
-  - `compute. networkEndpointGroups. attachNetworkEndpoints`
-  - `compute. networkEndpointGroups. create`
-  - `compute. networkEndpointGroups. createTagBinding`
-  - `compute. networkEndpointGroups. delete`
-  - `compute. networkEndpointGroups. deleteTagBinding`
-  - `compute. networkEndpointGroups. detachNetworkEndpoints`
-  - `compute. networkEndpointGroups. get`
-  - `compute. networkEndpointGroups. list`
-  - `compute. networkEndpointGroups. listEffectiveTags`
-  - `compute. networkEndpointGroups. listTagBindings`
-  - `compute. networkEndpointGroups. use`
+- `compute. networkEndpointGroups. attachNetworkEndpoints`
+- `compute. networkEndpointGroups. create`
+- `compute. networkEndpointGroups. createTagBinding`
+- `compute. networkEndpointGroups. delete`
+- `compute. networkEndpointGroups. deleteTagBinding`
+- `compute. networkEndpointGroups. detachNetworkEndpoints`
+- `compute. networkEndpointGroups. get`
+- `compute. networkEndpointGroups. list`
+- `compute. networkEndpointGroups. listEffectiveTags`
+- `compute. networkEndpointGroups. listTagBindings`
+- `compute. networkEndpointGroups. use`
 
 `compute.networkProfiles.*`
 
-  - `compute.networkProfiles.get`
-  - `compute.networkProfiles.list`
+- `compute.networkProfiles.get`
+- `compute.networkProfiles.list`
 
 `compute.networks.get`
 
@@ -8055,8 +8009,8 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute.nodeTypes.*`
 
-  - `compute.nodeTypes.get`
-  - `compute.nodeTypes.list`
+- `compute.nodeTypes.get`
+- `compute.nodeTypes.list`
 
 `compute.orgRolloutPlans.get`
 
@@ -8098,12 +8052,12 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute.recoverableSnapshots.*`
 
-  - `compute. recoverableSnapshots. delete`
-  - `compute. recoverableSnapshots. get`
-  - `compute. recoverableSnapshots. getIamPolicy`
-  - `compute. recoverableSnapshots. list`
-  - `compute. recoverableSnapshots. recover`
-  - `compute. recoverableSnapshots. setIamPolicy`
+- `compute. recoverableSnapshots. delete`
+- `compute. recoverableSnapshots. get`
+- `compute. recoverableSnapshots. getIamPolicy`
+- `compute. recoverableSnapshots. list`
+- `compute. recoverableSnapshots. recover`
+- `compute. recoverableSnapshots. setIamPolicy`
 
 `compute. regionBackendBuckets. get`
 
@@ -8161,17 +8115,17 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute. regionNetworkEndpointGroups.*`
 
-  - `compute. regionNetworkEndpointGroups. attachNetworkEndpoints`
-  - `compute. regionNetworkEndpointGroups. create`
-  - `compute. regionNetworkEndpointGroups. createTagBinding`
-  - `compute. regionNetworkEndpointGroups. delete`
-  - `compute. regionNetworkEndpointGroups. deleteTagBinding`
-  - `compute. regionNetworkEndpointGroups. detachNetworkEndpoints`
-  - `compute. regionNetworkEndpointGroups. get`
-  - `compute. regionNetworkEndpointGroups. list`
-  - `compute. regionNetworkEndpointGroups. listEffectiveTags`
-  - `compute. regionNetworkEndpointGroups. listTagBindings`
-  - `compute. regionNetworkEndpointGroups. use`
+- `compute. regionNetworkEndpointGroups. attachNetworkEndpoints`
+- `compute. regionNetworkEndpointGroups. create`
+- `compute. regionNetworkEndpointGroups. createTagBinding`
+- `compute. regionNetworkEndpointGroups. delete`
+- `compute. regionNetworkEndpointGroups. deleteTagBinding`
+- `compute. regionNetworkEndpointGroups. detachNetworkEndpoints`
+- `compute. regionNetworkEndpointGroups. get`
+- `compute. regionNetworkEndpointGroups. list`
+- `compute. regionNetworkEndpointGroups. listEffectiveTags`
+- `compute. regionNetworkEndpointGroups. listTagBindings`
+- `compute. regionNetworkEndpointGroups. use`
 
 `compute. regionNetworkPolicies. get`
 
@@ -8251,13 +8205,13 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute.regions.*`
 
-  - `compute.regions.get`
-  - `compute.regions.list`
+- `compute.regions.get`
+- `compute.regions.list`
 
 `compute.reliabilityRisks.*`
 
-  - `compute.reliabilityRisks.get`
-  - `compute.reliabilityRisks.list`
+- `compute.reliabilityRisks.get`
+- `compute.reliabilityRisks.list`
 
 `compute.reservationBlocks.get`
 
@@ -8267,9 +8221,9 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute.reservationSlots.*`
 
-  - `compute.reservationSlots.get`
-  - `compute.reservationSlots.list`
-  - `compute. reservationSlots. update`
+- `compute.reservationSlots.get`
+- `compute.reservationSlots.list`
+- `compute. reservationSlots. update`
 
 `compute. reservationSubBlocks. get`
 
@@ -8285,15 +8239,15 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute.resourcePolicies.*`
 
-  - `compute. resourcePolicies. create`
-  - `compute. resourcePolicies. delete`
-  - `compute.resourcePolicies.get`
-  - `compute. resourcePolicies. getIamPolicy`
-  - `compute.resourcePolicies.list`
-  - `compute. resourcePolicies. setIamPolicy`
-  - `compute. resourcePolicies. update`
-  - `compute.resourcePolicies.use`
-  - `compute. resourcePolicies. useReadOnly`
+- `compute. resourcePolicies. create`
+- `compute. resourcePolicies. delete`
+- `compute.resourcePolicies.get`
+- `compute. resourcePolicies. getIamPolicy`
+- `compute.resourcePolicies.list`
+- `compute. resourcePolicies. setIamPolicy`
+- `compute. resourcePolicies. update`
+- `compute.resourcePolicies.use`
+- `compute. resourcePolicies. useReadOnly`
 
 `compute.rolloutPlans.get`
 
@@ -8345,13 +8299,13 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute.snapshotGroups.*`
 
-  - `compute.snapshotGroups.create`
-  - `compute.snapshotGroups.delete`
-  - `compute.snapshotGroups.get`
-  - `compute. snapshotGroups. getIamPolicy`
-  - `compute.snapshotGroups.list`
-  - `compute. snapshotGroups. setIamPolicy`
-  - `compute. snapshotGroups. useReadOnly`
+- `compute.snapshotGroups.create`
+- `compute.snapshotGroups.delete`
+- `compute.snapshotGroups.get`
+- `compute. snapshotGroups. getIamPolicy`
+- `compute.snapshotGroups.list`
+- `compute. snapshotGroups. setIamPolicy`
+- `compute. snapshotGroups. useReadOnly`
 
 `compute. snapshotRecycleBinPolicy. get`
 
@@ -8359,20 +8313,20 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute.snapshots.*`
 
-  - `compute.snapshots.create`
-  - `compute. snapshots. createTagBinding`
-  - `compute.snapshots.delete`
-  - `compute. snapshots. deleteTagBinding`
-  - `compute.snapshots.get`
-  - `compute. snapshots. getEffectiveRecycleBinRule`
-  - `compute.snapshots.getIamPolicy`
-  - `compute.snapshots.list`
-  - `compute. snapshots. listEffectiveTags`
-  - `compute. snapshots. listTagBindings`
-  - `compute.snapshots.setIamPolicy`
-  - `compute.snapshots.setLabels`
-  - `compute.snapshots.updateKmsKey`
-  - `compute.snapshots.useReadOnly`
+- `compute.snapshots.create`
+- `compute. snapshots. createTagBinding`
+- `compute.snapshots.delete`
+- `compute. snapshots. deleteTagBinding`
+- `compute.snapshots.get`
+- `compute. snapshots. getEffectiveRecycleBinRule`
+- `compute.snapshots.getIamPolicy`
+- `compute.snapshots.list`
+- `compute. snapshots. listEffectiveTags`
+- `compute. snapshots. listTagBindings`
+- `compute.snapshots.setIamPolicy`
+- `compute.snapshots.setLabels`
+- `compute.snapshots.updateKmsKey`
+- `compute.snapshots.useReadOnly`
 
 `compute.spotAssistants.get`
 
@@ -8528,8 +8482,8 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute.zones.*`
 
-  - `compute.zones.get`
-  - `compute.zones.list`
+- `compute.zones.get`
+- `compute.zones.list`
 
 `dataproc.clusters.get`
 
@@ -8563,21 +8517,21 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `notebooks.environments.*`
 
-  - `notebooks.environments.create`
-  - `notebooks.environments.delete`
-  - `notebooks.environments.get`
-  - `notebooks. environments. getIamPolicy`
-  - `notebooks.environments.list`
-  - `notebooks. environments. setIamPolicy`
+- `notebooks.environments.create`
+- `notebooks.environments.delete`
+- `notebooks.environments.get`
+- `notebooks. environments. getIamPolicy`
+- `notebooks.environments.list`
+- `notebooks. environments. setIamPolicy`
 
 `notebooks.executions.*`
 
-  - `notebooks.executions.create`
-  - `notebooks.executions.delete`
-  - `notebooks.executions.get`
-  - `notebooks. executions. getIamPolicy`
-  - `notebooks.executions.list`
-  - `notebooks. executions. setIamPolicy`
+- `notebooks.executions.create`
+- `notebooks.executions.delete`
+- `notebooks.executions.get`
+- `notebooks. executions. getIamPolicy`
+- `notebooks.executions.list`
+- `notebooks. executions. setIamPolicy`
 
 `notebooks. instances. checkUpgradability`
 
@@ -8625,40 +8579,40 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `notebooks.locations.*`
 
-  - `notebooks.locations.get`
-  - `notebooks.locations.list`
+- `notebooks.locations.get`
+- `notebooks.locations.list`
 
 `notebooks.operations.*`
 
-  - `notebooks.operations.cancel`
-  - `notebooks.operations.delete`
-  - `notebooks.operations.get`
-  - `notebooks.operations.list`
+- `notebooks.operations.cancel`
+- `notebooks.operations.delete`
+- `notebooks.operations.get`
+- `notebooks.operations.list`
 
 `notebooks.runtimes.*`
 
-  - `notebooks.runtimes.create`
-  - `notebooks.runtimes.delete`
-  - `notebooks.runtimes.diagnose`
-  - `notebooks.runtimes.get`
-  - `notebooks. runtimes. getIamPolicy`
-  - `notebooks.runtimes.list`
-  - `notebooks.runtimes.reset`
-  - `notebooks. runtimes. setIamPolicy`
-  - `notebooks.runtimes.start`
-  - `notebooks.runtimes.stop`
-  - `notebooks.runtimes.switch`
-  - `notebooks.runtimes.update`
-  - `notebooks.runtimes.upgrade`
+- `notebooks.runtimes.create`
+- `notebooks.runtimes.delete`
+- `notebooks.runtimes.diagnose`
+- `notebooks.runtimes.get`
+- `notebooks. runtimes. getIamPolicy`
+- `notebooks.runtimes.list`
+- `notebooks.runtimes.reset`
+- `notebooks. runtimes. setIamPolicy`
+- `notebooks.runtimes.start`
+- `notebooks.runtimes.stop`
+- `notebooks.runtimes.switch`
+- `notebooks.runtimes.update`
+- `notebooks.runtimes.upgrade`
 
 `notebooks.schedules.*`
 
-  - `notebooks.schedules.create`
-  - `notebooks.schedules.delete`
-  - `notebooks.schedules.get`
-  - `notebooks. schedules. getIamPolicy`
-  - `notebooks.schedules.list`
-  - `notebooks. schedules. setIamPolicy`
+- `notebooks.schedules.create`
+- `notebooks.schedules.delete`
+- `notebooks.schedules.get`
+- `notebooks. schedules. getIamPolicy`
+- `notebooks.schedules.list`
+- `notebooks. schedules. setIamPolicy`
 
 `resourcemanager.projects.get`
 
@@ -8672,9 +8626,9 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `serviceusage.groups.*`
 
-  - `serviceusage.groups.list`
-  - `serviceusage. groups. listExpandedMembers`
-  - `serviceusage. groups. listMembers`
+- `serviceusage.groups.list`
+- `serviceusage. groups. listExpandedMembers`
+- `serviceusage. groups. listMembers`
 
 `serviceusage.quotas.get`
 
@@ -8697,7 +8651,7 @@ The following table describes the required additional roles needed to be added t
 The term *home project* refers to the project where the Agent Platform dataset or model is located. The term *different project* refers to any other project.
 
 | Table type                                                                                                                  | Table project     | Data source project | Role addition required                                                                                                                                                                                                                                                                                                                                          |
-| --------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------------------------------------------------------------------------------------------------------------------|-------------------|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Native BigQuery table](https://docs.cloud.google.com/bigquery/docs/tables-intro)                                           | Home project      | N/A                 | None.                                                                                                                                                                                                                                                                                                                                                           |
 | [Native BigQuery table](https://docs.cloud.google.com/bigquery/docs/tables-intro)                                           | Different project | N/A                 | `BigQuery Data Viewer` for different project. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#different-project) .                                                                                                                                                                          |
 | [BigQuery view](https://docs.cloud.google.com/bigquery/docs/views)                                                          | Home project      | N/A                 | None.                                                                                                                                                                                                                                                                                                                                                           |
@@ -8726,7 +8680,7 @@ To grant additional roles to a service agent for Agent Platform in your home pro
 2.  Select the **Include Google-provided role grants** checkbox.
 
 3.  Determine the [service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) you want to grant the permissions to and click the edit pencil icon.
-    
+
     You can filter for **Principal:@gcp-sa-aiplatform-cc.iam.gserviceaccount.com** to find the Agent Platform service agents.
 
 4.  Grant the required roles to the service agent and save your changes.
@@ -8742,7 +8696,7 @@ To add permissions to Agent Platform in a different project:
 2.  Select the **Include Google-provided role grants** checkbox.
 
 3.  Determine the [service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) you want to grant the permissions to and copy its email address (listed under **Principal** ).
-    
+
     You can filter for **Principal:@gcp-sa-aiplatform-cc.iam.gserviceaccount.com** to find the Agent Platform service agents.
 
 4.  Change projects to the project where you need to grant the permissions.
@@ -8765,7 +8719,7 @@ To authorize Agent Platform to access your Sheets file:
 
 ## What's next
 
-  - [Learn more about IAM](https://docs.cloud.google.com/iam/docs) .
-  - [Learn about specific IAM permissions and the operations they support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/iam-permissions) .
-  - To learn about recommended ways to set up a project for a team, see [Set up a project for a team](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/set-up-project) .
-  - [Get an overview of Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview) .
+- [Learn more about IAM](https://docs.cloud.google.com/iam/docs) .
+- [Learn about specific IAM permissions and the operations they support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/iam-permissions) .
+- To learn about recommended ways to set up a project for a team, see [Set up a project for a team](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/set-up-project) .
+- [Get an overview of Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview) .

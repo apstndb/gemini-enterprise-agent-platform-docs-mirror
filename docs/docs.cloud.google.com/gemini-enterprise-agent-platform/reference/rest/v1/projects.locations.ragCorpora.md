@@ -24,23 +24,23 @@ Required. The display name of the RagCorpus. The name can be up to 128 character
 
 Optional. The description of the RagCorpus.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this RagCorpus was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this RagCorpus was last updated.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`corpusStatus` ` object ( CorpusStatus  ` )
+`corpusStatus` `object ( `[`CorpusStatus`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora#CorpusStatus)` )`
 
 Output only. RagCorpus state.
 
-`encryptionSpec` ` object ( EncryptionSpec  ` )
+`encryptionSpec` `object ( `[`EncryptionSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/EncryptionSpec)` )`
 
 Optional. Immutable. The CMEK key name used to encrypt at-rest data related to this Corpus. Only applicable to RagManagedDb option for Vector DB. This field can only be set at corpus creation time, and cannot be updated or deleted.
 
@@ -56,31 +56,44 @@ Output only. reserved for future use.
 
 The backend config of the RagCorpus. It can be data store and/or retrieval engine. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`vectorDbConfig` ` object ( RagVectorDbConfig  ` )
+`vectorDbConfig` `object ( `[`RagVectorDbConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora#RagVectorDbConfig)` )`
 
 Optional. Immutable. The config for the Vector DBs.
 
-`vertexAiSearchConfig` ` object ( VertexAiSearchConfig  ` )
+`vertexAiSearchConfig` `object ( `[`VertexAiSearchConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora#VertexAiSearchConfig)` )`
 
 Optional. Immutable. The config for the Agent Platform Search.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;corpusStatus&quot;: {object (CorpusStatus)},&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean,// backend_config&quot;vectorDbConfig&quot;: {object (RagVectorDbConfig)},&quot;vertexAiSearchConfig&quot;: {object (VertexAiSearchConfig)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "description": string,
+  "createTime": string,
+  "updateTime": string,
+  "corpusStatus": {
+    object (CorpusStatus)
+  },
+  "encryptionSpec": {
+    object (EncryptionSpec)
+  },
+  "satisfiesPzs": boolean,
+  "satisfiesPzi": boolean,
+
+  // backend_config
+  "vectorDbConfig": {
+    object (RagVectorDbConfig)
+  },
+  "vertexAiSearchConfig": {
+    object (VertexAiSearchConfig)
+  }
+  // Union type
+}
+```
 
 ## RagVectorDbConfig
 
@@ -88,11 +101,11 @@ Config for the Vector DB to use for RAG.
 
 Fields
 
-`apiAuth` ` object ( ApiAuth  ` )
+`apiAuth` `object ( `[`ApiAuth`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora#ApiAuth)` )`
 
 Authentication config for the chosen Vector DB.
 
-`ragEmbeddingModelConfig` ` object ( RagEmbeddingModelConfig  ` )
+`ragEmbeddingModelConfig` `object ( `[`RagEmbeddingModelConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora#RagEmbeddingModelConfig)` )`
 
 Optional. Immutable. The embedding model config of the Vector DB.
 
@@ -100,35 +113,44 @@ Optional. Immutable. The embedding model config of the Vector DB.
 
 The config for the Vector DB. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`ragManagedDb` ` object ( RagManagedDb  ` )
+`ragManagedDb` `object ( `[`RagManagedDb`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora#RagManagedDb)` )`
 
 The config for the RAG-managed Vector DB.
 
-`pinecone` ` object ( Pinecone  ` )
+`pinecone` `object ( `[`Pinecone`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora#Pinecone)` )`
 
 The config for the Pinecone.
 
-`vertexVectorSearch` ` object ( VertexVectorSearch  ` )
+`vertexVectorSearch` `object ( `[`VertexVectorSearch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora#VertexVectorSearch)` )`
 
 The config for the Vertex Vector Search.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;apiAuth&quot;: {object (ApiAuth)},&quot;ragEmbeddingModelConfig&quot;: {object (RagEmbeddingModelConfig)},// vector_db&quot;ragManagedDb&quot;: {object (RagManagedDb)},&quot;pinecone&quot;: {object (Pinecone)},&quot;vertexVectorSearch&quot;: {object (VertexVectorSearch)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "apiAuth": {
+    object (ApiAuth)
+  },
+  "ragEmbeddingModelConfig": {
+    object (RagEmbeddingModelConfig)
+  },
+
+  // vector_db
+  "ragManagedDb": {
+    object (RagManagedDb)
+  },
+  "pinecone": {
+    object (Pinecone)
+  },
+  "vertexVectorSearch": {
+    object (VertexVectorSearch)
+  }
+  // Union type
+}
+```
 
 ## RagManagedDb
 
@@ -140,31 +162,31 @@ Fields
 
 Choice of retrieval strategy. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`knn` ` object ( KNN  ` )
+`knn` `object ( `[`KNN`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora#KNN)` )`
 
 Performs a KNN search on RagCorpus. Default choice if not specified.
 
-`ann` ` object ( ANN  ` )
+`ann` `object ( `[`ANN`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora#ANN)` )`
 
 Performs an ANN search on RagCorpus. Use this if you have a lot of files (\> 10K) in your RagCorpus and want to reduce the search latency.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// retrieval_strategy&quot;knn&quot;: {object (KNN)},&quot;ann&quot;: {object (ANN)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // retrieval_strategy
+  "knn": {
+    object (KNN)
+  },
+  "ann": {
+    object (ANN)
+  }
+  // Union type
+}
+```
 
 ## KNN
 
@@ -196,24 +218,14 @@ Recommended value is 10 \* sqrt(num of RagFiles in your RagCorpus).
 
 Default value is 500.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;treeDepth&quot;: integer,
-  &quot;leafCount&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "treeDepth": integer,
+  "leafCount": integer
+}
+```
 
 ## Pinecone
 
@@ -225,23 +237,13 @@ Fields
 
 Pinecone index name. This value cannot be changed after it's set.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;indexName&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "indexName": string
+}
+```
 
 ## VertexVectorSearch
 
@@ -257,24 +259,14 @@ The resource name of the Index Endpoint. Format: `projects/{project}/locations/{
 
 The resource name of the Index. Format: `projects/{project}/locations/{location}/indexes/{index}`
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;indexEndpoint&quot;: string,
-  &quot;index&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "indexEndpoint": string,
+  "index": string
+}
+```
 
 ## ApiAuth
 
@@ -286,27 +278,24 @@ Fields
 
 The auth config. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`apiKeyConfig` ` object ( ApiKeyConfig  ` )
+`apiKeyConfig` `object ( `[`ApiKeyConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ApiKeyConfig)` )`
 
 The API secret.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// auth_config&quot;apiKeyConfig&quot;: {object (ApiKeyConfig)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // auth_config
+  "apiKeyConfig": {
+    object (ApiKeyConfig)
+  }
+  // Union type
+}
+```
 
 ## RagEmbeddingModelConfig
 
@@ -318,27 +307,24 @@ Fields
 
 The model config to use. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`vertexPredictionEndpoint` ` object ( VertexPredictionEndpoint  ` )
+`vertexPredictionEndpoint` `object ( `[`VertexPredictionEndpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora#VertexPredictionEndpoint)` )`
 
 The Agent Platform Prediction Endpoint that either refers to a publisher model or an endpoint that is hosting a 1P fine-tuned text embedding model. endpoints hosting non-1P fine-tuned text embedding models are currently not supported. This is used for dense vector search.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// model_config&quot;vertexPredictionEndpoint&quot;: {object (VertexPredictionEndpoint)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // model_config
+  "vertexPredictionEndpoint": {
+    object (VertexPredictionEndpoint)
+  }
+  // Union type
+}
+```
 
 ## VertexPredictionEndpoint
 
@@ -358,25 +344,15 @@ Output only. The resource name of the model that is deployed on the endpoint. Pr
 
 Output only. version id of the model that is deployed on the endpoint. Present only when the endpoint is not a publisher model.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;endpoint&quot;: string,
-  &quot;model&quot;: string,
-  &quot;modelVersionId&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "endpoint": string,
+  "model": string,
+  "modelVersionId": string
+}
+```
 
 ## VertexAiSearchConfig
 
@@ -388,23 +364,13 @@ Fields
 
 Agent Platform Search Serving Config resource full name. For example, `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/servingConfigs/{servingConfig}` or `projects/{project}/locations/{location}/collections/{collection}/dataStores/{dataStore}/servingConfigs/{servingConfig}` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;servingConfig&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "servingConfig": string
+}
+```
 
 ## CorpusStatus
 
@@ -412,7 +378,7 @@ RagCorpus status.
 
 Fields
 
-`state` ` enum ( State  ` )
+`state` `enum ( `[`State`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora#State)` )`
 
 Output only. RagCorpus life state.
 
@@ -420,62 +386,30 @@ Output only. RagCorpus life state.
 
 Output only. Only when the `state` field is ERROR.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;state&quot;: enum (State),&quot;errorStatus&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "state": enum (State),
+  "errorStatus": string
+}
+```
 
 ## State
 
 RagCorpus life state.
 
-Enums
+| Enums         |                                                                                |
+|---------------|--------------------------------------------------------------------------------|
+| `UNKNOWN`     | This state is not supposed to happen.                                          |
+| `INITIALIZED` | RagCorpus resource entry is initialized, but hasn't done validation.           |
+| `ACTIVE`      | RagCorpus is provisioned successfully and is ready to serve.                   |
+| `ERROR`       | RagCorpus is in a problematic situation. See `errorMessage` field for details. |
 
-`UNKNOWN`
-
-This state is not supposed to happen.
-
-`INITIALIZED`
-
-RagCorpus resource entry is initialized, but hasn't done validation.
-
-`ACTIVE`
-
-RagCorpus is provisioned successfully and is ready to serve.
-
-`ERROR`
-
-RagCorpus is in a problematic situation. See `errorMessage` field for details.
-
-## Methods
-
-### `            create           `
-
-Creates a RagCorpus.
-
-### `            delete           `
-
-Deletes a RagCorpus.
-
-### `            get           `
-
-Gets a RagCorpus.
-
-### `            list           `
-
-Lists RagCorpora in a Location.
-
-### `            patch           `
-
-Updates a RagCorpus.
+| Methods                                                                                                                           |                                 |
+|-----------------------------------------------------------------------------------------------------------------------------------|---------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/create) | Creates a RagCorpus.            |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/delete) | Deletes a RagCorpus.            |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/get)       | Gets a RagCorpus.               |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/list)     | Lists RagCorpora in a Location. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/patch)   | Updates a RagCorpus.            |

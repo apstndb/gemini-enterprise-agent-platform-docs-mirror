@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Response message of `  ModelService.UploadModel  ` operation.
+Response message of [`ModelService.UploadModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/upload#google.cloud.aiplatform.v1.ModelService.UploadModel) operation.
 
 Fields
 
@@ -18,21 +18,11 @@ The name of the uploaded Model resource. Format: `projects/{project}/locations/{
 
 Output only. The version id of the model that is uploaded.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;model&quot;: string,
-  &quot;modelVersionId&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "model": string,
+  "modelVersionId": string
+}
+```

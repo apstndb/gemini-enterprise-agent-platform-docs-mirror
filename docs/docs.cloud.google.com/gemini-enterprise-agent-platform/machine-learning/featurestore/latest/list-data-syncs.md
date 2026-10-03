@@ -14,6 +14,10 @@ Authenticate to Gemini Enterprise Agent Platform, unless you've done so already.
 
 To use the REST API samples on this page in a local development environment, you use the credentials you provide to the gcloud CLI.
 
+[Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI.
+
+If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
+
 For more information, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) in the Google Cloud authentication documentation.
 
 ## List sync operations in a feature view
@@ -26,14 +30,16 @@ To view the list of data sync operations in a [`FeatureView`](https://docs.cloud
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION\_ID : Region where the online store is located, such as `us-central1` .
-  - PROJECT\_ID : Your project ID.
-  - FEATUREONLINESTORE\_NAME : The name of the online store containing the feature view.
-  - FEATUREVIEW\_NAME : The name of the feature view for which you want to view the list of data sync operations.
+- ` LOCATION_ID ` : Region where the online store is located, such as `us-central1` .
+- ` PROJECT_ID ` : Your project ID.
+- ` FEATUREONLINESTORE_NAME ` : The name of the online store containing the feature view.
+- ` FEATUREVIEW_NAME ` : The name of the feature view for which you want to view the list of data sync operations.
 
 HTTP method and URL:
 
-    GET https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME/featureViewSyncs
+```
+GET https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME/featureViewSyncs
+```
 
 To send your request, choose one of these options:
 
@@ -43,9 +49,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME/featureViewSyncs"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME/featureViewSyncs"
+```
 
 #### PowerShell
 
@@ -53,49 +61,53 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME/featureViewSyncs" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME/featureViewSyncs" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following:
 
+```
+{
+  "featureViewSyncs": [
     {
-      "featureViewSyncs": [
-        {
-          "name": "PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME/featureViewSyncs/OPERATION_ID_1",
-          "createTime": "2023-09-11T15:33:24.906716Z",
-          "dataTransfer": {
-            "endTime": "2023-09-11T15:33:43.615598Z"
-          },
-          "finalStatus": {
-            "code": 13
-          },
-          "runTime": {
-            "endTime": "2023-09-11T15:33:43.615598Z"
-          }
-        },
-        {
-          "name": "PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME/featureViewSyncs/OPERATION_ID_2",
-          "createTime": "2023-09-06T23:48:00.670844Z",
-          "dataTransfer": {
-            "endTime": "2023-09-06T23:48:19.086848Z"
-          },
-          "finalStatus": {
-            "code": 13
-          },
-          "runTime": {
-            "endTime": "2023-09-06T23:48:19.086848Z"
-          }
-        }
-      ]
+      "name": "PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME/featureViewSyncs/OPERATION_ID_1",
+      "createTime": "2023-09-11T15:33:24.906716Z",
+      "dataTransfer": {
+        "endTime": "2023-09-11T15:33:43.615598Z"
+      },
+      "finalStatus": {
+        "code": 13
+      },
+      "runTime": {
+        "endTime": "2023-09-11T15:33:43.615598Z"
+      }
+    },
+    {
+      "name": "PROJECT_ID/locations/LOCATION_ID/featureOnlineStores/FEATUREONLINESTORE_NAME/featureViews/FEATUREVIEW_NAME/featureViewSyncs/OPERATION_ID_2",
+      "createTime": "2023-09-06T23:48:00.670844Z",
+      "dataTransfer": {
+        "endTime": "2023-09-06T23:48:19.086848Z"
+      },
+      "finalStatus": {
+        "code": 13
+      },
+      "runTime": {
+        "endTime": "2023-09-06T23:48:19.086848Z"
+      }
     }
+  ]
+}
+```
 
 ## What's next
 
-  - Learn how to [manually start a data sync](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/sync-data) .
+- Learn how to [manually start a data sync](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/sync-data) .
 
-  - Learn how to [update a feature view](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-featureview) .
+- Learn how to [update a feature view](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/update-featureview) .

@@ -28,7 +28,7 @@ The request body contains data with the following structure:
 
 Fields
 
-`events[]` ` object ( Event  ` )
+`events[]` `object ( `[`Event`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Event)` )`
 
 The events to create and add.
 

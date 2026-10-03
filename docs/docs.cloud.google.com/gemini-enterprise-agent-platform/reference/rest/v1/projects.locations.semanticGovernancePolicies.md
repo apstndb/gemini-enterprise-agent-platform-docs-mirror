@@ -16,13 +16,13 @@ Fields
 
 Identifier. Resource name of the SemanticGovernancePolicy.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this SemanticGovernancePolicy was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this SemanticGovernancePolicy was last updated.
 
@@ -48,7 +48,7 @@ Required. The natural language constraint of the SemanticGovernancePolicy.
 
 Required. The name of the agent in Agent Registry that is affected by this policy. Format: `projects/{project}/locations/{location}/agents/{agent}`
 
-`mcpTools[]` ` object ( McpTool  ` )
+`mcpTools[]` `object ( `[`McpTool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.semanticGovernancePolicies#McpTool)` )`
 
 Optional. The McpTools that are affected by this policy.
 
@@ -60,25 +60,33 @@ Format: `principal://TRUST_DOMAIN/NAMESPACE/AGENT_NAME`
 
 Example: `principal://agents.global.org-ORGANIZATION_ID.system.id.goog/resources/aiplatform/projects/PROJECT_NUMBER/locations/LOCATION/reasoningEngines/AGENT_ENGINE_ID`
 
-`agentResponseCustomization` ` object ( AgentResponseCustomization  ` )
+`agentResponseCustomization` `object ( `[`AgentResponseCustomization`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.semanticGovernancePolicies#AgentResponseCustomization)` )`
 
 Optional. Settings for customizing the agent's response to end users when this policy is evaluated, such as messages displayed when the policy denies a request.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;etag&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;naturalLanguageConstraint&quot;: string,&quot;agent&quot;: string,&quot;mcpTools&quot;: [{object (McpTool)}],&quot;agentIdentity&quot;: string,&quot;agentResponseCustomization&quot;: {object (AgentResponseCustomization)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "createTime": string,
+  "updateTime": string,
+  "etag": string,
+  "displayName": string,
+  "description": string,
+  "naturalLanguageConstraint": string,
+  "agent": string,
+  "mcpTools": [
+    {
+      object (McpTool)
+    }
+  ],
+  "agentIdentity": string,
+  "agentResponseCustomization": {
+    object (AgentResponseCustomization)
+  }
+}
+```
 
 ## McpTool
 
@@ -94,26 +102,16 @@ Required. The resource name of the McpServer in Agent Registry that is affected 
 
 Required. The resource names of the tools used by the Agent that is affected by this policy. Currently, exactly one tool must be specified.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;mcpServer&quot;: string,
-  &quot;tools&quot;: [
+**JSON representation**
+
+```
+{
+  "mcpServer": string,
+  "tools": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## AgentResponseCustomization
 
@@ -125,42 +123,18 @@ Fields
 
 Optional. Custom message shown to the end user when the policy check results in a denial. Use this to explain the rationale to the user. Max 1000 characters.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;denialMessage&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-## Methods
+```
+{
+  "denialMessage": string
+}
+```
 
-### `            create           `
-
-Creates a SemanticGovernancePolicy.
-
-### `            delete           `
-
-Deletes a SemanticGovernancePolicy.
-
-### `            get           `
-
-Gets a SemanticGovernancePolicy.
-
-### `            list           `
-
-Lists SemanticGovernancePolicies in a given location.
-
-### `            patch           `
-
-Updates a SemanticGovernancePolicy.
+| Methods                                                                                                                                           |                                                       |
+|---------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.semanticGovernancePolicies/create) | Creates a SemanticGovernancePolicy.                   |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.semanticGovernancePolicies/delete) | Deletes a SemanticGovernancePolicy.                   |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.semanticGovernancePolicies/get)       | Gets a SemanticGovernancePolicy.                      |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.semanticGovernancePolicies/list)     | Lists SemanticGovernancePolicies in a given location. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.semanticGovernancePolicies/patch)   | Updates a SemanticGovernancePolicy.                   |

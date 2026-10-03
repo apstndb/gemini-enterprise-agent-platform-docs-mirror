@@ -10,10 +10,10 @@ Well-designed data increases the quality of the resulting machine learning model
 
 The following topics are covered:
 
-  - [Best practices for all tabular data models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#general)
-  - [Best practices for tabular AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#automl)
-  - [Best practices for tabular forecasting models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#forecasting)
-  - [Best practices for data format](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#data-format)
+- [Best practices for all tabular data models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#general)
+- [Best practices for tabular AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#automl)
+- [Best practices for tabular forecasting models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#forecasting)
+- [Best practices for data format](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#data-format)
 
 ## Best practices for all tabular data models
 
@@ -51,11 +51,11 @@ Similarly, if you want your model to be tuned to make generalized inferences abo
 
 For classification and regression models, if the underlying pattern in your data is likely to shift over time (it is not randomly distributed in time), provide that information to Agent Platform. You can provide a time signal in several ways:
 
-  - If each row of data has a timestamp, make sure that column is included, has a transformation type of `Timestamp` , and is set as the **Time** column when you train your model. This ordering is used to split the data, with the most recent data as the test data, and the earliest data as the training data. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data#time) .
+- If each row of data has a timestamp, make sure that column is included, has a transformation type of `Timestamp` , and is set as the **Time** column when you train your model. This ordering is used to split the data, with the most recent data as the test data, and the earliest data as the training data. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data#time) .
 
-  - If your time column doesn't have many distinct values, use a manual split instead of using the Time column to split your data. Otherwise, you might not get enough rows in each dataset, which can cause training to fail.
+- If your time column doesn't have many distinct values, use a manual split instead of using the Time column to split your data. Otherwise, you might not get enough rows in each dataset, which can cause training to fail.
 
-  - If the time information is not contained in a single column, you can use a [manual data split](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/data-splits) to use the most recent data as the test data, and the earliest data as the training data.
+- If the time information is not contained in a single column, you can use a [manual data split](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/data-splits) to use the most recent data as the test data, and the earliest data as the training data.
 
 ### Make information explicit where needed
 
@@ -65,12 +65,12 @@ For example, if your data includes longitude and latitude, these columns are tre
 
 Some data types that might require feature engineering:
 
-  - Longitude/Latitude
-  - URLs
-  - IP addresses
-  - Email addresses
-  - Phone numbers
-  - Other geographic codes (for example, postal codes)
+- Longitude/Latitude
+- URLs
+- IP addresses
+- Email addresses
+- Phone numbers
+- Other geographic codes (for example, postal codes)
 
 ### Include calculated or aggregated data in a row
 
@@ -78,14 +78,14 @@ Agent Platform uses only the input data in a single row to predict the target va
 
 For example, if you want to predict next week's demand for a product, improve the quality of the inference by including columns with the following values:
 
-  - The total number of items in stock from the same category as the product.
-  - The average price of items in stock from the same category as the product.
-  - The number of days before a known holiday when the inference is requested.
+- The total number of items in stock from the same category as the product.
+- The average price of items in stock from the same category as the product.
+- The number of days before a known holiday when the inference is requested.
 
 In another example, if you want to predict whether a specific user will buy a product, improve the quality of the inference by including columns with the following values:
 
-  - The average historic conversion rate or click-through rate for the specific user.
-  - How many products are currently in the user's shopping cart.
+- The average historic conversion rate or click-through rate for the specific user.
+- How many products are currently in the user's shopping cart.
 
 ### Avoid bias
 
@@ -137,21 +137,11 @@ Your dataset must always include at least 1,000 rows.
 
 The following table provides some heuristics for how much training data to provide, depending on your objective.
 
-Objective
-
-Suggested minimum amount of training data
-
-Classification
-
-At least 10 times as many rows as you have columns.
-
-Forecasting
-
-At least 10 time series for every column used to train the model.
-
-Regression
-
-At least 50 times as many rows as the number of columns.
+| Objective      | Suggested minimum amount of training data                         |
+|----------------|-------------------------------------------------------------------|
+| Classification | At least 10 times as many rows as you have columns.               |
+| Forecasting    | At least 10 time series for every column used to train the model. |
+| Regression     | At least 50 times as many rows as the number of columns.          |
 
 ### Leave all other preprocessing and transformations to Agent Platform
 
@@ -185,13 +175,13 @@ You can try the following steps to find a good value for your data:
 
 Increasing the context window has the following effects:
 
-  - Increases the training time
-    
-    With a larger context window, the model uses more data points in training, causing the training time to increase.
+- Increases the training time
 
-  - Increases the required amount of history for inference data
-    
-    Your inference data should provide as many historical datapoints as the value of the context window.
+  With a larger context window, the model uses more data points in training, causing the training time to increase.
+
+- Increases the required amount of history for inference data
+
+  Your inference data should provide as many historical datapoints as the value of the context window.
 
 ## Best practices for data format
 
@@ -201,55 +191,55 @@ When you create training data to train a forecasting model, each row should repr
 
 Consider the following (simplified and abbreviated) sample training data:
 
-| Date       | Widget\_1\_Demand | Widget\_2\_Demand | Widget\_3\_Demand | Promo | Region |
-| ---------- | ----------------- | ----------------- | ----------------- | ----- | ------ |
-| 01/01/2019 | 112               | 241               | 0                 | 0     | CA     |
-| 01/02/2019 | 141               | 219               | 0                 | 1     | CA     |
-| 01/03/2019 | 149               | 244               | 0                 | 0     | CA     |
-| 01/01/2019 | 52                | 0                 | 43                | 0     | IL     |
-| 01/02/2019 | 81                | 0                 | 26                | 1     | IL     |
-| 01/03/2019 | 89                | 0                 | 86                | 0     | IL     |
+| Date       | Widget_1\_Demand | Widget_2\_Demand | Widget_3\_Demand | Promo | Region |
+|------------|------------------|------------------|------------------|-------|--------|
+| 01/01/2019 | 112              | 241              | 0                | 0     | CA     |
+| 01/02/2019 | 141              | 219              | 0                | 1     | CA     |
+| 01/03/2019 | 149              | 244              | 0                | 0     | CA     |
+| 01/01/2019 | 52               | 0                | 43               | 0     | IL     |
+| 01/02/2019 | 81               | 0                | 26               | 1     | IL     |
+| 01/03/2019 | 89               | 0                | 86               | 0     | IL     |
 
 This table, in wide format, shows business data by date, but it wouldn't be usable for a forecasting model in its current form. There is no single target column, no time series ID column, and for any given date, you won't know the demand for the other widgets at the time of inference.
 
 You could convert this table into this format:
 
-| Date       | Product   | Region\_CA\_Demand | Region\_IL\_Demand | Promo |
-| ---------- | --------- | ------------------ | ------------------ | ----- |
-| 01/01/2019 | Widget\_1 | 112                | 52                 | 0     |
-| 01/02/2019 | Widget\_1 | 141                | 81                 | 1     |
-| 01/03/2019 | Widget\_1 | 149                | 89                 | 0     |
-| 01/01/2019 | Widget\_2 | 241                | 0                  | 0     |
-| 01/02/2019 | Widget\_2 | 219                | 0                  | 1     |
-| 01/03/2019 | Widget\_2 | 244                | 0                  | 0     |
-| 01/01/2019 | Widget\_3 | 0                  | 43                 | 0     |
-| 01/02/2019 | Widget\_3 | 0                  | 26                 | 1     |
-| 01/03/2019 | Widget\_3 | 0                  | 86                 | 0     |
+| Date       | Product  | Region_CA_Demand | Region_IL_Demand | Promo |
+|------------|----------|------------------|------------------|-------|
+| 01/01/2019 | Widget_1 | 112              | 52               | 0     |
+| 01/02/2019 | Widget_1 | 141              | 81               | 1     |
+| 01/03/2019 | Widget_1 | 149              | 89               | 0     |
+| 01/01/2019 | Widget_2 | 241              | 0                | 0     |
+| 01/02/2019 | Widget_2 | 219              | 0                | 1     |
+| 01/03/2019 | Widget_2 | 244              | 0                | 0     |
+| 01/01/2019 | Widget_3 | 0                | 43               | 0     |
+| 01/02/2019 | Widget_3 | 0                | 26               | 1     |
+| 01/03/2019 | Widget_3 | 0                | 86               | 0     |
 
 We now have a potential time series ID column, Product. However, this format could be used only to predict one of the regions, and the data for the other region would need to be known at the time of inference.
 
 The solution is to convert to narrow format, so that each row represents a single observation. Any data that is independent of the time series is repeated for each row:
 
-| Date       | Demand | ID            | Promo |
-| ---------- | ------ | ------------- | ----- |
-| 01/01/2019 | 112    | Widget\_1\_CA | 0     |
-| 01/02/2019 | 141    | Widget\_1\_CA | 1     |
-| 01/03/2019 | 149    | Widget\_1\_CA | 0     |
-| 01/01/2019 | 52     | Widget\_1\_IL | 0     |
-| 01/02/2019 | 81     | Widget\_1\_IL | 1     |
-| 01/03/2019 | 89     | Widget\_1\_IL | 0     |
-| 01/01/2019 | 241    | Widget\_2\_CA | 0     |
-| 01/02/2019 | 219    | Widget\_2\_CA | 1     |
-| 01/03/2019 | 244    | Widget\_2\_CA | 0     |
-| 01/01/2019 | 0      | Widget\_2\_IL | 0     |
-| 01/02/2019 | 0      | Widget\_2\_IL | 1     |
-| 01/03/2019 | 0      | Widget\_2\_IL | 0     |
-| 01/01/2019 | 0      | Widget\_3\_CA | 0     |
-| 01/02/2019 | 0      | Widget\_3\_CA | 1     |
-| 01/03/2019 | 0      | Widget\_3\_CA | 0     |
-| 01/01/2019 | 43     | Widget\_3\_IL | 0     |
-| 01/02/2019 | 26     | Widget\_3\_IL | 1     |
-| 01/03/2019 | 86     | Widget\_3\_IL | 0     |
+| Date       | Demand | ID           | Promo |
+|------------|--------|--------------|-------|
+| 01/01/2019 | 112    | Widget_1\_CA | 0     |
+| 01/02/2019 | 141    | Widget_1\_CA | 1     |
+| 01/03/2019 | 149    | Widget_1\_CA | 0     |
+| 01/01/2019 | 52     | Widget_1\_IL | 0     |
+| 01/02/2019 | 81     | Widget_1\_IL | 1     |
+| 01/03/2019 | 89     | Widget_1\_IL | 0     |
+| 01/01/2019 | 241    | Widget_2\_CA | 0     |
+| 01/02/2019 | 219    | Widget_2\_CA | 1     |
+| 01/03/2019 | 244    | Widget_2\_CA | 0     |
+| 01/01/2019 | 0      | Widget_2\_IL | 0     |
+| 01/02/2019 | 0      | Widget_2\_IL | 1     |
+| 01/03/2019 | 0      | Widget_2\_IL | 0     |
+| 01/01/2019 | 0      | Widget_3\_CA | 0     |
+| 01/02/2019 | 0      | Widget_3\_CA | 1     |
+| 01/03/2019 | 0      | Widget_3\_CA | 0     |
+| 01/01/2019 | 43     | Widget_3\_IL | 0     |
+| 01/02/2019 | 26     | Widget_3\_IL | 1     |
+| 01/03/2019 | 86     | Widget_3\_IL | 0     |
 
 Now we have a time series identifier (ID), a target column (Demand), and a Time column (Date). In addition, each row is based on a single observation, which can be used to predict the target value. The Promo column is used as a feature to train the model.
 
@@ -257,5 +247,5 @@ In reality, you will have many more rows and many more columns than these exampl
 
 ## What's next
 
-  - [Is My Data Any Good? A Pre-ML Checklist](http://services.google.com/fh/files/blogs/data-prep-checklist-ml-bd-wp-v2.pdf)
-  - [Preparing and curating your data for machine learning](https://cloud.google.com/blog/products/gcp/preparing-and-curating-your-data-for-machine-learning)
+- [Is My Data Any Good? A Pre-ML Checklist](http://services.google.com/fh/files/blogs/data-prep-checklist-ml-bd-wp-v2.pdf)
+- [Preparing and curating your data for machine learning](https://cloud.google.com/blog/products/gcp/preparing-and-curating-your-data-for-machine-learning)

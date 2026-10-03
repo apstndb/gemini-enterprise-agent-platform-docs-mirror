@@ -14,33 +14,30 @@ Fields
 
 Unique identifier for the rubric. This id is used to refer to this rubric, e.g., in RubricVerdict.
 
-`content` ` object ( Content  ` )
+`content` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Rubric#Content)` )`
 
 Required. The actual testable criteria for the rubric.
 
 `type` `string`
 
-Optional. A type designator for the rubric, which can inform how it's evaluated or interpreted by systems or users. It's recommended to use consistent, well-defined, upper snake\_case strings. Examples: "SUMMARIZATION\_QUALITY", "SAFETY\_HARMFUL\_CONTENT", "INSTRUCTION\_ADHERENCE".
+Optional. A type designator for the rubric, which can inform how it's evaluated or interpreted by systems or users. It's recommended to use consistent, well-defined, upper snake_case strings. Examples: "SUMMARIZATION_QUALITY", "SAFETY_HARMFUL_CONTENT", "INSTRUCTION_ADHERENCE".
 
-`importance` ` enum ( Importance  ` )
+`importance` `enum ( `[`Importance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Rubric#Importance)` )`
 
 Optional. The relative importance of this rubric.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;rubricId&quot;: string,&quot;content&quot;: {object (Content)},&quot;type&quot;: string,&quot;importance&quot;: enum (Importance)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "rubricId": string,
+  "content": {
+    object (Content)
+  },
+  "type": string,
+  "importance": enum (Importance)
+}
+```
 
 ## Content
 
@@ -52,27 +49,24 @@ Fields
 
 The specific type of content that defines the rubric. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`property` ` object ( Property  ` )
+`property` `object ( `[`Property`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Rubric#Property)` )`
 
 Evaluation criteria based on a specific property.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// content_type&quot;property&quot;: {object (Property)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // content_type
+  "property": {
+    object (Property)
+  }
+  // Union type
+}
+```
 
 ## Property
 
@@ -84,42 +78,21 @@ Fields
 
 description of the property being evaluated. Example: "The model's response is grammatically correct."
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;description&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "description": string
+}
+```
 
 ## Importance
 
 Importance level of the rubric.
 
-Enums
-
-`IMPORTANCE_UNSPECIFIED`
-
-Importance is not specified.
-
-`HIGH`
-
-High importance.
-
-`MEDIUM`
-
-Medium importance.
-
-`LOW`
-
-Low importance.
+| Enums                    |                              |
+|--------------------------|------------------------------|
+| `IMPORTANCE_UNSPECIFIED` | Importance is not specified. |
+| `HIGH`                   | High importance.             |
+| `MEDIUM`                 | Medium importance.           |
+| `LOW`                    | Low importance.              |

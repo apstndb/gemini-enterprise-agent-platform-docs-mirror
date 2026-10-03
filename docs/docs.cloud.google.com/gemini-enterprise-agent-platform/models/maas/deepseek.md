@@ -42,10 +42,10 @@ For production-ready safety, integrate DeepSeek R1 (0528) with [Model Armor](htt
 
 For managed models, you can use curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names:
 
-  - For DeepSeek-OCR, use `deepseek-ocr-maas`
-  - For DeepSeek-V3.2, use `deepseek-v3.2-maas`
-  - For DeepSeek-V3.1, use `deepseek-v3.1-maas`
-  - For DeepSeek R1 (0528), use `deepseek-r1-0528-maas`
+- For DeepSeek-OCR, use `deepseek-ocr-maas`
+- For DeepSeek-V3.2, use `deepseek-v3.2-maas`
+- For DeepSeek-V3.1, use `deepseek-v3.1-maas`
+- For DeepSeek R1 (0528), use `deepseek-r1-0528-maas`
 
 To learn how to make streaming and non-streaming calls to DeepSeek models, see [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .
 
@@ -76,25 +76,25 @@ DeepSeek models are available in the following regions:
 <tr class="odd">
 <td>DeepSeek-OCR</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-central1</code></li>
+<li><code>us-central1</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td>DeepSeek-V3.2</td>
 <td><ul>
-<li><code dir="ltr" translate="no">global</code></li>
+<li><code>global</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
 <td>DeepSeek-V3.1</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-central1</code></li>
+<li><code>us-central1</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td>DeepSeek R1 (0528)</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-central1</code></li>
+<li><code>us-central1</code></li>
 </ul></td>
 </tr>
 </tbody>

@@ -14,13 +14,9 @@ Deletes a long-running operation. This method indicates that the client is no lo
 
 ### Path parameters
 
-Parameters
-
-`name`
-
-`string`
-
-The name of the operation resource to be deleted.
+| Parameters |                                                            |
+|------------|------------------------------------------------------------|
+| `name`     | `string` The name of the operation resource to be deleted. |
 
 ### Request body
 
@@ -34,7 +30,7 @@ If successful, the response body is an empty JSON object.
 
 Requires the following OAuth scope:
 
-  - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/cloud-platform`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -42,6 +38,6 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 
 Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
 
-  - `vectorsearch.operations.delete`
+- `vectorsearch.operations.delete`
 
 For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

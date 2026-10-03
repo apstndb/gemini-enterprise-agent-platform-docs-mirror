@@ -26,22 +26,22 @@ Identifier. The resource name of the Extension.
 
 ### Query parameters
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Required. Mask specifying which fields to update. Supported fields:
 
-  - `displayName`
-  - `description`
-  - `runtimeConfig`
-  - `toolUseExamples`
-  - `manifest.description`
+- `displayName`
+- `description`
+- `runtimeConfig`
+- `toolUseExamples`
+- `manifest.description`
 
 This is a comma-separated list of fully qualified names of fields. Example: `"user.displayName,photo"` .
 
 ### Request body
 
-The request body contains an instance of `  Extension  ` .
+The request body contains an instance of [`Extension`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#Extension) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Extension  ` .
+If successful, the response body contains an instance of [`Extension`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions#Extension) .

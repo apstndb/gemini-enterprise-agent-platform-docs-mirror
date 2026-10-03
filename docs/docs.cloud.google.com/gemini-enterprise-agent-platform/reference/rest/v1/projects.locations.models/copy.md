@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.models.copy
 
-Copies an already existing Agent Platform Model into the specified Location. The source Model must exist in the same Project. When copying custom Models, the users themselves are responsible for `  Model.metadata  ` content to be region-agnostic, as well as making sure that any resources (e.g. files) it depends on remain accessible.
+Copies an already existing Agent Platform Model into the specified Location. The source Model must exist in the same Project. When copying custom Models, the users themselves are responsible for [`Model.metadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models#Model.FIELDS.metadata) content to be region-agnostic, as well as making sure that any resources (e.g. files) it depends on remain accessible.
 
 ### Endpoint
 
@@ -32,7 +32,7 @@ Fields
 
 Required. The resource name of the Model to copy. That Model must be in the same Project. Format: `projects/{project}/locations/{location}/models/{model}`
 
-`encryptionSpec` ` object ( EncryptionSpec  ` )
+`encryptionSpec` `object ( `[`EncryptionSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/EncryptionSpec)` )`
 
 Customer-managed encryption key options. If this is set, then the Model copy will be encrypted with the provided encryption key.
 
@@ -60,4 +60,4 @@ End of mutually exclusive fields.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .

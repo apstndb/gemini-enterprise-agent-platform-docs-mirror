@@ -10,26 +10,16 @@ FlexStart is used to schedule the deployment workload on DWS resource. It contai
 
 Fields
 
-`maxRuntimeDuration` ` string ( Duration  ` format)
+`maxRuntimeDuration` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 The max duration of the deployment is maxRuntimeDuration. The deployment will be terminated after the duration. The maxRuntimeDuration can be set up to 7 days.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;maxRuntimeDuration&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "maxRuntimeDuration": string
+}
+```

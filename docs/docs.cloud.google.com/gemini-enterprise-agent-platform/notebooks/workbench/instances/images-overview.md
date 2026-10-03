@@ -12,8 +12,8 @@ Every Gemini Enterprise Agent Platform Workbench instance runs on an image that 
 
 Agent Platform Workbench provides two types of mutually exclusive images:
 
-  - **VM images** : Google-built boot images that install the operating system, frameworks, kernels, and JupyterLab directly on the instance host.
-  - **Custom containers** : a Google-provided base container image that you can extend with your own packages, kernels, and JupyterLab configuration. Your container runs on a Google-managed host. Use custom containers for reproducible, pre-provisioned environments that you reuse across many instances.
+- **VM images** : Google-built boot images that install the operating system, frameworks, kernels, and JupyterLab directly on the instance host.
+- **Custom containers** : a Google-provided base container image that you can extend with your own packages, kernels, and JupyterLab configuration. Your container runs on a Google-managed host. Use custom containers for reproducible, pre-provisioned environments that you reuse across many instances.
 
 To compare the two image types and choose one, see [Choose an image type](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/images-overview#choose-an-image-type) .
 
@@ -21,53 +21,14 @@ To compare the two image types and choose one, see [Choose an image type](https:
 
 Use the following table to choose the type that fits your workflow. For details about the contents, versions, and lifecycle of each image, see [Image versioning and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/image-versioning) .
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Option</th>
-<th>VM images</th>
-<th>Custom containers</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>What it is</td>
-<td>A Google-built boot image that installs the operating system, frameworks, kernels, and JupyterLab directly on the instance host.</td>
-<td>A Google-provided base container that runs on a Google-managed host.</td>
-</tr>
-<tr class="even">
-<td>Operating system</td>
-<td>Debian</td>
-<td>Host: Container-Optimized OS (COS), managed by Google<br />
-Container: Ubuntu</td>
-</tr>
-<tr class="odd">
-<td>How you customize</td>
-<td>Add packages and micromamba environments to a running instance. The image itself is Google-managed and immutable.</td>
-<td>Build a custom container image ahead of time and reuse it across many instances.</td>
-</tr>
-<tr class="even">
-<td>Host access</td>
-<td>Full access to the instance host.</td>
-<td>The COS host is Google-managed and not modifiable.</td>
-</tr>
-<tr class="odd">
-<td>Best for</td>
-<td>The default experience; workloads that need host access or custom system processes.</td>
-<td>Customized environments that you can deploy at scale.</td>
-</tr>
-<tr class="even">
-<td>How to create</td>
-<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-specific-version">Create an instance with a specific version</a></td>
-<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container">Create an instance with a custom container</a></td>
-</tr>
-</tbody>
-</table>
+| Option            | VM images                                                                                                                                                          | Custom containers                                                                                                                                                  |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| What it is        | A Google-built boot image that installs the operating system, frameworks, kernels, and JupyterLab directly on the instance host.                                   | A Google-provided base container that runs on a Google-managed host.                                                                                               |
+| Operating system  | Debian                                                                                                                                                             | Host: Container-Optimized OS (COS), managed by Google Container: Ubuntu                                                                                            |
+| How you customize | Add packages and micromamba environments to a running instance. The image itself is Google-managed and immutable.                                                  | Build a custom container image ahead of time and reuse it across many instances.                                                                                   |
+| Host access       | Full access to the instance host.                                                                                                                                  | The COS host is Google-managed and not modifiable.                                                                                                                 |
+| Best for          | The default experience; workloads that need host access or custom system processes.                                                                                | Customized environments that you can deploy at scale.                                                                                                              |
+| How to create     | [Create an instance with a specific version](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-specific-version) | [Create an instance with a custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container) |
 
 ## Agent Platform Workbench VM images
 
@@ -81,8 +42,8 @@ A custom container lets you bring a customized image to Agent Platform Workbench
 
 You start from a Google-provided base container image, extend it with what you need, and then provision Agent Platform Workbench instances from the container that you build. Google publishes two variants of the base container image:
 
-  - **Standard: supports all Agent Platform Workbench features** . Includes pre-installed data science packages, CUDA libraries, Google Cloud JupyterLab integrations (BigQuery and Managed Service for Apache Spark), common system packages, and micromamba-based kernel management.
-  - **Slim** : a minimal base image with JupyterLab, metadata-based JupyterLab configuration, and micromamba-based kernel management. You install any additional packages or extensions.
+- **Standard: supports all Agent Platform Workbench features** . Includes pre-installed data science packages, CUDA libraries, Google Cloud JupyterLab integrations (BigQuery and Managed Service for Apache Spark), common system packages, and micromamba-based kernel management.
+- **Slim** : a minimal base image with JupyterLab, metadata-based JupyterLab configuration, and micromamba-based kernel management. You install any additional packages or extensions.
 
 Your container runs on a Google-managed host, based on Container-Optimized OS (COS), that provides features such as idle shutdown, the proxy agent, and service telemetry. For more information, see [Container-Optimized OS features and benefits](https://docs.cloud.google.com/container-optimized-os/docs/concepts/features-and-benefits) .
 
@@ -92,14 +53,14 @@ For the base image URIs, sizes, and supported Python versions, see [Create a cus
 
 Agent Platform Workbench images can be configured to include the following:
 
-  - Specific ML frameworks (for example, TensorFlow and PyTorch) and their supporting packages.
-  - Python with common data science packages such as numpy, scipy, matplotlib, pandas, nltk, pillow, scikit-image, opencv-python, and scikit-learn, among many others.
-  - JupyterLab notebook environments for quick prototyping.
-  - NVIDIA packages, including the NVIDIA driver, CUDA, cuDNN, and NCCL, for GPU-enabled instances.
+- Specific ML frameworks (for example, TensorFlow and PyTorch) and their supporting packages.
+- Python with common data science packages such as numpy, scipy, matplotlib, pandas, nltk, pillow, scikit-image, opencv-python, and scikit-learn, among many others.
+- JupyterLab notebook environments for quick prototyping.
+- NVIDIA packages, including the NVIDIA driver, CUDA, cuDNN, and NCCL, for GPU-enabled instances.
 
 ## What's next
 
-  - [Image versioning and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/image-versioning) : See what each image contains, how versions are numbered, and when images are deprecated.
-  - [Manage image versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-image-versions) : Create an instance on a specific version, upgrade, and roll back.
-  - [Image release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/release-notes-image) : See what changed in each image release.
-  - [Support policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/support-policy) : Learn about CVE handling, packages, support windows, and deprecation notice.
+- [Image versioning and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/image-versioning) : See what each image contains, how versions are numbered, and when images are deprecated.
+- [Manage image versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-image-versions) : Create an instance on a specific version, upgrade, and roll back.
+- [Image release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/release-notes-image) : See what changed in each image release.
+- [Support policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/support-policy) : Learn about CVE handling, packages, support windows, and deprecation notice.

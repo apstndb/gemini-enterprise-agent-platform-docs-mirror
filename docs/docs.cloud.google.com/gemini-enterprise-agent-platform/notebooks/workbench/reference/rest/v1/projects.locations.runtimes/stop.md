@@ -14,56 +14,54 @@ Stops a Managed Notebook Runtime. Perform "Stop" on GPU instances; "Suspend" on 
 
 ### Path parameters
 
-Parameters
-
-`name`
-
-`string`
-
-Required. Format: `projects/{projectId}/locations/{location}/runtimes/{runtimeId}`
-
-Authorization requires the following [IAM](https://cloud.google.com/iam/docs/) permission on the specified resource `name` :
-
-  - `notebooks.runtimes.stop`
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>name</code></td>
+<td><p><code>string</code></p>
+<p>Required. Format: <code>projects/{projectId}/locations/{location}/runtimes/{runtimeId}</code></p>
+<p>Authorization requires the following <a href="https://cloud.google.com/iam/docs/">IAM</a> permission on the specified resource <code>name</code> :</p>
+<ul>
+<li><code>notebooks.runtimes.stop</code></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
 
 ### Request body
 
 The request body contains data with the following structure:
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;requestId&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
 
-Fields
+```
+{
+  "requestId": string
+}
+```
 
-`requestId`
-
-`string`
-
-Idempotent request UUID.
+| Fields      |                                   |
+|-------------|-----------------------------------|
+| `requestId` | `string` Idempotent request UUID. |
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ### Authorization scopes
 
 Requires the following OAuth scope:
 
-  - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/cloud-platform`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .

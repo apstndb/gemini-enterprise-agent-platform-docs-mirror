@@ -28,17 +28,17 @@ Agent Platform applies a dynamic window while enforcing Provisioned Throughput q
 
 The enforcement window determines how much you can exceed, or "burst", above your per-second limit, before you're throttled. This window is applied automatically. Note that these windows are subject to change to optimize for performance and reliability.
 
-  - **Small GSU allocations** (3 GSUs or less): The window can range from 40 to 120 seconds to allow for larger individual requests to process without interruption.
-    
-    For example, if you buy 1 GSU of `gemini-2.5-flash` , you get an average of 2,690 tokens per second of continuous throughput. Your total usage over any 120-second window can't exceed 322,800 tokens (2,690 tokens per second \* 120 seconds). Therefore, if you send a request that uses 70,000 tokens per second, but the total usage over 120 seconds remains below 322,800 tokens, then the 70,000-token per second burst still counts as Provisioned Throughput, since the average usage doesn't exceed 2,690 tokens per second.
+- **Small GSU allocations** (3 GSUs or less): The window can range from 40 to 120 seconds to allow for larger individual requests to process without interruption.
 
-  - **Standard (medium-sized) GSU allocations** (more than 3 GSUs): For medium-sized GSU deployments (for example, fewer than 50 GSUs), the window can range from 5 seconds to 30 seconds. The GSU thresholds and context windows vary based on the model.
-    
-    For example, if you buy 25 GSUs of `gemini-2.5-flash` , you get an average of 67,250 tokens per second (2,690 tokens per second \* 25) of continuous throughput. Your total usage over any 30-second window can't exceed 2,017,500 tokens (67,250 tokens per second \* 30 seconds). Therefore, if you send a request that uses 1,000,000 tokens per second but the total usage over 30 seconds remains within 2,017,500 tokens, then the 1,000,000-token per second burst still counts as Provisioned Throughput, since the average usage doesn't exceed 67,250 tokens per second.
+  For example, if you buy 1 GSU of `gemini-2.5-flash` , you get an average of 2,690 tokens per second of continuous throughput. Your total usage over any 120-second window can't exceed 322,800 tokens (2,690 tokens per second \* 120 seconds). Therefore, if you send a request that uses 70,000 tokens per second, but the total usage over 120 seconds remains below 322,800 tokens, then the 70,000-token per second burst still counts as Provisioned Throughput, since the average usage doesn't exceed 2,690 tokens per second.
 
-  - **High-precision (large-scale) GSU allocations** : For large-scale GSU deployments (for example, 50 GSUs or more), the window can range from 1 to 5 seconds to ensure that high frequency requests are processed with maximum accuracy across the infrastructure.
-    
-    For example, if you buy 250 GSUs of `gemini-2.5-flash` , you get an average of 672,500 tokens per second (2,690 tokens per second \* 250) of continuous throughput. Your total usage over any 5-second window can't exceed 3,362,500 tokens (672,500 tokens per second \* 5 seconds). Therefore, if you send a request that uses 5,000,000 tokens per second, then it won't be processed as Provisioned Throughput, because the total usage of 5,000,000 tokens exceeds the 3,362,500 token limit over a 5-second window. On the other hand, a request that uses 1,000,000 tokens per second can be processed as Provisioned Throughput, if the average usage over the 5-second window doesn't exceed 672,500 tokens per second.
+- **Standard (medium-sized) GSU allocations** (more than 3 GSUs): For medium-sized GSU deployments (for example, fewer than 50 GSUs), the window can range from 5 seconds to 30 seconds. The GSU thresholds and context windows vary based on the model.
+
+  For example, if you buy 25 GSUs of `gemini-2.5-flash` , you get an average of 67,250 tokens per second (2,690 tokens per second \* 25) of continuous throughput. Your total usage over any 30-second window can't exceed 2,017,500 tokens (67,250 tokens per second \* 30 seconds). Therefore, if you send a request that uses 1,000,000 tokens per second but the total usage over 30 seconds remains within 2,017,500 tokens, then the 1,000,000-token per second burst still counts as Provisioned Throughput, since the average usage doesn't exceed 67,250 tokens per second.
+
+- **High-precision (large-scale) GSU allocations** : For large-scale GSU deployments (for example, 50 GSUs or more), the window can range from 1 to 5 seconds to ensure that high frequency requests are processed with maximum accuracy across the infrastructure.
+
+  For example, if you buy 250 GSUs of `gemini-2.5-flash` , you get an average of 672,500 tokens per second (2,690 tokens per second \* 250) of continuous throughput. Your total usage over any 5-second window can't exceed 3,362,500 tokens (672,500 tokens per second \* 5 seconds). Therefore, if you send a request that uses 5,000,000 tokens per second, then it won't be processed as Provisioned Throughput, because the total usage of 5,000,000 tokens exceeds the 3,362,500 token limit over a 5-second window. On the other hand, a request that uses 1,000,000 tokens per second can be processed as Provisioned Throughput, if the average usage over the 5-second window doesn't exceed 672,500 tokens per second.
 
 ## Control overages or bypass Provisioned Throughput
 
@@ -70,43 +70,49 @@ When sending requests to the API, set the `X-Vertex-AI-LLM-Request-Type` HTTP he
 
 #### Install
 
-    pip install --upgrade google-genai
+```
+pip install --upgrade google-genai
+```
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    from google import genai
-    from google.genai.types import HttpOptions
-    
-    client = genai.Client(
-        http_options=HttpOptions(
-            api_version="v1",
-            headers={
-                # Options:
-                # - "dedicated": Use Provisioned Throughput
-                # - "shared": Use pay-as-you-go
-                # https://cloud.google.com/vertex-ai/generative-ai/docs/use-provisioned-throughput
-                "X-Vertex-AI-LLM-Request-Type": "shared"
-            },
-        )
+```
+from google import genai
+from google.genai.types import HttpOptions
+
+client = genai.Client(
+    http_options=HttpOptions(
+        api_version="v1",
+        headers={
+            # Options:
+            # - "dedicated": Use Provisioned Throughput
+            # - "shared": Use pay-as-you-go
+            # https://cloud.google.com/vertex-ai/generative-ai/docs/use-provisioned-throughput
+            "X-Vertex-AI-LLM-Request-Type": "shared"
+        },
     )
-    response = client.models.generate_content(
-        model="gemini-3.5-flash",
-        contents="How does AI work?",
-    )
-    print(response.text)
-    # Example response:
-    # Okay, let's break down how AI works. It's a broad field, so I'll focus on the ...
-    #
-    # Here's a simplified overview:
-    # ...
+)
+response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents="How does AI work?",
+)
+print(response.text)
+# Example response:
+# Okay, let's break down how AI works. It's a broad field, so I'll focus on the ...
+#
+# Here's a simplified overview:
+# ...
+```
 
 ### Go
 
@@ -116,117 +122,127 @@ To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.g
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    import (
-        "context"
-        "fmt"
-        "io"
-        "net/http"
-    
-        "google.golang.org/genai"
-    )
-    
-    // generateText shows how to generate text Provisioned Throughput.
-    func generateText(w io.Writer) error {
-        ctx := context.Background()
-    
-        client, err := genai.NewClient(ctx, &genai.ClientConfig{
-            HTTPOptions: genai.HTTPOptions{
-                APIVersion: "v1",
-                Headers: http.Header{
-                    // Options:
-                    // - "dedicated": Use Provisioned Throughput
-                    // - "shared": Use pay-as-you-go
-                    // https://cloud.google.com/vertex-ai/generative-ai/docs/use-provisioned-throughput
-                    "X-Vertex-AI-LLM-Request-Type": []string{"shared"},
-                },
+```
+import (
+    "context"
+    "fmt"
+    "io"
+    "net/http"
+
+    "google.golang.org/genai"
+)
+
+// generateText shows how to generate text Provisioned Throughput.
+func generateText(w io.Writer) error {
+    ctx := context.Background()
+
+    client, err := genai.NewClient(ctx, &genai.ClientConfig{
+        HTTPOptions: genai.HTTPOptions{
+            APIVersion: "v1",
+            Headers: http.Header{
+                // Options:
+                // - "dedicated": Use Provisioned Throughput
+                // - "shared": Use pay-as-you-go
+                // https://cloud.google.com/vertex-ai/generative-ai/docs/use-provisioned-throughput
+                "X-Vertex-AI-LLM-Request-Type": []string{"shared"},
             },
-        })
-        if err != nil {
-            return fmt.Errorf("failed to create genai client: %w", err)
-        }
-    
-        modelName := "gemini-2.5-flash"
-        contents := genai.Text("How does AI work?")
-    
-        resp, err := client.Models.GenerateContent(ctx, modelName, contents, nil)
-        if err != nil {
-            return fmt.Errorf("failed to generate content: %w", err)
-        }
-    
-        respText := resp.Text()
-    
-        fmt.Fprintln(w, respText)
-    
-        // Example response:
-        // Artificial Intelligence (AI) isn't magic, nor is it a single "thing." Instead, it's a broad field of computer science focused on creating machines that can perform tasks that typically require human intelligence.
-        // .....
-        // In Summary:
-        // ...
-    
-        return nil
+        },
+    })
+    if err != nil {
+        return fmt.Errorf("failed to create genai client: %w", err)
     }
+
+    modelName := "gemini-2.5-flash"
+    contents := genai.Text("How does AI work?")
+
+    resp, err := client.Models.GenerateContent(ctx, modelName, contents, nil)
+    if err != nil {
+        return fmt.Errorf("failed to generate content: %w", err)
+    }
+
+    respText := resp.Text()
+
+    fmt.Fprintln(w, respText)
+
+    // Example response:
+    // Artificial Intelligence (AI) isn't magic, nor is it a single "thing." Instead, it's a broad field of computer science focused on creating machines that can perform tasks that typically require human intelligence.
+    // .....
+    // In Summary:
+    // ...
+
+    return nil
+}
+```
 
 ### Node.js
 
 #### Install
 
-    npm install @google/genai
+```
+npm install @google/genai
+```
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    const {GoogleGenAI} = require('@google/genai');
-    
-    const GOOGLE_CLOUD_PROJECT = process.env.GOOGLE_CLOUD_PROJECT;
-    const GOOGLE_CLOUD_LOCATION = process.env.GOOGLE_CLOUD_LOCATION || 'global';
-    
-    async function generateWithProvisionedThroughput(
-      projectId = GOOGLE_CLOUD_PROJECT,
-      location = GOOGLE_CLOUD_LOCATION
-    ) {
-      const client = new GoogleGenAI({
-        vertexai: true,
-        project: projectId,
-        location: location,
-        httpOptions: {
-          apiVersion: 'v1',
-          headers: {
-            // Options:
-            // - "dedicated": Use Provisioned Throughput
-            // - "shared": Use pay-as-you-go
-            // https://cloud.google.com/vertex-ai/generative-ai/docs/use-provisioned-throughput
-            'X-Vertex-AI-LLM-Request-Type': 'shared',
-          },
-        },
-      });
-    
-      const response = await client.models.generateContent({
-        model: 'gemini-2.5-flash',
-        contents: 'How does AI work?',
-      });
-    
-      console.log(response.text);
-    
-      // Example response:
-      //  Okay, let's break down how AI works. It's a broad field, so I'll focus on the ...
-      //  Here's a simplified overview:
-      //  ...
-    
-      return response.text;
-    }
+```
+const {GoogleGenAI} = require('@google/genai');
+
+const GOOGLE_CLOUD_PROJECT = process.env.GOOGLE_CLOUD_PROJECT;
+const GOOGLE_CLOUD_LOCATION = process.env.GOOGLE_CLOUD_LOCATION || 'global';
+
+async function generateWithProvisionedThroughput(
+  projectId = GOOGLE_CLOUD_PROJECT,
+  location = GOOGLE_CLOUD_LOCATION
+) {
+  const client = new GoogleGenAI({
+    vertexai: true,
+    project: projectId,
+    location: location,
+    httpOptions: {
+      apiVersion: 'v1',
+      headers: {
+        // Options:
+        // - "dedicated": Use Provisioned Throughput
+        // - "shared": Use pay-as-you-go
+        // https://cloud.google.com/vertex-ai/generative-ai/docs/use-provisioned-throughput
+        'X-Vertex-AI-LLM-Request-Type': 'shared',
+      },
+    },
+  });
+
+  const response = await client.models.generateContent({
+    model: 'gemini-2.5-flash',
+    contents: 'How does AI work?',
+  });
+
+  console.log(response.text);
+
+  // Example response:
+  //  Okay, let's break down how AI works. It's a broad field, so I'll focus on the ...
+  //  Here's a simplified overview:
+  //  ...
+
+  return response.text;
+}
+```
 
 ### Java
 
@@ -236,67 +252,73 @@ To learn more, see the [SDK reference documentation](https://central.sonatype.co
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    import com.google.genai.Client;
-    import com.google.genai.types.GenerateContentConfig;
-    import com.google.genai.types.GenerateContentResponse;
-    import com.google.genai.types.HttpOptions;
-    import java.util.Map;
-    
-    public class ProvisionedThroughputWithTxt {
-    
-      public static void main(String[] args) {
-        // TODO(developer): Replace these variables before running the sample.
-        String modelId = "gemini-2.5-flash";
-        generateContent(modelId);
-      }
-    
-      // Generates content with Provisioned Throughput.
-      public static String generateContent(String modelId) {
-        // Client Initialization. Once created, it can be reused for multiple requests.
-        try (Client client =
-            Client.builder()
-                .location("us-central1")
-                .vertexAI(true)
-                .httpOptions(
-                    HttpOptions.builder()
-                        .apiVersion("v1")
-                        .headers(
-                            // Options:
-                            // - "dedicated": Use Provisioned Throughput
-                            // - "shared": Use pay-as-you-go
-                            // https://cloud.google.com/vertex-ai/generative-ai/docs/use-provisioned-throughput
-                            Map.of("X-Vertex-AI-LLM-Request-Type", "shared"))
-                        .build())
-                .build()) {
-    
-          GenerateContentResponse response =
-              client.models.generateContent(
-                  modelId, "How does AI work?", GenerateContentConfig.builder().build());
-    
-          System.out.println(response.text());
-          // Example response:
-          // At its core, **AI (Artificial Intelligence) works by enabling machines to learn,
-          // reason, and make decisions in ways that simulate human intelligence.** Instead of being
-          // explicitly programmed for every single task...
-          return response.text();
-        }
-      }
+```
+import com.google.genai.Client;
+import com.google.genai.types.GenerateContentConfig;
+import com.google.genai.types.GenerateContentResponse;
+import com.google.genai.types.HttpOptions;
+import java.util.Map;
+
+public class ProvisionedThroughputWithTxt {
+
+  public static void main(String[] args) {
+    // TODO(developer): Replace these variables before running the sample.
+    String modelId = "gemini-2.5-flash";
+    generateContent(modelId);
+  }
+
+  // Generates content with Provisioned Throughput.
+  public static String generateContent(String modelId) {
+    // Client Initialization. Once created, it can be reused for multiple requests.
+    try (Client client =
+        Client.builder()
+            .location("us-central1")
+            .vertexAI(true)
+            .httpOptions(
+                HttpOptions.builder()
+                    .apiVersion("v1")
+                    .headers(
+                        // Options:
+                        // - "dedicated": Use Provisioned Throughput
+                        // - "shared": Use pay-as-you-go
+                        // https://cloud.google.com/vertex-ai/generative-ai/docs/use-provisioned-throughput
+                        Map.of("X-Vertex-AI-LLM-Request-Type", "shared"))
+                    .build())
+            .build()) {
+
+      GenerateContentResponse response =
+          client.models.generateContent(
+              modelId, "How does AI work?", GenerateContentConfig.builder().build());
+
+      System.out.println(response.text());
+      // Example response:
+      // At its core, **AI (Artificial Intelligence) works by enabling machines to learn,
+      // reason, and make decisions in ways that simulate human intelligence.** Instead of being
+      // explicitly programmed for every single task...
+      return response.text();
     }
+  }
+}
+```
 
 ### REST
 
-    curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      -H "X-Vertex-AI-LLM-Request-Type: dedicated" \ # Options: dedicated, shared
-      $URL \
-      -d '{"contents": [{"role": "user", "parts": [{"text": "Hello."}]}]}'
+```
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  -H "X-Vertex-AI-LLM-Request-Type: dedicated" \ # Options: dedicated, shared
+  $URL \
+  -d '{"contents": [{"role": "user", "parts": [{"text": "Hello."}]}]}'
+```
 
 ## Use Provisioned Throughput with an API Key
 
@@ -308,31 +330,33 @@ For example, the following sample shows how to submit a request with an API key 
 
 ### REST
 
-    curl \
-    -X POST \
-    -H "Content-Type: application/json" \
-    "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent?key=YOUR_API_KEY" \
-    -d $'{
-      "contents": [
+```
+curl \
+-X POST \
+-H "Content-Type: application/json" \
+"https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:generateContent?key=YOUR_API_KEY" \
+-d $'{
+  "contents": [
+    {
+      "role": "user",
+      "parts": [
         {
-          "role": "user",
-          "parts": [
-            {
-              "text": "Explain how AI works in a few words"
-            }
-          ]
+          "text": "Explain how AI works in a few words"
         }
       ]
-    }'
+    }
+  ]
+}'
+```
 
 ## Get email notifications
 
 You can get email notifications about your Provisioned Throughput orders by using the [Essential Contacts API](https://docs.cloud.google.com/resource-manager/docs/reference/essentialcontacts/rest) . After enabling, click **Notifications** at the top of the Provisioned Throughput Orders page. Then, in the dialog that opens, click **Essential contacts** and follow the on-screen instructions.
 
 1.  Enable the Essential Contacts API, if it is not already enabled.
-    
+
     **Roles required to enable APIs**
-    
+
     To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role ( `roles/owner` ). Otherwise, you can get this permission through the Service Usage Admin role ( `roles/serviceusage.serviceUsageAdmin` ). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
 2.  Go to the Provisioned Throughput page.
@@ -340,7 +364,7 @@ You can get email notifications about your Provisioned Throughput orders by usin
 3.  Click **Notifications** .
 
 4.  In the **Notifications** dialog, click **Essential contacts** .
-    
+
     The Essential contacts page opens.
 
 5.  Click **Add contact** .
@@ -354,7 +378,7 @@ You can get email notifications about your Provisioned Throughput orders by usin
 The contact email address is notified for the following Provisioned Throughput events:
 
 | Event                                        | When the contact is notified       |
-| -------------------------------------------- | ---------------------------------- |
+|----------------------------------------------|------------------------------------|
 | Order submitted                              | Within minutes                     |
 | Order activated                              | Within minutes                     |
 | Order update submitted                       | Within minutes                     |
@@ -366,7 +390,7 @@ The contact email address is notified for the following Provisioned Throughput e
 ## Monitor Provisioned Throughput
 
 > **Preview**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 You can self-monitor your Provisioned Throughput usage using a set of metrics that are measured on the `aiplatform.googleapis.com/PublisherModel` resource type.
@@ -377,31 +401,10 @@ Provisioned Throughput traffic monitoring is a public Preview feature.
 
 You can filter on metrics using the following dimensions:
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Dimension</strong></th>
-<th><strong>Values</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code dir="ltr" translate="no">type</code></td>
-<td><code dir="ltr" translate="no">input</code><br />
-<code dir="ltr" translate="no">output</code></td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">request_type</code></td>
-<td><p><strong><code dir="ltr" translate="no">dedicated</code></strong> : Traffic is processed using Provisioned Throughput.</p>
-<p><strong><code dir="ltr" translate="no">spillover</code></strong> : Traffic is processed as pay-as-you-go quota after you exceed your Provisioned Throughput quota. Note that the <code dir="ltr" translate="no">spillover</code> metric isn't supported for Provisioned Throughput for Gemini 2.0 models if <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview#explicit-caching">explicit caching</a> is enabled, because these models don't support explicit caching. In this case, the traffic appears as <code dir="ltr" translate="no">shared</code> .</p>
-<p><strong><code dir="ltr" translate="no">shared</code></strong> : If Provisioned Throughput is active, then traffic is processed as pay-as-you-go quota using the shared <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#only-pay-as-you-go">HTTP header</a> . If Provisioned Throughput isn't active, then traffic is processed as pay-as-you-go, by default.</p></td>
-</tr>
-</tbody>
-</table>
+| **Dimension**  | **Values**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `type`         | `input` `output`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `request_type` | **`dedicated`** : Traffic is processed using Provisioned Throughput. **`spillover`** : Traffic is processed as pay-as-you-go quota after you exceed your Provisioned Throughput quota. Note that the `spillover` metric isn't supported for Provisioned Throughput for Gemini 2.0 models if [explicit caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview#explicit-caching) is enabled, because these models don't support explicit caching. In this case, the traffic appears as `shared` . **`shared`** : If Provisioned Throughput is active, then traffic is processed as pay-as-you-go quota using the shared [HTTP header](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#only-pay-as-you-go) . If Provisioned Throughput isn't active, then traffic is processed as pay-as-you-go, by default. |
 
 #### Path prefix
 
@@ -413,88 +416,20 @@ For example, the full path for the `/consumed_throughput` metric is `aiplatform.
 
 The following Cloud Monitoring metrics are available on the `aiplatform.googleapis.com/PublisherModel` resource for the Gemini models. Use the `dedicated` request types to filter for Provisioned Throughput usage.
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Metric</th>
-<th>Display name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code dir="ltr" translate="no">/dedicated_gsu_limit</code></td>
-<td><strong>Limit (GSU)</strong></td>
-<td>Dedicated limit in GSUs. Use this metric to understand your Provisioned Throughput maximum quota in GSUs.</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">/tokens</code></td>
-<td><strong>Tokens</strong></td>
-<td>Input and output token count distribution.</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">/token_count</code></td>
-<td><strong>Token count</strong></td>
-<td>Accumulated input and output token count.</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">/consumed_token_throughput</code></td>
-<td><strong>Token throughput</strong></td>
-<td>Throughput usage, which accounts for the burndown rate in tokens and incorporates quota reconciliation. See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#pt-quota-checking">Provisioned Throughput quota checking</a> .<br />
-<br />
-Use this metric to understand how your Provisioned Throughput quota was used.</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">/dedicated_token_limit</code></td>
-<td><strong>Limit (tokens per second)</strong></td>
-<td>Dedicated limit in tokens per second. Use this metric to understand your Provisioned Throughput maximum quota for token-based models.</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">/characters</code></td>
-<td><strong>Characters</strong></td>
-<td>Input and output character count distribution.</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">/character_count</code></td>
-<td><strong>Character count</strong></td>
-<td>Accumulated input and output character count.</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">/consumed_throughput</code></td>
-<td><strong>Character throughput</strong></td>
-<td>Throughput usage, which accounts for the burndown rate in characters and incorporates quota reconciliation <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#pt-quota-checking">Provisioned Throughput quota checking</a> .<br />
-<br />
-Use this metric to understand how your Provisioned Throughput quota was used.<br />
-<br />
-For token-based models, this metric is equivalent to the throughput consumed in tokens multiplied by 4.</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">/dedicated_character_limit</code></td>
-<td><strong>Limit (characters per second)</strong></td>
-<td>Dedicated limit in characters per second. Use this metric to understand your Provisioned Throughput maximum quota for character-based models.</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">/model_invocation_count</code></td>
-<td><strong>Model invocation count</strong></td>
-<td>Number of model invocations (prediction requests).</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">/model_invocation_latencies</code></td>
-<td><strong>Model invocation latencies</strong></td>
-<td>Model invocation latencies (prediction latencies).</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">/first_token_latencies</code></td>
-<td><strong>First token latencies</strong></td>
-<td>Duration from request received to first token returned.</td>
-</tr>
-</tbody>
-</table>
+| Metric                        | Display name                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|-------------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `/dedicated_gsu_limit`        | **Limit (GSU)**                   | Dedicated limit in GSUs. Use this metric to understand your Provisioned Throughput maximum quota in GSUs.                                                                                                                                                                                                                                                                                                                                                                             |
+| `/tokens`                     | **Tokens**                        | Input and output token count distribution.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `/token_count`                | **Token count**                   | Accumulated input and output token count.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `/consumed_token_throughput`  | **Token throughput**              | Throughput usage, which accounts for the burndown rate in tokens and incorporates quota reconciliation. See [Provisioned Throughput quota checking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#pt-quota-checking) . Use this metric to understand how your Provisioned Throughput quota was used.                                                                                                        |
+| `/dedicated_token_limit`      | **Limit (tokens per second)**     | Dedicated limit in tokens per second. Use this metric to understand your Provisioned Throughput maximum quota for token-based models.                                                                                                                                                                                                                                                                                                                                                 |
+| `/characters`                 | **Characters**                    | Input and output character count distribution.                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `/character_count`            | **Character count**               | Accumulated input and output character count.                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `/consumed_throughput`        | **Character throughput**          | Throughput usage, which accounts for the burndown rate in characters and incorporates quota reconciliation [Provisioned Throughput quota checking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#pt-quota-checking) . Use this metric to understand how your Provisioned Throughput quota was used. For token-based models, this metric is equivalent to the throughput consumed in tokens multiplied by 4. |
+| `/dedicated_character_limit`  | **Limit (characters per second)** | Dedicated limit in characters per second. Use this metric to understand your Provisioned Throughput maximum quota for character-based models.                                                                                                                                                                                                                                                                                                                                         |
+| `/model_invocation_count`     | **Model invocation count**        | Number of model invocations (prediction requests).                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `/model_invocation_latencies` | **Model invocation latencies**    | Model invocation latencies (prediction latencies).                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `/first_token_latencies`      | **First token latencies**         | Duration from request received to first token returned.                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 Anthropic models also have a filter for Provisioned Throughput but only for `tokens` and `token_count` .
 
@@ -505,16 +440,16 @@ Default monitoring dashboards for Provisioned Throughput provide [metrics](https
 1.  In the Google Cloud console, go to the **Provisioned Throughput** page.
 
 2.  To view the Provisioned Throughput utilization of each model across your orders, select the **Utilization summary** tab.
-    
+
     In the **Provisioned Throughput utilization by model** table, you can view the following for the selected time range:
-    
-      - Total number of GSUs you had.
-    
-      - Peak throughput usage in terms of GSUs.
-    
-      - The average GSU utilization.
-    
-      - The number of times you reached your Provisioned Throughput limit.
+
+    - Total number of GSUs you had.
+
+    - Peak throughput usage in terms of GSUs.
+
+    - The average GSU utilization.
+
+    - The number of times you reached your Provisioned Throughput limit.
 
 3.  Select a model from the **Provisioned Throughput utilization by model** table to see more metrics specific to the selected model.
 
@@ -524,27 +459,27 @@ Provisioned Throughput [checks available quota](https://docs.cloud.google.com/ge
 
 These differences in timings might occasionally result in discrepancies between the data in the monitoring dashboards and real-time performance. These can result from any of the following reasons:
 
-  - Quota is enforced in real time but the monitoring charts aggregate data into 1-minute or higher average dashboard alignment periods, depending on the time range specified in the monitoring dashboards.
+- Quota is enforced in real time but the monitoring charts aggregate data into 1-minute or higher average dashboard alignment periods, depending on the time range specified in the monitoring dashboards.
 
-  - Agent Platform and the monitoring dashboards run on different system clocks.
+- Agent Platform and the monitoring dashboards run on different system clocks.
 
-  - Over a period of one second, if a burst of traffic exceeds your Provisioned Throughput quota based on the [enforcement window](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#pt-quota-enforcement-period) , the entire request is processed as spillover traffic. However, the overall Provisioned Throughput utilization might appear low when the monitoring data for that second is averaged within the 1-minute alignment period, because the average utilization across the entire alignment period might not exceed 100%. If you see spillover traffic, it confirms that your Provisioned Throughput quota was fully utilized during the quota enforcement period when those specific requests were made. This is regardless of the average utilization shown on the monitoring dashboards.
+- Over a period of one second, if a burst of traffic exceeds your Provisioned Throughput quota based on the [enforcement window](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#pt-quota-enforcement-period) , the entire request is processed as spillover traffic. However, the overall Provisioned Throughput utilization might appear low when the monitoring data for that second is averaged within the 1-minute alignment period, because the average utilization across the entire alignment period might not exceed 100%. If you see spillover traffic, it confirms that your Provisioned Throughput quota was fully utilized during the quota enforcement period when those specific requests were made. This is regardless of the average utilization shown on the monitoring dashboards.
 
 #### Example of potential discrepancy in monitoring data
 
 This example illustrates some of the discrepancies resulting from window misalignment. Figure 1 represents throughput usage over a specific time period. In this figure:
 
-  - The blue bars represent the traffic admitted as Provisioned Throughput.
+- The blue bars represent the traffic admitted as Provisioned Throughput.
 
-  - The orange bar represents traffic that pushes the usage beyond the GSU limit and is processed as spillover.
+- The orange bar represents traffic that pushes the usage beyond the GSU limit and is processed as spillover.
 
 ![**Figure 1.** Throughput usage over time periods](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/provisioned-throughput/images/quota_usage.png)
 
 Based on the throughput usage, figure 2 represents possible visual discrepancies, owing to windowing misalignment. In this figure:
 
-  - The blue line represents Provisioned Throughput traffic.
+- The blue line represents Provisioned Throughput traffic.
 
-  - The orange line represents spillover traffic.
+- The orange line represents spillover traffic.
 
 ![**Figure 2.** Possible visual discrepancies in monitoring dashboards](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/provisioned-throughput/images/monitoring_timeframes.png)
 
@@ -575,10 +510,10 @@ To enable alerts in the dashboard, do the following:
 2.  To view the Provisioned Throughput utilization of each model across your orders, select the **Utilization summary** tab.
 
 3.  Select **Recommended alerts** , and the following alerts display:
-    
-      - `Provisioned Throughput Usage Reached Limit`
-      - `Provisioned Throughput Utilization Exceeded 80%`
-      - `Provisioned Throughput Utilization Exceeded 90%`
+
+    - `Provisioned Throughput Usage Reached Limit`
+    - `Provisioned Throughput Utilization Exceeded 80%`
+    - `Provisioned Throughput Utilization Exceeded 90%`
 
 4.  Check the alerts that help you manage your traffic.
 
@@ -596,4 +531,4 @@ To view more information about alerts, do the following:
 
 ## What's next
 
-  - Troubleshoot [Error code `429`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/error-code-429#troubleshoot-provisioned-through) .
+- Troubleshoot [Error code `429`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/error-code-429#troubleshoot-provisioned-through) .

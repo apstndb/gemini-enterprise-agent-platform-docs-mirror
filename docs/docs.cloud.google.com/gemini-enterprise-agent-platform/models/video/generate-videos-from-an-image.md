@@ -14,34 +14,38 @@ The following models support generating videos from an image:
 
 #### Click to expand supported models
 
-  - [`gemini-omni-1.1-flash-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview
+- [`gemini-omni-1.1-flash-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview
 
 **Veo**
 
 #### Click to expand supported models
 
-  - [`veo-3.1-lite-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-lite-generate-001-preview) preview
-  - [`veo-3.1-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-001)
-  - [`veo-3.1-fast-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-001)
-  - [`veo-3.0-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-001)
-  - [`veo-3.0-fast-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-001)
+- [`veo-3.1-lite-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-lite-generate-001-preview) preview
+- [`veo-3.1-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-001)
+- [`veo-3.1-fast-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-001)
+- [`veo-3.0-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-001)
+- [`veo-3.0-fast-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-001)
 
 For more information about writing effective text prompts for video generation, see the [Video generation prompt guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide) .
 
 ## Before you begin
 
 1.  Set up authentication for your environment.
-    
+
     Select the tab for how you plan to use the samples on this page:
-    
+
     ### Console
-    
+
     When you use the Google Cloud console to access Google Cloud services and APIs, you don't need to set up authentication.
-    
+
     ### REST
-    
+
     To use the REST API samples on this page in a local development environment, you use the credentials you provide to the gcloud CLI.
-    
+
+    [Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI.
+
+    If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
+
     For more information, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) in the Google Cloud authentication documentation.
 
 ## Use Gemini Omni to generate videos from an image
@@ -56,73 +60,75 @@ For more information about using the Gemini Omni Flash API, seek [Interactions A
 
 Before using any of the request data, make the following replacements:
 
-  - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
+- `PROJECT_ID` : A string representing your Google Cloud project ID.
 
-  - `  MODEL_ID  ` : A string representing the model ID to use. The following are accepted values:
-    
-      - `"gemini-omni-1.1-flash-preview"`
+- `MODEL_ID` : A string representing the model ID to use. The following are accepted values:
+  - `"gemini-omni-1.1-flash-preview"`
 
-  - `  TEXT_PROMPT  ` : The text prompt used to guide video generation.
+- `TEXT_PROMPT` : The text prompt used to guide video generation.
 
-  - `  CLOUD_STORAGE_INPUT_URI  ` : A string representing the Cloud Storage bucket that contains the input media. For example: `"gs://video-bucket/input/"` .
+- `CLOUD_STORAGE_INPUT_URI` : A string representing the Cloud Storage bucket that contains the input media. For example: `"gs://video-bucket/input/"` .
 
-  - `  CLOUD_STORAGE_OUTPUT_URI  ` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
+- `CLOUD_STORAGE_OUTPUT_URI` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
 
-  - `  ASPECT_RATIO  ` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
-    
-      - `"16:9"`
-      - `"9:16"`
+- `ASPECT_RATIO` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
+  - `"16:9"`
+  - `"9:16"`
 
-  - `  OUTPUT_RESOLUTION  ` :
-    
-    Optional: A string representing the video output resolution. If not provided, the output defaults to 720p.
-    
-    `gemini-omni-1.1-flash-preview` supports the following values:
-    
-      - `"360p"`
-      - `"720p"`
-      - `"1080p"`
-      - `"4k"`
-    
-    `gemini-omni-flash-preview` only supports `"720p"` .
+- `OUTPUT_RESOLUTION` :
 
-  - `  DURATION  ` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s"` .
+  Optional: A string representing the video output resolution. If not provided, the output defaults to 720p.
+
+  `gemini-omni-1.1-flash-preview` supports the following values:
+
+  - `"360p"`
+  - `"720p"`
+  - `"1080p"`
+  - `"4k"`
+
+  `gemini-omni-flash-preview` only supports `"720p"` .
+
+- `DURATION` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s"` .
 
 HTTP method and URL:
 
-    POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions
+```
+POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions
+```
 
 Request JSON body:
 
+```
+{
+  "model": "MODEL_ID",
+  "input": [
     {
-      "model": "MODEL_ID",
-      "input": [
-        {
-          "type": "text",
-          "text": "TEXT_PROMPT"
-        },
-        {
-          "type": "image",
-          "uri": "CLOUD_STORAGE_INPUT_URI",
-          "mime_type": "image/png"
-        }
-      ],
-      "response_format": [
-        {
-          "type": "video",
-          "delivery": "uri",
-          "gcs_uri": "CLOUD_STORAGE_OUTPUT_URI",
-          "aspect_ratio": "ASPECT_RATIO",
-          "resolution": "OUTPUT_RESOLUTION",
-          "duration": "DURATION"
-        }
-      ],
-      "generation_config": {
-        "video_config": {
-          "task": "image_to_video"
-        }
-      }
+      "type": "text",
+      "text": "TEXT_PROMPT"
+    },
+    {
+      "type": "image",
+      "uri": "CLOUD_STORAGE_INPUT_URI",
+      "mime_type": "image/png"
     }
+  ],
+  "response_format": [
+    {
+      "type": "video",
+      "delivery": "uri",
+      "gcs_uri": "CLOUD_STORAGE_OUTPUT_URI",
+      "aspect_ratio": "ASPECT_RATIO",
+      "resolution": "OUTPUT_RESOLUTION",
+      "duration": "DURATION"
+    }
+  ],
+  "generation_config": {
+    "video_config": {
+      "task": "image_to_video"
+    }
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -130,152 +136,160 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer TOKEN" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions"
+```
+curl -X POST \
+     -H "Authorization: Bearer TOKEN" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions"
+```
 
 #### PowerShell
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $headers = @{ "Authorization" = "Bearer TOKEN" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
+```
+$headers = @{ "Authorization" = "Bearer TOKEN" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
+```
 
 The response contains an interaction which includes the model thoughts and an output video.
 
-    {
-      "id":"INTERACTION_ID",
-      "model":"gemini-omni-flash-preview",
-      "status":"completed",
-      "usage":{
-        "total_tokens":479,
-        "total_input_tokens":26,
-        "input_tokens_by_modality":[
-          {
-            "modality":"text",
-            "tokens":26
-          },
-          {
-            "modality":"image",
-            "tokens":124
-          }
-        ],
-        "output_tokens_by_modality": [
-          {
-            "modality": "video",
-            "tokens": 28832
-          }
-        ],
-        "total_output_tokens":28832,
-        "total_thought_tokens":453
+```
+{
+  "id":"INTERACTION_ID",
+  "model":"gemini-omni-flash-preview",
+  "status":"completed",
+  "usage":{
+    "total_tokens":479,
+    "total_input_tokens":26,
+    "input_tokens_by_modality":[
+      {
+        "modality":"text",
+        "tokens":26
       },
-      "steps":[
+      {
+        "modality":"image",
+        "tokens":124
+      }
+    ],
+    "output_tokens_by_modality": [
+      {
+        "modality": "video",
+        "tokens": 28832
+      }
+    ],
+    "total_output_tokens":28832,
+    "total_thought_tokens":453
+  },
+  "steps":[
+    {
+      "type":"thought",
+      "summary":[
         {
-          "type":"thought",
-          "summary":[
-            {
-              "type":"text",
-              "text":"MODEL THOUGHTS"
-            }
-          ],
-        },
-        { 
-          "type":"model_output",
-          "content":[
-            {
-              "type":"video",
-              "uri":"gs://some/output_path/123.mp4",
-              "mime_type":"video/mp4" 
-            }
-          ]
+          "type":"text",
+          "text":"MODEL THOUGHTS"
         }
       ],
-      "object":"interaction"
-      "role":"model",
-      "created":"2026-05-29T02:17:56Z",
-      "updated":"2026-05-29T02:17:56Z",
+    },
+    { 
+      "type":"model_output",
+      "content":[
+        {
+          "type":"video",
+          "uri":"gs://some/output_path/123.mp4",
+          "mime_type":"video/mp4" 
+        }
+      ]
     }
+  ],
+  "object":"interaction"
+  "role":"model",
+  "created":"2026-05-29T02:17:56Z",
+  "updated":"2026-05-29T02:17:56Z",
+}
+```
 
 ### Asynchronous request
 
 Before using any of the request data, make the following replacements:
 
-  - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
+- `PROJECT_ID` : A string representing your Google Cloud project ID.
 
-  - `  MODEL_ID  ` : A string representing the model ID to use. The following are accepted values:
-    
-      - `"gemini-omni-1.1-flash-preview"`
+- `MODEL_ID` : A string representing the model ID to use. The following are accepted values:
+  - `"gemini-omni-1.1-flash-preview"`
 
-  - `  TEXT_PROMPT  ` : The text prompt used to guide video generation.
+- `TEXT_PROMPT` : The text prompt used to guide video generation.
 
-  - `  CLOUD_STORAGE_INPUT_URI  ` : A string representing the Cloud Storage bucket that contains the input media. For example: `"gs://video-bucket/input/"` .
+- `CLOUD_STORAGE_INPUT_URI` : A string representing the Cloud Storage bucket that contains the input media. For example: `"gs://video-bucket/input/"` .
 
-  - `  CLOUD_STORAGE_OUTPUT_URI  ` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
+- `CLOUD_STORAGE_OUTPUT_URI` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
 
-  - `  ASPECT_RATIO  ` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
-    
-      - `"16:9"`
-      - `"9:16"`
+- `ASPECT_RATIO` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
+  - `"16:9"`
+  - `"9:16"`
 
-  - `  OUTPUT_RESOLUTION  ` :
-    
-    Optional: A string representing the video output resolution. If not provided, the output defaults to 720p.
-    
-    `gemini-omni-1.1-flash-preview` supports the following values:
-    
-      - `"360p"`
-      - `"720p"`
-      - `"1080p"`
-      - `"4k"`
-    
-    `gemini-omni-flash-preview` only supports `"720p"` .
+- `OUTPUT_RESOLUTION` :
 
-  - `  DURATION  ` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s"` .
+  Optional: A string representing the video output resolution. If not provided, the output defaults to 720p.
+
+  `gemini-omni-1.1-flash-preview` supports the following values:
+
+  - `"360p"`
+  - `"720p"`
+  - `"1080p"`
+  - `"4k"`
+
+  `gemini-omni-flash-preview` only supports `"720p"` .
+
+- `DURATION` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s"` .
 
 HTTP method and URL:
 
-    POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions
+```
+POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions
+```
 
 Request JSON body:
 
+```
+{
+  "model": "MODEL_ID",
+  "input": [
     {
-      "model": "MODEL_ID",
-      "input": [
-        {
-          "background": true,
-          "type": "text",
-          "text": "TEXT_PROMPT"
-        },
-        {
-          "type": "image",
-          "uri": "CLOUD_STORAGE_INPUT_URI",
-          "mime_type": "image/png"
-        }
-      ],
-      "response_format": [
-        {
-          "type": "video",
-          "delivery": "uri",
-          "gcs_uri": "CLOUD_STORAGE_OUTPUT_URI",
-          "aspect_ratio": "ASPECT_RATIO",
-          "resolution": "OUTPUT_RESOLUTION",
-          "duration": "DURATION"
-        }
-      ],
-      "generation_config": {
-        "video_config": {
-          "task": "image_to_video"
-        }
-      }
+      "background": true,
+      "type": "text",
+      "text": "TEXT_PROMPT"
+    },
+    {
+      "type": "image",
+      "uri": "CLOUD_STORAGE_INPUT_URI",
+      "mime_type": "image/png"
     }
+  ],
+  "response_format": [
+    {
+      "type": "video",
+      "delivery": "uri",
+      "gcs_uri": "CLOUD_STORAGE_OUTPUT_URI",
+      "aspect_ratio": "ASPECT_RATIO",
+      "resolution": "OUTPUT_RESOLUTION",
+      "duration": "DURATION"
+    }
+  ],
+  "generation_config": {
+    "video_config": {
+      "task": "image_to_video"
+    }
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -283,43 +297,51 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer TOKEN" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions"
+```
+curl -X POST \
+     -H "Authorization: Bearer TOKEN" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions"
+```
 
 #### PowerShell
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $headers = @{ "Authorization" = "Bearer TOKEN" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
+```
+$headers = @{ "Authorization" = "Bearer TOKEN" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
+```
 
 The response contains an interaction ID, which you'll use to get the video you generated.
 
-    {
-      "id":"INTERACTION_ID",
-      "status":"in_progress",
-      "object":"interaction"
-    }
+```
+{
+  "id":"INTERACTION_ID",
+  "status":"in_progress",
+  "object":"interaction"
+}
+```
 
-Later, use the INTERACTION\_ID to get the generated video:
+Later, use the ` INTERACTION_ID ` to get the generated video:
 
 Before using any of the request data, make the following replacements:
 
-  - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
-  - `  INTERACTION_ID  ` : The interaction ID from the asynchronous request.
+- `PROJECT_ID` : A string representing your Google Cloud project ID.
+- `INTERACTION_ID` : The interaction ID from the asynchronous request.
 
 HTTP method and URL:
 
-    GET https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID
+```
+GET https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID
+```
 
 To send your request, choose one of these options:
 
@@ -327,89 +349,95 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer TOKEN" \
-         "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID"
+```
+curl -X GET \
+     -H "Authorization: Bearer TOKEN" \
+     "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID"
+```
 
 #### PowerShell
 
 Execute the following command:
 
-    $headers = @{ "Authorization" = "Bearer TOKEN" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID" | Select-Object -Expand Content
+```
+$headers = @{ "Authorization" = "Bearer TOKEN" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID" | Select-Object -Expand Content
+```
 
 The response is in a format similar to the following:
 
-    {
-      "id":"INTERACTION_ID",
-      "model":"gemini-omni-flash-preview",
-      "status":"completed",
-      "usage":{
-        "total_tokens":479,
-        "total_input_tokens":26,
-        "input_tokens_by_modality":[
-          {
-            "modality":"text",
-            "tokens":26
-          },
-          {
-            "modality":"image",
-            "tokens":124
-          }
-        ],
-        "output_tokens_by_modality": [
-          {
-            "modality": "video",
-            "tokens": 28832
-          }
-        ],
-        "total_output_tokens":28832,
-        "total_thought_tokens":453
+```
+{
+  "id":"INTERACTION_ID",
+  "model":"gemini-omni-flash-preview",
+  "status":"completed",
+  "usage":{
+    "total_tokens":479,
+    "total_input_tokens":26,
+    "input_tokens_by_modality":[
+      {
+        "modality":"text",
+        "tokens":26
       },
-      "steps":[
+      {
+        "modality":"image",
+        "tokens":124
+      }
+    ],
+    "output_tokens_by_modality": [
+      {
+        "modality": "video",
+        "tokens": 28832
+      }
+    ],
+    "total_output_tokens":28832,
+    "total_thought_tokens":453
+  },
+  "steps":[
+    {
+      "type": "user_input",
+      "content": [
         {
-          "type": "user_input",
-          "content": [
-            {
-              "type": "text",
-              "text": "5 second, 9:16 video. Use the image as the first frame."
-            },
-            {
-              "type": "image",
-              "uri": "gs://some/path",
-              "mime_type": "image/png"
-            }
-          ]
+          "type": "text",
+          "text": "5 second, 9:16 video. Use the image as the first frame."
         },
         {
-          "type":"thought"
-          "summary":[
-            {
-              "type":"text",
-              "text":"MODEL THOUGHTS"
-            }
-          ],
-        },
-        { 
-          "type":"model_output",
-          "content":[
-            {
-              "type":"video",
-              "data":"VIDEO DATA",
-              "mime_type":"video/mp4" 
-            }
-          ]
+          "type": "image",
+          "uri": "gs://some/path",
+          "mime_type": "image/png"
+        }
+      ]
+    },
+    {
+      "type":"thought"
+      "summary":[
+        {
+          "type":"text",
+          "text":"MODEL THOUGHTS"
         }
       ],
-      "object":"interaction"
-      "role":"model",
-      "created":"2026-05-29T02:17:56Z",
-      "updated":"2026-05-29T02:17:56Z",
+    },
+    { 
+      "type":"model_output",
+      "content":[
+        {
+          "type":"video",
+          "data":"VIDEO DATA",
+          "mime_type":"video/mp4" 
+        }
+      ]
     }
+  ],
+  "object":"interaction"
+  "role":"model",
+  "created":"2026-05-29T02:17:56Z",
+  "updated":"2026-05-29T02:17:56Z",
+}
+```
 
 ## Use Veo to generate videos from an image
 
@@ -459,14 +487,14 @@ You can generate novel videos using only an image as an input, or and image and 
 7.  Optional: click **End** to upload an image for the last frame.
 
 8.  Optional: Adjust the following **Parameters** :
-    
-      - **Aspect ratio** : choose either **16:9** or **9:16** .
-    
-      - **Number of results** : adjust the slider or enter a value between **1** and **4** .
-    
-      - **Video length** : select a video length from the menu.
-    
-      - **Output directory** : click **Browse** to create or select a [Cloud Storage bucket](https://docs.cloud.google.com/storage/docs/buckets) to store the generated files.
+
+    - **Aspect ratio** : choose either **16:9** or **9:16** .
+
+    - **Number of results** : adjust the slider or enter a value between **1** and **4** .
+
+    - **Video length** : select a video length from the menu.
+
+    - **Output directory** : click **Browse** to create or select a [Cloud Storage bucket](https://docs.cloud.google.com/storage/docs/buckets) to store the generated files.
 
 9.  Click **Run** .
 
@@ -474,50 +502,56 @@ You can generate novel videos using only an image as an input, or and image and 
 
 #### Install
 
-    pip install --upgrade google-genai
+```
+pip install --upgrade google-genai
+```
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    import time
-    from google import genai
-    from google.genai.types import GenerateVideosConfig, Image
-    
-    client = genai.Client()
-    
-    # TODO(developer): Update and un-comment below line
-    # output_gcs_uri = "gs://your-bucket/your-prefix"
-    
-    operation = client.models.generate_videos(
-        model="veo-3.1-generate-001",
-        prompt="Extreme close-up of a cluster of vibrant wildflowers swaying gently in a sun-drenched meadow.",
-        image=Image(
-            gcs_uri="gs://cloud-samples-data/generative-ai/image/flowers.png",
-            mime_type="image/png",
-        ),
-        config=GenerateVideosConfig(
-            aspect_ratio="16:9",
-            output_gcs_uri=output_gcs_uri,
-        ),
-    )
-    
-    while not operation.done:
-        time.sleep(15)
-        operation = client.operations.get(operation)
-        print(operation)
-    
-    if operation.response:
-        print(operation.result.generated_videos[0].video.uri)
-    
-    # Example response:
-    # gs://your-bucket/your-prefix
+```
+import time
+from google import genai
+from google.genai.types import GenerateVideosConfig, Image
+
+client = genai.Client()
+
+# TODO(developer): Update and un-comment below line
+# output_gcs_uri = "gs://your-bucket/your-prefix"
+
+operation = client.models.generate_videos(
+    model="veo-3.1-generate-001",
+    prompt="Extreme close-up of a cluster of vibrant wildflowers swaying gently in a sun-drenched meadow.",
+    image=Image(
+        gcs_uri="gs://cloud-samples-data/generative-ai/image/flowers.png",
+        mime_type="image/png",
+    ),
+    config=GenerateVideosConfig(
+        aspect_ratio="16:9",
+        output_gcs_uri=output_gcs_uri,
+    ),
+)
+
+while not operation.done:
+    time.sleep(15)
+    operation = client.operations.get(operation)
+    print(operation)
+
+if operation.response:
+    print(operation.result.generated_videos[0].video.uri)
+
+# Example response:
+# gs://your-bucket/your-prefix
+```
 
 ### Go
 
@@ -527,128 +561,138 @@ To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.g
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    import (
-        "context"
-        "fmt"
-        "io"
-        "time"
-    
-        "google.golang.org/genai"
-    )
-    
-    // generateVideoFromImage shows how to gen video from img.
-    func generateVideoFromImage(w io.Writer, outputGCSURI string) error {
-        //outputGCSURI = "gs://your-bucket/your-prefix"
-        ctx := context.Background()
-    
-        client, err := genai.NewClient(ctx, &genai.ClientConfig{
-            HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
-        })
-        if err != nil {
-            return fmt.Errorf("failed to create genai client: %w", err)
-        }
-    
-        image := &genai.Image{
-            GCSURI:   "gs://cloud-samples-data/generative-ai/image/flowers.png",
-            MIMEType: "image/png",
-        }
-    
-        config := &genai.GenerateVideosConfig{
-            AspectRatio:  "16:9",
-            OutputGCSURI: outputGCSURI,
-        }
-    
-        modelName := "veo-3.0-generate-preview"
-        prompt := "Extreme close-up of a cluster of vibrant wildflowers swaying gently in a sun-drenched meadow."
-        operation, err := client.Models.GenerateVideos(ctx, modelName, prompt, image, config)
-        if err != nil {
-            return fmt.Errorf("failed to start video generation: %w", err)
-        }
-    
-        // Polling until the operation is done
-        for !operation.Done {
-            time.Sleep(15 * time.Second)
-            operation, err = client.Operations.GetVideosOperation(ctx, operation, nil)
-            if err != nil {
-                return fmt.Errorf("failed to get operation status: %w", err)
-            }
-        }
-    
-        if operation.Response != nil && len(operation.Response.GeneratedVideos) > 0 {
-            videoURI := operation.Response.GeneratedVideos[0].Video.URI
-            fmt.Fprintln(w, videoURI)
-            return nil
-        }
-    
-        // Example response:
-        // gs://your-bucket/your-prefix/videoURI
-    
-        return fmt.Errorf("video generation failed or returned no results")
+```
+import (
+    "context"
+    "fmt"
+    "io"
+    "time"
+
+    "google.golang.org/genai"
+)
+
+// generateVideoFromImage shows how to gen video from img.
+func generateVideoFromImage(w io.Writer, outputGCSURI string) error {
+    //outputGCSURI = "gs://your-bucket/your-prefix"
+    ctx := context.Background()
+
+    client, err := genai.NewClient(ctx, &genai.ClientConfig{
+        HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
+    })
+    if err != nil {
+        return fmt.Errorf("failed to create genai client: %w", err)
     }
+
+    image := &genai.Image{
+        GCSURI:   "gs://cloud-samples-data/generative-ai/image/flowers.png",
+        MIMEType: "image/png",
+    }
+
+    config := &genai.GenerateVideosConfig{
+        AspectRatio:  "16:9",
+        OutputGCSURI: outputGCSURI,
+    }
+
+    modelName := "veo-3.0-generate-preview"
+    prompt := "Extreme close-up of a cluster of vibrant wildflowers swaying gently in a sun-drenched meadow."
+    operation, err := client.Models.GenerateVideos(ctx, modelName, prompt, image, config)
+    if err != nil {
+        return fmt.Errorf("failed to start video generation: %w", err)
+    }
+
+    // Polling until the operation is done
+    for !operation.Done {
+        time.Sleep(15 * time.Second)
+        operation, err = client.Operations.GetVideosOperation(ctx, operation, nil)
+        if err != nil {
+            return fmt.Errorf("failed to get operation status: %w", err)
+        }
+    }
+
+    if operation.Response != nil && len(operation.Response.GeneratedVideos) > 0 {
+        videoURI := operation.Response.GeneratedVideos[0].Video.URI
+        fmt.Fprintln(w, videoURI)
+        return nil
+    }
+
+    // Example response:
+    // gs://your-bucket/your-prefix/videoURI
+
+    return fmt.Errorf("video generation failed or returned no results")
+}
+```
 
 ### Node.js
 
 #### Install
 
-    npm install @google/genai
+```
+npm install @google/genai
+```
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    const {GoogleGenAI} = require('@google/genai');
-    
-    const GOOGLE_CLOUD_PROJECT = process.env.GOOGLE_CLOUD_PROJECT;
-    const GOOGLE_CLOUD_LOCATION = process.env.GOOGLE_CLOUD_LOCATION || 'global';
-    
-    async function generateVideo(
-      outputGcsUri,
-      projectId = GOOGLE_CLOUD_PROJECT,
-      location = GOOGLE_CLOUD_LOCATION
-    ) {
-      const client = new GoogleGenAI({
-        vertexai: true,
-        project: projectId,
-        location: location,
-      });
-    
-      let operation = await client.models.generateVideos({
-        model: 'veo-3.1-fast-generate-001',
-        prompt:
-          'Extreme close-up of a cluster of vibrant wildflowers swaying gently in a sun-drenched meadow',
-        image: {
-          gcsUri: 'gs://cloud-samples-data/generative-ai/image/flowers.png',
-          mimeType: 'image/png',
-        },
-        config: {
-          aspectRatio: '16:9',
-          outputGcsUri: outputGcsUri,
-        },
-      });
-    
-      while (!operation.done) {
-        await new Promise(resolve => setTimeout(resolve, 15000));
-        operation = await client.operations.get({operation: operation});
-        console.log(operation);
-      }
-    
-      if (operation.response) {
-        console.log(operation.response.generatedVideos[0].video.uri);
-      }
-      return operation;
-    }
+```
+const {GoogleGenAI} = require('@google/genai');
+
+const GOOGLE_CLOUD_PROJECT = process.env.GOOGLE_CLOUD_PROJECT;
+const GOOGLE_CLOUD_LOCATION = process.env.GOOGLE_CLOUD_LOCATION || 'global';
+
+async function generateVideo(
+  outputGcsUri,
+  projectId = GOOGLE_CLOUD_PROJECT,
+  location = GOOGLE_CLOUD_LOCATION
+) {
+  const client = new GoogleGenAI({
+    vertexai: true,
+    project: projectId,
+    location: location,
+  });
+
+  let operation = await client.models.generateVideos({
+    model: 'veo-3.1-fast-generate-001',
+    prompt:
+      'Extreme close-up of a cluster of vibrant wildflowers swaying gently in a sun-drenched meadow',
+    image: {
+      gcsUri: 'gs://cloud-samples-data/generative-ai/image/flowers.png',
+      mimeType: 'image/png',
+    },
+    config: {
+      aspectRatio: '16:9',
+      outputGcsUri: outputGcsUri,
+    },
+  });
+
+  while (!operation.done) {
+    await new Promise(resolve => setTimeout(resolve, 15000));
+    operation = await client.operations.get({operation: operation});
+    console.log(operation);
+  }
+
+  if (operation.response) {
+    console.log(operation.response.generatedVideos[0].video.uri);
+  }
+  return operation;
+}
+```
 
 ### Java
 
@@ -658,305 +702,325 @@ To learn more, see the [SDK reference documentation](https://central.sonatype.co
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    import com.google.genai.Client;
-    import com.google.genai.types.GenerateVideosConfig;
-    import com.google.genai.types.GenerateVideosOperation;
-    import com.google.genai.types.GenerateVideosResponse;
-    import com.google.genai.types.GeneratedVideo;
-    import com.google.genai.types.GetOperationConfig;
-    import com.google.genai.types.Image;
-    import com.google.genai.types.Video;
-    import java.util.concurrent.TimeUnit;
-    
-    public class VideoGenWithImg {
-    
-      public static void main(String[] args) throws InterruptedException {
-        // TODO(developer): Replace these variables before running the sample.
-        String modelId = "veo-3.1-generate-001";
-        String outputGcsUri = "gs://your-bucket/your-prefix";
-        generateContent(modelId, outputGcsUri);
+```
+import com.google.genai.Client;
+import com.google.genai.types.GenerateVideosConfig;
+import com.google.genai.types.GenerateVideosOperation;
+import com.google.genai.types.GenerateVideosResponse;
+import com.google.genai.types.GeneratedVideo;
+import com.google.genai.types.GetOperationConfig;
+import com.google.genai.types.Image;
+import com.google.genai.types.Video;
+import java.util.concurrent.TimeUnit;
+
+public class VideoGenWithImg {
+
+  public static void main(String[] args) throws InterruptedException {
+    // TODO(developer): Replace these variables before running the sample.
+    String modelId = "veo-3.1-generate-001";
+    String outputGcsUri = "gs://your-bucket/your-prefix";
+    generateContent(modelId, outputGcsUri);
+  }
+
+  // Generates a video with an image and a text prompt.
+  public static String generateContent(String modelId, String outputGcsUri)
+      throws InterruptedException {
+    // Client Initialization. Once created, it can be reused for multiple requests.
+    try (Client client = Client.builder().location("global").vertexAI(true).build()) {
+
+      GenerateVideosOperation operation =
+          client.models.generateVideos(
+              modelId,
+              "Extreme close-up of a cluster of vibrant wildflowers"
+                  + " swaying gently in a sun-drenched meadow.",
+              Image.builder()
+                  .gcsUri("gs://cloud-samples-data/generative-ai/image/flowers.png")
+                  .mimeType("image/png")
+                  .build(),
+              GenerateVideosConfig.builder()
+                  .aspectRatio("16:9")
+                  .outputGcsUri(outputGcsUri)
+                  .build());
+
+      while (!operation.done().orElse(false)) {
+        TimeUnit.SECONDS.sleep(15);
+        operation =
+            client.operations.getVideosOperation(operation, GetOperationConfig.builder().build());
       }
-    
-      // Generates a video with an image and a text prompt.
-      public static String generateContent(String modelId, String outputGcsUri)
-          throws InterruptedException {
-        // Client Initialization. Once created, it can be reused for multiple requests.
-        try (Client client = Client.builder().location("global").vertexAI(true).build()) {
-    
-          GenerateVideosOperation operation =
-              client.models.generateVideos(
-                  modelId,
-                  "Extreme close-up of a cluster of vibrant wildflowers"
-                      + " swaying gently in a sun-drenched meadow.",
-                  Image.builder()
-                      .gcsUri("gs://cloud-samples-data/generative-ai/image/flowers.png")
-                      .mimeType("image/png")
-                      .build(),
-                  GenerateVideosConfig.builder()
-                      .aspectRatio("16:9")
-                      .outputGcsUri(outputGcsUri)
-                      .build());
-    
-          while (!operation.done().orElse(false)) {
-            TimeUnit.SECONDS.sleep(15);
-            operation =
-                client.operations.getVideosOperation(operation, GetOperationConfig.builder().build());
-          }
-    
-          String generatedVideoUri =
-              operation
-                  .response()
-                  .flatMap(GenerateVideosResponse::generatedVideos)
-                  .flatMap(videos -> videos.stream().findFirst())
-                  .flatMap(GeneratedVideo::video)
-                  .flatMap(Video::uri)
-                  .orElseThrow(
-                      () ->
-                          new IllegalStateException(
-                              "Could not get the URI from the generated video"));
-    
-          System.out.println("Generated video URI: " + generatedVideoUri);
-          // Example response:
-          // Generated video URI: gs://your-bucket/your-prefix/generated-video-123.mp4
-          return generatedVideoUri;
-        }
-      }
+
+      String generatedVideoUri =
+          operation
+              .response()
+              .flatMap(GenerateVideosResponse::generatedVideos)
+              .flatMap(videos -> videos.stream().findFirst())
+              .flatMap(GeneratedVideo::video)
+              .flatMap(Video::uri)
+              .orElseThrow(
+                  () ->
+                      new IllegalStateException(
+                          "Could not get the URI from the generated video"));
+
+      System.out.println("Generated video URI: " + generatedVideoUri);
+      // Example response:
+      // Generated video URI: gs://your-bucket/your-prefix/generated-video-123.mp4
+      return generatedVideoUri;
     }
+  }
+}
+```
 
 ### REST
 
 For more information about the Veo API, see the following:
 
-  - [Method: `endpoints.predict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict)
-  - [`VideoGenerationModelInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VideoGenerationModelInstance)
-  - [`VideoGenerationModelParams`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VideoGenerationModelParams)
-  - [`VideoGenerationModelResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VideoGenerationModelResult)
-
-<!-- end list -->
+- [Method: `endpoints.predict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict)
+- [`VideoGenerationModelInstance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VideoGenerationModelInstance)
+- [`VideoGenerationModelParams`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VideoGenerationModelParams)
+- [`VideoGenerationModelResult`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VideoGenerationModelResult)
 
 1.  Use the following command to send a video generation request. This request begins a long-running operation and stores output to a Cloud Storage bucket you specify.
-    
+
     Before using any of the request data, make the following replacements:
-    
-      - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
-    
-      - `  MODEL_ID  ` : A string representing the model ID to use. The following are accepted values:
-        
-          - **Veo 2:** `veo-2.0-generate-001`
-          - **Veo 3:** `veo-3.0-generate-001`
-          - **Veo 3.1:** `veo-3.1-generate-001`
-          - **Veo 3.1:** `veo-3.1-fast-generate-001`
-    
-      - `  TEXT_PROMPT  ` : The text prompt used to guide video generation.
-    
-      - `  INPUT_IMAGE  ` : A base64-encoded string that represents the input image. For best quality, we recommend that the input image's resolution be 720p (1280 x 720 pixels) or higher, and have an aspect ratio of either 16:9 or 9:16. Images of other aspect ratios or sizes may be resized or centrally cropped when the image is uploaded.
-    
-      - `  MIME_TYPE  ` : A string representing the MIME type of the input image. Only the images of the following MIME types are supported:
-        
-          - `"image/jpeg"`
-          - `"image/png"`
-    
-      - `  OUTPUT_STORAGE_URI  ` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
-    
-      - `  RESIZE_MODE  ` : A string that represents the resize mode to use. The following are accepted values:
-        
-          - `"crop"` : Crop the video to fit the new size.
-          - `"pad"` : Pad the video to fit the new size.
-    
-      - `  RESPONSE_COUNT  ` : The number of video files to generate. The accepted range of values is `1` - `4` .
-    
-      - `  DURATION  ` : An integer representing the length of the generated video files. The following are the accepted values for each model:
-        
-          - Veo 2 models: `5` - `8` . The default is `8` .
-          - Veo 3 models: `4` , `6` , or `8` . The default is `8` .
-    
-      - **Additional optional parameters**
-        
-        Use the following optional variables depending on your use case. Add some or all of the following parameters in the `"parameters": {}` object.
-        
-            "parameters": {
-              "aspectRatio": "ASPECT_RATIO",
-              "negativePrompt": "NEGATIVE_PROMPT",
-              "personGeneration": "PERSON_SAFETY_SETTING",
-              // "resolution": RESOLUTION, // Veo 3 models only
-              "sampleCount": RESPONSE_COUNT,
-              "seed": SEED_NUMBER
-            }
-        
-          - `  ASPECT_RATIO  ` : Optional: A string value that describes the aspect ratio of the generated videos. You can use the following values:
-            
-              - `"16:9"` for landscape
-              - `"9:16"` for portrait
-            
-            The default value is `"16:9"`
-        
-          - `  NEGATIVE_PROMPT  ` : Optional: A string value that describes content that you want to prevent the model from generating.
-        
-          - `  PERSON_SAFETY_SETTING  ` : Optional: A string value that controls the safety setting for generating people or face generation. You can use the following values:
-            
-              - `"allow_adult"` : Only allow generation of adult people and faces.
-              - `"disallow"` : Doesn't generate people or faces.
-            
-            The default value is `"allow_adult"` .
-        
-          - `  RESOLUTION  ` : Optional: A string value that controls the resolution of the generated video. Supported by **Veo 3 models only.** You can use the following values:
-            
-              - `"720p"`
-              - `"1080p"`
-              - `"4k"` (Veo 3.1 Preview models only)
-            
-            The default value is `"720p"` .
-        
-          - `  RESPONSE_COUNT  ` : Optional. An integer value that describes the number of videos to generate. The accepted range of values is `1` - `4` .
-        
-          - `  SEED_NUMBER  ` : Optional. An uint32 value that the model uses to generate deterministic videos. Specifying a seed number with your request without changing other parameters guides the model to produce the same videos. The accepted range of values is `0` - `4294967295` .
-    
+
+    - `PROJECT_ID` : A string representing your Google Cloud project ID.
+
+    - `MODEL_ID` : A string representing the model ID to use. The following are accepted values:
+      - **Veo 2:** `veo-2.0-generate-001`
+      - **Veo 3:** `veo-3.0-generate-001`
+      - **Veo 3.1:** `veo-3.1-generate-001`
+      - **Veo 3.1:** `veo-3.1-fast-generate-001`
+
+    - `TEXT_PROMPT` : The text prompt used to guide video generation.
+
+    - `INPUT_IMAGE` : A base64-encoded string that represents the input image. For best quality, we recommend that the input image's resolution be 720p (1280 x 720 pixels) or higher, and have an aspect ratio of either 16:9 or 9:16. Images of other aspect ratios or sizes may be resized or centrally cropped when the image is uploaded.
+
+    - `MIME_TYPE` : A string representing the MIME type of the input image. Only the images of the following MIME types are supported:
+      - `"image/jpeg"`
+      - `"image/png"`
+
+    - `OUTPUT_STORAGE_URI` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
+
+    - `RESIZE_MODE` : A string that represents the resize mode to use. The following are accepted values:
+      - `"crop"` : Crop the video to fit the new size.
+      - `"pad"` : Pad the video to fit the new size.
+
+    - `RESPONSE_COUNT` : The number of video files to generate. The accepted range of values is `1` - `4` .
+
+    - `DURATION` : An integer representing the length of the generated video files. The following are the accepted values for each model:
+      - Veo 2 models: `5` - `8` . The default is `8` .
+      - Veo 3 models: `4` , `6` , or `8` . The default is `8` .
+
+    - **Additional optional parameters**
+
+      Use the following optional variables depending on your use case. Add some or all of the following parameters in the `"parameters": {}` object.
+
+      ```
+      "parameters": {
+        "aspectRatio": "ASPECT_RATIO",
+        "negativePrompt": "NEGATIVE_PROMPT",
+        "personGeneration": "PERSON_SAFETY_SETTING",
+        // "resolution": RESOLUTION, // Veo 3 models only
+        "sampleCount": RESPONSE_COUNT,
+        "seed": SEED_NUMBER
+      }
+      ```
+
+      - `ASPECT_RATIO` : Optional: A string value that describes the aspect ratio of the generated videos. You can use the following values:
+
+        - `"16:9"` for landscape
+        - `"9:16"` for portrait
+
+        The default value is `"16:9"`
+
+      - `NEGATIVE_PROMPT` : Optional: A string value that describes content that you want to prevent the model from generating.
+
+      - `PERSON_SAFETY_SETTING` : Optional: A string value that controls the safety setting for generating people or face generation. You can use the following values:
+
+        - `"allow_adult"` : Only allow generation of adult people and faces.
+        - `"disallow"` : Doesn't generate people or faces.
+
+        The default value is `"allow_adult"` .
+
+      - `RESOLUTION` : Optional: A string value that controls the resolution of the generated video. Supported by **Veo 3 models only.** You can use the following values:
+
+        - `"720p"`
+        - `"1080p"`
+        - `"4k"` (Veo 3.1 Preview models only)
+
+        The default value is `"720p"` .
+
+      - `RESPONSE_COUNT` : Optional. An integer value that describes the number of videos to generate. The accepted range of values is `1` - `4` .
+
+      - `SEED_NUMBER` : Optional. An uint32 value that the model uses to generate deterministic videos. Specifying a seed number with your request without changing other parameters guides the model to produce the same videos. The accepted range of values is `0` - `4294967295` .
+
     HTTP method and URL:
-    
-        POST https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID:predictLongRunning
-    
+
+    ```
+    POST https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID:predictLongRunning
+    ```
+
     Request JSON body:
-    
+
+    ```
+    {
+      "instances": [
         {
-          "instances": [
-            {
-              "prompt": "TEXT_PROMPT",
-              "image": {
-                "bytesBase64Encoded": "INPUT_IMAGE",
-                "mimeType": "MIME_TYPE"
-              }
-            }
-          ],
-          "parameters": {
-            "storageUri": "OUTPUT_STORAGE_URI",
-            "sampleCount": RESPONSE_COUNT
-            "resizeMode": "RESIZE_MODE"
+          "prompt": "TEXT_PROMPT",
+          "image": {
+            "bytesBase64Encoded": "INPUT_IMAGE",
+            "mimeType": "MIME_TYPE"
           }
         }
-    
+      ],
+      "parameters": {
+        "storageUri": "OUTPUT_STORAGE_URI",
+        "sampleCount": RESPONSE_COUNT
+        "resizeMode": "RESIZE_MODE"
+      }
+    }
+    ```
+
     To send your request, choose one of these options:
-    
+
     #### curl
-    
+
     > **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
-    
+
     Save the request body in a file named `request.json` , and execute the following command:
-    
-        curl -X POST \
-             -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-             -H "Content-Type: application/json; charset=utf-8" \
-             -d @request.json \
-             "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID:predictLongRunning"
-    
+
+    ```
+    curl -X POST \
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+         -H "Content-Type: application/json; charset=utf-8" \
+         -d @request.json \
+         "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID:predictLongRunning"
+    ```
+
     #### PowerShell
-    
+
     > **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
-    
+
     Save the request body in a file named `request.json` , and execute the following command:
-    
-        $cred = gcloud auth print-access-token
-        $headers = @{ "Authorization" = "Bearer $cred" }
-        
-        Invoke-WebRequest `
-            -Method POST `
-            -Headers $headers `
-            -ContentType: "application/json; charset=utf-8" `
-            -InFile request.json `
-            -Uri "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID:predictLongRunning" | Select-Object -Expand Content
-    
+
+    ```
+    $cred = gcloud auth print-access-token
+    $headers = @{ "Authorization" = "Bearer $cred" }
+
+    Invoke-WebRequest `
+        -Method POST `
+        -Headers $headers `
+        -ContentType: "application/json; charset=utf-8" `
+        -InFile request.json `
+        -Uri "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID:predictLongRunning" | Select-Object -Expand Content
+    ```
+
     This request returns a full operation name with a unique operation ID. Use this full operation name to poll that status of the video generation request.
-    
-        {
-          "name": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID/operations/a1b07c8e-7b5a-4aba-bb34-3e1ccb8afcc8"
-        }
+
+    ```
+    {
+      "name": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID/operations/a1b07c8e-7b5a-4aba-bb34-3e1ccb8afcc8"
+    }
+    ```
 
 2.  Optional: Check the status of the video generation long-running operation.
-    
+
     Before using any of the request data, make the following replacements:
-    
-      - PROJECT\_ID : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
-      - MODEL\_ID : The model ID to use.
-      - OPERATION\_ID : The unique operation ID returned in the original generate video request.
-    
+
+    - ` PROJECT_ID ` : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
+    - ` MODEL_ID ` : The model ID to use.
+    - ` OPERATION_ID ` : The unique operation ID returned in the original generate video request.
+
     HTTP method and URL:
-    
-        POST https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID:fetchPredictOperation
-    
+
+    ```
+    POST https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID:fetchPredictOperation
+    ```
+
     Request JSON body:
-    
-        {
-          "operationName": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID/operations/OPERATION_ID"
-        }
-    
+
+    ```
+    {
+      "operationName": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID/operations/OPERATION_ID"
+    }
+    ```
+
     To send your request, choose one of these options:
-    
+
     #### curl
-    
+
     > **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
-    
+
     Save the request body in a file named `request.json` , and execute the following command:
-    
-        curl -X POST \
-             -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-             -H "Content-Type: application/json; charset=utf-8" \
-             -d @request.json \
-             "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID:fetchPredictOperation"
-    
+
+    ```
+    curl -X POST \
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+         -H "Content-Type: application/json; charset=utf-8" \
+         -d @request.json \
+         "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID:fetchPredictOperation"
+    ```
+
     #### PowerShell
-    
+
     > **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
-    
+
     Save the request body in a file named `request.json` , and execute the following command:
-    
-        $cred = gcloud auth print-access-token
-        $headers = @{ "Authorization" = "Bearer $cred" }
-        
-        Invoke-WebRequest `
-            -Method POST `
-            -Headers $headers `
-            -ContentType: "application/json; charset=utf-8" `
-            -InFile request.json `
-            -Uri "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID:fetchPredictOperation" | Select-Object -Expand Content
-    
+
+    ```
+    $cred = gcloud auth print-access-token
+    $headers = @{ "Authorization" = "Bearer $cred" }
+
+    Invoke-WebRequest `
+        -Method POST `
+        -Headers $headers `
+        -ContentType: "application/json; charset=utf-8" `
+        -InFile request.json `
+        -Uri "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID:fetchPredictOperation" | Select-Object -Expand Content
+    ```
+
     This request returns information about the operation, including if the operation is still running or is done.
-    
+
     #### Response
-    
-        {
-          "name": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID/operations/OPERATION_ID",
-          "done": true,
-          "response": {
-            "raiMediaFilteredCount": 0,
-            "@type": "type.googleapis.com/cloud.ai.large_models.vision.GenerateVideoResponse",
-            "videos": [
-              {
-                "gcsUri":"gs://BUCKET_NAME/TIMESTAMPED_FOLDER/sample_0.mp4",
-                "mimeType": "video/mp4"
-              }
-            ]
+
+    ```
+    {
+      "name": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID/operations/OPERATION_ID",
+      "done": true,
+      "response": {
+        "raiMediaFilteredCount": 0,
+        "@type": "type.googleapis.com/cloud.ai.large_models.vision.GenerateVideoResponse",
+        "videos": [
+          {
+            "gcsUri":"gs://BUCKET_NAME/TIMESTAMPED_FOLDER/sample_0.mp4",
+            "mimeType": "video/mp4"
           }
-        }
+        ]
+      }
+    }
+    ```
 
 ## What's next
 
-  - [Video generation prompt guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide)
+- [Video generation prompt guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide)
 
-  - [Best practices for generating videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/best-practice)
+- [Best practices for generating videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/best-practice)
 
-  - [Generate videos from text prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)
+- [Generate videos from text prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)
 
-  - [Generate videos with first and last video frames](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-first-and-last-frames)
+- [Generate videos with first and last video frames](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-first-and-last-frames)
 
-  - [Generate videos from references](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references)
+- [Generate videos from references](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references)
 
-  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos)
+- [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos)
 
-  - [Edit videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/edit-videos)
+- [Edit videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/edit-videos)
 
-  - [Understand responsible AI and usage guidelines for video generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/responsible-ai-and-usage-guidelines)
+- [Understand responsible AI and usage guidelines for video generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/responsible-ai-and-usage-guidelines)

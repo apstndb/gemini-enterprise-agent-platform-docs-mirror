@@ -52,15 +52,15 @@ Client libraries use each supported language's natural conventions to call the A
 
 The following languages are supported for Gemini Enterprise Agent Platform:
 
-  - Python. The Gemini Enterprise Agent Platform Python client library is installed when you install the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .
+- Python. The Gemini Enterprise Agent Platform Python client library is installed when you install the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .
 
-  - Java
+- Java
 
-  - Node.js
+- Node.js
 
-  - C\#
+- C#
 
-  - Go
+- Go
 
 For more information, see [Install the Gemini Enterprise Agent Platform client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
 
@@ -74,7 +74,7 @@ To get started, see the [Agent Platform API REST reference](https://docs.cloud.g
 
 ## What's next
 
-  - [Set up a project and a development environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/cloud-environment) .
-  - [Choose a training method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-methods) .
-  - Tutorials for [Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/overview) , [Tabular](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-automl/overview) , and [Custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/overview) .
-  - Learn [best practices for implementing custom-trained ML models on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/architecture/ml-on-gcp-best-practices) .
+- [Set up a project and a development environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/cloud-environment) .
+- [Choose a training method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-methods) .
+- Tutorials for [Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/overview) , [Tabular](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-automl/overview) , and [Custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/overview) .
+- Learn [best practices for implementing custom-trained ML models on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/architecture/ml-on-gcp-best-practices) .

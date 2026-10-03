@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.reasoningEngines.sessions.patch
 
-Updates the specific `  Session  ` .
+Updates the specific [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions#Session) .
 
 ### Endpoint
 
@@ -26,7 +26,7 @@ Identifier. The resource name of the session. Format: 'projects/{project}/locati
 
 ### Query parameters
 
-`updateMask` ` string ( FieldMask  ` format)
+`updateMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Optional. Field mask is used to control which fields get updated. If the mask is not present, all fields will be updated.
 
@@ -34,8 +34,8 @@ This is a comma-separated list of fully qualified names of fields. Example: `"us
 
 ### Request body
 
-The request body contains an instance of `  Session  ` .
+The request body contains an instance of [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions#Session) .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Session  ` .
+If successful, the response body contains an instance of [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions#Session) .

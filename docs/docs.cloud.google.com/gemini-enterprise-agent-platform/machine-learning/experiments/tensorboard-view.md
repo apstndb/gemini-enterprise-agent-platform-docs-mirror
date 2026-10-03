@@ -8,8 +8,10 @@ data_source: docs.cloud.google.com
 
 The Vertex AI TensorBoard web app provides a visualization of logs associated with a Vertex AI TensorBoard experiment. This web application offers several tools and dashboards to visualize and compare data across experiment runs, and to [profile model training performance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/tensorboard-profiler) .
 
-    Note: If you are having trouble viewing results, make sure your user account
-    has the [Agent Platform Viewer](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.viewer) (or higher) role associated with it.
+```
+Note: If you are having trouble viewing results, make sure your user account
+has the [Agent Platform Viewer](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.viewer) (or higher) role associated with it.
+```
 
 ![TensorBoard view appear](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/tb-view-appears.png)
 
@@ -19,12 +21,12 @@ To learn more about each dashboard, see the [README](https://github.com/tensorfl
 
 The Vertex AI TensorBoard web app is accessed using the following address format:
 
-` https:// REGION .tensorboard.googleusercontent.com/experiment/projects+ PROJECT_NAME_OR_ID +locations+ REGION +tensorboards+ TENSORBOARD_ID +experiments+ EXPERIMENT_NAME  `
+`https:// `` REGION `` .tensorboard.googleusercontent.com/experiment/projects+ `` PROJECT_NAME_OR_ID `` +locations+ `` REGION `` +tensorboards+ `` TENSORBOARD_ID `` +experiments+ `` EXPERIMENT_NAME`
 
-  - `  REGION  ` : the region your TensorBoard is located in
-  - `  PROJECT_ID  ` : the project your TensorBoard was created in
-  - `  TENSORBOARD_ID  ` : the [TensorBoard ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#tensorboard_id)
-  - `  EXPERIMENT_NAME  ` : the name of the TensorBoard experiment
+- `REGION` : the region your TensorBoard is located in
+- `PROJECT_ID` : the project your TensorBoard was created in
+- `TENSORBOARD_ID` : the [TensorBoard ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#tensorboard_id)
+- `EXPERIMENT_NAME` : the name of the TensorBoard experiment
 
 This link can be shared and used by anyone who has permission.
 

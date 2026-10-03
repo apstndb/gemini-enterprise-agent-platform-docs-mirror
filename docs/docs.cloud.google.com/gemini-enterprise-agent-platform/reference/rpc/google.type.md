@@ -8,11 +8,11 @@ data_source: docs.cloud.google.com
 
 ## Index
 
-  - `  Color  ` (message)
-  - `  Date  ` (message)
-  - `  Expr  ` (message)
-  - `  Interval  ` (message)
-  - `  LatLng  ` (message)
+- [`Color`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.type#google.type.Color) (message)
+- [`Date`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.type#google.type.Date) (message)
+- [`Expr`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.type#google.type.Expr) (message)
+- [`Interval`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.type#google.type.Interval) (message)
+- [`LatLng`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.type#google.type.LatLng) (message)
 
 ## Color
 
@@ -24,7 +24,7 @@ When color equality needs to be decided, implementations, unless documented othe
 
 Example (Java):
 
-``` 
+```
  import com.google.type.Color;
 
  // ...
@@ -66,7 +66,7 @@ Example (Java):
 
 Example (iOS / Obj-C):
 
-``` 
+```
  // ...
  static UIColor* fromProto(Color* protocolor) {
     float red = [protocolor red];
@@ -100,103 +100,68 @@ Example (iOS / Obj-C):
 
 Example (JavaScript):
 
-    // ...
-    
-    var protoToCssColor = function(rgb_color) {
-       var redFrac = rgb_color.red || 0.0;
-       var greenFrac = rgb_color.green || 0.0;
-       var blueFrac = rgb_color.blue || 0.0;
-       var red = Math.floor(redFrac * 255);
-       var green = Math.floor(greenFrac * 255);
-       var blue = Math.floor(blueFrac * 255);
-    
-       if (!('alpha' in rgb_color)) {
-          return rgbToCssColor(red, green, blue);
-       }
-    
-       var alphaFrac = rgb_color.alpha.value || 0.0;
-       var rgbParams = [red, green, blue].join(',');
-       return ['rgba(', rgbParams, ',', alphaFrac, ')'].join('');
-    };
-    
-    var rgbToCssColor = function(red, green, blue) {
-      var rgbNumber = new Number((red << 16) | (green << 8) | blue);
-      var hexString = rgbNumber.toString(16);
-      var missingZeros = 6 - hexString.length;
-      var resultBuilder = ['#'];
-      for (var i = 0; i < missingZeros; i++) {
-         resultBuilder.push('0');
-      }
-      resultBuilder.push(hexString);
-      return resultBuilder.join('');
-    };
-    
-    // ...
+```
+// ...
 
-Fields
+var protoToCssColor = function(rgb_color) {
+   var redFrac = rgb_color.red || 0.0;
+   var greenFrac = rgb_color.green || 0.0;
+   var blueFrac = rgb_color.blue || 0.0;
+   var red = Math.floor(redFrac * 255);
+   var green = Math.floor(greenFrac * 255);
+   var blue = Math.floor(blueFrac * 255);
 
-`red`
+   if (!('alpha' in rgb_color)) {
+      return rgbToCssColor(red, green, blue);
+   }
 
-`float`
+   var alphaFrac = rgb_color.alpha.value || 0.0;
+   var rgbParams = [red, green, blue].join(',');
+   return ['rgba(', rgbParams, ',', alphaFrac, ')'].join('');
+};
 
-The amount of red in the color as a value in the interval \[0, 1\].
+var rgbToCssColor = function(red, green, blue) {
+  var rgbNumber = new Number((red << 16) | (green << 8) | blue);
+  var hexString = rgbNumber.toString(16);
+  var missingZeros = 6 - hexString.length;
+  var resultBuilder = ['#'];
+  for (var i = 0; i < missingZeros; i++) {
+     resultBuilder.push('0');
+  }
+  resultBuilder.push(hexString);
+  return resultBuilder.join('');
+};
 
-`green`
+// ...
+```
 
-`float`
-
-The amount of green in the color as a value in the interval \[0, 1\].
-
-`blue`
-
-`float`
-
-The amount of blue in the color as a value in the interval \[0, 1\].
-
-`alpha`
-
-`  FloatValue  `
-
-The fraction of this color that should be applied to the pixel. That is, the final pixel color is defined by the equation:
-
-`pixel color = alpha * (this color) + (1.0 - alpha) * (background color)`
-
-This means that a value of 1.0 corresponds to a solid color, whereas a value of 0.0 corresponds to a completely transparent color. This uses a wrapper message rather than a simple float scalar so that it is possible to distinguish between a default value and the value being unset. If omitted, this color object is rendered as a solid color (as if the alpha value had been explicitly given a value of 1.0).
+| Fields  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `red`   | `float` The amount of red in the color as a value in the interval \[0, 1\].                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `green` | `float` The amount of green in the color as a value in the interval \[0, 1\].                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `blue`  | `float` The amount of blue in the color as a value in the interval \[0, 1\].                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `alpha` | [`FloatValue`](https://protobuf.dev/reference/protobuf/google.protobuf/#float-value) The fraction of this color that should be applied to the pixel. That is, the final pixel color is defined by the equation: `pixel color = alpha * (this color) + (1.0 - alpha) * (background color)` This means that a value of 1.0 corresponds to a solid color, whereas a value of 0.0 corresponds to a completely transparent color. This uses a wrapper message rather than a simple float scalar so that it is possible to distinguish between a default value and the value being unset. If omitted, this color object is rendered as a solid color (as if the alpha value had been explicitly given a value of 1.0). |
 
 ## Date
 
 Represents a whole or partial calendar date, such as a birthday. The time of day and time zone are either specified elsewhere or are insignificant. The date is relative to the Gregorian Calendar. This can represent one of the following:
 
-  - A full date, with non-zero year, month, and day values.
-  - A month and day, with a zero year (for example, an anniversary).
-  - A year on its own, with a zero month and a zero day.
-  - A year and month, with a zero day (for example, a credit card expiration date).
+- A full date, with non-zero year, month, and day values.
+- A month and day, with a zero year (for example, an anniversary).
+- A year on its own, with a zero month and a zero day.
+- A year and month, with a zero day (for example, a credit card expiration date).
 
 Related types:
 
-  - `google.type.TimeOfDay`
-  - `google.type.DateTime`
-  - `  google.protobuf.Timestamp  `
+- `google.type.TimeOfDay`
+- `google.type.DateTime`
+- [`google.protobuf.Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)
 
-Fields
-
-`year`
-
-`int32`
-
-Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year.
-
-`month`
-
-`int32`
-
-Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day.
-
-`day`
-
-`int32`
-
-Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant.
+| Fields  |                                                                                                                                                                      |
+|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `year`  | `int32` Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year.                                                                             |
+| `month` | `int32` Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day.                                                                       |
+| `day`   | `int32` Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. |
 
 ## Expr
 
@@ -204,55 +169,44 @@ Represents a textual expression in the Common Expression Language (CEL) syntax. 
 
 Example (Comparison):
 
-    title: "Summary size limit"
-    description: "Determines if a summary is less than 100 chars"
-    expression: "document.summary.size() < 100"
+```
+title: "Summary size limit"
+description: "Determines if a summary is less than 100 chars"
+expression: "document.summary.size() < 100"
+```
 
 Example (Equality):
 
-    title: "Requestor is owner"
-    description: "Determines if requestor is the document owner"
-    expression: "document.owner == request.auth.claims.email"
+```
+title: "Requestor is owner"
+description: "Determines if requestor is the document owner"
+expression: "document.owner == request.auth.claims.email"
+```
 
 Example (Logic):
 
-    title: "Public documents"
-    description: "Determine whether the document should be publicly visible"
-    expression: "document.type != 'private' && document.type != 'internal'"
+```
+title: "Public documents"
+description: "Determine whether the document should be publicly visible"
+expression: "document.type != 'private' && document.type != 'internal'"
+```
 
 Example (Data Manipulation):
 
-    title: "Notification string"
-    description: "Create a notification string with a timestamp."
-    expression: "'New message received at ' + string(document.create_time)"
+```
+title: "Notification string"
+description: "Create a notification string with a timestamp."
+expression: "'New message received at ' + string(document.create_time)"
+```
 
 The exact variables and functions that may be referenced within an expression are determined by the service that evaluates it. See the service documentation for additional information.
 
-Fields
-
-`expression`
-
-`string`
-
-Textual representation of an expression in Common Expression Language syntax.
-
-`title`
-
-`string`
-
-Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression.
-
-`description`
-
-`string`
-
-Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI.
-
-`location`
-
-`string`
-
-Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file.
+| Fields        |                                                                                                                                                            |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `expression`  | `string` Textual representation of an expression in Common Expression Language syntax.                                                                     |
+| `title`       | `string` Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. |
+| `description` | `string` Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI.                 |
+| `location`    | `string` Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file.                      |
 
 ## Interval
 
@@ -260,38 +214,16 @@ Represents a time interval, encoded as a Timestamp start (inclusive) and a Times
 
 The start must be less than or equal to the end. When the start equals the end, the interval is empty (matches no time). When both start and end are unspecified, the interval matches any time.
 
-Fields
-
-`start_time`
-
-`  Timestamp  `
-
-Required. Inclusive start of the interval.
-
-If specified, a Timestamp matching this interval will have to be the same or after the start.
-
-`end_time`
-
-`  Timestamp  `
-
-Optional. Exclusive end of the interval.
-
-If specified, a Timestamp matching this interval will have to be before the end.
+| Fields       |                                                                                                                                                                                                                            |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `start_time` | [`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp) Required. Inclusive start of the interval. If specified, a Timestamp matching this interval will have to be the same or after the start. |
+| `end_time`   | [`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp) Optional. Exclusive end of the interval. If specified, a Timestamp matching this interval will have to be before the end.                |
 
 ## LatLng
 
 An object that represents a latitude/longitude pair. This is expressed as a pair of doubles to represent degrees latitude and degrees longitude. Unless specified otherwise, this object must conform to the [WGS84 standard](https://en.wikipedia.org/wiki/World_Geodetic_System#1984_version) . Values must be within normalized ranges.
 
-Fields
-
-`latitude`
-
-`double`
-
-The latitude in degrees. It must be in the range \[-90.0, +90.0\].
-
-`longitude`
-
-`double`
-
-The longitude in degrees. It must be in the range \[-180.0, +180.0\].
+| Fields      |                                                                                |
+|-------------|--------------------------------------------------------------------------------|
+| `latitude`  | `double` The latitude in degrees. It must be in the range \[-90.0, +90.0\].    |
+| `longitude` | `double` The longitude in degrees. It must be in the range \[-180.0, +180.0\]. |

@@ -38,13 +38,13 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  VizierService.ListStudies  ` .
+Response message for [`VizierService.ListStudies`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies/list#google.cloud.aiplatform.v1beta1.VizierService.ListStudies) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`studies[]` ` object ( Study  ` )
+`studies[]` `object ( `[`Study`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.studies#Study)` )`
 
 The studies associated with the project.
 
@@ -52,18 +52,15 @@ The studies associated with the project.
 
 Passes this token as the `pageToken` field of the request for a subsequent call. If this field is omitted, there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;studies&quot;: [{object (Study)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "studies": [
+    {
+      object (Study)
+    }
+  ],
+  "nextPageToken": string
+}
+```

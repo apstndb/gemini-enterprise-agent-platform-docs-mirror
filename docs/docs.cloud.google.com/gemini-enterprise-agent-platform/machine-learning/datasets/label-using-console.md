@@ -63,6 +63,6 @@ When in **Browse** mode, and the dataset with the unlabeled images is selected, 
 
 ## What's next
 
-  - [Train an AutoML model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-training-overview) .
-  - [Train an AutoML Edge model using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-edge-console) . (image only)
-  - [Train an AutoML Edge model using the Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-edge-api) . (image only)
+- [Train an AutoML model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-training-overview) .
+- [Train an AutoML Edge model using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-edge-console) . (image only)
+- [Train an AutoML Edge model using the Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-edge-api) . (image only)

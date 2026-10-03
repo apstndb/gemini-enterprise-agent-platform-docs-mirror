@@ -8,14 +8,10 @@ data_source: docs.cloud.google.com
 
 The types of file retrieval to enable.
 
-Enums
-
-`RETRIEVAL_TYPE_UNSPECIFIED`
-
-`RETRIEVAL_TYPE_VERTEX_AI_SEARCH`
-
-`RETRIEVAL_TYPE_RAG_STORE`
-
-`RETRIEVAL_TYPE_EXA_AI_SEARCH`
-
-`RETRIEVAL_TYPE_PARALLEL_AI_SEARCH`
+| Enums                               |     |
+|-------------------------------------|-----|
+| `RETRIEVAL_TYPE_UNSPECIFIED`        |     |
+| `RETRIEVAL_TYPE_VERTEX_AI_SEARCH`   |     |
+| `RETRIEVAL_TYPE_RAG_STORE`          |     |
+| `RETRIEVAL_TYPE_EXA_AI_SEARCH`      |     |
+| `RETRIEVAL_TYPE_PARALLEL_AI_SEARCH` |     |

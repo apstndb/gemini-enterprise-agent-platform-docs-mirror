@@ -25,8 +25,8 @@ To complete this tutorial, you can either follow the instructions in the followi
 
 In this tutorial, you'll learn how to build a multi-label image classification model using Google's AutoML technology. This tutorial is available in the Google Cloud console.
 
------
+------------------------------------------------------------------------
 
 To follow step-by-step guidance for this task directly in the Google Cloud console, click **Guide me** :
 
------
+------------------------------------------------------------------------

@@ -32,11 +32,11 @@ Fields
 
 Required. The number of synthetic examples to generate. For this stateless API, you can generate up to 50 examples in a single request.
 
-`outputFieldSpecs[]` ` object ( OutputFieldSpec  ` )
+`outputFieldSpecs[]` `object ( `[`OutputFieldSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/generateSyntheticData#OutputFieldSpec)` )`
 
 Required. Defines the schema of each synthetic example to be generated, defined by a list of fields.
 
-`examples[]` ` object ( SyntheticExample  ` )
+`examples[]` `object ( `[`SyntheticExample`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/generateSyntheticData#SyntheticExample)` )`
 
 Optional. A list of few-shot examples that help the model understand the desired style, tone, and format of the generated synthetic data. Providing these few-shot examples can significantly improve the quality and relevance of the output.
 
@@ -44,7 +44,7 @@ Optional. A list of few-shot examples that help the model understand the desired
 
 Specifies how the synthetic data should be generated. Choose one of the available strategies. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`taskDescription` ` object ( TaskDescriptionStrategy  ` )
+`taskDescription` `object ( `[`TaskDescriptionStrategy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/generateSyntheticData#TaskDescriptionStrategy)` )`
 
 Generates synthetic data based on a high-level description of the task or data you want.
 
@@ -58,25 +58,21 @@ If successful, the response body contains data with the following structure:
 
 Fields
 
-`syntheticExamples[]` ` object ( SyntheticExample  ` )
+`syntheticExamples[]` `object ( `[`SyntheticExample`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/generateSyntheticData#SyntheticExample)` )`
 
 A list of generated synthetic examples, each containing a complete synthetic data instance generated based on your request.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;syntheticExamples&quot;: [{object (SyntheticExample)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "syntheticExamples": [
+    {
+      object (SyntheticExample)
+    }
+  ]
+}
+```
 
 ## TaskDescriptionStrategy
 
@@ -88,23 +84,13 @@ Fields
 
 Required. A general description of the type of synthetic data you want to generate. For example, "Generate customer reviews for a new smartphone."
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;taskDescription&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "taskDescription": string
+}
+```
 
 ## OutputFieldSpec
 
@@ -114,57 +100,37 @@ Fields
 
 `fieldName` `string`
 
-Required. The name of this field in the generated synthetic data, such as "emailSubject" or "customer\_review".
+Required. The name of this field in the generated synthetic data, such as "emailSubject" or "customer_review".
 
 `guidance` `string`
 
 Optional. Specific instructions for the large language model on how to generate content for this particular field. While the LLM can sometimes infer content from the field name, providing explicit guidance is preferred. For example, for a field named "review", the guidance could be "A positive review about a coffee maker."
 
-`fieldType` ` enum ( FieldType  ` )
+`fieldType` `enum ( `[`FieldType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/generateSyntheticData#FieldType)` )`
 
 Optional. The data type of the field. Defaults to CONTENT if not set.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;fieldName&quot;: string,&quot;guidance&quot;: string,&quot;fieldType&quot;: enum (FieldType)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "fieldName": string,
+  "guidance": string,
+  "fieldType": enum (FieldType)
+}
+```
 
 ## FieldType
 
 The type of data expected for this field. This helps the model generate content in the correct format.
 
-Enums
-
-`FIELD_TYPE_UNSPECIFIED`
-
-The field type is not specified. Defaults to CONTENT.
-
-`CONTENT`
-
-The field can contain any type of content, including text, images, and audio.
-
-`TEXT`
-
-The field contains only text.
-
-`IMAGE`
-
-The field contains image data.
-
-`AUDIO`
-
-The field contains audio data.
+| Enums                    |                                                                               |
+|--------------------------|-------------------------------------------------------------------------------|
+| `FIELD_TYPE_UNSPECIFIED` | The field type is not specified. Defaults to CONTENT.                         |
+| `CONTENT`                | The field can contain any type of content, including text, images, and audio. |
+| `TEXT`                   | The field contains only text.                                                 |
+| `IMAGE`                  | The field contains image data.                                                |
+| `AUDIO`                  | The field contains audio data.                                                |
 
 ## SyntheticExample
 
@@ -172,25 +138,21 @@ A single instance of generated synthetic data. Each example is made up of one or
 
 Fields
 
-`fields[]` ` object ( SyntheticField  ` )
+`fields[]` `object ( `[`SyntheticField`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations/generateSyntheticData#SyntheticField)` )`
 
 Required. A list of fields that constitute an example.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;fields&quot;: [{object (SyntheticField)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "fields": [
+    {
+      object (SyntheticField)
+    }
+  ]
+}
+```
 
 ## SyntheticField
 
@@ -202,22 +164,17 @@ Fields
 
 Optional. The name of the specific field, such as "productName" or "reviewText".
 
-`content` ` object ( Content  ` )
+`content` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Required. The actual content or value for this field. This can be text, images, or other types of data.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;fieldName&quot;: string,&quot;content&quot;: {object (Content)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "fieldName": string,
+  "content": {
+    object (Content)
+  }
+}
+```

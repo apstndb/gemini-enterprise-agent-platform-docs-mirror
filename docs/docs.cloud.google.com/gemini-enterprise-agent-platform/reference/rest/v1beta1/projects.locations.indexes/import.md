@@ -32,13 +32,13 @@ Fields
 
 Optional. If true, completely replace existing index data. Must be true for streaming update indexes.
 
-`config` ` object ( ConnectorConfig  ` )
+`config` `object ( `[`ConnectorConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/import#ConnectorConfig)` )`
 
 Required. Configuration for importing data from an external source.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ## ConnectorConfig
 
@@ -50,27 +50,24 @@ Fields
 
 The source of the data to import. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`bigQuerySourceConfig` ` object ( BigQuerySourceConfig  ` )
+`bigQuerySourceConfig` `object ( `[`BigQuerySourceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/import#BigQuerySourceConfig)` )`
 
 Configuration for importing data from a BigQuery table.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// source&quot;bigQuerySourceConfig&quot;: {object (BigQuerySourceConfig)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // source
+  "bigQuerySourceConfig": {
+    object (BigQuerySourceConfig)
+  }
+  // Union type
+}
+```
 
 ## BigQuerySourceConfig
 
@@ -82,25 +79,20 @@ Fields
 
 Required. The path to the BigQuery table containing the index data, in the format of `bq://<projectId>.<datasetId>.<table>` .
 
-`datapointFieldMapping` ` object ( DatapointFieldMapping  ` )
+`datapointFieldMapping` `object ( `[`DatapointFieldMapping`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/import#DatapointFieldMapping)` )`
 
 Required. Mapping of datapoint fields to BigQuery column names.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;tablePath&quot;: string,&quot;datapointFieldMapping&quot;: {object (DatapointFieldMapping)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "tablePath": string,
+  "datapointFieldMapping": {
+    object (DatapointFieldMapping)
+  }
+}
+```
 
 ## DatapointFieldMapping
 
@@ -116,11 +108,11 @@ Required. The column with unique identifiers for each data point.
 
 Required. The column with the vector embeddings for each data point.
 
-`restricts[]` ` object ( Restrict  ` )
+`restricts[]` `object ( `[`Restrict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/import#Restrict)` )`
 
 Optional. List of restricts for string values.
 
-`numericRestricts[]` ` object ( NumericRestrict  ` )
+`numericRestricts[]` `object ( `[`NumericRestrict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/import#NumericRestrict)` )`
 
 Optional. List of restricts for numeric values.
 
@@ -128,21 +120,27 @@ Optional. List of restricts for numeric values.
 
 Optional. List of columns containing metadata to be included in the index.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;idColumn&quot;: string,&quot;embeddingColumn&quot;: string,&quot;restricts&quot;: [{object (Restrict)}],&quot;numericRestricts&quot;: [{object (NumericRestrict)}],&quot;metadataColumns&quot;: [string]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "idColumn": string,
+  "embeddingColumn": string,
+  "restricts": [
+    {
+      object (Restrict)
+    }
+  ],
+  "numericRestricts": [
+    {
+      object (NumericRestrict)
+    }
+  ],
+  "metadataColumns": [
+    string
+  ]
+}
+```
 
 ## Restrict
 
@@ -162,29 +160,19 @@ Optional. The columns containing the allow values.
 
 Optional. The columns containing the deny values.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;namespace&quot;: string,
-  &quot;allowColumn&quot;: [
+**JSON representation**
+
+```
+{
+  "namespace": string,
+  "allowColumn": [
     string
   ],
-  &quot;denyColumn&quot;: [
+  "denyColumn": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## NumericRestrict
 
@@ -200,44 +188,27 @@ Required. The namespace of the restrict.
 
 Optional. The column containing the numeric value.
 
-`valueType` ` enum ( ValueType  ` )
+`valueType` `enum ( `[`ValueType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes/import#ValueType)` )`
 
 Required. Numeric type of the restrict. Must be consistent for all datapoints within the namespace.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;namespace&quot;: string,&quot;valueColumn&quot;: string,&quot;valueType&quot;: enum (ValueType)}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "namespace": string,
+  "valueColumn": string,
+  "valueType": enum (ValueType)
+}
+```
 
 ## ValueType
 
 The type of numeric value for the restrict.
 
-Enums
-
-`VALUE_TYPE_UNSPECIFIED`
-
-Should not be used.
-
-`INT`
-
-Represents 64 bit integer.
-
-`FLOAT`
-
-Represents 32 bit float.
-
-`DOUBLE`
-
-Represents 64 bit float.
+| Enums                    |                            |
+|--------------------------|----------------------------|
+| `VALUE_TYPE_UNSPECIFIED` | Should not be used.        |
+| `INT`                    | Represents 64 bit integer. |
+| `FLOAT`                  | Represents 32 bit float.   |
+| `DOUBLE`                 | Represents 64 bit float.   |

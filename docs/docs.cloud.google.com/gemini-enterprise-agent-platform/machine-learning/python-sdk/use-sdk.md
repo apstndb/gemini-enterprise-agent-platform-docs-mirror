@@ -10,10 +10,10 @@ The Agent Platform SDK lets you use Google's [generative AI models and features]
 
 The Agent Platform SDK is available for Python, Go, Java, and Node.js. To learn about each SDK, see the following:
 
-  - [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk)
+- [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk)
 
-  - [Agent Platform Node.js SDK](https://github.com/googleapis/js-genai)
+- [Agent Platform Node.js SDK](https://github.com/googleapis/js-genai)
 
-  - [Agent Platform Java SDK](https://github.com/googleapis/google-cloud-java/tree/main/java-vertexai)
+- [Agent Platform Java SDK](https://github.com/googleapis/google-cloud-java/tree/main/java-vertexai)
 
-  - [Agent Platform Go SDK](https://github.com/googleapis/google-cloud-go/tree/main/vertexai)
+- [Agent Platform Go SDK](https://github.com/googleapis/google-cloud-go/tree/main/vertexai)

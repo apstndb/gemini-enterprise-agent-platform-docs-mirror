@@ -6,26 +6,20 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Details of `  ExtensionRegistryService.ImportExtension  ` operation.
+Details of [`ExtensionRegistryService.ImportExtension`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.extensions/import#google.cloud.aiplatform.v1beta1.ExtensionRegistryService.ImportExtension) operation.
 
 Fields
 
-`genericMetadata` ` object ( GenericOperationMetadata  ` )
+`genericMetadata` `object ( `[`GenericOperationMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenericOperationMetadata)` )`
 
 The common part of the operation metadata.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;genericMetadata&quot;: {object (GenericOperationMetadata)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "genericMetadata": {
+    object (GenericOperationMetadata)
+  }
+}
+```

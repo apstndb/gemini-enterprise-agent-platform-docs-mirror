@@ -13,7 +13,7 @@ The RAG Engine is a component of the Gemini Enterprise Agent Platform platform, 
 This section lists the following:
 
 | Parameters                                                                                                                                                               | Examples                                                                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | See [Corpus management parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-api#corpus-management-params-api) .               | See [Corpus management examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-api#corpus-management-examples-api) . |
 | See [File management parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-api#file-management-params-api) .                   | See [File management examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-api#file-management-examples-api) .     |
 | See [Retrieval and prediction parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-api#retrieval-and-prediction-params-api) . | See [Retrieval query example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-api#retrieval-query-api) .               |
@@ -29,86 +29,22 @@ This table lists the parameters used to create a RAG corpus.
 
 ##### Body Request
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">corpus_type_config</code></p></td>
-<td><p>Optional: Immutable.</p>
-<p><code dir="ltr" translate="no">RagCorpus.CorpusTypeConfig</code></p>
-<p>The configuration to specify the corpus type.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">display_name</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">string</code></p>
-<p>The display name of the RAG corpus.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">description</code></p></td>
-<td><p>Optional: <code dir="ltr" translate="no">string</code></p>
-<p>The description of the RAG corpus.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">encryption_spec</code></p></td>
-<td><p>Optional: Immutable: <code dir="ltr" translate="no">string</code></p>
-<p>The CMEK key name is used to encrypt at-rest data that's related to the RAG corpus. The key name is only applicable to the <code dir="ltr" translate="no">RagManaged</code> option for the vector database. When the corpus is created, this field can be set and can't be updated or deleted.</p>
-<p>Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key_name}</code></p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">vector_db_config</code></p></td>
-<td><p>Optional: Immutable: <code dir="ltr" translate="no">RagVectorDbConfig</code></p>
-<p>The configuration for the vector databases.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">vertex_ai_search_config.serving_config</code></p></td>
-<td><p>Optional: <code dir="ltr" translate="no">string</code></p>
-<p>The configuration for the Agent Search.</p>
-<p>Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/servingConfigs/{serving_config}</code> or <code dir="ltr" translate="no">projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/servingConfigs/{serving_config}</code></p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters**                           |                                                                                                                                                                                                                                                                                                                                                                                      |
+|------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `corpus_type_config`                     | Optional: Immutable. `RagCorpus.CorpusTypeConfig` The configuration to specify the corpus type.                                                                                                                                                                                                                                                                                      |
+| `display_name`                           | Required: `string` The display name of the RAG corpus.                                                                                                                                                                                                                                                                                                                               |
+| `description`                            | Optional: `string` The description of the RAG corpus.                                                                                                                                                                                                                                                                                                                                |
+| `encryption_spec`                        | Optional: Immutable: `string` The CMEK key name is used to encrypt at-rest data that's related to the RAG corpus. The key name is only applicable to the `RagManaged` option for the vector database. When the corpus is created, this field can be set and can't be updated or deleted. Format: `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key_name}` |
+| `vector_db_config`                       | Optional: Immutable: `RagVectorDbConfig` The configuration for the vector databases.                                                                                                                                                                                                                                                                                                 |
+| `vertex_ai_search_config.serving_config` | Optional: `string` The configuration for the Agent Search. Format: `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/servingConfigs/{serving_config}` or `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/servingConfigs/{serving_config}`                                                                 |
 
 ##### `CorpusTypeConfig`
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">document_corpus</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> <code dir="ltr" translate="no">RagCorpus.CorpusTypeConfig.DocumentCorpus</code></p>
-<p>The default value of <code dir="ltr" translate="no">corpus_type_config</code> , which represents a conventional document-based RAG corpus.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">memory_corpus</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> <code dir="ltr" translate="no">RagCorpus.CorpusTypeConfig.MemoryCorpus</code></p>
-<p>If you set this type, the RAG corpus is a <code dir="ltr" translate="no">MemoryCorpus</code> that can be used with the Gemini Live API as a memory store.</p>
-<p>For more information, see <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-in-multimodal-live#use-rag-memory-store">Use RAG Engine as the memory store</a> .</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">memory_corpus.llm_parser</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> <code dir="ltr" translate="no">RagFileParsingConfig.LlmParser</code></p>
-<p>The LLM parser that's used to parse and store session contexts from the Gemini Live API. You can build memories for indexing.</p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters**             |                                                                                                                                                                                                                                                                                                                                                                           |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `document_corpus`          | `oneof` `RagCorpus.CorpusTypeConfig.DocumentCorpus` The default value of `corpus_type_config` , which represents a conventional document-based RAG corpus.                                                                                                                                                                                                                |
+| `memory_corpus`            | `oneof` `RagCorpus.CorpusTypeConfig.MemoryCorpus` If you set this type, the RAG corpus is a `MemoryCorpus` that can be used with the Gemini Live API as a memory store. For more information, see [Use RAG Engine as the memory store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-in-multimodal-live#use-rag-memory-store) . |
+| `memory_corpus.llm_parser` | `oneof` `RagFileParsingConfig.LlmParser` The LLM parser that's used to parse and store session contexts from the Gemini Live API. You can build memories for indexing.                                                                                                                                                                                                    |
 
 ##### `RagVectorDbConfig`
 
@@ -125,110 +61,110 @@ This table lists the parameters used to create a RAG corpus.
 </thead>
 <tbody>
 <tr class="odd">
-<td><p><code dir="ltr" translate="no">rag_managed_db</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> <code dir="ltr" translate="no">vector_db</code> : <code dir="ltr" translate="no">RagVectorDbConfig.RagManagedDb</code></p>
-<p>If no vector database is specified, <code dir="ltr" translate="no">rag_managed_db</code> is the default vector database.</p></td>
+<td><p><code>rag_managed_db</code></p></td>
+<td><p><code>oneof</code> <code>vector_db</code> : <code>RagVectorDbConfig.RagManagedDb</code></p>
+<p>If no vector database is specified, <code>rag_managed_db</code> is the default vector database.</p></td>
 </tr>
 <tr class="even">
-<td><p><code dir="ltr" translate="no">rag_managed_db.knn</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> <code dir="ltr" translate="no">retrieval_strategy</code> : <code dir="ltr" translate="no">KNN</code></p>
+<td><p><code>rag_managed_db.knn</code></p></td>
+<td><p><code>oneof</code> <code>retrieval_strategy</code> : <code>KNN</code></p>
 <p>Default.</p>
 <p>Finds the exact nearest neighbors by comparing all data points in your RAG corpus.</p>
 <p>If you don't specify a strategy during the creation of your RAG corpus, KNN is the default retrieval strategy used.</p></td>
 </tr>
 <tr class="odd">
-<td><p><code dir="ltr" translate="no">rag_managed_db.ann</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> <code dir="ltr" translate="no">retrieval_strategy</code> : <code dir="ltr" translate="no">ANN</code></p>
-<p><code dir="ltr" translate="no">tree_depth</code></p>
+<td><p><code>rag_managed_db.ann</code></p></td>
+<td><p><code>oneof</code> <code>retrieval_strategy</code> : <code>ANN</code></p>
+<p><code>tree_depth</code></p>
 <p>Determines the number of layers or levels in the tree.</p>
-If you have <code dir="ltr" translate="no">O(10K)</code> RAG files in the RAG corpus, set thi value to 2.
+If you have <code>O(10K)</code> RAG files in the RAG corpus, set thi value to 2.
 <ul>
 <li>If more layers or levels are required, set this value to 3.</li>
 <li>If the number of layers or levels isn't specified, RAG Engine assigns a default value of 2 for this parameter.</li>
 </ul>
-<p><code dir="ltr" translate="no">leaf_count</code></p>
+<p><code>leaf_count</code></p>
 <p>Determines the number of leaf nodes in the tree-based structure.</p>
 <ul>
-<li>The recommended value is <code dir="ltr" translate="no">10 * sqrt(num of RAG files in your RAG corpus)</code> .</li>
+<li>The recommended value is <code>10 * sqrt(num of RAG files in your RAG corpus)</code> .</li>
 <li>If not specified, RAG Engine assigns a <em>default value of 500</em> for this parameter.</li>
 </ul>
-<p><code dir="ltr" translate="no">rebuild_ann_index</code></p>
+<p><code>rebuild_ann_index</code></p>
 <ul>
 <li>RAG Engine rebuilds your ANN index.</li>
-<li>Set to <code dir="ltr" translate="no">true</code> in your <code dir="ltr" translate="no">ImportRagFiles</code> API request.</li>
+<li>Set to <code>true</code> in your <code>ImportRagFiles</code> API request.</li>
 <li>Before you query the RAG corpus, it's required to rebuild the ANN index once.</li>
 <li>Only one concurrent index rebuild is supported on a project in each location.</li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p><code dir="ltr" translate="no">weaviate</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> <code dir="ltr" translate="no">vector_db</code> : <code dir="ltr" translate="no">RagVectorDbConfig.Weaviate</code></p>
+<td><p><code>weaviate</code></p></td>
+<td><p><code>oneof</code> <code>vector_db</code> : <code>RagVectorDbConfig.Weaviate</code></p>
 <p>Specifies your Weaviate instance.</p></td>
 </tr>
 <tr class="odd">
-<td><p><code dir="ltr" translate="no">weaviate.http_endpoint</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
+<td><p><code>weaviate.http_endpoint</code></p></td>
+<td><p><code>string</code></p>
 <p>The Weaviate instance's HTTP endpoint.</p>
-<p>This value can't be changed after it's set. You can leave it empty in the <code dir="ltr" translate="no">CreateRagCorpus</code> API call, and set it with a non-empty value in a follow up <code dir="ltr" translate="no">UpdateRagCorpus</code> API call.</p></td>
+<p>This value can't be changed after it's set. You can leave it empty in the <code>CreateRagCorpus</code> API call, and set it with a non-empty value in a follow up <code>UpdateRagCorpus</code> API call.</p></td>
 </tr>
 <tr class="even">
-<td><p><code dir="ltr" translate="no">weaviate.collection_name</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
+<td><p><code>weaviate.collection_name</code></p></td>
+<td><p><code>string</code></p>
 <p>The Weaviate collection that the RAG corpus maps to.</p>
-<p>This value can't be changed after it's set. You can leave it empty in the <code dir="ltr" translate="no">CreateRagCorpus</code> API call, and set it with a non-empty value in a follow up <code dir="ltr" translate="no">UpdateRagCorpus</code> API call.</p></td>
+<p>This value can't be changed after it's set. You can leave it empty in the <code>CreateRagCorpus</code> API call, and set it with a non-empty value in a follow up <code>UpdateRagCorpus</code> API call.</p></td>
 </tr>
 <tr class="odd">
-<td><p><code dir="ltr" translate="no">pinecone</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> <code dir="ltr" translate="no">vector_db</code> : <code dir="ltr" translate="no">RagVectorDbConfig.Pinecone</code></p>
+<td><p><code>pinecone</code></p></td>
+<td><p><code>oneof</code> <code>vector_db</code> : <code>RagVectorDbConfig.Pinecone</code></p>
 <p>Specifies your Pinecone instance.</p></td>
 </tr>
 <tr class="even">
-<td><p><code dir="ltr" translate="no">pinecone.index_name</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
+<td><p><code>pinecone.index_name</code></p></td>
+<td><p><code>string</code></p>
 <p>This is the name used to create the Pinecone index that's used with the RAG corpus.</p>
-<p>This value can't be changed after it's set. You can leave it empty in the <code dir="ltr" translate="no">CreateRagCorpus</code> API call, and set it with a non-empty value in a follow up <code dir="ltr" translate="no">UpdateRagCorpus</code> API call.</p></td>
+<p>This value can't be changed after it's set. You can leave it empty in the <code>CreateRagCorpus</code> API call, and set it with a non-empty value in a follow up <code>UpdateRagCorpus</code> API call.</p></td>
 </tr>
 <tr class="odd">
-<td><p><code dir="ltr" translate="no">vertex_feature_store</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> <code dir="ltr" translate="no">vector_db</code> : <code dir="ltr" translate="no">RagVectorDbConfig.VertexFeatureStore</code></p>
+<td><p><code>vertex_feature_store</code></p></td>
+<td><p><code>oneof</code> <code>vector_db</code> : <code>RagVectorDbConfig.VertexFeatureStore</code></p>
 <p>Specifies your Feature Store on Gemini Enterprise Agent Platform instance.</p></td>
 </tr>
 <tr class="even">
-<td><p><code dir="ltr" translate="no">vertex_feature_store.feature_view_resource_name</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>The Agent Platform Feature Store <code dir="ltr" translate="no">FeatureView</code> that the RAG corpus maps to.</p>
-<p>Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}</code></p>
-<p>This value can't be changed after it's set. You can leave it empty in the <code dir="ltr" translate="no">CreateRagCorpus</code> API call, and set it with a non-empty value in a follow up <code dir="ltr" translate="no">UpdateRagCorpus</code> API call.</p></td>
+<td><p><code>vertex_feature_store.feature_view_resource_name</code></p></td>
+<td><p><code>string</code></p>
+<p>The Agent Platform Feature Store <code>FeatureView</code> that the RAG corpus maps to.</p>
+<p>Format: <code>projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}</code></p>
+<p>This value can't be changed after it's set. You can leave it empty in the <code>CreateRagCorpus</code> API call, and set it with a non-empty value in a follow up <code>UpdateRagCorpus</code> API call.</p></td>
 </tr>
 <tr class="odd">
-<td><p><code dir="ltr" translate="no">vertex_vector_search</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> <code dir="ltr" translate="no">vector_db</code> : <code dir="ltr" translate="no">RagVectorDbConfig.VertexVectorSearch</code></p>
+<td><p><code>vertex_vector_search</code></p></td>
+<td><p><code>oneof</code> <code>vector_db</code> : <code>RagVectorDbConfig.VertexVectorSearch</code></p>
 <p>Specifies your Vector Search on Gemini Enterprise Agent Platform instance.</p></td>
 </tr>
 <tr class="even">
-<td><p><code dir="ltr" translate="no">vertex_vector_search.index</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
+<td><p><code>vertex_vector_search.index</code></p></td>
+<td><p><code>string</code></p>
 <p>This is the resource name of the Vector Search index that's used with the RAG corpus.</p>
-<p>Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/indexEndpoints/{index_endpoint}</code></p>
-<p>This value can't be changed after it's set. You can leave it empty in the <code dir="ltr" translate="no">CreateRagCorpus</code> API call, and set it with a non-empty value in a follow up <code dir="ltr" translate="no">UpdateRagCorpus</code> API call.</p></td>
+<p>Format: <code>projects/{project}/locations/{location}/indexEndpoints/{index_endpoint}</code></p>
+<p>This value can't be changed after it's set. You can leave it empty in the <code>CreateRagCorpus</code> API call, and set it with a non-empty value in a follow up <code>UpdateRagCorpus</code> API call.</p></td>
 </tr>
 <tr class="odd">
-<td><p><code dir="ltr" translate="no">vertex_vector_search.index_endpoint</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
+<td><p><code>vertex_vector_search.index_endpoint</code></p></td>
+<td><p><code>string</code></p>
 <p>This is the resource name of the Vector Search index endpoint that's used with the RAG corpus.</p>
-<p>Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/indexes/{index}</code></p>
-<p>This value can't be changed after it's set. You can leave it empty in the <code dir="ltr" translate="no">CreateRagCorpus</code> API call, and set it with a non-empty value in a follow up <code dir="ltr" translate="no">UpdateRagCorpus</code> API call.</p></td>
+<p>Format: <code>projects/{project}/locations/{location}/indexes/{index}</code></p>
+<p>This value can't be changed after it's set. You can leave it empty in the <code>CreateRagCorpus</code> API call, and set it with a non-empty value in a follow up <code>UpdateRagCorpus</code> API call.</p></td>
 </tr>
 <tr class="even">
-<td><p><code dir="ltr" translate="no">api_auth.api_key_config.api_key_secret_version</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
+<td><p><code>api_auth.api_key_config.api_key_secret_version</code></p></td>
+<td><p><code>string</code></p>
 <p>This the full resource name of the secret that is stored in Secret Manager, which contains your Weaviate or Pinecone API key that depends on your choice of vector database.</p>
-<p>Format: <code dir="ltr" translate="no">projects/{PROJECT_NUMBER}/secrets/{SECRET_ID}/versions/{VERSION_ID}</code></p>
-<p>You can leave it empty in the <code dir="ltr" translate="no">CreateRagCorpus</code> API call, and set it with a non-empty value in a follow up <code dir="ltr" translate="no">UpdateRagCorpus</code> API call.</p></td>
+<p>Format: <code>projects/{PROJECT_NUMBER}/secrets/{SECRET_ID}/versions/{VERSION_ID}</code></p>
+<p>You can leave it empty in the <code>CreateRagCorpus</code> API call, and set it with a non-empty value in a follow up <code>UpdateRagCorpus</code> API call.</p></td>
 </tr>
 <tr class="odd">
-<td><p><code dir="ltr" translate="no">rag_embedding_model_config.vertex_prediction_endpoint.endpoint</code></p></td>
-<td><p>Optional: Immutable: <code dir="ltr" translate="no">string</code></p>
+<td><p><code>rag_embedding_model_config.vertex_prediction_endpoint.endpoint</code></p></td>
+<td><p>Optional: Immutable: <code>string</code></p>
 <p>The embedding model to use for the RAG corpus. This value can't be changed after it's set. If you leave it empty, we use <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/text-embeddings-api">text-embedding-005</a> as the embedding model.</p></td>
 </tr>
 </tbody>
@@ -240,140 +176,42 @@ This table lists the parameters used to update a RAG corpus.
 
 ##### Body Request
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">display_name</code></p></td>
-<td><p>Optional: <code dir="ltr" translate="no">string</code></p>
-<p>The display name of the RAG corpus.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">description</code></p></td>
-<td><p>Optional: <code dir="ltr" translate="no">string</code></p>
-<p>The description of the RAG corpus.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rag_vector_db.weaviate.http_endpoint</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>The Weaviate instance's HTTP endpoint.</p>
-<p>If your <code dir="ltr" translate="no">RagCorpus</code> was created with a <code dir="ltr" translate="no">Weaviate</code> configuration, and this field has never been set before, then you can update the Weaviate instance's HTTP endpoint.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">rag_vector_db.weaviate.collection_name</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>The Weaviate collection that the RAG corpus maps to.</p>
-<p>If your <code dir="ltr" translate="no">RagCorpus</code> was created with a <code dir="ltr" translate="no">Weaviate</code> configuration, and this field has never been set before, then you can update the Weaviate instance's collection name.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rag_vector_db.pinecone.index_name</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>This is the name used to create the Pinecone index that's used with the RAG corpus.</p>
-<p>If your <code dir="ltr" translate="no">RagCorpus</code> was created with a <code dir="ltr" translate="no">Pinecone</code> configuration, and this field has never been set before, then you can update the Pinecone instance's index name.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">rag_vector_db.vertex_feature_store.feature_view_resource_name</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>The Agent Platform Feature Store <code dir="ltr" translate="no">FeatureView</code> that the RAG corpus maps to.</p>
-<p>Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}</code></p>
-<p>If your <code dir="ltr" translate="no">RagCorpus</code> was created with a Agent Platform Feature Store configuration, and this field has never been set before, then you can update it.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rag_vector_db.vertex_vector_search.index</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>This is the resource name of the Vector Search index that's used with the RAG corpus.</p>
-<p>Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/indexEndpoints/{index_endpoint}</code></p>
-<p>If your <code dir="ltr" translate="no">RagCorpus</code> was created with a <code dir="ltr" translate="no">Vector Search</code> configuration, and this field has never been set before, then you can update it.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">rag_vector_db.vertex_vector_search.index_endpoint</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>This is the resource name of the Vector Search index endpoint that's used with the RAG corpus.</p>
-<p>Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/indexes/{index}</code></p>
-<p>If your <code dir="ltr" translate="no">RagCorpus</code> was created with a <code dir="ltr" translate="no">Vector Search</code> configuration, and this field has never been set before, then you can update it.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rag_vector_db.api_auth.api_key_config.api_key_secret_version</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>The full resource name of the secret that is stored in Secret Manager, which contains your Weaviate or Pinecone API key depends on your choice of vector database.</p>
-<p>Format: <code dir="ltr" translate="no">projects/{PROJECT_NUMBER}/secrets/{SECRET_ID}/versions/{VERSION_ID}</code></p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters**                                                  |                                                                                                                                                                                                                                                                                                                                                                    |
+|-----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `display_name`                                                  | Optional: `string` The display name of the RAG corpus.                                                                                                                                                                                                                                                                                                             |
+| `description`                                                   | Optional: `string` The description of the RAG corpus.                                                                                                                                                                                                                                                                                                              |
+| `rag_vector_db.weaviate.http_endpoint`                          | `string` The Weaviate instance's HTTP endpoint. If your `RagCorpus` was created with a `Weaviate` configuration, and this field has never been set before, then you can update the Weaviate instance's HTTP endpoint.                                                                                                                                              |
+| `rag_vector_db.weaviate.collection_name`                        | `string` The Weaviate collection that the RAG corpus maps to. If your `RagCorpus` was created with a `Weaviate` configuration, and this field has never been set before, then you can update the Weaviate instance's collection name.                                                                                                                              |
+| `rag_vector_db.pinecone.index_name`                             | `string` This is the name used to create the Pinecone index that's used with the RAG corpus. If your `RagCorpus` was created with a `Pinecone` configuration, and this field has never been set before, then you can update the Pinecone instance's index name.                                                                                                    |
+| `rag_vector_db.vertex_feature_store.feature_view_resource_name` | `string` The Agent Platform Feature Store `FeatureView` that the RAG corpus maps to. Format: `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}` If your `RagCorpus` was created with a Agent Platform Feature Store configuration, and this field has never been set before, then you can update it. |
+| `rag_vector_db.vertex_vector_search.index`                      | `string` This is the resource name of the Vector Search index that's used with the RAG corpus. Format: `projects/{project}/locations/{location}/indexEndpoints/{index_endpoint}` If your `RagCorpus` was created with a `Vector Search` configuration, and this field has never been set before, then you can update it.                                           |
+| `rag_vector_db.vertex_vector_search.index_endpoint`             | `string` This is the resource name of the Vector Search index endpoint that's used with the RAG corpus. Format: `projects/{project}/locations/{location}/indexes/{index}` If your `RagCorpus` was created with a `Vector Search` configuration, and this field has never been set before, then you can update it.                                                  |
+| `rag_vector_db.api_auth.api_key_config.api_key_secret_version`  | `string` The full resource name of the secret that is stored in Secret Manager, which contains your Weaviate or Pinecone API key depends on your choice of vector database. Format: `projects/{PROJECT_NUMBER}/secrets/{SECRET_ID}/versions/{VERSION_ID}`                                                                                                          |
 
 #### List RAG corpora
 
 This table lists the parameters used to list RAG corpora.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">page_size</code></p></td>
-<td><p>Optional: <code dir="ltr" translate="no">int</code></p>
-<p>The standard list page size.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">page_token</code></p></td>
-<td><p>Optional: <code dir="ltr" translate="no">string</code></p>
-<p>The standard list page token. Typically obtained from <code dir="ltr" translate="no">[ListRagCorporaResponse.next_page_token][]</code> of the previous <code dir="ltr" translate="no">[VertexRagDataService.ListRagCorpora][]</code> call.</p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters** |                                                                                                                                                                                       |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `page_size`    | Optional: `int` The standard list page size.                                                                                                                                          |
+| `page_token`   | Optional: `string` The standard list page token. Typically obtained from `[ListRagCorporaResponse.next_page_token][]` of the previous `[VertexRagDataService.ListRagCorpora][]` call. |
 
 #### Get a RAG corpus
 
 This table lists parameters used to get a RAG corpus.
 
-Parameters
-
-`name`
-
-`string`
-
-The name of the `RagCorpus` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus_id}`
+| Parameters |                                                                                                                             |
+|------------|-----------------------------------------------------------------------------------------------------------------------------|
+| `name`     | `string` The name of the `RagCorpus` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus_id}` |
 
 #### Delete a RAG corpus
 
 This table lists parameters used to delete a RAG corpus.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">name</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>The name of the <code dir="ltr" translate="no">RagCorpus</code> resource. Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/ragCorpora/{rag_corpus_id}</code></p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters** |                                                                                                                             |
+|----------------|-----------------------------------------------------------------------------------------------------------------------------|
+| `name`         | `string` The name of the `RagCorpus` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus_id}` |
 
 #### Batch create metadata schemas
 
@@ -381,144 +219,44 @@ This table lists the parameters used to batch create metadata schemas for a RAG 
 
 ##### Body Request
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">requests</code></p></td>
-<td><p>Required: list of <code dir="ltr" translate="no">CreateRagDataSchemaRequest</code></p>
-<p>The request messages for <code dir="ltr" translate="no">CreateRagDataSchema</code> .</p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters** |                                                                                                 |
+|----------------|-------------------------------------------------------------------------------------------------|
+| `requests`     | Required: list of `CreateRagDataSchemaRequest` The request messages for `CreateRagDataSchema` . |
 
 ##### `CreateRagDataSchemaRequest`
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rag_data_schema</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">RagDataSchema</code></p>
-<p>The metadata schema to create.</p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters**    |                                                          |
+|-------------------|----------------------------------------------------------|
+| `rag_data_schema` | Required: `RagDataSchema` The metadata schema to create. |
 
 ##### `RagDataSchema`
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">key</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">string</code></p>
-<p>The key of the metadata schema.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">schema_details</code></p></td>
-<td><p><code dir="ltr" translate="no">RagMetadataSchemaDetails</code></p>
-<p>The details of the metadata schema.</p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters**   |                                                                |
+|------------------|----------------------------------------------------------------|
+| `key`            | Required: `string` The key of the metadata schema.             |
+| `schema_details` | `RagMetadataSchemaDetails` The details of the metadata schema. |
 
 ##### `RagMetadataSchemaDetails`
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">type</code></p></td>
-<td><p><code dir="ltr" translate="no">DataType</code></p>
-<p>The data type of the metadata schema. Options: <code dir="ltr" translate="no">INTEGER</code> , <code dir="ltr" translate="no">FLOAT</code> , <code dir="ltr" translate="no">STRING</code> , <code dir="ltr" translate="no">DATETIME</code> , <code dir="ltr" translate="no">BOOLEAN</code> , <code dir="ltr" translate="no">LIST</code> .</p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters** |                                                                                                                              |
+|----------------|------------------------------------------------------------------------------------------------------------------------------|
+| `type`         | `DataType` The data type of the metadata schema. Options: `INTEGER` , `FLOAT` , `STRING` , `DATETIME` , `BOOLEAN` , `LIST` . |
 
 #### List metadata schemas
 
 This table lists the parameters used to list metadata schemas.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">parent</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">string</code></p>
-<p>The resource name of the <code dir="ltr" translate="no">RagCorpus</code> . Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/ragCorpora/{rag_corpus_id}</code></p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters** | **Description**                                                                                                                        |
+|----------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `parent`       | Required: `string` The resource name of the `RagCorpus` . Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus_id}` |
 
 #### Batch delete metadata schemas
 
 This table lists the parameters used to batch delete metadata schemas.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">names</code></p></td>
-<td><p>Required: list of <code dir="ltr" translate="no">string</code></p>
-<p>The resource names of the <code dir="ltr" translate="no">RagDataSchema</code> to delete. Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/ragCorpora/{rag_corpus_id}/ragDataSchemas/{rag_data_schema_id}</code></p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters** |                                                                                                                                                                                                  |
+|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `names`        | Required: list of `string` The resource names of the `RagDataSchema` to delete. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus_id}/ragDataSchemas/{rag_data_schema_id}` |
 
 ### File management parameters
 
@@ -530,412 +268,96 @@ This table lists parameters used to upload a RAG file.
 
 ##### Body Request
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">parent</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>The name of the <code dir="ltr" translate="no">RagCorpus</code> resource. Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/ragCorpora/{rag_corpus_id}</code></p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">rag_file</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">RagFile</code></p>
-<p>The file to upload.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">upload_rag_file_config</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">UploadRagFileConfig</code></p>
-<p>The configuration for the <code dir="ltr" translate="no">RagFile</code> to be uploaded into the <code dir="ltr" translate="no">RagCorpus</code> .</p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters**           |                                                                                                                             |
+|--------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| `parent`                 | `string` The name of the `RagCorpus` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus_id}` |
+| `rag_file`               | Required: `RagFile` The file to upload.                                                                                     |
+| `upload_rag_file_config` | Required: `UploadRagFileConfig` The configuration for the `RagFile` to be uploaded into the `RagCorpus` .                   |
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><code dir="ltr" translate="no">RagFile</code></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">display_name</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">string</code></p>
-<p>The display name of the RAG file.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">description</code></p></td>
-<td><p>Optional: <code dir="ltr" translate="no">string</code></p>
-<p>The description of the RAG file.</p></td>
-</tr>
-</tbody>
-</table>
+| `RagFile`      | **Description**                                      |
+|----------------|------------------------------------------------------|
+| `display_name` | Required: `string` The display name of the RAG file. |
+| `description`  | Optional: `string` The description of the RAG file.  |
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><code dir="ltr" translate="no">UploadRagFileConfig</code></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rag_file_transformation_config.rag_file_chunking_config.fixed_length_chunking.chunk_size</code></p></td>
-<td><p><code dir="ltr" translate="no">int32</code></p>
-<p>Number of tokens each chunk has.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">rag_file_transformation_config.rag_file_chunking_config.fixed_length_chunking.chunk_overlap</code></p></td>
-<td><p><code dir="ltr" translate="no">int32</code></p>
-<p>The overlap between chunks.</p></td>
-</tr>
-</tbody>
-</table>
+| `UploadRagFileConfig`                                                                         | **Description**                          |
+|-----------------------------------------------------------------------------------------------|------------------------------------------|
+| `rag_file_transformation_config.rag_file_chunking_config.fixed_length_chunking.chunk_size`    | `int32` Number of tokens each chunk has. |
+| `rag_file_transformation_config.rag_file_chunking_config.fixed_length_chunking.chunk_overlap` | `int32` The overlap between chunks.      |
 
 #### Import RAG files
 
 This table lists parameters used to import a RAG file.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">parent</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">string</code></p>
-<p>The name of the <code dir="ltr" translate="no">RagCorpus</code> resource.</p>
-<p>Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/ragCorpora/{rag_corpus_id}</code></p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">gcs_source</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> <code dir="ltr" translate="no">import_source</code> : <code dir="ltr" translate="no">GcsSource</code></p>
-<p>Cloud Storage location.</p>
-<p>Supports importing individual files as well as entire Cloud Storage directories.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">gcs_source.uris</code></p></td>
-<td><p><code dir="ltr" translate="no">list</code> of <code dir="ltr" translate="no">string</code></p>
-<p>Cloud Storage URI that contains the upload file.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">google_drive_source</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> <code dir="ltr" translate="no">import_source</code> : <code dir="ltr" translate="no">GoogleDriveSource</code></p>
-<p>Google Drive location.</p>
-<p>Supports importing individual files as well as Google Drive folders.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">slack_source</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> <code dir="ltr" translate="no">import_source</code> : <code dir="ltr" translate="no">SlackSource</code></p>
-<p>The slack channel where the file is uploaded.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">jira_source</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> <code dir="ltr" translate="no">import_source</code> : <code dir="ltr" translate="no">JiraSource</code></p>
-<p>The Jira query where the file is uploaded.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">share_point_sources</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> <code dir="ltr" translate="no">import_source</code> : <code dir="ltr" translate="no">SharePointSources</code></p>
-<p>The SharePoint sources where the file is uploaded.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">rag_file_transformation_config.rag_file_chunking_config.fixed_length_chunking.chunk_size</code></p></td>
-<td><p><code dir="ltr" translate="no">int32</code></p>
-<p>Number of tokens each chunk has.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rag_file_transformation_config.rag_file_chunking_config.fixed_length_chunking.chunk_overlap</code></p></td>
-<td><p><code dir="ltr" translate="no">int32</code></p>
-<p>The overlap between chunks.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">rag_file_parsing_config</code></p></td>
-<td><p>Optional: <code dir="ltr" translate="no">RagFileParsingConfig</code></p>
-<p>Specifies the parsing configuration for <code dir="ltr" translate="no">RagFiles</code> .</p>
-<p>If this field isn't set, RAG uses the default parser.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">max_embedding_requests_per_min</code></p></td>
-<td><p>Optional: <code dir="ltr" translate="no">int32</code></p>
-<p>The maximum number of queries per minute that this job is allowed to make to the embedding model specified on the corpus. This value is specific to this job and not shared across other import jobs. Consult the Quotas page on the project to set an appropriate value.</p>
-<p>If unspecified, a default value of 1,000 QPM is used.</p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters**                                                                                |                                                                                                                                                                                                                                                                                                                                                   |
+|-----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `parent`                                                                                      | Required: `string` The name of the `RagCorpus` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus_id}`                                                                                                                                                                                                             |
+| `gcs_source`                                                                                  | `oneof` `import_source` : `GcsSource` Cloud Storage location. Supports importing individual files as well as entire Cloud Storage directories.                                                                                                                                                                                                    |
+| `gcs_source.uris`                                                                             | `list` of `string` Cloud Storage URI that contains the upload file.                                                                                                                                                                                                                                                                               |
+| `google_drive_source`                                                                         | `oneof` `import_source` : `GoogleDriveSource` Google Drive location. Supports importing individual files as well as Google Drive folders.                                                                                                                                                                                                         |
+| `slack_source`                                                                                | `oneof` `import_source` : `SlackSource` The slack channel where the file is uploaded.                                                                                                                                                                                                                                                             |
+| `jira_source`                                                                                 | `oneof` `import_source` : `JiraSource` The Jira query where the file is uploaded.                                                                                                                                                                                                                                                                 |
+| `share_point_sources`                                                                         | `oneof` `import_source` : `SharePointSources` The SharePoint sources where the file is uploaded.                                                                                                                                                                                                                                                  |
+| `rag_file_transformation_config.rag_file_chunking_config.fixed_length_chunking.chunk_size`    | `int32` Number of tokens each chunk has.                                                                                                                                                                                                                                                                                                          |
+| `rag_file_transformation_config.rag_file_chunking_config.fixed_length_chunking.chunk_overlap` | `int32` The overlap between chunks.                                                                                                                                                                                                                                                                                                               |
+| `rag_file_parsing_config`                                                                     | Optional: `RagFileParsingConfig` Specifies the parsing configuration for `RagFiles` . If this field isn't set, RAG uses the default parser.                                                                                                                                                                                                       |
+| `max_embedding_requests_per_min`                                                              | Optional: `int32` The maximum number of queries per minute that this job is allowed to make to the embedding model specified on the corpus. This value is specific to this job and not shared across other import jobs. Consult the Quotas page on the project to set an appropriate value. If unspecified, a default value of 1,000 QPM is used. |
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><code dir="ltr" translate="no">GoogleDriveSource</code></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">resource_ids.resource_id</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">string</code></p>
-<p>The ID of the Google Drive resource.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">resource_ids.resource_type</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">string</code></p>
-<p>The type of the Google Drive resource.</p></td>
-</tr>
-</tbody>
-</table>
+| `GoogleDriveSource`          |                                                           |
+|------------------------------|-----------------------------------------------------------|
+| `resource_ids.resource_id`   | Required: `string` The ID of the Google Drive resource.   |
+| `resource_ids.resource_type` | Required: `string` The type of the Google Drive resource. |
 
-`SlackSource`
+| `SlackSource`                                    |                                                                                                                                                                                                                                                                                                                            |
+|--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `channels.channels`                              | Repeated: `SlackSource.SlackChannels.SlackChannel` Slack channel information, include ID and time range to import.                                                                                                                                                                                                         |
+| `channels.channels.channel_id`                   | Required: `string` The Slack channel ID.                                                                                                                                                                                                                                                                                   |
+| `channels.channels.start_time`                   | Optional: `google.protobuf.Timestamp` The starting timestamp for messages to import.                                                                                                                                                                                                                                       |
+| `channels.channels.end_time`                     | Optional: `google.protobuf.Timestamp` The ending timestamp for messages to import.                                                                                                                                                                                                                                         |
+| `channels.api_key_config.api_key_secret_version` | Required: `string` The full resource name of the secret that is stored in Secret Manager, which contains a Slack channel access token that has access to the slack channel IDs. See: https://api.slack.com/tutorials/tracks/getting-a-token. Format: `projects/{PROJECT_NUMBER}/secrets/{SECRET_ID}/versions/{VERSION_ID}` |
 
-`channels.channels`
+| `JiraSource`                                         |                                                                                                                                                                                                                                                                                                                                                       |
+|------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `jira_queries.projects`                              | Repeated: `string` A list of Jira projects to import in their entirety.                                                                                                                                                                                                                                                                               |
+| `jira_queries.custom_queries`                        | Repeated: `string` A list of custom Jira queries to import. For information about JQL (Jira Query Language), see [Jira Support](https://support.atlassian.com/jira-service-management-cloud/docs/use-advanced-search-with-jira-query-language-jql/)                                                                                                   |
+| `jira_queries.email`                                 | Required: `string` The Jira email address.                                                                                                                                                                                                                                                                                                            |
+| `jira_queries.server_uri`                            | Required: `string` The Jira server URI.                                                                                                                                                                                                                                                                                                               |
+| `jira_queries.api_key_config.api_key_secret_version` | Required: `string` The full resource name of the secret that is stored in Secret Manager, which contains Jira API key that has access to the slack channel IDs. See: https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/ Format: `projects/{PROJECT_NUMBER}/secrets/{SECRET_ID}/versions/{VERSION_ID}` |
 
-Repeated: `SlackSource.SlackChannels.SlackChannel`
+| `SharePointSources`                                        |                                                                                                                                                                                                                                                |
+|------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `share_point_sources.sharepoint_folder_path`               | `oneof` in `folder_source` : `string` The path of the SharePoint folder to download from.                                                                                                                                                      |
+| `share_point_sources.sharepoint_folder_id`                 | `oneof` in `folder_source` : `string` The ID of the SharePoint folder to download from.                                                                                                                                                        |
+| `share_point_sources.drive_name`                           | `oneof` in `drive_source` : `string` The name of the drive to download from.                                                                                                                                                                   |
+| `share_point_sources.drive_id`                             | `oneof` in `drive_source` : `string` The ID of the drive to download from.                                                                                                                                                                     |
+| `share_point_sources.client_id`                            | `string` The Application ID for the app registered in Microsoft Azure Portal. The application must also be configured with MS Graph permissions "Files.ReadAll", "Sites.ReadAll" and BrowserSiteLists.Read.All.                                |
+| `share_point_sources.client_secret.api_key_secret_version` | Required: `string` The full resource name of the secret that is stored in Secret Manager, which contains the application secret for the app registered in Azure. Format: `projects/{PROJECT_NUMBER}/secrets/{SECRET_ID}/versions/{VERSION_ID}` |
+| `share_point_sources.tenant_id`                            | `string` Unique identifier of the Azure Active Directory Instance.                                                                                                                                                                             |
+| `share_point_sources.sharepoint_site_name`                 | `string` The name of the SharePoint site to download from. This can be the site name or the site id.                                                                                                                                           |
 
-Slack channel information, include ID and time range to import.
-
-`channels.channels.channel_id`
-
-Required: `string`
-
-The Slack channel ID.
-
-`channels.channels.start_time`
-
-Optional: `google.protobuf.Timestamp`
-
-The starting timestamp for messages to import.
-
-`channels.channels.end_time`
-
-Optional: `google.protobuf.Timestamp`
-
-The ending timestamp for messages to import.
-
-`channels.api_key_config.api_key_secret_version`
-
-Required: `string`
-
-The full resource name of the secret that is stored in Secret Manager, which contains a Slack channel access token that has access to the slack channel IDs.  
-See: https://api.slack.com/tutorials/tracks/getting-a-token.
-
-Format: `projects/{PROJECT_NUMBER}/secrets/{SECRET_ID}/versions/{VERSION_ID}`
-
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><code dir="ltr" translate="no">JiraSource</code></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">jira_queries.projects</code></p></td>
-<td><p>Repeated: <code dir="ltr" translate="no">string</code></p>
-<p>A list of Jira projects to import in their entirety.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">jira_queries.custom_queries</code></p></td>
-<td><p>Repeated: <code dir="ltr" translate="no">string</code></p>
-<p>A list of custom Jira queries to import. For information about JQL (Jira Query Language), see<br />
-<a href="https://support.atlassian.com/jira-service-management-cloud/docs/use-advanced-search-with-jira-query-language-jql/">Jira Support</a></p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">jira_queries.email</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">string</code></p>
-<p>The Jira email address.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">jira_queries.server_uri</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">string</code></p>
-<p>The Jira server URI.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">jira_queries.api_key_config.api_key_secret_version</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">string</code></p>
-<p>The full resource name of the secret that is stored in Secret Manager, which contains Jira API key that has access to the slack channel IDs.<br />
-See: https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/</p>
-<p>Format: <code dir="ltr" translate="no">projects/{PROJECT_NUMBER}/secrets/{SECRET_ID}/versions/{VERSION_ID}</code></p></td>
-</tr>
-</tbody>
-</table>
-
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><code dir="ltr" translate="no">SharePointSources</code></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">share_point_sources.sharepoint_folder_path</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> in <code dir="ltr" translate="no">folder_source</code> : <code dir="ltr" translate="no">string</code></p>
-<p>The path of the SharePoint folder to download from.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">share_point_sources.sharepoint_folder_id</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> in <code dir="ltr" translate="no">folder_source</code> : <code dir="ltr" translate="no">string</code></p>
-<p>The ID of the SharePoint folder to download from.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">share_point_sources.drive_name</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> in <code dir="ltr" translate="no">drive_source</code> : <code dir="ltr" translate="no">string</code></p>
-<p>The name of the drive to download from.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">share_point_sources.drive_id</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> in <code dir="ltr" translate="no">drive_source</code> : <code dir="ltr" translate="no">string</code></p>
-<p>The ID of the drive to download from.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">share_point_sources.client_id</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>The Application ID for the app registered in Microsoft Azure Portal.<br />
-The application must also be configured with MS Graph permissions "Files.ReadAll", "Sites.ReadAll" and BrowserSiteLists.Read.All.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">share_point_sources.client_secret.api_key_secret_version</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">string</code></p>
-<p>The full resource name of the secret that is stored in Secret Manager, which contains the application secret for the app registered in Azure.</p>
-<p>Format: <code dir="ltr" translate="no">projects/{PROJECT_NUMBER}/secrets/{SECRET_ID}/versions/{VERSION_ID}</code></p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">share_point_sources.tenant_id</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>Unique identifier of the Azure Active Directory Instance.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">share_point_sources.sharepoint_site_name</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>The name of the SharePoint site to download from. This can be the site name or the site id.</p></td>
-</tr>
-</tbody>
-</table>
-
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><code dir="ltr" translate="no">RagFileParsingConfig</code></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">layout_parser</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> <code dir="ltr" translate="no">parser</code> : <code dir="ltr" translate="no">RagFileParsingConfig.LayoutParser</code></p>
-<p>The Layout Parser to use for <code dir="ltr" translate="no">RagFile</code> s.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">layout_parser.processor_name</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>The full resource name of a Document AI processor or processor version.</p>
-<p>Format:<br />
-<code dir="ltr" translate="no">projects/{project_id}/locations/{location}/processors/{processor_id}</code><br />
-<code dir="ltr" translate="no">projects/{project_id}/locations/{location}/processors/{processor_id}/processorVersions/{processor_version_id}</code></p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">layout_parser.max_parsing_requests_per_min</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>The maximum number of requests the job is allowed to make to the Document AI processor per minute.</p>
-<p>Consult https://cloud.google.com/document-ai/quotas and the Quota page for your project to set an appropriate value here. If unspecified, a default value of 120 QPM is used.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">llm_parser</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof</code> <code dir="ltr" translate="no">parser</code> : <code dir="ltr" translate="no">RagFileParsingConfig.LlmParser</code></p>
-<p>The LLM parser to use for <code dir="ltr" translate="no">RagFile</code> s.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">llm_parser.model_name</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>The resource name of an LLM model.</p>
-<p>Format:<br />
-<code dir="ltr" translate="no">{publisher}/models/{model}</code></p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">llm_parser.max_parsing_requests_per_min</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>The maximum number of requests the job is allowed to make to the LLM model per minute.</p>
-<p>To set an appropriate value for your project, see the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#quota_system_by_model">model quota section</a> and the Quota page for your project to set an appropriate value here. If unspecified, a default value of 5000 QPM is used.</p></td>
-</tr>
-</tbody>
-</table>
+| `RagFileParsingConfig`                       |                                                                                                                                                                                                                                                                                                                                                                                                            |
+|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `layout_parser`                              | `oneof` `parser` : `RagFileParsingConfig.LayoutParser` The Layout Parser to use for `RagFile` s.                                                                                                                                                                                                                                                                                                           |
+| `layout_parser.processor_name`               | `string` The full resource name of a Document AI processor or processor version. Format: `projects/{project_id}/locations/{location}/processors/{processor_id}` `projects/{project_id}/locations/{location}/processors/{processor_id}/processorVersions/{processor_version_id}`                                                                                                                            |
+| `layout_parser.max_parsing_requests_per_min` | `string` The maximum number of requests the job is allowed to make to the Document AI processor per minute. Consult https://cloud.google.com/document-ai/quotas and the Quota page for your project to set an appropriate value here. If unspecified, a default value of 120 QPM is used.                                                                                                                  |
+| `llm_parser`                                 | `oneof` `parser` : `RagFileParsingConfig.LlmParser` The LLM parser to use for `RagFile` s.                                                                                                                                                                                                                                                                                                                 |
+| `llm_parser.model_name`                      | `string` The resource name of an LLM model. Format: `{publisher}/models/{model}`                                                                                                                                                                                                                                                                                                                           |
+| `llm_parser.max_parsing_requests_per_min`    | `string` The maximum number of requests the job is allowed to make to the LLM model per minute. To set an appropriate value for your project, see the [model quota section](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#quota_system_by_model) and the Quota page for your project to set an appropriate value here. If unspecified, a default value of 5000 QPM is used. |
 
 #### Get a RAG file
 
 This table lists parameters used to get a RAG file.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">name</code></p></td>
-<td><p><code dir="ltr" translate="no">string</code></p>
-<p>The name of the <code dir="ltr" translate="no">RagFile</code> resource. Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/ragCorpora/{rag_file_id}</code></p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters** |                                                                                                                         |
+|----------------|-------------------------------------------------------------------------------------------------------------------------|
+| `name`         | `string` The name of the `RagFile` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_file_id}` |
 
 #### Delete a RAG file
 
 This table lists parameters used to delete a RAG file.
 
-Parameters
-
-`name`
-
-`string`
-
-The name of the `RagFile` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_file_id}`
+| Parameters |                                                                                                                         |
+|------------|-------------------------------------------------------------------------------------------------------------------------|
+| `name`     | `string` The name of the `RagFile` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_file_id}` |
 
 #### Batch create metadata
 
@@ -943,106 +365,34 @@ This table lists the parameters used to batch create metadata for a RAG file.
 
 ##### Body Request
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">requests</code></p></td>
-<td><p>Required: list of <code dir="ltr" translate="no">CreateRagMetadataRequest</code></p>
-<p>The request messages for <code dir="ltr" translate="no">CreateRagMetadata</code> .</p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters** |                                                                                             |
+|----------------|---------------------------------------------------------------------------------------------|
+| `requests`     | Required: list of `CreateRagMetadataRequest` The request messages for `CreateRagMetadata` . |
 
 ##### `CreateRagMetadataRequest`
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rag_metadata</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">RagMetadata</code></p>
-<p>The metadata to create.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">rag_metadata_id</code></p></td>
-<td><p>Optional: <code dir="ltr" translate="no">string</code></p>
-<p>The ID to use for the metadata, which will become the final component of the metadata's resource name.</p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters**    |                                                                                                                           |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------|
+| `rag_metadata`    | Required: `RagMetadata` The metadata to create.                                                                           |
+| `rag_metadata_id` | Optional: `string` The ID to use for the metadata, which will become the final component of the metadata's resource name. |
 
 ##### `RagMetadata`
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">user_specified_metadata</code></p></td>
-<td><p><code dir="ltr" translate="no">UserSpecifiedMetadata</code></p>
-<p>The metadata provided by users.</p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters**            |                                                         |
+|---------------------------|---------------------------------------------------------|
+| `user_specified_metadata` | `UserSpecifiedMetadata` The metadata provided by users. |
 
 ##### `UserSpecifiedMetadata`
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">key</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">string</code></p>
-<p>The key of the metadata. The key must correspond to a key defined in a <code dir="ltr" translate="no">RagDataSchema</code> .</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">value</code></p></td>
-<td><p><code dir="ltr" translate="no">MetadataValue</code></p>
-<p>The value of the metadata.</p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters** |                                                                                                             |
+|----------------|-------------------------------------------------------------------------------------------------------------|
+| `key`          | Required: `string` The key of the metadata. The key must correspond to a key defined in a `RagDataSchema` . |
+| `value`        | `MetadataValue` The value of the metadata.                                                                  |
 
 ##### `MetadataValue`
 
-| **Parameters**   | ****                           |
-| ---------------- | ------------------------------ |
+| **Parameters**   |                                |
+|------------------|--------------------------------|
 | `int_value`      | `oneof value` : `int64`        |
 | `float_value`    | `oneof value` : `float`        |
 | `str_value`      | `oneof value` : `string`       |
@@ -1054,73 +404,25 @@ This table lists the parameters used to batch create metadata for a RAG file.
 
 This table lists the parameters used to list metadata for a RAG file.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">parent</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">string</code></p>
-<p>The resource name of the <code dir="ltr" translate="no">RagFile</code> . Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/ragCorpora/{rag_corpus_id}/ragFiles/{rag_file_id}</code></p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters** |                                                                                                                                                             |
+|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `parent`       | Required: `string` The resource name of the `RagFile` . Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus_id}/ragFiles/{rag_file_id}` |
 
 #### Update metadata
 
 This table lists the parameters used to update metadata.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rag_metadata</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">RagMetadata</code></p>
-<p>The <code dir="ltr" translate="no">RagMetadata</code> which replaces the resource on the server.</p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters** |                                                                                      |
+|----------------|--------------------------------------------------------------------------------------|
+| `rag_metadata` | Required: `RagMetadata` The `RagMetadata` which replaces the resource on the server. |
 
 #### Batch delete metadata
 
 This table lists the parameters used to batch delete metadata.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">names</code></p></td>
-<td><p>Required: list of <code dir="ltr" translate="no">string</code></p>
-<p>The resource names of the <code dir="ltr" translate="no">RagMetadata</code> to delete. Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/ragCorpora/{rag_corpus_id}/ragFiles/{rag_file_id}/ragMetadata/{rag_metadata_id}</code></p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters** |                                                                                                                                                                                                                 |
+|----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `names`        | Required: list of `string` The resource names of the `RagMetadata` to delete. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus_id}/ragFiles/{rag_file_id}/ragMetadata/{rag_metadata_id}` |
 
 ### Retrieval and prediction parameters
 
@@ -1130,235 +432,62 @@ This section lists the retrieval and prediction parameters.
 
 This table lists parameters for `retrieveContexts` API.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">parent</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">string</code></p>
-<p>The resource name of the Location to perform the retrieval.<br />
-The users must have permission to make a call in the project.</p>
-<p>Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}</code></p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">vertex_rag_store</code></p></td>
-<td><p><code dir="ltr" translate="no">VertexRagStore</code></p>
-<p>The data source for RagStore.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">query</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">RagQuery</code></p>
-<p>Single RAG retrieve query.</p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters**     |                                                                                                                                                                                                |
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `parent`           | Required: `string` The resource name of the Location to perform the retrieval. The users must have permission to make a call in the project. Format: `projects/{project}/locations/{location}` |
+| `vertex_rag_store` | `VertexRagStore` The data source for RagStore.                                                                                                                                                 |
+| `query`            | Required: `RagQuery` Single RAG retrieve query.                                                                                                                                                |
 
 ##### `VertexRagStore`
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><code dir="ltr" translate="no">VertexRagStore</code></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rag_resources</code></p></td>
-<td><p>list: <code dir="ltr" translate="no">RagResource</code></p>
-<p>The representation of the RAG source. It can be used to specify the corpus only or <code dir="ltr" translate="no">RagFile</code> s. Only support one corpus or multiple files from one corpus.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">rag_resources.rag_corpus</code></p></td>
-<td><p>Optional: <code dir="ltr" translate="no">string</code></p>
-<p><code dir="ltr" translate="no">RagCorpora</code> resource name.</p>
-<p>Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/ragCorpora/{rag_corpus}</code></p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">rag_resources.rag_file_ids</code></p></td>
-<td><p>list: <code dir="ltr" translate="no">string</code></p>
-<p>A list of <code dir="ltr" translate="no">RagFile</code> resources.</p>
-<p>Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}/ragCorpora/{rag_corpus}/ragFiles/{rag_file}</code></p></td>
-</tr>
-</tbody>
-</table>
+| `VertexRagStore`             |                                                                                                                                                                                |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `rag_resources`              | list: `RagResource` The representation of the RAG source. It can be used to specify the corpus only or `RagFile` s. Only support one corpus or multiple files from one corpus. |
+| `rag_resources.rag_corpus`   | Optional: `string` `RagCorpora` resource name. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}`                                                       |
+| `rag_resources.rag_file_ids` | list: `string` A list of `RagFile` resources. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}/ragFiles/{rag_file}`                                    |
 
-`RagQuery`
+| `RagQuery`             |                                                                           |
+|------------------------|---------------------------------------------------------------------------|
+| `text`                 | `string` The query in text format to get relevant contexts.               |
+| `rag_retrieval_config` | Optional: `RagRetrievalConfig` The retrieval configuration for the query. |
 
-`text`
-
-`string`
-
-The query in text format to get relevant contexts.
-
-`rag_retrieval_config`
-
-Optional: `RagRetrievalConfig`
-
-The retrieval configuration for the query.
-
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><code dir="ltr" translate="no">RagRetrievalConfig</code></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">top_k</code></p></td>
-<td><p>Optional: <code dir="ltr" translate="no">int32</code></p>
-<p>The number of contexts to retrieve.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">hybrid_search.alpha</code></p></td>
-<td><p>Optional: <code dir="ltr" translate="no">float</code></p>
-<p>Alpha value controls the weight between dense and sparse vector search results. The range is [0, 1], where 0 means sparse vector search only and 1 means dense vector search only. The default value is 0.5, which balances sparse and dense vector search equally.</p>
-<p>Hybrid Search is only available for Weaviate.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">filter.vector_distance_threshold</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof vector_db_threshold</code> : <code dir="ltr" translate="no">double</code></p>
-<p>Only returns contexts with a vector distance smaller than the threshold.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">filter.metadata_filter</code></p></td>
-<td><p>Optional: <code dir="ltr" translate="no">string</code></p>
-<p>The metadata filter to apply during retrieval, using Common Expression Language (CEL). For more information, see [Metadata search](/gemini-enterprise-agent-platform/build/rag-engine/use-metadata-search).</p>
-<p>Example: <code dir="ltr" translate="no">author == "Shakespeare" &amp;&amp; page_number == 42</code></p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">filter.vector_similarity_threshold</code></p></td>
-<td><p><code dir="ltr" translate="no">oneof vector_db_threshold</code> : <code dir="ltr" translate="no">double</code></p>
-<p>Only returns contexts with vector similarity larger than the threshold.</p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">ranking.rank_service.model_name</code></p></td>
-<td><p>Optional: <code dir="ltr" translate="no">string</code></p>
-<p>The model name of the rank service.</p>
-<p>Example: <code dir="ltr" translate="no">semantic-ranker-512@latest</code></p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">ranking.llm_ranker.model_name</code></p></td>
-<td><p>Optional: <code dir="ltr" translate="no">string</code></p>
-<p>The model name used for ranking.</p>
-<p>Example: <code dir="ltr" translate="no">gemini-3.5-flash</code></p></td>
-</tr>
-</tbody>
-</table>
+| `RagRetrievalConfig`                 |                                                                                                                                                                                                                                                                                                                                       |
+|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `top_k`                              | Optional: `int32` The number of contexts to retrieve.                                                                                                                                                                                                                                                                                 |
+| `hybrid_search.alpha`                | Optional: `float` Alpha value controls the weight between dense and sparse vector search results. The range is \[0, 1\], where 0 means sparse vector search only and 1 means dense vector search only. The default value is 0.5, which balances sparse and dense vector search equally. Hybrid Search is only available for Weaviate. |
+| `filter.vector_distance_threshold`   | `oneof vector_db_threshold` : `double` Only returns contexts with a vector distance smaller than the threshold.                                                                                                                                                                                                                       |
+| `filter.metadata_filter`             | Optional: `string` The metadata filter to apply during retrieval, using Common Expression Language (CEL). For more information, see \[Metadata search\](/gemini-enterprise-agent-platform/build/rag-engine/use-metadata-search). Example: `author == "Shakespeare" && page_number == 42`                                              |
+| `filter.vector_similarity_threshold` | `oneof vector_db_threshold` : `double` Only returns contexts with vector similarity larger than the threshold.                                                                                                                                                                                                                        |
+| `ranking.rank_service.model_name`    | Optional: `string` The model name of the rank service. Example: `semantic-ranker-512@latest`                                                                                                                                                                                                                                          |
+| `ranking.llm_ranker.model_name`      | Optional: `string` The model name used for ranking. Example: `gemini-3.5-flash`                                                                                                                                                                                                                                                       |
 
 #### Async retrieval parameters
 
 This table lists parameters for `asyncRetrieveContexts` API.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">parent</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">string</code></p>
-<p>The resource name of the Location to retrieve <code dir="ltr" translate="no">RagContexts</code> .<br />
-The users must have permission to make a call in the project.</p>
-<p>Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}</code></p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">query</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">RagQuery</code></p>
-<p>Single RAG retrieve query.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">tools</code></p></td>
-<td><p>Optional: list of <code dir="ltr" translate="no">Tool</code></p>
-<p>The tools to use for retrieval. Supported tools include <code dir="ltr" translate="no">retrieval</code> which specifies the <code dir="ltr" translate="no">vertex_rag_store</code> .</p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters** |                                                                                                                                                                                                  |
+|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `parent`       | Required: `string` The resource name of the Location to retrieve `RagContexts` . The users must have permission to make a call in the project. Format: `projects/{project}/locations/{location}` |
+| `query`        | Required: `RagQuery` Single RAG retrieve query.                                                                                                                                                  |
+| `tools`        | Optional: list of `Tool` The tools to use for retrieval. Supported tools include `retrieval` which specifies the `vertex_rag_store` .                                                            |
 
 #### Ask contexts parameters
 
 This table lists parameters for `askContexts` API.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameters</strong></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">parent</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">string</code></p>
-<p>The resource name of the Location to retrieve <code dir="ltr" translate="no">RagContexts</code> .<br />
-The users must have permission to make a call in the project.</p>
-<p>Format: <code dir="ltr" translate="no">projects/{project}/locations/{location}</code></p></td>
-</tr>
-<tr class="even">
-<td><p><code dir="ltr" translate="no">query</code></p></td>
-<td><p>Required: <code dir="ltr" translate="no">RagQuery</code></p>
-<p>Single RAG retrieve query.</p></td>
-</tr>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">tools</code></p></td>
-<td><p>Optional: list of <code dir="ltr" translate="no">Tool</code></p>
-<p>The tools to use for retrieval. Supported tools include <code dir="ltr" translate="no">retrieval</code> which specifies the <code dir="ltr" translate="no">vertex_rag_store</code> .</p></td>
-</tr>
-</tbody>
-</table>
+| **Parameters** |                                                                                                                                                                                                  |
+|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `parent`       | Required: `string` The resource name of the Location to retrieve `RagContexts` . The users must have permission to make a call in the project. Format: `projects/{project}/locations/{location}` |
+| `query`        | Required: `RagQuery` Single RAG retrieve query.                                                                                                                                                  |
+| `tools`        | Optional: list of `Tool` The tools to use for retrieval. Supported tools include `retrieval` which specifies the `vertex_rag_store` .                                                            |
 
 #### Prediction parameters
 
 This table lists prediction parameters.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><code dir="ltr" translate="no">GenerateContentRequest</code></th>
-<th><strong></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><code dir="ltr" translate="no">tools.retrieval.vertex_rag_store</code></p></td>
-<td><p><code dir="ltr" translate="no">VertexRagStore</code></p>
-<p>Set to use a data source powered by Agent Platform RAG store.</p></td>
-</tr>
-</tbody>
-</table>
+| `GenerateContentRequest`           |                                                                                |
+|------------------------------------|--------------------------------------------------------------------------------|
+| `tools.retrieval.vertex_rag_store` | `VertexRagStore` Set to use a data source powered by Agent Platform RAG store. |
 
 See [VertexRagStore](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-api#ragStore) for details.
 
@@ -1368,8 +497,8 @@ This table lists project-level parameters.
 
 ##### `RagEngineConfig`
 
-| **Parameters**                             | ****                                                                                                                                       |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Parameters**                             |                                                                                                                                            |
+|--------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | `RagManagedDbConfig.serverless`            | Sets/Switches the deployment mode to Serverless, providing a fully-managed and highly scalable database to back your RAG Engine resources. |
 | `RagManagedDbConfig.spanner`               | Sets/Switches the deployment mode to Spanner, backed by a production-ready Spanner instance.                                               |
 | `RagManagedDbConfig.spanner.scaled`        | This tier offers production-scale performance along with autoscaling functionality under Spanner mode.                                     |
@@ -1388,21 +517,25 @@ This code sample demonstrates how to create a RAG corpus.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region to process the request.
-  - CORPUS\_DISPLAY\_NAME : The display name of the `RagCorpus` .
-  - CORPUS\_DESCRIPTION : The description of the `RagCorpus` .
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region to process the request.
+- ` CORPUS_DISPLAY_NAME ` : The display name of the `RagCorpus` .
+- ` CORPUS_DESCRIPTION ` : The description of the `RagCorpus` .
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora
+```
 
 Request JSON body:
 
-    {
-      "display_name" : "CORPUS_DISPLAY_NAME",
-      "description": "CORPUS_DESCRIPTION",
-    }
+```
+{
+  "display_name" : "CORPUS_DISPLAY_NAME",
+  "description": "CORPUS_DESCRIPTION",
+}
+```
 
 To send your request, choose one of these options:
 
@@ -1412,11 +545,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora"
+```
 
 #### PowerShell
 
@@ -1424,27 +559,29 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx).
 
 The following example demonstrates how to create a RAG corpus by using the REST API.
 
-``` 
+```
   PROJECT_ID: Your project ID.
   LOCATION: The region to process the request.
   CORPUS_DISPLAY_NAME: The display name of the <code>RagCorpus</code>.
 ```
 
-``` 
+```
     // CreateRagCorpus
     // Input: LOCATION, PROJECT_ID, CORPUS_DISPLAY_NAME
     // Output: CreateRagCorpusOperationMetadata
@@ -1461,8 +598,8 @@ The following example demonstrates how to create a RAG corpus by using the REST 
 
 You can update your RAG corpus with a new display name, description, and vector database configuration. However, you can't change the following [parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-api#update-a-rag-corpus-params-api) in your RAG corpus:
 
-  - The vector database type. For example, you can't change the vector database from Weaviate to Agent Platform Feature Store.
-  - If you're using the managed database option, you can't update the vector database configuration.
+- The vector database type. For example, you can't change the vector database from Weaviate to Agent Platform Feature Store.
+- If you're using the managed database option, you can't update the vector database configuration.
 
 These examples demonstrate how to update a RAG corpus.
 
@@ -1470,30 +607,34 @@ These examples demonstrate how to update a RAG corpus.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region to process the request.
-  - CORPUS\_ID : The corpus ID of your RAG corpus.
-  - CORPUS\_DISPLAY\_NAME : The display name of the `RagCorpus` .
-  - CORPUS\_DESCRIPTION : The description of the `RagCorpus` .
-  - INDEX\_NAME : The resource name of the `Vector Search Index` . Format: `projects/{project}/locations/{location}/indexes/{index}`
-  - INDEX\_ENDPOINT\_NAME : The resource name of the `Vector Search Index Endpoint` . Format: `projects/{project}/locations/{location}/indexEndpoints/{index_endpoint}`
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region to process the request.
+- ` CORPUS_ID ` : The corpus ID of your RAG corpus.
+- ` CORPUS_DISPLAY_NAME ` : The display name of the `RagCorpus` .
+- ` CORPUS_DESCRIPTION ` : The description of the `RagCorpus` .
+- ` INDEX_NAME ` : The resource name of the `Vector Search Index` . Format: `projects/{project}/locations/{location}/indexes/{index}`
+- ` INDEX_ENDPOINT_NAME ` : The resource name of the `Vector Search Index Endpoint` . Format: `projects/{project}/locations/{location}/indexEndpoints/{index_endpoint}`
 
 HTTP method and URL:
 
-    PATCH https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/CORPUS_ID
+```
+PATCH https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/CORPUS_ID
+```
 
 Request JSON body:
 
-    {
-      "display_name" : "CORPUS_DISPLAY_NAME",
-      "description": "CORPUS_DESCRIPTION",
-      "rag_vector_db_config": {
-         "vertex_vector_search": {
-             "index": "INDEX_NAME",
-             "index_endpoint": "INDEX_ENDPOINT_NAME",
-         }
-      }
-    }
+```
+{
+  "display_name" : "CORPUS_DISPLAY_NAME",
+  "description": "CORPUS_DESCRIPTION",
+  "rag_vector_db_config": {
+     "vertex_vector_search": {
+         "index": "INDEX_NAME",
+         "index_endpoint": "INDEX_ENDPOINT_NAME",
+     }
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -1503,11 +644,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X PATCH \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/CORPUS_ID"
+```
+curl -X PATCH \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/CORPUS_ID"
+```
 
 #### PowerShell
 
@@ -1515,15 +658,17 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method PATCH `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/CORPUS_ID" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method PATCH `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/CORPUS_ID" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx).
 
@@ -1535,14 +680,16 @@ This code sample demonstrates how to list all of the RAG corpora.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region to process the request.
-  - PAGE\_SIZE : The standard list page size. You may adjust the number of `RagCorpora` to return per page by updating the `page_size` parameter.
-  - PAGE\_TOKEN : The standard list page token. Obtained typically using `ListRagCorporaResponse.next_page_token` of the previous `VertexRagDataService.ListRagCorpora` call.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region to process the request.
+- ` PAGE_SIZE ` : The standard list page size. You may adjust the number of `RagCorpora` to return per page by updating the `page_size` parameter.
+- ` PAGE_TOKEN ` : The standard list page token. Obtained typically using `ListRagCorporaResponse.next_page_token` of the previous `VertexRagDataService.ListRagCorpora` call.
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora?page_size=PAGE_SIZE&page_token=PAGE_TOKEN
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora?page_size=PAGE_SIZE&page_token=PAGE_TOKEN
+```
 
 To send your request, choose one of these options:
 
@@ -1552,9 +699,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora?page_size=PAGE_SIZE&page_token=PAGE_TOKEN"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora?page_size=PAGE_SIZE&page_token=PAGE_TOKEN"
+```
 
 #### PowerShell
 
@@ -1562,13 +711,15 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora?page_size=PAGE_SIZE&page_token=PAGE_TOKEN" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora?page_size=PAGE_SIZE&page_token=PAGE_TOKEN" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (\`2xx\`) and a list of `RagCorpora` under the given `PROJECT_ID` .
 
@@ -1578,13 +729,15 @@ You should receive a successful status code (\`2xx\`) and a list of `RagCorpora`
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region to process the request.
-  - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID
+```
 
 To send your request, choose one of these options:
 
@@ -1594,9 +747,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID"
+```
 
 #### PowerShell
 
@@ -1604,37 +759,41 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID" | Select-Object -Expand Content
+```
 
 A successful response returns the `RagCorpus` resource.
 
 The `get` and `list` commands are used in an example to demonstrate how `RagCorpus` uses the `rag_embedding_model_config` field with in the `vector_db_config` , which points to the embedding model you have chosen.
 
-``` 
+```
   PROJECT_ID: Your project ID.
   LOCATION: The region to process the request.
   RAG_CORPUS_ID: The corpus ID of your RAG corpus.
 ```
 
-    // GetRagCorpus
-    // Input: LOCATION, PROJECT_ID, RAG_CORPUS_ID
-    // Output: RagCorpus
-    curl -X GET \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID
-    
-    // ListRagCorpora
-    curl -sS -X GET \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/
+```
+// GetRagCorpus
+// Input: LOCATION, PROJECT_ID, RAG_CORPUS_ID
+// Output: RagCorpus
+curl -X GET \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID
+
+// ListRagCorpora
+curl -sS -X GET \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/
+```
 
 ### Delete a RAG corpus example
 
@@ -1642,13 +801,15 @@ The `get` and `list` commands are used in an example to demonstrate how `RagCorp
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region to process the request.
-  - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
 
 HTTP method and URL:
 
-    DELETE https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID
+```
+DELETE https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID
+```
 
 To send your request, choose one of these options:
 
@@ -1658,9 +819,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X DELETE \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID"
+```
+curl -X DELETE \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID"
+```
 
 #### PowerShell
 
@@ -1668,13 +831,15 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method DELETE `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method DELETE `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID" | Select-Object -Expand Content
+```
 
 A successful response returns the `DeleteOperationMetadata` .
 
@@ -1686,36 +851,40 @@ This code sample demonstrates how to batch create metadata schemas for a RAG cor
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region to process the request.
-  - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
-  - SCHEMA\_KEY\_1 : The key for the first metadata schema.
-  - SCHEMA\_TYPE\_1 : The data type for the first metadata schema (e.g., `INTEGER` ).
-  - SCHEMA\_KEY\_2 : The key for the second metadata schema.
-  - SCHEMA\_TYPE\_2 : The data type for the second metadata schema (e.g., `STRING` ).
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
+- ` SCHEMA_KEY_1 ` : The key for the first metadata schema.
+- ` SCHEMA_TYPE_1 ` : The data type for the first metadata schema (e.g., `INTEGER` ).
+- ` SCHEMA_KEY_2 ` : The key for the second metadata schema.
+- ` SCHEMA_TYPE_2 ` : The data type for the second metadata schema (e.g., `STRING` ).
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas:batchCreate
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas:batchCreate
+```
 
 Request JSON body:
 
+```
+{
+  "requests": [
     {
-      "requests": [
-        {
-          "rag_data_schema": {
-            "key": "SCHEMA_KEY_1",
-            "schema_details": {"type": "SCHEMA_TYPE_1"}
-          }
-        },
-        {
-          "rag_data_schema": {
-            "key": "SCHEMA_KEY_2",
-            "schema_details": {"type": "SCHEMA_TYPE_2"}
-          }
-        }
-      ]
+      "rag_data_schema": {
+        "key": "SCHEMA_KEY_1",
+        "schema_details": {"type": "SCHEMA_TYPE_1"}
+      }
+    },
+    {
+      "rag_data_schema": {
+        "key": "SCHEMA_KEY_2",
+        "schema_details": {"type": "SCHEMA_TYPE_2"}
+      }
     }
+  ]
+}
+```
 
 To send your request, choose one of these options:
 
@@ -1725,11 +894,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas:batchCreate"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas:batchCreate"
+```
 
 #### PowerShell
 
@@ -1737,15 +908,17 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas:batchCreate" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas:batchCreate" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx).
 
@@ -1757,13 +930,15 @@ This code sample demonstrates how to list metadata schemas for a RAG corpus.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region to process the request.
-  - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas
+```
 
 To send your request, choose one of these options:
 
@@ -1773,9 +948,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas"
+```
 
 #### PowerShell
 
@@ -1783,13 +960,15 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas" | Select-Object -Expand Content
+```
 
 A successful response returns a list of `RagDataSchema` resources.
 
@@ -1801,24 +980,28 @@ This code sample demonstrates how to batch delete metadata schemas.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region to process the request.
-  - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
-  - SCHEMA\_ID\_1 : The ID of the first metadata schema to delete.
-  - SCHEMA\_ID\_2 : The ID of the second metadata schema to delete.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
+- ` SCHEMA_ID_1 ` : The ID of the first metadata schema to delete.
+- ` SCHEMA_ID_2 ` : The ID of the second metadata schema to delete.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas:batchDelete
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas:batchDelete
+```
 
 Request JSON body:
 
-    {
-      "names": [
-        "projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas/SCHEMA_ID_1",
-        "projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas/SCHEMA_ID_2"
-      ]
-    }
+```
+{
+  "names": [
+    "projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas/SCHEMA_ID_1",
+    "projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas/SCHEMA_ID_2"
+  ]
+}
+```
 
 To send your request, choose one of these options:
 
@@ -1828,11 +1011,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas:batchDelete"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas:batchDelete"
+```
 
 #### PowerShell
 
@@ -1840,15 +1025,17 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas:batchDelete" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragDataSchemas:batchDelete" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx).
 
@@ -1862,7 +1049,7 @@ This section provides examples of how to use the API to manage RAG files.
 
 Before using any of the request data, make the following replacements:
 
-``` 
+```
   PROJECT_ID: Your project ID.
   LOCATION: The region to process the request.
   RAG_CORPUS_ID: The corpus ID of your RAG corpus.
@@ -1873,7 +1060,7 @@ Before using any of the request data, make the following replacements:
 
 To send your request, use the following command:
 
-``` 
+```
   curl -X POST \
     -H "X-Goog-Upload-Protocol: multipart" \
     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
@@ -1896,30 +1083,34 @@ The `response.skipped_rag_files_count` refers to the number of files that were s
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region to process the request.
-  - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
-  - GCS\_URIS : A list of Cloud Storage locations. Example: `gs://my-bucket1, gs://my-bucket2` .
-  - CHUNK\_SIZE : Optional: Number of tokens each chunk should have.
-  - CHUNK\_OVERLAP : Optional: Number of tokens overlap between chunks.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
+- ` GCS_URIS ` : A list of Cloud Storage locations. Example: `gs://my-bucket1, gs://my-bucket2` .
+- ` CHUNK_SIZE ` : Optional: Number of tokens each chunk should have.
+- ` CHUNK_OVERLAP ` : Optional: Number of tokens overlap between chunks.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:import
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:import
+```
 
 Request JSON body:
 
-    {
-      "import_rag_files_config": {
-        "gcs_source": {
-          "uris": "GCS_URIS"
-        },
-        "rag_file_chunking_config": {
-          "chunk_size": CHUNK_SIZE,
-          "chunk_overlap": CHUNK_OVERLAP
-        }
-      }
+```
+{
+  "import_rag_files_config": {
+    "gcs_source": {
+      "uris": "GCS_URIS"
+    },
+    "rag_file_chunking_config": {
+      "chunk_size": CHUNK_SIZE,
+      "chunk_overlap": CHUNK_OVERLAP
     }
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -1929,11 +1120,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:import"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:import"
+```
 
 #### PowerShell
 
@@ -1941,21 +1134,23 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:import" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:import" | Select-Object -Expand Content
+```
 
 A successful response returns the `ImportRagFilesOperationMetadata` resource.
 
 The following sample demonstrates how to import a file from Cloud Storage. Use the `max_embedding_requests_per_min` control field to limit the rate at which RAG Engine calls the embedding model during the `ImportRagFiles` indexing process. The field has a default value of `1000` calls per minute.
 
-``` 
+```
   PROJECT_ID: Your project ID.
   LOCATION: The region to process the request.
   RAG_CORPUS_ID: The corpus ID of your RAG corpus.
@@ -1965,36 +1160,38 @@ The following sample demonstrates how to import a file from Cloud Storage. Use t
   EMBEDDING_MODEL_QPM_RATE: The QPM rate to limit RAGs access to your embedding model. Example: 1000.
 ```
 
-    // ImportRagFiles
-    // Import a single Cloud Storage file or all files in a Cloud Storage bucket.
-    // Input: LOCATION, PROJECT_ID, RAG_CORPUS_ID, GCS_URIS
-    // Output: ImportRagFilesOperationMetadataNumber
-    // Use ListRagFiles to find the server-generated rag_file_id.
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:import \
-    -d '{
-      "import_rag_files_config": {
-        "gcs_source": {
-          "uris": "GCS_URIS"
-        },
-        "rag_file_chunking_config": {
-          "chunk_size": CHUNK_SIZE,
-          "chunk_overlap": CHUNK_OVERLAP
-        },
-        "max_embedding_requests_per_min": EMBEDDING_MODEL_QPM_RATE
-      }
-    }'
-    
-    // Poll the operation status.
-    // The response contains the number of files imported.
-    OPERATION_ID: The operation ID you get from the response of the previous command.
-    poll_op_wait OPERATION_ID
+```
+// ImportRagFiles
+// Import a single Cloud Storage file or all files in a Cloud Storage bucket.
+// Input: LOCATION, PROJECT_ID, RAG_CORPUS_ID, GCS_URIS
+// Output: ImportRagFilesOperationMetadataNumber
+// Use ListRagFiles to find the server-generated rag_file_id.
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:import \
+-d '{
+  "import_rag_files_config": {
+    "gcs_source": {
+      "uris": "GCS_URIS"
+    },
+    "rag_file_chunking_config": {
+      "chunk_size": CHUNK_SIZE,
+      "chunk_overlap": CHUNK_OVERLAP
+    },
+    "max_embedding_requests_per_min": EMBEDDING_MODEL_QPM_RATE
+  }
+}'
+
+// Poll the operation status.
+// The response contains the number of files imported.
+OPERATION_ID: The operation ID you get from the response of the previous command.
+poll_op_wait OPERATION_ID
+```
 
 The following sample demonstrates how to import a file from Drive. Use the `max_embedding_requests_per_min` control field to limit the rate at which RAG Engine calls the embedding model during the `ImportRagFiles` indexing process. The field has a default value of `1000` calls per minute.
 
-``` 
+```
   PROJECT_ID: Your project ID.
   LOCATION: The region to process the request.
   RAG_CORPUS_ID: The corpus ID of your RAG corpus.
@@ -2004,31 +1201,33 @@ The following sample demonstrates how to import a file from Drive. Use the `max_
   EMBEDDING_MODEL_QPM_RATE: The QPM rate to limit RAGs access to your embedding model. Example: 1000.
 ```
 
-    // ImportRagFiles
-    // Import all files in a Google Drive folder.
-    // Input: LOCATION, PROJECT_ID, RAG_CORPUS_ID, FOLDER_RESOURCE_ID
-    // Output: ImportRagFilesOperationMetadataNumber
-    // Use ListRagFiles to find the server-generated rag_file_id.
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:import \
-    -d '{
-      "import_rag_files_config": {
-        "google_drive_source": {
-          "resource_ids": {
-            "resource_id": "FOLDER_RESOURCE_ID",
-            "resource_type": "RESOURCE_TYPE_FOLDER"
-          }
-        },
-        "max_embedding_requests_per_min": EMBEDDING_MODEL_QPM_RATE
+```
+// ImportRagFiles
+// Import all files in a Google Drive folder.
+// Input: LOCATION, PROJECT_ID, RAG_CORPUS_ID, FOLDER_RESOURCE_ID
+// Output: ImportRagFilesOperationMetadataNumber
+// Use ListRagFiles to find the server-generated rag_file_id.
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:import \
+-d '{
+  "import_rag_files_config": {
+    "google_drive_source": {
+      "resource_ids": {
+        "resource_id": "FOLDER_RESOURCE_ID",
+        "resource_type": "RESOURCE_TYPE_FOLDER"
       }
-    }'
-    
-    // Poll the operation status.
-    // The response contains the number of files imported.
-    OPERATION_ID: The operation ID you get from the response of the previous command.
-    poll_op_wait OPERATION_ID
+    },
+    "max_embedding_requests_per_min": EMBEDDING_MODEL_QPM_RATE
+  }
+}'
+
+// Poll the operation status.
+// The response contains the number of files imported.
+OPERATION_ID: The operation ID you get from the response of the previous command.
+poll_op_wait OPERATION_ID
+```
 
 ### List RAG files example
 
@@ -2038,15 +1237,17 @@ This code sample demonstrates how to list RAG files.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region to process the request.
-  - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
-  - PAGE\_SIZE : The standard list page size. You may adjust the number of `RagFiles` to return per page by updating the `page_size` parameter.
-  - PAGE\_TOKEN : The standard list page token. Obtained typically using `ListRagFilesResponse.next_page_token` of the previous `VertexRagDataService.ListRagFiles` call.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
+- ` PAGE_SIZE ` : The standard list page size. You may adjust the number of `RagFiles` to return per page by updating the `page_size` parameter.
+- ` PAGE_TOKEN ` : The standard list page token. Obtained typically using `ListRagFilesResponse.next_page_token` of the previous `VertexRagDataService.ListRagFiles` call.
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles?page_size=PAGE_SIZE&page_token=PAGE_TOKEN
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles?page_size=PAGE_SIZE&page_token=PAGE_TOKEN
+```
 
 To send your request, choose one of these options:
 
@@ -2056,9 +1257,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles?page_size=PAGE_SIZE&page_token=PAGE_TOKEN"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles?page_size=PAGE_SIZE&page_token=PAGE_TOKEN"
+```
 
 #### PowerShell
 
@@ -2066,13 +1269,15 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles?page_size=PAGE_SIZE&page_token=PAGE_TOKEN" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles?page_size=PAGE_SIZE&page_token=PAGE_TOKEN" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx) along with a list of `RagFiles` under the given `RAG_CORPUS_ID` .
 
@@ -2084,14 +1289,16 @@ This code sample demonstrates how to get a RAG file.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region to process the request.
-  - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
-  - RAG\_FILE\_ID : The ID of the `RagFile` resource.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
+- ` RAG_FILE_ID ` : The ID of the `RagFile` resource.
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID
+```
 
 To send your request, choose one of these options:
 
@@ -2101,9 +1308,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID"
+```
 
 #### PowerShell
 
@@ -2111,13 +1320,15 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID" | Select-Object -Expand Content
+```
 
 A successful response returns the `RagFile` resource.
 
@@ -2129,14 +1340,16 @@ This code sample demonstrates how to delete a RAG file.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region to process the request.
-  - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
-  - RAG\_FILE\_ID : The ID of the `RagFile` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}/ragFiles/{rag_file_id}` .
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
+- ` RAG_FILE_ID ` : The ID of the `RagFile` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}/ragFiles/{rag_file_id}` .
 
 HTTP method and URL:
 
-    DELETE https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID
+```
+DELETE https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID
+```
 
 To send your request, choose one of these options:
 
@@ -2146,9 +1359,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X DELETE \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID"
+```
+curl -X DELETE \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID"
+```
 
 #### PowerShell
 
@@ -2156,13 +1371,15 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method DELETE `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method DELETE `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID" | Select-Object -Expand Content
+```
 
 A successful response returns the `DeleteOperationMetadata` resource.
 
@@ -2174,43 +1391,47 @@ This code sample demonstrates how to batch create metadata for a RAG file.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region to process the request.
-  - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
-  - RAG\_FILE\_ID : The ID of the `RagFile` resource.
-  - METADATA\_KEY\_1 : The key for the first metadata entry.
-  - VALUE\_TYPE\_1 : The value type field for the first metadata entry (e.g., `int_value` ).
-  - METADATA\_VALUE\_1 : The value for the first metadata entry.
-  - METADATA\_KEY\_2 : The key for the second metadata entry.
-  - VALUE\_TYPE\_2 : The value type field for the second metadata entry (e.g., `str_value` ).
-  - METADATA\_VALUE\_2 : The value for the second metadata entry.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
+- ` RAG_FILE_ID ` : The ID of the `RagFile` resource.
+- ` METADATA_KEY_1 ` : The key for the first metadata entry.
+- ` VALUE_TYPE_1 ` : The value type field for the first metadata entry (e.g., `int_value` ).
+- ` METADATA_VALUE_1 ` : The value for the first metadata entry.
+- ` METADATA_KEY_2 ` : The key for the second metadata entry.
+- ` VALUE_TYPE_2 ` : The value type field for the second metadata entry (e.g., `str_value` ).
+- ` METADATA_VALUE_2 ` : The value for the second metadata entry.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata:batchCreate
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata:batchCreate
+```
 
 Request JSON body:
 
+```
+{
+  "requests": [
     {
-      "requests": [
-        {
-          "rag_metadata": {
-            "user_specified_metadata": {
-              "key": "METADATA_KEY_1",
-              "value": { "VALUE_TYPE_1": METADATA_VALUE_1 }
-            }
-          }
-        },
-        {
-          "rag_metadata": {
-            "user_specified_metadata": {
-              "key": "METADATA_KEY_2",
-              "value": { "VALUE_TYPE_2": "METADATA_VALUE_2" }
-            }
-          }
+      "rag_metadata": {
+        "user_specified_metadata": {
+          "key": "METADATA_KEY_1",
+          "value": { "VALUE_TYPE_1": METADATA_VALUE_1 }
         }
-      ]
+      }
+    },
+    {
+      "rag_metadata": {
+        "user_specified_metadata": {
+          "key": "METADATA_KEY_2",
+          "value": { "VALUE_TYPE_2": "METADATA_VALUE_2" }
+        }
+      }
     }
+  ]
+}
+```
 
 To send your request, choose one of these options:
 
@@ -2220,11 +1441,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata:batchCreate"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata:batchCreate"
+```
 
 #### PowerShell
 
@@ -2232,15 +1455,17 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata:batchCreate" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata:batchCreate" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx).
 
@@ -2252,14 +1477,16 @@ This code sample demonstrates how to list metadata for a RAG file.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region to process the request.
-  - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
-  - RAG\_FILE\_ID : The ID of the `RagFile` resource.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
+- ` RAG_FILE_ID ` : The ID of the `RagFile` resource.
 
 HTTP method and URL:
 
-    GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata
+```
+GET https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata
+```
 
 To send your request, choose one of these options:
 
@@ -2269,9 +1496,11 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X GET \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata"
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata"
+```
 
 #### PowerShell
 
@@ -2279,13 +1508,15 @@ Execute the following command:
 
 Execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method GET `
-        -Headers $headers `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata" | Select-Object -Expand Content
+```
 
 A successful response returns a list of `RagMetadata` resources.
 
@@ -2297,27 +1528,31 @@ This code sample demonstrates how to update metadata for a RAG file.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region to process the request.
-  - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
-  - RAG\_FILE\_ID : The ID of the `RagFile` resource.
-  - METADATA\_ID : The ID of the metadata entry to update.
-  - METADATA\_KEY : The key for the metadata entry.
-  - VALUE\_TYPE : The value type field (e.g., `int_value` ).
-  - METADATA\_VALUE : The new value for the metadata entry.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
+- ` RAG_FILE_ID ` : The ID of the `RagFile` resource.
+- ` METADATA_ID ` : The ID of the metadata entry to update.
+- ` METADATA_KEY ` : The key for the metadata entry.
+- ` VALUE_TYPE ` : The value type field (e.g., `int_value` ).
+- ` METADATA_VALUE ` : The new value for the metadata entry.
 
 HTTP method and URL:
 
-    PATCH https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata/METADATA_ID
+```
+PATCH https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata/METADATA_ID
+```
 
 Request JSON body:
 
-    {
-      "user_specified_metadata": {
-        "key": "METADATA_KEY",
-        "value": { "VALUE_TYPE": METADATA_VALUE }
-      }
-    }
+```
+{
+  "user_specified_metadata": {
+    "key": "METADATA_KEY",
+    "value": { "VALUE_TYPE": METADATA_VALUE }
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -2327,11 +1562,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X PATCH \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata/METADATA_ID"
+```
+curl -X PATCH \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata/METADATA_ID"
+```
 
 #### PowerShell
 
@@ -2339,15 +1576,17 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method PATCH `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata/METADATA_ID" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method PATCH `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata/METADATA_ID" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx).
 
@@ -2359,25 +1598,29 @@ This code sample demonstrates how to batch delete metadata entries for a RAG fil
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region to process the request.
-  - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
-  - RAG\_FILE\_ID : The ID of the `RagFile` resource.
-  - METADATA\_ID\_1 : The ID of the first metadata entry to delete.
-  - METADATA\_ID\_2 : The ID of the second metadata entry to delete.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region to process the request.
+- ` RAG_CORPUS_ID ` : The ID of the `RagCorpus` resource.
+- ` RAG_FILE_ID ` : The ID of the `RagFile` resource.
+- ` METADATA_ID_1 ` : The ID of the first metadata entry to delete.
+- ` METADATA_ID_2 ` : The ID of the second metadata entry to delete.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata:batchDelete
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata:batchDelete
+```
 
 Request JSON body:
 
-    {
-      "names": [
-        "projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata/METADATA_ID_1",
-        "projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata/METADATA_ID_2"
-      ]
-    }
+```
+{
+  "names": [
+    "projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata/METADATA_ID_1",
+    "projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata/METADATA_ID_2"
+  ]
+}
+```
 
 To send your request, choose one of these options:
 
@@ -2387,11 +1630,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata:batchDelete"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata:batchDelete"
+```
 
 #### PowerShell
 
@@ -2399,15 +1644,17 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata:batchDelete" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles/RAG_FILE_ID/ragMetadata:batchDelete" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx).
 
@@ -2419,39 +1666,43 @@ When a user asks a question or provides a prompt, the retrieval component in RAG
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region to process the request.
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - RAG\_CORPUS\_RESOURCE : The name of the `RagCorpus` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .
-  - TOP\_K : The number of top contexts to retrieve.
-  - VECTOR\_DISTANCE\_THRESHOLD : Only contexts with a vector distance smaller than the threshold are returned.
-  - METADATA\_FILTER : Optional: The metadata filter to apply during retrieval.
-  - TEXT : The query text to get relevant contexts.
+- ` LOCATION ` : The region to process the request.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` RAG_CORPUS_RESOURCE ` : The name of the `RagCorpus` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .
+- ` TOP_K ` : The number of top contexts to retrieve.
+- ` VECTOR_DISTANCE_THRESHOLD ` : Only contexts with a vector distance smaller than the threshold are returned.
+- ` METADATA_FILTER ` : Optional: The metadata filter to apply during retrieval.
+- ` TEXT ` : The query text to get relevant contexts.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION:retrieveContexts
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION:retrieveContexts
+```
 
 Request JSON body:
 
-    {
-      "vertex_rag_store": {
-        "rag_resources": [
-          {
-            "rag_corpus": "RAG_CORPUS_RESOURCE"
-          }
-        ]
-      },
-      "query": {
-        "text": "TEXT",
-        "rag_retrieval_config": {
-          "top_k": TOP_K,
-          "filter": {
-            "vector_distance_threshold": VECTOR_DISTANCE_THRESHOLD,
-            "metadata_filter": "METADATA_FILTER"
-          }
-        }
+```
+{
+  "vertex_rag_store": {
+    "rag_resources": [
+      {
+        "rag_corpus": "RAG_CORPUS_RESOURCE"
+      }
+    ]
+  },
+  "query": {
+    "text": "TEXT",
+    "rag_retrieval_config": {
+      "top_k": TOP_K,
+      "filter": {
+        "vector_distance_threshold": VECTOR_DISTANCE_THRESHOLD,
+        "metadata_filter": "METADATA_FILTER"
       }
     }
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -2461,11 +1712,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION:retrieveContexts"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION:retrieveContexts"
+```
 
 #### PowerShell
 
@@ -2473,15 +1726,17 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION:retrieveContexts" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION:retrieveContexts" | Select-Object -Expand Content
+```
 
 You should receive a successful status code (2xx) and a list of related `RagFiles` .
 
@@ -2493,49 +1748,53 @@ The LLM generates a grounded response using the retrieved contexts.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
-  - LOCATION : The region to process the request.
-  - MODEL\_ID : LLM model for content generation. Example: `gemini-3.5-flash`
-  - GENERATION\_METHOD : LLM method for content generation. Options: `generateContent` , `streamGenerateContent`
-  - INPUT\_PROMPT : The text sent to the LLM for content generation. Try to use a prompt relevant to the uploaded rag Files.
-  - RAG\_CORPUS\_RESOURCE : The name of the `RagCorpus` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .
-  - TOP\_K : Optional: The number of top contexts to retrieve.
-  - VECTOR\_DISTANCE\_THRESHOLD : Optional: Contexts with a vector distance smaller than the threshold are returned.
-  - METADATA\_FILTER : Optional: The metadata filter to apply during retrieval.
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- ` LOCATION ` : The region to process the request.
+- ` MODEL_ID ` : LLM model for content generation. Example: `gemini-3.5-flash`
+- ` GENERATION_METHOD ` : LLM method for content generation. Options: `generateContent` , `streamGenerateContent`
+- ` INPUT_PROMPT ` : The text sent to the LLM for content generation. Try to use a prompt relevant to the uploaded rag Files.
+- ` RAG_CORPUS_RESOURCE ` : The name of the `RagCorpus` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .
+- ` TOP_K ` : Optional: The number of top contexts to retrieve.
+- ` VECTOR_DISTANCE_THRESHOLD ` : Optional: Contexts with a vector distance smaller than the threshold are returned.
+- ` METADATA_FILTER ` : Optional: The metadata filter to apply during retrieval.
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATION_METHOD
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATION_METHOD
+```
 
 Request JSON body:
 
-    {
-      "contents": {
-        "role": "user",
-        "parts": {
-          "text": "INPUT_PROMPT"
-        }
-      },
-      "tools": {
-        "retrieval": {
-          "disable_attribution": false,
-          "vertex_rag_store": {
-            "rag_resources": [
-              {
-                "rag_corpus": "RAG_CORPUS_RESOURCE"
-              }
-            ],
-            "rag_retrieval_config": {
-              "top_k": TOP_K,
-              "filter": {
-                "vector_distance_threshold": VECTOR_DISTANCE_THRESHOLD,
-                "metadata_filter": "METADATA_FILTER"
-              }
-            }
+```
+{
+  "contents": {
+    "role": "user",
+    "parts": {
+      "text": "INPUT_PROMPT"
+    }
+  },
+  "tools": {
+    "retrieval": {
+      "disable_attribution": false,
+      "vertex_rag_store": {
+        "rag_resources": [
+          {
+            "rag_corpus": "RAG_CORPUS_RESOURCE"
+          }
+        ],
+        "rag_retrieval_config": {
+          "top_k": TOP_K,
+          "filter": {
+            "vector_distance_threshold": VECTOR_DISTANCE_THRESHOLD,
+            "metadata_filter": "METADATA_FILTER"
           }
         }
       }
     }
+  }
+}
+```
 
 To send your request, choose one of these options:
 
@@ -2545,11 +1804,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATION_METHOD"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATION_METHOD"
+```
 
 #### PowerShell
 
@@ -2557,15 +1818,17 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATION_METHOD" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATION_METHOD" | Select-Object -Expand Content
+```
 
 A successful response returns the generated content with citations.
 
@@ -2588,30 +1851,36 @@ The following code samples demonstrate how to read your `RagEngineConfig` to see
 
 ### REST
 
-    PROJECT_ID: Your project ID.
-    LOCATION: The region to process the request.
+```
+PROJECT_ID: Your project ID.
+LOCATION: The region to process the request.
+```
 
-    curl -X GET \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig
+```
+curl -X GET \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig
+```
 
 ### Python
 
-    from vertexai.preview import rag
-    import vertexai
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    
-    # Initialize API once per session
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    rag_engine_config = rag.rag_data.get_rag_engine_config(
-        name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
-    )
-    
-    print(rag_engine_config)
+```
+from vertexai.preview import rag
+import vertexai
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+
+# Initialize API once per session
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+rag_engine_config = rag.rag_data.get_rag_engine_config(
+    name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
+)
+
+print(rag_engine_config)
+```
 
 ### Switch to Serverless mode
 
@@ -2625,37 +1894,43 @@ The following code samples demonstrate how to switch your `RagEngineConfig` to t
 
 ### REST
 
-    PROJECT_ID: Your project ID.
-    LOCATION: The region to process the request.
+```
+PROJECT_ID: Your project ID.
+LOCATION: The region to process the request.
+```
 
-    curl -X PATCH \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'serverless': {}}}"
+```
+curl -X PATCH \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'serverless': {}}}"
+```
 
 ### Python
 
-    from vertexai.preview import rag
-    import vertexai
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    
-    # Initialize API once per session
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
-    
-    new_rag_engine_config = rag.RagEngineConfig(
-        name=rag_engine_config_name,
-        rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Serverless()),
-    )
-    
-    updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
-        rag_engine_config=new_rag_engine_config
-    )
-    
-    print(updated_rag_engine_config)
+```
+from vertexai.preview import rag
+import vertexai
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+
+# Initialize API once per session
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
+
+new_rag_engine_config = rag.RagEngineConfig(
+    name=rag_engine_config_name,
+    rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Serverless()),
+)
+
+updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
+    rag_engine_config=new_rag_engine_config
+)
+
+print(updated_rag_engine_config)
+```
 
 ### Switch to Spanner mode
 
@@ -2669,37 +1944,43 @@ The following code samples demonstrate how to switch your `RagEngineConfig` to t
 
 ### REST
 
-    PROJECT_ID: Your project ID.
-    LOCATION: The region to process the request.
+```
+PROJECT_ID: Your project ID.
+LOCATION: The region to process the request.
+```
 
-    curl -X PATCH \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'spanner': {}}}"
+```
+curl -X PATCH \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'spanner': {}}}"
+```
 
 ### Python
 
-    from vertexai.preview import rag
-    import vertexai
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    
-    # Initialize API once per session
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
-    
-    new_rag_engine_config = rag.RagEngineConfig(
-        name=rag_engine_config_name,
-        rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Spanner()),
-    )
-    
-    updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
-        rag_engine_config=new_rag_engine_config
-    )
-    
-    print(updated_rag_engine_config)
+```
+from vertexai.preview import rag
+import vertexai
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+
+# Initialize API once per session
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
+
+new_rag_engine_config = rag.RagEngineConfig(
+    name=rag_engine_config_name,
+    rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Spanner()),
+)
+
+updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
+    rag_engine_config=new_rag_engine_config
+)
+
+print(updated_rag_engine_config)
+```
 
 ### Update your `RagEngineConfig` to Spanner mode Scaled tier
 
@@ -2716,37 +1997,43 @@ The following code samples demonstrate how to set the `RagEngineConfig` to the S
 
 ### REST
 
-    PROJECT_ID: Your project ID.
-    LOCATION: The region to process the request.
+```
+PROJECT_ID: Your project ID.
+LOCATION: The region to process the request.
+```
 
-    curl -X PATCH \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'spanner': {'scaled': {}}}}"
+```
+curl -X PATCH \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'spanner': {'scaled': {}}}}"
+```
 
 ### Python
 
-    from vertexai.preview import rag
-    import vertexai
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    
-    # Initialize API once per session
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
-    
-    new_rag_engine_config = rag.RagEngineConfig(
-        name=rag_engine_config_name,
-        rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Spanner(tier=rag.Scaled())),
-    )
-    
-    updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
-        rag_engine_config=new_rag_engine_config
-    )
-    
-    print(updated_rag_engine_config)
+```
+from vertexai.preview import rag
+import vertexai
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+
+# Initialize API once per session
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
+
+new_rag_engine_config = rag.RagEngineConfig(
+    name=rag_engine_config_name,
+    rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Spanner(tier=rag.Scaled())),
+)
+
+updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
+    rag_engine_config=new_rag_engine_config
+)
+
+print(updated_rag_engine_config)
+```
 
 ### Update your `RagEngineConfig` to Spanner mode with Basic tier
 
@@ -2763,37 +2050,43 @@ The following code samples demonstrate how to set the `RagEngineConfig` to the S
 
 ### REST
 
-    PROJECT_ID: Your project ID.
-    LOCATION: The region to process the request.
+```
+PROJECT_ID: Your project ID.
+LOCATION: The region to process the request.
+```
 
-    curl -X PATCH \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'spanner': {'basic': {}}}}"
+```
+curl -X PATCH \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'spanner': {'basic': {}}}}"
+```
 
 ### Python
 
-    from vertexai.preview import rag
-    import vertexai
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    
-    # Initialize API once per session
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
-    
-    new_rag_engine_config = rag.RagEngineConfig(
-        name=rag_engine_config_name,
-        rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Spanner(tier=rag.Basic())),
-    )
-    
-    updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
-        rag_engine_config=new_rag_engine_config
-    )
-    
-    print(updated_rag_engine_config)
+```
+from vertexai.preview import rag
+import vertexai
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+
+# Initialize API once per session
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
+
+new_rag_engine_config = rag.RagEngineConfig(
+    name=rag_engine_config_name,
+    rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Spanner(tier=rag.Basic())),
+)
+
+updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
+    rag_engine_config=new_rag_engine_config
+)
+
+print(updated_rag_engine_config)
+```
 
 ### Update your `RagEngineConfig` to Unprovisioned tier
 
@@ -2810,41 +2103,47 @@ The following code samples demonstrate how to set the `RagEngineConfig` to the S
 
 ### REST
 
-    PROJECT_ID: Your project ID.
-    LOCATION: The region to process the request.
+```
+PROJECT_ID: Your project ID.
+LOCATION: The region to process the request.
+```
 
-    curl -X PATCH \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'spanner': {'unprovisioned': {}}}}"
+```
+curl -X PATCH \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragEngineConfig -d "{'ragManagedDbConfig': {'spanner': {'unprovisioned': {}}}}"
+```
 
 ### Python
 
-    from vertexai.preview import rag
-    import vertexai
-    
-    PROJECT_ID = YOUR_PROJECT_ID
-    LOCATION = YOUR_RAG_ENGINE_LOCATION
-    
-    # Initialize API once per session
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
-    
-    new_rag_engine_config = rag.RagEngineConfig(
-        name=rag_engine_config_name,
-        rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Spanner(tier=rag.Unprovisioned())),
-    )
-    
-    updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
-        rag_engine_config=new_rag_engine_config
-    )
-    
-    print(updated_rag_engine_config)
+```
+from vertexai.preview import rag
+import vertexai
+
+PROJECT_ID = YOUR_PROJECT_ID
+LOCATION = YOUR_RAG_ENGINE_LOCATION
+
+# Initialize API once per session
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
+
+new_rag_engine_config = rag.RagEngineConfig(
+    name=rag_engine_config_name,
+    rag_managed_db_config=rag.RagManagedDbConfig(mode=rag.Spanner(tier=rag.Unprovisioned())),
+)
+
+updated_rag_engine_config = rag.rag_data.update_rag_engine_config(
+    rag_engine_config=new_rag_engine_config
+)
+
+print(updated_rag_engine_config)
+```
 
 ## What's next
 
-  - To learn more about supported generation models, see [Generative AI models that support RAG](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/supported-rag-models) .
-  - To learn more about supported embedding models, see [Embedding models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models#supported-embedding-models) .
-  - To learn more about open models, see [Open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models#use-oss-embedding-models) .
-  - To learn more about RAG Engine, see [RAG Engine overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .
+- To learn more about supported generation models, see [Generative AI models that support RAG](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/supported-rag-models) .
+- To learn more about supported embedding models, see [Embedding models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models#supported-embedding-models) .
+- To learn more about open models, see [Open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models#use-oss-embedding-models) .
+- To learn more about RAG Engine, see [RAG Engine overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .

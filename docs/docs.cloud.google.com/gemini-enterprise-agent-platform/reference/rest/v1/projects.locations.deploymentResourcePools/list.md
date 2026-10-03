@@ -46,7 +46,7 @@ If successful, the response body contains data with the following structure:
 
 Fields
 
-`deploymentResourcePools[]` ` object ( DeploymentResourcePool  ` )
+`deploymentResourcePools[]` `object ( `[`DeploymentResourcePool`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.deploymentResourcePools#DeploymentResourcePool)` )`
 
 The DeploymentResourcePools from the specified location.
 
@@ -54,18 +54,15 @@ The DeploymentResourcePools from the specified location.
 
 A token, which can be sent as `pageToken` to retrieve the next page. If this field is omitted, there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;deploymentResourcePools&quot;: [{object (DeploymentResourcePool)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "deploymentResourcePools": [
+    {
+      object (DeploymentResourcePool)
+    }
+  ],
+  "nextPageToken": string
+}
+```

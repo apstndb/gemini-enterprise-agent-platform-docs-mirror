@@ -7,7 +7,7 @@ data_source: docs.cloud.google.com
 ---
 
 > **Preview**
-> 
+>
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 This guide shows you how to serve a Gemma open models large language model (LLM) using [Tensor Processing Units (TPUs)](https://docs.cloud.google.com/tpu/docs/intro-to-tpu) on Gemini Enterprise Agent Platform with Saxml. In this guide, you download the 2B and 7B parameter instruction tuned Gemma models to Cloud Storage and deploy them on Gemini Enterprise Agent Platform that runs Saxml on TPUs.
@@ -32,13 +32,13 @@ TPUs are Google's custom-developed application-specific integrated circuits (ASI
 
 This tutorial serves the Gemma 2B and Gemma 7B models. Gemini Enterprise Agent Platform hosts these models on the following single-host TPU v5e node pools:
 
-  - **Gemma 2B** : Hosted in a TPU v5e node pool with `1x1` topology that represents one TPU chip. The machine type for the nodes is `ct5lp-hightpu-1t` .
-  - **Gemma 7B** : Hosted in a TPU v5e node pool with `2x2` topology that represents four TPU chips. The machine type for the nodes is `ct5lp-hightpu-4t` .
+- **Gemma 2B** : Hosted in a TPU v5e node pool with `1x1` topology that represents one TPU chip. The machine type for the nodes is `ct5lp-hightpu-1t` .
+- **Gemma 7B** : Hosted in a TPU v5e node pool with `2x2` topology that represents four TPU chips. The machine type for the nodes is `ct5lp-hightpu-4t` .
 
 ## Before you begin
 
 1.  In the Google Cloud console, activate Cloud Shell.
-    
+
     At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) session starts and displays a command-line prompt. Cloud Shell is a shell environment with the Google Cloud CLI already installed and with values already set for your current project. It can take a few seconds for the session to initialize.
 
 This tutorial assumes that you are using [Cloud Shell](https://docs.cloud.google.com/shell/docs) to interact with Google Cloud. If you want to use a different shell instead of Cloud Shell, then perform the following additional configuration:
@@ -48,8 +48,10 @@ This tutorial assumes that you are using [Cloud Shell](https://docs.cloud.google
 2.  If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
 
 3.  To [initialize](https://docs.cloud.google.com/sdk/docs/initializing) the gcloud CLI, run the following command:
-    
-        gcloud init
+
+    ```
+    gcloud init
+    ```
 
 4.  Make sure that you have sufficient quota for TPU v5e chips for [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-tpu#ensure-quota) . By default, this quota is 0. For a `1x1` topology, it must be 1. For `2x2` , it must be 4. To run both topologies, it must be 5.
 
@@ -80,14 +82,14 @@ Follow these steps to generate a new token if you don't have one already:
 1.  In your browser, go to [Kaggle settings](https://www.kaggle.com/settings) .
 
 2.  Under the **API** section, click **Create New Token** .
-    
+
     A file named `kaggle.json` is downloaded.
 
 ### Upload the access token to Cloud Shell
 
 In Cloud Shell, you can upload the Kaggle API token to your Google Cloud project:
 
-1.  In Cloud Shell, click more\_vert **More** \> **Upload** .
+1.  In Cloud Shell, click more_vert **More** \> **Upload** .
 2.  Select File and click **Choose Files** .
 3.  Open the `kaggle.json` file.
 4.  Click **Upload** .
@@ -98,25 +100,29 @@ Create Cloud Storage bucket to store the model checkpoints.
 
 In Cloud Shell, run the following:
 
-    gcloud storage buckets create gs://CHECKPOINTS_BUCKET_NAME
+```
+gcloud storage buckets create gs://CHECKPOINTS_BUCKET_NAME
+```
 
-Replace the CHECKPOINTS\_BUCKET\_NAME with the name of the Cloud Storage bucket that stores the model checkpoints.
+Replace the ` CHECKPOINTS_BUCKET_NAME ` with the name of the Cloud Storage bucket that stores the model checkpoints.
 
 ### Copy model to Cloud Storage bucket
 
 In Cloud Shell, run the following:
 
-    pip install kaggle --break-system-packages
-    
-    # For Gemma 2B
-    mkdir -p /data/gemma_2b-it
-    kaggle models instances versions download google/gemma/pax/2b-it/1 --untar -p /data/gemma_2b-it
-    gcloud storage cp /data/gemma_2b-it/* gs://CHECKPOINTS_BUCKET_NAME/gemma_2b-it/ --recursive
-    
-    # For Gemma 7B
-    mkdir -p /data/gemma_7b-it
-    kaggle models instances versions download google/gemma/pax/7b-it/1 --untar -p /data/gemma_7b-it
-    gcloud storage cp /data/gemma_7b-it/* gs://CHECKPOINTS_BUCKET_NAME/gemma_7b-it/ --recursive
+```
+pip install kaggle --break-system-packages
+
+# For Gemma 2B
+mkdir -p /data/gemma_2b-it
+kaggle models instances versions download google/gemma/pax/2b-it/1 --untar -p /data/gemma_2b-it
+gcloud storage cp /data/gemma_2b-it/* gs://CHECKPOINTS_BUCKET_NAME/gemma_2b-it/ --recursive
+
+# For Gemma 7B
+mkdir -p /data/gemma_7b-it
+kaggle models instances versions download google/gemma/pax/7b-it/1 --untar -p /data/gemma_7b-it
+gcloud storage cp /data/gemma_7b-it/* gs://CHECKPOINTS_BUCKET_NAME/gemma_7b-it/ --recursive
+```
 
 ## Deploying the model
 
@@ -126,48 +132,54 @@ To upload a `Model` resource that uses your Saxml container, run the following [
 
 ### Gemma 2B-it
 
-    gcloud ai models upload \
-      --region=LOCATION \
-      --display-name=DEPLOYED_MODEL_NAME \
-      --container-image-uri=us-docker.pkg.dev/vertex-ai/prediction/sax-tpu:latest \
-      --artifact-uri='gs://CHECKPOINTS_BUCKET_NAME/gemma_2b-it/' \
-      --container-args='--model_path=saxml.server.pax.lm.params.gemma.Gemma2BFP16' \
-      --container-args='--platform_chip=tpuv5e' \
-      --container-args='--platform_topology=2x2' \
-      --container-args='--ckpt_path_suffix=checkpoint_00000000' \
-      --container-ports=8502
+```
+gcloud ai models upload \
+  --region=LOCATION \
+  --display-name=DEPLOYED_MODEL_NAME \
+  --container-image-uri=us-docker.pkg.dev/vertex-ai/prediction/sax-tpu:latest \
+  --artifact-uri='gs://CHECKPOINTS_BUCKET_NAME/gemma_2b-it/' \
+  --container-args='--model_path=saxml.server.pax.lm.params.gemma.Gemma2BFP16' \
+  --container-args='--platform_chip=tpuv5e' \
+  --container-args='--platform_topology=2x2' \
+  --container-args='--ckpt_path_suffix=checkpoint_00000000' \
+  --container-ports=8502
+```
 
 ### Gemma 7B-it
 
-    gcloud ai models upload \
-      --region=LOCATION \
-      --display-name=DEPLOYED_MODEL_NAME \
-      --container-image-uri=us-docker.pkg.dev/vertex-ai/prediction/sax-tpu:latest \
-      --artifact-uri='gs://CHECKPOINTS_BUCKET_NAME/gemma_7b-it/' \
-      --container-args='--model_path=saxml.server.pax.lm.params.gemma.Gemma7BFP16' \
-      --container-args='--platform_chip=tpuv5e' \
-      --container-args='--platform_topology=2x2' \
-      --container-args='--ckpt_path_suffix=checkpoint_00000000' \
-      --container-ports=8502
+```
+gcloud ai models upload \
+  --region=LOCATION \
+  --display-name=DEPLOYED_MODEL_NAME \
+  --container-image-uri=us-docker.pkg.dev/vertex-ai/prediction/sax-tpu:latest \
+  --artifact-uri='gs://CHECKPOINTS_BUCKET_NAME/gemma_7b-it/' \
+  --container-args='--model_path=saxml.server.pax.lm.params.gemma.Gemma7BFP16' \
+  --container-args='--platform_chip=tpuv5e' \
+  --container-args='--platform_topology=2x2' \
+  --container-args='--ckpt_path_suffix=checkpoint_00000000' \
+  --container-ports=8502
+```
 
 Replace the following:
 
-  - PROJECT\_ID : the ID of your [Google Cloud project](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
-  - LOCATION\_ID : The region where you are using Agent Platform. Note that TPUs are only available in us-west1.
-  - DEPLOYED\_MODEL\_NAME : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
+- ` PROJECT_ID ` : the ID of your [Google Cloud project](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
+- ` LOCATION_ID ` : The region where you are using Agent Platform. Note that TPUs are only available in us-west1.
+- ` DEPLOYED_MODEL_NAME ` : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
 
 ### Create an endpoint
 
 You must deploy the model to an endpoint before the model can be used to serve online inferences. If you are deploying a model to an existing endpoint, you can skip this step. The following example uses the [`gcloud ai endpoints create` command](https://docs.cloud.google.com/sdk/gcloud/reference/ai/endpoints/create) :
 
-    gcloud ai endpoints create \
-      --region=LOCATION \
-      --display-name=ENDPOINT_NAME
+```
+gcloud ai endpoints create \
+  --region=LOCATION \
+  --display-name=ENDPOINT_NAME
+```
 
 Replace the following:
 
-  - LOCATION\_ID : The region where you are using Agent Platform.
-  - ENDPOINT\_NAME : The display name for the endpoint.
+- ` LOCATION_ID ` : The region where you are using Agent Platform.
+- ` ENDPOINT_NAME ` : The display name for the endpoint.
 
 The Google Cloud CLI tool might take a few seconds to create the endpoint.
 
@@ -175,34 +187,36 @@ The Google Cloud CLI tool might take a few seconds to create the endpoint.
 
 After the endpoint is ready, deploy the model to the endpoint.
 
-    ENDPOINT_ID=$(gcloud ai endpoints list \
-       --region=LOCATION \
-       --filter=display_name=ENDPOINT_NAME \
-       --format="value(name)")
-    
-    MODEL_ID=$(gcloud ai models list \
-       --region=LOCATION \
-       --filter=display_name=DEPLOYED_MODEL_NAME \
-       --format="value(name)")
-    
-    gcloud ai endpoints deploy-model $ENDPOINT_ID \
-      --region=LOCATION \
-      --model=$MODEL_ID \
-      --display-name=DEPLOYED_MODEL_NAME \
-      --machine-type=ct5lp-hightpu-4t \
-      --traffic-split=0=100
+```
+ENDPOINT_ID=$(gcloud ai endpoints list \
+   --region=LOCATION \
+   --filter=display_name=ENDPOINT_NAME \
+   --format="value(name)")
+
+MODEL_ID=$(gcloud ai models list \
+   --region=LOCATION \
+   --filter=display_name=DEPLOYED_MODEL_NAME \
+   --format="value(name)")
+
+gcloud ai endpoints deploy-model $ENDPOINT_ID \
+  --region=LOCATION \
+  --model=$MODEL_ID \
+  --display-name=DEPLOYED_MODEL_NAME \
+  --machine-type=ct5lp-hightpu-4t \
+  --traffic-split=0=100
+```
 
 Replace the following:
 
-  - LOCATION\_ID : The region where you are using Agent Platform.
-  - ENDPOINT\_NAME : The display name for the endpoint.
-  - DEPLOYED\_MODEL\_NAME : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
+- ` LOCATION_ID ` : The region where you are using Agent Platform.
+- ` ENDPOINT_NAME ` : The display name for the endpoint.
+- ` DEPLOYED_MODEL_NAME ` : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
 
 `Gemma 2B` can be deployed on a smaller ct5lp-hightpu-1t machine, in such case you should specify `--platform_topology=1x1` when uploading model.
 
 The Google Cloud CLI tool might take a few minutes to deploy the model to the endpoint. When the model is successfully deployed, this command prints the following output:
 
-``` 
+```
   Deployed a model to the endpoint xxxxx. Id of the deployed model: xxxxx.
 ```
 
@@ -212,64 +226,70 @@ To invoke the model through the Gemini Enterprise Agent Platform endpoint, forma
 
 The following example uses the [`gcloud ai endpoints predict` command](https://docs.cloud.google.com/sdk/gcloud/reference/ai/endpoints/predict) :
 
-    ENDPOINT_ID=$(gcloud ai endpoints list \
-       --region=LOCATION \
-       --filter=display_name=ENDPOINT_NAME \
-       --format="value(name)")
-    
-    gcloud ai endpoints predict $ENDPOINT_ID \
-      --region=LOCATION \
-      --http-headers=Content-Type=application/json \
-      --json-request instances.json
+```
+ENDPOINT_ID=$(gcloud ai endpoints list \
+   --region=LOCATION \
+   --filter=display_name=ENDPOINT_NAME \
+   --format="value(name)")
+
+gcloud ai endpoints predict $ENDPOINT_ID \
+  --region=LOCATION \
+  --http-headers=Content-Type=application/json \
+  --json-request instances.json
+```
 
 Replace the following:
 
-  - LOCATION\_ID : The region where you are using Agent Platform.
-  - ENDPOINT\_NAME : The display name for the endpoint.
-  - instances.json has following format: `{"instances": [{"text_batch": "<your prompt>"},{...}]}`
+- ` LOCATION_ID ` : The region where you are using Agent Platform.
+- ` ENDPOINT_NAME ` : The display name for the endpoint.
+- ` instances.json ` has following format: `{"instances": [{"text_batch": "<your prompt>"},{...}]}`
 
 ## Cleaning up
 
 To avoid incurring further [Gemini Enterprise Agent Platform charges](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) and [Artifact Registry charges](https://cloud.google.com/artifact-registry/pricing) , delete the Google Cloud resources that you created during this tutorial:
 
 1.  To undeploy model from endpoint and delete the endpoint, run the following command in your shell:
-    
-        ENDPOINT_ID=$(gcloud ai endpoints list \
-           --region=LOCATION \
-           --filter=display_name=ENDPOINT_NAME \
-           --format="value(name)")
-        
-        DEPLOYED_MODEL_ID=$(gcloud ai endpoints describe $ENDPOINT_ID \
-           --region=LOCATION \
-           --format="value(deployedModels.id)")
-        
-        gcloud ai endpoints undeploy-model $ENDPOINT_ID \
-          --region=LOCATION \
-          --deployed-model-id=$DEPLOYED_MODEL_ID
-        
-        gcloud ai endpoints delete $ENDPOINT_ID \
-           --region=LOCATION \
-           --quiet
-    
-    Replace LOCATION with the region where you created your model in a previous section.
+
+    ```
+    ENDPOINT_ID=$(gcloud ai endpoints list \
+       --region=LOCATION \
+       --filter=display_name=ENDPOINT_NAME \
+       --format="value(name)")
+
+    DEPLOYED_MODEL_ID=$(gcloud ai endpoints describe $ENDPOINT_ID \
+       --region=LOCATION \
+       --format="value(deployedModels.id)")
+
+    gcloud ai endpoints undeploy-model $ENDPOINT_ID \
+      --region=LOCATION \
+      --deployed-model-id=$DEPLOYED_MODEL_ID
+
+    gcloud ai endpoints delete $ENDPOINT_ID \
+       --region=LOCATION \
+       --quiet
+    ```
+
+    Replace ` LOCATION ` with the region where you created your model in a previous section.
 
 2.  To delete your model, run the following command in your shell:
-    
-        MODEL_ID=$(gcloud ai models list \
-           --region=LOCATION \
-           --filter=display_name=DEPLOYED_MODEL_NAME \
-           --format="value(name)")
-        
-        gcloud ai models delete $MODEL_ID \
-           --region=LOCATION \
-           --quiet
-    
-    Replace LOCATION with the region where you created your model in a previous section.
+
+    ```
+    MODEL_ID=$(gcloud ai models list \
+       --region=LOCATION \
+       --filter=display_name=DEPLOYED_MODEL_NAME \
+       --format="value(name)")
+
+    gcloud ai models delete $MODEL_ID \
+       --region=LOCATION \
+       --quiet
+    ```
+
+    Replace ` LOCATION ` with the region where you created your model in a previous section.
 
 ## Limitations
 
-  - On Gemini Enterprise Agent Platform Cloud TPUs are supported only in `us-west1` . For more information, see [locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#region_considerations) .
+- On Gemini Enterprise Agent Platform Cloud TPUs are supported only in `us-west1` . For more information, see [locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#region_considerations) .
 
 ## What's next
 
-  - Learn how to deploy other [Saxml models](https://github.com/google/saxml/tree/main/saxml/vertex) such as Llama2 and GPT-J.
+- Learn how to deploy other [Saxml models](https://github.com/google/saxml/tree/main/saxml/vertex) such as Llama2 and GPT-J.

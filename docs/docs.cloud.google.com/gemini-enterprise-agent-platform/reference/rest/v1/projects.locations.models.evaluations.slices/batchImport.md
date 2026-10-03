@@ -28,13 +28,13 @@ The request body contains data with the following structure:
 
 Fields
 
-`evaluatedAnnotations[]` ` object ( EvaluatedAnnotation  ` )
+`evaluatedAnnotations[]` `object ( `[`EvaluatedAnnotation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#EvaluatedAnnotation)` )`
 
 Required. Evaluated annotations resource to be imported.
 
 ### Response body
 
-Response message for `  ModelService.BatchImportEvaluatedAnnotations  `
+Response message for [`ModelService.BatchImportEvaluatedAnnotations`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#google.cloud.aiplatform.v1.ModelService.BatchImportEvaluatedAnnotations)
 
 If successful, the response body contains data with the following structure:
 
@@ -44,23 +44,13 @@ Fields
 
 Output only. Number of EvaluatedAnnotations imported.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;importedEvaluatedAnnotationsCount&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "importedEvaluatedAnnotationsCount": integer
+}
+```
 
 ## EvaluatedAnnotation
 
@@ -70,89 +60,88 @@ EvaluatedAnnotation is only available under ModelEvaluationSlice with slice of `
 
 Fields
 
-`type` ` enum ( EvaluatedAnnotationType  ` )
+`type` `enum ( `[`EvaluatedAnnotationType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#EvaluatedAnnotationType)` )`
 
 Output only. type of the EvaluatedAnnotation.
 
-`predictions[]` ` value ( Value  ` format)
+`predictions[]` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
 Output only. The model predicted annotations.
 
-For true positive, there is one and only one prediction, which matches the only one ground truth annotation in `  groundTruths  ` .
+For true positive, there is one and only one prediction, which matches the only one ground truth annotation in [`groundTruths`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#EvaluatedAnnotation.FIELDS.ground_truths) .
 
-For false positive, there is one and only one prediction, which doesn't match any ground truth annotation of the corresponding `  data_item_view_id  ` .
+For false positive, there is one and only one prediction, which doesn't match any ground truth annotation of the corresponding [`data_item_view_id`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#EvaluatedAnnotation.FIELDS.evaluated_data_item_view_id) .
 
-For false negative, there are zero or more predictions which are similar to the only ground truth annotation in `  groundTruths  ` but not enough for a match.
+For false negative, there are zero or more predictions which are similar to the only ground truth annotation in [`groundTruths`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#EvaluatedAnnotation.FIELDS.ground_truths) but not enough for a match.
 
-The schema of the prediction is stored in `  ModelEvaluation.annotation_schema_uri  `
+The schema of the prediction is stored in [`ModelEvaluation.annotation_schema_uri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations#ModelEvaluation.FIELDS.annotation_schema_uri)
 
-`groundTruths[]` ` value ( Value  ` format)
+`groundTruths[]` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
 Output only. The ground truth Annotations, i.e. the Annotations that exist in the test data the Model is evaluated on.
 
-For true positive, there is one and only one ground truth annotation, which matches the only prediction in `  predictions  ` .
+For true positive, there is one and only one ground truth annotation, which matches the only prediction in [`predictions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#EvaluatedAnnotation.FIELDS.predictions) .
 
-For false positive, there are zero or more ground truth annotations that are similar to the only prediction in `  predictions  ` , but not enough for a match.
+For false positive, there are zero or more ground truth annotations that are similar to the only prediction in [`predictions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#EvaluatedAnnotation.FIELDS.predictions) , but not enough for a match.
 
 For false negative, there is one and only one ground truth annotation, which doesn't match any predictions created by the model.
 
-The schema of the ground truth is stored in `  ModelEvaluation.annotation_schema_uri  `
+The schema of the ground truth is stored in [`ModelEvaluation.annotation_schema_uri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations#ModelEvaluation.FIELDS.annotation_schema_uri)
 
-`dataItemPayload` ` value ( Value  ` format)
+`dataItemPayload` `value ( `[`Value`](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)`
 
 Output only. The data item payload that the Model predicted this EvaluatedAnnotation on.
 
 `evaluatedDataItemViewId` `string`
 
-Output only. id of the EvaluatedDataItemView under the same ancestor ModelEvaluation. The EvaluatedDataItemView consists of all ground truths and predictions on `  dataItemPayload  ` .
+Output only. id of the EvaluatedDataItemView under the same ancestor ModelEvaluation. The EvaluatedDataItemView consists of all ground truths and predictions on [`dataItemPayload`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#EvaluatedAnnotation.FIELDS.data_item_payload) .
 
-`explanations[]` ` object ( EvaluatedAnnotationExplanation  ` )
+`explanations[]` `object ( `[`EvaluatedAnnotationExplanation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#EvaluatedAnnotationExplanation)` )`
 
-Explanations of `  predictions  ` . Each element of the explanations indicates the explanation for one explanation method.
+Explanations of [`predictions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#EvaluatedAnnotation.FIELDS.predictions) . Each element of the explanations indicates the explanation for one explanation method.
 
-The attributions list in the `  EvaluatedAnnotationExplanation.explanation  ` object corresponds to the `  predictions  ` list. For example, the second element in the attributions list explains the second element in the predictions list.
+The attributions list in the [`EvaluatedAnnotationExplanation.explanation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#EvaluatedAnnotationExplanation.FIELDS.explanation) object corresponds to the [`predictions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#EvaluatedAnnotation.FIELDS.predictions) list. For example, the second element in the attributions list explains the second element in the predictions list.
 
-`errorAnalysisAnnotations[]` ` object ( ErrorAnalysisAnnotation  ` )
+`errorAnalysisAnnotations[]` `object ( `[`ErrorAnalysisAnnotation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#ErrorAnalysisAnnotation)` )`
 
 Annotations of model error analysis results.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;type&quot;: enum (EvaluatedAnnotationType),&quot;predictions&quot;: [value],&quot;groundTruths&quot;: [value],&quot;dataItemPayload&quot;: value,&quot;evaluatedDataItemViewId&quot;: string,&quot;explanations&quot;: [{object (EvaluatedAnnotationExplanation)}],&quot;errorAnalysisAnnotations&quot;: [{object (ErrorAnalysisAnnotation)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "type": enum (EvaluatedAnnotationType),
+  "predictions": [
+    value
+  ],
+  "groundTruths": [
+    value
+  ],
+  "dataItemPayload": value,
+  "evaluatedDataItemViewId": string,
+  "explanations": [
+    {
+      object (EvaluatedAnnotationExplanation)
+    }
+  ],
+  "errorAnalysisAnnotations": [
+    {
+      object (ErrorAnalysisAnnotation)
+    }
+  ]
+}
+```
 
 ## EvaluatedAnnotationType
 
 Describes the type of the EvaluatedAnnotation. The type is determined
 
-Enums
-
-`EVALUATED_ANNOTATION_TYPE_UNSPECIFIED`
-
-Invalid value.
-
-`TRUE_POSITIVE`
-
-The EvaluatedAnnotation is a true positive. It has a prediction created by the Model and a ground truth Annotation which the prediction matches.
-
-`FALSE_POSITIVE`
-
-The EvaluatedAnnotation is false positive. It has a prediction created by the Model which does not match any ground truth annotation.
-
-`FALSE_NEGATIVE`
-
-The EvaluatedAnnotation is false negative. It has a ground truth annotation which is not matched by any of the model created predictions.
+| Enums                                   |                                                                                                                                                  |
+|-----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| `EVALUATED_ANNOTATION_TYPE_UNSPECIFIED` | Invalid value.                                                                                                                                   |
+| `TRUE_POSITIVE`                         | The EvaluatedAnnotation is a true positive. It has a prediction created by the Model and a ground truth Annotation which the prediction matches. |
+| `FALSE_POSITIVE`                        | The EvaluatedAnnotation is false positive. It has a prediction created by the Model which does not match any ground truth annotation.            |
+| `FALSE_NEGATIVE`                        | The EvaluatedAnnotation is false negative. It has a ground truth annotation which is not matched by any of the model created predictions.        |
 
 ## EvaluatedAnnotationExplanation
 
@@ -166,28 +155,23 @@ Explanation type.
 
 For AutoML Image Classification models, possible values are:
 
-  - `image-integrated-gradients`
-  - `image-xrai`
+- `image-integrated-gradients`
+- `image-xrai`
 
-`explanation` ` object ( Explanation  ` )
+`explanation` `object ( `[`Explanation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Explanation)` )`
 
 Explanation attribution response details.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;explanationType&quot;: string,&quot;explanation&quot;: {object (Explanation)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "explanationType": string,
+  "explanation": {
+    object (Explanation)
+  }
+}
+```
 
 ## ErrorAnalysisAnnotation
 
@@ -195,11 +179,11 @@ Model error analysis for each annotation.
 
 Fields
 
-`attributedItems[]` ` object ( AttributedItem  ` )
+`attributedItems[]` `object ( `[`AttributedItem`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#AttributedItem)` )`
 
 Attributed items for a given annotation, typically representing neighbors from the training sets constrained by the query type.
 
-`queryType` ` enum ( QueryType  ` )
+`queryType` `enum ( `[`QueryType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/batchImport#QueryType)` )`
 
 The query type used for finding the attributed items.
 
@@ -211,21 +195,20 @@ The outlier score of this annotated item. Usually defined as the min of all dist
 
 The threshold used to determine if this annotation is an outlier or not.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;attributedItems&quot;: [{object (AttributedItem)}],&quot;queryType&quot;: enum (QueryType),&quot;outlierScore&quot;: number,&quot;outlierThreshold&quot;: number}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "attributedItems": [
+    {
+      object (AttributedItem)
+    }
+  ],
+  "queryType": enum (QueryType),
+  "outlierScore": number,
+  "outlierThreshold": number
+}
+```
 
 ## AttributedItem
 
@@ -241,43 +224,22 @@ The unique id for each annotation. Used by FE to allocate the annotation in DB.
 
 The distance of this item to the annotation.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;annotationResourceName&quot;: string,
-  &quot;distance&quot;: number
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "annotationResourceName": string,
+  "distance": number
+}
+```
 
 ## QueryType
 
 The query type used for finding the attributed items.
 
-Enums
-
-`QUERY_TYPE_UNSPECIFIED`
-
-Unspecified query type for model error analysis.
-
-`ALL_SIMILAR`
-
-Query similar samples across all classes in the dataset.
-
-`SAME_CLASS_SIMILAR`
-
-Query similar samples from the same class of the input sample.
-
-`SAME_CLASS_DISSIMILAR`
-
-Query dissimilar samples from the same class of the input sample.
+| Enums                    |                                                                   |
+|--------------------------|-------------------------------------------------------------------|
+| `QUERY_TYPE_UNSPECIFIED` | Unspecified query type for model error analysis.                  |
+| `ALL_SIMILAR`            | Query similar samples across all classes in the dataset.          |
+| `SAME_CLASS_SIMILAR`     | Query similar samples from the same class of the input sample.    |
+| `SAME_CLASS_DISSIMILAR`  | Query dissimilar samples from the same class of the input sample. |

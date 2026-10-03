@@ -48,9 +48,9 @@ Each of the following container images is available in several Artifact Registry
 <td>July 14, 2026</td>
 <td>Jan 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-15:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-15:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-15:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-15:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-15:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-15:latest</code></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -59,9 +59,9 @@ Each of the following container images is available in several Artifact Registry
 <td>July 14, 2026</td>
 <td>Jan 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/tf2-gpu.2-15:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/tf2-gpu.2-15:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/tf2-gpu.2-15:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/tf2-gpu.2-15:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/tf2-gpu.2-15:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/tf2-gpu.2-15:latest</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -70,9 +70,9 @@ Each of the following container images is available in several Artifact Registry
 <td>Jan 14, 2026</td>
 <td>Jan 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-14:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-14:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-14:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-14:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-14:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-14:latest</code></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -81,9 +81,9 @@ Each of the following container images is available in several Artifact Registry
 <td>Jan 14, 2026</td>
 <td>Jan 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/tf2-gpu.2-14:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/tf2-gpu.2-14:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/tf2-gpu.2-14:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/tf2-gpu.2-14:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/tf2-gpu.2-14:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/tf2-gpu.2-14:latest</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -315,9 +315,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>Not applicable</td>
 <td>Not applicable</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-cpu.nightly:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-cpu.nightly:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-cpu.nightly:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-cpu.nightly:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-cpu.nightly:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-cpu.nightly:latest</code></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -326,9 +326,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>Not applicable</td>
 <td>Not applicable</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-gpu.nightly:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-gpu.nightly:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-gpu.nightly:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-gpu.nightly:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-gpu.nightly:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-gpu.nightly:latest</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -337,9 +337,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>Not applicable</td>
 <td>Not applicable</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-tpu.nightly:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-tpu.nightly:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-tpu.nightly:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-tpu.nightly:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-tpu.nightly:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-tpu.nightly:latest</code></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -348,9 +348,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>Jul 11, 2024</td>
 <td>Jul 11, 2025</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-cpu.2-17:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-cpu.2-17:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-cpu.2-17:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-cpu.2-17:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-cpu.2-17:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-cpu.2-17:latest</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -359,9 +359,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>Jul 11, 2024</td>
 <td>Jul 11, 2025</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-gpu.2-17:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-gpu.2-17:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-gpu.2-17:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-gpu.2-17:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-gpu.2-17:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-gpu.2-17:latest</code></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -370,9 +370,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>Jul 11, 2024</td>
 <td>Jul 11, 2025</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-tpu.2-17:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-tpu.2-17:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-tpu.2-17:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-tpu.2-17:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-tpu.2-17:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-tpu.2-17:latest</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -546,9 +546,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>July 14, 2026</td>
 <td>Jan 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-4:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-4:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-4:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-4:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-4:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-4:latest</code></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -557,9 +557,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>July 14, 2026</td>
 <td>Jan 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-4:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-4:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-4:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-4:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-4:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-4:latest</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -568,9 +568,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>July 14, 2026</td>
 <td>Jan 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-4:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-4:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-4:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-4:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-4:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-4:latest</code></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -579,9 +579,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>Jan 14, 2026</td>
 <td>Jan 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-3:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-3:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-3:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-3:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-3:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-3:latest</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -590,9 +590,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>Jan 14, 2026</td>
 <td>Jan 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-3:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-3:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-3:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-3:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-3:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-3:latest</code></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -601,9 +601,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>Jan 14, 2026</td>
 <td>Jan 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-3:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-3:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-3:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-3:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-3:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-3:latest</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -612,9 +612,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>Jan 14, 2026</td>
 <td>Jan 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-2:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-2:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-2:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-2:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-2:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/pytorch-cpu.2-2:latest</code></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -623,9 +623,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>Jan 14, 2026</td>
 <td>Jan 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-2:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-2:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-2:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-2:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-2:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.2-2:latest</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -634,9 +634,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>Jan 14, 2026</td>
 <td>Jan 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-2:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-2:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-2:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-2:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-2:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/pytorch-tpu.2-2:latest</code></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -747,9 +747,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>Oct 14, 2026</td>
 <td>Oct 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-6:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-6:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-6:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-6:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-6:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-6:latest</code></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -758,9 +758,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>July 14, 2026</td>
 <td>Jan 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-5:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-5:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-5:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-5:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-5:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-5:latest</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -769,9 +769,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>Jan 14, 2026</td>
 <td>Jan 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-4:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-4:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-4:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-4:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-4:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/sklearn-cpu.1-4:latest</code></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -854,9 +854,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>July 14, 2026</td>
 <td>Jan 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/xgboost-cpu.2-1:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/xgboost-cpu.2-1:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/xgboost-cpu.2-1:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/xgboost-cpu.2-1:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/xgboost-cpu.2-1:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/xgboost-cpu.2-1:latest</code></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -865,9 +865,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 <td>Jan 14, 2026</td>
 <td>Jan 14, 2027</td>
 <td><ul>
-<li><code dir="ltr" translate="no">us-docker.pkg.dev/vertex-ai/prediction/xgboost-cpu.2-0:latest</code></li>
-<li><code dir="ltr" translate="no">europe-docker.pkg.dev/vertex-ai/prediction/xgboost-cpu.2-0:latest</code></li>
-<li><code dir="ltr" translate="no">asia-docker.pkg.dev/vertex-ai/prediction/xgboost-cpu.2-0:latest</code></li>
+<li><code>us-docker.pkg.dev/vertex-ai/prediction/xgboost-cpu.2-0:latest</code></li>
+<li><code>europe-docker.pkg.dev/vertex-ai/prediction/xgboost-cpu.2-0:latest</code></li>
+<li><code>asia-docker.pkg.dev/vertex-ai/prediction/xgboost-cpu.2-0:latest</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -945,7 +945,7 @@ To use one of these prebuilt containers, you must save your model as one or more
 The following notebooks demonstrate how to use a prebuilt container to serve inferences.
 
 | What do you want to do?                                       | Notebook                                                                                                                                                                                                                                        |
-| ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|---------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Train and serve a TensorFlow model using a prebuilt container | [Custom training and online inference](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/custom/sdk-custom-image-classification-online.ipynb)                                                               |
 | Serve a PyTorch model using a prebuilt container              | [Serving PyTorch image models with prebuilt containers on Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/prediction/pytorch_image_classification_with_prebuilt_serving_containers.ipynb) |
 | Serve a Stable Diffusion model using a prebuilt container     | [Deploy and host a Stable Diffusion model on Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/vertex_endpoints/torchserve/dreambooth_stablediffusion.ipynb)                               |
@@ -953,9 +953,9 @@ The following notebooks demonstrate how to use a prebuilt container to serve inf
 ## Notebooks
 
 > To learn more, run the "Serving PyTorch image models with prebuilt containers on " notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/prediction/pytorch_image_classification_with_prebuilt_serving_containers.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fprediction%2Fpytorch_image_classification_with_prebuilt_serving_containers.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fprediction%2Fpytorch_image_classification_with_prebuilt_serving_containers.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/prediction/pytorch_image_classification_with_prebuilt_serving_containers.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/prediction/pytorch_image_classification_with_prebuilt_serving_containers.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fprediction%2Fpytorch_image_classification_with_prebuilt_serving_containers.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fprediction%2Fpytorch_image_classification_with_prebuilt_serving_containers.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/prediction/pytorch_image_classification_with_prebuilt_serving_containers.ipynb)
 
 ## What's next
 
-  - Learn how to [deploy a model to an endpoint to serve inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) .
+- Learn how to [deploy a model to an endpoint to serve inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) .

@@ -16,13 +16,13 @@ Fields
 
 Identifier. The resource name of the session. Format: 'projects/{project}/locations/{location}/reasoningEngines/{reasoningEngine}/sessions/{session}'.
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when the session was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when the session was updated.
 
@@ -40,7 +40,7 @@ label keys and values can be no longer than 64 characters (Unicode codepoints), 
 
 See <https://goo.gl/xmQnxf> for more information and examples of labels.
 
-`sessionState` ` object ( Struct  ` format)
+`sessionState` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Optional. Session specific memory which stores key conversation points.
 
@@ -52,13 +52,13 @@ Required. Immutable. String id provided by the user
 
 The expiration of the session. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`expireTime` ` string ( Timestamp  ` format)
+`expireTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Optional. timestamp of when this session is considered expired. This is *always* provided on output, regardless of what was sent on input. The minimum value is 24 hours from the time of creation.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`ttl` ` string ( Duration  ` format)
+`ttl` `string ( `[`Duration`](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` format)`
 
 Optional. Input only. The TTL for this session. The minimum value is 24 hours.
 
@@ -66,62 +66,35 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;name&quot;: string,
-  &quot;createTime&quot;: string,
-  &quot;updateTime&quot;: string,
-  &quot;displayName&quot;: string,
-  &quot;labels&quot;: {
+**JSON representation**
+
+```
+{
+  "name": string,
+  "createTime": string,
+  "updateTime": string,
+  "displayName": string,
+  "labels": {
     string: string,
     ...
   },
-  &quot;sessionState&quot;: {
+  "sessionState": {
     object
   },
-  &quot;userId&quot;: string,
+  "userId": string,
 
   // expiration
-  &quot;expireTime&quot;: string,
-  &quot;ttl&quot;: string
+  "expireTime": string,
+  "ttl": string
   // Union type
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
-## Methods
-
-### `            appendEvent           `
-
-Appends an event to a given session.
-
-### `            create           `
-
-Creates a new `  Session  ` .
-
-### `            delete           `
-
-Deletes details of the specific `  Session  ` .
-
-### `            get           `
-
-Gets details of the specific `  Session  ` .
-
-### `            list           `
-
-Lists `  Sessions  ` in a given reasoning engine.
-
-### `            patch           `
-
-Updates the specific `  Session  ` .
+| Methods                                                                                                                                                    |                                                                                                                                                                                        |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`appendEvent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions/appendEvent) | Appends an event to a given session.                                                                                                                                                   |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions/create)           | Creates a new [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions#Session) .                     |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions/delete)           | Deletes details of the specific [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions#Session) .   |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions/get)                 | Gets details of the specific [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions#Session) .      |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions/list)               | Lists [`Sessions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions#Session) in a given reasoning engine. |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions/patch)             | Updates the specific [`Session`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions#Session) .              |

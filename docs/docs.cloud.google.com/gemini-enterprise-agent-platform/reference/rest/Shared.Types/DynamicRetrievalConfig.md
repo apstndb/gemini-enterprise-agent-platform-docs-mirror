@@ -10,7 +10,7 @@ Describes the options to customize dynamic retrieval.
 
 Fields
 
-`mode` ` enum ( Mode  ` )
+`mode` `enum ( `[`Mode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Mode)` )`
 
 The mode of the predictor to be used in dynamic retrieval.
 
@@ -18,18 +18,11 @@ The mode of the predictor to be used in dynamic retrieval.
 
 Optional. The threshold to be used in dynamic retrieval. If not set, a system default value is used.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;mode&quot;: enum (Mode),&quot;dynamicThreshold&quot;: number}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "mode": enum (Mode),
+  "dynamicThreshold": number
+}
+```

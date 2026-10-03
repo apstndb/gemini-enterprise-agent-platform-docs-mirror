@@ -10,11 +10,11 @@ The metadata of Multimodal Datasets.
 
 Fields
 
-`inputConfig` ` object ( MultimodalDatasetInputConfig  ` )
+`inputConfig` `object ( `[`MultimodalDatasetInputConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/MultimodalDatasetMetadata#MultimodalDatasetInputConfig)` )`
 
 Specifies the input source and configuration.
 
-`geminiRequestReadConfig` ` object ( GeminiRequestReadConfig  ` )
+`geminiRequestReadConfig` `object ( `[`GeminiRequestReadConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiRequestReadConfig)` )`
 
 The configuration for how to read Gemini requests from the dataset.
 
@@ -22,21 +22,19 @@ The configuration for how to read Gemini requests from the dataset.
 
 The name of the column in the BigQuery table that contains the keys of the rows.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;inputConfig&quot;: {object (MultimodalDatasetInputConfig)},&quot;geminiRequestReadConfig&quot;: {object (GeminiRequestReadConfig)},&quot;keyColumnName&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "inputConfig": {
+    object (MultimodalDatasetInputConfig)
+  },
+  "geminiRequestReadConfig": {
+    object (GeminiRequestReadConfig)
+  },
+  "keyColumnName": string
+}
+```
 
 ## MultimodalDatasetInputConfig
 
@@ -48,27 +46,24 @@ Fields
 
 The source of the input. We only support BigQuery as source for now. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`bigquerySource` ` object ( BigQuerySource  ` )
+`bigquerySource` `object ( `[`BigQuerySource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/MultimodalDatasetMetadata#BigQuerySource)` )`
 
 BigQuery source table.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// source&quot;bigquerySource&quot;: {object (BigQuerySource)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // source
+  "bigquerySource": {
+    object (BigQuerySource)
+  }
+  // Union type
+}
+```
 
 ## BigQuerySource
 
@@ -78,22 +73,12 @@ Fields
 
 `uri` `string`
 
-The URI of a BigQuery table. e.g. <bq://project.bqDataset.bqTable>
+The URI of a BigQuery table. e.g. [bq://project.bqDataset.bqTable](bq://project.bqDataset.bqTable)
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;uri&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "uri": string
+}
+```

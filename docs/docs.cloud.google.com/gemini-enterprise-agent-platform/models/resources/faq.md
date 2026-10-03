@@ -10,7 +10,7 @@ Last updated: September 4, 2025
 
 ## Gemini general FAQ
 
-### Help\! The model I'm using isn't available anymore\!
+### Help! The model I'm using isn't available anymore!
 
 If your application recently started showing errors related to an unavailable Palm or Gemini model, this section covers how you can transition to a supported model.
 
@@ -69,9 +69,9 @@ To purchase Provisioned Throughput for partner models (such as Anthropic's Claud
 
 There are three ways to measure your Provisioned Throughput usage:
 
-  - Use the [Model Garden monitoring dashboard](https://console.cloud.google.com/monitoring/dashboards/integration/vertex_ai.vertex-ai-model-garden)
-  - Use the built-in [](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#metrics) monitoring metrics
-  - Use the [HTTP response headers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#response_headers)
+- Use the [Model Garden monitoring dashboard](https://console.cloud.google.com/monitoring/dashboards/integration/vertex_ai.vertex-ai-model-garden)
+- Use the built-in monitoring metrics
+- Use the [HTTP response headers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#response_headers)
 
 When using the built-in monitoring metrics or HTTP response headers, you can [create a chart](https://docs.cloud.google.com/monitoring/charts/metrics-explorer) in the Metrics Explorer to monitor usage.
 
@@ -81,8 +81,8 @@ To buy and manage Provisioned Throughput, follow the instructions in the Permiss
 
 If you still run into issues placing an order, you likely need to add one of the following roles:
 
-  - Gemini Enterprise Agent Platform Administrator
-  - Gemini Enterprise Agent Platform Platform Provisioned Throughput Admin
+- Gemini Enterprise Agent Platform Administrator
+- Gemini Enterprise Agent Platform Platform Provisioned Throughput Admin
 
 ### What is a GSU?
 
@@ -92,10 +92,10 @@ A [*generative AI scale unit*](https://docs.cloud.google.com/gemini-enterprise-a
 
 You can estimate your Provisioned Throughput needs by:
 
-  - Gather your requirements
-  - **Calculate your throughput:**
-    $$ \\begin{aligned} \\text{Throughput per sec} = & \\\\ & \\qquad (\\text{Inputs per query converted to input chars} \\\\ & \\qquad + \\text{Outputs per query converted to input chars}) \\\\ & \\qquad \\times \\text{QPS} \\end{aligned} $$
-  - **Calculate your GSUs:** Use the [estimation tool](https://console.cloud.google.com/agent-platform/provisioned-throughput/price-estimate) provided in the purchasing console to calculate the corresponding number of GSUs needed to cover that usage for the given model and details.
+- Gather your requirements
+- **Calculate your throughput:**
+  \$\$ \begin{aligned} \text{Throughput per sec} = & \\\\ & \qquad (\text{Inputs per query converted to input chars} \\\\ & \qquad + \text{Outputs per query converted to input chars}) \\\\ & \qquad \times \text{QPS} \end{aligned} \$\$
+- **Calculate your GSUs:** Use the [estimation tool](https://console.cloud.google.com/agent-platform/provisioned-throughput/price-estimate) provided in the purchasing console to calculate the corresponding number of GSUs needed to cover that usage for the given model and details.
 
 > **Important:** Review the detailed steps in our [example of estimating your Provisioned Throughput needs](https://console.cloud.google.com/agent-platform/provisioned-throughput/price-estimate) .
 
@@ -105,8 +105,8 @@ You're invoiced for any charges you incur for Provisioned Throughput usage over 
 
 ### How long does it take to activate my Provisioned Throughput order?
 
-  - For **small orders** or **small incremental increases** , the order will be auto-approved and ready within minutes if capacity is available.
-  - **Larger increases or orders** may take longer and may require us to communicate with you directly in order to prepare capacity for your order. We aim to have a decision on each request (either approved or denied) within 1 week of order submission.
+- For **small orders** or **small incremental increases** , the order will be auto-approved and ready within minutes if capacity is available.
+- **Larger increases or orders** may take longer and may require us to communicate with you directly in order to prepare capacity for your order. We aim to have a decision on each request (either approved or denied) within 1 week of order submission.
 
 ### Can I test Provisioned Throughput before placing an order?
 
@@ -120,22 +120,24 @@ For more information, see [Purchase Provisioned Throughput](https://docs.cloud.g
 
 If you see repeated output tokens, try the following suggestions to help reduce or eliminate them.
 
-Description
-
-Cause
-
-Suggested workaround
-
-Repeated hyphens in Markdown tables
-
-This can occur when the contents of the table are long as the model tries to create a visually aligned Markdown table. However, the alignment in Markdown is not necessary for correct rendering.
-
-Add instructions in your prompt to give the model specific guidelines for generating Markdown tables. Provide examples that follow those guidelines. You can also try adjusting the temperature. For generating code or very structured output like Markdown tables, high temperature have shown to work better (\>= 0.8).
-
-The following is an example set of guidelines you can add to your prompt to prevent this issue:
-
-``` 
-            # Markdown Table Format
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>Cause</th>
+<th>Suggested workaround</th>
+</tr>
+<tr class="odd">
+<th>Repeated hyphens in Markdown tables</th>
+<th>This can occur when the contents of the table are long as the model tries to create a visually aligned Markdown table. However, the alignment in Markdown is not necessary for correct rendering.</th>
+<th><p>Add instructions in your prompt to give the model specific guidelines for generating Markdown tables. Provide examples that follow those guidelines. You can also try adjusting the temperature. For generating code or very structured output like Markdown tables, high temperature have shown to work better (&gt;= 0.8).</p>
+<p>The following is an example set of guidelines you can add to your prompt to prevent this issue:</p>
+<pre data-fenced=""><code>            # Markdown Table Format
 
             * Separator line: Markdown tables must include a separator line below
               the header row. The separator line must use only 3 hyphens per
@@ -158,63 +160,58 @@ The following is an example set of guidelines you can add to your prompt to prev
 
             * Never pad column headers or other cells with lots of spaces to
               match with width of other content. Only a single space on each side
-              is needed. For example, always do "| column name |" instead of
-              "| column name                |". Extra spaces are wasteful.
+              is needed. For example, always do &quot;| column name |&quot; instead of
+              &quot;| column name                |&quot;. Extra spaces are wasteful.
               A markdown renderer will automatically take care displaying
               the content in a visually appealing form.
-          
-```
-
-Repeated tokens in Markdown tables
-
-Similar to the repeated hyphens, this occurs when the model tries to visually align the contents of the table. The alignment in Markdown is not required for correct rendering.
-
-  - Try adding instructions like the following to your system prompt:
-    
-    ``` 
-                    FOR TABLE HEADINGS, IMMEDIATELY ADD ' |' AFTER THE TABLE HEADING.
-                  
-    ```
-
-  - Try adjusting the temperature. Higher temperatures (\>= 0.8) generally helps to eliminate repetitions or duplication in the output.
-
-Repeated newlines ( `\n` ) in structured output
-
-When the model input contains unicode or escape sequences like `\u` or `\t` , it can lead to repeated newlines.
-
-  - Check for and replace forbidden escape sequences with UTF-8 characters in your prompt. For example, `\u` escape sequence in your JSON examples can cause the model to use them in its output too.
-
-  - Instruct the model on allowed escapes. Add a system instruction like this:
-    
-    ``` 
-                    In quoted strings, the only allowed escape sequences are \\, \n, and \". Instead of \u escapes, use UTF-8.
-                  
-    ```
-
-Repeated text in using structured output
-
-When the model output has a different order for the fields than the defined structured schema, this can lead to repeating text.
-
-  - Don't specify the order of fields in your prompt.
-  - Make all output fields required.
-
-Repetitive tool calling
-
-This can occur if the model loses the context of previous thoughts and/or call an unavailable endpoint that it's forced to.
-
-Instruct the model to maintain state within its thought process. Add this to the end of your system instructions:
-
-``` 
-            When thinking silently: ALWAYS start the thought with a brief
+          </code></pre></th>
+</tr>
+<tr class="header">
+<th>Repeated tokens in Markdown tables</th>
+<th>Similar to the repeated hyphens, this occurs when the model tries to visually align the contents of the table. The alignment in Markdown is not required for correct rendering.</th>
+<th><ul>
+<li><p>Try adding instructions like the following to your system prompt:</p>
+<pre data-fenced=""><code>                FOR TABLE HEADINGS, IMMEDIATELY ADD &#39; |&#39; AFTER THE TABLE HEADING.
+              </code></pre></li>
+<li>Try adjusting the temperature. Higher temperatures (&gt;= 0.8) generally helps to eliminate repetitions or duplication in the output.</li>
+</ul></th>
+</tr>
+<tr class="odd">
+<th>Repeated newlines ( <code>\n</code> ) in structured output</th>
+<th>When the model input contains unicode or escape sequences like <code>\u</code> or <code>\t</code> , it can lead to repeated newlines.</th>
+<th><ul>
+<li>Check for and replace forbidden escape sequences with UTF-8 characters in your prompt. For example, <code>\u</code> escape sequence in your JSON examples can cause the model to use them in its output too.</li>
+<li><p>Instruct the model on allowed escapes. Add a system instruction like this:</p>
+<pre data-fenced=""><code>                In quoted strings, the only allowed escape sequences are \\, \n, and \&quot;. Instead of \u escapes, use UTF-8.
+              </code></pre></li>
+</ul></th>
+</tr>
+<tr class="header">
+<th>Repeated text in using structured output</th>
+<th>When the model output has a different order for the fields than the defined structured schema, this can lead to repeating text.</th>
+<th><ul>
+<li>Don't specify the order of fields in your prompt.</li>
+<li>Make all output fields required.</li>
+</ul></th>
+</tr>
+<tr class="odd">
+<th>Repetitive tool calling</th>
+<th>This can occur if the model loses the context of previous thoughts and/or call an unavailable endpoint that it's forced to.</th>
+<th>Instruct the model to maintain state within its thought process. Add this to the end of your system instructions:
+<pre data-fenced=""><code>            When thinking silently: ALWAYS start the thought with a brief
             (one sentence) recap of the current progress on the task. In
             particular, consider whether the task is already done.
-          
-```
+          </code></pre></th>
+</tr>
+<tr class="header">
+<th>Repetitive text that's not part of structured output</th>
+<th>This can occur if the model gets stuck on a request that it can't resolve.</th>
+<th><ul>
+<li>If thinking is turned on, avoid giving explicit orders for how to think through a problem in the instructions. Just ask for the final output.</li>
+<li>Try a higher temperature &gt;= 0.8.</li>
+<li>Add instructions like "Be concise", "Don't repeat yourself", or "Provide the answer once".</li>
+</ul></th>
+</tr>
+</thead>
 
-Repetitive text that's not part of structured output
-
-This can occur if the model gets stuck on a request that it can't resolve.
-
-  - If thinking is turned on, avoid giving explicit orders for how to think through a problem in the instructions. Just ask for the final output.
-  - Try a higher temperature \>= 0.8.
-  - Add instructions like "Be concise", "Don't repeat yourself", or "Provide the answer once".
+</table>

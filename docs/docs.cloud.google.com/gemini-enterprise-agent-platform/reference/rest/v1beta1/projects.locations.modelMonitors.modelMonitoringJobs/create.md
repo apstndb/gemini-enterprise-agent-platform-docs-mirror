@@ -32,8 +32,8 @@ The maximum length is 63 characters, and valid characters are `/^[a-z]([a-z0-9-]
 
 ### Request body
 
-The request body contains an instance of `  ModelMonitoringJob  ` .
+The request body contains an instance of [`ModelMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs#ModelMonitoringJob) .
 
 ### Response body
 
-If successful, the response body contains a newly created instance of `  ModelMonitoringJob  ` .
+If successful, the response body contains a newly created instance of [`ModelMonitoringJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.modelMonitors.modelMonitoringJobs#ModelMonitoringJob) .

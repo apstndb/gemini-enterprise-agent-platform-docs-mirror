@@ -38,13 +38,13 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  ServingProfileService.ListServingProfiles  ` .
+Response message for [`ServingProfileService.ListServingProfiles`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.servingProfiles/list#google.cloud.aiplatform.v1.ServingProfileService.ListServingProfiles) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`servingProfiles[]` ` object ( ServingProfile  ` )
+`servingProfiles[]` `object ( `[`ServingProfile`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.servingProfiles#ServingProfile)` )`
 
 Output only. A list of ServingProfiles.
 
@@ -52,18 +52,15 @@ Output only. A list of ServingProfiles.
 
 Output only. A token to retrieve the next page of results.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;servingProfiles&quot;: [{object (ServingProfile)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "servingProfiles": [
+    {
+      object (ServingProfile)
+    }
+  ],
+  "nextPageToken": string
+}
+```

@@ -16,10 +16,10 @@ To use the **Security** tab, ensure that you have the required permissions and t
 
 To get the permission that you need to view the **Security** tab and findings, ask your administrator to grant you the following IAM roles on your organization or project:
 
-  - [Security Center Admin Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/securitycenter#securitycenter.adminViewer) ( `roles/securitycenter.adminViewer` )
-  - [Logs Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.viewer) ( `roles/logging.viewer` )
-  - [Observability View Accessor](https://docs.cloud.google.com/iam/docs/roles-permissions/observability#observability.viewAccessor) ( `roles/observability.viewAccessor` )
-  - [Logs View Accessor](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.viewAccessor) ( `roles/logging.viewAccessor` )
+- [Security Center Admin Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/securitycenter#securitycenter.adminViewer) ( `roles/securitycenter.adminViewer` )
+- [Logs Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.viewer) ( `roles/logging.viewer` )
+- [Observability View Accessor](https://docs.cloud.google.com/iam/docs/roles-permissions/observability#observability.viewAccessor) ( `roles/observability.viewAccessor` )
+- [Logs View Accessor](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.viewAccessor) ( `roles/logging.viewAccessor` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
@@ -35,13 +35,13 @@ For the **Security** tab to populate with information, you must onboard your org
 
 Enable and configure the following Security Command Center features:
 
-  - **AI Protection** : Enable the AI Protection service in your Security Command Center settings. For more information, see [Set up AI Protection](https://docs.cloud.google.com/security-command-center/docs/configure-ai-protection#enable-ai-protection) .
-  - **Agent Platform Vulnerability Assessment** : Enable this service in your Security Command Center Premium or Enterprise settings to identify vulnerabilities that are specific to AI agents.
-  - **Compliance monitoring** : Ensure that compliance monitoring is enabled for your organization or project. Compliance monitoring is enabled by default for organizations and projects with Security Command Center Premium or Enterprise, but might be explicitly disabled in some environments. For more information, see [Enable Compliance Manager](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-enable) .
-  - **Sensitive data discovery** : Enable discovery for AI resources to identify if datasets used in training or fine-tuning contain sensitive data. For more information, see [Enable discovery](https://docs.cloud.google.com/security-command-center/docs/activate-sensitive-data-discovery) .
-  - **Model Armor** : Enable Model Armor on your Agent Gateway instances and configure at least one template. Because Model Armor widgets use observability spans to aggregate data, ensure that Cloud Trace is enabled for your agent runtimes. If no relevant telemetry data is detected, the dashboard hides the related widgets behind a banner. For more information, see [Configure Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor#configure-model-armor-gateway) .
-  - **AI Discovery** : Ensure that AI Discovery is configured to populate the AI Inventory data, including agents, models, and endpoints. For more information, see [Configure AI Discovery service](https://docs.cloud.google.com/security-command-center/docs/configure-ai-protection#config-ai-discovery) .
-  - **Attack path simulations** : If you're using Security Command Center Premium or Enterprise, attack path simulations are enabled by default and help you identify the most risky findings.
+- **AI Protection** : Enable the AI Protection service in your Security Command Center settings. For more information, see [Set up AI Protection](https://docs.cloud.google.com/security-command-center/docs/configure-ai-protection#enable-ai-protection) .
+- **Agent Platform Vulnerability Assessment** : Enable this service in your Security Command Center Premium or Enterprise settings to identify vulnerabilities that are specific to AI agents.
+- **Compliance monitoring** : Ensure that compliance monitoring is enabled for your organization or project. Compliance monitoring is enabled by default for organizations and projects with Security Command Center Premium or Enterprise, but might be explicitly disabled in some environments. For more information, see [Enable Compliance Manager](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-enable) .
+- **Sensitive data discovery** : Enable discovery for AI resources to identify if datasets used in training or fine-tuning contain sensitive data. For more information, see [Enable discovery](https://docs.cloud.google.com/security-command-center/docs/activate-sensitive-data-discovery) .
+- **Model Armor** : Enable Model Armor on your Agent Gateway instances and configure at least one template. Because Model Armor widgets use observability spans to aggregate data, ensure that Cloud Trace is enabled for your agent runtimes. If no relevant telemetry data is detected, the dashboard hides the related widgets behind a banner. For more information, see [Configure Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor#configure-model-armor-gateway) .
+- **AI Discovery** : Ensure that AI Discovery is configured to populate the AI Inventory data, including agents, models, and endpoints. For more information, see [Configure AI Discovery service](https://docs.cloud.google.com/security-command-center/docs/configure-ai-protection#config-ai-discovery) .
+- **Attack path simulations** : If you're using Security Command Center Premium or Enterprise, attack path simulations are enabled by default and help you identify the most risky findings.
 
 ## Access the Security tab
 
@@ -59,22 +59,22 @@ Use the **Security** tab to perform key security tasks and help maintain a secur
 
 Triage your production fleet by using the following capabilities:
 
-  - **Monitor security health** : Review aggregate risk metrics, compliance status, and active threat counts to assess your overall security posture.
-  - **Investigate issues** : Click any metric to view the filtered findings list in Security Command Center for further investigation.
-  - **Remediate findings** : For supported findings where the affected Google Cloud resources are managed through Terraform, use **Remediate with Gemini** to help fix issues. For other findings, use guided remediation snippets.
+- **Monitor security health** : Review aggregate risk metrics, compliance status, and active threat counts to assess your overall security posture.
+- **Investigate issues** : Click any metric to view the filtered findings list in Security Command Center for further investigation.
+- **Remediate findings** : For supported findings where the affected Google Cloud resources are managed through Terraform, use **Remediate with Gemini** to help fix issues. For other findings, use guided remediation snippets.
 
 ### View summary information of your security posture
 
 Monitor project-scoped risks that are summarized from Security Command Center to identify and address vulnerabilities:
 
-  - **Prioritize risks** : Identify vulnerabilities, misconfigurations, and [toxic combinations](https://docs.cloud.google.com/security-command-center/docs/toxic-combinations-overview) by using the **AI risks by severity** widget. For example, this widget can help you identify the following:
-    
-      - An agent with high privileges and exposed data
-      - Vulnerability findings for agent runtimes (such as Cloud Run vulnerabilities) (Preview)
+- **Prioritize risks** : Identify vulnerabilities, misconfigurations, and [toxic combinations](https://docs.cloud.google.com/security-command-center/docs/toxic-combinations-overview) by using the **AI risks by severity** widget. For example, this widget can help you identify the following:
 
-  - **Monitor active threats** : Use the **AI threats** widget to review threat detections against Agent Platform control planes and agent runtimes such as Cloud Run (Preview).
+  - An agent with high privileges and exposed data
+  - Vulnerability findings for agent runtimes (such as Cloud Run vulnerabilities) (Preview)
 
-  - **Right-size agent access** : Identify agents with overly broad roles using the **Agents with excessive permissions** widget.
+- **Monitor active threats** : Use the **AI threats** widget to review threat detections against Agent Platform control planes and agent runtimes such as Cloud Run (Preview).
+
+- **Right-size agent access** : Identify agents with overly broad roles using the **Agents with excessive permissions** widget.
 
 ### Monitor content security and violations
 
@@ -95,19 +95,19 @@ Perform granular risk assessments for specific components in your fleet:
 
 To help you manage your AI security posture, the **Security** tab includes the following widgets.
 
-  - **Top security findings** : Review an aggregated breakdown of active security findings across your AI environment. This widget categorizes findings across your deployed agents by finding type to help you identify systemic risks.
+- **Top security findings** : Review an aggregated breakdown of active security findings across your AI environment. This widget categorizes findings across your deployed agents by finding type to help you identify systemic risks.
 
-  - **AI risks by severity** : Identify and prioritize your most critical vulnerabilities, misconfigurations, and [toxic combinations](https://docs.cloud.google.com/security-command-center/docs/toxic-combinations-overview) —such as an over-privileged agent exposed to the public internet. To have agents included in toxic combination calculations, you must designate them as high-value resources by adding them to a [high-value resource set](https://docs.cloud.google.com/security-command-center/docs/attack-exposure-learn#high-value-resource-sets) . This widget ranks risks by severity and attack exposure score. You're provided with actionable guidance to help securely patch your agentic environment. Vulnerability findings for agent runtimes (such as Cloud Run) are in (Preview).
+- **AI risks by severity** : Identify and prioritize your most critical vulnerabilities, misconfigurations, and [toxic combinations](https://docs.cloud.google.com/security-command-center/docs/toxic-combinations-overview) —such as an over-privileged agent exposed to the public internet. To have agents included in toxic combination calculations, you must designate them as high-value resources by adding them to a [high-value resource set](https://docs.cloud.google.com/security-command-center/docs/attack-exposure-learn#high-value-resource-sets) . This widget ranks risks by severity and attack exposure score. You're provided with actionable guidance to help securely patch your agentic environment. Vulnerability findings for agent runtimes (such as Cloud Run) are in (Preview).
 
-  - **AI threats** : Monitor your agent environment for active, real-time security breaches. This widget highlights critical and high-severity threats against your Gemini Enterprise Agent Platform control planes and runtimes, such as Cloud Run (Preview). The widget tracks malicious activity, such as anomalous IAM grants, crypto-mining malware, or a compromised agent attempting lateral movement, so you can investigate and respond accordingly.
+- **AI threats** : Monitor your agent environment for active, real-time security breaches. This widget highlights critical and high-severity threats against your Gemini Enterprise Agent Platform control planes and runtimes, such as Cloud Run (Preview). The widget tracks malicious activity, such as anomalous IAM grants, crypto-mining malware, or a compromised agent attempting lateral movement, so you can investigate and respond accordingly.
 
-  - **Agents with excessive permissions** : Maintain a strict least-privilege security posture by identifying agents that have been granted overly broad or unnecessary access. This widget lists specific agent identities and provides detailed insights into their unused permissions, allowing you to adjust their roles without breaking functionality.
+- **Agents with excessive permissions** : Maintain a strict least-privilege security posture by identifying agents that have been granted overly broad or unnecessary access. This widget lists specific agent identities and provides detailed insights into their unused permissions, allowing you to adjust their roles without breaking functionality.
 
-  - **Compliance** : Help verify that your AI deployments adhere to industry security standards. Available at the project level for projects with Security Command Center Premium or Enterprise, this widget monitors your environment against predefined security frameworks (including the expanded AI Essentials) and provides a high-level view of your current compliance status, helping you maintain audit readiness and security hygiene.
+- **Compliance** : Help verify that your AI deployments adhere to industry security standards. Available at the project level for projects with Security Command Center Premium or Enterprise, this widget monitors your environment against predefined security frameworks (including the expanded AI Essentials) and provides a high-level view of your current compliance status, helping you maintain audit readiness and security hygiene.
 
-  - **Content violations** : Monitor and manage content-related security issues across your AI environment. This widget aggregates findings for content violations, providing visibility into the volume and types of policy breaches that are detected in your organization or project.
-    
-    To help you identify potential surges or patterns in malicious activity, this widget includes **Violations over time** (Preview), which shows a historical view of content violation trends.
+- **Content violations** : Monitor and manage content-related security issues across your AI environment. This widget aggregates findings for content violations, providing visibility into the volume and types of policy breaches that are detected in your organization or project.
+
+  To help you identify potential surges or patterns in malicious activity, this widget includes **Violations over time** (Preview), which shows a historical view of content violation trends.
 
 ## What's next
 

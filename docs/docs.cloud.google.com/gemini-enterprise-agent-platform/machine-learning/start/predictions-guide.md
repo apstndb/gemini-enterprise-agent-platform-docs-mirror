@@ -16,9 +16,9 @@ This beginner's guide is an introduction to getting inferences from custom model
 
 **What you will learn** :
 
-  - Benefits of using a managed inference service.
-  - How batch inferences work in Gemini Enterprise Agent Platform.
-  - How online inferences work in Agent Platform.
+- Benefits of using a managed inference service.
+- How batch inferences work in Gemini Enterprise Agent Platform.
+- How online inferences work in Agent Platform.
 
 ## Why use a managed inference service?
 
@@ -84,8 +84,8 @@ Once the model is deployed to an endpoint it accepts requests like any other RES
 
 To learn more about hosting and serving models on Agent Platform, see the following resources or refer to the [Agent Platform Samples GitHub repo.](https://github.com/GoogleCloudPlatform/vertex-ai-samples)
 
-  - [Getting Predictions video](https://www.youtube.com/watch?v=-9fU1xwBQYU)
-  - [Train and serve a TensorFlow model using a prebuilt container](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/custom/sdk-custom-image-classification-online.ipynb)
-  - [Serving PyTorch image models with prebuilt containers on Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/prediction/pytorch_image_classification_with_prebuilt_serving_containers.ipynb)
-  - [Serve a Stable Diffusion model using a prebuilt container](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/vertex_endpoints/torchserve/dreambooth_stablediffusion.ipynb)
-  - [Custom inference routines with Sklearn](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/prediction/custom_prediction_routines/SDK_Custom_Preprocess.ipynb)
+- [Getting Predictions video](https://www.youtube.com/watch?v=-9fU1xwBQYU)
+- [Train and serve a TensorFlow model using a prebuilt container](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/custom/sdk-custom-image-classification-online.ipynb)
+- [Serving PyTorch image models with prebuilt containers on Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/prediction/pytorch_image_classification_with_prebuilt_serving_containers.ipynb)
+- [Serve a Stable Diffusion model using a prebuilt container](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/vertex_endpoints/torchserve/dreambooth_stablediffusion.ipynb)
+- [Custom inference routines with Sklearn](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/prediction/custom_prediction_routines/SDK_Custom_Preprocess.ipynb)

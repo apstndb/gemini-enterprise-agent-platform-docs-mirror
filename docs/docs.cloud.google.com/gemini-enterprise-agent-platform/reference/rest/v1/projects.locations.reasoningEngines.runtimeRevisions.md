@@ -10,12 +10,7 @@ data_source: docs.cloud.google.com
 
 There is no persistent data associated with this resource.
 
-## Methods
-
-### `            query           `
-
-Queries using a reasoning engine.
-
-### `            streamQuery           `
-
-Streams queries using a reasoning engine.
+| Methods                                                                                                                                                            |                                           |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------|
+| [`query`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.runtimeRevisions/query)             | Queries using a reasoning engine.         |
+| [`streamQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.runtimeRevisions/streamQuery) | Streams queries using a reasoning engine. |

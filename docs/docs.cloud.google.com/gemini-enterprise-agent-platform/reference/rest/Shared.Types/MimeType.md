@@ -8,32 +8,12 @@ data_source: docs.cloud.google.com
 
 Supported MIME types for audio output.
 
-Enums
-
-`MIME_TYPE_UNSPECIFIED`
-
-Default value. This value is unused.
-
-`AUDIO_MP3`
-
-MP3 audio format.
-
-`AUDIO_OGG_OPUS`
-
-OGG Opus audio format.
-
-`AUDIO_L16`
-
-Raw PCM (L16) audio format.
-
-`AUDIO_WAV`
-
-WAV audio format.
-
-`AUDIO_ALAW`
-
-A-law audio format.
-
-`AUDIO_MULAW`
-
-Mu-law audio format.
+| Enums                   |                                      |
+|-------------------------|--------------------------------------|
+| `MIME_TYPE_UNSPECIFIED` | Default value. This value is unused. |
+| `AUDIO_MP3`             | MP3 audio format.                    |
+| `AUDIO_OGG_OPUS`        | OGG Opus audio format.               |
+| `AUDIO_L16`             | Raw PCM (L16) audio format.          |
+| `AUDIO_WAV`             | WAV audio format.                    |
+| `AUDIO_ALAW`            | A-law audio format.                  |
+| `AUDIO_MULAW`           | Mu-law audio format.                 |

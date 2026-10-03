@@ -24,101 +24,25 @@ The code listed in the output corresponds to a specific harmful category.
 
 The following table displays the support code to safety category mappings:
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Support code</th>
-<th>Safety category</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code dir="ltr" translate="no">58061214</code><br />
-<code dir="ltr" translate="no">17301594</code></td>
-<td>Child</td>
-<td>Rejects requests to generate content depicting children if <code dir="ltr" translate="no">personGeneration</code> isn't set to <code dir="ltr" translate="no">"allow_all"</code> or if the project isn't on the allowlist for this feature.</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">29310472</code><br />
-<code dir="ltr" translate="no">15236754</code></td>
-<td>Celebrity</td>
-<td>Rejects requests to generate a photorealistic representation of a prominent person or if the project isn't on the allowlist for this feature.</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">64151117</code><br />
-<code dir="ltr" translate="no">42237218</code></td>
-<td>Video safety violation</td>
-<td>General safety violation.</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">62263041</code></td>
-<td>Dangerous content</td>
-<td>Potentially dangerous content.</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">57734940</code><br />
-<code dir="ltr" translate="no">22137204</code></td>
-<td>Hate</td>
-<td>Hate-related content.</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">74803281</code><br />
-<code dir="ltr" translate="no">29578790</code><br />
-<code dir="ltr" translate="no">42876398</code></td>
-<td>Other</td>
-<td>Miscellaneous safety issues with the request</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">89371032</code><br />
-<code dir="ltr" translate="no">49114662</code><br />
-<code dir="ltr" translate="no">63429089</code><br />
-<code dir="ltr" translate="no">72817394</code><br />
-<code dir="ltr" translate="no">60599140</code><br />
-</td>
-<td>Prohibited content</td>
-<td>Prohibited content related to child safety or other sensitive content.</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">35561574</code><br />
-<code dir="ltr" translate="no">35561575</code></td>
-<td>Third-party content</td>
-<td>Guardrails related to third-party content.</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">90789179</code><br />
-<code dir="ltr" translate="no">43188360</code></td>
-<td>Sexual</td>
-<td>Sexual or suggestive content.</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">78610348</code></td>
-<td>Toxic</td>
-<td>Toxic content.</td>
-</tr>
-<tr class="odd">
-<td><code dir="ltr" translate="no">61493863</code><br />
-<code dir="ltr" translate="no">56562880</code></td>
-<td>Violence</td>
-<td>Violent content.</td>
-</tr>
-<tr class="even">
-<td><code dir="ltr" translate="no">32635315</code></td>
-<td>Vulgar</td>
-<td>Vulgar content.</td>
-</tr>
-</tbody>
-</table>
+| Support code                                           | Safety category        | Description                                                                                                                                                         |
+|--------------------------------------------------------|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `58061214` `17301594`                                  | Child                  | Rejects requests to generate content depicting children if `personGeneration` isn't set to `"allow_all"` or if the project isn't on the allowlist for this feature. |
+| `29310472` `15236754`                                  | Celebrity              | Rejects requests to generate a photorealistic representation of a prominent person or if the project isn't on the allowlist for this feature.                       |
+| `64151117` `42237218`                                  | Video safety violation | General safety violation.                                                                                                                                           |
+| `62263041`                                             | Dangerous content      | Potentially dangerous content.                                                                                                                                      |
+| `57734940` `22137204`                                  | Hate                   | Hate-related content.                                                                                                                                               |
+| `74803281` `29578790` `42876398`                       | Other                  | Miscellaneous safety issues with the request                                                                                                                        |
+| `89371032` `49114662` `63429089` `72817394` `60599140` | Prohibited content     | Prohibited content related to child safety or other sensitive content.                                                                                              |
+| `35561574` `35561575`                                  | Third-party content    | Guardrails related to third-party content.                                                                                                                          |
+| `90789179` `43188360`                                  | Sexual                 | Sexual or suggestive content.                                                                                                                                       |
+| `78610348`                                             | Toxic                  | Toxic content.                                                                                                                                                      |
+| `61493863` `56562880`                                  | Violence               | Violent content.                                                                                                                                                    |
+| `32635315`                                             | Vulgar                 | Vulgar content.                                                                                                                                                     |
 
 ## What's next
 
-  - Learn about [Responsible AI for Large Language Models (LLMs)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai)
+- Learn about [Responsible AI for Large Language Models (LLMs)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai)
 
-  - Learn more about Google's recommendations for [Responsible AI practices](https://ai.google/responsibilities/responsible-ai-practices/?category=general)
+- Learn more about Google's recommendations for [Responsible AI practices](https://ai.google/responsibilities/responsible-ai-practices/?category=general)
 
-  - Read our blog, [A shared agenda for responsible AI progress](https://blog.google/technology/ai/a-shared-agenda-for-responsible-ai-progress/)
+- Read our blog, [A shared agenda for responsible AI progress](https://blog.google/technology/ai/a-shared-agenda-for-responsible-ai-progress/)

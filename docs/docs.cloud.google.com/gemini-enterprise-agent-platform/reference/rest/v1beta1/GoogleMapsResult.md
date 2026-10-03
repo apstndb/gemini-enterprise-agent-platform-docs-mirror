@@ -10,7 +10,7 @@ The result of the Google Maps.
 
 Fields
 
-`places[]` ` object ( Places  ` )
+`places[]` `object ( `[`Places`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GoogleMapsResult#Places)` )`
 
 The places that were found.
 
@@ -18,21 +18,18 @@ The places that were found.
 
 Resource name of the Google Maps widget context token.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;places&quot;: [{object (Places)}],&quot;widgetContextToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "places": [
+    {
+      object (Places)
+    }
+  ],
+  "widgetContextToken": string
+}
+```
 
 ## Places
 
@@ -50,22 +47,21 @@ title of the place.
 
 URI reference of the place.
 
-`reviewSnippets[]` ` object ( ReviewSnippet  ` )
+`reviewSnippets[]` `object ( `[`ReviewSnippet`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ReviewSnippet)` )`
 
 Snippets of reviews that are used to generate answers about the features of a given place in Google Maps.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;placeId&quot;: string,&quot;name&quot;: string,&quot;url&quot;: string,&quot;reviewSnippets&quot;: [{object (ReviewSnippet)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "placeId": string,
+  "name": string,
+  "url": string,
+  "reviewSnippets": [
+    {
+      object (ReviewSnippet)
+    }
+  ]
+}
+```

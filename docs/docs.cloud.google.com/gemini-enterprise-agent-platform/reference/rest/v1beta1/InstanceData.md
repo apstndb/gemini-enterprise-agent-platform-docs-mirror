@@ -18,27 +18,25 @@ Supported formats for instance data. The following is a list of mutually exclusi
 
 Text data.
 
-`contents` ` object ( Contents  ` )
+`contents` `object ( `[`Contents`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/InstanceData#Contents)` )`
 
 List of Gemini content data.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// data&quot;text&quot;: string,&quot;contents&quot;: {object (Contents)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // data
+  "text": string,
+  "contents": {
+    object (Contents)
+  }
+  // Union type
+}
+```
 
 ## Contents
 
@@ -46,22 +44,18 @@ List of standard Content messages from Gemini API.
 
 Fields
 
-`contents[]` ` object ( Content  ` )
+`contents[]` `object ( `[`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content)` )`
 
 Optional. Repeated contents.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;contents&quot;: [{object (Content)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "contents": [
+    {
+      object (Content)
+    }
+  ]
+}
+```

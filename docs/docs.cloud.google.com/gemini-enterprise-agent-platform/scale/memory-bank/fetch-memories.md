@@ -20,22 +20,24 @@ To complete the steps in this page, you must first complete the steps in [Set up
 
 You have the following options to fetch generated memories:
 
-  - [Get memory](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#get-memory) : Get the full content of a single memory using the Agent Platform SDK.
+- [Get memory](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#get-memory) : Get the full content of a single memory using the Agent Platform SDK.
 
-  - [Retrieve memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#scope-based) : Using the Agent Platform SDK, retrieve memories using scope-based memory retrieval. Retrieve memories using similarity search or all memories within the scope.
+- [Retrieve memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#scope-based) : Using the Agent Platform SDK, retrieve memories using scope-based memory retrieval. Retrieve memories using similarity search or all memories within the scope.
 
-  - [List memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#list-memories) : List memories using the Agent Platform SDK.
+- [List memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#list-memories) : List memories using the Agent Platform SDK.
 
 ### Get memory
 
 Use `GetMemories` to get the full content of a single memory:
 
-    memory = client.memory_banks.memories.get(
-        name="MEMORY_NAME")
+```
+memory = client.memory_banks.memories.get(
+    name="MEMORY_NAME")
+```
 
 Replace the following:
 
-  - `MEMORY_NAME` : A fully-qualified memory name in the format "projects/.../locations/.../reasoningEngines/.../memories...".
+- `MEMORY_NAME` : A fully-qualified memory name in the format "projects/.../locations/.../reasoningEngines/.../memories...".
 
 ### Fetch memories using scope-based retrieval
 
@@ -45,8 +47,8 @@ A memory's scope is defined when the memory is generated or created and is immut
 
 You can use `RetrieveMemories` to perform the following operations for a particular scope:
 
-  - [Retrieve memories using similarity search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#similarity-search)
-  - [Retrieve all memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#retrieve-all)
+- [Retrieve memories using similarity search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#similarity-search)
+- [Retrieve all memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#retrieve-all)
 
 #### Retrieve memories using similarity search
 
@@ -54,47 +56,49 @@ For cases where you have many memories for a particular scope, you can use simil
 
 Returned memories are sorted from most similar (shortest Euclidean distance) to least similar (greatest Euclidean distance):
 
-    results = client.memory_banks.memories.retrieve(
-        name=memory_bank.name,
-        scope=SCOPE,
-        similarity_search_params={
-            "search_query": "QUERY",
-            # Optional. Defaults to 3.
-            "top_k": 3
-        }
-    )
-    # RetrieveMemories returns a pager. You can use `page` to retrieve memories.
-    
-    results.page
-    
-    """
-    Returns:
-    
-    [
-        RetrieveMemoriesResponseRetrievedMemory(
-          memory=Memory(
-            name="projects/.../locations/.../reasoningEngines/.../memories/...",
-            ...
-            fact="This is a fact."
-          },
-          distance=0.5
-        ),
-        RetrieveMemoriesResponseRetrievedMemory(
-          memory=Memory(
-            name="projects/.../locations/.../reasoningEngines/.../memories/...",
-            ...
-            fact="This is another fact."
-          },
-          distance=0.7
-        ),
-    ]
-    """
+```
+results = client.memory_banks.memories.retrieve(
+    name=memory_bank.name,
+    scope=SCOPE,
+    similarity_search_params={
+        "search_query": "QUERY",
+        # Optional. Defaults to 3.
+        "top_k": 3
+    }
+)
+# RetrieveMemories returns a pager. You can use `page` to retrieve memories.
+
+results.page
+
+"""
+Returns:
+
+[
+    RetrieveMemoriesResponseRetrievedMemory(
+      memory=Memory(
+        name="projects/.../locations/.../reasoningEngines/.../memories/...",
+        ...
+        fact="This is a fact."
+      },
+      distance=0.5
+    ),
+    RetrieveMemoriesResponseRetrievedMemory(
+      memory=Memory(
+        name="projects/.../locations/.../reasoningEngines/.../memories/...",
+        ...
+        fact="This is another fact."
+      },
+      distance=0.7
+    ),
+]
+"""
+```
 
 Replace the following:
 
-  - `QUERY` : The query for which to perform similarity search. For example, you can use the last user turn of the conversation as the query.
+- `QUERY` : The query for which to perform similarity search. For example, you can use the last user turn of the conversation as the query.
 
-  - `SCOPE` : A dictionary, representing the scope for the similarity search. For example, `{"user_id": "123"}` . Only memories with the same scope as the request are considered.
+- `SCOPE` : A dictionary, representing the scope for the similarity search. For example, `{"user_id": "123"}` . Only memories with the same scope as the request are considered.
 
 #### Retrieve all memories
 
@@ -102,38 +106,40 @@ If no similarity search parameters are provided, `RetrieveMemories` returns all 
 
 > **Warning:** Retrieving all memories without similarity search can return multiple pages. Calling `list()` on a `RetrieveMemories` response triggers automatic pagination across all pages. For large collections, use `response.page` directly to fetch items one page at a time and prevent unexpected calls.
 
-    results = client.memory_banks.memories.retrieve(
-        name=memory_bank.name,
-        scope=SCOPE
-    )
-    # RetrieveMemories returns a pager. You can use `page` to retrieve up to 100 memories per page.
-    
-    results.page
-    
-    """
-    Returns:
-    
-    [
-        RetrieveMemoriesResponseRetrievedMemory(
-          memory=Memory(
-            name="projects/.../locations/.../reasoningEngines/.../memories/...",
-            ...
-            fact="This is a fact."
-          }
-        ),
-        RetrieveMemoriesResponseRetrievedMemory(
-          memory=Memory(
-            name="projects/.../locations/.../reasoningEngines/.../memories/...",
-            ...
-            fact="This is another fact."
-          }
-        ),
-    ]
-    """
+```
+results = client.memory_banks.memories.retrieve(
+    name=memory_bank.name,
+    scope=SCOPE
+)
+# RetrieveMemories returns a pager. You can use `page` to retrieve up to 100 memories per page.
+
+results.page
+
+"""
+Returns:
+
+[
+    RetrieveMemoriesResponseRetrievedMemory(
+      memory=Memory(
+        name="projects/.../locations/.../reasoningEngines/.../memories/...",
+        ...
+        fact="This is a fact."
+      }
+    ),
+    RetrieveMemoriesResponseRetrievedMemory(
+      memory=Memory(
+        name="projects/.../locations/.../reasoningEngines/.../memories/...",
+        ...
+        fact="This is another fact."
+      }
+    ),
+]
+"""
+```
 
 Replace the following:
 
-  - `SCOPE` : A dictionary representing the scope for retrieval. For example, `{"user_id": "123"}` . Only memories with the same scope as the request are returned.
+- `SCOPE` : A dictionary representing the scope for retrieval. For example, `{"user_id": "123"}` . Only memories with the same scope as the request are returned.
 
 ### List memories
 
@@ -141,17 +147,19 @@ Replace the following:
 
 Use `ListMemories` to memories from your Memory Bank without scope-based filtering. For scope-based retrieval, use [`RetrieveMemories`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#scope-based) instead. `ListMemories` is not recommended for low-latency retrieval.
 
-    pager = client.memory_banks.memories.list(name=memory_bank.name)
-    for page in pager:
-      print(page)
+```
+pager = client.memory_banks.memories.list(name=memory_bank.name)
+for page in pager:
+  print(page)
+```
 
 ## Filter memories
 
 This section describes how to use filters to restrict which memories are fetched. You can filter on:
 
-  - Metadata using the `filter_groups` attribute for [scope-based retrieval](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#scope-based) .
+- Metadata using the `filter_groups` attribute for [scope-based retrieval](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#scope-based) .
 
-  - System fields using `filter` . System fields include memories' `topics` , `create_time` , `update_time` , and `fact` .
+- System fields using `filter` . System fields include memories' `topics` , `create_time` , `update_time` , and `fact` .
 
 Both metadata and system field filtering can be used in the same request.
 
@@ -161,35 +169,37 @@ Both metadata and system field filtering can be used in the same request.
 
 When creating, updating, or generating memories, you can apply structured metadata to the stored memories:
 
-    import datetime
-    
-    from agentplatform import types
-    
-    metadata = {
-        "my_string_key": types.MemoryMetadataValue(string_value="my_string_value"),
-        "my_double_key": types.MemoryMetadataValue(double_value=123.456),
-        "my_boolean_key": types.MemoryMetadataValue(bool_value=True),
-        "my_timestamp_key": types.MemoryMetadataValue(
-            timestamp_value=datetime.datetime(
-                2027, 1, 1, 12, 30, 00, tzinfo=datetime.timezone.utc
-            )
-        ),
-    }
-    
-    client.memory_banks.memories.create(
-      ...,
-      config={"metadata": metadata}
-    )
-    
-    client.memory_banks.memories.update(
-      ...,
-      config={"metadata": metadata}
-    )
-    
-    client.memory_banks.memories.generate(
-      ...,
-      config={"metadata": metadata}
-    )
+```
+import datetime
+
+from agentplatform import types
+
+metadata = {
+    "my_string_key": types.MemoryMetadataValue(string_value="my_string_value"),
+    "my_double_key": types.MemoryMetadataValue(double_value=123.456),
+    "my_boolean_key": types.MemoryMetadataValue(bool_value=True),
+    "my_timestamp_key": types.MemoryMetadataValue(
+        timestamp_value=datetime.datetime(
+            2027, 1, 1, 12, 30, 00, tzinfo=datetime.timezone.utc
+        )
+    ),
+}
+
+client.memory_banks.memories.create(
+  ...,
+  config={"metadata": metadata}
+)
+
+client.memory_banks.memories.update(
+  ...,
+  config={"metadata": metadata}
+)
+
+client.memory_banks.memories.generate(
+  ...,
+  config={"metadata": metadata}
+)
+```
 
 You can filter on this metadata when retrieving memories using the `filter_groups` attribute. Metadata filters are defined in [disjunctive normal form (DNF)](https://en.wikipedia.org/wiki/Disjunctive_normal_form) , which is a logical expression of ORs of ANDs.
 
@@ -197,69 +207,73 @@ For example, the following request will retrieve memories that include the metad
 
 ### Dictionary
 
-    results = client.memory_banks.memories.retrieve(
-      ...,
-      config={
-        # Each element of `filter_groups` is combined using OR logic.
-        "filter_groups": [
+```
+results = client.memory_banks.memories.retrieve(
+  ...,
+  config={
+    # Each element of `filter_groups` is combined using OR logic.
+    "filter_groups": [
+      {
+        # Each element of `filters` is combined using AND logic.
+        "filters": [
           {
-            # Each element of `filters` is combined using AND logic.
-            "filters": [
-              {
-                "key": "my_string_key",
-                "value": {"string_value": "my_value"}
-              },
-              {
-                "key": "my_double_key",
-                "value": {"double_value": 1.23}
-              }
-            ]
+            "key": "my_string_key",
+            "value": {"string_value": "my_value"}
           },
           {
-            "filters": [
-              {
-                "key": "my_string_key",
-                "value": {"string_value": "other"}
-              }
-            ]
+            "key": "my_double_key",
+            "value": {"double_value": 1.23}
+          }
+        ]
+      },
+      {
+        "filters": [
+          {
+            "key": "my_string_key",
+            "value": {"string_value": "other"}
           }
         ]
       }
-    )
+    ]
+  }
+)
+```
 
 ### Class-based
 
-    from agentplatform import types
-    
-    results = client.memory_banks.memories.retrieve(
-      ...,
-      config=types.RetrieveMemoriesConfig(
-        # Each element of `filter_groups` is combined using OR logic.
-        filter_groups=[
-          types.MemoryConjunctionFilter(
-            # Each element of `filters` is combined using AND logic.
-            filters=[
-              types.MemoryFilter(
-                key="my_string_key",
-                value=types.MemoryMetadataValue(string_value="my_value")
-              ),
-              types.MemoryFilter(
-                key="my_double_key",
-                value=types.MemoryMetadataValue(double_value=1.23)
-              )
-            ]
+```
+from agentplatform import types
+
+results = client.memory_banks.memories.retrieve(
+  ...,
+  config=types.RetrieveMemoriesConfig(
+    # Each element of `filter_groups` is combined using OR logic.
+    filter_groups=[
+      types.MemoryConjunctionFilter(
+        # Each element of `filters` is combined using AND logic.
+        filters=[
+          types.MemoryFilter(
+            key="my_string_key",
+            value=types.MemoryMetadataValue(string_value="my_value")
           ),
-          types.MemoryConjunctionFilter(
-            filters=[
-              types.MemoryFilter(
-                key="my_string_key",
-                value=types.MemoryMetadataValue(string_value="other")
-              )
-            ]
+          types.MemoryFilter(
+            key="my_double_key",
+            value=types.MemoryMetadataValue(double_value=1.23)
+          )
+        ]
+      ),
+      types.MemoryConjunctionFilter(
+        filters=[
+          types.MemoryFilter(
+            key="my_string_key",
+            value=types.MemoryMetadataValue(string_value="other")
           )
         ]
       )
-    )
+    ]
+  )
+)
+```
 
 ### Filter by system fields
 
@@ -267,23 +281,25 @@ You can filter on system fields using the `filter` attribute, which expects a st
 
 EBNF syntax has the following requirements when constructing a filter string:
 
-  - To combine filters, use `AND` and `OR` .
-  - String should use double quotes `"` .
-  - Datetime fields (like `create_time` ) uses either a double quoted string representing ISO 8601 datetime or a numerical field representing microseconds from unix epoch.
+- To combine filters, use `AND` and `OR` .
+- String should use double quotes `"` .
+- Datetime fields (like `create_time` ) uses either a double quoted string representing ISO 8601 datetime or a numerical field representing microseconds from unix epoch.
 
 For example, the following filter can be used to fetch memories where the `fact` includes the substring "allergies" and `update_time` was after January 1, 2026.
 
-    filter_string = 'fact=~".*allergies.*" AND update_time>="2026-01-01T00:00:00Z"'
-    
-    client.memory_banks.memories.retrieve(
-      ...,
-      config={"filter": filter_string}
-    )
-    
-    client.memory_banks.memories.list(
-      ...,
-      config={"filter": filter_string}
-    )
+```
+filter_string = 'fact=~".*allergies.*" AND update_time>="2026-01-01T00:00:00Z"'
+
+client.memory_banks.memories.retrieve(
+  ...,
+  config={"filter": filter_string}
+)
+
+client.memory_banks.memories.list(
+  ...,
+  config={"filter": filter_string}
+)
+```
 
 #### Filter by topics
 
@@ -293,15 +309,17 @@ To filter on managed topics, use `topics.managed_memory_topic` as the field name
 
 To filter on custom topics, use `topics.custom_memory_topic_label` as the field name and the label of the expected topic as the value, like `topics.custom_memory_topic_label: custom-label` .
 
-    filter_string = "topics.managed_memory_topic: USER_PREFERENCES " + \
-    "OR topics.custom_memory_topic_label: custom-label"
-    
-    client.memory_banks.memories.retrieve(
-      ...,
-      config={"filter": filter_string}
-    )
-    
-    client.memory_banks.memories.list(
-      ...,
-      config={"filter": filter_string}
-    )
+```
+filter_string = "topics.managed_memory_topic: USER_PREFERENCES " + \
+"OR topics.custom_memory_topic_label: custom-label"
+
+client.memory_banks.memories.retrieve(
+  ...,
+  config={"filter": filter_string}
+)
+
+client.memory_banks.memories.list(
+  ...,
+  config={"filter": filter_string}
+)
+```

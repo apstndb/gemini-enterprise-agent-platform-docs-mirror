@@ -10,7 +10,7 @@ The metadata of Datasets that contain time series data.
 
 Fields
 
-`inputConfig` ` object ( InputConfig  ` )
+`inputConfig` `object ( `[`InputConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/TimeSeriesDatasetMetadata#InputConfig)` )`
 
 `timeSeriesIdentifierColumn` `string`
 
@@ -20,21 +20,17 @@ The column name of the time series identifier column that identifies the time se
 
 The column name of the time column that identifies time order in the time series.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;inputConfig&quot;: {object (InputConfig)},&quot;timeSeriesIdentifierColumn&quot;: string,&quot;timeColumn&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "inputConfig": {
+    object (InputConfig)
+  },
+  "timeSeriesIdentifierColumn": string,
+  "timeColumn": string
+}
+```
 
 ## InputConfig
 
@@ -46,27 +42,27 @@ Fields
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`gcsSource` ` object ( GcsSource  ` )
+`gcsSource` `object ( `[`GcsSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/TimeSeriesDatasetMetadata#GcsSource)` )`
 
-`bigquerySource` ` object ( BigQuerySource  ` )
+`bigquerySource` `object ( `[`BigQuerySource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/TimeSeriesDatasetMetadata#BigQuerySource)` )`
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// source&quot;gcsSource&quot;: {object (GcsSource)},&quot;bigquerySource&quot;: {object (BigQuerySource)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // source
+  "gcsSource": {
+    object (GcsSource)
+  },
+  "bigquerySource": {
+    object (BigQuerySource)
+  }
+  // Union type
+}
+```
 
 ## GcsSource
 
@@ -76,25 +72,15 @@ Fields
 
 Cloud Storage URI of one or more files. Only CSV files are supported. The first line of the CSV file is used as the header. If there are multiple files, the header is the first line of the lexicographically first file, the other files must either contain the exact same header or omit the header.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;uri&quot;: [
+**JSON representation**
+
+```
+{
+  "uri": [
     string
   ]
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## BigQuerySource
 
@@ -104,20 +90,10 @@ Fields
 
 The URI of a BigQuery table.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;uri&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "uri": string
+}
+```

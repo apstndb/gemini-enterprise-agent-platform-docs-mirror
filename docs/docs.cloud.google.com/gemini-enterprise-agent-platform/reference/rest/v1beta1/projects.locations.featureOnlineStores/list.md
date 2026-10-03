@@ -28,14 +28,14 @@ Required. The resource name of the Location to list FeatureOnlineStores. Format:
 
 Lists the FeatureOnlineStores that match the filter expression. The following fields are supported:
 
-  - `createTime` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons. Values must be in RFC 3339 format.
-  - `updateTime` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons. Values must be in RFC 3339 format.
-  - `labels` : Supports key-value equality and key presence.
+- `createTime` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons. Values must be in RFC 3339 format.
+- `updateTime` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons. Values must be in RFC 3339 format.
+- `labels` : Supports key-value equality and key presence.
 
 Examples:
 
-  - `createTime > "2020-01-01" OR updateTime > "2020-01-01"` FeatureOnlineStores created or updated after 2020-01-01.
-  - `labels.env = "prod"` FeatureOnlineStores with label "env" set to "prod".
+- `createTime > "2020-01-01" OR updateTime > "2020-01-01"` FeatureOnlineStores created or updated after 2020-01-01.
+- `labels.env = "prod"` FeatureOnlineStores with label "env" set to "prod".
 
 `pageSize` `integer`
 
@@ -43,16 +43,16 @@ The maximum number of FeatureOnlineStores to return. The service may return fewe
 
 `pageToken` `string`
 
-A page token, received from a previous `  FeatureOnlineStoreAdminService.ListFeatureOnlineStores  ` call. Provide this to retrieve the subsequent page.
+A page token, received from a previous [`FeatureOnlineStoreAdminService.ListFeatureOnlineStores`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores/list#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureOnlineStores) call. Provide this to retrieve the subsequent page.
 
-When paginating, all other parameters provided to `  FeatureOnlineStoreAdminService.ListFeatureOnlineStores  ` must match the call that provided the page token.
+When paginating, all other parameters provided to [`FeatureOnlineStoreAdminService.ListFeatureOnlineStores`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores/list#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureOnlineStores) must match the call that provided the page token.
 
 `orderBy` `string`
 
 A comma-separated list of fields to order by, sorted in ascending order. Use "desc" after a field name for descending. Supported Fields:
 
-  - `createTime`
-  - `updateTime`
+- `createTime`
+- `updateTime`
 
 ### Request body
 
@@ -60,32 +60,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  FeatureOnlineStoreAdminService.ListFeatureOnlineStores  ` .
+Response message for [`FeatureOnlineStoreAdminService.ListFeatureOnlineStores`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores/list#google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureOnlineStores) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`featureOnlineStores[]` ` object ( FeatureOnlineStore  ` )
+`featureOnlineStores[]` `object ( `[`FeatureOnlineStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores#FeatureOnlineStore)` )`
 
 The FeatureOnlineStores matching the request.
 
 `nextPageToken` `string`
 
-A token, which can be sent as `  ListFeatureOnlineStoresRequest.page_token  ` to retrieve the next page. If this field is omitted, there are no subsequent pages.
+A token, which can be sent as [`ListFeatureOnlineStoresRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores/list#body.QUERY_PARAMETERS.page_token) to retrieve the next page. If this field is omitted, there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;featureOnlineStores&quot;: [{object (FeatureOnlineStore)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "featureOnlineStores": [
+    {
+      object (FeatureOnlineStore)
+    }
+  ],
+  "nextPageToken": string
+}
+```

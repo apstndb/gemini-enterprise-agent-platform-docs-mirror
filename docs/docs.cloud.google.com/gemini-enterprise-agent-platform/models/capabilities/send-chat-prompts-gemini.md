@@ -7,8 +7,8 @@ data_source: docs.cloud.google.com
 ---
 
 > To see an example of getting started with Chat with the Gemini Pro model, run the "Getting Started with Chat with the Gemini Pro model" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_chat.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fgetting-started%2Fintro_gemini_chat.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fgetting-started%2Fintro_gemini_chat.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_chat.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_chat.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fgetting-started%2Fintro_gemini_chat.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fgetting-started%2Fintro_gemini_chat.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_chat.ipynb)
 
 This page shows you how to send chat prompts to a Gemini model by using the Google Cloud console, REST API, and supported SDKs.
 
@@ -16,11 +16,11 @@ To learn how to add images and other media to your request, see [Image understan
 
 For a list of languages supported by Gemini, see [Language support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#languages-gemini) .
 
------
+------------------------------------------------------------------------
 
 To explore the generative AI models and APIs that are available on Gemini Enterprise Agent Platform, go to Model Garden in the Google Cloud console.
 
------
+------------------------------------------------------------------------
 
 If you're looking for a way to use Gemini directly from your mobile and web apps, see the [Firebase AI Logic client SDKs](https://firebase.google.com/docs/ai-logic) for Swift, Android, Web, Flutter, and Unity apps.
 
@@ -43,56 +43,55 @@ To use the Agent Studio to send a chat prompt in the Google Cloud console, do th
 2.  In **Start a conversation** , click **Text chat** .
 
 3.  Optional: Configure the model and parameters:
-    
-      - **Model** : Select **Gemini Pro** .
-    
-      - **Region** : Select the region that you want to use.
-    
-      - **Temperature** : Use the slider or textbox to enter a value for temperature.
-        
-        The temperature is used for sampling during response generation, which occurs when `topP` and `topK` are applied. Temperature controls the degree of randomness in token selection. Lower temperatures are good for prompts that require a less open-ended or creative response, while higher temperatures can lead to more diverse or creative results. A temperature of `0` means that the highest probability tokens are always selected. In this case, responses for a given prompt are mostly deterministic, but a small amount of variation is still possible.
-        
-        If the model returns a response that's too generic, too short, or the model gives a fallback response, try increasing the temperature. If the model enters infinite generation, increasing the temperature to at least `0.1` may lead to improved results.
-        
-        `1.0` is the recommended starting value for temperature.
-    
-      - **Output token limit** : Use the slider or textbox to enter a value for the max output limit.
-        
-        Maximum number of tokens that can be generated in the response. A token is approximately four characters. 100 tokens correspond to roughly 60-80 words.
-        
-        Specify a lower value for shorter responses and a higher value for potentially longer responses.
-    
-      - **Add stop sequence** : Optional. Enter a stop sequence, which is a series of characters that includes spaces. If the model encounters a stop sequence, the response generation stops. The stop sequence isn't included in the response, and you can add up to five stop sequences.
+
+    - **Model** : Select **Gemini Pro** .
+
+    - **Region** : Select the region that you want to use.
+
+    - **Temperature** : Use the slider or textbox to enter a value for temperature.
+
+      The temperature is used for sampling during response generation, which occurs when `topP` and `topK` are applied. Temperature controls the degree of randomness in token selection. Lower temperatures are good for prompts that require a less open-ended or creative response, while higher temperatures can lead to more diverse or creative results. A temperature of `0` means that the highest probability tokens are always selected. In this case, responses for a given prompt are mostly deterministic, but a small amount of variation is still possible.
+
+      If the model returns a response that's too generic, too short, or the model gives a fallback response, try increasing the temperature. If the model enters infinite generation, increasing the temperature to at least `0.1` may lead to improved results.
+
+      `1.0` is the recommended starting value for temperature.
+
+    - **Output token limit** : Use the slider or textbox to enter a value for the max output limit.
+
+      Maximum number of tokens that can be generated in the response. A token is approximately four characters. 100 tokens correspond to roughly 60-80 words.
+
+      Specify a lower value for shorter responses and a higher value for potentially longer responses.
+
+    - **Add stop sequence** : Optional. Enter a stop sequence, which is a series of characters that includes spaces. If the model encounters a stop sequence, the response generation stops. The stop sequence isn't included in the response, and you can add up to five stop sequences.
 
 4.  Optional: To configure advanced parameters, click **Advanced** and configure as follows:
-    
+
     **Click to expand advanced configurations**
-    
-      - **Top-K** : Use the slider or textbox to enter a value for top-K.
-        
-        Top-K changes how the model selects tokens for output. A top-K of `1` means the next selected token is the most probable among all tokens in the model's vocabulary (also called greedy decoding), while a top-K of `3` means that the next token is selected from among the three most probable tokens by using temperature.
-        
-        For each token selection step, the top-K tokens with the highest probabilities are sampled. Then tokens are further filtered based on top-P with the final token selected using temperature sampling.
-        
-        Specify a lower value for less random responses and a higher value for more random responses.
-    
-      - **Top-P** : Use the slider or textbox to enter a value for top-P. Tokens are selected from most probable to the least until the sum of their probabilities equals the value of top-P. For the least variable results, set top-P to \`0\`.
-    
-      - **Enable Grounding** : Add a **grounding source** and **path** to customize this feature.
+
+    - **Top-K** : Use the slider or textbox to enter a value for top-K.
+
+      Top-K changes how the model selects tokens for output. A top-K of `1` means the next selected token is the most probable among all tokens in the model's vocabulary (also called greedy decoding), while a top-K of `3` means that the next token is selected from among the three most probable tokens by using temperature.
+
+      For each token selection step, the top-K tokens with the highest probabilities are sampled. Then tokens are further filtered based on top-P with the final token selected using temperature sampling.
+
+      Specify a lower value for less random responses and a higher value for more random responses.
+
+    - **Top-P** : Use the slider or textbox to enter a value for top-P. Tokens are selected from most probable to the least until the sum of their probabilities equals the value of top-P. For the least variable results, set top-P to \`0\`.
+
+    - **Enable Grounding** : Add a **grounding source** and **path** to customize this feature.
 
 5.  Enter your text prompt in the **Prompt** pane. The model uses previous messages as context for new responses.
 
 6.  Optional: To display the number of text tokens, click **View tokens** . You can view the tokens or token IDs of your text prompt.
-    
-      - To view the tokens in the text prompt that are highlighted with different colors marking the boundary of each token ID, click **Token ID to text** . Media tokens aren't supported.
-    
-      - To view the token IDs, click **Token ID** .
-        
-        To close the tokenizer tool pane, click **X** , or click outside of the pane.
+    - To view the tokens in the text prompt that are highlighted with different colors marking the boundary of each token ID, click **Token ID to text** . Media tokens aren't supported.
+
+    - To view the token IDs, click **Token ID** .
+
+      To close the tokenizer tool pane, click **X** , or click outside of the pane.
 
 7.  Click **Submit** .
 
-8.  Optional: To save your prompt to **My prompts** , click save\_alt **Save** .
+8.  Optional: To save your prompt to **My prompts** , click save_alt **Save** .
 
 9.  Optional: To get the Python code or a curl command for your prompt, click code **Get code** .
 
@@ -102,32 +101,38 @@ To use the Agent Studio to send a chat prompt in the Google Cloud console, do th
 
 #### Install
 
-    pip install --upgrade google-genai
+```
+pip install --upgrade google-genai
+```
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    from google import genai
-    from google.genai.types import HttpOptions
-    
-    client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    response = client.models.generate_content(
-        model="gemini-3.5-flash",
-        contents="How does AI work?",
-    )
-    print(response.text)
-    # Example response:
-    # Okay, let's break down how AI works. It's a broad field, so I'll focus on the ...
-    #
-    # Here's a simplified overview:
-    # ...
+```
+from google import genai
+from google.genai.types import HttpOptions
+
+client = genai.Client(http_options=HttpOptions(api_version="v1"))
+response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents="How does AI work?",
+)
+print(response.text)
+# Example response:
+# Okay, let's break down how AI works. It's a broad field, so I'll focus on the ...
+#
+# Here's a simplified overview:
+# ...
+```
 
 ### Go
 
@@ -137,92 +142,102 @@ To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.g
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    import (
-        "context"
-        "fmt"
-        "io"
-    
-        "google.golang.org/genai"
-    )
-    
-    // generateWithText shows how to generate text using a text prompt.
-    func generateWithText(w io.Writer) error {
-        ctx := context.Background()
-    
-        client, err := genai.NewClient(ctx, &genai.ClientConfig{
-            HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
-        })
-        if err != nil {
-            return fmt.Errorf("failed to create genai client: %w", err)
-        }
-    
-        resp, err := client.Models.GenerateContent(ctx,
-            "gemini-2.5-flash",
-            genai.Text("How does AI work?"),
-            nil,
-        )
-        if err != nil {
-            return fmt.Errorf("failed to generate content: %w", err)
-        }
-    
-        respText := resp.Text()
-    
-        fmt.Fprintln(w, respText)
-        // Example response:
-        // That's a great question! Understanding how AI works can feel like ...
-        // ...
-        // **1. The Foundation: Data and Algorithms**
-        // ...
-    
-        return nil
+```
+import (
+    "context"
+    "fmt"
+    "io"
+
+    "google.golang.org/genai"
+)
+
+// generateWithText shows how to generate text using a text prompt.
+func generateWithText(w io.Writer) error {
+    ctx := context.Background()
+
+    client, err := genai.NewClient(ctx, &genai.ClientConfig{
+        HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
+    })
+    if err != nil {
+        return fmt.Errorf("failed to create genai client: %w", err)
     }
+
+    resp, err := client.Models.GenerateContent(ctx,
+        "gemini-2.5-flash",
+        genai.Text("How does AI work?"),
+        nil,
+    )
+    if err != nil {
+        return fmt.Errorf("failed to generate content: %w", err)
+    }
+
+    respText := resp.Text()
+
+    fmt.Fprintln(w, respText)
+    // Example response:
+    // That's a great question! Understanding how AI works can feel like ...
+    // ...
+    // **1. The Foundation: Data and Algorithms**
+    // ...
+
+    return nil
+}
+```
 
 ### Node.js
 
 #### Install
 
-    npm install @google/genai
+```
+npm install @google/genai
+```
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    const {GoogleGenAI} = require('@google/genai');
-    
-    const GOOGLE_CLOUD_PROJECT = process.env.GOOGLE_CLOUD_PROJECT;
-    const GOOGLE_CLOUD_LOCATION = process.env.GOOGLE_CLOUD_LOCATION || 'global';
-    
-    async function generateContent(
-      projectId = GOOGLE_CLOUD_PROJECT,
-      location = GOOGLE_CLOUD_LOCATION
-    ) {
-      const client = new GoogleGenAI({
-        vertexai: true,
-        project: projectId,
-        location: location,
-      });
-    
-      const response = await client.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: 'How does AI work?',
-      });
-    
-      console.log(response.text);
-    
-      return response.text;
-    }
+```
+const {GoogleGenAI} = require('@google/genai');
+
+const GOOGLE_CLOUD_PROJECT = process.env.GOOGLE_CLOUD_PROJECT;
+const GOOGLE_CLOUD_LOCATION = process.env.GOOGLE_CLOUD_LOCATION || 'global';
+
+async function generateContent(
+  projectId = GOOGLE_CLOUD_PROJECT,
+  location = GOOGLE_CLOUD_LOCATION
+) {
+  const client = new GoogleGenAI({
+    vertexai: true,
+    project: projectId,
+    location: location,
+  });
+
+  const response = await client.models.generateContent({
+    model: 'gemini-3-flash-preview',
+    contents: 'How does AI work?',
+  });
+
+  console.log(response.text);
+
+  return response.text;
+}
+```
 
 ### Java
 
@@ -232,124 +247,131 @@ To learn more, see the [SDK reference documentation](https://central.sonatype.co
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    import com.google.genai.Client;
-    import com.google.genai.types.GenerateContentResponse;
-    import com.google.genai.types.HttpOptions;
-    
-    public class TextGenerationWithText {
-    
-      public static void main(String[] args) {
-        // TODO(developer): Replace these variables before running the sample.
-        String modelId = "gemini-2.5-flash";
-        generateContent(modelId);
-      }
-    
-      // Generates text with text input
-      public static String generateContent(String modelId) {
-        // Initialize client that will be used to send requests. This client only needs to be created
-        // once, and can be reused for multiple requests.
-        try (Client client =
-            Client.builder()
-                .location("global")
-                .vertexAI(true)
-                .httpOptions(HttpOptions.builder().apiVersion("v1").build())
-                .build()) {
-    
-          GenerateContentResponse response =
-              client.models.generateContent(modelId, "How does AI work?", null);
-    
-          System.out.print(response.text());
-          // Example response:
-          // Okay, let's break down how AI works. It's a broad field, so I'll focus on the ...
-          //
-          // Here's a simplified overview:
-          // ...
-          return response.text();
-        }
-      }
+```
+import com.google.genai.Client;
+import com.google.genai.types.GenerateContentResponse;
+import com.google.genai.types.HttpOptions;
+
+public class TextGenerationWithText {
+
+  public static void main(String[] args) {
+    // TODO(developer): Replace these variables before running the sample.
+    String modelId = "gemini-2.5-flash";
+    generateContent(modelId);
+  }
+
+  // Generates text with text input
+  public static String generateContent(String modelId) {
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests.
+    try (Client client =
+        Client.builder()
+            .location("global")
+            .vertexAI(true)
+            .httpOptions(HttpOptions.builder().apiVersion("v1").build())
+            .build()) {
+
+      GenerateContentResponse response =
+          client.models.generateContent(modelId, "How does AI work?", null);
+
+      System.out.print(response.text());
+      // Example response:
+      // Okay, let's break down how AI works. It's a broad field, so I'll focus on the ...
+      //
+      // Here's a simplified overview:
+      // ...
+      return response.text();
     }
+  }
+}
+```
 
-### C\#
+### C#
 
-Learn how to install or update the [C\#](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/sdks/overview) .
+Learn how to install or update the [C#](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/sdks/overview) .
 
 To learn more, see the [SDK reference documentation](https://github.com/googleapis/dotnet-genai) .
 
 Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
+# Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+# with appropriate values for your project.
+export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+export GOOGLE_CLOUD_LOCATION=global
+export GOOGLE_GENAI_USE_ENTERPRISE=True
+```
 
-    using Google.GenAI;
-    using Google.GenAI.Types;
-    using System;
-    using System.Threading.Tasks;
-    
-    public class TextGenWithTxt
+```
+using Google.GenAI;
+using Google.GenAI.Types;
+using System;
+using System.Threading.Tasks;
+
+public class TextGenWithTxt
+{
+    public async Task<string> GenerateContent(
+        string projectId = "your-project-id",
+        string location = "global",
+        string model = "gemini-2.5-flash")
     {
-        public async Task<string> GenerateContent(
-            string projectId = "your-project-id",
-            string location = "global",
-            string model = "gemini-2.5-flash")
-        {
-            await using var client = new Client(
-                project: projectId,
-                location: location,
-                vertexAI: true,
-                httpOptions: new HttpOptions { ApiVersion = "v1" });
-    
-            GenerateContentResponse response = await client.Models.GenerateContentAsync(model: model, contents: "How does AI work?");
-    
-            string responseText = response.Candidates[0].Content.Parts[0].Text;
-            Console.WriteLine(responseText);
-            // Example response:
-            // AI, or Artificial Intelligence, at its core, is about creating machines that can perform...
-            // Here's a breakdown of how it generally works...
-            return responseText;
-        }
+        await using var client = new Client(
+            project: projectId,
+            location: location,
+            vertexAI: true,
+            httpOptions: new HttpOptions { ApiVersion = "v1" });
+
+        GenerateContentResponse response = await client.Models.GenerateContentAsync(model: model, contents: "How does AI work?");
+
+        string responseText = response.Candidates[0].Content.Parts[0].Text;
+        Console.WriteLine(responseText);
+        // Example response:
+        // AI, or Artificial Intelligence, at its core, is about creating machines that can perform...
+        // Here's a breakdown of how it generally works...
+        return responseText;
     }
+}
+```
 
 ### REST
 
 Before using any of the request data, make the following replacements:
 
-  - `  GENERATE_RESPONSE_METHOD  ` : The type of response that you want the model to generate. Choose a method that generates how you want the model's response to be returned:
-    
-      - `streamGenerateContent` : The response is streamed as it's being generated to reduce the perception of latency to a human audience.
-      - `generateContent` : The response is returned after it's fully generated.
+- `GENERATE_RESPONSE_METHOD` : The type of response that you want the model to generate. Choose a method that generates how you want the model's response to be returned:
+  - `streamGenerateContent` : The response is streamed as it's being generated to reduce the perception of latency to a human audience.
+  - `generateContent` : The response is returned after it's fully generated.
 
-  - `  LOCATION  ` : The region to process the request.
+- `LOCATION` : The region to process the request.
 
-  - `  PROJECT_ID  ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
+- `PROJECT_ID` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
 
-  - `  MODEL_ID  ` : The model ID of the multimodal model that you want to use.
+- `MODEL_ID` : The model ID of the multimodal model that you want to use.
 
-  - ``` 
-    TEXT1
-    ```
-    
-    The text instructions to include in the first prompt of the multi-turn conversation. For example, `What are all the colors in a rainbow?`
+- ```
+  TEXT1
+  ```
 
-  - ``` 
-    TEXT2
-    ```
-    
-    The text instructions to include in the second prompt. For example, `Why does it appear when it rains?`
+  The text instructions to include in the first prompt of the multi-turn conversation. For example, `What are all the colors in a rainbow?`
 
-  - `  TEMPERATURE  ` : The temperature is used for sampling during response generation, which occurs when `topP` and `topK` are applied. Temperature controls the degree of randomness in token selection. Lower temperatures are good for prompts that require a less open-ended or creative response, while higher temperatures can lead to more diverse or creative results. A temperature of `0` means that the highest probability tokens are always selected. In this case, responses for a given prompt are mostly deterministic, but a small amount of variation is still possible.
-    
-    If the model returns a response that's too generic, too short, or the model gives a fallback response, try increasing the temperature. If the model enters infinite generation, increasing the temperature to at least `0.1` may lead to improved results.
-    
-    `1.0` is the recommended starting value for temperature.
+- ```
+  TEXT2
+  ```
+
+  The text instructions to include in the second prompt. For example, `Why does it appear when it rains?`
+
+- `TEMPERATURE` : The temperature is used for sampling during response generation, which occurs when `topP` and `topK` are applied. Temperature controls the degree of randomness in token selection. Lower temperatures are good for prompts that require a less open-ended or creative response, while higher temperatures can lead to more diverse or creative results. A temperature of `0` means that the highest probability tokens are always selected. In this case, responses for a given prompt are mostly deterministic, but a small amount of variation is still possible.
+
+  If the model returns a response that's too generic, too short, or the model gives a fallback response, try increasing the temperature. If the model enters infinite generation, increasing the temperature to at least `0.1` may lead to improved results.
+
+  `1.0` is the recommended starting value for temperature.
 
 To send your request, choose one of these options:
 
@@ -359,35 +381,39 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` . Run the following command in the terminal to create or overwrite this file in the current directory:
 
-    cat > request.json << 'EOF'
+```
+cat > request.json << 'EOF'
+{
+  "contents": [
     {
-      "contents": [
-        {
-          "role": "user",
-          "parts": { "text": "TEXT1" }
-        },
-        {
-          "role": "model",
-          "parts": { "text": "What a great question!" }
-        },
-        {
-          "role": "user",
-          "parts": { "text": "TEXT2" }
-        }
-      ],
-      "generation_config": {
-        "temperature": TEMPERATURE
-      }
+      "role": "user",
+      "parts": { "text": "TEXT1" }
+    },
+    {
+      "role": "model",
+      "parts": { "text": "What a great question!" }
+    },
+    {
+      "role": "user",
+      "parts": { "text": "TEXT2" }
     }
-    EOF
+  ],
+  "generation_config": {
+    "temperature": TEMPERATURE
+  }
+}
+EOF
+```
 
 Then execute the following command to send your REST request:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATE_RESPONSE_METHOD"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATE_RESPONSE_METHOD"
+```
 
 #### PowerShell
 
@@ -395,94 +421,100 @@ Then execute the following command to send your REST request:
 
 Save the request body in a file named `request.json` . Run the following command in the terminal to create or overwrite this file in the current directory:
 
-    @'
+```
+@'
+{
+  "contents": [
     {
-      "contents": [
-        {
-          "role": "user",
-          "parts": { "text": "TEXT1" }
-        },
-        {
-          "role": "model",
-          "parts": { "text": "What a great question!" }
-        },
-        {
-          "role": "user",
-          "parts": { "text": "TEXT2" }
-        }
-      ],
-      "generation_config": {
-        "temperature": TEMPERATURE
-      }
+      "role": "user",
+      "parts": { "text": "TEXT1" }
+    },
+    {
+      "role": "model",
+      "parts": { "text": "What a great question!" }
+    },
+    {
+      "role": "user",
+      "parts": { "text": "TEXT2" }
     }
-    '@  | Out-File -FilePath request.json -Encoding utf8
+  ],
+  "generation_config": {
+    "temperature": TEMPERATURE
+  }
+}
+'@  | Out-File -FilePath request.json -Encoding utf8
+```
 
 Then execute the following command to send your REST request:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATE_RESPONSE_METHOD" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_ID:GENERATE_RESPONSE_METHOD" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following.
 
 #### Response
 
+```
+{
+  "candidates": [
     {
-      "candidates": [
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "You're right to ask that! Rainbows are a beautiful and fascinating phenomenon. Here's the breakdown:\n\n**1. Sunlight and Water Droplets:**\n\n* Rainbows are created when sunlight interacts with water droplets suspended in the air, typically after rain.\n\n**2. Refraction and Reflection:**\n\n* **Refraction:** When sunlight enters a water droplet, it bends or refracts. This bending is different for each color of light (red bends the least, violet the most).\n* **Reflection:** Inside the droplet, the light bounces off the back surface and then refracts again as it exits the droplet.\n\n**3. Dispersion:**\n\n* The refraction and reflection process separates the white sunlight into its component colors, just like a prism. This separation of colors is called dispersion.\n\n**4. Our Perspective:**\n\n* You only see a rainbow when you're standing with the sun behind you and the rain in front of you. The colors appear in an arc because the angle at which the light refracts and reflects is specific for each color.\n\n**In short:**\n\nRainbows are created when sunlight hits water droplets in the air, causing the light to be refracted, reflected, and dispersed into its individual colors.  \n"
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "safetyRatings": [
         {
-          "content": {
-            "role": "model",
-            "parts": [
-              {
-                "text": "You're right to ask that! Rainbows are a beautiful and fascinating phenomenon. Here's the breakdown:\n\n**1. Sunlight and Water Droplets:**\n\n* Rainbows are created when sunlight interacts with water droplets suspended in the air, typically after rain.\n\n**2. Refraction and Reflection:**\n\n* **Refraction:** When sunlight enters a water droplet, it bends or refracts. This bending is different for each color of light (red bends the least, violet the most).\n* **Reflection:** Inside the droplet, the light bounces off the back surface and then refracts again as it exits the droplet.\n\n**3. Dispersion:**\n\n* The refraction and reflection process separates the white sunlight into its component colors, just like a prism. This separation of colors is called dispersion.\n\n**4. Our Perspective:**\n\n* You only see a rainbow when you're standing with the sun behind you and the rain in front of you. The colors appear in an arc because the angle at which the light refracts and reflects is specific for each color.\n\n**In short:**\n\nRainbows are created when sunlight hits water droplets in the air, causing the light to be refracted, reflected, and dispersed into its individual colors.  \n"
-              }
-            ]
-          },
-          "finishReason": "STOP",
-          "safetyRatings": [
-            {
-              "category": "HARM_CATEGORY_HATE_SPEECH",
-              "probability": "NEGLIGIBLE",
-              "probabilityScore": 0.06255973,
-              "severity": "HARM_SEVERITY_NEGLIGIBLE",
-              "severityScore": 0.039937314
-            },
-            {
-              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-              "probability": "NEGLIGIBLE",
-              "probabilityScore": 0.096705794,
-              "severity": "HARM_SEVERITY_NEGLIGIBLE",
-              "severityScore": 0.08404062
-            },
-            {
-              "category": "HARM_CATEGORY_HARASSMENT",
-              "probability": "NEGLIGIBLE",
-              "probabilityScore": 0.10818896,
-              "severity": "HARM_SEVERITY_NEGLIGIBLE",
-              "severityScore": 0.036631368
-            },
-            {
-              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-              "probability": "NEGLIGIBLE",
-              "probabilityScore": 0.116764,
-              "severity": "HARM_SEVERITY_NEGLIGIBLE",
-              "severityScore": 0.05023736
-            }
-          ]
+          "category": "HARM_CATEGORY_HATE_SPEECH",
+          "probability": "NEGLIGIBLE",
+          "probabilityScore": 0.06255973,
+          "severity": "HARM_SEVERITY_NEGLIGIBLE",
+          "severityScore": 0.039937314
+        },
+        {
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "probability": "NEGLIGIBLE",
+          "probabilityScore": 0.096705794,
+          "severity": "HARM_SEVERITY_NEGLIGIBLE",
+          "severityScore": 0.08404062
+        },
+        {
+          "category": "HARM_CATEGORY_HARASSMENT",
+          "probability": "NEGLIGIBLE",
+          "probabilityScore": 0.10818896,
+          "severity": "HARM_SEVERITY_NEGLIGIBLE",
+          "severityScore": 0.036631368
+        },
+        {
+          "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+          "probability": "NEGLIGIBLE",
+          "probabilityScore": 0.116764,
+          "severity": "HARM_SEVERITY_NEGLIGIBLE",
+          "severityScore": 0.05023736
         }
-      ],
-      "usageMetadata": {
-        "promptTokenCount": 22,
-        "candidatesTokenCount": 256,
-        "totalTokenCount": 278
-      }
+      ]
     }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 22,
+    "candidatesTokenCount": 256,
+    "totalTokenCount": 278
+  }
+}
+```
 
 ### Streaming and non-streaming responses
 
@@ -496,19 +528,21 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    from google import genai
-    from google.genai.types import HttpOptions
-    
-    client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    chat_session = client.chats.create(model="gemini-3.5-flash")
-    
-    for chunk in chat_session.send_message_stream("Why is the sky blue?"):
-        print(chunk.text, end="")
-    # Example response:
-    # The
-    #  sky appears blue due to a phenomenon called **Rayleigh scattering**. Here's
-    #  a breakdown of why:
-    # ...
+```python
+from google import genai
+from google.genai.types import HttpOptions
+
+client = genai.Client(http_options=HttpOptions(api_version="v1"))
+chat_session = client.chats.create(model="gemini-3.5-flash")
+
+for chunk in chat_session.send_message_stream("Why is the sky blue?"):
+    print(chunk.text, end="")
+# Example response:
+# The
+#  sky appears blue due to a phenomenon called **Rayleigh scattering**. Here's
+#  a breakdown of why:
+# ...
+```
 
 ## Gemini multiturn chat behavior
 
@@ -516,9 +550,9 @@ When you use multiturn chat, Gemini Enterprise Agent Platform locally stores the
 
 ## What's next
 
-  - Learn how to send multimodal prompt requests:
-      - [Image understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding)
-      - [Video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding)
-      - [Audio understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/audio-understanding)
-      - [Document understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/document-understanding)
-  - Learn about [responsible AI best practices and Agent Platform's safety filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .
+- Learn how to send multimodal prompt requests:
+  - [Image understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding)
+  - [Video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding)
+  - [Audio understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/audio-understanding)
+  - [Document understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/document-understanding)
+- Learn about [responsible AI best practices and Agent Platform's safety filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .

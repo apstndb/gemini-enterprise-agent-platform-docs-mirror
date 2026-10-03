@@ -24,17 +24,17 @@ Required. The display name of the ReasoningEngine.
 
 Optional. The description of the ReasoningEngine.
 
-`spec` ` object ( ReasoningEngineSpec  ` )
+`spec` `object ( `[`ReasoningEngineSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#ReasoningEngineSpec)` )`
 
 Optional. Configurations of the ReasoningEngine
 
-`createTime` ` string ( Timestamp  ` format)
+`createTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this ReasoningEngine was created.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
 
-`updateTime` ` string ( Timestamp  ` format)
+`updateTime` `string ( `[`Timestamp`](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)`
 
 Output only. timestamp when this ReasoningEngine was most recently updated.
 
@@ -44,7 +44,7 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 Optional. Used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens.
 
-`encryptionSpec` ` object ( EncryptionSpec  ` )
+`encryptionSpec` `object ( `[`EncryptionSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/EncryptionSpec)` )`
 
 Customer-managed encryption key spec for a ReasoningEngine. If set, this ReasoningEngine and all sub-resources of this ReasoningEngine will be secured by this key.
 
@@ -52,21 +52,28 @@ Customer-managed encryption key spec for a ReasoningEngine. If set, this Reasoni
 
 Labels for the ReasoningEngine.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;spec&quot;: {object (ReasoningEngineSpec)},&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;etag&quot;: string,&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;labels&quot;: {string: string,...}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "displayName": string,
+  "description": string,
+  "spec": {
+    object (ReasoningEngineSpec)
+  },
+  "createTime": string,
+  "updateTime": string,
+  "etag": string,
+  "encryptionSpec": {
+    object (EncryptionSpec)
+  },
+  "labels": {
+    string: string,
+    ...
+  }
+}
+```
 
 ## ReasoningEngineSpec
 
@@ -74,15 +81,15 @@ ReasoningEngine configurations
 
 Fields
 
-`packageSpec` ` object ( PackageSpec  ` )
+`packageSpec` `object ( `[`PackageSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#PackageSpec)` )`
 
-Optional. user provided package spec of the ReasoningEngine. Ignored when users directly specify a deployment image through `deploymentSpec.first_party_image_override` , but keeping the field\_behavior to avoid introducing breaking changes. The `deployment_source` field should not be set if `packageSpec` is specified.
+Optional. user provided package spec of the ReasoningEngine. Ignored when users directly specify a deployment image through `deploymentSpec.first_party_image_override` , but keeping the field_behavior to avoid introducing breaking changes. The `deployment_source` field should not be set if `packageSpec` is specified.
 
-`deploymentSpec` ` object ( DeploymentSpec  ` )
+`deploymentSpec` `object ( `[`DeploymentSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#DeploymentSpec)` )`
 
 Optional. The specification of a Reasoning Engine deployment.
 
-`classMethods[]` ` object ( Struct  ` format)
+`classMethods[]` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Optional. Declarations for object class methods in OpenAPI specification format.
 
@@ -90,7 +97,7 @@ Optional. Declarations for object class methods in OpenAPI specification format.
 
 Optional. The OSS agent framework used to develop the agent. Currently supported values: "google-adk", "langchain", "langgraph", "ag2", "llama-index", "custom".
 
-`identityType` ` enum ( IdentityType  ` )
+`identityType` `enum ( `[`IdentityType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#IdentityType)` )`
 
 Optional. The identity type to use for the Reasoning Engine. If not specified, the `serviceAccount` field will be used if set, otherwise the default Agent Platform Reasoning Engine service Agent in the project will be used.
 
@@ -98,11 +105,11 @@ Optional. The identity type to use for the Reasoning Engine. If not specified, t
 
 Defines the source for the deployment. The `package_spec` field should not be set if `deployment_source` is specified. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`sourceCodeSpec` ` object ( SourceCodeSpec  ` )
+`sourceCodeSpec` `object ( `[`SourceCodeSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#SourceCodeSpec)` )`
 
 Deploy from source code files with a defined entrypoint.
 
-`containerSpec` ` object ( ContainerSpec  ` )
+`containerSpec` `object ( `[`ContainerSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#ContainerSpec)` )`
 
 Deploy from a container image with a defined entrypoint and commands.
 
@@ -112,21 +119,35 @@ End of mutually exclusive fields.
 
 Optional. The service account that the Reasoning Engine artifact runs as. It should have "roles/storage.objectViewer" for reading the user project's Cloud Storage and "roles/aiplatform.user" for using Vertex extensions. If not specified, the Agent Platform Reasoning Engine service Agent in the project will be used.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;packageSpec&quot;: {object (PackageSpec)},&quot;deploymentSpec&quot;: {object (DeploymentSpec)},&quot;classMethods&quot;: [{object}],&quot;agentFramework&quot;: string,&quot;identityType&quot;: enum (IdentityType),// deployment_source&quot;sourceCodeSpec&quot;: {object (SourceCodeSpec)},&quot;containerSpec&quot;: {object (ContainerSpec)}// Union type&quot;serviceAccount&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "packageSpec": {
+    object (PackageSpec)
+  },
+  "deploymentSpec": {
+    object (DeploymentSpec)
+  },
+  "classMethods": [
+    {
+      object
+    }
+  ],
+  "agentFramework": string,
+  "identityType": enum (IdentityType),
+
+  // deployment_source
+  "sourceCodeSpec": {
+    object (SourceCodeSpec)
+  },
+  "containerSpec": {
+    object (ContainerSpec)
+  }
+  // Union type
+  "serviceAccount": string
+}
+```
 
 ## SourceCodeSpec
 
@@ -138,15 +159,15 @@ Fields
 
 Specifies where the source code is located. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`inlineSource` ` object ( InlineSource  ` )
+`inlineSource` `object ( `[`InlineSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#InlineSource)` )`
 
 Source code is provided directly in the request.
 
-`developerConnectSource` ` object ( DeveloperConnectSource  ` )
+`developerConnectSource` `object ( `[`DeveloperConnectSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#DeveloperConnectSource)` )`
 
 Source code is in a Git repository managed by Developer Connect.
 
-`agentConfigSource` ` object ( AgentConfigSource  ` )
+`agentConfigSource` `object ( `[`AgentConfigSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#AgentConfigSource)` )`
 
 Source code is generated from the agent config.
 
@@ -156,31 +177,43 @@ End of mutually exclusive fields.
 
 Specifies the language-specific configuration for building and running the code. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`pythonSpec` ` object ( PythonSpec  ` )
+`pythonSpec` `object ( `[`PythonSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#PythonSpec)` )`
 
 Configuration for a Python application.
 
-`imageSpec` ` object ( ImageSpec  ` )
+`imageSpec` `object ( `[`ImageSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#ImageSpec)` )`
 
 Optional. Configuration for building an image with custom config file.
 
 End of mutually exclusive fields.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// source&quot;inlineSource&quot;: {object (InlineSource)},&quot;developerConnectSource&quot;: {object (DeveloperConnectSource)},&quot;agentConfigSource&quot;: {object (AgentConfigSource)}// Union type// language_spec&quot;pythonSpec&quot;: {object (PythonSpec)},&quot;imageSpec&quot;: {object (ImageSpec)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+
+  // source
+  "inlineSource": {
+    object (InlineSource)
+  },
+  "developerConnectSource": {
+    object (DeveloperConnectSource)
+  },
+  "agentConfigSource": {
+    object (AgentConfigSource)
+  }
+  // Union type
+
+  // language_spec
+  "pythonSpec": {
+    object (PythonSpec)
+  },
+  "imageSpec": {
+    object (ImageSpec)
+  }
+  // Union type
+}
+```
 
 ## InlineSource
 
@@ -188,29 +221,19 @@ Specifies source code provided as a byte stream.
 
 Fields
 
-`sourceArchive` `string ( bytes format)`
+`sourceArchive` `string ( `[`bytes`](https://developers.google.com/discovery/v1/type-format)` format)`
 
 Required. Input only. The application source code archive. It must be a compressed tarball (.tar.gz) file.
 
 A base64-encoded string.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;sourceArchive&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "sourceArchive": string
+}
+```
 
 ## DeveloperConnectSource
 
@@ -218,25 +241,19 @@ Specifies source code to be fetched from a Git repository managed through the De
 
 Fields
 
-`config` ` object ( DeveloperConnectConfig  ` )
+`config` `object ( `[`DeveloperConnectConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#DeveloperConnectConfig)` )`
 
 Required. The Developer Connect configuration that defines the specific repository, revision, and directory to use as the source code root.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;config&quot;: {object (DeveloperConnectConfig)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "config": {
+    object (DeveloperConnectConfig)
+  }
+}
+```
 
 ## DeveloperConnectConfig
 
@@ -256,25 +273,15 @@ Required. Directory, relative to the source root, in which to run the build.
 
 Required. The revision to fetch from the Git repository such as a branch, a tag, a commit SHA, or any Git ref.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;gitRepositoryLink&quot;: string,
-  &quot;dir&quot;: string,
-  &quot;revision&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "gitRepositoryLink": string,
+  "dir": string,
+  "revision": string
+}
+```
 
 ## AgentConfigSource
 
@@ -282,29 +289,26 @@ Specification for the deploying from agent config.
 
 Fields
 
-`adkConfig` ` object ( AdkConfig  ` )
+`adkConfig` `object ( `[`AdkConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#AdkConfig)` )`
 
 Required. The ADK configuration.
 
-`inlineSource` ` object ( InlineSource  ` )
+`inlineSource` `object ( `[`InlineSource`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#InlineSource)` )`
 
 Optional. Any additional files needed to interpret the config. If a `requirements.txt` file is present in the `inlineSource` , the corresponding packages will be installed. If no `requirements.txt` file is present in `inlineSource` , then the latest version of `google-adk` will be installed for interpreting the ADK config.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;adkConfig&quot;: {object (AdkConfig)},&quot;inlineSource&quot;: {object (InlineSource)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "adkConfig": {
+    object (AdkConfig)
+  },
+  "inlineSource": {
+    object (InlineSource)
+  }
+}
+```
 
 ## AdkConfig
 
@@ -312,29 +316,19 @@ Configuration for the Agent Development Kit (ADK).
 
 Fields
 
-`jsonConfig` ` object ( Struct  ` format)
+`jsonConfig` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 Required. The value of the ADK config in JSON format.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;jsonConfig&quot;: {
+**JSON representation**
+
+```
+{
+  "jsonConfig": {
     object
   }
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## PythonSpec
 
@@ -356,7 +350,7 @@ This field should not be set if the source is `agentConfigSource` .
 
 `entrypointObject` `string`
 
-Optional. The name of the callable object within the `entrypointModule` to use as the application If not specified, defaults to "root\_agent".
+Optional. The name of the callable object within the `entrypointModule` to use as the application If not specified, defaults to "root_agent".
 
 This field should not be set if the source is `agentConfigSource` .
 
@@ -364,26 +358,16 @@ This field should not be set if the source is `agentConfigSource` .
 
 Optional. The path to the requirements file, relative to the source root. If not specified, defaults to "requirements.txt".
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;version&quot;: string,
-  &quot;entrypointModule&quot;: string,
-  &quot;entrypointObject&quot;: string,
-  &quot;requirementsFile&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "version": string,
+  "entrypointModule": string,
+  "entrypointObject": string,
+  "requirementsFile": string
+}
+```
 
 ## ImageSpec
 
@@ -395,26 +379,16 @@ Fields
 
 Optional. Build arguments to be used. They will be passed through --build-arg flags.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;buildArgs&quot;: {
+**JSON representation**
+
+```
+{
+  "buildArgs": {
     string: string,
     ...
   }
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+}
+```
 
 ## ContainerSpec
 
@@ -430,24 +404,14 @@ Required. The Artifact Registry Docker image URI (e.g., us-central1-docker.pkg.d
 
 Optional. The port the container listens on. Defaults to 8080 if unset.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;imageUri&quot;: string,
-  &quot;port&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "imageUri": string,
+  "port": integer
+}
+```
 
 ## PackageSpec
 
@@ -471,26 +435,16 @@ Optional. The Cloud Storage URI of the `requirements.txt` file
 
 Optional. The Python version. Supported values are 3.10, 3.11, 3.12, 3.13, 3.14. If not specified, the default value is 3.10.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;pickleObjectGcsUri&quot;: string,
-  &quot;dependencyFilesGcsUri&quot;: string,
-  &quot;requirementsGcsUri&quot;: string,
-  &quot;pythonVersion&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "pickleObjectGcsUri": string,
+  "dependencyFilesGcsUri": string,
+  "requirementsGcsUri": string,
+  "pythonVersion": string
+}
+```
 
 ## DeploymentSpec
 
@@ -498,15 +452,15 @@ The specification of a Reasoning Engine deployment.
 
 Fields
 
-`env[]` ` object ( EnvVar  ` )
+`env[]` `object ( `[`EnvVar`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/EnvVar)` )`
 
 Optional. Environment variables to be set with the Reasoning Engine deployment. The environment variables can be updated through the reasoningEngines.patch API.
 
-`secretEnv[]` ` object ( SecretEnvVar  ` )
+`secretEnv[]` `object ( `[`SecretEnvVar`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#SecretEnvVar)` )`
 
 Optional. Environment variables where the value is a secret in Cloud Secret Manager. To use this feature, add 'Secret Manager Secret Accessor' role (roles/secretmanager.secretAccessor) to AI Platform Reasoning Engine service Agent.
 
-`pscInterfaceConfig` ` object ( PscInterfaceConfig  ` )
+`pscInterfaceConfig` `object ( `[`PscInterfaceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec#PscInterfaceConfig)` )`
 
 Optional. Configuration for PSC-I.
 
@@ -514,11 +468,11 @@ Optional. Configuration for PSC-I.
 
 Optional. Resource limits for each container. Only 'cpu' and 'memory' keys are supported. Defaults to {"cpu": "4", "memory": "4Gi"}.
 
-  - The only supported values for CPU are '1', '2', '4', '6' and '8'. For more information, go to <https://cloud.google.com/run/docs/configuring/cpu> .
-  - The only supported values for memory are '1Gi', '2Gi', ... '32 Gi'.
-  - For required cpu on different memory values, go to <https://cloud.google.com/run/docs/configuring/memory-limits>
+- The only supported values for CPU are '1', '2', '4', '6' and '8'. For more information, go to <https://cloud.google.com/run/docs/configuring/cpu> .
+- The only supported values for memory are '1Gi', '2Gi', ... '32 Gi'.
+- For required cpu on different memory values, go to <https://cloud.google.com/run/docs/configuring/memory-limits>
 
-`keepAliveProbe` ` object ( KeepAliveProbe  ` )
+`keepAliveProbe` `object ( `[`KeepAliveProbe`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#KeepAliveProbe)` )`
 
 Optional. Specifies the configuration for keep-alive probe. Contains configuration on a specified endpoint that a deployment host should use to keep the container alive based on the probe settings.
 
@@ -536,21 +490,35 @@ If VPC-SC or PSC-I is enabled, the acceptable range is \[1, 100\].
 
 Optional. Concurrency for each container and agent server. Recommended value: 2 \* cpu + 1. Defaults to 9.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;env&quot;: [{object (EnvVar)}],&quot;secretEnv&quot;: [{object (SecretEnvVar)}],&quot;pscInterfaceConfig&quot;: {object (PscInterfaceConfig)},&quot;resourceLimits&quot;: {string: string,...},&quot;keepAliveProbe&quot;: {object (KeepAliveProbe)},&quot;minInstances&quot;: integer,&quot;maxInstances&quot;: integer,&quot;containerConcurrency&quot;: integer}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "env": [
+    {
+      object (EnvVar)
+    }
+  ],
+  "secretEnv": [
+    {
+      object (SecretEnvVar)
+    }
+  ],
+  "pscInterfaceConfig": {
+    object (PscInterfaceConfig)
+  },
+  "resourceLimits": {
+    string: string,
+    ...
+  },
+  "keepAliveProbe": {
+    object (KeepAliveProbe)
+  },
+  "minInstances": integer,
+  "maxInstances": integer,
+  "containerConcurrency": integer
+}
+```
 
 ## SecretEnvVar
 
@@ -562,25 +530,20 @@ Fields
 
 Required. name of the secret environment variable.
 
-`secretRef` ` object ( SecretRef  ` )
+`secretRef` `object ( `[`SecretRef`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#SecretRef)` )`
 
 Required. Reference to a secret stored in the Cloud Secret Manager that will provide the value for this environment variable.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;secretRef&quot;: {object (SecretRef)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "name": string,
+  "secretRef": {
+    object (SecretRef)
+  }
+}
+```
 
 ## SecretRef
 
@@ -590,30 +553,20 @@ Fields
 
 `secret` `string`
 
-Required. The name of the secret in Cloud Secret Manager. Format: {secret\_name}.
+Required. The name of the secret in Cloud Secret Manager. Format: {secret_name}.
 
 `version` `string`
 
 The Cloud Secret Manager secret version. Can be 'latest' for the latest version, an integer for a specific version, or a version alias.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;secret&quot;: string,
-  &quot;version&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "secret": string,
+  "version": string
+}
+```
 
 ## KeepAliveProbe
 
@@ -621,7 +574,7 @@ Represents the configuration for keep-alive probe. Contains configuration on a s
 
 Fields
 
-`httpGet` ` object ( HttpGet  ` )
+`httpGet` `object ( `[`HttpGet`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#HttpGet)` )`
 
 Optional. Specifies the HTTP GET configuration for the probe.
 
@@ -629,21 +582,16 @@ Optional. Specifies the HTTP GET configuration for the probe.
 
 Optional. Specifies the maximum duration (in seconds) to keep the instance alive via this probe. Can be a maximum of 3600 seconds (1 hour).
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;httpGet&quot;: {object (HttpGet)},&quot;maxSeconds&quot;: integer}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "httpGet": {
+    object (HttpGet)
+  },
+  "maxSeconds": integer
+}
+```
 
 ## HttpGet
 
@@ -659,93 +607,37 @@ Required. Specifies the path of the HTTP GET request (e.g., `"/is_busy"` ).
 
 Optional. Specifies the port number on the container to which the request is sent.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;path&quot;: string,
-  &quot;port&quot;: integer
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "path": string,
+  "port": integer
+}
+```
 
 ## IdentityType
 
 The identity type to use for the Reasoning Engine.
 
-Enums
+| Enums                       |                                                                                                                                                                                                             |
+|-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `IDENTITY_TYPE_UNSPECIFIED` | Default value. Use a custom service account if the `serviceAccount` field is set, otherwise use the default Agent Platform Reasoning Engine service Agent in the project. Same behavior as SERVICE_ACCOUNT. |
+| `SERVICE_ACCOUNT`           | Use a custom service account if the `serviceAccount` field is set, otherwise use the default Agent Platform Reasoning Engine service Agent in the project.                                                  |
+| `AGENT_IDENTITY`            | Use Agent Identity. The `serviceAccount` field must not be set.                                                                                                                                             |
 
-`IDENTITY_TYPE_UNSPECIFIED`
-
-Default value. Use a custom service account if the `serviceAccount` field is set, otherwise use the default Agent Platform Reasoning Engine service Agent in the project. Same behavior as SERVICE\_ACCOUNT.
-
-`SERVICE_ACCOUNT`
-
-Use a custom service account if the `serviceAccount` field is set, otherwise use the default Agent Platform Reasoning Engine service Agent in the project.
-
-`AGENT_IDENTITY`
-
-Use Agent Identity. The `serviceAccount` field must not be set.
-
-## Methods
-
-### `            asyncQuery           `
-
-Async query using a reasoning engine.
-
-### `            cancelAsyncQuery           `
-
-Cancels an AsyncQueryReasoningEngine operation.
-
-### `            create           `
-
-Creates a reasoning engine.
-
-### `            delete           `
-
-Deletes a reasoning engine.
-
-### `            executeCode           `
-
-Executes code statelessly.
-
-### `            get           `
-
-Gets a reasoning engine.
-
-### `            getIamPolicy           `
-
-Gets the access control policy for a resource.
-
-### `            list           `
-
-Lists reasoning engines in a location.
-
-### `            patch           `
-
-Updates a reasoning engine.
-
-### `            query           `
-
-Queries using a reasoning engine.
-
-### `            setIamPolicy           `
-
-Sets the access control policy on the specified resource.
-
-### `            streamQuery           `
-
-Streams queries using a reasoning engine.
-
-### `            testIamPermissions           `
-
-Returns permissions that a caller has on the specified resource.
+| Methods                                                                                                                                                         |                                                                  |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| [`asyncQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/asyncQuery)                 | Async query using a reasoning engine.                            |
+| [`cancelAsyncQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/cancelAsyncQuery)     | Cancels an AsyncQueryReasoningEngine operation.                  |
+| [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/create)                         | Creates a reasoning engine.                                      |
+| [`delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/delete)                         | Deletes a reasoning engine.                                      |
+| [`executeCode`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/executeCode)               | Executes code statelessly.                                       |
+| [`get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/get)                               | Gets a reasoning engine.                                         |
+| [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/getIamPolicy)             | Gets the access control policy for a resource.                   |
+| [`list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/list)                             | Lists reasoning engines in a location.                           |
+| [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/patch)                           | Updates a reasoning engine.                                      |
+| [`query`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/query)                           | Queries using a reasoning engine.                                |
+| [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/setIamPolicy)             | Sets the access control policy on the specified resource.        |
+| [`streamQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/streamQuery)               | Streams queries using a reasoning engine.                        |
+| [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines/testIamPermissions) | Returns permissions that a caller has on the specified resource. |

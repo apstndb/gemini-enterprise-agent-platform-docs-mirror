@@ -28,15 +28,15 @@ Required. The resource name of the Location to list Featurestores. Format: `proj
 
 Lists the featurestores that match the filter expression. The following fields are supported:
 
-  - `createTime` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons. Values must be in RFC 3339 format.
-  - `updateTime` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons. Values must be in RFC 3339 format.
-  - `onlineServingConfig.fixed_node_count` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons.
-  - `labels` : Supports key-value equality and key presence.
+- `createTime` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons. Values must be in RFC 3339 format.
+- `updateTime` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons. Values must be in RFC 3339 format.
+- `onlineServingConfig.fixed_node_count` : Supports `=` , `!=` , `<` , `>` , `<=` , and `>=` comparisons.
+- `labels` : Supports key-value equality and key presence.
 
 Examples:
 
-  - `createTime > "2020-01-01" OR updateTime > "2020-01-01"` Featurestores created or updated after 2020-01-01.
-  - `labels.env = "prod"` Featurestores with label "env" set to "prod".
+- `createTime > "2020-01-01" OR updateTime > "2020-01-01"` Featurestores created or updated after 2020-01-01.
+- `labels.env = "prod"` Featurestores with label "env" set to "prod".
 
 `pageSize` `integer`
 
@@ -44,19 +44,19 @@ The maximum number of Featurestores to return. The service may return fewer than
 
 `pageToken` `string`
 
-A page token, received from a previous `  FeaturestoreService.ListFeaturestores  ` call. Provide this to retrieve the subsequent page.
+A page token, received from a previous [`FeaturestoreService.ListFeaturestores`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores/list#google.cloud.aiplatform.v1.FeaturestoreService.ListFeaturestores) call. Provide this to retrieve the subsequent page.
 
-When paginating, all other parameters provided to `  FeaturestoreService.ListFeaturestores  ` must match the call that provided the page token.
+When paginating, all other parameters provided to [`FeaturestoreService.ListFeaturestores`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores/list#google.cloud.aiplatform.v1.FeaturestoreService.ListFeaturestores) must match the call that provided the page token.
 
 `orderBy` `string`
 
 A comma-separated list of fields to order by, sorted in ascending order. Use "desc" after a field name for descending. Supported Fields:
 
-  - `createTime`
-  - `updateTime`
-  - `onlineServingConfig.fixed_node_count`
+- `createTime`
+- `updateTime`
+- `onlineServingConfig.fixed_node_count`
 
-`readMask` ` string ( FieldMask  ` format)
+`readMask` `string ( `[`FieldMask`](https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask)` format)`
 
 Mask specifying which fields to read.
 
@@ -68,32 +68,29 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  FeaturestoreService.ListFeaturestores  ` .
+Response message for [`FeaturestoreService.ListFeaturestores`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores/list#google.cloud.aiplatform.v1.FeaturestoreService.ListFeaturestores) .
 
 If successful, the response body contains data with the following structure:
 
 Fields
 
-`featurestores[]` ` object ( Featurestore  ` )
+`featurestores[]` `object ( `[`Featurestore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores#Featurestore)` )`
 
 The Featurestores matching the request.
 
 `nextPageToken` `string`
 
-A token, which can be sent as `  ListFeaturestoresRequest.page_token  ` to retrieve the next page. If this field is omitted, there are no subsequent pages.
+A token, which can be sent as [`ListFeaturestoresRequest.page_token`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores/list#body.QUERY_PARAMETERS.page_token) to retrieve the next page. If this field is omitted, there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;featurestores&quot;: [{object (Featurestore)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "featurestores": [
+    {
+      object (Featurestore)
+    }
+  ],
+  "nextPageToken": string
+}
+```

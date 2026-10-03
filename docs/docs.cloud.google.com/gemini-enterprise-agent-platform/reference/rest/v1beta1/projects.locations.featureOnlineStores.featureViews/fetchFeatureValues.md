@@ -28,23 +28,23 @@ The request body contains data with the following structure:
 
 Fields
 
-`dataKey` ` object ( FeatureViewDataKey  ` )
+`dataKey` `object ( `[`FeatureViewDataKey`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureViewDataKey)` )`
 
 Optional. The request key to fetch feature values for.
 
-`dataFormat` ` enum ( FeatureViewDataFormat  ` )
+`dataFormat` `enum ( `[`FeatureViewDataFormat`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureViewDataFormat)` )`
 
-Optional. Response data format. If not set, `  FeatureViewDataFormat.KEY_VALUE  ` will be used.
+Optional. Response data format. If not set, [`FeatureViewDataFormat.KEY_VALUE`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FeatureViewDataFormat#ENUM_VALUES.KEY_VALUE) will be used.
 
-` format (deprecated)  ` ` enum ( Format  ` )
+`format `**`(deprecated)`** `enum ( `[`Format`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/fetchFeatureValues#Format)` )`
 
-Specify response data format. If not set, keyvalue format will be used. Deprecated. Use `  FetchFeatureValuesRequest.data_format  ` .
+Specify response data format. If not set, keyvalue format will be used. Deprecated. Use [`FetchFeatureValuesRequest.data_format`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/fetchFeatureValues#body.request_body.FIELDS.data_format) .
 
 `entity_id` `Union type`
 
-Entity ID to fetch feature values for. Deprecated. Use `  FetchFeatureValuesRequest.data_key  ` . The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+Entity ID to fetch feature values for. Deprecated. Use [`FetchFeatureValuesRequest.data_key`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.featureOnlineStores.featureViews/fetchFeatureValues#body.request_body.FIELDS.data_key) . The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-` id (deprecated)  ` `string`
+`id `**`(deprecated)`** `string`
 
 Simple id. The whole string will be used as is to identify Entity to fetch feature values for.
 
@@ -52,24 +52,16 @@ End of mutually exclusive fields.
 
 ### Response body
 
-If successful, the response body contains an instance of `  FetchFeatureValuesResponse  ` .
+If successful, the response body contains an instance of [`FetchFeatureValuesResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FetchFeatureValuesResponse) .
 
 ## Format
 
-> This item is deprecated\!
+> This item is deprecated!
 
 Format of the response data.
 
-Enums
-
-`FORMAT_UNSPECIFIED`
-
-Not set. Will be treated as the keyvalue format.
-
-`KEY_VALUE`
-
-Return response data in key-value format.
-
-`PROTO_STRUCT`
-
-Return response data in proto Struct format.
+| Enums                |                                                  |
+|----------------------|--------------------------------------------------|
+| `FORMAT_UNSPECIFIED` | Not set. Will be treated as the keyvalue format. |
+| `KEY_VALUE`          | Return response data in key-value format.        |
+| `PROTO_STRUCT`       | Return response data in proto Struct format.     |

@@ -8,24 +8,10 @@ data_source: docs.cloud.google.com
 
 Resolution for input media (images/video).
 
-Enums
-
-`MEDIA_RESOLUTION_UNSPECIFIED`
-
-Default value. This value is unused.
-
-`LOW`
-
-Low resolution.
-
-`MEDIUM`
-
-Medium resolution.
-
-`HIGH`
-
-High resolution.
-
-`ULTRA_HIGH`
-
-Ultra high resolution.
+| Enums                          |                                      |
+|--------------------------------|--------------------------------------|
+| `MEDIA_RESOLUTION_UNSPECIFIED` | Default value. This value is unused. |
+| `LOW`                          | Low resolution.                      |
+| `MEDIUM`                       | Medium resolution.                   |
+| `HIGH`                         | High resolution.                     |
+| `ULTRA_HIGH`                   | Ultra high resolution.               |

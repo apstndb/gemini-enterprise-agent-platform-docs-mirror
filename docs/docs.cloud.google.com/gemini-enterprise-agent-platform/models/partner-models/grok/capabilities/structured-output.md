@@ -24,59 +24,65 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 Before running this sample, make sure to set the `OPENAI_BASE_URL` environment variable or set up oauth credentials. For more information, see [Authentication and credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/auth-and-credentials) .
 
-    from openai import OpenAI
-    client = OpenAI()
-    
-    response = client.responses.create(
-        model="MODEL",
-        input="INPUT",
-        text={
-            "format": {
-                "type": "json_schema",
-                "name": "SCHEMA_NAME",
-                "strict": True,
-                "schema": JSON_SCHEMA
-            }
-        },
-        stream=False,
-    )
-    print(response)
+```
+from openai import OpenAI
+client = OpenAI()
 
-  - MODEL : The model name you want to use, for example `xai/grok-4.20-reasoning` .
-  - INPUT : The prompt or input for the model.
-  - SCHEMA\_NAME : A name for the response schema.
-  - JSON\_SCHEMA : A dictionary that defines the JSON schema, for example:  
-    `{"type": "object", "properties": {"name": {"type": "string"}, "age": {"type": "integer"}}, "required": ["name", "age"], "additionalProperties": False}`
+response = client.responses.create(
+    model="MODEL",
+    input="INPUT",
+    text={
+        "format": {
+            "type": "json_schema",
+            "name": "SCHEMA_NAME",
+            "strict": True,
+            "schema": JSON_SCHEMA
+        }
+    },
+    stream=False,
+)
+print(response)
+```
+
+- ` MODEL ` : The model name you want to use, for example `xai/grok-4.20-reasoning` .
+- ` INPUT ` : The prompt or input for the model.
+- ` SCHEMA_NAME ` : A name for the response schema.
+- ` JSON_SCHEMA ` : A dictionary that defines the JSON schema, for example:  
+  `{"type": "object", "properties": {"name": {"type": "string"}, "age": {"type": "integer"}}, "required": ["name", "age"], "additionalProperties": False}`
 
 ### REST
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - MODEL : The model name you want to use, for example `xai/grok-4.20-reasoning` .
-  - INPUT : The prompt or input for the model.
-  - SCHEMA\_NAME : A name for the response schema.
-  - JSON\_SCHEMA : A JSON schema object that defines the structure of the output.
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` MODEL ` : The model name you want to use, for example `xai/grok-4.20-reasoning` .
+- ` INPUT ` : The prompt or input for the model.
+- ` SCHEMA_NAME ` : A name for the response schema.
+- ` JSON_SCHEMA ` : A JSON schema object that defines the structure of the output.
 
 HTTP method and URL:
 
-    POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/responses
+```
+POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/responses
+```
 
 Request JSON body:
 
-    {
-      "model": "MODEL",
-      "input": "INPUT",
-      "text": {
-        "format": {
-          "type": "json_schema",
-          "name": "SCHEMA_NAME",
-          "strict": true,
-          "schema": JSON_SCHEMA
-        }
-      },
-      "stream": false
+```
+{
+  "model": "MODEL",
+  "input": "INPUT",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "SCHEMA_NAME",
+      "strict": true,
+      "schema": JSON_SCHEMA
     }
+  },
+  "stream": false
+}
+```
 
 To send your request, choose one of these options:
 
@@ -86,11 +92,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/responses"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/responses"
+```
 
 #### PowerShell
 
@@ -98,15 +106,17 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/responses" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/responses" | Select-Object -Expand Content
+```
 
 ### Example
 
@@ -120,281 +130,299 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 Before running this sample, make sure to set the `OPENAI_BASE_URL` environment variable or set up oauth credentials. For more information, see [Authentication and credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/auth-and-credentials) .
 
-    from openai import OpenAI
-    client = OpenAI()
-    
-    response = client.responses.create(
-        model="xai/grok-4.20-reasoning",
-        input="Extract: John Doe is 30.",
-        text={
-            "format": {
-                "type": "json_schema",
-                "name": "person_info",
-                "strict": True,
-                "schema": {
-                    "type": "object",
-                    "properties": {
-                        "name": {"type": "string"},
-                        "age": {"type": "integer"}
-                    },
-                    "required": ["name", "age"],
-                    "additionalProperties": False
-                }
+```
+from openai import OpenAI
+client = OpenAI()
+
+response = client.responses.create(
+    model="xai/grok-4.20-reasoning",
+    input="Extract: John Doe is 30.",
+    text={
+        "format": {
+            "type": "json_schema",
+            "name": "person_info",
+            "strict": True,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "name": {"type": "string"},
+                    "age": {"type": "integer"}
+                },
+                "required": ["name", "age"],
+                "additionalProperties": False
             }
-        },
-        stream=False,
-    )
-    print(response)
+        }
+    },
+    stream=False,
+)
+print(response)
+```
 
 ### REST
 
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/responses -d \
-    '{
-      "model": "xai/grok-4.20-reasoning",
-      "input": "Extract: John Doe is 30.",
-      "text": {
-        "format": {
-          "type": "json_schema",
-          "name": "person_info",
-          "strict": true,
-          "schema": {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string"
-              },
-              "age": {
-                "type": "integer"
-              }
-            },
-            "required": [
-              "name",
-              "age"
-            ],
-            "additionalProperties": false
+```
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/responses -d \
+'{
+  "model": "xai/grok-4.20-reasoning",
+  "input": "Extract: John Doe is 30.",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "person_info",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "age": {
+            "type": "integer"
           }
-        }
-      },
-      "stream": false
-    }'
+        },
+        "required": [
+          "name",
+          "age"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "stream": false
+}'
+```
 
-  - PROJECT\_ID : Your Google Cloud project ID.
+- ` PROJECT_ID ` : Your Google Cloud project ID.
 
 #### Example Response
 
 The following is an example of what the model output could look like:
 
+```
+{
+  "background": false,
+  "completed_at": 1779159186,
+  "created_at": 1779159184,
+  "error": null,
+  "frequency_penalty": 0,
+  "id": "kNALat3NENmDifEP14TQ8Qk",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "metadata": {
+    "system_fingerprint": "fp_39c5j0a3e9"
+  },
+  "model": "xai/grok-4.20-reasoning",
+  "object": "response",
+  "output": [
     {
-      "background": false,
-      "completed_at": 1779159186,
-      "created_at": 1779159184,
-      "error": null,
-      "frequency_penalty": 0,
-      "id": "kNALat3NENmDifEP14TQ8Qk",
-      "incomplete_details": null,
-      "instructions": null,
-      "max_output_tokens": null,
-      "max_tool_calls": null,
-      "metadata": {
-        "system_fingerprint": "fp_39c5j0a3e9"
-      },
-      "model": "xai/grok-4.20-reasoning",
-      "object": "response",
-      "output": [
+      "content": [
         {
-          "content": [
-            {
-              "annotations": [],
-              "logprobs": [],
-              "text": "**Extracted Information:**\n\n- **Name:** John Doe\n- **Age:** 30\n\n**Structured output:**\n```json\n{\n  \"name\": \"John Doe\",\n  \"age\": 30\n}\n```",
-              "type": "output_text"
-            }
-          ],
-          "id": "msg_kNALat3NENmDifEP14TQ8Qk",
-          "role": "assistant",
-          "status": "completed",
-          "type": "message"
+          "annotations": [],
+          "logprobs": [],
+          "text": "**Extracted Information:**\n\n- **Name:** John Doe\n- **Age:** 30\n\n**Structured output:**\n```json\n{\n  \"name\": \"John Doe\",\n  \"age\": 30\n}\n```",
+          "type": "output_text"
         }
       ],
-      "parallel_tool_calls": true,
-      "presence_penalty": 0,
-      "previous_response_id": null,
-      "prompt_cache_key": null,
-      "reasoning": {
-        "effort": "medium",
-        "summary": "detailed"
-      },
-      "safety_identifier": null,
-      "service_tier": "default",
+      "id": "msg_kNALat3NENmDifEP14TQ8Qk",
+      "role": "assistant",
       "status": "completed",
-      "store": true,
-      "temperature": 0.7,
-      "text": {
-        "format": {
-          "type": "text"
-        }
-      },
-      "tool_choice": "auto",
-      "tools": [],
-      "top_logprobs": 0,
-      "top_p": 0.95,
-      "truncation": "disabled",
-      "usage": {
-        "extra_properties": {
-          "google": {
-            "traffic_type": "ON_DEMAND"
-          }
-        },
-        "input_tokens": 343,
-        "input_tokens_details": {
-          "cached_tokens": 0
-        },
-        "num_server_side_tools_used": 0,
-        "num_sources_used": 0,
-        "output_tokens": 369,
-        "output_tokens_details": {
-          "reasoning_tokens": 325
-        },
-        "total_tokens": 712
-      },
-      "user": null
+      "type": "message"
     }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "reasoning": {
+    "effort": "medium",
+    "summary": "detailed"
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": true,
+  "temperature": 0.7,
+  "text": {
+    "format": {
+      "type": "text"
+    }
+  },
+  "tool_choice": "auto",
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.95,
+  "truncation": "disabled",
+  "usage": {
+    "extra_properties": {
+      "google": {
+        "traffic_type": "ON_DEMAND"
+      }
+    },
+    "input_tokens": 343,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "num_server_side_tools_used": 0,
+    "num_sources_used": 0,
+    "output_tokens": 369,
+    "output_tokens_details": {
+      "reasoning_tokens": 325
+    },
+    "total_tokens": 712
+  },
+  "user": null
+}
+```
 
 ## Use structured outputs with Chat Completions API
 
 The following use case sets a response schema that ensures that the model output is a JSON object with the following properties: name, date, and participants. The Python code uses the OpenAI SDK and Pydantic objects to generate the JSON schema.
 
-    from pydantic import BaseModel
-    from openai import OpenAI
-    
-    client = OpenAI()
-    
-    class CalendarEvent(BaseModel):
-        name: str
-        date: str
-        participants: list[str]
-    
-    completion = client.beta.chat.completions.parse(
-        model="MODEL_NAME",
-        messages=[
-            {"role": "system", "content": "Extract the event information."},
-            {"role": "user", "content": "Alice and Bob are going to a science fair on Friday."},
-        ],
-        response_format=CalendarEvent,
-    )
-    
-    print(completion.choices[0].message.parsed)
+```
+from pydantic import BaseModel
+from openai import OpenAI
+
+client = OpenAI()
+
+class CalendarEvent(BaseModel):
+    name: str
+    date: str
+    participants: list[str]
+
+completion = client.beta.chat.completions.parse(
+    model="MODEL_NAME",
+    messages=[
+        {"role": "system", "content": "Extract the event information."},
+        {"role": "user", "content": "Alice and Bob are going to a science fair on Friday."},
+    ],
+    response_format=CalendarEvent,
+)
+
+print(completion.choices[0].message.parsed)
+```
 
 > **Note:** The response has a `CalendarEvent` object, which is populated with the defined fields. The model outputs JSON, which the SDK parses into a Pydantic object.
 
 The model output will adhere to the following JSON schema:
 
-    { "name": STRING, "date": STRING, "participants": [STRING] }
+```
+{ "name": STRING, "date": STRING, "participants": [STRING] }
+```
 
 When provided the prompt, "Alice and Bob are going to a science fair on Friday", the model could produce the following response:
 
-    {
-      "name": "science fair",
-      "date": "Friday",
-      "participants": [
-        "Alice",
-        "Bob"
-      ]
-    }
+```
+{
+  "name": "science fair",
+  "date": "Friday",
+  "participants": [
+    "Alice",
+    "Bob"
+  ]
+}
+```
 
 ### Detailed example
 
 The following code is an example of a recursive schema. The `UI` class contains a list of `children` , which can also be of the `UI` class.
 
-    from pydantic import BaseModel
-    from openai import OpenAI
-    from enum import Enum
-    from typing import List
-    
-    client = OpenAI()
-    
-    class UIType(str, Enum):
-      div = "div"
-      button = "button"
-      header = "header"
-      section = "section"
-      field = "field"
-      form = "form"
-    
-    class Attribute(BaseModel):
-      name: str
-      value: str
-    
-    class UI(BaseModel):
-      type: UIType
-      label: str
-      children: List["UI"]
-      attributes: List[Attribute]
-    
-    UI.model_rebuild() # This is required to enable recursive types
-    
-    class Response(BaseModel):
-      ui: UI
-    
-    completion = client.beta.chat.completions.parse(
-      model="MODEL_NAME",
-      messages=[
-        {"role": "system", "content": "You are a UI generator AI. Convert the user input into a UI."},
-        {"role": "user", "content": "Make a User Profile Form"}
-      ],
-      response_format=Response,
-    )
-    
-    print(completion.choices[0].message.parsed)
+```
+from pydantic import BaseModel
+from openai import OpenAI
+from enum import Enum
+from typing import List
+
+client = OpenAI()
+
+class UIType(str, Enum):
+  div = "div"
+  button = "button"
+  header = "header"
+  section = "section"
+  field = "field"
+  form = "form"
+
+class Attribute(BaseModel):
+  name: str
+  value: str
+
+class UI(BaseModel):
+  type: UIType
+  label: str
+  children: List["UI"]
+  attributes: List[Attribute]
+
+UI.model_rebuild() # This is required to enable recursive types
+
+class Response(BaseModel):
+  ui: UI
+
+completion = client.beta.chat.completions.parse(
+  model="MODEL_NAME",
+  messages=[
+    {"role": "system", "content": "You are a UI generator AI. Convert the user input into a UI."},
+    {"role": "user", "content": "Make a User Profile Form"}
+  ],
+  response_format=Response,
+)
+
+print(completion.choices[0].message.parsed)
+```
 
 The model output will adhere to the schema of the Pydantic object specified in the previous snippet. In this example, the model could generate the following UI form:
 
-    Form
-      Input
-        Name
-        Email
-        Age
+```
+Form
+  Input
+    Name
+    Email
+    Age
+```
 
 A response could look like the following:
 
-    ui = UI(
-        type=UIType.div,
-        label='Form',
-        children=[
-            UI(
-                type=UIType.div,
-                label='Input',
-                children=[],
-                attributes=[
-                    Attribute(name='label', value='Name')
-                ]
-            ),
-            UI(
-                type=UIType.div,
-                label='Input',
-                children=[],
-                attributes=[
-                    Attribute(name='label', value='Email')
-                ]
-            ),
-            UI(
-                type=UIType.div,
-                label='Input',
-                children=[],
-                attributes=[
-                    Attribute(name='label', value='Age')
-                ]
-            )
-        ],
-        attributes=[
-            Attribute(name='name', value='John Doe'),
-            Attribute(name='email', value='john.doe@example.com'),
-            Attribute(name='age', value='30')
-        ]
-    )
+```
+ui = UI(
+    type=UIType.div,
+    label='Form',
+    children=[
+        UI(
+            type=UIType.div,
+            label='Input',
+            children=[],
+            attributes=[
+                Attribute(name='label', value='Name')
+            ]
+        ),
+        UI(
+            type=UIType.div,
+            label='Input',
+            children=[],
+            attributes=[
+                Attribute(name='label', value='Email')
+            ]
+        ),
+        UI(
+            type=UIType.div,
+            label='Input',
+            children=[],
+            attributes=[
+                Attribute(name='label', value='Age')
+            ]
+        )
+    ],
+    attributes=[
+        Attribute(name='name', value='John Doe'),
+        Attribute(name='email', value='john.doe@example.com'),
+        Attribute(name='age', value='30')
+    ]
+)
+```
 
 ### Get JSON object responses
 
@@ -412,58 +440,66 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 Before running this sample, make sure to set the `OPENAI_BASE_URL` environment variable or set up oauth credentials. For more information, see [Authentication and credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/auth-and-credentials) .
 
-    from openai import OpenAI
-    client = OpenAI()
-    
-    response = client.chat.completions.create(
-      model="MODEL",
-      response_format={ "type": "json_object" },
-      messages=[
-        {"role": "user", "content": "List 5 rivers in South America. Your response must be a JSON object with a single key "rivers", which has a list of strings as its value."},
-      ]
-    )
-    print(response.choices[0].message.content)
+```
+from openai import OpenAI
+client = OpenAI()
 
-Replace `  MODEL  ` with the model name you want to use, for example `xai/grok-4.1-fast-reasoning` .
+response = client.chat.completions.create(
+  model="MODEL",
+  response_format={ "type": "json_object" },
+  messages=[
+    {"role": "user", "content": "List 5 rivers in South America. Your response must be a JSON object with a single key "rivers", which has a list of strings as its value."},
+  ]
+)
+print(response.choices[0].message.content)
+```
+
+Replace `MODEL` with the model name you want to use, for example `xai/grok-4.1-fast-reasoning` .
 
 #### Example output
 
-    {
-      "rivers": [
-        "Amazon River",
-        "Paraná River",
-        "Orinoco River",
-        "São Francisco River",
-        "Magdalena River"
-      ]
-    }
+```
+{
+  "rivers": [
+    "Amazon River",
+    "Paraná River",
+    "Orinoco River",
+    "São Francisco River",
+    "Magdalena River"
+  ]
+}
+```
 
 ### REST
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - LOCATION : A region that supports Grok models.
-  - MODEL : The model name you want to use, for example `xai/grok-4.1-fast-reasoning` .
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` LOCATION ` : A region that supports Grok models.
+- ` MODEL ` : The model name you want to use, for example `xai/grok-4.1-fast-reasoning` .
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions
+```
+POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions
+```
 
 Request JSON body:
 
+```
+{
+  "model": "MODEL",
+  "response_format": {
+    "type": "json_object"
+  },
+  "messages": [
     {
-      "model": "MODEL",
-      "response_format": {
-        "type": "json_object"
-      },
-      "messages": [
-        {
-          "role": "user",
-          "content": "List 5 rivers in South America. Your response must be a JSON object with a single key \"rivers\", which has a list of strings as its value."
-        }
-      ]
+      "role": "user",
+      "content": "List 5 rivers in South America. Your response must be a JSON object with a single key \"rivers\", which has a list of strings as its value."
     }
+  ]
+}
+```
 
 To send your request, choose one of these options:
 
@@ -473,11 +509,13 @@ To send your request, choose one of these options:
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    curl -X POST \
-         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d @request.json \
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions"
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions"
+```
 
 #### PowerShell
 
@@ -485,45 +523,49 @@ Save the request body in a file named `request.json` , and execute the following
 
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $cred = gcloud auth print-access-token
-    $headers = @{ "Authorization" = "Bearer $cred" }
-    
-    Invoke-WebRequest `
-        -Method POST `
-        -Headers $headers `
-        -ContentType: "application/json; charset=utf-8" `
-        -InFile request.json `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+```
 
 You should receive a JSON response similar to the following.
 
 #### Response
 
+```
+{
+  "choices": [
     {
-      "choices": [
-        {
-          "finish_reason": "stop",
-          "index": 0,
-          "logprobs": null,
-          "message": {
-            "content": "{\n  \"rivers\": [\n    \"Amazon River\",\n    \"Paraná River\",\n    \"Orinoco River\",\n    \"São Francisco River\",\n    \"Magdalena River\"\n  ]\n}",
-            "role": "assistant"
-          }
-        }
-      ],
-      "created": 1721860000,
-      "id": "123456789",
-      "model": "xai/grok-4.1-fast-reasoning",
-      "object": "chat.completion",
-      "system_fingerprint": "12345",
-      "usage": {
-        "completion_tokens": 54,
-        "prompt_tokens": 46,
-        "total_tokens": 100
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "{\n  \"rivers\": [\n    \"Amazon River\",\n    \"Paraná River\",\n    \"Orinoco River\",\n    \"São Francisco River\",\n    \"Magdalena River\"\n  ]\n}",
+        "role": "assistant"
       }
     }
+  ],
+  "created": 1721860000,
+  "id": "123456789",
+  "model": "xai/grok-4.1-fast-reasoning",
+  "object": "chat.completion",
+  "system_fingerprint": "12345",
+  "usage": {
+    "completion_tokens": 54,
+    "prompt_tokens": 46,
+    "total_tokens": 100
+  }
+}
+```
 
 ## What's next
 
-  - Learn about [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/function-calling) .
-  - Learn about [Reasoning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning) .
+- Learn about [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/function-calling) .
+- Learn about [Reasoning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning) .

@@ -10,7 +10,7 @@ Defines how to select FeatureStatsAndAnomaly to be populated in response. If set
 
 Fields
 
-`statsTimeRange` ` object ( Interval  ` )
+`statsTimeRange` `object ( `[`Interval`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Interval)` )`
 
 Optional. If set, return all stats generated between \[startTime, endTime). If latestStatsCount is set, return the most recent count of stats within the statsTimeRange.
 
@@ -18,18 +18,13 @@ Optional. If set, return all stats generated between \[startTime, endTime). If l
 
 Optional. If set, returns the most recent count of stats. Valid value is \[0, 100\]. If statsTimeRange is set, return most recent count of stats within the statsTimeRange.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;statsTimeRange&quot;: {object (Interval)},&quot;latestStatsCount&quot;: integer}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "statsTimeRange": {
+    object (Interval)
+  },
+  "latestStatsCount": integer
+}
+```

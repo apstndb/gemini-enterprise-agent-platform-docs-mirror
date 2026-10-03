@@ -40,12 +40,12 @@ Optional. Standard list filter.
 
 Supported fields:
 
-  - `sessionId`
-  - `userId`
-  - `feedbackType`
-  - `feedbackLabels` : Supports the HAS operator ( `:` ). For example: `feedbackLabels:"inaccurate"` .
-  - `createTime`
-  - `updateTime`
+- `sessionId`
+- `userId`
+- `feedbackType`
+- `feedbackLabels` : Supports the HAS operator ( `:` ). For example: `feedbackLabels:"inaccurate"` .
+- `createTime`
+- `updateTime`
 
 Example: `feedbackType="THUMBS_DOWN" AND feedbackLabels:"hallucination"` .
 
@@ -55,8 +55,8 @@ Optional. A comma-separated list of fields to order results by, sorted in ascend
 
 Supported fields:
 
-  - `createTime`
-  - `updateTime`
+- `createTime`
+- `updateTime`
 
 Example: `createTime desc` .
 
@@ -72,7 +72,7 @@ If successful, the response body contains data with the following structure:
 
 Fields
 
-`feedbackEntries[]` ` object ( FeedbackEntry  ` )
+`feedbackEntries[]` `object ( `[`FeedbackEntry`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.feedbackEntries#FeedbackEntry)` )`
 
 The page of FeedbackEntries matching the request.
 
@@ -80,18 +80,15 @@ The page of FeedbackEntries matching the request.
 
 A token to retrieve the next page. Absence of this field indicates there are no subsequent pages.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;feedbackEntries&quot;: [{object (FeedbackEntry)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "feedbackEntries": [
+    {
+      object (FeedbackEntry)
+    }
+  ],
+  "nextPageToken": string
+}
+```

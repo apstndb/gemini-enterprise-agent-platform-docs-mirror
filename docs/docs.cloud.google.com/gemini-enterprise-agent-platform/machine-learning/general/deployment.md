@@ -21,7 +21,7 @@ You can deploy multiple models to an endpoint, or you can deploy the same model 
 During model deployment, you make the following important decisions about how to run online inference:
 
 | Resource created | Setting specified at resource creation                                                                                                                         |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Endpoint         | Location in which to run inferences                                                                                                                            |
 | Model            | Container to use ( [`ModelContainerSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ModelContainerSpec) )               |
 | DeployedModel    | [Compute resources to use for online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute) |
@@ -36,7 +36,7 @@ The next decision to make is which compute resources to use for serving the mode
 
 The endpoint resource provides the service endpoint (URL) you use to request the inference. For example:
 
-``` 
+```
    https://us-central1-aiplatform.googleapis.com/v1/projects/{project}/locations/{location}/endpoints/{endpoint}:predict
 ```
 
@@ -83,8 +83,8 @@ Vertex AI Inference autoscaling scales the number of inference nodes based on th
 
 ## What's next
 
-  - [Choose an endpoint type](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/choose-endpoint-type) .
-  - [Deploy a model by using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console) .
-  - Learn about [Inference request-response logging for dedicated endpoints and Private Service Connect endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging#dedicated-and-psc) .
-  - Learn how to [get an online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions) .
-  - Learn how to [change the default settings for inference logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging#enabling-and-disabling) .
+- [Choose an endpoint type](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/choose-endpoint-type) .
+- [Deploy a model by using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console) .
+- Learn about [Inference request-response logging for dedicated endpoints and Private Service Connect endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging#dedicated-and-psc) .
+- Learn how to [get an online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions) .
+- Learn how to [change the default settings for inference logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging#enabling-and-disabling) .

@@ -28,13 +28,13 @@ The request body contains data with the following structure:
 
 Fields
 
-`requests[]` ` object ( CreateRagMetadataRequest  ` )
+`requests[]` `object ( `[`CreateRagMetadataRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/batchCreate#CreateRagMetadataRequest)` )`
 
-Required. The request messages for `  VertexRagDataService.CreateRagMetadata  ` . A maximum of 500 rag file metadata can be created in a batch.
+Required. The request messages for [`VertexRagDataService.CreateRagMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata/create#google.cloud.aiplatform.v1beta1.VertexRagDataService.CreateRagMetadata) . A maximum of 500 rag file metadata can be created in a batch.
 
 ### Response body
 
-If successful, the response body contains an instance of `  Operation  ` .
+If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
 ## CreateRagMetadataRequest
 
@@ -46,7 +46,7 @@ Fields
 
 Required. The parent resource where this metadata will be created. Format: `projects/{projectNumber}/locations/{locationId}/ragCorpora/{ragCorpus}/ragFiles/{ragFile}`
 
-`ragMetadata` ` object ( RagMetadata  ` )
+`ragMetadata` `object ( `[`RagMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles.ragMetadata#RagMetadata)` )`
 
 Required. The metadata to create.
 
@@ -56,18 +56,14 @@ Optional. The id to use for the metadata, which will become the final component 
 
 This value should be up to 63 characters, and valid characters are /\[a-z\]\[0-9\]-/. The first character must be a letter, the last could be a letter or a number.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;parent&quot;: string,&quot;ragMetadata&quot;: {object (RagMetadata)},&quot;ragMetadataId&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+**JSON representation**
+
+```
+{
+  "parent": string,
+  "ragMetadata": {
+    object (RagMetadata)
+  },
+  "ragMetadataId": string
+}
+```

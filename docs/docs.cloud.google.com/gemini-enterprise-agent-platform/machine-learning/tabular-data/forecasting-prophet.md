@@ -7,19 +7,19 @@ data_source: docs.cloud.google.com
 ---
 
 > To see an example of how to train a model with Prophet, run the "Train a Prophet Model using Tabular Workflows" notebook in one of the following environments:
-> 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/tabular_workflows/prophet_on_vertex_pipelines.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ftabular_workflows%2Fprophet_on_vertex_pipelines.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ftabular_workflows%2Fprophet_on_vertex_pipelines.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/tabular_workflows/prophet_on_vertex_pipelines.ipynb)
+>
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/tabular_workflows/prophet_on_vertex_pipelines.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ftabular_workflows%2Fprophet_on_vertex_pipelines.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ftabular_workflows%2Fprophet_on_vertex_pipelines.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/tabular_workflows/prophet_on_vertex_pipelines.ipynb)
 
 Prophet is a forecasting model maintained by Meta. See the [Prophet paper](https://peerj.com/preprints/3190/) for algorithm details and the [documentation](https://facebook.github.io/prophet/docs/quick_start.html) for more information about the library.
 
-Like [BigQuery ML ARIMA\_PLUS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-arima/overview) , Prophet attempts to decompose each time series into trends, seasons, and holidays, producing a forecast using the aggregation of these models' inferences. An important difference, however, is that BQML ARIMA+ uses ARIMA to model the trend component, while Prophet attempts to fit a curve using a piecewise logistic or linear model.
+Like [BigQuery ML ARIMA_PLUS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-arima/overview) , Prophet attempts to decompose each time series into trends, seasons, and holidays, producing a forecast using the aggregation of these models' inferences. An important difference, however, is that BQML ARIMA+ uses ARIMA to model the trend component, while Prophet attempts to fit a curve using a piecewise logistic or linear model.
 
 Google Cloud offers a pipeline for training a Prophet model and a pipeline for getting batch inferences from a Prophet model. Both pipelines are instances of [Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction) from [Google Cloud Pipeline Components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/components-introduction) (GCPC).
 
 Integration of Prophet with Agent Platform means that you can do the following:
 
-  - Use Agent Platform [data splitting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data#split) and [windowing strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/train-model#forecast-window) .
-  - Read data from either BigQuery tables or CSVs stored in Cloud Storage. Agent Platform expects each row to have the same format as [Agent Platform Forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data) .
+- Use Agent Platform [data splitting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data#split) and [windowing strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/train-model#forecast-window) .
+- Read data from either BigQuery tables or CSVs stored in Cloud Storage. Agent Platform expects each row to have the same format as [Agent Platform Forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data) .
 
 Although Prophet is a multivariate model, Agent Platform supports only a univariate version of it.
 
@@ -29,10 +29,10 @@ To learn about the service accounts this workflow uses, see [Service accounts fo
 
 This workflow uses the following APIs:
 
-  - Agent Platform
-  - Dataflow
-  - BigQuery
-  - Cloud Storage
+- Agent Platform
+- Dataflow
+- BigQuery
+- Cloud Storage
 
 ## Train a model with Prophet
 
@@ -42,29 +42,33 @@ To support multiple time series, the pipeline uses an Agent Platform [Custom Tra
 
 The following sample code demonstrates how to run a Prophet model training pipeline:
 
-    job = aiplatform.PipelineJob(
-        ...
-        template_path=train_job_spec_path,
-        parameter_values=train_parameter_values,
-        ...
-    )
-    job.run(service_account=SERVICE_ACCOUNT)
+```
+job = aiplatform.PipelineJob(
+    ...
+    template_path=train_job_spec_path,
+    parameter_values=train_parameter_values,
+    ...
+)
+job.run(service_account=SERVICE_ACCOUNT)
+```
 
 The optional `service_account` parameter in `job.run()` lets you set the Gemini Enterprise Agent Platform Pipelines service account to an account of your choice.
 
 The pipeline and the parameter values are defined by the following function.
 
-    (
-        train_job_spec_path,
-        train_parameter_values,
-    ) = utils.get_prophet_train_pipeline_and_parameters(
-        ...
-    )
+```
+(
+    train_job_spec_path,
+    train_parameter_values,
+) = utils.get_prophet_train_pipeline_and_parameters(
+    ...
+)
+```
 
 The following is a subset of `get_prophet_train_pipeline_and_parameters` parameters:
 
 | Parameter name                    | Type    | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `project`                         | String  | Your project ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `location`                        | String  | Your region.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `root_dir`                        | String  | The Cloud Storage location to store the output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -83,7 +87,7 @@ The following is a subset of `get_prophet_train_pipeline_and_parameters` paramet
 The following is a subset of `get_prophet_train_pipeline_and_parameters` parameters for Dataflow customization:
 
 | Parameter name                        | Type    | Definition                                                                                                                                                                                                        |
-| ------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|---------------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `trainer_dataflow_machine_type`       | String  | The Dataflow machine type to use for training.                                                                                                                                                                    |
 | `trainer_dataflow_max_num_workers`    | Integer | The maximum number of Dataflow workers to use for training.                                                                                                                                                       |
 | `evaluation_dataflow_machine_type`    | String  | The Dataflow machine type to use for evaluation.                                                                                                                                                                  |
@@ -119,26 +123,26 @@ The training pipeline offers the following options for splitting your data:
 <td>Fraction split</td>
 <td>Agent Platform uses values you provide to partition your data into the training set, the validation set, and the test set. Agent Platform uses the Time column to determine the chronological order of the data rows.</td>
 <td><ul>
-<li><code dir="ltr" translate="no">training_fraction</code></li>
-<li><code dir="ltr" translate="no">validation_fraction</code></li>
-<li><code dir="ltr" translate="no">test_fraction</code></li>
+<li><code>training_fraction</code></li>
+<li><code>validation_fraction</code></li>
+<li><code>test_fraction</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
 <td>Timestamp split</td>
-<td>Agent Platform uses the <code dir="ltr" translate="no">training_fraction</code> , <code dir="ltr" translate="no">validation_fraction</code> , and <code dir="ltr" translate="no">test_fraction</code> values to partition your data into the training set, the validation set, and the test set. Agent Platform uses the <code dir="ltr" translate="no">timestamp_split_key</code> column to determine the chronological order of the data rows.</td>
+<td>Agent Platform uses the <code>training_fraction</code> , <code>validation_fraction</code> , and <code>test_fraction</code> values to partition your data into the training set, the validation set, and the test set. Agent Platform uses the <code>timestamp_split_key</code> column to determine the chronological order of the data rows.</td>
 <td><ul>
-<li><code dir="ltr" translate="no">training_fraction</code></li>
-<li><code dir="ltr" translate="no">validation_fraction</code></li>
-<li><code dir="ltr" translate="no">test_fraction</code></li>
-<li><code dir="ltr" translate="no">timestamp_split_key</code></li>
+<li><code>training_fraction</code></li>
+<li><code>validation_fraction</code></li>
+<li><code>test_fraction</code></li>
+<li><code>timestamp_split_key</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td>Manual (predefined) split</td>
-<td>Agent Platform splits the data using the TRAIN, VALIDATE, or TEST values in the <code dir="ltr" translate="no">predefined_split_key</code> column.</td>
+<td>Agent Platform splits the data using the TRAIN, VALIDATE, or TEST values in the <code>predefined_split_key</code> column.</td>
 <td><ul>
-<li><code dir="ltr" translate="no">predefined_split_key</code></li>
+<li><code>predefined_split_key</code></li>
 </ul></td>
 </tr>
 </tbody>
@@ -147,7 +151,7 @@ The training pipeline offers the following options for splitting your data:
 You define the data split parameters in `get_prophet_train_pipeline_and_parameters` as follows:
 
 | Parameter name         | Type   | Definition                                                                                                                          |
-| ---------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+|------------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------|
 | `predefined_split_key` | String | The name of the column containing the TRAIN, VALIDATE, or TEST values. Set this value if you are using a manual (predefined) split. |
 | `training_fraction`    | Float  | The percentage of the data to assign to the training set. Set this value if you are using a fraction split or a timestamp split.    |
 | `validation_fraction`  | Float  | The percentage of the data to assign to the validation set. Set this value if you are using a fraction split or a timestamp split.  |
@@ -159,7 +163,7 @@ You define the data split parameters in `get_prophet_train_pipeline_and_paramete
 Gemini Enterprise Agent Platform generates forecast windows from the input data using a rolling window strategy. If you leave the window parameters unset, Agent Platform uses the Count strategy with a default maximum value of `100,000,000` . The training pipeline offers the following rolling window strategies:
 
 | Rolling window strategy | Description                                                                                                                                                                                                                                                                                                                                                                                                                         | Parameters             |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
 | Count                   | The number of windows generated by Agent Platform must not exceed a user-provided maximum. If the number of rows in the input dataset is less than the maximum number of windows, every row is used to generate a window. Otherwise, Agent Platform performs random sampling to select the rows. The default value for the maximum number of windows is `100,000,000` . The maximum number of windows cannot exceed `100,000,000` . | `window_max_count`     |
 | Stride                  | Agent Platform uses one out of every X input rows to generate a window, up to a maximum of 100,000,000 windows. This option is useful for seasonal or periodic inferences. For example, you can limit forecasting to a single day of the week by setting the stride length value to `7` . The value can be between `1` and `1000` .                                                                                                 | `window_stride_length` |
 | Column                  | You can add a column to your input data where the values are either `True` or `False` . Agent Platform generates a window for every input row where the value of the column is `True` . The `True` and `False` values can be set in any order, as long as the total count of `True` rows is less than `100,000,000` . Boolean values are preferred, but string values are also accepted. String values are not case sensitive.      | `window_column`        |
@@ -167,7 +171,7 @@ Gemini Enterprise Agent Platform generates forecast windows from the input data 
 You define the window parameters in `get_prophet_train_pipeline_and_parameters` as follows:
 
 | Parameter name         | Type    | Definition                                             |
-| ---------------------- | ------- | ------------------------------------------------------ |
+|------------------------|---------|--------------------------------------------------------|
 | `window_column`        | String  | The name of the column with `True` and `False` values. |
 | `window_stride_length` | Integer | The value of the stride length.                        |
 | `window_max_count`     | Integer | The maximum number of windows.                         |
@@ -178,27 +182,31 @@ The Agent Platform [model training pipeline for Prophet](https://docs.cloud.goog
 
 The following sample code demonstrates how to run a Prophet inference pipeline:
 
-    job = aiplatform.PipelineJob(
-        ...
-        template_path=prediction_job_spec_path,
-        parameter_values=prediction_parameter_values,
-        ...
-    )
-    job.run(...)
+```
+job = aiplatform.PipelineJob(
+    ...
+    template_path=prediction_job_spec_path,
+    parameter_values=prediction_parameter_values,
+    ...
+)
+job.run(...)
+```
 
 The pipeline and the parameter values are defined by the following function.
 
-    (
-        prediction_job_spec_path,
-        prediction_parameter_values,
-    ) = utils.get_prophet_prediction_pipeline_and_parameters(
-        ...
-    )
+```
+(
+    prediction_job_spec_path,
+    prediction_parameter_values,
+) = utils.get_prophet_prediction_pipeline_and_parameters(
+    ...
+)
+```
 
 The following is a subset of `get_prophet_prediction_pipeline_and_parameters` parameters:
 
 | Parameter name                    | Type    | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `project`                         | String  | Your project ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `location`                        | String  | Your region.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `model_name`                      | String  | The name of the Model resource. Format the string as follows: `projects/{project}/locations/{location}/models/{model}` .                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
