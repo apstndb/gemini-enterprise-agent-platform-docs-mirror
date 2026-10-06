@@ -14,8 +14,6 @@ The following resources are included in the search results:
 
 - Feature views that are associated with feature groups and features, and aren't directly associated with the BigQuery data source. The metadata for these feature views aren't managed in Knowledge Catalog and aren't included in the search results.
 
-For information on how to search for resource metadata in Data Catalog, see [Search for resource metadata in Data Catalog](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/search-feature-metadata) .
-
 ## Before you begin
 
 Before you use the advanced search in Vertex AI Feature Store, you must complete the following steps:
@@ -59,9 +57,3 @@ To search for a Vertex AI Feature Store resource, follow these steps:
 3.  Click **Search** .
 
     To view the metadata for a resource in Knowledge Catalog, click the resource name in the search results, and then click **View in Dataplex** .
-
-## What's next
-
-- Learn how to [search for resource metadata in Data Catalog](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/search-feature-metadata) .
-
-- Learn more about [Data Catalog](https://docs.cloud.google.com/data-catalog/docs/concepts/overview) .

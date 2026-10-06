@@ -46,11 +46,12 @@ The definition of a notebook instance.
   "enableManagedEuc": boolean,
   "enableDeletionProtection": boolean,
 
-  // Union field infrastructure can be only one of the following:
+  // The following is a list of mutually exclusive fields. At most one of the
+  // fields will be set in a response:
   "gceSetup": {
     object (GceSetup)
   }
-  // End of list of possible types for union field infrastructure.
+  // End of mutually exclusive fields.
 }
 ```
 
@@ -174,13 +175,17 @@ The definition of a notebook instance.
 <p>Optional. If true, deletion protection will be enabled for this Workbench Instance. If false, deletion protection will be disabled for this Workbench Instance.</p></td>
 </tr>
 <tr class="even">
-<td>Union field <code>infrastructure</code> . Setup for the Notebook instance. <code>infrastructure</code> can be only one of the following:</td>
+<td>Setup for the Notebook instance. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>gceSetup</code></td>
 <td><p><code>object ( </code><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#GceSetup"><code>GceSetup</code></a><code> )</code></p>
 <p>Optional. Compute Engine setup for the notebook. Uses notebook-defined fields.</p></td>
+</tr>
+<tr class="even">
+<td>End of mutually exclusive fields.</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -229,6 +234,10 @@ The definition of how to configure a VM instance outside of Resources and Identi
     string: string,
     ...
   },
+  "systemMetadata": {
+    string: string,
+    ...
+  },
   "enableIpForwarding": boolean,
   "gpuDriverConfig": {
     object (GPUDriverConfig)
@@ -238,37 +247,40 @@ The definition of how to configure a VM instance outside of Resources and Identi
   },
   "instanceId": string,
 
-  // Union field image can be only one of the following:
+  // The following is a list of mutually exclusive fields. At most one of the
+  // fields will be set in a response:
   "vmImage": {
     object (VmImage)
   },
   "containerImage": {
     object (ContainerImage)
   }
-  // End of list of possible types for union field image.
+  // End of mutually exclusive fields.
 }
 ```
 
-| Fields                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|--------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `machineType`                                                                                                                  | `string` Optional. The machine type of the VM instance. <https://cloud.google.com/compute/docs/machine-resource>                                                                                                                                                                                                                                                                                                                                                                                             |
-| `minCpuPlatform`                                                                                                               | `string` Optional. The minimum CPU platform to use for this instance. The list of valid values can be found in <https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform#availablezones>                                                                                                                                                                                                                                                                                                     |
-| `acceleratorConfigs[]`                                                                                                         | `object ( `[`AcceleratorConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#AcceleratorConfig)` )` Optional. The hardware accelerators used on this instance. If you use accelerators, make sure that your configuration has [enough vCPUs and memory to support the `machineType` you have selected](https://cloud.google.com/compute/docs/gpus/#gpus-list) . Currently supports only one accelerator configuration. |
-| `serviceAccounts[]`                                                                                                            | `object ( `[`ServiceAccount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#ServiceAccount)` )` Optional. The service account that serves as an identity for the VM instance. Currently supports only one service account.                                                                                                                                                                                               |
-| `bootDisk`                                                                                                                     | `object ( `[`BootDisk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#BootDisk)` )` Optional. The boot disk for the VM.                                                                                                                                                                                                                                                                                                  |
-| `dataDisks[]`                                                                                                                  | `object ( `[`DataDisk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#DataDisk)` )` Optional. Data disks attached to the VM instance. Currently supports only one data disk.                                                                                                                                                                                                                                             |
-| `shieldedInstanceConfig`                                                                                                       | `object ( `[`ShieldedInstanceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#ShieldedInstanceConfig)` )` Optional. Shielded VM configuration. [Images using supported Shielded VM features](https://cloud.google.com/compute/docs/instances/modifying-shielded-vm) .                                                                                                                                              |
-| `networkInterfaces[]`                                                                                                          | `object ( `[`NetworkInterface`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#NetworkInterface)` )` Optional. The network interfaces for the VM. Supports only one interface.                                                                                                                                                                                                                                            |
-| `disablePublicIp`                                                                                                              | `boolean` Optional. If true, no external IP will be assigned to this VM instance.                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `tags[]`                                                                                                                       | `string` Optional. The Compute Engine network tags to add to runtime (see [Add network tags](https://cloud.google.com/vpc/docs/add-remove-network-tags) ).                                                                                                                                                                                                                                                                                                                                                   |
-| `metadata`                                                                                                                     | `map (key: string, value: string)` Optional. Custom metadata to apply to this instance. An object containing a list of `"key": value` pairs. Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }` .                                                                                                                                                                                                                                                                                                |
-| `enableIpForwarding`                                                                                                           | `boolean` Optional. Flag to enable ip forwarding or not, default false/off. <https://cloud.google.com/vpc/docs/using-routes#canipforward>                                                                                                                                                                                                                                                                                                                                                                    |
-| `gpuDriverConfig`                                                                                                              | `object ( `[`GPUDriverConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#GPUDriverConfig)` )` Optional. Configuration for GPU drivers.                                                                                                                                                                                                                                                                               |
-| `confidentialInstanceConfig`                                                                                                   | `object ( `[`ConfidentialInstanceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#ConfidentialInstanceConfig)` )` Optional. Confidential instance configuration.                                                                                                                                                                                                                                                   |
-| `instanceId`                                                                                                                   | `string` Output only. The unique ID of the Compute Engine instance resource.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Union field `image` . Type of the image; can be one of VM image, or container image. `image` can be only one of the following: |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `vmImage`                                                                                                                      | `object ( `[`VmImage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#VmImage)` )` Optional. Use a Compute Engine VM image to start the notebook instance.                                                                                                                                                                                                                                                                |
-| `containerImage`                                                                                                               | `object ( `[`ContainerImage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#ContainerImage)` )` Optional. Use a container image to start the notebook instance.                                                                                                                                                                                                                                                          |
+| Fields                                                                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `machineType`                                                                                                                                                             | `string` Optional. The machine type of the VM instance. <https://cloud.google.com/compute/docs/machine-resource>                                                                                                                                                                                                                                                                                                                                                                                             |
+| `minCpuPlatform`                                                                                                                                                          | `string` Optional. The minimum CPU platform to use for this instance. The list of valid values can be found in <https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform#availablezones>                                                                                                                                                                                                                                                                                                     |
+| `acceleratorConfigs[]`                                                                                                                                                    | `object ( `[`AcceleratorConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#AcceleratorConfig)` )` Optional. The hardware accelerators used on this instance. If you use accelerators, make sure that your configuration has [enough vCPUs and memory to support the `machineType` you have selected](https://cloud.google.com/compute/docs/gpus/#gpus-list) . Currently supports only one accelerator configuration. |
+| `serviceAccounts[]`                                                                                                                                                       | `object ( `[`ServiceAccount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#ServiceAccount)` )` Optional. The service account that serves as an identity for the VM instance. Currently supports only one service account.                                                                                                                                                                                               |
+| `bootDisk`                                                                                                                                                                | `object ( `[`BootDisk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#BootDisk)` )` Optional. The boot disk for the VM.                                                                                                                                                                                                                                                                                                  |
+| `dataDisks[]`                                                                                                                                                             | `object ( `[`DataDisk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#DataDisk)` )` Optional. Data disks attached to the VM instance. Currently supports only one data disk.                                                                                                                                                                                                                                             |
+| `shieldedInstanceConfig`                                                                                                                                                  | `object ( `[`ShieldedInstanceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#ShieldedInstanceConfig)` )` Optional. Shielded VM configuration. [Images using supported Shielded VM features](https://cloud.google.com/compute/docs/instances/modifying-shielded-vm) .                                                                                                                                              |
+| `networkInterfaces[]`                                                                                                                                                     | `object ( `[`NetworkInterface`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#NetworkInterface)` )` Optional. The network interfaces for the VM. Supports only one interface.                                                                                                                                                                                                                                            |
+| `disablePublicIp`                                                                                                                                                         | `boolean` Optional. If true, no external IP will be assigned to this VM instance.                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `tags[]`                                                                                                                                                                  | `string` Optional. The Compute Engine network tags to add to runtime (see [Add network tags](https://cloud.google.com/vpc/docs/add-remove-network-tags) ).                                                                                                                                                                                                                                                                                                                                                   |
+| `metadata`                                                                                                                                                                | `map (key: string, value: string)` Optional. Custom metadata to apply to this instance. An object containing a list of `"key": value` pairs. Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }` .                                                                                                                                                                                                                                                                                                |
+| `systemMetadata`                                                                                                                                                          | `map (key: string, value: string)` Output only. Represents system-managed metadata for this instance: the subset of `metadata` whose keys are recognized Workbench system keys. An object containing a list of `"key": value` pairs. Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }` .                                                                                                                                                                                                        |
+| `enableIpForwarding`                                                                                                                                                      | `boolean` Optional. Flag to enable ip forwarding or not, default false/off. <https://cloud.google.com/vpc/docs/using-routes#canipforward>                                                                                                                                                                                                                                                                                                                                                                    |
+| `gpuDriverConfig`                                                                                                                                                         | `object ( `[`GPUDriverConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#GPUDriverConfig)` )` Optional. Configuration for GPU drivers.                                                                                                                                                                                                                                                                               |
+| `confidentialInstanceConfig`                                                                                                                                              | `object ( `[`ConfidentialInstanceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#ConfidentialInstanceConfig)` )` Optional. Confidential instance configuration.                                                                                                                                                                                                                                                   |
+| `instanceId`                                                                                                                                                              | `string` Output only. The unique ID of the Compute Engine instance resource.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Type of the image; can be one of VM image, or container image. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response: |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `vmImage`                                                                                                                                                                 | `object ( `[`VmImage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#VmImage)` )` Optional. Use a Compute Engine VM image to start the notebook instance.                                                                                                                                                                                                                                                                |
+| `containerImage`                                                                                                                                                          | `object ( `[`ContainerImage`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#ContainerImage)` )` Optional. Use a container image to start the notebook instance.                                                                                                                                                                                                                                                          |
+| End of mutually exclusive fields.                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 ## AcceleratorConfig
 
@@ -292,23 +304,90 @@ An accelerator configuration for a VM instance Definition of a hardware accelera
 
 Definition of the types of hardware accelerators that can be used on this instance.
 
-| Enums                          |                                                             |
-|--------------------------------|-------------------------------------------------------------|
-| `ACCELERATOR_TYPE_UNSPECIFIED` | Accelerator type is not specified.                          |
-| `NVIDIA_TESLA_P100`            | Accelerator type is Nvidia Tesla P100.                      |
-| `NVIDIA_TESLA_V100`            | Accelerator type is Nvidia Tesla V100.                      |
-| `NVIDIA_TESLA_P4`              | Accelerator type is Nvidia Tesla P4.                        |
-| `NVIDIA_TESLA_T4`              | Accelerator type is Nvidia Tesla T4.                        |
-| `NVIDIA_TESLA_A100`            | Accelerator type is Nvidia Tesla A100 - 40GB.               |
-| `NVIDIA_A100_80GB`             | Accelerator type is Nvidia Tesla A100 - 80GB.               |
-| `NVIDIA_L4`                    | Accelerator type is Nvidia Tesla L4.                        |
-| `NVIDIA_H100_80GB`             | Accelerator type is Nvidia Tesla H100 - 80GB.               |
-| `NVIDIA_H100_MEGA_80GB`        | Accelerator type is Nvidia Tesla H100 - MEGA 80GB.          |
-| `NVIDIA_H200_141GB`            | Accelerator type is Nvidia Tesla H200 - 141GB.              |
-| `NVIDIA_TESLA_T4_VWS`          | Accelerator type is NVIDIA Tesla T4 Virtual Workstations.   |
-| `NVIDIA_TESLA_P100_VWS`        | Accelerator type is NVIDIA Tesla P100 Virtual Workstations. |
-| `NVIDIA_TESLA_P4_VWS`          | Accelerator type is NVIDIA Tesla P4 Virtual Workstations.   |
-| `NVIDIA_B200`                  | Accelerator type is NVIDIA B200.                            |
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Enums</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ACCELERATOR_TYPE_UNSPECIFIED</code></td>
+<td>Accelerator type is not specified.</td>
+</tr>
+<tr class="even">
+<td><code>NVIDIA_TESLA_P100</code></td>
+<td><p>Deprecated: Use <code>NVIDIA_TESLA_T4</code> (N1) or <code>NVIDIA_L4</code> (G2) instead. The NVIDIA Tesla P100 GPU is being decommissioned fleet-wide by Compute Engine and is no longer available for new instances.</p>
+<blockquote>
+<p>This item is deprecated!</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><code>NVIDIA_TESLA_V100</code></td>
+<td>Accelerator type is Nvidia Tesla V100.</td>
+</tr>
+<tr class="even">
+<td><code>NVIDIA_TESLA_P4</code></td>
+<td>Accelerator type is Nvidia Tesla P4.</td>
+</tr>
+<tr class="odd">
+<td><code>NVIDIA_TESLA_T4</code></td>
+<td>Accelerator type is Nvidia Tesla T4.</td>
+</tr>
+<tr class="even">
+<td><code>NVIDIA_TESLA_A100</code></td>
+<td>Accelerator type is Nvidia Tesla A100 - 40GB.</td>
+</tr>
+<tr class="odd">
+<td><code>NVIDIA_A100_80GB</code></td>
+<td>Accelerator type is Nvidia Tesla A100 - 80GB.</td>
+</tr>
+<tr class="even">
+<td><code>NVIDIA_L4</code></td>
+<td>Accelerator type is Nvidia Tesla L4.</td>
+</tr>
+<tr class="odd">
+<td><code>NVIDIA_H100_80GB</code></td>
+<td>Accelerator type is Nvidia Tesla H100 - 80GB.</td>
+</tr>
+<tr class="even">
+<td><code>NVIDIA_H100_MEGA_80GB</code></td>
+<td>Accelerator type is Nvidia Tesla H100 - MEGA 80GB.</td>
+</tr>
+<tr class="odd">
+<td><code>NVIDIA_H200_141GB</code></td>
+<td>Accelerator type is Nvidia Tesla H200 - 141GB.</td>
+</tr>
+<tr class="even">
+<td><code>NVIDIA_TESLA_T4_VWS</code></td>
+<td>Accelerator type is NVIDIA Tesla T4 Virtual Workstations.</td>
+</tr>
+<tr class="odd">
+<td><code>NVIDIA_TESLA_P100_VWS</code></td>
+<td><p>Deprecated: Use <code>NVIDIA_TESLA_T4_VWS</code> instead. The NVIDIA Tesla P100 GPU (Virtual Workstations) is being decommissioned fleet-wide by Compute Engine and is no longer available for new instances.</p>
+<blockquote>
+<p>This item is deprecated!</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><code>NVIDIA_TESLA_P4_VWS</code></td>
+<td>Accelerator type is NVIDIA Tesla P4 Virtual Workstations.</td>
+</tr>
+<tr class="odd">
+<td><code>NVIDIA_B200</code></td>
+<td>Accelerator type is NVIDIA B200.</td>
+</tr>
+<tr class="even">
+<td><code>NVIDIA_RTX6000</code></td>
+<td>NVIDIA RTX 6000.</td>
+</tr>
+</tbody>
+</table>
 
 ## ServiceAccount
 
@@ -339,20 +418,24 @@ Definition of a custom Compute Engine virtual machine image for starting a noteb
 ```
 {
   "project": string,
+  "imageDescription": string,
 
-  // Union field image can be only one of the following:
+  // The following is a list of mutually exclusive fields. At most one of the
+  // fields will be set in a response:
   "name": string,
   "family": string
-  // End of list of possible types for union field image.
+  // End of mutually exclusive fields.
 }
 ```
 
-| Fields                                                                                                                |                                                                                                              |
-|-----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| `project`                                                                                                             | `string` Required. The name of the Google Cloud project that this VM image belongs to. Format: `{projectId}` |
-| Union field `image` . The reference to an external Compute Engine VM image. `image` can be only one of the following: |                                                                                                              |
-| `name`                                                                                                                | `string` Optional. Use VM image name to find the image.                                                      |
-| `family`                                                                                                              | `string` Optional. Use this VM image family to find the image; the newest image in this family will be used. |
+| Fields                                                                                                                                                           |                                                                                                                                                                                                                                                                      |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `project`                                                                                                                                                        | `string` Required. The name of the Google Cloud project that this VM image belongs to. Format: `{projectId}`                                                                                                                                                         |
+| `imageDescription`                                                                                                                                               | `string` Output only. A human-readable description of the image running on the instance (for example, "Debian 11, Python 3.10"), derived at read time from the image release configuration (the source of truth). Set to "Custom" for unrecognized boot-disk images. |
+| The reference to an external Compute Engine VM image. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response: |                                                                                                                                                                                                                                                                      |
+| `name`                                                                                                                                                           | `string` Optional. Use VM image name to find the image.                                                                                                                                                                                                              |
+| `family`                                                                                                                                                         | `string` Optional. Use this VM image family to find the image; the newest image in this family will be used.                                                                                                                                                         |
+| End of mutually exclusive fields.                                                                                                                                |                                                                                                                                                                                                                                                                      |
 
 ## ContainerImage
 
@@ -387,12 +470,12 @@ The definition of a boot disk.
 }
 ```
 
-| Fields           |                                                                                                                                                                                                                                                                                   |
-|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `diskSizeGb`     | `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)` Optional. The size of the boot disk in GB attached to this instance, up to a maximum of 64000 GB (64 TB). If not specified, this defaults to the recommended value of 150GB.               |
-| `diskType`       | `enum ( `[`DiskType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#DiskType)` )` Optional. Indicates the type of the disk.                                                                   |
-| `diskEncryption` | `enum ( `[`DiskEncryption`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#DiskEncryption)` )` Optional. Input only. Disk encryption method used on the boot and data disks, defaults to GMEK. |
-| `kmsKey`         | `string` Optional. Input only. The KMS key used to encrypt the disks, only applicable if diskEncryption is CMEK. Format: `projects/{projectId}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}` Learn more about using your own encryption keys.                  |
+| Fields           |                                                                                                                                                                                                                                                                       |
+|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `diskSizeGb`     | `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)` Optional. The size of the boot disk in GB attached to this instance, up to a maximum of 64000 GB (64 TB). If not specified, this defaults to the recommended value of 150GB.   |
+| `diskType`       | `enum ( `[`DiskType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#DiskType)` )` Optional. Indicates the type of the disk.                                                       |
+| `diskEncryption` | `enum ( `[`DiskEncryption`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#DiskEncryption)` )` Optional. Disk encryption method used on the boot and data disks, defaults to GMEK. |
+| `kmsKey`         | `string` Optional. The KMS key used to encrypt the disks, only applicable if diskEncryption is CMEK. Format: `projects/{projectId}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}` Learn more about using your own encryption keys.                  |
 
 ## DiskType
 
@@ -439,13 +522,13 @@ An instance-attached disk resource.
 }
 ```
 
-| Fields               |                                                                                                                                                                                                                                                                                   |
-|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `diskSizeGb`         | `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)` Optional. The size of the disk in GB attached to this VM instance, up to a maximum of 64000 GB (64 TB). If not specified, this defaults to 100.                                            |
-| `diskType`           | `enum ( `[`DiskType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#DiskType)` )` Optional. Input only. Indicates the type of the disk.                                                       |
-| `diskEncryption`     | `enum ( `[`DiskEncryption`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#DiskEncryption)` )` Optional. Input only. Disk encryption method used on the boot and data disks, defaults to GMEK. |
-| `kmsKey`             | `string` Optional. Input only. The KMS key used to encrypt the disks, only applicable if diskEncryption is CMEK. Format: `projects/{projectId}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}` Learn more about using your own encryption keys.                  |
-| `resourcePolicies[]` | `string` Optional. The resource policies to apply to the data disk.                                                                                                                                                                                                               |
+| Fields               |                                                                                                                                                                                                                                                                       |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `diskSizeGb`         | `string ( `[`int64`](https://developers.google.com/discovery/v1/type-format)` format)` Optional. The size of the disk in GB attached to this VM instance, up to a maximum of 64000 GB (64 TB). If not specified, this defaults to 100.                                |
+| `diskType`           | `enum ( `[`DiskType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#DiskType)` )` Optional. Indicates the type of the disk.                                                       |
+| `diskEncryption`     | `enum ( `[`DiskEncryption`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#DiskEncryption)` )` Optional. Disk encryption method used on the boot and data disks, defaults to GMEK. |
+| `kmsKey`             | `string` Optional. The KMS key used to encrypt the disks, only applicable if diskEncryption is CMEK. Format: `projects/{projectId}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}` Learn more about using your own encryption keys.                  |
+| `resourcePolicies[]` | `string` Optional. The resource policies to apply to the data disk.                                                                                                                                                                                                   |
 
 ## ShieldedInstanceConfig
 
@@ -482,7 +565,8 @@ The definition of a network interface resource attached to a VM.
     {
       object (AccessConfig)
     }
-  ]
+  ],
+  "internalIp": string
 }
 ```
 
@@ -492,6 +576,7 @@ The definition of a network interface resource attached to a VM.
 | `subnet`          | `string` Optional. The name of the subnet that this VM instance is in. Format: `projects/{projectId}/regions/{region}/subnetworks/{subnetwork_id}`                                                                                                                                                                                                                                                                                    |
 | `nicType`         | `enum ( `[`NicType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#NicType)` )` Optional. The type of vNIC to be used on this interface. This may be gVNIC or VirtioNet.                                                                                                                                                                          |
 | `accessConfigs[]` | `object ( `[`AccessConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#AccessConfig)` )` Optional. An array of configurations for this interface. Currently, only one access config, ONE_TO_ONE_NAT, is supported. If no accessConfigs specified, the instance will have an external internet access through an ephemeral external IP address. |
+| `internalIp`      | `string` Optional. An internal IP address associated with this instance. Specify an unused static internal IP address available to the subnet this instance is in, or leave this field undefined to use an IP from the subnet's ephemeral range.                                                                                                                                                                                      |
 
 ## NicType
 
@@ -515,9 +600,9 @@ An access configuration attached to an instance's network interface.
 }
 ```
 
-| Fields       |                                                                                                                                                                                                                                                                                                                                    |
-|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `externalIp` | `string` An external IP address associated with this instance. Specify an unused static external IP address available to the project or leave this field undefined to use an IP from a shared ephemeral IP address pool. If you specify a static external IP address, it must live in the same region as the zone of the instance. |
+| Fields       |                                                                                                                                                                                                                                                                                                                                              |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `externalIp` | `string` Optional. An external IP address associated with this instance. Specify an unused static external IP address available to the project or leave this field undefined to use an IP from a shared ephemeral IP address pool. If you specify a static external IP address, it must live in the same region as the zone of the instance. |
 
 ## GPUDriverConfig
 
@@ -566,19 +651,20 @@ The type of confidential instance.
 
 The definition of the states of this instance.
 
-| Enums               |                                                                                                      |
-|---------------------|------------------------------------------------------------------------------------------------------|
-| `STATE_UNSPECIFIED` | State is not specified.                                                                              |
-| `STARTING`          | The control logic is starting the instance.                                                          |
-| `PROVISIONING`      | The control logic is installing required frameworks and registering the instance with notebook proxy |
-| `ACTIVE`            | The instance is running.                                                                             |
-| `STOPPING`          | The control logic is stopping the instance.                                                          |
-| `STOPPED`           | The instance is stopped.                                                                             |
-| `DELETED`           | The instance is deleted.                                                                             |
-| `UPGRADING`         | The instance is upgrading.                                                                           |
-| `INITIALIZING`      | The instance is being created.                                                                       |
-| `SUSPENDING`        | The instance is suspending.                                                                          |
-| `SUSPENDED`         | The instance is suspended.                                                                           |
+| Enums               |                                                                                                                                                                                                                                              |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `STATE_UNSPECIFIED` | State is not specified.                                                                                                                                                                                                                      |
+| `STARTING`          | The control logic is starting the instance.                                                                                                                                                                                                  |
+| `PROVISIONING`      | The control logic is installing required frameworks and registering the instance with notebook proxy                                                                                                                                         |
+| `ACTIVE`            | The instance is running.                                                                                                                                                                                                                     |
+| `STOPPING`          | The control logic is stopping the instance.                                                                                                                                                                                                  |
+| `STOPPED`           | The instance is stopped.                                                                                                                                                                                                                     |
+| `DELETED`           | The instance is deleted.                                                                                                                                                                                                                     |
+| `UPGRADING`         | The instance is upgrading.                                                                                                                                                                                                                   |
+| `INITIALIZING`      | The instance is being created.                                                                                                                                                                                                               |
+| `SUSPENDING`        | The instance is suspending.                                                                                                                                                                                                                  |
+| `SUSPENDED`         | The instance is suspended.                                                                                                                                                                                                                   |
+| `ORPHANED`          | The instance has no VM. An upgrade removed the original and could not create its replacement; the data disk and any snapshots are intact. Retry the upgrade to finish it, or roll the instance back to the snapshot taken before it started. |
 
 ## UpgradeHistoryEntry
 

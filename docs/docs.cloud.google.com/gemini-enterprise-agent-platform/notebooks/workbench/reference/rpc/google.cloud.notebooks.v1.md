@@ -139,9 +139,10 @@ API v1 service for Managed Notebooks.
 Creates a new Runtime in a given project and location.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -152,9 +153,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Deletes a single Runtime.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -165,9 +167,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Gets details of a single Runtime. The location must be a regional endpoint rather than zonal.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -178,9 +181,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Lists Runtimes in a given project and location.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -191,9 +195,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Migrate an existing Runtime to a new Workbench Instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -204,9 +209,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Reports and processes a runtime event.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -217,9 +223,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Resets a Managed Notebook Runtime.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -230,9 +237,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Starts a Managed Notebook Runtime. Perform "Start" on GPU instances; "Resume" on CPU instances See: <https://cloud.google.com/compute/docs/instances/stop-start-instance> <https://cloud.google.com/compute/docs/instances/suspend-resume-instance>
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -243,9 +251,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Stops a Managed Notebook Runtime. Perform "Stop" on GPU instances; "Suspend" on CPU instances See: <https://cloud.google.com/compute/docs/instances/stop-start-instance> <https://cloud.google.com/compute/docs/instances/suspend-resume-instance>
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -256,9 +265,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Switch a Managed Notebook Runtime.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -269,9 +279,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Update Notebook Runtime configuration.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -286,9 +297,10 @@ API v1 service for Cloud AI Platform Notebooks.
 Creates a new Environment.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -299,9 +311,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Creates a new Execution in a given project and location.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -312,9 +325,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Creates a new Instance in a given project and location.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -325,9 +339,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Creates a new Scheduled Notebook in a given project and location.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -338,9 +353,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Deletes a single Environment.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -351,9 +367,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Deletes execution
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -364,9 +381,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Deletes a single Instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -377,9 +395,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Deletes schedule and all underlying jobs
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -390,9 +409,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Creates a Diagnostic File and runs Diagnostic Tool given an Instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -403,9 +423,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Gets details of a single Environment.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -416,9 +437,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Gets details of executions
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -429,9 +451,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Gets details of a single Instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -442,9 +465,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Checks whether a notebook instance is healthy.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -455,9 +479,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Gets details of schedule
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -468,9 +493,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Checks whether a notebook instance is upgradable.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -481,9 +507,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Lists environments in a project.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -494,9 +521,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Lists executions in a given project and location
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -507,9 +535,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Lists instances in a given project and location.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -520,9 +549,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Lists schedules in a given project and location.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -533,9 +563,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Migrates an existing User-Managed Notebook to Workbench Instances.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -546,9 +577,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Registers an existing legacy notebook instance to the Notebooks API server. Legacy instances are instances created with the legacy Compute Engine calls. They are not manageable by the Notebooks API out of the box. This call makes these instances manageable by the Notebooks API.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -559,9 +591,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Allows notebook instances to report their latest instance information to the Notebooks API server. The server will merge the reported information to the instance metadata store. Do not use this method directly.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -572,9 +605,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Resets a notebook instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -585,9 +619,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Rollbacks a notebook instance to the previous version.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -598,9 +633,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Updates the guest accelerators of a single Instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -611,9 +647,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Replaces all the labels of an Instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -624,9 +661,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Updates the machine type of a single Instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -637,9 +675,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Starts a notebook instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -650,9 +689,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Stops a notebook instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -663,9 +703,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Update Notebook Instance configurations.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -676,9 +717,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Add/update metadata items for an instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -689,9 +731,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Updates the Shielded instance configuration of a single Instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -702,9 +745,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Upgrades a notebook instance to the latest version.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -1144,18 +1188,18 @@ The definition of a single executed notebook.
 
 Enum description of the state of the underlying AIP job.
 
-| Enums               |                                                                                                                                                     |
-|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `STATE_UNSPECIFIED` | The job state is unspecified.                                                                                                                       |
-| `QUEUED`            | The job has been just created and processing has not yet begun.                                                                                     |
-| `PREPARING`         | The service is preparing to execution the job.                                                                                                      |
-| `RUNNING`           | The job is in progress.                                                                                                                             |
-| `SUCCEEDED`         | The job completed successfully.                                                                                                                     |
-| `FAILED`            | The job failed. `error_message` should contain the details of the failure.                                                                          |
-| `CANCELLING`        | The job is being cancelled. `error_message` should describe the reason for the cancellation.                                                        |
-| `CANCELLED`         | The job has been cancelled. `error_message` should describe the reason for the cancellation.                                                        |
-| `EXPIRED`           | The job has become expired (relevant to Agent Platform jobs) <https://cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/JobState> |
-| `INITIALIZING`      | The Execution is being created.                                                                                                                     |
+| Enums               |                                                                                              |
+|---------------------|----------------------------------------------------------------------------------------------|
+| `STATE_UNSPECIFIED` | The job state is unspecified.                                                                |
+| `QUEUED`            | The job has been just created and processing has not yet begun.                              |
+| `PREPARING`         | The service is preparing to execution the job.                                               |
+| `RUNNING`           | The job is in progress.                                                                      |
+| `SUCCEEDED`         | The job completed successfully.                                                              |
+| `FAILED`            | The job failed. `error_message` should contain the details of the failure.                   |
+| `CANCELLING`        | The job is being cancelled. `error_message` should describe the reason for the cancellation. |
+| `CANCELLED`         | The job has been cancelled. `error_message` should describe the reason for the cancellation. |
+| `EXPIRED`           | The job has become expired (relevant to Vertex AI jobs)                                      |
+| `INITIALIZING`      | The Execution is being created.                                                              |
 
 ## ExecutionTemplate
 
@@ -1277,7 +1321,7 @@ The description a notebook execution workload.
 <tr class="odd">
 <td><code>tensorboard</code></td>
 <td><p><code>string</code></p>
-<p>The name of a Agent Platform [Tensorboard] resource to which this execution will upload Tensorboard logs. Format: <code>projects/{project}/locations/{location}/tensorboards/{tensorboard}</code></p></td>
+<p>The name of a Vertex AI [Tensorboard] resource to which this execution will upload Tensorboard logs. Format: <code>projects/{project}/locations/{location}/tensorboards/{tensorboard}</code></p></td>
 </tr>
 <tr class="even">
 <td>Union field <code>job_parameters</code> . Parameters for an execution type. NOTE: There are currently no extra parameters for VertexAI jobs. <code>job_parameters</code> can be only one of the following:</td>
@@ -1291,7 +1335,7 @@ The description a notebook execution workload.
 <tr class="even">
 <td><code>vertex_ai_parameters</code></td>
 <td><p><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v1#google.cloud.notebooks.v1.ExecutionTemplate.VertexAIParameters"><code>VertexAIParameters</code></a></p>
-<p>Parameters used in Agent Platform JobType executions.</p></td>
+<p>Parameters used in Vertex AI JobType executions.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1391,7 +1435,7 @@ Hardware accelerator types for AI Platform Training jobs.
 
 ## VertexAIParameters
 
-Parameters used in Agent Platform JobType executions.
+Parameters used in Vertex AI JobType executions.
 
 | Fields    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

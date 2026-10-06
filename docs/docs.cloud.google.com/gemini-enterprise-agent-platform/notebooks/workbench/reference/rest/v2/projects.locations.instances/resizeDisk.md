@@ -47,22 +47,24 @@ The request body contains data with the following structure:
 ```
 {
 
-  // Union field Disk can be only one of the following:
+  // The following is a list of mutually exclusive fields. At most one of the
+  // fields will be set in a response:
   "bootDisk": {
     object (BootDisk)
   },
   "dataDisk": {
     object (DataDisk)
   }
-  // End of list of possible types for union field Disk.
+  // End of mutually exclusive fields.
 }
 ```
 
-| Fields                                                                                                                |                                                                                                                                                                                                                                              |
-|-----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Union field `Disk` . Type of the disk that can be resized: boot or data disk `Disk` can be only one of the following: |                                                                                                                                                                                                                                              |
-| `bootDisk`                                                                                                            | `object ( `[`BootDisk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#BootDisk)` )` Required. The boot disk to be resized. Only diskSizeGb will be used. |
-| `dataDisk`                                                                                                            | `object ( `[`DataDisk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#DataDisk)` )` Required. The data disk to be resized. Only diskSizeGb will be used. |
+| Fields                                                                                                                                                             |                                                                                                                                                                                                                                              |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Type of the disk that can be resized: boot or data disk The following is a list of mutually exclusive fields. At most one of the fields will be set in a response: |                                                                                                                                                                                                                                              |
+| `bootDisk`                                                                                                                                                         | `object ( `[`BootDisk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#BootDisk)` )` Required. The boot disk to be resized. Only diskSizeGb will be used. |
+| `dataDisk`                                                                                                                                                         | `object ( `[`DataDisk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances#DataDisk)` )` Required. The data disk to be resized. Only diskSizeGb will be used. |
+| End of mutually exclusive fields.                                                                                                                                  |                                                                                                                                                                                                                                              |
 
 ### Response body
 
@@ -70,8 +72,9 @@ If successful, the response body contains an instance of [`Operation`](https://d
 
 ### Authorization scopes
 
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .

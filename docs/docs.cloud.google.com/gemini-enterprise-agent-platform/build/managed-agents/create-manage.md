@@ -109,7 +109,7 @@ POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOC
 ```
 curl -X POST "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/agents" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
   -d '{
       "id": "AGENT_ID",
       "base_agent": "antigravity-preview-05-2026",
@@ -285,7 +285,7 @@ Before calling the API, make the following replacements:
 ```
 curl -X POST "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/agents" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
   -d '{
       "id": "AGENT_ID",
       "base_agent": "antigravity-preview-05-2026",
@@ -426,7 +426,7 @@ Before calling the API, make the following replacements:
 ```
 curl -X POST "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/agents" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
   -d '{
       "id": "AGENT_ID",
       "base_agent": "antigravity-preview-05-2026",
@@ -575,7 +575,7 @@ Before calling the API, make the following replacements:
 ```
 curl -X POST "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/agents" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
   -d '{
       "id": "AGENT_ID",
       "base_agent": "antigravity-preview-05-2026",
@@ -717,7 +717,7 @@ Before calling the API, make the following replacements:
 ```
 curl -X POST "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/agents" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
   -d '{
       "id": "AGENT_ID",
       "base_agent": "antigravity-preview-05-2026",
@@ -919,7 +919,7 @@ GET https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCA
 ```
 curl -X GET "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/agents/AGENT_ID" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)"
+  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)"
 ```
 
 #### Example Response
@@ -1031,7 +1031,7 @@ PATCH https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LO
 ```
 curl -X PATCH "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/agents/AGENT_ID?update_mask=system_instruction" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
   -d '{
       "name": "AGENT_ID",
       "system_instruction": "NEW_INSTRUCTIONS"
@@ -1081,7 +1081,7 @@ Before calling the API, make the following replacements:
 ```
 curl -X PATCH "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/agents/AGENT_ID?update_mask=tools" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
   -d '{
       "name": "AGENT_ID",
       "tools": [
@@ -1136,7 +1136,7 @@ Before calling the API, make the following replacements:
 ```
 curl -X PATCH "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/agents/AGENT_ID?update_mask=tools" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
   -d '{
       "name": "AGENT_ID",
       "tools": [
@@ -1218,7 +1218,7 @@ Before calling the API, make the following replacements:
 ```
 curl -X PATCH "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/agents/AGENT_ID?update_mask=base_environment" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
   -d '{
       "name": "AGENT_ID",
       "base_environment": {
@@ -1299,7 +1299,7 @@ Before calling the API, make the following replacements:
 ```
 curl -X PATCH "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/agents/AGENT_ID?update_mask=base_environment" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
   -d '{
       "name": "AGENT_ID",
       "base_environment": {
@@ -1355,7 +1355,7 @@ DELETE https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/L
 ```
 curl -X DELETE "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/agents/AGENT_ID" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)"
+  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)"
 ```
 
 #### Example Response
@@ -1436,7 +1436,7 @@ GET https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCA
 ```
 curl -X GET "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/operations/OPERATION_ID" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)"
+  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)"
 ```
 
 ### Python

@@ -40,7 +40,19 @@ Upgrades a notebook instance to the latest version.
 
 ### Request body
 
-The request body must be empty.
+The request body contains data with the following structure:
+
+**JSON representation**
+
+```
+{
+  "imageFamily": string
+}
+```
+
+| Fields        |                                                                                                                                                                                                                                                                                                                                                                                            |
+|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `imageFamily` | `string` Optional. The Compute Engine image family resource name to upgrade to. Format: `projects/{projectId}/global/images/family/{imageFamily}` If specified, the instance will be upgraded to the latest image in the specified image family, allowing upgrades across image families. If not specified, the instance will be upgraded to the latest image in its current image family. |
 
 ### Response body
 
@@ -48,8 +60,9 @@ If successful, the response body contains an instance of [`Operation`](https://d
 
 ### Authorization scopes
 
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .

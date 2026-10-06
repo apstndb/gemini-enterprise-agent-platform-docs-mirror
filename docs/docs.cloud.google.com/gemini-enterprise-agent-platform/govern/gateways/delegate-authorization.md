@@ -8,19 +8,46 @@ data_source: docs.cloud.google.com
 
 Use this page to learn how to delegate authorization for Agent Gateway to Identity-Aware Proxy, Model Armor, and other custom authorization engines by using Service Extensions.
 
-Authorization policies let you enforce centralized access control and governance policies on traffic passing through the endpoint published by the Agent Gateway. These policies let you manage traffic by controlling access based on mTLS identities, request and response attributes, and even customize based on the protocol-specific attributes used (for example, MCP servers).
+## Authorization policies and extensions
 
-Authorization policies use *policy profiles* to determine the type of authorization to be performed. You can use a request-based authorization policy ( `REQUEST_AUTHZ` ) that relies on information in HTTP request headers to allow or deny traffic. Alternatively, you can use a content-based authorization policy ( `CONTENT_AUTHZ` ) when you need to perform a deeper inspection of your application payloads to allow or deny traffic.
+Authorization policies let you enforce centralized access control and governance policies on traffic passing through endpoints published by Agent Gateway. To handle complex access control, content safety, and governance decisions, Agent Gateway lets you configure authorization policies with [authorization extensions](https://docs.cloud.google.com/service-extensions/docs/lb-extensions-overview#authorization-extensions) that let you delegate authorization and content safety decisions to designated authorization engines of your choice.
 
-To learn more about authorization policies, policy profiles and their use-cases, see [Authorization policies overview](https://docs.cloud.google.com/load-balancing/docs/auth-policy/auth-policy-overview) .
+An authorization extension intercepts requests passing through an Agent Gateway deployment and makes a real-time gRPC call to the designated authorization service. This allows the service to inspect, modify, or block traffic before it continues to its destination. You can delegate authorization to Google Cloud services such as Identity-Aware Proxy, Model Armor, and semantic governance policies, or to any custom authorization engine of your choice.
 
-## Authorization extensions
+Authorization policies use *policy profiles* to determine the type of traffic data sent to the authorization extension:
 
-Sometimes, complex authorization decisions cannot be readily expressed using an authorization policy. Agent Gateway lets you configure authorization policies with [authorization extensions](https://docs.cloud.google.com/service-extensions/docs/lb-extensions-overview#authorization-extensions) to delegate authorization decisions to custom authorization engines.
+- **Request-based authorization ( `REQUEST_AUTHZ` )** : Evaluates HTTP request headers before any application payload is processed. This profile is used for identity verification and access control, such as delegating authorization to **Identity-Aware Proxy** .
+- **Content-based authorization ( `CONTENT_AUTHZ` )** : Evaluates complete HTTP request and response payloads. This profile is used for deep content inspection and AI safety, such as delegating to **Model Armor** for prompt and response safety or to **semantic governance policies** for natural-language constraint enforcement.
 
-An authorization extension lets you intercept and evaluate requests that pass through an Agent Gateway deployment. It makes a real-time gRPC call to an external service that you manage, so that you can inspect, modify, or even block traffic before it continues to its destination.
+Custom authorization engines can use either `REQUEST_AUTHZ` or `CONTENT_AUTHZ` extensions depending on whether they inspect headers or full application payloads.
 
-The extension inspects the data based on the configured [authorization policy](https://docs.cloud.google.com/load-balancing/docs/auth-policy/auth-policy-overview) . You can configure authorization extensions either separately for request-based and content-based authorization policies, or you can use both for comprehensive security.
+You can configure authorization extensions separately for request-based and content-based policies, or combine both on a gateway for comprehensive security. For recommended configurations, see [Recommended ingress and egress configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#recommended-ingress-egress-config) .
+
+To learn more about authorization policies, policy profiles, and their use cases, see [Authorization policies overview](https://docs.cloud.google.com/load-balancing/docs/auth-policy/auth-policy-overview) .
+
+### Recommended ingress and egress configuration
+
+For comprehensive security across the entire agent lifecycle, we recommend the following multi-gateway architecture pattern:
+
+- **Client-to-agent gateways:** Client-to-agent (ingress) gateways only support a single `CONTENT_AUTHZ` policy. This means you cannot use Model Armor and semantic governance policies together on ingress. We strongly recommend using a Model Armor `CONTENT_AUTHZ` policy to protect against prompt injection attacks. However, if you want to use a semantic governance policy extension instead, you must ensure that Model Armor is not configured on the gateway. Other types of service extensions are not supported for ingress gateways.
+
+- **Agent-to-Anywhere gateways:** Agent-to-Anywhere (egress) gateways support up to [four](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#limitations) authorization policies. Egress gateways support both `REQUEST_AUTHZ` and `CONTENT_AUTHZ` policy profiles, and you can configure multiple policies of each type within this limit.
+
+  We recommend the following configuration:
+
+  - A `REQUEST_AUTHZ` policy delegating to Identity-Aware Proxy (IAP) to authorize the agent identity.
+  - One or more `CONTENT_AUTHZ` policies delegating further decisions to Model Armor or semantic governance policies to protect against sensitive data exposure and enforce natural-language constraints on outgoing tool calls and responses.
+
+  See [Policy evaluation on egress](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#policy-evaluation-sequence-egress) for more information on how policies are evaluated.
+
+This multi-gateway topology ensures that Model Armor screens incoming prompts while IAP, Model Armor, and semantic governance policies screen outgoing responses.
+
+### Policy evaluation on egress
+
+When multiple authorization policies are configured on an egress gateway, they are evaluated sequentially according to their policy profile type:
+
+1.  **`REQUEST_AUTHZ` (header-based) policies** : These policy types are evaluated first. For example, an IAP extension checks the mTLS identity of the calling agent and validates its IAM allow policies before any content is processed. If the request fails this check, it is immediately rejected.
+2.  **`CONTENT_AUTHZ` (content-based) policies** : These policy types are evaluated next. If the request passes the header-based check, the payload is streamed to the content-based authorization extension (such as the semantic governance policy engine) for deep content inspection and compliance evaluation.
 
 ## Before you begin
 
@@ -40,7 +67,7 @@ You can configure a request authorization extension to delegate access decisions
 
 The following steps show you how to configure an authorization extension with an authorization policy for an Agent Gateway instance.
 
-1.  **Before you begin** : Turn off enforcement for the **Disable binding access policy to resource** ( `constraints/iam.managed.disableAccessPolicyBindings` ) managed organization policy constraint. By default, this boolean constraint is enabled for new organizations, and will prevent you from binding an [IAM Unified Access Policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) to a resource. For more information, see [Updating policies with boolean rules](https://docs.cloud.google.com/organization-policy/apply-policies#boolean_constraints) .
+1.  **Before you begin** : Turn off enforcement for the **Disable binding access policy to resource** ( `constraints/iam.managed.disableAccessPolicyBindings` ) managed organization policy constraint. By default, this boolean constraint is enabled for new organizations and will prevent you from binding an [IAM Unified Access Policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) to a resource. For more information, see [Updating policies with boolean rules](https://docs.cloud.google.com/organization-policy/apply-policies#boolean_constraints) .
 
 2.  Create the required IAM egress policies for your agents and tools. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
 
@@ -535,9 +562,15 @@ You can restrict access based on MCP method parameters such as the names of spec
 
 The following limitations apply when you use authorization policies:
 
-- For Agent-to-Anywhere (egress) gateways, you can configure a maximum of four custom authorization policies per gateway, regardless of policy profile.
-- For Client-to-Agent (ingress) gateways, you can configure a maximum of one `CONTENT_AUTHZ` policy. We strongly recommend using Model Armor to protect against prompt injection attacks. However, if you want to use a Semantic Governance Policy extension instead, you must ensure that Model Armor is not configured on the gateway. Other types of service extensions are not supported for ingress.
+- The maximum number of authorization policies per gateway depends on the gateway mode:
+
+  - For Agent-to-Anywhere (egress) gateways, you can configure a maximum of four authorization policies per gateway, regardless of policy profile ( `REQUEST_AUTHZ` or `CONTENT_AUTHZ` ).
+  - For Client-to-Agent (ingress) gateways, you can configure a maximum of one `CONTENT_AUTHZ` policy.
+
+  For more information, see [Recommended ingress and egress configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#recommended-ingress-egress-config) .
+
 - If you use custom authorization extensions with the `CONTENT_AUTHZ` profile, they must support the `ext_proc` protocol and `FULL_DUPLEX_STREAMED` mode for body events.
+
 - If you configure multiple custom authorization policies that use the same profile, their execution order is not guaranteed.
 
 Additionally, see the following sections for more information about the limitations of authorization extensions:

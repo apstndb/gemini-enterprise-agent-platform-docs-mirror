@@ -68,9 +68,10 @@ API v2 service for Workbench Notebooks Instances.
 Checks whether a notebook instance is upgradable.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -81,9 +82,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Creates a new Instance in a given project and location.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -94,9 +96,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Deletes a single Instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -107,9 +110,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Creates a Diagnostic File and runs Diagnostic Tool given an Instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -120,9 +124,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Returns various configuration parameters.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -133,9 +138,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Gets details of a single Instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -146,9 +152,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Lists instances in a given project and location.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -159,9 +166,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Resets a notebook instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -172,9 +180,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Resize a notebook instance disk to a higher capacity.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -185,9 +194,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 RestoreInstance restores an Instance from a BackupSource.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -198,9 +208,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Rollbacks a notebook instance to the previous version.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -211,9 +222,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Starts a notebook instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -224,9 +236,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Stops a notebook instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -237,9 +250,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 UpdateInstance updates an Instance.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -250,9 +264,10 @@ For more information, see the [Authentication Overview](https://docs.cloud.googl
 Upgrades a notebook instance to the latest version.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -269,42 +284,109 @@ An accelerator configuration for a VM instance Definition of a hardware accelera
 
 Definition of the types of hardware accelerators that can be used on this instance.
 
-| Enums                          |                                                             |
-|--------------------------------|-------------------------------------------------------------|
-| `ACCELERATOR_TYPE_UNSPECIFIED` | Accelerator type is not specified.                          |
-| `NVIDIA_TESLA_P100`            | Accelerator type is Nvidia Tesla P100.                      |
-| `NVIDIA_TESLA_V100`            | Accelerator type is Nvidia Tesla V100.                      |
-| `NVIDIA_TESLA_P4`              | Accelerator type is Nvidia Tesla P4.                        |
-| `NVIDIA_TESLA_T4`              | Accelerator type is Nvidia Tesla T4.                        |
-| `NVIDIA_TESLA_A100`            | Accelerator type is Nvidia Tesla A100 - 40GB.               |
-| `NVIDIA_A100_80GB`             | Accelerator type is Nvidia Tesla A100 - 80GB.               |
-| `NVIDIA_L4`                    | Accelerator type is Nvidia Tesla L4.                        |
-| `NVIDIA_H100_80GB`             | Accelerator type is Nvidia Tesla H100 - 80GB.               |
-| `NVIDIA_H100_MEGA_80GB`        | Accelerator type is Nvidia Tesla H100 - MEGA 80GB.          |
-| `NVIDIA_H200_141GB`            | Accelerator type is Nvidia Tesla H200 - 141GB.              |
-| `NVIDIA_TESLA_T4_VWS`          | Accelerator type is NVIDIA Tesla T4 Virtual Workstations.   |
-| `NVIDIA_TESLA_P100_VWS`        | Accelerator type is NVIDIA Tesla P100 Virtual Workstations. |
-| `NVIDIA_TESLA_P4_VWS`          | Accelerator type is NVIDIA Tesla P4 Virtual Workstations.   |
-| `NVIDIA_B200`                  | Accelerator type is NVIDIA B200.                            |
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Enums</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ACCELERATOR_TYPE_UNSPECIFIED</code></td>
+<td>Accelerator type is not specified.</td>
+</tr>
+<tr class="even">
+<td><code>NVIDIA_TESLA_P100</code></td>
+<td><p>Deprecated: Use <code>NVIDIA_TESLA_T4</code> (N1) or <code>NVIDIA_L4</code> (G2) instead. The NVIDIA Tesla P100 GPU is being decommissioned fleet-wide by Compute Engine and is no longer available for new instances.</p>
+<blockquote>
+<p>This item is deprecated!</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><code>NVIDIA_TESLA_V100</code></td>
+<td>Accelerator type is Nvidia Tesla V100.</td>
+</tr>
+<tr class="even">
+<td><code>NVIDIA_TESLA_P4</code></td>
+<td>Accelerator type is Nvidia Tesla P4.</td>
+</tr>
+<tr class="odd">
+<td><code>NVIDIA_TESLA_T4</code></td>
+<td>Accelerator type is Nvidia Tesla T4.</td>
+</tr>
+<tr class="even">
+<td><code>NVIDIA_TESLA_A100</code></td>
+<td>Accelerator type is Nvidia Tesla A100 - 40GB.</td>
+</tr>
+<tr class="odd">
+<td><code>NVIDIA_A100_80GB</code></td>
+<td>Accelerator type is Nvidia Tesla A100 - 80GB.</td>
+</tr>
+<tr class="even">
+<td><code>NVIDIA_L4</code></td>
+<td>Accelerator type is Nvidia Tesla L4.</td>
+</tr>
+<tr class="odd">
+<td><code>NVIDIA_H100_80GB</code></td>
+<td>Accelerator type is Nvidia Tesla H100 - 80GB.</td>
+</tr>
+<tr class="even">
+<td><code>NVIDIA_H100_MEGA_80GB</code></td>
+<td>Accelerator type is Nvidia Tesla H100 - MEGA 80GB.</td>
+</tr>
+<tr class="odd">
+<td><code>NVIDIA_H200_141GB</code></td>
+<td>Accelerator type is Nvidia Tesla H200 - 141GB.</td>
+</tr>
+<tr class="even">
+<td><code>NVIDIA_TESLA_T4_VWS</code></td>
+<td>Accelerator type is NVIDIA Tesla T4 Virtual Workstations.</td>
+</tr>
+<tr class="odd">
+<td><code>NVIDIA_TESLA_P100_VWS</code></td>
+<td><p>Deprecated: Use <code>NVIDIA_TESLA_T4_VWS</code> instead. The NVIDIA Tesla P100 GPU (Virtual Workstations) is being decommissioned fleet-wide by Compute Engine and is no longer available for new instances.</p>
+<blockquote>
+<p>This item is deprecated!</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><code>NVIDIA_TESLA_P4_VWS</code></td>
+<td>Accelerator type is NVIDIA Tesla P4 Virtual Workstations.</td>
+</tr>
+<tr class="odd">
+<td><code>NVIDIA_B200</code></td>
+<td>Accelerator type is NVIDIA B200.</td>
+</tr>
+<tr class="even">
+<td><code>NVIDIA_RTX6000</code></td>
+<td>NVIDIA RTX 6000.</td>
+</tr>
+</tbody>
+</table>
 
 ## AccessConfig
 
 An access configuration attached to an instance's network interface.
 
-| Fields        |                                                                                                                                                                                                                                                                                                                                    |
-|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `external_ip` | `string` An external IP address associated with this instance. Specify an unused static external IP address available to the project or leave this field undefined to use an IP from a shared ephemeral IP address pool. If you specify a static external IP address, it must live in the same region as the zone of the instance. |
+| Fields        |                                                                                                                                                                                                                                                                                                                                              |
+|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `external_ip` | `string` Optional. An external IP address associated with this instance. Specify an unused static external IP address available to the project or leave this field undefined to use an IP from a shared ephemeral IP address pool. If you specify a static external IP address, it must live in the same region as the zone of the instance. |
 
 ## BootDisk
 
 The definition of a boot disk.
 
-| Fields            |                                                                                                                                                                                                                                                                                         |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `disk_size_gb`    | `int64` Optional. The size of the boot disk in GB attached to this instance, up to a maximum of 64000 GB (64 TB). If not specified, this defaults to the recommended value of 150GB.                                                                                                    |
-| `disk_type`       | [`DiskType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.DiskType) Optional. Indicates the type of the disk.                                                                   |
-| `disk_encryption` | [`DiskEncryption`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.DiskEncryption) Optional. Input only. Disk encryption method used on the boot and data disks, defaults to GMEK. |
-| `kms_key`         | `string` Optional. Input only. The KMS key used to encrypt the disks, only applicable if disk_encryption is CMEK. Format: `projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}` Learn more about using your own encryption keys.                      |
+| Fields            |                                                                                                                                                                                                                                                                             |
+|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `disk_size_gb`    | `int64` Optional. The size of the boot disk in GB attached to this instance, up to a maximum of 64000 GB (64 TB). If not specified, this defaults to the recommended value of 150GB.                                                                                        |
+| `disk_type`       | [`DiskType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.DiskType) Optional. Indicates the type of the disk.                                                       |
+| `disk_encryption` | [`DiskEncryption`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.DiskEncryption) Optional. Disk encryption method used on the boot and data disks, defaults to GMEK. |
+| `kms_key`         | `string` Optional. The KMS key used to encrypt the disks, only applicable if disk_encryption is CMEK. Format: `projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}` Learn more about using your own encryption keys.                      |
 
 ## CheckInstanceUpgradabilityRequest
 
@@ -429,13 +511,13 @@ Request for creating a notebook instance.
 
 An instance-attached disk resource.
 
-| Fields                |                                                                                                                                                                                                                                                                                         |
-|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `disk_size_gb`        | `int64` Optional. The size of the disk in GB attached to this VM instance, up to a maximum of 64000 GB (64 TB). If not specified, this defaults to 100.                                                                                                                                 |
-| `disk_type`           | [`DiskType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.DiskType) Optional. Input only. Indicates the type of the disk.                                                       |
-| `disk_encryption`     | [`DiskEncryption`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.DiskEncryption) Optional. Input only. Disk encryption method used on the boot and data disks, defaults to GMEK. |
-| `kms_key`             | `string` Optional. Input only. The KMS key used to encrypt the disks, only applicable if disk_encryption is CMEK. Format: `projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}` Learn more about using your own encryption keys.                      |
-| `resource_policies[]` | `string` Optional. The resource policies to apply to the data disk.                                                                                                                                                                                                                     |
+| Fields                |                                                                                                                                                                                                                                                                             |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `disk_size_gb`        | `int64` Optional. The size of the disk in GB attached to this VM instance, up to a maximum of 64000 GB (64 TB). If not specified, this defaults to 100.                                                                                                                     |
+| `disk_type`           | [`DiskType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.DiskType) Optional. Indicates the type of the disk.                                                       |
+| `disk_encryption`     | [`DiskEncryption`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.DiskEncryption) Optional. Disk encryption method used on the boot and data disks, defaults to GMEK. |
+| `kms_key`             | `string` Optional. The KMS key used to encrypt the disks, only applicable if disk_encryption is CMEK. Format: `projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}` Learn more about using your own encryption keys.                      |
+| `resource_policies[]` | `string` Optional. The resource policies to apply to the data disk.                                                                                                                                                                                                         |
 
 ## DefaultValues
 
@@ -581,6 +663,7 @@ The definition of how to configure a VM instance outside of Resources and Identi
 | `disable_public_ip`                                                                                                            | `bool` Optional. If true, no external IP will be assigned to this VM instance.                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `tags[]`                                                                                                                       | `string` Optional. The Compute Engine network tags to add to runtime (see [Add network tags](https://cloud.google.com/vpc/docs/add-remove-network-tags) ).                                                                                                                                                                                                                                                                                                                                                        |
 | `metadata`                                                                                                                     | `map<string, string>` Optional. Custom metadata to apply to this instance.                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `system_metadata`                                                                                                              | `map<string, string>` Output only. Represents system-managed metadata for this instance: the subset of `metadata` whose keys are recognized Workbench system keys.                                                                                                                                                                                                                                                                                                                                                |
 | `enable_ip_forwarding`                                                                                                         | `bool` Optional. Flag to enable ip forwarding or not, default false/off. <https://cloud.google.com/vpc/docs/using-routes#canipforward>                                                                                                                                                                                                                                                                                                                                                                            |
 | `gpu_driver_config`                                                                                                            | [`GPUDriverConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.GPUDriverConfig) Optional. Configuration for GPU drivers.                                                                                                                                                                                                                                                                                |
 | `confidential_instance_config`                                                                                                 | [`ConfidentialInstanceConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.ConfidentialInstanceConfig) Optional. Confidential instance configuration.                                                                                                                                                                                                                                                    |
@@ -641,10 +724,12 @@ The instance health state.
 
 ConfigImage represents an image release available to create a WbI
 
-| Fields         |                                                                                          |
-|----------------|------------------------------------------------------------------------------------------|
-| `image_name`   | `string` Output only. The name of the image of the form workbench-instances-vYYYYmmdd- - |
-| `release_name` | `string` Output only. The release of the image of the form m123                          |
+| Fields         |                                                                                                  |
+|----------------|--------------------------------------------------------------------------------------------------|
+| `image_name`   | `string` Output only. The name of the image of the form workbench-instances-vYYYYmmdd- -         |
+| `release_name` | `string` Output only. The release of the image of the form m123                                  |
+| `image_family` | `string` Output only. The image family of the image. (ex: workbench-instances or workbench-2603) |
+| `description`  | `string` Output only. The description of the image.                                              |
 
 ## Instance
 
@@ -845,6 +930,7 @@ The definition of a network interface resource attached to a VM.
 | `subnet`           | `string` Optional. The name of the subnet that this VM instance is in. Format: `projects/{project_id}/regions/{region}/subnetworks/{subnetwork_id}`                                                                                                                                                                                                                                                                                       |
 | `nic_type`         | [`NicType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.NetworkInterface.NicType) Optional. The type of vNIC to be used on this interface. This may be gVNIC or VirtioNet.                                                                                                                                                       |
 | `access_configs[]` | [`AccessConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.cloud.notebooks.v2#google.cloud.notebooks.v2.AccessConfig) Optional. An array of configurations for this interface. Currently, only one access config, ONE_TO_ONE_NAT, is supported. If no accessConfigs specified, the instance will have an external internet access through an ephemeral external IP address. |
+| `internal_ip`      | `string` Optional. An internal IP address associated with this instance. Specify an unused static internal IP address available to the subnet this instance is in, or leave this field undefined to use an IP from the subnet's ephemeral range.                                                                                                                                                                                          |
 
 ## NicType
 
@@ -1076,19 +1162,20 @@ Request for starting a notebook instance
 
 The definition of the states of this instance.
 
-| Enums               |                                                                                                      |
-|---------------------|------------------------------------------------------------------------------------------------------|
-| `STATE_UNSPECIFIED` | State is not specified.                                                                              |
-| `STARTING`          | The control logic is starting the instance.                                                          |
-| `PROVISIONING`      | The control logic is installing required frameworks and registering the instance with notebook proxy |
-| `ACTIVE`            | The instance is running.                                                                             |
-| `STOPPING`          | The control logic is stopping the instance.                                                          |
-| `STOPPED`           | The instance is stopped.                                                                             |
-| `DELETED`           | The instance is deleted.                                                                             |
-| `UPGRADING`         | The instance is upgrading.                                                                           |
-| `INITIALIZING`      | The instance is being created.                                                                       |
-| `SUSPENDING`        | The instance is suspending.                                                                          |
-| `SUSPENDED`         | The instance is suspended.                                                                           |
+| Enums               |                                                                                                                                                                                                                                              |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `STATE_UNSPECIFIED` | State is not specified.                                                                                                                                                                                                                      |
+| `STARTING`          | The control logic is starting the instance.                                                                                                                                                                                                  |
+| `PROVISIONING`      | The control logic is installing required frameworks and registering the instance with notebook proxy                                                                                                                                         |
+| `ACTIVE`            | The instance is running.                                                                                                                                                                                                                     |
+| `STOPPING`          | The control logic is stopping the instance.                                                                                                                                                                                                  |
+| `STOPPED`           | The instance is stopped.                                                                                                                                                                                                                     |
+| `DELETED`           | The instance is deleted.                                                                                                                                                                                                                     |
+| `UPGRADING`         | The instance is upgrading.                                                                                                                                                                                                                   |
+| `INITIALIZING`      | The instance is being created.                                                                                                                                                                                                               |
+| `SUSPENDING`        | The instance is suspending.                                                                                                                                                                                                                  |
+| `SUSPENDED`         | The instance is suspended.                                                                                                                                                                                                                   |
+| `ORPHANED`          | The instance has no VM. An upgrade removed the original and could not create its replacement; the data disk and any snapshots are intact. Retry the upgrade to finish it, or roll the instance back to the snapshot taken before it started. |
 
 ## StopInstanceRequest
 
@@ -1181,7 +1268,8 @@ Request for updating a notebook instance.
 <li><code>gce_setup.container_image.tag</code></li>
 <li><code>gce_setup.disable_public_ip</code></li>
 <li><code>disable_proxy_access</code></li>
-</ul></td>
+</ul>
+<p>Note: <code>gce_setup.disable_public_ip</code> and <code>disable_proxy_access</code> are one-way on update -- they can only be used to <em>disable</em> the feature (set the field to <code>true</code> ). Requests that set either field back to <code>false</code> (re-enabling the external IP or proxy access) are rejected with <code>INVALID_ARGUMENT</code> .</p></td>
 </tr>
 <tr class="odd">
 <td><code>request_id</code></td>
@@ -1253,6 +1341,11 @@ Request for upgrading a notebook instance
 <li><code>notebooks.instances.upgrade</code></li>
 </ul></td>
 </tr>
+<tr class="even">
+<td><code>image_family</code></td>
+<td><p><code>string</code></p>
+<p>Optional. The Compute Engine image family resource name to upgrade to. Format: <code>projects/{project_id}/global/images/family/{image_family}</code> If specified, the instance will be upgraded to the latest image in the specified image family, allowing upgrades across image families. If not specified, the instance will be upgraded to the latest image in its current image family.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -1260,9 +1353,10 @@ Request for upgrading a notebook instance
 
 Definition of a custom Compute Engine virtual machine image for starting a notebook instance with the environment installed directly on the VM.
 
-| Fields                                                                                                                |                                                                                                               |
-|-----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| `project`                                                                                                             | `string` Required. The name of the Google Cloud project that this VM image belongs to. Format: `{project_id}` |
-| Union field `image` . The reference to an external Compute Engine VM image. `image` can be only one of the following: |                                                                                                               |
-| `name`                                                                                                                | `string` Optional. Use VM image name to find the image.                                                       |
-| `family`                                                                                                              | `string` Optional. Use this VM image family to find the image; the newest image in this family will be used.  |
+| Fields                                                                                                                |                                                                                                                                                                                                                                                                      |
+|-----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `project`                                                                                                             | `string` Required. The name of the Google Cloud project that this VM image belongs to. Format: `{project_id}`                                                                                                                                                        |
+| `image_description`                                                                                                   | `string` Output only. A human-readable description of the image running on the instance (for example, "Debian 11, Python 3.10"), derived at read time from the image release configuration (the source of truth). Set to "Custom" for unrecognized boot-disk images. |
+| Union field `image` . The reference to an external Compute Engine VM image. `image` can be only one of the following: |                                                                                                                                                                                                                                                                      |
+| `name`                                                                                                                | `string` Optional. Use VM image name to find the image.                                                                                                                                                                                                              |
+| `family`                                                                                                              | `string` Optional. Use this VM image family to find the image; the newest image in this family will be used.                                                                                                                                                         |

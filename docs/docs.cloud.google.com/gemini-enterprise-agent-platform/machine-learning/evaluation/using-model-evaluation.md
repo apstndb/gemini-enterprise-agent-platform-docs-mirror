@@ -73,7 +73,7 @@ To view the Agent Platform API model evaluation workflow in Gemini Enterprise Ag
 
 ### Python SDK
 
-The SDK for evaluating models with Agent Platform is in Experimental. To sign up for the Experimental, fill out the [onboarding form](https://docs.google.com/forms/d/159DJxDx8cQpsjwsNkS7j-qCwsz2uTDVwVQPv4ZfWM50/viewform?edit_requested=true) .
+The SDK for evaluating models with Agent Platform is in Experimental. To request access, contact your Google Cloud account manager.
 
 Agent Platform automatically sends an email notification when a model evaluation job is complete.
 

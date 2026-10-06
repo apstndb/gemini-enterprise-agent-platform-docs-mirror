@@ -31,14 +31,15 @@ The description a notebook execution workload.
   "kernelSpec": string,
   "tensorboard": string,
 
-  // Union field job_parameters can be only one of the following:
+  // The following is a list of mutually exclusive fields. At most one of the
+  // fields will be set in a response:
   "dataprocParameters": {
     object (DataprocParameters)
   },
   "vertexAiParameters": {
     object (VertexAIParameters)
   }
-  // End of list of possible types for union field job_parameters.
+  // End of mutually exclusive fields.
 }
 ```
 
@@ -159,10 +160,10 @@ The description a notebook execution workload.
 <tr class="odd">
 <td><code>tensorboard</code></td>
 <td><p><code>string</code></p>
-<p>The name of a Agent Platform [Tensorboard] resource to which this execution will upload Tensorboard logs. Format: <code>projects/{project}/locations/{location}/tensorboards/{tensorboard}</code></p></td>
+<p>The name of a Vertex AI [Tensorboard] resource to which this execution will upload Tensorboard logs. Format: <code>projects/{project}/locations/{location}/tensorboards/{tensorboard}</code></p></td>
 </tr>
 <tr class="even">
-<td>Union field <code>job_parameters</code> . Parameters for an execution type. NOTE: There are currently no extra parameters for VertexAI jobs. <code>job_parameters</code> can be only one of the following:</td>
+<td>Parameters for an execution type. NOTE: There are currently no extra parameters for VertexAI jobs. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -173,7 +174,11 @@ The description a notebook execution workload.
 <tr class="even">
 <td><code>vertexAiParameters</code></td>
 <td><p><code>object ( </code><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v1/ExecutionTemplate#VertexAIParameters"><code>VertexAIParameters</code></a><code> )</code></p>
-<p>Parameters used in Agent Platform JobType executions.</p></td>
+<p>Parameters used in Vertex AI JobType executions.</p></td>
+</tr>
+<tr class="odd">
+<td>End of mutually exclusive fields.</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -290,7 +295,7 @@ Parameters used in Dataproc JobType executions.
 
 ## VertexAIParameters
 
-Parameters used in Agent Platform JobType executions.
+Parameters used in Vertex AI JobType executions.
 
 **JSON representation**
 

@@ -42,9 +42,10 @@ This is intentionally not a CRUD style API because access control policies are c
 Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -57,9 +58,10 @@ Sets the access control policy on the specified resource. Replaces any existing 
 Can return `NOT_FOUND` , `INVALID_ARGUMENT` , and `PERMISSION_DENIED` errors.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
@@ -72,9 +74,10 @@ Returns permissions that a caller has on the specified resource. If the resource
 Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
 
 Authorization scopes  
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 

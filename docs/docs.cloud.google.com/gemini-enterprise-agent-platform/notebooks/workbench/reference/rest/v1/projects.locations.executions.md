@@ -44,18 +44,18 @@ The definition of a single executed notebook.
 
 Enum description of the state of the underlying AIP job.
 
-| Enums               |                                                                                                                                                     |
-|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `STATE_UNSPECIFIED` | The job state is unspecified.                                                                                                                       |
-| `QUEUED`            | The job has been just created and processing has not yet begun.                                                                                     |
-| `PREPARING`         | The service is preparing to execution the job.                                                                                                      |
-| `RUNNING`           | The job is in progress.                                                                                                                             |
-| `SUCCEEDED`         | The job completed successfully.                                                                                                                     |
-| `FAILED`            | The job failed. `errorMessage` should contain the details of the failure.                                                                           |
-| `CANCELLING`        | The job is being cancelled. `errorMessage` should describe the reason for the cancellation.                                                         |
-| `CANCELLED`         | The job has been cancelled. `errorMessage` should describe the reason for the cancellation.                                                         |
-| `EXPIRED`           | The job has become expired (relevant to Agent Platform jobs) <https://cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/JobState> |
-| `INITIALIZING`      | The Execution is being created.                                                                                                                     |
+| Enums               |                                                                                             |
+|---------------------|---------------------------------------------------------------------------------------------|
+| `STATE_UNSPECIFIED` | The job state is unspecified.                                                               |
+| `QUEUED`            | The job has been just created and processing has not yet begun.                             |
+| `PREPARING`         | The service is preparing to execution the job.                                              |
+| `RUNNING`           | The job is in progress.                                                                     |
+| `SUCCEEDED`         | The job completed successfully.                                                             |
+| `FAILED`            | The job failed. `errorMessage` should contain the details of the failure.                   |
+| `CANCELLING`        | The job is being cancelled. `errorMessage` should describe the reason for the cancellation. |
+| `CANCELLED`         | The job has been cancelled. `errorMessage` should describe the reason for the cancellation. |
+| `EXPIRED`           | The job has become expired (relevant to Vertex AI jobs)                                     |
+| `INITIALIZING`      | The Execution is being created.                                                             |
 
 | Methods                                                                                                                                               |                                                          |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|

@@ -38,8 +38,8 @@ For details, see [Use managed datasets](https://docs.cloud.google.com/gemini-ent
 
 ## View managed datasets using Knowledge Catalog
 
-Knowledge Catalog is a fully managed, scalable metadata management service that provides a centralized location to search for datasets across projects and regions. It's integrated with Gemini Enterprise Agent Platform and offers similar capabilities to the deprecated Data Catalog.
+Knowledge Catalog is a fully managed, scalable metadata management service integrated with Agent Platform that provides a centralized location to search for datasets across projects and regions.
 
-You can use Knowledge Catalog to discover, understand, and enrich your data with aspects (which are similar to Data Catalog tags).
+You can use Knowledge Catalog to discover, understand, and enrich your data with aspects.
 
 For details on managing metadata and aspects for your Agent Platform resources, see [Manage aspects and enrich metadata](https://docs.cloud.google.com/dataplex/docs/enrich-entries-metadata) in the [Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs/catalog-overview) .

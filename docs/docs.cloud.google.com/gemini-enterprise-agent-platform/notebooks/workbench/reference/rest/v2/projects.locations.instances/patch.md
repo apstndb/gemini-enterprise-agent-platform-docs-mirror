@@ -62,6 +62,7 @@ instances.patch updates an Instance.
 <li><code>gceSetup.disable_public_ip</code></li>
 <li><code>disableProxyAccess</code></li>
 </ul>
+<p>Note: <code>gceSetup.disable_public_ip</code> and <code>disableProxyAccess</code> are one-way on update -- they can only be used to <em>disable</em> the feature (set the field to <code>true</code> ). Requests that set either field back to <code>false</code> (re-enabling the external IP or proxy access) are rejected with <code>INVALID_ARGUMENT</code> .</p>
 <p>This is a comma-separated list of fully qualified names of fields. Example: <code>"user.displayName,photo"</code> .</p></td>
 </tr>
 <tr class="even">
@@ -82,8 +83,9 @@ If successful, the response body contains an instance of [`Operation`](https://d
 
 ### Authorization scopes
 
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .

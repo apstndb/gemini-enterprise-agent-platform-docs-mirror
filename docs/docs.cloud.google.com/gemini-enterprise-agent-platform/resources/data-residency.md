@@ -87,8 +87,10 @@ To learn what capabilities support data residency, see [Supported capabilities](
 | Model                                                      | US multi-region | EU multi-region | Belgium (europe-west1) | Netherlands (europe-west4) | Singapore (asia-southeast1) | Taiwan (asia-east1) |
 |------------------------------------------------------------|-----------------|-----------------|------------------------|----------------------------|-----------------------------|---------------------|
 | Anthropic's Claude Opus 5.5 on Google Cloud                |                 |                 |                        |                            |                             |                     |
+| Anthropic's Claude Sonnet 5.5 on Google Cloud              |                 |                 |                        |                            |                             |                     |
 | Anthropic's Claude Sonnet 5 on Google Cloud                |                 |                 |                        |                            |                             |                     |
 | Anthropic's Claude Opus 5 on Google Cloud                  |                 |                 |                        |                            |                             |                     |
+| Anthropic's Claude Fable 5.1 on Google Cloud               |                 |                 |                        |                            |                             |                     |
 | Anthropic's Claude Fable 5 on Google Cloud                 |                 |                 |                        |                            |                             |                     |
 | Anthropic's Claude Haiku 4.5 on Google Cloud               |                 |                 |                        |                            |                             |                     |
 | Anthropic's Claude Opus 4 on Google Cloud                  |                 |                 |                        |                            |                             |                     |

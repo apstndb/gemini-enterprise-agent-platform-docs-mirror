@@ -8,7 +8,13 @@ data_source: docs.cloud.google.com
 
 > **Preview**
 >
-> This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
+> This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) , and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
+>
+> Pre-GA products are in various stages of internal testing and review. As such, customers should closely supervise the use of CodeMender, and not use CodeMender in situations where serious errors cannot be corrected. This product is made available to Customers solely for limited testing and evaluation, and may not be used for commercial or production purposes.
+>
+> You may only use CodeMender to analyze (i) source code that you own or are authorized to use or (ii) open source code distributed under an OSI-approved license. You must use this offering solely for legitimate security defense purposes (and not for unauthorized testing, exploitation, or cyberattacks) in compliance with the [Google Cloud Acceptable Use Policy](https://cloud.google.com/terms/aup?e=48754805) and the [Generative AI Prohibited Use Policy](https://policies.google.com/terms/generative-ai/use-policy) . When using CodeMender built with a Gemini Cyber model, your access to and use of that model are also governed by Section 31(a) of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) (Gemini Cyber).
+>
+> When disabling human confirmation of write and tool execution actions (as described in the [configuration file parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#configuration-file) ), Customer is responsible for such modification under Section 20(j) ("Modifying, Disregarding, or Disabling Safety Filters") of the Service Specific Terms. The customer agrees not to automatically bypass or circumvent other responses requiring human confirmation.
 
 CodeMender lets you proactively scan your codebase for software weaknesses and execute proof-of-concept (PoC) exploits in your local sandbox to confirm exploitability and eliminate false positives.
 
@@ -22,6 +28,12 @@ Scan a specific subdirectory:
 cm find ./src/auth/
 ```
 
+Scan only the modified files in a subdirectory:
+
+```
+cm find --diff ./src/auth/
+```
+
 Scan a single file:
 
 ```
@@ -33,6 +45,8 @@ Skip interactive approval prompts during the scan:
 ```
 cm find ./src/auth/ -y
 ```
+
+For more information about scanning pull requests with `--diff` or running deep multi-session scans with `--deep` , see [CodeMender find modes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/find-modes) and [Integrate with CI/CD](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/integrate-with-cicd) .
 
 ## Verify vulnerabilities
 
@@ -48,32 +62,12 @@ cm verify FINDING_ID
 
 ### Verification flags
 
-- **Provide custom guidance context ( `-c` / `--context` )** : Pass steering instructions or application domain context to guide the agent:
+The following flags configure `cm verify` :
 
-  ```
-  cm verify FINDING_ID -c "Focus analysis on the multi-tenant session validation path"
-  ```
-
-- **Skip PoC exploit execution ( `--skip-exploit-verification` )** : Perform static verification only without running active exploits:
-
-  ```
-  cm verify FINDING_ID --skip-exploit-verification
-  ```
-
-- **Control sandboxing ( `--sandbox` )** : Explicitly enable or disable the sandbox for this run (for example, `--sandbox=false` to disable):
-
-  ```
-  cm verify FINDING_ID --sandbox=false
-  ```
-
-- **Bypass sandboxing ( `--unrestricted` )** : Temporarily bypass all sandbox protections for this run, disabling file system boundaries and OS-level container isolation:
-
-  ```
-  cm verify FINDING_ID --unrestricted
-  ```
-
-- **Auto-approve confirmation prompts ( `-y` / `--yes` )** : Skip interactive confirmation prompts for tool actions and PoC exploit execution. When running interactively without `-y` , CodeMender prompts for confirmation ( `[y/N]` ) before executing generated exploit scripts. In automated CI/CD pipelines and evaluation runs, passing `-y` auto-approves execution and keeps all commands contained within the OS-level sandbox container ( `exebox` ):
-
-  ```
-  cm verify FINDING_ID -y
-  ```
+| Flag                          | Default | Description                                                                                                                                                                               |
+|-------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `-c, --context `` TEXT`       | `""`    | Pass steering instructions or application domain context to guide the agent (for example, `cm verify `` FINDING_ID `` -c "Focus analysis on the multi-tenant session validation path"` ). |
+| `--skip-exploit-verification` | `false` | Perform static verification only without running active PoC exploits.                                                                                                                     |
+| `--sandbox`                   | `true`  | Explicitly enable or disable the sandbox for this run (for example, `--sandbox=false` to disable).                                                                                        |
+| `--unrestricted`              | `false` | Temporarily bypass all sandbox protections for this run, disabling file system boundaries and OS-level container isolation.                                                               |
+| `-y, --yes`                   | `false` | Skip interactive confirmation prompts ( `[y/N]` ) for tool actions and PoC exploit execution. Commands remain contained within the OS-level sandbox container ( `exebox` ).               |

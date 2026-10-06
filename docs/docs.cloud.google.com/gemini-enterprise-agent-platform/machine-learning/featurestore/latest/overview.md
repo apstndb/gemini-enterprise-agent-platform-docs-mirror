@@ -202,10 +202,6 @@ All Agent Platform Feature Store resources must be located in the same region or
 
 > **Caution:** Using source data from dual-region buckets isn't supported.
 
-## Feature metadata
-
-Agent Platform Feature Store is integrated with Knowledge Catalog to provide feature governance capabilities, including feature metadata. Online store instances, feature views, and feature groups are automatically registered as data assets in Data Catalog, a feature that catalogs metadata from these resources. You can then use the metadata search capability of Knowledge Catalog to search for, view, and manage the metadata for these resources. For more information about searching for Agent Platform Feature Store resources, see [Search for resource metadata in Data Catalog](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/search-feature-metadata) .
-
 ### Feature labels
 
 You can add labels to resources during or after the resource creation. For more information about adding labels to existing Agent Platform Feature Store resources, see [Update labels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/feature-labels) .

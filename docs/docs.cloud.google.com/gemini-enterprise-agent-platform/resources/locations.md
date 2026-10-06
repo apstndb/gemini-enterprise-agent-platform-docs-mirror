@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations
 title: Deployments and endpoints
-description: Learn about the regional and global endpoints available for Google and partner generative AI models on Agent Platform, including supported locations and limitations.
+description: Learn about the regional and global endpoints available for Google and partner generative AI models on Gemini Enterprise Agent Platform, including supported locations and limitations.
 data_source: docs.cloud.google.com
 ---
 
@@ -10,7 +10,7 @@ This page lists the supported locations for Google and Partner models and genera
 
 To see supported locations for Google agents and agent infrastructure features, see [Supported locations for agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) .
 
-Google and Partner models and generative AI features on Gemini Enterprise Agent Platform are exposed as specific [regional endpoints](https://cloud.google.com/about/locations) and a global endpoint. Global endpoints cover the entire world and provide higher availability and reliability than single regions.
+Google and Partner models and generative AI features on Agent Platform are exposed as specific [regional endpoints](https://cloud.google.com/about/locations) and a global endpoint. Global endpoints cover the entire world and provide higher availability and reliability than single regions.
 
 > **Important:** Endpoints don't guarantee data residency or in-region ML processing. For information about data residency, see [Data residency](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency) .
 
@@ -63,7 +63,7 @@ curl -X POST \
 
 ### Multi-region endpoints
 
-Multi-region endpoints allow you to ensure that machine learning processing of Customer Data by the service stays within a specific jurisdictional boundary, such as the United States or the European Union.
+Multi-region endpoints let you ensure that machine learning processing of Customer Data by the service stays within a specific jurisdictional boundary, such as the United States or the European Union.
 
 The following table lists the hostnames for multi-region endpoints:
 
@@ -74,7 +74,7 @@ The following table lists the hostnames for multi-region endpoints:
 
 ### Python
 
-> **Note:** ADK agents automatically use the location specified when initializing the environment using `vertexai.init()` or by creating a `vertexai.Client()` .
+> **Note:** Agent Development Kit (ADK) agents automatically use the location specified when initializing the environment using `vertexai.init()` or by creating a `vertexai.Client()` .
 
 ```python
 import vertexai
@@ -133,13 +133,16 @@ curl -X POST \
 
 Private Google Access isn't supported for multi-region endpoints. If you attempt to connect to a multi-region endpoint using Private Google Access, you might experience connectivity issues, SSL/TLS handshake errors, or certificate mismatch warnings.
 
-To establish private connectivity to multi-region endpoints, you must configure [Private Service Connect endpoints for regional Google APIs](https://docs.cloud.google.com/vpc/docs/access-regional-google-apis-endpoints) .
+To establish private connectivity to multi-region endpoints, use [Private Service Connect](https://docs.cloud.google.com/vpc/docs/private-service-connect) , a Google Cloud networking capability that lets you access Google-managed services privately from within your Virtual Private Cloud (VPC) network. Depending on your organization's compliance, security, and traffic management requirements, you can choose between a direct endpoint connection or a load balancer architecture:
 
-> **Note:** Configuring Private Google Access endpoints for regional Google APIs is only supported using the [Google Cloud CLI](https://cloud.google.com/sdk/docs) ( `gcloud` ).
+- **Private Service Connect endpoints** : provide a direct connection by mapping an internal IP address in your VPC network to the target multi-region endpoint. For configuration instructions, see [Access regional and multi-regional Google APIs through endpoints](https://docs.cloud.google.com/vpc/docs/access-regional-google-apis-endpoints) .
+- **Private Service Connect backends** : use a load balancer with a Private Service Connect network endpoint group (NEG) for advanced traffic management, custom TLS certificates, or policy enforcement. For configuration instructions, see [About Private Service Connect backends](https://docs.cloud.google.com/vpc/docs/private-service-connect-backends#multiregional-google-apis) and [Create a Private Service Connect backend](https://docs.cloud.google.com/vpc/docs/access-apis-managed-services-private-service-connect-backends#neg-multiregional-api) .
+
+For a complete list of supported locations and hostnames, see [Regional and multi-regional service endpoints](https://docs.cloud.google.com/vpc/docs/regional-service-endpoints) .
 
 ## Global endpoint
 
-Selecting a global endpoint for your requests can improve overall availability while reducing resource exhausted (429) errors. Don't use the global endpoint if you have ML processing requirements, because you can't control or know which region your ML processing requests are sent to when a request is made.
+Selecting a global endpoint for your requests can improve overall availability and reduce resource exhausted (429) errors. Don't use the global endpoint if you have ML processing requirements, because you can't control or know which region your ML processing requests are sent to when a request is made.
 
 ### Supported models
 
@@ -183,7 +186,7 @@ Usage of the global endpoint with Provisioned Throughput is available only for t
 
 ## Google model endpoint locations
 
-Google models in Gemini Enterprise Agent Platform are available for the following endpoints:
+Google models in Agent Platform are available for the following endpoints:
 
 ### Global
 
@@ -537,7 +540,7 @@ Google models in Gemini Enterprise Agent Platform are available for the followin
 
 ## Google Cloud partner model endpoint locations
 
-Google serves requests from the region that you specified. For some models, Google also offers a global endpoint to improve overall availability and reduce error rates. The global endpoint can have a separate set of quotas from the regional endpoint and doesn't support data residency requirements. For more information, see the "Regional and global endpoint" section in [Gemini Enterprise Agent Platform partner models for MaaS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models) .
+Google serves requests from the region that you specified. For some models, Google also offers a global endpoint to improve overall availability and reduce error rates. The global endpoint can have a separate set of quotas from the regional endpoint and doesn't support data residency requirements. For more information, see [Agent Platform partner models for MaaS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models) .
 
 Partner model endpoints for Agent Platform are available in the following regions:
 
@@ -546,8 +549,11 @@ Partner model endpoints for Agent Platform are available in the following region
 |                                                         | Global (global) |
 |---------------------------------------------------------|-----------------|
 | Anthropic models                                        |                 |
+| Claude Sonnet 5.5 on Google Cloud                       |                 |
 | Claude Sonnet 5 on Google Cloud                         |                 |
+| Claude Opus 5.5 on Google Cloud                         |                 |
 | Claude Opus 5 on Google Cloud                           |                 |
+| Claude Fable 5.1 on Google Cloud                        |                 |
 | Claude Fable 5 on Google Cloud                          |                 |
 | Claude Opus 4.8 on Google Cloud                         |                 |
 | Claude Opus 4.7 on Google Cloud                         |                 |
@@ -581,8 +587,11 @@ Partner model endpoints for Agent Platform are available in the following region
 |                                                         | United States multi-region (us) | European Union multi-region (eu) |
 |---------------------------------------------------------|---------------------------------|----------------------------------|
 | Anthropic models                                        |                                 |                                  |
+| Claude Sonnet 5.5 on Google Cloud                       |                                 |                                  |
 | Claude Sonnet 5 on Google Cloud                         |                                 |                                  |
+| Claude Opus 5.5 on Google Cloud                         |                                 |                                  |
 | Claude Opus 5 on Google Cloud                           |                                 |                                  |
+| Claude Fable 5.1 on Google Cloud                        |                                 |                                  |
 | Claude Fable 5 on Google Cloud                          |                                 |                                  |
 | Claude Opus 4.8 on Google Cloud                         |                                 |                                  |
 | Claude Opus 4.7 on Google Cloud                         |                                 |                                  |
@@ -616,8 +625,11 @@ Partner model endpoints for Agent Platform are available in the following region
 |                                                         | Oregon (us-west1) | Las Vegas (us-west4) | Iowa (us-central1) | South Carolina (us-east1) | N. Virginia (us-east4) | Columbus (us-east5) | Dallas (us-south1) |
 |---------------------------------------------------------|-------------------|----------------------|--------------------|---------------------------|------------------------|---------------------|--------------------|
 | Anthropic models                                        |                   |                      |                    |                           |                        |                     |                    |
+| Claude Sonnet 5.5 on Google Cloud                       |                   |                      |                    |                           |                        |                     |                    |
 | Claude Sonnet 5 on Google Cloud                         |                   |                      |                    |                           |                        |                     |                    |
+| Claude Opus 5.5 on Google Cloud                         |                   |                      |                    |                           |                        |                     |                    |
 | Claude Opus 5 on Google Cloud                           |                   |                      |                    |                           |                        |                     |                    |
+| Claude Fable 5.1 on Google Cloud                        |                   |                      |                    |                           |                        |                     |                    |
 | Claude Fable 5 on Google Cloud                          |                   |                      |                    |                           |                        |                     |                    |
 | Claude Opus 4.8 on Google Cloud                         |                   |                      |                    |                           |                        |                     |                    |
 | Claude Opus 4.7 on Google Cloud                         |                   |                      |                    |                           |                        |                     |                    |
@@ -651,8 +663,11 @@ Partner model endpoints for Agent Platform are available in the following region
 |                                                         | Montréal (northamerica-northeast1) | São Paulo (southamerica-east1) |
 |---------------------------------------------------------|------------------------------------|--------------------------------|
 | Anthropic models                                        |                                    |                                |
+| Claude Sonnet 5.5 on Google Cloud                       |                                    |                                |
 | Claude Sonnet 5 on Google Cloud                         |                                    |                                |
+| Claude Opus 5.5 on Google Cloud                         |                                    |                                |
 | Claude Opus 5 on Google Cloud                           |                                    |                                |
+| Claude Fable 5.1 on Google Cloud                        |                                    |                                |
 | Claude Fable 5 on Google Cloud                          |                                    |                                |
 | Claude Opus 4.8 on Google Cloud                         |                                    |                                |
 | Claude Opus 4.7 on Google Cloud                         |                                    |                                |
@@ -686,8 +701,11 @@ Partner model endpoints for Agent Platform are available in the following region
 |                                                         | London (europe-west2) | Belgium (europe-west1) | Netherlands (europe-west4) | Zürich (europe-west6) | Frankfurt (europe-west3) | Finland (europe-north1) | Warsaw (europe-central2) | Milan (europe-west8) | Madrid (europe-southwest1) | Paris (europe-west9) |
 |---------------------------------------------------------|-----------------------|------------------------|----------------------------|-----------------------|--------------------------|-------------------------|--------------------------|----------------------|----------------------------|----------------------|
 | Anthropic models                                        |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Claude Sonnet 5.5 on Google Cloud                       |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Claude Sonnet 5 on Google Cloud                         |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Claude Opus 5.5 on Google Cloud                         |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Claude Opus 5 on Google Cloud                           |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Claude Fable 5.1 on Google Cloud                        |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Claude Fable 5 on Google Cloud                          |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Claude Opus 4.8 on Google Cloud                         |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Claude Opus 4.7 on Google Cloud                         |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
@@ -721,8 +739,11 @@ Partner model endpoints for Agent Platform are available in the following region
 |                                                         | Mumbai (asia-south1) | Singapore (asia-southeast1) | Hong Kong (asia-east2) | Taiwan (asia-east1) | Tokyo (asia-northeast1) | Sydney (australia-southeast1) | Seoul (asia-northeast3) |
 |---------------------------------------------------------|----------------------|-----------------------------|------------------------|---------------------|-------------------------|-------------------------------|-------------------------|
 | Anthropic models                                        |                      |                             |                        |                     |                         |                               |                         |
+| Claude Sonnet 5.5 on Google Cloud                       |                      |                             |                        |                     |                         |                               |                         |
 | Claude Sonnet 5 on Google Cloud                         |                      |                             |                        |                     |                         |                               |                         |
+| Claude Opus 5.5 on Google Cloud                         |                      |                             |                        |                     |                         |                               |                         |
 | Claude Opus 5 on Google Cloud                           |                      |                             |                        |                     |                         |                               |                         |
+| Claude Fable 5.1 on Google Cloud                        |                      |                             |                        |                     |                         |                               |                         |
 | Claude Fable 5 on Google Cloud                          |                      |                             |                        |                     |                         |                               |                         |
 | Claude Opus 4.8 on Google Cloud                         |                      |                             |                        |                     |                         |                               |                         |
 | Claude Opus 4.7 on Google Cloud                         |                      |                             |                        |                     |                         |                               |                         |
@@ -756,8 +777,11 @@ Partner model endpoints for Agent Platform are available in the following region
 |                                                         | Tel Aviv (me-west1) | Doha (me-central1) | Dammam (me-central2) |
 |---------------------------------------------------------|---------------------|--------------------|----------------------|
 | Anthropic models                                        |                     |                    |                      |
+| Claude Sonnet 5.5 on Google Cloud                       |                     |                    |                      |
 | Claude Sonnet 5 on Google Cloud                         |                     |                    |                      |
+| Claude Opus 5.5 on Google Cloud                         |                     |                    |                      |
 | Claude Opus 5 on Google Cloud                           |                     |                    |                      |
+| Claude Fable 5.1 on Google Cloud                        |                     |                    |                      |
 | Claude Fable 5 on Google Cloud                          |                     |                    |                      |
 | Claude Opus 4.8 on Google Cloud                         |                     |                    |                      |
 | Claude Opus 4.7 on Google Cloud                         |                     |                    |                      |
@@ -788,7 +812,7 @@ Partner model endpoints for Agent Platform are available in the following region
 
 ## Google Cloud open model endpoint locations
 
-Google serves requests from the region that you specified. For some models, Google also offers a global endpoint to improve overall availability and reduce error rates. The global endpoint can have a separate set of quotas from the regional endpoint and doesn't support data residency requirements. For more information, see the "Regional and global endpoint" section in [Gemini Enterprise Agent Platform open models for MaaS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models) .
+Google serves requests from the region that you specified. For some models, Google also offers a global endpoint to improve overall availability and reduce error rates. The global endpoint can have a separate set of quotas from the regional endpoint and doesn't support data residency requirements. For more information, see [Agent Platform open models for MaaS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models) .
 
 Open model endpoints for Agent Platform are available in the following regions:
 

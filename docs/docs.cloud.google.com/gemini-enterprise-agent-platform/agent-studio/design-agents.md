@@ -199,40 +199,35 @@ You can configure the following tools for your agent:
 
 To help enforce security and standardize tool management through Agent Registry, Agent Studio deprecates direct integration with Vertex AI Search data stores and direct Model Context Protocol (MCP) servers.
 
-For existing agents, these deprecated tools are read-only. To maintain full functionality, replace these tools with an MCP server from Agent Registry.
+For existing agents, these deprecated tools are read-only. To maintain full functionality, migrate to an MCP server from Agent Registry.
 
 ### Migrate from legacy Vertex AI Search data stores
 
 If your agent uses a deprecated Agent Platform Search Data Store tool, migrate to the Agent Search MCP server available in Agent Registry. This tool displays as `discoveryengine.googleapis.com` in Agent Registry.
 
-Connecting the Agent Search MCP server doesn't automatically carry over the data source selection from an existing tool. You must define the target serving configuration in the agent's instructions. Also, the agent identity requires access permissions.
+When you connect the Agent Search MCP server, you must define the target serving configuration in the agent's instructions. Also, the agent identity requires access permissions.
 
-#### Before you begin
-
-Grant the Discovery Engine Viewer ( `roles/discoveryengine.viewer` ) role to the agent identity. We recommend granting this role directly on the target data store or search application. However, for troubleshooting purposes, you can grant it on the project. To find the agent's identity principal and grant the role, see [Manage roles manually](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#manual-permissions) .
-
-The [permissions dialog](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#permissions-dialog-behavior) automatically grants the MCP Tool User role ( `roles/mcp.toolUser` ), which is required if the agent uses an Agent Registry MCP tool.
-
-#### Migrate your tool
-
-To migrate your tool, follow these steps:
+To migrate, follow these steps:
 
 1.  Open your agent in the Agent Studio canvas.
 
-2.  Locate the deprecated Vertex AI Search Data Store tool in the **Tools** panel. This deprecated tool appears as read-only.
+2.  Locate the Vertex AI Search Data Store tool in the **Tools** panel.
 
-3.  Note the tool's settings, such as the project ID, location, and data store ID. Then, click **Remove** to detach the deprecated tool. You can't add the tool back after you remove it.
+3.  Note the tool's settings, such as the project ID, location, and data store ID.
 
-4.  Click **Add** (+) next to **MCP Server from Agent Registry** .
+4.  [Create a new agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#use-agent-studio) and [save it](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#save-agent) .
 
-5.  Include the following details:
+5.  Grant the Discovery Engine Viewer ( `roles/discoveryengine.viewer` ) role to the agent identity. We recommend granting this role directly on the target data store or search application. However, for troubleshooting purposes, you can grant it on the project. To find the agent's identity principal and grant the role, see [Manage roles manually](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#manual-permissions) . The agent also needs the MCP Tool User role ( `roles/mcp.toolUser` ), which the [permissions dialog](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#permissions-dialog-behavior) grants automatically.
+
+6.  In the **Tools** panel, click **Add** (+) next to **MCP Server from Agent Registry** .
+
+7.  Specify the following:
     1.  **Location:** Select the region where your tools are registered.
     2.  **MCP Server:** Select **Agent Search** or `discoveryengine.googleapis.com` from the list of registered MCP servers.
     3.  **Auth Config:** Select **None** . The access is resolved through standard IAM bindings.
     4.  Click **Add** .
-    5.  If you are saving the agent for the first time, click **Save** in the canvas header. Subsequent changes are automatically saved.
 
-6.  In the agent's instructions, specify the target serving configuration using the values that you noted in step 3. For example:
+8.  In the new agent's instructions, specify the target serving configuration using the values that you noted in step 3. For example:
 
     ```
     Use the search tool to answer questions about YOUR_TOPIC.

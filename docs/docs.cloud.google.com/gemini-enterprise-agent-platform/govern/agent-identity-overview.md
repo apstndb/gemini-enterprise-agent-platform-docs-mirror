@@ -79,6 +79,11 @@ An agent's identity is derived from the ID of the resource that hosts it, such a
 
 Agent credentials provide cryptographic proof of an agent's identity. The system supports X.509 certificates, Google Cloud access tokens, and OIDC ID tokens. An X.509 certificate is auto-provisioned and managed on the agent to help support stronger authentication.
 
+These X.509 certificates chain up to a Google-managed root certificate authority (CA). You can view the public default CA certificates at the following endpoints:
+
+- **All regions** : `https://www.gstatic.com/gcp_default_ca_certs/default_ca_certs.pem` ( [default CA certificates for all regions](https://www.gstatic.com/gcp_default_ca_certs/default_ca_certs.pem) )
+- **Per-region** : `https://www.gstatic.com/gcp_default_ca_certs/ `` REGION `` /public_cert.pem` for a [supported region](https://docs.cloud.google.com/iam/docs/agent-identity-locations) (for example, [default CA certificates for `us-east1`](https://www.gstatic.com/gcp_default_ca_certs/us-east1/public_cert.pem) )
+
 By default, agent identities use mutual TLS (mTLS) with X.509 certificates when communicating directly with Google Cloud APIs. When agents interact across the Agent Gateway, they also use Demonstrating Proof of Possession (DPoP), creating double-bound credentials for end-to-end security. This double binding means that agents authenticate using mTLS for first-party access to the gateway and use DPoP for interactions beyond the gateway.
 
 ### Agent Identity auth manager

@@ -14,16 +14,18 @@ Definition of a custom Compute Engine virtual machine image for starting a noteb
 {
   "project": string,
 
-  // Union field image can be only one of the following:
+  // The following is a list of mutually exclusive fields. At most one of the
+  // fields will be set in a response:
   "imageName": string,
   "imageFamily": string
-  // End of list of possible types for union field image.
+  // End of mutually exclusive fields.
 }
 ```
 
-| Fields                                                                                                                |                                                                                                              |
-|-----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| `project`                                                                                                             | `string` Required. The name of the Google Cloud project that this VM image belongs to. Format: `{projectId}` |
-| Union field `image` . The reference to an external Compute Engine VM image. `image` can be only one of the following: |                                                                                                              |
-| `imageName`                                                                                                           | `string` Use VM image name to find the image.                                                                |
-| `imageFamily`                                                                                                         | `string` Use this VM image family to find the image; the newest image in this family will be used.           |
+| Fields                                                                                                                                                           |                                                                                                              |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| `project`                                                                                                                                                        | `string` Required. The name of the Google Cloud project that this VM image belongs to. Format: `{projectId}` |
+| The reference to an external Compute Engine VM image. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response: |                                                                                                              |
+| `imageName`                                                                                                                                                      | `string` Use VM image name to find the image.                                                                |
+| `imageFamily`                                                                                                                                                    | `string` Use this VM image family to find the image; the newest image in this family will be used.           |
+| End of mutually exclusive fields.                                                                                                                                |                                                                                                              |

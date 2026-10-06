@@ -82,7 +82,7 @@ Follow these instructions to view the lineage graph for a pipeline artifact usin
 
 ## Analyze the lineage of pipeline artifacts using Knowledge Catalog
 
-Knowledge Catalog discovers metadata from Google Cloud resources, which include Agent Platform Pipelines artifacts like Vertex AI models, managed datasets, and other Google Cloud resources discoverable in Knowledge Catalog. You can discover these artifacts using the metadata search capability of Knowledge Catalog and view their lineage graphs.
+Knowledge Catalog discovers metadata from Google Cloud resources, which include Agent Platform Pipelines artifacts like models, managed datasets, and other Google Cloud resources discoverable in Knowledge Catalog. You can discover these artifacts using the metadata search capability of Knowledge Catalog and view their lineage graphs.
 
 For more information about the Knowledge Catalog metadata search capability, see [Search for resources in Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs/search-assets) .
 
@@ -92,13 +92,11 @@ Follow these instructions to view the lineage graph for a pipeline artifact on K
 
 1.  To launch a Knowledge Catalog search query in the Google Cloud console, go to the Knowledge Catalog **Search** page.
 
-2.  If your search platform is set to **Data Catalog** , in the **Choose search platform** menu, select **Knowledge Catalog** .
-
-3.  Use the filters to search for the artifacts. For example, you can use the **Data types** filter to specify the type of artifact, such as model, dataset, or BigQuery table. For more information, see [Search for resources in Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs/search-assets) .
+2.  Use the filters to search for the artifacts. For example, you can use the **Data types** filter to specify the type of artifact, such as model, dataset, or BigQuery table. For more information, see [Search for resources in Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs/search-assets) .
 
     You can also [define your query in the search field](https://docs.cloud.google.com/dataplex/docs/search-syntax) .
 
-4.  To view the lineage of an artifact, click the name of the artifact, and then click the **Lineage** tab.
+3.  To view the lineage of an artifact, click the name of the artifact, and then click the **Lineage** tab.
 
     On the lineage graph, Agent Platform processes are preceded by ![Agent Platform lineage icon](https://docs.cloud.google.com/static/dataplex/images/vertex-lineage-icon.png) . These include pipeline artifacts, pipeline components, and pipeline templates.
 

@@ -229,6 +229,8 @@ For detailed instructions, see the following guides:
 
 - [Install and configure the CLI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment)
 - [Scan and verify code vulnerabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/scan-and-verify)
+- [CodeMender find modes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/find-modes)
+- [Integrate with CI/CD](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/integrate-with-cicd)
 - [Import third-party security findings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/import-findings)
 - [Fix code vulnerabilities and manage diffs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/fix-and-patch)
 - [Manage sessions and export reports](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/manage-sessions)

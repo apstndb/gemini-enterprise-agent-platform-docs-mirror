@@ -47,18 +47,20 @@ The request body contains data with the following structure:
 ```
 {
 
-  // Union field Source can be only one of the following:
+  // The following is a list of mutually exclusive fields. At most one of the
+  // fields will be set in a response:
   "snapshot": {
     object (Snapshot)
   }
-  // End of list of possible types for union field Source.
+  // End of mutually exclusive fields.
 }
 ```
 
-| Fields                                                                                        |                                                                                                                                                                                                                  |
-|-----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Union field `Source` . Source to be restored from. `Source` can be only one of the following: |                                                                                                                                                                                                                  |
-| `snapshot`                                                                                    | `object ( `[`Snapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/restore#Snapshot)` )` Snapshot to be used for restore. |
+| Fields                                                                                                                                 |                                                                                                                                                                                                                  |
+|----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Source to be restored from. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response: |                                                                                                                                                                                                                  |
+| `snapshot`                                                                                                                             | `object ( `[`Snapshot`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/restore#Snapshot)` )` Snapshot to be used for restore. |
+| End of mutually exclusive fields.                                                                                                      |                                                                                                                                                                                                                  |
 
 ### Response body
 
@@ -66,9 +68,10 @@ If successful, the response body contains an instance of [`Operation`](https://d
 
 ### Authorization scopes
 
-Requires the following OAuth scope:
+Requires one of the following OAuth scopes:
 
 - `https://www.googleapis.com/auth/cloud-platform`
+- `https://www.googleapis.com/auth/notebooks`
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp) .
 
