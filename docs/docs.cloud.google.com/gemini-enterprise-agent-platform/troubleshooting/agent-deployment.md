@@ -294,6 +294,31 @@ This limit is not one of your project's quotas. It does not appear on the Google
 - Deleting your existing agents doesn't free capacity for this limit, because the capacity isn't consumed by your project alone.
 - Requesting a quota increase has no effect, because the limit isn't a project quota.
 
+## Secret Manager access errors
+
+**Issue** :
+
+Deployment fails with a `400` , `INVALID_ARGUMENT` status ( `REASONING_ENGINE_SECRET_ACCESS_DENIED` ) and a message similar to the following:
+
+```
+The Reasoning Engine could not access `projects/PROJECT_NUMBER/secrets/SECRET_ID/versions/VERSION_ID` referenced by `spec.deployment_spec.secret_env` (reason: FAILURE_REASON).
+```
+
+**Possible causes** :
+
+- **`NOT_FOUND`** : The secret ID or version ID specified in `secret_env` doesn't exist in Secret Manager in the same project as the deployed agent, or contains a typo.
+- **`DESTROYED`** or **`DISABLED`** : The referenced secret version in Secret Manager is in a destroyed or disabled state.
+- **`PERMISSION_DENIED`** : The service account used by the agent doesn't have the Secret Manager Secret Accessor role ( `roles/secretmanager.secretAccessor` ) on the referenced secret.
+
+**Recommended solutions** :
+
+- **For `NOT_FOUND` , `DESTROYED` , or `DISABLED`** :
+  1.  In the [Secret Manager page](https://console.cloud.google.com/security/secret-manager) of the project where you are deploying the agent, verify that each `SECRET_ID` and `VERSION_ID` referenced in `secret_env` exists and is in the **Enabled** state.
+  2.  If a referenced version was disabled or destroyed, enable a valid version or update `secret_env` to reference an enabled version.
+- **For `PERMISSION_DENIED`** : Grant the **Secret Manager Secret Accessor** role ( `roles/secretmanager.secretAccessor` ) on the secret (or the project containing the secret) to the service account that fetches the secret:
+  - **Default service account** : Grant the role to the AI Platform Reasoning Engine Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` ).
+  - **Custom service account** : Grant the role to the [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) configured on the agent.
+
 ## Support resources
 
 If your problem is still not resolved, refer to our [support guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-support) to get help.

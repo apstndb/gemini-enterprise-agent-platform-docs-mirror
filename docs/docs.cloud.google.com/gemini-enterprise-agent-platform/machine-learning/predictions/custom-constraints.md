@@ -54,6 +54,7 @@ The following table lists the Gemini Enterprise Agent Platform resources that yo
 |------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
 | aiplatform.googleapis.com/DeploymentResourcePool                                                     | `resource.dedicatedResources.machineSpec.acceleratorCount` |
 | `resource.dedicatedResources.machineSpec.acceleratorType`                                            |                                                            |
+| `resource.dedicatedResources.machineSpec.gpuPartitionSize`                                           |                                                            |
 | `resource.dedicatedResources.machineSpec.machineType`                                                |                                                            |
 | `resource.dedicatedResources.machineSpec.reservationAffinity.key`                                    |                                                            |
 | `resource.dedicatedResources.machineSpec.reservationAffinity.reservationAffinityType`                |                                                            |

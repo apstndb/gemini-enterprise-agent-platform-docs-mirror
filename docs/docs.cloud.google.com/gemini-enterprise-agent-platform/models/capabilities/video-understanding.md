@@ -76,11 +76,13 @@ The following table lists the models that support video understanding:
 </tr>
 <tr class="odd">
 <td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live">Gemini 3.8 Live</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1">Gemini Nano Banana 2.1</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image">Gemini 3.1 Flash Image</a></li>
 </ul></td>
 <td><ul>
-<li>Supported resolutions: Minimum: 704x1280 or 1280x704</li>
-<li>Supported aspect ratios: Portrait, Landscape</li>
+<li>Maximum number of input video files per prompt: 10</li>
+<li>Maximum YouTube URLs per prompt: 1</li>
+<li>Maximum video length (without audio): As supported by the 128k token context window (approximately 25 minutes).</li>
 </ul></td>
 <td><ul>
 <li><code>video/x-flv</code></li>
@@ -95,6 +97,26 @@ The following table lists the models that support video understanding:
 </ul></td>
 </tr>
 <tr class="even">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live">Gemini 3.8 Live</a></li>
+</ul></td>
+<td><ul>
+<li>Standard input resolution: 768 x 768 (1 FPS)</li>
+<li>Minimum Live Avatar output resolution: 704 x 1280 (portrait) or 1280 x 704 (landscape) at 24 FPS</li>
+</ul></td>
+<td><ul>
+<li><code>video/x-flv</code></li>
+<li><code>video/quicktime</code></li>
+<li><code>video/mpeg</code></li>
+<li><code>video/mpegs</code></li>
+<li><code>video/mpg</code></li>
+<li><code>video/mp4</code></li>
+<li><code>video/webm</code></li>
+<li><code>video/wmv</code></li>
+<li><code>video/3gpp</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber">Gemini 3.8 Flash Cyber</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash">Gemini 3.8 Flash</a></li>
@@ -124,7 +146,7 @@ The following table lists the models that support video understanding:
 <li><code>video/3gpp</code></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro">Gemini 3.1 Pro</a> preview</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash">Gemini 3 Flash</a> preview</li>
@@ -147,7 +169,7 @@ The following table lists the models that support video understanding:
 <li><code>video/3gpp</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image">Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)</a></li>
 </ul></td>
@@ -155,27 +177,6 @@ The following table lists the models that support video understanding:
 <li>Maximum number of input video files per prompt: 10</li>
 <li>Maximum YouTube URLs per prompt: 1</li>
 <li>Maximum video length (without audio): As supported by the 65,536 token context window (approximately 12 minutes).</li>
-</ul></td>
-<td><ul>
-<li><code>video/x-flv</code></li>
-<li><code>video/quicktime</code></li>
-<li><code>video/mpeg</code></li>
-<li><code>video/mpegs</code></li>
-<li><code>video/mpg</code></li>
-<li><code>video/mp4</code></li>
-<li><code>video/webm</code></li>
-<li><code>video/wmv</code></li>
-<li><code>video/3gpp</code></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image">Gemini 3.1 Flash Image</a></li>
-</ul></td>
-<td><ul>
-<li>Maximum number of input video files per prompt: 10</li>
-<li>Maximum YouTube URLs per prompt: 1</li>
-<li>Maximum video length (without audio): As supported by the 128k token context window (approximately 25 minutes).</li>
 </ul></td>
 <td><ul>
 <li><code>video/x-flv</code></li>

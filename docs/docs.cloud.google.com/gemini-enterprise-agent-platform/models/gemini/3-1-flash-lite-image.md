@@ -87,7 +87,9 @@ Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials">Content Credentials (C2PA)</a><br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/generate-virtual-try-on-images">Virtual try-on</a><br />
-Not supported</li>
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation">Person generation</a><br />
+Supported</li>
 </ul></th>
 <td></td>
 </tr>
@@ -111,7 +113,7 @@ Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference">Batch inference</a><br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
-Standard PayGo, Flex PayGo<br />
+Standard PayGo, Flex PayGo, Priority PayGo<br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
 Not supported</li>
@@ -174,6 +176,32 @@ Not supported</li>
 <td><ul>
 <li>Global: <code>global</code></li>
 </ul></td>
+</tr>
+<tr class="even">
+<th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models">Provisioned Throughput</a></strong></p></th>
+<th><ul>
+<li>Global: <code>global</code></li>
+</ul></th>
+<td></td>
+</tr>
+<tr class="odd">
+<th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo">Standard PayGo</a></strong></p></th>
+<th><ul>
+<li>Global: <code>global</code></li>
+</ul></th>
+<td></td>
+</tr>
+<tr class="even">
+<th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo">Priority PayGo</a></strong></p></th>
+<th><ul>
+<li>Global: <code>global</code></li>
+</ul></th>
+<td></td>
+</tr>
+<tr class="odd">
+<th>Knowledge cutoff date</th>
+<th>January 2025</th>
+<td></td>
 </tr>
 <tr class="even">
 <th>Versions</th>

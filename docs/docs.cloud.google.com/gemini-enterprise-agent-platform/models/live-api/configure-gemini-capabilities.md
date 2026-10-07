@@ -23,6 +23,7 @@ This document shows you how to configure various capabilities of Gemini models w
 Several tools are compatible with various versions of Gemini Live API-supported models, including:
 
 - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#function-calling)
+- [Model Context Protocol (MCP) tools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#mcp-tools)
 - [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#grounding-google-search)
 
 To enable a particular tool for usage in returned responses, include the name of the tool in the `tools` list when you initialize the model. The following sections provide examples of how to use each of the built-in tools in your code.
@@ -115,7 +116,129 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-For examples using function calling in system instructions, see our [best practices example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices#best-practices-example) .
+For examples using function calling in system instructions, see the [best practices example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices#best-practices-example) .
+
+### Model Context Protocol (MCP) tools
+
+The Google Gen AI SDK doesn't automatically execute Model Context Protocol (MCP) tool calls in Gemini Live API sessions. To use MCP tools in a Gemini Live API session, you can use one of the following approaches:
+
+- **Manage MCP tool calls directly** : If you use the Google Gen AI SDK directly, your application must manage the MCP client session, execute tool calls when requested by the model, and return the results using `send_tool_response` .
+- **Use the [Agent Development Kit (ADK)](https://adk.dev/)** : Use the `McpToolset` class in ADK, which provides built-in MCP integration for Gemini Live API. ADK automatically discovers tools from your MCP server, converts their schemas into function declarations, runs MCP tool calls during the bidirectional stream, and sends the tool responses back to the model.
+
+#### Use MCP tools with ADK
+
+You can use the ADK to connect MCP tools to Gemini Live API using the following steps:
+
+1.  Install the `google-adk` package with the `mcp` extra:
+
+    ```
+    pip install "google-adk[mcp]"
+    ```
+
+2.  Create a script named `live_mcp_example.py` that connects `McpToolset` to your MCP service using `StreamableHTTPConnectionParams` and streams events using `runner.run_live()` .
+
+    Replace the following:
+
+    - `PROJECT_ID` : your Google Cloud project ID.
+    - `MCP_SERVER_URL` : your Streamable HTTP MCP server URL (for example, `http://127.0.0.1:8765/mcp` ).
+
+    ```
+    import asyncio
+    import contextlib
+    import os
+
+    from google.adk.agents import Agent, LiveRequestQueue, RunConfig
+    from google.adk.agents.run_config import StreamingMode
+    from google.adk.runners import InMemoryRunner
+    from google.adk.tools.mcp_tool import McpToolset, StreamableHTTPConnectionParams
+    from google.genai import types
+
+    os.environ.setdefault("GOOGLE_GENAI_USE_ENTERPRISE", "TRUE")
+    os.environ.setdefault("GOOGLE_CLOUD_PROJECT", "PROJECT_ID")
+    os.environ.setdefault("GOOGLE_CLOUD_LOCATION", "us-central1")
+
+    async def main() -> None:
+      # 1. Connect to the Streamable HTTP MCP service
+      mcp_toolset = McpToolset(
+          connection_params=StreamableHTTPConnectionParams(
+              url="MCP_SERVER_URL",
+          )
+      )
+
+      # 2. Create the ADK Agent with a Gemini Live model and the MCP toolset
+      agent = Agent(
+          name="mcp_live_agent",
+          model="gemini-3.8-live",
+          instruction="You are a helpful assistant. Use the provided MCP tools when needed.",
+          tools=[mcp_toolset],
+      )
+
+      runner = InMemoryRunner(agent=agent, app_name="mcp_live_demo")
+      session = await runner.session_service.create_session(
+          app_name="mcp_live_demo",
+          user_id="user_1",
+      )
+
+      # 3. Configure bidirectional streaming and send a prompt
+      live_request_queue = LiveRequestQueue()
+      run_config = RunConfig(
+          streaming_mode=StreamingMode.BIDI,
+          response_modalities=[types.Modality.AUDIO],
+          output_audio_transcription=types.AudioTranscriptionConfig(),
+      )
+
+      live_request_queue.send_content(
+          types.Content(
+              role="user",
+              parts=[types.Part.from_text(text="What is the weather in Paris?")],
+          )
+      )
+
+      # 4. Stream Live events (ADK automatically executes MCP tools)
+      awaiting_post_tool_response = False
+      saw_function_response = False
+      has_model_output = False
+
+      try:
+        async with contextlib.aclosing(
+            runner.run_live(
+                user_id="user_1",
+                session_id=session.id,
+                live_request_queue=live_request_queue,
+                run_config=run_config,
+            )
+        ) as live_events:
+          async for event in live_events:
+            for call in event.get_function_calls():
+              print(f"[MCP Tool Call] {call.name}({call.args})")
+              awaiting_post_tool_response = True
+              saw_function_response = False
+              has_model_output = False
+
+            for resp in event.get_function_responses():
+              print(f"[MCP Tool Response] {resp.name} -> {resp.response}")
+              saw_function_response = True
+
+            if event.output_transcription and event.output_transcription.text:
+              if not awaiting_post_tool_response or saw_function_response:
+                has_model_output = True
+                awaiting_post_tool_response = False
+              if event.output_transcription.finished:
+                print(f"[Transcript] {event.output_transcription.text}")
+
+            # Wait for the final response turn after tool execution completes
+            if event.turn_complete:
+              if awaiting_post_tool_response or not has_model_output:
+                continue
+              live_request_queue.close()
+              break
+      finally:
+        await mcp_toolset.close()
+        await runner.close()
+
+    if __name__ == "__main__":
+      asyncio.run(main())
+    ```
 
 ### Grounding with Google Search
 
@@ -222,7 +345,7 @@ Gemini.)
 
 Speaker A: "I really like Italian food; do you know how to make a pizza?"
 
-(Italian cooking topic will trigger response from Gemini.)
+(Italian cooking topic triggers response from Gemini.)
 Gemini Live API: "I'd be happy to help! Here's a recipe for a pizza."
 ```
 
@@ -237,11 +360,11 @@ When using Proactive Audio, Gemini performs as follows:
 
 ### Billing
 
-While Gemini is listening to a conversation, input audio tokens will be charged.
+While Gemini is listening to a conversation, input audio tokens are charged.
 
-For output audio tokens, you're only charged when Gemini responds. If Gemini does not respond or stays silent, there will be no charge to your output audio tokens.
+For output audio tokens, you're only charged when Gemini responds. If Gemini does not respond or stays silent, there is no charge to your output audio tokens.
 
-For more information, see [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+For more information, see [Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
 ## What's next
 

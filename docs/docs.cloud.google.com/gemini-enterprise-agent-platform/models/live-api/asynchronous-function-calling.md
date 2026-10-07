@@ -94,7 +94,7 @@ async def handle_stream(session):
 
 ### Manage user expectations
 
-To manage expectations during long-running asynchronous function calls, it's recommended that the client initiate a text message. This message should prompt the system to inform the user that the request is being processed and request their patience. For example, after a function call is received by the client, the client can send a text message to the model such as: "repeat this sentence: 'I'm booking your ticket now, please wait.'".
+To manage expectations during long-running asynchronous function calls, send a text message from the client that prompts the system to inform the user that the request is being processed and requests their patience. For example, after a function call is received by the client, the client can send a text message to the model such as: "repeat this sentence: 'I'm booking your ticket now, please wait.'".
 
 The following example dialog shows this exchange:
 
@@ -142,7 +142,9 @@ Model: Your flight has been booked. Expect a confirmation text on your phone wit
 
 ## Handle asynchronous function responses
 
-When an asynchronous function call is complete, your application sends the result to the model in a `function_response` . While your backend is processing a function call, like searching for flights, the user might ask the model a completely different question, such as, " *What's the weather like in London?* ". The model will respond to the request in real-time, in parallel with the function call execution. As the user might be in an ongoing interaction with the model when function execution completes, you can specify a policy that defines how the model should handle this incoming response. You can specify one of the following policies:
+> **Note:** Gemini Live API on Agent Platform doesn't support streaming `FunctionResponse` payloads (such as the `will_continue` parameter). If your tool produces streaming output when using the Google Gen AI SDK directly, combine all chunks into a single `function_response` payload before sending it back to the model.
+
+When an asynchronous function call is complete, your application sends the result to the model in a `function_response` . While your backend is processing a function call, like searching for flights, the user might ask the model a completely different question, such as, " *What's the weather like in London?* ". The model responds to the request in real-time, in parallel with the function call execution. As the user might be in an ongoing interaction with the model when function execution completes, you can specify a policy that defines how the model should handle this incoming response. You can specify one of the following policies:
 
 - [`SILENT`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/asynchronous-function-calling#silent-policy)
 - [`WHEN_IDLE`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/asynchronous-function-calling#when-idle-policy)
@@ -250,7 +252,7 @@ Model: Your flight has been booked. Expect a confirmation text on your phone wit
 - **Design for concurrency** : Always offload slow tools (like querying external APIs or running RAG pipelines) to background tasks in your backend. Let the model keep handling the active audio stream.
 - **Avoid INTERRUPT unless necessary** : Use `INTERRUPT` for critical alerts. For background tasks, `SILENT` or `WHEN_IDLE` provides a much smoother, polite user experience.
 - **Independent chat turns** : In Gemini Live API, tool execution is completely independent of chat turns. The conversation can branch, continue, and flow naturally while your tool processes in the background.
-- **The "Silent" caveat** : The model may still occasionally try to verbally narrate a tool's execution even if scheduled as `SILENT` . To enforce true silence, add explicit guardrails to your System Instructions (for example, "When using \[Tool Name\], perform a SILENT EXECUTION and say nothing"), or use a "fire-and-forget" backend pattern where you don't send a `FunctionResponse` back to the model at all.
+- **The "Silent" caveat** : The model might still occasionally try to verbally narrate a tool's execution even if scheduled as `SILENT` . To enforce true silence, add explicit guardrails to your System Instructions (for example, "When using \[Tool Name\], perform a SILENT EXECUTION and say nothing"), or use a "fire-and-forget" backend pattern where you don't send a `FunctionResponse` back to the model at all.
 
 ## What's next
 

@@ -94,7 +94,7 @@ To use the direct view under **Metrics Explorer** , follow these steps:
 
 1.  Go to the Google Cloud Monitoring console.
 
-2.  Under [**Explore**](http://console.cloud.google.com/monitoring/metrics-explorer) select **Metrics explorer** .
+2.  Under [**Explore**](https://console.cloud.google.com/monitoring/metrics-explorer) select **Metrics explorer** .
 
 3.  Under **Active Resources** , select **Prometheus Target** . **Active Metric Categories** appears.
 

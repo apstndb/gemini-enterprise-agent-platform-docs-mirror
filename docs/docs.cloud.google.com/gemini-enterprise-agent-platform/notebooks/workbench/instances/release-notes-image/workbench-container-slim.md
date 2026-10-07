@@ -12,6 +12,20 @@ For the versioning scheme and lifecycle dates, see [Image versioning and lifecyc
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## October 04, 2026
+
+Change
+
+### 20261004-2230-rc0 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Security
+
+Bulk security patch remediating Critical and High-severity CVEs in the Agent Platform Workbench custom container images.
+
 ## September 27, 2026
 
 Change

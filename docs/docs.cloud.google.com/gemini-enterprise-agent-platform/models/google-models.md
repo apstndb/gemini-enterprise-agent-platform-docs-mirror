@@ -28,7 +28,7 @@ Our fast, budget-friendly way to power your everyday applications
 
 [Learn more about 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
 
-3.1 Flash Image
+Nano Banana 2.1
 
 Turn ideas into production-ready assets
 
@@ -36,7 +36,7 @@ Turn ideas into production-ready assets
 - Capable of turn-based conversational editing
 - Capable of multi-image fusion and character consistency for advanced creative workflows
 
-[Learn more about 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
+[Learn more about Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
 
 ## Generally available Gemini models
 
@@ -51,6 +51,8 @@ spark [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-p
 spark [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash) Optimized for complex, multi-step workflows, improved code generation, and improved multimodal reasoning—all while using fewer tokens.
 
 performance_auto [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite) Create lightweight agentic workflows at top speeds and minimal cost.
+
+banana_spark [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) High-fidelity, multimodal image generation and editing. Delivers significantly improved prompt adherence, text rendering, and visual quality.
 
 banana_spark [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) Turn ideas into production-ready assets. Designed for high-volume and latency-sensitive workloads.
 

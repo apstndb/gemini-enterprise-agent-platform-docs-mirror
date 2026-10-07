@@ -36,6 +36,7 @@ Implicit caching is supported when using the following models:
 
 #### Click to expand supported models
 
+- [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
 - [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)
 - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
 - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
@@ -147,6 +148,12 @@ The content that you explicitly cache must adhere to the limits shown in the fol
 </table>
 
 > **Important:** When caching objects that are stored in a Cloud Storage bucket, don't make changes to objects until the cached contents are expired or deleted. Updates to Cloud Storage objects can cause the associated cached contents to be unusable.
+
+## Cache data isolation and security for agentic workloads
+
+Google Cloud uses your project number to isolate cached data, and cached content is never shared across projects.
+
+To prevent cross-user data leakage in agentic workloads, scope cached agent outputs and prompt context strictly to each specific execution context. When you operate background agents or multi-tenant proxies, ensure that your context caching boundaries align with end-user permission boundaries so that an agent cannot reuse cached credentials or context across different users.
 
 ## VPC Service Controls support
 

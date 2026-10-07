@@ -22,6 +22,7 @@ Thinking is supported in the following models:
 
 - [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview
 - [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview
+- [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
 - [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)
 - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
 - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
@@ -100,6 +101,7 @@ The following table lists supported `thinking_level` values and default configur
 
 | Model                                                                                                                                                 | Supported `thinking_level` values     | Default   |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|-----------|
+| [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)                                | `MINIMAL` , `MEDIUM` , `HIGH`         | `MEDIUM`  |
 | [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)                                | `LOW` , `MEDIUM` , `HIGH`             | `MEDIUM`  |
 | [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)                                            | `LOW` , `MEDIUM` , `HIGH`             | `MEDIUM`  |
 | [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)                                            | `LOW` , `MEDIUM` , `HIGH`             | `MEDIUM`  |
@@ -912,6 +914,6 @@ Explore prompt engineering techniques and best practices tailored for Gemini thi
 
 Console
 
-### [Google Cloud Console](https://console.cloud.google.com/agent-platform/studio/multimodal)
+### [Google Cloud console](https://console.cloud.google.com/agent-platform/studio/multimodal)
 
-Try prompting Gemini for yourself in the Google Cloud Console.
+Try prompting Gemini for yourself in the Google Cloud console.

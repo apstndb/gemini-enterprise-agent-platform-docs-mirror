@@ -67,6 +67,8 @@ Not supported</li>
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials">Content Credentials (C2PA)</a><br />
 Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation">Person generation</a><br />
+Supported</li>
 </ul></td>
 <td></td>
 </tr>
@@ -151,6 +153,7 @@ Not supported</li>
 <ul>
 <li>Launch stage: GA</li>
 <li>Release date: January 20, 2026</li>
+<li>Deprecation date: September 14, 2026</li>
 <li>Retirement date <sup><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/vto/virtual-try-on-001#retirement-date">†</a></sup> : March 15, 2027</li>
 </ul></li>
 </ul></td>

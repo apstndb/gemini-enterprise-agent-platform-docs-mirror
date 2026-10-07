@@ -20,6 +20,12 @@ Get started with Gemini 3.1 Pro in Agent Platform with the Gen AI Python SDK.
 
 Gemini Image generation Multimodal
 
+### Gemini Nano Banana 2.1 Image Generation in Agent Platform
+
+Get started with Gemini Image Generation in Agent Platform.
+
+Gemini Image generation Multimodal
+
 ### Gemini 3 Pro Image Generation in Agent Platform (Nano Banana Pro)
 
 Get started with Gemini Image Generation in Agent Platform.
@@ -207,6 +213,7 @@ In this tutorial, you will learn how to use the Google Gen AI SDK for Python to 
 |                                                                 |                                                                                                                                                                                                                                                                              |     |
 |-----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----|
 | Function calling Gemini Grounding Multimodal Prompting Thinking | **Intro to Gemini 3.1 Pro** Get started with Gemini 3.1 Pro in Agent Platform with the Gen AI Python SDK.                                                                                                                                                                    |     |
+| Gemini Image generation Multimodal                              | **Gemini Nano Banana 2.1 Image Generation in Agent Platform** Get started with Gemini Image Generation in Agent Platform.                                                                                                                                                    |     |
 | Gemini Image generation Multimodal                              | **Gemini 3 Pro Image Generation in Agent Platform (Nano Banana Pro)** Get started with Gemini Image Generation in Agent Platform.                                                                                                                                            |     |
 | Gemini Image generation Multimodal                              | **Gemini 3.1 Flash Image Generation in Agent Platform (Nano Banana 2)** Get started with Gemini Image Generation in Agent Platform.                                                                                                                                          |     |
 | Function calling Gemini Grounding Multimodal Prompting Thinking | **Intro to Gemini 3.5 Flash** Get started with Gemini 3.5 Flash in Agent Platform with the Gen AI Python SDK.                                                                                                                                                                |     |

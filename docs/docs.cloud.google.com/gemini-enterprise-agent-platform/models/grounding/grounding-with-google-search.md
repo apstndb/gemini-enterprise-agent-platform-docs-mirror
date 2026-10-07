@@ -24,6 +24,7 @@ This section lists the models that support grounding with Search.
 
 #### Click to expand supported models
 
+- [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
 - [Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)
 - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
 - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
@@ -68,7 +69,7 @@ To use Grounding with Google Search with the Agent Studio on Gemini Enterprise A
 
 1.  In the Google Cloud console, go to the **Agent Studio** page.
 2.  In the side panel, under **Model settings** , go to the **Grounding** section, and turn on the **Google Search** toggle.
-3.  Enter your prompt in the text box and click **Submit** .
+3.  Enter your prompt in the field and click **Submit** .
 
 Your prompt responses now use Grounding with Google Search.
 
@@ -489,7 +490,7 @@ You should receive a JSON response similar to the following:
 >
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-Grounding with Google Image Search lets models use web images retrieved from Google Image Search as visual context when generating images. Google Image Search is a new search type within the existing Grounding with Google Search tool, and exists alongside standard Google Web Search. Grounding with Google Image Search is available in [Preview](https://cloud.google.com/products#product-launch-stages) only for the [Gemini 3.1 Flash Image model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) .
+Grounding with Google Image Search lets models use web images retrieved from Google Image Search as visual context when generating images. Google Image Search is a new search type within the existing Grounding with Google Search tool, and exists alongside standard Google Web Search. Grounding with Google Image Search is available in [Preview](https://cloud.google.com/products#product-launch-stages) for [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) and [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) .
 
 ### API request configuration
 

@@ -117,8 +117,8 @@ Not supported</li>
 <tr class="odd">
 <th><strong>Image</strong> photo</th>
 <th><ul>
-<li>Supported resolutions: Minimum: 704x1280 or 1280x704</li>
-<li>Supported aspect ratios: Portrait, Landscape</li>
+<li>Standard input resolution: 768 x 768</li>
+<li>Minimum custom avatar reference image resolution: 704 x 1280 (portrait) or 1280 x 704 (landscape)</li>
 <li>Supported MIME types:
 <code>image/png</code> , <code>image/jpeg</code> , <code>image/webp</code> , <code>image/heic</code> , <code>image/heif</code></li>
 </ul></th>
@@ -138,8 +138,8 @@ Not supported</li>
 <tr class="odd">
 <th><strong>Video</strong> videocam</th>
 <th><ul>
-<li>Supported resolutions: Minimum: 704x1280 or 1280x704</li>
-<li>Supported aspect ratios: Portrait, Landscape</li>
+<li>Standard input resolution: 768 x 768 (1 FPS)</li>
+<li>Minimum Live Avatar output resolution: 704 x 1280 (portrait) or 1280 x 704 (landscape) at 24 FPS</li>
 <li>Supported MIME types:
 <code>video/x-flv</code> , <code>video/quicktime</code> , <code>video/mpeg</code> , <code>video/mpegs</code> , <code>video/mpg</code> , <code>video/mp4</code> , <code>video/webm</code> , <code>video/wmv</code> , <code>video/3gpp</code></li>
 </ul></th>

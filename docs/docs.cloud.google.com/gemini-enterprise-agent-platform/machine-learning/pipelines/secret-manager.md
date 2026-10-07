@@ -10,7 +10,7 @@ You can use Secret Manager's Python client with Agent Platform Pipelines to acce
 
 ## Create a secret using Google Cloud console
 
-1.  [Enable the Secret Manager API](http://console.cloud.google.com/apis/library/secretmanager.googleapis.com) in Google Cloud console.
+1.  [Enable the Secret Manager API](https://console.cloud.google.com/apis/library/secretmanager.googleapis.com) in Google Cloud console.
 
 2.  Go to the **Secret Manager** page in the Cloud console.
 

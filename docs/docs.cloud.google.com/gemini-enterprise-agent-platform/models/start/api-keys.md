@@ -21,11 +21,13 @@ The fastest way to get an API key is through an express mode account in the Goog
 - **If you are new to Google Cloud** , you are guided through a quick, no-cost setup that provides a free 90-day trial environment.
 - **If you are an existing Google Cloud user** , you can link your existing billing account to get an API key immediately within the simplified experience of Gemini Enterprise Agent Platform in express mode.
 
+> **Note:** Gemini Enterprise Agent Platform in express mode is available for developers with a `@gmail.com` Google Account. If you use a Google Workspace account, then select [**I'm an existing Google Cloud user with a billing account**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/api-keys?usertype=standard) to create a standard Google Cloud API key, or authenticate by using [application default credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/gcp-auth) .
+
 To learn more about Gemini Enterprise Agent Platform in express mode, see the [express mode overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/express-mode/overview) page.
 
 Get an API key with express mode:
 
-To view and manage your API keys, open **APIs & Services \> Credentials** :
+To view and manage your API keys, go to the **API Keys** page in Agent Studio:
 
 ## Make your first API request
 
