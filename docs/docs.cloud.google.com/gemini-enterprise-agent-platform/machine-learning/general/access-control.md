@@ -3966,7 +3966,17 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code>gkehub.memberships.get</code></p>
 <p><code>gkehub. memberships. getIamPolicy</code></p>
 <p><code>gkehub.memberships.list</code></p>
-<p><code>serviceusage.services.get</code></p></td>
+<p><code>serviceusage. consumerpolicy. analyze</code></p>
+<p><code>serviceusage. consumerpolicy. get</code></p>
+<p><code>serviceusage. effectivepolicy. get</code></p>
+<p><code>serviceusage.groups.*</code></p>
+<ul>
+<li><code>serviceusage.groups.list</code></li>
+<li><code>serviceusage. groups. listExpandedMembers</code></li>
+<li><code>serviceusage. groups. listMembers</code></li>
+</ul>
+<p><code>serviceusage.services.get</code></p>
+<p><code>serviceusage.values.test</code></p></td>
 </tr>
 <tr class="even">
 <td>Vertex AI RAG Data Service Agent
@@ -5013,8 +5023,18 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code>run.services.delete</code></p>
 <p><code>run.services.get</code></p>
 <p><code>servicemanagement. services. report</code></p>
+<p><code>serviceusage. consumerpolicy. analyze</code></p>
+<p><code>serviceusage. consumerpolicy. get</code></p>
+<p><code>serviceusage. effectivepolicy. get</code></p>
+<p><code>serviceusage.groups.*</code></p>
+<ul>
+<li><code>serviceusage.groups.list</code></li>
+<li><code>serviceusage. groups. listExpandedMembers</code></li>
+<li><code>serviceusage. groups. listMembers</code></li>
+</ul>
 <p><code>serviceusage.services.list</code></p>
 <p><code>serviceusage.services.use</code></p>
+<p><code>serviceusage.values.test</code></p>
 <p><code>storage.buckets.create</code></p>
 <p><code>storage.buckets.delete</code></p>
 <p><code>storage.buckets.get</code></p>
@@ -6344,9 +6364,23 @@ Gives Vertex AI the permissions it needs to function.
 
 `servicemanagement. services. report`
 
+`serviceusage. consumerpolicy. analyze`
+
+`serviceusage. consumerpolicy. get`
+
+`serviceusage. effectivepolicy. get`
+
+`serviceusage.groups.*`
+
+- `serviceusage.groups.list`
+- `serviceusage. groups. listExpandedMembers`
+- `serviceusage. groups. listMembers`
+
 `serviceusage.services.list`
 
 `serviceusage.services.use`
+
+`serviceusage.values.test`
 
 `storage.buckets.create`
 
@@ -7771,6 +7805,7 @@ Provide access for notebooks service agent to manage notebook instances in user 
 - `compute. instances. listVmExtensionStates`
 - `compute.instances.osAdminLogin`
 - `compute.instances.osLogin`
+- `compute. instances. performMaintenance`
 - `compute. instances. pscInterfaceCreate`
 - `compute. instances. removeResourcePolicies`
 - `compute.instances.reset`

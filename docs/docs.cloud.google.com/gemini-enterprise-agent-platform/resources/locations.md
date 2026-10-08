@@ -557,6 +557,7 @@ Partner model endpoints for Agent Platform are available in the following region
 |                                                         | Global (global) |
 |---------------------------------------------------------|-----------------|
 | Anthropic models                                        |                 |
+| Claude Haiku 5.5 on Google Cloud                        |                 |
 | Claude Sonnet 5.5 on Google Cloud                       |                 |
 | Claude Sonnet 5 on Google Cloud                         |                 |
 | Claude Opus 5.5 on Google Cloud                         |                 |
@@ -595,6 +596,7 @@ Partner model endpoints for Agent Platform are available in the following region
 |                                                         | United States multi-region (us) | European Union multi-region (eu) |
 |---------------------------------------------------------|---------------------------------|----------------------------------|
 | Anthropic models                                        |                                 |                                  |
+| Claude Haiku 5.5 on Google Cloud                        |                                 |                                  |
 | Claude Sonnet 5.5 on Google Cloud                       |                                 |                                  |
 | Claude Sonnet 5 on Google Cloud                         |                                 |                                  |
 | Claude Opus 5.5 on Google Cloud                         |                                 |                                  |
@@ -633,6 +635,7 @@ Partner model endpoints for Agent Platform are available in the following region
 |                                                         | Oregon (us-west1) | Las Vegas (us-west4) | Iowa (us-central1) | South Carolina (us-east1) | N. Virginia (us-east4) | Columbus (us-east5) | Dallas (us-south1) |
 |---------------------------------------------------------|-------------------|----------------------|--------------------|---------------------------|------------------------|---------------------|--------------------|
 | Anthropic models                                        |                   |                      |                    |                           |                        |                     |                    |
+| Claude Haiku 5.5 on Google Cloud                        |                   |                      |                    |                           |                        |                     |                    |
 | Claude Sonnet 5.5 on Google Cloud                       |                   |                      |                    |                           |                        |                     |                    |
 | Claude Sonnet 5 on Google Cloud                         |                   |                      |                    |                           |                        |                     |                    |
 | Claude Opus 5.5 on Google Cloud                         |                   |                      |                    |                           |                        |                     |                    |
@@ -671,6 +674,7 @@ Partner model endpoints for Agent Platform are available in the following region
 |                                                         | Montréal (northamerica-northeast1) | São Paulo (southamerica-east1) |
 |---------------------------------------------------------|------------------------------------|--------------------------------|
 | Anthropic models                                        |                                    |                                |
+| Claude Haiku 5.5 on Google Cloud                        |                                    |                                |
 | Claude Sonnet 5.5 on Google Cloud                       |                                    |                                |
 | Claude Sonnet 5 on Google Cloud                         |                                    |                                |
 | Claude Opus 5.5 on Google Cloud                         |                                    |                                |
@@ -709,6 +713,7 @@ Partner model endpoints for Agent Platform are available in the following region
 |                                                         | London (europe-west2) | Belgium (europe-west1) | Netherlands (europe-west4) | Zürich (europe-west6) | Frankfurt (europe-west3) | Finland (europe-north1) | Warsaw (europe-central2) | Milan (europe-west8) | Madrid (europe-southwest1) | Paris (europe-west9) |
 |---------------------------------------------------------|-----------------------|------------------------|----------------------------|-----------------------|--------------------------|-------------------------|--------------------------|----------------------|----------------------------|----------------------|
 | Anthropic models                                        |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| Claude Haiku 5.5 on Google Cloud                        |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Claude Sonnet 5.5 on Google Cloud                       |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Claude Sonnet 5 on Google Cloud                         |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Claude Opus 5.5 on Google Cloud                         |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
@@ -747,6 +752,7 @@ Partner model endpoints for Agent Platform are available in the following region
 |                                                         | Mumbai (asia-south1) | Singapore (asia-southeast1) | Hong Kong (asia-east2) | Taiwan (asia-east1) | Tokyo (asia-northeast1) | Sydney (australia-southeast1) | Seoul (asia-northeast3) |
 |---------------------------------------------------------|----------------------|-----------------------------|------------------------|---------------------|-------------------------|-------------------------------|-------------------------|
 | Anthropic models                                        |                      |                             |                        |                     |                         |                               |                         |
+| Claude Haiku 5.5 on Google Cloud                        |                      |                             |                        |                     |                         |                               |                         |
 | Claude Sonnet 5.5 on Google Cloud                       |                      |                             |                        |                     |                         |                               |                         |
 | Claude Sonnet 5 on Google Cloud                         |                      |                             |                        |                     |                         |                               |                         |
 | Claude Opus 5.5 on Google Cloud                         |                      |                             |                        |                     |                         |                               |                         |
@@ -785,6 +791,7 @@ Partner model endpoints for Agent Platform are available in the following region
 |                                                         | Tel Aviv (me-west1) | Doha (me-central1) | Dammam (me-central2) |
 |---------------------------------------------------------|---------------------|--------------------|----------------------|
 | Anthropic models                                        |                     |                    |                      |
+| Claude Haiku 5.5 on Google Cloud                        |                     |                    |                      |
 | Claude Sonnet 5.5 on Google Cloud                       |                     |                    |                      |
 | Claude Sonnet 5 on Google Cloud                         |                     |                    |                      |
 | Claude Opus 5.5 on Google Cloud                         |                     |                    |                      |

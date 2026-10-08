@@ -34,6 +34,7 @@ Gemini Enterprise Agent Platform supports web search for the following Anthropic
 - [Claude Opus 4 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4)
 - [Claude Sonnet 4.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-5)
 - [Claude Sonnet 4 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4)
+- [Claude Haiku 5.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-haiku-5-5)
 - [Claude Haiku 4.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-haiku-4-5)
 
 ## Control access to web search

@@ -268,7 +268,7 @@ The project has exceeded its API rate limits or concurrent request quotas.
 - Verify current usage against limits in the Google Cloud Quotas page for the "Agent Platform API".
 - Reduce the frequency of concurrent deployments.
 
-> **Note:** These solutions apply to your project's own API rate limits. A region that is temporarily at capacity returns the same `429` , `RESOURCE_EXHAUSTED` status but has a different cause and different solutions. See [Region temporarily at capacity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#region-capacity) .
+> **Note:** These solutions apply to your project's own API rate limits. A region that is temporarily at capacity, or a deployment whose `max_instances` exceeds the regional limit for its `resource_limits` , returns the same `429` , `RESOURCE_EXHAUSTED` status but has a different cause and different solutions. See [Region temporarily at capacity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#region-capacity) and [Maximum instances exceed regional limit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#max-instances-limit) .
 
 ## Region temporarily at capacity
 
@@ -293,6 +293,27 @@ This limit is not one of your project's quotas. It does not appear on the Google
 
 - Deleting your existing agents doesn't free capacity for this limit, because the capacity isn't consumed by your project alone.
 - Requesting a quota increase has no effect, because the limit isn't a project quota.
+
+## Maximum instances exceed regional limit
+
+**Issue** :
+
+Deployment fails with a `429` , `RESOURCE_EXHAUSTED` status and a message saying that `spec.deployment_spec.max_instances` exceeds the maximum number of instances supported for the requested CPU or memory in the region's `resource_limits` .
+
+**Possible cause** :
+
+When you deploy an agent, Agent Runtime multiplies `spec.deployment_spec.max_instances` by the per-instance `cpu` and `memory` in `spec.deployment_spec.resource_limits` and checks that this single agent's peak allocation fits within the regional limit of the underlying serving project. If you don't specify `max_instances` , Agent Runtime applies a default value (such as `200` ), which in regions with lower limits can exceed the maximum supported instances when multiplied by the configured per-instance `cpu` or `memory` .
+
+**Recommended solutions** :
+
+- Set `spec.deployment_spec.max_instances` to the maximum value shown in the error message (or fewer).
+- Reduce the per-instance `cpu` or `memory` value in `spec.deployment_spec.resource_limits` .
+- Deploy the agent to a different supported region with a higher limit.
+
+**Solutions that don't apply** :
+
+- Requesting a quota increase on your project's Google Cloud Quotas page has no effect, because this limit is enforced on the Google-managed serving project rather than your project.
+- Deleting other agents in your project or retrying without changing `max_instances` or `resource_limits` doesn't resolve this error, because the check evaluates the single deployment's peak allocation against a static limit.
 
 ## Secret Manager access errors
 

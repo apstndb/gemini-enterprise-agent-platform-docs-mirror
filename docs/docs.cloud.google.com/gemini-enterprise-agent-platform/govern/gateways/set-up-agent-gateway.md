@@ -59,37 +59,49 @@ The following permissions are required to create and manage Agent Gateways. You 
 
 ## Required APIs
 
-Enable the following APIs in the Google Cloud project that you are using for this guide. These APIs let you access the full suite of capabilities offered by Gemini Enterprise Agent Platform. Review the rationale for each API to determine which services are required for your specific architecture and governance needs.
+Enable the following minimum required APIs in the Google Cloud project where you deploy Agent Gateway:
 
-#### Required APIs
+- **Compute Engine API ( `compute.googleapis.com` ):** Provides core networking infrastructure, subnets, routing, and Private Service Connect (PSC) network attachments.
+- **Network Security API ( `networksecurity.googleapis.com` ):** Creates and enforces authorization policies ( `authzPolicies` ) for gateway traffic.
+- **Network Services API ( `networkservices.googleapis.com` ):** Manages Agent Gateway resources ( `agentGateways` ), connectivity templates ( `agentConnectivityTemplates` ), and authorization extensions ( `authzExtensions` ).
+- **Identity and Access Management API ( `iam.googleapis.com` ):** Manages service accounts and IAM Unified Access Policies (UAP) for agent identities.
+- **Identity-Aware Proxy API ( `iap.googleapis.com` ):** Authenticates and verifies agent, endpoint, and server traffic.
+- **Agent Registry API ( `agentregistry.googleapis.com` ):** Registers and manages agents, MCP servers, and tool endpoints governed by the gateway.
 
-- **Core APIs for Agent Gateway operations:**
-  - **Compute Engine API ( `compute.googleapis.com` ):** Provides core networking infrastructure, subnets, routing, and Private Service Connect (PSC) network attachments.
-  - **Network Security API ( `networksecurity.googleapis.com` ):** Creates and enforces authorization policies ( `authzPolicies` ) for gateway traffic.
-  - **Network Services API ( `networkservices.googleapis.com` ):** Manages core Agent Gateway resources and authorization extensions ( `authzExtensions` ).
-  - **Identity and Access Management API ( `iam.googleapis.com` ):** Manages agent identities, service accounts, and IAM access policies.
-  - **Identity-Aware Proxy API ( `iap.googleapis.com` ):** Authenticates and verifies agent, endpoint, and server traffic.
-  - **Agent Registry API ( `agentregistry.googleapis.com` ):** Registers and manages agents, MCP servers, and tool endpoints governed by the gateway.
-  - **Model Armor API ( `modelarmor.googleapis.com` ):** Configures Model Armor guardrails to inspect and filter prompt injection, toxic content, and sensitive data.
-  - **Cloud DNS API ( `dns.googleapis.com` ):** Handles private DNS routing and domain resolution for private VPC egress.
-  - **Certificate Manager API ( `certificatemanager.googleapis.com` ):** Manages `TrustConfig` resources for custom TLS trust anchors when connecting to private backends using private CAs.
-- **Observability APIs:**
+To enable the minimum required APIs, run the following command:
+
+```
+gcloud services enable \
+    compute.googleapis.com \
+    networksecurity.googleapis.com \
+    networkservices.googleapis.com \
+    iam.googleapis.com \
+    iap.googleapis.com \
+    agentregistry.googleapis.com \
+    --project=PROJECT_ID
+```
+
+Replace `PROJECT_ID` with the project ID where you deploy Agent Gateway.
+
+Depending on the features, observability tools, and agent runtimes that you use with Agent Gateway, you might also need to enable optional APIs:
+
+#### Optional APIs by feature
+
+- **Private VPC connectivity and TLS:**
+  - **Cloud DNS API ( `dns.googleapis.com` ):** Required only if you configure [VPC connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) with Cloud DNS peering for private domain resolution.
+  - **Certificate Manager API ( `certificatemanager.googleapis.com` ):** Required only if you configure [custom TLS trust anchors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#tls-certificate-requirements) ( `TrustConfig` ) when connecting to private backends that use private CAs or self-signed certificates.
+- **AI safety and content filtering:**
+  - **Model Armor API ( `modelarmor.googleapis.com` ):** Required only if you enable [Model Armor guardrails](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor) to inspect and filter prompt injection, toxic content, and sensitive data.
+- **Observability and auditing:**
   - **Cloud Logging API ( `logging.googleapis.com` ):** Captures gateway access logs, security audit logs, and dry-run policy evaluation events.
-  - **Cloud Monitoring API ( `monitoring.googleapis.com` ):** Tracks gateway health, latency, throughput, error rates, and configures operational alerts.
+  - **Cloud Monitoring API ( `monitoring.googleapis.com` ):** Tracks gateway health, latency, throughput, and error rates, and configures operational alerts.
   - **Observability API ( `observability.googleapis.com` ):** Provides unified observability and operational dashboards for agent and gateway activity.
   - **Telemetry API ( `telemetry.googleapis.com` ):** Collects and streams runtime telemetry and performance metrics across platform components.
   - **Cloud Trace API ( `cloudtrace.googleapis.com` ):** Provides distributed tracing to inspect multi-hop requests across agents and backends.
-- **Agent runtime APIs:**
-  - **Vertex AI API ( `aiplatform.googleapis.com` ):** Powers Agent Runtime agents, foundation models, and integrated platform services.
-  - **Discovery Engine API ( `discoveryengine.googleapis.com` ):** Powers Gemini Enterprise apps, search, grounding, and knowledge retrieval tools.
-  - **Cloud Storage API ( `storage.googleapis.com` ):** Stores agent configurations, prompt templates, artifacts, and file attachments.
-- **Full scope & platform integration APIs:**
-  - **App Hub API ( `apphub.googleapis.com` ):** Organizes, discovers, and governs application-centric agent platform resources.
-  - **App Topology API ( `apptopology.googleapis.com` ):** Visualizes dependency maps and service topologies across agents, gateways, and backends.
-  - **Cloud API Registry ( `cloudapiregistry.googleapis.com` ):** Catalogs enterprise APIs and services that agents connect to through the gateway.
-  - **Notebooks API ( `notebooks.googleapis.com` ):** Supports agent prototyping and evaluation in Vertex AI Workbench and Colab Enterprise.
-  - **Text-to-Speech API ( `texttospeech.googleapis.com` ):** Provides speech synthesis for voice-enabled agents and multimodal pipelines.
-  - **Dataform API ( `dataform.googleapis.com` ):** Manages data preparation and transformation workflows leveraged by data agents.
+- **Agent runtimes and semantic governance:**
+  - **Vertex AI API ( `aiplatform.googleapis.com` ):** Required in projects that host Agent Runtime agents or use [Semantic Governance Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) .
+  - **Discovery Engine API ( `discoveryengine.googleapis.com` ):** Required in projects that host Gemini Enterprise apps and agents.
+  - **Agent Identity API ( `agentidentity.googleapis.com` ):** Required only if you manage outbound credentials with [Agent Identity auth manager](https://docs.cloud.google.com/iam/docs/auth-manager-overview) or view Agent Identity auth providers in the Google Cloud console.
 
 ## Plan your Agent Gateway deployment
 

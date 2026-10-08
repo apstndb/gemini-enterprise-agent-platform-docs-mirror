@@ -10,6 +10,37 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## October 07, 2026
+
+Feature
+
+**Anthropic's Claude Haiku 5.5**
+
+[Claude Haiku 5.5](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-5-5) is available in Model Garden.
+
+Fixed
+
+**CodeMender updates (v0.13.0)**
+
+This release introduces updates to CodeMender:
+
+- **Consistent finding deduplication** : Improved finding deduplication consistency across repeated `cm find` , `--deep` , `--diff` , and `--parallel` scans.
+- **Bug fixes** :
+  - Fixed an issue where deduplicated findings could appear in `cm report --status DISMISSED` .
+  - Improved local state reliability during concurrent `cm find --diff` and `cm find --deep` scans.
+  - Updated streaming error handling so non-retryable errors fail immediately instead of retrying.
+  - Ensured local session state and logs are saved cleanly when a session is interrupted ( `Ctrl+C` ).
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
+
+## October 06, 2026
+
+Feature
+
+**Gemini Nano Banana 2.1**
+
+[Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) ( `gemini-nano-banana-2.1` ) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) . Gemini Nano Banana 2.1 is optimized for high-speed multimodal image generation and editing, offering improved visual quality, prompt adherence, and text rendering across `1K` , `2K` , and `4K` output resolutions.
+
 ## October 05, 2026
 
 Fixed

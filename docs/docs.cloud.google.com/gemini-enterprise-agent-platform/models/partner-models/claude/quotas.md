@@ -715,6 +715,36 @@ The following table shows the default quotas and supported context length for ea
 <td></td>
 </tr>
 <tr class="even">
+<td>Claude Haiku 5.5 on Google Cloud</td>
+<td><code>Multi-region</code></td>
+<td><ul>
+<li>QPM: 1,500</li>
+<li>Input TPM: 15,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
+<li>Output TPM: 1,500,000</li>
+</ul></td>
+<td>1,000,000</td>
+</tr>
+<tr class="odd">
+<td><code>Multi-region</code></td>
+<td><ul>
+<li>QPM: 1,500</li>
+<li>Input TPM: 15,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
+<li>Output TPM: 1,500,000</li>
+</ul></td>
+<td>1,000,000</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>global endpoint</code></td>
+<td><ul>
+<li>QPM: 3,000</li>
+<li>Input TPM: 30,000,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
+<li>Output TPM: 3,000,000</li>
+</ul></td>
+<td>1,000,000</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Claude Haiku 4.5 on Google Cloud</td>
 <td><code>us-east5</code></td>
 <td><ul>
@@ -724,7 +754,7 @@ The following table shows the default quotas and supported context length for ea
 </ul></td>
 <td>200,000</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>europe-west1</code></td>
 <td><ul>
 <li>QPM: 1,800</li>
@@ -734,7 +764,7 @@ The following table shows the default quotas and supported context length for ea
 <td>200,000</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>global endpoint</code></td>
 <td><ul>
 <li>QPM: 2,500</li>
@@ -744,7 +774,7 @@ The following table shows the default quotas and supported context length for ea
 <td>200,000</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Claude 3.5 Haiku on Google Cloud</td>
 <td><code>us-east5</code></td>
 <td><ul>
@@ -753,7 +783,7 @@ The following table shows the default quotas and supported context length for ea
 </ul></td>
 <td>200,000</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>europe-west1</code></td>
 <td><ul>
 <li>QPM: 90</li>
@@ -762,7 +792,7 @@ The following table shows the default quotas and supported context length for ea
 <td>200,000</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Claude 3.5 Sonnet on Google Cloud</td>
 <td><code>us-east5</code></td>
 <td><ul>
@@ -771,7 +801,7 @@ The following table shows the default quotas and supported context length for ea
 </ul></td>
 <td>200,000</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>europe-west1</code></td>
 <td><ul>
 <li>QPM: 130</li>
@@ -780,7 +810,7 @@ The following table shows the default quotas and supported context length for ea
 <td>200,000</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>asia-southeast1</code></td>
 <td><ul>
 <li>QPM: 35</li>
@@ -789,7 +819,7 @@ The following table shows the default quotas and supported context length for ea
 <td>200,000</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Claude 3 Opus on Google Cloud</td>
 <td><code>us-east5</code></td>
 <td><ul>
@@ -798,7 +828,7 @@ The following table shows the default quotas and supported context length for ea
 </ul></td>
 <td>200,000</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Claude 3 Haiku on Google Cloud</td>
 <td><code>us-east5</code></td>
 <td><ul>
@@ -807,7 +837,7 @@ The following table shows the default quotas and supported context length for ea
 </ul></td>
 <td>200,000</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>europe-west1</code></td>
 <td><ul>
 <li>QPM: 75</li>
@@ -816,7 +846,7 @@ The following table shows the default quotas and supported context length for ea
 <td>200,000</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>asia-southeast1</code></td>
 <td><ul>
 <li>QPM: 70</li>

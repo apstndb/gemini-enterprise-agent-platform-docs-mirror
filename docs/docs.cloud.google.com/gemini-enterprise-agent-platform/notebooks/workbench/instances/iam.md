@@ -2005,6 +2005,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code>compute. instances. listVmExtensionStates</code></li>
 <li><code>compute.instances.osAdminLogin</code></li>
 <li><code>compute.instances.osLogin</code></li>
+<li><code>compute. instances. performMaintenance</code></li>
 <li><code>compute. instances. pscInterfaceCreate</code></li>
 <li><code>compute. instances. removeResourcePolicies</code></li>
 <li><code>compute.instances.reset</code></li>
@@ -4159,6 +4160,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code>compute. instances. listVmExtensionStates</code></li>
 <li><code>compute.instances.osAdminLogin</code></li>
 <li><code>compute.instances.osLogin</code></li>
+<li><code>compute. instances. performMaintenance</code></li>
 <li><code>compute. instances. pscInterfaceCreate</code></li>
 <li><code>compute. instances. removeResourcePolicies</code></li>
 <li><code>compute.instances.reset</code></li>

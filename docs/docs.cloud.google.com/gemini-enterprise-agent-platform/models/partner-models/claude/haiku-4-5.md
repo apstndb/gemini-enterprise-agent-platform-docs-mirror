@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-4-5
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-4-5
 title: Claude Haiku 4.5 on Google Cloud
-description: Claude Haiku 4.5 on Google Cloud delivers near-frontier performance for a wide range of use cases, and stands out as one of the best coding models in the world on Agent Platform.
+description: Claude Haiku 4.5 on Google Cloud is a high-performance model with the speed and cost efficiency to power free products and latency-sensitive experiences at scale.
 data_source: docs.cloud.google.com
 ---
 
-Claude Haiku 4.5 on Google Cloud delivers near-frontier performance for a wide range of use cases, and is a highly capable coding model—with the right speed and cost to power free products and high-volume user experiences.
+Claude Haiku 4.5 on Google Cloud is a high-performance model for a wide range of use cases and coding tasks, with the speed and cost efficiency to power free products and high-volume user experiences.
 
 **Retirement Date:** Not sooner than Oct 15, 2026.
 

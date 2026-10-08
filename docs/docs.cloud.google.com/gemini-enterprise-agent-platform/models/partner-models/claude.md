@@ -60,4 +60,6 @@ graph_5 [Claude Sonnet 4 on Google Cloud](https://docs.cloud.google.com/gemini-e
 
 ## Claude Haiku models
 
-raven [Claude Haiku 4.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-4-5) Near-frontier performance with the speed and cost efficiency to power free products and latency-sensitive experiences at scale.
+raven [Claude Haiku 5.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-5-5) High-performance, cost-effective model built for coding, sub-agents, and latency-sensitive experiences at scale.
+
+raven [Claude Haiku 4.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-4-5) High-performance model with the speed and cost efficiency to power free products and latency-sensitive experiences at scale.

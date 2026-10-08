@@ -85,7 +85,7 @@ In your AI application, look for a way to add or connect to a remote MCP server.
 
 - **Server name** : Gemini Enterprise Agent Platform MCP server
 
-- **Server URL** or **Endpoint** : `https://aiplatform.googleapis.com `` TOOLSET_ENDPOINT`
+- **Server URL** or **Endpoint** : `https://aiplatform.googleapis.com/ `` TOOLSET_ENDPOINT`
 
   Replace ` TOOLSET_ENDPOINT ` with the toolset endpoint, for example: `/mcp/generate` . See [Toolsets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp#toolsets) .
 
@@ -154,7 +154,19 @@ When Model Armor is enabled with [logging enabled](https://docs.cloud.google.com
 
 #### MCP request routing to Model Armor
 
-Model Armor is available in [certain regions](https://docs.cloud.google.com/model-armor/locations) . When Model Armor is enabled and you use an MCP server in a jurisdiction that Model Armor doesn't support, the routing behavior of the call might be different for different MCP servers and might break data residency compliance for in-use and in-transit data. For more information about the behavior of individual MCP servers, see [Model Armor supported products](https://docs.cloud.google.com/mcp/model-armor-supported-products) .
+The Gemini Enterprise Agent Platform MCP server has different routing behavior depending on the type of endpoint you use. The routing behavior to Model Armor is as follows:
+
+- **Global endpoint** : The Gemini Enterprise Agent Platform MCP server uses [jurisdictional routing](https://docs.cloud.google.com/mcp/model-armor-supported-products#jurisdictional-routing) . When you enable Model Armor, and the MCP server sends a request in a jurisdiction where Model Armor is available, the MCP server sends the request to Model Armor for screening. When the MCP server sends a request in a jurisdiction where Model Armor isn't available, the MCP server doesn't send the request to Model Armor for screening. The MCP server doesn't write any logs or errors when Model Armor screening is skipped.
+
+- **Multi-regional endpoints** : The Gemini Enterprise Agent Platform MCP server uses multi-regional endpoints with [data residency-compliant routing](https://docs.cloud.google.com/mcp/model-armor-supported-products#drz-compliant) . When you enable Model Armor, the MCP server sends all requests to Model Armor because the Gemini Enterprise Agent Platform MCP server is only available in jurisdictions where Model Armor is available.
+
+- **Regional endpoints** : The Gemini Enterprise Agent Platform MCP server uses regional endpoints with [data residency-compliant routing](https://docs.cloud.google.com/mcp/model-armor-supported-products#drz-compliant) . When you enable Model Armor for an MCP server in jurisdictions where Model Armor is available, then the MCP server sends all requests to Model Armor for screening.
+
+  When you enable Model Armor in jurisdictions where Model Armor isn't available, then the MCP server doesn't send requests to Model Armor for screening. The MCP server doesn't write any logs or errors when Model Armor screening is skipped.
+
+- **Locational endpoints** : The Gemini Enterprise Agent Platform MCP server uses [jurisdictional routing](https://docs.cloud.google.com/mcp/model-armor-supported-products#jurisdictional-routing) . When you enable Model Armor, and the MCP server sends a request in a jurisdiction where Model Armor is available, the MCP server sends the request to Model Armor for screening. When the MCP server sends a request in a jurisdiction where Model Armor isn't available, the MCP server doesn't send the request to Model Armor for screening. The MCP server doesn't write any logs or errors when Model Armor screening is skipped.
+
+For more information about the behavior of other MCP servers, see [Model Armor supported products](https://docs.cloud.google.com/mcp/model-armor-supported-products) .
 
 #### Enable Model Armor
 

@@ -86,6 +86,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 
 | Model                                                      | US multi-region | EU multi-region | Belgium (europe-west1) | Netherlands (europe-west4) | Singapore (asia-southeast1) | Taiwan (asia-east1) |
 |------------------------------------------------------------|-----------------|-----------------|------------------------|----------------------------|-----------------------------|---------------------|
+| Anthropic's Claude Haiku 5.5 on Google Cloud               |                 |                 |                        |                            |                             |                     |
 | Anthropic's Claude Opus 5.5 on Google Cloud                |                 |                 |                        |                            |                             |                     |
 | Anthropic's Claude Sonnet 5.5 on Google Cloud              |                 |                 |                        |                            |                             |                     |
 | Anthropic's Claude Sonnet 5 on Google Cloud                |                 |                 |                        |                            |                             |                     |
