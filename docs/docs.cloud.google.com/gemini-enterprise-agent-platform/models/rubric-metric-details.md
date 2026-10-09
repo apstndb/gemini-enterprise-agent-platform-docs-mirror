@@ -27,6 +27,12 @@ text_quality_metric = types.RubricMetric.TEXT_QUALITY
 general_quality_v1 = types.RubricMetric.GENERAL_QUALITY(version='v1')
 ```
 
+### Model versions and regional availability
+
+The latest versions of most managed metrics (for example, `general_quality_v2` , `instruction_following_v2` , `safety_v3` , and `final_response_match_v3` ) use Gemini 3.5 Flash as the judge model. Agent metrics that generate rubrics, such as `final_response_quality_v2` and `tool_use_quality_v2` , also use Gemini 3.1 Pro for rubric generation. The previous versions use Gemini 2.5 Flash and Gemini 2.5 Pro. Each metric's previous version and its LLM calls are listed in [Metric details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#managed-metrics-details) .
+
+The latest versions are only available in locations where [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash) is available. If you run evaluations in a location where Gemini 3.5 Flash isn't available, pin the metric to its previous version, as shown in the preceding example.
+
 ## Backward compatibility
 
 For metrics offered as a [Metric prompt templates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/metrics-templates) , you can still access the pointwise metrics through the GenAI Client in Agent Platform SDK through the same approach. Pairwise metrics are not supported by the GenAI Client in Agent Platform SDK, but see [Run an evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/run-evaluation) to compare two models in the same evaluation.
@@ -71,7 +77,7 @@ This section lists managed metrics with details such as their type, required inp
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code>general_quality_v1</code></td>
+<td><code>general_quality_v2</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -104,7 +110,11 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="odd">
 <td><strong>Number of LLM calls</strong></td>
-<td>6 calls to Gemini 2.5 Flash</td>
+<td>6 calls to Gemini 3.5 Flash</td>
+</tr>
+<tr class="even">
+<td><strong>Previous version</strong></td>
+<td><code>general_quality_v1</code> : 6 calls to Gemini 2.5 Flash</td>
 </tr>
 </tbody>
 </table>
@@ -119,7 +129,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code>text_quality_v1</code></td>
+<td><code>text_quality_v2</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -152,7 +162,11 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="odd">
 <td><strong>Number of LLM calls</strong></td>
-<td>6 calls to Gemini 2.5 Flash</td>
+<td>6 calls to Gemini 3.5 Flash</td>
+</tr>
+<tr class="even">
+<td><strong>Previous version</strong></td>
+<td><code>text_quality_v1</code> : 6 calls to Gemini 2.5 Flash</td>
 </tr>
 </tbody>
 </table>
@@ -167,7 +181,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code>instruction_following_v1</code></td>
+<td><code>instruction_following_v2</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -200,7 +214,11 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="odd">
 <td><strong>Number of LLM calls</strong></td>
-<td>6 calls to Gemini 2.5 Flash</td>
+<td>6 calls to Gemini 3.5 Flash</td>
+</tr>
+<tr class="even">
+<td><strong>Previous version</strong></td>
+<td><code>instruction_following_v1</code> : 6 calls to Gemini 2.5 Flash</td>
 </tr>
 </tbody>
 </table>
@@ -215,7 +233,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code>grounding_v1</code></td>
+<td><code>grounding_v2</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -270,7 +288,11 @@ Each object contains the following fields:
 </tr>
 <tr class="odd">
 <td><strong>Number of LLM calls</strong></td>
-<td>1 call to Gemini 2.5 Flash</td>
+<td>1 call to Gemini 3.5 Flash</td>
+</tr>
+<tr class="even">
+<td><strong>Previous version</strong></td>
+<td><code>grounding_v1</code> : 1 call to Gemini 2.5 Flash</td>
 </tr>
 </tbody>
 </table>
@@ -285,7 +307,7 @@ Each object contains the following fields:
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code>safety_v1</code></td>
+<td><code>safety_v3</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -293,7 +315,18 @@ Each object contains the following fields:
 </tr>
 <tr class="odd">
 <td><strong>Description</strong></td>
-<td>A score-based metric that assesses whether the model's response violated one or more of the following policies:
+<td>A score-based metric that assesses whether the model's response violated one or more safety policies.<br />
+<br />
+<code>safety_v3</code> checks the following policies:
+<ul>
+<li>Hate and harassment ( <code>hate_harassment</code> )</li>
+<li>Sexual content ( <code>sexual_content</code> )</li>
+<li>Violence and gore ( <code>violence_gore</code> )</li>
+<li>Medical advice ( <code>medical_advice</code> )</li>
+<li>Dangerous content ( <code>dangerous_content</code> )</li>
+<li>Child sexual abuse and exploitation ( <code>csae</code> )</li>
+</ul>
+<code>safety_v1</code> checks the following policies:
 <ul>
 <li>PII &amp; Demographic Data</li>
 <li>Hate Speech</li>
@@ -319,12 +352,20 @@ Each object contains the following fields:
 <li><code>score</code></li>
 <li><code>explanation</code></li>
 </ul>
-For the score, <code>0</code> is unsafe and <code>1</code> is safe.<br />
+The score has the opposite meaning in each version:
+<ul>
+<li><code>safety_v3</code> : <code>1</code> means at least one policy was violated, and <code>0</code> means no policy was violated.</li>
+<li><code>safety_v1</code> : <code>0</code> is unsafe and <code>1</code> is safe.</li>
+</ul>
 The explanation field includes violated policies.</td>
 </tr>
 <tr class="odd">
 <td><strong>Number of LLM calls</strong></td>
-<td>10 calls to Gemini 2.5 Flash</td>
+<td>31 calls to Gemini 3.5 Flash</td>
+</tr>
+<tr class="even">
+<td><strong>Previous version</strong></td>
+<td><code>safety_v1</code> : 10 calls to Gemini 2.5 Flash</td>
 </tr>
 </tbody>
 </table>
@@ -339,7 +380,7 @@ The explanation field includes violated policies.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code>multi_turn_general_quality_v1</code></td>
+<td><code>multi_turn_general_quality_v2</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -372,7 +413,11 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="odd">
 <td><strong>Number of LLM calls</strong></td>
-<td>6 calls to Gemini 2.5 Flash</td>
+<td>6 calls to Gemini 3.5 Flash</td>
+</tr>
+<tr class="even">
+<td><strong>Previous version</strong></td>
+<td><code>multi_turn_general_quality_v1</code> : 6 calls to Gemini 2.5 Flash</td>
 </tr>
 </tbody>
 </table>
@@ -387,7 +432,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code>multi_turn_text_quality_v1</code></td>
+<td><code>multi_turn_text_quality_v2</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -420,7 +465,11 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="odd">
 <td><strong>Number of LLM calls</strong></td>
-<td>6 calls to Gemini 2.5 Flash</td>
+<td>6 calls to Gemini 3.5 Flash</td>
+</tr>
+<tr class="even">
+<td><strong>Previous version</strong></td>
+<td><code>multi_turn_text_quality_v1</code> : 6 calls to Gemini 2.5 Flash</td>
 </tr>
 </tbody>
 </table>
@@ -435,7 +484,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code>final_response_match_v2</code></td>
+<td><code>final_response_match_v3</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -468,7 +517,11 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="odd">
 <td><strong>Number of LLM calls</strong></td>
-<td>5 calls to Gemini 2.5 Flash</td>
+<td>5 calls to Gemini 3.5 Flash</td>
+</tr>
+<tr class="even">
+<td><strong>Previous version</strong></td>
+<td><code>final_response_match_v2</code> : 5 calls to Gemini 2.5 Flash</td>
 </tr>
 </tbody>
 </table>
@@ -483,7 +536,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code>final_response_reference_free_v1</code></td>
+<td><code>final_response_reference_free_v2</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -516,7 +569,11 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="odd">
 <td><strong>Number of LLM calls</strong></td>
-<td>5 calls to Gemini 2.5 Flash</td>
+<td>5 calls to Gemini 3.5 Flash</td>
+</tr>
+<tr class="even">
+<td><strong>Previous version</strong></td>
+<td><code>final_response_reference_free_v1</code> : 5 calls to Gemini 2.5 Flash</td>
 </tr>
 </tbody>
 </table>
@@ -531,7 +588,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code>final_response_quality_v1</code></td>
+<td><code>final_response_quality_v2</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -567,7 +624,11 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="odd">
 <td><strong>Number of LLM calls</strong></td>
-<td>5 calls to Gemini 2.5 Flash and 1 call to Gemini 2.5 Pro</td>
+<td>5 calls to Gemini 3.5 Flash and 1 call to Gemini 3.1 Pro</td>
+</tr>
+<tr class="even">
+<td><strong>Previous version</strong></td>
+<td><code>final_response_quality_v1</code> : 5 calls to Gemini 2.5 Flash and 1 call to Gemini 2.5 Pro</td>
 </tr>
 </tbody>
 </table>
@@ -582,7 +643,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code>hallucination_v1</code></td>
+<td><code>hallucination_v2</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -648,7 +709,11 @@ Each <code>explanation</code> entry contains one object per segmented sentence w
 </tr>
 <tr class="odd">
 <td><strong>Number of LLM calls</strong></td>
-<td>2 calls to Gemini 2.5 Flash</td>
+<td>2 calls to Gemini 3.5 Flash</td>
+</tr>
+<tr class="even">
+<td><strong>Previous version</strong></td>
+<td><code>hallucination_v1</code> : 2 calls to Gemini 2.5 Flash</td>
 </tr>
 </tbody>
 </table>
@@ -663,7 +728,7 @@ Each <code>explanation</code> entry contains one object per segmented sentence w
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code>tool_use_quality_v1</code></td>
+<td><code>tool_use_quality_v2</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -697,7 +762,11 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="odd">
 <td><strong>Number of LLM calls</strong></td>
-<td>5 calls to Gemini 2.5 Flash and 1 call to Gemini 2.5 Pro</td>
+<td>5 calls to Gemini 3.5 Flash and 1 call to Gemini 3.1 Pro</td>
+</tr>
+<tr class="even">
+<td><strong>Previous version</strong></td>
+<td><code>tool_use_quality_v1</code> : 5 calls to Gemini 2.5 Flash and 1 call to Gemini 2.5 Pro</td>
 </tr>
 </tbody>
 </table>
@@ -868,7 +937,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code>gecko_text2image_v1</code></td>
+<td><code>gecko_text2image_v2</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -899,7 +968,11 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="odd">
 <td><strong>Number of LLM calls</strong></td>
-<td>2 calls to Gemini 2.5 Flash</td>
+<td>2 calls to Gemini 3.5 Flash</td>
+</tr>
+<tr class="even">
+<td><strong>Previous version</strong></td>
+<td><code>gecko_text2image_v1</code> : 2 calls to Gemini 2.5 Flash</td>
 </tr>
 </tbody>
 </table>
@@ -914,7 +987,7 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <tbody>
 <tr class="odd">
 <td><strong>Latest version</strong></td>
-<td><code>gecko_text2video_v1</code></td>
+<td><code>gecko_text2video_v2</code></td>
 </tr>
 <tr class="even">
 <td><strong>Type</strong></td>
@@ -945,7 +1018,11 @@ The score represents the passing rate of the response based on the rubrics.</td>
 </tr>
 <tr class="odd">
 <td><strong>Number of LLM calls</strong></td>
-<td>2 calls to Gemini 2.5 Flash</td>
+<td>2 calls to Gemini 3.5 Flash</td>
+</tr>
+<tr class="even">
+<td><strong>Previous version</strong></td>
+<td><code>gecko_text2video_v1</code> : 2 calls to Gemini 2.5 Flash</td>
 </tr>
 </tbody>
 </table>

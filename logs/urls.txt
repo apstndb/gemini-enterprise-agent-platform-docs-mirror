@@ -321,7 +321,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-transparency	2026-10-01T19:22:43Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/audit-logging	2026-10-01T19:22:24Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/base64	2026-10-01T19:23:03Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek	2026-10-01T19:23:10Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek	2026-10-09T04:42:01Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account	2026-10-01T19:22:24Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment	2026-10-01T19:22:43Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/developer-tools-overview	2026-10-01T19:22:43Z
@@ -673,8 +673,8 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabiliti
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation	2026-10-06T20:54:15Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding	2026-10-02T19:01:47Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/imagen-links	2026-10-01T19:22:24Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions	2026-10-02T22:33:47Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide	2026-10-01T19:22:34Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions	2026-10-09T04:42:01Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide	2026-10-09T04:42:01Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/list-token	2026-10-06T20:54:15Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/process-blocked-responses	2026-10-01T19:23:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging	2026-10-02T06:04:10Z
@@ -781,7 +781,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/g
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/get-started-websocket	2026-10-01T19:22:51Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/migrate-from-gemini-2-5-to-gemini-3-8-live	2026-10-01T19:22:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/send-audio-video-streams	2026-10-01T19:22:24Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session	2026-10-01T19:22:51Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session	2026-10-09T04:42:01Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/troubleshooting	2026-10-01T19:22:34Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/lyria/lyria-002	2026-10-01T19:23:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/lyria/lyria-3	2026-10-01T19:22:43Z
@@ -940,14 +940,14 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/throughput-quota	2026-10-01T19:22:51Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai	2026-10-01T19:23:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/retry-strategy	2026-10-01T19:22:51Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details	2026-10-01T19:22:51Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details	2026-10-08T17:37:46Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/run-evaluation	2026-10-01T19:23:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/safety-overview	2026-10-01T19:22:34Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/sdks/overview	2026-10-01T19:22:51Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls	2026-10-06T20:54:15Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/side-by-side-eval	2026-10-01T19:22:34Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/speech/speech-to-text	2026-10-01T19:22:57Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo	2026-10-06T20:54:15Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo	2026-10-08T18:38:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start	2026-10-01T19:22:34Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/api-keys	2026-10-07T02:47:22Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/express-mode/overview	2026-10-01T19:22:43Z

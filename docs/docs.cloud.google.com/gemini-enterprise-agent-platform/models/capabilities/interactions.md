@@ -93,10 +93,11 @@ Billing for interrupted or unfulfilled requests is handled as follows:
 
 During Preview, the Interactions API has the following security, compliance, and data residency considerations:
 
-- **Security & compliance certifications** : The Interactions API preview doesn't support FedRAMP or customer-managed encryption keys (CMEK), and isn't compliant with Department of Defense (DoD) Impact Level 5 (IL5) or International Traffic in Arms Regulations (ITAR) requirements.
+- **Security & compliance certifications** : The Interactions API preview doesn't support FedRAMP, and isn't compliant with Department of Defense (DoD) Impact Level 5 (IL5) or International Traffic in Arms Regulations (ITAR) requirements.
+- **Customer-managed encryption keys (CMEK)** : The Interactions API supports [CMEK for stored interaction data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#cmek) through [serving profiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#serving-profiles) (with `scope` set to `INTERACTIONS_API` ) in the `us` and `eu` multi-regions.
 - **VPC Service Controls** : The Interactions API preview supports VPC Service Controls (VPC-SC) to secure your API perimeter.
 - **Data residency** : The Interactions API preview doesn't support Data residency and doesn't make any commitments for session storage.
-- **Endpoints** : The Interactions API preview only supports global endpoints ( `locations/global` ).
+- **Endpoints** : The Interactions API preview supports the global endpoint ( `locations/global` ), and supports the `us` and `eu` multi-region endpoints ( `locations/us` and `locations/eu` ) when using CMEK.
 
 ## Supported SDKs
 

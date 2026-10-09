@@ -285,7 +285,7 @@ The current Gemini Enterprise Agent Platform resources covered by CMEK are as fo
 <tr class="odd">
 <td><code>ServingProfile</code></td>
 <td><ul>
-<li>Data stored at rest by resourceless (request-based) APIs—for example, Gemini Live API session-resumption data.</li>
+<li>Data stored at rest by resourceless (request-based) APIs—for example, Gemini Live API session-resumption data and Interactions API stored interactions.</li>
 </ul></td>
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#serving-profiles">Use CMEK with resourceless APIs</a></li>
@@ -309,7 +309,7 @@ CMEK support isn't provided in the following:
 - AutoML image model batch prediction ( `BatchPredictionJob` )
 - TPU tuning
 - Agent Platform Memory Bank or Agent Platform Sessions configured to use the global endpoint. Cloud KMS requires encryption keys to reside within a fixed geographic data residency boundary. Because the global region lacks a physical geographic boundary, it is barred from encrypting localized regional or multi-regional resources.
-- Serving profile CMEK for resourceless APIs is limited to the Gemini Live API, in the `us` and `eu` multi-regions. The global region isn't supported.
+- Serving profile CMEK for resourceless APIs is limited to the Gemini Live API and the Interactions API, in the `us` and `eu` multi-regions. The global region isn't supported.
 
 ## Configure CMEK for your resources
 
@@ -441,13 +441,13 @@ When you create a supported resource, set the `encryption_spec` parameter to poi
 
 ## Use CMEK with resourceless APIs
 
-Some Gemini Enterprise Agent Platform APIs are *resourceless* (request-based): they serve inference requests without creating a long-lived, top-level resource. To support features such as session continuity, these APIs can store user data at rest for a limited time—for example, the Gemini Live API stores session-resumption data for up to 24 hours. Because there's no persistent resource to attach a key to when the data is created, you use a *serving profile* to apply CMEK to this resting data.
+Some Gemini Enterprise Agent Platform APIs are *resourceless* (request-based): they serve inference requests without creating a long-lived, top-level resource. To support features such as session continuity and stateful conversations, these APIs can store user data at rest for a limited time—for example, the Gemini Live API stores session-resumption data for up to 24 hours, and the Interactions API stores stateful interaction data for up to 7 days. Because there's no persistent resource to attach a key to when the data is created, you use a *serving profile* to apply CMEK to this resting data.
 
 A serving profile is a Gemini Enterprise Agent Platform resource that links a Cloud KMS key to a project, location, and API scope. While a serving profile exists for a request's project, location, and scope, Agent Platform automatically encrypts that scope's persistent data with your key. Your inference request format doesn't change.
 
 > **Caution:** A serving profile applies to an entire project, location, and API scope—not to an individual user or request. An Agent Platform user can create, update, or delete a serving profile, or disable or revoke its Cloud KMS key, and any such change affects all users and workloads that use that API in the project.
 
-> **Note:** Serving profile CMEK support is available for the Gemini Live API only, in the `us` and `eu` multi-regions.
+> **Note:** Serving profile CMEK support is available for the Gemini Live API and the Interactions API, in the `us` and `eu` multi-regions.
 
 ### Benefits of serving profiles
 
@@ -467,7 +467,7 @@ A serving profile is a Gemini Enterprise Agent Platform resource that links a Cl
 
 ### Serving profile limitations
 
-- Supported API: Gemini Live API (scope `GEMINI_LIVE` ).
+- Supported APIs: [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#cmek) (scope `GEMINI_LIVE` ) and [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#cmek) (scope `INTERACTIONS_API` ).
 - Supported regions: the `us` and `eu` multi-regions. The global region isn't supported because of Cloud KMS and storage CMEK limitations in the global region.
 - The encryption key and scope are immutable after creation. Only the display name and description can be updated. To change the key or scope, delete the serving profile and create a new one with a different `servingProfileId` (see [Disable CMEK and revert to default encryption](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#serving-profile-delete) ).
 
@@ -484,10 +484,10 @@ The examples in the following sections use these values:
 - ` PROJECT ` : your project ID or number.
 - ` API_VERSION ` : `v1` or `v1beta1` .
 - ` SERVING_PROFILE_ID ` : 1-63 characters—lowercase letters, digits, and hyphens; it must start with a letter and end with a letter or digit. This value becomes the last component of the resource name.
-- `scope` : the resourceless API that the serving profile applies to. The supported value is `GEMINI_LIVE` .
+- `scope` : the resourceless API that the serving profile applies to. Supported values are `GEMINI_LIVE` and `INTERACTIONS_API` .
 - The Cloud KMS key is set in `cmekConfig.encryptionSpec.kmsKeyName` and must match `projects/*/locations/*/keyRings/*/cryptoKeys/*` .
 
-REST requests go to the regional endpoint `https://LOCATION-aiplatform.googleapis.com` and authenticate with an OAuth 2.0 bearer token:
+REST requests go to the regional endpoint `https://aiplatform.LOCATION.rep.googleapis.com` and authenticate with an OAuth 2.0 bearer token:
 
 ```
 -H "Authorization: Bearer $(gcloud auth print-access-token)"
@@ -496,13 +496,13 @@ REST requests go to the regional endpoint `https://LOCATION-aiplatform.googleapi
 
 ### Create a serving profile
 
-Creating a serving profile enables CMEK protection for the scope's persistent data. The `displayName` , `scope` , and `cmekConfig.encryptionSpec.kmsKeyName` fields are required.
+Creating a serving profile enables CMEK protection for the scope's persistent data. The `displayName` , `scope` ( `GEMINI_LIVE` or `INTERACTIONS_API` ), and `cmekConfig.encryptionSpec.kmsKeyName` fields are required.
 
 ```
 curl -X POST \
   -H "Authorization: Bearer $(gcloud auth print-access-token)" \
   -H "Content-Type: application/json" \
-  "https://LOCATION-aiplatform.googleapis.com/API_VERSION/projects/PROJECT/locations/LOCATION/servingProfiles?servingProfileId=SERVING_PROFILE_ID" \
+  "https://aiplatform.LOCATION.rep.googleapis.com/API_VERSION/projects/PROJECT/locations/LOCATION/servingProfiles?servingProfileId=SERVING_PROFILE_ID" \
   -d '{
     "displayName": "My CMEK serving profile",
     "description": "CMEK for Gemini Live",
@@ -515,7 +515,7 @@ curl -X POST \
   }'
 ```
 
-Create returns a long-running operation. Poll it at `GET https://LOCATION-aiplatform.googleapis.com/API_VERSION/OPERATION_NAME` until the response contains `"done": true` . Wait for the operation to finish before you get, update, or delete the serving profile.
+Create returns a long-running operation. Poll it at `GET https://aiplatform.LOCATION.rep.googleapis.com/API_VERSION/OPERATION_NAME` until the response contains `"done": true` . Wait for the operation to finish before you get, update, or delete the serving profile.
 
 ### Confirm the serving profile
 
@@ -524,11 +524,11 @@ After the create operation completes, use `get` or `list` to confirm the serving
 ```
 # Get one serving profile.
 curl -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-  "https://LOCATION-aiplatform.googleapis.com/API_VERSION/projects/PROJECT/locations/LOCATION/servingProfiles/SERVING_PROFILE_ID"
+  "https://aiplatform.LOCATION.rep.googleapis.com/API_VERSION/projects/PROJECT/locations/LOCATION/servingProfiles/SERVING_PROFILE_ID"
 
 # List serving profiles in a location.
 curl -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-  "https://LOCATION-aiplatform.googleapis.com/API_VERSION/projects/PROJECT/locations/LOCATION/servingProfiles?pageSize=50"
+  "https://aiplatform.LOCATION.rep.googleapis.com/API_VERSION/projects/PROJECT/locations/LOCATION/servingProfiles?pageSize=50"
 ```
 
 ### Update serving profile metadata
@@ -539,7 +539,7 @@ You can update only the `displayName` and `description` fields; the key and scop
 curl -X PATCH \
   -H "Authorization: Bearer $(gcloud auth print-access-token)" \
   -H "Content-Type: application/json" \
-  "https://LOCATION-aiplatform.googleapis.com/API_VERSION/projects/PROJECT/locations/LOCATION/servingProfiles/SERVING_PROFILE_ID?updateMask=displayName,description" \
+  "https://aiplatform.LOCATION.rep.googleapis.com/API_VERSION/projects/PROJECT/locations/LOCATION/servingProfiles/SERVING_PROFILE_ID?updateMask=displayName,description" \
   -d '{"displayName": "Renamed profile", "description": "Updated description"}'
 ```
 
@@ -550,7 +550,7 @@ Delete the serving profile. New data for the scope is then encrypted with Google
 ```
 curl -X DELETE \
   -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-  "https://LOCATION-aiplatform.googleapis.com/API_VERSION/projects/PROJECT/locations/LOCATION/servingProfiles/SERVING_PROFILE_ID"
+  "https://aiplatform.LOCATION.rep.googleapis.com/API_VERSION/projects/PROJECT/locations/LOCATION/servingProfiles/SERVING_PROFILE_ID"
 ```
 
 After you delete a serving profile, its `servingProfileId` is reserved for 30 days so that you can [restore](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#serving-profile-restore) the original key and scope. During that period, to create a serving profile with a different key or scope, use a different `servingProfileId` .
@@ -575,7 +575,7 @@ There's no additional charge for serving profiles. You pay the standard Cloud KM
 ### Troubleshooting
 
 - **Serving profile creation fails or is stuck** : Confirm that the Gemini Enterprise Agent Platform service agent has the `roles/cloudkms.cryptoKeyEncrypterDecrypter` role on the key, and that the key is enabled and in a supported multi-region ( `us` or `eu` , not global).
-- **Inference isn't using CMEK** : Confirm that a serving profile exists for the matching project, location, and scope ( `GEMINI_LIVE` ).
+- **Inference isn't using CMEK** : Confirm that a serving profile exists for the matching project, location, and scope ( `GEMINI_LIVE` or `INTERACTIONS_API` ).
 - **`FAILED_PRECONDITION` errors** : These errors usually indicate that the key was disabled or that access was revoked. Re-enable the key or restore the IAM grant.
 
 ## What's next

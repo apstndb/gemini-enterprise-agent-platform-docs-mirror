@@ -557,6 +557,50 @@ permissions prevent revealing object existence.
 
 To resolve this issue, verify that the Cloud Storage URI is correct and confirm that the authenticated caller has read access to the bucket.
 
+### Encrypt interaction data with CMEK
+
+Stateful interactions ( `store=True` in Python or `store: true` in TypeScript/JavaScript) store interaction data at rest for up to 7 days. To protect that data with your own encryption key instead of a Google-owned and Google-managed encryption key, use a *serving profile* . A serving profile links a Cloud KMS key to a project, location, and API scope. While a serving profile exists, Agent Platform encrypts stored interaction data automatically—your interaction request format doesn't change.
+
+Serving profile CMEK for the Interactions API is supported in the `us` and `eu` multi-regions. The `global` region isn't supported.
+
+To set up CMEK for the Interactions API, do the following:
+
+1.  Enable the Cloud KMS API and the Agent Platform API on your project. See [Before you begin](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#serving-profile-before-you-begin) .
+
+2.  Create a Cloud KMS key in the `us` or `eu` multi-region. See [Create a key ring and key](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#creating-key-ring-and-key) .
+
+3.  Grant the Gemini Enterprise Agent Platform service agent the `roles/cloudkms.cryptoKeyEncrypterDecrypter` role on the key. See [Grant Agent Platform permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#grant-permissions) .
+
+4.  Create a serving profile in the same multi-region ( `us` or `eu` ) that sets `scope` to `INTERACTIONS_API` and `cmekConfig.encryptionSpec.kmsKeyName` to your key:
+
+    ```
+    curl -X POST \
+      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+      -H "Content-Type: application/json" \
+      "https://aiplatform.LOCATION.rep.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/servingProfiles?servingProfileId=SERVING_PROFILE_ID" \
+      -d '{
+        "displayName": "Interactions API CMEK profile",
+        "description": "CMEK for Interactions API",
+        "scope": "INTERACTIONS_API",
+        "cmekConfig": {
+          "encryptionSpec": {
+            "kmsKeyName": "projects/KMS_PROJECT_ID/locations/LOCATION/keyRings/KEY_RING_NAME/cryptoKeys/KEY_NAME"
+          }
+        }
+      }'
+    ```
+
+    Wait for the long-running create operation to complete ( `"done": true` ). For more details on managing, updating, or deleting serving profiles, see [Create a serving profile](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#serving-profile-create) .
+
+5.  Send your interaction requests to the same `us` or `eu` multi-region as your serving profile. Serving profile CMEK isn't available on the `global` endpoint.
+
+    - **Google Gen AI SDK** : Initialize the client with `location="us"` or `location="eu"` ( `location: "us"` or `location: "eu"` in TypeScript/JavaScript).
+    - **REST** : Send requests to the multi-region endpoint `https://aiplatform. `` LOCATION `` .rep.googleapis.com/v1beta1/projects/ `` PROJECT_ID `` /locations/ `` LOCATION `` /interactions` , where ` LOCATION ` is `us` or `eu` .
+
+    If you disable the key or revoke the service agent's access, requests that create or read stored interactions fail with a `FAILED_PRECONDITION` error.
+
+> **Note:** Data stored before you create the serving profile isn't retroactively re-encrypted with your key.
+
 ## Advanced REST workflows
 
 For shell-based automation, CI/CD pipelines, or environments without a Python or TypeScript/JavaScript runtime, you can call the Interactions API directly over HTTP using `curl` .
@@ -572,7 +616,7 @@ POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOC
 Replace the following variables in your requests:
 
 - ` PROJECT_ID ` : Your Google Cloud project ID.
-- ` LOCATION ` : Set to `global` (or a supported custom region if required by your configuration).
+- ` LOCATION ` : Set to `global` (or `us` or `eu` with the multi-region host `https://aiplatform. `` LOCATION `` .rep.googleapis.com` when [encrypting interaction data with CMEK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#cmek) ).
 
 ### Set environment variables and authentication
 

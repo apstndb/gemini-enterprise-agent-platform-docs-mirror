@@ -253,7 +253,7 @@ config = {
 
 Session resumption stores cached session data at rest for up to 24 hours. To protect that data with your own key instead of a Google-owned and Google-managed encryption key, use a *serving profile* . A serving profile links a Cloud KMS key to a project, location, and API scope. While a serving profile exists, Agent Platform encrypts the data automatically—your session configuration and request format don't change.
 
-Serving profile CMEK is supported for the Gemini Live API only, in the `us` and `eu` multi-regions. The global region isn't supported.
+Serving profile CMEK for the Gemini Live API is supported in the `us` and `eu` multi-regions. The global region isn't supported.
 
 To set up CMEK for the Gemini Live API, do the following:
 
