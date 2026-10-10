@@ -16,9 +16,9 @@ By using the **Policies** page, you can do the following:
 
 ## Use IAM policies to govern agentic communication
 
-You can create IAM Unified Access Policies (Access policies) that Agent Gateway uses to more securely govern agentic communication between your agents and destination resources, including other agents, MCP servers, and endpoints. Agent Gateway uses Identity-Aware Proxy (IAP) to enforce the policies.
+You can create IAM Unified Access Policies (UAPs) that Agent Gateway uses to more securely govern agentic communication between your agents and destination resources, including other agents, MCP servers, and endpoints. Agent Gateway uses Identity-Aware Proxy (IAP) to enforce the policies.
 
-For detailed information about IAM policies for Agent Gateway, see [IAM Access policies overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap) . To create an IAM Access policy, see [Create IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
+For detailed information about IAM policies for Agent Gateway, see [IAM UAPs overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap) . To create an IAM UAP, see [Create IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
 
 ## Use semantic governance policies
 

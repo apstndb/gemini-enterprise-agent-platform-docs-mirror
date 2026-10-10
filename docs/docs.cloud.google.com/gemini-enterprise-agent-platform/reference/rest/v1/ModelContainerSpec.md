@@ -79,6 +79,8 @@ If you switch the order of the variables in the example, then the expansion does
 
 This field corresponds to the `env` field of the Kubernetes Containers [v1 core API](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#container-v1-core) .
 
+At most 200 environment variables can be specified. Each variable ( `NAME=value` ) must be smaller than 128 KiB, and the total size of all variables must not exceed 512 KiB.
+
 `ports[]` `object ( `[`Port`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ModelContainerSpec#Port)` )`
 
 Immutable. List of ports to expose from the container. Agent Platform sends any prediction requests that it receives to the first port on this list. Agent Platform also sends [liveness and health checks](https://cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements#liveness) to this port.

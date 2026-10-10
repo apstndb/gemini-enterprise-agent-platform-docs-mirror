@@ -88,6 +88,22 @@ Supported</li>
 <td></td>
 </tr>
 <tr class="even">
+<th>APIs</th>
+<th><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference">GenerateContent API</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions">Interactions API</a> preview Preview feature<br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api">Gemini Live API</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count">Count Tokens API</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview">Chat Completions API</a><br />
+Not supported</li>
+</ul></th>
+<td></td>
+</tr>
+<tr class="odd">
 <th>Consumption options</th>
 <th><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
@@ -95,14 +111,14 @@ Supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Supported regions</th>
 <th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations">Model availability</a></strong></p></th>
 <td><ul>
 <li>Global: <code>global</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Versions</th>
 <th><ul>
 <li><code>gemini-3.8-flash-tts</code>
@@ -113,7 +129,7 @@ Supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Supported languages</th>
 <th>130 languages. See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#languages">Supported languages</a> .</th>
 <td></td>

@@ -41,7 +41,7 @@ A `Content` message must have at least one `Part` .
 
 A datatype containing media that is part of a multi-part `Content` message.
 
-A `Part` consists of data which has an associated datatype. A `Part` can only contain one of the accepted types in `Part.data` .
+A `Part` consists of data which has an associated datatype. A `Part` must contain one of the accepted types in `Part.data` .
 
 For media types that are not text, `Part` must have a fixed IANA MIME type identifying the type and subtype of the media if `inlineData` or `fileData` field is filled with raw bytes.
 
@@ -63,7 +63,7 @@ per part media resolution. Media resolution for the input media.
 
 `data` `Union type`
 
-The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+Required. The data which has an associated datatype. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `text` `string`
 

@@ -115,6 +115,8 @@ CodeMender supports the following models:
 - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
 - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
 
+CodeMender also supports [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber) for customers with access through the [Fairwind Program](https://deepmind.google/fairwind-program/) .
+
 To specify a model when running CodeMender CLI commands, see [Specifying the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender#specifying-the-model) .
 
 ## Supported regions
@@ -174,6 +176,7 @@ Before you initialize the CodeMender CLI, ensure your environment is prepared co
 By default, CodeMender uses Gemini 3.8 Flash. To override the default model, pass the `--model` flag with the corresponding model identifier:
 
 - Gemini 3.8 Flash (default): `--model gemini-3.8-flash`
+- Gemini 3.8 Flash Cyber: `--model gemini-3.8-flash-cyber`
 - Gemini 3.7 Flash: `--model gemini-3.7-flash`
 - Gemini 3.6 Flash: `--model gemini-3.6-flash`
 - Gemini 3.5 Flash: `--model gemini-3.5-flash`

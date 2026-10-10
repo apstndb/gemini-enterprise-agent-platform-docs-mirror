@@ -10,13 +10,12 @@ data_source: docs.cloud.google.com
 >
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-Gemini Enterprise Agent Platform in express mode lets you try a subset of Gemini Enterprise Agent Platform features by using only an express mode API key. This page shows you the REST resources available for Gemini Enterprise Agent Platform in express mode.
+Gemini Enterprise Agent Platform in express mode lets you try a subset of Agent Platform features by using an express mode API key passed in the `x-goog-api-key` HTTP header (or the `key` query parameter). This document shows the REST resources available for Agent Platform in express mode.
 
-Unlike the standard REST resource endpoints on Google Cloud, endpoints that are available when using Gemini Enterprise Agent Platform in express mode use the global endpoint `aiplatform.googleapis.com` and don't include `projects` or `locations` . For example, the following shows the difference between standard and express mode endpoints for the datasets resource:
+Unlike the standard REST resource endpoints on Google Cloud, endpoints that are available when using Agent Platform in express mode use the global endpoint `aiplatform.googleapis.com` and don't include `projects` or `locations` . In the following REST resource paths, `{model}` uses the resource path format `publishers/google/models/ `` MODEL_ID` :
 
-**Standard Gemini Enterprise Agent Platform endpoint format** : `https://{location}-aiplatform.googleapis.com/v1/projects/{project}/locations/{location}/{model}:generateContent`
-
-**Endpoint format for Gemini Enterprise Agent Platform in express mode** : `https://aiplatform.googleapis.com/v1/{model}:generateContent`
+- **Standard Agent Platform endpoint format** : `https:// `` LOCATION `` -aiplatform.googleapis.com/v1/projects/ `` PROJECT_ID `` /locations/ `` LOCATION `` /publishers/google/models/ `` MODEL_ID `` :generateContent`
+- **Endpoint format for Agent Platform in express mode** : `https://aiplatform.googleapis.com/v1/publishers/google/models/ `` MODEL_ID `` :generateContent`
 
 ## REST Resource: [v1.publishers.models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/express-mode/rest/v1/publishers.models)
 

@@ -302,8 +302,6 @@ To deploy an Agent Gateway with a connectivity template, perform the following s
 
         ```
         name: AGENT_GATEWAY_NAME
-        protocols:
-          - MCP
         googleManaged:
           governedAccessPath: AGENT_TO_ANYWHERE
         agentConnectivityTemplate: projects/AGENT_GATEWAY_PROJECT_NUMBER/locations/LOCATION/agentConnectivityTemplates/CONNECTIVITY_TEMPLATE_NAME

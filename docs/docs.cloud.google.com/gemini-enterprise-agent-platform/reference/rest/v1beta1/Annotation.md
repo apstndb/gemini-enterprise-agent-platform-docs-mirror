@@ -107,7 +107,7 @@ The name of the file.
 
 Source attributed for a portion of the text.
 
-`customMetadata` `object ( `[`Struct`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Struct)` )`
+`customMetadata` `object ( `[`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)`
 
 user provided metadata about the retrieved context.
 
@@ -127,7 +127,7 @@ Media id in-case of image citations, if applicable.
   "fileName": string,
   "source": string,
   "customMetadata": {
-    object (Struct)
+    object
   },
   "pageNumber": integer,
   "mediaId": string

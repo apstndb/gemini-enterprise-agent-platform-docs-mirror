@@ -1264,7 +1264,7 @@ Fields
 
 `allowlist[]` `object ( `[`EgressRule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Interaction#EgressRule)` )`
 
-List of allowed domains and their configurations.
+List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
 
 **JSON representation**
 

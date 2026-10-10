@@ -84,9 +84,9 @@ preview [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-
 
 preview [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) Generate video from text or reference assets, or edit existing videos.
 
-preview [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) Our best model for complex multimodal understanding, designed to tackle the most challenging agentic problems with strong coding and state-of-the-art reasoning capabilities.
+preview [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) Our reasoning-first model optimized for complex agentic workflows and coding. Features adaptive thinking, a 1 million token context window, and integrated grounding for multimodal problem-solving.
 
-preview [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview) High-fidelity image generation with reasoning-enhanced composition. Supports legible text rendering, complex multi-turn editing, and character consistency using up to 14 reference inputs.
+preview [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) Our best model for complex multimodal understanding, designed to tackle the most challenging agentic problems with strong coding and state-of-the-art reasoning capabilities.
 
 ## Gemma models
 

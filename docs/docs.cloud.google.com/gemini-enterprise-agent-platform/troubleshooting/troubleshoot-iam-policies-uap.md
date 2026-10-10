@@ -6,7 +6,7 @@ description: Troubleshoot common IAM access policy enforcement failures, UI erro
 data_source: docs.cloud.google.com
 ---
 
-This document helps you diagnose and resolve common issues when configuring and enforcing IAM Unified Access Policies (Access policies) for Agent Gateway egress.
+This document helps you diagnose and resolve common issues when configuring and enforcing IAM Unified Access Policies (UAPs) for Agent Gateway egress.
 
 For standard Google Cloud troubleshooting guidance and methodology, see [Troubleshooting documentation guidelines](https://docs.cloud.google.com/guides/docs/troubleshooting) .
 
@@ -38,9 +38,9 @@ This section describes issues with enforcement.
 
 2.  **Verify gateway authorization policy delegation** : Verify that your gateway authorization policy ( `policyProfile: REQUEST_AUTHZ` ) is bound to the correct Agent Gateway instance ( `target.resources` ).
 
-3.  **Check policy binding scope** : Verify that the IAM Access policy is bound to the target resource scope where the traffic is arriving.
+3.  **Check policy binding scope** : Verify that the IAM UAP is bound to the target resource scope where the traffic is arriving.
 
-4.  **Inspect rule precedence** : In a combination policy, deny rules explicitly override allow rules at the same scope. However, check whether an Access policy with a broader allow rule that is bound at the registry or project level is granting access without condition restrictions.
+4.  **Inspect rule precedence** : In a combination policy, deny rules explicitly override allow rules at the same scope. However, check whether a UAP with a broader allow rule that is bound at the registry or project level is granting access without condition restrictions.
 
 ### Enforced policy blocks agent access
 
@@ -48,13 +48,13 @@ This section describes issues with enforcement.
 
 **Causes** :
 
-- The agent's identity is not specified in the Access policy.
+- The agent's identity is not specified in the UAP.
 
 - The agent's identity wasn't granted the `iap.resources.egressViaIAP` permission on the destination resource.
 
 - The exact destination hostname is not registered in Agent Registry
 
-- The request attributes don't satisfy the Common Expression Language (CEL) conditions in the Access policy.
+- The request attributes don't satisfy the Common Expression Language (CEL) conditions in the UAP.
 
 **Solution** :
 
@@ -117,9 +117,9 @@ This section describes error messages and how to resolve them.
 - **Console UI** : *"The requested policy doesn't exist. Verify that the policy exists for the selected resource."*
 - **API / gcloud** : `POLICY_NOT_FOUND` / `HTTP 404 Not Found`
 
-**Cause** : The Access policy ID specified in your update request or policy binding does not exist in the project or location, or was deleted.
+**Cause** : The UAP ID specified in your update request or policy binding does not exist in the project or location, or was deleted.
 
-**Solution** : List all available Access policies in your project using `gcloud iam access-policies list --project=<var>PROJECT_ID</var> --location=global` to confirm the exact policy ID and location before binding or updating it.
+**Solution** : List all available UAPs in your project using `gcloud iam access-policies list --project=<var>PROJECT_ID</var> --location=global` to confirm the exact policy ID and location before binding or updating it.
 
 ### Target binding limit exceeded
 
@@ -130,7 +130,7 @@ This section describes error messages and how to resolve them.
 
 **Cause** : You attempted to attach more policy bindings to a target resource (such as an MCP server or registry) than the maximum allowed limit per target.
 
-**Solution** : Instead of creating a separate Access policy and binding for each individual rule, consolidate multiple allow or deny rules into a single Access policy. Remove unused bindings using `gcloud iam policy-bindings delete` .
+**Solution** : Instead of creating a separate UAP and binding for each individual rule, consolidate multiple allow or deny rules into a single UAP. Remove unused bindings using `gcloud iam policy-bindings delete` .
 
 ### Policy binding limit exceeded
 
@@ -139,7 +139,7 @@ This section describes error messages and how to resolve them.
 - **Console UI** : *"The selected policy has reached its limit for bindings. Delete an existing binding before adding a new one."*
 - **API / gcloud** : `TOO_MANY_ACCESS_POLICY_BINDINGS_TO_POLICY`
 
-**Cause** : A single Access policy is attached to too many distinct target resources across your project.
+**Cause** : A single UAP is attached to too many distinct target resources across your project.
 
 **Solution** : Bind the policy at a broader scope—such as registry-wide scope ( `AgentRegistry` ) or project scope—and use CEL attribute conditions (such as `destination.agent_registry.mcp_server.name` ) to govern access to individual tools within the policy rules.
 
@@ -152,7 +152,7 @@ This section describes error messages and how to resolve them.
 
 **Cause** : A single allow or deny rule contains more Fine-Grained Access Control (FGAC) attribute conditions or complex sub-expressions than supported in a single rule.
 
-**Solution** : Consolidate attribute checks using CEL logical operators ( `&&` , `||` ) or set inclusion lookups ( `in` ), or split your expressions across multiple rules within the same Access policy.
+**Solution** : Consolidate attribute checks using CEL logical operators ( `&&` , `||` ) or set inclusion lookups ( `in` ), or split your expressions across multiple rules within the same UAP.
 
 ### Outdated rule details
 
@@ -161,7 +161,7 @@ This section describes error messages and how to resolve them.
 - **Console UI** : *"Rule details are outdated. This rule was modified by another user after this page was loaded. Refresh the page to fetch the current details before editing or deleting."*
 - **API / gcloud** : `HTTP 412 Precondition Failed` / `ABORTED` due to `etag` mismatch.
 
-**Cause** : Another administrator or automated process modified the Access policy after you retrieved it, causing your request's `etag` to differ from the active server state.
+**Cause** : Another administrator or automated process modified the UAP after you retrieved it, causing your request's `etag` to differ from the active server state.
 
 **Solution** : Refresh the Console page to retrieve the active policy details and `etag` before saving your edits. When using the REST API, perform a `GET` request first to retrieve the active `"etag"` value, and include it in your `PATCH` request payload.
 
@@ -171,7 +171,7 @@ This section describes error messages and how to resolve them.
 
 - **Console UI** : *"Cannot delete this rule. The 'Default policy' must contain at least one rule. To remove this rule, delete the policy instead."* or *"This is the last rule in \<policy name\>. Deleting it will also delete the policy and permanently remove all associated bindings, which can affect agent access to resources."*
 
-**Cause** : An IAM Access policy cannot be saved with zero rules.
+**Cause** : An IAM UAP cannot be saved with zero rules.
 
 **Solution** : If you want to remove the only rule in a policy, delete the entire policy. Remember that you must delete all policy bindings that reference the policy before you can delete the policy itself.
 
@@ -187,6 +187,6 @@ This section describes error messages and how to resolve them.
 
 ## What's next
 
-- [CEL attributes for Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
-- [Create IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap)
-- [Manage IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap)
+- [CEL attributes for UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
+- [Create IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap)
+- [Manage IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap)

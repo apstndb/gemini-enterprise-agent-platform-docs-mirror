@@ -45,19 +45,11 @@ Not supported</td>
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instruction-introduction">System instructions</a><br />
 Not supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions">Interactions API</a> preview Preview feature<br />
-Not supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api">Gemini Live API</a><br />
-Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output">Structured output</a><br />
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview">Context caching</a><br />
 Not supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count">Count Tokens</a><br />
-Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview">RAG Engine</a><br />
-Not supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview">Chat completions</a><br />
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models">Tuning</a><br />
 Not supported</li>
@@ -73,6 +65,22 @@ Supported</li>
 <td></td>
 </tr>
 <tr class="even">
+<th>APIs</th>
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference">GenerateContent API</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions">Interactions API</a> preview Preview feature<br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api">Gemini Live API</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count">Count Tokens API</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview">Chat Completions API</a><br />
+Not supported</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="odd">
 <th>Consumption options</th>
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a><br />
@@ -87,7 +95,7 @@ Not supported</li>
 </ul></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Technical specifications</th>
 <td><strong>Image</strong> photo</td>
 <td><ul>
@@ -100,14 +108,14 @@ Not supported</li>
 <code>image/png</code> , <code>image/jpeg</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th><strong>Parameter defaults</strong> tune</th>
 <td><ul>
 <li>candidateCount: 1-4</li>
 </ul></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Supported regions</th>
 <td><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations">Model availability</a></strong></p></td>
 <td><ul>
@@ -117,12 +125,6 @@ Not supported</li>
 <li>Asia Pacific: <code>asia-northeast1</code> , <code>asia-southeast1</code></li>
 <li>Middle East: <code>me-central1</code></li>
 </ul></td>
-</tr>
-<tr class="even">
-<th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency">ML processing</a></strong></p>
-<p>Not supported.</p></th>
-<td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo">Standard PayGo</a></strong></p></th>

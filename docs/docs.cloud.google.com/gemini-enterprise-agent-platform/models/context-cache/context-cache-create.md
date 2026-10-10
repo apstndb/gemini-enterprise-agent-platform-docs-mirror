@@ -22,8 +22,6 @@ After a context cache expires, it's no longer available. If you want to referenc
 
 ### Location support
 
-Context caching isn't supported in the Sydney, Australia ( `australia-southeast1` ) region.
-
 Context caching supports the [global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#global-endpoint) .
 
 ### Encryption key support

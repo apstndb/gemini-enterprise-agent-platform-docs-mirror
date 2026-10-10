@@ -71,6 +71,7 @@ The following table lists the Gemini Enterprise Agent Platform resources that yo
 | `resource.deployedModels.automaticResources.minReplicaCount`                                         |                                                            |
 | `resource.deployedModels.dedicatedResources.machineSpec.acceleratorCount`                            |                                                            |
 | `resource.deployedModels.dedicatedResources.machineSpec.acceleratorType`                             |                                                            |
+| `resource.deployedModels.dedicatedResources.machineSpec.gpuPartitionSize`                            |                                                            |
 | `resource.deployedModels.dedicatedResources.machineSpec.machineType`                                 |                                                            |
 | `resource.deployedModels.dedicatedResources.machineSpec.reservationAffinity.key`                     |                                                            |
 | `resource.deployedModels.dedicatedResources.machineSpec.reservationAffinity.reservationAffinityType` |                                                            |
@@ -80,11 +81,13 @@ The following table lists the Gemini Enterprise Agent Platform resources that yo
 | `resource.deployedModels.dedicatedResources.spot`                                                    |                                                            |
 | `resource.deployedModels.displayName`                                                                |                                                            |
 | `resource.deployedModels.enableAccessLogging`                                                        |                                                            |
+| `resource.deployedModels.gdcConnectedModel`                                                          |                                                            |
 | `resource.deployedModels.model`                                                                      |                                                            |
 | `resource.description`                                                                               |                                                            |
 | `resource.displayName`                                                                               |                                                            |
 | `resource.encryptionSpec.kmsKeyName`                                                                 |                                                            |
 | `resource.genAiAdvancedFeaturesConfig.ragConfig.enableRag`                                           |                                                            |
+| `resource.name`                                                                                      |                                                            |
 | `resource.network`                                                                                   |                                                            |
 | `resource.predictRequestResponseLoggingConfig.bigqueryDestination.outputUri`                         |                                                            |
 | `resource.predictRequestResponseLoggingConfig.enabled`                                               |                                                            |
@@ -93,6 +96,10 @@ The following table lists the Gemini Enterprise Agent Platform resources that yo
 | `resource.privateServiceConnectConfig.projectAllowlist`                                              |                                                            |
 | `resource.privateServiceConnectConfig.pscAutomationConfigs.network`                                  |                                                            |
 | `resource.privateServiceConnectConfig.pscAutomationConfigs.projectId`                                |                                                            |
+| `resource.publisherModelConfig.claudeFeatureConfig.advancedAiEnabled`                                |                                                            |
+| `resource.publisherModelConfig.claudeFeatureConfig.cyberVerificationProgramEnabled`                  |                                                            |
+| `resource.publisherModelConfig.dataSharingEnabledProvider`                                           |                                                            |
+| `resource.trafficSplit`                                                                              |                                                            |
 
 ## Set up a custom constraint
 

@@ -291,8 +291,6 @@ You define Agent Gateways declaratively using YAML.
 
     ```
     name: AGENT_GATEWAY_NAME
-    protocols:
-      - MCP
     googleManaged:
       governedAccessPath: AGENT_TO_ANYWHERE
     registries:
@@ -447,8 +445,6 @@ You define Agent Gateways declaratively using YAML.
 
     ```
     name: AGENT_GATEWAY_NAME
-    protocols:
-      - MCP
     googleManaged:
       governedAccessPath: CLIENT_TO_AGENT
     ```

@@ -933,9 +933,9 @@ A single domain allowlist rule with optional header injection.
 
 Network egress configuration for the environment.
 
-| Fields        |                                                                                                                                                                                                                       |
-|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `allowlist[]` | [`EgressRule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.EnvironmentConfig.EgressRule) List of allowed domains and their configurations. |
+| Fields        |                                                                                                                                                                                                                                                                        |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `allowlist[]` | [`EgressRule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.EnvironmentConfig.EgressRule) List of allowed domains and their configurations. Set to `"disabled"` to block all network egress. |
 
 ## NetworkMode
 
@@ -1005,14 +1005,14 @@ Represents a single field in a struct.
 
 A file citation annotation.
 
-| Fields            |                                                                                                                                                                                               |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `document_uri`    | `string` The URI of the file.                                                                                                                                                                 |
-| `file_name`       | `string` The name of the file.                                                                                                                                                                |
-| `source`          | `string` Source attributed for a portion of the text.                                                                                                                                         |
-| `custom_metadata` | [`Struct`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.Struct) User provided metadata about the retrieved context. |
-| `page_number`     | `int32` Page number of the cited document, if applicable.                                                                                                                                     |
-| `media_id`        | `string` Media ID in-case of image citations, if applicable.                                                                                                                                  |
+| Fields            |                                                                                                                                 |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `document_uri`    | `string` The URI of the file.                                                                                                   |
+| `file_name`       | `string` The name of the file.                                                                                                  |
+| `source`          | `string` Source attributed for a portion of the text.                                                                           |
+| `custom_metadata` | [`Struct`](https://protobuf.dev/reference/protobuf/google.protobuf/#struct) User provided metadata about the retrieved context. |
+| `page_number`     | `int32` Page number of the cited document, if applicable.                                                                       |
+| `media_id`        | `string` Media ID in-case of image citations, if applicable.                                                                    |
 
 ## FileSearch
 

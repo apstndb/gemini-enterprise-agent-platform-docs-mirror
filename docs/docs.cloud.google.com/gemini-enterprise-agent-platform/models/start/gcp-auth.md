@@ -38,4 +38,4 @@ bash <(curl -sSL https://storage.googleapis.com/cloud-samples-data/adc/setup_adc
 
 ## Make your first API request
 
-After configuring application default credentials, learn how to make your first request in the [API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/express-mode/vertex-ai-express-mode-api-quickstart) .
+After configuring application default credentials, learn how to make your first request in the [API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/express-mode/express-mode-api-quickstart) .

@@ -348,7 +348,7 @@ Create a custom metric by doing the following:
 
 The data-driven optimizer configuration specifies the [parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/data-driven-optimizer#optimization-parameters) you want to set for your prompt optimization job.
 
-Note that Gemma models don't have managed APIs on Gemini Enterprise Agent Platform. To use a Gemma model, you must first deploy it in Gemini Enterprise Agent Platform or on your local machine. For more information about deploying in Gemini Enterprise Agent Platform, see [Use Gemma open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-gemma) . For more information about deploying to your local machine, see [Run Gemma with Ollama](https://ai.google.dev/gemma/docs/integrations/ollama) .
+Note that Gemma models don't have managed APIs on Gemini Enterprise Agent Platform. To use a Gemma model, you must first deploy an instruction-tuned ( `-it` ) Gemma model in Model Garden or on your local machine. For more information about deploying in Model Garden, see [Use Gemma open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-gemma) . For more information about deploying to your local machine, see [Run Gemma with Ollama](https://ai.google.dev/gemma/docs/integrations/ollama) .
 
 Create a configuration using one of the following options:
 
@@ -446,9 +446,9 @@ If you want to run the data-driven optimizer through the SDK, create a JSON file
 
     - `PROMPT_TEMPLATE` : the prompt template.
 
-    - `TARGET_MODEL` : the [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) for which you want to optimize prompts. For example, `gemma-3n-e4b-it` .
+    - `TARGET_MODEL` : the [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) for which you want to optimize prompts. For `OPTIMIZATION_TARGET_GEMINI_NANO` , use an instruction-tuned ( `-it` ) model.
 
-    - `BASE_URL` : The base URL of the locally-deployed model. For example, `http://localhost:8000/v1` . Required for `OPTIMIZATION_TARGET_GEMINI_NANO` configuration. If you aren't using a locally deployed model, remove the `target_model_endpoint_url` field from your configuration.
+    - `BASE_URL` : The base URL of the model deployed in Model Garden or on your local machine. For example, `https://<var>DEDICATED_ENDPOINT_DNS</var>/v1beta1/projects/<var>PROJECT_NUMBER</var>/locations/<var>LOCATION</var>/endpoints/<var>ENDPOINT_ID</var>` or `http://localhost:8000/v1` . Required for `OPTIMIZATION_TARGET_GEMINI_NANO` configuration.
 
     - `THINKING_BUDGET` : the thinking budget for the target model that you want to optimize prompts. Defaults to -1, which means no thinking for non-thinking models and auto thinking for thinking models like Gemini-2.5. To learn about manual budget settings, see [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) . Note that some models, like Gemma models, don't support `thinking_budget` .
 
@@ -634,7 +634,7 @@ Request JSON body:
         "replicaCount": 1,
         "containerSpec": {
           "imageUri": "us-docker.pkg.dev/vertex-ai-restricted/builtin-algorithm/apd:preview_v1_0",
-          "args": ["--config=PATH_TO_CONFIG""]
+          "args": ["--config=PATH_TO_CONFIG"]
         }
       }
     ]
@@ -752,7 +752,7 @@ To use Gemma model as the target model, make the following changes:
 ```
 nano_config = vertexai.types.PromptOptimizerConfig(
     config_path="gs://sample-bucket/config_nano.json",
-    project_number=project_number,
+    service_account_project_number=project_number,
     wait_for_completion=True
     )
 # Simpler version

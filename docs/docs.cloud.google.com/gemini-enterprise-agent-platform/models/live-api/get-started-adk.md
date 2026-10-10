@@ -6,13 +6,13 @@ description: Learn how to create a simple agent and use ADK Streaming to enable 
 data_source: docs.cloud.google.com
 ---
 
-This tutorial shows you how to create an agent and use the Agent Development Kit (ADK) Streaming to enable voice and video communication. You install the ADK, set up a basic agent that uses Google Search, and run the agent with the `adk web` tool.
+This tutorial shows you how to create an agent and use the Agent Development Kit (ADK) Streaming to enable voice and video communication. You install ADK, set up a basic agent that uses Google Search, and run the agent with the `adk web` tool.
 
 ## Before you begin
 
 This guide assumes you have experience using a terminal in Windows, macOS, or Linux environments.
 
-## Set up your environment and install the ADK
+## Set up your environment and install ADK
 
 This section shows you how to prepare your local environment.
 
@@ -31,7 +31,7 @@ This section shows you how to prepare your local environment.
     .venv\Scripts\Activate.ps1
     ```
 
-2.  Install the ADK.
+2.  Install ADK.
 
     ```
     pip install google-adk
@@ -56,7 +56,7 @@ Create the necessary directories and files for your agent.
       name="basic_search_agent",
       # The Large Language Model (LLM) that agent will use.
       # Please fill in the latest model id that supports live from
-      # https://google.github.io/adk-docs/get-started/streaming/quickstart-streaming/#supported-models
+      # https://adk.dev/live/get-started/streaming-python/#supported-models
       model="...",  # for example: model="gemini-live-2.5-flash-native-audio"
       # A short description of the agent's purpose.
       description="Agent to answer questions using Google Search.",
@@ -144,7 +144,7 @@ Enter the following prompts in the UI to test the agent's text-based responses. 
 
 To use voice input, reload the web browser and click the microphone button. Ask a question, and you hear the answer in real time.
 
-To use video input, reload the web browser and click the camera button. Ask a question like "What do you see?", and the agent describes what it sees from the video input.
+To use video input, reload the web browser and click the camera button. Ask a question like "What do you see?", and the agent describes the video input.
 
 > **Note:** Click the microphone or camera button only once to start streaming. Clicking the buttons multiple times is not supported.
 
@@ -154,8 +154,7 @@ To stop the `adk web` tool, press `Ctrl+C` in the terminal where it is running.
 
 ## What's next
 
-- To learn more about Live API development using ADK, see the [ADK documentation](https://google.github.io/adk-docs/streaming/) .
-- See the [Bidi-streaming demo](https://github.com/google/adk-samples/tree/main/python/agents/bidi-demo) .
+- To learn more about Gemini Live API development using ADK, see [ADK Gemini Live API Toolkit](https://adk.dev/live/) .
 - [Get started using the Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/get-started-sdk) .
 - [Get started using WebSockets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/get-started-websocket) .
 - Learn how to [configure language and voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice) .

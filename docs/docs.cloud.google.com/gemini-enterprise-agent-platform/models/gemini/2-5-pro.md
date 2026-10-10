@@ -61,20 +61,12 @@ Input only</th>
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instruction-introduction">System instructions</a><br />
 Supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions">Interactions API</a> preview Preview feature<br />
-Not supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api">Gemini Live API</a><br />
-Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output">Structured output</a><br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview">Context caching</a><br />
 Implicit context caching, explicit context caching<br />
 Supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count">Count Tokens</a><br />
-Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview">RAG Engine</a><br />
-Supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview">Chat completions</a><br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models">Tuning</a><br />
 Supervised fine-tuning, continuous tuning, tuning checkpoints<br />
@@ -102,6 +94,22 @@ Not supported</li>
 <td></td>
 </tr>
 <tr class="odd">
+<th>APIs</th>
+<th><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference">GenerateContent API</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions">Interactions API</a> preview Preview feature<br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api">Gemini Live API</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count">Count Tokens API</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview">Chat Completions API</a><br />
+Supported</li>
+</ul></th>
+<td></td>
+</tr>
+<tr class="even">
 <th>Consumption options</th>
 <th><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a><br />
@@ -109,19 +117,19 @@ Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference">Batch inference</a><br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options">Pay-as-you-go</a><br />
-Priority PayGo<br />
+Standard PayGo with Usage Tiers, Priority PayGo<br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas">Fixed quota</a><br />
 Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Input size limit</th>
 <th>500 MB</th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Technical specifications</th>
 <th><strong>Image</strong> photo</th>
 <td><ul>
@@ -132,7 +140,7 @@ Not supported</li>
 <code>image/png</code> , <code>image/jpeg</code> , <code>image/webp</code> , <code>image/heic</code> , <code>image/heif</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th><strong>Text</strong> description</th>
 <th><ul>
 <li>Maximum number of files per prompt: 3,000</li>
@@ -144,7 +152,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th><strong>Video</strong> videocam</th>
 <th><ul>
 <li>Maximum video length (with audio): Approximately 45 minutes</li>
@@ -155,7 +163,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th><strong>Audio</strong> mic</th>
 <th><ul>
 <li>Maximum audio length per prompt: Approximately 8.4 hours, or up to 1 million tokens</li>
@@ -166,7 +174,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th><strong>Parameter defaults</strong> tune</th>
 <th><ul>
 <li>Temperature: 0.0-2.0 (default 1.0)</li>
@@ -176,7 +184,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Supported regions</th>
 <th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations">Model availability</a></strong></p></th>
 <td><ul>
@@ -187,7 +195,7 @@ Not supported</li>
 <li>Asia Pacific: <code>asia-northeast1</code></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Versions</th>
 <th><ul>
 <li><code>gemini-2.5-pro</code>
@@ -199,7 +207,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Security controls</th>
 <th><strong>Online prediction</strong></th>
 <td><ul>
@@ -209,7 +217,7 @@ Not supported</li>
 <li>AXT</li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th><strong>Batch inference</strong></th>
 <th><ul>
 <li>Data residency</li>
@@ -219,7 +227,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th><strong>Tuning</strong></th>
 <th><ul>
 <li>Data residency</li>
@@ -229,7 +237,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th><strong>Context caching</strong></th>
 <th><ul>
 <li>Data residency</li>
@@ -239,7 +247,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th><strong>RAG Engine</strong></th>
 <th><ul>
 <li>Data residency</li>
@@ -249,7 +257,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th><strong>Grounding with Google Search and Grounding with Google Maps</strong></th>
 <th><ul>
 <li>Data residency</li>
@@ -259,7 +267,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls">Security controls</a> for more information.</th>
 <th></th>
 <td></td>

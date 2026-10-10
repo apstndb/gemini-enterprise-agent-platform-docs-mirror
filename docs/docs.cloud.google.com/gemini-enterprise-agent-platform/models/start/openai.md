@@ -6,7 +6,7 @@ description: Integrate Gemini models using OpenAI libraries and REST API. Implem
 data_source: docs.cloud.google.com
 ---
 
-Gemini models are accessible using the OpenAI libraries (Python and TypeScript / Javascript) along with the REST API. Only Google Cloud Auth is supported using the OpenAI library in Gemini Enterprise Agent Platform. If you aren't already using the OpenAI libraries, we recommend that you call the [Gemini API directly](https://ai.google.dev/gemini-api/docs/quickstart) . If you are using OpenAI libraries and want to migrate to Agent Platform SDKs, see [Migrate from OpenAI SDK to Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/migrate-code) .
+Gemini models are accessible using the OpenAI libraries (Python, TypeScript, and JavaScript) along with the REST API. Only Google Cloud Auth is supported using the OpenAI library in Gemini Enterprise Agent Platform. If you aren't already using the OpenAI libraries, call the [Gemini API](https://ai.google.dev/gemini-api/docs/quickstart) directly. If you are using OpenAI libraries and want to migrate to Agent Platform SDKs, see [Migrate from OpenAI SDK to Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/migrate-code) .
 
 ### Python
 
@@ -40,23 +40,23 @@ response = client.chat.completions.create(
 print(response.choices[0].message)
 ```
 
-What changed?
+Note the following differences from standard OpenAI client configuration:
 
-- **`api_key=credentials.token`** : To use Google Cloud authentication, get a Google Cloud auth token using the sample code.
+- **`api_key=credentials.token`** : Uses an OAuth access token obtained from Google Cloud Application Default Credentials.
 
-- **`base_url`** : This tells the OpenAI library to send requests to Google Cloud instead of the default URL.
+- **`base_url`** : Directs the OpenAI library to send requests to the Agent Platform OpenAI-compatible endpoint instead of the default URL.
 
-- **`model="google/gemini-3.5-flash"`** : Choose a compatible Gemini model out of the models that Vertex hosts.
+- **`model="google/gemini-3.5-flash"`** : Selects a compatible Gemini model hosted on Agent Platform.
 
 ## Thinking
 
-Gemini 2.5 models are trained to think through complex problems, leading to significantly improved reasoning. The Gemini API comes with a ["thinking budget" parameter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking#budget) which gives fine-grained control over how much the model will think.
+Gemini 3 models generate an internal reasoning process before returning a response, improving performance on complex multi-step tasks. In the Gemini API, the [`thinking_level` parameter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking#gemini-3-and-later-models) controls reasoning depth across discrete tiers ( `MINIMAL` , `LOW` , `MEDIUM` , and `HIGH` ).
 
-Unlike the Gemini API, the OpenAI API offers three levels of thinking control: "low", "medium", and "high", which are mapped behind the scenes to 1K, 8K, and 24K thinking token budgets.
+In the OpenAI-compatible Chat Completions API, you control reasoning depth with the `reasoning_effort` parameter ( `"minimal"` , `"low"` , `"medium"` , or `"high"` ), which maps to the corresponding `thinking_level` setting for Gemini 3 models.
 
-Not specifying a reasoning effort at all is equivalent to not specifying a thinking budget.
+Omitting `reasoning_effort` uses the model's default thinking configuration.
 
-For more direct control of thinking budgets and other thinking-related configs from the OpenAI-compatible API, utilize [`extra_body.google.thinking_config`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview#gemini_specific_parameters) .
+For direct control over thinking configuration parameters from the OpenAI-compatible API, use [`extra_body.google.thinking_config`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview#gemini-specific-parameters) .
 
 ### Python
 
@@ -69,7 +69,7 @@ import google.auth.transport.requests
 # project_id = "PROJECT_ID"
 # location = "global"
 
-# # Programmatically get an access token
+# Programmatically get an access token
 credentials, _ = default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
 credentials.refresh(google.auth.transport.requests.Request())
 
@@ -185,7 +185,7 @@ print(response)
 
 ## Image understanding
 
-Gemini models are natively multimodal and provide best in class performance on [many common vision tasks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding) .
+Gemini models are natively multimodal and support [many common vision tasks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding) .
 
 ### Python
 
@@ -261,7 +261,7 @@ Save the request body in a file named `request.json` . Run the following command
 ```
 cat > request.json << 'EOF'
 {
-  "model": "google/gemini-2.5-flash-image-preview",
+  "model": "google/gemini-3.1-flash-image",
   "messages": [{
     "role": "user",
     "content": "Generate an image of a banana."
@@ -290,7 +290,7 @@ Save the request body in a file named `request.json` . Run the following command
 ```
 @'
 {
-  "model": "google/gemini-2.5-flash-image-preview",
+  "model": "google/gemini-3.1-flash-image",
   "messages": [{
     "role": "user",
     "content": "Generate an image of a banana."
@@ -334,7 +334,7 @@ You should receive a JSON response similar to the following:
   }],
   "created":1757099999,
   "id":"sample_response_id",
-  "model":"google/gemini-2.5-flash-image-preview",
+  "model":"google/gemini-3.1-flash-image",
   "object":"chat.completion",
   "system_fingerprint":"",
   "usage": {
@@ -347,7 +347,7 @@ You should receive a JSON response similar to the following:
 
 ## Audio understanding
 
-Analyze audio input:
+The following sample shows how to analyze audio input:
 
 ### Python
 
@@ -373,7 +373,7 @@ client = openai.OpenAI(
 )
 
 with open("/path/to/your/audio/file.wav", "rb") as audio_file:
-base64_audio = base64.b64encode(audio_file.read()).decode('utf-8')
+  base64_audio = base64.b64encode(audio_file.read()).decode('utf-8')
 
 response = client.chat.completions.create(
   model="google/gemini-3.5-flash",
@@ -446,12 +446,14 @@ print(completion.choices[0].message.parsed)
 
 ## Current limitations
 
-- Access tokens live for 1 hour by default. After expiration, they must be refreshed. See [this code example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/auth-and-credentials#refresh_your_credentials) for more information.
+Consider the following limitation when using the OpenAI-compatible API:
+
+- Access tokens live for 1 hour by default. After expiration, they must be refreshed. For more information, see [Refresh your credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/auth-and-credentials#refresh-credentials) .
 
 ## What's next
 
-- Unlock Gemini's potential using the [Google Gen AI Libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/libraries) .
+- Use the [Google Gen AI Libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/libraries) to call Gemini models directly.
 
 - See more examples using the [Chat Completions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/examples) with the OpenAI-compatible syntax.
 
-- See which Gemini models and parameters are supported [in the Overview page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview) .
+- See supported Gemini models and parameters in [Using OpenAI libraries with Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview) .

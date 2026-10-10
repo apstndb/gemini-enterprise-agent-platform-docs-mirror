@@ -6,46 +6,46 @@ description: Learn how to create, list, view, update, and delete Identity and Ac
 data_source: docs.cloud.google.com
 ---
 
-You can create, list, view, update, and delete IAM Unified Access Policies (Access policies) and policy bindings using the Google Cloud console, the gcloud CLI, or the REST API.
+You can create, list, view, update, and delete IAM Unified Access Policies (UAPs) and policy bindings using the Google Cloud console, the gcloud CLI, or the REST API.
 
-Agent Gateway uses Identity-Aware Proxy (IAP) to enforce these egress policies across your agents, MCP servers, and endpoints. For an overview of how policies work, see [IAM Access policies overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap) . For detailed rule examples and CEL attributes, see [Create IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
+Agent Gateway uses Identity-Aware Proxy (IAP) to enforce these egress policies across your agents, MCP servers, and endpoints. For an overview of how policies work, see [IAM UAPs overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap) . For detailed rule examples and CEL attributes, see [Create IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
 
 ## Required roles
 
-To get the permissions that you need to manage Access policies and policy bindings, ask your administrator to grant you the following IAM roles on your project:
+To get the permissions that you need to manage UAPs and policy bindings, ask your administrator to grant you the following IAM roles on your project:
 
-- View Access policies and bindings: [Access Policy Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.accessPolicyViewer) ( `roles/iam.accessPolicyViewer` )
-- Create, update, and delete Access policies and bindings: [Access Policy Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.accessPolicyAdmin) ( `roles/iam.accessPolicyAdmin` )
+- View UAPs and bindings: [Access Policy Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.accessPolicyViewer) ( `roles/iam.accessPolicyViewer` )
+- Create, update, and delete UAPs and bindings: [Access Policy Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.accessPolicyAdmin) ( `roles/iam.accessPolicyAdmin` )
 - Bind policies to a project: [Project IAM Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin) ( `roles/resourcemanager.projectIamAdmin` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
-## Create an Access policy
+## Create a UAP
 
-An Access policy contains one or more allow or deny rules. Before a policy takes effect, you must [bind it to a target resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap#bind-policy) .
+A UAP contains one or more allow or deny rules. Before a policy takes effect, you must [bind it to a target resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap#bind-policy) .
 
-For more information about creating Access policies, see [Create IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
+For more information about creating UAPs, see [Create IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
 
 ### Console
 
 1.  In the Google Cloud console, go to the **Policies** page:
 
-2.  In the project selector, select the project that contains the agent gateways that will use the Access policy.
+2.  In the project selector, select the project that contains the agent gateways that will use the UAP.
 
-3.  To add an IAM Access policy for Agent Gateway egress, click add **Create** .
+3.  To add an IAM UAP for Agent Gateway egress, click add **Create** .
 
 4.  In the **Policy details** pane, do the following:
     1.  Click the **Policy** field.
     2.  In the drop-down list, select **Create new policy** .
     3.  In the **Policy name** field, enter a descriptive name for the policy.
-    4.  In **Add Rules** , configure your allow or deny rules and CEL conditions. For Access policy configuration steps and examples, see [Create IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
+    4.  In **Add Rules** , configure your allow or deny rules and CEL conditions. For UAP configuration steps and examples, see [Create IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
     5.  To save the rule, click **Create** .
 
 ### gcloud
 
-To create an Access policy using the gcloud CLI, define your policy rules in a JSON file and run the `create` command:
+To create a UAP using the gcloud CLI, define your policy rules in a JSON file and run the `create` command:
 
 ```sh
 gcloud iam access-policies create POLICY_NAME \
@@ -62,7 +62,7 @@ Replace the following:
 
 ### API
 
-To create an Access policy using the REST API, make a `POST` request to the `accessPolicies` endpoint:
+To create a UAP using the REST API, make a `POST` request to the `accessPolicies` endpoint:
 
 ```sh
 curl -X POST \
@@ -105,7 +105,7 @@ Replace the following:
 
 ## Bind a policy to a target resource
 
-To enforce an Access policy, bind it to a target resource scope, such as a project or an Agent Gateway instance.
+To enforce a UAP, bind it to a target resource scope, such as a project or an Agent Gateway instance.
 
 ### Console
 
@@ -113,7 +113,7 @@ When you save a policy, it is automatically bound to the project.
 
 ### gcloud
 
-To bind an Access policy to a target resource using the gcloud CLI, run the following command:
+To bind a UAP to a target resource using the gcloud CLI, run the following command:
 
 ```sh
 gcloud iam policy-bindings create BINDING_NAME \
@@ -139,7 +139,7 @@ Replace the following:
 
 ### API
 
-To bind an Access policy to a target resource using the REST API, make a `POST` request to the `policyBindings` endpoint:
+To bind a UAP to a target resource using the REST API, make a `POST` request to the `policyBindings` endpoint:
 
 ```sh
 curl -X POST \
@@ -158,23 +158,23 @@ Replace the following:
 
 - `PROJECT_ID` : your project ID
 - `BINDING_NAME` : a name for your policy binding
-- `POLICY_NAME` : the name of the Access policy
+- `POLICY_NAME` : the name of the UAP
 - `TARGET_RESOURCE` : the full resource URI for the project, formatted as follows: `//cloudresourcemanager.googleapis.com/projects/ `` PROJECT_ID`
 
 ## List policies and policy bindings
 
-You can list all Access policies in your project or list all policy bindings attached to a target resource.
+You can list all UAPs in your project or list all policy bindings attached to a target resource.
 
-### List Access policies
+### List UAPs
 
 ### Console
 
 1.  In the Google Cloud console, go to the **Policies** page.
-2.  All Access policies created in your project appear in the list in the **Unified Access Policies** tab.
+2.  All UAPs created in your project appear in the list in the **Unified Access Policies** tab.
 
 ### gcloud
 
-To list Access policies in your project, run the following command:
+To list UAPs in your project, run the following command:
 
 ```sh
 gcloud iam access-policies list \
@@ -184,7 +184,7 @@ gcloud iam access-policies list \
 
 ### API
 
-To list Access policies using the REST API, make a `GET` request to the `accessPolicies` endpoint:
+To list UAPs using the REST API, make a `GET` request to the `accessPolicies` endpoint:
 
 ```sh
 curl -X GET \
@@ -229,23 +229,23 @@ curl -X GET \
 
 ## Describe a policy or policy binding
 
-You can retrieve the detailed configuration and rules of a specific Access policy or policy binding.
+You can retrieve the detailed configuration and rules of a specific UAP or policy binding.
 
-### Describe an Access policy
+### Describe a UAP
 
 ### Console
 
 1.  In the Google Cloud console, go to the **Policies** page:
 
-2.  In the project selector, select the project that contains the agent gateways that will use the Access policy.
+2.  In the project selector, select the project that contains the agent gateways that will use the UAP.
 
-3.  In the **Agent policies** table in the Access policies tab, locate the policy that you want to describe.
+3.  In the **Agent policies** table in the UAPs tab, locate the policy that you want to describe.
 
 4.  In the row for the policy, click more_vert **More actions** , and then click **View rule** .
 
 ### gcloud
 
-To describe a specific Access policy, run the following command:
+To describe a specific UAP, run the following command:
 
 ```sh
 gcloud iam access-policies describe POLICY_NAME \
@@ -255,7 +255,7 @@ gcloud iam access-policies describe POLICY_NAME \
 
 ### API
 
-To retrieve a specific Access policy using the REST API, make a `GET` request:
+To retrieve a specific UAP using the REST API, make a `GET` request:
 
 ```sh
 curl -X GET \
@@ -291,17 +291,17 @@ curl -X GET \
 
 ## Update policies and policy bindings
 
-You can update the rules inside an existing Access policy or update the target or policy referenced by a policy binding.
+You can update the rules inside an existing UAP or update the target or policy referenced by a policy binding.
 
-### Update an Access policy
+### Update a UAP
 
 ### Console
 
 1.  In the Google Cloud console, go to the **Policies** page:
 
-2.  In the project selector, select the project that contains the agent gateways that will use the Access policy.
+2.  In the project selector, select the project that contains the agent gateways that will use the UAP.
 
-3.  In the **Agent policies** table in the Access policies tab, locate the policy row that you want to edit.
+3.  In the **Agent policies** table in the UAPs tab, locate the policy row that you want to edit.
 
 4.  Click more_vert **More actions** , and then click **Edit rule** .
 
@@ -311,7 +311,7 @@ You can update the rules inside an existing Access policy or update the target o
 
 ### gcloud
 
-To update an existing Access policy using the gcloud CLI, save your modified rules to a JSON file and run the following command:
+To update an existing UAP using the gcloud CLI, save your modified rules to a JSON file and run the following command:
 
 ```sh
 gcloud iam access-policies update POLICY_NAME \
@@ -322,7 +322,7 @@ gcloud iam access-policies update POLICY_NAME \
 
 ### API
 
-To update an Access policy using the REST API, make a `PATCH` request to the Access policy endpoint:
+To update a UAP using the REST API, make a `PATCH` request to the UAP endpoint:
 
 ```sh
 curl -X PATCH \
@@ -382,7 +382,7 @@ curl -X PATCH \
 
 ## Delete policies and policy bindings
 
-> **Caution:** Before you can delete an Access policy, you must first delete all policy bindings that reference it.
+> **Caution:** Before you can delete a UAP, you must first delete all policy bindings that reference it.
 
 ### Delete a policy binding
 
@@ -410,15 +410,15 @@ curl -X DELETE \
 -H "Authorization: Bearer $(gcloud auth print-access-token)"
 ```
 
-### Delete an Access policy
+### Delete a UAP
 
 ### Console
 
-To delete an Access policy, you must delete all of the rules in the policy.
+To delete a UAP, you must delete all of the rules in the policy.
 
 1.  In the Google Cloud console, go to the **Policies** page:
 
-2.  In the project selector, select the project that contains the agent gateways that will use the Access policy.
+2.  In the project selector, select the project that contains the agent gateways that will use the UAP.
 
 3.  In the **Agent Policies** table of the **Unified Access Policies** tab, filter filter_list **Filter** or locate the policy that you want to delete.
 
@@ -426,7 +426,7 @@ To delete an Access policy, you must delete all of the rules in the policy.
 
 ### gcloud
 
-To delete an Access policy after deleting its bindings, run the following command:
+To delete a UAP after deleting its bindings, run the following command:
 
 ```sh
 gcloud iam access-policies delete POLICY_NAME \
@@ -436,7 +436,7 @@ gcloud iam access-policies delete POLICY_NAME \
 
 ### API
 
-To delete an Access policy using the REST API, make a `DELETE` request:
+To delete a UAP using the REST API, make a `DELETE` request:
 
 ```sh
 curl -X DELETE \
@@ -446,9 +446,9 @@ curl -X DELETE \
 
 ## What's next
 
-- [CEL attributes for Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
-- [Create IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap)
-- [Troubleshoot IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap)
+- [CEL attributes for UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
+- [Create IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap)
+- [Troubleshoot IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap)
 
 Overview
 

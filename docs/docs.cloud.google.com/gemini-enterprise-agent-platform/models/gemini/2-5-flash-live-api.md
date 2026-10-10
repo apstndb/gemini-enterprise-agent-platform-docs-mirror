@@ -75,19 +75,11 @@ Input only</th>
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instruction-introduction">System instructions</a><br />
 Supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions">Interactions API</a> preview Preview feature<br />
-Not supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api">Gemini Live API</a><br />
-Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output">Structured output</a><br />
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview">Context caching</a><br />
 Not supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count">Count Tokens</a><br />
-Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview">RAG Engine</a><br />
-Not supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview">Chat completions</a><br />
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models">Tuning</a><br />
 Not supported</li>
@@ -114,6 +106,22 @@ Not supported</li>
 <td></td>
 </tr>
 <tr class="even">
+<th>APIs</th>
+<th><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference">GenerateContent API</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions">Interactions API</a> preview Preview feature<br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api">Gemini Live API</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count">Count Tokens API</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview">Chat Completions API</a><br />
+Not supported</li>
+</ul></th>
+<td></td>
+</tr>
+<tr class="odd">
 <th>Consumption options</th>
 <th><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput">Provisioned Throughput</a><br />
@@ -128,7 +136,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Technical specifications</th>
 <th><strong>Image</strong> photo</th>
 <td><ul>
@@ -139,7 +147,7 @@ Not supported</li>
 <code>image/png</code> , <code>image/jpeg</code> , <code>image/webp</code> , <code>image/heic</code> , <code>image/heif</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th><strong>Video</strong> videocam</th>
 <th><ul>
 <li>Standard resolution: 768 x 768</li>
@@ -148,7 +156,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th><strong>Audio</strong> mic</th>
 <th><ul>
 <li>Maximum conversation length: Default 10 minutes that can <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#session-extension">be extended.</a></li>
@@ -159,7 +167,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th><strong>Parameter defaults</strong> tune</th>
 <th><ul>
 <li>Start of speech sensitivity: Low</li>
@@ -169,7 +177,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Supported regions</th>
 <th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations">Model availability</a></strong></p></th>
 <td><ul>
@@ -177,7 +185,7 @@ Not supported</li>
 <li>Europe: <code>europe-central2</code> , <code>europe-north1</code> , <code>europe-southwest1</code> , <code>europe-west1</code> , <code>europe-west4</code> , <code>europe-west8</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Versions</th>
 <th><ul>
 <li><code>gemini-live-2.5-flash-native-audio</code>
@@ -189,7 +197,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Security controls</th>
 <th><strong>Online prediction</strong></th>
 <td><ul>
@@ -199,7 +207,7 @@ Not supported</li>
 <li>AXT</li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls">Security controls</a> for more information.</th>
 <th></th>
 <td></td>
