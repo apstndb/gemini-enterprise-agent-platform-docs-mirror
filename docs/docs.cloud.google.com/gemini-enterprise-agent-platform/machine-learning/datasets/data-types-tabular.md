@@ -217,13 +217,12 @@ The data transformation Agent Platform applies depends on the transformation typ
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Array type</th>
 <th>Transformation</th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><strong>Numerical array</strong></td>
 <td><ul>

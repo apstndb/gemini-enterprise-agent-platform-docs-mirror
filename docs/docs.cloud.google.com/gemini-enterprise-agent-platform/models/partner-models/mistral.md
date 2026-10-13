@@ -293,15 +293,14 @@ For Mistral AI models, a quota applies for each region where the model is availa
 <col style="width: 25%" />
 <col style="width: 25%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Model</th>
 <th>Region</th>
 <th>Quotas</th>
 <th>Context length</th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td>Mistral Medium 3</td>
 <td></td>

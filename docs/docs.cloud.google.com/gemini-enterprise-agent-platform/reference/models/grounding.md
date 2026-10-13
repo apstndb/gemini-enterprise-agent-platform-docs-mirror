@@ -65,14 +65,13 @@ The API response structure includes the following parameter:
 <col style="width: 33%" />
 <col style="width: 33%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Response parameter</th>
 <th></th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>grounding_metadata</code></p></td>
 <td><p>Required: <code>Object</code></p>

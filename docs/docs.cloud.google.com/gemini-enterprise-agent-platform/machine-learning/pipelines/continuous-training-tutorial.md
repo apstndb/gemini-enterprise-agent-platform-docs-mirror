@@ -1073,7 +1073,7 @@ To clean up all Google Cloud resources used for this project, you can [delete th
 
 Else, you can delete the individual resources you created for this tutorial.
 
-1.  [Delete the Colab Enterprise notebook](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/colab/create-console-quickstart#delete-your-notebook) .
+1.  [Delete the Colab Enterprise notebook](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/colab/create-console-quickstart#delete-your-notebook) .
 
 2.  [Delete the dataset in BigQuery](https://docs.cloud.google.com/bigquery/docs/managing-datasets#delete-datasets) .
 

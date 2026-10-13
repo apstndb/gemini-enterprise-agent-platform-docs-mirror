@@ -291,8 +291,9 @@ For Llama models, you can use Vertex AI Studio to quickly prototype and test gen
 
 For Llama models, a quota applies for each region where the model is available. The quota is specified in queries per minute (QPM).
 
-| Model                     | Region | Quotas    | Context length |
+|                           |        |           |                |
 |---------------------------|--------|-----------|----------------|
+| Model                     | Region | Quotas    | Context length |
 | Llama 4 Maverick 17B-128E |        |           |                |
 | `us-east5`                |        | 524,288   |                |
 | Llama 4 Scout 17B-16E     |        |           |                |

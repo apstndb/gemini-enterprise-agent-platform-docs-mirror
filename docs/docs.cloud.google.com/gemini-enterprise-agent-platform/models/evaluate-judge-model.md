@@ -43,13 +43,12 @@ For a `PointwiseMetric` that returns only 2 scores (such as 0 and 1), and a `Pai
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Metric</th>
 <th>Calculation</th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td>2-class balanced accuracy</td>
 <td>\( (1/2)*(True Positive Rate + True Negative Rate) \)</td>

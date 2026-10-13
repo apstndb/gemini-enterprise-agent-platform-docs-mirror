@@ -53,13 +53,12 @@ This table lists the parameters used to create a RAG corpus.
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th><strong>Parameters</strong></th>
 <th><strong></strong></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>rag_managed_db</code></p></td>
 <td><p><code>oneof</code> <code>vector_db</code> : <code>RagVectorDbConfig.RagManagedDb</code></p>

@@ -20,14 +20,13 @@ The following table summarizes the main differences between the Gemini API and G
 <col style="width: 33%" />
 <col style="width: 33%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th><strong>Feature</strong></th>
 <th><strong>Gemini API</strong></th>
 <th><strong>Gemini Enterprise Agent Platform</strong></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <th>Endpoint names</th>
 <td><code>generativelanguage.googleapis.com</code></td>

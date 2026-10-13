@@ -276,13 +276,12 @@ The `TF_CONFIG` environment variable is a JSON string with the following format:
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th><code>TF_CONFIG</code> fields</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><code>cluster</code></td>
 <td><p>The TensorFlow cluster description. A dictionary mapping one or more task names ( <code>chief</code> , <code>worker</code> , <code>ps</code> , or <code>master</code> ) to lists of network addresses where these tasks are running. For a given training job, this dictionary is the same on every VM.</p>

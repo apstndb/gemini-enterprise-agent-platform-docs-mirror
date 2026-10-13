@@ -21,15 +21,14 @@ The following table provides an overview of the available metric prompt template
 <col style="width: 25%" />
 <col style="width: 25%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th></th>
 <th>Text use case</th>
 <th>Multi-turn chat use case</th>
 <th>Other key use cases</th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td>Pointwise</td>
 <td><ul>

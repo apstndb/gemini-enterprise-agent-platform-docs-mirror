@@ -88,13 +88,12 @@ Defines the format of the input and output data in a function call based on the 
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Parameters</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td>type</td>
 <td><p><code>string</code></p>
@@ -150,13 +149,12 @@ The `FunctionCallingConfig` controls the behavior of the model and determines wh
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Parameters</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>mode</code></p></td>
 <td><p>Optional: <code>enum/string[]</code></p>

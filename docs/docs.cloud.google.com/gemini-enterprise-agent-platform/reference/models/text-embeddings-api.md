@@ -67,13 +67,12 @@ embeddings = model.get_embeddings(...)
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Top-level fields</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>instances</code></p></td>
 <td><p>A list of objects containing the following fields:</p>
@@ -99,13 +98,12 @@ embeddings = model.get_embeddings(...)
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th><code>instance</code> fields</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>content</code></p></td>
 <td><p><code>string</code></p>
@@ -202,13 +200,12 @@ Semantic similarity: Use task_type= `SEMANTIC_SIMILARITY` for both input texts t
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Response elements</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>predictions</code></p></td>
 <td><p>A list of objects with the following fields:</p>
@@ -228,13 +225,12 @@ Semantic similarity: Use task_type= `SEMANTIC_SIMILARITY` for both input texts t
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th><code>embeddings</code> fields</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>values</code></p></td>
 <td><p>A list of <code>float</code> s. The <code>values</code> field contains a numerical encoding (embedding vector) of the semantic content present in the given input text.</p></td>

@@ -62,15 +62,14 @@ To perform this task, you must grant [Identity and Access Management (IAM)](http
 <col style="width: 25%" />
 <col style="width: 25%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Service account</th>
 <th>Default principal</th>
 <th>Description</th>
 <th>Roles</th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td>Agent Platform Service Agent</td>
 <td><code>service- </code><var translate="no"> PROJECT_NUMBER </var><code> @gcp-sa-aiplatform.iam.gserviceaccount.com</code></td>

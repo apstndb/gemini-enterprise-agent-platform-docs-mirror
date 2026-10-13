@@ -136,15 +136,14 @@ Use the following table to decide when you want to use pointwise or pairwise eva
 <col style="width: 25%" />
 <col style="width: 25%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th></th>
 <th>Definition</th>
 <th>When to use</th>
 <th>Example use cases</th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td>Pointwise evaluation</td>
 <td>Evaluate one model and generate scores based on the criteria</td>

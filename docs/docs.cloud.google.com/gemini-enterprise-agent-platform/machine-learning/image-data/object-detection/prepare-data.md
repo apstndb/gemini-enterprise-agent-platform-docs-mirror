@@ -23,13 +23,12 @@ To use images from a Cloud Storage bucket, you must grant the [Agent Platform Se
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th></th>
 <th><strong>General image requirements</strong></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td>Supported file types</td>
 <td><ul>
@@ -65,13 +64,12 @@ To use images from a Cloud Storage bucket, you must grant the [Agent Platform Se
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th></th>
 <th><strong>Labels and bounding box requirements</strong></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><strong>The following requirements apply to datasets used to train AutoML models.</strong></td>
 <td></td>

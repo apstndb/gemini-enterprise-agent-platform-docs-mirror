@@ -52,15 +52,14 @@ The metrics and thresholds you monitor are mapped to *monitoring objectives* . F
 <col style="width: 25%" />
 <col style="width: 25%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Objective</th>
 <th>Description</th>
 <th>Feature data type</th>
 <th>Supported metrics</th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td>Input feature data drift</td>
 <td><p>Measures the distribution of input feature values compared to a baseline data distribution.</p></td>

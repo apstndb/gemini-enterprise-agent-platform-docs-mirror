@@ -140,13 +140,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Output</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>exact_match_metric_values</code></p></td>
 <td><p><code>ExactMatchMetricValue[]</code></p>
@@ -234,13 +233,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Parameters</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>metric_spec</code></p></td>
 <td><p>Optional: <code>RougeSpec</code></p>
@@ -339,13 +337,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Output</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>score</code></p></td>
 <td><p><code>float</code> : One of the following:</p>
@@ -404,13 +401,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Output</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>score</code></p></td>
 <td><p><code>float</code> : One of the following:</p>
@@ -469,13 +465,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Output</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>score</code></p></td>
 <td><p><code>float</code> : One of the following:</p>
@@ -534,13 +529,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Output</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>score</code></p></td>
 <td><p><code>float</code> : One of the following:</p>
@@ -598,13 +592,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Output</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>score</code></p></td>
 <td><p><code>float</code> : One of the following:</p>
@@ -667,13 +660,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Output</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>score</code></p></td>
 <td><p><code>float</code> : One of the following:</p>
@@ -738,13 +730,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Output</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>pairwise_choice</code></p></td>
 <td><p><code>PairwiseChoice</code> : Enum with possible values as follows:</p>
@@ -805,13 +796,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Output</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>score</code></p></td>
 <td><p><code>float</code> : One of the following:</p>
@@ -874,13 +864,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Output</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>score</code></p></td>
 <td><p><code>float</code> . One of the following:</p>
@@ -943,13 +932,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Output</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>score</code></p></td>
 <td><p><code>float</code> : One of the following:</p>
@@ -1014,13 +1002,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Output</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>pairwise_choice</code></p></td>
 <td><p><code>PairwiseChoice</code> : Enum with possible values as follows:</p>
@@ -1081,13 +1068,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Output</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>score</code></p></td>
 <td><p><code>float</code> : One of the following:</p>
@@ -1150,13 +1136,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Output</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>score</code></p></td>
 <td><p><code>float</code> : One of the following:</p>
@@ -1224,13 +1209,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Output</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>score</code></p></td>
 <td><p><code>float</code> : One of the following:</p>
@@ -1345,13 +1329,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Parameters</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>metric_spec</code></p></td>
 <td><p>Optional: <code>ToolCallValidSpec</code></p>
@@ -1410,13 +1393,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Output</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>tool_call_valid_metric_values</code></p></td>
 <td><p>repeated <code>ToolCallValidMetricValue</code> : Evaluation results per instance input.</p></td>
@@ -1472,13 +1454,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Output</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>tool_name_match_metric_values</code></p></td>
 <td><p>repeated <code>ToolNameMatchMetricValue</code> : Evaluation results per instance input.</p></td>
@@ -1638,13 +1619,12 @@ print(json.dumps(result.json(), indent=2))
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Parameters</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>metric_spec</code></p></td>
 <td><p>Optional: <code>MetricxSpec</code></p>

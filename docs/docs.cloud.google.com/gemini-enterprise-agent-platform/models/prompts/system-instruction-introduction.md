@@ -49,14 +49,13 @@ For example, suppose you want to use a model to help teach students about writin
 <col style="width: 33%" />
 <col style="width: 33%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>System instructions</th>
 <th>Bot for college students</th>
 <th>Bot for primary school students</th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <th><strong>You are a bot, tasked with teaching college students</strong> about how to write a paper about a given subject.</th>
 <td><strong>You are a bot, tasked with helping primary school students</strong> about how to write a paper about a given subject.</td>
@@ -194,14 +193,13 @@ For example, suppose you want to use a model to summarize customer reviews for y
 <col style="width: 33%" />
 <col style="width: 33%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>System instructions</th>
 <th>JSON</th>
 <th>No formatting requirements</th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <th><p>You are a PR professional for high-end businesses. Follow these instructions, and base your response on the provided User Input.</p>
 <p>Instructions:</p>
@@ -292,14 +290,13 @@ For example, suppose you want to use a model to write proposals for government i
 <col style="width: 33%" />
 <col style="width: 33%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>System instructions</th>
 <th>Professional</th>
 <th>Casual</th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <th><p>You are a government proposal writer. You are tasked with producing proposals for future campaigns. Based on the template and user input, provide a proposal for the upcoming campaign.</p>
 <ul>
@@ -391,14 +388,13 @@ For example, suppose you want to use a model to write Python code. Compare the d
 <col style="width: 33%" />
 <col style="width: 33%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>System instructions</th>
 <th>Docstrings</th>
 <th>No docstrings</th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <th>When generating code, make sure to include docstrings explaining the inputs, outputs, and usage of every method.</th>
 <td>Only generate code, do not include any docstring.</td>
@@ -657,14 +653,13 @@ For example, suppose you want to use a model to write speeches for events. Compa
 <col style="width: 33%" />
 <col style="width: 33%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>System instructions</th>
 <th>Things to include in the speech</th>
 <th>No extra context</th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <th><p>Help the user write a speech based on the information provided:</p>
 <ul>

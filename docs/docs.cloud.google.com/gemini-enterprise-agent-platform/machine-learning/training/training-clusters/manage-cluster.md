@@ -104,9 +104,8 @@ gcurl -X PATCH -d @UPDATE_PAYLOAD https://REGION-aiplatform.googleapis.com/v1bet
   - `orchestrator_spec.slurm_spec.login_node_pool_id`
   - `orchestrator_spec.slurm_spec.prolog_bash_scripts`
   - `orchestrator_spec.slurm_spec.epilog_bash_scripts`
-  - `orchestrator_spec.slurm_spec.scheduling`
-  - `orchestrator_spec.slurm_spec.accounting`
   - `orchestrator_spec.slurm_spec.config`
+  - `orchestrator_spec.slurm_spec.scheduling` and `orchestrator_spec.slurm_spec.accounting` : legacy fields that `config` supersedes. A cluster uses one or the other. See [Update Slurm configuration settings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster#update-slurm-config-maps) .
   - `orchestrator_spec.slurm_spec.node_sets`
 
 - `updateMode` (enum, optional): Specifies the update mode. Possible values are:
@@ -148,7 +147,7 @@ The command below turns on partition-priority preemption for an existing cluster
 
 ```
 gcurl -X PATCH -d @update-payload.json \
-'https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID?updateMask=orchestrator_spec.slurm_spec.config,orchestrator_spec.slurm_spec.scheduling,orchestrator_spec.slurm_spec.accounting&updateMode=USER_ONLY'
+'https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID?updateMask=orchestrator_spec.slurm_spec.config&updateMode=USER_ONLY'
 ```
 
 Where `update-payload.json` contains, in part:
@@ -174,7 +173,9 @@ Where `update-payload.json` contains, in part:
 
 Set cluster-wide parameters in `config` rather than in `scheduling` and `accounting` , which it supersedes. A cluster uses one or the other; a request that sets both is rejected.
 
-If you call `PATCH` without an `updateMask` , the service diffs your entire payload against the current cluster, so a payload that omits these settings clears whatever the cluster already has. Pass an `updateMask` to scope the update to the fields you intend to change, with one exception: because `config` , `scheduling` , and `accounting` supersede each other, a mask that names any of the three must name all three, as the example above does. A field you name but leave out of the payload is cleared.
+If you call `PATCH` without an `updateMask` , the service diffs your entire payload against the current cluster, so a payload that omits these settings clears whatever the cluster already has. Pass an `updateMask` to scope the update to the fields you intend to change. A field you name but leave out of the payload is cleared.
+
+To move an existing cluster from `scheduling` and `accounting` to `config` , send every setting in `config` using its `slurm.conf` name, for example `AccountingStorageEnforce` or `PriorityWeightQOS` , leave `scheduling` and `accounting` out of the payload, and name all three in the `updateMask` so the older fields are cleared. After that, an `updateMask` of `orchestrator_spec.slurm_spec.config` alone is enough.
 
 **Node image selection**
 

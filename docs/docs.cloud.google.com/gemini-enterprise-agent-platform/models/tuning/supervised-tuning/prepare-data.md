@@ -71,13 +71,12 @@ The example contains data with the following parameters:
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Parameters</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>contents</code></p></td>
 <td><p>Required: <code>Content</code></p>
@@ -113,13 +112,12 @@ This class consists of two main properties: `role` and `parts` . The `role` prop
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Parameters</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>role</code></p></td>
 <td><p>Optional: <code>string</code></p>

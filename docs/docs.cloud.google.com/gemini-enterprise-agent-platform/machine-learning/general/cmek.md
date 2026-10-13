@@ -80,14 +80,13 @@ The current Gemini Enterprise Agent Platform resources covered by CMEK are as fo
 <col style="width: 33%" />
 <col style="width: 33%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Resource</th>
 <th>Material encrypted</th>
 <th>Documentation links</th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets">Dataset</a></td>
 <td><ul>

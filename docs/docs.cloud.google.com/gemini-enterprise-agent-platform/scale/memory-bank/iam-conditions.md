@@ -186,14 +186,13 @@ It is critical to prevent overly permissive IAM policies when using IAM Conditio
 <col style="width: 33%" />
 <col style="width: 33%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Role Name</th>
 <th>Description</th>
 <th>Included Permissions</th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><code>roles/aiplatform.memoryViewer</code></td>
 <td>Grants read-only access to memories and memory revisions.</td>

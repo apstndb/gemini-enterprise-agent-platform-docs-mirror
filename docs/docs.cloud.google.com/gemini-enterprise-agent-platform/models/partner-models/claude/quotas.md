@@ -193,15 +193,14 @@ The following table shows the default quotas and supported context length for ea
 <col style="width: 25%" />
 <col style="width: 25%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Model</th>
 <th>Region</th>
 <th>Quotas</th>
 <th>Context length</th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td>Claude Sonnet 5.5 on Google Cloud</td>
 <td><code>Multi-region</code></td>

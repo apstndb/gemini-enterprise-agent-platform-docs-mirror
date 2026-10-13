@@ -135,13 +135,12 @@ The request body contains data with the following parameters:
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Parameters</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>cachedContent</code></p></td>
 <td><p>Optional: <code>string</code></p>
@@ -201,13 +200,12 @@ This class consists of two main properties: `role` and `parts` . The `role` prop
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Parameters</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>role</code></p></td>
 <td><p><code>string</code></p>
@@ -237,13 +235,12 @@ A data type containing media that is part of a multi-part `Content` message.
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Parameters</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>text</code></p></td>
 <td><p>Optional: <code>string</code></p>
@@ -316,13 +313,12 @@ Content blob. If possible send as text rather than raw bytes.
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Parameters</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>mimeType</code></p></td>
 <td><p><code>string</code></p>
@@ -368,13 +364,12 @@ URI or web-URL data.
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Parameters</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>mimeType</code></p></td>
 <td><p><code>string</code></p>
@@ -431,13 +426,12 @@ Safety settings.
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Parameters</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>category</code></p></td>
 <td><p>Optional: <code>HarmCategory</code></p>
@@ -514,13 +508,12 @@ Configuration settings used when generating the prompt.
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Parameters</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>temperature</code></p></td>
 <td><p>Optional: <code>float</code></p>
@@ -737,13 +730,12 @@ Then the returned response with <code>stopSequences</code> set to <code>["Str", 
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Response element</th>
 <th>Description</th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><code>modelVersion</code></td>
 <td>The model and version used for generation. For example: <code>gemini-3.5-flash</code> .</td>

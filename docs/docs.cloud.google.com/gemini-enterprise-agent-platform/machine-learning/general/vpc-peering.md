@@ -124,7 +124,7 @@ When you reserve an IP range for service producers, the range can be used by Age
 
 Refer to the [Subnet recommendations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/private-services-access#subnet-recommendations) table to ensure that the IP reservation for Private Services Access is wide enough accommodate your workload.
 
-If a job is launched with the [`--network`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/reference/rest/v1/CustomJobSpec) parameter, it will launch in a Google-managed network that is peered to your VPC:
+If a job is launched with the [`--network`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/CustomJobSpec) parameter, it will launch in a Google-managed network that is peered to your VPC:
 
 `--network = "projects/${host_project}/global/networks/${network}"`
 

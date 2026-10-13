@@ -55,13 +55,12 @@ The `Prompt` class is used for defining, assembling, and using prompts. The `pro
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Attribute</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p><code>model</code></p></td>
 <td><p>Required: The model name.</p></td>

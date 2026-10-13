@@ -20,7 +20,7 @@ Priority PayGo is ideal for business critical workloads with fluctuating or unpr
 
 ## Supported models and locations
 
-In general, Priority PayGo is supported on the `global` , `us` , and `eu` endpoints. However, some models (such as Gemini 2.5 models) may not support all three endpoints. Check the individual model pages linked from [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/google-models) to see what endpoints are supported when using Priority PayGo.
+In general, Priority PayGo is supported on the `global` , `us` , and `eu` endpoints. However, some models (such as Gemini 2.5 models) may not support all three endpoints. Check the individual model pages linked from [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) to see what endpoints are supported when using Priority PayGo.
 
 The following models support Priority PayGo:
 

@@ -8,8 +8,6 @@ data_source: docs.cloud.google.com
 
 This document helps you diagnose and resolve common issues when configuring and enforcing IAM Unified Access Policies (UAPs) for Agent Gateway egress.
 
-For standard Google Cloud troubleshooting guidance and methodology, see [Troubleshooting documentation guidelines](https://docs.cloud.google.com/guides/docs/troubleshooting) .
-
 ## Policy enforcement and access failures
 
 This section describes issues with enforcement.

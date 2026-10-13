@@ -117,13 +117,12 @@ The content that you explicitly cache must adhere to the limits shown in the fol
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Context caching limits</th>
 <th></th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><p>Minimum cache token count for implicit and explicit caching</p></td>
 <td><ul>

@@ -139,14 +139,13 @@ The following table shows the differences between prebuilt and custom container 
 <col style="width: 33%" />
 <col style="width: 33%" />
 </colgroup>
-<thead>
+<tbody>
 <tr class="header">
 <th>Specifications</th>
 <th>Prebuilt container images</th>
 <th>Custom container images</th>
 </tr>
-</thead>
-<tbody>
+
 <tr class="odd">
 <td><strong>ML framework</strong></td>
 <td>Each container image is specific to an ML framework.</td>
