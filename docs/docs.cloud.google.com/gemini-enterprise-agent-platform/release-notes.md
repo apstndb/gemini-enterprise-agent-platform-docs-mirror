@@ -10,6 +10,27 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## October 12, 2026
+
+Fixed
+
+**CodeMender updates (v0.14.0)**
+
+This release introduces updates to CodeMender:
+
+- **Better pull request scans** : `cm find --diff` now catches removed security controls and gives large files more time (configurable with `--diff-job-timeout` ).
+- **Unified sessions** : `--deep` and `--diff` scans now appear as a single session in `cm session list` , `cm report` , and `cm stats` .
+- **Moved code in `cm verify`** : `cm verify` now finds code that moved since `cm find` and updates the finding's location.
+- **Guided activation** : `cm` now opens the activation page and waits for activation instead of exiting.
+- **New `cm find` flags** : `--deep-max-turns` limits exploratory steps per file in `--deep` scans, and `--enable-bash` allows shell commands during scans.
+- **Improved detection** : More distinct findings per file and more precise CWE classification for weak hashing and randomness.
+- **Bug fixes** :
+  - Fixed scans of repositories reached through nested symbolic links.
+  - Fixed findings for nonexistent files and over-merged findings.
+  - Shell scripts created by `cm verify` are now executable.
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
+
 ## October 07, 2026
 
 Feature

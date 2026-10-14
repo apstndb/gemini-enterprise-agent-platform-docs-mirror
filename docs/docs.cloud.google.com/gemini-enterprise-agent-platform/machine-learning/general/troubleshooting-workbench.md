@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This page describes troubleshooting steps that you might find helpful if you run into problems when you use Gemini Enterprise Agent Platform Workbench.
 
-See also [Troubleshooting Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting) for help using other components of Gemini Enterprise Agent Platform.
+See also [Troubleshooting Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/troubleshooting) for help using other components of Gemini Enterprise Agent Platform.
 
 To filter this page's content, click a topic:
 

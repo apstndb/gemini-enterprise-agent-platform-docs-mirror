@@ -125,6 +125,24 @@ Use the following steps to design and test an agent using the flow builder:
 
 When your agent is complete, you can deploy it directly from Agent Studio. For more information, see [Deploy an Agent from Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#deploy-agent) .
 
+### Create an agent using the Agents mode toggle in the Studio prompt
+
+You can start agent building directly from the Agent Studio welcome prompt by toggling into **Agents** mode. When enabled, submitting your prompt directly launches the agent builder inside the agent designer canvas.
+
+Use the following steps to build an agent from the Studio prompt:
+
+1.  In the Google Cloud console, navigate to **Agent Studio** .
+
+2.  In the main prompt input area on the welcome workspace, locate the mode toggle.
+
+3.  Switch the toggle to **Agents** mode.
+
+4.  Enter a prompt that describes the purpose, workflow, and behavior of the agent you want to design.
+
+5.  Click send .
+
+Agent Studio directly launches the agent builder work in the agent designer canvas, pre-populating the agent flow and configuration based on your prompt. You can then continue editing instructions, selecting models, and adding tools or subagents.
+
 ## Inspect agent events
 
 Inspecting events helps you debug your agent's behavior, and troubleshoot and trace your agent's reasoning process and model requests.

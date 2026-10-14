@@ -83,7 +83,7 @@ Supported</li>
 <th>Tools</th>
 <th><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview">Grounding</a><br />
-Google Search, Google Maps<br />
+Google Search, Google Maps, Parallel Web Search, Exa Web Search<br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution">Code execution</a><br />
 Supported</li>

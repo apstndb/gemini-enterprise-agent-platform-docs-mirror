@@ -124,6 +124,6 @@ To manage model access, use the same controls that apply to any Gemini Enterpris
 
 ## What's next
 
-- Learn more about [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/docs/overview) .
+- Learn more about [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models) .
 
 - To learn how to set instance metadata, see [Manage features through metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-metadata) .

@@ -64,10 +64,10 @@ cm verify FINDING_ID
 
 The following flags configure `cm verify` :
 
-| Flag                          | Default | Description                                                                                                                                                                               |
-|-------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `-c, --context `` TEXT`       | `""`    | Pass steering instructions or application domain context to guide the agent (for example, `cm verify `` FINDING_ID `` -c "Focus analysis on the multi-tenant session validation path"` ). |
-| `--skip-exploit-verification` | `false` | Perform static verification only without running active PoC exploits.                                                                                                                     |
-| `--sandbox`                   | `true`  | Explicitly enable or disable the sandbox for this run (for example, `--sandbox=false` to disable).                                                                                        |
-| `--unrestricted`              | `false` | Temporarily bypass all sandbox protections for this run, disabling file system boundaries and OS-level container isolation.                                                               |
-| `-y, --yes`                   | `false` | Skip interactive confirmation prompts ( `[y/N]` ) for tool actions and PoC exploit execution. Commands remain contained within the OS-level sandbox container ( `exebox` ).               |
+| Flag                          | Default | Description                                                                                                                                                                                     |
+|-------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `-c, --context `` TEXT`       | `""`    | Pass steering instructions or application domain context to guide the agent (for example, `cm verify `` FINDING_ID `` -c "Focus analysis on the multi-tenant session validation path"` ).       |
+| `--skip-exploit-verification` | `false` | Mark high-confidence findings as verified without rerunning the PoC exploit script after the verification agent finishes. The agent still generates and runs a PoC exploit during verification. |
+| `--sandbox`                   | `true`  | Explicitly enable or disable the sandbox for this run (for example, `--sandbox=false` to disable).                                                                                              |
+| `--unrestricted`              | `false` | Temporarily bypass all sandbox protections for this run, disabling file system boundaries and OS-level container isolation.                                                                     |
+| `-y, --yes`                   | `false` | Skip interactive confirmation prompts ( `[y/N]` ) for tool actions and PoC exploit execution. Commands remain contained within the OS-level sandbox container ( `exebox` ).                     |

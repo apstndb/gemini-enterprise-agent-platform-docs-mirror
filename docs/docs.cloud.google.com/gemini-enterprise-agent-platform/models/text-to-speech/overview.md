@@ -383,6 +383,34 @@ The Gemini 3.8 TTS models support four ways to select or create voices:
 
 Generating speech with a stored voice restarts its one-year retention period, so a voice that you use regularly doesn't expire. Voice creation requests are subject to a per-project, per-minute quota. If you exceed it, the `create` method returns a `RESOURCE_EXHAUSTED` error. For more information, see [Quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas) .
 
+### Data storage and retention
+
+Google stores the inputs that you provide when you create a stored voice, together with the voice artifacts derived from them, in association with the Google Cloud project that created the voice.
+
+When you create a *replicated voice* from a recording of a speaker, it stores the following:
+
+- **Reference audio** : The sample of the speaker whose voice is replicated.
+- **Consent audio** : The speaker reading the required consent statement.
+
+When you create a *designed voice* using a text description of a voice in a prompt, it stores the following:
+
+- The text prompt that you wrote to describe the voice.
+- The voice audio generated from that prompt, which the model uses as the reference for the voice.
+
+A designed voice has no consent audio, because it is generated from a description rather than from a recording of a person.
+
+Voice inputs are stored so that your voice keeps working across model updates. Voice artifacts are regenerated from stored inputs when the underlying model is updated. If no stored inputs are found for a voice, its artifacts can't be regenerated, and the voice stops working after a model update. You must then create the voice again.
+
+The stored inputs are used only to regenerate the voice when models are updated. They are encrypted at rest and are isolated to the project that created the voice.
+
+#### Retention period
+
+Voices and all associated stored data are retained for up to one year (365 days) from the last time that you used the voice to synthesize speech. The period starts when you create the voice, and resets each time that you send a synthesis request that uses the voice. If a voice isn't used for 365 days, the voice, its stored inputs, and its derived artifacts are deleted.
+
+#### Deletion by customer
+
+You can delete a voice at any time with the Voices API [`delete` method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design#manage) . Deleting a voice deletes its stored inputs and its derived artifacts. Deleting the Google Cloud project that owns a voice also deletes them, following the standard project deletion process.
+
 ### Prebuilt voices
 
 The following list shows each prebuilt voice name and its characteristic:

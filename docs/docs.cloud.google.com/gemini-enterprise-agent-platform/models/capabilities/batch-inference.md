@@ -27,6 +27,7 @@ Batch inference is optimized for **large-scale processing tasks** like:
 - **Content Generation:** Generate product descriptions, social media posts, or other creative text in bulk.
 - **Data Annotation and Classification:** Classify user reviews, categorize documents, or perform sentiment analysis on a large corpus of text.
 - **Offline Analysis:** Summarize articles, extract key information from reports, or translate documents at scale.
+- **Embedding Generation:** Generate vector embeddings for a large document corpus to power semantic search, retrieval, and clustering workloads.
 
 ## Gemini models that support batch inference
 
@@ -53,6 +54,15 @@ The following base and tuned Gemini models support batch inference:
 - [Gemini 2.5 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)
 - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
+## Embedding models that support batch inference
+
+Batch inference is also available for embedding models:
+
+- **Gemini embedding models** (Preview): `gemini-embedding-001` and `gemini-embedding-2` . Each batch job supports up to 1,000,000 rows, and each project supports up to 10,000 concurrent batch jobs in the queue.
+- **Legacy text embedding models** : all stable versions, including `text-embedding-004` , `text-embedding-005` , and `text-multilingual-embedding-002` . Each request can include up to 30,000 prompts.
+
+Embedding batch jobs use a different input and output schema than Gemini text generation batch jobs, and the request limits in [Quotas and limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference#quotas-and-limits) don't apply to them. For the required JSONL schema, per-model configuration options, and examples, see [Get batch embeddings inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/batch-prediction-genai-embeddings) .
+
 ## Global endpoint model support
 
 Batch inference supports using the [global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#global-endpoint) for base Gemini models. It doesn't support the global endpoint for tuned Gemini models.
@@ -65,7 +75,7 @@ While batch inference is powerful, it's important to be aware of the following l
 
 - **Quota** : There are no predefined quota limits on your usage. Instead, batch service provides access to a large, shared pool of resources, dynamically allocated based on availability of resources and real-time demand across all customers of that model. When more customers are active and our capacity is saturated, your batch requests might be queued for capacity.
 - **Queue Time** : When our service experiences high traffic, your batch job will queue for capacity. The job remains in queue for up to 72 hours before it expires.
-- **Request Limits** : A single batch job may include up to 200,000 requests. If you are using Cloud Storage as input, there is also a file size limit of 1GB.
+- **Request Limits** : A single batch job may include up to 200,000 requests. If you are using Cloud Storage as input, there is also a file size limit of 1GB. Embedding models have different request limits. For more information, see [Embedding models that support batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference#embedding-models-that-support-batch-inference) .
 - **Processing Time** : Batch jobs are processed asynchronously and are not designed for real-time applications. Most jobs complete within 24 hours after it starts running (not counting the queue time). After 24 hours, incomplete jobs are cancelled, and you'll only be charged for completed requests.
 - **Canceled jobs** : You can cancel batch inference jobs at any time. When you cancel a job, any remaining work is cancelled, and any already completed work is returned. You'll only be charged for the completed work.
 - **Unsupported features** : Batch inference doesn't support [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) , [explicit caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview#explicit-caching) or [RAG](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) . Batch inference implicit caching isn't supported in Gemini 2.0 Flash or Gemini 2.0 Flash-Lite.
@@ -85,3 +95,4 @@ To get the most out of batch inference with Gemini, we recommend the following b
 
 - [Create a batch job with Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference/new-job-from-cloud-storage)
 - [Create a batch job with BigQuery](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference/new-job-from-bigquery)
+- [Get batch embeddings inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/batch-prediction-genai-embeddings)

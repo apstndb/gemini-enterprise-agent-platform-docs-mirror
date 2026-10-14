@@ -34,14 +34,20 @@ Grounding with Parallel is suitable for use cases such as the following:
 
 ## Supported models
 
-Grounding with Parallel web search is supported by the following models:
+This section lists the models that support grounding with Parallel web search.
 
-- Gemini 2.5 Flash ( `gemini-2.5-flash` )
-- Gemini 2.5 Flash-Lite ( `gemini-2.5-flash-lite` )
-- Gemini 2.5 Pro ( `gemini-2.5-pro` )
-- Gemini 3.1 Pro ( `gemini-3.1-pro-preview` )
-- Gemini 3.1 Flash Lite ( `gemini-3.1-flash-lite` )
-- Gemini 3.5 Flash ( `gemini-3.5-flash` )
+#### Click to expand supported models
+
+- [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
+- [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
+- [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
+- [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
+- [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+- [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
+- [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
+- [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
+- [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+- [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 ## Before you begin
 

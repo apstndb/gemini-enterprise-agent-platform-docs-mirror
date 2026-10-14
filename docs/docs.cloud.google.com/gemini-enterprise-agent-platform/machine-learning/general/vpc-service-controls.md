@@ -163,7 +163,7 @@ Agent Platform APIs that you can incorporate into your service perimeter include
   - Batch inference
   - Datasets
   - Agent Platform Feature Store (Bigtable online serving)
-  - Agent Platform Feature Store (optimized online serving) ( [Deprecated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations) )
+  - Agent Platform Feature Store (optimized online serving) ( [Deprecated](https://docs.cloud.google.com/vertex-ai/docs/deprecations) )
   - Generative AI on Gemini Enterprise Agent Platform (Gemini)
   - Model Registry
   - Online inference

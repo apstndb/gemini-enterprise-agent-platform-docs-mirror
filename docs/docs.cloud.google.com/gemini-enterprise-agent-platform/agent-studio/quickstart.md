@@ -67,6 +67,102 @@ Send a code generation prompt to the Agent Platform API. A code generation task 
 
     In the **Get code** panel, you can choose your preferred language to get the sample code for the prompt, or you can open the Python code in a Colab Enterprise notebook.
 
+## Automatic intent detection in the prompt workspace
+
+When chatting or testing prompts in Agent Studio, background intent detection automatically evaluates each submitted message to identify whether you intend to build an autonomous agent or an application. If an intent is detected, a contextual banner appears with a one-click action to transition your request to the appropriate builder.
+
+### How intent detection works
+
+Each time you submit a message in the chat prompt workspace, a background evaluation processes your input:
+
+- Agent intent detected: A banner appears with a **Create agent** action.
+
+  - If the detection engine has enough context to determine what kind of agent you want to build, it directs you to Agent Designer and automatically submits your seed prompt to initiate building the agent immediately.
+
+  - The canvas opens with generated instructions, system configurations, and pre-attached tools ready for further editing.
+
+- App intent detected: A banner appears with a **Create app** action.
+
+  - Clicking the action button navigates to the App Builder interface.
+
+  - The prompt field is pre-populated with your prompt details if context is available.
+
+  - Unlike the agent flow, App Builder never automatically submits the build; it stops on the page so you can review and manually submit the prompt.
+
+### Billing and pricing
+
+Each background intent detection evaluation is charged to your Google Cloud account:
+
+- Model used: Intent detection is powered by Gemini 3.5 Flash Lite, an optimized lightweight model.
+
+- Cost: Because the model is lightweight, the charge per detection is minimal. Approximately \$0.002 per message evaluation.
+
+- Standard inference charges apply separately to your primary prompt and response.
+
+### Create an agent using intent detection
+
+To create an agent from a chat session using automatic intent detection:
+
+1.  In the Google Cloud console,  
+
+2.  In the navigation menu, click **Studio** \> **+ New** \> **Chat** \> **New chat** .
+
+3.  In the prompt field at the bottom of the workspace, enter a prompt that clearly states your intent to build an agent, along with a description of the agent's purpose and tasks.
+
+    > **Note:** The banner only appears when you express a clear intent to build an agent.
+
+4.  Click **Submit** send .
+
+5.  When the response begins, locate the intent detection banner above the prompt field.
+
+6.  In the banner, click **Create agent** .
+
+7.  In the confirmation dialog, click to continue. Agent Studio opens the visual canvas in **Agent Designer** and initializes your agent flow.
+
+8.  In the side panel, review and configure the populated settings:
+
+    - **Details** : Edit the agent name and description.
+
+    - **Instructions** : Review and adjust the system instructions.
+
+    - **Tools** : Verify and configure attached tools (such as Google Search).
+
+### Create an app using intent detection
+
+To create an application from a chat session using automatic intent detection:
+
+1.  In the Google Cloud console,  
+
+2.  In the navigation menu, click **Studio** \> **+ New** \> **Chat** \> **New chat** .
+
+3.  In the prompt field at the bottom of the workspace, enter a prompt that clearly states your intent to build an application, along with a description of the application.
+
+    > **Note:** The banner only appears when you express a clear intent to build an app.
+
+4.  Click **Submit** send .
+
+5.  When the intent detection banner appears above the prompt field, click **Create app** . Agent Studio opens the **App Builder** workspace with your prompt pre-populated in the input field.
+
+6.  Review and edit the prompt text as needed.
+
+7.  Inside the prompt field, click **Submit** send to start the application build process.
+
+### Disable intent detection
+
+If you want to prevent background evaluations and avoid per-message detection charges while chatting:
+
+1.  In the Google Cloud console,  
+
+2.  In the navigation menu, click **Studio** \> **+ New** \> **Chat** \> **New chat** .
+
+3.  In the workspace header, click **Settings** (gear icon).
+
+4.  In the settings menu, locate the **Detect build intent** setting.
+
+5.  Click the toggle switch to the off position.
+
+When disabled, no background detection runs, suggestion banners don't appear, and no detection fees are charged.
+
 ## What's next
 
 Overview

@@ -99,6 +99,9 @@ To route Gemini Enterprise traffic through Agent Gateway, perform the following 
       "googleManaged": {
         "governedAccessPath": "AGENT_TO_ANYWHERE"
       },
+      "protocols": [
+        "MCP"
+      ],
       "registries": [
         "//agentregistry.googleapis.com/projects/my-ge-project/locations/global"
       ]
