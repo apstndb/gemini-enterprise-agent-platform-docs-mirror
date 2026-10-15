@@ -10,6 +10,51 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## October 14, 2026
+
+Fixed
+
+**CodeMender updates (v0.15.0)**
+
+This release introduces updates to CodeMender:
+
+- **Enhanced SARIF 2.1.0 reporting** : Updated `cm report` SARIF output with standardized rule descriptors, severity properties, and repository-relative artifact locations for improved GitHub Code Scanning compatibility.
+- **Model invocation metrics** : Added model invocation tracking to `cm stats --json` , providing total, per-session, and per-turn invocation counts.
+- **Bug fixes** :
+  - Fixed an issue where token usage from completed turns was omitted from session logs during error or cancellation exit paths.
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
+
+Feature
+
+**DeepSeek-V4.1-Flash is available in Public Preview**
+
+DeepSeek-V4.1-Flash from DeepSeek is available as a fully managed model (MaaS) in Model Garden. The model accepts text and image input, targets agentic and coding tasks, and supports a context window of up to 1M tokens.
+
+For more information, see [DeepSeek-V4.1-Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/deepseek/deepseek-v41-flash) .
+
+## October 13, 2026
+
+Feature
+
+**Gemini 4 Argon in CodeMender (Preview)**
+
+CodeMender now supports Gemini 4 Argon. To use it, pass `--model gemini-4-argon` to `cm find` , `cm verify` , or `cm fix` . Gemini 3.8 Flash remains the default model.
+
+For more information, see [Specifying the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender#specifying-the-model) .
+
+Feature
+
+**Gemini 4 Argon and Gemini 4 Argon Cyber Permissive**
+
+[Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon) ( `gemini-4-argon` ) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) . Gemini 4 Argon is Google's frontier model that excels at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science. It supports a unified 1,048,576-token input and output limit, configurable thinking levels ( `LOW` , `MEDIUM` , `HIGH` ), [long decodes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon#long-decodes) up to 1,048,576 tokens using continuation tokens on the `GenerateContent` API, and [agentic video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing) in GA.
+
+[Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber) ( `gemini-4-argon-cyber-permissive` ), a version of Gemini 4 Argon for defensive cybersecurity use cases, is also available in GA behind the [Fairwind Program](https://deepmind.google/fairwind-program/) allowlist.
+
+- **Known issue (long decodes)** : Long decoding ( `continuation_token` ) on the `GenerateContent` API ( `generateContent` and `streamGenerateContent` ) is supported only in the `v1beta1` API (not `v1` ). The Google Gen AI SDK uses `v1beta1` by default unless `api_version='v1'` is specified in `http_options` ; for direct REST calls, use the `v1beta1` endpoint path.
+
+For more information, see [Get started with Gemini 4](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-4) and the [developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon) .
+
 ## October 12, 2026
 
 Fixed

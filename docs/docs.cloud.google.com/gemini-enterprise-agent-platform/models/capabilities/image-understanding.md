@@ -16,8 +16,233 @@ You can add images to Gemini requests to perform tasks that involve understandin
 
 The following table lists the models that support image understanding:
 
-| Models | Media details | MIME types |
-|--------|---------------|------------|
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Models</th>
+<th>Media details</th>
+<th>MIME types</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/vto/virtual-try-on-001">Virtual Try-On</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum images per prompt: 2</li>
+<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
+<li>Maximum number of output images per prompt: 4</li>
+<li>Supported aspect ratios: Same as input image</li>
+<li>Supported resolutions: Same as input image</li>
+</ul></td>
+<td><ul>
+<li><code>image/png</code></li>
+<li><code>image/jpeg</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview">Gemini Omni Flash</a> preview</li>
+</ul></td>
+<td><ul>
+<li>Maximum images per prompt: 10</li>
+<li>Maximum file size per file for inline data or direct uploads through the console: 20 GiB</li>
+<li>Supported aspect ratios: 16:9, 9:16</li>
+<li>Supported resolutions: 720p</li>
+</ul></td>
+<td><ul>
+<li><code>image/png</code></li>
+<li><code>image/jpeg</code></li>
+<li><code>image/webp</code></li>
+<li><code>image/heic</code></li>
+<li><code>image/heif</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash">Gemini Omni 1.1 Flash</a> preview</li>
+</ul></td>
+<td><ul>
+<li>Maximum images per prompt: 10</li>
+<li>Maximum file size per file for inline data or direct uploads through the console: 20 MB</li>
+<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
+</ul></td>
+<td><ul>
+<li><code>image/png</code></li>
+<li><code>image/jpeg</code></li>
+<li><code>image/webp</code></li>
+<li><code>image/heic</code></li>
+<li><code>image/heif</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber">Gemini 4 Argon Cyber Permissive</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon">Gemini 4 Argon</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum images per prompt: 3,000 (up to 100 URIs)</li>
+<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
+<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
+</ul></td>
+<td><ul>
+<li><code>image/png</code></li>
+<li><code>image/jpeg</code></li>
+<li><code>image/webp</code></li>
+<li><code>image/heic</code></li>
+<li><code>image/heif</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live">Gemini 3.8 Live</a></li>
+</ul></td>
+<td><ul>
+<li>Standard input resolution: 768 x 768</li>
+<li>Minimum custom avatar reference image resolution: 704 x 1280 (portrait) or 1280 x 704 (landscape)</li>
+</ul></td>
+<td><ul>
+<li><code>image/png</code></li>
+<li><code>image/jpeg</code></li>
+<li><code>image/webp</code></li>
+<li><code>image/heic</code></li>
+<li><code>image/heif</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber">Gemini 3.8 Flash Cyber</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash">Gemini 3.8 Flash</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash">Gemini 3.7 Flash</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash">Gemini 3.6 Flash</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite">Gemini 3.5 Flash-Lite</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash">Gemini 3.5 Flash</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite">Gemini 3.1 Flash-Lite</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro">Gemini 2.5 Pro</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite">Gemini 2.5 Flash-Lite</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api">Gemini 2.5 Flash with Gemini Live API native audio</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash">Gemini 2.5 Flash</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum images per prompt: 3,000</li>
+<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
+<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
+</ul></td>
+<td><ul>
+<li><code>image/png</code></li>
+<li><code>image/jpeg</code></li>
+<li><code>image/webp</code></li>
+<li><code>image/heic</code></li>
+<li><code>image/heif</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro">Gemini 3.1 Pro</a> preview</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash">Gemini 3 Flash</a> preview</li>
+</ul></td>
+<td><ul>
+<li>Maximum images per prompt: 3000</li>
+<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
+<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
+<li>Default resolution tokens: 1120</li>
+</ul></td>
+<td><ul>
+<li><code>image/png</code></li>
+<li><code>image/jpeg</code></li>
+<li><code>image/webp</code></li>
+<li><code>image/heic</code></li>
+<li><code>image/heif</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image">Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum images per prompt: 14</li>
+<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
+<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
+<li>Maximum number of output images per prompt: Limited to 4,096 output tokens</li>
+<li>Supported aspect ratios: 1:1, 1:4, 4:1, 1:8, 8:1, 2:3, 3:2, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, 21:9</li>
+<li>Supported resolutions: 1K</li>
+</ul></td>
+<td><ul>
+<li><code>image/png</code></li>
+<li><code>image/jpeg</code></li>
+<li><code>image/webp</code></li>
+<li><code>image/heic</code></li>
+<li><code>image/heif</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image">Gemini 3.1 Flash Image</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum images per prompt: 14</li>
+<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
+<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
+<li>Maximum number of output images per prompt: Limited to 32,768 output tokens</li>
+<li>Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 1:4, 4:1, 4:3, 4:5, 5:4, 1:8, 8:1, 9:16, 16:9, 21:9, 9:21</li>
+<li>Supported resolutions: 512, 1K, 2K, 4K</li>
+</ul></td>
+<td><ul>
+<li><code>image/png</code></li>
+<li><code>image/jpeg</code></li>
+<li><code>image/webp</code></li>
+<li><code>image/heic</code></li>
+<li><code>image/heif</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1">Gemini Nano Banana 2.1</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image">Gemini 3 Pro Image</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum images per prompt: 14</li>
+<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
+<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
+<li>Maximum number of output images per prompt: Limited to 32,768 output tokens</li>
+<li>Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 1:4, 4:1, 4:3, 4:5, 5:4, 1:8, 8:1, 9:16, 16:9, 21:9, 9:21</li>
+<li>Supported resolutions: 1K, 2K, 4K</li>
+</ul></td>
+<td><ul>
+<li><code>image/png</code></li>
+<li><code>image/jpeg</code></li>
+<li><code>image/webp</code></li>
+<li><code>image/heic</code></li>
+<li><code>image/heif</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image">Gemini 2.5 Flash Image</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum images per prompt: 3</li>
+<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
+<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
+<li>Maximum number of output images per prompt: 10</li>
+<li>Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, and 21:9</li>
+</ul></td>
+<td><ul>
+<li><code>image/png</code></li>
+<li><code>image/jpeg</code></li>
+<li><code>image/webp</code></li>
+<li><code>image/heic</code></li>
+<li><code>image/heif</code></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
 
 For a list of languages supported by Gemini models, see model information [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) . To learn more about how to design multimodal prompts, see [Design multimodal prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/design-multimodal-prompts) . If you're looking for a way to use Gemini directly from your mobile and web apps, see the [Firebase AI Logic client SDKs](https://firebase.google.com/docs/ai-logic) for Swift, Android, Web, Flutter, and Unity apps.
 

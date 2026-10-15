@@ -31,7 +31,7 @@ This guide covers the following tasks:
 
 Use the following instructions to create or select a Google Cloud project and configure it for use with Gemini Enterprise Agent Platform and Private Service Connect.
 
-1.  If you're not the project owner and don't have the [Project IAM Admin ( `roles/resourcemanager.projectIamAdmin` )](https://docs.cloud.google.com/resource-manager/docs/access-control-proj#resourcemanager.projectIamAdmin) role, ask the owner to grant you an IAM role that includes the `compute.networkAttachments.update` , `compute.networkAttachments.update` , and `compute.regionOperations.get` permissions: for example, the Compute Network Admin ( `roles/compute.networkAdmin` ) role, to manage networking resources.
+1.  If you're not the project owner and don't have the [Project IAM Admin ( `roles/resourcemanager.projectIamAdmin` )](https://docs.cloud.google.com/resource-manager/docs/access-control-proj#resourcemanager.projectIamAdmin) role, ask the owner to grant you the [Compute Network Admin ( `roles/compute.networkAdmin` )](https://docs.cloud.google.com/compute/docs/access/iam#compute.networkAdmin) role to manage networking resources. If you're only creating a network attachment in an existing VPC network, you can instead use a custom role that includes the `compute.networkAttachments.create` permission.
 2.  Assign the required roles to the [AI Platform Service Agent](https://docs.cloud.google.com/iam/docs/service-agents#ai-platform-service-agent) . For details about which roles to grant in different scenarios, see the [Gemini Enterprise Agent Platform service agent required role](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup#service-agent-required-role) section of this document.
 
 ## Set up a VPC network and subnet
@@ -111,7 +111,11 @@ Depending on your network configuration, grant the following roles to the servic
 
 1.  **Compute Network Admin ( `roles/compute.networkAdmin` )**
 
-    In the project where you create the network attachment, you must grant the `roles/compute.networkAdmin` role to the service agent.
+    In the project where you create the network attachment, you must grant the `roles/compute.networkAdmin` role to the service agent. If you don't want to grant the `roles/compute.networkAdmin` role, you can create a [custom role](https://docs.cloud.google.com/iam/docs/creating-custom-roles) with the following permissions and grant it to the service agent:
+
+    - `compute.networkAttachments.get`
+    - `compute.networkAttachments.update`
+    - `compute.regionOperations.get`
 
 2.  **Compute Network User ( `roles/compute.networkUser` )**
 

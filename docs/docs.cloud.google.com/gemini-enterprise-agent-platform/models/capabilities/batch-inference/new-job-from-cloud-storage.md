@@ -142,7 +142,7 @@ You should receive a JSON response similar to the following.
 }
 ```
 
-The response includes a unique identifier for the batch job. You can poll for the status of the batch job using the ` BATCH_JOB_ID ` . For more information, see [Monitor the job status](https://docs.cloud.google.com/gemini-enterprise-agent-platform#monitor) . Note: Custom service accounts and CMEK aren't supported.
+The response includes a unique identifier for the batch job. You can poll for the status of the batch job using the ` BATCH_JOB_ID ` . For more information, see [Monitor the job status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference/new-job-from-cloud-storage#monitor) .
 
 ### Python
 

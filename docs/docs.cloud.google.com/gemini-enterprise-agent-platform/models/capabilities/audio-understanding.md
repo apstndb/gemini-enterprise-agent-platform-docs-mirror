@@ -32,6 +32,34 @@ The following table lists the models that support audio understanding:
 <tbody>
 <tr class="odd">
 <td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber">Gemini 4 Argon Cyber Permissive</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon">Gemini 4 Argon</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro">Gemini 3.1 Pro</a> preview</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash">Gemini 3 Flash</a> preview</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro">Gemini 2.5 Pro</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash">Gemini 2.5 Flash</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum audio length per prompt: Approximately 8.4 hours, or up to 1 million tokens</li>
+<li>Maximum number of audio files per prompt: 1</li>
+<li>Speech understanding for: Audio summarization, transcription, and translation</li>
+</ul></td>
+<td><ul>
+<li><code>audio/x-aac</code></li>
+<li><code>audio/flac</code></li>
+<li><code>audio/mp3</code></li>
+<li><code>audio/m4a</code></li>
+<li><code>audio/mpeg</code></li>
+<li><code>audio/mpga</code></li>
+<li><code>audio/mp4</code></li>
+<li><code>audio/ogg</code></li>
+<li><code>audio/pcm</code></li>
+<li><code>audio/wav</code></li>
+<li><code>audio/webm</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live">Gemini 3.8 Live</a></li>
 </ul></td>
 <td><ul>
@@ -54,7 +82,7 @@ The following table lists the models that support audio understanding:
 <li><code>audio/mpa</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber">Gemini 3.8 Flash Cyber</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash">Gemini 3.8 Flash</a></li>
@@ -68,32 +96,6 @@ The following table lists the models that support audio understanding:
 <td><ul>
 <li>Maximum audio length per prompt: Approximately 8.4 hours, or up to 1 million tokens</li>
 <li>Maximum number of audio files per prompt: 1</li>
-</ul></td>
-<td><ul>
-<li><code>audio/x-aac</code></li>
-<li><code>audio/flac</code></li>
-<li><code>audio/mp3</code></li>
-<li><code>audio/m4a</code></li>
-<li><code>audio/mpeg</code></li>
-<li><code>audio/mpga</code></li>
-<li><code>audio/mp4</code></li>
-<li><code>audio/ogg</code></li>
-<li><code>audio/pcm</code></li>
-<li><code>audio/wav</code></li>
-<li><code>audio/webm</code></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro">Gemini 3.1 Pro</a> preview</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash">Gemini 3 Flash</a> preview</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro">Gemini 2.5 Pro</a></li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash">Gemini 2.5 Flash</a></li>
-</ul></td>
-<td><ul>
-<li>Maximum audio length per prompt: Approximately 8.4 hours, or up to 1 million tokens</li>
-<li>Maximum number of audio files per prompt: 1</li>
-<li>Speech understanding for: Audio summarization, transcription, and translation</li>
 </ul></td>
 <td><ul>
 <li><code>audio/x-aac</code></li>

@@ -122,6 +122,7 @@ See [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/re
     "mediaProcessing": string,
     "mediaResolution": MediaResolution
   },
+  "continuationToken": string,
   "labels": {
     string: string
   }
@@ -182,6 +183,15 @@ The request body contains data with the following parameters:
 <p>Generation configuration settings.</p></td>
 </tr>
 <tr class="even">
+<td><p><code>continuationToken</code></p></td>
+<td><p>Optional: <code>string</code> (bytes)</p>
+<p>An opaque continuation token returned in a previous <code>GenerateContentResponse</code> ( <code>candidates[].continuationToken</code> ) when a long decode stops with <code>finishReason</code> set to <code>CONTINUATION</code> after reaching the single-request output limit ( <code>65,536</code> tokens for streaming requests or <code>32,768</code> tokens for non-streaming direct HTTP requests).</p>
+<p>To continue generating up to the <code>1,048,576</code> -token limit on Gemini 4 models, resend the original request payload ( <code>contents</code> , <code>systemInstruction</code> , <code>tools</code> , and <code>maxOutputTokens</code> ) with <code>continuationToken</code> set to the latest returned token. Don't append partial model text to <code>contents</code> when using <code>continuationToken</code> . In the Google Gen AI SDK, automatic continuation is enabled by default (configurable with <code>automatic_continuation</code> in <code>GenerateContentConfig</code> ).</p>
+<blockquote>
+<strong>Note:</strong> Long decoding with <code>continuationToken</code> is supported only in the <code>v1beta1</code> API (not <code>v1</code> ). The Google Gen AI SDK uses <code>v1beta1</code> by default unless <code>api_version="v1"</code> is specified in <code>http_options</code> .
+</blockquote></td>
+</tr>
+<tr class="odd">
 <td><p><code>labels</code></p></td>
 <td><p>Optional: <code>string</code></p>
 <p>Metadata that you can add to the API call in the format of key-value pairs.</p></td>
@@ -646,8 +656,8 @@ Then the returned response with <code>stopSequences</code> set to <code>["Str", 
 <p>Configuration for the model's <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking">thinking process</a> for Gemini 2.5 and higher models.</p>
 <p>The <code>thinkingConfig</code> object contains the following fields:</p>
 <ul>
-<li><code>thinkingBudget</code> : <code>integer</code> . By default, the model automatically controls how much it thinks up to a maximum of <code>8,192</code> tokens.</li>
-<li><code>thinkingLevel</code> : <code>enum</code> . Controls the amount of internal reasoning the model performs before generating a response. Higher levels may improve quality on complex tasks but increase latency and cost. Supported values are <code>MINIMAL</code> , <code>LOW</code> , <code>MEDIUM</code> , and <code>HIGH</code> (support varies by model).</li>
+<li><code>thinkingBudget</code> : <code>integer</code> . By default, the model automatically controls how much it thinks up to a maximum of <code>8,192</code> tokens. Supported for Gemini 2.5 models; deprecated for Gemini 3 models; not supported on Gemini 4 models (setting <code>thinkingBudget</code> on Gemini 4 models returns a <code>400 INVALID_ARGUMENT</code> error).</li>
+<li><code>thinkingLevel</code> : <code>enum</code> . Controls the amount of internal reasoning the model performs before generating a response. Higher levels may improve quality on complex tasks but increase latency and cost. Supported values are <code>MINIMAL</code> (not supported on Gemini 4 models), <code>LOW</code> , <code>MEDIUM</code> , and <code>HIGH</code> (support varies by model).</li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -672,6 +682,7 @@ Then the returned response with <code>stopSequences</code> set to <code>["Str", 
         ]
       },
       "finishReason": enum (FinishReason),
+      "continuationToken": string,
       "safetyRatings": [
         {
           "category": enum (HarmCategory),
@@ -745,12 +756,17 @@ Then the returned response with <code>stopSequences</code> set to <code>["Str", 
 <td>The generated text.</td>
 </tr>
 <tr class="odd">
+<td><code>continuationToken</code></td>
+<td>An opaque token returned on Gemini 4 models when <code>finishReason</code> is <code>CONTINUATION</code> because generation reached the single-request output limit ( <code>65,536</code> tokens for streaming requests or <code>32,768</code> tokens for non-streaming direct HTTP requests) before reaching <code>maxOutputTokens</code> or a natural stop point. Pass this token in the top-level <code>continuationToken</code> field of a subsequent <code>GenerateContentRequest</code> with the same prompt to continue generating.</td>
+</tr>
+<tr class="even">
 <td><code>finishReason</code></td>
 <td>The reason why the model stopped generating tokens. If empty, the model has not stopped generating the tokens. Because the response uses the prompt for context, it's not possible to change the behavior of how the model stops generating tokens.<br />
 
 <ul>
 <li><code>FINISH_REASON_STOP</code> : Natural stop point of the model or provided stop sequence.</li>
 <li><code>FINISH_REASON_MAX_TOKENS</code> : The maximum number of tokens as specified in the request was reached.</li>
+<li><code>FINISH_REASON_CONTINUATION</code> : Token generation stopped because the response reached the per-request token limit, but generation isn't yet complete; pass the returned <code>continuationToken</code> in a subsequent request to continue generating.</li>
 <li><code>FINISH_REASON_SAFETY</code> : Token generation was stopped because the response was flagged for safety reasons. Note that <code>Candidate.content</code> is empty if content filters block the output.</li>
 <li><code>FINISH_REASON_RECITATION</code> : The token generation was stopped because the response was flagged for unauthorized citations.</li>
 <li><code>FINISH_REASON_BLOCKLIST</code> : Token generation was stopped because the response includes blocked terms.</li>
@@ -763,7 +779,7 @@ Then the returned response with <code>stopSequences</code> set to <code>["Str", 
 <li><code>FINISH_REASON_UNSPECIFIED</code> : The finish reason is unspecified.</li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>category</code></td>
 <td>The safety category to configure a threshold for. Acceptable values include the following:
 <p><strong>Click to expand safety categories</strong></p>
@@ -774,7 +790,7 @@ Then the returned response with <code>stopSequences</code> set to <code>["Str", 
 <li><code>HARM_CATEGORY_DANGEROUS_CONTENT</code></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>probability</code></td>
 <td>The harm probability levels in the content.<br />
 
@@ -786,59 +802,59 @@ Then the returned response with <code>stopSequences</code> set to <code>["Str", 
 <li><code>HIGH</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>blocked</code></td>
 <td>A boolean flag associated with a safety attribute that indicates if the model's input or output was blocked.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>startIndex</code></td>
 <td>An integer that specifies where a citation starts in the <code>content</code> . The <code>startIndex</code> is in bytes and calculated from the response encoded in UTF-8.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>endIndex</code></td>
 <td>An integer that specifies where a citation ends in the <code>content</code> . The <code>endIndex</code> is in bytes and calculated from the response encoded in UTF-8.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>url</code></td>
 <td>The URL of a citation source. Examples of a URL source might be a news website or a GitHub repository.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>title</code></td>
 <td>The title of a citation source. Examples of source titles might be that of a news article or a book.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>license</code></td>
 <td>The license associated with a citation.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>publicationDate</code></td>
 <td>The date a citation was published. Its valid formats are <code>YYYY</code> , <code>YYYY-MM</code> , and <code>YYYY-MM-DD</code> .</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>avgLogprobs</code></td>
 <td>Average log probability of the candidate.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>logprobsResult</code></td>
 <td>Returns the top candidate tokens ( <code>topCandidates</code> ) and the actual chosen tokens ( <code>chosenCandidates</code> ) at each step.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>token</code></td>
 <td>Generative AI models break down text data into tokens for processing, which can be characters, words, or phrases.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>logProbability</code></td>
 <td>A log probability value that indicates the model's confidence for a particular token.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>promptTokenCount</code></td>
 <td>Number of tokens in the request.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>candidatesTokenCount</code></td>
 <td>Number of tokens in the response(s).</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>totalTokenCount</code></td>
 <td>Number of tokens in the request and response(s).</td>
 </tr>

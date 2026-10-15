@@ -218,16 +218,20 @@ memory_bank = client.memory_banks.create(
 If you want to change your [Memory Bank configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) , you can update your Memory Bank instance.
 
 ```
-memory_bank = client.memory_banks.update(
+memory_bank = client.runtimes.update(
   # You can access the name using `memory_bank.name` for a MemoryBank object.
   name="MEMORY_BANK_NAME",
-  managed_semantic_memory_config={
-    "generation_config": ...,
-    "unstructured_memory_configs": [...],
-    "structured_memory_configs": [...],
-    "similarity_search_config": ...,
-    "ttl_config": ...,
-    "disable_memory_revisions": False,
+  config={
+    "context_spec": {
+      "memory_bank_config": {
+        "generation_config": ...,
+        "customization_configs": [...],
+        "structured_memory_configs": [...],
+        "similarity_search_config": ...,
+        "ttl_config": ...,
+        "disable_memory_revisions": False,
+      }
+    }
   }
 )
 ```
@@ -359,16 +363,10 @@ managed_semantic_memory_config = ManagedSemanticMemoryConfig(
 )
 ```
 
-You can adjust the Memory Bank configuration when you create or update your instance. The following example demonstrates how to create or update an instance with a specific Memory Bank configuration.
+You can adjust the Memory Bank configuration when you create or update your instance. The following example demonstrates how to create an instance with a specific Memory Bank configuration.
 
 ```
 memory_bank = client.memory_banks.create(
-    managed_semantic_memory_config=managed_semantic_memory_config
-)
-
-# Alternatively, update an existing Memory Bank instance's config.
-memory_bank = client.memory_banks.update(
-    name=memory_bank.name,
     managed_semantic_memory_config=managed_semantic_memory_config
 )
 ```

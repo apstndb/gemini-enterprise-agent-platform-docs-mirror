@@ -66,7 +66,7 @@ headers = {
 }
 HOST= "${LOCATION}-aiplatform.googleapis.com"
 SERVICE_URL = f"wss://{HOST}/ws/google.cloud.aiplatform.v1beta1.LlmBidiService/BidiGenerateContent"
-MODEL="gemini-2.0-flash-exp"
+MODEL = "YOUR_MODEL_NAME"
 
 # Connect to the server
 async with connect(SERVICE_URL, additional_headers=headers) as ws:
@@ -142,7 +142,7 @@ from google.genai import types
 from google.genai.types import (Content, LiveConnectConfig, HttpOptions, Modality, Part,)
 from IPython import display
 
-MODEL="gemini-live-2.5-flash-native-audio"
+MODEL = "YOUR_MODEL_NAME"
 
 client = genai.Client(
   vertexai=True,
@@ -186,7 +186,7 @@ This code sample demonstrates how to create a corpus. However, first replace the
 # Currently supports Google first-party embedding models
 EMBEDDING_MODEL = YOUR_EMBEDDING_MODEL  # Such as "publishers/google/models/text-embedding-005"
 MEMORY_CORPUS_DISPLAY_NAME = YOUR_MEMORY_CORPUS_DISPLAY_NAME
-LLM_PARSER_MODEL_NAME = YOUR_LLM_PARSER_MODEL_NAME  # Such as "projects/{project_id}/locations/{location}/publishers/google/models/gemini-2.5-pro-preview-05-06"
+LLM_PARSER_MODEL_NAME = YOUR_LLM_PARSER_MODEL_NAME  # Such as "projects/{project_id}/locations/{location}/publishers/google/models/gemini-3.8-flash"
 
 memory_corpus = rag.create_corpus(
    display_name=MEMORY_CORPUS_DISPLAY_NAME,
@@ -222,7 +222,7 @@ from IPython import display
 PROJECT_ID=YOUR_PROJECT_ID
 LOCATION=YOUR_LOCATION
 TEXT_INPUT=YOUR_TEXT_INPUT
-MODEL_NAME=YOUR_MODEL_NAME  # Such as "gemini-2.0-flash-exp"
+MODEL_NAME=YOUR_MODEL_NAME
 
 client = genai.Client(
    vertexai=True,

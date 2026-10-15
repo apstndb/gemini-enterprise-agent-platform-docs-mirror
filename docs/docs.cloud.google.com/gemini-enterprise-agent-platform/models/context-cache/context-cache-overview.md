@@ -12,7 +12,7 @@ data_source: docs.cloud.google.com
 
 Context caching helps reduce the cost and latency of requests to Gemini that contain repeated content. Gemini Enterprise Agent Platform offers two types of caching:
 
-- **Implicit caching:** Automatic caching enabled by default that provides cost savings when cache hits occur.
+- **Implicit caching:** Automatic caching enabled by default that provides cost savings when cache hits occur. Implicit caching includes in-memory caching and durable caching.
 - **Explicit caching:** Manual caching enabled using the Gemini Enterprise API, where you explicitly declare the content you want to cache and whether or not your prompts should refer to the cached content.
 
 For both implicit and explicit caching, the [`cachedContentTokenCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse) field in your response's metadata indicates the number of tokens in the cached part of your input.
@@ -23,20 +23,33 @@ For both implicit and explicit caching, you're billed for the input tokens used 
 
 ## Implicit caching
 
-All Google Cloud projects have implicit caching enabled by default. Implicit caching provides a 90% discount on cached tokens compared to standard input tokens.
+All Google Cloud projects have implicit caching enabled by default. Implicit caching provides a 90% discount on cached tokens compared to standard input tokens. When enabled, implicit cache hit cost savings are automatically passed on to you.
 
-When enabled, implicit cache hit cost savings are automatically passed on to you. To increase the chances of an implicit cache hit:
+Implicit caching stores prefixes in two storage tiers:
+
+- **In-memory caching:** Cached prefixes are kept in memory. Memory capacity is limited, so prefixes are evicted as capacity is reclaimed.
+- **Durable caching:** When a prefix is evicted from in-memory storage, it moves to durable storage instead of being discarded. A later request that reuses the prefix can still get a cache hit, which raises cache hit rates for workloads that reuse the same context over longer intervals.
+
+Both tiers are enabled by default. A cached prefix expires no later than 24 hours after it's created, and most entries are evicted earlier. You can disable durable caching and keep in-memory caching, or you can disable implicit caching entirely. If you have data retention concerns, see [Zero data retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention#controlling-data-caching) , which describes how cached data is handled and how to disable each tier.
+
+To increase the likelihood of an implicit cache hit, do the following:
 
 - Place large and common contents at the beginning of your prompt.
 - Send requests with a similar prefix in a short amount of time.
 
 ### Supported models
 
-Implicit caching is supported when using the following models:
+Implicit caching is available on supported Gemini models, and durable caching is available on a subset of those models.
+
+#### In-memory caching
+
+In-memory caching is supported when using the following models:
 
 #### Click to expand supported models
 
 - [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
+- [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)
+- [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)
 - [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)
 - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
 - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
@@ -53,13 +66,20 @@ Implicit caching is supported when using the following models:
 - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
 - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
+#### Durable caching
+
+Durable caching is supported when using the following models:
+
+- Gemini 4 Argon
+- Gemini 4 Argon Cyber Permissive
+
 Implicit caching also supports open models. For more information, see [Agent Platform open models for MaaS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models#context-caching) .
 
 ## Explicit caching
 
 Explicit caching offers more control and ensures a discount on input tokens that reference an existing context cache. On Gemini 2.5 or later models, this discount is 90%; on Gemini 2.0 models, this discount is 75%.
 
-Using the Gemini Enterprise API, you can:
+Using the Gemini Enterprise API, you can perform the following tasks:
 
 - [Create context caches](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-create) and control them more effectively.
 - [Use a context cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-use) by referencing its contents in a prompt request with its resource name.
@@ -95,7 +115,7 @@ Context caching is particularly well suited to scenarios where a substantial ini
 
 Cached context items, such as a large amount of text, an audio file, or a video file, can be used in prompt requests to the Gemini API to generate output. Requests that use the same cache in the prompt also include text unique to each prompt. For example, each prompt request that composes a chat conversation might include the same context cache that references a video along with unique text that comprises each turn in the chat.
 
-Consider using context caching for use cases such as:
+Consider using context caching for the following use cases:
 
 - Chatbots with extensive system instructions
 - Repetitive analysis of lengthy video files
@@ -106,11 +126,11 @@ Implicit and explicit caching are supported with Provisioned Throughput in [Prev
 
 ## Availability
 
-Context caching is available in regions where Generative AI on Gemini Enterprise Agent Platform is available. For more information, see [Generative AI on Gemini Enterprise Agent Platform locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
+Context caching is available in regions where Generative AI on Agent Platform is available. For more information, see [Generative AI on Agent Platform locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
 
 ## Limits
 
-The content that you explicitly cache must adhere to the limits shown in the following table:
+Context caching adheres to the limits in the following table:
 
 <table>
 <colgroup>
@@ -126,7 +146,7 @@ The content that you explicitly cache must adhere to the limits shown in the fol
 <tr class="odd">
 <td><p>Minimum cache token count for implicit and explicit caching</p></td>
 <td><ul>
-<li><strong>Gemini 3 family models:</strong> 4,096 tokens</li>
+<li><strong>Gemini 3 (with exceptions) and Gemini 4 models:</strong> 4,096 tokens</li>
 <li><strong>Gemini 3.0 Flash Preview, 3.1 Pro Preview, 3.7 Flash, and 3.8 Flash (implicit caching only):</strong> 6,144 tokens</li>
 <li><strong>Gemini 2 family models:</strong> 2,048 tokens</li>
 </ul></td>
@@ -143,6 +163,10 @@ The content that you explicitly cache must adhere to the limits shown in the fol
 <td><p>Maximum time before a cache expires after it's created</p></td>
 <td>There isn't a maximum cache duration</td>
 </tr>
+<tr class="odd">
+<td><p>Maximum lifetime of an implicitly cached prefix</p></td>
+<td>Up to 24 hours</td>
+</tr>
 </tbody>
 </table>
 
@@ -152,13 +176,13 @@ The content that you explicitly cache must adhere to the limits shown in the fol
 
 Google Cloud uses your project number to isolate cached data, and cached content is never shared across projects.
 
-To prevent cross-user data leakage in agentic workloads, scope cached agent outputs and prompt context strictly to each specific execution context. When you operate background agents or multi-tenant proxies, ensure that your context caching boundaries align with end-user permission boundaries so that an agent cannot reuse cached credentials or context across different users.
+To prevent cross-user data leakage in agentic workloads, scope cached prompt data and outputs to each user session. When you run background agents or multi-tenant proxies, align cache boundaries with end-user permissions so an agent can't reuse cached credentials or data across users.
 
 ## VPC Service Controls support
 
 Context caching supports VPC Service Controls, meaning your cache cannot be exfiltrated beyond your service perimeter. If you use Cloud Storage to build your cache, include your bucket in your service perimeter as well to protect your cache content.
 
-For more information, see [VPC Service Controls with Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls) in the Gemini Enterprise Agent Platform documentation.
+For more information, see [VPC Service Controls with Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls) in the Agent Platform documentation.
 
 ## What's next
 

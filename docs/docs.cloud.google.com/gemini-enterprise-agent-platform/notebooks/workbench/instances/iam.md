@@ -131,6 +131,13 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute.firewalls.list</code></p>
 <p><code>compute. firewalls. listEffectiveTags</code></p>
 <p><code>compute. firewalls. listTagBindings</code></p>
+<p><code>compute. folderVmExtensionPolicies. get</code></p>
+<p><code>compute. folderVmExtensionPolicies. list</code></p>
+<p><code>compute.folderVmExtensions.*</code></p>
+<ul>
+<li><code>compute.folderVmExtensions.get</code></li>
+<li><code>compute. folderVmExtensions. list</code></li>
+</ul>
 <p><code>compute.forwardingRules.get</code></p>
 <p><code>compute.forwardingRules.list</code></p>
 <p><code>compute. forwardingRules. listEffectiveTags</code></p>
@@ -309,6 +316,13 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute.orgRolloutPlans.list</code></p>
 <p><code>compute.orgRollouts.get</code></p>
 <p><code>compute.orgRollouts.list</code></p>
+<p><code>compute. orgVmExtensionPolicies. get</code></p>
+<p><code>compute. orgVmExtensionPolicies. list</code></p>
+<p><code>compute.orgVmExtensions.*</code></p>
+<ul>
+<li><code>compute.orgVmExtensions.get</code></li>
+<li><code>compute.orgVmExtensions.list</code></li>
+</ul>
 <p><code>compute. organizations. listAssociations</code></p>
 <p><code>compute.packetMirrorings.get</code></p>
 <p><code>compute.packetMirrorings.list</code></p>
@@ -514,6 +528,11 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute.urlMaps.validate</code></p>
 <p><code>compute. vmExtensionPolicies. get</code></p>
 <p><code>compute. vmExtensionPolicies. list</code></p>
+<p><code>compute.vmExtensions.*</code></p>
+<ul>
+<li><code>compute.vmExtensions.get</code></li>
+<li><code>compute.vmExtensions.list</code></li>
+</ul>
 <p><code>compute.vpnGateways.get</code></p>
 <p><code>compute.vpnGateways.list</code></p>
 <p><code>compute. vpnGateways. listEffectiveTags</code></p>
@@ -673,6 +692,13 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute.firewalls.list</code></p>
 <p><code>compute. firewalls. listEffectiveTags</code></p>
 <p><code>compute. firewalls. listTagBindings</code></p>
+<p><code>compute. folderVmExtensionPolicies. get</code></p>
+<p><code>compute. folderVmExtensionPolicies. list</code></p>
+<p><code>compute.folderVmExtensions.*</code></p>
+<ul>
+<li><code>compute.folderVmExtensions.get</code></li>
+<li><code>compute. folderVmExtensions. list</code></li>
+</ul>
 <p><code>compute.forwardingRules.get</code></p>
 <p><code>compute.forwardingRules.list</code></p>
 <p><code>compute. forwardingRules. listEffectiveTags</code></p>
@@ -851,6 +877,13 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute.orgRolloutPlans.list</code></p>
 <p><code>compute.orgRollouts.get</code></p>
 <p><code>compute.orgRollouts.list</code></p>
+<p><code>compute. orgVmExtensionPolicies. get</code></p>
+<p><code>compute. orgVmExtensionPolicies. list</code></p>
+<p><code>compute.orgVmExtensions.*</code></p>
+<ul>
+<li><code>compute.orgVmExtensions.get</code></li>
+<li><code>compute.orgVmExtensions.list</code></li>
+</ul>
 <p><code>compute. organizations. listAssociations</code></p>
 <p><code>compute.packetMirrorings.get</code></p>
 <p><code>compute.packetMirrorings.list</code></p>
@@ -1056,6 +1089,11 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute.urlMaps.validate</code></p>
 <p><code>compute. vmExtensionPolicies. get</code></p>
 <p><code>compute. vmExtensionPolicies. list</code></p>
+<p><code>compute.vmExtensions.*</code></p>
+<ul>
+<li><code>compute.vmExtensions.get</code></li>
+<li><code>compute.vmExtensions.list</code></li>
+</ul>
 <p><code>compute.vpnGateways.get</code></p>
 <p><code>compute.vpnGateways.list</code></p>
 <p><code>compute. vpnGateways. listEffectiveTags</code></p>
@@ -1215,6 +1253,13 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute.firewalls.list</code></p>
 <p><code>compute. firewalls. listEffectiveTags</code></p>
 <p><code>compute. firewalls. listTagBindings</code></p>
+<p><code>compute. folderVmExtensionPolicies. get</code></p>
+<p><code>compute. folderVmExtensionPolicies. list</code></p>
+<p><code>compute.folderVmExtensions.*</code></p>
+<ul>
+<li><code>compute.folderVmExtensions.get</code></li>
+<li><code>compute. folderVmExtensions. list</code></li>
+</ul>
 <p><code>compute.forwardingRules.get</code></p>
 <p><code>compute.forwardingRules.list</code></p>
 <p><code>compute. forwardingRules. listEffectiveTags</code></p>
@@ -1393,6 +1438,13 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute.orgRolloutPlans.list</code></p>
 <p><code>compute.orgRollouts.get</code></p>
 <p><code>compute.orgRollouts.list</code></p>
+<p><code>compute. orgVmExtensionPolicies. get</code></p>
+<p><code>compute. orgVmExtensionPolicies. list</code></p>
+<p><code>compute.orgVmExtensions.*</code></p>
+<ul>
+<li><code>compute.orgVmExtensions.get</code></li>
+<li><code>compute.orgVmExtensions.list</code></li>
+</ul>
 <p><code>compute. organizations. listAssociations</code></p>
 <p><code>compute.packetMirrorings.get</code></p>
 <p><code>compute.packetMirrorings.list</code></p>
@@ -1598,6 +1650,11 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute.urlMaps.validate</code></p>
 <p><code>compute. vmExtensionPolicies. get</code></p>
 <p><code>compute. vmExtensionPolicies. list</code></p>
+<p><code>compute.vmExtensions.*</code></p>
+<ul>
+<li><code>compute.vmExtensions.get</code></li>
+<li><code>compute.vmExtensions.list</code></li>
+</ul>
 <p><code>compute.vpnGateways.get</code></p>
 <p><code>compute.vpnGateways.list</code></p>
 <p><code>compute. vpnGateways. listEffectiveTags</code></p>
@@ -1820,6 +1877,13 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code>compute. firewalls. listEffectiveTags</code></li>
 <li><code>compute. firewalls. listTagBindings</code></li>
 <li><code>compute.firewalls.update</code></li>
+<li><code>compute. folderVmExtensionPolicies. create</code></li>
+<li><code>compute. folderVmExtensionPolicies. delete</code></li>
+<li><code>compute. folderVmExtensionPolicies. get</code></li>
+<li><code>compute. folderVmExtensionPolicies. list</code></li>
+<li><code>compute. folderVmExtensionPolicies. update</code></li>
+<li><code>compute.folderVmExtensions.get</code></li>
+<li><code>compute. folderVmExtensions. list</code></li>
 <li><code>compute.forwardingRules.create</code></li>
 <li><code>compute. forwardingRules. createTagBinding</code></li>
 <li><code>compute.forwardingRules.delete</code></li>
@@ -2223,6 +2287,13 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code>compute.orgRollouts.list</code></li>
 <li><code>compute.orgRollouts.pause</code></li>
 <li><code>compute.orgRollouts.resume</code></li>
+<li><code>compute. orgVmExtensionPolicies. create</code></li>
+<li><code>compute. orgVmExtensionPolicies. delete</code></li>
+<li><code>compute. orgVmExtensionPolicies. get</code></li>
+<li><code>compute. orgVmExtensionPolicies. list</code></li>
+<li><code>compute. orgVmExtensionPolicies. update</code></li>
+<li><code>compute.orgVmExtensions.get</code></li>
+<li><code>compute.orgVmExtensions.list</code></li>
 <li><code>compute. organizations. disableXpnHost</code></li>
 <li><code>compute. organizations. disableXpnResource</code></li>
 <li><code>compute. organizations. enableXpnHost</code></li>
@@ -2731,6 +2802,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code>compute. vmExtensionPolicies. get</code></li>
 <li><code>compute. vmExtensionPolicies. list</code></li>
 <li><code>compute. vmExtensionPolicies. update</code></li>
+<li><code>compute.vmExtensions.get</code></li>
+<li><code>compute.vmExtensions.list</code></li>
 <li><code>compute.vpnGateways.create</code></li>
 <li><code>compute. vpnGateways. createTagBinding</code></li>
 <li><code>compute.vpnGateways.delete</code></li>
@@ -2900,6 +2973,13 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute.firewalls.list</code></p>
 <p><code>compute. firewalls. listEffectiveTags</code></p>
 <p><code>compute. firewalls. listTagBindings</code></p>
+<p><code>compute. folderVmExtensionPolicies. get</code></p>
+<p><code>compute. folderVmExtensionPolicies. list</code></p>
+<p><code>compute.folderVmExtensions.*</code></p>
+<ul>
+<li><code>compute.folderVmExtensions.get</code></li>
+<li><code>compute. folderVmExtensions. list</code></li>
+</ul>
 <p><code>compute.forwardingRules.get</code></p>
 <p><code>compute.forwardingRules.list</code></p>
 <p><code>compute. forwardingRules. listEffectiveTags</code></p>
@@ -3078,6 +3158,13 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute.orgRolloutPlans.list</code></p>
 <p><code>compute.orgRollouts.get</code></p>
 <p><code>compute.orgRollouts.list</code></p>
+<p><code>compute. orgVmExtensionPolicies. get</code></p>
+<p><code>compute. orgVmExtensionPolicies. list</code></p>
+<p><code>compute.orgVmExtensions.*</code></p>
+<ul>
+<li><code>compute.orgVmExtensions.get</code></li>
+<li><code>compute.orgVmExtensions.list</code></li>
+</ul>
 <p><code>compute. organizations. listAssociations</code></p>
 <p><code>compute.packetMirrorings.get</code></p>
 <p><code>compute.packetMirrorings.list</code></p>
@@ -3283,6 +3370,11 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute.urlMaps.validate</code></p>
 <p><code>compute. vmExtensionPolicies. get</code></p>
 <p><code>compute. vmExtensionPolicies. list</code></p>
+<p><code>compute.vmExtensions.*</code></p>
+<ul>
+<li><code>compute.vmExtensions.get</code></li>
+<li><code>compute.vmExtensions.list</code></li>
+</ul>
 <p><code>compute.vpnGateways.get</code></p>
 <p><code>compute.vpnGateways.list</code></p>
 <p><code>compute. vpnGateways. listEffectiveTags</code></p>
@@ -3417,6 +3509,13 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute.firewalls.list</code></p>
 <p><code>compute. firewalls. listEffectiveTags</code></p>
 <p><code>compute. firewalls. listTagBindings</code></p>
+<p><code>compute. folderVmExtensionPolicies. get</code></p>
+<p><code>compute. folderVmExtensionPolicies. list</code></p>
+<p><code>compute.folderVmExtensions.*</code></p>
+<ul>
+<li><code>compute.folderVmExtensions.get</code></li>
+<li><code>compute. folderVmExtensions. list</code></li>
+</ul>
 <p><code>compute.forwardingRules.get</code></p>
 <p><code>compute.forwardingRules.list</code></p>
 <p><code>compute. forwardingRules. listEffectiveTags</code></p>
@@ -3595,6 +3694,13 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute.orgRolloutPlans.list</code></p>
 <p><code>compute.orgRollouts.get</code></p>
 <p><code>compute.orgRollouts.list</code></p>
+<p><code>compute. orgVmExtensionPolicies. get</code></p>
+<p><code>compute. orgVmExtensionPolicies. list</code></p>
+<p><code>compute.orgVmExtensions.*</code></p>
+<ul>
+<li><code>compute.orgVmExtensions.get</code></li>
+<li><code>compute.orgVmExtensions.list</code></li>
+</ul>
 <p><code>compute. organizations. listAssociations</code></p>
 <p><code>compute.packetMirrorings.get</code></p>
 <p><code>compute.packetMirrorings.list</code></p>
@@ -3800,6 +3906,11 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code>compute.urlMaps.validate</code></p>
 <p><code>compute. vmExtensionPolicies. get</code></p>
 <p><code>compute. vmExtensionPolicies. list</code></p>
+<p><code>compute.vmExtensions.*</code></p>
+<ul>
+<li><code>compute.vmExtensions.get</code></li>
+<li><code>compute.vmExtensions.list</code></li>
+</ul>
 <p><code>compute.vpnGateways.get</code></p>
 <p><code>compute.vpnGateways.list</code></p>
 <p><code>compute. vpnGateways. listEffectiveTags</code></p>
@@ -4016,6 +4127,13 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code>compute.firewalls.list</code></p>
 <p><code>compute. firewalls. listEffectiveTags</code></p>
 <p><code>compute. firewalls. listTagBindings</code></p>
+<p><code>compute. folderVmExtensionPolicies. get</code></p>
+<p><code>compute. folderVmExtensionPolicies. list</code></p>
+<p><code>compute.folderVmExtensions.*</code></p>
+<ul>
+<li><code>compute.folderVmExtensions.get</code></li>
+<li><code>compute. folderVmExtensions. list</code></li>
+</ul>
 <p><code>compute.forwardingRules.get</code></p>
 <p><code>compute.forwardingRules.list</code></p>
 <p><code>compute. forwardingRules. listEffectiveTags</code></p>
@@ -4340,6 +4458,13 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code>compute.orgRolloutPlans.list</code></p>
 <p><code>compute.orgRollouts.get</code></p>
 <p><code>compute.orgRollouts.list</code></p>
+<p><code>compute. orgVmExtensionPolicies. get</code></p>
+<p><code>compute. orgVmExtensionPolicies. list</code></p>
+<p><code>compute.orgVmExtensions.*</code></p>
+<ul>
+<li><code>compute.orgVmExtensions.get</code></li>
+<li><code>compute.orgVmExtensions.list</code></li>
+</ul>
 <p><code>compute. organizations. listAssociations</code></p>
 <p><code>compute.packetMirrorings.get</code></p>
 <p><code>compute.packetMirrorings.list</code></p>
@@ -4596,6 +4721,11 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code>compute.urlMaps.validate</code></p>
 <p><code>compute. vmExtensionPolicies. get</code></p>
 <p><code>compute. vmExtensionPolicies. list</code></p>
+<p><code>compute.vmExtensions.*</code></p>
+<ul>
+<li><code>compute.vmExtensions.get</code></li>
+<li><code>compute.vmExtensions.list</code></li>
+</ul>
 <p><code>compute.vpnGateways.get</code></p>
 <p><code>compute.vpnGateways.list</code></p>
 <p><code>compute. vpnGateways. listEffectiveTags</code></p>

@@ -23,6 +23,8 @@ Thinking is supported in the following models:
 - [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview
 - [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview
 - [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
+- [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)
+- [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)
 - [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)
 - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
 - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
@@ -82,15 +84,15 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-> **Warning:** The `thinking_budget` parameter is deprecated for Gemini 3 and later models. Using `thinking_budget` with these models can cause intermittent `400: INVALID_ARGUMENT` errors.
+> **Warning:** The `thinking_budget` parameter is deprecated for Gemini 3 and later models. Setting `thinking_budget` on Gemini 4 models returns a `400: INVALID_ARGUMENT` error, and using it with Gemini 3 models can cause intermittent `400: INVALID_ARGUMENT` errors.
 >
-> Specifying both `thinking_level` and `thinking_budget` in the same request returns an error. Remove `thinking_budget` from your requests when using Gemini 3 models to avoid these errors.
+> Specifying both `thinking_level` and `thinking_budget` in the same request returns an error. Remove `thinking_budget` from your requests when using Gemini 3 and later models to avoid these errors.
 
 #### Thinking level values
 
 You can set `thinking_level` to one of the following values:
 
-- **`MINIMAL`** : Uses the fewest possible tokens for thinking. Best for straightforward tasks that do not require extended reasoning. `MINIMAL` requires [thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures) in multi-turn conversations; if omitted, the model returns a `400: INVALID_ARGUMENT` error.
+- **`MINIMAL`** : Uses the fewest possible tokens for thinking. Best for straightforward tasks that do not require extended reasoning. `MINIMAL` requires [thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures) in multi-turn conversations; if omitted, the model returns a `400: INVALID_ARGUMENT` error. Not supported on Gemini 4 models.
 - **`LOW`** : Uses fewer thinking tokens for faster responses. Best for high-throughput applications with low task complexity.
 - **`MEDIUM`** : Balances reasoning quality and latency. Suitable for tasks with moderate complexity that benefit from intermediate reasoning steps.
 - **`HIGH`** : Uses the maximum thinking capacity. Best for complex prompts requiring deep reasoning, multi-step problem solving, formal code verification, or multi-turn tool execution.
@@ -102,6 +104,8 @@ The following table lists supported `thinking_level` values and default configur
 | Model                                                                                                                                                 | Supported `thinking_level` values     | Default   |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|-----------|
 | [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)                                | `MINIMAL` , `MEDIUM` , `HIGH`         | `MEDIUM`  |
+| [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)                         | `LOW` , `MEDIUM` , `HIGH`             | `HIGH`    |
+| [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)                                                | `LOW` , `MEDIUM` , `HIGH`             | `MEDIUM`  |
 | [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)                                | `LOW` , `MEDIUM` , `HIGH`             | `MEDIUM`  |
 | [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)                                            | `LOW` , `MEDIUM` , `HIGH`             | `MEDIUM`  |
 | [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)                                            | `LOW` , `MEDIUM` , `HIGH`             | `MEDIUM`  |

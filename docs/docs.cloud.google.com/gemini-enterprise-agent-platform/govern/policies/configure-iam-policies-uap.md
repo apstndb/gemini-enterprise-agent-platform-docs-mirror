@@ -34,7 +34,7 @@ Before you create an IAM UAP, do the following:
         networkservices.googleapis.com
     ```
 
-4.  Make sure that you have [set up an Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) and IAP using an IAP v2 policy. We recommend that you initially configure Agent Gateway in dry-run mode. For more information about Agent Gateway, see [Agent Gateway overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) .
+4.  Make sure that you have [set up an Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) and IAP using an IAP v2 policy. We recommend that you initially configure Agent Gateway in [dry-run mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#configure-authz-iap) . For more information about Agent Gateway, see [Agent Gateway overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) .
 
 5.  Populate your Agent Registry with target destination resources, such as agents, MCP servers, and endpoints.
 

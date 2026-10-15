@@ -72,8 +72,8 @@ Supported</li>
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context">URL context</a><br />
 Supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing">Agentic video understanding</a> preview Preview feature<br />
-Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing">Agentic video understanding</a><br />
+Supported</li>
 </ul></th>
 <td></td>
 </tr>
@@ -216,6 +216,7 @@ Not supported</li>
 <ul>
 <li>Launch stage: GA</li>
 <li>Release date: September 2, 2026</li>
+<li>Retirement date <sup><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash#retirement-date">†</a></sup> : September 2, 2027 or later</li>
 </ul></li>
 </ul></th>
 <td></td>
@@ -257,3 +258,5 @@ Not supported</li>
 </tr>
 </tbody>
 </table>
+
+<sup>†</sup> Listed retirement dates refer to retirement of support in Gemini Enterprise Agent Platform. Models may remain accessible through the Gemini API after these dates have passed. The Gemini API is not a Google Cloud offering and is subject to its own terms of service. For details, see the [Gemini API documentation](https://ai.google.dev/) .

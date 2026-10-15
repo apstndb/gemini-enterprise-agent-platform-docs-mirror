@@ -85,7 +85,7 @@ Supported</li>
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/generate-virtual-try-on-images">Virtual try-on</a><br />
 Not supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation">Person generation</a><br />
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/PersonGeneration">Person generation</a><br />
 Not supported</li>
 </ul></th>
 <td></td>

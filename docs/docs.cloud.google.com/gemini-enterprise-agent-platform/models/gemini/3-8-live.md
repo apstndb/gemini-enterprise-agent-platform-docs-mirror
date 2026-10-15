@@ -63,7 +63,7 @@ Not supported</li>
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context">URL context</a><br />
 Not supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing">Agentic video understanding</a> preview Preview feature<br />
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing">Agentic video understanding</a><br />
 Not supported</li>
 </ul></th>
 <td></td>
@@ -162,6 +162,13 @@ Not supported</li>
 </ul></td>
 </tr>
 <tr class="even">
+<th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency">ML processing</a></strong></p></th>
+<th><ul>
+<li>Multi-region: <code>us</code> , <code>eu</code></li>
+</ul></th>
+<td></td>
+</tr>
+<tr class="odd">
 <th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models">Provisioned Throughput</a></strong></p></th>
 <th><ul>
 <li>Multi-region: <code>us</code> , <code>eu</code></li>
@@ -169,7 +176,7 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo">Standard PayGo</a></strong></p></th>
 <th><ul>
 <li>Multi-region: <code>us</code> , <code>eu</code></li>
@@ -177,23 +184,24 @@ Not supported</li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Knowledge cutoff date</th>
 <th>January 2025</th>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>Versions</th>
 <th><ul>
 <li><code>gemini-3.8-live</code>
 <ul>
 <li>Launch stage: GA</li>
 <li>Release date: September 24, 2026</li>
+<li>Retirement date <sup><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live#retirement-date">†</a></sup> : September 25, 2027 or later</li>
 </ul></li>
 </ul></th>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>Security controls</th>
 <th><strong>Online prediction</strong></th>
 <td><ul>
@@ -203,10 +211,12 @@ Not supported</li>
 <li>AXT</li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th>See <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls">Security controls</a> for more information.</th>
 <th></th>
 <td></td>
 </tr>
 </tbody>
 </table>
+
+<sup>†</sup> Listed retirement dates refer to retirement of support in Gemini Enterprise Agent Platform. Models may remain accessible through the Gemini API after these dates have passed. The Gemini API is not a Google Cloud offering and is subject to its own terms of service. For details, see the [Gemini API documentation](https://ai.google.dev/) .

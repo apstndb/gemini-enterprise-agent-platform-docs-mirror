@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment
 title: Install and configure the CLI
-description: Learn how to download the CodeMender CLI, configure Google Cloud credentials, and initialize your workspace.
+description: Learn how to download the CodeMender CLI, configure Google Cloud credentials and project, and initialize your workspace.
 data_source: docs.cloud.google.com
 ---
 
@@ -21,7 +21,7 @@ CodeMender uses a **local-first execution model** :
 
 ## Environment setup
 
-To begin using CodeMender, set up your Google Cloud project, download and install the CLI, configure your credentials, and initialize your workspace.
+To begin using CodeMender, set up your Google Cloud project, download and install the CLI, configure your credentials and target project, and initialize your workspace.
 
 ### Project setup and IAM permissions
 
@@ -31,14 +31,14 @@ Before downloading the CLI and configuring credentials, ensure that the target G
 
 Ensure the following Google Cloud APIs are enabled in your project:
 
-1.  **Vertex AI API** ( `aiplatform.googleapis.com` ) — Powers the streaming and management of active sessions.
+1.  **Agent Platform API** ( `aiplatform.googleapis.com` ) — Powers the streaming and management of active sessions.
 2.  **Cloud Resource Manager API** ( `cloudresourcemanager.googleapis.com` ) — Validates user authentication states and project metadata.
 
 #### Recommended predefined IAM role
 
 To run the CLI commands, users should be assigned the following IAM role:
 
-- **Vertex AI User** ( `roles/aiplatform.user` ) — Allows users to create, stream, and manage active sessions.
+- **Agent Platform User** ( `roles/aiplatform.user` ) — Allows users to create, stream, and manage active sessions.
 
 ### Download and install CodeMender CLI
 
@@ -236,19 +236,33 @@ To download and install CodeMender CLI for Windows (ARM64):
     # Move cm.exe to a permanent folder and add it to your system PATH (e.g. Environmental Variables)
     ```
 
-### Configure Google Cloud credentials
+### Configure Google Cloud credentials and project
 
-Because the CodeMender CLI interacts with the cloud-hosted reasoning engine over the Interactions API, you must configure Google Cloud Application Default Credentials (ADC) in your environment.
+Because the CodeMender CLI interacts with the cloud-hosted reasoning engine over the Interactions API, you must configure Google Cloud Application Default Credentials (ADC) and specify your target project in your environment.
 
-To authenticate, run the following command and follow the login prompts:
+1.  To authenticate, run the following command and follow the login prompts:
 
-```
-gcloud auth application-default login
-```
+    ```
+    gcloud auth application-default login
+    ```
+
+2.  Set the `GOOGLE_CLOUD_PROJECT` environment variable to your Google Cloud project ID:
+
+    ```
+    export GOOGLE_CLOUD_PROJECT="PROJECT_ID"
+    ```
+
+    Alternatively, configure your active gcloud CLI CLI project:
+
+    ```
+    gcloud config set project PROJECT_ID
+    ```
+
+    Replace `PROJECT_ID` with your Google Cloud project ID.
 
 ## Initialize the workspace
 
-Once you have authenticated, your next step is to initialize CodeMender in your local environment. Initializing CodeMender prepares your local workspace by creating state-tracking files and establishing connection settings to the cloud-hosted reasoning engine.
+After configuring your credentials and target project, your next step is to initialize CodeMender in your local environment. Initializing CodeMender prepares your local workspace by creating state-tracking files and establishing connection settings to the cloud-hosted reasoning engine.
 
 Run `cm init` from the root directory of your codebase to create local state tracking files and establish baseline configurations:
 
@@ -328,7 +342,7 @@ Here is what the core default parameters mean:
 - **`model: "gemini-3.8-flash"`**
 
   - **What it means:** The default intelligence engine powering the backend reasoning loops.
-  - **Why this is the default:** `gemini-3.8-flash` offers the optimal balance of speed, cost, and analytical reasoning required to suggest patches. (Users can override this to `gemini-3.1-pro` for deeper, more complex reasoning when needed).
+  - **Why this is the default:** `gemini-3.8-flash` offers the optimal balance of speed, cost, and analytical reasoning required to suggest patches. (Users can override this to `gemini-4-argon` (Gemini 4 Argon) for deeper, more complex reasoning when needed).
 
 - **`vcs: { type: "git" }`**
 

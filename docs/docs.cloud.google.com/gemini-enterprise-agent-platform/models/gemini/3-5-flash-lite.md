@@ -11,6 +11,7 @@ Gemini 3.5 Flash-Lite is the latest in our cost-effective Flash-Lite line of mod
 When using 3.5 Flash-Lite, you can use different thinking levels to optimize for quality, speed, and token output:
 
 - **Use `thinking_level.MINIMAL` for latency-sensitive or simpler classification and extraction tasks** : 3.5 Flash-Lite defaults to minimal thinking, which optimizes for speed and cost efficiency. This is ideal for high-throughput classification, routing, or JSON extraction tasks.
+- **Use `thinking_level.LOW` for high-throughput tasks that require light reasoning** : Uses fewer thinking tokens for faster responses on tasks with low complexity.
 - **Use `thinking_level.MEDIUM` or `thinking_level.HIGH` for subagents** : If you're using 3.5 Flash-Lite as an autonomous subagent that writes code, runs terminal commands, or calls external APIs, set the thinking level to medium or high. Using the minimal thinking level can cause premature tool termination on multi-step tasks.
 
 3.5 Flash-Lite includes the following potentially breaking changes when compared to previous Gemini models:
@@ -81,7 +82,7 @@ Supported</li>
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context">URL context</a><br />
 Supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing">Agentic video understanding</a> preview Preview feature<br />
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing">Agentic video understanding</a><br />
 Supported</li>
 </ul></th>
 <td></td>
@@ -193,12 +194,14 @@ Not supported</li>
 <td><ul>
 <li>Global: <code>global</code></li>
 <li>Multi-region: <code>us</code> , <code>eu</code></li>
+<li>Asia Pacific: <code>asia-south1</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
 <th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency">ML processing</a></strong></p></th>
 <th><ul>
 <li>Multi-region: <code>us</code> , <code>eu</code></li>
+<li>Asia Pacific: <code>asia-south1</code></li>
 </ul></th>
 <td></td>
 </tr>
@@ -207,6 +210,7 @@ Not supported</li>
 <th><ul>
 <li>Global: <code>global</code></li>
 <li>Multi-region: <code>us</code> , <code>eu</code></li>
+<li>Asia Pacific: <code>asia-south1</code></li>
 </ul></th>
 <td></td>
 </tr>

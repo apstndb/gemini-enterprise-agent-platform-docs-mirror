@@ -100,8 +100,8 @@ In Cloud Monitoring, the monitored resource type for a featurestore is [`aiplatf
 - **Errors percentage** : The percentage of errors that your featurestore produces when handling online serving or streaming ingestion requests.
 - **CPU utilization** : The fraction of CPU allocated by the featurestore that's being utilized by the online storage. This number can exceed 100% if the online serving storage is overloaded. Consider increasing the featurestore's number of online serving nodes to reduce CPU utilization.
 - **CPU utilization - hottest node** : The CPU load for the hottest node in the featurestore's online storage.
-- **Total offline storage** : Amount of data stored in the featurestore's [offline storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/concepts#storage) .
-- **Total online storage** : Amount of data stored in the featurestore's [online storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/concepts#storage) .
+- **Total offline storage** : Amount of data stored in the featurestore's [offline storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview#offline_store) .
+- **Total online storage** : Amount of data stored in the featurestore's [online storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview#online_store) .
 - **Online serving throughput** : In MBps, the throughput for online serving requests.
 
 ### View featurestore monitoring metric charts

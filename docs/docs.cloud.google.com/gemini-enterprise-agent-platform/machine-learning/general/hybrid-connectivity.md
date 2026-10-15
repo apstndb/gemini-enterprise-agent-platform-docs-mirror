@@ -115,7 +115,7 @@ For transactions between Gemini Enterprise Agent Platform workloads and Google A
 Deploying Agent Platform services with [private services access](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/private-services-access) has several limitations.
 
 - You might need to [reserve large pools of private IP addresses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip#reserving-ip-ranges) per workload while also avoiding conflicts with your VPC addressing.
-  - Running multiple workloads in parallel might still cause a [RANGES_EXHAUSTED](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting?component=any#ranges_exhausted_ranges_not_reserved) even after correct initial configuration.
+  - Running multiple workloads in parallel might still cause a [RANGES_EXHAUSTED](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/troubleshooting?component=any#ranges_exhausted_ranges_not_reserved) even after correct initial configuration.
 - Networking deployment and troubleshooting complexity:
   - Because transitive peering is not supported, you need to deploy complex workarounds to grant connectivity between different networks peered to your VPC network.
   - The state of the routing table in the producer environment is not immediately obvious. Because you don't have access to the tenant project, it is often difficult to determine what targets an Agent Platform workload can actually reach without extensive testing.

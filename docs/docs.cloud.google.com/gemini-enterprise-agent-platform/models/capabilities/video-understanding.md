@@ -98,26 +98,8 @@ The following table lists the models that support video understanding:
 </tr>
 <tr class="even">
 <td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live">Gemini 3.8 Live</a></li>
-</ul></td>
-<td><ul>
-<li>Standard input resolution: 768 x 768 (1 FPS)</li>
-<li>Minimum Live Avatar output resolution: 704 x 1280 (portrait) or 1280 x 704 (landscape) at 24 FPS</li>
-</ul></td>
-<td><ul>
-<li><code>video/x-flv</code></li>
-<li><code>video/quicktime</code></li>
-<li><code>video/mpeg</code></li>
-<li><code>video/mpegs</code></li>
-<li><code>video/mpg</code></li>
-<li><code>video/mp4</code></li>
-<li><code>video/webm</code></li>
-<li><code>video/wmv</code></li>
-<li><code>video/3gpp</code></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber">Gemini 4 Argon Cyber Permissive</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon">Gemini 4 Argon</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber">Gemini 3.8 Flash Cyber</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash">Gemini 3.8 Flash</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash">Gemini 3.7 Flash</a></li>
@@ -133,6 +115,26 @@ The following table lists the models that support video understanding:
 <li>Maximum video length (with audio): Approximately 45 minutes</li>
 <li>Maximum video length (without audio): Approximately 1 hour</li>
 <li>Maximum number of videos per prompt: 10</li>
+</ul></td>
+<td><ul>
+<li><code>video/x-flv</code></li>
+<li><code>video/quicktime</code></li>
+<li><code>video/mpeg</code></li>
+<li><code>video/mpegs</code></li>
+<li><code>video/mpg</code></li>
+<li><code>video/mp4</code></li>
+<li><code>video/webm</code></li>
+<li><code>video/wmv</code></li>
+<li><code>video/3gpp</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live">Gemini 3.8 Live</a></li>
+</ul></td>
+<td><ul>
+<li>Standard input resolution: 768 x 768 (1 FPS)</li>
+<li>Minimum Live Avatar output resolution: 704 x 1280 (portrait) or 1280 x 704 (landscape) at 24 FPS</li>
 </ul></td>
 <td><ul>
 <li><code>video/x-flv</code></li>
@@ -1139,10 +1141,6 @@ By default, 1 frame per second (FPS) is sampled from the video. You might want t
 
 ## Agentic video understanding
 
-> **Preview**
->
-> This product or feature is a Generative AI Preview offering, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . For this Generative AI Preview offering, Customers may elect to use it for production or commercial purposes, or disclose Generated Output to third-parties, and may process personal data as outlined in the [Cloud Data Processing Addendum](https://cloud.google.com/terms/data-processing-addendum) , subject to the obligations and restrictions described in the agreement under which you access Google Cloud.
-
 **Agentic video understanding** allows the model to dynamically navigate video content instead of having to process every frame statically. Agentic video understanding uses fewer tokens than static processing and can improve response quality. This can result in lower costs and faster responses for long-form video workloads.
 
 You can use agentic video understanding and static processing for different videos in the same request. For example, if you have long-form videos (such as an hour-long lecture) and short-form video content (like YouTube Shorts), you can use agentic video understanding on the long-form videos to target contextually relevant information and static processing on the short-form video content for frame-level precision.
@@ -1155,7 +1153,10 @@ Agentic video understanding is supported in the following models:
 
 #### Click to expand supported models
 
+- [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)
+- [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)
 - [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)
+- [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
 - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
 - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
 - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
@@ -1168,12 +1169,18 @@ You can use the following sources when using agentic video understanding:
 
 ### When to use agentic video understanding
 
-If your use case is similar to one of the following examples, you may want to use agentic video understanding:
+Use agentic video understanding ( `media_processing = "AGENTIC"` ) for the following workloads:
 
-- **Long-form video Q&A** : Ask questions about hour-long lectures, meetings, or video tutorials.
+- **Long-form video Q&A and search** : Ask targeted questions or locate specific events in hour-long lectures, meetings, recordings, or video tutorials without tokenizing every frame at full resolution.
+- **Fine-grained visual inspection** : Zoom into specific timestamps or visual details (such as reading small on-screen text, slides, or scoreboard changes) within a longer video.
 - **Multi-video comparison** : Compare multiple videos in a single request. You can use different processing modes for each video within the same request.
 - **Video-powered agents** : Build agents that reason over video content with multi-turn conversation support. Video context is preserved across turns without reprocessing.
-- **Cost optimization for video workloads** : Dramatically reduce token consumption for video-heavy applications.
+- **Cost optimization for long video workloads** : Reduce token consumption for long-form video applications where only a subset of segments is relevant to the prompt.
+
+Keep the default static processing ( `media_processing = "STATIC"` ) when:
+
+- **Processing short clips** : For short videos, static processing avoids multi-step tool navigation overhead and typically uses fewer tokens with lower latency.
+- **Uniform full-video processing** : Your workload requires uniform frame-by-frame analysis across the entire clip rather than targeted inspection of specific segments.
 
 ### Use agentic video understanding
 

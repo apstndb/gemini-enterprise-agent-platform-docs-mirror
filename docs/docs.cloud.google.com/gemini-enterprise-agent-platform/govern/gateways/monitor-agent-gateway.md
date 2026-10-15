@@ -184,7 +184,7 @@ To enable tracing for Agent Gateway, create an observability policy YAML file an
 
     ```
     name: "projects/PROJECT_ID/locations/REGION/telemetryPolicies/POLICY_NAME"
-    targetTelemetry:
+    telemetryTarget:
       resources: # You can attach a policy to multiple gateways
       - "//networkservices.googleapis.com/projects/PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_NAME"
     displayName: "Tracing policy for Agent Gateway traffic"

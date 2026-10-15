@@ -29,10 +29,12 @@ The capabilities of the RAG Engine significantly improves the quality of generat
 
 ## Supported models
 
-> **Note:** Gemini 3.x are not available for use with LLM Parser. Use Gemini 2.x variants.
-
 The following models support the RAG Engine LLM parser:
 
+- [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
+- [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+- [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
+- [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
 - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
 - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
@@ -89,6 +91,8 @@ Replace the values in the following variables used in the code samples:
 - **` MODEL_NAME `** : The resource name of the model used for parsing.
 
   Format: `projects/{project_id}/locations/{location}/publishers/google/models/{model_id}`
+
+  > **Note:** Gemini 3.x models, such as `gemini-3.8-flash` , are served only from the `global` , `us` , and `eu` locations. Gemini 2.5 models are deprecated and retire on March 31, 2027.
 
 - **` CUSTOM_PARSING_PROMPT `** : Optional: Custom prompt that is configured by the customer for LLM parser to use for parsing documents.
 

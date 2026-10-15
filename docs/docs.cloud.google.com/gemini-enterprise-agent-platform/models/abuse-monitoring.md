@@ -6,11 +6,13 @@ description: Learn how Google detects potential abuse and violations of its Acce
 data_source: docs.cloud.google.com
 ---
 
+## Google models not designated as "Google Frontier Models" or "Advanced AI"
+
 As outlined in Section 4.3 "Generative AI Safety and Abuse" of [Google Cloud Platform Terms of Service](https://cloud.google.com/terms/) , Google uses the following process to detect potential abuse and violations of its [Acceptable Use Policy](https://cloud.google.com/terms/aup) and [Prohibited Use Policy](https://policies.google.com/terms/generative-ai/use-policy) as part of providing Generative AI Services to customers.
 
-- **Automated detection** : Google uses automated safety classifiers to detect potential abuse and violations. For technical details on how safety classifiers work, see [Configure safety filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/configure-safety-filters) .
+- **Automated detection** : Google uses automated safety classifiers to detect potential abuse and violations.
 
-- **Prompt logging** : If automated safety classifiers detect suspicious activity that requires further investigation into whether a customer has violated our policies, then Google may log customer prompts solely for the purpose of examining whether a violation of the AUP or Prohibited Use Policy has occurred. This data won't be used to train or fine-tune any AI/ML models. This data is stored securely for up to 90 days in the same region or multi-region selected by the customer for their project and adheres to Google Cloud assurances, such as Data Residency, Access Transparency and VPC Service Controls. Prompt logs for the purposes of abuse monitoring are not encrypted by Customer-managed encryption keys (CMEK).
+- **Prompt logging and human review** : If automated safety classifiers detect suspicious activity that requires further investigation into whether a customer has violated our policies, then Google may log customer prompts solely for the purpose of examining whether a violation of the AUP or Prohibited Use Policy has occurred. This data won't be used to train or fine-tune any AI/ML models. This data is stored securely for up to 90 days in the same region or multi-region selected by the customer for their project and adheres to Google Cloud assurances, such as Data Residency, Access Transparency and VPC Service Controls. Prompt logs for the purposes of abuse monitoring are not encrypted by Customer-managed encryption keys (CMEK).
 
   - **Action** : Authorized Google employees may assess the flagged prompts and may reach out to the customer for clarification. Failure to address the behavior—or recurring or severe abuse—may result in suspension or termination of the customer's access to Gemini Enterprise Agent Platform or Google Cloud services.
 
@@ -18,7 +20,21 @@ As outlined in Section 4.3 "Generative AI Safety and Abuse" of [Google Cloud Pla
 
   - **Customers in scope** : Only customers whose use of Google Cloud is governed by the [Google Cloud Platform Terms of Service](https://cloud.google.com/terms/) . This means that customers with a Google Cloud Master Agreement are exempt from prompt logging for this abuse monitoring by default.
 
-## Advanced AI safety
+## Google Frontier Models
+
+As outlined in Section 34 of the [Service Specific Terms](https://cloud.google.com/terms/service-terms) , "Google Frontier Models," Google uses the following process to detect potential abuse and violations of its agreements, including the [Acceptable Use Policy](https://cloud.google.com/terms/aup) and [Prohibited Use Policy](https://policies.google.com/terms/generative-ai/use-policy) , as part of providing Generative AI Services to customers.
+
+- **Prompt and response logging for abuse monitoring** : Google may log customer prompts and responses solely for ensuring safe use of the Google Frontier Models and compliance with customer's Google agreement ("Purpose" set forth in the [Service Specific Terms](https://cloud.google.com/terms/service-terms) ). This includes automated processing to create anonymized shingles and analyze usage patterns solely for the purpose described above. This data won't be used to train or fine-tune any AI/ML models. These logs are stored securely inside the customer's environment for up to 30 days. Prompt logs for the purposes of abuse monitoring are not encrypted by Customer-managed encryption keys (CMEK). Customers are not charged for this logging.
+
+- **ZDR-aligned abuse logging for customers with Cloud Master Agreements** : Section 34 "Google Frontier Models" of [Service Specific Terms](https://cloud.google.com/terms/service-terms) does not give Google the right to conduct human review. Consequently, these logs adhere to ZDR standards for customers with Cloud Master Agreements, as they are stored inside the customer's environment and exempt from human review.
+
+- **Human review of abuse logs for customers covered under Google Cloud online terms** : As outlined in Section 4.3 "Generative AI Safety and Abuse" of [Google Cloud Platform Terms of Service](https://cloud.google.com/terms/) , Google may additionally conduct human review of prompts flagged by our abuse classifiers, solely for the purpose of determining whether a violation of the AUP or Prohibited Use Policy has occurred. This data won't be used to train or fine-tune any AI/ML models. Only customers whose use of Google Cloud is governed by the [Google Cloud Platform Terms of Service](https://cloud.google.com/terms/) are in scope for human review. This means that customers with a Google Cloud Master Agreement are exempt from human review for this abuse monitoring by default.
+
+- **Models in scope** : [Gemini 4 Argon (Cyber Permissive)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)
+
+- **Services in scope** : Google's Generative AI Services.
+
+## Non-Google Advanced AI models
 
 As outlined in the [Advanced AI Safety Addendum](https://cloud.google.com/terms/advanced-ai-safety-addendum) , Google Cloud has implemented a more rigorous abuse monitoring system for models designated as "Advanced AI".
 

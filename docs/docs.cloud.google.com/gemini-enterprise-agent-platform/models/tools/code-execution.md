@@ -44,6 +44,8 @@ The following models provide support for code execution:
 
 #### Click to expand supported models
 
+- [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)
+- [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)
 - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
 - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
 - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
@@ -667,3 +669,13 @@ Generated code can include both text and multimodal outputs, such as images.
 - The code execution tool doesn't support file URIs as input/output. However, the code execution tool supports file input and graph output as inlined bytes. By using these input and output capabilities, you can upload CSV and text files, ask questions about the files, and have Matplotlib graphs generated as part of the code execution result. The supported mime types for inlined bytes are `.cpp` , `.csv` , `.java` , `.jpeg` , `.js` , `.png` , `.py` , `.ts` , and `.xml` .
 - Code execution can run for a maximum of 30 seconds before timing out.
 - In some cases, enabling code execution can lead to regressions in other areas of model output (for example, writing a story).
+
+## Best practices and caveats
+
+Follow these best practices and guidelines when you use code execution:
+
+- **Explicit execution directives** : Large language models might default to linguistic reasoning unless you instruct it otherwise. When you provide code execution instructions, use explicit directives (for example, "ALWAYS execute the script" or "Do NOT compute directly").
+- **Network isolation** : The code execution sandbox has no public internet access. Scripts can't make external HTTP requests or download external resources.
+- **Stateless execution** : Each execution runs in an ephemeral container. Files created or modified during one turn don't persist across subsequent turns or sessions.
+- **Dependencies** : Only standard Python libraries and preinstalled data manipulation packages (such as `numpy` or `pandas` ) are available. The environment doesn't support dynamic runtime package installations (such as `pip install` ).
+- **Standard I/O** : Write scripts that accept input from command-line arguments ( `sys.argv` ) or standard input ( `sys.stdin` ), and print the result directly to standard output ( `sys.stdout` ).

@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api
 title: Interactions API
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: REST reference documentation for the Interactions API in Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
@@ -31,6 +31,14 @@ The name of the \`Model\` used for generating the interaction.
 **Required if \`agent\` is not provided.**
 
 Possible values:
+
+- `gemini-4-argon`
+
+  Google's frontier model that excels at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science.
+
+- `gemini-4-argon-cyber-permissive`
+
+  Cybersecurity variant of `gemini-4-argon` for defensive cybersecurity workflows (available behind the Fairwind Program allowlist).
 
 - `gemini-3.8-flash`
 
@@ -670,6 +678,14 @@ model ModelOption (optional)
 The name of the \`Model\` used for generating the interaction.
 
 Possible values:
+
+- `gemini-4-argon`
+
+  Google's frontier model that excels at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science.
+
+- `gemini-4-argon-cyber-permissive`
+
+  Cybersecurity variant of `gemini-4-argon` for defensive cybersecurity workflows (available behind the Fairwind Program allowlist).
 
 - `gemini-3.8-flash`
 

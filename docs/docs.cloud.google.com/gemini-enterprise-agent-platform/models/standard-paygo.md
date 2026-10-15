@@ -20,18 +20,18 @@ Your traffic isn't strictly capped at your tier's TPM threshold. When spare shar
 
 The following tiers are available in Standard PayGo:
 
-| Model family                           | Tier        | Customer spend (30 days)                     | Traffic TPM (org-level) |
-|----------------------------------------|-------------|----------------------------------------------|-------------------------|
-| **Gemini Pro models**                  | Tier 1      | \$10 - \$250                                 | 500,000                 |
-|                                        | Tier 2      | \$250 - \$2,000                              | 1,000,000               |
-|                                        | Tier 3      | \$2,000 - \$50,000                           | 2,000,000               |
-|                                        | Tier 4      | \> \$50,000                                  | 10,000,000              |
-|                                        | Custom Tier | Contact your sales team for more information |                         |
-| **Gemini Flash and Flash-Lite models** | Tier 1      | \$10 - \$250                                 | 2,000,000               |
-|                                        | Tier 2      | \$250 - \$2,000                              | 4,000,000               |
-|                                        | Tier 3      | \$2,000 - \$50,000                           | 10,000,000              |
-|                                        | Tier 4      | \> \$50,000                                  | 50,000,000              |
-|                                        | Custom Tier | Contact your sales team for more information |                         |
+| Model family                                                                                  | Tier        | Customer spend (30 days)                     | Traffic TPM (org-level) |
+|-----------------------------------------------------------------------------------------------|-------------|----------------------------------------------|-------------------------|
+| **Gemini Pro and Argon models** (includes Gemini 4 Argon and Gemini 4 Argon Cyber Permissive) | Tier 1      | \$10 - \$250                                 | 500,000                 |
+|                                                                                               | Tier 2      | \$250 - \$2,000                              | 1,000,000               |
+|                                                                                               | Tier 3      | \$2,000 - \$50,000                           | 2,000,000               |
+|                                                                                               | Tier 4      | \> \$50,000                                  | 10,000,000              |
+|                                                                                               | Custom Tier | Contact your sales team for more information |                         |
+| **Gemini Flash and Flash-Lite models**                                                        | Tier 1      | \$10 - \$250                                 | 2,000,000               |
+|                                                                                               | Tier 2      | \$250 - \$2,000                              | 4,000,000               |
+|                                                                                               | Tier 3      | \$2,000 - \$50,000                           | 10,000,000              |
+|                                                                                               | Tier 4      | \> \$50,000                                  | 50,000,000              |
+|                                                                                               | Custom Tier | Contact your sales team for more information |                         |
 
 The throughput threshold shown for a model family applies independently to each model within that family. For example, an organization in Tier 3 has a prioritized throughput threshold of 10,000,000 TPM for Gemini 3.5 Flash. Usage against one model's threshold doesn't affect the throughput for other models. There's no separate requests-per-minute (RPM) limit for each tier. Gemini requests with multimodal inputs are subject to the corresponding [system rate limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#multimodal-input-quotas) .
 

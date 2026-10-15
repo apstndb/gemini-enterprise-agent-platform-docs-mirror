@@ -8,6 +8,16 @@ data_source: docs.cloud.google.com
 
 ## Featured Gemini models
 
+4 Argon
+
+Google's frontier model that excels at deep work in complex, real-world tasks
+
+- Excels across coding, finance, legal, cybersecurity, and science
+- Deep multi-step reasoning with configurable thinking levels
+- Long-output generation up to 1 million tokens
+
+[Learn more about 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)
+
 3.8 Flash
 
 Built for long-horizon coding and autonomous agents
@@ -17,16 +27,6 @@ Built for long-horizon coding and autonomous agents
 - Stronger multimodal reasoning
 
 [Learn more about 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
-
-3.5 Flash-Lite
-
-Our fast, budget-friendly way to power your everyday applications
-
-- Optimized for low latency and high-volume traffic
-- Capable tool orchestration
-- Precise document understanding
-
-[Learn more about 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
 
 Nano Banana 2.1
 
@@ -39,6 +39,10 @@ Turn ideas into production-ready assets
 [Learn more about Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
 
 ## Generally available Gemini models
+
+spark [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon) Google's frontier model that excels at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science.
+
+spark [Gemini 4 Argon Cyber Permissive (Gemini Frontier Cyber Model)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber) A version of Gemini 4 Argon for defensive cybersecurity use cases. Available behind an allowlist.
 
 spark [Gemini 3.8 Flash Cyber (Gemini Cyber)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber) Our model optimized for cyber security.
 
@@ -146,7 +150,7 @@ audio_spark [Lyria 2](https://docs.cloud.google.com/gemini-enterprise-agent-plat
 
 ### Gemini
 
-All the Gemini models can understand and respond in the following languages:
+All Gemini models can understand the following languages. Gemini models that are capable of text responses can also respond in these languages:
 
 Afrikaans ( `af` ), Albanian ( `sq` ), Amharic ( `am` ), Arabic ( `ar` ), Armenian ( `hy` ), Assamese ( `as` ), Azerbaijani ( `az` ), Basque ( `eu` ), Belarusian ( `be` ), Bengali ( `bn` ), Bosnian ( `bs` ), Bulgarian ( `bg` ), Catalan ( `ca` ), Cebuano ( `ceb` ), Chinese (Simplified and Traditional) ( `zh` ), Corsican ( `co` ), Croatian ( `hr` ), Czech ( `cs` ), Danish ( `da` ), Dhivehi ( `dv` ), Dutch ( `nl` ), English ( `en` ), Esperanto ( `eo` ), Estonian ( `et` ), Filipino (Tagalog) ( `fil` ), Finnish ( `fi` ), French ( `fr` ), Frisian ( `fy` ), Galician ( `gl` ), Georgian ( `ka` ), German ( `de` ), Greek ( `el` ), Gujarati ( `gu` ), Haitian Creole ( `ht` ), Hausa ( `ha` ), Hawaiian ( `haw` ), Hebrew ( `iw` ), Hindi ( `hi` ), Hmong ( `hmn` ), Hungarian ( `hu` ), Icelandic ( `is` ), Igbo ( `ig` ), Indonesian ( `id` ), Irish ( `ga` ), Italian ( `it` ), Japanese ( `ja` ), Javanese ( `jv` ), Kannada ( `kn` ), Kazakh ( `kk` ), Khmer ( `km` ), Korean ( `ko` ), Krio ( `kri` ), Kurdish ( `ku` ), Kyrgyz ( `ky` ), Lao ( `lo` ), Latin ( `la` ), Latvian ( `lv` ), Lithuanian ( `lt` ), Luxembourgish ( `lb` ), Macedonian ( `mk` ), Malagasy ( `mg` ), Malay ( `ms` ), Malayalam ( `ml` ), Maltese ( `mt` ), Maori ( `mi` ), Marathi ( `mr` ), Meiteilon (Manipuri) ( `mni-Mtei` ), Mongolian ( `mn` ), Myanmar (Burmese) ( `my` ), Nepali ( `ne` ), Norwegian ( `no` ), Nyanja (Chichewa) ( `ny` ), Odia (Oriya) ( `or` ), Pashto ( `ps` ), Persian ( `fa` ), Polish ( `pl` ), Portuguese ( `pt` ), Punjabi ( `pa` ), Romanian ( `ro` ), Russian ( `ru` ), Samoan ( `sm` ), Scots Gaelic ( `gd` ), Serbian ( `sr` ), Sesotho ( `st` ), Shona ( `sn` ), Sindhi ( `sd` ), Sinhala (Sinhalese) ( `si` ), Slovak ( `sk` ), Slovenian ( `sl` ), Somali ( `so` ), Spanish ( `es` ), Sundanese ( `su` ), Swahili ( `sw` ), Swedish ( `sv` ), Tajik ( `tg` ), Tamil ( `ta` ), Telugu ( `te` ), Thai ( `th` ), Turkish ( `tr` ), Ukrainian ( `uk` ), Urdu ( `ur` ), Uyghur ( `ug` ), Uzbek ( `uz` ), Vietnamese ( `vi` ), Welsh ( `cy` ), Xhosa ( `xh` ), Yiddish ( `yi` ), Yoruba ( `yo` ), and Zulu ( `zu` ).
 

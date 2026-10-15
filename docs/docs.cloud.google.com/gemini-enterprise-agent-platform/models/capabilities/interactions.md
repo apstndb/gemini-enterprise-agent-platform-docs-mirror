@@ -37,6 +37,9 @@ The following Gemini models support the Interactions API:
 
 #### Click to expand supported models
 
+- [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)
+- [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)
+
 In addition to the models listed above, the Interactions API supports the following specialized multimodal and audio generation models:
 
 - `gemini-omni-flash-preview` : High-performance multimodal model for conversational video generation, editing, and cinematic control.

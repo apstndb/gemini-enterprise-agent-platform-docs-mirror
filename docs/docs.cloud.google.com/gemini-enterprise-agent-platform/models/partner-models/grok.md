@@ -24,10 +24,6 @@ The following models are available from xAI to use in Gemini Enterprise Agent Pl
 
 [Grok 4.20 (Non-reasoning)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-20#non-reasoning) A high-performance non-thinking model from xAI, featuring a low hallucination rate. Excels in latency-sensitive use cases like customer support and categorization.
 
-block [Grok 4.1 Fast (Reasoning)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-1-fast#reasoning) (Deprecated) A cost-effective model from xAI, featuring strong tool-calling capabilities and efficient knowledge base synthesis. Excels at search tasks involving web data and internal knowledge base tools.
-
-block [Grok 4.1 Fast (Non-reasoning)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-1-fast#non-reasoning) (Deprecated) A cost-effective non-thinking model from xAI, optimized for low-latency performance. Excels at high-volume tasks like summarization and categorization.
-
 ## Use xAI models
 
 To learn how to make streaming and non-streaming calls to xAI models, see [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .
@@ -39,8 +35,6 @@ For managed models, you can use curl commands to send requests to the Gemini Ent
 - For Grok 4.3, use `grok-4.3`
 - For Grok 4.20 (Reasoning), use `grok-4.20-reasoning`
 - For Grok 4.20 (Non-reasoning), use `grok-4.20-non-reasoning`
-- For Grok 4.1 Fast (Reasoning), use `grok-4.1-fast-reasoning`
-- For Grok 4.1 Fast (Non-reasoning), use `grok-4.1-fast-non-reasoning`
 
 ## Grok quotas
 

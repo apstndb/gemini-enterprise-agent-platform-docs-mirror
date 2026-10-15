@@ -1,3 +1,1 @@
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-4
+

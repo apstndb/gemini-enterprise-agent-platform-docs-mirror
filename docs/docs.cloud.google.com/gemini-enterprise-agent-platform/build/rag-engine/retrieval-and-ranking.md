@@ -31,7 +31,7 @@ Replace the following variables used in the sample code:
 
 - **` PROJECT_ID `** : The ID of your Google Cloud project.
 - **` LOCATION `** : The region to process the request.
-- **` MODEL_NAME `** : LLM model for content generation. For example, `gemini-2.0-flash` .
+- **` MODEL_NAME `** : LLM model for content generation. For example, `gemini-3.8-flash` .
 - **` INPUT_PROMPT `** : The text sent to the LLM for content generation.
 - **` RAG_CORPUS_RESOURCE `** : The name of the RAG corpus resource.  
   Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .
@@ -91,7 +91,7 @@ Replace the following variables used in the sample code:
 
 - **` PROJECT_ID `** : The ID of your Google Cloud project.
 - **` LOCATION `** : The region to process the request.
-- **` MODEL_NAME `** : LLM model for content generation. For example, `gemini-2.0-flash` .
+- **` MODEL_NAME `** : LLM model for content generation. For example, `gemini-3.8-flash` .
 - **` GENERATION_METHOD `** : LLM method for content generation. Options include `generateContent` and `streamGenerateContent` .
 - **` INPUT_PROMPT `** : The text sent to the LLM for content generation.
 - **` RAG_CORPUS_RESOURCE `** : The name of the RAG corpus resource.  

@@ -59,6 +59,7 @@ The following table covers the availability of different model capabilities acro
 | [Context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview)                           |                                                 |                                         |                                       |
 | [Count tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/list-token)                                           |                                                 |                                         |                                       |
 | [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)                                        |                                                 |                                         |                                       |
+| [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)                                                       |                                                 |                                         |                                       |
 | [Grounding with Agent Platform Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-vertex-ai-search) |                                                 |                                         |                                       |
 | [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search)            |                                                 |                                         |                                       |
 | [Long context](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/long-context)                                                      |                                                 |                                         |                                       |
@@ -88,7 +89,6 @@ For instructions on disabling unsupported capabilities in Gemini Enterprise Agen
 The following features are either out of scope or involve global infrastructure that cannot be localized to a jurisdictional boundary:
 
 - **UI console (Agent Studio)** : Not supported
-- **Gemini Live API** : Not supported
 - **Evaluation service (SxS)** : No plan
 
 ## What's next

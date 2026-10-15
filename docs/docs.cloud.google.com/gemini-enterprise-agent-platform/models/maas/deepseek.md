@@ -6,8 +6,6 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-> **Caution:** All DeepSeek Model as a Service (MaaS) endpoints are either deprecated or retired. You can either [self-deploy your model from Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/self-deployed-models) or migrate your workloads to alternative managed endpoints before the retirement date. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
-
 DeepSeek models are available for use as managed APIs and self-deployed models on Gemini Enterprise Agent Platform. You can stream your responses to reduce the end-user latency perception. A streamed response uses *server-sent events* (SSE) to incrementally stream the response.
 
 ## Managed DeepSeek models
@@ -18,19 +16,31 @@ DeepSeek models offer fully managed and serverless models as APIs. To use a Deep
 
 The following models are available from DeepSeek to use in Gemini Enterprise Agent Platform. To access a DeepSeek model, go to its Model Garden model card.
 
+### DeepSeek-V4.1-Flash
+
+DeepSeek-V4.1-Flash is a multimodal Mixture-of-Experts (MoE) model from DeepSeek built for agentic and coding tasks. It accepts text and image input and has a context window of up to 1M tokens.
+
 ### DeepSeek-OCR
+
+> **Caution:** As of July 21, 2026, this model endpoint is deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
 
 DeepSeek-OCR is a comprehensive Optical Character Recognition (OCR) model that analyzes and understands complex documents. It excels at challenging OCR tasks, including recognizing mathematical formulas and processing text that is curved, rotated, or overlapping.
 
 ### DeepSeek-V3.2
 
+> **Caution:** As of July 21, 2026, this model endpoint is deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
+
 DeepSeek-V3.2 is a model that harmonizes high computational efficiency with superior reasoning and agent performance. DeepSeek's approach is built upon three key technical breakthroughs: DeepSeek Sparse Attention (DSA), scalable reinforcement learning framework, and large scale agentic task synthesis pipeline.
 
 ### DeepSeek-V3.1
 
+> **Caution:** As of July 21, 2026, this model endpoint is deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
+
 DeepSeek-V3.1 is a hybrid model that supports both thinking mode and non-thinking mode. Compared to the previous version, this upgrade brings improvements in hybrid thinking modes, tool calling, and thinking efficiency.
 
 ### DeepSeek R1 (0528)
+
+> **Caution:** As of July 21, 2026, this model endpoint is deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
 
 DeepSeek R1 (0528) is the latest version of the DeepSeek R1 model. Compared to DeepSeek-R1, it has significantly improved depth of reasoning and inference capabilities. DeepSeek R1 (0528) excels in wide range tasks, such as creative writing, general question answering, editing, and summarization.
 
@@ -42,6 +52,7 @@ For production-ready safety, integrate DeepSeek R1 (0528) with [Model Armor](htt
 
 For managed models, you can use curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names:
 
+- For DeepSeek-V4.1-Flash, use `deepseek-v4.1-flash-maas`
 - For DeepSeek-OCR, use `deepseek-ocr-maas`
 - For DeepSeek-V3.2, use `deepseek-v3.2-maas`
 - For DeepSeek-V3.1, use `deepseek-v3.1-maas`
@@ -74,24 +85,30 @@ DeepSeek models are available in the following regions:
 </thead>
 <tbody>
 <tr class="odd">
+<td>DeepSeek-V4.1-Flash</td>
+<td><ul>
+<li><code>global</code></li>
+</ul></td>
+</tr>
+<tr class="even">
 <td>DeepSeek-OCR</td>
 <td><ul>
 <li><code>us-central1</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>DeepSeek-V3.2</td>
 <td><ul>
 <li><code>global</code></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>DeepSeek-V3.1</td>
 <td><ul>
 <li><code>us-central1</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>DeepSeek R1 (0528)</td>
 <td><ul>
 <li><code>us-central1</code></li>

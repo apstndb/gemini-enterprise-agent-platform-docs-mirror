@@ -22,6 +22,9 @@ The following models provide support for the Chat Completions API:
 
 #### Click to expand supported models
 
+- [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)
+- [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)
+
 ### Self-deployed models from Model Garden
 
 The [Hugging Face Text Generation Interface (HF TGI)](https://huggingface.co/docs/text-generation-inference/en/index) and [Agent Platform Model Garden prebuilt vLLM](http://us-docker.pkg.dev/vertex-ai/vertex-vision-model-garden-dockers/pytorch-vllm-serve) containers support the Chat Completions API. However, not every model deployed to these containers supports the Chat Completions API. The following table includes the most popular supported models by container:

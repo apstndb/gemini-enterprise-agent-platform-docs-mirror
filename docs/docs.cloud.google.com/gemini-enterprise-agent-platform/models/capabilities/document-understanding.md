@@ -16,8 +16,161 @@ You can add documents (PDF and TXT files) to Gemini requests to perform tasks th
 
 The following table lists the models that support document understanding:
 
-| Models | Media details | MIME types |
-|--------|---------------|------------|
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Models</th>
+<th>Media details</th>
+<th>MIME types</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview">Gemini Omni Flash</a> preview</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash">Gemini Omni 1.1 Flash</a> preview</li>
+</ul></td>
+<td><ul>
+<li>Maximum file size per file for the API or Cloud Storage imports: 50 MB</li>
+<li>Maximum file size per file for direct uploads through the console: 7 MB</li>
+</ul></td>
+<td><ul>
+<li><code>text/plain</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1">Gemini Nano Banana 2.1</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image">Gemini 3.1 Flash Image</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum number of files per prompt: As supported by the 128k token context window</li>
+<li>Maximum number of pages per file: As supported by the 128k token context window</li>
+<li>Maximum file size per file: 50 MB (API and Cloud Storage imports) or 7 MB (direct upload through Google Cloud console)</li>
+</ul></td>
+<td><ul>
+<li><code>application/pdf</code></li>
+<li><code>text/plain</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber">Gemini 4 Argon Cyber Permissive</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon">Gemini 4 Argon</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum number of files per prompt: 3,000 (up to 100 URIs)</li>
+<li>Maximum number of pages per file: 3,000</li>
+<li>Maximum file size per file for the API or Cloud Storage imports: 50 MB(application/pdf) or 7 MB(text/plain)</li>
+<li>Maximum file size per file for direct uploads through the console: 7 MB</li>
+</ul></td>
+<td><ul>
+<li><code>application/pdf</code></li>
+<li><code>text/plain</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live">Gemini 3.8 Live</a></li>
+</ul></td>
+<td></td>
+<td><ul>
+<li><code>text/plain</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber">Gemini 3.8 Flash Cyber</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash">Gemini 3.8 Flash</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash">Gemini 3.7 Flash</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash">Gemini 3.6 Flash</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite">Gemini 3.5 Flash-Lite</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash">Gemini 3.5 Flash</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite">Gemini 3.1 Flash-Lite</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro">Gemini 2.5 Pro</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash">Gemini 2.5 Flash</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum number of files per prompt: 3,000</li>
+<li>Maximum number of pages per file: 3,000</li>
+<li>Maximum file size per file for the API or Cloud Storage imports: 50 MB(application/pdf) or 7 MB(text/plain)</li>
+<li>Maximum file size per file for direct uploads through the console: 7 MB</li>
+</ul></td>
+<td><ul>
+<li><code>application/pdf</code></li>
+<li><code>text/plain</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro">Gemini 3.1 Pro</a> preview</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash">Gemini 3 Flash</a> preview</li>
+</ul></td>
+<td><ul>
+<li>Maximum number of files per prompt: 3000</li>
+<li>Maximum number of pages per file: 3000</li>
+<li>Maximum file size per file for the API or Cloud Storage imports: 50 MB(application/pdf) or 7 MB(text/plain)</li>
+<li>Maximum file size per file for direct uploads through the console: 7 MB</li>
+<li>Default resolution tokens: 560</li>
+<li>OCR for scanned PDFs: Not used by default</li>
+</ul></td>
+<td><ul>
+<li><code>application/pdf</code></li>
+<li><code>text/plain</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image">Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image">Gemini 3 Pro Image</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum number of files per prompt: As supported by the 65,536 token context window</li>
+<li>Maximum number of pages per file: As supported by the 65,536 token context window</li>
+<li>Maximum file size per file: 50 MB (API and Cloud Storage imports) or 7 MB (direct upload through Google Cloud console)</li>
+</ul></td>
+<td><ul>
+<li><code>application/pdf</code></li>
+<li><code>text/plain</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite">Gemini 2.5 Flash-Lite</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum number of files per prompt: 3,000</li>
+<li>Maximum number of pages per file: 1,000</li>
+<li>Maximum file size per file for the API or Cloud Storage imports: 50 MB(application/pdf) or 7 MB(text/plain)</li>
+<li>Maximum file size per file for direct uploads through the console: 7 MB</li>
+</ul></td>
+<td><ul>
+<li><code>application/pdf</code></li>
+<li><code>text/plain</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image">Gemini 2.5 Flash Image</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum number of files per prompt: 3</li>
+<li>Maximum number of pages per file: 3</li>
+<li>Maximum file size per file for the API or Cloud Storage imports: 50 MB(application/pdf) or 7 MB(text/plain)</li>
+<li>Maximum file size per file for direct uploads through the console: 7 MB</li>
+</ul></td>
+<td><ul>
+<li><code>application/pdf</code></li>
+<li><code>text/plain</code></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
 
 <sup>1</sup> This is the maximum TPM from document inputs across all requests of a project. Also use the maximum TPM for other modalities.
 

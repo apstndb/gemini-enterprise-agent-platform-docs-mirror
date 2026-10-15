@@ -225,7 +225,7 @@ Replace the following variables used in the sample code:
 
 - **` LOCATION `** : The region to process the request.
 
-- **` MODEL_ID `** : LLM model for content generation. For example, `gemini-2.0-flash` .
+- **` MODEL_ID `** : LLM model for content generation. For example, `gemini-3.8-flash` .
 
 - **` GENERATION_METHOD `** : LLM method for content generation. For example, `generateContent` , `streamGenerateContent` .
 
