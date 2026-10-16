@@ -130,6 +130,7 @@ For MCP traffic only, Agent Gateway can parse request data to extract attributes
 - Review the [limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#limitations) associated with Agent Runtime.
 - Review the [limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#limitations) associated with authorization policies.
 - When [using `trustConfig` s to route traffic to destinations that use private CAs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) , you must rotate the PEM files manually. Automated rotation of PEM files using secret managers, such as Google Cloud's Secret Manager, is not supported.
+- Agent Gateway doesn't support VPC networks that have been configured with [Network Security Integration](https://docs.cloud.google.com/network-security-integration/docs/in-band/in-band-integration-overview) or [Cloud Next Generation Firewall Enterprise](https://docs.cloud.google.com/firewall/docs/ngfw_tiers#ngfw-tiers-enterprise) . If you deploy Agent Gateway on a network that uses these features, requests fail and return a `503` error in Logging.
 
 ## API and gcloud reference
 

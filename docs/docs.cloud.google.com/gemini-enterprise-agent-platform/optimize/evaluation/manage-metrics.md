@@ -29,7 +29,7 @@ In addition to managed metrics provided by Google, you can use customized regist
 
 Agent Platform provides a set of predefined metrics for evaluating agents. These metrics are managed by Google and cover common evaluation dimensions for both single-turn and multi-turn agent interactions.
 
-You can access predefined metrics in the SDK using `types.RubricMetric.METRIC_NAME` . For the full details of all managed rubric-based metrics, including input requirements and output formats, see [Details for managed rubric-based metrics](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/rubric-metric-details#managed-metrics-details) .
+You can access predefined metrics in the SDK using `types.RubricMetric.METRIC_NAME` . For the full details of all managed rubric-based metrics, including input requirements and output formats, see [Details for managed rubric-based metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details#managed-metrics-details) .
 
 ### Single-turn agent metrics
 

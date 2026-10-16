@@ -410,6 +410,6 @@ This JSON defines the relevant functions called in the career coach example. For
 For more information on using Gemini Live API, see:
 
 - [Gemini Live API overview page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)
-- [Gemini Live API reference guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live)
+- [Gemini Live API reference guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/live-api)
 - [Start and manage live sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session)
 - [Configure Gemini capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities)

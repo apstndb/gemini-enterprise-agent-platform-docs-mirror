@@ -16,7 +16,7 @@ Interact with Gemini and other generative AI models for text and multimodal gene
 
 Use a unified, stateful, and streaming interface to interact with models and agents.
 
-### [Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live)
+### [Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/live-api)
 
 Stream low-latency, bidirectional voice and video interactions with Gemini models.
 

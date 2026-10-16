@@ -15,7 +15,7 @@ There are two ways to view a topology:
 
 The App Topology API provides these topology graph capabilities in Gemini Enterprise Agent Platform. To learn about using the App Topology MCP server and viewing topology graphs in other products, see the [App Topology documentation](https://docs.cloud.google.com/app-topology) .
 
-> **Note:** On October 15, 2026, the App Topology API transitions to a usage-based billing model that includes a daily free data usage allotment. For more information, see [App Topology pricing](https://docs.cloud.google.com/hub/docs/app-topology#pricing) .
+> **Note:** On October 15, 2026, the App Topology API transitions to a usage-based billing model that includes a daily free data usage allotment. For more information, see [App Topology pricing](https://cloud.google.com/products/app-topology/pricing) .
 
 ### Limitations
 

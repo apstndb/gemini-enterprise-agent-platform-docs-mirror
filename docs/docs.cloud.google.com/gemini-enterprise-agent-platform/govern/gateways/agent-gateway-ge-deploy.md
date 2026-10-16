@@ -10,7 +10,7 @@ This page describes how to route Gemini Enterprise traffic through Agent Gateway
 
 ## Before you begin
 
-- Make sure you are familiar with [Gemini Enterprise concepts](https://docs.cloud.google.com/gemini/enterprise/docs/concepts)
+- Make sure you are familiar with [Gemini Enterprise concepts](https://docs.cloud.google.com/gemini/enterprise/docs/concepts) .
 - Learn about [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) . Note that Agent Gateway only supports Gemini Enterprise in Agent-to-Anywhere (egress) mode. Ingress traffic isn't supported.
 - Deploy a Gemini Enterprise app (also referred to as engine). The procedure on this page assumes that you already have an app deployed. For details, see [Create an app](https://docs.cloud.google.com/gemini/enterprise/docs/create-app) .
 

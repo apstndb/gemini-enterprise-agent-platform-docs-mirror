@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-in-multimodal-live
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-in-multimodal-live
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-in-live-api
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-in-live-api
 title: Use RAG Engine on Gemini Enterprise Agent Platform in Gemini Live API
 description: Reduce your hallucinations on your LLM responses using context information leveraging Agent Platform RAG Engine. Learn how to use RAG to improve your LLM's responses by incorporating relevant information retrieval.
 data_source: docs.cloud.google.com
@@ -18,7 +18,7 @@ This page shows you how to use RAG Engine with the [Gemini Live API](https://doc
 
 ## Prerequisites
 
-The following prerequisites must be completed before you can use RAG Engine with the multimodal Live API:
+The following prerequisites must be completed before you can use RAG Engine with the Gemini Live API:
 
 1.  Enable the RAG API in Agent Platform.
 

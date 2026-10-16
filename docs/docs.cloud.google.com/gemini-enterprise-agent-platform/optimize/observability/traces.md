@@ -59,5 +59,5 @@ For more information on configuring storage destinations for conversational data
 ## What's next
 
 - Learn more about [observability features](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview) in Gemini Enterprise Agent Platform.
-- [View agent relationships](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/topology) as a topology graph.
+- [View agent relationships](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology) as a topology graph.
 - [Evaluate your agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-agents) .

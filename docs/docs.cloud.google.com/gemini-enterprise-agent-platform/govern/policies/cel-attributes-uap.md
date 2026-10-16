@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap
-title: CEL attributes for IAM Access policies
+title: CEL attributes for IAM Unified Access Policies
 description: Reference guide for Common Expression Language (CEL) attributes and functions available for Identity and Access Management access policy rules in Agent Platform.
 data_source: docs.cloud.google.com
 ---

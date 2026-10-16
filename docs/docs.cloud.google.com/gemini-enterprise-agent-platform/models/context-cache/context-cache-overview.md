@@ -72,6 +72,8 @@ Durable caching is supported when using the following models:
 
 - Gemini 4 Argon
 - Gemini 4 Argon Cyber Permissive
+- [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
+- [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)
 
 Implicit caching also supports open models. For more information, see [Agent Platform open models for MaaS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models#context-caching) .
 

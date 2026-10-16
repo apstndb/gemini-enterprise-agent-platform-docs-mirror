@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/overview-uap
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/overview-uap
-title: Policies overview
+title: Unified Access Policies overview
 description: Learn about policies to govern agent interactions.
 data_source: docs.cloud.google.com
 ---

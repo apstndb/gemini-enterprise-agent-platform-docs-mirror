@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/live-api
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/live-api
 title: Gemini Live API reference
 description: Reference documentation for the Gemini Live API, enabling low-latency bidirectional voice and video interactions with Gemini.
 data_source: docs.cloud.google.com
@@ -66,7 +66,7 @@ See the following example configuration:
 }
 ```
 
-For more information, see [BidiGenerateContentSetup](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live#bidigeneratecontentsetup) .
+For more information, see [BidiGenerateContentSetup](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/live-api#bidigeneratecontentsetup) .
 
 ### Send messages
 
@@ -242,7 +242,7 @@ In addition, the Gemini server discards any pending function calls and sends a `
 
 ### Voices
 
-To specify a voice, set the `voiceName` within the `speechConfig` object, as part of your [session configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live#sessions) .
+To specify a voice, set the `voiceName` within the `speechConfig` object, as part of your [session configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/live-api#sessions) .
 
 See the following JSON representation of a `speechConfig` object:
 
@@ -276,11 +276,11 @@ When you stream video to the model, it is processed at 1 frame per second (FPS).
 
 ### Voice activity detection (VAD)
 
-By default, the model automatically performs voice activity detection (VAD) on a continuous audio input stream. VAD can be configured with the [`RealtimeInputConfig.AutomaticActivityDetection`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live#google.cloud.aiplatform.v1beta1.RealtimeInputConfig.FIELDS.google.cloud.aiplatform.v1beta1.RealtimeInputConfig.AutomaticActivityDetection.google.cloud.aiplatform.v1beta1.RealtimeInputConfig.automatic_activity_detection) field of the [setup message](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live#bidigeneratecontentsetup) .
+By default, the model automatically performs voice activity detection (VAD) on a continuous audio input stream. VAD can be configured with the [`RealtimeInputConfig.AutomaticActivityDetection`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/live-api#google.cloud.aiplatform.v1beta1.RealtimeInputConfig.FIELDS.google.cloud.aiplatform.v1beta1.RealtimeInputConfig.AutomaticActivityDetection.google.cloud.aiplatform.v1beta1.RealtimeInputConfig.automatic_activity_detection) field of the [setup message](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/live-api#bidigeneratecontentsetup) .
 
 When the audio stream is paused for more than a second (for example, when the user switches off the microphone), an `AudioStreamEnd` event is sent to flush any cached audio. The client can resume sending audio data at any time.
 
-Alternatively, the automatic VAD can be turned off by setting `RealtimeInputConfig.AutomaticActivityDetection.disabled` to `true` in the setup message. In this configuration the client is responsible for detecting user speech and sending [`ActivityStart`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live#google.cloud.aiplatform.v1beta1.BidiGenerateContentRealtimeInput.FIELDS.google.cloud.aiplatform.v1beta1.BidiGenerateContentRealtimeInput.ActivityStart.google.cloud.aiplatform.v1beta1.BidiGenerateContentRealtimeInput.activity_start) and [`ActivityEnd`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live#google.cloud.aiplatform.v1beta1.BidiGenerateContentRealtimeInput.FIELDS.google.cloud.aiplatform.v1beta1.BidiGenerateContentRealtimeInput.ActivityEnd.google.cloud.aiplatform.v1beta1.BidiGenerateContentRealtimeInput.activity_end) messages at the appropriate times. An `AudioStreamEnd` isn't sent in this configuration. Instead, any interruption of the stream is marked by an `ActivityEnd` message.
+Alternatively, the automatic VAD can be turned off by setting `RealtimeInputConfig.AutomaticActivityDetection.disabled` to `true` in the setup message. In this configuration the client is responsible for detecting user speech and sending [`ActivityStart`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/live-api#google.cloud.aiplatform.v1beta1.BidiGenerateContentRealtimeInput.FIELDS.google.cloud.aiplatform.v1beta1.BidiGenerateContentRealtimeInput.ActivityStart.google.cloud.aiplatform.v1beta1.BidiGenerateContentRealtimeInput.activity_start) and [`ActivityEnd`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/live-api#google.cloud.aiplatform.v1beta1.BidiGenerateContentRealtimeInput.FIELDS.google.cloud.aiplatform.v1beta1.BidiGenerateContentRealtimeInput.ActivityEnd.google.cloud.aiplatform.v1beta1.BidiGenerateContentRealtimeInput.activity_end) messages at the appropriate times. An `AudioStreamEnd` isn't sent in this configuration. Instead, any interruption of the stream is marked by an `ActivityEnd` message.
 
 ### Additional limitations
 

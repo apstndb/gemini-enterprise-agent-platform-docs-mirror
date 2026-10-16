@@ -257,6 +257,6 @@ For more information, see the following resources:
 - [Configure live avatars](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-live-avatars)
 - [Best practices with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices)
 - [Migrate from Gemini 2.5 Flash Live API Native Audio to Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/migrate-from-gemini-2-5-to-gemini-3-8-live)
-- [Multimodal Live API Python tutorial](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/multimodal-live-api/intro_multimodal_live_api.ipynb)
+- [Gemini Live API Python tutorial](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/multimodal-live-api/intro_multimodal_live_api.ipynb)
 - [Intro to Live Avatar notebook](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/multimodal-live-api/intro_live_avatar.ipynb)
 - [Gemini Live API Service Skill](https://github.com/google/skills/blob/main/skills/cloud/gemini-live-api/SKILL.md)

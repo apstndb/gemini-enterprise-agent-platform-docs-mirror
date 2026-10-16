@@ -604,8 +604,6 @@ Partner model endpoints for Agent Platform are available in the following region
 | Grok 4.6                                                |                 |
 | Grok 4.20 (Reasoning)                                   |                 |
 | Grok 4.20 (Non-reasoning)                               |                 |
-| Grok 4.1 Fast (Reasoning)                               |                 |
-| Grok 4.1 Fast (Non-reasoning)                           |                 |
 
 ### Multi-region
 
@@ -643,8 +641,6 @@ Partner model endpoints for Agent Platform are available in the following region
 | Grok 4.6                                                |                                 |                                  |
 | Grok 4.20 (Reasoning)                                   |                                 |                                  |
 | Grok 4.20 (Non-reasoning)                               |                                 |                                  |
-| Grok 4.1 Fast (Reasoning)                               |                                 |                                  |
-| Grok 4.1 Fast (Non-reasoning)                           |                                 |                                  |
 
 ### United States
 
@@ -682,8 +678,6 @@ Partner model endpoints for Agent Platform are available in the following region
 | Grok 4.6                                                |                   |                      |                    |                           |                        |                     |                    |
 | Grok 4.20 (Reasoning)                                   |                   |                      |                    |                           |                        |                     |                    |
 | Grok 4.20 (Non-reasoning)                               |                   |                      |                    |                           |                        |                     |                    |
-| Grok 4.1 Fast (Reasoning)                               |                   |                      |                    |                           |                        |                     |                    |
-| Grok 4.1 Fast (Non-reasoning)                           |                   |                      |                    |                           |                        |                     |                    |
 
 ### Americas
 
@@ -721,8 +715,6 @@ Partner model endpoints for Agent Platform are available in the following region
 | Grok 4.6                                                |                                    |                                |
 | Grok 4.20 (Reasoning)                                   |                                    |                                |
 | Grok 4.20 (Non-reasoning)                               |                                    |                                |
-| Grok 4.1 Fast (Reasoning)                               |                                    |                                |
-| Grok 4.1 Fast (Non-reasoning)                           |                                    |                                |
 
 ### Europe
 
@@ -760,8 +752,6 @@ Partner model endpoints for Agent Platform are available in the following region
 | Grok 4.6                                                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Grok 4.20 (Reasoning)                                   |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | Grok 4.20 (Non-reasoning)                               |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Grok 4.1 Fast (Reasoning)                               |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
-| Grok 4.1 Fast (Non-reasoning)                           |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 
 ### Asia Pacific
 
@@ -799,8 +789,6 @@ Partner model endpoints for Agent Platform are available in the following region
 | Grok 4.6                                                |                      |                             |                        |                     |                         |                               |                         |
 | Grok 4.20 (Reasoning)                                   |                      |                             |                        |                     |                         |                               |                         |
 | Grok 4.20 (Non-reasoning)                               |                      |                             |                        |                     |                         |                               |                         |
-| Grok 4.1 Fast (Reasoning)                               |                      |                             |                        |                     |                         |                               |                         |
-| Grok 4.1 Fast (Non-reasoning)                           |                      |                             |                        |                     |                         |                               |                         |
 
 ### Middle East
 
@@ -838,8 +826,6 @@ Partner model endpoints for Agent Platform are available in the following region
 | Grok 4.6                                                |                     |                    |                      |
 | Grok 4.20 (Reasoning)                                   |                     |                    |                      |
 | Grok 4.20 (Non-reasoning)                               |                     |                    |                      |
-| Grok 4.1 Fast (Reasoning)                               |                     |                    |                      |
-| Grok 4.1 Fast (Non-reasoning)                           |                     |                    |                      |
 
 ## Google Cloud open model endpoint locations
 
@@ -852,6 +838,7 @@ Open model endpoints for Agent Platform are available in the following regions:
 |                                                                                                                                                                               | Global (global) |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
 | Deepseek models                                                                                                                                                               |                 |
+| [DeepSeek-V4.1-Flash](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v4.1-flash-maas) preview `(deepseek-v4.1-flash-maas)`      |                 |
 | [DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas) `(deepseek-ocr-maas)`                                   |                 |
 | [DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas) `(deepseek-v3.2-maas)`                                |                 |
 | [DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas) `(deepseek-v3.1-maas)`                                |                 |
@@ -887,6 +874,7 @@ Open model endpoints for Agent Platform are available in the following regions:
 |                                                                                                                                                                               | United States multi-region (us) | European Union multi-region (eu) |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|----------------------------------|
 | Deepseek models                                                                                                                                                               |                                 |                                  |
+| [DeepSeek-V4.1-Flash](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v4.1-flash-maas) preview `(deepseek-v4.1-flash-maas)`      |                                 |                                  |
 | [DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas) `(deepseek-ocr-maas)`                                   |                                 |                                  |
 | [DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas) `(deepseek-v3.2-maas)`                                |                                 |                                  |
 | [DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas) `(deepseek-v3.1-maas)`                                |                                 |                                  |
@@ -922,6 +910,7 @@ Open model endpoints for Agent Platform are available in the following regions:
 |                                                                                                                                                                               | Oregon (us-west1) | Las Vegas (us-west4) | Iowa (us-central1) | South Carolina (us-east1) | N. Virginia (us-east4) | Columbus (us-east5) | Dallas (us-south1) |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|----------------------|--------------------|---------------------------|------------------------|---------------------|--------------------|
 | Deepseek models                                                                                                                                                               |                   |                      |                    |                           |                        |                     |                    |
+| [DeepSeek-V4.1-Flash](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v4.1-flash-maas) preview `(deepseek-v4.1-flash-maas)`      |                   |                      |                    |                           |                        |                     |                    |
 | [DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas) `(deepseek-ocr-maas)`                                   |                   |                      |                    |                           |                        |                     |                    |
 | [DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas) `(deepseek-v3.2-maas)`                                |                   |                      |                    |                           |                        |                     |                    |
 | [DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas) `(deepseek-v3.1-maas)`                                |                   |                      |                    |                           |                        |                     |                    |
@@ -957,6 +946,7 @@ Open model endpoints for Agent Platform are available in the following regions:
 |                                                                                                                                                                               | Montréal (northamerica-northeast1) | São Paulo (southamerica-east1) |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|--------------------------------|
 | Deepseek models                                                                                                                                                               |                                    |                                |
+| [DeepSeek-V4.1-Flash](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v4.1-flash-maas) preview `(deepseek-v4.1-flash-maas)`      |                                    |                                |
 | [DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas) `(deepseek-ocr-maas)`                                   |                                    |                                |
 | [DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas) `(deepseek-v3.2-maas)`                                |                                    |                                |
 | [DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas) `(deepseek-v3.1-maas)`                                |                                    |                                |
@@ -992,6 +982,7 @@ Open model endpoints for Agent Platform are available in the following regions:
 |                                                                                                                                                                               | London (europe-west2) | Belgium (europe-west1) | Netherlands (europe-west4) | Zürich (europe-west6) | Frankfurt (europe-west3) | Finland (europe-north1) | Warsaw (europe-central2) | Milan (europe-west8) | Madrid (europe-southwest1) | Paris (europe-west9) |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|------------------------|----------------------------|-----------------------|--------------------------|-------------------------|--------------------------|----------------------|----------------------------|----------------------|
 | Deepseek models                                                                                                                                                               |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
+| [DeepSeek-V4.1-Flash](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v4.1-flash-maas) preview `(deepseek-v4.1-flash-maas)`      |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | [DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas) `(deepseek-ocr-maas)`                                   |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | [DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas) `(deepseek-v3.2-maas)`                                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
 | [DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas) `(deepseek-v3.1-maas)`                                |                       |                        |                            |                       |                          |                         |                          |                      |                            |                      |
@@ -1027,6 +1018,7 @@ Open model endpoints for Agent Platform are available in the following regions:
 |                                                                                                                                                                               | Mumbai (asia-south1) | Singapore (asia-southeast1) | Hong Kong (asia-east2) | Taiwan (asia-east1) | Tokyo (asia-northeast1) | Sydney (australia-southeast1) | Seoul (asia-northeast3) |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|-----------------------------|------------------------|---------------------|-------------------------|-------------------------------|-------------------------|
 | Deepseek models                                                                                                                                                               |                      |                             |                        |                     |                         |                               |                         |
+| [DeepSeek-V4.1-Flash](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v4.1-flash-maas) preview `(deepseek-v4.1-flash-maas)`      |                      |                             |                        |                     |                         |                               |                         |
 | [DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas) `(deepseek-ocr-maas)`                                   |                      |                             |                        |                     |                         |                               |                         |
 | [DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas) `(deepseek-v3.2-maas)`                                |                      |                             |                        |                     |                         |                               |                         |
 | [DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas) `(deepseek-v3.1-maas)`                                |                      |                             |                        |                     |                         |                               |                         |
@@ -1062,6 +1054,7 @@ Open model endpoints for Agent Platform are available in the following regions:
 |                                                                                                                                                                               | Tel Aviv (me-west1) | Doha (me-central1) | Dammam (me-central2) |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|--------------------|----------------------|
 | Deepseek models                                                                                                                                                               |                     |                    |                      |
+| [DeepSeek-V4.1-Flash](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v4.1-flash-maas) preview `(deepseek-v4.1-flash-maas)`      |                     |                    |                      |
 | [DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas) `(deepseek-ocr-maas)`                                   |                     |                    |                      |
 | [DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas) `(deepseek-v3.2-maas)`                                |                     |                    |                      |
 | [DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas) `(deepseek-v3.1-maas)`                                |                     |                    |                      |

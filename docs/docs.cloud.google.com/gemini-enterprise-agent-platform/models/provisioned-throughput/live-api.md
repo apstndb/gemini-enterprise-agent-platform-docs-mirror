@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This section explains how Provisioned Throughput works with the Gemini Live API for token counting and quota enforcement.
 
-The Gemini Live API enables low-latency multimodal interactions using session memory to retain context across turns. For additional capabilities and session limits, see the [Gemini Live API reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live) .
+The Gemini Live API enables low-latency multimodal interactions using session memory to retain context across turns. For additional capabilities and session limits, see the [Gemini Live API reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/live-api) .
 
 Each session must be dedicated entirely to either Provisioned Throughput or PayGo; mid-session spillover is not supported. If you exceed your Provisioned Throughput quota during an active session, the system allows temporary bursting to avoid errors, registering the overage against your overall quota. To avoid unexpected usage spikes, purchase sufficient GSUs to support your peak demand.
 

@@ -173,17 +173,22 @@ Give the sandbox name resolution through your VPC instead of public resolvers (t
 
 ### Grant the service agent access (Shared VPC)
 
-If the network attachment lives in a different project (for example, a Shared VPC host project), grant the Agent Platform sandbox service agent permission to use it:
+If the network attachment lives in a separate project (Project A) from the project where the sandbox is run (Project B), grant Project B's Agent Platform service agent the Compute Network User role on Project A.
 
 ```
-# Sandbox service agent
-service-PROJECT_NUMBER@gcp-sa-vertex-sandbox.iam.gserviceaccount.com
+# Agent Platform service agent of the project that runs the sandbox
+service-PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com
 
 # On the project that owns the network attachment
 gcloud projects add-iam-policy-binding NETWORK_PROJECT_ID \
-    --member="serviceAccount:service-PROJECT_NUMBER@gcp-sa-vertex-sandbox.iam.gserviceaccount.com" \
-    --role="roles/compute.networkAdmin"
+    --member="serviceAccount:service-PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com" \
+    --role="roles/compute.networkUser"
 ```
+
+Replace the following:
+
+- `PROJECT_NUMBER` : the project number of the project that runs the sandbox.
+- `NETWORK_PROJECT_ID` : the ID of the project that owns the network attachment.
 
 ## Enable private ingress with Private Service Connect (PSC-E)
 

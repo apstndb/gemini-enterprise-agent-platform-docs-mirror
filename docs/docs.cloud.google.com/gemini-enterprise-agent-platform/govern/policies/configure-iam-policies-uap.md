@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap
-title: Create IAM Access policies
+title: Create IAM Unified Access Policies
 description: Learn how to create Identity and Access Management policies to govern agentic communication in Agent Platform.
 data_source: docs.cloud.google.com
 ---
@@ -60,7 +60,7 @@ UAPs let you configure multiple rules. Each rule can have an allow effect or a d
 
 > **Note:** Deny rules are evaluated first. If a deny rule condition evaluates to `true` , access is immediately blocked, even if a parallel allow rule also evaluates to `true` .
 
-### Create an UAP with an allow rule
+### Create a UAP with an allow rule
 
 You can create a UAP with an allow rule using the Google Cloud console, the gcloud CLI, or the REST API.
 
@@ -379,7 +379,7 @@ To create a UAP containing both allow and deny rules using the REST API, do the 
 
 3.  To activate the policy, [bind the UAP to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
-### Bind an UAP to a project
+### Bind a UAP to a project
 
 ### Console
 

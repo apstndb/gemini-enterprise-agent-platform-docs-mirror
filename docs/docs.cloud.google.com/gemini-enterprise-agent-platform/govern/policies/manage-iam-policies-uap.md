@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap
-title: Manage IAM Access policies
+title: Manage IAM Unified Access Policies
 description: Learn how to create, list, view, update, and delete Identity and Access Management access policies and policy bindings for Agent Platform.
 data_source: docs.cloud.google.com
 ---

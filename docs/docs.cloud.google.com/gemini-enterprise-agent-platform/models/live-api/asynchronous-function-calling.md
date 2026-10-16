@@ -264,7 +264,7 @@ Get an overview of Live API.
 
 Reference
 
-### [Live API reference guide](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/multimodal-live)
+### [Live API reference guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/live-api)
 
 Reference guide for Live API.
 

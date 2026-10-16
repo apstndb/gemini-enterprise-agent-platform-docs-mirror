@@ -45,7 +45,7 @@ pip install google-cloud-agentplatform>=2.0.1
 
 ### Authentication
 
-Follow the instructions at [Authenticate to Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/authentication) .
+Follow the instructions at [Authenticate to Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/authentication) .
 
 ## Set up a Agent Platform SDK client
 
