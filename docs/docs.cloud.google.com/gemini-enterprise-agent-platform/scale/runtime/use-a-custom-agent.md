@@ -229,7 +229,7 @@ https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCA
 }'
 ```
 
-The query response is a string that is similar to the output of a [local application test](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-agent#test-async-query) :
+The query response is a string that is similar to the output of a [local application test](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-custom-agent#test-async-query) :
 
 ```
 {"input": "What is the exchange rate from US dollars to Swedish Krona today?",

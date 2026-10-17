@@ -37,21 +37,23 @@ You might also be able to get the required permissions through [custom roles](ht
 
 The following table lists the Gemini Enterprise Agent Platform resources that you can reference in custom constraints.
 
-| Resource                                                           | Field                  |
-|--------------------------------------------------------------------|------------------------|
-| aiplatform.googleapis.com/Index                                    | `resource.description` |
-| `resource.displayName`                                             |                        |
-| `resource.encryptionSpec.kmsKeyName`                               |                        |
-| `resource.indexUpdateMethod`                                       |                        |
-| `resource.metadata`                                                |                        |
-| `resource.metadataSchemaUri`                                       |                        |
-| aiplatform.googleapis.com/IndexEndpoint                            | `resource.description` |
-| `resource.displayName`                                             |                        |
-| `resource.encryptionSpec.kmsKeyName`                               |                        |
-| `resource.network`                                                 |                        |
-| `resource.privateServiceConnectConfig.enablePrivateServiceConnect` |                        |
-| `resource.privateServiceConnectConfig.projectAllowlist`            |                        |
-| `resource.publicEndpointEnabled`                                   |                        |
+| Resource                                                              | Field                  |
+|-----------------------------------------------------------------------|------------------------|
+| aiplatform.googleapis.com/Index                                       | `resource.description` |
+| `resource.displayName`                                                |                        |
+| `resource.encryptionSpec.kmsKeyName`                                  |                        |
+| `resource.indexUpdateMethod`                                          |                        |
+| `resource.metadata`                                                   |                        |
+| `resource.metadataSchemaUri`                                          |                        |
+| aiplatform.googleapis.com/IndexEndpoint                               | `resource.description` |
+| `resource.displayName`                                                |                        |
+| `resource.encryptionSpec.kmsKeyName`                                  |                        |
+| `resource.network`                                                    |                        |
+| `resource.privateServiceConnectConfig.enablePrivateServiceConnect`    |                        |
+| `resource.privateServiceConnectConfig.projectAllowlist`               |                        |
+| `resource.privateServiceConnectConfig.pscAutomationConfigs.network`   |                        |
+| `resource.privateServiceConnectConfig.pscAutomationConfigs.projectId` |                        |
+| `resource.publicEndpointEnabled`                                      |                        |
 
 ## Set up a custom constraint
 

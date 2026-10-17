@@ -340,6 +340,47 @@ The Reasoning Engine could not access `projects/PROJECT_NUMBER/secrets/SECRET_ID
   - **Default service account** : Grant the role to the AI Platform Reasoning Engine Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` ).
   - **Custom service account** : Grant the role to the [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) configured on the agent.
 
+## Container image build timed out
+
+**Issue** :
+
+Deployment fails with a `504` , `DEADLINE_EXCEEDED` status ( `REASONING_ENGINE_BUILD_TIMEOUT` ) and a message saying that the agent's container image didn't finish building in time.
+
+**Possible causes** :
+
+When you deploy [from source files](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#source-files) , Agent Runtime builds a container image that installs your code and its dependencies. The deployment fails if the build is still running when its allowed time runs out. Builds usually take too long because of the dependencies they install, for example:
+
+- A long list of packages in `requirements` , including ones the agent doesn't use.
+- Packages without prebuilt wheels for the build environment, which are compiled from source during the build.
+- Unpinned or loosely pinned versions, which slow down dependency resolution.
+
+**Recommended solutions** :
+
+- Check the build logs linked in the error metadata's `logs_url` field to see which step was running when the build stopped.
+- Remove unnecessary dependencies and pin the versions of all required packages.
+- Prioritize packages and versions that publish prebuilt wheels, so that nothing is compiled during the build.
+- Retry the deployment. A build can occasionally run longer than usual for reasons unrelated to your code.
+
+## Container didn't start in time
+
+**Issue** :
+
+Deployment fails with a `504` , `DEADLINE_EXCEEDED` status ( `REASONING_ENGINE_CONTAINER_START_TIMEOUT` ) and a message saying that the agent's container didn't start serving in time.
+
+**Possible causes** :
+
+After the image is built, Agent Runtime starts the agent's container and waits for it to become ready to serve requests. The deployment fails if the container is still starting when its allowed time runs out. Common causes can include the following:
+
+- Slow work at import time, such as loading large models or files when the agent's modules are imported.
+- Slow or blocking work in the agent's `set_up()` method, such as network calls that wait on an unreachable service.
+
+**Recommended solutions** :
+
+- Check the container logs linked in the error metadata's `logs_url` field to see where startup stalled.
+- Move expensive initialization out of module import time, and minimize the number of steps in `set_up()` fast. Defer work that isn't needed to serve the first request.
+- Make sure that any service the agent calls during startup is reachable from the agent, and set timeouts on those calls so that they can't block startup indefinitely.
+- If the container logs show that the agent started normally, retry the deployment. Startup can occasionally take longer than usual for reasons unrelated to your code.
+
 ## Support resources
 
 If your problem is still not resolved, refer to our [support guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-support) to get help.

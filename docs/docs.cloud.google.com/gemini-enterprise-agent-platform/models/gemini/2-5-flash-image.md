@@ -71,8 +71,6 @@ Not supported</li>
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models">Tuning</a><br />
 Not supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context">URL context</a><br />
-Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation">Image generation</a><br />
 Image generation<br />
 Supported</li>
@@ -98,6 +96,8 @@ Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution">Code execution</a><br />
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling">Function calling</a><br />
+Not supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context">URL context</a><br />
 Not supported</li>
 </ul></th>
 <td></td>

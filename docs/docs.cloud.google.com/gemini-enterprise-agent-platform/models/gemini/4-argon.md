@@ -73,8 +73,6 @@ Supported</li>
 Not supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models">Tuning</a><br />
 Not supported</li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context">URL context</a><br />
-Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing">Agentic video understanding</a><br />
 Supported</li>
 </ul></th>
@@ -89,6 +87,8 @@ Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution">Code execution</a><br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling">Function calling</a><br />
+Supported</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context">URL context</a><br />
 Supported</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use">Computer use</a> preview Preview feature<br />
 Supported</li>
@@ -264,9 +264,9 @@ Not supported</li>
 
 ## Gemini 4 Argon Cyber Permissive
 
-Gemini 4 Argon Cyber Permissive is a version of Gemini 4 Argon for defensive cybersecurity use cases, such as vulnerability discovery, reverse engineering, exploit verification, and patch generation. Gemini 4 Argon Cyber Permissive is a Gemini Frontier Cyber Model subject to Section 31 and Section 34 ("Google Frontier Models") of the [Service Specific Terms](https://cloud.google.com/terms/service-terms) . For information about abuse monitoring and zero data retention for Google Frontier Models, see [Abuse monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#google-frontier-models) and [Zero data retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention) .
+Gemini 4 Argon Cyber Permissive is a version of Gemini 4 Argon for defensive cybersecurity use cases, such as vulnerability discovery, reverse engineering, exploit verification, and patch generation. Gemini 4 Argon Cyber Permissive is a Google Frontier Cyber Model subject to Section 31 of the [Service Specific Terms](https://cloud.google.com/terms/service-terms) .
 
-Gemini 4 Argon Cyber Permissive is available in GA (including when using [CodeMender](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) ) behind an allowlist. To request access, contact your Google team or apply through the [Fairwind Program](https://deepmind.google/fairwind-program/) . Access to Gemini 3.8 Flash Cyber doesn't carry over; you must apply separately.
+Gemini 4 Argon Cyber Permissive is available behind an allowlist. It is generally available when accessed directly on the Gemini Enterprise Agent Platform, but may also be used with [CodeMender](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) , which is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) , and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos) . To request access, contact your Google team or apply through the [Fairwind Program](https://deepmind.google/fairwind-program/) . Access to Gemini 3.8 Flash Cyber doesn't carry over; you must apply separately.
 
 The following table shows how Gemini 4 Argon Cyber Permissive differs from Gemini 4 Argon:
 

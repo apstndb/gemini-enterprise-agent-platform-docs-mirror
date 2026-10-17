@@ -12,6 +12,7 @@ This page shows you how to use Organization Policy Service custom constraints to
 
 - `aiplatform.googleapis.com/Endpoint`
 - `aiplatform.googleapis.com/DeploymentResourcePool`
+- `aiplatform.googleapis.com/ReasoningEngine`
 
 To learn more about Organization Policy, see [Custom organization policies](https://docs.cloud.google.com/organization-policy/overview#custom-organization-policies) .
 
@@ -50,56 +51,98 @@ You might also be able to get the required permissions through [custom roles](ht
 
 The following table lists the Gemini Enterprise Agent Platform resources that you can reference in custom constraints.
 
-| Resource                                                                                             | Field                                                      |
-|------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
-| aiplatform.googleapis.com/DeploymentResourcePool                                                     | `resource.dedicatedResources.machineSpec.acceleratorCount` |
-| `resource.dedicatedResources.machineSpec.acceleratorType`                                            |                                                            |
-| `resource.dedicatedResources.machineSpec.gpuPartitionSize`                                           |                                                            |
-| `resource.dedicatedResources.machineSpec.machineType`                                                |                                                            |
-| `resource.dedicatedResources.machineSpec.reservationAffinity.key`                                    |                                                            |
-| `resource.dedicatedResources.machineSpec.reservationAffinity.reservationAffinityType`                |                                                            |
-| `resource.dedicatedResources.machineSpec.reservationAffinity.values`                                 |                                                            |
-| `resource.dedicatedResources.machineSpec.tpuTopology`                                                |                                                            |
-| `resource.dedicatedResources.minReplicaCount`                                                        |                                                            |
-| `resource.dedicatedResources.spot`                                                                   |                                                            |
-| `resource.disableContainerLogging`                                                                   |                                                            |
-| `resource.encryptionSpec.kmsKeyName`                                                                 |                                                            |
-| `resource.serviceAccount`                                                                            |                                                            |
-| aiplatform.googleapis.com/Endpoint                                                                   | `resource.clientConnectionConfig.inferenceTimeout`         |
-| `resource.dedicatedEndpointEnabled`                                                                  |                                                            |
-| `resource.deployedModels.automaticResources.maxReplicaCount`                                         |                                                            |
-| `resource.deployedModels.automaticResources.minReplicaCount`                                         |                                                            |
-| `resource.deployedModels.dedicatedResources.machineSpec.acceleratorCount`                            |                                                            |
-| `resource.deployedModels.dedicatedResources.machineSpec.acceleratorType`                             |                                                            |
-| `resource.deployedModels.dedicatedResources.machineSpec.gpuPartitionSize`                            |                                                            |
-| `resource.deployedModels.dedicatedResources.machineSpec.machineType`                                 |                                                            |
-| `resource.deployedModels.dedicatedResources.machineSpec.reservationAffinity.key`                     |                                                            |
-| `resource.deployedModels.dedicatedResources.machineSpec.reservationAffinity.reservationAffinityType` |                                                            |
-| `resource.deployedModels.dedicatedResources.machineSpec.reservationAffinity.values`                  |                                                            |
-| `resource.deployedModels.dedicatedResources.machineSpec.tpuTopology`                                 |                                                            |
-| `resource.deployedModels.dedicatedResources.minReplicaCount`                                         |                                                            |
-| `resource.deployedModels.dedicatedResources.spot`                                                    |                                                            |
-| `resource.deployedModels.displayName`                                                                |                                                            |
-| `resource.deployedModels.enableAccessLogging`                                                        |                                                            |
-| `resource.deployedModels.gdcConnectedModel`                                                          |                                                            |
-| `resource.deployedModels.model`                                                                      |                                                            |
-| `resource.description`                                                                               |                                                            |
-| `resource.displayName`                                                                               |                                                            |
-| `resource.encryptionSpec.kmsKeyName`                                                                 |                                                            |
-| `resource.genAiAdvancedFeaturesConfig.ragConfig.enableRag`                                           |                                                            |
-| `resource.name`                                                                                      |                                                            |
-| `resource.network`                                                                                   |                                                            |
-| `resource.predictRequestResponseLoggingConfig.bigqueryDestination.outputUri`                         |                                                            |
-| `resource.predictRequestResponseLoggingConfig.enabled`                                               |                                                            |
-| `resource.predictRequestResponseLoggingConfig.samplingRate`                                          |                                                            |
-| `resource.privateServiceConnectConfig.enablePrivateServiceConnect`                                   |                                                            |
-| `resource.privateServiceConnectConfig.projectAllowlist`                                              |                                                            |
-| `resource.privateServiceConnectConfig.pscAutomationConfigs.network`                                  |                                                            |
-| `resource.privateServiceConnectConfig.pscAutomationConfigs.projectId`                                |                                                            |
-| `resource.publisherModelConfig.claudeFeatureConfig.advancedAiEnabled`                                |                                                            |
-| `resource.publisherModelConfig.claudeFeatureConfig.cyberVerificationProgramEnabled`                  |                                                            |
-| `resource.publisherModelConfig.dataSharingEnabledProvider`                                           |                                                            |
-| `resource.trafficSplit`                                                                              |                                                            |
+| Resource                                                                                             | Field                                                          |
+|------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| aiplatform.googleapis.com/DeploymentResourcePool                                                     | `resource.dedicatedResources.machineSpec.acceleratorCount`     |
+| `resource.dedicatedResources.machineSpec.acceleratorType`                                            |                                                                |
+| `resource.dedicatedResources.machineSpec.gpuPartitionSize`                                           |                                                                |
+| `resource.dedicatedResources.machineSpec.machineType`                                                |                                                                |
+| `resource.dedicatedResources.machineSpec.reservationAffinity.key`                                    |                                                                |
+| `resource.dedicatedResources.machineSpec.reservationAffinity.reservationAffinityType`                |                                                                |
+| `resource.dedicatedResources.machineSpec.reservationAffinity.values`                                 |                                                                |
+| `resource.dedicatedResources.machineSpec.tpuTopology`                                                |                                                                |
+| `resource.dedicatedResources.minReplicaCount`                                                        |                                                                |
+| `resource.dedicatedResources.spot`                                                                   |                                                                |
+| `resource.disableContainerLogging`                                                                   |                                                                |
+| `resource.encryptionSpec.kmsKeyName`                                                                 |                                                                |
+| `resource.serviceAccount`                                                                            |                                                                |
+| aiplatform.googleapis.com/Endpoint                                                                   | `resource.clientConnectionConfig.inferenceTimeout`             |
+| `resource.dedicatedEndpointEnabled`                                                                  |                                                                |
+| `resource.deployedModels.automaticResources.maxReplicaCount`                                         |                                                                |
+| `resource.deployedModels.automaticResources.minReplicaCount`                                         |                                                                |
+| `resource.deployedModels.dedicatedResources.machineSpec.acceleratorCount`                            |                                                                |
+| `resource.deployedModels.dedicatedResources.machineSpec.acceleratorType`                             |                                                                |
+| `resource.deployedModels.dedicatedResources.machineSpec.gpuPartitionSize`                            |                                                                |
+| `resource.deployedModels.dedicatedResources.machineSpec.machineType`                                 |                                                                |
+| `resource.deployedModels.dedicatedResources.machineSpec.reservationAffinity.key`                     |                                                                |
+| `resource.deployedModels.dedicatedResources.machineSpec.reservationAffinity.reservationAffinityType` |                                                                |
+| `resource.deployedModels.dedicatedResources.machineSpec.reservationAffinity.values`                  |                                                                |
+| `resource.deployedModels.dedicatedResources.machineSpec.tpuTopology`                                 |                                                                |
+| `resource.deployedModels.dedicatedResources.minReplicaCount`                                         |                                                                |
+| `resource.deployedModels.dedicatedResources.spot`                                                    |                                                                |
+| `resource.deployedModels.displayName`                                                                |                                                                |
+| `resource.deployedModels.enableAccessLogging`                                                        |                                                                |
+| `resource.deployedModels.gdcConnectedModel`                                                          |                                                                |
+| `resource.deployedModels.model`                                                                      |                                                                |
+| `resource.description`                                                                               |                                                                |
+| `resource.displayName`                                                                               |                                                                |
+| `resource.encryptionSpec.kmsKeyName`                                                                 |                                                                |
+| `resource.genAiAdvancedFeaturesConfig.ragConfig.enableRag`                                           |                                                                |
+| `resource.name`                                                                                      |                                                                |
+| `resource.network`                                                                                   |                                                                |
+| `resource.predictRequestResponseLoggingConfig.bigqueryDestination.outputUri`                         |                                                                |
+| `resource.predictRequestResponseLoggingConfig.enabled`                                               |                                                                |
+| `resource.predictRequestResponseLoggingConfig.samplingRate`                                          |                                                                |
+| `resource.privateServiceConnectConfig.enablePrivateServiceConnect`                                   |                                                                |
+| `resource.privateServiceConnectConfig.projectAllowlist`                                              |                                                                |
+| `resource.privateServiceConnectConfig.pscAutomationConfigs.network`                                  |                                                                |
+| `resource.privateServiceConnectConfig.pscAutomationConfigs.projectId`                                |                                                                |
+| `resource.publisherModelConfig.claudeFeatureConfig.advancedAiEnabled`                                |                                                                |
+| `resource.publisherModelConfig.claudeFeatureConfig.cyberVerificationProgramEnabled`                  |                                                                |
+| `resource.publisherModelConfig.dataSharingEnabledProvider`                                           |                                                                |
+| `resource.trafficSplit`                                                                              |                                                                |
+| aiplatform.googleapis.com/ReasoningEngine                                                            | `resource.contextSpec.memoryBankConfig.disableMemoryRevisions` |
+| `resource.contextSpec.memoryBankConfig.generationConfig.model`                                       |                                                                |
+| `resource.contextSpec.memoryBankConfig.similaritySearchConfig.embeddingModel`                        |                                                                |
+| `resource.contextSpec.memoryBankConfig.ttlConfig.defaultTtl`                                         |                                                                |
+| `resource.contextSpec.memoryBankConfig.ttlConfig.granularTtlConfig.createTtl`                        |                                                                |
+| `resource.contextSpec.memoryBankConfig.ttlConfig.granularTtlConfig.generateCreatedTtl`               |                                                                |
+| `resource.contextSpec.memoryBankConfig.ttlConfig.granularTtlConfig.generateUpdatedTtl`               |                                                                |
+| `resource.contextSpec.memoryBankConfig.ttlConfig.memoryRevisionDefaultTtl`                           |                                                                |
+| `resource.description`                                                                               |                                                                |
+| `resource.displayName`                                                                               |                                                                |
+| `resource.encryptionSpec.kmsKeyName`                                                                 |                                                                |
+| `resource.spec.agentFramework`                                                                       |                                                                |
+| `resource.spec.classMethods`                                                                         |                                                                |
+| `resource.spec.deploymentSpec.agentGatewayConfig.agentToAnywhereConfig.agentGateway`                 |                                                                |
+| `resource.spec.deploymentSpec.agentGatewayConfig.clientToAgentConfig.agentGateway`                   |                                                                |
+| `resource.spec.deploymentSpec.containerConcurrency`                                                  |                                                                |
+| `resource.spec.deploymentSpec.env.name`                                                              |                                                                |
+| `resource.spec.deploymentSpec.env.value`                                                             |                                                                |
+| `resource.spec.deploymentSpec.maxInstances`                                                          |                                                                |
+| `resource.spec.deploymentSpec.minInstances`                                                          |                                                                |
+| `resource.spec.deploymentSpec.pscInterfaceConfig.dnsPeeringConfigs.domain`                           |                                                                |
+| `resource.spec.deploymentSpec.pscInterfaceConfig.dnsPeeringConfigs.targetNetwork`                    |                                                                |
+| `resource.spec.deploymentSpec.pscInterfaceConfig.dnsPeeringConfigs.targetProject`                    |                                                                |
+| `resource.spec.deploymentSpec.pscInterfaceConfig.networkAttachment`                                  |                                                                |
+| `resource.spec.deploymentSpec.resourceLimits`                                                        |                                                                |
+| `resource.spec.deploymentSpec.secretEnv.name`                                                        |                                                                |
+| `resource.spec.deploymentSpec.secretEnv.secretRef.secret`                                            |                                                                |
+| `resource.spec.deploymentSpec.secretEnv.secretRef.version`                                           |                                                                |
+| `resource.spec.identityType`                                                                         |                                                                |
+| `resource.spec.packageSpec.dependencyFilesGcsUri`                                                    |                                                                |
+| `resource.spec.packageSpec.pickleObjectGcsUri`                                                       |                                                                |
+| `resource.spec.packageSpec.pythonVersion`                                                            |                                                                |
+| `resource.spec.packageSpec.requirementsGcsUri`                                                       |                                                                |
+| `resource.spec.serviceAccount`                                                                       |                                                                |
+| `resource.spec.sourceCodeSpec.developerConnectSource.config.dir`                                     |                                                                |
+| `resource.spec.sourceCodeSpec.developerConnectSource.config.gitRepositoryLink`                       |                                                                |
+| `resource.spec.sourceCodeSpec.developerConnectSource.config.revision`                                |                                                                |
+| `resource.spec.sourceCodeSpec.imageSpec.buildArgs`                                                   |                                                                |
+| `resource.spec.sourceCodeSpec.pythonSpec.entrypointModule`                                           |                                                                |
+| `resource.spec.sourceCodeSpec.pythonSpec.entrypointObject`                                           |                                                                |
+| `resource.spec.sourceCodeSpec.pythonSpec.requirementsFile`                                           |                                                                |
+| `resource.spec.sourceCodeSpec.pythonSpec.version`                                                    |                                                                |
 
 ## Set up a custom constraint
 

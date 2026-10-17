@@ -12,6 +12,12 @@ You can see the latest product updates for all of Google Cloud on the [Google Cl
 
 ## October 14, 2026
 
+Feature
+
+**Priority PayGo support for Gemini Nano Banana 2.1**
+
+[Priority Pay-as-you-go (PayGo)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) ( `gemini-nano-banana-2.1` ) on the `global` endpoint.
+
 Fixed
 
 **CodeMender updates (v0.15.0)**

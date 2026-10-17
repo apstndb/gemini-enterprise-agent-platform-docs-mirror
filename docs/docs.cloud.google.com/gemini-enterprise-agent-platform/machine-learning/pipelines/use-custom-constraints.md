@@ -56,26 +56,29 @@ You might also be able to get the required permissions through [custom roles](ht
 
 The following table lists the Gemini Enterprise Agent Platform Pipelines resources that you can reference in custom constraints.
 
-| Resource                                                     | Field                  |
-|--------------------------------------------------------------|------------------------|
-| aiplatform.googleapis.com/PipelineJob                        | `resource.displayName` |
-| `resource.encryptionSpec.kmsKeyName`                         |                        |
-| `resource.network`                                           |                        |
-| `resource.pipelineSpec`                                      |                        |
-| `resource.preflightValidations`                              |                        |
-| `resource.pscInterfaceConfig.networkAttachment`              |                        |
-| `resource.reservedIpRanges`                                  |                        |
-| `resource.runtimeConfig.failurePolicy`                       |                        |
-| `resource.runtimeConfig.gcsOutputDirectory`                  |                        |
-| `resource.runtimeConfig.inputArtifacts[*].artifactId`        |                        |
-| `resource.runtimeConfig.parameterValues[*].boolValue`        |                        |
-| `resource.runtimeConfig.parameterValues[*].listValue.values` |                        |
-| `resource.runtimeConfig.parameterValues[*].nullValue`        |                        |
-| `resource.runtimeConfig.parameterValues[*].numberValue`      |                        |
-| `resource.runtimeConfig.parameterValues[*].stringValue`      |                        |
-| `resource.runtimeConfig.parameterValues[*].structValue`      |                        |
-| `resource.serviceAccount`                                    |                        |
-| `resource.templateUri`                                       |                        |
+| Resource                                                      | Field                  |
+|---------------------------------------------------------------|------------------------|
+| aiplatform.googleapis.com/PipelineJob                         | `resource.displayName` |
+| `resource.encryptionSpec.kmsKeyName`                          |                        |
+| `resource.network`                                            |                        |
+| `resource.pipelineSpec`                                       |                        |
+| `resource.preflightValidations`                               |                        |
+| `resource.pscInterfaceConfig.dnsPeeringConfigs.domain`        |                        |
+| `resource.pscInterfaceConfig.dnsPeeringConfigs.targetNetwork` |                        |
+| `resource.pscInterfaceConfig.dnsPeeringConfigs.targetProject` |                        |
+| `resource.pscInterfaceConfig.networkAttachment`               |                        |
+| `resource.reservedIpRanges`                                   |                        |
+| `resource.runtimeConfig.failurePolicy`                        |                        |
+| `resource.runtimeConfig.gcsOutputDirectory`                   |                        |
+| `resource.runtimeConfig.inputArtifacts[*].artifactId`         |                        |
+| `resource.runtimeConfig.parameterValues[*].boolValue`         |                        |
+| `resource.runtimeConfig.parameterValues[*].listValue.values`  |                        |
+| `resource.runtimeConfig.parameterValues[*].nullValue`         |                        |
+| `resource.runtimeConfig.parameterValues[*].numberValue`       |                        |
+| `resource.runtimeConfig.parameterValues[*].stringValue`       |                        |
+| `resource.runtimeConfig.parameterValues[*].structValue`       |                        |
+| `resource.serviceAccount`                                     |                        |
+| `resource.templateUri`                                        |                        |
 
 ## Set up a custom constraint
 

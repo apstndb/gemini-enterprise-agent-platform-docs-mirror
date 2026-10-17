@@ -24,7 +24,7 @@ The default parser supports the following file types and their file size limits:
 | PDF file                                | 50 MB                                     |
 | Text file                               | 10 MB                                     |
 
-Additional file types are supported by an [Llm Parser](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/llm-parser) .
+Additional file types are supported by an [LLM Parser](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/llm-parser) .
 
 Using RAG Engine with other document types is possible but can generate lower-quality responses.
 

@@ -104,7 +104,7 @@ In your AI application, look for a way to add or connect to a remote MCP server.
 
   This single endpoint exposes all nine Agent Retrieval MCP tools. Tool calls are dispatched to the correct backend by [header-based routing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/use-agent-retrieval-mcp#header-based-routing) .
 
-- **Transport** : HTTP
+- **Transport** : [Streamable HTTP](https://modelcontextprotocol.io/specification/latest/basic/transports/streamable-http)
 
 - **Authentication details** : your Google Cloud credentials, your OAuth Client ID and secret, or an agent identity and credentials. For more information about authentication, see [Authenticate to MCP servers](https://docs.cloud.google.com/mcp/authenticate-mcp) .
 
@@ -152,7 +152,7 @@ All tools are read-only; the MCP server does not expose any write, update, or de
 
 Use the [MCP inspector](https://modelcontextprotocol.io/docs/tools/inspector) to list tools, or send a `tools/list` HTTP request directly to the Agent Retrieval MCP server. The `tools/list` method doesn't require authentication.
 
-The Agent Retrieval MCP server uses the [MCP 2026-07-28 stateless protocol](https://modelcontextprotocol.io/specification/2026-07-28) , so each request is self-describing and must declare the protocol version in both the `MCP-Protocol-Version` HTTP header and the `_meta.io.modelcontextprotocol/protocolVersion` body field. The `Mcp-Method` HTTP header must also match the `method` in the body.
+The Agent Retrieval MCP server supports the [MCP 2026-07-28 stateless protocol](https://modelcontextprotocol.io/specification/2026-07-28) , so each stateless request is self-describing and must declare the protocol version in both the `MCP-Protocol-Version` HTTP header and the `_meta.io.modelcontextprotocol/protocolVersion` body field, along with an `_meta.io.modelcontextprotocol/clientCapabilities` object (an empty object is accepted). The `Mcp-Method` HTTP header must also match the `method` in the body.
 
 ```
 curl -X POST 'https://vectorsearch.googleapis.com/mcp' \
@@ -166,7 +166,8 @@ curl -X POST 'https://vectorsearch.googleapis.com/mcp' \
     "method": "tools/list",
     "params": {
       "_meta": {
-        "io.modelcontextprotocol/protocolVersion": "2026-07-28"
+        "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+        "io.modelcontextprotocol/clientCapabilities": {}
       }
     }
   }'
@@ -203,6 +204,7 @@ The Agent Retrieval MCP server doesn't have its own quotas. There is no limit on
 
 ## What's next
 
+- See the [Agent Retrieval MCP reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/mcp) .
 - Learn how to [create a Collection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections#creating_a_collection) .
 - Learn how to [search for data objects](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/query-search/search) .
 - Learn how to [rerank search results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/query-search/reranking) .
