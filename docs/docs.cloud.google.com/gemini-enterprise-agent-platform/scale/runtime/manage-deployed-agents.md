@@ -345,7 +345,7 @@ For deployed agents, you can use the console to view metrics for your agent:
 
 ## Delete a deployed agent
 
-Delete a deployed agent from the Agent Runtime managed runtime.
+Delete a deployed agent from the Agent Runtime managed runtime. Deleting the agent runtime invalidates its agent identity. Any IAM Unified Access Policy (UAP) that grants permissions to that principal retains the defunct principal in its rules. Furthermore, the policy binding remains active. To remove a defunct principal, update the UAP to remove the principal from its rules. If the policy no longer contains any active principals, delete the policy binding.
 
 ### Console
 

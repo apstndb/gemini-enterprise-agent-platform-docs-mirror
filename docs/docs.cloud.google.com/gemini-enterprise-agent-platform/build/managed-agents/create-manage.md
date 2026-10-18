@@ -1330,7 +1330,7 @@ curl -X PATCH "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/loc
 
 ## Delete an agent
 
-To delete a specific custom agent config, send a `DELETE` request. This is a [long-running operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/create-manage#get-details-of-lro) and deletes the configuration permanently.
+To delete a specific custom agent config, send a `DELETE` request. This is a [long-running operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/create-manage#get-details-of-lro) and deletes the configuration permanently. Deleting the agent runtime invalidates its agent identity. Any IAM Unified Access Policy (UAP) that grants permissions to that principal retains the defunct principal in its rules. Furthermore, the policy binding remains active. To remove a defunct principal, update the UAP to remove the principal from its rules. If the policy no longer contains any active principals, delete the policy binding.
 
 When you delete an agent, provide all necessary information in the URL and don't include a JSON request body.
 

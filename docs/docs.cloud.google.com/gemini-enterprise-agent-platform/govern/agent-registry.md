@@ -6,7 +6,7 @@ description: Discover and govern agents and tools using Agent Registry.
 data_source: docs.cloud.google.com
 ---
 
-Agent Registry serves as the central hub for governance and inventory for your AI ecosystem within Gemini Enterprise Agent Platform. It provides a unified catalog that lets you securely store, discover, and manage Model Context Protocol (MCP) servers, tools, standalone skills (Preview), and AI agents across your organization.
+Agent Registry serves as the central hub for governance, discovery, and search for your AI ecosystem within Gemini Enterprise Agent Platform. It provides a unified catalog that lets you securely store, discover, and manage Model Context Protocol (MCP) servers, tools, standalone skills (Preview), and AI agents across your organization.
 
 As you scale your AI workloads, consolidating these agents, MCP servers, skills, and endpoints in Agent Registry helps you resolve common challenges in AI deployments, such as fragmented tool access, isolated data, and redundant implementations, while maintaining security and access controls.
 
@@ -35,4 +35,10 @@ Explore the Agent Registry documentation to learn how to integrate and govern yo
 
 - **[Resolve endpoints and build orchestrators](https://docs.cloud.google.com/agent-registry/resolve-endpoints-and-build-orchestrators)** : Resolve endpoints dynamically and build orchestrator agents using the Agent Development Kit (ADK).
 - **[Register a custom ADK agent](https://docs.cloud.google.com/agent-registry/register-custom-adk-agents)** : Expose and register custom ADK agents in Agent Registry.
-- **[Use registered A2A agents in Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents)** : Visually compose and orchestrate your registered Agent-to-Agent (A2A) agents as subagents in Agent Studio.
+- **[Use registered A2A agents in Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents)** : Select registered Agent2Agent (A2A) agents directly within Agent Studio to design multi-agent applications.
+
+### Govern registry resources declaratively with Terraform
+
+- **[Register cross-project and custom agents](https://docs.cloud.google.com/agent-registry/manual-registration#cross-project)** : Provision `google_agent_registry_service` resources across central and workload projects.
+- **[Manage tool and auth provider bindings](https://docs.cloud.google.com/agent-registry/manage-bindings#create)** : Connect source agents to downstream MCP servers, endpoints, and auth providers using `google_agent_registry_binding` .
+- **[Configure IAM egress policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies)** : Grant `roles/iap.egressor` access to registered agents, MCP servers, and endpoints using `google_iap_agent_registry_*` IAM resources.

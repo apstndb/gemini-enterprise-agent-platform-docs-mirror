@@ -12,7 +12,7 @@ You can create [Identity and Access Management (IAM) Unified Access Policies (UA
 
 In the Google Cloud console, you can use the **Policies** page to create Agent Gateway IAM UAPs. UAPs can contain allow rules, deny rules, or both.
 
-You can use the Google Cloud CLI and the REST API to create IAM UAPs by first creating JSON-formatted policy files, creating the policies, and binding them with projects that contain your Agent Gateway instances.
+You can use the Google Cloud CLI, the REST API, or Terraform to create IAM UAPs and bind them to projects that contain your Agent Gateway instances.
 
 To learn how to update and delete UAPs, see [Manage IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap) .
 
@@ -62,7 +62,7 @@ UAPs let you configure multiple rules. Each rule can have an allow effect or a d
 
 ### Create a UAP with an allow rule
 
-You can create a UAP with an allow rule using the Google Cloud console, the gcloud CLI, or the REST API.
+You can create a UAP with an allow rule using the Google Cloud console, the gcloud CLI, the REST API, or Terraform.
 
 ### Console
 
@@ -162,7 +162,7 @@ To create a UAP in the gcloud CLI, do the following:
       Replace `CEL_EXPRESSION` with a conditional expression—for example:
 
       ```
-      "destination.agent_registry.mcp_server.name == '/projects/corp-apim-prod/locations/us-east1/mcpServers/finance-data-service' && destination.agent_registry.mcp_server.tool.name == 'updateRecord'"
+      "destination.agent_registry.mcp_server.name == 'projects/corp-apim-prod/locations/us-east1/mcpServers/finance-data-service' && destination.agent_registry.mcp_server.tool.name == 'updateRecord'"
       ```
 
       This expression must be a valid CEL expression. It must evaluate to `true` for access to be allowed.
@@ -218,6 +218,71 @@ To create and bind a policy using the REST API, do the following:
 
     - `PROJECT_ID` : the project ID
     - `POLICY_NAME` : the policy name
+
+### Terraform
+
+To declaratively create a UAP and bind it to the project hosting your Agent Gateway, configure the `google_iam_project_access_policy` and `google_iam_projects_policy_binding` resources:
+
+```
+resource "google_iam_project_access_policy" "agent_egress_policy" {
+project          = "PROJECT_ID"
+location         = "global"
+access_policy_id = "POLICY_NAME"
+display_name     = "POLICY_DISPLAY_NAME"
+
+details {
+  rules {
+    effect      = "ALLOW"
+    description = "Allow runtime agents to call registered MCP tool"
+
+    principals = [
+      "principalSet://agents.global.org-ORGANIZATION_ID.system.id.goog/attribute.platformContainer/aiplatform/projects/AGENT_RUNTIME_PROJECT_NUMBER"
+    ]
+
+    operation {
+      permissions = ["iap.googleapis.com/resources.egressViaIAP"]
+    }
+
+    conditions {
+      service    = "iap.googleapis.com"
+      expression = "destination.agent_registry.mcp_server.name == 'projects/PROJECT_ID/locations/REGION/mcpServers/MCP_SERVER_ID' && destination.agent_registry.mcp_server.tool.name == 'TOOL_NAME'"
+    }
+  }
+}
+}
+
+resource "google_iam_projects_policy_binding" "agent_egress_binding" {
+project           = "PROJECT_ID"
+location          = "global"
+policy_binding_id = "POLICY_BINDING_ID"
+policy_kind       = "ACCESS"
+policy            = "projects/PROJECT_ID/locations/global/accessPolicies/${google_iam_project_access_policy.agent_egress_policy.access_policy_id}"
+
+target {
+  resource = "//cloudresourcemanager.googleapis.com/projects/PROJECT_ID"
+}
+}
+```
+
+Replace the following:
+
+- `PROJECT_ID` : the ID of the project hosting the Agent Gateway and Agent Registry
+
+- `POLICY_NAME` : the ID for the access policy
+
+- `POLICY_DISPLAY_NAME` : a human-readable description of the access policy
+
+- `ORGANIZATION_ID` : your organization ID
+
+- `AGENT_RUNTIME_PROJECT_NUMBER` : the project number of the project hosting your agents
+
+- `REGION` : the registry location
+
+- `MCP_SERVER_ID` : the ID of the registered MCP server
+
+- `TOOL_NAME` : the name of the allowed MCP tool
+
+- `POLICY_BINDING_ID` : the ID for the project policy binding
 
 ### Create a combination allow and deny UAP
 
@@ -288,8 +353,8 @@ To create a UAP file containing both allow and deny rules, do the following:
     - `DENY_RULE_DESCRIPTION` : the description of the deny rule
     - `AGENT_PRINCIPALS_ALLOW` : the agent principals that you want to allow—for example, `principal://agents.global.proj- `` PROJECT_NUMBER `` .system.id.goog/resources/aiplatform/projects/ `` PROJECT_ID `` /locations/ `` LOCATION `` /reasoningEngines/ `` AGENT_NAME`
     - `AGENT_PRINCIPALS_DENY` : the agent principals that you want to deny—for example, `principal://agents.global.proj- `` PROJECT_NUMBER `` .system.id.goog/resources/aiplatform/projects/ `` PROJECT_ID `` /locations/ `` LOCATION `` /reasoningEngines/ `` AGENT_NAME`
-    - `CEL_EXPRESSION_ALLOW` : the CEL expression for the allow rule—for example, `destination.agent_registry.mcp_server.name == "/projects/my-project/locations/us-east1/mcpServers/finance-data-service" && destination.agent_registry.mcp_server.tool.name == "getStatements"`
-    - `CEL_EXPRESSION_DENY` : the CEL expression for the deny rule—for example, `destination.agent_registry.mcp_server.name == "/projects/my-project/locations/us-east1/mcpServers/finance-data-service" && destination.agent_registry.mcp_server.tool.name == "updateRecord"`
+    - `CEL_EXPRESSION_ALLOW` : the CEL expression for the allow rule—for example, `destination.agent_registry.mcp_server.name == "projects/my-project/locations/us-east1/mcpServers/finance-data-service" && destination.agent_registry.mcp_server.tool.name == "getStatements"`
+    - `CEL_EXPRESSION_DENY` : the CEL expression for the deny rule—for example, `destination.agent_registry.mcp_server.name == "projects/my-project/locations/us-east1/mcpServers/finance-data-service" && destination.agent_registry.mcp_server.tool.name == "updateRecord"`
 
 2.  To create the UAP, run the following command:
 
@@ -626,7 +691,7 @@ Conditions are defined in the `conditions` field of a rule. For example:
 ```json
 "conditions": {
   "iap.googleapis.com": {
-    "expression": "destination.agent_registry.mcp_server.name == '/projects/my-project/locations/us-east1/mcpServers/finance-data-service' && destination.agent_registry.mcp_server.tool.name == 'getStatements'"
+    "expression": "destination.agent_registry.mcp_server.name == 'projects/my-project/locations/us-east1/mcpServers/finance-data-service' && destination.agent_registry.mcp_server.tool.name == 'getStatements'"
   }
 }
 ```
@@ -642,7 +707,7 @@ Conditions are defined in the `conditions` field of a rule. For example:
 ```json
 "conditions": {
   "iap.googleapis.com": {
-    "expression": "destination.agent_registry.mcp_server.name == '/projects/my-project/locations/us-east1/mcpServers/finance-data-service' && destination.agent_registry.mcp_server.tool.name == 'getStatements'"
+    "expression": "destination.agent_registry.mcp_server.name == 'projects/my-project/locations/us-east1/mcpServers/finance-data-service' && destination.agent_registry.mcp_server.tool.name == 'getStatements'"
   }
 }
 ```
@@ -923,7 +988,7 @@ The following example policy shows an IAM allow rule that allows an orchestrator
       },
       "conditions": {
         "iap.googleapis.com": {
-          "expression": "destination.agent_registry.agent.name == '/projects/9876543210/locations/us-central1/agents/customer-support-agent'"
+          "expression": "destination.agent_registry.agent.name == 'projects/9876543210/locations/us-central1/agents/customer-support-agent'"
         }
       }
     }
@@ -954,7 +1019,7 @@ To create an IAM policy with an allow rule that allows an orchestrator agent to 
             },
             "conditions": {
               "iap.googleapis.com": {
-                "expression": "destination.agent_registry.agent.name == '/projects/9876543210/locations/us-central1/agents/customer-support-agent'"
+                "expression": "destination.agent_registry.agent.name == 'projects/9876543210/locations/us-central1/agents/customer-support-agent'"
               }
             }
           }
@@ -1353,7 +1418,7 @@ To create an agent-to-endpoint policy in the Google Cloud console, do the follow
     - **Conditions** : In the condition editor, enter:
 
       ```text
-      destination.agent_registry.endpoint.name == '/projects/9876543210/locations/us-central1/endpoints/translation-service'
+      destination.agent_registry.endpoint.name == 'projects/9876543210/locations/us-central1/endpoints/translation-service'
       ```
 
 5.  To save the rule, click **Save** .
@@ -1379,7 +1444,7 @@ The following example shows an IAM allow policy that allows an agent to access a
     },
     "conditions": {
       "iap.googleapis.com": {
-        "expression": "destination.agent_registry.endpoint.name == '/projects/9876543210/locations/us-central1/endpoints/translation-service'"
+        "expression": "destination.agent_registry.endpoint.name == 'projects/9876543210/locations/us-central1/endpoints/translation-service'"
       }
     }
   }
@@ -1409,7 +1474,7 @@ To create an IAM allow policy that allows an agent to access a registered servic
             },
             "conditions": {
               "iap.googleapis.com": {
-                "expression": "destination.agent_registry.endpoint.name == '/projects/9876543210/locations/us-central1/endpoints/translation-service'"
+                "expression": "destination.agent_registry.endpoint.name == 'projects/9876543210/locations/us-central1/endpoints/translation-service'"
               }
             }
           }

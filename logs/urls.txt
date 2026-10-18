@@ -25,7 +25,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/build	2026-09-25T
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk	2026-09-25T21:39:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/agent-garden	2026-10-01T19:23:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents	2026-10-01T19:22:43Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/create-manage	2026-10-05T16:24:54Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/create-manage	2026-10-18T01:08:25Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/evaluate	2026-10-01T19:22:51Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/interact-with-agents	2026-10-01T19:22:43Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/sandbox-environment	2026-10-01T19:22:51Z
@@ -213,7 +213,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-sear
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/vpc	2026-10-01T19:22:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern	2026-10-01T19:22:24Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview	2026-10-06T15:23:52Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry	2026-10-01T19:23:10Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry	2026-10-17T20:55:32Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor	2026-10-01T19:22:24Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy	2026-10-15T16:04:07Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview	2026-10-15T23:40:10Z
@@ -225,8 +225,8 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/s
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/monitor-content-security	2026-10-01T19:22:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/best-practices	2026-10-01T19:22:34Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap	2026-10-15T16:04:07Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies	2026-10-14T17:17:07Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap	2026-10-15T22:33:29Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies	2026-10-17T20:55:32Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap	2026-10-17T20:55:32Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance	2026-10-13T18:09:16Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/govern-agent-skills	2026-10-01T19:22:51Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview	2026-10-01T19:23:03Z
@@ -1224,7 +1224,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/example-
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/example-store/quickstart	2026-10-02T06:03:43Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/example-store/retrieve-examples	2026-10-02T06:03:43Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/example-store/upload-examples	2026-10-01T19:22:24Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview	2026-10-01T19:22:57Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview	2026-10-18T01:08:25Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/traces	2026-10-15T19:11:18Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview	2026-10-01T19:23:10Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/express-mode/api-reference	2026-10-09T18:17:18Z
@@ -3049,7 +3049,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/bid
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent	2026-10-01T19:23:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/logging	2026-10-01T19:22:24Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-agent-access	2026-10-01T19:22:24Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents	2026-10-01T19:23:03Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents	2026-10-18T01:08:25Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic	2026-10-02T07:30:08Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/monitoring	2026-10-01T19:22:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/optimize-and-scale	2026-10-01T19:22:43Z

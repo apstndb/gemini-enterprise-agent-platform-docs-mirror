@@ -40,6 +40,12 @@ In addition to the dashboards on the **Observability** tab, you can use the agen
 
 For MCP servers, you can monitor request count and p95 request duration to track utilization and responsiveness.
 
+## Auditing agent actions
+
+To support enterprise security and compliance audits, Gemini Enterprise Agent Platform uses *dual-attribution logging* to record agent activity in Cloud Logging. When an agent performs an action or calls a tool on behalf of a person (user-delegated authority), audit and execution logs record both the SPIFFE-based [agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview#spiffe-identity) ( `principal://...` in audit logs, or `spiffe://...` in execution logs) and the identity of the initiating human user. When an agent acts autonomously on its own authority, logs attribute the action directly to the unique agent identity.
+
+Auditors and security administrators can isolate and review agent-initiated events in Cloud Logging by filtering for the `is_agentic=true` flag in log queries. Combining `is_agentic=true` with the agent identity or user principal lets you trace end-to-end execution paths and verify policy enforcement across all agent interactions.
+
 ## OpenTelemetry generative AI conventions
 
 Agent traces and prompt-and-response logs rely heavily on the [OpenTelemetry Semantic Conventions for generative AI systems](https://opentelemetry.io/docs/specs/semconv/gen-ai/) to standardize how generative AI telemetry is captured, structured, and reported.

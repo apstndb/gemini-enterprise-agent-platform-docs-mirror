@@ -10,7 +10,7 @@ You can create Identity and Access Management (IAM) allow policies to govern age
 
 The **Policies** page in the Google Cloud console lets you create IAM allow policies.
 
-The Google Cloud CLI supports creating both IAM allow and deny policies.
+The Google Cloud CLI and Terraform support creating IAM egress policies.
 
 You can also [create IAM Unified Access Policies (UAPs)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) , which can contain both allow effect and deny effect rules.
 
@@ -180,6 +180,26 @@ To create an agent-to-registry egress policy by using the gcloud CLI, do the fol
     }
     ```
 
+### Terraform
+
+To grant egress access to all resources in an Agent Registry instance, configure the `google_iap_agent_registry_iam_member` resource in the project that hosts the registry and Agent Gateway:
+
+```
+resource "google_iap_agent_registry_iam_member" "registry_egress" {
+project  = "PROJECT_ID"
+location = "REGION"
+role     = "roles/iap.egressor"
+member   = "principalSet://agents.global.org-ORGANIZATION_ID.system.id.goog/attribute.platformContainer/aiplatform/projects/AGENT_RUNTIME_PROJECT_NUMBER"
+}
+```
+
+Replace the following:
+
+- `PROJECT_ID` : the ID of the project hosting the Agent Registry and Agent Gateway
+- `REGION` : the registry location (for example, `us-central1` or `global` )
+- `ORGANIZATION_ID` : your organization ID
+- `AGENT_RUNTIME_PROJECT_NUMBER` : the project number of the project hosting your agents
+
 ### Create an agent-to-agent egress policy
 
 ### Console
@@ -246,6 +266,28 @@ To define an agent-to-agent egress policy by using the Google Cloud console, do 
     - `PROJECT_ID` : the project ID of the project that contains the resource. Alternatively, you can bind the policy to a folder or organization, by instead specifying the `--folder` or `--organization` flags, respectively.
     - `AGENT_ID` : the ID of the agent
     - `REGION` : the region where the resource is located
+
+### Terraform
+
+To grant egress access to a specific registered agent, configure the `google_iap_agent_registry_agent_iam_member` resource:
+
+```
+resource "google_iap_agent_registry_agent_iam_member" "agent_egress" {
+project  = "PROJECT_ID"
+location = "REGION"
+agent_id = "AGENT_ID"
+role     = "roles/iap.egressor"
+member   = "principalSet://agents.global.org-ORGANIZATION_ID.system.id.goog/attribute.platformContainer/aiplatform/projects/AGENT_RUNTIME_PROJECT_NUMBER"
+}
+```
+
+Replace the following:
+
+- `PROJECT_ID` : the ID of the project hosting the Agent Registry
+- `REGION` : the registry location
+- `AGENT_ID` : the ID of the target registered agent
+- `ORGANIZATION_ID` : your organization ID
+- `AGENT_RUNTIME_PROJECT_NUMBER` : the project number of the calling agent's project
 
 ### Create an agent-to-MCP server egress policy
 
@@ -379,6 +421,34 @@ To create an agent-to-MCP server egress policy using the gcloud CLI, do the foll
     }
     ```
 
+### Terraform
+
+To grant conditional egress access to a registered MCP server and its tools, configure the `google_iap_agent_registry_mcp_server_iam_member` resource:
+
+```
+resource "google_iap_agent_registry_mcp_server_iam_member" "mcp_egress" {
+project       = "PROJECT_ID"
+location      = "REGION"
+mcp_server_id = "MCP_SERVER_ID"
+role          = "roles/iap.egressor"
+member        = "principalSet://agents.global.org-ORGANIZATION_ID.system.id.goog/attribute.platformContainer/aiplatform/projects/AGENT_RUNTIME_PROJECT_NUMBER"
+
+condition {
+  title      = "Allow read-only MCP tool access"
+  expression = "api.getAttribute('iap.googleapis.com/mcp.toolName', '') == 'TOOL_NAME' && api.getAttribute('iap.googleapis.com/mcp.tool.isReadOnly', false) == true"
+}
+}
+```
+
+Replace the following:
+
+- `PROJECT_ID` : the ID of the project hosting the Agent Registry
+- `REGION` : the registry location (use `global` for Google-managed remote MCP servers)
+- `MCP_SERVER_ID` : the ID of the registered MCP server
+- `ORGANIZATION_ID` : your organization ID
+- `AGENT_RUNTIME_PROJECT_NUMBER` : the project number of the calling agent's project
+- `TOOL_NAME` : the name of the allowed MCP tool
+
 ### Create an agent-to-endpoint egress policy
 
 ### Console
@@ -465,6 +535,28 @@ To define an agent-to-endpoint egress policy by using the Google Cloud console, 
     - `PROJECT_ID` : the project ID of the project that contains the resource. Alternatively, you can bind the policy to a folder or organization, by instead specifying the `--folder` or `--organization` flags, respectively.
     - `ENDPOINT_ID` : the ID of the endpoint
     - `REGION` : the region where the resource is located
+
+### Terraform
+
+To grant egress access to a specific registered endpoint, configure the `google_iap_agent_registry_endpoint_iam_member` resource:
+
+```
+resource "google_iap_agent_registry_endpoint_iam_member" "endpoint_egress" {
+project     = "PROJECT_ID"
+location    = "REGION"
+endpoint_id = "ENDPOINT_ID"
+role        = "roles/iap.egressor"
+member      = "principalSet://agents.global.org-ORGANIZATION_ID.system.id.goog/attribute.platformContainer/aiplatform/projects/AGENT_RUNTIME_PROJECT_NUMBER"
+}
+```
+
+Replace the following:
+
+- `PROJECT_ID` : the ID of the project hosting the Agent Registry
+- `REGION` : the registry location
+- `ENDPOINT_ID` : the ID of the registered endpoint
+- `ORGANIZATION_ID` : your organization ID
+- `AGENT_RUNTIME_PROJECT_NUMBER` : the project number of the calling agent's project
 
 ## Authenticate your Cloud Run MCP server with IAP
 
