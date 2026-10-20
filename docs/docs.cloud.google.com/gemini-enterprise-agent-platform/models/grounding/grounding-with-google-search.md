@@ -45,7 +45,7 @@ This section lists the models that support grounding with Search.
 
 ## Supported languages
 
-For a list of supported languages, see [Languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models#languages-gemini) .
+For a list of supported languages, see [Languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#languages-gemini) .
 
 ## Using Grounding with Google Search
 

@@ -73,7 +73,7 @@ To view the burndown rates for models supported in Provisioned Throughput, see [
 
 > **Request access:** For information about access to this release, see the [access request page](https://docs.google.com/forms/d/e/1FAIpQLScxBeD4UJ8GbUfX4SXjj5a1XJ1K7Urwvb0iSGdGccNcFRBrpQ/viewform) .
 
-Provisioned Throughput supports the Gemini 2.5 Flash with Gemini Live API. To understand how to calculate the burndown while using the Gemini Live API, see [Calculate throughput for Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/live-api#calculate) .
+Provisioned Throughput supports the Gemini 2.5 Flash with Gemini Live API. To understand how to calculate the burndown while using the Gemini Live API, see [Estimating GSU requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/live-api#estimating-gsu-requirements) .
 
 For more information about using Provisioned Throughput for Gemini 2.5 Flash with Gemini Live API, see [Provisioned Throughput for Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/live-api) .
 

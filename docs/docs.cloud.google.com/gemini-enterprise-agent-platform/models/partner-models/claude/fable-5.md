@@ -169,7 +169,7 @@ Asia Pacific
 
 Follow these steps to enable Claude Fable 5 on Google Cloud in your project:
 
-- Consent to the [Advanced AI Safety Addendum](https://cloud.google.com/terms/advanced-ai-safety-addendum) in Model Garden (required once per project). See [Abuse Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#advanced_ai_safety) to learn more.
+- Consent to the [Advanced AI Safety Addendum](https://cloud.google.com/terms/advanced-ai-safety-addendum) in Model Garden (required once per project). See [Abuse Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#advanced-ai-safety) to learn more.
 - For online terms customers, click 'enable' on the [Model Garden model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5) to:
   - Answer relevant company and use case questions in Model Garden.
   - Accept Anthropic and Marketplace terms of service in Cloud Marketplace.

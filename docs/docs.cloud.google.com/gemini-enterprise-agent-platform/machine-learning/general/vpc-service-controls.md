@@ -17,7 +17,7 @@ data_source: docs.cloud.google.com
 
 ## Controlling access to Google APIs
 
-Agent Platform APIs, as outlined in [Accessing Gemini Enterprise Agent Platform from on-premises and multicloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/netsec-overview#support-table) , encompass a range of accessibility options, including public internet, Private Service Connect for Google APIs, and Private Google Access.
+Agent Platform APIs, as outlined in [Accessing Gemini Enterprise Agent Platform from on-premises and multicloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/netsec-overview#access-methods) , encompass a range of accessibility options, including public internet, Private Service Connect for Google APIs, and Private Google Access.
 
 ### Public access
 

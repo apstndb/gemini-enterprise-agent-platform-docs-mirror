@@ -110,7 +110,7 @@ To learn about Agent Runtime with end-to-end examples, see the following resourc
 
 ## Supported regions
 
-See [Locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations#supported-regions-agent-engine) for a list of supported regions for Agent Runtime.
+See [Locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for a list of supported regions for Agent Runtime.
 
 ## Quota
 

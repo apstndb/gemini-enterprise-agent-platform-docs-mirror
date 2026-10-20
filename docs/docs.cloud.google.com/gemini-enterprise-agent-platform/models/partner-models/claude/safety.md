@@ -35,4 +35,4 @@ If the request is blocked by the classifier, the request stream is cancelled and
 
 ## Location availability
 
-The suspected CSAM classifier is available in all [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#quotas) .
+The suspected CSAM classifier is available in all [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#genai-partner-models) .

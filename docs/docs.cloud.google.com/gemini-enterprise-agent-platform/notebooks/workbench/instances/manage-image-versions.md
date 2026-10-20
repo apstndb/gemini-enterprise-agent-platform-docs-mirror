@@ -123,7 +123,7 @@ resource "google_workbench_instance" "vm_instance" {
 }
 ```
 
-For more information about creating an instance with a specific version, see [Create a specific version](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-specific-version#create_a_specific_version) .
+For more information about creating an instance with a specific version, see [Create a specific version](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-specific-version#create-a-specific-version) .
 
 ### Upgrade across image families
 

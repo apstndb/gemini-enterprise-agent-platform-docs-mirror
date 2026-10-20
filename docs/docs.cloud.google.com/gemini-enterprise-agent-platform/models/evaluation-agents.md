@@ -327,7 +327,7 @@ eval_result = eval_task.evaluate(
 
 ### Metric customization
 
-You can customize a large language model-based metric for trajectory evaluation using a templated interface or from scratch, for more details see the section on [model-based metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval#model-based-metrics) . Here is a templated example:
+You can customize a large language model-based metric for trajectory evaluation using a templated interface or from scratch, for more information, see [Define your evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval) . Here is a templated example:
 
 ```
 response_follows_trajectory_prompt_template = PointwiseMetricPromptTemplate(

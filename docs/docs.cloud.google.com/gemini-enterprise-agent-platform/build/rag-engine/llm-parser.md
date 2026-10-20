@@ -54,7 +54,7 @@ The following file types are supported by the LLM parser:
 
 For pricing details, see [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
 
-For quotas that apply, see [Rate quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#rate_quotas) .
+For quotas that apply, see [Rate quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/quotas#rate_quotas) .
 
 The LLM parser calls Gemini models to parse your documents. This creates additional costs, which are charged to your project. The cost can be roughly estimated using this formula:
 

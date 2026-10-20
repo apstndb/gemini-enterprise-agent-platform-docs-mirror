@@ -18,7 +18,7 @@ computer [Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterpr
 
 ## Tutorials and References
 
-school [Tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/notebooks) Explore tutorials and sample notebooks to get started.
+school [Tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/jupyter-notebooks) Explore tutorials and sample notebooks to get started.
 
 explore [API Overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference) Learn about the capabilities of the Notebooks API.
 

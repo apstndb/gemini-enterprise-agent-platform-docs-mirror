@@ -8,11 +8,11 @@ data_source: docs.cloud.google.com
 
 You must create a context cache before you can use it. The context cache you create contains a large amount of data that you can use in multiple requests to a Gemini model. The cached content is stored in the region where you make the request to create the cache.
 
-Cached content can be any of the MIME types supported by Gemini multimodal models. For example, you can cache a large amount of text, audio, or video. You can specify more than one file to cache. For more information, see the following media requirements:
+Cached content can be any of the MIME types supported by Gemini multimodal models. For example, you can cache a large amount of text, audio, or video. You can specify more than one file to cache. For more information, see the following:
 
-- [Image requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding#image-requirements)
-- [Video requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#video-requirements)
-- [Audio requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/audio-understanding#audio-requirements)
+- [Image understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding)
+- [Video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding)
+- [Audio understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/audio-understanding)
 
 You specify the content to cache using a blob, text, or a path to a file that's stored in a Cloud Storage bucket. If the size of the content you're caching is greater than 10 MB, then you must specify it using the URI of a file that's stored in a Cloud Storage bucket. For instructions on how to create a Cloud Storage bucket to host your file, see [Create buckets](https://docs.cloud.google.com/storage/docs/creating-buckets) .
 

@@ -27,7 +27,7 @@ Consider the following limitations and requirements when getting batch inference
 
 The input for batch requests specifies the items to send to your model for inference. We support the following input formats:
 
-> **Note:** Gemini Enterprise Agent Platform transforms your input to JSON instances before sending it to the inference container. Make sure your container accepts instances as described in [Custom container requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#prediction) .
+> **Note:** Gemini Enterprise Agent Platform transforms your input to JSON instances before sending it to the inference container. Make sure your container accepts instances as described in [Custom container requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#inference) .
 
 > **Note:** For [PyTorch prebuilt containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers#pytorch) , Gemini Enterprise Agent Platform wraps each instance in a `data` field before sending it to the container. This is because TorchServe's default handlers expect each instance to be wrapped in a `data` field.
 

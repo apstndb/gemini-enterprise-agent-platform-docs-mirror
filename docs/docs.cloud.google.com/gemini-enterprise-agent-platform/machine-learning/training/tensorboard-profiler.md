@@ -26,9 +26,9 @@ Training models can be computationally expensive. Profiler lets you monitor and 
 
 - You must have a Vertex AI TensorBoard instance. See [Create a Vertex AI TensorBoard instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#create-tensorboard-instance) for instructions.
 
-- You must have a service account with `roles/storage.admin` and `roles/aiplatform.user` roles. See [Create a service account with required permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training#create_a_service_account_with_required_permissions) for instructions.
+- You must have a service account with `roles/storage.admin` and `roles/aiplatform.user` roles. See [Create a service account with required permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#create-service-account) for instructions.
 
-- You must have a Cloud Storage bucket to store Vertex AI TensorBoard logs. See [Create a Cloud Storage bucket to store Vertex AI TensorBoard logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training#create_a_bucket_to_store_logs) for instructions.
+- You must have a Cloud Storage bucket to store Vertex AI TensorBoard logs. See [Create a Cloud Storage bucket to store Vertex AI TensorBoard logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#create_storage_bucket) for instructions.
 
 ## Enable Profiler
 
@@ -128,7 +128,7 @@ if __name__ == "__main__":
 
 ## Access the Profiler dashboard
 
-Once you have configured your training script to enable Profiler, [run the training script with a Vertex AI TensorBoard instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training#create_a_custom_training_job) .
+Once you have configured your training script to enable Profiler, [run the training script with a Vertex AI TensorBoard instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training#create_custom_training_job) .
 
 In your training script, ensure the following configurations:
 

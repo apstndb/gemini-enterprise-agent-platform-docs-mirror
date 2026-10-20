@@ -27,8 +27,6 @@ You have the following options to configure your judge model for improved qualit
 
 Gemini models can take in [system instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instructions) , which are a set of instructions that impact how the model processes prompts. You can use system instructions when initializing or generating content from a model to specify product-level behavior such as roles or personas, contextual information, and explanation style and tone. The judge model typically weighs the importance of system instructions higher than input prompts.
 
-For a list of models that support system instructions, see [Supported models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instructions#supported_models) .
-
 The following example using the Vertex AI SDK adds `system_instruction` at the metric level for `PointwiseMetric` :
 
 ```

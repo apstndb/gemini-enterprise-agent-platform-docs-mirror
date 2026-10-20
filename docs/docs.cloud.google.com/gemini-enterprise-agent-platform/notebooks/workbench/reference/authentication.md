@@ -32,7 +32,7 @@ For more information, see [Authenticate for the gcloud CLI](https://docs.cloud.g
 
 ### REST
 
-You can authenticate to [the Notebooks API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest) by using your [gcloud CLI credentials](https://docs.cloud.google.com/sdk/docs/authenticate) or by using [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/application-default-credentials) . For more information about authentication for REST requests, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) .
+You can authenticate to [the Notebooks API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference) by using your [gcloud CLI credentials](https://docs.cloud.google.com/sdk/docs/authenticate) or by using [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/application-default-credentials) . For more information about authentication for REST requests, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) .
 
 ## Set up authentication for Agent Platform Workbench
 

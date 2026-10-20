@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Note: Use Private Service Connect (PSC) for Gemini Enterprise Agent Platform services that support it, as it's the recommended connection method. Only use private services access for services where PSC is not an option.
 
-Gemini Enterprise Agent Platform services that have a checkmark in the **Private services access** column of the [Private access options for Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/netsec-overview#private_access_options_for) table require you to connect to their services through [private services access](https://docs.cloud.google.com/vpc/docs/configure-private-services-access) .
+Gemini Enterprise Agent Platform services that have a checkmark in the **Private services access** column of the [Private access options for Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/netsec-overview#private-access) table require you to connect to their services through [private services access](https://docs.cloud.google.com/vpc/docs/configure-private-services-access) .
 
 These Google-managed Gemini Enterprise Agent Platform services support bidirectional communication with a service consumer's on-premises, multicloud, and VPC workloads.
 
@@ -32,13 +32,13 @@ Alternatively, you can modify an existing connection. For more information, see 
 
 The following table lists the recommended subnet ranges for Gemini Enterprise Agent Platform services.
 
-| Gemini Enterprise Agent Platform feature                                                                                                                    | Recommended subnet range |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| [Managed notebook instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/workbench/managed/networking#reserve-ip-range) | /29                      |
-| Gemini Enterprise Agent Platform Pipelines                                                                                                                  | /21                      |
-| [Custom training jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip#reserving-ip-ranges)       | /19                      |
-| Vector Search online queries                                                                                                                                | /16                      |
-| [Private services access endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints)    | /21                      |
+| Gemini Enterprise Agent Platform feature                                                                                                                 | Recommended subnet range |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
+| [Managed notebook instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create#network-options)        | /29                      |
+| Gemini Enterprise Agent Platform Pipelines                                                                                                               | /21                      |
+| [Custom training jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip#reserving-ip-ranges)    | /19                      |
+| Vector Search online queries                                                                                                                             | /16                      |
+| [Private services access endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints) | /21                      |
 
 ## Deployment considerations
 

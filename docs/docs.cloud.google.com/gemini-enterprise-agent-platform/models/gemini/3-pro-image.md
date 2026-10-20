@@ -142,7 +142,7 @@ Not supported</li>
 <li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
 <li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
 <li>Maximum number of output images per prompt: Limited to 32,768 output tokens</li>
-<li>Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 1:4, 4:1, 4:3, 4:5, 5:4, 1:8, 8:1, 9:16, 16:9, 21:9, 9:21</li>
+<li>Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 1:4, 4:1, 4:3, 4:5, 5:4, 1:8, 8:1, 9:16, 16:9, 21:9</li>
 <li>Supported resolutions: 1K, 2K, 4K</li>
 <li>Supported MIME types:
 <code>image/png</code> , <code>image/jpeg</code> , <code>image/webp</code> , <code>image/heic</code> , <code>image/heif</code></li>

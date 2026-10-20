@@ -125,7 +125,7 @@ These code samples demonstrate how to create a RAG corpus with a publisher Gecko
 
 Although the foundation publisher models are trained on a large dataset of text and provide a strong baseline for many tasks, there might be scenarios where you might require the models to have a specialized knowledge or highly-tailored performance. In such cases, model tuning lets you fine tune the model's representations using your relevant data. An additional benefit of this approach is that when the model is fine tuned, the resulting image is owned by you and is unaffected by the Gecko model deprecation. All fine-tuned Gecko embedding models produce embeddings with 768-dimensional vectors. To learn more about these models, see [Get text embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings) .
 
-For more information about tuning embedding models, see [Tune text embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-embeddings) .
+For more information about tuning embedding models, see [Tune text embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/embeddings) .
 
 These code samples demonstrate how to create a RAG corpus with your deployed, fine-tuned Gecko model.
 

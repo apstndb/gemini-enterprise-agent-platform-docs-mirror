@@ -6,7 +6,7 @@ description: Learn how to deploy generative AI models in Gemini Enterprise Agent
 data_source: docs.cloud.google.com
 ---
 
-Some generative AI models, such as [Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models) , have managed APIs and are ready to accept prompts without deployment. For a list of models with managed APIs, see [Foundational model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models#foundation_model_apis) .
+Some generative AI models, such as [Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models) , have managed APIs and are ready to accept prompts without deployment. For a list of models, see [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) .
 
 Other generative AI models must be deployed to an endpoint before they're ready to accept prompts. There are two types of generative models that must be deployed:
 

@@ -102,9 +102,9 @@ If you already have a VPC with [private services access](https://docs.cloud.goog
 
 Learn more about [private services access](https://docs.cloud.google.com/vpc/docs/private-services-access) .
 
-> **Note:** Privately used public IP ranges are not imported by default. If you want to use these ranges, you must [enable import of privately-used public IP ranges](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#import-export-pub) .
+> **Important:** Privately used public IPv4 subnet routes are not imported by default. If you want to use private IP ranges, then [create a peering configuration](https://docs.cloud.google.com/vpc/docs/using-vpc-peering#creating_a_peering_configuration) and import privately used public IPv4 subnet routes.
 
-> **Note:** Agent Platform uses the same Private Services Access as [Cloud SQL](https://docs.cloud.google.com/sql/docs/sqlserver/configure-private-services-access) . If you configure both in the same VPC network, ensure that you allocate enough IP addresses for both services. Alternatively, you can nominate a subset of the reservation for training jobs to use by passing the [`reserved_ip_ranges`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/request-gcp-machine-resources) parameter.
+Agent Platform uses the same Private Services Access as [Cloud SQL](https://docs.cloud.google.com/sql/docs/sqlserver/configure-private-services-access) . If you configure both in the same VPC network, ensure that you allocate enough IP addresses for both services. Alternatively, you can nominate a subset of the reservation for training jobs to use by passing the [`reserved_ip_ranges`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/request-gcp-machine-resources) parameter.
 
 ### Use Shared VPC with Agent Platform
 
