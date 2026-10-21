@@ -24,7 +24,7 @@ To set up an encryption key, follow the steps at [Set up your KMS key and grant 
 
 RAG Engine on Gemini Enterprise Agent Platform supports CMEK with the following limitations:
 
-- Before creating a RAG corpus, you must manually enable the RAG Service account. For detailed instructions, see [Grant Permissions to the RAG Engine service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag#grant_permissions_to_the_vertex_ai_rag_engine_service_agent) .
+- Before creating a RAG corpus, you must manually enable the RAG Service account. For detailed instructions, see [Grant Permissions to the RAG Engine service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag#grant-permissions-to-rag-engine-service-agent) .
 
 - CMEK is only supported on `RagVectorDbConfig` of type `RagManagedDb` .
 

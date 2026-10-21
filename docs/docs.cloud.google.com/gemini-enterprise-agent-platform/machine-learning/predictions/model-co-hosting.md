@@ -112,7 +112,7 @@ Request JSON body:
         "acceleratorType":"ACCELERATOR_TYPE",
         "acceleratorCount":"ACCELERATOR_COUNT"
       },
-      "minReplicaCount":MIN_REPLICA_COUNT, 
+      "minReplicaCount":MIN_REPLICA_COUNT,
       "maxReplicaCount":MAX_REPLICA_COUNT,
       "requiredReplicaCount":REQUIRED_REPLICA_COUNT
     }

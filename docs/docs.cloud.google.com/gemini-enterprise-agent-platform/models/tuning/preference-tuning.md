@@ -16,7 +16,7 @@ Preference tuning enables the model to learn from subjective user preferences th
 
 The preference tuning input dataset contains examples consisting of a prompt and pair of responses indicating which one is preferred and which one is dispreferred. The model learns to generate preferred responses with higher probability and dispreferred responses with lower probability.
 
-To learn how to prepare the dataset, see [Prepare preference tuning data for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-preference-tuning-prepare) .
+To learn how to prepare the dataset, see [Prepare preference tuning data for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning/prepare-data) .
 
 ## Supported models
 
@@ -43,12 +43,12 @@ The following Gemini models support preference tuning:
 
 Before you apply the preference optimization algorithm to your model, we strongly recommend that you do the following:
 
-1.  Tune the model using [supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-prepare) on the preferred response data. This teaches the model to generate preferred responses during inference.
-2.  [Continue tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-continuous-tuning) from the checkpoint produced from step 1 using preference tuning. This teaches the model to increase the likelihood gap between preferred and dispreferred responses.
+1.  Tune the model using [supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data) on the preferred response data. This teaches the model to generate preferred responses during inference.
+2.  [Continue tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/continuous-tuning) from the checkpoint produced from step 1 using preference tuning. This teaches the model to increase the likelihood gap between preferred and dispreferred responses.
 
 For creating the supervised fine-tuning dataset, use the prompt and accepted response pairs in your preference dataset as prompt and target for your supervised fine-tuning dataset. Typically one or two epochs of supervised fine-tuning should be sufficient, although this can change based on the dataset size and how aligned your training dataset is with the Gemini model initially.
 
-To use supervised fine-tuning to tune the model, follow the steps in [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning) .
+To use supervised fine-tuning to tune the model, follow the steps in [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use) .
 
 ## Quota
 
@@ -62,5 +62,5 @@ For pricing purposes, the number of tokens for each tuning example is calculated
 
 ## What's next
 
-- Prepare a [preference tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-preference-tuning-prepare) .
+- Prepare a [preference tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning/prepare-data) .
 - [Learn about deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy_a_tuned_model) .

@@ -18,8 +18,15 @@ In many real-world scenarios, you don't need an immediate response from a langua
 
 **Key benefits include:**
 
-- **Cost-Effectiveness:** Batch processing is offered at a 50% discounted rate compared to real-time inference, making it ideal for large-scale, non-urgent tasks. Implicit caching is enabled by default for Gemini 2.5 and Gemini 3 models. Implicit caching provides a 90% discount on cached tokens compared to standard input tokens. However, the discounts for cache and batch don't stack. The 90% cache hit discount takes precedence over the batch discount.
+- **Cost-Effectiveness:** Batch processing is offered at a 50% discounted rate compared to real-time inference, making it ideal for large-scale, non-urgent tasks. [Implicit caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview#implicit-caching) is enabled by default for Gemini 2.5 and later models, providing a 90% discount on cached input tokens compared to standard input tokens:
+
+  - **Gemini 3 and later models** : For supported models, the cache and batch discounts stack, providing a 95% total discount on cached input tokens compared to standard input tokens.
+  - **Gemini 2.5 models** : The discounts for cache and batch don't stack. The 90% cache hit discount takes precedence over the batch discount.
+
+  For model-specific rates, see [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+
 - **High rate limits** : Process hundreds of thousands of requests in a single batch with a higher rate limit compared to the real-time Gemini API.
+
 - **Simplified Workflow** : Instead of managing a complex pipeline of individual real-time requests, you can submit a single batch job and retrieve the results once the processing is complete. The service handles format validation, parallelizes requests for concurrent processing, and automatically retries to strive for a high completion rate with **24 hours** turnaround time.
 
 Batch inference is optimized for **large-scale processing tasks** like:

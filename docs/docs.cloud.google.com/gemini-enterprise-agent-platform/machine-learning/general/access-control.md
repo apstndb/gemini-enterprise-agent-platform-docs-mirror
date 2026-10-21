@@ -2683,6 +2683,41 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code>dataform. workspaces. setIamPolicy</code></li>
 <li><code>dataform.workspaces.writeFile</code></li>
 </ul>
+<p><code>developerconnect. connections. constructGitHubAppManifest</code></p>
+<p><code>developerconnect. connections. create</code></p>
+<p><code>developerconnect. connections. delete</code></p>
+<p><code>developerconnect. connections. fetchGitHubInstallations</code></p>
+<p><code>developerconnect. connections. fetchLinkableGitRepositories</code></p>
+<p><code>developerconnect. connections. generateGitHubStateToken</code></p>
+<p><code>developerconnect. connections. get</code></p>
+<p><code>developerconnect. connections. list</code></p>
+<p><code>developerconnect. connections. processGitHubAppCreationCallback</code></p>
+<p><code>developerconnect. connections. processGitHubOAuthCallback</code></p>
+<p><code>developerconnect. connections. update</code></p>
+<p><code>developerconnect. gitRepositoryLinks.*</code></p>
+<ul>
+<li><code>developerconnect. gitRepositoryLinks. create</code></li>
+<li><code>developerconnect. gitRepositoryLinks. delete</code></li>
+<li><code>developerconnect. gitRepositoryLinks. fetchGitRefs</code></li>
+<li><code>developerconnect. gitRepositoryLinks. fetchReadToken</code></li>
+<li><code>developerconnect. gitRepositoryLinks. fetchReadWriteToken</code></li>
+<li><code>developerconnect. gitRepositoryLinks. get</code></li>
+<li><code>developerconnect. gitRepositoryLinks. gitProxyRead</code></li>
+<li><code>developerconnect. gitRepositoryLinks. gitProxyWrite</code></li>
+<li><code>developerconnect. gitRepositoryLinks. list</code></li>
+</ul>
+<p><code>developerconnect.locations.*</code></p>
+<ul>
+<li><code>developerconnect.locations.get</code></li>
+<li><code>developerconnect. locations. list</code></li>
+</ul>
+<p><code>developerconnect.operations.*</code></p>
+<ul>
+<li><code>developerconnect. operations. cancel</code></li>
+<li><code>developerconnect. operations. delete</code></li>
+<li><code>developerconnect. operations. get</code></li>
+<li><code>developerconnect. operations. list</code></li>
+</ul>
 <p><code>resourcemanager.projects.get</code></p>
 <p><code>resourcemanager.projects.list</code></p></td>
 </tr>
@@ -4304,6 +4339,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code>gkehub.memberships.get</code></p>
 <p><code>gkehub. memberships. getIamPolicy</code></p>
 <p><code>gkehub.memberships.list</code></p>
+<p><code>serviceusage. catalogs. listMembers</code></p>
 <p><code>serviceusage. consumerpolicy. analyze</code></p>
 <p><code>serviceusage. consumerpolicy. get</code></p>
 <p><code>serviceusage. effectivepolicy. get</code></p>
@@ -4314,6 +4350,8 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code>serviceusage. groups. listMembers</code></li>
 </ul>
 <p><code>serviceusage.services.get</code></p>
+<p><code>serviceusage.services.listApis</code></p>
+<p><code>serviceusage. services. listDependentServices</code></p>
 <p><code>serviceusage.values.test</code></p></td>
 </tr>
 <tr class="even">
@@ -5366,6 +5404,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code>run.services.delete</code></p>
 <p><code>run.services.get</code></p>
 <p><code>servicemanagement. services. report</code></p>
+<p><code>serviceusage. catalogs. listMembers</code></p>
 <p><code>serviceusage. consumerpolicy. analyze</code></p>
 <p><code>serviceusage. consumerpolicy. get</code></p>
 <p><code>serviceusage. effectivepolicy. get</code></p>
@@ -5376,6 +5415,8 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code>serviceusage. groups. listMembers</code></li>
 </ul>
 <p><code>serviceusage.services.list</code></p>
+<p><code>serviceusage.services.listApis</code></p>
+<p><code>serviceusage. services. listDependentServices</code></p>
 <p><code>serviceusage.services.use</code></p>
 <p><code>serviceusage.values.test</code></p>
 <p><code>storage.buckets.create</code></p>
@@ -6725,6 +6766,8 @@ Gives Vertex AI the permissions it needs to function.
 
 `servicemanagement. services. report`
 
+`serviceusage. catalogs. listMembers`
+
 `serviceusage. consumerpolicy. analyze`
 
 `serviceusage. consumerpolicy. get`
@@ -6738,6 +6781,10 @@ Gives Vertex AI the permissions it needs to function.
 - `serviceusage. groups. listMembers`
 
 `serviceusage.services.list`
+
+`serviceusage.services.listApis`
+
+`serviceusage. services. listDependentServices`
 
 `serviceusage.services.use`
 
@@ -8004,6 +8051,14 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute. firewalls. listTagBindings`
 
+`compute.folderRolloutPlans.get`
+
+`compute. folderRolloutPlans. list`
+
+`compute.folderRollouts.get`
+
+`compute.folderRollouts.list`
+
 `compute. folderVmExtensionPolicies. get`
 
 `compute. folderVmExtensionPolicies. list`
@@ -9055,6 +9110,8 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `resourcemanager.projects.list`
 
+`serviceusage. catalogs. listMembers`
+
 `serviceusage. consumerpolicy. analyze`
 
 `serviceusage. consumerpolicy. get`
@@ -9072,6 +9129,10 @@ Provide access for notebooks service agent to manage notebook instances in user 
 `serviceusage.services.get`
 
 `serviceusage.services.list`
+
+`serviceusage.services.listApis`
+
+`serviceusage. services. listDependentServices`
 
 `serviceusage.values.test`
 

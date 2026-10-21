@@ -1,23 +1,23 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5
-title: Claude Fable 5 on Google Cloud
-description: Claude Fable 5 on Google Cloud is optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks.
+title: Anthropic's Claude Fable 5 on Google Cloud
+description: Anthropic's Claude Fable 5 on Google Cloud is optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks.
 data_source: docs.cloud.google.com
 ---
 
-Claude Fable 5 on Google Cloud is optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks.
+Anthropic's Claude Fable 5 on Google Cloud is optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks.
 
-> **Advanced AI Safety Notice:** Claude Fable 5 on Google Cloud is within the scope of the [Advanced AI Safety Addendum](https://cloud.google.com/terms/advanced-ai-safety-addendum) . All prompts and responses are stored for up to 30 days for the sole purpose of monitoring for potential abuse of relevant terms of service. See [Responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) and [Abuse Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#advanced_ai_safety) to learn more.
+> **Advanced AI Safety Notice:** Anthropic's Claude Fable 5 on Google Cloud is within the scope of the [Advanced AI Safety Addendum](https://cloud.google.com/terms/advanced-ai-safety-addendum) . All prompts and responses are stored for up to 30 days for the sole purpose of monitoring for potential abuse of relevant terms of service. See [Responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) and [Abuse Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#advanced_ai_safety) to learn more.
 
 **Retirement Date:** Not sooner than June 8, 2027.
 
-- **Long-running agents** : Run Claude Fable 5 on Google Cloud in an agent harness like Claude Code or Claude Managed Agents and it can work for days at a time: planning across stages, delegating to sub-agents, and checking its own work.
-- **Coding** : Claude Fable 5 on Google Cloud is our most capable model for ambitious coding projects, including large migrations, complex implementations, and multi-day autonomous sessions. It can write its own tests to verify its work, implements designs with high fidelity, and uses vision to check outputs against goals.
-- **Enterprise workflows** : Claude Fable 5 on Google Cloud handles complex, multi-stage knowledge work with minimal oversight, from deep research and analysis to finished deliverables. Teams can hand off large projects and review completed work rather than supervising every step.
-- **Financial analysis** : Claude Fable 5 on Google Cloud brings deeper reasoning and best-in-class vision to financial workflows, reading dense filings, charts, and tables nested in PDFs at high fidelity. It supports investment research, earnings analysis, credit and risk review, and compliance workflows.
-- **Vision** : Claude Fable 5 on Google Cloud understands diagrams, charts, and tables nested in files and PDFs, improving document-heavy work in finance, legal, analytics, and architecture. It also uses vision to verify its own work, checking outputs against the original design or goal.
-- **Computer use** : Claude Fable 5 on Google Cloud is our most capable computer use model, pairing improved vision with deep reasoning for multi-step tasks that span multiple applications and require planning and judgment, including verifying and testing the same applications it creates.
+- **Long-running agents** : Run Anthropic's Claude Fable 5 on Google Cloud in an agent harness like Claude Code or Claude Managed Agents and it can work for days at a time: planning across stages, delegating to sub-agents, and checking its own work.
+- **Coding** : Anthropic's Claude Fable 5 on Google Cloud is our most capable model for ambitious coding projects, including large migrations, complex implementations, and multi-day autonomous sessions. It can write its own tests to verify its work, implements designs with high fidelity, and uses vision to check outputs against goals.
+- **Enterprise workflows** : Anthropic's Claude Fable 5 on Google Cloud handles complex, multi-stage knowledge work with minimal oversight, from deep research and analysis to finished deliverables. Teams can hand off large projects and review completed work rather than supervising every step.
+- **Financial analysis** : Anthropic's Claude Fable 5 on Google Cloud brings deeper reasoning and best-in-class vision to financial workflows, reading dense filings, charts, and tables nested in PDFs at high fidelity. It supports investment research, earnings analysis, credit and risk review, and compliance workflows.
+- **Vision** : Anthropic's Claude Fable 5 on Google Cloud understands diagrams, charts, and tables nested in files and PDFs, improving document-heavy work in finance, legal, analytics, and architecture. It also uses vision to verify its own work, checking outputs against the original design or goal.
+- **Computer use** : Anthropic's Claude Fable 5 on Google Cloud is our most capable computer use model, pairing improved vision with deep reasoning for multi-step tasks that span multiple applications and require planning and judgment, including verifying and testing the same applications it creates.
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5)
 
@@ -165,9 +165,9 @@ Asia Pacific
 </tbody>
 </table>
 
-## Enable Claude Fable 5 on Google Cloud in your project
+## Enable Anthropic's Claude Fable 5 on Google Cloud in your project
 
-Follow these steps to enable Claude Fable 5 on Google Cloud in your project:
+Follow these steps to enable Anthropic's Claude Fable 5 on Google Cloud in your project:
 
 - Consent to the [Advanced AI Safety Addendum](https://cloud.google.com/terms/advanced-ai-safety-addendum) in Model Garden (required once per project). See [Abuse Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#advanced-ai-safety) to learn more.
 - For online terms customers, click 'enable' on the [Model Garden model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5) to:

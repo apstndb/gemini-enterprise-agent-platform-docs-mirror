@@ -24,42 +24,36 @@ Anthropic's Claude models support Agent Platform request-response logging. Enabl
 
 ## Claude Fable models
 
-cognition [Claude Fable 5.1 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5-1) Optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks.
+cognition [Anthropic's Claude Fable 5.1 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5-1) Optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks.
 
-cognition [Claude Fable 5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5) Optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks with agent harnesses.
+cognition [Anthropic's Claude Fable 5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5) Optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks with agent harnesses.
 
 ## Claude Opus models
 
-arrow_selector_tool [Claude Opus 5.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-5-5) Anthropic's most advanced Opus model, powering long-running agents while delivering improvements in coding and professional work.
+arrow_selector_tool [Anthropic's Claude Opus 5.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-5-5) Anthropic's most advanced Opus model, powering long-running agents while delivering improvements in coding and professional work.
 
-arrow_selector_tool [Claude Opus 5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-5) A high-intelligence model from Anthropic, built for coding, agents, and professional work.
+arrow_selector_tool [Anthropic's Claude Opus 5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-5) A high-intelligence model from Anthropic, built for coding, agents, and professional work.
 
-arrow_selector_tool [Claude Opus 4.8 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-8) A high-intelligence Opus model built for coding and agents, featuring deep reasoning for enterprise workflows.
+arrow_selector_tool [Anthropic's Claude Opus 4.8 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-8) A high-intelligence Opus model built for coding and agents, featuring deep reasoning for enterprise workflows.
 
-arrow_selector_tool [Claude Opus 4.7 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-7) Optimized for coding, enterprise agents, UI design, and multi-day enterprise workflows.
+arrow_selector_tool [Anthropic's Claude Opus 4.7 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-7) Optimized for coding, enterprise agents, UI design, and multi-day enterprise workflows.
 
-arrow_selector_tool [Claude Opus 4.6 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-6) Optimized for coding, enterprise agents, real-time operational workflows, and professional work.
+arrow_selector_tool [Anthropic's Claude Opus 4.6 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-6) Optimized for coding, enterprise agents, real-time operational workflows, and professional work.
 
-arrow_selector_tool [Claude Opus 4.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-5) Optimized for coding, agents, computer use, and sprawling enterprise workflows.
-
-arrow_selector_tool [Claude Opus 4.1 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-1) Industry leader for coding and agent capabilities, especially agentic search and complex problem solving.
-
-arrow_selector_tool [Claude Opus 4 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4) State-of-the-art model for coding, agentic search, and long-horizon tasks requiring sustained reasoning.
+arrow_selector_tool [Anthropic's Claude Opus 4.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-5) Optimized for coding, agents, computer use, and sprawling enterprise workflows.
 
 ## Claude Sonnet models
 
-graph_5 [Claude Sonnet 5.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5-5) Built for coding, agents, and professional work at scale.
+graph_5 [Anthropic's Claude Sonnet 5.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5-5) Built for coding, agents, and professional work at scale.
 
-graph_5 [Claude Sonnet 5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5) Built for coding, agents, and professional work at scale.
+graph_5 [Anthropic's Claude Sonnet 5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5) Built for coding, agents, and professional work at scale.
 
-graph_5 [Claude Sonnet 4.6 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-4-6) Delivers frontier intelligence at scale—built for coding, agents, cybersecurity, and enterprise workflows.
+graph_5 [Anthropic's Claude Sonnet 4.6 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-4-6) Delivers frontier intelligence at scale—built for coding, agents, cybersecurity, and enterprise workflows.
 
-graph_5 [Claude Sonnet 4.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-4-5) Built for powering real-world agents with strong capabilities across coding, computer use, and office files.
-
-graph_5 [Claude Sonnet 4 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-4) Balances impressive coding performance with the right speed and cost for high-volume use cases.
+graph_5 [Anthropic's Claude Sonnet 4.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-4-5) Built for powering real-world agents with strong capabilities across coding, computer use, and office files.
 
 ## Claude Haiku models
 
-raven [Claude Haiku 5.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-5-5) High-performance, cost-effective model built for coding, sub-agents, and latency-sensitive experiences at scale.
+raven [Anthropic's Claude Haiku 5.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-5-5) High-performance, cost-effective model built for coding, sub-agents, and latency-sensitive experiences at scale.
 
-raven [Claude Haiku 4.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-4-5) High-performance model with the speed and cost efficiency to power free products and latency-sensitive experiences at scale.
+raven [Anthropic's Claude Haiku 4.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-4-5) High-performance model with the speed and cost efficiency to power free products and latency-sensitive experiences at scale.

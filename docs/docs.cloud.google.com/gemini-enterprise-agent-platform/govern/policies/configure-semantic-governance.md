@@ -215,7 +215,7 @@ While Google automatically creates the PSC endpoint in a Google-managed tenant p
 
 In this step, you create a VPC network, a subnet, and a proxy-only subnet for agentic traffic. The IP ranges shown ( `10.11.12.0/24` and `10.11.13.0/24` ) are examples. You can use any RFC 1918 private range that fits your network design.
 
-> **Subnet requirements:** The subnet range mustn't overlap with ranges reserved by Agent Gateway for internal use ( `10.0.0.0/24` , `10.0.1.0/24` , `10.0.2.0/24` ). For the full list of subnet requirements, see [Configure VPC connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#psc-interface) .
+> **Subnet requirements:** The subnet range mustn't overlap with ranges reserved by Agent Gateway for internal use ( `10.0.0.0/24` , `10.0.1.0/24` , `10.0.2.0/24` ). For the full list of subnet requirements, see [Configure VPC connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#configure-vpc-connectivity) .
 
 1.  Create the VPC network:
 
@@ -339,7 +339,7 @@ Replace the following:
 
 After creating the network resources, you must register the network attachment and DNS peering on your Agent Gateway so that it can reach the policy engine over the private network.
 
-For detailed instructions, see [Configure VPC connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#psc-interface) in the Agent Gateway setup guide. At a minimum, you must:
+For detailed instructions, see [Configure VPC connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#configure-vpc-connectivity) in the Agent Gateway setup guide. At a minimum, you must:
 
 - Register the **network attachment** created in step 3 with your Agent Gateway egress configuration.
 - Register **DNS peering** so the gateway can resolve the private DNS hostname created in step 4.

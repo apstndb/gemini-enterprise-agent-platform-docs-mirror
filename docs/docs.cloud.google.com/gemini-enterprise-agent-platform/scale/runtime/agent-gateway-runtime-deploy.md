@@ -37,27 +37,60 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
 
     If your Agent-to-Anywhere (egress) gateway is in a different project than your Runtime agent, perform the following steps to grant the Runtime service agent access to the egress gateway project:
 
+    ### gcloud
+
     1.  Create a custom IAM role in the Agent Gateway project:
 
-        ```
-        gcloud iam roles create ar_agw_cross_project_sa \
-          --project=AGENT_GATEWAY_PROJECT_ID \
-          --title="Runtime Agent Gateway Cross-Project SA" \
-          --description="Custom role for the cross-project service agent to access Agent Gateway" \
-          --permissions="networkservices.agentGateways.get,networkservices.operations.get"
-        ```
+    ```
+    gcloud iam roles create ar_agw_cross_project_sa \
+        --project=AGENT_GATEWAY_PROJECT_ID \
+        --title="Runtime Agent Gateway Cross-Project SA" \
+        --description="Custom role for the cross-project service agent to access Agent Gateway" \
+        --permissions="networkservices.agentGateways.get,networkservices.operations.get"
+    ```
 
-        Replace `AGENT_GATEWAY_PROJECT_ID` with the project ID where the Agent Gateway is deployed.
+    Replace `AGENT_GATEWAY_PROJECT_ID` with the project ID where the Agent Gateway is deployed.
 
-    2.  Assign the custom role in the gateway project to the Agent Runtime service agent of the agent project:
+    1.  Assign the custom role in the gateway project to the Agent Runtime service agent of the agent project:
 
-        ```
-        gcloud projects add-iam-policy-binding AGENT_GATEWAY_PROJECT_ID \
-          --member="serviceAccount:service-AGENT_RUNTIME_PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com" \
-          --role="projects/AGENT_GATEWAY_PROJECT_ID/roles/ar_agw_cross_project_sa"
-        ```
+    ```
+    gcloud projects add-iam-policy-binding AGENT_GATEWAY_PROJECT_ID \
+        --member="serviceAccount:service-AGENT_RUNTIME_PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com" \
+        --role="projects/AGENT_GATEWAY_PROJECT_ID/roles/ar_agw_cross_project_sa"
+    ```
 
-        Replace `AGENT_RUNTIME_PROJECT_NUMBER` with the project number of the project where the Runtime agent is deployed.
+    Replace `AGENT_RUNTIME_PROJECT_NUMBER` with the project number of the project where the Runtime agent is deployed.
+
+    ### Terraform
+
+    To grant cross-project access from multiple Runtime workload projects to a central Agent Gateway project declaratively, create the custom IAM role in the central gateway project and grant it to each workload project's Runtime service agent:
+
+    ```
+    variable "runtime_project_numbers" {
+      type        = set(string)
+      description = "Project numbers hosting cross-project Agent Runtime workloads"
+      default     = ["AGENT_RUNTIME_PROJECT_NUMBER"]
+    }
+
+    resource "google_project_iam_custom_role" "ar_agw_cross_project_sa" {
+      project     = "AGENT_GATEWAY_PROJECT_ID"
+      role_id     = "ar_agw_cross_project_sa"
+      title       = "Runtime Agent Gateway Cross-Project SA"
+      description = "Custom role for cross-project service agents to access Agent Gateway"
+      permissions = [
+        "networkservices.agentGateways.get",
+        "networkservices.operations.get",
+      ]
+    }
+
+    resource "google_project_iam_member" "ar_agw_cross_project_binding" {
+      for_each = var.runtime_project_numbers
+
+      project = "AGENT_GATEWAY_PROJECT_ID"
+      role    = google_project_iam_custom_role.ar_agw_cross_project_sa.name
+      member  = "serviceAccount:service-${each.value}@gcp-sa-aiplatform.iam.gserviceaccount.com"
+    }
+    ```
 
 3.  **Configure your agent to route traffic through Agent Gateway**
 
@@ -283,14 +316,16 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
 
     Ensure that the agent is registered with the Agent Registry instance in the same project and region as the Agent Gateway.
 
+    ### gcloud
+
     ```
     gcloud agent-registry services create RUNTIME_AGENT_SERVICE_NAME \
-      --project=AGENT_GATEWAY_PROJECT_ID \
-      --location=REGION \
-      --display-name="RUNTIME_AGENT_DISPLAY_NAME" \
-      --endpoint-spec-type=no-spec \
-      --interfaces=url="https://REGION-aiplatform.mtls.googleapis.com/v1/projects/RUNTIME_AGENT_PROJECT_NUMBER/locations/REGION/reasoningEngines/ENGINE_ID",protocolBinding="jsonrpc" \
-      --format="value(registryResource)"
+     --project=AGENT_GATEWAY_PROJECT_ID \
+     --location=REGION \
+     --display-name="RUNTIME_AGENT_DISPLAY_NAME" \
+     --endpoint-spec-type=no-spec \
+     --interfaces=url="https://REGION-aiplatform.mtls.googleapis.com/v1/projects/RUNTIME_AGENT_PROJECT_NUMBER/locations/REGION/reasoningEngines/ENGINE_ID",protocolBinding="jsonrpc" \
+     --format="value(registryResource)"
     ```
 
     Replace the following:
@@ -302,20 +337,54 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
     - `RUNTIME_AGENT_PROJECT_NUMBER` : the project number of the project where the Runtime agent is deployed
     - `ENGINE_ID` : the [resource ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#resource-identifier) of the agent
 
+    ### Terraform
+
+    ```
+    resource "google_agent_registry_service" "runtime_agent_entry" {
+      project      = "AGENT_GATEWAY_PROJECT_ID"
+      location     = "REGION"
+      service_id   = "RUNTIME_AGENT_SERVICE_NAME"
+      display_name = "RUNTIME_AGENT_DISPLAY_NAME"
+
+      endpoint_spec {
+        no_spec {}
+      }
+
+      interfaces {
+        url              = "https://REGION-aiplatform.mtls.googleapis.com/v1/projects/RUNTIME_AGENT_PROJECT_NUMBER/locations/REGION/reasoningEngines/ENGINE_ID"
+        protocol_binding = "jsonrpc"
+      }
+    }
+    ```
+
     For more information, see [Register agents](https://docs.cloud.google.com/agent-registry/register-agents) . To learn about manual registration of agents in multi-project setups, see [Register an agent from another project](https://docs.cloud.google.com/agent-registry/manual-registration#cross-project) .
 
 5.  **Create an agent-to-registry IAM policy binding**
 
     Perform this step in the same project and region as the Agent Gateway.
 
+    ### gcloud
+
     ```
     gcloud iap web add-iam-policy-binding \
-      --resource-type=agent-registry \
-      --endpoint=AGENT_ENDPOINT_ID \
-      --region=REGION \
-      --project=AGENT_GATEWAY_PROJECT_ID \
-      --member=MEMBER \
-      --role=roles/iap.egressor
+     --resource-type=agent-registry \
+     --endpoint=AGENT_ENDPOINT_ID \
+     --region=REGION \
+     --project=AGENT_GATEWAY_PROJECT_ID \
+     --member=MEMBER \
+     --role=roles/iap.egressor
+    ```
+
+    ### Terraform
+
+    ```
+    resource "google_iap_agent_registry_endpoint_iam_member" "egress_binding" {
+      project     = "AGENT_GATEWAY_PROJECT_ID"
+      location    = "REGION"
+      endpoint_id = "AGENT_ENDPOINT_ID"
+      role        = "roles/iap.egressor"
+      member      = "MEMBER"
+    }
     ```
 
     Replace the following:

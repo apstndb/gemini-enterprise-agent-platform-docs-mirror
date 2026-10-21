@@ -133,7 +133,7 @@ This class consists of two main properties: `role` and `parts` . The `role` prop
 <td><p><code>parts</code></p></td>
 <td><p><code>part</code></p>
 <p>A list of ordered parts that make up a single message. Different parts may have different <a href="https://www.iana.org/assignments/media-types/media-types.xml">IANA MIME types</a> .</p>
-<p>For limits on the inputs, such as the maximum number of tokens or the number of images, see the model specifications on the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models">Google models</a> page.</p>
+<p>For limits on the inputs, such as the maximum number of tokens or the number of images, see the model specifications on the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models">Google models</a> page.</p>
 <p>To compute the number of tokens in your request, see <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count">Get token count</a> .</p></td>
 </tr>
 </tbody>

@@ -16,7 +16,7 @@ This tutorial assumes that you have read and followed the instructions in:
 
 ## Get an instance of an agent
 
-To query an [`AdkApp`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AdkApp) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-engine) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
+To query an [`AdkApp`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AdkApp) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-platform-instance) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
 
 To get the [`AdkApp`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AdkApp) that corresponds to a specific resource ID:
 
@@ -130,7 +130,7 @@ Represented in `spec.class_methods` from the response to the curl request.
 
 `AdkApp` uses cloud-based managed sessions after you deploy the agent to Agent Platform. This section describes how to use managed sessions.
 
-> **Note:** These instructions assume that you didn't [customize your database](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent#customize-database) using `session_service_builder` when developing your agent.
+> **Note:** These instructions assume that you didn't [customize your database](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent#manage-sessions) using `session_service_builder` when developing your agent.
 
 ### Create a session
 

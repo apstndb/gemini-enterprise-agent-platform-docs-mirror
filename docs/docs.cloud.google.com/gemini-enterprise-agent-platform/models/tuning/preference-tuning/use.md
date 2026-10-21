@@ -10,7 +10,7 @@ This document describes how to perform preference tuning on a Gemini model.
 
 ## Before you begin
 
-Before you begin, you must prepare a dataset by following the instructions in [Prepare preference tuning data for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-preference-tuning-prepare) .
+Before you begin, you must prepare a dataset by following the instructions in [Prepare preference tuning data for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning/prepare-data) .
 
 ## Create a tuning job
 
@@ -232,10 +232,10 @@ It's recommended to submit your first tuning job without changing the hyperparam
 
 To list tuning jobs, view tuning job details, cancel a tuning job, or delete a tuned model, see the following sections in the supervised fine-tuning documentation:
 
-- [View a list of tuning jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning#view_a_list_of_tuning_jobs)
-- [Get details of a tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning#get_details_of_a_tuning_job)
-- [Cancel a tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning#cancel_a_tuning_job)
-- [Delete a tuned model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning#delete_a_tuned_model)
+- [View a list of tuning jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#view_a_list_of_tuning_jobs)
+- [Get details of a tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#get_details_of_a_tuning_job)
+- [Cancel a tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#cancel_a_tuning_job)
+- [Delete a tuned model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#delete_a_tuned_model)
 
 ## Model tuning metrics
 

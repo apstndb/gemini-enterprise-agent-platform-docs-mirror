@@ -34,7 +34,6 @@ The following table lists the recommended subnet ranges for Gemini Enterprise Ag
 
 | Gemini Enterprise Agent Platform feature                                                                                                                 | Recommended subnet range |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| [Managed notebook instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create#network-options)        | /29                      |
 | Gemini Enterprise Agent Platform Pipelines                                                                                                               | /21                      |
 | [Custom training jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip#reserving-ip-ranges)    | /19                      |
 | Vector Search online queries                                                                                                                             | /16                      |

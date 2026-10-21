@@ -8,25 +8,22 @@ data_source: docs.cloud.google.com
 
 You can use Anthropic's SDK or curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names:
 
-- For Claude Sonnet 5.5 on Google Cloud, use `claude-sonnet-5-5`
-- For Claude Fable 5.1 on Google Cloud, use `claude-fable-5-1`
-- For Claude Sonnet 5 on Google Cloud, use `claude-sonnet-5`
-- For Claude Opus 5.5 on Google Cloud, use `claude-opus-5-5`
-- For Claude Opus 5 on Google Cloud, use `claude-opus-5`
-- For Claude Fable 5 on Google Cloud, use `claude-fable-5`
-- For Claude Opus 4.8 on Google Cloud, use `claude-opus-4-8`
-- For Claude Opus 4.7 on Google Cloud, use `claude-opus-4-7`
-- For Claude Opus 4.6 on Google Cloud, use `claude-opus-4-6`
-- For Claude Sonnet 4.6 on Google Cloud, use `claude-sonnet-4-6`
-- For Claude Opus 4.5 on Google Cloud, use `claude-opus-4-5`
-- For Claude Opus 4.1 on Google Cloud, use `claude-opus-4-1`
-- For Claude Opus 4 on Google Cloud, use `claude-opus-4`
-- For Claude Sonnet 4.5 on Google Cloud, use `claude-sonnet-4-5`
-- For Claude Sonnet 4 on Google Cloud, use `claude-sonnet-4`
+- For Anthropic's Claude Sonnet 5.5 on Google Cloud, use `claude-sonnet-5-5`
+- For Anthropic's Claude Fable 5.1 on Google Cloud, use `claude-fable-5-1`
+- For Anthropic's Claude Sonnet 5 on Google Cloud, use `claude-sonnet-5`
+- For Anthropic's Claude Opus 5.5 on Google Cloud, use `claude-opus-5-5`
+- For Anthropic's Claude Opus 5 on Google Cloud, use `claude-opus-5`
+- For Anthropic's Claude Fable 5 on Google Cloud, use `claude-fable-5`
+- For Anthropic's Claude Opus 4.8 on Google Cloud, use `claude-opus-4-8`
+- For Anthropic's Claude Opus 4.7 on Google Cloud, use `claude-opus-4-7`
+- For Anthropic's Claude Opus 4.6 on Google Cloud, use `claude-opus-4-6`
+- For Anthropic's Claude Sonnet 4.6 on Google Cloud, use `claude-sonnet-4-6`
+- For Anthropic's Claude Opus 4.5 on Google Cloud, use `claude-opus-4-5`
+- For Anthropic's Claude Sonnet 4.5 on Google Cloud, use `claude-sonnet-4-5`
 - For Claude 3.7 Sonnet on Google Cloud, use `claude-3-7-sonnet`
 - For Claude 3.5 Sonnet v2 on Google Cloud, use `claude-3-5-sonnet-v2`
-- For Claude Haiku 5.5 on Google Cloud, use `claude-haiku-5-5`
-- For Claude Haiku 4.5 on Google Cloud, use `claude-haiku-4-5`
+- For Anthropic's Claude Haiku 5.5 on Google Cloud, use `claude-haiku-5-5`
+- For Anthropic's Claude Haiku 4.5 on Google Cloud, use `claude-haiku-4-5`
 - For Claude 3.5 Haiku on Google Cloud, use `claude-3-5-haiku`
 - For Claude 3.5 Sonnet on Google Cloud, use `claude-3-5-sonnet`
 - For Claude 3 Opus on Google Cloud, use `claude-3-opus`
@@ -45,9 +42,6 @@ To use the Anthropic Claude models with Gemini Enterprise Agent Platform, you mu
 Make sure you have the required permissions to enable and use partner models. For more information, see [Grant the required permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#grant-permissions) .
 
 1.  Go to one of the following Model Garden model cards, then click **Enable** :
-    - 
-    - 
-    - 
     - 
     - 
     - 

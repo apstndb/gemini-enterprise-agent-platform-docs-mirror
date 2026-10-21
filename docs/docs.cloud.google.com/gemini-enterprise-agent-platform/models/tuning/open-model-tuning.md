@@ -261,7 +261,7 @@ Upload your JSONL files to Cloud Storage.
 
 > **Note:** Multimodal datasets apply to supervised fine-tuning only.
 
-> **Note:** OpenAI Prompt Completion and Gemini Enterprise Agent Platform Text Bison are text-only dataset formats, and as a result, multimodal tuning with some models might not support these two formats. Refer to [model-specific documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-model-tuning#limitations) for more information.
+> **Note:** OpenAI Prompt Completion and Gemini Enterprise Agent Platform Text Bison are text-only dataset formats, and as a result, multimodal tuning with some models might not support these two formats. Refer to [model-specific documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/open-model-tuning#limitations) for more information.
 
 ### Turn based chat format
 

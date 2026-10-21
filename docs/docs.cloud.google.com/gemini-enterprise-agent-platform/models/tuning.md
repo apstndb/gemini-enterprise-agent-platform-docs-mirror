@@ -75,6 +75,7 @@ The following Gemini models support supervised tuning:
 
 #### Click to expand supported models
 
+- [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
 - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
 - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
 - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
@@ -98,7 +99,7 @@ The following Gemini models support preference tuning:
 - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
 - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
-For more information on preference tuning, see [About preference tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-preference-tuning) .
+For more information on preference tuning, see [About preference tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning) .
 
 ### Tuning checkpoints
 
@@ -116,7 +117,7 @@ The following Gemini models support tuning checkpoints:
 - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
 - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
-For more information on tuning checkpoints, see [Use checkpoints in Gemini tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning-checkpoints) .
+For more information on tuning checkpoints, see [Use checkpoints in Gemini tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/checkpoints) .
 
 ### Continuous tuning
 
@@ -134,12 +135,12 @@ The following Gemini models support continuous tuning:
 - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
 - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
-For more information on continuous tuning, see [About continuous tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-continuous-tuning) .
+For more information on continuous tuning, see [About continuous tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/continuous-tuning) .
 
 ## What's next
 
-- Learn about [supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning) .
-- Learn about [preference tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-preference-tuning) .
-- To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning)
+- Learn about [supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) .
+- Learn about [preference tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning) .
+- To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use)
 - To learn how supervised fine-tuning can be used in a solution that builds a generative AI knowledge base, see [Jump Start Solution: Generative AI knowledge base](https://docs.cloud.google.com/architecture/ai-ml/generative-ai-knowledge-base) .
 - To learn about tuning costs, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#model-tuning) .

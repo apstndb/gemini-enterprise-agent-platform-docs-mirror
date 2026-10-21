@@ -77,6 +77,28 @@ To verify that the reservation is being consumed, see [Verify reservations consu
 
 Use the REST API to create a serverless training job that consumes a Compute Engine reservation of GPU VMs.
 
+### How reservation affinity and validation work
+
+When you submit a custom training job that specifies a `reservationAffinity` configuration, Agent Platform validates your reservation configuration before queuing the job:
+
+- **For `ANY_RESERVATION`** :
+  - At least one automatically consumed reservation must exist in your job's region and be shared with Agent Platform (and shared with your project, if the reservation is in a different host project).
+  - The `key` and `values` fields in `reservationAffinity` must be omitted or empty.
+- **For `SPECIFIC_RESERVATION`** :
+  - The `key` field must be set to `compute.googleapis.com/reservation-name` , and the `values` field must specify a single existing reservation in a zone within the job's region.
+  - The specified reservation must be configured for specific targeting (not automatic consumption) and must be shared with Agent Platform (and with your project, if the reservation is in a different host project).
+
+If any of these validation checks fail, the API immediately rejects the request with an `INVALID_ARGUMENT` error. Upfront validation doesn't verify machine type compatibility or available reservation capacity at the time of job submission.
+
+The following table summarizes how Agent Platform handles a training job based on the reservation state and `reservationAffinityType` :
+
+| Scenario                                                                             | Behavior with `ANY_RESERVATION`                                                                                                                                                         | Behavior with `SPECIFIC_RESERVATION`                                                                                                                   |
+|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Reservation exists, matches machine properties, and has available capacity**       | The job is accepted, routed to the reservation's zone, and consumes the reservation.                                                                                                    | The job is accepted and consumes the specified reservation.                                                                                            |
+| **Reservation exists and matches machine properties, but is full**                   | The job is accepted and routed to the zone where your matching reservation is located. Because reserved capacity is exhausted, Agent Platform attempts to provision on-demand capacity. | The job is accepted, but if capacity doesn't become available in the targeted reservation, Agent Platform. It doesn't fall back to on-demand capacity. |
+| **Reservation exists, but isn't shared with Agent Platform or the consumer project** | The job fails immediately at submission with an `INVALID_ARGUMENT` error (unless another accessible automatically consumed reservation exists in the region).                           | The job fails immediately at submission with an `INVALID_ARGUMENT` error.                                                                              |
+| **No accessible reservation exists in the job's region**                             | The job fails immediately at submission with an `INVALID_ARGUMENT` error. It doesn't fall back to on-demand capacity.                                                                   | The job fails immediately at submission with an `INVALID_ARGUMENT` error.                                                                              |
+
 ### REST
 
 Before using any of the request data, make the following replacements:

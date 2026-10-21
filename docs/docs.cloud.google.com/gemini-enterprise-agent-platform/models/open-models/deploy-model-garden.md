@@ -69,7 +69,7 @@ endpoint = model.deploy(
 >
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-Model Garden lets you deploy [supported models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/self-deployed-models#supported_models) with custom weights from a Cloud Storage bucket. For more information about deploying models with custom weights, see [Deploy models with custom weights](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/self-deployed-models#deploy_models_with_custom_weights) . You can deploy custom weights by using the Google Cloud console, the Google Cloud CLI, the Agent Platform API, or the Agent Platform SDK for Python.
+Model Garden lets you deploy [supported models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/deploy-models-with-custom-weights#supported_models) with custom weights from a Cloud Storage bucket. For more information about deploying models with custom weights, see [Deploy models with custom weights](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/deploy-models-with-custom-weights) . You can deploy custom weights by using the Google Cloud console, the Google Cloud CLI, the Agent Platform API, or the Agent Platform SDK for Python.
 
 > To see examples of deploying open models from Model Garden with custom weights, run the following notebooks in the environment of your choice:
 >

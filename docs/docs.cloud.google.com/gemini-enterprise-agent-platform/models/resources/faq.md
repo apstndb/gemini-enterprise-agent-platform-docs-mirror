@@ -67,17 +67,16 @@ To purchase Provisioned Throughput for partner models (such as Anthropic's Claud
 
 ### How can I monitor my Provisioned Throughput usage?
 
-There are three ways to measure your Provisioned Throughput usage:
+There are several ways to measure your Provisioned Throughput usage:
 
 - Use the [Model Garden monitoring dashboard](https://console.cloud.google.com/monitoring/dashboards/integration/vertex_ai.vertex-ai-model-garden)
 - Use the built-in monitoring metrics
-- Use the [HTTP response headers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#response_headers)
 
 When using the built-in monitoring metrics or HTTP response headers, you can [create a chart](https://docs.cloud.google.com/monitoring/charts/metrics-explorer) in the Metrics Explorer to monitor usage.
 
 ### What permissions are required to purchase and use Provisioned Throughput?
 
-To buy and manage Provisioned Throughput, follow the instructions in the Permissions section of [Purchase Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#permissions) . The same permissions for pay-as-you-go apply for Provisioned Throughput usage.
+See [Roles and permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#roles-and-permissions) . The same permissions for pay-as-you-go apply for Provisioned Throughput usage.
 
 If you still run into issues placing an order, you likely need to add one of the following roles:
 

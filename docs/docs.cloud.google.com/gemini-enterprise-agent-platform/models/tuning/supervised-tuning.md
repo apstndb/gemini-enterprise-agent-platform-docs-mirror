@@ -29,6 +29,7 @@ The following Gemini models support supervised fine-tuning:
 
 #### Click to expand supported models
 
+- [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
 - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
 - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
 - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
@@ -43,7 +44,7 @@ Supervised fine-tuning is not a Covered Service and is excluded from the SLO of 
 
 The following table shows the limitations on supervised fine-tuning datasets:
 
-### Gemini 3.5 Flash
+### Gemini 3.5 Flash Gemini 3.5 Flash-Lite
 
 | Specification                                        | Value                                                                                                   |
 |------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
@@ -53,9 +54,9 @@ The following table shows the limitations on supervised fine-tuning datasets:
 | Maximum training dataset file size                   | 1GB for JSONL                                                                                           |
 | Maximum training dataset size                        | 10M text-only examples or 300K multimodal examples                                                      |
 | Adapter size                                         | Supported values are 1, 2, 4, 8, and 16                                                                 |
-| Supported endpoint for model tuning                  | `us-central1` , and `europe-west4`                                                                      |
+| Supported endpoint for model tuning                  | `us` and `eu` multi-region endpoints only                                                               |
 | Supported endpoint for tuned model serving           | `us` and `eu` multi-region endpoints only                                                               |
-| CMEK support                                         | Not supported                                                                                           |
+| UI support                                           |                                                                                                         |
 
 ### Gemini 3.1 Flash-Lite
 
@@ -67,9 +68,9 @@ The following table shows the limitations on supervised fine-tuning datasets:
 | Maximum training dataset file size                   | 1GB for JSONL                                                                                           |
 | Maximum training dataset size                        | 10M text-only examples or 300K multimodal examples                                                      |
 | Adapter size                                         | Supported values are 1, 2, 4, 8, and 16                                                                 |
-| Supported endpoint for model tuning                  | `us-central1` , and `europe-west4`                                                                      |
+| Supported endpoint for model tuning                  | `us` and `eu` multi-region endpoints only                                                               |
 | Supported endpoint for tuned model serving           | `us` and `eu` multi-region endpoints only                                                               |
-| CMEK support                                         | Not supported                                                                                           |
+| UI support                                           |                                                                                                         |
 
 ### Gemini 2.5 Flash Gemini 2.5 Flash-Lite
 
@@ -157,19 +158,27 @@ User data, such as the transformed dataset and the tuned model, is stored in the
 
 - If you create a supervised fine-tuning job by sending a POST request using the [`tuningJobs.create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/create) method, then you use the URL to specify the region where the tuning job runs. For example, in the following URL, you specify a region by replacing both instances of ` ``TUNING_JOB_REGION`` ` with the region where the job runs.
 
+  ### Gemini 3 and later
+
   ```
-   https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
+  https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
   ```
 
-- If you use the [Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning#create_a_text_model_supervised_tuning_job) , you can select the region name in the **Region** drop-down field on the **Model details** page. This is the same page where you select the base model and a tuned model name.
+  ### Gemini 2.5 and earlier
+
+  ```
+  https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
+  ```
+
+- If you use the [Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#create_a_text_model_supervised_tuning_job) , you can select the region name in the **Region** drop-down field on the **Model details** page. This is the same page where you select the base model and a tuned model name.
 
 ## Evaluating tuned models
 
 You can evaluate tuned models in the following ways:
 
-- **Tuning and validation metrics** : [Evaluate the tuned model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning#evaluate_the_tuned_model) using [tuning and validation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning#tuning-metrics) after the tuning job completes.
+- **Tuning and validation metrics** : [Evaluate the tuned model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#evaluate_the_tuned_model) using [tuning and validation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#tuning-metrics) after the tuning job completes.
 
-- **Integrated evaluation with Gen AI evaluation service** (Preview): [Configure tuning jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning#create_a_text_model_supervised_tuning_job) to automatically run evaluations using the [Gen AI evaluation service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview) during tuning. The following interfaces, models, and regions are supported for the tuning integration with Gen AI evaluation service:
+- **Integrated evaluation with Gen AI evaluation service** (Preview): [Configure tuning jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#create_a_text_model_supervised_tuning_job) to automatically run evaluations using the [Gen AI evaluation service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview) during tuning. The following interfaces, models, and regions are supported for the tuning integration with Gen AI evaluation service:
 
   - **Supported interfaces** : Google Gen AI SDK and REST API.
 
@@ -193,5 +202,5 @@ If you configure the Gen AI evaluation service to run automatically during tunin
 
 ## What's next
 
-- Learn about [supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning) .
+- Learn about [supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) .
 - Learn about [deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy_a_tuned_model) .

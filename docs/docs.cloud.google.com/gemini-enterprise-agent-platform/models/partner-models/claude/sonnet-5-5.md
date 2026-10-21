@@ -1,18 +1,18 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5-5
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5-5
-title: Claude Sonnet 5.5 on Google Cloud
+title: Anthropic's Claude Sonnet 5.5 on Google Cloud
 description: Claude Sonnet 5.5 is built for coding, agents, and professional work at scale.
 data_source: docs.cloud.google.com
 ---
 
-Claude Sonnet 5.5 on Google Cloud is built for coding, agents, and professional work at scale. For full information, see [Anthropic's documentation](https://platform.claude.com/docs/en/models/sonnet-5-5/overview) .
+Anthropic's Claude Sonnet 5.5 on Google Cloud is built for coding, agents, and professional work at scale. For full information, see [Anthropic's documentation](https://platform.claude.com/docs/en/models/sonnet-5-5/overview) .
 
 **Retirement Date:** Not sooner than September 28, 2027.
 
-In addition to the features of Claude Sonnet 5 on Google Cloud, Claude Sonnet 5.5 on Google Cloud adds:
+In addition to the features of Anthropic's Claude Sonnet 5 on Google Cloud, Anthropic's Claude Sonnet 5.5 on Google Cloud adds:
 
-- **New thinking type value** : Claude Sonnet 5.5 on Google Cloud adds a new `thinking.type` value, `between_tools` , which is the lowest thinking setting available on this model. Claude Sonnet 5.5 on Google Cloud doesn't support `thinking: {"type": "disabled"}` . If you want to turn thinking off, or as close to off as possible, use `between_tools` . With `between_tools` , the model does no extended thinking, and the short progress updates it writes between tool calls come back as thinking blocks containing the update text. The response format is unchanged.
+- **New thinking type value** : Anthropic's Claude Sonnet 5.5 on Google Cloud adds a new `thinking.type` value, `between_tools` , which is the lowest thinking setting available on this model. Anthropic's Claude Sonnet 5.5 on Google Cloud doesn't support `thinking: {"type": "disabled"}` . If you want to turn thinking off, or as close to off as possible, use `between_tools` . With `between_tools` , the model does no extended thinking, and the short progress updates it writes between tool calls come back as thinking blocks containing the update text. The response format is unchanged.
 - **Adaptive thinking** can be turned on or off.
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5-5) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5-5)

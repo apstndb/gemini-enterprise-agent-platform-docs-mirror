@@ -16,7 +16,7 @@ This tutorial assumes that you have read and followed the instructions in:
 
 ## Get an instance of an agent
 
-To query a [`LanggraphAgent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LanggraphAgent) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-engine) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
+To query a [`LanggraphAgent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LanggraphAgent) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-platform-instance) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
 
 To get the [`LanggraphAgent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LanggraphAgent) that corresponds to a specific resource ID:
 

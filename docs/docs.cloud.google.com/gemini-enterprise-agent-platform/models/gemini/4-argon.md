@@ -13,7 +13,7 @@ Gemini 4 Argon is Google's frontier model that excels at deep work in complex, r
 - **Unified input and output token limit and long decodes** : 4 Argon has a unified 1,048,576-token limit that includes both input and output tokens (where output includes thinking, function calls, and the final response) across all supported API surfaces (the [`GenerateContent` API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference) , the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) , and the [OpenAI compatibility Chat Completions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/openai) ). A single synchronous request generates up to 65,536 output tokens (or 32,768 tokens for non-streaming direct HTTP requests). On the [`GenerateContent` API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference) ( `v1beta1` ), you can extend output up to 1,048,576 tokens (minus your input tokens) using long decodes: the Google Gen AI SDK and Agent Studio handle `continuation_token` automatically across requests, or you can pass `continuation_token` in a custom continuation loop (known issue: long decoding on `GenerateContent` is supported only in the `v1beta1` API, which the Google Gen AI SDK uses by default). For details, see the [developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon#long-decodes) .
 - **Thinking levels** : Supports [thinking levels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) `LOW` , `MEDIUM` (default), and `HIGH` . Setting `thinking_budget` or `thinking_level="MINIMAL"` returns an HTTP `400` validation error.
 - **Sampling parameters** : Custom values for [sampling parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/content-generation-parameters) ( `temperature` , `top_p` , and `top_k` ) are ignored.
-- **Context caching** : 4 Argon supports [implicit caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview) only (6,144-token minimum), with durable caching enabled by default. Explicit context caching isn't supported.
+- **Context caching** : 4 Argon supports [implicit caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview) only (4,096-token minimum), with durable caching enabled by default. Explicit context caching isn't supported.
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/chat?model=gemini-4-argon) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/chat?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-4-argon) [Developer guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
@@ -177,12 +177,16 @@ Not supported</li>
 <td><ul>
 <li>Global: <code>global</code></li>
 <li>Multi-region: <code>us</code> , <code>eu</code></li>
+<li>Europe: <code>europe-west2</code></li>
+<li>Asia Pacific: <code>asia-southeast1</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <th><p><strong><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency">ML processing</a></strong></p></th>
 <th><ul>
 <li>Multi-region: <code>us</code> , <code>eu</code></li>
+<li>Europe: <code>europe-west2</code></li>
+<li>Asia Pacific: <code>asia-southeast1</code></li>
 </ul></th>
 <td></td>
 </tr>
@@ -191,6 +195,8 @@ Not supported</li>
 <th><ul>
 <li>Global: <code>global</code></li>
 <li>Multi-region: <code>us</code> , <code>eu</code></li>
+<li>Europe: <code>europe-west2</code></li>
+<li>Asia Pacific: <code>asia-southeast1</code></li>
 </ul></th>
 <td></td>
 </tr>

@@ -58,7 +58,7 @@ Before using any of the request data, make the following replacements:
   - `CLOUD_HIGH_ACCURACY_1` - A model best tailored to be used within Google Cloud, and which *cannot* be exported. This model is expected to have a higher latency, but should also have a higher prediction quality than other cloud models.
   - `CLOUD_LOW_LATENCY_1` - A model best tailored to be used within Google Cloud, and which cannot be exported. This model is expected to have a low latency, but may have lower prediction quality than other cloud models.
 
-  Other model type options can be found in the [reference documentation](https://cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1/schema/trainingjob.definition#modeltype_1) .
+  Other model type options can be found in the [reference documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1/schema/trainingjob.definition#modeltype_1) .
 - ` NODE_HOUR_BUDGET ` <sup>†</sup> : The actual training cost will be equal or less than this value. For Cloud models the budget must be: 20,000 - 900,000 milli node hours (inclusive). The default value is 216,000 which represents one day in wall time, assuming 9 nodes are used.
 - ` PROJECT_NUMBER ` : Your project's automatically generated [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers)
 

@@ -1,18 +1,18 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-4-6
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-4-6
-title: Claude Sonnet 4.6 on Google Cloud
+title: Anthropic's Claude Sonnet 4.6 on Google Cloud
 description: Claude Sonnet 4.6 delivers frontier intelligence at scale—built for coding, agents, and enterprise workflows.
 data_source: docs.cloud.google.com
 ---
 
-Claude Sonnet 4.6 on Google Cloud delivers frontier intelligence at scale—built for coding, agents, and enterprise workflows.
+Anthropic's Claude Sonnet 4.6 on Google Cloud delivers frontier intelligence at scale—built for coding, agents, and enterprise workflows.
 
 - **Long-running agents** : Power production-ready assistants for multi-step, real-time applications—from customer support automation to complex operational workflows that require peak accuracy, intelligence, and speed.
 - **Coding** : Handle everyday development tasks with enhanced performance––or plan and execute complex software projects spanning hours or days––with the ability to save, maintain, and reference information across multiple sessions.
 - **Cybersecurity** : Deploy agents that autonomously patch vulnerabilities before exploitation––shifting from reactive detection to proactive defense.
 - **Financial analysis** : Conduct entry-level financial analysis, deliver advanced predictive analysis, or preemptively develop intelligent risk management strategies that leverage best-in-class domain knowledge.
-- **Computer use** : Claude Sonnet 4.6 on Google Cloud is a highly accurate model for computer use, enabling developers to direct Claude to use computers the way people do.
+- **Computer use** : Anthropic's Claude Sonnet 4.6 on Google Cloud is a highly accurate model for computer use, enabling developers to direct Claude to use computers the way people do.
 - **Business tasks** : Generate and edit office files like slides, documents, and spreadsheets with minimal input.
 - **Research** : Perform focused analysis across multiple data sources, turning expert analysis into final deliverables. Ideal for complex problem solving, rapid business intelligence, and real-time decision support.
 

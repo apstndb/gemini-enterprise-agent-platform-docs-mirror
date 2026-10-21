@@ -46,7 +46,6 @@ All access to your data in Gemini Enterprise Agent Platform by Google personnel 
 - Using [Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview) with [custom containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container)
 - Using AutoML forecasting-related resources such as forecasting datasets and forecasting models.
 - Using the following components:
-  - [Generative AI on Gemini Enterprise Agent Platform: Online inference (Vision)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation)
   - [Agent Platform Vizier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/vizier/overview)
   - [Gemini Enterprise Agent Platform RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview)
   - [Gemini Enterprise Agent Platform Vector Search 2.0](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview)

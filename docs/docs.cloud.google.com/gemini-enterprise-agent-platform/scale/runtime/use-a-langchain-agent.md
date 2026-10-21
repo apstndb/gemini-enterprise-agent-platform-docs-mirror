@@ -176,9 +176,9 @@ agent.query(input={"input": [
 
 For the list of MIME types supported by Gemini, visit the documentation on:
 
-- [Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding#image-requirements)
-- [Video](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#video-requirements)
-- [Audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/audio-understanding#audio-requirements)
+- [Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding#supported-models)
+- [Video](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#supported-models)
+- [Audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/audio-understanding#supported-models)
 
 ## Query the agent with a runnable configuration
 

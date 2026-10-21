@@ -33,6 +33,7 @@ The following Gemini models support supervised tuning:
 
 #### Click to expand supported models
 
+- [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
 - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
 - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
 - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
@@ -47,9 +48,11 @@ Optional: (Preview) Include the `evaluationConfig` to automatically [run an eval
 
 ### Console
 
+> **Note:** Creating a supervised fine-tuning job using the console is only available for Gemini 2.5 models.
+
 To tune a text model with supervised fine-tuning by using the Google Cloud console, perform the following steps:
 
-1.  In the Gemini Enterprise Agent Platform section of the Google Cloud console, go to the **Agent Platform Studio** page.
+1.  In the Gemini Enterprise Agent Platform section of the Google Cloud console, go to the **Agent Studio** page.
 
 2.  Click **Create tuned model** .
 
@@ -99,7 +102,7 @@ Set environment variables to use the Google Gen AI SDK with Gemini Enterprise Ag
 # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
 # with appropriate values for your project.
 export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-export GOOGLE_CLOUD_LOCATION=us-central1
+export GOOGLE_CLOUD_LOCATION=us # Use us-central1 for Gemini 2.5 and earlier models
 export GOOGLE_GENAI_USE_ENTERPRISE=True
 ```
 
@@ -179,6 +182,156 @@ if tuning_job.tuned_model.checkpoints:
     # Example response:
     # Checkpoint 1:  checkpoint_id='1' epoch=1 step=10 endpoint='projects/123456789012/locations/us-central1/endpoints/123456789000000'
     # Checkpoint 2:  checkpoint_id='2' epoch=2 step=20 endpoint='projects/123456789012/locations/us-central1/endpoints/123456789012345'
+```
+
+### REST
+
+To create a model tuning job, send a POST request by using the [`tuningJobs.create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/create) method. Some of the parameters are not supported by all of the models. Ensure that you include only the applicable parameters for the model that you're tuning.
+
+Before using any of the request data, make the following replacements:
+
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+- ` TUNING_JOB_REGION ` : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
+- ` BASE_MODEL ` : Name of the foundation model to tune.
+- ` TRAINING_DATASET_URI ` : Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [About supervised tuning datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-prepare) .
+- ` VALIDATION_DATASET_URI ` Optional: The Cloud Storage URI of your validation dataset file.
+- ` EPOCH_COUNT ` Optional: The number of complete passes the model makes over the entire training dataset during training. Leave it unset to use the [pre-populated recommended value.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning#supervisedtuningspec)
+- ` ADAPTER_SIZE ` Optional: The [Adapter size](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning#adaptersize) to use for the tuning job. The adapter size influences the number of trainable parameters for the tuning job. A larger adapter size implies that the model can learn more complex tasks, but it requires a larger training dataset and longer training times.
+- ` LEARNING_RATE_MULTIPLIER ` : Optional: A multiplier to apply to the recommended learning rate. Leave it unset to use the [recommended value.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning#supervisedtuningspec)
+- ` EXPORT_LAST_CHECKPOINT_ONLY ` Optional: Set to `true` to use only the latest checkpoint.
+- ` METRIC_SPEC ` Optional: One or more [metric specs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/evaluation) you are using to run an evaluation using the Gen AI evaluation service. You can use the following metric specs: `"pointwise_metric_spec"` , `"pairwise_metric_spec"` , `"exact_match_spec"` , `"bleu_spec"` , and `"rouge_spec"` .
+- ` METRIC_SPEC_FIELD_NAME ` Optional: The required fields for your chosen metric spec. For example, `"metric_prompt_template"`
+- ` METRIC_SPEC_FIELD_NAME_CONTENT ` Optional: The field content for your chosen metric spec. For example, you can use the following field content for a pointwise evaluation: `"Evaluate the fluency of this sentence: {response}. Give score from 0 to 1. 0 - not fluent at all. 1 - very fluent."`
+- ` CLOUD_STORAGE_BUCKET ` Optional: The Cloud Storage bucket to store the results of an evaluation run by the Gen AI evaluation service.
+- ` TUNED_MODEL_DISPLAYNAME ` Optional: A display name for the tuned model. If not set, a random name is generated.
+- ` KMS_KEY_NAME ` Optional: The Cloud KMS resource identifier of the customer-managed encryption key used to protect a resource. The key has the format: `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key` . The key needs to be in the same region as where the compute resource is created. For more information, see [Customer-managed encryption keys (CMEK)](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) .
+- ` SERVICE_ACCOUNT ` Optional: The service account that the tuningJob workload runs as. If not specified, the Agent Platform Secure Fine-Tuning Service Agent in the project is used. See [Tuning Service Agent](https://cloud.google.com/iam/docs/service-agents#vertex-ai-secure-fine-tuning-service-account) . If you plan to use a customer-managed Service Account, you must grant the `roles/aiplatform.tuningServiceAgent` role to the service account. Also grant the [Tuning Service Agent](https://cloud.google.com/iam/docs/service-agents#vertex-ai-secure-fine-tuning-service-account) `roles/iam.serviceAccountTokenCreator` role to the customer-managed Service Account.
+
+HTTP method and URL:
+
+```
+POST https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
+```
+
+Request JSON body:
+
+```
+{
+  "baseModel": "BASE_MODEL",
+  "supervisedTuningSpec" : {
+      "trainingDatasetUri": "TRAINING_DATASET_URI",
+      "validationDatasetUri": "VALIDATION_DATASET_URI",
+      "hyperParameters": {
+          "epochCount": "EPOCH_COUNT",
+          "adapterSize": "ADAPTER_SIZE",
+          "learningRateMultiplier": "LEARNING_RATE_MULTIPLIER"
+      },
+      "exportLastCheckpointOnly": EXPORT_LAST_CHECKPOINT_ONLY,
+      "evaluationConfig": {
+          "metrics": [
+              {
+                  "aggregation_metrics": ["AVERAGE", "STANDARD_DEVIATION"],
+                  "METRIC_SPEC": {
+                      "METRIC_SPEC_FIELD_NAME":
+                          METRIC_SPEC_FIELD_CONTENT
+                  }
+              },
+          ],
+          "outputConfig": {
+              "gcs_destination": {
+                  "output_uri_prefix": "CLOUD_STORAGE_BUCKET"
+              }
+          },
+      },
+  },
+  "tunedModelDisplayName": "TUNED_MODEL_DISPLAYNAME",
+  "encryptionSpec": {
+    "kmsKeyName": "KMS_KEY_NAME"
+  },
+  "serviceAccount": "SERVICE_ACCOUNT"
+}
+```
+
+To send your request, choose one of these options:
+
+#### curl
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d @request.json \
+     "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs"
+```
+
+#### PowerShell
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -ContentType: "application/json; charset=utf-8" `
+    -InFile request.json `
+    -Uri "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs" | Select-Object -Expand Content
+```
+
+You should receive a JSON response similar to the following.
+
+#### Response
+
+```
+{
+  "name": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID",
+  "createTime": CREATE_TIME,
+  "updateTime": UPDATE_TIME,
+  "status": "STATUS",
+  "supervisedTuningSpec": {
+        "trainingDatasetUri": "TRAINING_DATASET_URI",
+        "validationDatasetUri": "VALIDATION_DATASET_URI",
+        "hyperParameters": {
+            "epochCount": EPOCH_COUNT,
+            "adapterSize": "ADAPTER_SIZE",
+            "learningRateMultiplier": LEARNING_RATE_MULTIPLIER
+        },
+    },
+  "tunedModelDisplayName": "TUNED_MODEL_DISPLAYNAME",
+  "encryptionSpec": {
+    "kmsKeyName": "KMS_KEY_NAME"
+  },
+  "serviceAccount": "SERVICE_ACCOUNT"
+}
+```
+
+#### Example curl command
+
+```
+PROJECT_ID=myproject
+LOCATION=us
+curl \
+-X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json; charset=utf-8" \
+"https://aiplatform.${LOCATION}.rep.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/tuningJobs" \
+-d \
+$'{
+   "baseModel": "gemini-3.5-flash",
+   "supervisedTuningSpec" : {
+      "trainingDatasetUri": "gs://YOUR_BUCKET_NAME/YOUR_TRAIN_DATASET",
+      "validationDatasetUri": "gs://YOUR_BUCKET_NAME/YOUR_VALIDATION_DATASET"
+   },
+   "tunedModelDisplayName": "tuned_gemini"
+}'
 ```
 
 ### REST
@@ -314,7 +467,7 @@ You should receive a JSON response similar to the following.
 
 ```
 PROJECT_ID=myproject
-LOCATION=global
+LOCATION=us-central1
 curl \
 -X POST \
 -H "Authorization: Bearer $(gcloud auth print-access-token)" \
@@ -324,8 +477,8 @@ curl \
 $'{
    "baseModel": "gemini-3.5-flash",
    "supervisedTuningSpec" : {
-      "training_dataset_uri": "gs://YOUR_BUCKET_NAME/YOUR_TRAIN_DATASET",
-      "validation_dataset_uri": "gs://YOUR_BUCKET_NAME/YOUR_VALIDATION_DATASET"
+      "trainingDatasetUri": "gs://YOUR_BUCKET_NAME/YOUR_TRAIN_DATASET",
+      "validationDatasetUri": "gs://YOUR_BUCKET_NAME/YOUR_VALIDATION_DATASET"
    },
    "tunedModelDisplayName": "tuned_gemini"
 }'
@@ -394,7 +547,7 @@ You can view a list of tuning jobs in your current project by using the Google C
 
 ### Console
 
-To view your tuning jobs in the Google Cloud console, go to the **Agent Platform Studio** page.
+To view your tuning jobs in the Google Cloud console, go to the **Agent Studio** page.
 
 Your Gemini tuning jobs are listed in the table under the **Tuned Models** section.
 
@@ -411,6 +564,63 @@ for response in responses:
     print(response.name)
     # Example response:
     # projects/123456789012/locations/us-central1/tuningJobs/123456789012345
+```
+
+### REST
+
+To view a list of model tuning jobs, send a GET request by using the [`tuningJobs.list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/list) method.
+
+Before using any of the request data, make the following replacements:
+
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+- ` TUNING_JOB_REGION ` : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
+
+HTTP method and URL:
+
+```
+GET https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
+```
+
+To send your request, choose one of these options:
+
+#### curl
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Execute the following command:
+
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs"
+```
+
+#### PowerShell
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Execute the following command:
+
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs" | Select-Object -Expand Content
+```
+
+You should receive a JSON response similar to the following.
+
+#### Response
+
+```
+{
+  "tuning_jobs": [
+    TUNING_JOB_1, TUNING_JOB_2, ...
+  ]
+}
 ```
 
 ### REST
@@ -476,7 +686,7 @@ You can get the details of a tuning job in your current project by using the Goo
 
 ### Console
 
-1.  To view details of a tuned model in the Google Cloud console, go to the **Agent Platform Studio** page.
+1.  To view your tuning jobs in the Google Cloud console, go to the **Agent Studio** page.
 
 2.  In the **Tuned Models** table, find your model and click **Details** .
 
@@ -505,7 +715,87 @@ print(tuning_job.experiment)
 
 ### REST
 
-To view a list of model tuning jobs, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TuningJob_ID` .
+To view details of a model tuning job, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TuningJob_ID` .
+
+Before using any of the request data, make the following replacements:
+
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+- ` TUNING_JOB_REGION ` : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
+- ` TUNING_JOB_ID ` : The ID of the tuning job.
+
+HTTP method and URL:
+
+```
+GET https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID
+```
+
+To send your request, choose one of these options:
+
+#### curl
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Execute the following command:
+
+```
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID"
+```
+
+#### PowerShell
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Execute the following command:
+
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method GET `
+    -Headers $headers `
+    -Uri "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID" | Select-Object -Expand Content
+```
+
+You should receive a JSON response similar to the following.
+
+#### Response
+
+```
+{
+  "name": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID",
+  "tunedModelDisplayName": "TUNED_MODEL_DISPLAYNAME",
+  "createTime": CREATE_TIME,
+  "endTime": END_TIME,
+  "tunedModel": {
+      "model": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/models/MODEL_ID",
+      "endpoint": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID"
+  },
+  "experiment": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/metadataStores/default/contexts/EXPERIMENT_ID",
+  "tuning_data_statistics": {
+      "supervisedTuningDataStats": {
+          "tuninDatasetExampleCount": "TUNING_DATASET_EXAMPLE_COUNT",
+          "totalBillableTokenCount": "TOTAL_BILLABLE_TOKEN_COUNT",
+          "tuningStepCount": "TUNING_STEP_COUNT"
+      }
+  },
+  "status": "STATUS",
+  "supervisedTuningSpec" : {
+        "trainingDatasetUri": "TRAINING_DATASET_URI",
+        "validationDataset_uri": "VALIDATION_DATASET_URI",
+        "hyperParameters": {
+            "epochCount": EPOCH_COUNT,
+            "learningRateMultiplier": LEARNING_RATE_MULTIPLIER
+        }
+    }
+}
+```
+
+### REST
+
+To view details of a model tuning job, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TuningJob_ID` .
 
 Before using any of the request data, make the following replacements:
 
@@ -589,67 +879,11 @@ You can cancel a tuning job in your current project by using the Google Cloud co
 
 ### Console
 
-1.  To cancel a tuning job in the Google Cloud console, go to the **Agent Platform Studio** page.
+1.  To cancel a tuning job in the Google Cloud console, go to the **Agent Studio** page.
 
 2.  In the **Tuned Models** table, click more_vert **Manage run** .
 
 3.  Click **Cancel** .
-
-### REST
-
-To cancel a model tuning job, send a POST request by using the [`tuningJobs.cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/cancel) method and specify the `TuningJob_ID` .
-
-Before using any of the request data, make the following replacements:
-
-- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
-- ` TUNING_JOB_REGION ` : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
-- ` TUNING_JOB_ID ` : The ID of the tuning job.
-
-HTTP method and URL:
-
-```
-POST https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID:cancel
-```
-
-To send your request, choose one of these options:
-
-#### curl
-
-> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
-
-Execute the following command:
-
-```
-curl -X POST \
-     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-     -H "Content-Type: application/json; charset=utf-8" \
-     -d "" \
-     "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID:cancel"
-```
-
-#### PowerShell
-
-> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
-
-Execute the following command:
-
-```
-$cred = gcloud auth print-access-token
-$headers = @{ "Authorization" = "Bearer $cred" }
-
-Invoke-WebRequest `
-    -Method POST `
-    -Headers $headers `
-    -Uri "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID:cancel" | Select-Object -Expand Content
-```
-
-You should receive a JSON response similar to the following.
-
-#### Response
-
-```
-{}
-```
 
 ### Python
 
@@ -666,6 +900,114 @@ def cancel_tuning_job(tuning_job_name: str) -> None:
     client.tunings.cancel(name=tuning_job_name)
 ```
 
+### REST
+
+Before using any of the request data, make the following replacements:
+
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+- ` TUNING_JOB_REGION ` : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
+- ` TUNING_JOB_ID ` : The ID of the tuning job.
+
+HTTP method and URL:
+
+```
+POST https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
+```
+
+To send your request, choose one of these options:
+
+#### curl
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Execute the following command:
+
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d "" \
+     "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs"
+```
+
+#### PowerShell
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Execute the following command:
+
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -Uri "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs" | Select-Object -Expand Content
+```
+
+You should receive a JSON response similar to the following.
+
+#### Response
+
+```
+{}
+```
+
+### REST
+
+Before using any of the request data, make the following replacements:
+
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+- ` TUNING_JOB_REGION ` : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
+- ` TUNING_JOB_ID ` : The ID of the tuning job.
+
+HTTP method and URL:
+
+```
+POST https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
+```
+
+To send your request, choose one of these options:
+
+#### curl
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Execute the following command:
+
+```
+curl -X POST \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json; charset=utf-8" \
+     -d "" \
+     "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs"
+```
+
+#### PowerShell
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Execute the following command:
+
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method POST `
+    -Headers $headers `
+    -Uri "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs" | Select-Object -Expand Content
+```
+
+You should receive a JSON response similar to the following.
+
+#### Response
+
+```
+{}
+```
+
 > **Note:** If you configured the Gen AI evaluation service to run automatically during tuning, any evaluations that are in progress still run to completion even if you cancel the tuning job.
 
 ## Evaluate the tuned model
@@ -678,7 +1020,7 @@ The following example prompts a model with the question "Why is sky blue?".
 
 ### Console
 
-1.  To view details of a tuned model in the Google Cloud console, go to the **Agent Platform Studio** page.
+1.  To view details of a tuned model in the Google Cloud console, go to the **Agent Studio** page.
 
 2.  In the **Tuned Models** table, select **Test** .
 
@@ -710,7 +1052,7 @@ print(response.text)
 
 ### REST
 
-To test a tuned model with a prompt, send a POST request and specify the \`MREP_LOCATION\` and \`ENDPOINT_ID\`.
+To test a tuned model with a prompt, send a POST request and specify the `MREP_LOCATION` and `ENDPOINT_ID` .
 
 Before using any of the request data, make the following replacements:
 
@@ -745,7 +1087,7 @@ Before using any of the request data, make the following replacements:
 HTTP method and URL:
 
 ```
-POST https://aiplatform.MREP_LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/MREP_LOCATION/endpoints/ENDPOINT_ID:generateContent
+POST https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
 ```
 
 Request JSON body:
@@ -782,7 +1124,7 @@ curl -X POST \
      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
      -H "Content-Type: application/json; charset=utf-8" \
      -d @request.json \
-     "https://aiplatform.MREP_LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/MREP_LOCATION/endpoints/ENDPOINT_ID:generateContent"
+     "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs"
 ```
 
 #### PowerShell
@@ -800,7 +1142,7 @@ Invoke-WebRequest `
     -Headers $headers `
     -ContentType: "application/json; charset=utf-8" `
     -InFile request.json `
-    -Uri "https://aiplatform.MREP_LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/MREP_LOCATION/endpoints/ENDPOINT_ID:generateContent" | Select-Object -Expand Content
+    -Uri "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs" | Select-Object -Expand Content
 ```
 
 You should receive a JSON response similar to the following.
@@ -865,7 +1207,7 @@ You should receive a JSON response similar to the following.
 
 ### REST
 
-To test a tuned model with a prompt, send a POST request and specify the \`TUNED_ENDPOINT_ID\`.
+To test a tuned model with a prompt, send a POST request and specify the `ENDPOINT_ID` .
 
 Before using any of the request data, make the following replacements:
 
@@ -898,7 +1240,7 @@ Before using any of the request data, make the following replacements:
 HTTP method and URL:
 
 ```
-POST https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID:generateContent
+POST https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
 ```
 
 Request JSON body:
@@ -935,7 +1277,7 @@ curl -X POST \
      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
      -H "Content-Type: application/json; charset=utf-8" \
      -d @request.json \
-     "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID:generateContent"
+     "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs"
 ```
 
 #### PowerShell
@@ -953,7 +1295,7 @@ Invoke-WebRequest `
     -Headers $headers `
     -ContentType: "application/json; charset=utf-8" `
     -InFile request.json `
-    -Uri "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID:generateContent" | Select-Object -Expand Content
+    -Uri "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs" | Select-Object -Expand Content
 ```
 
 You should receive a JSON response similar to the following.
@@ -1033,7 +1375,7 @@ Before using any of the request data, make the following replacements:
 HTTP method and URL:
 
 ```
-DELETE https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/models/MODEL_ID
+DELETE https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
 ```
 
 To send your request, choose one of these options:
@@ -1047,7 +1389,7 @@ Execute the following command:
 ```
 curl -X DELETE \
      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-     "https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/models/MODEL_ID"
+     "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs"
 ```
 
 #### PowerShell
@@ -1063,16 +1405,64 @@ $headers = @{ "Authorization" = "Bearer $cred" }
 Invoke-WebRequest `
     -Method DELETE `
     -Headers $headers `
-    -Uri "https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/models/MODEL_ID" | Select-Object -Expand Content
+    -Uri "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs" | Select-Object -Expand Content
+```
+
+You should receive a successful status code (2xx) and an empty response.
+
+### REST
+
+Call the [`models.delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/delete) method.
+
+Before using any of the request data, make the following replacements:
+
+- ` PROJECT_ID ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+- ` REGION ` : The region where the tuned model is located.
+- ` MODEL_ID ` : The model to delete.
+
+HTTP method and URL:
+
+```
+DELETE https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
+```
+
+To send your request, choose one of these options:
+
+#### curl
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Execute the following command:
+
+```
+curl -X DELETE \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs"
+```
+
+#### PowerShell
+
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
+Execute the following command:
+
+```
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred" }
+
+Invoke-WebRequest `
+    -Method DELETE `
+    -Headers $headers `
+    -Uri "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs" | Select-Object -Expand Content
 ```
 
 You should receive a successful status code (2xx) and an empty response.
 
 ## Tuning and validation metrics
 
-You can configure a model tuning job to collect and report model tuning and model evaluation metrics, which can then be visualized in **Agent Platform Studio** .
+You can configure a model tuning job to collect and report model tuning and model evaluation metrics, which can then be visualized in **Agent Studio** .
 
-1.  To view details of a tuned model in the Google Cloud console, go to the **Agent Platform Studio** page.
+1.  To view details of a tuned model in the Google Cloud console, go to the **Agent Studio** page.
 
 2.  In the **Tune and Distill** table, click the name of the tuned model that you want to view metrics for.
 

@@ -397,6 +397,70 @@ You define Agent Gateways declaratively using YAML.
 
 4.  Optional: If you want to configure Model Armor guardrails to help protect your deployment against prompt injection attacks and sensitive data leaks, see [Delegate authorization to Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#configure-authz-ma) .
 
+### Terraform
+
+To provision an Agent-to-Anywhere (egress) Agent Gateway and its associated IAP authorization extension and policy declaratively in a central governance project using the `google` provider:
+
+1.  Create the `google_network_services_agent_gateway` resource and associate your regional or global Agent Registry instances:
+
+    ```
+    resource "google_network_services_agent_gateway" "egress_gateway" {
+      project   = "PROJECT_ID"
+      location  = "LOCATION"
+      name      = "AGENT_GATEWAY_NAME"
+      protocols = ["MCP"]
+
+      google_managed {
+        governed_access_path = "AGENT_TO_ANYWHERE"
+      }
+
+      registries = [
+        "//agentregistry.googleapis.com/projects/PROJECT_ID/locations/LOCATION",
+      ]
+    }
+    ```
+
+2.  Configure the IAP `google_network_services_authz_extension` and attach it to the gateway with a `google_network_security_authz_policy` :
+
+    ```
+    resource "google_network_services_authz_extension" "iap_request_authz_ext" {
+      project   = "PROJECT_ID"
+      location  = "LOCATION"
+      name      = "my-iap-request-authz-ext"
+      service   = "iap.googleapis.com"
+      timeout   = "1s"
+      fail_open = false
+
+      metadata = {
+        iapPolicyVersion = "V2"
+        # Uncomment the following line to deploy in dry-run (audit-only) mode:
+        # iamEnforcementMode = "DRY_RUN"
+      }
+    }
+
+    resource "google_network_security_authz_policy" "iap_request_authz_policy" {
+      project        = "PROJECT_ID"
+      location       = "LOCATION"
+      name           = "my-iap-request-authz-policy"
+      policy_profile = "REQUEST_AUTHZ"
+      action         = "CUSTOM"
+
+      target {
+        resources = [
+          google_network_services_agent_gateway.egress_gateway.id
+        ]
+      }
+
+      custom_provider {
+        authz_extension {
+          resources = [
+            google_network_services_authz_extension.iap_request_authz_ext.id
+          ]
+        }
+      }
+    }
+    ```
+
 <!-- -->
 
 1.  After an Agent Gateway has been created, it serves as the primary connection point for routing agent traffic within your project and chosen region. You can now use this endpoint to establish secure, encrypted, and authenticated communication channels between agents and their destinations (tools, other agents, or other endpoints).
@@ -464,6 +528,23 @@ You define Agent Gateways declaratively using YAML.
     ```
 
     Replace `LOCATION` with the location where you want to create the Agent Gateway resource. For example, `us-central1` .
+
+### Terraform
+
+To provision a Client-to-Agent (ingress) Agent Gateway resource declaratively using the `google` provider:
+
+```
+resource "google_network_services_agent_gateway" "ingress_gateway" {
+  project   = "PROJECT_ID"
+  location  = "LOCATION"
+  name      = "AGENT_GATEWAY_NAME"
+  protocols = ["MCP"]
+
+  google_managed {
+    governed_access_path = "CLIENT_TO_AGENT"
+  }
+}
+```
 
 After an Agent Gateway has been created, it serves as the primary connection point for routing traffic to agents in your project and chosen region.
 

@@ -38,7 +38,7 @@ Before using any of the request data, make the following replacements:
 HTTP method and URL:
 
 ```
-POST https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
+POST https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID:generateContent
 ```
 
 Request JSON body:
@@ -67,7 +67,7 @@ curl -X POST \
      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
      -H "Content-Type: application/json; charset=utf-8" \
      -d @request.json \
-     "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs"
+     "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID:generateContent"
 ```
 
 #### PowerShell
@@ -85,7 +85,7 @@ Invoke-WebRequest `
     -Headers $headers `
     -ContentType: "application/json; charset=utf-8" `
     -InFile request.json `
-    -Uri "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs" | Select-Object -Expand Content
+    -Uri "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID:generateContent" | Select-Object -Expand Content
 ```
 
 You should receive a JSON response similar to the following.
@@ -221,7 +221,7 @@ Before using any of the request data, make the following replacements:
 HTTP method and URL:
 
 ```
-GET https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
+GET https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID:generateContent
 ```
 
 To send your request, choose one of these options:
@@ -235,7 +235,7 @@ Execute the following command:
 ```
 curl -X GET \
      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-     "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs"
+     "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID:generateContent"
 ```
 
 #### PowerShell
@@ -251,7 +251,7 @@ $headers = @{ "Authorization" = "Bearer $cred" }
 Invoke-WebRequest `
     -Method GET `
     -Headers $headers `
-    -Uri "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs" | Select-Object -Expand Content
+    -Uri "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID:generateContent" | Select-Object -Expand Content
 ```
 
 You should receive a JSON response similar to the following.
@@ -283,7 +283,7 @@ for response in responses:
 
 ### Console
 
-To view your tuning jobs in the Google Cloud console, go to the **Agent Platform Studio** page.
+To view your tuning jobs in the Google Cloud console, go to the **Agent Studio** page.
 
 Your Translation LLM tuning jobs are listed in the table under the **Translation LLM tuned models** section.
 
@@ -304,7 +304,7 @@ Before using any of the request data, make the following replacements:
 HTTP method and URL:
 
 ```
-GET https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID
+GET https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID:generateContent
 ```
 
 To send your request, choose one of these options:
@@ -318,7 +318,7 @@ Execute the following command:
 ```
 curl -X GET \
      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-     "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID"
+     "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID:generateContent"
 ```
 
 #### PowerShell
@@ -334,7 +334,7 @@ $headers = @{ "Authorization" = "Bearer $cred" }
 Invoke-WebRequest `
     -Method GET `
     -Headers $headers `
-    -Uri "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID" | Select-Object -Expand Content
+    -Uri "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID:generateContent" | Select-Object -Expand Content
 ```
 
 You should receive a JSON response similar to the following.
@@ -394,7 +394,7 @@ print(tuning_job.experiment)
 
 ### Console
 
-1.  To view details of a tuned model in the Google Cloud console, go to the **Agent Platform Studio** page.
+1.  To view details of a tuned model in the Google Cloud console, go to the **Agent Studio** page.
 
 2.  In the **Translation LLM tuned models** table, find your model and click **Details** .
 
@@ -417,7 +417,7 @@ Before using any of the request data, make the following replacements:
 HTTP method and URL:
 
 ```
-POST https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID:cancel
+POST https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID:generateContent
 ```
 
 To send your request, choose one of these options:
@@ -433,7 +433,7 @@ curl -X POST \
      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
      -H "Content-Type: application/json; charset=utf-8" \
      -d "" \
-     "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID:cancel"
+     "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID:generateContent"
 ```
 
 #### PowerShell
@@ -449,7 +449,7 @@ $headers = @{ "Authorization" = "Bearer $cred" }
 Invoke-WebRequest `
     -Method POST `
     -Headers $headers `
-    -Uri "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID:cancel" | Select-Object -Expand Content
+    -Uri "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID:generateContent" | Select-Object -Expand Content
 ```
 
 You should receive a JSON response similar to the following.
@@ -477,7 +477,7 @@ def cancel_tuning_job(tuning_job_name: str) -> None:
 
 ### Console
 
-1.  To cancel a tuning job in the Google Cloud console, go to the **Agent Platform Studio** page.
+1.  To cancel a tuning job in the Google Cloud console, go to the **Agent Studio** page.
 
 2.  In the **Translation tuned models** table, click more_vert **Manage run** .
 
@@ -607,9 +607,9 @@ print(response.text)
 
 ## Tuning and validation metrics
 
-You can configure a model tuning job to collect and report model tuning and model evaluation metrics, which can then be visualized in **Agent Platform Studio** .
+You can configure a model tuning job to collect and report model tuning and model evaluation metrics, which can then be visualized in **Agent Studio** .
 
-1.  To view details of a tuned model in the Google Cloud console, go to the **Agent Platform Studio** page.
+1.  To view details of a tuned model in the Google Cloud console, go to the **Agent Studio** page.
 
 2.  In the **Tune and Distill** table, click the name of the tuned model that you want to view metrics for.
 

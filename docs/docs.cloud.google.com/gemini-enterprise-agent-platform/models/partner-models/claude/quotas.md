@@ -19,7 +19,7 @@ Anthropic Claude models on Agent Platform use one of the following quota systems
 
 Global and multi-regional endpoints for Anthropic Claude models launched after May 26, 2026 use shared model lineage quotas. A single quota limit is shared across **all model versions in a model lineage** for a given location.
 
-For example, if you call Claude Opus 4.8 on Google Cloud through the global endpoint, then all requests, input tokens, and output tokens count against the same `anthropic-claude-opus` quota bucket for the global endpoint, regardless of the specific Opus version that you call.
+For example, if you call Anthropic's Claude Opus 4.8 on Google Cloud through the global endpoint, then all requests, input tokens, and output tokens count against the same `anthropic-claude-opus` quota bucket for the global endpoint, regardless of the specific Opus version that you call.
 
 Quotas on the global endpoint and each multi-region endpoint are independent buckets. Usage on the global endpoint doesn't consume quota on a multi-region endpoint, and similarly usage on a multi-region endpoint doesn't consume quota on the global endpoint.
 
@@ -202,7 +202,7 @@ The following table shows the default quotas and supported context length for ea
 </tr>
 
 <tr class="odd">
-<td>Claude Sonnet 5.5 on Google Cloud</td>
+<td>Anthropic's Claude Sonnet 5.5 on Google Cloud</td>
 <td><code>Multi-region</code></td>
 <td><ul>
 <li>QPM: 1,250</li>
@@ -232,7 +232,7 @@ The following table shows the default quotas and supported context length for ea
 <td></td>
 </tr>
 <tr class="even">
-<td>Claude Fable 5.1 on Google Cloud</td>
+<td>Anthropic's Claude Fable 5.1 on Google Cloud</td>
 <td><code>Multi-region</code></td>
 <td></td>
 <td></td>
@@ -250,7 +250,7 @@ The following table shows the default quotas and supported context length for ea
 <td></td>
 </tr>
 <tr class="odd">
-<td>Claude Sonnet 5 on Google Cloud</td>
+<td>Anthropic's Claude Sonnet 5 on Google Cloud</td>
 <td><code>Multi-region</code></td>
 <td><ul>
 <li>QPM: 1,250</li>
@@ -280,7 +280,7 @@ The following table shows the default quotas and supported context length for ea
 <td></td>
 </tr>
 <tr class="even">
-<td>Claude Opus 5.5 on Google Cloud</td>
+<td>Anthropic's Claude Opus 5.5 on Google Cloud</td>
 <td><code>Multi-region</code></td>
 <td><ul>
 <li>QPM: 1,000</li>
@@ -310,7 +310,7 @@ The following table shows the default quotas and supported context length for ea
 <td></td>
 </tr>
 <tr class="odd">
-<td>Claude Opus 5 on Google Cloud</td>
+<td>Anthropic's Claude Opus 5 on Google Cloud</td>
 <td><code>Multi-region</code></td>
 <td><ul>
 <li>QPM: 1,000</li>
@@ -340,7 +340,7 @@ The following table shows the default quotas and supported context length for ea
 <td></td>
 </tr>
 <tr class="even">
-<td>Claude Fable 5 on Google Cloud</td>
+<td>Anthropic's Claude Fable 5 on Google Cloud</td>
 <td><code>Multi-region</code></td>
 <td><ul>
 <li>QPM: 1,000</li>
@@ -370,7 +370,7 @@ The following table shows the default quotas and supported context length for ea
 <td></td>
 </tr>
 <tr class="odd">
-<td>Claude Opus 4.8 on Google Cloud</td>
+<td>Anthropic's Claude Opus 4.8 on Google Cloud</td>
 <td><code>Multi-region</code></td>
 <td><ul>
 <li>QPM: 1,000</li>
@@ -400,7 +400,7 @@ The following table shows the default quotas and supported context length for ea
 <td></td>
 </tr>
 <tr class="even">
-<td>Claude Opus 4.7 on Google Cloud</td>
+<td>Anthropic's Claude Opus 4.7 on Google Cloud</td>
 <td><code>Multi-region</code></td>
 <td><ul>
 <li>QPM: 400</li>
@@ -430,7 +430,7 @@ The following table shows the default quotas and supported context length for ea
 <td></td>
 </tr>
 <tr class="odd">
-<td>Claude Opus 4.6 on Google Cloud</td>
+<td>Anthropic's Claude Opus 4.6 on Google Cloud</td>
 <td><code>us-east5</code></td>
 <td><ul>
 <li>QPM: 200</li>
@@ -470,7 +470,7 @@ The following table shows the default quotas and supported context length for ea
 <td></td>
 </tr>
 <tr class="odd">
-<td>Claude Sonnet 4.6 on Google Cloud</td>
+<td>Anthropic's Claude Sonnet 4.6 on Google Cloud</td>
 <td><code>us-east5</code></td>
 <td><ul>
 <li>QPM: 1500</li>
@@ -510,7 +510,7 @@ The following table shows the default quotas and supported context length for ea
 <td></td>
 </tr>
 <tr class="odd">
-<td>Claude Opus 4.5 on Google Cloud</td>
+<td>Anthropic's Claude Opus 4.5 on Google Cloud</td>
 <td><code>us-east5</code></td>
 <td><ul>
 <li>QPM: 200</li>
@@ -550,47 +550,7 @@ The following table shows the default quotas and supported context length for ea
 <td></td>
 </tr>
 <tr class="odd">
-<td>Claude Opus 4.1 on Google Cloud</td>
-<td><code>us-east5</code></td>
-<td><ul>
-<li>QPM: 25</li>
-<li>Input TPM: 60,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
-<li>Output TPM: 6,000</li>
-</ul></td>
-<td>200,000</td>
-</tr>
-<tr class="even">
-<td><code>global endpoint</code></td>
-<td><ul>
-<li>QPM: 25</li>
-<li>Input TPM: 60,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
-<li>Output TPM: 6,000</li>
-</ul></td>
-<td>200,000</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Claude Opus 4 on Google Cloud</td>
-<td><code>us-east5</code></td>
-<td><ul>
-<li>QPM: 25</li>
-<li>Input TPM: 60,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
-<li>Output TPM: 6,000</li>
-</ul></td>
-<td>200,000</td>
-</tr>
-<tr class="even">
-<td><code>global endpoint</code></td>
-<td><ul>
-<li>QPM: 25</li>
-<li>Input TPM: 60,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
-<li>Output TPM: 6,000</li>
-</ul></td>
-<td>200,000</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Claude Sonnet 4.5 on Google Cloud</td>
+<td>Anthropic's Claude Sonnet 4.5 on Google Cloud</td>
 <td><code>us-east5</code></td>
 <td><ul>
 <li>QPM: 1,500</li>
@@ -630,36 +590,6 @@ The following table shows the default quotas and supported context length for ea
 <td></td>
 </tr>
 <tr class="odd">
-<td>Claude Sonnet 4 on Google Cloud</td>
-<td><code>us-east5</code></td>
-<td><ul>
-<li>QPM: 35</li>
-<li>Input TPM: 280,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
-<li>Output TPM: 20,000</li>
-</ul></td>
-<td>1,000,000</td>
-</tr>
-<tr class="even">
-<td><code>europe-west1</code></td>
-<td><ul>
-<li>QPM: 25</li>
-<li>Input TPM: 180,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
-<li>Output TPM: 20,000</li>
-</ul></td>
-<td>1,000,000</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>global endpoint</code></td>
-<td><ul>
-<li>QPM: 35</li>
-<li>Input TPM: 276,000 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input">uncached and cache write</a></li>
-<li>Output TPM: 24,000</li>
-</ul></td>
-<td>1,000,000</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Claude 3.7 Sonnet on Google Cloud</td>
 <td><code>us-east5</code></td>
 <td><ul>
@@ -668,7 +598,7 @@ The following table shows the default quotas and supported context length for ea
 </ul></td>
 <td>200,000</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>europe-west1</code></td>
 <td><ul>
 <li>QPM: 40</li>
@@ -677,7 +607,7 @@ The following table shows the default quotas and supported context length for ea
 <td>200,000</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>global endpoint</code></td>
 <td><ul>
 <li>QPM: 35</li>
@@ -686,7 +616,7 @@ The following table shows the default quotas and supported context length for ea
 <td>200,000</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Claude 3.5 Sonnet v2 on Google Cloud</td>
 <td><code>us-east5</code></td>
 <td><ul>
@@ -695,7 +625,7 @@ The following table shows the default quotas and supported context length for ea
 </ul></td>
 <td>200,000</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>europe-west1</code></td>
 <td><ul>
 <li>QPM: 55</li>
@@ -704,7 +634,7 @@ The following table shows the default quotas and supported context length for ea
 <td>200,000</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>global endpoint</code></td>
 <td><ul>
 <li>QPM: 25</li>
@@ -713,8 +643,8 @@ The following table shows the default quotas and supported context length for ea
 <td>200,000</td>
 <td></td>
 </tr>
-<tr class="even">
-<td>Claude Haiku 5.5 on Google Cloud</td>
+<tr class="odd">
+<td>Anthropic's Claude Haiku 5.5 on Google Cloud</td>
 <td><code>Multi-region</code></td>
 <td><ul>
 <li>QPM: 1,500</li>
@@ -723,7 +653,7 @@ The following table shows the default quotas and supported context length for ea
 </ul></td>
 <td>1,000,000</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>Multi-region</code></td>
 <td><ul>
 <li>QPM: 1,500</li>
@@ -733,7 +663,7 @@ The following table shows the default quotas and supported context length for ea
 <td>1,000,000</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>global endpoint</code></td>
 <td><ul>
 <li>QPM: 3,000</li>
@@ -743,8 +673,8 @@ The following table shows the default quotas and supported context length for ea
 <td>1,000,000</td>
 <td></td>
 </tr>
-<tr class="odd">
-<td>Claude Haiku 4.5 on Google Cloud</td>
+<tr class="even">
+<td>Anthropic's Claude Haiku 4.5 on Google Cloud</td>
 <td><code>us-east5</code></td>
 <td><ul>
 <li>QPM: 1,500</li>
@@ -753,7 +683,7 @@ The following table shows the default quotas and supported context length for ea
 </ul></td>
 <td>200,000</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>europe-west1</code></td>
 <td><ul>
 <li>QPM: 1,800</li>
@@ -763,7 +693,7 @@ The following table shows the default quotas and supported context length for ea
 <td>200,000</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>global endpoint</code></td>
 <td><ul>
 <li>QPM: 2,500</li>
@@ -773,7 +703,7 @@ The following table shows the default quotas and supported context length for ea
 <td>200,000</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Claude 3.5 Haiku on Google Cloud</td>
 <td><code>us-east5</code></td>
 <td><ul>
@@ -782,7 +712,7 @@ The following table shows the default quotas and supported context length for ea
 </ul></td>
 <td>200,000</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>europe-west1</code></td>
 <td><ul>
 <li>QPM: 90</li>
@@ -791,7 +721,7 @@ The following table shows the default quotas and supported context length for ea
 <td>200,000</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Claude 3.5 Sonnet on Google Cloud</td>
 <td><code>us-east5</code></td>
 <td><ul>
@@ -800,7 +730,7 @@ The following table shows the default quotas and supported context length for ea
 </ul></td>
 <td>200,000</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>europe-west1</code></td>
 <td><ul>
 <li>QPM: 130</li>
@@ -809,7 +739,7 @@ The following table shows the default quotas and supported context length for ea
 <td>200,000</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>asia-southeast1</code></td>
 <td><ul>
 <li>QPM: 35</li>
@@ -818,7 +748,7 @@ The following table shows the default quotas and supported context length for ea
 <td>200,000</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Claude 3 Opus on Google Cloud</td>
 <td><code>us-east5</code></td>
 <td><ul>
@@ -827,7 +757,7 @@ The following table shows the default quotas and supported context length for ea
 </ul></td>
 <td>200,000</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Claude 3 Haiku on Google Cloud</td>
 <td><code>us-east5</code></td>
 <td><ul>
@@ -836,7 +766,7 @@ The following table shows the default quotas and supported context length for ea
 </ul></td>
 <td>200,000</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>europe-west1</code></td>
 <td><ul>
 <li>QPM: 75</li>
@@ -845,7 +775,7 @@ The following table shows the default quotas and supported context length for ea
 <td>200,000</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>asia-southeast1</code></td>
 <td><ul>
 <li>QPM: 70</li>

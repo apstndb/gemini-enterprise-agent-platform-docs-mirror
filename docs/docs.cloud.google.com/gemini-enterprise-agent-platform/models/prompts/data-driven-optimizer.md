@@ -67,7 +67,7 @@ The data-driven optimizer uses evaluation metrics to optimize system instruction
 
 You can use multiple metrics at a time. However, custom metrics can only be used one at a time. If you use standard and custom metrics together, only one of the metrics can be a custom metric. The others must be standard metrics.
 
-To learn how to specify metrics one at a time or in combination, see ` EVALUATION_METRIC_PARAMETERS ` in the SDK tab in [Create a prompt template and system instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-optimizer#sdk_1) .
+To learn how to specify metrics one at a time or in combination, see ` EVALUATION_METRIC_PARAMETERS ` in the SDK tab in [Create a prompt template and system instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/data-driven-optimizer#template-si) .
 
 ### Custom evaluation metrics
 

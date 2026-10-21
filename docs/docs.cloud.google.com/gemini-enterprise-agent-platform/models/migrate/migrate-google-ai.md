@@ -177,7 +177,7 @@ Your Google AI Studio prompt data is saved in a Google Drive folder. This sectio
 
 ### 2. Upload training data to Agent Studio
 
-To migrate your training data to Gemini Enterprise Agent Platform, you need to upload your data to a Cloud Storage bucket. For more information, see [Introduction to tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
+To migrate your training data to Gemini Enterprise Agent Platform, you need to upload your data to a Cloud Storage bucket. For more information, see [Introduction to tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning)
 
 ### 3. Delete unused API Keys
 

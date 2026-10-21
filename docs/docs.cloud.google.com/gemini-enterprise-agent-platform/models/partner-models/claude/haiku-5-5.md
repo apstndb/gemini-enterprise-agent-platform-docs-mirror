@@ -1,12 +1,12 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-5-5
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-5-5
-title: Claude Haiku 5.5 on Google Cloud
+title: Anthropic's Claude Haiku 5.5 on Google Cloud
 description: Claude Haiku 5.5 is a high-performance, cost-effective model built for coding, sub-agents, and latency-sensitive experiences at scale.
 data_source: docs.cloud.google.com
 ---
 
-Claude Haiku 5.5 on Google Cloud is a high-performance, cost-effective model built for coding, sub-agents, and latency-sensitive experiences at scale. For full information, see [Anthropic's documentation](https://platform.claude.com/docs/en/models/haiku-5-5/overview) .
+Anthropic's Claude Haiku 5.5 on Google Cloud is a high-performance, cost-effective model built for coding, sub-agents, and latency-sensitive experiences at scale. For full information, see [Anthropic's documentation](https://platform.claude.com/docs/en/models/haiku-5-5/overview) .
 
 **Retirement Date:** Not sooner than October 7, 2027.
 

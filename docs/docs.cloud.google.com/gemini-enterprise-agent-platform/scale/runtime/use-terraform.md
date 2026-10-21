@@ -511,6 +511,15 @@ To route traffic between Agent Runtime and external APIs or clients through Agen
 
 For complete deployment examples and parameter details for both Agent-to-Anywhere (egress) and Client-to-Agent (ingress) routing, see [Route Runtime traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#route-traffic) .
 
+#### Multi-project central gateway governance
+
+In enterprise multi-project architectures, you can manage a central governance project hosting Agent Gateway, Agent Registry, and Model Armor while deploying Runtime workloads in separate project folders across your organization using Terraform:
+
+- **Central Agent Gateway and authorization policies** : Provision `google_network_services_agent_gateway` , `google_network_services_authz_extension` , and `google_network_security_authz_policy` in the central governance project. See [Set up Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#config-agent-to-anywhere) .
+- **Cross-project service agent access** : Grant `ar_agw_cross_project_sa` ( `google_project_iam_custom_role` ) in the central gateway project to each workload project's Runtime service agent using `google_project_iam_member` . See [Route Runtime traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#route-traffic) .
+- **Central registry and egress policies** : Register cross-project agents and tools in the central project's registry using `google_agent_registry_service` and grant `roles/iap.egressor` with `google_iap_agent_registry_*` resources. See [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies) .
+- **Model Armor templates and floor settings** : Enforce safety thresholds across your organization or folders with `google_model_armor_floorsetting` and `google_model_armor_template` . See [Delegate authorization to Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#configure-authz-ma) .
+
 ## Execution and lifecycle
 
 Execute the standard Terraform lifecycle to plan, deploy, invoke, and destroy your agent resources.

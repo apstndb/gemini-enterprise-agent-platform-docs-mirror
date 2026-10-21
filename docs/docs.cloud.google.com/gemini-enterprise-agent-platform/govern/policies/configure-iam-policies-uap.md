@@ -6,7 +6,7 @@ description: Learn how to create Identity and Access Management policies to gove
 data_source: docs.cloud.google.com
 ---
 
-You can create [Identity and Access Management (IAM) Unified Access Policies (UAPs)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#access-policies) that govern agentic communication between agents and destination resources, such as [agent registries](https://docs.cloud.google.com/agent-registry/overview) , MCP servers, agents, and registered and unregistered endpoints.
+You can create [Identity and Access Management (IAM) Unified Access Policies (UAPs)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#uaps) that govern agentic communication between agents and destination resources, such as [agent registries](https://docs.cloud.google.com/agent-registry/overview) , MCP servers, agents, and registered and unregistered endpoints.
 
 [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) uses Identity-Aware Proxy (IAP) to evaluate and enforce UAPs.
 

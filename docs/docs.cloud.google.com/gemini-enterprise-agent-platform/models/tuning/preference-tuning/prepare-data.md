@@ -20,7 +20,7 @@ An `example` is composed of input and a pair of `completions` fields.
 
 The input includes `contents` and an optional `system_instruction` . The sum of maximum input and maximum completion token counts must be \<= 128K.
 
-The `contents` field is in the same [format used for supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-prepare#example-contents) . It supports multi-turn text data that needs to end with a user turn. It doesn't support multi-modal data.
+The `contents` field is in the same [format used for supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data#example-contents) . It supports multi-turn text data that needs to end with a user turn. It doesn't support multi-modal data.
 
 The `completions` field is composed of a pair of completions and their scores. The pair must have one preferred completion and one dispreferred completion.
 
@@ -78,4 +78,4 @@ We only train on the `completions` turn for each `example` .
 
 ## What's next
 
-- [Tune Gemini models by using preference tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-preference-tuning) .
+- [Tune Gemini models by using preference tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning/use) .
