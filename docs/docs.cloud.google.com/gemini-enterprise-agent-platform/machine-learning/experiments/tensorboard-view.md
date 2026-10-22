@@ -10,7 +10,7 @@ The Vertex AI TensorBoard web app provides a visualization of logs associated wi
 
 ```
 Note: If you are having trouble viewing results, make sure your user account
-has the [Agent Platform Viewer](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.viewer) (or higher) role associated with it.
+has the [Agent Platform Viewer](/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.viewer) (or higher) role associated with it.
 ```
 
 ![TensorBoard view appear](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/tb-view-appears.png)

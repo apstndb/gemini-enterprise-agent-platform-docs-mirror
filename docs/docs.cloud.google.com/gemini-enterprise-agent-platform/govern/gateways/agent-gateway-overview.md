@@ -2,17 +2,19 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview
 title: Agent Gateway overview
-description: Secure and govern AI agent connectivity with Agent Gateway. Centralize access policies, mTLS, and Model Context Protocol (MCP) security for agent-to-agent and agent-to-tool interactions across diverse runtimes.
+description: Secure and govern AI agent connectivity with Agent Gateway. Centralize access policies, mTLS, and Model Context Protocol (MCP) security for agent-to-agent and agent-to-tool interactions across Agent Runtime, Gemini Enterprise, Google Kubernetes Engine, Cloud Run, and cross-cloud environments.
 data_source: docs.cloud.google.com
 ---
 
-Agent Gateway is the key enforcement component of Agent Platform. It acts as the network entry and exit point for all agentic interactions. It gives enterprise security administrators the ability to secure connectivity for all agentic interactions, whether they occur between users and agents, agents and tools, or among agents themselves.
+Agent Gateway is the governance and security enforcement layer for Google Cloud agent governance. It acts as the software-defined network entry and exit point for all agentic interactions across managed runtimes, container platforms, infrastructure-as-a-service (IaaS) virtual machines, and cross-cloud environments.
+
+Agent Gateway gives enterprise security and platform administrators the ability to enforce consistent, least-privilege security postures for all agent interactions—whether occurring between human users and agents, agents and Model Context Protocol (MCP) tools, or among autonomous agents themselves.
 
 ![Agent Gateway and Agent Platform ecosystem (click to enlarge).](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/geap-architecture.png)
 
 ## Core governance components
 
-The following Agent Platform components work together to provide a unified governance architecture:
+The following Agent Platform components work together to provide a unified agent governance architecture:
 
 - **[Agent Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) (Who made the request?)** : Assigns a unique, secure ID (a SPIFFE ID) to each agent. This identity acts as the agent's digital signature for authentication, access control, and auditing.
 
@@ -25,112 +27,134 @@ The following Agent Platform components work together to provide a unified gover
   - **[IAM Unified Access Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap)** : Access rules that link an agent's identity to approved tools and endpoints in Agent Registry. By default, all connections are blocked unless an explicit IAM policy grants access.
   - **[Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor)** : Content security filters attached to gateways. Model Armor scans user prompts and tool responses in real time to block prompt injection attacks, sensitive data leaks, and harmful content.
   - **[Semantic Governance Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview)** : Rules written in plain language that control how agents use tools. They enforce business rules at runtime to prevent agents from taking unintended actions, such as running unsafe combinations of tools.
+  - **[Token management policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/token-management-overview)** : Policies that monitor and attribute large language model (LLM) token usage, and enforce shared token budgets across your agents and applications to prevent runaway token consumption and unexpected cost spikes.
   - **[Custom authorization engines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization)** : Custom authorization extensions that let you delegate authorization decisions to third-party systems by using Service Extensions.
 
-  Internally, all of these policy types are enforced by using [authorization policies managed through Service Extensions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization) .
+  Internally, all of these policy types are enforced by using [authorization policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization) or [extension bindings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/extension-bindings-overview) managed through Service Extensions.
+
+  > Support for token management policies and extension bindings is coming soon. Features and timing are subject to change. To request early access, [sign up here for early preview access](https://docs.google.com/forms/d/e/1FAIpQLSeUpnNRtYQjLRblii-KoUbJJ7DjEV6fvQAfO21IAXgVSqFjpw/viewform) .
 
 - **[Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) (Where are policies enforced?)** : Serves as the main entry and exit point for network traffic between clients-to-agents, and agents-to-anywhere. It manages encrypted connections (mTLS), translates protocols (such as MCP, REST, and gRPC), and applies policy checks to all traffic. To learn more, see [How Agent Gateway enforces policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#how-policies-are-enforced) .
 
-- **[Agent Observability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview)** : Agent Gateway generates observability telemetry for all agent interactions at the network layer and exports it to Agent Observability to provide you with a comprehensive understanding of agent actions.
+- **[Agent observability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview)** : Agent Gateway generates observability telemetry for all agent interactions at the network layer and exports it to Agent Observability to provide you with a comprehensive understanding of agent actions.
 
 ## Key benefits
 
-Agent Gateway offers several benefits for both AI developers and enterprise administrators, addressing the complexities of securing and managing AI agent interactions at scale.
+Agent Gateway addresses the security, compliance, and networking complexities of operating AI agents at scale across heterogeneous compute runtimes.
 
 For AI developers:
 
-- **Simplified innovation:** Developers can focus on building agents without managing complex networking primitives or security overhead.
-- **Protocol mediation:** Developers can seamlessly use their choice of agentic protocols such Model Context Protocol (MCP), Agent-to-Agent(A2A), REST, and gRPC while adhering to enterprise security standards.
-- **Framework agnostic:** Functionality is available regardless of the development framework or client used.
-- **Secure transport and authentication:** Automatically handles mTLS handshakes and termination to ensure encrypted connectivity between agents and tools without developer effort. Integrates with Agent Platform's [Agent Identity Auth Manager](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) to simplify and secure Oauth 2.0 handshakes between their agents and tools.
+- **Simplified innovation:** Focus on building agent logic without managing underlying VPC routing, Envoy configurations, or mTLS certificate rotation.
+- **Protocol mediation:** Seamlessly connect agents using Model Context Protocol (MCP), Agent-to-Agent (A2A), REST, or gRPC while adhering to enterprise governance standards.
+- **Framework agnostic:** Support for agents built with standard AI frameworks or custom clients across any runtime environment.
+- **Secure transport and identity:** Automatically terminates mTLS handshakes and integrates with Agent Platform's [Agent Identity Auth Manager](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) to transparently handle OAuth 2.0 handshakes and Workload Identity Federation (WIF).
 
-For enterprise admins and security teams:
+For enterprise security teams and platform administrators:
 
-- **Centralized governance for all agent interactions:** Configure and enforce consistent access policies across diverse agent runtimes and deployment models, ensuring enforcement of least-privilege permissions for agents at runtime.
-- **AI security guardrails:** Protect against novel risks like Model Context Protocol (MCP) prompt injection attacks using integrated services like Model Armor.
-- **Comprehensive observability:** Gain deep visibility into agentic interactions through Cloud Logging and Cloud Trace, facilitating security investigations and performance monitoring.
-- **Perimeter security and data exfiltration protection:** Enforce VPC Service Controls service perimeters for agent communications. When you configure Agent Gateway with an [agent connectivity template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) , agent traffic is routed through your private VPC network attachment, ensuring that your organization's VPC Service Controls perimeter rules are applied to all agent traffic as well.
+- **Centralized governance across all runtimes:** Define and enforce unified access policies, tool RBAC, and safety guardrails across managed runtimes, Google Kubernetes Engine (GKE) clusters, Cloud Run services, and non-Google Cloud Kubernetes clusters.
+- **AI security guardrails:** Intercept and sanitize inbound prompts and outbound tool payloads using integrated safety providers like Model Armor to block prompt injection, jailbreaks, and sensitive data leakage.
+- **Perimeter security & data exfiltration protection:** Direct traffic through private Virtual Private Cloud (VPC) network attachments to enforce strict VPC Service Controls perimeter rules.
+- **End-to-end observability:** Capture enriched Layer 7 and Layer 8 OpenTelemetry traces and access logs in Cloud Logging and Cloud Trace for complete auditability.
 
-## Deployment modes
+## Governed access paths
 
-Agent Gateway is a networking abstraction that lets you define rules for agent communication and enforces safety, security, and access control policies, without requiring you to manage complex networking details.
-
-Agent Gateway facilitates two primary governed access paths: **Client-to-Agent** interactions and **Agent-to-Anywhere** interactions.
+Agent Gateway facilitates two primary governed access paths: **Client-to-Agent** (ingress) and **Agent-to-Anywhere** (egress).
 
 ![Agent Gateway modes of operation (click to enlarge).](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/agent-gateway-modes.png)
 
-- **Client-to-Agent (ingress)** : This mode is used to secure communications between clients (such as Cursor, Claude Code, Gemini CLI) and agents (and tools) running on Google Cloud. In this mode, Agent Gateway acts as a frontend for your agent and lets you control which clients can access your agents (and tools) and which security policies must be applied to such interactions.
+- **Client-to-Agent (ingress):** Secures communications between clients (such as web applications, developer CLIs, or external systems) and hosted agents or MCP tools. The gateway acts as a frontend policy enforcement point, authenticating incoming user credentials and inspecting prompts.
 
-- **Agent-to-Anywhere (egress)** : This mode is used to secure communications between agents running on Google Cloud and servers, agents, tools, or APIs running anywhere. For example, Agent Gateway can be used to enforce access permissions and security guardrails for your agents that need to communicate with MCP servers that are either created and hosted by your own organization, or remote MCP servers hosted by third-parties.
+- **Agent-to-Anywhere (egress):** Governs outbound requests initiated by agents to external tools, remote MCP servers, SaaS APIs, or downstream agents. Enforces workload-bound identity, destination registry compliance, Identity and Access Management (IAM) access policies, and payload sanitization.
 
-The applicability of each governance component and policy layer varies depending on the direction of traffic:
+## Deployment models
 
-| Governance layer                                                    | Client-to-Agent (ingress)                                                                                                                 | Agent-to-Anywhere (egress)                                                                                                                                                                                                                                                                                                                                                                                                           |
-|---------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Identity**                                                        | Client identity or user credentials passed by the client to the Agent Gateway.                                                            | Workload-bound *agent identity* (SPIFFE ID) assigned to the agent.                                                                                                                                                                                                                                                                                                                                                                   |
-| **Agent Registry**                                                  | Not available for ingress.                                                                                                                | Registers outbound target destination resources such as tools, MCP servers, and other agents.                                                                                                                                                                                                                                                                                                                                        |
-| **IAM Unified Access Policies and Principal Access Boundary (PAB)** | Not available for ingress.                                                                                                                | Enforced at runtime by IAP based on the agent's SPIFFE ID and the destination resource that the agent is calling. Principal Access Boundary policies applied to the agent identity are evaluated as part of the egress call. Agent identities that are subject to Principal Access Boundary policies are only eligible to access the resources specified in those policies, strictly isolating the agent to its designated boundary. |
-| **Model Armor** (Optional)                                          | Inspects client prompts for inbound prompt injection attacks and harmful content.                                                         | Inspects outgoing tool payloads and agent responses for data leakage and prompt injection.                                                                                                                                                                                                                                                                                                                                           |
-| **Semantic Governance policies** (Optional)                         | Evaluates natural language constraints against inbound client requests (cannot be combined with Model Armor on the same ingress gateway). | Evaluates natural language constraints against outbound tool calls and agent actions.                                                                                                                                                                                                                                                                                                                                                |
+> **Sign up for early preview access**
+>
+> Agent Gateway is currently available for agents running on Gemini Enterprise Agent Platform. Support for GKE, Cloud Run, and cross-cloud environments will be available soon through an early preview. [Sign up here for early preview access](https://docs.google.com/forms/d/e/1FAIpQLSeUpnNRtYQjLRblii-KoUbJJ7DjEV6fvQAfO21IAXgVSqFjpw/viewform) .
 
-## How Agent Gateway enforces policies
+To support diverse AI application architectures, Agent Gateway provides flexible deployment models that determine where and how gateway proxy infrastructure is provisioned, managed, and integrated with your agent workloads. Whether your agents run on fully managed Google Cloud runtimes, self-managed Kubernetes clusters, virtual machines, or cross-cloud environments, Agent Gateway offers a deployment option tailored to your infrastructure control preferences and network perimeter requirements.
 
-Traffic passing through Agent Gateway undergoes specific policy evaluations depending on the direction of traffic. The following sections outline the sequence of events for ingress and egress requests.
+![Agent Gateway deployment models across infrastructure boundaries (click to enlarge).](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/agent-gateway-deployment-models.svg)
 
-![Access control with Agent Gateway (click to enlarge).](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/agent-gateway-access-control.png)
+### Summary of deployment models
 
-### Client-to-Agent enforcement
+| Agent host environment                                                                                                                                               | Supported deployment model                     | Proxy infrastructure                                                                                                                                                               | Documentation                                                                                                                                                                                                                           |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Agent Runtime and Gemini Enterprise](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#managed-agw)             | Agent Gateway on Google Cloud (Google-managed) | Not applicable (Google-managed)                                                                                                                                                    | [Overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-managed-overview) [Set up](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) |
+| [GKE](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#gke-agw)                                                 | Agent Gateway on Google Cloud (Self-managed)   | Client-to-Agent: GKE Gateway API Agent-to-Anywhere for cross-cluster and external connectivity: Secure Web Proxy Agent-to-Anywhere for pod-to-pod connectivity: Ambient networking | [Coming soon](https://docs.google.com/forms/d/e/1FAIpQLSeUpnNRtYQjLRblii-KoUbJJ7DjEV6fvQAfO21IAXgVSqFjpw/viewform)                                                                                                                      |
+| [Cloud Run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#cloud-run-agw)                                     | Agent Gateway on Google Cloud (Self-managed)   | Client-to-Agent: Application Load Balancer Agent-to-Anywhere: Secure Web Proxy                                                                                                     | [Coming soon](https://docs.google.com/forms/d/e/1FAIpQLSeUpnNRtYQjLRblii-KoUbJJ7DjEV6fvQAfO21IAXgVSqFjpw/viewform)                                                                                                                      |
+| [Cross-cloud environments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#cross-cloud-agw) (non-Google Cloud) | Agent Gateway for cross-cloud                  | Self-managed Envoy proxy in your environment                                                                                                                                       | [Coming soon](https://docs.google.com/forms/d/e/1FAIpQLSeUpnNRtYQjLRblii-KoUbJJ7DjEV6fvQAfO21IAXgVSqFjpw/viewform)                                                                                                                      |
 
-In Client-to-Agent mode (supported only for agents deployed in Agent Runtime), a request to an agent governed by Agent Gateway undergoes the following sequence of events:
+### Agent Gateway on Google Cloud
 
-1.  **Client request** : A client (such as a CLI, web application, or developer tool) sends a request to the agent. The request is intercepted by an Agent Gateway operating in Client-to-Agent mode which acts as the agent's frontend.
-2.  **Request inspection** : Agent Gateway evaluates the request using the authorization policy attached to the gateway.
-    - **Model Armor** : Scans the inbound user prompt in real time to block prompt injection attacks, jailbreaks, and harmful content.
-    - **Semantic Governance policy** (if configured instead of Model Armor): Evaluates natural language constraints against the inbound request.
-3.  **Request forwarding** : If all checks pass, Agent Gateway forwards the request to the target destination in Agent Runtime.
+Agent Gateway on Google Cloud governs agents and MCP servers that run on Google Cloud compute environments, including Agent Runtime, Gemini Enterprise, GKE, and Cloud Run. Depending on your host environment, Google either manages the gateway proxy infrastructure for you, or you attach Agent Gateway to proxy and load-balancing resources that you manage in your own project. Across all Google Cloud runtimes, you use the same central control plane to manage agent identities, Agent Registry entries, and access policies.
 
-### Agent-to-Anywhere enforcement
+#### For Agent Runtime and Gemini Enterprise
 
-When an agent running in Agent Runtime or Gemini Enterprise sends an outbound call to an external tool, MCP server, or another agent, the request undergoes the following sequence of events:
+Agent Gateway provides fully Google-managed, zero-maintenance gateway infrastructure hosted directly within Google Cloud. It is optimized specifically for agents running on Agent Runtime and Gemini Enterprise.
 
-1.  **Outbound request and interception** : The agent (identified by its assigned *agent identity* ) sends an outbound call. The request is intercepted by Agent Gateway operating in Agent-to-Anywhere mode.
+- **Architecture & infrastructure:** Google fully manages both the gateway management services and proxy infrastructure. Organizations require no proxy setup, container management, or manual maintenance overhead.
+- **Key capabilities:** Provides built-in zero-maintenance mTLS termination, IAP access policies, Model Armor prompt scanning and DLP, and Semantic Governance policies.
+- **Primary use case:** Ideal for enterprise teams building serverless AI agents on Google Cloud who want comprehensive governance without managing network infrastructure.
 
-2.  **IAM, Principal Access Boundary, and IAP policy verification** : IAP verifies that there is an IAM access policy that grants the agent identity the `iap.resources.egressViaIAP` permission to access the destination. Any Principal Access Boundary policies applied to the agent identity are also evaluated as part of the egress call. Agent identities that are subject to Principal Access Boundary policies are only eligible to access the resources specified in those policies, strictly isolating the agent to its designated access boundary.
+For setup details, see [Agent Gateway on Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-managed-overview) .
 
-3.  **Agent Registry verification** : Agent Gateway verifies that the target destination resource is registered in Agent Registry (or resolves the target endpoint URL if the destination is unregistered). Registering destinations in Agent Registry is recommended to enforce granular, per-resource access policies and tool-level controls. If the destination is not registered in Agent Registry, then there must be an explicit IAM access policy targeting the destination URL. By default, if no matching access policy exists, the request is denied.
+#### For GKE
 
-4.  **Request inspection** : If the previous checks pass, Agent Gateway evaluates the request against any of these other safety guardrails you might have configured:
+Agent Gateway extends Agent Platform governance to agents and MCP servers that you run on your own GKE clusters. Platform teams configure governance with Kubernetes-native resources and the Google Kubernetes Engine Gateway API. The same Agent Identity, Agent Registry, and policies that govern agents on Agent Runtime also apply to agents on GKE.
 
-    - **Model Armor** : Inspects tool payloads and agent responses for prompt injection and sensitive data leakage.
-    - **Semantic Governance policies** : Evaluate natural language constraints (NLC) against tool invocations and agent actions.
-    - **Delegate authorization to a custom authorization engine** : You can delegate authorization decisions to a custom authorization engine by using Service Extensions. Depending on the configured authorization policy, one or more of these authorization engines may allow or deny the request.
+- **Architecture and infrastructure:** You run the proxy infrastructure in your own project.
+  - **Client-to-Agent:** Client traffic enters your cluster through a GKE Gateway, which is a regional Application Load Balancer.
+  - **Agent-to-Anywhere:** GKE ambient networking redirects outbound agent traffic to Secure Web Proxy without sidecars, and policies are enforced before traffic leaves the cluster. Agent-to-agent traffic within the cluster is governed by Layer 7 ambient proxies that run per namespace.
+- **Key capabilities:** Kubernetes-native policy configuration, identity-based access control using each agent's SPIFFE identity, Model Armor screening of prompts and responses, TLS inspection of outbound agent traffic, and custom policy engines through extension bindings.
+- **Primary use case:** Platform and security teams that run agents on GKE and want to govern inbound, outbound, and in-cluster agent traffic with the Kubernetes tooling they already use.
 
-5.  **Request forwarding** : If all checks pass, Agent Gateway forwards the request to the target destination.
+Agent Gateway support for GKE agents is coming soon. Features and timing are subject to change. To request early access, [sign up for preview](https://docs.google.com/forms/d/e/1FAIpQLSeUpnNRtYQjLRblii-KoUbJJ7DjEV6fvQAfO21IAXgVSqFjpw/viewform) .
 
-## Supported agent runtimes
+#### For Cloud Run
 
-Agent Gateway lets you govern traffic for agents and tools running on the following runtime platforms:
+Agent Gateway extends Agent Platform governance to agents and MCP servers that you deploy on Cloud Run. You attach Agent Gateway to Google Cloud networking infrastructure that you already manage in your project. Secure Web Proxy governs your agents' outbound traffic, and an Application Load Balancer governs inbound traffic to your agents. Agent Gateway enforces policies on both paths based on agent and caller identity, without changes to your agent code.
 
-- **[Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime)** : Agent Gateway supports both Agent-to-Anywhere (egress) and Client-to-Agent (ingress) modes.
+- **Architecture and infrastructure:** You run the proxy infrastructure in your own project.
 
-- **[Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/agents-overview)** : Agent Gateway supports only Agent-to-Anywhere (egress) mode.
+  - **Client-to-Agent:** For Client-to-Agent traffic, clients reach your agents through a regional Application Load Balancer, either external for internet clients or internal for clients in your VPC network. Agent Gateway is attached to the load balancer, so it authenticates and checks every inbound request before the request reaches the agent.
+  - **Agent-to-Anywhere:** For Agent-to-Anywhere traffic, Cloud Run ambient networking intercepts outbound traffic from your agent container. It then forwards that traffic over Direct VPC egress through a mutually authenticated (mTLS) tunnel that carries the agent's identity, to a Secure Web Proxy instance in your VPC network that acts as the policy enforcement point.
 
-For details on planning a deployment with these runtimes, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
+  You create and manage the Secure Web Proxy and load balancer resources, and keep control of your VPC network, certificates, and network perimeter.
+
+- **Key capabilities:** Identity-based access policies for outbound calls to tools, models, and APIs, authentication and authorization of inbound callers through Identity-Aware Proxy (IAP), Model Armor screening of prompts, responses, and tool payloads in both directions, TLS inspection of outbound traffic with a certificate authority that you control, and one central set of policies across many Cloud Run services, with custom policy engines through extension bindings.
+
+- **Primary use case:** Security and platform teams that run agents on Cloud Run and need centralized governance of inbound and outbound agent traffic. This includes organizations that require security enforcement on infrastructure that's separate from the application runtime, and organizations that route traffic through a hub-and-spoke VPC network for inspection.
+
+Agent Gateway support for Cloud Run agents is coming soon. Features and timing are subject to change. To request early access, [sign up for preview](https://docs.google.com/forms/d/e/1FAIpQLSeUpnNRtYQjLRblii-KoUbJJ7DjEV6fvQAfO21IAXgVSqFjpw/viewform) .
+
+### Agent Gateway for cross-cloud
+
+Agent Gateway for cross-cloud extends Agent Platform governance to agents that run on Kubernetes clusters outside Google Cloud, such as Amazon EKS, Azure AKS, Red Hat OpenShift, or clusters in your own data centers. You manage governance centrally in Google Cloud, and policies are enforced inside your own cluster.
+
+- **Architecture and infrastructure:** Google Cloud hosts the management plane, where you define agent identities, registry entries, and policies. You deploy a lightweight, Envoy-based Agent Gateway and its supporting components into your Kubernetes cluster. You're responsible for your cluster's networking, including routing agent traffic to the gateway. Agent traffic stays in your environment. Only the policy checks that you configure, such as Model Armor screening, call out to Google Cloud.
+- **Key capabilities:** Governance of Agent-to-Anywhere traffic from your agents, exchange of Kubernetes workload credentials for Agent Identity credentials through workload identity federation, and enforcement of policies that you define centrally, such as Model Armor. It also extends Agent Registry and Agent Observability (access logs and traces) to agents outside Google Cloud.
+- **Primary use case:** Enterprises that run agents across multiple clouds or in their own data centers and want one set of governance policies, one registry, and one view of agent activity for all of their agents.
+
+Agent Gateway for cross-cloud is coming soon. Features and timing are subject to change. To request early access, [sign up for preview](https://docs.google.com/forms/d/e/1FAIpQLSeUpnNRtYQjLRblii-KoUbJJ7DjEV6fvQAfO21IAXgVSqFjpw/viewform) .
 
 ## Supported protocols
 
-Agent Gateway supports all HTTP-based traffic, including MCP and A2A traffic. At a minimum, the gateway acts as a passthrough that securely terminates and routes incoming traffic.
+Agent Gateway supports standard HTTP-based agentic communication protocols across all deployment models, including:
 
-For MCP traffic only, Agent Gateway can parse request data to extract attributes. This lets you create authorization policies with conditions based on those attributes. For example, you can create policies that restrict access to specific tools. For details, see [Authorization based on MCP attributes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#mcp-attributes) .
+- **Model Context Protocol (MCP):** Governs outbound and inbound MCP tool calls over Server-Sent Events (SSE) or HTTP POST requests.
+- **Agent-to-Agent (A2A):** Governs inter-agent delegation and task execution APIs.
+- **REST and gRPC:** Supports HTTP/1.1 and HTTP/2 (gRPC) traffic across GKE, Cloud Run, and cross-cloud deployments.
+
+For MCP traffic, Agent Gateway inspects JSON-RPC requests to extract tool names and method attributes, enabling fine-grained tool access policies across all deployment models. For details, see [Authorization based on MCP attributes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#mcp-attributes) .
 
 ## Limitations
 
-- For Gemini Enterprise, Client-to-Agent mode is not supported by Agent Gateway.
 - Each Agent Gateway instance can govern up to 5,000 resources registered in Agent Registry.
-- Review the [limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#limitations) associated with Agent Runtime.
-- Review the [limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#limitations) associated with authorization policies.
-- When [using `trustConfig` s to route traffic to destinations that use private CAs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) , you must rotate the PEM files manually. Automated rotation of PEM files using secret managers, such as Google Cloud's Secret Manager, is not supported.
-- Agent Gateway doesn't support VPC networks that have been configured with [Network Security Integration](https://docs.cloud.google.com/network-security-integration/docs/in-band/in-band-integration-overview) or [Cloud Next Generation Firewall Enterprise](https://docs.cloud.google.com/firewall/docs/ngfw_tiers#ngfw-tiers-enterprise) . If you deploy Agent Gateway on a network that uses these features, requests fail and return a `503` error in Logging.
+- Review the following pages to learn about limitations associated with your chosen deployment model and features:
+  - [Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#limitations)
+  - [Authorization policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#limitations)
+  - [VPC connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity)
 
 ## API and gcloud reference
 

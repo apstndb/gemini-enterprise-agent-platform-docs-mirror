@@ -15,6 +15,7 @@ This page also shows you how to do the following:
 - Extend a session beyond the default time limit
 - Resume a previous session
 - Update system instructions during a session
+- Update system instructions and tools during a session with Gemini 3.8 Live
 - Configure the context window of a session
 - Enable transcription for a session
 - Encrypt session data with a customer-managed encryption key (CMEK)
@@ -268,6 +269,8 @@ To set up CMEK for the Gemini Live API, do the following:
 
 The Gemini Live API lets you update the system instructions during an active session. Use this to adapt the model's responses, such as changing the response language or modifying the tone.
 
+The following method applies to Gemini 2.5 Flash Live API Native Audio. For Gemini 3.8 Live, see [Update system instructions and tools with Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#update-context-3-8-live) .
+
 To update the system instructions mid-session, you can send text content with the `system` role. The updated system instruction will remain in effect for the remaining session.
 
 ### Python
@@ -280,6 +283,51 @@ session.send_client_content(
       turn_complete=False
   )
 ```
+
+## Update system instructions and tools with Gemini 3.8 Live
+
+With Gemini 3.8 Live, you can update the system instructions and tools of an active session by sending a [`BidiGenerateContentContextUpdate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/live-api#google.cloud.aiplatform.v1.BidiGenerateContentContextUpdate) message. For example, you can change the response language or tone, or give the model a different set of functions when the conversation moves to a new task. With the Google Gen AI SDK, call `send_context_update` . With WebSockets, set the `context_update` field of the client message. Don't send client content with the `system` role to Gemini 3.8 Live.
+
+Set the fields that you want to change:
+
+- `system_instruction` : Replaces the system instruction from the setup message for the rest of the session.
+- `tools` : Replaces the session's entire list of tools. Include every tool that the model should still be able to use. To remove all tools, send an empty list.
+
+Fields that you don't set keep their current values. Updates are processed in order with the rest of the session's input.
+
+> **Note:** The system instruction and tools are part of the model's prompt prefix, so updating them invalidates the prompt cache and can increase the latency of the next response. Update them only when needed.
+
+### Python
+
+```
+from google.genai import types
+
+# Replace the system instruction.
+await session.send_context_update(
+    system_instruction="Respond only in Spanish."
+)
+
+# Replace the tool list.
+get_current_weather = types.FunctionDeclaration(
+    name="get_current_weather",
+    description="Get the current weather in a given location",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={"location": types.Schema(type=types.Type.STRING)},
+    ),
+)
+await session.send_context_update(
+    tools=[types.Tool(function_declarations=[get_current_weather])]
+)
+
+# Remove all tools.
+await session.send_context_update(tools=[])
+```
+
+Server-side tools are set up when the session starts, so the following limitations apply when a tools update includes them. Function declarations aren't affected and can be added in any tools update.
+
+- To use Grounding with Google Search after a tools update, also declare `google_search` in the setup message.
+- Web Grounding for Enterprise, Agent Search, and RAG Engine tools can only be declared in the setup message. A `context_update` that includes them returns an `INVALID_ARGUMENT` error.
 
 ## Configure the context window of the session
 

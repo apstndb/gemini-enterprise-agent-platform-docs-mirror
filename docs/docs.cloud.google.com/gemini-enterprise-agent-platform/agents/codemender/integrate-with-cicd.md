@@ -640,17 +640,17 @@ To commit without the scan, run `git commit --no-verify` .
 
 The following `cm find` flags control pull request scans. For all flags, run `cm find --help` :
 
-| Flag                            | Default         | Description                                                                                                                                                                          |
-|---------------------------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--diff[= `` REF `` ]`          | Off             | Scans the changes compared with `REF` , such as `origin/main` . Without `REF` , scans uncommitted changes to tracked files (compared against `HEAD` ). Can't be used with `--deep` . |
-| `--staged`                      | Off             | With `--diff` , scans only staged changes.                                                                                                                                           |
-| `--diff-depth `` DEPTH`         | `1`             | Traversal depth for impact analysis (1 to 3, default: 1-hop).                                                                                                                        |
-| `--diff-workers `` COUNT`       | `4`             | The number of files to scan at the same time, from 1 to 16.                                                                                                                          |
-| `--diff-max-neighbors `` COUNT` | `10`            | The maximum number of dependent files to scan.                                                                                                                                       |
-| `--fail-on `` SEVERITIES`       | `CRITICAL,HIGH` | With `--diff` , the severities that make `cm find` exit with status 1. With an empty value, findings don't affect the exit status.                                                   |
-| `--fail-on-truncation`          | Off             | With `--diff` , exits with status 1 if CodeMender finds more dependent files than `--diff-max-neighbors` allows.                                                                     |
-| `--format `` FORMAT`            | `table`         | The report format: `table` , `json` , or `sarif` .                                                                                                                                   |
-| `--output `` FILE`              | Standard output | The file to write the report to.                                                                                                                                                     |
+| Flag                            | Default         | Description                                                                                                                                                                                       |
+|---------------------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--diff[= `` REF `` ]`          | Off             | Scans the changes compared with `REF` , such as `origin/main` . Without `REF` , scans uncommitted changes to tracked files (compared against `HEAD` ). Can't be used with `--deep` or `--quick` . |
+| `--staged`                      | Off             | With `--diff` , scans only staged changes.                                                                                                                                                        |
+| `--diff-depth `` DEPTH`         | `1`             | Traversal depth for impact analysis (1 to 3, default: 1-hop).                                                                                                                                     |
+| `--diff-workers `` COUNT`       | `4`             | The number of files to scan at the same time, from 1 to 16.                                                                                                                                       |
+| `--diff-max-neighbors `` COUNT` | `10`            | The maximum number of dependent files to scan.                                                                                                                                                    |
+| `--fail-on `` SEVERITIES`       | `CRITICAL,HIGH` | With `--diff` , the severities that make `cm find` exit with status 1. With an empty value, findings don't affect the exit status.                                                                |
+| `--fail-on-truncation`          | Off             | With `--diff` , exits with status 1 if CodeMender finds more dependent files than `--diff-max-neighbors` allows.                                                                                  |
+| `--format `` FORMAT`            | `table`         | The report format: `table` , `json` , or `sarif` .                                                                                                                                                |
+| `--output `` FILE`              | Standard output | The file to write the report to.                                                                                                                                                                  |
 
 ## Troubleshooting
 

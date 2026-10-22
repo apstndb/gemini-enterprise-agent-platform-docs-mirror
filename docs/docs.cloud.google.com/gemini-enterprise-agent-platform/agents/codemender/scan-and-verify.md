@@ -20,12 +20,18 @@ CodeMender lets you proactively scan your codebase for software weaknesses and e
 
 ## Scan for vulnerabilities
 
-To run a rapid security scan across your codebase, run `cm find` . Scan targeted modules or batches of 10 to 50 files at a time for optimal performance.
+To scan your codebase for vulnerabilities, run `cm find` . By default, `cm find` runs a concurrent file-by-file deep scan across the target path. For a faster single-session scan, pass the `--quick` flag.
 
 Scan a specific subdirectory:
 
 ```
 cm find ./src/auth/
+```
+
+Run a faster single-session quick scan on a subdirectory:
+
+```
+cm find ./src/auth/ --quick
 ```
 
 Scan only the modified files in a subdirectory:
@@ -46,7 +52,7 @@ Skip interactive approval prompts during the scan:
 cm find ./src/auth/ -y
 ```
 
-For more information about scanning pull requests with `--diff` or running deep multi-session scans with `--deep` , see [CodeMender find modes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/find-modes) and [Integrate with CI/CD](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/integrate-with-cicd) .
+For more information about default deep scans, scanning pull requests with `--diff` , or running single-session scans with `--quick` , see [CodeMender find modes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/find-modes) and [Integrate with CI/CD](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/integrate-with-cicd) .
 
 ## Verify vulnerabilities
 

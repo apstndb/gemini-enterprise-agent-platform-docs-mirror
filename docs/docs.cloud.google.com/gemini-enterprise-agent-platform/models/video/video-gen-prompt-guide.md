@@ -412,8 +412,6 @@ below"
 
 Audio prompts help guide the visuals of the video in relation to sound. Audio direction can powerfully shape the action, pacing, and mood of the video.
 
-Audio is supported by `veo-3.0-generate-001` in [Preview](https://cloud.google.com/products#product-launch-stages) .
-
 Clearly specify if you want audio. We recommend that you use separate sentences in your prompt to describe the audio. The following are examples of common audio elements you can use:
 
 - **Sound effects** : individual, distinct sounds that occur within the scene. For example, "the sound of a phone ringing", "water splashing in the background", "soft house sounds, the creak of a closet door, and a ticking clock."

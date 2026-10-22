@@ -89,7 +89,15 @@ Before using any of the request data, make the following replacements:
 - `MODEL_ID` : A string representing the model ID to use. The following are accepted values:
   - `"gemini-omni-1.1-flash-preview"`
 - `TEXT_PROMPT` : The text prompt used to guide video generation.
-- `CLOUD_STORAGE_INPUT_URI` : A string representing the Cloud Storage bucket that contains the input media. For example: `"gs://video-bucket/input/"` .
+- `CLOUD_STORAGE_VIDEO_URI` : A string representing the Cloud Storage bucket that contains the input video. For example: `"gs://video-bucket/input/"` .
+- `VIDEO_MIME` : A string representing a video MIME type. The following are accepted values:
+  - `video/3gpp`
+  - `video/mp4`
+  - `video/mpeg`
+  - `video/quicktime`
+  - `video/webm`
+  - `video/x-flv`
+  - `video/x-ms-wmv`
 - `CLOUD_STORAGE_OUTPUT_URI` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
 - `ASPECT_RATIO` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
   - `"16:9"`
@@ -113,9 +121,9 @@ Request JSON body:
       "text": "TEXT_PROMPT"
     },
     {
-      "type": "image",
-      "uri": "CLOUD_STORAGE_INPUT_URI",
-      "mime_type": "image/png"
+      "type": "video",
+      "uri": "CLOUD_STORAGE_VIDEO_URI",
+      "mime_type": "VIDEO_MIME"
     }
   ],
   "response_format": [
@@ -169,7 +177,7 @@ The response contains an interaction which includes the model thoughts and an ou
 ```
 {
   "id":"INTERACTION_ID",
-  "model":"gemini-omni-flash-preview",
+  "model":"gemini-omni-1.1-flash-preview",
   "status":"completed",
   "usage":{
     "total_tokens":479,
@@ -201,7 +209,7 @@ The response contains an interaction which includes the model thoughts and an ou
           "type":"text",
           "text":"MODEL THOUGHTS"
         }
-      ],
+      ]
     },
     { 
       "type":"model_output",
@@ -217,7 +225,7 @@ The response contains an interaction which includes the model thoughts and an ou
   "object":"interaction",
   "role":"model",
   "created":"2026-05-29T02:17:56Z",
-  "updated":"2026-05-29T02:17:56Z",
+  "updated":"2026-05-29T02:17:56Z"
 }
 ```
 
@@ -229,7 +237,15 @@ Before using any of the request data, make the following replacements:
 - `MODEL_ID` : A string representing the model ID to use. The following are accepted values:
   - `"gemini-omni-1.1-flash-preview"`
 - `TEXT_PROMPT` : The text prompt used to guide video generation.
-- `CLOUD_STORAGE_INPUT_URI` : A string representing the Cloud Storage bucket that contains the input media. For example: `"gs://video-bucket/input/"` .
+- `CLOUD_STORAGE_VIDEO_URI` : A string representing the Cloud Storage bucket that contains the input video. For example: `"gs://video-bucket/input/"` .
+- `VIDEO_MIME` : A string representing a video MIME type. The following are accepted values:
+  - `video/3gpp`
+  - `video/mp4`
+  - `video/mpeg`
+  - `video/quicktime`
+  - `video/webm`
+  - `video/x-flv`
+  - `video/x-ms-wmv`
 - `CLOUD_STORAGE_OUTPUT_URI` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
 - `ASPECT_RATIO` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
   - `"16:9"`
@@ -259,9 +275,9 @@ Request JSON body:
           "text": "TEXT_PROMPT"
         },
         {
-          "type": "image",
-          "uri": "CLOUD_STORAGE_INPUT_URI",
-          "mime_type": "image/png"
+          "type": "video",
+          "uri": "CLOUD_STORAGE_VIDEO_URI",
+          "mime_type": "VIDEO_MIME"
         }
       ]
     }
@@ -274,7 +290,12 @@ Request JSON body:
       "aspect_ratio": "ASPECT_RATIO",
       "duration": "DURATION"
     }
-  ]
+  ],
+  "generation_config": {
+    "video_config": {
+      "task": "extend"
+    }
+  }
 }
 ```
 
@@ -312,7 +333,7 @@ The response contains an interaction which includes the model thoughts and an ou
 ```
 {
   "id":"INTERACTION_ID",
-  "model":"gemini-omni-flash-preview",
+  "model":"gemini-omni-1.1-flash-preview",
   "status":"completed",
   "usage":{
     "total_tokens":479,
@@ -344,7 +365,7 @@ The response contains an interaction which includes the model thoughts and an ou
           "type":"text",
           "text":"MODEL THOUGHTS"
         }
-      ],
+      ]
     },
     { 
       "type":"model_output",
@@ -360,7 +381,7 @@ The response contains an interaction which includes the model thoughts and an ou
   "object":"interaction",
   "role":"model",
   "created":"2026-05-29T02:17:56Z",
-  "updated":"2026-05-29T02:17:56Z",
+  "updated":"2026-05-29T02:17:56Z"
 }
 ```
 
@@ -407,7 +428,7 @@ The response is in a format similar to the following:
 ```
 {
   "id":"INTERACTION_ID",
-  "model":"gemini-omni-flash-preview",
+  "model":"gemini-omni-1.1-flash-preview",
   "status":"completed",
   "usage":{
     "total_tokens":479,
@@ -447,13 +468,13 @@ The response is in a format similar to the following:
       ]
     },
     {
-      "type":"thought"
+      "type":"thought",
       "summary":[
         {
           "type":"text",
           "text":"MODEL THOUGHTS"
         }
-      ],
+      ]
     },
     { 
       "type":"model_output",
@@ -466,10 +487,10 @@ The response is in a format similar to the following:
       ]
     }
   ],
-  "object":"interaction"
+  "object":"interaction",
   "role":"model",
   "created":"2026-05-29T02:17:56Z",
-  "updated":"2026-05-29T02:17:56Z",
+  "updated":"2026-05-29T02:17:56Z"
 }
 ```
 
@@ -481,7 +502,15 @@ Before using any of the request data, make the following replacements:
 - `MODEL_ID` : A string representing the model ID to use. The following are accepted values:
   - `"gemini-omni-1.1-flash-preview"`
 - `TEXT_PROMPT` : The text prompt used to guide video generation.
-- `CLOUD_STORAGE_INPUT_URI` : A string representing the Cloud Storage bucket that contains the input media. For example: `"gs://video-bucket/input/"` .
+- `CLOUD_STORAGE_VIDEO_URI` : A string representing the Cloud Storage bucket that contains the input video. For example: `"gs://video-bucket/input/"` .
+- `VIDEO_MIME` : A string representing a video MIME type. The following are accepted values:
+  - `video/3gpp`
+  - `video/mp4`
+  - `video/mpeg`
+  - `video/quicktime`
+  - `video/webm`
+  - `video/x-flv`
+  - `video/x-ms-wmv`
 - `CLOUD_STORAGE_OUTPUT_URI` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
 - `ASPECT_RATIO` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
   - `"16:9"`
@@ -511,9 +540,9 @@ Request JSON body:
           "text": "TEXT_PROMPT"
         },
         {
-          "type": "image",
-          "uri": "CLOUD_STORAGE_INPUT_URI",
-          "mime_type": "image/png"
+          "type": "video",
+          "uri": "CLOUD_STORAGE_VIDEO_URI",
+          "mime_type": "VIDEO_MIME"
         }
       ]
     }
@@ -526,7 +555,12 @@ Request JSON body:
       "aspect_ratio": "ASPECT_RATIO",
       "duration": "DURATION"
     }
-  ]
+  ],
+  "generation_config": {
+    "video_config": {
+      "task": "extend"
+    }
+  }
 }
 ```
 
@@ -563,7 +597,7 @@ The response contains an interaction which includes the model thoughts and an ou
 
 ```
 event: interaction.created
-data: {"interaction":{"id":"INTERACTION_ID","status":"in_progress","object":"interaction","model":"gemini-omni-flash-preview"},"event_type":"interaction.created"}
+data: {"interaction":{"id":"INTERACTION_ID","status":"in_progress","object":"interaction","model":"gemini-omni-1.1-flash-preview"},"event_type":"interaction.created"}
 
 event: interaction.status_update
 data: {"interaction_id":"INTERACTION_ID","status":"in_progress","event_type":"interaction.status_update"}
@@ -593,7 +627,7 @@ event: step.stop
 data: {"index":1,"event_type":"step.stop"}
 
 event: interaction.completed
-data: {"interaction":{"id":"INTERACTION_ID","status":"completed","usage":{"total_tokens":17812,"total_input_tokens":21,"input_tokens_by_modality":[{"modality":"text","tokens":21}],"total_output_tokens":17376,"output_tokens_by_modality":[{"modality":"video","tokens":17376}],"total_thought_tokens":415},"created":"2026-08-12T21:26:20Z","updated":"2026-08-12T21:26:20Z","event_id":"EVENT_ID","object":"interaction","model":"gemini-omni-flash-preview"},"event_id":"EVENT_ID","event_type":"interaction.completed"}
+data: {"interaction":{"id":"INTERACTION_ID","status":"completed","usage":{"total_tokens":17812,"total_input_tokens":21,"input_tokens_by_modality":[{"modality":"text","tokens":21}],"total_output_tokens":17376,"output_tokens_by_modality":[{"modality":"video","tokens":17376}],"total_thought_tokens":415},"created":"2026-08-12T21:26:20Z","updated":"2026-08-12T21:26:20Z","event_id":"EVENT_ID","object":"interaction","model":"gemini-omni-1.1-flash-preview"},"event_id":"EVENT_ID","event_type":"interaction.completed"}
 
 event: done
 data: [DONE]
@@ -641,7 +675,7 @@ The response is a stream of Server-Sent Events (SSE) in a format similar to the 
 
 ```
 event: interaction.created
-data: {"interaction":{"id":"INTERACTION_ID","status":"in_progress","object":"interaction","model":"gemini-omni-flash-preview"},"event_type":"interaction.created"}
+data: {"interaction":{"id":"INTERACTION_ID","status":"in_progress","object":"interaction","model":"gemini-omni-1.1-flash-preview"},"event_type":"interaction.created"}
 
 event: interaction.status_update
 data: {"interaction_id":"INTERACTION_ID","status":"in_progress","event_type":"interaction.status_update"}
@@ -671,7 +705,7 @@ event: step.stop
 data: {"index":1,"event_type":"step.stop"}
 
 event: interaction.completed
-data: {"interaction":{"id":"INTERACTION_ID","status":"completed","usage":{"total_tokens":17664,"total_input_tokens":21,"input_tokens_by_modality":[{"modality":"text","tokens":21}],"total_output_tokens":17376,"output_tokens_by_modality":[{"modality":"video","tokens":17376}],"total_thought_tokens":267},"created":"2026-08-12T21:33:08Z","updated":"2026-08-12T21:33:08Z","event_id":"EVENT_ID","object":"interaction","model":"gemini-omni-flash-preview"},"event_id":"EVENT_ID","event_type":"interaction.completed"}
+data: {"interaction":{"id":"INTERACTION_ID","status":"completed","usage":{"total_tokens":17664,"total_input_tokens":21,"input_tokens_by_modality":[{"modality":"text","tokens":21}],"total_output_tokens":17376,"output_tokens_by_modality":[{"modality":"video","tokens":17376}],"total_thought_tokens":267},"created":"2026-08-12T21:33:08Z","updated":"2026-08-12T21:33:08Z","event_id":"EVENT_ID","object":"interaction","model":"gemini-omni-1.1-flash-preview"},"event_id":"EVENT_ID","event_type":"interaction.completed"}
 
 event: done
 data: [DONE]
@@ -685,7 +719,15 @@ Before using any of the request data, make the following replacements:
 - `MODEL_ID` : A string representing the model ID to use. The following are accepted values:
   - `"gemini-omni-1.1-flash-preview"`
 - `TEXT_PROMPT` : The text prompt used to guide video generation.
-- `CLOUD_STORAGE_INPUT_URI` : A string representing the Cloud Storage bucket that contains the input media. For example: `"gs://video-bucket/input/"` .
+- `CLOUD_STORAGE_VIDEO_URI` : A string representing the Cloud Storage bucket that contains the input video. For example: `"gs://video-bucket/input/"` .
+- `VIDEO_MIME` : A string representing a video MIME type. The following are accepted values:
+  - `video/3gpp`
+  - `video/mp4`
+  - `video/mpeg`
+  - `video/quicktime`
+  - `video/webm`
+  - `video/x-flv`
+  - `video/x-ms-wmv`
 - `CLOUD_STORAGE_OUTPUT_URI` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
 - `ASPECT_RATIO` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
   - `"16:9"`
@@ -703,16 +745,16 @@ Request JSON body:
 ```
 {
   "model": "MODEL_ID",
+  "background": true,
   "input": [
     {
-      "background": true,
       "type": "text",
       "text": "TEXT_PROMPT"
     },
     {
-      "type": "image",
-      "uri": "CLOUD_STORAGE_INPUT_URI",
-      "mime_type": "image/png"
+      "type": "video",
+      "uri": "CLOUD_STORAGE_VIDEO_URI",
+      "mime_type": "VIDEO_MIME"
     }
   ],
   "response_format": [
@@ -814,7 +856,7 @@ The response is in a format similar to the following:
 ```
 {
   "id":"INTERACTION_ID",
-  "model":"gemini-omni-flash-preview",
+  "model":"gemini-omni-1.1-flash-preview",
   "status":"completed",
   "usage":{
     "total_tokens":479,
@@ -854,13 +896,13 @@ The response is in a format similar to the following:
       ]
     },
     {
-      "type":"thought"
+      "type":"thought",
       "summary":[
         {
           "type":"text",
           "text":"MODEL THOUGHTS"
         }
-      ],
+      ]
     },
     { 
       "type":"model_output",
@@ -873,10 +915,10 @@ The response is in a format similar to the following:
       ]
     }
   ],
-  "object":"interaction"
+  "object":"interaction",
   "role":"model",
   "created":"2026-05-29T02:17:56Z",
-  "updated":"2026-05-29T02:17:56Z",
+  "updated":"2026-05-29T02:17:56Z"
 }
 ```
 
@@ -977,9 +1019,9 @@ For more information about the Veo API, see the following:
 
     - `PROJECT_ID` : A string representing your Google Cloud project ID.
 
-    - `MODEL_ID` : A string that represents the model ID to use. Use one of the following when specifying a first or last video frame:
-      - **Veo 3: `veo-3.1-generate-001`**
-      - **Veo 3: `veo-3.1-fast-generate-001`**
+    - `MODEL_ID` : A string that represents the model ID to use. Use one of the following when extending a video:
+      - **Veo 3.1: `veo-3.1-generate-001`**
+      - **Veo 3.1: `veo-3.1-fast-generate-001`**
 
     - `TEXT_PROMPT` : The text prompt used to guide video generation.
 

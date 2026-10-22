@@ -10,6 +10,25 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## October 21, 2026
+
+Fixed
+
+**CodeMender updates (v0.16.0)**
+
+This release introduces updates to CodeMender:
+
+- **Deep scan by default ( `cm find` )** : `cm find` now runs a concurrent file-by-file deep scan ( `--deep` ) by default for higher vulnerability recall across repositories. To run a single-session quick scan instead, pass the `--quick` flag ( `cm find --quick` ). `cm stats` now breaks down scan usage by mode ( `--deep` , `--quick` , and `--diff` ).
+- **Pre-flight health checks ( `cm health` )** : Added the `cm health` command (with `--json` , `--strict` , and `--timeout` flags) to verify credentials, configuration, endpoint reachability, and project authorization before running scans.
+- **Expanded file discovery** : `cm find` now scans `.hh` , `.hxx` , `.inl` , and `.ipp` C++ headers, extensionless scripts with supported language shebangs ( `python` , `node` , `ruby` , and `php` ), nested `build/` , `target/` , `obj/` , and `bin/` source directories, and production code under `spec/` , `locale/` , and `i18n/` .
+- **Bug fixes** :
+  - Restricted `cm verify` file writes to `.exploit/` inside the project root and skipped missing or out-of-scope session artifacts during workspace restore.
+  - Capped single-turn file reads at 256 KiB with pagination hints, bounded unified diff generation on large files, and raised `run_command` default and maximum timeouts to 120 seconds and 300 seconds.
+  - Fixed an issue where sandboxed sessions could not write tool call entries to `~/.codemender/audit.log` .
+  - Updated multi-file `--deep` and `--diff` scans to report `INCOMPLETE` status when one or more file scans fail.
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
+
 ## October 14, 2026
 
 Feature

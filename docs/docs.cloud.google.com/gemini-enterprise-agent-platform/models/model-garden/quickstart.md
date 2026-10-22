@@ -55,16 +55,21 @@ Your administrator might also be able to give the Compute Engine default service
 
 1.  In the Google Cloud console, go to a supported model's model card, such as the **Gemma 2** model card.
 
-2.  In the **Try out** panel:
+2.  If prompted, review and accept the model license agreement to access the model card and testing features.
+
+3.  In the **Try out** panel, configure the prompt and test parameters:
 
     1.  For **Region** , accept the default or choose your region.
+
     2.  For **Endpoint** , select **Demo playground** .
+
     3.  In the **Prompt** box, enter `Why is the sky blue?` .
+
     4.  Expand the **Advanced options** section and view the default parameters.
 
     ![The try out panel for Gemma 2b-it](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/model-garden/images/try-out-gemma.png)
 
-3.  Click **Submit** . The output appears below the Submit button.
+4.  Click **Submit** . The output appears below the **Submit** button.
 
 ## Try Spaces
 

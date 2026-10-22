@@ -29,7 +29,7 @@ The overhead of more than four seconds is almost entirely due to new instances s
 
 Try the following methods to mitigate the cold start problem:
 
-- Set a `min_instances` value that is high enough to handle your baseline traffic. For example, setting `min_instances=10` to the example agent can reduce the average latency for a cold start to approximately 1.4 seconds. For applications with spiky or high traffic, set `min_instances` to a value that can handle your typical load without needing to scale from 1. The maximum value is 10.
+- Set a `min_instances` value that is high enough to handle your baseline traffic. For example, setting `min_instances=10` to the example agent can reduce the average latency for a cold start to approximately 1.4 seconds. For applications with spiky or high traffic, set `min_instances` to a value that can handle your typical load without needing to scale from 1. For the range of accepted values, see the [`ReasoningEngineSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ReasoningEngineSpec#DeploymentSpec) REST resource reference.
 
 - Send a stable, continuous, predictable load to Agent Runtime using a queue. For example, running a sustained load test of 1,500 queries per minute (25 queries per second) for 60 seconds on an Agent Development Kit (ADK)-based agent with `min_instances=10` and the default `concurrency` (9) can yield the following result:
 

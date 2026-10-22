@@ -409,7 +409,7 @@ Each time you use a new, unique KMS key to create a resource like a RAG corpus w
 
 If you need more unique keys than the current limit, you must request a quota increase for `aiplatform.googleapis.com/in_use_customer_managed_encryption_keys` for the select region.
 
-For more information on how to request a quota increase, see [View and edit the quotas in the Google Cloud console](https://cloud.google.com/gemini-enterprise-agent-platform/models/quotas#view-and-edit-the-quotas-in-the-dynamic_data.site_values.cloud_name_short-console) .
+For more information on how to request a quota increase, see [View and edit the quotas in the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#view-and-edit-the-quotas-in-the-dynamic_data.site_values.cloud_name_short-console) .
 
 ## What's next
 

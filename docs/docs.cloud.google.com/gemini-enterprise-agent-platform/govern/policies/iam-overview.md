@@ -6,8 +6,6 @@ description: Learn about IAM policies to securely govern agentic communication i
 data_source: docs.cloud.google.com
 ---
 
-> **Note:** This feature does not support VPC Service Controls.
-
 You can create IAM allow policies and deny policies that Agent Gateway uses to securely govern agentic communication between your agents and other services, including other agents, MCP servers, and endpoints. Agent Gateway uses Identity-Aware Proxy (IAP) to enforce the policies. IAP also [enforces end-to-end agent identity authentication and authorization security](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview#end-to-end-security) .
 
 To create an IAM policy for Agent Gateway, see [Create IAM policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies) .

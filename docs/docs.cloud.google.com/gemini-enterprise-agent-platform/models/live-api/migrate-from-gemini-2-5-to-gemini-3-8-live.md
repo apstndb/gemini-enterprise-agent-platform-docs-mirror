@@ -113,6 +113,12 @@ In Gemini 2.5 Flash Live API Native Audio, `send_client_content` is used to set 
 
 In Gemini 3.8 Live, if you want to use the `send_client_content` method to set up history seeding, in the `HistoryConfig` section of the setup message, set `initial_history_in_client_content=True` . After receiving `setup_complete` . You can then call `send_client_content` repeatedly to build history until the last message where `turn_complete=True` is set.
 
+## In-session system instruction and tools updates
+
+In Gemini 2.5 Flash Live API Native Audio, you update the system instruction during a session by sending client content with the `system` role.
+
+In Gemini 3.8 Live, call `send_context_update` in the Google Gen AI SDK, or send a `context_update` message over WebSockets, instead. It can replace the system instruction, the list of tools, or both. For details, see [Update system instructions and tools with Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#update-context-3-8-live) .
+
 ## Model behavior differences
 
 The following table describes model behavior differences for audio, multimodel, and output between Gemini 2.5 Flash Live API Native Audio and Gemini 3.8 Live:
@@ -211,5 +217,7 @@ The following is a client migration checklist that you can use when migrating fr
   - **Function scheduling behavior change** : When the user is speaking, the `scheduling=interrupt` downgrades to `scheduling=when_idle` to provide a smoother user experience.
 
 - **Session: restrict `send_client_content`** : Use `send_client_content` to set the initial history by providing a sensible `HistoryConfig` .
+
+- **Session: update context with `context_update`** : Replace in-session system instruction updates that use the `system` role with `send_context_update` calls in the Google Gen AI SDK, or `context_update` messages over WebSockets.
 
 - **Thinking: purge prompt-level thinking hacks** : To prevent dropped audio, remove all prompt text that attempts to enforce step-by-step thinking schemas or token limits.

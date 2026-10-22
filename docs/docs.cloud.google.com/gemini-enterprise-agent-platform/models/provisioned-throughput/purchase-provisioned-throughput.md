@@ -166,7 +166,7 @@ Follow these steps to purchase standard Provisioned Throughput. For assistance w
 
           > **Note:** For information about access to this release, see the [access request page](https://docs.google.com/forms/d/e/1FAIpQLScxBeD4UJ8GbUfX4SXjj5a1XJ1K7Urwvb0iSGdGccNcFRBrpQ/viewform) . For more information about using Provisioned Throughput for Gemini 2.5 Flash with Gemini Live API, see [Provisioned Throughput for Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/live-api) .
 
-        - For the [Veo 3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-001) and [Veo 3 Fast](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-001) models, enter the following:
+        - For the [Veo 3.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-001) and [Veo 3.1 Fast](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-001) models, enter the following:
 
           - **Frequency** —Specify how often outputs are generated, in seconds. This isn't the latency.
           - **Output video seconds per query** —Enter the total requested video seconds. For example, 12 seconds represents the sum of `3x4` or `2x6` video seconds.

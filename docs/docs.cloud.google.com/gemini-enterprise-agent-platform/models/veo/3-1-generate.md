@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate
 title: Veo&nbsp;3.1
-description: Learn about Veo&nbsp;3, Google's newest line of video generation models.
+description: Learn about Veo&nbsp;3.1, Google's newest line of video generation models.
 data_source: docs.cloud.google.com
 ---
 

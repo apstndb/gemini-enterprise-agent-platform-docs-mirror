@@ -32,11 +32,11 @@ From there, you can find the metrics to measure the model's performance.
 
 ![Evaluation page](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/images/eval-page.png)
 
-You can find a more detailed introduction to different evaluation metrics in the [Evaluate, test, and deploy your model](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/beginner/beginners-guide/#evaluate_model) section.
+You can find a more detailed introduction to different evaluation metrics in the [Evaluate, test, and deploy your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/beginner/beginners-guide#evaluate_model) section.
 
 ## 2. Analyze test results
 
-If you want to continue improving the model performance, the first step is often to examine the error cases and investigate the potential causes. The evaluation page of each class presents detailed test images of the given class categorized as false negatives, false positives, and true positives. The definition of each category can be found in the [Evaluate, test, and deploy your model](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/beginner/beginners-guide/#evaluate_model) section.
+If you want to continue improving the model performance, the first step is often to examine the error cases and investigate the potential causes. The evaluation page of each class presents detailed test images of the given class categorized as false negatives, false positives, and true positives. The definition of each category can be found in the [Evaluate, test, and deploy your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/beginner/beginners-guide#evaluate_model) section.
 
 For each image under every category, you can further check the prediction details by clicking the image and access the detailed analysis results. You will see the **Review similar images** panel on the right side of the page, where the closest samples from the training set are presented with distances measured in the feature space.
 

@@ -6,8 +6,6 @@ description: Learn about IAM policies to securely govern agentic communication i
 data_source: docs.cloud.google.com
 ---
 
-> **Note:** This feature does not support VPC Service Controls.
-
 You can create Identity and Access Management (IAM) Unified Access Policies (UAPs) to help securely govern communication between *agent principals* and *destination resources* , such as destination agents, MCP servers, and endpoints. These policies are bound to the project that contains your Agent Gateway instances.
 
 Agent Gateway uses Identity-Aware Proxy (IAP) to evaluate and enforce the UAPs.

@@ -497,7 +497,7 @@ The response is in a format similar to the following:
 ```
 {
   "id":"INTERACTION_ID",
-  "model":"gemini-omni-flash-preview",
+  "model":"gemini-omni-1.1-flash-preview",
   "status":"completed",
   "usage":{
     "total_tokens":479,
@@ -537,13 +537,13 @@ The response is in a format similar to the following:
       ]
     },
     {
-      "type":"thought"
+      "type":"thought",
       "summary":[
         {
           "type":"text",
           "text":"MODEL THOUGHTS"
         }
-      ],
+      ]
     },
     { 
       "type":"model_output",
@@ -556,10 +556,10 @@ The response is in a format similar to the following:
       ]
     }
   ],
-  "object":"interaction"
+  "object":"interaction",
   "role":"model",
   "created":"2026-05-29T02:17:56Z",
-  "updated":"2026-05-29T02:17:56Z",
+  "updated":"2026-05-29T02:17:56Z"
 }
 ```
 
@@ -774,7 +774,7 @@ The response is a stream of Server-Sent Events (SSE) in a format similar to the 
 
 ```
 event: interaction.created
-data: {"interaction":{"id":"INTERACTION_ID","status":"in_progress","object":"interaction","model":"gemini-omni-flash-preview"},"event_type":"interaction.created"}
+data: {"interaction":{"id":"INTERACTION_ID","status":"in_progress","object":"interaction","model":"gemini-omni-1.1-flash-preview"},"event_type":"interaction.created"}
 
 event: interaction.status_update
 data: {"interaction_id":"INTERACTION_ID","status":"in_progress","event_type":"interaction.status_update"}
@@ -804,7 +804,7 @@ event: step.stop
 data: {"index":1,"event_type":"step.stop"}
 
 event: interaction.completed
-data: {"interaction":{"id":"INTERACTION_ID","status":"completed","usage":{"total_tokens":17664,"total_input_tokens":21,"input_tokens_by_modality":[{"modality":"text","tokens":21}],"total_output_tokens":17376,"output_tokens_by_modality":[{"modality":"video","tokens":17376}],"total_thought_tokens":267},"created":"2026-08-12T21:33:08Z","updated":"2026-08-12T21:33:08Z","event_id":"EVENT_ID","object":"interaction","model":"gemini-omni-flash-preview"},"event_id":"EVENT_ID","event_type":"interaction.completed"}
+data: {"interaction":{"id":"INTERACTION_ID","status":"completed","usage":{"total_tokens":17664,"total_input_tokens":21,"input_tokens_by_modality":[{"modality":"text","tokens":21}],"total_output_tokens":17376,"output_tokens_by_modality":[{"modality":"video","tokens":17376}],"total_thought_tokens":267},"created":"2026-08-12T21:33:08Z","updated":"2026-08-12T21:33:08Z","event_id":"EVENT_ID","object":"interaction","model":"gemini-omni-1.1-flash-preview"},"event_id":"EVENT_ID","event_type":"interaction.completed"}
 
 event: done
 data: [DONE]
@@ -991,7 +991,7 @@ The response is in a format similar to the following:
 ```
 {
   "id":"INTERACTION_ID",
-  "model":"gemini-omni-flash-preview",
+  "model":"gemini-omni-1.1-flash-preview",
   "status":"completed",
   "usage":{
     "total_tokens":479,
@@ -1031,13 +1031,13 @@ The response is in a format similar to the following:
       ]
     },
     {
-      "type":"thought"
+      "type":"thought",
       "summary":[
         {
           "type":"text",
           "text":"MODEL THOUGHTS"
         }
-      ],
+      ]
     },
     { 
       "type":"model_output",
@@ -1050,10 +1050,10 @@ The response is in a format similar to the following:
       ]
     }
   ],
-  "object":"interaction"
+  "object":"interaction",
   "role":"model",
   "created":"2026-05-29T02:17:56Z",
-  "updated":"2026-05-29T02:17:56Z",
+  "updated":"2026-05-29T02:17:56Z"
 }
 ```
 
@@ -1073,7 +1073,7 @@ Do the following:
 
 5.  In the **Model** menu, select a model from the available options.
 
-    > **Note:** `veo-3.1-generate-preview` only returns 8 second videos when you use subject images.
+    > **Note:** `veo-3.1-generate-001` only returns 8 second videos when you use subject images.
 
 6.  In the **Subject Images** section, click **Add** .
 
@@ -1177,9 +1177,7 @@ For more information about the Veo API, see the following:
     - `PROJECT_ID` : Your Google Cloud project ID.
 
     - `MODEL_ID` : A string representing the model ID to use. The following models are supported:
-      - `veo-3.1-generate-preview preview`
       - `veo-3.1-generate-001`
-      - `veo-3.1-fast-generate-preview preview`
       - `veo-3.1-fast-generate-001`
 
     - `TEXT_PROMPT` : The text prompt used to guide video generation.
@@ -1208,7 +1206,7 @@ For more information about the Veo API, see the following:
 
       - `"720p"`
       - `"1080p"`
-      - `"4k"` (Veo 3.1 Preview models only)
+      - `"4k"` ( `veo-3.1-generate-001` only)
 
       Default value is `"720p"` .
 

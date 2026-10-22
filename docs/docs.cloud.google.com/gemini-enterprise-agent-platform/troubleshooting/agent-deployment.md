@@ -10,6 +10,34 @@ This document describes how to resolve errors that you might encounter when [dep
 
 Note: To search and filter agent error logs, [use the Logs Explorer](https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface) , select `RESOURCE TYPE` to "Vertex AI Reasoning Engine" and select the corresponding `RESOURCE CONTAINER` value (i.e. the project number) and `REASONING ENGINE ID` value.
 
+## Container failed to start
+
+**Issue** :
+
+Deployment fails with a `400` , `INVALID_ARGUMENT` status ( `REASONING_ENGINE_CONTAINER_FAILED_TO_START` ) and a message saying that the agent's container didn't start serving within the startup timeout.
+
+**Possible causes** :
+
+Agent Runtime starts your agent in a container and waits for it to accept requests. The deployment fails if the container exits, or doesn't respond, before the startup timeout. Common causes can include the following:
+
+- **Missing dependency** : Your agent imports a package that isn't listed in `requirements` or `extra_packages` , so loading the agent fails with an error such as `ModuleNotFoundError` .
+- **Package version mismatch** : The packages installed in the deployed environment differ from those in your development environment, so loading the agent fails with an error such as `AttributeError: Can't get attribute` . See [Serialization errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#serialization-errors) .
+- **Error during initialization** : Your agent's `set_up()` method, or other code that runs when the agent is loaded, raises an exception or waits on a resource it can't reach.
+- **Slow initialization** : Loading the agent takes longer than the startup timeout.
+- **Custom container not listening** : A custom container must listen for HTTP requests on `0.0.0.0` on port `8080` . See the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract#requirements) .
+
+**Recommended solutions** :
+
+- Check the agent's logs linked in the error metadata's `logs_url` field to find the error that stopped the container. See [View logs for an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/logging#view-logs) .
+- Add any missing packages to `requirements` or `extra_packages` , and pin the versions that you use in development.
+- To reproduce the failure locally, install only the packages listed in `requirements` in a clean environment with the same Python version, then import and instantiate your agent.
+- Move slow or failure-prone work, such as connecting to external services, out of agent initialization.
+- For a custom container, make sure that the server listens on `0.0.0.0` and on the port in the `PORT` environment variable (default `8080` ).
+
+**Solutions that don't apply** :
+
+- Retrying the deployment without changing the agent or its dependencies usually fails the same way, because the cause is in the agent code or its environment.
+
 ## Prebuilt Template errors
 
 If you run into issues with the [LangchainAgent template](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.LangchainAgent) during deployment, it might be due to one of the issues in this section.

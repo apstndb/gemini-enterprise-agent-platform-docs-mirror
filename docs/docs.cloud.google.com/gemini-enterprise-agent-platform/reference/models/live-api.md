@@ -79,7 +79,8 @@ To send a message the client must send a JSON object over an open WebSocket conn
   "setup": BidiGenerateContentSetup,
   "clientContent": BidiGenerateContentClientContent,
   "realtimeInput": BidiGenerateContentRealtimeInput,
-  "toolResponse": BidiGenerateContentToolResponse
+  "toolResponse": BidiGenerateContentToolResponse,
+  "contextUpdate": BidiGenerateContentContextUpdate
 }
 ```
 
@@ -87,12 +88,13 @@ To send a message the client must send a JSON object over an open WebSocket conn
 
 See the supported client messages in the following table:
 
-| Message                            | Description                                                                      |
-|------------------------------------|----------------------------------------------------------------------------------|
-| `BidiGenerateContentSetup`         | Session configuration to be sent in the first message                            |
-| `BidiGenerateContentClientContent` | Incremental content update of the current conversation delivered from the client |
-| `BidiGenerateContentRealtimeInput` | Real time audio or video input                                                   |
-| `BidiGenerateContentToolResponse`  | Response to a `ToolCallMessage` received from the server                         |
+| Message                            | Description                                                                        |
+|------------------------------------|------------------------------------------------------------------------------------|
+| `BidiGenerateContentSetup`         | Session configuration to be sent in the first message                              |
+| `BidiGenerateContentClientContent` | Incremental content update of the current conversation delivered from the client   |
+| `BidiGenerateContentRealtimeInput` | Real time audio or video input                                                     |
+| `BidiGenerateContentToolResponse`  | Response to a `ToolCallMessage` received from the server                           |
+| `BidiGenerateContentContextUpdate` | Update to the system instruction or tools of the current session (Gemini 3.8 Live) |
 
 ### Receive messages
 
@@ -230,9 +232,9 @@ See the list of [supported audio formats](https://docs.cloud.google.com/gemini-e
 
 You can provide system instructions to better control the model's output and specify the tone and sentiment of audio responses.
 
-System instructions are added to the prompt before the interaction begins and remain in effect for the entire session.
+System instructions are set in the setup message at the beginning of a session and are added to the prompt before the interaction begins. They remain in effect for the rest of the session unless you update them.
 
-System instructions can only be set at the beginning of a session, immediately following the initial connection. To provide further input to the model during the session, use incremental content updates.
+With Gemini 3.8 Live, you can replace the system instructions and tools during a session with a `BidiGenerateContentContextUpdate` message. For details, see [Update system instructions and tools with Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#update-context-3-8-live) . To provide further input to the model during the session, use incremental content updates.
 
 ### Interruptions
 

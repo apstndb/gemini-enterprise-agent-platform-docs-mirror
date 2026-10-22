@@ -495,7 +495,7 @@ You can troubleshoot unexpected spillover in your dashboards or 429 errors by pe
 
 ### Monitor Genmedia models
 
-Provisioned Throughput monitoring isn't available on Veo 3 models.
+Provisioned Throughput monitoring isn't available on Veo models.
 
 ### Alerting
 

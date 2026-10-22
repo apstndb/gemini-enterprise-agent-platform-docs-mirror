@@ -61,8 +61,8 @@ Before using any of the request data, make the following replacements:
 - `PROJECT_ID` : A string representing your Google Cloud project ID.
 
 - `MODEL_ID` : A string representing the model ID to use. The following are accepted values:
-  - `"gemini-omni-flash-preview"`
   - `"gemini-omni-1.1-flash-preview"`
+  - `"gemini-omni-flash-preview"`
 
 - `TEXT_PROMPT` : The text prompt used to guide video generation.
 
@@ -118,7 +118,7 @@ Request JSON body:
     {
       "type": "video",
       "delivery": "uri",
-      "output": "OUTPUT_RESOLUTION",
+      "resolution": "OUTPUT_RESOLUTION",
       "gcs_uri": "CLOUD_STORAGE_OUTPUT_URI"
     }
   ],
@@ -164,7 +164,7 @@ The response contains an interaction which includes the model thoughts and an ou
 ```
 {
   "id":"INTERACTION_ID",
-  "model":"gemini-omni-flash-preview",
+  "model":"gemini-omni-1.1-flash-preview",
   "status":"completed",
   "usage":{
     "total_tokens":479,
@@ -196,7 +196,7 @@ The response contains an interaction which includes the model thoughts and an ou
           "type":"text",
           "text":"MODEL THOUGHTS"
         }
-      ],
+      ]
     },
     { 
       "type":"model_output",
@@ -212,7 +212,7 @@ The response contains an interaction which includes the model thoughts and an ou
   "object":"interaction",
   "role":"model",
   "created":"2026-05-29T02:17:56Z",
-  "updated":"2026-05-29T02:17:56Z",
+  "updated":"2026-05-29T02:17:56Z"
 }
 ```
 
@@ -223,8 +223,8 @@ Before using any of the request data, make the following replacements:
 - `PROJECT_ID` : A string representing your Google Cloud project ID.
 
 - `MODEL_ID` : A string representing the model ID to use. The following are accepted values:
-  - `"gemini-omni-flash-preview"`
   - `"gemini-omni-1.1-flash-preview"`
+  - `"gemini-omni-flash-preview"`
 
 - `TEXT_PROMPT` : The text prompt used to guide video generation.
 
@@ -291,7 +291,12 @@ Request JSON body:
       "resolution": "OUTPUT_RESOLUTION",
       "gcs_uri": "CLOUD_STORAGE_OUTPUT_URI"
     }
-  ]
+  ],
+  "generation_config": {
+    "video_config": {
+      "task": "edit"
+    }
+  }
 }
 ```
 
@@ -329,7 +334,7 @@ The response contains an interaction which includes the model thoughts and an ou
 ```
 {
   "id":"INTERACTION_ID",
-  "model":"gemini-omni-flash-preview",
+  "model":"gemini-omni-1.1-flash-preview",
   "status":"completed",
   "usage":{
     "total_tokens":479,
@@ -361,7 +366,7 @@ The response contains an interaction which includes the model thoughts and an ou
           "type":"text",
           "text":"MODEL THOUGHTS"
         }
-      ],
+      ]
     },
     { 
       "type":"model_output",
@@ -377,7 +382,7 @@ The response contains an interaction which includes the model thoughts and an ou
   "object":"interaction",
   "role":"model",
   "created":"2026-05-29T02:17:56Z",
-  "updated":"2026-05-29T02:17:56Z",
+  "updated":"2026-05-29T02:17:56Z"
 }
 ```
 
@@ -424,7 +429,7 @@ The response is in a format similar to the following:
 ```
 {
   "id":"INTERACTION_ID",
-  "model":"gemini-omni-flash-preview",
+  "model":"gemini-omni-1.1-flash-preview",
   "status":"completed",
   "usage":{
     "total_tokens":479,
@@ -464,13 +469,13 @@ The response is in a format similar to the following:
       ]
     },
     {
-      "type":"thought"
+      "type":"thought",
       "summary":[
         {
           "type":"text",
           "text":"MODEL THOUGHTS"
         }
-      ],
+      ]
     },
     { 
       "type":"model_output",
@@ -483,10 +488,10 @@ The response is in a format similar to the following:
       ]
     }
   ],
-  "object":"interaction"
+  "object":"interaction",
   "role":"model",
   "created":"2026-05-29T02:17:56Z",
-  "updated":"2026-05-29T02:17:56Z",
+  "updated":"2026-05-29T02:17:56Z"
 }
 ```
 
@@ -497,8 +502,8 @@ Before using any of the request data, make the following replacements:
 - `PROJECT_ID` : A string representing your Google Cloud project ID.
 
 - `MODEL_ID` : A string representing the model ID to use. The following are accepted values:
-  - `"gemini-omni-flash-preview"`
   - `"gemini-omni-1.1-flash-preview"`
+  - `"gemini-omni-flash-preview"`
 
 - `TEXT_PROMPT` : The text prompt used to guide video generation.
 
@@ -565,7 +570,12 @@ Request JSON body:
       "resolution": "OUTPUT_RESOLUTION",
       "gcs_uri": "CLOUD_STORAGE_OUTPUT_URI"
     }
-  ]
+  ],
+  "generation_config": {
+    "video_config": {
+      "task": "edit"
+    }
+  }
 }
 ```
 
@@ -602,7 +612,7 @@ The response contains an interaction which includes the model thoughts and an ou
 
 ```
 event: interaction.created
-data: {"interaction":{"id":"INTERACTION_ID","status":"in_progress","object":"interaction","model":"gemini-omni-flash-preview"},"event_type":"interaction.created"}
+data: {"interaction":{"id":"INTERACTION_ID","status":"in_progress","object":"interaction","model":"gemini-omni-1.1-flash-preview"},"event_type":"interaction.created"}
 
 event: interaction.status_update
 data: {"interaction_id":"INTERACTION_ID","status":"in_progress","event_type":"interaction.status_update"}
@@ -632,7 +642,7 @@ event: step.stop
 data: {"index":1,"event_type":"step.stop"}
 
 event: interaction.completed
-data: {"interaction":{"id":"INTERACTION_ID","status":"completed","usage":{"total_tokens":17812,"total_input_tokens":21,"input_tokens_by_modality":[{"modality":"text","tokens":21}],"total_output_tokens":17376,"output_tokens_by_modality":[{"modality":"video","tokens":17376}],"total_thought_tokens":415},"created":"2026-08-12T21:26:20Z","updated":"2026-08-12T21:26:20Z","event_id":"EVENT_ID","object":"interaction","model":"gemini-omni-flash-preview"},"event_id":"EVENT_ID","event_type":"interaction.completed"}
+data: {"interaction":{"id":"INTERACTION_ID","status":"completed","usage":{"total_tokens":17812,"total_input_tokens":21,"input_tokens_by_modality":[{"modality":"text","tokens":21}],"total_output_tokens":17376,"output_tokens_by_modality":[{"modality":"video","tokens":17376}],"total_thought_tokens":415},"created":"2026-08-12T21:26:20Z","updated":"2026-08-12T21:26:20Z","event_id":"EVENT_ID","object":"interaction","model":"gemini-omni-1.1-flash-preview"},"event_id":"EVENT_ID","event_type":"interaction.completed"}
 
 event: done
 data: [DONE]
@@ -680,7 +690,7 @@ The response is a stream of Server-Sent Events (SSE) in a format similar to the 
 
 ```
 event: interaction.created
-data: {"interaction":{"id":"INTERACTION_ID","status":"in_progress","object":"interaction","model":"gemini-omni-flash-preview"},"event_type":"interaction.created"}
+data: {"interaction":{"id":"INTERACTION_ID","status":"in_progress","object":"interaction","model":"gemini-omni-1.1-flash-preview"},"event_type":"interaction.created"}
 
 event: interaction.status_update
 data: {"interaction_id":"INTERACTION_ID","status":"in_progress","event_type":"interaction.status_update"}
@@ -710,7 +720,7 @@ event: step.stop
 data: {"index":1,"event_type":"step.stop"}
 
 event: interaction.completed
-data: {"interaction":{"id":"INTERACTION_ID","status":"completed","usage":{"total_tokens":17664,"total_input_tokens":21,"input_tokens_by_modality":[{"modality":"text","tokens":21}],"total_output_tokens":17376,"output_tokens_by_modality":[{"modality":"video","tokens":17376}],"total_thought_tokens":267},"created":"2026-08-12T21:33:08Z","updated":"2026-08-12T21:33:08Z","event_id":"EVENT_ID","object":"interaction","model":"gemini-omni-flash-preview"},"event_id":"EVENT_ID","event_type":"interaction.completed"}
+data: {"interaction":{"id":"INTERACTION_ID","status":"completed","usage":{"total_tokens":17664,"total_input_tokens":21,"input_tokens_by_modality":[{"modality":"text","tokens":21}],"total_output_tokens":17376,"output_tokens_by_modality":[{"modality":"video","tokens":17376}],"total_thought_tokens":267},"created":"2026-08-12T21:33:08Z","updated":"2026-08-12T21:33:08Z","event_id":"EVENT_ID","object":"interaction","model":"gemini-omni-1.1-flash-preview"},"event_id":"EVENT_ID","event_type":"interaction.completed"}
 
 event: done
 data: [DONE]
@@ -765,9 +775,9 @@ Request JSON body:
 ```
 {
   "model": "MODEL_ID",
+  "background": true,
   "input": [
     {
-      "background": true,
       "type": "text",
       "text": "TEXT_PROMPT"
     },
@@ -875,7 +885,7 @@ The response is in a format similar to the following:
 ```
 {
   "id":"INTERACTION_ID",
-  "model":"gemini-omni-flash-preview",
+  "model":"gemini-omni-1.1-flash-preview",
   "status":"completed",
   "usage":{
     "total_tokens":479,
@@ -915,13 +925,13 @@ The response is in a format similar to the following:
       ]
     },
     {
-      "type":"thought"
+      "type":"thought",
       "summary":[
         {
           "type":"text",
           "text":"MODEL THOUGHTS"
         }
-      ],
+      ]
     },
     { 
       "type":"model_output",
@@ -934,10 +944,10 @@ The response is in a format similar to the following:
       ]
     }
   ],
-  "object":"interaction"
+  "object":"interaction",
   "role":"model",
   "created":"2026-05-29T02:17:56Z",
-  "updated":"2026-05-29T02:17:56Z",
+  "updated":"2026-05-29T02:17:56Z"
 }
 ```
 

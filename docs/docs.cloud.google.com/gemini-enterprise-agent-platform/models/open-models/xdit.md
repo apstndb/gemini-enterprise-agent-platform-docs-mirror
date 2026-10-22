@@ -151,7 +151,7 @@ xDiT offers a range of server arguments that can be configured to optimize perfo
 
 ### Serving Customizations
 
-Model Garden provides default xDiT parallelization configurations for supported models. You can inspect these default settings using the [Agent Platform SDK](https://cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/use-models?_gl=1*1vbblld*_ga*MTg0NzQyNjM2NS4xNzUyNjAyNDg5*_ga_WH2QY8WWF5*czE3NTI2OTg4MTckbzIkZzEkdDE3NTI2OTg4MTgkajU5JGwwJGgw#deploy_a_model) for Python.
+Model Garden provides default xDiT parallelization configurations for supported models. You can inspect these default settings using the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/use-models#deploy_a_model) for Python.
 
 To view the default deployment configuration for a model, such as "black-forest-labs/FLUX.1-schnell", you can run the following code snippet:
 
@@ -234,4 +234,4 @@ endpoint = model.deploy(
 
 Remember to consult the "Understanding xDiT specific arguments" section for details on each environment variable. Ensure that the product of parallelism degrees (e.g., PIPEFUSION_PARALLEL_DEGREE,ULYSSES_DEGREE, RING_DEGREE, and USE_CFG_PARALLEL) equals the total number of GPUs (N_GPUS).
 
-For more examples of serving recipes and configurations for different models, refer to the [xDiT official documentation](https://github.com/xdit-project/xDiT/tree/main?tab=readme-ov-file) . For additional information on the Model Garden SDK, see the [documentation](https://cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/use-models?_gl=1*1vbblld*_ga*MTg0NzQyNjM2NS4xNzUyNjAyNDg5*_ga_WH2QY8WWF5*czE3NTI2OTg4MTckbzIkZzEkdDE3NTI2OTg4MTgkajU5JGwwJGgw#deploy_a_model) .
+For more examples of serving recipes and configurations for different models, refer to the [xDiT official documentation](https://github.com/xdit-project/xDiT/tree/main?tab=readme-ov-file) . For additional information on the Model Garden SDK, see the [documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/use-models#deploy_a_model) .

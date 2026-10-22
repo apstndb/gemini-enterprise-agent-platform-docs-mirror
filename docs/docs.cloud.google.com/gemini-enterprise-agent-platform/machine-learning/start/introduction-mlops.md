@@ -22,9 +22,9 @@ For more information about MLOps, see [Continuous delivery and automation pipeli
 
 - **Manage and scale training jobs** : Efficiently managing compute resources for training is a core MLOps challenge, especially when scaling from experimentation to production. Vertex AI Training addresses this by providing flexible, fully managed services with compute options to fit the entire ML lifecycle.
 
-  - For experimentation and variable workloads, [custom training](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/introduction-mlops) involves the default serverless platform that provisions resources on-demand, offering maximum flexibility.
+  - For experimentation and variable workloads, [custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/introduction-mlops) involves the default serverless platform that provisions resources on-demand, offering maximum flexibility.
 
-  - For large-scale, predictable workloads, [Gemini Enterprise Agent Platform training clusters](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/overview) on reserved clusters provides a persistent, dedicated environment that ensures resource availability, delivers stable performance, and helps optimize costs for high-utilization teams.
+  - For large-scale, predictable workloads, [Gemini Enterprise Agent Platform training clusters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/overview) on reserved clusters provides a persistent, dedicated environment that ensures resource availability, delivers stable performance, and helps optimize costs for high-utilization teams.
 
 - **Track the metadata used in your ML system** : In data science, it's important to track the parameters, artifacts, and metrics used in your ML workflow, especially when you repeat the workflow multiple times.
 

@@ -439,7 +439,7 @@ The response is in a format similar to the following:
 ```
 {
   "id":"INTERACTION_ID",
-  "model":"gemini-omni-flash-preview",
+  "model":"gemini-omni-1.1-flash-preview",
   "status":"completed",
   "usage":{
     "total_tokens":479,
@@ -479,13 +479,13 @@ The response is in a format similar to the following:
       ]
     },
     {
-      "type":"thought"
+      "type":"thought",
       "summary":[
         {
           "type":"text",
           "text":"MODEL THOUGHTS"
         }
-      ],
+      ]
     },
     { 
       "type":"model_output",
@@ -498,10 +498,10 @@ The response is in a format similar to the following:
       ]
     }
   ],
-  "object":"interaction"
+  "object":"interaction",
   "role":"model",
   "created":"2026-05-29T02:17:56Z",
-  "updated":"2026-05-29T02:17:56Z",
+  "updated":"2026-05-29T02:17:56Z"
 }
 ```
 
@@ -698,7 +698,7 @@ The response is a stream of Server-Sent Events (SSE) in a format similar to the 
 
 ```
 event: interaction.created
-data: {"interaction":{"id":"INTERACTION_ID","status":"in_progress","object":"interaction","model":"gemini-omni-flash-preview"},"event_type":"interaction.created"}
+data: {"interaction":{"id":"INTERACTION_ID","status":"in_progress","object":"interaction","model":"gemini-omni-1.1-flash-preview"},"event_type":"interaction.created"}
 
 event: interaction.status_update
 data: {"interaction_id":"INTERACTION_ID","status":"in_progress","event_type":"interaction.status_update"}
@@ -728,7 +728,7 @@ event: step.stop
 data: {"index":1,"event_type":"step.stop"}
 
 event: interaction.completed
-data: {"interaction":{"id":"INTERACTION_ID","status":"completed","usage":{"total_tokens":17664,"total_input_tokens":21,"input_tokens_by_modality":[{"modality":"text","tokens":21}],"total_output_tokens":17376,"output_tokens_by_modality":[{"modality":"video","tokens":17376}],"total_thought_tokens":267},"created":"2026-08-12T21:33:08Z","updated":"2026-08-12T21:33:08Z","event_id":"EVENT_ID","object":"interaction","model":"gemini-omni-flash-preview"},"event_id":"EVENT_ID","event_type":"interaction.completed"}
+data: {"interaction":{"id":"INTERACTION_ID","status":"completed","usage":{"total_tokens":17664,"total_input_tokens":21,"input_tokens_by_modality":[{"modality":"text","tokens":21}],"total_output_tokens":17376,"output_tokens_by_modality":[{"modality":"video","tokens":17376}],"total_thought_tokens":267},"created":"2026-08-12T21:33:08Z","updated":"2026-08-12T21:33:08Z","event_id":"EVENT_ID","object":"interaction","model":"gemini-omni-1.1-flash-preview"},"event_id":"EVENT_ID","event_type":"interaction.completed"}
 
 event: done
 data: [DONE]
@@ -896,7 +896,7 @@ The response is in a format similar to the following:
 ```
 {
   "id":"INTERACTION_ID",
-  "model":"gemini-omni-flash-preview",
+  "model":"gemini-omni-1.1-flash-preview",
   "status":"completed",
   "usage":{
     "total_tokens":479,
@@ -936,13 +936,13 @@ The response is in a format similar to the following:
       ]
     },
     {
-      "type":"thought"
+      "type":"thought",
       "summary":[
         {
           "type":"text",
           "text":"MODEL THOUGHTS"
         }
-      ],
+      ]
     },
     { 
       "type":"model_output",
@@ -955,10 +955,10 @@ The response is in a format similar to the following:
       ]
     }
   ],
-  "object":"interaction"
+  "object":"interaction",
   "role":"model",
   "created":"2026-05-29T02:17:56Z",
-  "updated":"2026-05-29T02:17:56Z",
+  "updated":"2026-05-29T02:17:56Z"
 }
 ```
 
@@ -1069,8 +1069,8 @@ For more information about the Veo API, see the following:
     - `PROJECT_ID` : A string representing your Google Cloud project ID.
 
     - `MODEL_ID` : A string that represents the model ID to use. Use one of the following when specifying a first or last video frame:
-      - **Veo 3: `veo-3.1-generate-001`**
-      - **Veo 3: `veo-3.1-fast-generate-001`**
+      - **Veo 3.1: `veo-3.1-generate-001`**
+      - **Veo 3.1: `veo-3.1-fast-generate-001`**
 
     - `TEXT_PROMPT` : The text prompt used to guide video generation.
 
@@ -1086,9 +1086,7 @@ For more information about the Veo API, see the following:
 
     - `RESPONSE_COUNT` : The number of video files to generate. The accepted range of values is `1` - `4` .
 
-    - `DURATION` : An integer representing the length of the generated video files. The following are accepted values for each model:
-      - Veo 2 models: `5` - `8` . The default is `8` .
-      - Veo 3 models: `4` , `6` , or `8` . The default is `8` .
+    - `DURATION` : An integer representing the length of the generated video files. The accepted values are `4` , `6` , or `8` . The default is `8` .
 
     - **Additional optional parameters**
 
