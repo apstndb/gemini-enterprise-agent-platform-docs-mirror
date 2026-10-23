@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/error-code-429
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/error-code-429
 title: Error code 429
-description: Understand 429 errors in Google Agent Platform. Manage Pay-as-you-go and Provisioned Throughput quotas to optimize request capacity.
+description: Understand 429 errors in Google Gemini Enterprise Agent Platform. Manage Pay-as-you-go and Provisioned Throughput quotas to optimize request capacity.
 data_source: docs.cloud.google.com
 ---
 

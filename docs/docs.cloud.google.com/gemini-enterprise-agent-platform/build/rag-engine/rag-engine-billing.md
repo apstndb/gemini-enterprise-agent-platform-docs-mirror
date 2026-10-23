@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-engine-billing
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-engine-billing
 title: RAG Engine on Gemini Enterprise Agent Platform billing
-description: Understand Agent Platform RAG Engine billing. Review costs for data ingestion, LLM parsing, embedding, Spanner vector search, and LLM reranking.
+description: Understand RAG Engine on Gemini Enterprise Agent Platform billing. Review costs for data ingestion, LLM parsing, embedding, Spanner vector search, and LLM reranking.
 data_source: docs.cloud.google.com
 ---
 

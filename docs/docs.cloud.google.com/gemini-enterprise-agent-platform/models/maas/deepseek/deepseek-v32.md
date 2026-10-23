@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/deepseek/deepseek-v32
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/deepseek/deepseek-v32
 title: DeepSeek-V3.2
-description: Learn about DeepSeek-V3.2, a powerful large language model available on Agent Platform.
+description: Learn about DeepSeek-V3.2, a powerful large language model available on Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 

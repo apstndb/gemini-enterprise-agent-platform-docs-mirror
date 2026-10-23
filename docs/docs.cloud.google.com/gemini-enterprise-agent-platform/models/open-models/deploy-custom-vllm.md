@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/deploy-custom-vllm
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/deploy-custom-vllm
 title: Deploy open models with a custom vLLM container
-description: Deploy open models with a custom vLLM container on Agent Platform.
+description: Deploy open models with a custom vLLM container on Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 

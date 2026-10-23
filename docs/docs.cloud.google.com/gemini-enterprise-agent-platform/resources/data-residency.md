@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency
 title: Data residency
-description: Review data residency commitments and ML processing locations for Agent Platform. See location details for Google, partner, and open models.
+description: Review data residency commitments and ML processing locations for Gemini Enterprise Agent Platform. See location details for Google, partner, and open models.
 data_source: docs.cloud.google.com
 ---
 
-Data stored at rest in the customer selected location remains at rest in that [location](https://cloud.google.com/about/locations) , independent of the Agent Platform endpoint called by that customer's request.
+Data stored at rest in the customer selected location remains at rest in that [location](https://cloud.google.com/about/locations) , independent of the Gemini Enterprise Agent Platform endpoint called by that customer's request.
 
 Global endpoints are listed on the [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) page. Requests submitted to a `global` endpoint may be processed in any Google Cloud location around the world, and therefore don't provide any data residency guarantees. See [Cloud locations](https://cloud.google.com/about/locations) for a list of Google Cloud data center locations.
 

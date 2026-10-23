@@ -42,7 +42,7 @@ To get started, use the following steps:
 
 1.  [Complete prerequisites](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#prerequisites)
 2.  Optional: [Configure your agent for deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent)
-3.  [Create an Agent Platform instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-platform-instance)
+3.  [Create a Gemini Enterprise Agent Platform instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-platform-instance)
 4.  Optional: [Get the agent resource ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#resource-identifier)
 5.  Optional: [List the supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations)
 6.  Optional: [Grant the deployed agent permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#agent-permissions)

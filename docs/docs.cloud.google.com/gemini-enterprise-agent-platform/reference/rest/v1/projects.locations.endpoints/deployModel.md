@@ -43,3 +43,11 @@ If this field is empty, then the Endpoint's [`trafficSplit`](https://docs.cloud.
 ### Response body
 
 If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `endpoint` resource:
+
+- `aiplatform.endpoints.deploy`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

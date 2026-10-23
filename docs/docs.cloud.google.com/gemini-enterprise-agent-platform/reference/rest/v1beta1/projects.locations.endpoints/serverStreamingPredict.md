@@ -39,3 +39,11 @@ The parameters that govern the prediction.
 ### Response body
 
 If successful, the response body contains a stream of [`StreamingPredictResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/StreamingPredictResponse) instances.
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `endpoint` resource:
+
+- `aiplatform.endpoints.predict`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

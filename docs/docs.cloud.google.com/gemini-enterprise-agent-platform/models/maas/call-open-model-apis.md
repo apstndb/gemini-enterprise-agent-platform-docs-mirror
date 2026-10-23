@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis
 title: Call MaaS APIs for open models
-description: Call Agent Platform open model APIs. Implement streaming and non-streaming Chat Completions API requests. Configure regional and global endpoints.
+description: Call Gemini Enterprise Agent Platform open model APIs. Implement streaming and non-streaming Chat Completions API requests. Configure regional and global endpoints.
 data_source: docs.cloud.google.com
 ---
 

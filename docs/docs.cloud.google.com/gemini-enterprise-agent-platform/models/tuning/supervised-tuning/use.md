@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use
 title: Tune Gemini models with supervised fine-tuning
-description: Tune Gemini models using supervised fine-tuning. Create, manage, and evaluate tuning jobs with Agent Platform.
+description: Tune Gemini models using supervised fine-tuning. Create, manage, and evaluate tuning jobs with Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 

@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-maas
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-maas
 title: Use open models using Model as a Service (MaaS)
-description: Learn how to use open models through Model as a Service (MaaS) on Agent Platform, including serverless deployment and API access.
+description: Learn how to use open models through Model as a Service (MaaS) on Gemini Enterprise Agent Platform, including serverless deployment and API access.
 data_source: docs.cloud.google.com
 ---
 

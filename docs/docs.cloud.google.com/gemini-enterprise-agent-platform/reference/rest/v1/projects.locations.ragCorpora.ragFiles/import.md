@@ -36,6 +36,14 @@ Required. The config for the RagFiles to be synced and imported into the RagCorp
 
 If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.ragFiles.import`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## ImportRagFilesConfig
 
 Config for importing RagFiles.

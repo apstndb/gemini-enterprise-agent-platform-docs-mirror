@@ -19,7 +19,7 @@ Ensure your agent and MCP server environments are properly configured to emit th
 For agent telemetry setup instructions and requirements, see the following resources:
 
 - To instrument agents built with the ADK, see [Instrument ADK applications with OpenTelemetry](https://docs.cloud.google.com/stackdriver/docs/instrumentation/ai-agent-adk) .
-- To instrument agents on Agent Runtime that were not built with ADK, see [Instrument generative AI applications](https://docs.cloud.google.com/stackdriver/docs/instrumentation/ai-agent-overview) .
+- To instrument agents on Agent Runtime that were not built with ADK, see [Observability for AI agent developers](https://docs.cloud.google.com/stackdriver/docs/opentelemetry/ai-agent-developers) .
 - For MCP server telemetry, see [Use Cloud Trace to monitor MCP tool use](https://docs.cloud.google.com/mcp/monitor-mcp-tool-use-with-cloud-trace) .
 - For Model Armor telemetry, see [Configure Model Armor logging](https://docs.cloud.google.com/model-armor/configure-logging) .
 

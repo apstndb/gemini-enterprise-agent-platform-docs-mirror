@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview
 title: Gen AI evaluation service overview
-description: Understand Agent Platform's Gen AI evaluation service. Measure generative model quality using test-driven evaluation and adaptive rubrics.
+description: Understand Gemini Enterprise Agent Platform's Gen AI evaluation service. Measure generative model quality using test-driven evaluation and adaptive rubrics.
 data_source: docs.cloud.google.com
 ---
 

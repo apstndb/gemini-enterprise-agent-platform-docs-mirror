@@ -60,6 +60,14 @@ A list of results for creating/updating. It's either a successfully created/upda
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `exampleStore` resource:
+
+- `aiplatform.exampleStores.writeExample`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## UpsertResult
 
 The result for creating/updating a single example.

@@ -29,3 +29,11 @@ The request body must be empty.
 ### Response body
 
 If successful, the response body contains an instance of [`CachedContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.cachedContents#CachedContent) .
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+- `aiplatform.cachedContents.get`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

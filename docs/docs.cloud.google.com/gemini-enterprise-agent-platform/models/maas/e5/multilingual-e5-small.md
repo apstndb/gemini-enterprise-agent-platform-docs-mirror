@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/e5/multilingual-e5-small
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/e5/multilingual-e5-small
 title: Multilingual E5 Small
-description: multilingual-e5-small with Agent Platform Model Garden
+description: multilingual-e5-small with Gemini Enterprise Agent Platform Model Garden
 data_source: docs.cloud.google.com
 ---
 

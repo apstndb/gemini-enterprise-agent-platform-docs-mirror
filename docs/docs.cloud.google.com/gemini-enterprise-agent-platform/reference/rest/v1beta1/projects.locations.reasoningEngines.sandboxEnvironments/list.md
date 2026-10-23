@@ -68,3 +68,11 @@ A token, which can be sent as [`ListSandboxEnvironmentsRequest.page_token`](http
   "nextPageToken": string
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.sandboxEnvironments.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

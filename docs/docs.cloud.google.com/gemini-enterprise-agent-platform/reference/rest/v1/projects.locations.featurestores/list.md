@@ -94,3 +94,11 @@ A token, which can be sent as [`ListFeaturestoresRequest.page_token`](https://do
   "nextPageToken": string
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.featurestores.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

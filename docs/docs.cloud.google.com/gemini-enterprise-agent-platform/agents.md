@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/agents
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents
 title: Agents overview
-description: Get an overview of agents on Agent Platform, conversational AI applications that use large models like Gemini to fulfill user requests.
+description: Get an overview of agents on Gemini Enterprise Agent Platform, conversational AI applications that use large models like Gemini to fulfill user requests.
 data_source: docs.cloud.google.com
 ---
 
-Build, deploy, and manage AI agents that use reasoning and tools to perform complex enterprise tasks, such as automating workflows, discovering information across multiple systems, and generating content. Agent Platform provides an end-to-end environment for the entire agent lifecycle, including low-code and code-first development tools; a managed runtime; and integrated services for security, governance, and observability.
+Build, deploy, and manage AI agents that use reasoning and tools to perform complex enterprise tasks, such as automating workflows, discovering information across multiple systems, and generating content. Gemini Enterprise Agent Platform provides an end-to-end environment for the entire agent lifecycle, including low-code and code-first development tools; a managed runtime; and integrated services for security, governance, and observability.
 
 ## Choose your development path
 

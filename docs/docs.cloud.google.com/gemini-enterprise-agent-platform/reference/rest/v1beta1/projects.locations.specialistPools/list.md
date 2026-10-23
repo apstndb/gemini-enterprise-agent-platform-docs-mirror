@@ -70,3 +70,11 @@ The standard List next-page token.
   "nextPageToken": string
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.specialistPools.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

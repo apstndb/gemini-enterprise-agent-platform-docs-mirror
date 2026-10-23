@@ -50,6 +50,14 @@ End of mutually exclusive fields.
 
 If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `entityType` resource:
+
+- `aiplatform.entityTypes.deleteFeatureValues`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## SelectEntity
 
 message to select entity. If an entity id is selected, all the feature values corresponding to the entity id will be deleted, including the entityId.

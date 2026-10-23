@@ -104,6 +104,14 @@ Output only. Deprecated: Use [`errorStatus`](https://docs.cloud.google.com/gemin
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.tuningJobs.validateReinforcementTuningReward`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## ReinforcementTuningRewardInfo
 
 The reward info for a reward function.

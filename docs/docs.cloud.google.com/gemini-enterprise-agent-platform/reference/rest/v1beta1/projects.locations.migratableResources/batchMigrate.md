@@ -36,6 +36,14 @@ Required. The request messages specifying the resources to migrate. They must be
 
 If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.migratableResources.migrate`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## MigrateResourceRequest
 
 Config of migrating one resource from automl.googleapis.com, datalabeling.googleapis.com and ml.googleapis.com to Agent Platform.

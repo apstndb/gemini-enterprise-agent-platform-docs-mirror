@@ -52,6 +52,14 @@ Output only. Number of EvaluatedAnnotations imported.
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.modelEvaluationSlices.import`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## EvaluatedAnnotation
 
 True positive, false positive, or false negative.

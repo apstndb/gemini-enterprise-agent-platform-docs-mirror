@@ -29,3 +29,11 @@ The request body must be empty.
 ### Response body
 
 If successful, the response body contains an instance of [`Index`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.indexes#Index) .
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+- `aiplatform.indexes.get`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

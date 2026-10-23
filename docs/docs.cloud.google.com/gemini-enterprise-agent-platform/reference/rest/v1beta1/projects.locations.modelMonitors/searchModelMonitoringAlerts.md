@@ -86,6 +86,14 @@ The page token that can be used by the next [`ModelMonitoringService.SearchModel
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `modelMonitor` resource:
+
+- `aiplatform.modelMonitors.searchModelMonitoringAlerts`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## ModelMonitoringAlert
 
 Represents a single monitoring alert. This is currently used in the modelMonitors.searchModelMonitoringAlerts api, thus the alert wrapped in this message belongs to the resource asked in the request.

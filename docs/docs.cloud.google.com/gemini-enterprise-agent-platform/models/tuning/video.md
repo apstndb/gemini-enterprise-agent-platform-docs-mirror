@@ -193,7 +193,7 @@ This schema is added as a single line in the JSONL file.
 
 ## What's next
 
-- To learn more about video tuning, see [How to fine-tune Gemini 2.5 using videos via Agent Platform](https://cloud.google.com/blog/products/ai-machine-learning/how-to-fine-tune-video-outputs-using-vertex-ai?e=48754805) .
+- To learn more about video tuning, see [How to fine-tune Gemini 2.5 using videos via Gemini Enterprise Agent Platform](https://cloud.google.com/blog/products/ai-machine-learning/how-to-fine-tune-video-outputs-using-vertex-ai?e=48754805) .
 
 - To learn more about the image understanding capability of Gemini, see our [Image understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding) documentation.
 

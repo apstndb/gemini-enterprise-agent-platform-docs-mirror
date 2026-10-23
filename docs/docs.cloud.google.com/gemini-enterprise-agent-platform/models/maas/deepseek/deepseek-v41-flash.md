@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/deepseek/deepseek-v41-flash
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/deepseek/deepseek-v41-flash
 title: DeepSeek-V4.1-Flash
-description: Learn about DeepSeek-V4.1-Flash, a multimodal Mixture-of-Experts model for agentic and coding tasks with a 1M-token context window, available on Agent Platform.
+description: Learn about DeepSeek-V4.1-Flash, a multimodal Mixture-of-Experts model for agentic and coding tasks with a 1M-token context window, available on Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 

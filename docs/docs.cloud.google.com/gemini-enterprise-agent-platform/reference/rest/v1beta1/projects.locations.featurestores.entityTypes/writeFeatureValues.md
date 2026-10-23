@@ -38,6 +38,14 @@ Required. The entities to be written. Up to 100,000 feature values can be writte
 
 If successful, the response body is empty.
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `entityType` resource:
+
+- `aiplatform.entityTypes.writeFeatureValues`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## WriteFeatureValuesPayload
 
 Contains feature values to be written for a specific entity.

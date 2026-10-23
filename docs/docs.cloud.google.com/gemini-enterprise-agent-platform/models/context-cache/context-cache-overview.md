@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview
 title: Context caching overview
-description: Learn about context caching in Agent Platform, how it reduces costs and latency for Gemini API requests, and its use cases.
+description: Learn about context caching in Gemini Enterprise Agent Platform, how it reduces costs and latency for Gemini API requests, and its use cases.
 data_source: docs.cloud.google.com
 ---
 

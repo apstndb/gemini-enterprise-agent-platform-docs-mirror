@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo
 title: Flex PayGo
-description: Learn about Flex PayGo, a cost-effective option for accessing Gemini models in Agent Platform for non-critical, latency-tolerant workloads.
+description: Learn about Flex PayGo, a cost-effective option for accessing Gemini models in Gemini Enterprise Agent Platform for non-critical, latency-tolerant workloads.
 data_source: docs.cloud.google.com
 ---
 

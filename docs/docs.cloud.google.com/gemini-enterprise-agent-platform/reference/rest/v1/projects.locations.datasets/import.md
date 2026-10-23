@@ -36,6 +36,14 @@ Required. The desired input locations. The contents of all input locations will 
 
 If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+- `aiplatform.datasets.import`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## ImportDataConfig
 
 Describes the location from where we import data into a Dataset, together with the labels that will be applied to the DataItems and the Annotations.

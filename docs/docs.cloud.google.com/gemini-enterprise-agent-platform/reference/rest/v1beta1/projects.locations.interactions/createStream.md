@@ -255,3 +255,11 @@ End of mutually exclusive fields.
 ### Response body
 
 If successful, the response body contains a stream of [`InteractionStreamingEvent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/InteractionStreamingEvent) instances.
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.interactions.create`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

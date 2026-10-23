@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/self-deployed-models
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/self-deployed-models
 title: Overview of self-deployed models
-description: Understand self-deployed open, partner, and custom models on Agent Platform, including their architecture and deployment.
+description: Understand self-deployed open, partner, and custom models on Gemini Enterprise Agent Platform, including their architecture and deployment.
 data_source: docs.cloud.google.com
 ---
 

@@ -79,6 +79,14 @@ Retrieved facts from RAG data sources.
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.ragCorpora.get`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## Model
 
 metadata of the backend deployed model.

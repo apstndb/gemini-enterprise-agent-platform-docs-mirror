@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/configure-safety-filters
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/configure-safety-filters
 title: Safety and content filters
-description: Learn how to configure safety and content filters in Agent Platform to block potentially harmful responses and output.
+description: Learn how to configure safety and content filters in Gemini Enterprise Agent Platform to block potentially harmful responses and output.
 data_source: docs.cloud.google.com
 ---
 
-> To see an example of getting started with Responsible AI with Gemini API, run the "Responsible AI with Agent Platform Gemini API: Safety ratings and thresholds" notebook in one of the following environments:
+> To see an example of getting started with Responsible AI with Gemini Enterprise Agent Platform Gemini API, run the "Responsible AI with Agent Platform Gemini API: Safety ratings and thresholds" notebook in one of the following environments:
 >
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/responsible-ai/gemini_safety_ratings.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fresponsible-ai%2Fgemini_safety_ratings.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fresponsible-ai%2Fgemini_safety_ratings.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/responsible-ai/gemini_safety_ratings.ipynb)
 

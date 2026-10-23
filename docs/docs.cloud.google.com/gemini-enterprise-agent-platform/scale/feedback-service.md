@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 >
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-The Agent Platform Feedback service enables you to collect and analyze user feedback from interactions with your agents. It provides the necessary infrastructure, eliminating the need to maintain your own feedback database. The service stores user reactions and links them to the corresponding conversation event timelines.
+The Gemini Enterprise Agent Platform Feedback service enables you to collect and analyze user feedback from interactions with your agents. It provides the necessary infrastructure, eliminating the need to maintain your own feedback database. The service stores user reactions and links them to the corresponding conversation event timelines.
 
 You can start collecting feedback for your agent from your end users by integrating directly with the Feedback service API or using the SDK. The API and SDK let you manage feedback entries using standard CRUDL (create, retrieve, update, delete, and list) operations and attach additional conversation details to feedback entries through the `FeedbackContext` resource.
 

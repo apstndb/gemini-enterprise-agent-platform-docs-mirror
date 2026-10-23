@@ -39,3 +39,11 @@ Optional. Flag to indicate to actually perform the purge. If `force` is set to f
 ### Response body
 
 If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.artifacts.delete`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

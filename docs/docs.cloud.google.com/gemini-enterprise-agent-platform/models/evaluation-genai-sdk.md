@@ -6,7 +6,7 @@ description: Evaluate large language model (LLM) performance using the GenAI Cli
 data_source: docs.cloud.google.com
 ---
 
-> To see an example of Getting Started: Perform evaluation using the through GenAI Client, run the "Getting Started: Perform evaluation using the through GenAI Client" notebook in one of the following environments:
+> To see an example of Getting Started: Perform evaluation using the Agent Platform SDK through GenAI Client, run the "Getting Started: Perform evaluation using the Agent Platform SDK through GenAI Client" notebook in one of the following environments:
 >
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/evaluation/quick_start_gen_ai_eval.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fevaluation%2Fquick_start_gen_ai_eval.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fevaluation%2Fquick_start_gen_ai_eval.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/evaluation/quick_start_gen_ai_eval.ipynb)
 

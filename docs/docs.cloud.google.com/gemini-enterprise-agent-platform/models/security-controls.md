@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls
 title: Security controls for Generative AI
-description: Understand Agent Platform's security controls for Generative AI models and training data, including data residency.
+description: Understand Gemini Enterprise Agent Platform's security controls for Generative AI models and training data, including data residency.
 data_source: docs.cloud.google.com
 ---
 

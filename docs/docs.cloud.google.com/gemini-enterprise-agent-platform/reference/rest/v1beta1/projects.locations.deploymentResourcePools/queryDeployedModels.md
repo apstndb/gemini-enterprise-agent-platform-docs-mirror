@@ -87,3 +87,11 @@ The total number of endpoints that have DeployedModels on this DeploymentResourc
   "totalEndpointCount": integer
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `deploymentResourcePool` resource:
+
+- `aiplatform.deploymentResourcePools.queryDeployedModels`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

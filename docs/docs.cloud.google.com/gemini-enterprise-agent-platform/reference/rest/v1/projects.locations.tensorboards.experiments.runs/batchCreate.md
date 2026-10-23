@@ -56,6 +56,14 @@ The created TensorboardRuns.
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.tensorboardRuns.batchCreate`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## CreateTensorboardRunRequest
 
 Request message for [`TensorboardService.CreateTensorboardRun`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs/create#google.cloud.aiplatform.v1.TensorboardService.CreateTensorboardRun) .

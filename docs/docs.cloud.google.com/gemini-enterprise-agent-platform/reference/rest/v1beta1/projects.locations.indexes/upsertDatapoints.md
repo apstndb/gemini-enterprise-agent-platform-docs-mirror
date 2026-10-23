@@ -46,6 +46,14 @@ This is a comma-separated list of fully qualified names of fields. Example: `"us
 
 If successful, the response body is empty.
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `index` resource:
+
+- `aiplatform.indexes.update`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## IndexDatapoint
 
 A datapoint of Index.

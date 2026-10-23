@@ -49,3 +49,11 @@ Optional. The user-provided custom service account to use to do the model upload
 ### Response body
 
 If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.models.upload`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

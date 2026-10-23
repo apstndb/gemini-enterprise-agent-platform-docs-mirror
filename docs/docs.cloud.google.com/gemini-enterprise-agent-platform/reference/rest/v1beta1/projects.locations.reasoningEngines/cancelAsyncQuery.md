@@ -35,3 +35,11 @@ Required. The name of the longrunning operation returned from reasoningEngines.a
 ### Response body
 
 If successful, the response body is empty.
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+- `aiplatform.reasoningEngines.query`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

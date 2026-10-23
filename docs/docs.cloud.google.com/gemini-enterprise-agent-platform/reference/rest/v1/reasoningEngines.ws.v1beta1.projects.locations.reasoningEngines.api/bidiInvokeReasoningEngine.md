@@ -35,3 +35,12 @@ The request body must be empty.
 ### Response body
 
 If successful, the response is a generic HTTP response whose format is defined by the method.
+
+### IAM Permissions
+
+Requires **one of** the following [IAM](https://cloud.google.com/iam/docs) permissions on the `name` resource, depending on the resource type:
+
+- `aiplatform.reasoningEngines.query`
+- `aiplatform.reasoningEngineRuntimeRevisions.query`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

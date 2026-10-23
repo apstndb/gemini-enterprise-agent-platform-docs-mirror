@@ -61,6 +61,14 @@ Output only. The result of the model enablement.
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.endpoints.create`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## EnablementState
 
 state of the models.enable response.

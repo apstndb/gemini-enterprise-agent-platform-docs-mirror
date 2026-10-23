@@ -76,3 +76,11 @@ The request body must be empty.
 ### Response body
 
 If successful, the response body contains an instance of [`ListFeaturesResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ListFeaturesResponse) .
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.features.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

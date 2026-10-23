@@ -58,6 +58,14 @@ The nearest neighbors of the query entity.
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `featureView` resource:
+
+- `aiplatform.featureViews.searchNearestEntities`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## NearestNeighborQuery
 
 A query to find a number of similar entities.

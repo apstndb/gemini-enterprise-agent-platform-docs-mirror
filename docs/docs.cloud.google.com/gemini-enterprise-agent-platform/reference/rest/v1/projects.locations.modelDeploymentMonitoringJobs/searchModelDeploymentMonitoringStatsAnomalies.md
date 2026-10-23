@@ -89,6 +89,14 @@ The page token that can be used by the next [`JobService.SearchModelDeploymentMo
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `modelDeploymentMonitoringJob` resource:
+
+- `aiplatform.modelDeploymentMonitoringJobs.searchStatsAnomalies`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## StatsAnomaliesObjective
 
 Stats requested for specific objective.

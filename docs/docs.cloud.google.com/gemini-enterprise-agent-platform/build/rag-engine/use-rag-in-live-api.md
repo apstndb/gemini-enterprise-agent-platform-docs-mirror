@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-in-live-api
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-in-live-api
 title: Use RAG Engine on Gemini Enterprise Agent Platform in Gemini Live API
-description: Reduce your hallucinations on your LLM responses using context information leveraging Agent Platform RAG Engine. Learn how to use RAG to improve your LLM's responses by incorporating relevant information retrieval.
+description: Reduce your hallucinations on your LLM responses using context information leveraging RAG Engine on Gemini Enterprise Agent Platform. Learn how to use RAG to improve your LLM's responses by incorporating relevant information retrieval.
 data_source: docs.cloud.google.com
 ---
 

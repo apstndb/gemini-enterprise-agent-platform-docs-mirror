@@ -82,3 +82,11 @@ A token, which can be sent as [`ListExecutionsRequest.page_token`](https://docs.
   "nextPageToken": string
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.executions.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

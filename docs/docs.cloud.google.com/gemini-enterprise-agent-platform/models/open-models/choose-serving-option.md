@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/choose-serving-option
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/choose-serving-option
 title: Open models overview
-description: Learn about Agent Platform's options for serving open large language models, including Model as a Service (MaaS) and self-deployment, to choose the best fit for your use case.
+description: Learn about Gemini Enterprise Agent Platform's options for serving open large language models, including Model as a Service (MaaS) and self-deployment, to choose the best fit for your use case.
 data_source: docs.cloud.google.com
 ---
 

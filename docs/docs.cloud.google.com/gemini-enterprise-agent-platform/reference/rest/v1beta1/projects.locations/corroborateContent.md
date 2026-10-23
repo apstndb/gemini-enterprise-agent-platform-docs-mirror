@@ -69,6 +69,14 @@ confidence score of corroborating content. value is \[0,1\] with 1 is the most c
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.ragCorpora.get`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## Parameters
 
 Parameters that can be overrided per request.

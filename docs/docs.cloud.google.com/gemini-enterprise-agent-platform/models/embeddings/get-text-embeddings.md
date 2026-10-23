@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings
 title: Get text embeddings
-description: Generate text embeddings with Agent Platform Text Embeddings API. Use dense vectors for semantic search and Vector Search.
+description: Generate text embeddings with Gemini Enterprise Agent Platform Text Embeddings API. Use dense vectors for semantic search and Vector Search.
 data_source: docs.cloud.google.com
 ---
 
@@ -18,7 +18,7 @@ The vectors are normalized, so you can use cosine similarity, dot product, or Eu
 - To learn about text embedding models, see [Text embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings) .
 - For information about which languages each embeddings model supports, see [Supported text languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/text-embeddings-api#supported_text_languages) .
 
-> To see an example of getting text embeddings, run the "Getting Started with Text Embeddings + Agent Platform Vector Search" notebook in one of the following environments:
+> To see an example of getting text embeddings, run the "Getting Started with Text Embeddings + Vector Search" notebook in one of the following environments:
 >
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/embeddings/intro-textemb-vectorsearch.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fembeddings%2Fintro-textemb-vectorsearch.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fembeddings%2Fintro-textemb-vectorsearch.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/embeddings/intro-textemb-vectorsearch.ipynb)
 

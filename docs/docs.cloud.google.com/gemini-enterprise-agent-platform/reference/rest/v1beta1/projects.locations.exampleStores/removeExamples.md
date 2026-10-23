@@ -63,3 +63,11 @@ The IDs for the removed examples.
   ]
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `exampleStore` resource:
+
+- `aiplatform.exampleStores.writeExample`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

@@ -66,6 +66,14 @@ The results of searching for similar examples.
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `exampleStore` resource:
+
+- `aiplatform.exampleStores.readExample`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## StoredContentsExampleParameters
 
 The metadata filters that will be used to search StoredContentsExamples. If a field is unspecified, then no filtering for that field will be applied

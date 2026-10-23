@@ -43,3 +43,11 @@ Optional. A human readable reason why the trial was infeasible. This should only
 ### Response body
 
 If successful, the response body contains an instance of [`Trial`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.studies.trials#Trial) .
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+- `aiplatform.trials.update`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

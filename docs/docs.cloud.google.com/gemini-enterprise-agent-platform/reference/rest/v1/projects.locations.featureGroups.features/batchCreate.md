@@ -36,6 +36,14 @@ Required. The request message specifying the Features to create. All Features mu
 
 If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.features.create`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## CreateFeatureRequest
 
 Request message for [`FeaturestoreService.CreateFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featurestores.entityTypes.features/create#google.cloud.aiplatform.v1.FeaturestoreService.CreateFeature) . Request message for [`FeatureRegistryService.CreateFeature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups.features/create#google.cloud.aiplatform.v1.FeatureRegistryService.CreateFeature) .

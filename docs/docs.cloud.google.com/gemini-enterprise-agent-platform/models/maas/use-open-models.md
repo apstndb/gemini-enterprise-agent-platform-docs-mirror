@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models
 title: Gemini Enterprise Agent Platform open models for MaaS
-description: Understand Agent Platform's managed open models as a service (MaaS). Discover, deploy, and use serverless open models, including embedding models.
+description: Understand Gemini Enterprise Agent Platform's managed open models as a service (MaaS). Discover, deploy, and use serverless open models, including embedding models.
 data_source: docs.cloud.google.com
 ---
 

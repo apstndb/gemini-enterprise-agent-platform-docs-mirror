@@ -77,7 +77,7 @@ For supported languages and frameworks, higher-level tools and SDKs are availabl
 
 [Video](https://www.youtube.com/watch?v=ECYKo70pPNc)
 
-The [Agents CLI](https://google.github.io/agents-cli/) is the unified command-line interface and skill set for the Gemini Enterprise Agent Platform. It provides coding agents and developers with a predictable path through the Agent Development Lifecycle: scaffold, evaluate, deploy, publish, and observe. The Agents CLI provides the following:
+The [Agents CLI](https://google.github.io/agents-cli/) is the unified command-line interface and skill set for the Agent Platform. It provides coding agents and developers with a predictable path through the Agent Development Lifecycle: scaffold, evaluate, deploy, publish, and observe. The Agents CLI provides the following:
 
 - **Pre-built agent templates:** ReAct, RAG, multi-agent, and other templates.
 - **Interactive playground** : Test and interact with your agent.

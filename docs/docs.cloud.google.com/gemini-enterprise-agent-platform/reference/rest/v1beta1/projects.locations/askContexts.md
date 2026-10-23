@@ -62,3 +62,11 @@ The contexts of the query.
   }
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.ragCorpora.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

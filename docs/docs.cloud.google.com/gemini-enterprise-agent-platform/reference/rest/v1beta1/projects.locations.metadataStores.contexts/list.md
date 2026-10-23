@@ -84,3 +84,11 @@ A token, which can be sent as [`ListContextsRequest.page_token`](https://docs.cl
   "nextPageToken": string
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.contexts.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

@@ -35,3 +35,11 @@ Required. The name of the PublisherModel resource. Format: `publishers/{publishe
 ### Response body
 
 If successful, the response body contains an instance of [`PublisherModelEulaAcceptance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/PublisherModelEulaAcceptance) .
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.endpoints.get`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

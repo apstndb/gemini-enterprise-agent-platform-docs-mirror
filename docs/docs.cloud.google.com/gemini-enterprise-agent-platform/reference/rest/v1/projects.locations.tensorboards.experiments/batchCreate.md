@@ -56,6 +56,14 @@ The created TensorboardTimeSeries.
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.tensorboardTimeSeries.batchCreate`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## CreateTensorboardTimeSeriesRequest
 
 Request message for [`TensorboardService.CreateTensorboardTimeSeries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tensorboards.experiments.runs.timeSeries/create#google.cloud.aiplatform.v1.TensorboardService.CreateTensorboardTimeSeries) .

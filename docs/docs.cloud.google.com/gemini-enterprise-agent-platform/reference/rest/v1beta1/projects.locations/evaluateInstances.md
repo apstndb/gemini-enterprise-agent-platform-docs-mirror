@@ -435,6 +435,14 @@ End of mutually exclusive fields.
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `location` resource:
+
+- `aiplatform.locations.evaluateInstances`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## ExactMatchInput
 
 Input for exact match metric.

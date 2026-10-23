@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract
-title: Agent Platform runtime contract
+title: Gemini Enterprise Agent Platform runtime contract
 description: Learn about the HTTP runtime contract for deploying custom containers on Agent Runtime.
 data_source: docs.cloud.google.com
 ---
@@ -20,7 +20,7 @@ Your container can expose any custom HTTP endpoints. You can invoke these custom
 
 While these endpoints are optional at the API level, implementing them enables the following integration features:
 
-- **Python SDK support** : Implementing both `/api/reasoning_engine` and `/api/stream_reasoning_engine` lets you use your deployed agent through the [Agent Platform Python SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-agent#sdk) .
+- **Python SDK support** : Implementing both `/api/reasoning_engine` and `/api/stream_reasoning_engine` lets you use your deployed agent through the [Gemini Enterprise Agent Platform Python SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-agent#sdk) .
 - **Playground support** : Implementing `/api/stream_reasoning_engine` is required if you want to interact with your agent through the Google Cloud console playground. For more information, see [Playground support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-agent#playground_support) .
 
 If you want to use these features, you must implement the following endpoints:

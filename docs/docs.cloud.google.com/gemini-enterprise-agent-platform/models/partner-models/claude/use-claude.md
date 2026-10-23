@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude
 title: Request predictions with Claude models
-description: Integrate Anthropic Claude models on Agent Platform. Send prediction requests via SDKs or curl, implement tool use, and manage QPM/TPM quotas.
+description: Integrate Anthropic Claude models on Gemini Enterprise Agent Platform. Send prediction requests via SDKs or curl, implement tool use, and manage QPM/TPM quotas.
 data_source: docs.cloud.google.com
 ---
 

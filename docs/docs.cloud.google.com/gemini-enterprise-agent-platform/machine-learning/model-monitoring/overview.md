@@ -24,7 +24,7 @@ For example, Model Monitoring can provide visualizations like in the following f
 
 Model Monitoring provides two offerings: v2 and v1.
 
-Model Monitoring v2 is in [Preview](https://docs.cloud.google.com/products#product-launch-stages) and is the latest offering that associates all monitoring tasks with a model version. In contrast, Model Monitoring v1 is Generally Available and is configured on Agent Platform endpoints.
+Model Monitoring v2 is in [Preview](https://docs.cloud.google.com/products#product-launch-stages) and is the latest offering that associates all monitoring tasks with a model version. In contrast, Model Monitoring v1 is Generally Available and is configured on Gemini Enterprise Agent Platform endpoints.
 
 If you need production-level support and want to monitor a model that's deployed on an Agent Platform endpoint, use Model Monitoring v1. For all other use cases, use Model Monitoring v2, which provides all the capabilities of Model Monitoring v1 and more. For more information, see the overview for each version:
 

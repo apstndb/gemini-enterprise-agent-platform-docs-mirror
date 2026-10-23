@@ -52,3 +52,11 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
   "expireTime": string
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `featureView` resource:
+
+- `aiplatform.featureViews.fetchFeatureValues`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

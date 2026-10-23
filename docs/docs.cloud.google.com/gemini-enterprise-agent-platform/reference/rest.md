@@ -31,6 +31,7 @@ A [service endpoint](https://cloud.google.com/apis/design/glossary#api_service_e
 - `https://asia-northeast2-aiplatform.googleapis.com`
 - `https://asia-northeast3-aiplatform.googleapis.com`
 - `https://asia-south1-aiplatform.googleapis.com`
+- `https://asia-south2-aiplatform.googleapis.com`
 - `https://asia-southeast1-aiplatform.googleapis.com`
 - `https://asia-southeast2-aiplatform.googleapis.com`
 - `https://australia-southeast1-aiplatform.googleapis.com`

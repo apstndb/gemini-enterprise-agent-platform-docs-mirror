@@ -35,3 +35,11 @@ Required. The id of the DeployedIndex to be undeployed from the IndexEndpoint.
 ### Response body
 
 If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `indexEndpoint` resource:
+
+- `aiplatform.indexEndpoints.undeploy`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

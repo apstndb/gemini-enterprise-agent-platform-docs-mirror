@@ -60,18 +60,18 @@ To revoke access to a prompt:
 
 Overview
 
-### [Agent Platform Studio capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/agent-studio-capabilities)
+### [Agent Studio capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/agent-studio-capabilities)
 
-Key features implemented within Agent Platform Studio that facilitate transforming innovative ideas into generative AI solutions.
+Key features implemented within Agent Studio that facilitate transforming innovative ideas into generative AI solutions.
 
 Guide
 
 ### [Migrate from Google AI Studio to Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/migrate-google-ai)
 
-Information on how to migrate your Google AI Studio projects to Agent Platform Studio.
+Information on how to migrate your Google AI Studio projects to Agent Studio.
 
 Tutorial
 
-### [Deploy your Agent Platform Studio prompt as a web application](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/deploy-vais-prompt)
+### [Deploy your Agent Studio prompt as a web application](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/deploy-vais-prompt)
 
-Learn how to use Agent Platform Studio to create a prompt with prompt variables; deploy your prompt as a web application; and deploy, monitor, and test your application.
+Learn how to use Agent Studio to create a prompt with prompt variables; deploy your prompt as a web application; and deploy, monitor, and test your application.

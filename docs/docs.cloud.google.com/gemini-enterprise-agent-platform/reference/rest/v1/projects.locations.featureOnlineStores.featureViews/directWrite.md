@@ -67,6 +67,14 @@ Details about write for each key. If status is not OK, [`WriteResponse.data_key`
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `featureView` resource:
+
+- `aiplatform.featureViews.directWrite`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## DataKeyAndFeatureValues
 
 A data key and associated feature values to write to the feature view.

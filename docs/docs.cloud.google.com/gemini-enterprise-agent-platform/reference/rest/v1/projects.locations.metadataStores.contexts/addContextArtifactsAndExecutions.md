@@ -43,3 +43,11 @@ Format: `projects/{project}/locations/{location}/metadataStores/{metadatastore}/
 ### Response body
 
 If successful, the response body is empty.
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `context` resource:
+
+- `aiplatform.contexts.addContextArtifactsAndExecutions`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

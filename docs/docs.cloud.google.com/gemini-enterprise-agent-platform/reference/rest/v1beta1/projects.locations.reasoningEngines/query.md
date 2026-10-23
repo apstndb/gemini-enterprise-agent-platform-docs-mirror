@@ -39,3 +39,12 @@ Optional. Class method to be used for the query. It is optional and defaults to 
 ### Response body
 
 If successful, the response body contains an instance of [`QueryReasoningEngineResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/QueryReasoningEngineResponse) .
+
+### IAM Permissions
+
+Requires **one of** the following [IAM](https://cloud.google.com/iam/docs) permissions on the `name` resource, depending on the resource type:
+
+- `aiplatform.reasoningEngines.query`
+- `aiplatform.reasoningEngineRuntimeRevisions.query`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

@@ -55,3 +55,11 @@ blob messages containing blob bytes.
   ]
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `timeSeries` resource:
+
+- `aiplatform.tensorboardTimeSeries.read`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

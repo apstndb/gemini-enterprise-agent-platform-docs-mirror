@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/mistral/mistral-medium-3
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/mistral/mistral-medium-3
 title: Mistral Medium 3
-description: Mistral Medium 3 with Agent Platform Model Garden
+description: Mistral Medium 3 with Gemini Enterprise Agent Platform Model Garden
 data_source: docs.cloud.google.com
 ---
 

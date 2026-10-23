@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-prebuilt-containers
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-prebuilt-containers
 title: Deploy open models with prebuilt containers
-description: Deploy and serve open models on Agent Platform using prebuilt containers and various serving frameworks.
+description: Deploy and serve open models on Gemini Enterprise Agent Platform using prebuilt containers and various serving frameworks.
 data_source: docs.cloud.google.com
 ---
 

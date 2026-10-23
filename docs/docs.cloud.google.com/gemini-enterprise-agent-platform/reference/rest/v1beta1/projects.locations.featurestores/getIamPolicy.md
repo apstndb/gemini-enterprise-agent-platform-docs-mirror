@@ -35,3 +35,19 @@ OPTIONAL: A `GetPolicyOptions` object for specifying options to `featurestores.g
 ### Response body
 
 If successful, the response body contains an instance of [`Policy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Policy) .
+
+### IAM Permissions
+
+Requires **one of** the following [IAM](https://cloud.google.com/iam/docs) permissions on the `resource` resource, depending on the resource type:
+
+- `aiplatform.agents.getIamPolicy`
+- `aiplatform.endpoints.getIamPolicy`
+- `aiplatform.entityTypes.getIamPolicy`
+- `aiplatform.featureGroups.getIamPolicy`
+- `aiplatform.featureOnlineStores.getIamPolicy`
+- `aiplatform.featureViews.getIamPolicy`
+- `aiplatform.featurestores.getIamPolicy`
+- `aiplatform.notebookRuntimeTemplates.getIamPolicy`
+- `aiplatform.reasoningEngines.getIamPolicy`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

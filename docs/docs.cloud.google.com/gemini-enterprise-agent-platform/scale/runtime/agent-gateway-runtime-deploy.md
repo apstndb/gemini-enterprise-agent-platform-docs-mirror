@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy
 title: Route Agent Runtime traffic through Agent Gateway
-description: Deploy an agent on Agent Platform Runtime and route traffic through Agent Gateway.
+description: Deploy an agent on Agent Runtime on Gemini Enterprise Agent Platform and route traffic through Agent Gateway.
 data_source: docs.cloud.google.com
 ---
 

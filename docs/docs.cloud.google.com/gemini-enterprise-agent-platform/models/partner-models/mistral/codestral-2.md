@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/mistral/codestral-2
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/mistral/codestral-2
 title: Codestral 2
-description: Codestral 2 with Agent Platform Model Garden
+description: Codestral 2 with Gemini Enterprise Agent Platform Model Garden
 data_source: docs.cloud.google.com
 ---
 

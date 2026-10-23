@@ -43,3 +43,11 @@ The request body must be empty.
 ### Response body
 
 If successful, the response body contains a stream of [`InteractionStreamingEvent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/InteractionStreamingEvent) instances.
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+- `aiplatform.interactions.get`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

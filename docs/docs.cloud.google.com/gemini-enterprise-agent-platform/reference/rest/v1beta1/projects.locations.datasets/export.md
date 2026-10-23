@@ -36,6 +36,14 @@ Required. The desired output location.
 
 If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+- `aiplatform.datasets.export`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## ExportDataConfig
 
 Describes what part of the Dataset is to be exported, the destination of the export and how to export.

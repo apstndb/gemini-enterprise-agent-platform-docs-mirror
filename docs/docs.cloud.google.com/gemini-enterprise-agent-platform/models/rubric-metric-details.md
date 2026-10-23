@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details
 title: Details for managed rubric-based metrics
-description: Understand Agent Platform's managed rubric-based metrics for test-driven evaluation, including adaptive and static rubrics.
+description: Understand Gemini Enterprise Agent Platform's managed rubric-based metrics for test-driven evaluation, including adaptive and static rubrics.
 data_source: docs.cloud.google.com
 ---
 

@@ -80,6 +80,14 @@ End of mutually exclusive fields.
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.ragFiles.upload`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## UploadRagFileConfig
 
 Config for uploading RagFile.

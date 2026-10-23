@@ -37,3 +37,11 @@ Required. The interaction to create.
 ### Response body
 
 If successful, the response is a generic HTTP response whose format is defined by the method.
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.interactions.create`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

@@ -36,6 +36,14 @@ Required. Requests containing per-run TensorboardTimeSeries data to write.
 
 If successful, the response body is empty.
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `tensorboardExperiment` resource:
+
+- `aiplatform.tensorboardExperiments.write`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## WriteTensorboardRunDataRequest
 
 Request message for [`TensorboardService.WriteTensorboardRunData`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tensorboards.experiments.runs/write#google.cloud.aiplatform.v1beta1.TensorboardService.WriteTensorboardRunData) .

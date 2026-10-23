@@ -78,6 +78,14 @@ The standard next-page token. The migratableResources may not fill pageSize in S
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.migratableResources.search`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## MigratableResource
 
 Represents one resource that exists in automl.googleapis.com, datalabeling.googleapis.com or ml.googleapis.com.

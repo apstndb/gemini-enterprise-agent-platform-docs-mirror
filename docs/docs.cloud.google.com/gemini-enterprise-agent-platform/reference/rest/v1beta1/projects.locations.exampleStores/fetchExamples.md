@@ -78,3 +78,11 @@ A token, which can be sent as [`FetchExamplesRequest.page_token`](https://docs.c
   "nextPageToken": string
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `exampleStore` resource:
+
+- `aiplatform.exampleStores.readExample`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

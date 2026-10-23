@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-observability
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-observability
 title: Monitor models
-description: Learn how to monitor the behavior, health, and performance of your fully-managed models in Agent Platform using the prebuilt model observability dashboard.
+description: Learn how to monitor the behavior, health, and performance of your fully-managed models in Gemini Enterprise Agent Platform using the prebuilt model observability dashboard.
 data_source: docs.cloud.google.com
 ---
 

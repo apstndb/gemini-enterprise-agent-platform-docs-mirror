@@ -29,3 +29,11 @@ The request body must be empty.
 ### Response body
 
 If successful, the response body is an empty JSON object.
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+- `aiplatform.pipelineJobs.cancel`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

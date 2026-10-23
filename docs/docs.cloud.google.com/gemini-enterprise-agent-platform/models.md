@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models
 title: Overview of models on Agent Platform
-description: Comprehensive overview of the documentation for models available on the Agent Platform.
+description: Comprehensive overview of the documentation for models available on the Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
-The Agent Platform provides access to broad classes of large language models (LLMs) and generative AI models, including Google first-party models, partner models, and open-weights models. This page provides an index of documentation for these models, organized by model types, access options, capabilities, customization, evaluation, and safety.
+The Gemini Enterprise Agent Platform provides access to broad classes of large language models (LLMs) and generative AI models, including Google first-party models, partner models, and open-weights models. This page provides an index of documentation for these models, organized by model types, access options, capabilities, customization, evaluation, and safety.
 
 ## Get started
 

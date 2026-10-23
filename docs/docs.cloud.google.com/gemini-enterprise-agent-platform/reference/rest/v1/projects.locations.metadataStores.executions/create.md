@@ -35,3 +35,11 @@ The request body contains an instance of [`Execution`](https://docs.cloud.google
 ### Response body
 
 If successful, the response body contains a newly created instance of [`Execution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.executions#Execution) .
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.executions.create`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

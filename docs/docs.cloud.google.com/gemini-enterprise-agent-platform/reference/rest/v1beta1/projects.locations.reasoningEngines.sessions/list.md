@@ -76,3 +76,11 @@ A token, which can be sent as [`ListSessionsRequest.page_token`](https://docs.cl
   "nextPageToken": string
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.sessions.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

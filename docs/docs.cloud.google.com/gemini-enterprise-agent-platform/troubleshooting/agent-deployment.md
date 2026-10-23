@@ -10,7 +10,74 @@ This document describes how to resolve errors that you might encounter when [dep
 
 Note: To search and filter agent error logs, [use the Logs Explorer](https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface) , select `RESOURCE TYPE` to "Vertex AI Reasoning Engine" and select the corresponding `RESOURCE CONTAINER` value (i.e. the project number) and `REASONING ENGINE ID` value.
 
-## Container failed to start
+## Container build and startup errors
+
+If your deployment fails while Agent Runtime builds or starts the agent's container, one of the following issues might be the cause:
+
+### Container image build failed
+
+**Issue** :
+
+Deployment fails with a `400` , `INVALID_ARGUMENT` status ( `REASONING_ENGINE_BUILD_FAILED` ) and a message similar to the following:
+
+```
+The Reasoning Engine could not be deployed because its container image failed to build.
+```
+
+**Possible causes** :
+
+When you deploy an agent from an agent object, from source files, or from a Dockerfile, Agent Runtime builds a container image for the agent. The build fails if one of the following steps fails:
+
+- **Installing package requirements** : A package in `requirements` or your source files' requirements file doesn't exist, pins a version that doesn't exist, conflicts with another package, or doesn't support the agent's Python version.
+- **Installing a local wheel** : A wheel file listed in `requirements` isn't also included in `extra_packages` , so it isn't available to install.
+- **Running installation scripts** : A script in the `installation_scripts` directory exits with an error.
+- **Building your Dockerfile** : When you deploy from a Dockerfile ( `image_spec` ), an instruction in your Dockerfile fails.
+
+**Recommended solutions** :
+
+- Check the build logs linked in the error metadata's `logs_url` field to find the step that failed. Build log entries include the log ID `reasoning_engine_build` . To query the logs, see [Building queries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/logging#build-log-queries) .
+
+- To reproduce the failure locally, install the same requirements in a new virtual environment that uses the deployed agent's Python version, and fix any errors that `pip` reports:
+
+  ```
+  python -m venv agent-env
+  agent-env/bin/pip install -r requirements.txt
+  ```
+
+- To make the build install the versions that you tested locally, pin your package versions. See [Define the package requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#package-requirements) .
+
+- If you install a local wheel, include it in both `requirements` and `extra_packages` . See [Define additional packages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#extra-packages) .
+
+- If you use installation scripts, make sure that each script exits successfully when run with root permissions in a clean environment. See [Define build options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#build-options) .
+
+- If you deploy from a Dockerfile, build the container image locally from the same source files (for example, with `docker build` ) and fix any instruction that fails.
+
+**Solutions that don't apply** :
+
+- Retrying the deployment without changing the requirements, installation scripts, or Dockerfile fails the same way, because the build runs the same steps.
+
+### Container image build timed out
+
+**Issue** :
+
+Deployment fails with a `504` , `DEADLINE_EXCEEDED` status ( `REASONING_ENGINE_BUILD_TIMEOUT` ) and a message saying that the agent's container image didn't finish building in time.
+
+**Possible causes** :
+
+When you deploy [from source files](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#source-files) , Agent Runtime builds a container image that installs your code and its dependencies. The deployment fails if the build is still running when its allowed time runs out. Builds usually take too long because of the dependencies they install, for example:
+
+- A long list of packages in `requirements` , including ones the agent doesn't use.
+- Packages without prebuilt wheels for the build environment, which are compiled from source during the build.
+- Unpinned or loosely pinned versions, which slow down dependency resolution.
+
+**Recommended solutions** :
+
+- Check the build logs linked in the error metadata's `logs_url` field to see which step was running when the build stopped.
+- Remove unnecessary dependencies and pin the versions of all required packages.
+- Prioritize packages and versions that publish prebuilt wheels, so that nothing is compiled during the build.
+- Retry the deployment. A build can occasionally run longer than usual for reasons unrelated to your code.
+
+### Container failed to start
 
 **Issue** :
 
@@ -37,6 +104,26 @@ Agent Runtime starts your agent in a container and waits for it to accept reques
 **Solutions that don't apply** :
 
 - Retrying the deployment without changing the agent or its dependencies usually fails the same way, because the cause is in the agent code or its environment.
+
+### Container didn't start in time
+
+**Issue** :
+
+Deployment fails with a `504` , `DEADLINE_EXCEEDED` status ( `REASONING_ENGINE_CONTAINER_START_TIMEOUT` ) and a message saying that the agent's container didn't start serving in time.
+
+**Possible causes** :
+
+After the image is built, Agent Runtime starts the agent's container and waits for it to become ready to serve requests. The deployment fails if the container is still starting when its allowed time runs out. Common causes can include the following:
+
+- Slow work at import time, such as loading large models or files when the agent's modules are imported.
+- Slow or blocking work in the agent's `set_up()` method, such as network calls that wait on an unreachable service.
+
+**Recommended solutions** :
+
+- Check the container logs linked in the error metadata's `logs_url` field to see where startup stalled.
+- Move expensive initialization out of module import time, and minimize the number of steps in `set_up()` fast. Defer work that isn't needed to serve the first request.
+- Make sure that any service the agent calls during startup is reachable from the agent, and set timeouts on those calls so that they can't block startup indefinitely.
+- If the container logs show that the agent started normally, retry the deployment. Startup can occasionally take longer than usual for reasons unrelated to your code.
 
 ## Prebuilt Template errors
 
@@ -280,7 +367,11 @@ Ask your administrator to grant the AI Platform Reasoning Engine Service Agent o
 
 The AI Platform Reasoning Engine Service Agent should be located in the same project you use to deploy your agent. The IAM binding of the role grant should be in the project where the custom service account resides.
 
-## Resource exhausted or rate limit errors (Error 429)
+## Resource exhausted errors
+
+If your deployment fails with a `429` , `RESOURCE_EXHAUSTED` status, one of the following issues might be the cause:
+
+### API rate limit or quota exceeded
 
 **Issue** :
 
@@ -298,7 +389,7 @@ The project has exceeded its API rate limits or concurrent request quotas.
 
 > **Note:** These solutions apply to your project's own API rate limits. A region that is temporarily at capacity, or a deployment whose `max_instances` exceeds the regional limit for its `resource_limits` , returns the same `429` , `RESOURCE_EXHAUSTED` status but has a different cause and different solutions. See [Region temporarily at capacity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#region-capacity) and [Maximum instances exceed regional limit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#max-instances-limit) .
 
-## Region temporarily at capacity
+### Region temporarily at capacity
 
 **Issue** :
 
@@ -322,7 +413,7 @@ This limit is not one of your project's quotas. It does not appear on the Google
 - Deleting your existing agents doesn't free capacity for this limit, because the capacity isn't consumed by your project alone.
 - Requesting a quota increase has no effect, because the limit isn't a project quota.
 
-## Maximum instances exceed regional limit
+### Maximum instances exceed regional limit
 
 **Issue** :
 
@@ -367,47 +458,6 @@ The Reasoning Engine could not access `projects/PROJECT_NUMBER/secrets/SECRET_ID
 - **For `PERMISSION_DENIED`** : Grant the **Secret Manager Secret Accessor** role ( `roles/secretmanager.secretAccessor` ) on the secret (or the project containing the secret) to the service account that fetches the secret:
   - **Default service account** : Grant the role to the AI Platform Reasoning Engine Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform-re.iam.gserviceaccount.com` ).
   - **Custom service account** : Grant the role to the [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#custom-service-account) configured on the agent.
-
-## Container image build timed out
-
-**Issue** :
-
-Deployment fails with a `504` , `DEADLINE_EXCEEDED` status ( `REASONING_ENGINE_BUILD_TIMEOUT` ) and a message saying that the agent's container image didn't finish building in time.
-
-**Possible causes** :
-
-When you deploy [from source files](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#source-files) , Agent Runtime builds a container image that installs your code and its dependencies. The deployment fails if the build is still running when its allowed time runs out. Builds usually take too long because of the dependencies they install, for example:
-
-- A long list of packages in `requirements` , including ones the agent doesn't use.
-- Packages without prebuilt wheels for the build environment, which are compiled from source during the build.
-- Unpinned or loosely pinned versions, which slow down dependency resolution.
-
-**Recommended solutions** :
-
-- Check the build logs linked in the error metadata's `logs_url` field to see which step was running when the build stopped.
-- Remove unnecessary dependencies and pin the versions of all required packages.
-- Prioritize packages and versions that publish prebuilt wheels, so that nothing is compiled during the build.
-- Retry the deployment. A build can occasionally run longer than usual for reasons unrelated to your code.
-
-## Container didn't start in time
-
-**Issue** :
-
-Deployment fails with a `504` , `DEADLINE_EXCEEDED` status ( `REASONING_ENGINE_CONTAINER_START_TIMEOUT` ) and a message saying that the agent's container didn't start serving in time.
-
-**Possible causes** :
-
-After the image is built, Agent Runtime starts the agent's container and waits for it to become ready to serve requests. The deployment fails if the container is still starting when its allowed time runs out. Common causes can include the following:
-
-- Slow work at import time, such as loading large models or files when the agent's modules are imported.
-- Slow or blocking work in the agent's `set_up()` method, such as network calls that wait on an unreachable service.
-
-**Recommended solutions** :
-
-- Check the container logs linked in the error metadata's `logs_url` field to see where startup stalled.
-- Move expensive initialization out of module import time, and minimize the number of steps in `set_up()` fast. Defer work that isn't needed to serve the first request.
-- Make sure that any service the agent calls during startup is reachable from the agent, and set timeouts on those calls so that they can't block startup indefinitely.
-- If the container logs show that the agent started normally, retry the deployment. Startup can occasionally take longer than usual for reasons unrelated to your code.
 
 ## Support resources
 

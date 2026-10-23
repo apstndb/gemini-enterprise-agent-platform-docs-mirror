@@ -114,3 +114,11 @@ A token, which can be sent as [`SearchFeaturesRequest.page_token`](https://docs.
   "nextPageToken": string
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `location` resource:
+
+- `aiplatform.features.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

@@ -69,3 +69,11 @@ Response status. If OK, then [`StreamingFetchFeatureValuesResponse.data`](https:
   ]
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `featureView` resource:
+
+- `aiplatform.featureViews.fetchFeatureValues`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

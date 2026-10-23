@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/prompt-caching
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/prompt-caching
 title: Prompt caching
-description: Optimize Anthropic Claude model performance with prompt caching on Agent Platform. Reduce latency, control costs, configure TTL, and manage data processing.
+description: Optimize Anthropic Claude model performance with prompt caching on Gemini Enterprise Agent Platform. Reduce latency, control costs, configure TTL, and manage data processing.
 data_source: docs.cloud.google.com
 ---
 

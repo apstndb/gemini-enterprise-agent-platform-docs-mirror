@@ -54,6 +54,14 @@ End of mutually exclusive fields.
 
 If successful, the response body contains an instance of [`FetchFeatureValuesResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/FetchFeatureValuesResponse) .
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `featureView` resource:
+
+- `aiplatform.featureViews.fetchFeatureValues`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## Format
 
 > This item is deprecated!

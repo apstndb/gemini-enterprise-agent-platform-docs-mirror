@@ -35,3 +35,11 @@ The request body contains an instance of [`NotebookExecutionJob`](https://docs.c
 ### Response body
 
 If successful, the response body contains a newly created instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.notebookExecutionJobs.create`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

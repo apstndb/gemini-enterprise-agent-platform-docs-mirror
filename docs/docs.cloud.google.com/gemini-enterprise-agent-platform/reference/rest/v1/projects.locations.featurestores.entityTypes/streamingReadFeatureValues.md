@@ -39,3 +39,11 @@ Required. Selector choosing Features of the target EntityType. feature IDs will 
 ### Response body
 
 If successful, the response body contains a stream of [`ReadFeatureValuesResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ReadFeatureValuesResponse) instances.
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `entityType` resource:
+
+- `aiplatform.entityTypes.streamingReadFeatureValues`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

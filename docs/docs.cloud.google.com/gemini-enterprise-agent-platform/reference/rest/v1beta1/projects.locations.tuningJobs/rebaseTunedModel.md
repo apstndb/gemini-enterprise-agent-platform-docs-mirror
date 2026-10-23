@@ -52,6 +52,14 @@ WARNING: If you deploy to the same endpoint, the original model will be un-deplo
 
 If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.tuningJobs.create`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## TunedModelRef
 
 TunedModel Reference for legacy model migration.

@@ -90,3 +90,11 @@ A token to retrieve the next page of results. Pass to [`ListCustomJobsRequest.pa
   "nextPageToken": string
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.customJobs.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

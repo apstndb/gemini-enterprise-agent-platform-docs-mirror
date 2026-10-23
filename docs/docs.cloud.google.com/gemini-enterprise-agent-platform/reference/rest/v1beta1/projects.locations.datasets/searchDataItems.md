@@ -122,6 +122,14 @@ A token to retrieve next page of results. Pass to [`SearchDataItemsRequest.page_
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `dataset` resource:
+
+- `aiplatform.dataItems.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## OrderByAnnotation
 
 Expression that allows ranking results based on annotation's property.

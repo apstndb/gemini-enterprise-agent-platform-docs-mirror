@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/prompting-guide
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/prompting-guide
 title: Thinking prompting guide
-description: Learn prompting techniques and best practices for Gemini thinking models on Agent Platform, including step-by-step instructions, multishot prompting, system instructions, and debugging.
+description: Learn prompting techniques and best practices for Gemini thinking models on Gemini Enterprise Agent Platform, including step-by-step instructions, multishot prompting, system instructions, and debugging.
 data_source: docs.cloud.google.com
 ---
 

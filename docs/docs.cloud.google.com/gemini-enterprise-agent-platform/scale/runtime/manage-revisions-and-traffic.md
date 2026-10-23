@@ -75,7 +75,7 @@ To find the resource ID for your agent, see [Get the agent resource ID](https://
 
 ### Console
 
-1.  In Google Agent Platform, go to **Govern \> Deployments** .
+1.  In Agent Platform, go to **Govern \> Deployments** .
 
 2.  Click the name of the agent.
 

@@ -45,3 +45,11 @@ Format: `projects/{project}/locations/{location}/featureOnlineStores/{featureOnl
   "featureViewSync": string
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `featureView` resource:
+
+- `aiplatform.featureViews.sync`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

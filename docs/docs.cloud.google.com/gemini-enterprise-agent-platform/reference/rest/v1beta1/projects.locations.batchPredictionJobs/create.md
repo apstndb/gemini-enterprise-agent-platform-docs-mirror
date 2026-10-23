@@ -29,3 +29,11 @@ The request body contains an instance of [`BatchPredictionJob`](https://docs.clo
 ### Response body
 
 If successful, the response body contains a newly created instance of [`BatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs#BatchPredictionJob) .
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.batchPredictionJobs.create`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

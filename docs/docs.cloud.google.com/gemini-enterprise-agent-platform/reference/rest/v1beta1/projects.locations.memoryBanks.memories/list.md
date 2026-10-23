@@ -53,3 +53,11 @@ The request body must be empty.
 ### Response body
 
 If successful, the response body contains an instance of [`ListMemoriesResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ListMemoriesResponse) .
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.memories.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

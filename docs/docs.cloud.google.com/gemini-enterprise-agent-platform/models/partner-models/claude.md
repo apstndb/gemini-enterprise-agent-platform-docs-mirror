@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > **Note:** Anthropic models are not a Google product, and their availability in Gemini Enterprise Agent Platform is subject to the terms for "Separate Offerings" in the AI/ML Services section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms) , and separate terms found in the relevant model card.
 
-The Anthropic Claude models on Google Cloud offer fully managed and serverless models as APIs. To use a Claude model on Agent Platform, send a request directly to the Agent Platform API endpoint. Because the Anthropic Claude models use a managed API, there's no need to provision or manage infrastructure.
+The Anthropic Claude models on Google Cloud offer fully managed and serverless models as APIs. To use a Claude model on Agent Platform, send a request directly to the Agent Platform API endpoint. Because the Anthropic Claude models use a managed API, there's no need to provision or manage infrastructure. To use Anthropic's Claude developer platform on Anthropic-managed infrastructure instead, see [Use Claude models on Google Cloud (Anthropic managed)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/anthropic-managed) .
 
 You can stream your Claude responses to reduce the end-user latency perception. A streamed response uses server-sent events (SSE) to incrementally stream the response.
 
@@ -57,3 +57,9 @@ graph_5 [Anthropic's Claude Sonnet 4.5 on Google Cloud](https://docs.cloud.googl
 raven [Anthropic's Claude Haiku 5.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-5-5) High-performance, cost-effective model built for coding, sub-agents, and latency-sensitive experiences at scale.
 
 raven [Anthropic's Claude Haiku 4.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-4-5) High-performance model with the speed and cost efficiency to power free products and latency-sensitive experiences at scale.
+
+## Claude models on Google Cloud (Anthropic managed)
+
+**Claude models on Google Cloud (Anthropic managed)** is a service that lets you use Anthropic's Claude developer platform in Google Cloud. Use it to access Anthropic's latest features—including new models and research previews—the same day that they're released by Anthropic.
+
+For more information, see [Use Claude models on Google Cloud (Anthropic managed)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/anthropic-managed) .

@@ -92,3 +92,11 @@ A token to retrieve the next page of results. Pass to [`ListModelVersionsRequest
   "nextPageToken": string
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+- `aiplatform.models.get`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

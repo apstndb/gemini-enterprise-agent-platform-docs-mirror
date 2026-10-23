@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/safety-overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/safety-overview
 title: Safety in Gemini Enterprise Agent Platform
-description: An overview of safety settings for Agent Platform
+description: An overview of safety settings for Gemini Enterprise Agent Platform
 data_source: docs.cloud.google.com
 ---
 

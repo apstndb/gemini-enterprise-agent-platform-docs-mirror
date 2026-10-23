@@ -80,3 +80,11 @@ A token, which can be sent as [`ListTensorboardsRequest.page_token`](https://doc
   "nextPageToken": string
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.tensorboards.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

@@ -35,3 +35,11 @@ The events to create and add.
 ### Response body
 
 If successful, the response body is empty.
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `execution` resource:
+
+- `aiplatform.executions.addExecutionEvents`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

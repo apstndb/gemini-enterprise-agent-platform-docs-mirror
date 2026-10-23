@@ -58,6 +58,14 @@ End of mutually exclusive fields.
 
 If successful, the response body contains an instance of [`Operation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ListOperationsResponse#Operation) .
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `entityType` resource:
+
+- `aiplatform.entityTypes.exportFeatureValues`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## SnapshotExport
 
 Describes exporting the latest feature values of all entities of the EntityType between \[startTime, snapshotTime\].

@@ -29,3 +29,12 @@ The request body contains an instance of [`Schedule`](https://docs.cloud.google.
 ### Response body
 
 If successful, the response body contains a newly created instance of [`Schedule`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.schedules#Schedule) .
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permissions on the `parent` resource:
+
+- `aiplatform.pipelineJobs.create`
+- `aiplatform.schedules.create`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

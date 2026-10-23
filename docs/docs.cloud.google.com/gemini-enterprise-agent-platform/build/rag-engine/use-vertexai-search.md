@@ -2,13 +2,13 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-vertexai-search
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-vertexai-search
 title: Use Agent Search as a retrieval backend using RAG Engine
-description: Integrate Agent Platform Search with Agent Platform RAG Engine for enhanced RAG application performance and data management.
+description: Integrate Agent Search on Gemini Enterprise Agent Platform with RAG Engine on Gemini Enterprise Agent Platform for enhanced RAG application performance and data management.
 data_source: docs.cloud.google.com
 ---
 
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 
-> To see an example of using RAG Engine with Agent Platform Search, run the "RAG Engine with Agent Platform Search" notebook in one of the following environments:
+> To see an example of using RAG Engine with Agent Search, run the "RAG Engine with Agent Search" notebook in one of the following environments:
 >
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vertex_ai_search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vertex_ai_search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vertex_ai_search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vertex_ai_search.ipynb)
 

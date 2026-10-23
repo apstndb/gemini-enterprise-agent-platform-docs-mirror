@@ -74,3 +74,11 @@ A token, which can be sent as [`pageToken`](https://docs.cloud.google.com/gemini
   "nextPageToken": string
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `tensorboardTimeSeries` resource:
+
+- `aiplatform.tensorboardTimeSeries.read`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

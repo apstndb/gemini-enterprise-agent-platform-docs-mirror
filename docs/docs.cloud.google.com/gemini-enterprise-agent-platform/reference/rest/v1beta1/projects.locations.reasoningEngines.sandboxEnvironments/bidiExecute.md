@@ -55,3 +55,11 @@ The outputs from the sandbox environment.
   ]
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+- `aiplatform.sandboxEnvironments.execute`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

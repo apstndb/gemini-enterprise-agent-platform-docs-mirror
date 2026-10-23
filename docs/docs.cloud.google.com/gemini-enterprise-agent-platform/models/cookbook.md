@@ -6,7 +6,7 @@ description: Explore a collection of notebooks, tutorials, and quickstarts for b
 data_source: docs.cloud.google.com
 ---
 
-A collection of guides and examples for generative AI on Agent Platform.
+A collection of guides and examples for generative AI on Gemini Enterprise Agent Platform.
 
 Explore more in the [Generative AI Repository](https://github.com/GoogleCloudPlatform/generative-ai) and [Agent Platform Repository](https://github.com/Google-Cloud-AI/agent-platform) .
 

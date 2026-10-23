@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/runtime-setup
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/runtime-setup
 title: Troubleshoot environment setup for Agent Runtime
-description: Learn how to resolve common errors, such as package import errors, when setting up your environment for the agent platform runtime.
+description: Learn how to resolve common errors, such as package import errors, when setting up your environment for the Gemini Enterprise Agent Platform runtime.
 data_source: docs.cloud.google.com
 ---
 

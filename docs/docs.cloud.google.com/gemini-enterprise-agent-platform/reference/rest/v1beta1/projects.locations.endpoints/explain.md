@@ -100,6 +100,14 @@ The predictions that are the output of the predictions call. Same as [`PredictRe
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `endpoint` resource:
+
+- `aiplatform.endpoints.explain`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## ExplanationSpecOverride
 
 The [`ExplanationSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/ExplanationSpec) entries that can be overridden at [`online explanation`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/explain#google.cloud.aiplatform.v1beta1.PredictionService.Explain) time.

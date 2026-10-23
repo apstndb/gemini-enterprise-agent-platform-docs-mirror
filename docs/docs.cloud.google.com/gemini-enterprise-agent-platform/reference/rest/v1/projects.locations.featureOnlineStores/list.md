@@ -86,3 +86,11 @@ A token, which can be sent as [`ListFeatureOnlineStoresRequest.page_token`](http
   "nextPageToken": string
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.featureOnlineStores.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

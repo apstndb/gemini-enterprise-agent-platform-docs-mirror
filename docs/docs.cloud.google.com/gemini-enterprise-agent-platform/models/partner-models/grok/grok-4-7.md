@@ -98,16 +98,16 @@ Global
 <th>Quota limits</th>
 <td><p>Multi-region:</p>
 <ul>
-<li>QPM: 13</li>
-<li>Input TPM: 188,000</li>
-<li>Output TPM: 16,000</li>
+<li>QPM: 20</li>
+<li>Input TPM: 2,270,000</li>
+<li>Output TPM: 21,000</li>
 <li>Context length: 524,288</li>
 </ul>
 <p>global endpoint:</p>
 <ul>
-<li>QPM: 13</li>
-<li>Input TPM: 188,000</li>
-<li>Output TPM: 16,000</li>
+<li>QPM: 20</li>
+<li>Input TPM: 2,270,000</li>
+<li>Output TPM: 21,000</li>
 <li>Context length: 524,288</li>
 </ul></td>
 </tr>

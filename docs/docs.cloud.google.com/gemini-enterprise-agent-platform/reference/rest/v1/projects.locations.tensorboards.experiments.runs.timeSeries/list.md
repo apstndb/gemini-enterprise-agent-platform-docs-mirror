@@ -80,3 +80,11 @@ A token, which can be sent as [`ListTensorboardTimeSeriesRequest.page_token`](ht
   "nextPageToken": string
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.tensorboardTimeSeries.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

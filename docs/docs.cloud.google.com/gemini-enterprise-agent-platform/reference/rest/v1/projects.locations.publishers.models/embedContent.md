@@ -86,6 +86,14 @@ Whether the input content was truncated before generating the embedding.
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `model` resource:
+
+- `aiplatform.endpoints.predict`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## EmbeddingTaskType
 
 Represents a downstream task the embeddings will be used for.

@@ -77,3 +77,11 @@ Optional. The user provided system instructions for the model. Note: only text s
 ### Response body
 
 If successful, the response body contains a stream of [`GenerateContentResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerateContentResponse) instances.
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `model` resource:
+
+- `aiplatform.endpoints.predict`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

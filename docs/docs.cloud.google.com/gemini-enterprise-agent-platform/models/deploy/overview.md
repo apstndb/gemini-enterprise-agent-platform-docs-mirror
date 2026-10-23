@@ -12,7 +12,7 @@ Other generative AI models must be deployed to an endpoint before they're ready 
 
 - [Tuned models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy-a-tuned-model) , which you create by tuning a supported foundation model with your own data.
 
-- [Generative models that don't have managed APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#not-managed) . In the Model Garden, these are models that aren't labeled as **API available** or **Agent Platform Studio** —for example, Llama 2.
+- [Generative models that don't have managed APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#not-managed) . In the Model Garden, these are models that aren't labeled as **API available** or **Agent Studio** —for example, Llama 2.
 
 When you deploy a model to an endpoint, Gemini Enterprise Agent Platform associates compute resources and a URI with the model so that it can serve prompt requests.
 

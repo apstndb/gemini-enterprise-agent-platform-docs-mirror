@@ -73,6 +73,14 @@ The page token that can be used by the next [`ModelMonitoringService.SearchModel
 }
 ```
 
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `modelMonitor` resource:
+
+- `aiplatform.modelMonitors.searchModelMonitoringStats`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .
+
 ## SearchModelMonitoringStatsFilter
 
 Filter for searching ModelMonitoringStats.

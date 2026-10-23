@@ -108,3 +108,11 @@ A token to retrieve next page of results. Pass to [`ListNotebookRuntimesRequest.
   "nextPageToken": string
 }
 ```
+
+### IAM Permissions
+
+Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+- `aiplatform.notebookRuntimes.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs) .

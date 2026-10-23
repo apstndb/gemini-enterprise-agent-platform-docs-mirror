@@ -75,7 +75,7 @@ npx skills add https://github.com/google/agents-cli --skill google-agents-cli-ev
 
 ### Agent Platform GenAI Evaluation Service flywheel skill
 
-An SDK-driven playbook to evaluate and improve models and agents through the Agent Platform GenAI Evaluation Service, using the Agent Platform GenAI Evaluation SDK ( `client.evals.evaluate()` ). This skill covers:
+An SDK-driven playbook to evaluate and improve models and agents through the Gemini Enterprise Agent Platform GenAI Evaluation Service, using the Agent Platform GenAI Evaluation SDK ( `client.evals.evaluate()` ). This skill covers:
 
 - Building eval datasets from session traces, DataFrames, or synthetic generation
 - Selecting, configuring, and writing custom metrics with LLM-as-judge scoring
