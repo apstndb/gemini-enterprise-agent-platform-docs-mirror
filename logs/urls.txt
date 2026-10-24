@@ -1,7 +1,7 @@
 https://cloud.google.com/gemini-enterprise/agents	
 https://cloud.google.com/gemini-enterprise/faq	
 https://docs.cloud.google.com/gemini-enterprise-agent-platform	2026-10-02T06:03:35Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-anomalies-overview	2026-10-12T21:05:25Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-anomalies-overview	2026-10-23T18:10:28Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio	2026-10-01T19:22:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/agent-studio-capabilities	2026-10-16T02:50:12Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/deploy-vais-prompt	2026-10-01T19:22:51Z
@@ -57,7 +57,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-vertexai-vector-search	2026-10-01T19:22:24Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-weaviate-db	2026-10-01T19:22:24Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/vector-db-choices	2026-10-01T19:22:24Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime	2026-10-22T21:29:21Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime	2026-10-23T23:50:13Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-custom-agent	2026-10-02T06:03:33Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-langchain-agent	2026-10-02T06:03:33Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-langgraph-agent	2026-10-01T19:22:57Z
@@ -226,11 +226,11 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/m
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway	2026-10-20T12:20:12Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity	2026-10-12T19:51:18Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/monitor-content-security	2026-10-01T19:22:57Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/best-practices	2026-10-01T19:22:34Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/best-practices	2026-10-23T18:26:49Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap	2026-10-15T16:04:07Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies	2026-10-17T20:55:32Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap	2026-10-20T21:58:04Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance	2026-10-20T22:05:38Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance	2026-10-23T18:26:49Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/govern-agent-skills	2026-10-01T19:22:51Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview	2026-10-21T23:18:17Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap	2026-10-21T23:18:17Z
@@ -762,7 +762,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-f
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image	2026-10-19T15:48:10Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon	2026-10-20T21:43:55Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2	2026-10-01T19:22:51Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er	2026-10-02T19:01:47Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er	2026-10-23T21:35:58Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/agentic	2026-09-25T21:39:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/orchestration	2026-09-25T21:39:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/spatial	2026-09-25T21:40:24Z
@@ -852,7 +852,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-gard
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/self-deployed-models	2026-10-22T21:38:07Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/use-models	2026-10-01T19:22:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-observability	2026-10-22T21:38:07Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions	2026-10-21T15:24:20Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions	2026-10-23T19:58:23Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music	2026-10-14T17:33:49Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide	2026-10-01T19:22:24Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/overview	2026-10-01T19:22:57Z
@@ -966,7 +966,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/speech/spe
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo	2026-10-13T20:08:29Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start	2026-10-01T19:22:34Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/api-keys	2026-10-07T02:47:22Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/express-mode/express-mode-api-quickstart	2026-10-09T18:29:15Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/express-mode/express-mode-api-quickstart	2026-10-22T21:41:20Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/express-mode/overview	2026-10-09T19:03:35Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/express-mode/studio-express-mode-quickstart	2026-10-09T18:29:15Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/gcp-auth	2026-10-09T18:29:15Z
@@ -986,7 +986,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-sp
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/prompting-guide	2026-10-01T19:22:51Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design	2026-10-01T19:22:34Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication	2026-10-01T19:22:24Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking	2026-10-13T20:08:29Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking	2026-10-23T18:32:14Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/prompting-guide	2026-10-22T21:41:20Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures	2026-10-22T21:41:20Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution	2026-10-14T20:40:21Z

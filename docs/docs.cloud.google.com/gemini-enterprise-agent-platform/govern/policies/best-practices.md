@@ -109,7 +109,7 @@ A poor constraint is typically vague, uses subjective language, or fails to map 
 When authoring constraints, follow these guidelines:
 
 - **Use plain human language:** Use complete sentences in a declarative or imperative sense (for example, *"You mustn't allow..."* or *"Disallow..."* ).
-- **Avoid weak phrasing:** Avoid *"I think it's best if..."* or *"Try to avoid..."* . Phrasing matters for the LLM judge.
+- **Avoid weak phrasing:** Avoid *"I think it's best if..."* or *"Try to avoid..."* . Phrasing matters for the LLM in the semantic governance policy engine.
 - **Be specific:** Specify constraints with directly stated limits (for example, "\$1000", "8 AM to 4 PM EST"). Use wording that aligns with descriptions of tools and parameters.
 - **Avoid contradictions:** Ensure agent-scope and tool-scope constraints don't conflict (for example, different dollar thresholds).
 

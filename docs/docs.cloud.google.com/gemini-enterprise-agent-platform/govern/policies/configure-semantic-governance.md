@@ -461,7 +461,7 @@ After the network is configured, you must create an authorization extension and 
 
 Once the policy engine is active, you can define the technical and behavioral guardrails for your agents.
 
-> **Best practice:** Semantic governance policy uses LLMs as judges, which can make mistakes. We recommend enabling **dry run mode** first before enforcing policies in production. This lets you observe the policy engine's verdicts in [Log Explorer](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#view-logs) and ensure that your natural language constraints behave as expected without blocking real actions. For instructions, see [Enabling dry run mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#enabling-dry-run-mode) .
+> **Best practice:** The LLM in the semantic governance policy engine can make mistakes. We recommend enabling **dry run mode** first before enforcing policies in production. This lets you observe the policy engine's verdicts in [Log Explorer](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#view-logs) and ensure that your natural language constraints behave as expected without blocking real actions. For instructions, see [Enabling dry run mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#enabling-dry-run-mode) .
 
 1.  **Define the scope** : Determine if the policy applies to all actions taken by an agent or targets a specific tool.
 2.  **Author the constraints** : Provide your business rules in plain English.

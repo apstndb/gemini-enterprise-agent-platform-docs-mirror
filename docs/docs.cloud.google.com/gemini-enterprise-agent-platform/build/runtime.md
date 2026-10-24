@@ -118,7 +118,7 @@ See [Quota and system limits](https://docs.cloud.google.com/gemini-enterprise-ag
 
 ## Pricing
 
-A free tier is available for Agent Runtime. For information about pricing for Agent Runtime, see [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
+For information about pricing for Agent Runtime, see [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
 
 ## Migration to the client-based SDK
 

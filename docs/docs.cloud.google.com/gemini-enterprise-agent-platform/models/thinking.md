@@ -45,6 +45,8 @@ Thinking is supported in the following models:
 
 Thinking is enabled by default in supported Gemini models. In Agent Studio, you can inspect the full thinking process alongside the generated response.
 
+Because model behavior is non-deterministic, thinking isn't guaranteed for every request. Even when thinking is enabled and you set a thinking level, a thinking budget, or `include_thoughts` , the model might respond to some requests without thinking and return no thought parts. Your application must handle responses that don't contain thought parts.
+
 How you configure thinking depends on the model version:
 
 - [Gemini 3 and later models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking#gemini-3-and-later-models)
