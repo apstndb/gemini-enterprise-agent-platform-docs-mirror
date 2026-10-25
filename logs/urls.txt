@@ -971,7 +971,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/expr
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/express-mode/studio-express-mode-quickstart	2026-10-09T18:29:15Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/gcp-auth	2026-10-09T18:29:15Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3	2026-10-01T19:22:51Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-4	2026-10-13T21:08:32Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-4	2026-10-24T19:38:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/libraries	2026-10-01T19:22:43Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/openai	2026-10-09T18:15:14Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/streamlit/clean-up	2026-09-25T21:40:11Z
