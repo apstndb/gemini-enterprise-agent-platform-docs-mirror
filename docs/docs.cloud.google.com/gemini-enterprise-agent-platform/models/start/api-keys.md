@@ -43,13 +43,13 @@ For initial testing, you can hard code an API key, but this should only be tempo
 
 1.  Run the following command to see which command-line shell you are using:
 
-    ```
+    ```shell
     echo $SHELL
     ```
 
     The output is similar to the following:
 
-    ```
+    ```shell
     /bin/bash
     ```
 
@@ -59,20 +59,20 @@ For initial testing, you can hard code an API key, but this should only be tempo
 
       1.  Open `.bashrc` :
 
-          ```
+          ```shell
           touch ~/.bashrc
                   open ~/.bashrc
           ```
 
       2.  Add the following line to `.bashrc` :
 
-          ```
+          ```shell
           export GOOGLE_API_KEY=YOUR_API_KEY
           ```
 
       3.  Save the file, then run the following to apply the changes:
 
-          ```
+          ```shell
           source ~/.bashrc
           ```
 
@@ -80,20 +80,20 @@ For initial testing, you can hard code an API key, but this should only be tempo
 
       1.  Open `.zshrc` :
 
-          ```
+          ```shell
           touch ~/.zshrc
                   open ~/.zshrc
           ```
 
       2.  Add the following line to `.zshrc` :
 
-          ```
+          ```shell
           export GOOGLE_API_KEY=YOUR_API_KEY
           ```
 
       3.  Save the file, then run the following to apply the changes:
 
-          ```
+          ```shell
           source ~/.zshrc
           ```
 

@@ -67,9 +67,16 @@ When routing egress traffic over HTTPS, Agent Gateway validates the destination 
 
 - **Public CAs** : By default, Agent Gateway trusts certificates issued by [publicly trusted Certificate Authorities (CAs)](https://docs.cloud.google.com/load-balancing/docs/backend-authenticated-tls-backend-mtls#public-roots-of-trust) that meet standard [server certificate requirements](https://docs.cloud.google.com/load-balancing/docs/backend-authenticated-tls-backend-mtls#certificate-requirements) (including a Subject Alternative Name (SAN) matching the target hostname).
 
-- **Private CAs and self-signed certificates** : If your target destination (agents, tools, or MCP servers in your VPC network) uses a private CA or internal PKI, you can configure custom trust anchors using the `tlsConfig` setting in your connectivity template. By referencing a Certificate Manager `TrustConfig` resource, you can configure Agent Gateway to trust only specific private CAs, or, combine private root CAs with publicly trusted CAs to establish trust for both public and private endpoints.
+- **Private CAs and self-signed certificates** : If your target destination (agents, tools, or MCP servers in your VPC network) uses a private CA or internal PKI, you can configure custom trust anchors using the `tlsConfig` setting in your connectivity template.
 
-  When using `trustConfig` s to route traffic to destinations that use private CAs, you must rotate the PEM files manually. Automated rotation of PEM files using secret managers, such as [Google Cloud's Secret Manager](https://docs.cloud.google.com/secret-manager/docs/overview) , is not supported.
+  By referencing a Certificate Manager `TrustConfig` resource, you can configure Agent Gateway to trust only specific private CAs, or combine private root CAs with publicly trusted CAs ( `PUBLICLY_TRUSTED_ROOTS` ). This establishes trust for both public and private endpoints.
+
+  If your agents connect to Google Cloud APIs ( `*.googleapis.com` ) or other public HTTPS endpoints, you must set `additionalRoots` to `PUBLICLY_TRUSTED_ROOTS` ; without this setting, Agent Gateway doesn't trust Google-signed certificates for `googleapis.com` .
+
+  Note the following limitations when using `tlsConfig` :
+
+  - When using `trustConfig` s to route traffic to destinations that use private CAs, you must rotate the PEM files manually. Automated rotation of PEM files using secret managers, such as [Google Cloud's Secret Manager](https://docs.cloud.google.com/secret-manager/docs/overview) , is not supported.
+  - The `trustConfig` field is immutable once configured on a connectivity template, and Agent Gateway doesn't automatically pick up changes made to `tlsConfig` (such as updating `additionalRoots` ) on an attached connectivity template. For instructions on updating TLS settings, see [Updating VPC egress settings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#updating-egress-settings) .
 
 If Agent Gateway is unable to [validate the certificate chain](https://docs.cloud.google.com/load-balancing/docs/backend-authenticated-tls-backend-mtls#validation-steps) , the connection fails.
 
@@ -279,7 +286,11 @@ To deploy an Agent Gateway with a connectivity template, perform the following s
         - `tlsConfig` : (Optional) The TLS configuration for server certificate validation when connecting to private endpoints over HTTPS:
 
           - `TRUST_CONFIG_NAME` : The name of the Certificate Manager `TrustConfig` resource containing your private CA certificates or trust anchors.
-          - `ADDITIONAL_ROOTS_OPTION` : Specifies whether to trust publicly trusted CA roots in addition to your custom trust config. Set to `PUBLICLY_TRUSTED_ROOTS` (default) to trust both, certificates validated by the `trustConfig` parameter, and all publicly trusted CAs. Set to `NO_ADDITIONAL_ROOTS` to trust only the certificates validated by the `trustConfig` parameter.
+          - `ADDITIONAL_ROOTS_OPTION` : Specifies whether to trust publicly trusted CA roots in addition to your custom trust config:
+          - Set to `PUBLICLY_TRUSTED_ROOTS` (default) to trust both certificates validated by the `trustConfig` parameter and all publicly trusted CAs. You must set `additionalRoots` to `PUBLICLY_TRUSTED_ROOTS` if your agents also connect to Google Cloud APIs ( `*.googleapis.com` ) or other public HTTPS endpoints; without this setting, Agent Gateway won't trust Google-signed certificates for `googleapis.com` .
+          - Set to `NO_ADDITIONAL_ROOTS` to trust only the certificates validated by the `trustConfig` parameter.
+
+          > **Note:** The `trustConfig` field is immutable once configured on a connectivity template, and Agent Gateway doesn't automatically pick up in-place changes to `tlsConfig` (such as updating `additionalRoots` ) while the connectivity template is attached to a gateway. To update TLS settings, see [Updating VPC egress settings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#updating-egress-settings) .
 
     2.  **Create the connectivity template** :
 
@@ -345,11 +356,11 @@ This section provides architectural guidance and advanced networking patterns fo
 
 ### Updating VPC egress settings
 
-A connectivity template can't be modified while it is referenced by an Agent Gateway.
+A connectivity template can't be modified in place while it is referenced by an Agent Gateway, and Agent Gateway doesn't automatically pick up changes made to an attached connectivity template:
 
-- To update mutable VPC egress settings (such as the DNS peering configuration, VPC egress mode, or TLS configuration), you need to create a new connectivity template that uses the *same* `networkAttachment` and update the Agent Gateway to reference the new template.
+- **Updating DNS peering, VPC egress mode, or TLS settings ( `tlsConfig` )** : On a connectivity template, the `tlsConfig.trustConfig` field is immutable once configured, and in-place updates to `tlsConfig` (such as adding or changing `additionalRoots` ) aren't picked up by an attached Agent Gateway. To update the DNS peering configuration, VPC egress mode, or `tlsConfig` settings on an existing gateway, create a new connectivity template that uses the *same* `networkAttachment` with the updated settings, and update the Agent Gateway to reference the new template (or unbind and rebind the connectivity template).
 
-- The `networkAttachment` itself is immutable once configured on an Agent Gateway. To switch to a different network attachment (or target VPC network), you must create a new connectivity template and a new Agent Gateway.
+- **Changing the network attachment** : The `networkAttachment` itself is immutable once configured on both the connectivity template and the Agent Gateway. To switch to a different network attachment (or target VPC network), you must create a new connectivity template and a new Agent Gateway.
 
 ### Shared VPC deployment topologies
 

@@ -91,8 +91,8 @@ If your Agent Runtime instances fail to start or deploy then it might mean that 
 
     ```
     gcloud projects get-iam-policy PROJECT_ID \
-    --flatten="bindings[].members" \
-    --filter="bindings.members:AGENT_IDENTITY_PRINCIPAL"
+      --flatten="bindings[].members" \
+      --filter="bindings.members:AGENT_IDENTITY_PRINCIPAL"
     ```
 
     Replace the following:
@@ -132,7 +132,7 @@ You can also view egress traffic logs, including `403` denials, by using the bui
 
 - **Symptom:** The agent fails to connect to destinations that present self-signed or private CA-issued certificates.
 - **Cause:** By default, Agent Gateway only trusts certificates issued by publicly trusted CAs. Connecting to destinations that use private CAs or self-signed certificates requires additional configuration.
-- **Mitigation:** To connect to destinations using private CAs or self-signed certificates, you must configure custom TLS trust anchors by using the `tlsConfig` setting in an [agent connectivity template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) .
+- **Mitigation:** To connect to destinations using private CAs or self-signed certificates, you must configure custom TLS trust anchors by using the `tlsConfig` setting in an [agent connectivity template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#tls-certificate-requirements) . If your agents also connect to Google Cloud APIs ( `*.googleapis.com` ) or other public HTTPS endpoints, ensure that `additionalRoots` is set to `PUBLICLY_TRUSTED_ROOTS` in `tlsConfig` . If you update `tlsConfig` settings, you must bind a new connectivity template (or unbind and rebind the template) because Agent Gateway doesn't automatically pick up in-place `tlsConfig` changes on an attached template.
 
 ### Agent deployed with custom container (BYOC) fails to connect to Agent Gateway
 
@@ -293,9 +293,9 @@ Use one of the following examples to check for bindings:
 
   ```
   curl -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-  -d '{}' \
-  -X POST "https://iap.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION/iap_web/agentRegistry:getIamPolicy" \
-  -H "Content-Type: application/json"
+    -d '{}' \
+    -X POST "https://iap.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION/iap_web/agentRegistry:getIamPolicy" \
+    -H "Content-Type: application/json"
   ```
 
 - To check for **per-endpoint** IAM policy bindings, run the following command:
@@ -304,17 +304,17 @@ Use one of the following examples to check for bindings:
   export HOSTNAME=HOSTNAME
 
   ENDPOINT_ID=$(gcloud agent-registry endpoints list \
-  --project="PROJECT_ID" \
-  --location="REGION" \
-  --filter="interfaces.url:$HOSTNAME" \
-  --format="value(name.basename())")
+    --project="PROJECT_ID" \
+    --location="REGION" \
+    --filter="interfaces.url:$HOSTNAME" \
+    --format="value(name.basename())")
 
   echo "ENDPOINT_ID=$ENDPOINT_ID"
 
   curl -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-  -H "Content-Type: application/json" \
-  -d '{}' \
-  -X POST "https://iap.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION/iap_web/agentRegistry/endpoints/${ENDPOINT_ID}:getIamPolicy"
+    -H "Content-Type: application/json" \
+    -d '{}' \
+    -X POST "https://iap.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION/iap_web/agentRegistry/endpoints/${ENDPOINT_ID}:getIamPolicy"
   ```
 
   Replace `HOSTNAME` with the hostname of the destination that the agent is attempting to reach, for example, `us-central1-aiplatform.mtls.googleapis.com` .
@@ -325,17 +325,17 @@ Use one of the following examples to check for bindings:
   export MCP_SERVER=MCP_SERVER
 
   MCP_SERVER_ID=$(gcloud agent-registry mcp-servers list \
-  --project="PROJECT_ID" \
-  --location="REGION" \
-  --filter="interfaces.url:$MCP_SERVER" \
-  --format="value(name.basename())")
+    --project="PROJECT_ID" \
+    --location="REGION" \
+    --filter="interfaces.url:$MCP_SERVER" \
+    --format="value(name.basename())")
 
   echo "MCP_SERVER_ID=$MCP_SERVER_ID"
 
   curl -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-  -H "Content-Type: application/json" \
-  -d '{}' \
-  -X POST "https://iap.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION/iap_web/agentRegistry/mcpServers/${MCP_SERVER_ID}:getIamPolicy"
+    -H "Content-Type: application/json" \
+    -d '{}' \
+    -X POST "https://iap.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION/iap_web/agentRegistry/mcpServers/${MCP_SERVER_ID}:getIamPolicy"
   ```
 
   Replace ` MCP_SERVER ` with the URL of the MCP server (for example, `https://example-abc12345-uc.a.run.app/mcp` ).
@@ -357,9 +357,9 @@ In this section we make sure that there is an authorization policy that is expli
 1.  Get the details of the authorization extension associated with the gateway and confirm that the extension you're using is configured as expected.
 
     ```
-    gcloud service-extensions authz-extensions describe AUTHORIZATION_EXTENSION_NAME \
-      --location=LOCATION \
-      --project=PROJECT_ID
+      gcloud service-extensions authz-extensions describe AUTHORIZATION_EXTENSION_NAME \
+        --location=LOCATION \
+        --project=PROJECT_ID
     ```
 
     Replace ` AUTHORIZATION_EXTENSION_NAME ` with the name of the extension associated with the gateway. If you don't know the name of the extension, you can navigate to the gateway's details page in the Google Cloud Google Cloud console and note the value of the **Extension name** field under Service Extensions.
