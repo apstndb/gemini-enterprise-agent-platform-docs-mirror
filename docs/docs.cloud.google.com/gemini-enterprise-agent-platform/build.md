@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build
 title: Build with Gemini Enterprise Agent Platform
-description: Learn how to build AI agents with Gemini Enterprise Agent Platform, using open-source frameworks like ADK, Gemini models, and Google Cloud tools for seamless integration.
+description: Learn how to build AI agents with Gemini Enterprise Agent Platform, using open-source frameworks like Agent Development Kit (ADK), Gemini models, and {{dynamic_data.site_values.cloud_name}} tools for seamless integration.
 data_source: docs.cloud.google.com
 ---
 
@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 Gemini Enterprise Agent Platform offers the most comprehensive way to build agents, designed to meet you where you are.
 
-You can use Agent Development Kit (ADK)–an open-source framework for developing and deploying AI agents–or any other open-source framework of their choice. You can use Gemini models or any other model accessible through through Model Garden.
+You can use Agent Development Kit (ADK)–an open-source framework for developing and deploying AI agents–or any other open-source framework of their choice. You can use Gemini models or any other model accessible through through Gemini Enterprise Agent Platform Model Garden.
 
 Agent Platform provides access to a suite of Google Cloud tools and connectivity capabilities, including RAG, advanced search, grounding services, and maps. Agent Platform also ensures seamless ecosystem integration, enabling agents to connect effortlessly across your enterprise with support for inter-agent collaboration with Model Context Protocol (MCP) and Agent-to-Agent (A2A) protocol.
 
@@ -56,7 +56,7 @@ Learn about the isolated sandbox container, permissions, and pre-installed packa
 
 ## Create agents with frameworks
 
-Create agents using code-first approaches with popular open-source frameworks or the Google-provided Agent Development Kit (ADK).
+Create agents using code-first approaches with popular open-source frameworks or the Google-provided ADK.
 
 ### Get started
 

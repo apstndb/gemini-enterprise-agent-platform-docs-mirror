@@ -20,7 +20,7 @@ Use the following instructions to configure your project for Agent Platform Pipe
 
 4.  Agent Platform Pipelines uses Vertex ML Metadata to store the metadata created by your pipeline runs. When you run a pipeline for the first time, if the metadata store of your project doesn't exist, Gemini Enterprise Agent Platform creates your project's metadata store.
 
-    If you want your data encrypted using a customer-managed encryption key (CMEK), you can manually [create your metadata store using a CMEK key](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#create-metadata-store) before you run a pipeline. Otherwise, if there's no existing default metadata store in your project, Gemini Enterprise Agent Platform creates your project's metadata store using the CMEK key used when you run the pipeline for the first time. After the metadata store is created, it uses a CMEK key that's different from the CMEK key used in a pipeline run.
+    If you want your data encrypted using Customer-managed encryption keys (CMEK), you can manually [create your metadata store using a CMEK key](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#create-metadata-store) before you run a pipeline. Otherwise, if there's no existing default metadata store in your project, Gemini Enterprise Agent Platform creates your project's metadata store using the CMEK key used when you run the pipeline for the first time. After the metadata store is created, it uses a CMEK key that's different from the CMEK key used in a pipeline run.
 
 ## Set up your Google Cloud project
 
@@ -176,7 +176,7 @@ Agent Platform Pipelines stores the artifacts of your pipeline runs using Cloud 
 
 Use the following instructions to create a CMEK and set up a Vertex ML Metadata metadata store that uses this CMEK.
 
-1.  [Use Cloud Key Management Service to configure a customer-managed encryption key.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#configure-cmek)
+1.  [Use Cloud Key Management Service to configure Customer-managed encryption keys.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#configure-cmek)
 
 2.  Use the following REST call to create your project's default metadata store using your CMEK.
 

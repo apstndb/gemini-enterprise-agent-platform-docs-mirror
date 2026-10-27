@@ -38,7 +38,7 @@ To create a prompt, follow these steps:
 
 5.  Select your region in the **Region** field, or leave it as the default region.
 
-6.  If a customer-managed encryption key (CMEK) applies, do the following:
+6.  If Customer-managed encryption keys (CMEK) apply, do the following:
 
     1.  Select the **Customer-managed encryption key (CMEK)** checkbox.
     2.  Select a key from the **Select a Cloud KMS key** field.

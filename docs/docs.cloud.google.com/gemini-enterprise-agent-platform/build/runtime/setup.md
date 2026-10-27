@@ -212,7 +212,7 @@ We also recommend [setting up a virtual environment](https://docs.cloud.google.c
 To minimize the set of dependencies that you have to install, we have separated out the dependencies into:
 
 - `agent_engines` : the set of packages required for deployment to Agent Runtime.
-- `adk` : the set of compatible Agent Development Kit packages.
+- `adk` : the set of compatible Agent Development Kit (ADK) packages.
 - `langchain` : the set of compatible LangChain and LangGraph packages.
 - `ag2` : the set of compatible AG2 packages.
 - `llama_index` : the set of compatible LlamaIndex packages.

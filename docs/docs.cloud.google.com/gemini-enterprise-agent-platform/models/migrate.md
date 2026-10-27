@@ -205,7 +205,7 @@ If you're using [Provisioned Throughput](https://docs.cloud.google.com/gemini-en
 
 ## Parameter updates and best practices in Gemini 3.x
 
-The following apply to all Gemini 3.x models, including Gemini 3.5 Flash. They were introduced with Gemini 3 and are listed here as a reminder.
+The following apply to all Gemini 3.x models, including 3.5 Flash. They were introduced with Gemini 3 and are listed here as a reminder.
 
 ### Sampling parameters (deprecated)
 
@@ -253,7 +253,7 @@ Use the following checklists as a quick reference when migrating from previous m
 ### From Gemini 3 Flash Preview
 
 - Update model name: `gemini-3-flash-preview` → `gemini-3.5-flash` .
-- Review pricing. Gemini 3.5 Flash is more expensive than Gemini 3 Flash Preview.
+- Review pricing. 3.5 Flash is more expensive than Gemini 3 Flash Preview.
 - Remove `temperature` , `top_p` , `top_k` from your config.
 - Replace `thinking_budget` with `thinking_level` .
 - Test your prompts. Default effort changed from `high` → `medium` .

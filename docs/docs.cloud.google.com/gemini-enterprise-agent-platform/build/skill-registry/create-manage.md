@@ -32,7 +32,7 @@ The following table summarizes the compliance status:
 |-----------------------------------------|---------------|
 | Access Transparency                     | Supported     |
 | Data Residency (DRZ) in US and EU       | Supported     |
-| Customer-Managed Encryption Keys (CMEK) | Not Supported |
+| Customer-managed encryption keys (CMEK) | Not Supported |
 | HIPAA certification                     | Not Supported |
 | VPC-SC                                  | Not Supported |
 

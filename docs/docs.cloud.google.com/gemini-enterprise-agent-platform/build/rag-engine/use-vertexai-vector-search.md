@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 
-> To see an example of using RAG Engine with Vector Search, run the "RAG Engine with Vector Search" notebook in one of the following environments:
+> To see an example of using RAG Engine on Gemini Enterprise Agent Platform with Vector Search on Gemini Enterprise Agent Platform, run the "RAG Engine with Vector Search" notebook in one of the following environments:
 >
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vector_search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vector_search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vector_search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vector_search.ipynb)
 
@@ -190,8 +190,9 @@ from agentplatform import types
 # display_name = "test_corpus"
 # description = "Corpus Description"
 
-# Initialize Agent Platform client once per session
-client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+# Initialize Agent Platform client once per session.
+# See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
 
 # Configure embedding model (Optional)
 embedding_model_config = types.RagEmbeddingModelConfig(
@@ -300,34 +301,25 @@ from google.genai import types as genai_types
 
 # TODO(developer): Update and un-comment below lines
 # PROJECT_ID = "your-project-id"
-# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}"
+# paths = ["gs://my_bucket/my_files_dir/*"]
 
-# Supports Google Cloud Storage and Google Drive Links
-# paths = ["https://drive.google.com/file/d/123", "gs://my_bucket/my_files_dir/*"]
-
-# Initialize Agent Platform client once per session
-client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+# Initialize Agent Platform client once per session.
+# See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
 
 response = client.rag.import_files(
     name=corpus_name,
     import_config=types.ImportRagFilesConfig(
-        gcs_source=genai_types.GcsSource(uris=[paths[1]]),
-        google_drive_source=types.GoogleDriveSource(
-            resource_ids=[
-                types.GoogleDriveSourceResourceId(
-                    resource_id=paths[0],
-                    resource_type=types.ResourceType.RESOURCE_TYPE_FILE
-                )
-            ]
-        ), # optional
+        gcs_source=genai_types.GcsSource(uris=paths),
         rag_file_transformation_config=types.RagFileTransformationConfig(
             rag_file_chunking_config=types.RagFileChunkingConfig(
                 chunk_size=512,
                 chunk_overlap=100,
             )
-        ), # optional
-        max_embedding_requests_per_min=900, # optional
-    )
+        ),  # optional
+        max_embedding_requests_per_min=900,  # optional
+    ),
 )
 
 print(f"Imported {response.imported_rag_files_count} files.")
@@ -380,10 +372,11 @@ from google.genai import types as genai_types
 
 # TODO(developer): Update and un-comment below lines
 # PROJECT_ID = "your-project-id"
-# corpus_name = "projects/[PROJECT_ID]/locations/us-central1/ragCorpora/[rag_corpus_id]"
+# corpus_name = "projects/[PROJECT_ID]/locations/us-east5/ragCorpora/[rag_corpus_id]"
 
-# Initialize Agent Platform client once per session
-client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
+# Initialize Agent Platform client once per session.
+# See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
 
 response = client.rag.retrieve_contexts(
     vertex_rag_store=genai_types.VertexRagStore(
@@ -460,7 +453,7 @@ from google.genai import types as genai_types
 
 # TODO(developer): Update and un-comment below lines
 # PROJECT_ID = "your-project-id"
-# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}"
 
 rag_retrieval_tool = genai_types.Tool(
     retrieval=genai_types.Retrieval(
@@ -481,14 +474,14 @@ rag_retrieval_tool = genai_types.Tool(
 )
 
 # Create a GenAI SDK client to make a generate_content request
-genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-central1")
+genai_client = genai.Client(vertexai=True, project=PROJECT_ID, location="global")
 
 response = genai_client.models.generate_content(
-    model="gemini-2.5-pro",
+    model="gemini-3.8-flash",
     contents="Why is the sky blue?",
     config=genai_types.GenerateContentConfig(
         tools=[rag_retrieval_tool]
-    )
+    ),
 )
 print(response.text)
 # Example response:

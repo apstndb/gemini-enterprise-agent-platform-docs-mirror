@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 
-> To see an example of using RAG Engine with Agent Search, run the "RAG Engine with Agent Search" notebook in one of the following environments:
+> To see an example of using RAG Engine on Gemini Enterprise Agent Platform with Agent Search, run the "RAG Engine with Agent Search" notebook in one of the following environments:
 >
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vertex_ai_search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vertex_ai_search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vertex_ai_search.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vertex_ai_search.ipynb)
 
@@ -108,8 +108,9 @@ from agentplatform import types
 # display_name = "test_corpus"
 # description = "Corpus Description"
 
-# Initialize Agent Platform client once per session
-client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+# Initialize Agent Platform client once per session.
+# See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
 
 # Configure Search
 vertex_ai_search_config = types.VertexAiSearchConfig(
@@ -179,10 +180,11 @@ from google.genai import types as genai_types
 
 # TODO(developer): Update and un-comment below lines
 # PROJECT_ID = "your-project-id"
-# corpus_name = "projects/[PROJECT_ID]/locations/us-central1/ragCorpora/[rag_corpus_id]"
+# corpus_name = "projects/[PROJECT_ID]/locations/us-east5/ragCorpora/[rag_corpus_id]"
 
-# Initialize Agent Platform client once per session
-client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
+# Initialize Agent Platform client once per session.
+# See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
 
 response = client.rag.retrieve_contexts(
     vertex_rag_store=genai_types.VertexRagStore(
@@ -271,7 +273,7 @@ from google.genai import types as genai_types
 
 # TODO(developer): Update and un-comment below lines
 # PROJECT_ID = "your-project-id"
-# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}"
 
 rag_retrieval_tool = genai_types.Tool(
     retrieval=genai_types.Retrieval(
@@ -292,14 +294,14 @@ rag_retrieval_tool = genai_types.Tool(
 )
 
 # Create a GenAI SDK client to make a generate_content request
-genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-central1")
+genai_client = genai.Client(vertexai=True, project=PROJECT_ID, location="global")
 
 response = genai_client.models.generate_content(
-    model="gemini-2.5-pro",
+    model="gemini-3.8-flash",
     contents="Why is the sky blue?",
     config=genai_types.GenerateContentConfig(
         tools=[rag_retrieval_tool]
-    )
+    ),
 )
 print(response.text)
 # Example response:

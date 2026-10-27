@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag
 title: Use RagManagedDb with RAG Engine on Gemini Enterprise Agent Platform
-description: Configure RagManagedDb for vector database management, retrieval strategies (KNN, ANN), and Customer-Managed Encryption Keys (CMEK).
+description: Configure RagManagedDb for vector database management, retrieval strategies (KNN, ANN), and Customer-managed encryption keys (CMEK).
 data_source: docs.cloud.google.com
 ---
 
@@ -247,17 +247,17 @@ https://${LOCATION}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/loc
 
 RAG Engine provides robust options for managing how your data at rest is encrypted. By default, all user data within `RagManagedDb` is encrypted using a Google-owned and Google-managed encryption key, which is the default setting. This default setting helps you to verify that your data is secure without requiring any specific configuration.
 
-If you require more control over your keys used for encryption, RAG Engine supports Customer-Managed Encryption Key (CMEK). With CMEK, you can use your cryptographic keys, managed within Cloud Key Management Service (KMS), to protect your RAG corpus data.
+If you require more control over your keys used for encryption, RAG Engine supports Customer-managed encryption keys (CMEK). With CMEK, you can use your cryptographic keys, managed within Cloud Key Management Service (Cloud KMS), to protect your RAG corpus data.
 
 For information on CMEK limitations for RAG corpora, see [CMEK limitations for RAG Engine on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-supports-cmek#cmek-limitations) .
 
-### Set up your KMS key and grant permissions
+### Set up your Cloud KMS key and grant permissions
 
 Before you can create a RAG corpus encrypted with CMEK, you must set up a cryptographic key in Google Cloud KMS, and grant the RAG Engine service account the necessary permissions to use this key.
 
 #### Prerequisites
 
-To perform the following setup steps, verify that your user account has the appropriate Identity and Access Management (IAM) permissions in the Google Cloud project where you intend to create the KMS key and the RAG corpus. Typically, a role like the Cloud KMS Admin role ( `roles/cloudkms.admin` ) is required.
+To perform the following setup steps, verify that your user account has the appropriate Identity and Access Management (IAM) permissions in the Google Cloud project where you intend to create the Cloud KMS key and the RAG corpus. Typically, a role like the Cloud KMS Admin role ( `roles/cloudkms.admin` ) is required.
 
 #### Enable the API
 
@@ -268,7 +268,7 @@ To enable the Cloud Key Management Service API, do the following:
 3.  In the search bar, type "Key Management", and select the "Key Management" service.
 4.  If the API isn't enabled, click **Enable** . You might need to wait a few minutes for the API to be fully provisioned.
 
-#### Create your KMS key ring and key
+#### Create your Cloud KMS key ring and key
 
 To create a key ring, do the following:
 
@@ -277,7 +277,7 @@ To create a key ring, do the following:
     Enter the following:
 
     - **Key ring name** : Enter a unique name for your key ring such as rag-engine-cmek-keys.
-    - **Location type** : Select Region. The Cloud Key Management Service key ring must be in the same region as the RAG Engine endpoint that you're using when you're encrypting a RAG corpus with CMEK.
+    - **Location type** : Select Region. The Cloud KMS key ring must be in the same region as the RAG Engine endpoint that you're using when you're encrypting a RAG corpus with CMEK.
     - **Location** : Choose the selected region such as `us-central1` . This region should ideally match the region where your RAG Engine resources will reside.
 
 2.  Click **Create** .
@@ -308,7 +308,7 @@ To copy the key resource name, do the following:
 
 #### Grant Permissions to the RAG Engine service agent
 
-For the RAG Engine to encrypt and decrypt data using your KMS key, its service agent needs appropriate permissions on that specific key.
+For the RAG Engine to encrypt and decrypt data using your Cloud KMS key, its service agent needs appropriate permissions on that specific key.
 
 To identify your RAG Engine service agent, do the following:
 
@@ -339,9 +339,9 @@ If your RAG Engine service agent isn't present yet, do the following to trigger 
 
 3.  Verify that the RAG Engine service agent was created.
 
-To grant permissions on the KMS key, do the following:
+To grant permissions on the Cloud KMS key, do the following:
 
-1.  Go back to the Key Management service in the Google Cloud console.
+1.  Go back to the Cloud KMS service in the Google Cloud console.
 
 2.  Select the key ring containing the key you created.
 
@@ -359,7 +359,7 @@ To grant permissions on the KMS key, do the following:
 
 ### Create a RAG corpus with customer-managed encryption
 
-This code sample demonstrates how to create a RAG corpus encrypted with a Customer Managed Encrypted Key (CMEK).
+This code sample demonstrates how to create a RAG corpus encrypted with Customer-managed encryption keys (CMEK).
 
 Replace the variables in the following code samples:
 
@@ -405,7 +405,7 @@ https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/location
 
 When you use CMEK with Gemini Enterprise Agent Platform services, such as the RAG Engine on Gemini Enterprise Agent Platform, there's a quota on the number of unique Cloud KMS keys that can be in use per project per region. This quota is tracked by the metric `aiplatform.googleapis.com/in_use_customer_managed_encryption_keys` .
 
-Each time you use a new, unique KMS key to create a resource like a RAG corpus within a project and region, the KMS key consumes one unit of this quota. This quota unit isn't released even if the resources using that specific key are deleted.
+Each time you use a new, unique Cloud KMS key to create a resource like a RAG corpus within a project and region, the Cloud KMS key consumes one unit of this quota. This quota unit isn't released even if the resources using that specific key are deleted.
 
 If you need more unique keys than the current limit, you must request a quota increase for `aiplatform.googleapis.com/in_use_customer_managed_encryption_keys` for the select region.
 

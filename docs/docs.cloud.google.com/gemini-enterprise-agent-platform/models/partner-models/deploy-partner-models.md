@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/deploy-partner-models
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/deploy-partner-models
 title: Deploy partner models from Model Garden
-description: Deploy self-deployable partner models from Model Garden to a Gemini Enterprise Agent Platform Endpoint. Purchase models through Google Cloud Marketplace.
+description: Deploy self-deployable partner models from Gemini Enterprise Agent Platform Model Garden to a Gemini Enterprise Agent Platform Endpoint. Purchase models through Google Cloud Marketplace.
 data_source: docs.cloud.google.com
 ---
 

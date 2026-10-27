@@ -39,7 +39,7 @@ With Claude models on Google Cloud (Anthropic managed) ( `claude.googleapis.com`
 You should use a Google-managed Claude model if you need any of the following:
 
 - Google-operated inference where Google Cloud is the sole data processor
-- Data and inference that stay inside Google Cloud's security boundary (with VPC Service Controls, Customer-Managed Encryption Keys, and regional data residency)
+- Data and inference that stay inside Google Cloud's security boundary (with VPC Service Controls, Customer-managed encryption keys, and regional data residency)
 - Coverage under Google Cloud compliance programs (including FedRAMP High, IL4, IL5, SOC, ISO, and HIPAA eligibility)
 - Built-in Google Cloud quotas and billing
 - Built-in integrations with Google Cloud services such as BigQuery, Model Armor, and Agent Engine.

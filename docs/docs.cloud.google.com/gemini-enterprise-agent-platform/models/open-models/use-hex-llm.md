@@ -328,7 +328,7 @@ model.deploy(
 )
 ```
 
-Example Colab Enterprise notebooks include:
+Example Colab notebooks include:
 
 - [Gemma 2 deployment](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma2_deployment_on_vertex.ipynb)
 - [CodeGemma deployment](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_codegemma_deployment_on_vertex.ipynb)

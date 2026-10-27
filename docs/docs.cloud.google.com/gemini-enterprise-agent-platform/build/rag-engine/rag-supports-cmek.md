@@ -14,11 +14,11 @@ This page shows you how to enable CMEK to work with RAG Engine on Gemini Enterpr
 
 RAG Engine provides robust options for managing how your data at rest is encrypted. By default, all user data within `RagManagedDb` is encrypted using a Google-owned and Google-managed encryption key, which is the default setting. This default setting helps you to verify that your data is secure without requiring any specific configuration.
 
-If you require more control over your keys used for encryption, RAG Engine supports [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/kms/docs/cmek) . With CMEK, you can use your cryptographic keys, managed within Cloud Key Management Service (KMS), to protect your RAG corpus data.
+If you require more control over your keys used for encryption, RAG Engine supports [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/kms/docs/cmek) . With CMEK, you can use your cryptographic keys, managed within Cloud Key Management Service (Cloud KMS), to protect your RAG corpus data.
 
 ## Set up the encryption key with your RAG corpus
 
-To set up an encryption key, follow the steps at [Set up your KMS key and grant permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag#set_up_your_kms_key_and_grant_permissions) .
+To set up an encryption key, follow the steps at [Set up your Cloud KMS key and grant permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag#set-up-your-kms-key-and-grant-permissions) .
 
 ## CMEK limitations for RAG Engine on Gemini Enterprise Agent Platform
 
@@ -28,9 +28,9 @@ RAG Engine on Gemini Enterprise Agent Platform supports CMEK with the following 
 
 - CMEK is only supported on `RagVectorDbConfig` of type `RagManagedDb` .
 
-- The `encryption_spec` field defines the KMS key, and the field is immutable, which means that CMEK can't be enabled or disabled after the RAG corpus is created.
+- The `encryption_spec` field defines the Cloud KMS key, and the field is immutable, which means that CMEK can't be enabled or disabled after the RAG corpus is created.
 
-- No more than 50 unique KMS keys can be used to create RAG corpora per project per region.
+- No more than 50 unique Cloud KMS keys can be used to create RAG corpora per project per region.
 
 ## What's next
 

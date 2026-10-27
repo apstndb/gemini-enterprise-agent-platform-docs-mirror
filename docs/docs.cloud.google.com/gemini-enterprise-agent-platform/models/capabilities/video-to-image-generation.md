@@ -246,7 +246,32 @@ Invoke-WebRequest `
     -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.1-flash-image:generateContent" | Select-Object -Expand Content
 ```
 
+The following is an example response:
+
 ```
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "inlineData": {
+              "mimeType": "image/png",
+              "data": "IMAGE_BASE64_BYTES"
+            }
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 350,
+    "candidatesTokenCount": 258,
+    "totalTokenCount": 608
+  }
+}
 ```
 
 Note the following in the URL for this sample:

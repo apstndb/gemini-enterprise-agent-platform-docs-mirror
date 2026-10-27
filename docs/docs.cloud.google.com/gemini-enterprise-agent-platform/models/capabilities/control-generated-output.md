@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output
 title: Structured output
-description: Learn how to control the output of generative AI multimodal models on Google Cloud's Agent Platform. This feature is also called structured output
+description: Learn how to control the output of generative AI multimodal models on {{dynamic_data.site_values.cloud_name}}'s Agent Platform. This feature is also called structured output
 data_source: docs.cloud.google.com
 ---
 

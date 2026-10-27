@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/express-mode/overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/express-mode/overview
 title: Gemini Enterprise Agent Platform in express mode overview
-description: Use Agent Studio to design, test, and customize your Gemini prompts. Learn how Google Cloud's Agent Studio helps you manage and version AI prompts.
+description: Use Agent Studio to design, test, and customize your Gemini prompts. Learn how {{dynamic_data.site_values.cloud_name}}'s Agent Studio helps you manage and version AI prompts.
 data_source: docs.cloud.google.com
 ---
 

@@ -56,13 +56,13 @@ When creating a continuous tuning job, note the following:
 
 - Only supervised tuning base models that are tuned on or after July 11, 2025 can be used as base models for continuous tuning.
 
-- If you're using [customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) , your continuous tuning job must use the same CMEK that was used in the tuning job for the pre-tuned model.
+- If you're using [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) , your continuous tuning job must use the same CMEK that was used in the tuning job for the pre-tuned model.
 
 ### Console
 
 To configure continuous tuning for a pre-tuned model by using the Google Cloud console, perform the following steps:
 
-1.  In the Gemini Enterprise Agent Platform section of the Google Cloud console, go to the **Agent Platform Studio** page.
+1.  In the Gemini Enterprise Agent Platform section of the Google Cloud console, go to the **Tuning** page.
 
 2.  Click **Create tuned model** .
 

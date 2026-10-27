@@ -6,7 +6,7 @@ description: Generate images with Gemini, using Google's image generation AI.
 data_source: docs.cloud.google.com
 ---
 
-> To see an example of image generation with Gemini, run the "Gemini Nano Banana 2.1 Image Generation in Gemini Enterprise Agent Platform" notebook in one of the following environments:
+> To see an example of image generation with Gemini, run the "Gemini Nano Banana 2.1 in Gemini Enterprise Agent Platform" notebook in one of the following environments:
 >
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/gemini_nano_banana_2_1_image_gen.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fgemini_nano_banana_2_1_image_gen.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fgemini_nano_banana_2_1_image_gen.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/gemini_nano_banana_2_1_image_gen.ipynb)
 
@@ -22,7 +22,7 @@ The following Gemini models support image generation:
 - [`gemini-3-pro-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
 - [`gemini-2.5-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)
 
-For more information about Gemini model capabilities, see [Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models#gemini-models) .
+For more information about Gemini model capabilities, see [Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#gemini-models) .
 
 ## Generate images
 
@@ -786,12 +786,118 @@ curl -X POST \
 
 Gemini generates an image based on your description. This process takes a few seconds, but can be comparatively slower depending on capacity.
 
-## What's next?
+## Save generated images to Cloud Storage
+
+Instead of returning raw base64-encoded image bytes inline in the response, you can configure `generateContent` and `streamGenerateContent` requests to write generated images directly to a Cloud Storage bucket and return the object URI in `fileData.fileUri` .
+
+The following Gemini models support Cloud Storage output persistence:
+
+- [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) ( `gemini-nano-banana-2.1` )
+- [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) ( `gemini-3.1-flash-image` )
+- [Gemini 3.1 Flash-Lite Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) ( `gemini-3.1-flash-lite-image` )
+- [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) ( `gemini-3-pro-image` )
+
+### Prerequisites
+
+Before sending a request with Cloud Storage output persistence, verify that the principal authenticating the request has the following Identity and Access Management permission on the destination Cloud Storage bucket:
+
+- `storage.objects.create` (included in roles such as the Storage Object Creator role, `roles/storage.objectCreator` )
+
+Before generating images, the service verifies `storage.objects.create` permission on the target Cloud Storage bucket using the caller's credentials. If the Cloud Storage bucket does not exist, the caller lacks write permission, or a VPC Service Controls perimeter blocks the write, the request fails before generation with a `403 PERMISSION_DENIED` error.
+
+### Send a request with Cloud Storage output
+
+To write generated images directly to Cloud Storage, configure both of the following fields in your `generateContent` or `streamGenerateContent` request:
+
+- Set `outputConfig.outputUriPrefix` to your destination Cloud Storage bucket or folder prefix (for example, `gs:// `` BUCKET_NAME `` / `` PREFIX `` /` ).
+- Set `generationConfig.responseFormat[].image.delivery` to `"URI"` .
+
+The following REST request generates an image and writes it directly to a Cloud Storage bucket:
+
+```
+curl -X POST \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-nano-banana-2.1:generateContent" \
+  -d '{
+    "contents": [
+      {
+        "role": "USER",
+        "parts": [
+          {
+            "text": "Create an architectural rendering of a sustainable glass greenhouse in alpine snow."
+          }
+        ]
+      }
+    ],
+    "generationConfig": {
+      "responseModalities": ["TEXT", "IMAGE"],
+      "responseFormat": [
+        {
+          "image": {
+            "delivery": "URI"
+          }
+        }
+      ]
+    },
+    "outputConfig": {
+      "outputUriPrefix": "gs://BUCKET_NAME/PREFIX/"
+    }
+  }'
+```
+
+Replace the following:
+
+- ` PROJECT_ID ` : Your Google Cloud project ID.
+- ` BUCKET_NAME ` : The name of the destination Cloud Storage bucket.
+- ` PREFIX ` : Optional folder path prefix inside the Cloud Storage bucket (for example, `outputs` ).
+
+The service writes each generated image part to Cloud Storage using the naming pattern `gs:// `` BUCKET `*`NAME`*` `` `*`/ `` PREFIX `` /image`*` `` GENERATION `*`ID`*` `` `*`. `` EXTENSION`* *(appending* `CANDIDATE `*`INDEX`* *when a response contains multiple candidates, and* `IMAGE_INDEX` when a candidate contains multiple images) and returns the URI in `fileData` :
+
+```
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "fileData": {
+              "mimeType": "image/png",
+              "fileUri": "gs://my-bucket/outputs/image_1234567890.png"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+When you configure Cloud Storage output delivery, the service handles responses as follows:
+
+- **Mixed text and image responses** : Text parts in a `TEXT` and `IMAGE` response remain inline in `parts[].text` . Only generated image parts are written to Cloud Storage and returned as `parts[].fileData` objects.
+- **Thinking images** : When `generationConfig.thinkingConfig.includeThoughts` is set to `true` , intermediate thinking images ( `parts[].thought: true` ) are also written to Cloud Storage using the `thought `*`image`*` `` GENERATION_ID` prefix and returned as `parts[].fileData` objects.
+- **Streaming responses ( `streamGenerateContent` )** : Each generated image is written to Cloud Storage before the response chunk referencing its `fileData.fileUri` is sent.
+- **No-image responses** : If a request returns only text or is blocked by safety filters, no object is written to Cloud Storage.
+- **Encryption and retention** : Written objects inherit the destination Cloud Storage bucket's encryption configuration, including Customer-managed encryption keys (CMEK), and follow the Cloud Storage bucket's lifecycle management rules.
+
+### Limitations
+
+Cloud Storage output has the following limitation:
+
+- **Multi-turn editing with cross-project Cloud Storage buckets** : The service writes generated images using the credentials of the principal that sent the request. However, when a later request in a multi-turn conversation references a generated image by its `fileData.fileUri` , the service reads the object using the Gemini Enterprise Agent Platform service agent of the calling project ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform.iam.gserviceaccount.com` ). If the destination Cloud Storage bucket is in a different project and the service agent doesn't have the `storage.objects.get` permission on that Cloud Storage bucket, the follow-up request fails with a `403 PERMISSION_DENIED` error even though the original write succeeded.
+
+  To use generated images as input in multi-turn editing, grant the service agent read access to the destination Cloud Storage bucket (for example, the Storage Object Viewer role, `roles/storage.objectViewer` ).
+
+## What's next
 
 See the following links for more information about Gemini image generation:
 
 - [Edit images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-edit-images)
 
 - [Gemini image generation best practices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-image-generation-best-practices)
+
+- [Gemini image generation limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-image-generation-limitations)
 
 - [Gemini image generation and responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-image-responsible-ai)

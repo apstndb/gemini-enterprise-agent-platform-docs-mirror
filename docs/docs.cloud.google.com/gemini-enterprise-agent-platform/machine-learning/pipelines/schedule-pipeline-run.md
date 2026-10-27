@@ -97,7 +97,7 @@ Use the following instructions to create a pipeline schedule:
 
         - To indicate that the schedule ends on a specific date and time, select **On** , and specify the end date and time for the schedule.
 
-6.  Optional: To specify a custom service account, a customer-managed encryption key (CMEK), or a peered VPC network, click **Advanced options** and specify a service account, CMEK, or peered VPC network name.
+6.  Optional: To specify a custom service account, Customer-managed encryption keys (CMEK), or a peered VPC network, click **Advanced options** and specify a service account, CMEK, or peered VPC network name.
 
 7.  Click **Continue** and specify the **Runtime configuration** for the pipeline.
 

@@ -346,4 +346,4 @@ If you encounter a problem when you create an instance, see [Troubleshooting Age
 - For a Terraform solution for simplified Agent Platform networking setup, see [Simplified Cloud Networking Configuration Solutions](https://github.com/GoogleCloudPlatform/cloudnetworking-config-solutions) .
 - You can create a Agent Platform Workbench instance using a private IP. For a Terraform solution, see [Workbench](https://github.com/GoogleCloudPlatform/cloudnetworking-config-solutions/tree/main/execution/06-consumer/Workbench) .
 - To learn more about granting access, see [Manage access](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access) .
-- To use CMEK, see [Customer-managed encryption keys](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/cmek) .
+- To use CMEK, see [CMEK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/cmek) .

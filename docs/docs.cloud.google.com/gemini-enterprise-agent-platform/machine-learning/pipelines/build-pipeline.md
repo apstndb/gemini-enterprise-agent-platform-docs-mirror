@@ -382,7 +382,7 @@ The SDK clients and container images that you use to build and run pipelines are
 
 - Review the [Gemini Enterprise Agent Platform framework support policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/framework-support-policy) and [Supported frameworks list](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/supported-frameworks#pipelines) .
 
-- Subscribe to the [Gemini Enterprise Agent Platform release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes) and the PyPi.org RSS feeds for SDKs you use ( [Kubeflow Pipelines](https://www.kubeflow.org/docs/components/pipelines/overview/) SDK, [Google Cloud Pipeline Components SDK](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/index.html) , or [TensorFlow Extended SDK](https://github.com/tensorflow/tfx) ) to stay aware of new releases.
+- Subscribe to the [Gemini Enterprise Agent Platform release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes) and the PyPi.org RSS feeds for SDKs you use ( [Kubeflow Pipelines](https://www.kubeflow.org/docs/components/pipelines/overview/) SDK, [Google Cloud Pipeline Components SDK](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/index.html) , or [TFX SDK](https://github.com/tensorflow/tfx) ) to stay aware of new releases.
 
 - If you have a pipeline template or definition that references a container with security vulnerabilities, you should do the following:
 

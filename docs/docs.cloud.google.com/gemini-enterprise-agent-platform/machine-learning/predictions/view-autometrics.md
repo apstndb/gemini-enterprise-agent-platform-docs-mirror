@@ -13,7 +13,7 @@ AI AutoMetrics lets you to monitor the performance and health of your models wit
 ## Before you begin
 
 1.  Make sure you have a [Gemini Enterprise Agent Platform endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/choose-endpoint-type) with a [deployed model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) that uses a container with supported frameworks.
-2.  Make sure your project has enabled Cloud Monitoring. See For more information, see [Enable the Monitoring API](https://docs.cloud.google.com/monitoring/api/enable-api) .
+2.  Make sure your project has enabled Cloud Monitoring. See For more information, see [Enable the Cloud Monitoring API](https://docs.cloud.google.com/monitoring/api/enable-api) .
 
 ## Use AI AutoMetrics
 

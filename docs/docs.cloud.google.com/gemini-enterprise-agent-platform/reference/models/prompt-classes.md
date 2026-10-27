@@ -12,7 +12,7 @@ This page introduces a unified set of capabilities to define, save, retrieve, an
 
 Gemini Enterprise Agent Platform offers tooling to help manage prompt templates and prompt data. Prompt templates can be versioned and used with generative models on Agent Platform. Each prompt can be assembled and versioned in Agent Studio on Gemini Enterprise Agent Platform or the Agent Platform SDK.
 
-Prompt management in the Agent Platform SDK includes full enterprise support, including support for Customer-Managed Encryption Keys (CMEK) and VPC Service Controls (VPCSC).
+Prompt management in the Agent Platform SDK includes full enterprise support, including support for Customer-managed encryption keys (CMEK) and VPC Service Controls (VPCSC).
 
 ## Prompt management capabilities
 

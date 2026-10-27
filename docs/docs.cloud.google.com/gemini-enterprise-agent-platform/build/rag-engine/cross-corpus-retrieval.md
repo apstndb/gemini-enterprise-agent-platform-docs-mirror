@@ -16,7 +16,7 @@ AsyncRetrieveContexts API: This is an asynchronous API that allows users to retr
 
 AskContexts API: This is a synchronous API that directly generates the answer to the query by searching across multiple RAG-managed corpora.
 
-**Important** : To use this feature, you must grant the **Vertex AI User** role in your project to the RAG Engine service account: `service-[Your project's automatically generated `[`project number`](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers)` ]@gcp-sa-vertex-rag.iam.gserviceaccount.com` .
+**Important** : To use this feature, you must grant the **Vertex AI User** role in your project to the RAG Engine on Gemini Enterprise Agent Platform service account: `service-[Your project's automatically generated `[`project number`](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers)` ]@gcp-sa-vertex-rag.iam.gserviceaccount.com` .
 
 **Important** : This feature is only available in `us-central1` .
 

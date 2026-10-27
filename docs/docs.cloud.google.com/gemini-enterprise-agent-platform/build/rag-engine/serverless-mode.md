@@ -19,7 +19,7 @@ Serverless mode is a preview feature and is available in `us-central1` only. It 
 With Serverless mode, your RAG Engine CUJ remains identical to that with Spanner mode, except for the following key differences:
 
 1.  `RagManagedDb` is not available as a choice of vector database when using Serverless mode. Instead, the new default vector database is the fully-managed and highly scalable `RagManagedVertexVectorSearch` . To learn more about this vector DB, refer to [Use Vector Search 2.0 with RAG](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-managed-vertex-ai-vector-search) .
-2.  Customer-Managed Encryption Keys (CMEK) are not supported in Serverless mode.
+2.  Customer-managed encryption keys (CMEK) are not supported in Serverless mode.
 
 ## Switching to Serverless mode
 

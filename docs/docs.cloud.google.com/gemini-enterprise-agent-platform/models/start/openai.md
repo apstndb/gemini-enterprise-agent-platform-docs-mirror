@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/openai
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/openai
 title: OpenAI compatibility
-description: Integrate Gemini models using OpenAI libraries and REST API. Implement Google Cloud auth, thinking, streaming, function calling, and multimodal features.
+description: Integrate Gemini models using OpenAI libraries and REST API. Implement {{dynamic_data.site_values.cloud_name}} auth, thinking, streaming, function calling, and multimodal features.
 data_source: docs.cloud.google.com
 ---
 

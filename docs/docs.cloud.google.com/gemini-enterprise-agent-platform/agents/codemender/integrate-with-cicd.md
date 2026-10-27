@@ -430,6 +430,8 @@ You can customize the workflow in the following ways:
 
 - To turn off autofix, delete the `autofix` job and the **Save findings for autofix** step.
 
+- To verify credentials, configuration, network reachability, and IAM permissions before running a scan (or in a scheduled monitoring workflow), run `cm health --strict` (add `--json` for machine-readable output). For exit codes and flag details, see [Check service connectivity and permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#check-health) .
+
 ## Scan pull requests with Cloud Build
 
 The build in this section scans each pull request in a GitHub repository that's connected to Cloud Build. The build and its GitHub check fail when CodeMender finds a vulnerability with `CRITICAL` or `HIGH` severity in the pull request's changes. The build doesn't fix findings.
@@ -670,6 +672,8 @@ The message can also include `Permission 'aiplatform.interactions.create' denied
 - The service account or user has the Agent Platform User role ( `roles/aiplatform.user` ) in the project.
 - The Agent Platform API is enabled in the project.
 - CodeMender uses the right project. In GitHub Actions, check the `GCP_PROJECT_ID` secret. Cloud Build uses the project that runs the build. Locally, check the `GOOGLE_CLOUD_PROJECT` environment variable, or your default project if the variable isn't set.
+
+To isolate whether a failure is caused by credentials (exit code `10` ), configuration (exit code `20` ), network reachability (exit code `30` ), or project IAM permissions (exit code `40` ), run `cm health --strict` in your pipeline step. For more information, see [Check service connectivity and permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#check-health) .
 
 ### Resource setup in progress
 

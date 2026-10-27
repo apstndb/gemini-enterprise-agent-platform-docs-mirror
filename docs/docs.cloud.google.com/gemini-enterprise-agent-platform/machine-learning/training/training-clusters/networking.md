@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/networking
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/networking
 title: Networking
-description: Deploy Gemini Enterprise Agent Platform clusters. Configure IAM, enable APIs, define environment variables, and provision VPC, Filestore, and Lustre storage.
+description: Deploy Gemini Enterprise Agent Platform clusters. Configure Identity and Access Management, enable APIs, define environment variables, and provision Virtual Private Cloud, Filestore, and Lustre storage.
 data_source: docs.cloud.google.com
 ---
 

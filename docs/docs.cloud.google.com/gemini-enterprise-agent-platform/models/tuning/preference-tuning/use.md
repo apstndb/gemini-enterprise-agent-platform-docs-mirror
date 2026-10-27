@@ -18,7 +18,7 @@ Before you begin, you must prepare a dataset by following the instructions in [P
 
 To configure preference tuning by using the Google Cloud console, perform the following steps:
 
-1.  In the Gemini Enterprise Agent Platform section of the Google Cloud console, go to the **Agent Platform Studio** page.
+1.  In the Gemini Enterprise Agent Platform section of the Google Cloud console, go to the **Tuning** page.
 
 2.  Click **Create tuned model** .
 

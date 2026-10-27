@@ -18,7 +18,7 @@ This quickstart guides you through the following steps:
 - Deploy the agent to Agent Runtime.
 - Test the deployed agent.
 
-For the quickstart using the Agent Development Kit (ADK), see [Develop and deploy agents on Agent Platform with Agent Development Kit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart-adk) .
+For the quickstart using the Agent Development Kit (ADK), see [Develop and deploy agents on Agent Platform with ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart-adk) .
 
 ## Before you begin
 

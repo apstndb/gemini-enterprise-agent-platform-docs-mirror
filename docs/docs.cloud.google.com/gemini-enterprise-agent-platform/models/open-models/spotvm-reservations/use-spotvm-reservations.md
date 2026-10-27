@@ -29,7 +29,7 @@ The following sections guide you through the process of setting up your Google C
 
 ### 1. Set up your Google Cloud project and shared reservation
 
-Open the [Colab Enterprise notebook](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_reservations_spotvm.ipynb) .
+Open the [Colab notebook](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_reservations_spotvm.ipynb) .
 
 In the first section, set the `PROJECT_ID` , `SHARED_PROJECT_ID` (if applicable), `BUCKET_URI` , and `REGION` variables in the Colab notebook.
 

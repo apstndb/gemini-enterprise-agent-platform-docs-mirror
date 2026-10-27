@@ -368,7 +368,7 @@ If you want to run the data-driven optimizer through the notebook, create a conf
 3.  In the **Configure optimization settings** section, do the following:
 
     1.  In the **TARGET_MODEL** field, enter the [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) for which you want to optimize prompts.
-    2.  In the **THINKING_BUDGET** field, enter the thinking budget for the target model you want to optimize prompts. Default to -1, which means no thinking for non-thinking models and auto thinking for thinking models like Gemini-2.5. See [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) to learn about manual budget settings.
+    2.  In the **THINKING_BUDGET** field, enter the thinking budget for the target model you want to optimize prompts. Default to -1, which means no thinking for non-thinking models and auto thinking for thinking models like Gemini 2.5. See [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) to learn about manual budget settings.
     3.  In the **OPTIMIZATION_MODE** , enter the optimization mode you want to use. Must be one of the following:
         - `instruction` : Optimizes the system instruction.
         - `demonstration` : Selects sample prompts to add to the system instructions as few-shot examples.
@@ -450,7 +450,7 @@ If you want to run the data-driven optimizer through the SDK, create a JSON file
 
     - `BASE_URL` : The base URL of the model deployed in Model Garden or on your local machine. For example, `https://<var>DEDICATED_ENDPOINT_DNS</var>/v1beta1/projects/<var>PROJECT_NUMBER</var>/locations/<var>LOCATION</var>/endpoints/<var>ENDPOINT_ID</var>` or `http://localhost:8000/v1` . Required for `OPTIMIZATION_TARGET_GEMINI_NANO` configuration.
 
-    - `THINKING_BUDGET` : the thinking budget for the target model that you want to optimize prompts. Defaults to -1, which means no thinking for non-thinking models and auto thinking for thinking models like Gemini-2.5. To learn about manual budget settings, see [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) . Note that some models, like Gemma models, don't support `thinking_budget` .
+    - `THINKING_BUDGET` : the thinking budget for the target model that you want to optimize prompts. Defaults to -1, which means no thinking for non-thinking models and auto thinking for thinking models like Gemini 2.5. To learn about manual budget settings, see [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) . Note that some models, like Gemma models, don't support `thinking_budget` .
 
     - `EVALUATION_METRIC_PARAMETERS` : the parameters you specify depend on how many evaluation metrics you're using, and whether your metrics are standard or custom:
 

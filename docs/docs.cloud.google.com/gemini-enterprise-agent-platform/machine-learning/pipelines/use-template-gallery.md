@@ -32,39 +32,50 @@ Use the following instructions to create a pipeline run from the **Template Gall
 
     1.  Optional: Modify the default **Run name** that uniquely identifies the pipeline run.
 
-    2.  Optional: To schedule recurring pipeline runs, specify the **Run schedule** , as follows:
+```
+  1. Optional: To schedule recurring pipeline runs, specify the **Run schedule**, as follows:
 
-        1.  Select **Recurring** .
+      1. Select **Recurring**.
 
-        2.  Under **Start time** , specify when the schedule becomes active.
+      1. Under **Start time**, specify when the schedule becomes active.
 
-            - To schedule the first run to occur immediately after schedule creation, select **Immediately** .
+          * To schedule the first run to occur immediately after schedule creation, select **Immediately**.
 
-            - To schedule the first run to occur at a specific time and date, select **On** .
+          * To schedule the first run to occur at a specific time and date, select **On**.
 
-        3.  In the **Frequency** field, specify the frequency to schedule and execute the pipeline runs, using a cron schedule expression based on [unix-cron](https://man7.org/linux/man-pages/man5/crontab.5.html) .
+      1. In the **Frequency** field, specify the frequency to schedule and execute the
+      pipeline runs, using a cron schedule expression based on
+      [unix-cron](https://man7.org/linux/man-pages/man5/crontab.5.html).
 
-        4.  Under **Ends** , specify when the schedule ends.
+      1. Under **Ends**, specify when the schedule ends.
 
-            - To indicate that the schedule creates pipeline runs indefinitely, select **Never** .
+          * To indicate that the schedule creates pipeline runs indefinitely, select **Never**.
 
-            - To indicate that the schedule ends on a specific date and time, select **On** , and specify the end date and time for the schedule.
+          * To indicate that the schedule ends on a specific date and time, select **On**, and specify the end date and time for the schedule.
 
-        5.  Optional: To specify that the pipeline run uses a custom service account, a customer-managed encryption key (CMEK), or a peered VPC network, click **Advanced options** , and then follow these instructions:
+      1. Optional: To specify that the pipeline run uses a custom service account,
+      Customer-managed encryption keys (CMEK), or a peered VPC network, click
+      **Advanced options**, and then follow these instructions:
 
-            - To specify a service account, select a service account from the **Service account** drop-down list.
+          *  To specify a service account, select a service account from the
+            **Service account** drop-down list.
 
-              If you don't specify a service account, Agent Platform Pipelines runs your pipeline using the default Compute Engine service account.
+              If you don't specify a service account,
+              Agent Platform Pipelines runs your pipeline using the default
+              Compute Engine service account.
 
-              Learn more about [configuring a service account for use with Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) .
+              Learn more about [configuring a service account for use with
+              Agent Platform Pipelines](/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account).
 
-            - To use a CMEK, select **Use a customer-managed encryption key** . The **Select a customer-managed key** drop-down list appears. In the **Select a customer-managed key** drop-down list, select the key that you want to use.
+          *  To use a CMEK, select **Use a customer-managed encryption key**. The **Select a customer-managed key** drop-down list appears. In the **Select a customer-managed key** drop-down list, select the key that you want to use.
 
-            - To use a peered VPC network in this pipeline run, enter the VPC network name in the **Peered VPC network** box.
+          *  To use a peered VPC network in this pipeline run, enter the VPC
+          network name in the **Peered VPC network** box.
 
-    3.  Click **Continue** .
+  1. Click **Continue**.
+```
 
-5.  In the **Runtime configuration** section, configure the pipeline run, as follows:
+1.  In the **Runtime configuration** section, configure the pipeline run, as follows:
 
     1.  Under **Cloud storage location** , click **Browse** to select the Cloud Storage bucket for storing the pipeline output artifacts, and then click **Select** .
 
@@ -86,4 +97,4 @@ Use the following instructions to create a pipeline run from the **Template Gall
 
     3.  Optional: If your pipeline has parameters, under **Pipeline parameters** , specify your pipeline run parameters.
 
-6.  To create your pipeline run, click **Submit** .
+2.  To create your pipeline run, click **Submit** .

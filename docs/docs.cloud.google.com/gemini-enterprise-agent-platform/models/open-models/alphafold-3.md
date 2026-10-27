@@ -581,7 +581,7 @@ BUCKET_NAME = "your-bucket-name"
 JOB_NAME = "my_alphafold_job"
 STORAGE_PREFIX = f"af3_results/my_folder/{JOB_NAME}"
 
-# Initialize GCS client
+# Initialize Cloud Storage client
 client = storage.Client(project="your-project-id")
 bucket = client.bucket(BUCKET_NAME)
 

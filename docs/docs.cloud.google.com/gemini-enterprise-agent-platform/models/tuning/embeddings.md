@@ -552,7 +552,7 @@ To tune a text embedding model by using the Google Cloud console, you can launch
 
 Text embedding tuning supports [VPC Service Controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls) and can be configured to run within a Virtual Private Cloud (VPC) by passing the `network` parameter when creating the [`PipelineJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.pipelineJobs) .
 
-To use [CMEK (customer-managed encryption keys)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) , pass the key to the `parameterValues.encryption_spec_key_name` pipeline parameter, *as well as* the `encryptionSpec.kmsKeyName` parameter when creating the [`PipelineJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.pipelineJobs) .
+To use [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) , pass the key to the `parameterValues.encryption_spec_key_name` pipeline parameter, *as well as* the `encryptionSpec.kmsKeyName` parameter when creating the [`PipelineJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.pipelineJobs) .
 
 ## Use your tuned model
 

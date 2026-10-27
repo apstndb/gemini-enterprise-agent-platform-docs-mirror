@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap
 title: Troubleshoot IAM Unified Access Policies
-description: Troubleshoot common IAM access policy enforcement failures, UI errors, gcloud commands, and REST API error messages for Agent Platform.
+description: Troubleshoot common Identity and Access Management access policy enforcement failures, UI errors, gcloud commands, and REST API error messages for Agent Platform.
 data_source: docs.cloud.google.com
 ---
 

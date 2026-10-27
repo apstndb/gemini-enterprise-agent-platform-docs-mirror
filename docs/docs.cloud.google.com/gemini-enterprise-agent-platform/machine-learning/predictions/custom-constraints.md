@@ -290,7 +290,7 @@ Replace `POLICY_PATH` with the full path to your organization policy YAML file. 
 
 ## Test the custom organization policy
 
-The following example creates a custom constraint and policy that blocks creation of endpoints that don't have a KMS key.
+The following example creates a custom constraint and policy that blocks creation of endpoints that don't have a Cloud Key Management Service key.
 
 Before you begin, you must know the following:
 
@@ -313,7 +313,7 @@ Before you begin, you must know the following:
     description: All new endpoints must have a KMS key.
     ```
 
-    This defines a constraint where for every new endpoint, if a KMS key isn't provided, the endpoint creation is denied.
+    This defines a constraint where for every new endpoint, if a Cloud KMS key isn't provided, the endpoint creation is denied.
 
 2.  Apply the constraint:
 
@@ -371,7 +371,7 @@ After you apply the policy, wait about two minutes for Google Cloud to start enf
 
 ### Test the policy
 
-Try to create an online inference endpoint without a KMS key:
+Try to create an online inference endpoint without a Cloud KMS key:
 
 ```
 gcloud ai endpoints create \
@@ -402,7 +402,7 @@ This table provides syntax examples for some common custom constraints.
 </thead>
 <tbody>
 <tr class="odd">
-<td>Restrict KMS key for online inference endpoints</td>
+<td>Restrict Cloud KMS key for online inference endpoints</td>
 <td><pre data-fenced=""><code>name: organizations/ORGANIZATION_ID/customConstraints/custom.
       restrictKmsKey
       resourceTypes:

@@ -36,7 +36,7 @@ Dedicated endpoints support both HTTP and gRPC communication protocols. For gRPC
 - Predict
 - RawPredict
 - StreamRawPredict
-- Chat Completion (Model Garden only)
+- Chat Completion (Gemini Enterprise Agent Platform Model Garden only)
 
 You can send online inference requests to a dedicated public endpoint by using the Agent Platform SDK for Python. For details, see [Send an online inference request to a dedicated public endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions#inference-request-dedicated) .
 

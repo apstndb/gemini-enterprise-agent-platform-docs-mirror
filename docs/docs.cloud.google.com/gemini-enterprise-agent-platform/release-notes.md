@@ -10,6 +10,16 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## October 26, 2026
+
+Feature
+
+**Control user intent matching for semantic governance policies**
+
+You can now turn user intent matching on or off for semantic governance policies by setting the `sgpUserIntentMatching` key on the authorization extension metadata. User intent matching is on by default; set the key to `DISABLED` to turn it off. Turning it off reduces protection against indirect prompt injection. When the key is set, policy evaluation logs report the mode each evaluation used in the `sgpUserIntentMatchingMode` field.
+
+For more information, see [Control user intent matching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#control-intent-matching) .
+
 ## October 21, 2026
 
 Fixed
@@ -28,6 +38,22 @@ This release introduces updates to CodeMender:
   - Updated multi-file `--deep` and `--diff` scans to report `INCOMPLETE` status when one or more file scans fail.
 
 For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) .
+
+## October 19, 2026
+
+Feature
+
+**Supervised fine-tuning for Gemini 3 models is available in General Availability**
+
+[Supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) for Gemini 3 models is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) .
+
+Key updates include the following:
+
+- **Gemini 3.5 Flash Lite support** : Supervised fine-tuning is now supported for [Gemini 3.5 Flash Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite) ( `gemini-3.5-flash-lite` ), in addition to Gemini 3.5 Flash ( `gemini-3.5-flash` ) and Gemini 3.1 Flash Lite ( `gemini-3.1-flash-lite` ).
+- **Supported regions** : Model tuning jobs and tuned model serving for Gemini 3 models are supported on the `us` and `eu` multi-region endpoints.
+- **Customer-managed encryption keys (CMEK)** : [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) are supported for protecting tuning job resources and tuned models.
+
+For more information, see [About supervised fine-tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) and [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use) .
 
 ## October 14, 2026
 

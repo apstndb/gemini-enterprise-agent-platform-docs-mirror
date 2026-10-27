@@ -559,7 +559,7 @@ To resolve this issue, verify that the Cloud Storage URI is correct and confirm 
 
 ### Encrypt interaction data with CMEK
 
-Stateful interactions ( `store=True` in Python or `store: true` in TypeScript/JavaScript) store interaction data at rest for up to 7 days. To protect that data with your own encryption key instead of a Google-owned and Google-managed encryption key, use a *serving profile* . A serving profile links a Cloud KMS key to a project, location, and API scope. While a serving profile exists, Agent Platform encrypts stored interaction data automatically—your interaction request format doesn't change.
+Stateful interactions ( `store=True` in Python or `store: true` in TypeScript/JavaScript) store interaction data at rest for up to 7 days. To protect that data with your own encryption key instead of a Google-owned and Google-managed encryption key, use a *serving profile* . A serving profile links a Cloud Key Management Service key to a project, location, and API scope. While a serving profile exists, Agent Platform encrypts stored interaction data automatically—your interaction request format doesn't change.
 
 Serving profile CMEK for the Interactions API is supported in the `us` and `eu` multi-regions. The `global` region isn't supported.
 

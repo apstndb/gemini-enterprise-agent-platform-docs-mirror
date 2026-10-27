@@ -72,7 +72,7 @@ from google.genai.types import HttpOptions
 
 client = genai.Client(http_options=HttpOptions(api_version="v1"))
 response = client.models.count_tokens(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents="What's the highest mountain in Africa?",
 )
 print(response)

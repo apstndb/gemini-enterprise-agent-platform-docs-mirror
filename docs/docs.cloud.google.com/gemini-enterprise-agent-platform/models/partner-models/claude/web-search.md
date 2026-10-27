@@ -194,7 +194,7 @@ data: {"type":"message_delta","delta":{"stop_reason":"end_turn","stop_sequence":
 
 The web search feature for Claude 4.0 and newer models is an optional feature of Anthropic's Claude models. You can enable it by providing the [web search tool](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/web-search-tool#how-to-use-web-search) in the requests. When you activate this feature, you are instructing Gemini Enterprise Agent Platform to enable the Claude models to send search queries derived from your request to a third-party search service provider selected by Anthropic. Google is not responsible for the data processing practices of this third-party provider. Once the search queries are transmitted, the handling of that data is governed by the third-party's own terms of service and privacy policy, not Google's.
 
-Activating the web search feature has direct implications for your data governance and security posture. Gemini Enterprise Agent Platform additional commitments, such as Customer-Managed Encryption Keys (CMEK) and Data Residency, do not apply to the data while being processed by the third-party search provider. If your consumer project is under a VPC-SC perimeter, VertexAI will reject the requests with the following error message:
+Activating the web search feature has direct implications for your data governance and security posture. Gemini Enterprise Agent Platform additional commitments, such as Customer-managed encryption keys (CMEK) and Data Residency, do not apply to the data while being processed by the third-party search provider. If your consumer project is under a VPC-SC perimeter, VertexAI will reject the requests with the following error message:
 
 ```
 {

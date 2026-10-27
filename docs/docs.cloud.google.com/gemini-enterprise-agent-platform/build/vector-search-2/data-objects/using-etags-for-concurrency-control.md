@@ -76,7 +76,7 @@ Because the `DeleteDataObject` and `BatchDeleteDataObjects` methods don't take a
 
 Using the `ImportDataObjects` API runs asynchronously and can potentially collide with real-time updates. Include the `etag` field in your [JSONL](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/using-etags-for-concurrency-control#jsonl) import files to enforce concurrency control during imports.
 
-Vector Search automatically detects the conflict resolution mode on a per-record basis:
+Vector Search on Gemini Enterprise Agent Platform automatically detects the conflict resolution mode on a per-record basis:
 
 - **With ETag (OCC)** : If an ETag is provided and does not match the server's current version, the specific record will fail to import. The failure is then logged to your specified error URI, but the rest of the import job continues.
 

@@ -12,6 +12,16 @@ You can see the latest product updates for all of Google Cloud on the [Google Cl
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators) , or add the [feed URL](https://docs.cloud.google.com/feeds/aiplatformnotebooks-release-notes.xml) directly.
 
+## October 26, 2026
+
+v2
+
+Feature
+
+**Custom organization policies for Agent Platform Workbench instances**
+
+You can now use custom organization policies to allow or deny the creation and update of Agent Platform Workbench instances based on their configuration. Custom constraints for the `notebooks.googleapis.com/Instance` resource are enforced when you create or update an instance, and support dry-run mode. This feature is now generally available ( [GA](https://cloud.google.com/products#product-launch-stages) ). For more information, see [Create custom organization policy constraints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/custom-constraints) .
+
 ## September 09, 2026
 
 v2

@@ -58,7 +58,7 @@ Consider using Cloud Storage as a Mounted File System (Cloud Storage FUSE) for t
 ## Managed dataset
 
 - Centralized data management and governance: Managed datasets provide a central location to organize and manage your datasets within Agent Platform. This helps with tracking and governance of your data assets across different projects and experiments.
-- Data Labeling: You can create labeling tasks and manage annotation sets directly within the managed dataset.
+- Data Labeling on Gemini Enterprise Agent Platform: You can create labeling tasks and manage annotation sets directly within the managed dataset.
 - Tracking Data Lineage: Managed datasets automatically track the lineage of your data to the models trained on it. This is crucial for understanding the data sources used for specific models and for ensuring reproducibility and governance.
 - Comparing Custom and AutoML Models: Managed datasets let you train both custom models and AutoML models using the same data. This facilitates a direct comparison of their performance on the same dataset, helping you choose the best approach for your problem.
 - Generating Data Statistics and Visualizations: Agent Platform can automatically generate statistics and visualizations for the data within a managed dataset. This can aid in exploratory data analysis and help you understand the characteristics of your data.

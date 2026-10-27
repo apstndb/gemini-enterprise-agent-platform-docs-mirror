@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek
-title: Customer-managed encryption keys (CMEK)
-description: Use customer-managed encryption keys (CMEK) for Gemini Enterprise Agent Platform.
+title: CMEK
+description: Use Customer-managed encryption keys (CMEK) for Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
@@ -22,7 +22,7 @@ The following sections describe basic information about CMEK for Gemini Enterpri
 
 ### Benefits of CMEK
 
-In general, CMEK is most useful if you need full control over the keys used to encrypt your data. With CMEK, you can manage your keys within Cloud KMS. For example, you can rotate or disable a key or you can set up a rotation schedule using the Cloud KMS API. For more information about CMEK in general, including when and why to enable it, see the [Cloud KMS documentation](https://docs.cloud.google.com/kms/docs/cmek) .
+In general, CMEK is most useful if you need full control over the keys used to encrypt your data. With CMEK, you can manage your keys within Cloud Key Management Service. For example, you can rotate or disable a key or you can set up a rotation schedule using the Cloud KMS API. For more information about CMEK in general, including when and why to enable it, see the [Cloud KMS documentation](https://docs.cloud.google.com/kms/docs/cmek) .
 
 When you run an [AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview#automl) or [custom](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) **training** job, your code runs on one or more virtual machine (VM) instances managed by Gemini Enterprise Agent Platform. When you enable CMEK for Gemini Enterprise Agent Platform resources, the key that you designate, rather than a key managed by Google, is used to encrypt data on the boot disks of these VMs. The CMEK key encrypts the following kinds of data:
 
@@ -52,7 +52,7 @@ You can use [Cloud External Key Manager (Cloud EKM)](https://docs.cloud.google.c
 
 When you use a Cloud EKM key, Google has no control over the availability of your externally-managed key. If you request access to a resource encrypted with an externally-managed key, and the key is unavailable, then Gemini Enterprise Agent Platform will reject the request. There can be a delay of up to 10 minutes before you can access the resource once the key becomes available.
 
-For more considerations when using external keys, see [Cloud External Key Manager](https://docs.cloud.google.com/kms/docs/ekm#considerations) .
+For more considerations when using external keys, see [Cloud EKM](https://docs.cloud.google.com/kms/docs/ekm#considerations) .
 
 ### Use CMEK with other Google Cloud products
 
@@ -60,7 +60,7 @@ Configuring CMEK for Gemini Enterprise Agent Platform resources does *not* autom
 
 - **Cloud Storage** : When you perform custom training, Agent Platform usually loads your data from Cloud Storage. When you [use a Python training application and a prebuilt container for training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container) , Gemini Enterprise Agent Platform also loads your code from a Cloud Storage bucket. In addition, some training jobs export trained model artifacts (for example, a TensorFlow SaveModel directory) to a Cloud Storage bucket as part of their output.
 
-  To ensure that your data in Cloud Storage is encrypted with CMEK, read the [Cloud Storage guide to using customer-managed encryption keys](https://docs.cloud.google.com/storage/docs/encryption/using-customer-managed-keys) . You can set your encryption key as the default key for the Cloud Storage bucket(s) that you use with Gemini Enterprise Agent Platform, or you can use it to encrypt specific objects.
+  To ensure that your data in Cloud Storage is encrypted with CMEK, read the [Cloud Storage guide to using Customer-managed encryption keys](https://docs.cloud.google.com/storage/docs/encryption/using-customer-managed-keys) . You can set your encryption key as the default key for the Cloud Storage bucket(s) that you use with Gemini Enterprise Agent Platform, or you can use it to encrypt specific objects.
 
   [Learn more about how Cloud Storage uses CMEK.](https://docs.cloud.google.com/storage/docs/encryption/customer-managed-keys)
 
@@ -246,7 +246,7 @@ The current Gemini Enterprise Agent Platform resources covered by CMEK are as fo
 <li>The boot disk and data disks of the runtime's VM</li>
 </ul></td>
 <td><ul>
-<li><a href="https://docs.cloud.google.com/colab/docs/cmek">Use customer-managed encryption keys (CMEK) in Colab Enterprise</a></li>
+<li><a href="https://docs.cloud.google.com/colab/docs/cmek">Use Customer-managed encryption keys (CMEK) in Colab Enterprise</a></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -255,7 +255,7 @@ The current Gemini Enterprise Agent Platform resources covered by CMEK are as fo
 <li>The notebook file and its comments</li>
 </ul></td>
 <td><ul>
-<li><a href="https://docs.cloud.google.com/colab/docs/cmek">Use customer-managed encryption keys (CMEK) in Colab Enterprise</a></li>
+<li><a href="https://docs.cloud.google.com/colab/docs/cmek">Use Customer-managed encryption keys (CMEK) in Colab Enterprise</a></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -277,7 +277,7 @@ The current Gemini Enterprise Agent Platform resources covered by CMEK are as fo
 <li>Saved sandbox snapshots and templates</li>
 </ul></td>
 <td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek">Configure customer-managed encryption keys (CMEK) for sandboxes</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek">Configure Customer-managed encryption keys (CMEK) for sandboxes</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox">Sandboxes overview</a></li>
 </ul></td>
 </tr>
@@ -312,7 +312,7 @@ CMEK support isn't provided in the following:
 
 ## Configure CMEK for your resources
 
-The following sections describe how to create a key ring and key in Cloud Key Management Service, grant Agent Platform encrypter and decrypter permissions for your key, and create resources that use CMEK.
+The following sections describe how to create a key ring and key in Cloud KMS, grant Agent Platform encrypter and decrypter permissions for your key, and create resources that use CMEK.
 
 ### Before you begin
 
@@ -400,7 +400,7 @@ In this command, replace the following placeholders:
 - ` KMS_PROJECT_ID ` : The ID of your Cloud KMS project.
 - ` AI_PLATFORM_PROJECT_NUMBER ` : The project number of your AI Platform project, which you noted in the preceding section as part of a service account email address.
 
-### Create resources with the KMS key
+### Create resources with the Cloud KMS key
 
 When you create a new [CMEK-supported resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#resource-list) you can specify your key as one of the create parameters.
 

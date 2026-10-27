@@ -1,12 +1,12 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk
-title: Agent Development Kit
-description: Learn how to use ADK in Gemini Enterprise Agent Platform.
+title: ADK
+description: Learn how to use Agent Development Kit (ADK) in Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
-**Agent Development Kit** (ADK) is an open-source agent development framework that lets you build, debug, and deploy reliable AI agents at enterprise scale. Start with agents and tools and grow into sophisticated multi-agent systems, ADK allows developers to build everything from personal AI assistants to mission-critical business workflows.
+**Agent Development Kit (ADK)** is an open-source agent development framework that lets you build, debug, and deploy reliable AI agents at enterprise scale. Start with agents and tools and grow into sophisticated multi-agent systems, ADK allows developers to build everything from personal AI assistants to mission-critical business workflows.
 
 ADK provides developers with a comprehensive suite of tools to build, run, evaluate, and scale AI architectures. Users can leverage flexible orchestration to define predictable pipelines using workflow agents or rely on agent-coordinated dynamic routing for more adaptive behavior. It natively supports multi-agent architectures, allowing developers to compose specialized teams of agents that can collaborate and delegate tasks. ADK features a rich tool ecosystem for integrating third-party applications and your own custom code. Apply built-in and partner evaluation tools to test execution trajectories. Run agents locally or scale them globally using Runtime, Cloud Run, or Google Kubernetes Engine.
 

@@ -607,6 +607,43 @@ curl -X PATCH \
     }'
 ```
 
+### Control user intent matching
+
+By default, the policy engine checks each proposed tool call for both of the following:
+
+- **Constraint adherence:** the tool call complies with the constraints set on the agent.
+- **User intent matching:** the tool call is consistent with what the user asked for.
+
+With user intent matching on, the policy engine can deny a tool call that doesn't match the user's request, even if the tool call violates no constraint or the agent has no constraints. To base verdicts only on your constraints, turn off user intent matching. The setting applies to every request that the authorization extension sends to the policy engine.
+
+> **Caution:** User intent matching is what detects tool calls that untrusted content, such as an email or web page, injects into the agent. If you turn it off, only your constraints can block those tool calls.
+
+To turn off user intent matching, set `sgpUserIntentMatching` to `DISABLED` in the `metadata` of your authorization extension:
+
+```
+curl -X PATCH \
+    "https://networkservices.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/authzExtensions/AUTHZ_EXTENSION_NAME?updateMask=metadata" \
+    -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "metadata": {
+        "sgpUserIntentMatching": "DISABLED"
+      }
+    }'
+```
+
+To turn it back on, set the value to `ENABLED` or remove the key. Use uppercase values. The policy engine ignores any other value and keeps user intent matching on.
+
+> **Caution:** `updateMask=metadata` replaces the entire `metadata` map. Include every key that you want to keep, such as `"sgpEnforcementMode": "DRY_RUN"` . Likewise, the request in [Enabling dry run mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#enabling-dry-run-mode) that clears `metadata` also turns user intent matching back on.
+
+The update is a long-running operation, and the new setting can take a few minutes to reach the policy engine. To confirm the mode an evaluation used, check the `sgpUserIntentMatchingMode` field in the [policy evaluation logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#view-logs) . The field appears only when `sgpUserIntentMatching` is set, and has one of the following values:
+
+- `CONSTRAINTS_AND_INTENT` : user intent matching is on.
+- `CONSTRAINTS_ONLY` : user intent matching is off.
+- `INTENT_ONLY` : user intent matching is on, and no constraints apply to the tool call.
+
+User intent matching and dry run mode are independent. For example, keep user intent matching on in dry run mode to review intent-based denials in the logs before you enforce them.
+
 ### View policy evaluation logs
 
 The policy engine writes a structured log entry for each evaluation to Cloud Logging in your project. The entry records an overall `verdict` and an `evaluations` array with a `verdict` and `rationale` for each tool or action.

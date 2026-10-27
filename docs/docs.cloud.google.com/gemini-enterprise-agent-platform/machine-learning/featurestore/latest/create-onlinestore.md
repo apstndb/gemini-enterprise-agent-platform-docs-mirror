@@ -12,7 +12,7 @@ Note that you can't change the type of online serving after you choose Bigtable 
 
 After you create the online store, you can [add feature views](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-featureview) and associate those feature views with feature data sources in BigQuery.
 
-You can encrypt your online store instance by specifying a [customer-managed encryption key (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) when you create your online store instance. Only Bigtable online serving supports encryption using a CMEK. To learn more about the benefits of using a CMEK and to understand whether a CMEK is useful for your online store, see [Benefits of CMEK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#benefits) .
+You can encrypt your online store instance by specifying [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) when you create your online store instance. Only Bigtable online serving supports encryption using a CMEK. To learn more about the benefits of using a CMEK and to understand whether a CMEK is useful for your online store, see [Benefits of CMEK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#benefits) .
 
 Using a CMEK can involve additional usage costs, depending on the type of key being used. For more information about pricing, refer to [Cloud Key Management Service pricing](https://cloud.google.com/kms/pricing) .
 
@@ -195,11 +195,11 @@ You should receive a JSON response similar to the following:
 
 Use the following steps to create an online store instance for Bigtable online serving that's encrypted with a CMEK.
 
-Using a CMEK encryption can involve additional usage costs, depending on the type of key being used. For more information about pricing, refer to [Cloud Key Management Service pricing](https://cloud.google.com/kms/pricing) .
+Using a CMEK encryption can involve additional usage costs, depending on the type of key being used. For more information about pricing, refer to [Cloud KMS pricing](https://cloud.google.com/kms/pricing) .
 
 > **Note:** Bigtable online serving doesn't support embeddings. If you want to serve embeddings, use [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) instead.
 
-1.  [Use Cloud Key Management Service to configure a customer-managed encryption key.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#configure-cmek)
+1.  [Use Cloud KMS to configure Customer-managed encryption keys.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#configure-cmek)
 
 2.  To create a [`FeatureOnlineStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores#resource:-featureOnlineStore) resource, send the following `POST` request by using the [featureOnlineStores.create](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores/create) method and specifying the CMEK.
 

@@ -12,7 +12,7 @@ data_source: docs.cloud.google.com
 
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 
-> RAG Engine corpora that are backed by Vector Search 2.0 are available only in `us-central1` .
+> RAG Engine on Gemini Enterprise Agent Platform corpora that are backed by Vector Search 2.0 are available only in `us-central1` .
 
 This page shows you how RAG Engine on Gemini Enterprise Agent Platform uses [Gemini Enterprise Agent Platform Vector Search 2.0](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview) , which is a Google Cloud product that serves as a comprehensive storage and retrieval system to store and manage vector representations of your documents. The Gemini Enterprise Agent Platform Vector Search 2.0 is then used to retrieve relevant documents based on the document's semantic similarity to a given query.
 

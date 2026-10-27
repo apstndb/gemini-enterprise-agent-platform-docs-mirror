@@ -22,7 +22,7 @@ This page describes how to configure request-response logs for base foundation m
 
 Request-response logs are supported for all Gemini models that use [`generateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/generateContent) or [`streamGenerateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent) .
 
-The following partner models that use [`rawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/rawPredict) or [`streamrawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/streamRawPredict) are also supported:
+The following partner models that use [`rawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/rawPredict) or [`streamRawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/streamRawPredict) are also supported:
 
 - Anthropic Claude
 
@@ -781,7 +781,7 @@ To prevent sharing request and response logs with MaaS partners, the project adm
 
 - **Create a VPC Service Controls perimeter** : Create a VPC Service Controls service perimeter that includes the project and `aiplatform.googleapis.com` as a restricted service. VPC Service Controls protected projects are blocked from sharing data with partner models by default.
 
-- **Disable access to Model Garden models** : [Disable access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access) that support data sharing.
+- **Disable access to Gemini Enterprise Agent Platform Model Garden models** : [Disable access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access) that support data sharing.
 
 - **Enforce least privileges** : Restrict the `aiplatform.endpoints.setPublisherModelConfig` permission to prevent unauthorized users from enabling logging or log sharing.
 

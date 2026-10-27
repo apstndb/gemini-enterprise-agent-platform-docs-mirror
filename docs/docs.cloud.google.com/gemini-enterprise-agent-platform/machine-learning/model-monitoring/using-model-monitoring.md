@@ -6,7 +6,7 @@ description: Use Gemini Enterprise Agent Platform Model Monitoring to detect dri
 data_source: docs.cloud.google.com
 ---
 
-> To learn more, run the "Use Model Monitoring to detect drift and training-prediction skew." notebook in one of the following environments:
+> To learn more, run the "Use Gemini Enterprise Agent Platform Model Monitoring to detect drift and training-prediction skew." notebook in one of the following environments:
 >
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_monitoring/model_monitoring.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fmodel_monitoring%2Fmodel_monitoring.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fmodel_monitoring%2Fmodel_monitoring.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_monitoring/model_monitoring.ipynb)
 
@@ -86,7 +86,7 @@ To create a model deployment monitoring job using the Google Cloud console, crea
 
 To create a model deployment monitoring job using the gcloud CLI, first deploy your model to an endpoint:
 
-- [Deploy an AutoML tabular classification/regression model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions#deploy-model) .
+- [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions#deploy-model) .
 
 - [Deploy a custom tabular model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) .
 
@@ -155,7 +155,7 @@ For information about the full end-to-end Model Monitoring API workflow, see the
 
 1.  If you haven't done so already, deploy your model to an endpoint. During the **Get the endpoint ID** step in the model deployment instructions, note the `deployedModels.id` value in the JSON response for later use:
 
-    - [Deploy an AutoML tabular classification/regression model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions#deploy-model) .
+    - [Deploy a model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions#deploy-model) .
 
     - [Deploy a custom tabular model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) .
 

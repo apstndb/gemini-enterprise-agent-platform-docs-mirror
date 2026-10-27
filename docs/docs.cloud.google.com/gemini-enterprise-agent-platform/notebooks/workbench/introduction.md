@@ -48,7 +48,7 @@ To use Agent Platform Workbench within a service perimeter, see [Use a Agent Pla
 
 ### Customer-managed encryption keys (CMEK)
 
-By default, Google Cloud automatically [encrypts data when it is at rest](https://docs.cloud.google.com/docs/security/encryption/default-encryption) using encryption keys managed by Google. If you have specific compliance or regulatory requirements related to the keys that protect your data, you can use customer-managed encryption keys (CMEK) with your Gemini Enterprise Agent Platform Workbench instances. For more information, see [Customer-managed encryption keys](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/cmek) .
+By default, Google Cloud automatically [encrypts data when it is at rest](https://docs.cloud.google.com/docs/security/encryption/default-encryption) using encryption keys managed by Google. If you have specific compliance or regulatory requirements related to the keys that protect your data, you can use Customer-managed encryption keys (CMEK) with your Gemini Enterprise Agent Platform Workbench instances. For more information, see [Customer-managed encryption keys](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/cmek) .
 
 ### Confidential Computing
 

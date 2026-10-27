@@ -404,9 +404,15 @@ For more information about model capabilities, including supported aspect ratios
 
 Gemini generates an image based on your description. This process takes a few seconds, but can be comparatively slower depending on capacity.
 
+### Save edited images to Cloud Storage
+
+When editing images with Gemini image models such as [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) ( `gemini-nano-banana-2.1` ) using the `generateContent` and `streamGenerateContent` APIs, you can set `outputConfig.outputUriPrefix` and `generationConfig.responseFormat[].image.delivery` to `"URI"` to write edited images directly to a Cloud Storage bucket and receive a `fileData.fileUri` reference instead of inline base64 bytes. For supported models, setup instructions, and request syntax, see [Save generated images to Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation#save-generated-images-cloud-storage) .
+
 ### Multi-turn image editing
 
 Multi-turn editing lets you respond to the model with changes after it displays an edited image response.
+
+> **Note:** If you save edited images to a Cloud Storage bucket in a different project and then reference them in a later turn, the calling project's Gemini Enterprise Agent Platform service agent must have read access to that Cloud Storage bucket. For details, see [Cloud Storage output limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation#cloud-storage-output-limitations) .
 
 The following Gemini models support multi-turn editing:
 
@@ -424,7 +430,7 @@ To test out multi-turn image editing, see the [Gemini Nano Banana 2.1 Image Gene
 
 To see code samples related to multi-turn image creation and editing using Gemini 3 Pro Image, see [Example of multi-turn image editing using thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures#multi-turn-image-editing) .
 
-## What's next?
+## What's next
 
 See the following links for more information about Gemini image generation:
 

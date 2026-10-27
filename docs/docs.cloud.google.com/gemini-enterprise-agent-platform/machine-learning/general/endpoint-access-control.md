@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/endpoint-access-control
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/endpoint-access-control
 title: Control access to Agent Platform endpoints
-description: Learn how to control access to a Gemini Enterprise Agent Platform endpoint by setting an IAM policy on it.
+description: Learn how to control access to a Gemini Enterprise Agent Platform endpoint by setting an Identity and Access Management policy on it.
 data_source: docs.cloud.google.com
 ---
 

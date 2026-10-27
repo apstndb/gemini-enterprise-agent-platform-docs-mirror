@@ -320,7 +320,7 @@ To pull and run the model server:
 2.  Download the exported model:
 
     ```
-    gcloud storage cp <var>gcs-destination</var> . --recursive
+    gcloudstorage cp <var>gcs-destination</var> . --recursive
     ```
 
     Where ` gcs-destination ` is the path to the location of the exported model in Cloud Storage.

@@ -300,7 +300,7 @@ When faced with a `RANGES_EXHAUSTED` error, you should first consider whether th
 
 - Refer to the [Subnet recommendations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/private-services-access#subnet-recommendations) table to ensure that the IP reservation for Private Services Access is wide enough accommodate your workload.
 
-- Visit [Network Analyzer](https://docs.cloud.google.com/network-intelligence-center/docs/network-analyzer/insight-groups-types) in cloud console and look for insights of the form "Summary of IP address allocation" in the VPC network. If these indicate that the allocation is at or near 100%, you can can take one of the following steps:
+- Visit [Network Analyzer](https://docs.cloud.google.com/network-intelligence-center/docs/network-analyzer/insight-groups-types) in Google Cloud console and look for insights of the form "Summary of IP address allocation" in the VPC network. If these indicate that the allocation is at or near 100%, you can can take one of the following steps:
 
   - [Add a new range](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#modify-ip-range) to the reservation or extend the existing one. Recall that all ranges must be contiguous.
   - If you have non-contiguous IP ranges that are allocated but *not* being consumed, launch new Gemini Enterprise Agent Platform workloads in a different region.

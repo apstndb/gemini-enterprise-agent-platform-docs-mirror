@@ -18,7 +18,7 @@ This page also shows you how to do the following:
 - Update system instructions and tools during a session with Gemini 3.8 Live
 - Configure the context window of a session
 - Enable transcription for a session
-- Encrypt session data with a customer-managed encryption key (CMEK)
+- Encrypt session data with Customer-managed encryption keys (CMEK)
 
 ## Session lifetime
 
@@ -252,7 +252,7 @@ config = {
 
 ## Encrypt session data with CMEK
 
-Session resumption stores cached session data at rest for up to 24 hours. To protect that data with your own key instead of a Google-owned and Google-managed encryption key, use a *serving profile* . A serving profile links a Cloud KMS key to a project, location, and API scope. While a serving profile exists, Agent Platform encrypts the data automatically—your session configuration and request format don't change.
+Session resumption stores cached session data at rest for up to 24 hours. To protect that data with your own key instead of a Google-owned and Google-managed encryption key, use a *serving profile* . A serving profile links a Cloud Key Management Service key to a project, location, and API scope. While a serving profile exists, Agent Platform encrypts the data automatically—your session configuration and request format don't change.
 
 Serving profile CMEK for the Gemini Live API is supported in the `us` and `eu` multi-regions. The global region isn't supported.
 

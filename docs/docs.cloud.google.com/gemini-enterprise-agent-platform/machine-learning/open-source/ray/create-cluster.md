@@ -131,12 +131,7 @@ Where:
 
 You should see the following output until the status changes to `RUNNING` :
 
-```
-[Ray on Agent Platform]: Cluster State = State.PROVISIONING
-Waiting for cluster provisioning; attempt 1; sleeping for 0:02:30 seconds
-...
-[Ray on Agent Platform]: Cluster State = State.RUNNING
-```
+`none [Ray on Agent Platform]: Cluster State = State.PROVISIONING Waiting for cluster provisioning; attempt 1; sleeping for 0:02:30 seconds ... [Ray on Agent Platform]: Cluster State = State.RUNNING`
 
 Note the following:
 

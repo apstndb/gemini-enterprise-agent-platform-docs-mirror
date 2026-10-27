@@ -35,7 +35,7 @@ Organizations often have to make tradeoffs between reliability and cost while ch
 1.  **Cover baseline traffic with Provisioned Throughput.** This improves utilization of your reserved capacity, making it economical while providing guaranteed reliability for the core of your traffic. To achieve this, do the following:
     - Analyze your minute- or second-level traffic patterns.
     - Determine the amount of traffic to be covered by Provisioned Throughput. It should cover your highest priority traffic.
-2.  **Manage spillover traffic with Standard or Priority PayGo** : By default, traffic that exceeds your Provisioned Throughput baseline (called *spillover traffic* ) is handled by [Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) . If you observe higher variance in performance for requests above the TPM limit, you can mitigate that variance through [optimization](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options#optimization-strategies) . [Priority PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo) gives you the option to achieve reliable performance at a premium price, subject to the ramp limit.
+2.  **Manage spillover traffic with Standard or Priority pay-as-you-go** : By default, traffic that exceeds your Provisioned Throughput baseline (called *spillover traffic* ) is handled by [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) . If you observe higher variance in performance for requests above the TPM limit, you can mitigate that variance through [optimization](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options#optimization-strategies) . [Priority PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo) gives you the option to achieve reliable performance at a premium price, subject to the ramp limit.
 
 ### Asynchronous, high-volume workloads
 
@@ -45,7 +45,7 @@ This is the most cost-effective option for high-volume inference.
 
 ### Latency-tolerant, cost-sensitive workloads
 
-If you need to process requests where the application can wait for a response but cost reduction is a priority, you should use [Flex PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo) . Flex PayGo offers reduced per-token pricing for requests that don't require immediate execution. This option is useful for use cases such as offline analysis, data annotation, product catalog building, or translation.
+If you need to process requests where the application can wait for a response but cost reduction is a priority, you should use [Flex pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo) . Flex PayGo offers reduced per-token pricing for requests that don't require immediate execution. This option is useful for use cases such as offline analysis, data annotation, product catalog building, or translation.
 
 ## Optimization strategies
 
@@ -60,7 +60,7 @@ When you build interactive applications, latency plays a crucial role in the use
 
 To optimize for latency:
 
-- **Select the right model for your use case** : Gemini Enterprise Agent Platform provides a diverse range of models with varying capabilities and performance characteristics. Carefully evaluate your requirements regarding speed and output quality to choose the model that best aligns with your use case. For a list of available models, see [Model Garden](https://console.cloud.google.com/agent-platform/model-garden) .
+- **Select the right model for your use case** : Gemini Enterprise Agent Platform provides a diverse range of models with varying capabilities and performance characteristics. Carefully evaluate your requirements regarding speed and output quality to choose the model that best aligns with your use case. For a list of available models, see [Gemini Enterprise Agent Platform Model Garden](https://console.cloud.google.com/agent-platform/model-garden) .
 - **Reduce prompt size** : Craft clear and concise prompts that effectively convey your intent without unnecessary details or redundancy. Shorter prompts reduce your time to first token.
 - **Limit output tokens** :
   - Use system instructions to control the length of the response. Instruct the model to provide concise answers or limit the output to a specific number of sentences or paragraphs. This strategy can reduce your time to last token.

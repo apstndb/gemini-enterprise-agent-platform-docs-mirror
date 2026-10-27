@@ -144,7 +144,7 @@ You can also view egress traffic logs, including `403` denials, by using the bui
 
 - **Symptom:** Policy binding configurations fail, you are prompted interactively for an `etag` when binding policies, or requests fail with a false governance denial error (such as "unregistered destination correctly rejected").
 - **Cause:** The Identity-Aware Proxy API ( `iap.googleapis.com` ) is disabled in your project.
-- **Fix:** Enable the Identity-Aware Proxy API.
+- **Fix:** Enable the IAP API.
 
 ### Failures when managing Agent Gateway with Workforce Identity Federation
 

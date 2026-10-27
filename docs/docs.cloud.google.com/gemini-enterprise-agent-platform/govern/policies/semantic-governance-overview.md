@@ -76,6 +76,8 @@ Semantic governance policy acts as a security check (also called an "intent gate
 
 Both checks must pass for the policy engine to approve the tool call.
 
+The user intent check is on by default. To base verdicts only on the agent's constraints, you can turn it off. For details, see [Control user intent matching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#control-intent-matching) .
+
 ## Layered governance
 
 A Semantic governance policy complements access control and other governance mechanisms; it doesn't override or replace them. Baseline controls, such as IAM, rate limits, and network security, remain essential. Semantic governance policy adds an intelligent security layer to ensure that even when an agent technically has permission to use a tool, the action must match the trusted user's intent and comply with any constraints configured for the agent.

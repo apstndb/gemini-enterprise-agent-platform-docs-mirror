@@ -83,6 +83,26 @@ The following table lists the models that support image understanding:
 </tr>
 <tr class="even">
 <td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1">Gemini Nano Banana 2.1</a></li>
+</ul></td>
+<td><ul>
+<li>Maximum images per prompt: 14</li>
+<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
+<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
+<li>Maximum number of output images per prompt: Limited to 32,768 output tokens</li>
+<li>Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 1:4, 4:1, 4:3, 4:5, 5:4, 1:8, 8:1, 9:16, 16:9, 21:9</li>
+<li>Supported resolutions: 1K, 2K, 4K</li>
+</ul></td>
+<td><ul>
+<li><code>image/png</code></li>
+<li><code>image/jpeg</code></li>
+<li><code>image/webp</code></li>
+<li><code>image/heic</code></li>
+<li><code>image/heif</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber">Gemini 4 Argon Cyber Permissive</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon">Gemini 4 Argon</a></li>
 </ul></td>
@@ -99,7 +119,7 @@ The following table lists the models that support image understanding:
 <li><code>image/heif</code></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live">Gemini 3.8 Live</a></li>
 </ul></td>
@@ -115,7 +135,7 @@ The following table lists the models that support image understanding:
 <li><code>image/heif</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber">Gemini 3.8 Flash Cyber</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash">Gemini 3.8 Flash</a></li>
@@ -142,7 +162,7 @@ The following table lists the models that support image understanding:
 <li><code>image/heif</code></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro">Gemini 3.1 Pro</a> preview</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash">Gemini 3 Flash</a> preview</li>
@@ -161,7 +181,7 @@ The following table lists the models that support image understanding:
 <li><code>image/heif</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image">Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)</a></li>
 </ul></td>
@@ -181,7 +201,7 @@ The following table lists the models that support image understanding:
 <li><code>image/heif</code></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image">Gemini 3.1 Flash Image</a></li>
 </ul></td>
@@ -201,13 +221,12 @@ The following table lists the models that support image understanding:
 <li><code>image/heif</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1">Gemini Nano Banana 2.1</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image">Gemini 3 Pro Image</a></li>
 </ul></td>
 <td><ul>
-<li>Maximum images per prompt: 14</li>
+<li>Maximum images per prompt: 14 (up to 10 HTTP or HTTPS URLs)</li>
 <li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
 <li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
 <li>Maximum number of output images per prompt: Limited to 32,768 output tokens</li>
@@ -222,7 +241,7 @@ The following table lists the models that support image understanding:
 <li><code>image/heif</code></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image">Gemini 2.5 Flash Image</a></li>
 </ul></td>

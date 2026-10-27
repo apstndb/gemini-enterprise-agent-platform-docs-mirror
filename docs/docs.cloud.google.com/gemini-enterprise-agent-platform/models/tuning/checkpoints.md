@@ -152,7 +152,7 @@ If intermediate checkpoints are disabled, only the final checkpoint is displayed
 
 ### Console
 
-1.  To locate your tuned model in the Google Cloud console, go to the **Agent Platform Studio** page.
+1.  To locate your tuned model in the Google Cloud console, go to the **Tuning** page.
 
 2.  In the **Tuning** tab, find your model and click **Monitor** .
 
@@ -250,7 +250,7 @@ You can view a list of checkpoints in the Gemini Enterprise Agent Platform Model
 
 ### Console
 
-1.  To locate your tuned model in the Google Cloud console, go to the **Agent Platform Studio** page.
+1.  To locate your tuned model in the Google Cloud console, go to the **Tuning** page.
 
 2.  In the **Tuning** tab, find your model and click **Monitor** .
 
@@ -310,7 +310,7 @@ The tuning job endpoint will be updated if you update a default checkpoint, and 
 
 ### Console
 
-1.  To locate your tuned model in the Google Cloud console, go to the **Agent Platform Studio** page.
+1.  To locate your tuned model in the Google Cloud console, go to the **Tuning** page.
 
 2.  In the **Tuning** tab, find your model and click **Monitor** .
 

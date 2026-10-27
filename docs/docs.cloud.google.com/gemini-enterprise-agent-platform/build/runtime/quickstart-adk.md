@@ -1,12 +1,12 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart-adk
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart-adk
-title: 'Quickstart: Develop and deploy agents on Agent Runtime with Agent Development Kit'
+title: 'Quickstart: Develop and deploy agents on Agent Runtime with ADK'
 description: Learn how to create, deploy, and test an AI agent on Agent Runtime using the Agent Development Kit (ADK).
 data_source: docs.cloud.google.com
 ---
 
-# Develop and deploy agents on Agent Runtime with Agent Development Kit
+# Develop and deploy agents on Agent Runtime with Agent Development Kit (ADK)
 
 Agent Runtime lets you host agents developed with the [Agent Development Kit (ADK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) . This document explains how to create, deploy, and test an agent using ADK.
 
@@ -23,7 +23,7 @@ You can also use the following alternative quickstarts for ADK:
 - [ADK quickstart](https://google.github.io/adk-docs/get-started/quickstart/) : The ADK quickstart runs entirely on your machine and assumes you're using a local IDE and terminal access.
 - [Agent Starter Pack](https://github.com/GoogleCloudPlatform/agent-starter-pack) : A collection of production-ready generative AI agent templates built for Agent Platform.
 
-For the quickstart using supported frameworks other than Agent Development Kit, see [Develop and deploy agents on Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart) .
+For the quickstart using supported frameworks other than ADK, see [Develop and deploy agents on Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart) .
 
 ## Before you begin
 

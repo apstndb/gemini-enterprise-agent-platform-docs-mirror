@@ -138,7 +138,7 @@ Not supported</li>
 <th>Technical specifications</th>
 <th><strong>Image</strong> photo</th>
 <td><ul>
-<li>Maximum images per prompt: 14</li>
+<li>Maximum images per prompt: 14 (up to 10 HTTP or HTTPS URLs)</li>
 <li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
 <li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
 <li>Maximum number of output images per prompt: Limited to 32,768 output tokens</li>
@@ -266,5 +266,7 @@ Output image token consumption varies based on the generated image resolution:
 | 4K                | 16                     | 2,000               |
 
 > **Note:** Additional charges apply for input and output tokens for other modalities, such as text and video. Refer to the [pricing page](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) for the latest.
+
+Prompts support up to 14 input images. When you pass images by using HTTP or HTTPS URLs in the `Part.from_uri` method, requests are limited to a maximum of 10 image links. To include up to 14 images, pass images as Cloud Storage URIs ( `gs://` ) or as inline data.
 
 For more information about image generation using Gemini 3 Pro Image, see [Generate and edit images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation) .

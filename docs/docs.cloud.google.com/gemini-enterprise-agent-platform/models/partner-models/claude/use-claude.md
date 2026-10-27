@@ -93,7 +93,7 @@ client = AnthropicVertex(project_id=PROJECT_ID, region="us-east5")
 result = []
 
 with client.messages.stream(
-    model="claude-3-5-sonnet-v2@20241022",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     messages=[
         {
@@ -140,7 +140,7 @@ from anthropic import AnthropicVertex
 
 client = AnthropicVertex(project_id=PROJECT_ID, region="us-east5")
 message = client.messages.create(
-    model="claude-3-5-sonnet-v2@20241022",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     messages=[
         {
@@ -329,7 +329,7 @@ from anthropic import AnthropicVertex
 
 client = AnthropicVertex(project_id=PROJECT_ID, region="us-east5")
 message = client.messages.create(
-    model="claude-3-5-sonnet-v2@20241022",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     tools=[
         {

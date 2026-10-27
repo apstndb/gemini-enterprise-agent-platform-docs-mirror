@@ -28,7 +28,7 @@ There are two ways of creating Vertex ML Metadata assets. You can either use RES
 
 The first time that you use Vertex ML Metadata in a Google Cloud project, Gemini Enterprise Agent Platform creates your project's Vertex ML Metadata store.
 
-If you want your metadata encrypted using a customer-managed encryption key (CMEK), you need to create your metadata store using a CMEK before using Vertex ML Metadata to track or analyze metadata. Use the [create a metadata store that uses a CMEK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/configure) instructions to configure your project's metadata store.
+If you want your metadata encrypted using Customer-managed encryption keys (CMEK), you need to create your metadata store using a CMEK before using Vertex ML Metadata to track or analyze metadata. Use the [create a metadata store that uses a CMEK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/configure) instructions to configure your project's metadata store.
 
 ## Create an execution
 

@@ -206,12 +206,10 @@ Supported</li>
 <ul>
 <li>Launch stage: Preview</li>
 <li>Release date: June 30, 2026</li>
-<li>Retirement date <sup><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview#retirement-date">†</a></sup> : June 30, 2027</li>
+<li>Deprecation date: November 6, 2026</li>
 </ul></li>
 </ul></th>
 <td></td>
 </tr>
 </tbody>
 </table>
-
-<sup>†</sup> Listed retirement dates refer to retirement of support in Gemini Enterprise Agent Platform. Models may remain accessible through the Gemini API after these dates have passed. The Gemini API is not a Google Cloud offering and is subject to its own terms of service. For details, see the [Gemini API documentation](https://ai.google.dev/) .

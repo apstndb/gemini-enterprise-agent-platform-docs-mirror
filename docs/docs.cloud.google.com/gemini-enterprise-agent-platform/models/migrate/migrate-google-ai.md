@@ -83,7 +83,7 @@ The following table summarizes the main differences between the Gemini API and G
 <tr class="even">
 <th>Compliance and governance</th>
 <td>No compliance certifications (for example, HIPAA, SOC2). Regulated customers should use Gemini Enterprise Agent Platform instead.</td>
-<td>Supports compliance with certifications like HIPAA and SOC2. Provides data residency, customer-managed encryption keys, and Access Transparency.</td>
+<td>Supports compliance with certifications like HIPAA and SOC2. Provides data residency, Customer-managed encryption keys, and Access Transparency.</td>
 </tr>
 <tr class="odd">
 <th>Security</th>
@@ -121,7 +121,7 @@ The following table summarizes the main differences between the Gemini API and G
 <tr class="odd">
 <th>MLOps</th>
 <td>No</td>
-<td>Full MLOps on Gemini Enterprise Agent Platform (examples: model evaluation, Model Monitoring, Model Registry)</td>
+<td>Full MLOps on Gemini Enterprise Agent Platform (examples: model evaluation, Gemini Enterprise Agent Platform Model Monitoring, Model Registry)</td>
 </tr>
 </tbody>
 </table>

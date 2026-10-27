@@ -44,7 +44,7 @@ import openai
 
 # TODO(developer): Update and un-comment below lines
 # project_id = "PROJECT_ID"
-# location = "us-central1"
+# location = "global"
 
 # Programmatically get an access token
 credentials, _ = default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
@@ -52,12 +52,12 @@ credentials.refresh(google.auth.transport.requests.Request())
 
 # OpenAI Client
 client = openai.OpenAI(
-    base_url=f"https://{location}-aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/openapi",
+    base_url=f"https://aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/openapi",
     api_key=credentials.token,
 )
 
 response = client.chat.completions.create(
-    model="google/gemini-2.0-flash-001",
+    model="google/gemini-3.8-flash",
     messages=[{"role": "user", "content": "Why is the sky blue?"}],
 )
 
@@ -97,7 +97,7 @@ import openai
 
 # TODO(developer): Update and un-comment below lines
 # project_id = "PROJECT_ID"
-# location = "us-central1"
+# location = "global"
 
 # Programmatically get an access token
 credentials, _ = default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
@@ -105,12 +105,12 @@ credentials.refresh(google.auth.transport.requests.Request())
 
 # OpenAI Client
 client = openai.OpenAI(
-    base_url=f"https://{location}-aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/openapi",
+    base_url=f"https://aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/openapi",
     api_key=credentials.token,
 )
 
 response = client.chat.completions.create(
-    model="google/gemini-2.0-flash-001",
+    model="google/gemini-3.8-flash",
     messages=[{"role": "user", "content": "Why is the sky blue?"}],
     stream=True,
 )
@@ -134,7 +134,7 @@ import openai
 
 # TODO(developer): Update and un-comment below lines
 # project_id = "PROJECT_ID"
-# location = "us-central1"
+# location = "global"
 
 # Programmatically get an access token
 credentials, _ = default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
@@ -142,12 +142,12 @@ credentials.refresh(google.auth.transport.requests.Request())
 
 # OpenAI Client
 client = openai.OpenAI(
-    base_url=f"https://{location}-aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/openapi",
+    base_url=f"https://aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/openapi",
     api_key=credentials.token,
 )
 
 response = client.chat.completions.create(
-    model="google/gemini-2.0-flash-001",
+    model="google/gemini-3.8-flash",
     messages=[
         {
             "role": "user",

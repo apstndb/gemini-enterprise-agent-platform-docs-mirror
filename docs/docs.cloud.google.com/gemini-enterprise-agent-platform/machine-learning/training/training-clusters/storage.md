@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/storage
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/storage
 title: Storage
-description: Deploy Filestore as shared storage for Gemini Enterprise Agent Platform. Configure home directories, VPC peering, and select service tiers.
+description: Deploy Filestore as shared storage for Gemini Enterprise Agent Platform. Configure home directories, Virtual Private Cloud peering, and select service tiers.
 data_source: docs.cloud.google.com
 ---
 

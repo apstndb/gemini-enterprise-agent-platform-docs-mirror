@@ -164,5 +164,5 @@ Lyria 2 usage is priced at \$0.06 per 30 seconds of output music generated. For 
 ## What's next
 
 - Try out Lyria in the [Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/music) .
-- Review the [Google Cloud Terms of Service](https://cloud.google.com/terms) .
+- Review the [Google Cloud Terms of Service](https://cloud.google.com/terms)
 - Read the [Additional Terms for Generative AI Products](https://policies.google.com/terms/generative-ai) .

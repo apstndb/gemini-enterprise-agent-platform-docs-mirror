@@ -168,6 +168,8 @@ Grant IAM permissions to the agent identity. We recommend the following roles:
 
 - `roles/browser` : Grant access to basic Google Cloud functionalities.
 
+- `roles/secretmanager.secretAccessor` : Grant the agent access to secrets in Secret Manager. If you reference secrets as [environment variables](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#environment-variables) , you must also grant `roles/secretmanager.secretAccessor` to the Agent Platform Service Agent ( `service- `` PROJECT_NUMBER `` @gcp-sa-aiplatform.iam.gserviceaccount.com` ) so it can retrieve the secret values during deployment.
+
 Additional permissions might be needed if you use logging, metrics, and Cloud API registry, and for any other resource you want to expose to your agent. See later for more examples.
 
 Create an [IAM allow policy](https://docs.cloud.google.com/iam/docs/allow-policies) to grant an agent an IAM role:

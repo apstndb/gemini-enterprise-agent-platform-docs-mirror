@@ -129,7 +129,7 @@ To configure Model Armor on a gateway, follow these steps:
 
 Before you deploy your templates to a gateway, you can run a pre-deployment check to verify that your template configuration is enforcing your security policies correctly.
 
-You can validate your template by querying the `sanitizeUserPrompt` method directly using a set of test prompts. For more information about how to run this pre-deployment check and a list of verified test prompts, see [Validate your template configuration](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#validate-template-configuration) .
+You can validate your template by querying the `sanitizeUserPrompt` method directly using a set of test prompts. For more information about how to run this pre-deployment check and a list of verified test prompts, see [Test a Model Armor template](https://docs.cloud.google.com/model-armor/manage-templates#test-ma-template) .
 
 ## Redact sensitive data from requests and responses
 

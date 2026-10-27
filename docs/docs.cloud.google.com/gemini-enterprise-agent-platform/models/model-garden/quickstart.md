@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/quickstart
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/quickstart
 title: Test model capabilities in Model Garden
-description: Test model parameters and output by using demo playgrounds in Model Garden.
+description: Test model parameters and output by using demo playgrounds in Gemini Enterprise Agent Platform Model Garden.
 data_source: docs.cloud.google.com
 ---
 

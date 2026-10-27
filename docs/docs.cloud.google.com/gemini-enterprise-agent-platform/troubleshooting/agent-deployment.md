@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment
 title: Troubleshoot deploying an agent
-description: Learn how to resolve common errors when deploying an agent, such as serialization errors, permission issues, and VPC-SC violations.
+description: Learn how to resolve common errors when deploying an agent, such as serialization errors, permission issues, and VPC Service Controls violations.
 data_source: docs.cloud.google.com
 ---
 

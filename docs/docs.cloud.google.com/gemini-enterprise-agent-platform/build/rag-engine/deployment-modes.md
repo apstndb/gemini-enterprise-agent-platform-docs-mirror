@@ -27,7 +27,7 @@ Serverless mode is the most affordable and recommended way to get started with R
 - **Best for** : Most users, quick onboarding, and seamless scaling without the need to manage infrastructure configurations.
 - **Key features** : Requires no tier management. It automatically uses RAG-managed Vector Search as the default vector database to provide a streamlined and out-of-the-box RAG experience.
 
-> **Note:** Customer-Managed Encryption Keys (CMEK) are not supported in Serverless mode.
+> **Note:** Customer-managed encryption keys (CMEK) are not supported in Serverless mode.
 
 In the serverless mode, the RAG managed database is for managing RAG business operations and storing RAG resources. These resources include (but are not limited to) `RagCorpus` , `RagFiles` , `RagMetadata` , `DataSchema` etc. But it can no longer be used for embedding indexing and vector search.
 

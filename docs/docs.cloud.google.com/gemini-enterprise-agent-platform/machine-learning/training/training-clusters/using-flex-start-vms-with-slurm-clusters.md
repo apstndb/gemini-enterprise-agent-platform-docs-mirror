@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/using-flex-start-vms-with-slurm-clusters
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/using-flex-start-vms-with-slurm-clusters
 title: Using Flex Start VMs with Slurm cluster
-description: Configure Flex Start VMs with Slurm clusters on Agent Platform. Implement flexible VM provisioning models, manage IAM permissions, and define node pool specifications for training workloads.
+description: Configure Flex Start VMs with Slurm clusters on Agent Platform. Implement flexible VM provisioning models, manage Identity and Access Management permissions, and define node pool specifications for training workloads.
 data_source: docs.cloud.google.com
 ---
 

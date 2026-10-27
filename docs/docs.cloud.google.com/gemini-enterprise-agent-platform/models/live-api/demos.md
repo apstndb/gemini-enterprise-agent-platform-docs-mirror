@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/demos
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/demos
 title: Demo apps and resources for using the Gemini Live API
-description: Explore demo applications and resources for using the Gemini Gemini Live API on Gemini Enterprise Agent Platform, including web apps, ADK guides, and tools.
+description: Explore demo applications and resources for using the Gemini Gemini Live API on Gemini Enterprise Agent Platform, including web apps, Agent Development Kit (ADK) guides, and tools.
 data_source: docs.cloud.google.com
 ---
 
@@ -19,7 +19,7 @@ This page provides a collection of reference implementations for the Gemini Live
 
 ## ADK Gemini Live API Toolkit
 
-The [Agent Development Kit](https://google.github.io/adk-docs/) (ADK) provides a production-ready framework for building Bidi-streaming applications with the Live API. The following guide and demos introduce ADK's streaming architecture, which enables real-time, two-way communication between users and AI agents through multimodal channels (text, audio, video).
+The [Agent Development Kit (ADK)](https://google.github.io/adk-docs/) (ADK) provides a production-ready framework for building Bidi-streaming applications with the Live API. The following guide and demos introduce ADK's streaming architecture, which enables real-time, two-way communication between users and AI agents through multimodal channels (text, audio, video).
 
 - [ADK Gemini Live API Toolkit](https://adk.dev/live/)
 

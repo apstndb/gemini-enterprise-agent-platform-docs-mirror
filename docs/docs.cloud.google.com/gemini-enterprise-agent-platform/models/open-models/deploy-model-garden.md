@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/deploy-model-garden
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/deploy-model-garden
 title: Deploy open models from Model Garden
-description: Understand open model deployment from Model Garden to Gemini Enterprise Agent Platform Endpoints. Use one-click, fast deployment, or custom weights by using the console or SDK.
+description: Understand open model deployment from Gemini Enterprise Agent Platform Model Garden to Gemini Enterprise Agent Platform Endpoints. Use one-click, fast deployment, or custom weights by using the console or SDK.
 data_source: docs.cloud.google.com
 ---
 

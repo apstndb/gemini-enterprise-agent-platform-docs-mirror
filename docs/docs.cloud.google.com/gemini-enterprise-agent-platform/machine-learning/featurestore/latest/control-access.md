@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/control-access
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/control-access
 title: Control access to resources
-description: Learn how to apply IAM policies to control access to online store, feature views, and feature group resources in Vertex AI Feature Store.
+description: Learn how to apply Identity and Access Management policies to control access to online store, feature views, and feature group resources in Vertex AI Feature Store.
 data_source: docs.cloud.google.com
 ---
 

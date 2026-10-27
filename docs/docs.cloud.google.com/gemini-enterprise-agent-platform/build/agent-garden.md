@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/agent-garden
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/agent-garden
 title: Agent Garden
-description: The Agent Garden is a curated library within Google Cloud's Gemini Enterprise Agent Platform that provides prebuilt agent samples to help developers quickly jumpstart the creation of AI agents.
+description: The Agent Garden is a curated library within {{dynamic_data.site_values.cloud_name}}'s Gemini Enterprise Agent Platform that provides prebuilt agent samples to help developers quickly jumpstart the creation of AI agents.
 data_source: docs.cloud.google.com
 ---
 
@@ -16,7 +16,7 @@ Agent Garden simplifies the process of building sophisticated AI applications by
 
 - **Ready-to-use samples** : Templates like [Retrieval-Augmented Generation (RAG)](https://console.cloud.google.com/agent-platform/agent-garden/samples/retrieval-augmented-generation) that come with pre-configured logic.
 - **Customizable logic** : While the samples work out of the box, they provide [access to GitHub](https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents) source code for deep customization.
-- **Integrated infrastructure** : Agents are built to work seamlessly with other Agent Platform components like **RAG Engine** , **Vector Search** , and **Gemini models** .
+- **Integrated infrastructure** : Agents are built to work seamlessly with other Agent Platform components like **RAG Engine on Gemini Enterprise Agent Platform** , **Vector Search on Gemini Enterprise Agent Platform** , and **Gemini models** .
 - **Use case focused** : Each agent is tailored for specific tasks, such as documentation-grounded customer support or industry-specific research synthesis.
 
 ## Deployment steps

@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/vpc
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/vpc
 title: Set up a VPC Network Peering connection
-description: Learn how to reduce network latency for vector matching online queries by establishing a VPC Network Peering connection with Vector Search, which involves a one-time setup per project that allows calls to the Vector Search index from within your VPC.
+description: Learn how to reduce network latency for vector matching online queries by establishing a VPC Network Peering connection with Vector Search, which involves a one-time setup per project that allows calls to the Vector Search index from within your Virtual Private Cloud.
 data_source: docs.cloud.google.com
 ---
 

@@ -57,9 +57,9 @@ Replace the following:
 
 Learn more about [VPC Network Peering in Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) .
 
-## Use customer-managed encryption keys (CMEK)
+## Use Customer-managed encryption keys (CMEK)
 
-By default, Google Cloud automatically [encrypts data when at rest](https://docs.cloud.google.com/docs/security/encryption/default-encryption) using encryption keys managed by Google. If you have specific compliance or regulatory requirements related to the keys that protect your data, you can use customer-managed encryption keys (CMEK) for your resources. Before you start to use customer-managed encryption keys, learn about the [benefits of CMEK on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#benefits) and [current CMEK supported resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#resource-list) .
+By default, Google Cloud automatically [encrypts data when at rest](https://docs.cloud.google.com/docs/security/encryption/default-encryption) using encryption keys managed by Google. If you have specific compliance or regulatory requirements related to the keys that protect your data, you can use Customer-managed encryption keys (CMEK) for your resources. Before you start to use Customer-managed encryption keys, learn about the [benefits of CMEK on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#benefits) and [current CMEK supported resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#resource-list) .
 
 ### Configuring your component with CMEK
 
@@ -98,7 +98,7 @@ For example, the [`ModelUploadOp`](https://google-cloud-pipeline-components.read
 "model": "',"{{$.inputs.artifacts['model'].metadata['resourceName']}}", '"'
 ```
 
-For the complete schema of the artifact's metadata, see the [`artifact_types.py` file](https://github.com/kubeflow/pipelines/blob/master/components/google-cloud/google_cloud_pipeline_components/types/artifact_types.py) in the Kubeflow GitHub repo.
+For the complete schema of the artifact's metadata, see the [`artifact_types.py` file](https://github.com/kubeflow/pipelines/blob/master/components/google-cloud/google_cloud_pipeline_components/types/artifact_types.py) in the Kubeflow GitHub repository.
 
 #### Consume an artifact in a lightweight Python component
 

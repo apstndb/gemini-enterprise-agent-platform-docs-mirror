@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/cmek
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/cmek
-title: Customer-managed encryption keys
-description: Use customer-managed encryption keys (CMEK) with Agent Platform Workbench instances
+title: CMEK
+description: Use Customer-managed encryption keys (CMEK) with Agent Platform Workbench instances
 data_source: docs.cloud.google.com
 ---
 
@@ -36,7 +36,7 @@ To decrease latency and to prevent cases where resources depend on services that
 
 ## Configure CMEK for your Agent Platform Workbench instance
 
-The following sections describe how to create a key ring and key in Cloud Key Management Service, grant the service account encrypter and decrypter permissions for your key, and create a Agent Platform Workbench instance that uses CMEK.
+The following sections describe how to create a key ring and key in Cloud KMS, grant the service account encrypter and decrypter permissions for your key, and create a Agent Platform Workbench instance that uses CMEK.
 
 ### Before you begin
 
@@ -169,7 +169,7 @@ After you have granted your Agent Platform Workbench instance permission to encr
 
 The following example shows how to encrypt and decrypt data using your key by using the Google Cloud console.
 
-To create a Agent Platform Workbench instance with a customer-managed encryption key, you can use the Google Cloud console or the gcloud CLI:
+To create a Agent Platform Workbench instance with Customer-managed encryption keys, you can use the Google Cloud console or the gcloud CLI:
 
 ### Console
 
@@ -208,7 +208,7 @@ To create a Agent Platform Workbench instance with a customer-managed encryption
 
 ### gcloud
 
-To use the gcloud CLI to create a Agent Platform Workbench instance with a customer-managed encryption key, run the following command. This example assumes that you want to create a Agent Platform Workbench instance with an `n1-standard-1` machine type and a 100 GB standard persistent boot disk.
+To use the gcloud CLI to create a Agent Platform Workbench instance with Customer-managed encryption keys, run the following command. This example assumes that you want to create a Agent Platform Workbench instance with an `n1-standard-1` machine type and a 100 GB standard persistent boot disk.
 
 ```
 gcloud notebooks instances create notebook-vm-cmek \

@@ -523,7 +523,7 @@ You can use a model evaluation pipeline component with a batch prediction that y
 
 - For component reference, see the [Google Cloud SDK reference page for Model evaluation components](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/model_evaluation.html) .
 
-- For examples of how to use the Model Evaluation components, see the notebooks listed at [Create an evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/using-model-evaluation#python) .
+- For examples of how to use the Model Evaluation on Gemini Enterprise Agent Platform components, see the notebooks listed at [Create an evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/using-model-evaluation#python) .
 
 ## Version history and release notes
 

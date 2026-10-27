@@ -460,7 +460,7 @@ Dedicated endpoints facilitate communication using both HTTP and gRPC protocols.
 - Predict
 - RawPredict
 - StreamRawPredict
-- Chat Completion (Model Garden only)
+- Chat Completion (Gemini Enterprise Agent Platform Model Garden only)
 - Invoke
 
 Dedicated endpoints use a new URL path. You can retrieve this path from the [`dedicatedEndpointDns`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints) field in the REST API, or from [`Endpoint.dedicated_endpoint_dns`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Endpoint#properties) in the Agent Platform SDK for Python.

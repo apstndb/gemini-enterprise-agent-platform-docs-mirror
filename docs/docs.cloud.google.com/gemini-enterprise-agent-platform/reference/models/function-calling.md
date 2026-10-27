@@ -183,21 +183,23 @@ The `FunctionCallingConfig` controls the behavior of the model and determines wh
 
 A predicted `functionCall` returned from the model that contains a string representing the `functionDeclaration.name` and a structured JSON object containing the parameters and their values.
 
-| Parameters          |                                                                                                                                                                                                              |
-|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`              | `string` The name of the function to call.                                                                                                                                                                   |
-| `args`              | `Struct` The function parameters and values in JSON object format.                                                                                                                                           |
-| `thought_signature` | Optional: `string` An opaque token that encapsulates the model's internal reasoning state. If present, it must be included in the next turn of the conversation to maintain context for multi-step tool use. |
+| Parameters          |                                                                                                                                                                                                                |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`              | `string` The name of the function to call.                                                                                                                                                                     |
+| `args`              | `Struct` The function parameters and values in JSON object format.                                                                                                                                             |
+| `id`                | Optional: `string` The unique ID of the function call. Supported in the `v1beta1` API for Gemini 3 and later models. If populated, execute the `functionCall` and return the response with the matching `id` . |
+| `thought_signature` | Optional: `string` An opaque token that encapsulates the model's internal reasoning state. If present, it must be included in the next turn of the conversation to maintain context for multi-step tool use.   |
 
 #### `functionResponse`
 
 The resulting output from a `FunctionCall` that contains a string representing the `FunctionDeclaration.name` . Also contains a structured JSON object with the output from the function (and uses it as context for the model). This should contain the result of a `FunctionCall` made based on model prediction.
 
-| Parameters |                                                                                                                                                                           |
-|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`     | `string` The name of the function to call.                                                                                                                                |
-| `response` | `Struct` The function response in JSON object format.                                                                                                                     |
-| `parts`    | Optional: `FunctionResponsePart[]` Optional multimodal parts of the function response. Can be used to return images, audio, or video along with structured JSON response. |
+| Parameters |                                                                                                                                                                                                            |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`     | `string` The name of the function to call.                                                                                                                                                                 |
+| `response` | `Struct` The function response in JSON object format.                                                                                                                                                      |
+| `id`       | Optional: `string` The ID of the function call that this response is for. Supported in the `v1beta1` API for Gemini 3 and later models. Populate this field to match the corresponding `functionCall.id` . |
+| `parts`    | Optional: `FunctionResponsePart[]` Optional multimodal parts of the function response. Can be used to return images, audio, or video along with structured JSON response.                                  |
 
 #### `FunctionResponsePart`
 
@@ -382,14 +384,13 @@ def get_current_weather(location: str) -> str:
     return weather_map.get(location, "unknown")
 
 client = genai.Client(http_options=HttpOptions(api_version="v1"))
-model_id = "gemini-3.5-flash"
+model_id = "gemini-3.8-flash"
 
 response = client.models.generate_content(
     model=model_id,
     contents="What is the weather like in Boston?",
     config=GenerateContentConfig(
         tools=[get_current_weather],
-        temperature=0,
     ),
 )
 

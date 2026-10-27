@@ -14,7 +14,7 @@ NVIDIA Data Center GPU Manager (DCGM) is a set of tools from NVIDIA that let you
 
 ## Prerequisites
 
-Before you start, make sure your project has enabled Cloud Monitoring. See [Enable the Monitoring API](https://docs.cloud.google.com/monitoring/api/enable-api) for more information.
+Before you start, make sure your project has enabled Cloud Monitoring. See [Enable the Cloud Monitoring API](https://docs.cloud.google.com/monitoring/api/enable-api) for more information.
 
 ## Use DCGM metrics
 

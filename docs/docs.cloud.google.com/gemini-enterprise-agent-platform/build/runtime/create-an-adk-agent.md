@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent
-title: Develop an Agent Development Kit agent
+title: Develop an ADK agent
 description: Learn how to develop an agent using the Agent Development Kit (ADK) template on Agent Runtime.
 data_source: docs.cloud.google.com
 ---

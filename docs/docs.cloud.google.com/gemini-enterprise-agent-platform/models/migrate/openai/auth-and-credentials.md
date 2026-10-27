@@ -38,7 +38,7 @@ import google.auth.transport.requests
 
 # TODO(developer): Update and un-comment below lines
 # project_id = "PROJECT_ID"
-# location = "us-central1"
+# location = "global"
 
 # Programmatically get an access token
 credentials, _ = default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
@@ -58,7 +58,7 @@ ENDPOINT_ID = "openapi"
 
 # OpenAI Client
 client = openai.OpenAI(
-    base_url=f"https://{location}-aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/{ENDPOINT_ID}",
+    base_url=f"https://aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/{ENDPOINT_ID}",
     api_key=credentials.token,
 )
 ```
@@ -133,14 +133,14 @@ class OpenAICredentialsRefresher:
 
     # TODO(developer): Update and un-comment below lines
     # project_id = "PROJECT_ID"
-    # location = "us-central1"
+    # location = "global"
 
     client = OpenAICredentialsRefresher(
-        base_url=f"https://{location}-aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/openapi",
+        base_url=f"https://aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/openapi",
     )
 
     response = client.chat.completions.create(
-        model="google/gemini-2.0-flash-001",
+        model="google/gemini-3.8-flash",
         messages=[{"role": "user", "content": "Why is the sky blue?"}],
     )
 

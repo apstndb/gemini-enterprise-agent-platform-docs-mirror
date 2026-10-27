@@ -28,7 +28,9 @@ Gemini image generation is subject to the following limitations:
 
   - If a prompt is potentially unsafe, the model might not process the request and returns a response indicating that it can't create unsafe images. In this case, the [`FinishReason`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse#FinishReason) is `STOP` .
 
-## What's next?
+- When you save generated images to a Cloud Storage bucket in a different project, follow-up multi-turn requests that read those images require the calling project's Gemini Enterprise Agent Platform service agent to have read access to the Cloud Storage bucket. For details, see [Cloud Storage output limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation#cloud-storage-output-limitations) .
+
+## What's next
 
 See the following links for more information about Gemini image generation:
 

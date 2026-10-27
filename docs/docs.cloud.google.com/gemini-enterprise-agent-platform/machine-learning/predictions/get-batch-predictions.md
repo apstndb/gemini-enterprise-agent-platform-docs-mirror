@@ -311,7 +311,7 @@ Use the Google Cloud console to request a batch inference.
 
         - If you have formatted your input as JSON Lines, CSV, or TFRecord, select **File on Cloud Storage (JSON Lines, CSV, TFRecord, TFRecord Gzip)** . Then specify your input file in the **Source path** field.
         - If you are using a file list as input, select **Files on Cloud Storage (other)** and paste your file list into the following field.
-        - For BigQuery input, select **BigQuery path** . If you select BigQuery as input, you must also select BigQuery as output and Google-managed encryption key. Customer-managed encryption key (CMEK) isn't supported with BigQuery as input/output.
+        - For BigQuery input, select **BigQuery path** . If you select BigQuery as input, you must also select BigQuery as output and Google-managed encryption key. Customer-managed encryption keys (CMEK) isn't supported with BigQuery as input/output.
 
     4.  In the **Destination path** field, specify the Cloud Storage directory where you want Agent Platform to store batch inference output.
 

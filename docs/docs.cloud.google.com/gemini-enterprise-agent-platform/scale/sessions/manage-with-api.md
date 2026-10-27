@@ -70,6 +70,8 @@ for session in client.sessions.list(
 
 - ` USER_ID ` : Choose your own user ID with a character limit of 128. For example, `user-123` .
 
+By default, `client.sessions.list` returns sessions sorted by creation time in descending order ( `create_time desc` ). This default order keeps pagination stable when active sessions update concurrently. The Python SDK doesn't expose an `order_by` option. To sort by a different field, use the REST API.
+
 ### REST
 
 Before using any of the request data, make the following replacements:
@@ -117,6 +119,8 @@ Invoke-WebRequest `
 You should see a list of sessions returned.
 
 Optionally, to list sessions for a specific user, you can add the query parameter `?filter=user_id=\" `` USER_ID `` \"` , where ` USER_ID ` is the ID of the user you want to query.
+
+To sort the returned sessions, add the query parameter `?orderBy= `` ORDER_BY` , where ` ORDER_BY ` is `create_time` , `update_time` , or `display_name` . You can append `%20desc` for descending order, such as `?orderBy=create_time%20desc` . If you omit `orderBy` , the API returns sessions sorted by `create_time desc` . Use `create_time desc` when you paginate through sessions during concurrent updates so that updates don't shift sessions across page boundaries.
 
 ## Create a session
 

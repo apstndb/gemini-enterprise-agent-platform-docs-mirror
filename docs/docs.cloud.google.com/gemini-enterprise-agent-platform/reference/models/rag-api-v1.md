@@ -343,8 +343,9 @@ from agentplatform import types
 # display_name = "test_corpus"
 # description = "Corpus Description"
 
-# Initialize Agent Platform client once per session
-client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+# Initialize Agent Platform client once per session.
+# See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
 
 # Configure project-level config
 backend_config = types.RagVectorDbConfig(
@@ -509,8 +510,9 @@ import agentplatform
 # TODO(developer): Update and un-comment below lines
 # PROJECT_ID = "your-project-id"
 
-# Initialize Agent Platform client once per session
-client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+# Initialize Agent Platform client once per session.
+# See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
 
 corpora = client.rag.list_corpora()
 print(corpora)
@@ -606,15 +608,16 @@ import agentplatform
 
 # TODO(developer): Update and un-comment below lines
 # PROJECT_ID = "your-project-id"
-# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}"
 
-# Initialize Agent Platform client once per session
-client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+# Initialize Agent Platform client once per session.
+# See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
 
 corpus = client.rag.get_corpus(name=corpus_name)
 print(corpus)
 # Example response:
-# RagCorpus(name='projects/[PROJECT_ID]/locations/us-central1/ragCorpora/1234567890',
+# RagCorpus(name='projects/[PROJECT_ID]/locations/us-east5/ragCorpora/1234567890',
 # display_name='test_corpus', description='Corpus Description',
 # ...
 ```
@@ -678,16 +681,17 @@ import agentplatform
 
 # TODO(developer): Update and un-comment below lines
 # PROJECT_ID = "your-project-id"
-# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}"
 
-# Initialize Agent Platform client once per session
-client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+# Initialize Agent Platform client once per session.
+# See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
 
 client.rag.delete_corpus(name=corpus_name)
 print(f"Corpus {corpus_name} deleted.")
 # Example response:
 # Successfully deleted the RagCorpus.
-# Corpus projects/[PROJECT_ID]/locations/us-central1/ragCorpora/123456789012345 deleted.
+# Corpus projects/[PROJECT_ID]/locations/us-east5/ragCorpora/123456789012345 deleted.
 ```
 
 ## File management examples
@@ -729,12 +733,13 @@ import agentplatform
 
 # TODO(developer): Update and un-comment below lines
 # PROJECT_ID = "your-project-id"
-# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}"
 # path = "path/to/local/file.txt"
 # display_name = "file_display_name"
 
-# Initialize Agent Platform client once per session
-client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
+# Initialize Agent Platform client once per session.
+# See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
 
 rag_file = client.rag.upload_file(
     corpus_name=corpus_name,
@@ -742,7 +747,7 @@ rag_file = client.rag.upload_file(
     display_name=display_name,
 )
 print(rag_file)
-# RagFile(name='projects/[PROJECT_ID]/locations/us-central1/ragCorpora/1234567890/ragFiles/09876543',
+# RagFile(name='projects/[PROJECT_ID]/locations/us-east5/ragCorpora/1234567890/ragFiles/09876543',
 #  display_name='file_display_name')
 ```
 
@@ -985,10 +990,11 @@ import agentplatform
 
 # TODO(developer): Update and un-comment below lines
 # PROJECT_ID = "your-project-id"
-# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}"
 
-# Initialize Agent Platform client once per session
-client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+# Initialize Agent Platform client once per session.
+# See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
 
 files_response = client.rag.list_files(name=corpus_name)
 for file in files_response.rag_files:
@@ -996,9 +1002,9 @@ for file in files_response.rag_files:
     print(file.name)
 # Example response:
 # g-drive_file.txt
-# projects/1234567890/locations/us-central1/ragCorpora/111111111111/ragFiles/222222222222
+# projects/1234567890/locations/us-east5/ragCorpora/111111111111/ragFiles/222222222222
 # g_cloud_file.txt
-# projects/1234567890/locations/us-central1/ragCorpora/111111111111/ragFiles/333333333333
+# projects/1234567890/locations/us-east5/ragCorpora/111111111111/ragFiles/333333333333
 ```
 
 ### Get a RAG file example
@@ -1061,15 +1067,16 @@ import agentplatform
 
 # TODO(developer): Update and un-comment below lines
 # PROJECT_ID = "your-project-id"
-# file_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}/ragFiles/{rag_file_id}"
+# file_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}/ragFiles/{rag_file_id}"
 
-# Initialize Agent Platform client once per session
-client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+# Initialize Agent Platform client once per session.
+# See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
 
 rag_file = client.rag.get_file(name=file_name)
 print(rag_file)
 # Example response:
-# RagFile(name='projects/1234567890/locations/us-central1/ragCorpora/11111111111/ragFiles/22222222222',
+# RagFile(name='projects/1234567890/locations/us-east5/ragCorpora/11111111111/ragFiles/22222222222',
 # display_name='file_display_name', description='file description')
 ```
 
@@ -1131,16 +1138,17 @@ import agentplatform
 
 # TODO(developer): Update and un-comment below lines
 # PROJECT_ID = "your-project-id"
-# file_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}/ragFiles/{rag_file_id}"
+# file_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}/ragFiles/{rag_file_id}"
 
-# Initialize Agent Platform client once per session
-client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+# Initialize Agent Platform client once per session.
+# See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
 
 client.rag.delete_file(name=file_name)
 print(f"File {file_name} deleted.")
 # Example response:
 # Successfully deleted the RagFile.
-# File projects/1234567890/locations/us-central1/ragCorpora/1111111111/ragFiles/2222222222 deleted.
+# File projects/1234567890/locations/us-east5/ragCorpora/1111111111/ragFiles/2222222222 deleted.
 ```
 
 ### Retrieval query example
@@ -1159,10 +1167,11 @@ from google.genai import types as genai_types
 
 # TODO(developer): Update and un-comment below lines
 # PROJECT_ID = "your-project-id"
-# corpus_name = "projects/[PROJECT_ID]/locations/us-central1/ragCorpora/[rag_corpus_id]"
+# corpus_name = "projects/[PROJECT_ID]/locations/us-east5/ragCorpora/[rag_corpus_id]"
 
-# Initialize Agent Platform client once per session
-client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
+# Initialize Agent Platform client once per session.
+# See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
 
 response = client.rag.retrieve_contexts(
     vertex_rag_store=genai_types.VertexRagStore(
@@ -1360,7 +1369,7 @@ from google.genai import types as genai_types
 
 # TODO(developer): Update and un-comment below lines
 # PROJECT_ID = "your-project-id"
-# corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+# corpus_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}"
 
 rag_retrieval_tool = genai_types.Tool(
     retrieval=genai_types.Retrieval(
@@ -1381,14 +1390,14 @@ rag_retrieval_tool = genai_types.Tool(
 )
 
 # Create a GenAI SDK client to make a generate_content request
-genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-central1")
+genai_client = genai.Client(vertexai=True, project=PROJECT_ID, location="global")
 
 response = genai_client.models.generate_content(
-    model="gemini-2.5-pro",
+    model="gemini-3.8-flash",
     contents="Why is the sky blue?",
     config=genai_types.GenerateContentConfig(
         tools=[rag_retrieval_tool]
-    )
+    ),
 )
 print(response.text)
 # Example response:

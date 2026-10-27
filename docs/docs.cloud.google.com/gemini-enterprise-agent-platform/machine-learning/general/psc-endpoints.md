@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/psc-endpoints
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/psc-endpoints
 title: About accessing Gemini Enterprise Agent Platform services through Private Service Connect endpoints
-description: Learn about Gemini Enterprise Agent Platform service producers that require connection through Private Service Connect endpoints, supporting unidirectional communication from service consumers' workloads to Google-managed Gemini Enterprise Agent Platform services via internal IP addresses and NAT, which allows access without leaving VPC networks or using external IP addresses.
+description: Learn about Gemini Enterprise Agent Platform service producers that require connection through Private Service Connect endpoints, supporting unidirectional communication from service consumers' workloads to Google-managed Gemini Enterprise Agent Platform services via internal IP addresses and NAT, which allows access without leaving Virtual Private Cloud networks or using external IP addresses.
 data_source: docs.cloud.google.com
 ---
 

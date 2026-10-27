@@ -12,6 +12,32 @@ For the versioning scheme and lifecycle dates, see [Image versioning and lifecyc
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## October 25, 2026
+
+Change
+
+### 20261025-2230-rc0 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Security
+
+Updated certifi, pip, and conda ca-certificates to the latest versions.
+
+Fixed
+
+Fixed dataset and table search in the BigQuery panel, which sometimes failed to return results. Root cause is due to Datacatalog API being sunsetted in favor of Dataplex API.
+
+Fixed
+
+Fixed an issue where Jupyter Server terminal configuration could overwrite the Dataproc plugin server extension setting or fail to apply the terminal disable setting on container startup.
+
+Security
+
+Addressed multiple reported security vulnerabilities in bundled packages.
+
 ## October 13, 2026
 
 Change

@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 
-> To see an example of using RAG Engine with Pinecone, run the "RAG Engine with Pinecone" notebook in one of the following environments:
+> To see an example of using RAG Engine on Gemini Enterprise Agent Platform with Pinecone, run the "RAG Engine with Pinecone" notebook in one of the following environments:
 >
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_pinecone.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_pinecone.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_pinecone.ipynb) \| [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_pinecone.ipynb)
 
@@ -149,8 +149,9 @@ from agentplatform import types
 # display_name = "test_corpus"
 # description = "Corpus Description"
 
-# Initialize Agent Platform client once per session
-client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+# Initialize Agent Platform client once per session.
+# See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
 
 # Configure embedding model (Optional)
 embedding_model_config = types.RagEmbeddingModelConfig(
@@ -162,7 +163,12 @@ embedding_model_config = types.RagEmbeddingModelConfig(
 # Configure Vector DB
 vector_db = types.RagVectorDbConfig(
     pinecone=types.RagVectorDbConfigPinecone(
-     index_name=pinecone_index_name,
+        index_name=pinecone_index_name,
+    ),
+    api_auth=types.ApiAuth(
+        api_key_config=types.ApiAuthApiKeyConfig(
+            api_key_secret_version=pinecone_api_key_secret_manager_version
+        )
     ),
     rag_embedding_model_config=embedding_model_config,
 )
